@@ -33,7 +33,7 @@
           "@context": "https://schema.org", "@type": "LocalBusiness",
           name: c.brandName, legalName: c.legalName, url: c.web,
           telephone: c.phone && c.phone.tel, email: c.email,
-          image: c.web + "/assets/favicon.svg",
+          image: c.web + "/assets/img/gespa-icon.png",
           address: { "@type": "PostalAddress", streetAddress: c.address.line, addressLocality: c.address.district, addressRegion: c.address.city, addressCountry: c.address.country }
         };
         var s = doc.createElement("script"); s.type = "application/ld+json"; s.textContent = JSON.stringify(d); doc.head.appendChild(s);
