@@ -208,11 +208,13 @@ img{max-width:100%;display:block}
 .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .project{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .2s,box-shadow .2s}
 .project:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
-.project-img{aspect-ratio:16/10;position:relative;display:flex;align-items:flex-end;padding:14px}
+.project-img{aspect-ratio:16/10;position:relative;display:flex;align-items:flex-start;justify-content:flex-end;padding:14px;background-size:cover;background-position:center}
 .project-tag{background:rgba(0,0,0,.45);color:#fff;font-size:.78rem;font-weight:700;padding:5px 12px;border-radius:999px;backdrop-filter:blur(4px)}
 .project-body{padding:18px 20px}
 .project-body h3{font-size:1.1rem;margin-bottom:4px}
 .project-body p{margin:0;color:var(--muted);font-size:.92rem}
+.project-meta{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:.9rem;color:var(--muted)}
+.project-power{color:var(--green);font-weight:800;white-space:nowrap}
 .project.hide{display:none}
 
 /* Gradient placeholders (for project/post images) */
@@ -268,6 +270,13 @@ img{max-width:100%;display:block}
 .faq-item.open .faq-ico{transform:rotate(45deg)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
 .faq-a p{margin:0;padding:0 20px 18px;color:var(--muted)}
+
+/* Timeline (Kilometre Taşları) */
+.timeline{list-style:none;margin:0;padding:0 0 0 26px;border-left:2px solid var(--line);display:grid;gap:18px}
+.timeline li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px}
+.timeline li::before{content:"";position:absolute;left:-33px;top:20px;width:14px;height:14px;border-radius:50%;background:var(--green);border:3px solid var(--bg)}
+.t-year{display:block;color:var(--green);font-weight:800;font-family:var(--font);font-size:1.2rem;margin-bottom:2px}
+.timeline p{margin:0;color:var(--muted)}
 
 /* CTA band */
 .cta-band{background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff}
