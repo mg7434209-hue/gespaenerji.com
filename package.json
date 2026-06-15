@@ -1,0 +1,14 @@
+{
+  "name": "gespaenerji-com",
+  "version": "1.0.0",
+  "description": "GESPA Enerji kurumsal web sitesi (statik) — Railway/Node ile sunum",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED"
+}
