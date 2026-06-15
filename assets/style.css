@@ -74,8 +74,8 @@ img{max-width:100%;display:block}
 .brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .brand-text{font-size:1.3rem;font-weight:500;font-family:var(--font)}
 .brand-text strong{color:var(--green);font-weight:800}
-.logo{display:inline-flex;animation:spin 40s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
+.logo{display:inline-flex}
+.logo img{display:block;width:36px;height:36px}
 .menu{display:flex;align-items:center;gap:24px;margin-left:auto}
 .menu a{font-weight:600;color:var(--muted);font-size:.97rem;position:relative}
 .menu a:not(.btn):hover{color:var(--ink)}
