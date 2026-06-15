@@ -4,7 +4,7 @@
 > 200 satırı geçirme; uzayan içerikleri `@dosya/yolu.md` ile import et.
 
 ## Proje
-Gespa Enerji kurumsal sitesi (gespaenerji.com.tr). Antalya/Manavgat'ta anahtar
+Gespa Enerji kurumsal sitesi (gespaenerji.com). Antalya/Manavgat'ta anahtar
 teslim güneş enerjisi (GES) hizmetleri. **Çok sayfalı statik site** (build adımı yok).
 Saf HTML + CSS + Vanilla JS. Railway'de küçük Node statik sunucu (`server.js`),
 GitHub Pages ayna sürüm.
@@ -46,7 +46,7 @@ SEO başlığı/açıklaması/canonical/Open Graph içerir.
   yeni DOM'lar `.reveal` ve `data-count` desenlerini kullanabilir.
 
 ## Ağ Kısıtı (ÖNEMLİ)
-- Buluttaki Claude Code dış sitelere (ör. solaranaliz.tr, gespaenerji.com.tr)
+- Buluttaki Claude Code dış sitelere (ör. solaranaliz.tr, gespaenerji.com)
   ERİŞEMEZ — egress izin listesi kısıtı. "Git şu siteyi taklit et / kazı" çalışmaz.
 - Dış veri gerekiyorsa: içeriği DOSYA olarak repoya ekle, ya da yerel Claude Code kullan.
 

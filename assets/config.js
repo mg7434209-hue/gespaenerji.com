@@ -22,7 +22,7 @@ window.GESPA.config = {
       country: "TR",
       full: "Örnek Mah. 1551 Sok. No:10/1, Manavgat / Antalya"
     },
-    web: "https://gespaenerji.com.tr",
+    web: "https://gespaenerji.com",
     hours: "Hafta içi 09:00 – 18:00"
   },
 
