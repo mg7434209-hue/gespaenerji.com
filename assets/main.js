@@ -108,35 +108,79 @@
     counters.forEach(animateCount);
   }
 
-  /* ---- Tasarruf hesaplayıcı ---- */
-  var bill = $("#bill"), city = $("#city"), price = $("#price");
-  var COST_PER_KWP = 28000; // ₺/kWp (tahmini, güncellenebilir)
-  var CO2_PER_KWH = 0.45;   // kg CO2 / kWh
-  function fmt(n) { return new Intl.NumberFormat("tr-TR").format(Math.round(n)); }
-  function calc() {
-    if (!bill || !city || !price) return;
-    var monthlyBill = parseFloat(bill.value) || 0;
-    var unit = parseFloat(price.value) || 2.5;
-    var yieldPerKwp = parseFloat(city.value) || 1500; // kWh/kWp/yıl
-    var annualKwh = (monthlyBill / unit) * 12;
-    var kwp = annualKwh / yieldPerKwp;
-    var prod = kwp * yieldPerKwp;
-    var save = annualKwh * unit;
-    var cost = kwp * COST_PER_KWP;
-    var payback = save > 0 ? cost / save : 0;
-    var co2 = (annualKwh * CO2_PER_KWH) / 1000; // ton
-    set("#rSize", kwp > 0 ? fmt(kwp) + " kWp" : "—");
-    set("#rProd", prod > 0 ? fmt(prod) + " kWh/yıl" : "—");
-    set("#rSave", save > 0 ? "₺" + fmt(save) + "/yıl" : "—");
-    set("#rPayback", payback > 0 ? payback.toFixed(1) + " yıl" : "—");
-    set("#rCo2", co2 > 0 ? co2.toFixed(1) + " ton/yıl" : "—");
-    set("#rCost", cost > 0 ? "₺" + fmt(cost) : "—");
-  }
-  function set(sel, val) { var el = $(sel); if (el) el.textContent = val; }
-  [bill, city, price].forEach(function (el) {
-    if (el) el.addEventListener("input", calc);
-  });
-  calc();
+  /* ---- Tasarruf hesaplayıcı (çok yöntemli: fatura / tüketim / çatı alanı) ---- */
+  (function () {
+    var city = $("#city"), price = $("#price");
+    var bill = $("#bill"), cons = $("#cons"), area = $("#area");
+    if (!city && !bill) return; // bu sayfada hesaplayıcı yoksa çık
+
+    var PANEL_W = 550;         // Wp panel gücü
+    var AREA_PER_KWP = 6;      // m² / kWp
+    var COST_PER_KWP = 28000;  // ₺ / kWp (tahmini)
+    var CO2_PER_KWH = 0.45;    // kg CO2 / kWh
+    var TREE_KG = 22;          // kg CO2 / ağaç / yıl
+    var YEARS = 25;
+    var method = "bill";
+
+    function fmt(n) { return new Intl.NumberFormat("tr-TR").format(Math.round(n)); }
+    function fmt1(n) { return new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 1 }).format(n); }
+    function set(sel, val) { var el = $(sel); if (el) el.textContent = val; }
+
+    var methodBtns = $$(".calc-methods button");
+    var groups = $$(".calc-input-group");
+    methodBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        method = b.getAttribute("data-method");
+        methodBtns.forEach(function (x) { x.classList.toggle("active", x === b); });
+        groups.forEach(function (g) { g.classList.toggle("active", g.getAttribute("data-group") === method); });
+        calc();
+      });
+    });
+
+    function calc() {
+      var unit = parseFloat(price && price.value) || 2.5;
+      var yieldPerKwp = parseFloat(city && city.value) || 1500;
+      var kwp = 0;
+      if (method === "area") {
+        kwp = (parseFloat(area && area.value) || 0) / AREA_PER_KWP;
+      } else if (method === "cons") {
+        kwp = ((parseFloat(cons && cons.value) || 0) * 12) / yieldPerKwp;
+      } else {
+        kwp = (((parseFloat(bill && bill.value) || 0) / unit) * 12) / yieldPerKwp;
+      }
+
+      var prod = kwp * yieldPerKwp;                 // yıllık üretim (kWh)
+      var panels = Math.ceil((kwp * 1000) / PANEL_W);
+      var reqArea = kwp * AREA_PER_KWP;
+      var monthly = prod / 12;
+      var save = prod * unit;
+      var cost = kwp * COST_PER_KWP;
+      var payback = save > 0 ? cost / save : 0;
+      var save25 = save * YEARS;
+      var co2 = (prod * CO2_PER_KWH) / 1000;        // ton/yıl
+      var co225 = co2 * YEARS;
+      var trees = (prod * CO2_PER_KWH) / TREE_KG;
+
+      var ok = kwp > 0 && isFinite(kwp);
+      set("#rSize", ok ? fmt1(kwp) + " kWp" : "—");
+      set("#rPanels", ok ? fmt(panels) + " adet" : "—");
+      set("#rArea", ok ? fmt(reqArea) + " m²" : "—");
+      set("#rProd", ok ? fmt(prod) + " kWh/yıl" : "—");
+      set("#rMonthly", ok ? fmt(monthly) + " kWh" : "—");
+      set("#rPayback", ok && payback > 0 ? fmt1(payback) + " yıl" : "—");
+      set("#rSave", ok ? "₺" + fmt(save) + "/yıl" : "—");
+      set("#rSave25", ok ? "₺" + fmt(save25) : "—");
+      set("#rCost", ok ? "₺" + fmt(cost) : "—");
+      set("#rCo2", ok ? fmt1(co2) + " ton/yıl" : "—");
+      set("#rCo225", ok ? fmt(co225) + " ton" : "—");
+      set("#rTrees", ok ? fmt(trees) + " ağaç" : "—");
+    }
+
+    [bill, cons, area, city, price].forEach(function (el) {
+      if (el) el.addEventListener("input", calc);
+    });
+    calc();
+  })();
 
   /* ---- Proje filtreleri ---- */
   var filters = $$(".filter");

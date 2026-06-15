@@ -82,6 +82,10 @@ img{max-width:100%;display:block}
 .menu a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--green);transition:width .2s}
 .menu a:not(.btn):hover::after{width:100%}
 .menu .btn{color:#fff}
+/* Aktif menü */
+.menu a.active{color:var(--green)}
+.menu a.active:not(.btn)::after{width:100%}
+.menu a.btn.active{background:var(--green-dark)}
 .nav-actions{display:flex;align-items:center;gap:10px}
 .theme-toggle{background:var(--bg-alt);border:1px solid var(--line);width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:grid;place-items:center}
 .theme-icon-moon{display:none}
@@ -120,6 +124,30 @@ img{max-width:100%;display:block}
 .badge-1{top:8%;left:-4%}
 .badge-2{bottom:10%;right:-6%;animation-delay:1.5s}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* Alt sayfa başlığı (page hero) */
+.page-hero{position:relative;padding:56px 0 50px;background:radial-gradient(700px 360px at 85% -20%,rgba(247,181,0,.16),transparent 60%),linear-gradient(160deg,#eafaf2,var(--bg) 80%);border-bottom:1px solid var(--line);overflow:hidden}
+[data-theme="dark"] .page-hero{background:radial-gradient(700px 360px at 85% -20%,rgba(247,181,0,.10),transparent 60%),linear-gradient(160deg,#10241c,var(--bg) 80%)}
+.crumbs{color:var(--muted);font-size:.86rem;margin-bottom:12px}
+.crumbs a:hover{color:var(--green)}
+.crumbs span{opacity:.6}
+.page-hero h1{font-size:clamp(1.9rem,4.2vw,2.9rem);font-weight:800}
+.page-hero .lead{color:var(--muted);font-size:1.1rem;max-width:62ch;margin:12px 0 0}
+
+/* Hesaplayıcı — yöntem sekmeleri + tam sayfa düzen */
+.calc-full{display:grid;grid-template-columns:.9fr 1.1fr;gap:36px;align-items:start}
+.calc-methods{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.calc-methods button{flex:1;min-width:130px;background:var(--bg-alt);border:1px solid var(--line);border-radius:10px;padding:12px;font-weight:700;cursor:pointer;color:var(--muted);font-family:var(--font);transition:.2s}
+.calc-methods button.active{background:var(--green);color:#fff;border-color:var(--green)}
+.calc-input-group{display:none}
+.calc-input-group.active{display:block}
+.calc-results.wide{grid-template-columns:repeat(3,1fr)}
+.assumptions{background:var(--bg-alt);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-top:22px;font-size:.92rem;color:var(--muted)}
+.assumptions h4{font-family:var(--font);color:var(--ink);margin:0 0 8px;font-size:1.05rem}
+.assumptions ul{margin:0;padding-left:18px;display:grid;gap:5px}
+@media(max-width:980px){.calc-full{grid-template-columns:1fr}}
+@media(max-width:680px){.calc-results.wide{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.calc-results.wide{grid-template-columns:1fr}}
 
 /* Trust */
 .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-alt)}
