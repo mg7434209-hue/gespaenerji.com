@@ -11,6 +11,55 @@
   var yil = $("#yil");
   if (yil) yil.textContent = new Date().getFullYear();
 
+  /* ============================================================
+     TEK KAYNAK ENJEKSİYONU (assets/config.js)
+     İletişim, markalar, hesaplayıcı katsayıları ve JSON-LD buradan basılır.
+     ============================================================ */
+  var CFG = (window.GESPA && window.GESPA.config) || {};
+  function setText(sel, v) { var e = $(sel); if (e && v != null) e.textContent = v; }
+  (function fillFromConfig() {
+    var c = CFG.company;
+    if (c) {
+      var val = function (p) { return p.split(".").reduce(function (o, k) { return o == null ? o : o[k]; }, c); };
+      $$("[data-c-text]").forEach(function (el) { var v = val(el.getAttribute("data-c-text")); if (v != null) el.textContent = v; });
+      if (c.phone) {
+        $$("[data-c-tel]").forEach(function (el) { el.setAttribute("href", "tel:" + c.phone.tel); });
+        $$("[data-c-wa]").forEach(function (el) { el.setAttribute("href", "https://wa.me/" + c.phone.wa); });
+      }
+      $$("[data-c-mailto]").forEach(function (el) { el.setAttribute("href", "mailto:" + c.email); });
+      // LocalBusiness JSON-LD (her sayfada)
+      try {
+        var d = {
+          "@context": "https://schema.org", "@type": "LocalBusiness",
+          name: c.brandName, legalName: c.legalName, url: c.web,
+          telephone: c.phone && c.phone.tel, email: c.email,
+          image: c.web + "/assets/favicon.svg",
+          address: { "@type": "PostalAddress", streetAddress: c.address.line, addressLocality: c.address.district, addressRegion: c.address.city, addressCountry: c.address.country }
+        };
+        var s = doc.createElement("script"); s.type = "application/ld+json"; s.textContent = JSON.stringify(d); doc.head.appendChild(s);
+      } catch (e) {}
+    }
+    var b = CFG.brands;
+    if (b) {
+      var fill = function (sel, arr) { var w = $(sel); if (w && arr) arr.forEach(function (n) { var sp = doc.createElement("span"); sp.textContent = n; w.appendChild(sp); }); };
+      fill("#brandPanels", b.panel);
+      fill("#brandInverters", b.inverter);
+    }
+    var k = CFG.calc;
+    if (k) {
+      var sel = $("#city");
+      if (sel && !sel.options.length && k.regions) {
+        k.regions.forEach(function (r) { var o = doc.createElement("option"); o.value = r.yield; o.textContent = r.label; if (r.default) o.selected = true; sel.appendChild(o); });
+      }
+      var price = $("#price"); if (price && !price.value && k.defaultUnitPrice != null) price.value = k.defaultUnitPrice;
+      var nf = new Intl.NumberFormat("tr-TR");
+      if (k.panelW != null) setText("#aPanelW", k.panelW + " Wp");
+      if (k.areaPerKwp != null) setText("#aArea", k.areaPerKwp + " m²/kWp");
+      if (k.costPerKwp != null) setText("#aCost", "₺" + nf.format(k.costPerKwp) + "/kWp");
+      if (k.co2PerKwh != null) setText("#aCo2", new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 2 }).format(k.co2PerKwh) + " kg/kWh");
+    }
+  })();
+
   /* ---- Tema (açık/koyu) ---- */
   var themeToggle = $("#themeToggle");
   var saved = null;
@@ -114,12 +163,13 @@
     var bill = $("#bill"), cons = $("#cons"), area = $("#area");
     if (!city && !bill) return; // bu sayfada hesaplayıcı yoksa çık
 
-    var PANEL_W = 550;         // Wp panel gücü
-    var AREA_PER_KWP = 6;      // m² / kWp
-    var COST_PER_KWP = 28000;  // ₺ / kWp (tahmini)
-    var CO2_PER_KWH = 0.45;    // kg CO2 / kWh
-    var TREE_KG = 22;          // kg CO2 / ağaç / yıl
-    var YEARS = 25;
+    var k = (window.GESPA && window.GESPA.config && window.GESPA.config.calc) || {};
+    var PANEL_W = k.panelW || 550;            // Wp panel gücü
+    var AREA_PER_KWP = k.areaPerKwp || 6;     // m² / kWp
+    var COST_PER_KWP = k.costPerKwp || 28000; // ₺ / kWp
+    var CO2_PER_KWH = k.co2PerKwh || 0.45;    // kg CO2 / kWh
+    var TREE_KG = k.treeKg || 22;             // kg CO2 / ağaç / yıl
+    var YEARS = k.years || 25;
     var method = "bill";
 
     function fmt(n) { return new Intl.NumberFormat("tr-TR").format(Math.round(n)); }

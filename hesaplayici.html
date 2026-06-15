@@ -64,21 +64,16 @@
           </div>
 
           <div class="field"><label for="city">Bölge (güneşlenme verimi)</label>
-            <select id="city">
-              <option value="1750">Akdeniz / GAP (çok yüksek)</option>
-              <option value="1600" selected>İç Anadolu / Ege (yüksek)</option>
-              <option value="1450">Marmara (orta)</option>
-              <option value="1300">Karadeniz (düşük)</option>
-            </select>
+            <select id="city"></select>
           </div>
-          <div class="field"><label for="price">Elektrik birim fiyatı (₺/kWh)</label><input id="price" type="number" inputmode="decimal" min="0.1" step="0.1" value="2.5" /></div>
+          <div class="field"><label for="price">Elektrik birim fiyatı (₺/kWh)</label><input id="price" type="number" inputmode="decimal" min="0.1" step="0.1" /></div>
 
           <div class="assumptions">
             <h4>Varsayımlar</h4>
             <ul>
-              <li>Panel gücü: 550 Wp · ~6 m²/kWp alan</li>
-              <li>Tahmini kurulum maliyeti: ₺28.000/kWp</li>
-              <li>CO₂ faktörü: 0,45 kg/kWh</li>
+              <li>Panel gücü: <span id="aPanelW"></span> · ~<span id="aArea"></span> alan</li>
+              <li>Tahmini kurulum maliyeti: <span id="aCost"></span></li>
+              <li>CO₂ faktörü: <span id="aCo2"></span></li>
               <li>Sonuçlar tahminidir; kesin değer saha keşfiyle belirlenir.</li>
             </ul>
           </div>
@@ -115,18 +110,19 @@
       <div class="footer-brand-col">
         <span class="brand-text footer-brand">GESPA<strong>Enerji</strong></span>
         <p>Anahtar teslim güneş enerjisi santralleri. Mühendislik, kurulum, finansman ve bakım.</p>
-        <ul class="footer-contact"><li>📍 Örnek Mah. 1551 Sok. No:10/1, Manavgat / Antalya</li><li>📞 <a href="tel:+905437434209">0543 743 42 09</a></li><li>✉️ <a href="mailto:gesmarketim@gmail.com">gesmarketim@gmail.com</a></li></ul>
+        <ul class="footer-contact"><li>📍 <span data-c-text="address.full"></span></li><li>📞 <a data-c-tel data-c-text="phone.display"></a></li><li>✉️ <a data-c-mailto data-c-text="email"></a></li></ul>
         <div class="socials"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="X">X</a></div>
       </div>
       <div class="footer-col"><h4>Hizmetler</h4><a href="hizmetler.html">Çatı GES</a><a href="hizmetler.html">Arazi GES</a><a href="hizmetler.html">Enerji Depolama</a><a href="hizmetler.html">Bakım (O&amp;M)</a></div>
       <div class="footer-col"><h4>Kurumsal</h4><a href="hakkimizda.html">Hakkımızda</a><a href="projeler.html">Projeler</a><a href="hesaplayici.html">Hesaplayıcı</a><a href="iletisim.html">İletişim</a></div>
       <div class="footer-col footer-news"><h4>Bülten</h4><p>Güneş enerjisi haberleri ve teşvikler.</p><form id="newsForm" class="news-form"><input type="email" placeholder="E-posta adresiniz" aria-label="E-posta" required /><button class="btn btn-sm" type="submit">Abone ol</button></form><p class="news-note" id="newsNote"></p></div>
     </div>
-    <div class="container footer-bottom"><p>© <span id="yil"></span> Gespa Enerji Ltd. Şti. Tüm hakları saklıdır.</p><p><a href="#">Gizlilik</a> · <a href="#">KVKK</a> · <a href="#">Çerez Politikası</a></p></div>
+    <div class="container footer-bottom"><p>© <span id="yil"></span> <span data-c-text="legalName"></span>. Tüm hakları saklıdır.</p><p><a href="#">Gizlilik</a> · <a href="#">KVKK</a> · <a href="#">Çerez Politikası</a></p></div>
   </footer>
 
-  <a class="fab fab-wa" href="https://wa.me/905437434209" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+  <a class="fab fab-wa" data-c-wa href="#" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
   <button class="fab fab-top" id="backTop" aria-label="Başa dön">↑</button>
+  <script src="assets/config.js"></script>
   <script src="assets/main.js"></script>
 </body>
 </html>

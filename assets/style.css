@@ -156,6 +156,11 @@ img{max-width:100%;display:block}
 .trust-logos{display:flex;gap:26px;flex-wrap:wrap;justify-content:center}
 .trust-logos span{font-weight:800;color:var(--muted);opacity:.7;font-family:var(--font);letter-spacing:.3px}
 
+/* Markalar */
+.brand-blocks{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.brand-blocks h4{font-family:var(--font);font-size:1.05rem;margin:0 0 14px;color:var(--ink)}
+@media(max-width:680px){.brand-blocks{grid-template-columns:1fr}}
+
 /* Sections */
 .section{padding:80px 0}
 .section-alt{background:var(--bg-alt)}
