@@ -260,7 +260,11 @@ img{max-width:100%;display:block}
 .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.4fr;gap:30px}
 .footer-brand{color:#fff;font-size:1.3rem}
 .footer-brand strong{color:var(--sun)}
-.footer-brand-col p{margin:10px 0 16px;color:#8ca39a;font-size:.94rem}
+.footer-brand-col p{margin:10px 0 14px;color:#8ca39a;font-size:.94rem}
+.footer-contact{list-style:none;padding:0;margin:0 0 16px;display:grid;gap:8px}
+.footer-contact li{color:#8ca39a;font-size:.9rem}
+.footer-contact a{color:#8ca39a;transition:.2s}
+.footer-contact a:hover{color:var(--sun)}
 .footer-col h4{color:#fff;font-size:1rem;margin-bottom:14px;font-family:var(--font)}
 .footer-col a{display:block;color:#8ca39a;padding:5px 0;font-size:.94rem;transition:.2s}
 .footer-col a:hover{color:var(--sun)}
