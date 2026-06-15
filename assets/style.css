@@ -145,6 +145,10 @@ img{max-width:100%;display:block}
 .assumptions{background:var(--bg-alt);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-top:22px;font-size:.92rem;color:var(--muted)}
 .assumptions h4{font-family:var(--font);color:var(--ink);margin:0 0 8px;font-size:1.05rem}
 .assumptions ul{margin:0;padding-left:18px;display:grid;gap:5px}
+.calc-chart{margin-top:18px;background:var(--bg-alt);border:1px solid var(--line);border-radius:12px;padding:14px}
+.calc-chart svg{display:block}
+.chart-note{font-size:.82rem;color:var(--muted);margin:8px 0 0}
+.calc-actions{display:grid;gap:10px;margin-top:18px}
 @media(max-width:980px){.calc-full{grid-template-columns:1fr}}
 @media(max-width:680px){.calc-results.wide{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.calc-results.wide{grid-template-columns:1fr}}

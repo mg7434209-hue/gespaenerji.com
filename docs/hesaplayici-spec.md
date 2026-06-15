@@ -16,7 +16,11 @@ Sayfa: `hesaplayici.html` · Mantık: `assets/main.js` (calc IIFE) · Katsayıla
 | `treeKg` | Ağaç başına yıllık CO₂ yutumu (kg) | 22 |
 | `years` | Ekonomik ömür (yıl) | 25 |
 | `defaultUnitPrice` | Varsayılan elektrik fiyatı (₺/kWh) | 2,5 |
+| `degradation` | Yıllık panel verim kaybı (%) | 0,5 |
+| `defaultInflation` | Varsayılan yıllık elektrik zammı (%) — temkinli; kullanıcı senaryo girebilir | 0 |
+| `co2PerCarKm` | Ortalama binek araç emisyonu (kg CO₂/km) | 0,12 |
 | `regions[]` | `{ label, yield }` — yıllık özgül üretim (kWh/kWp/yıl) | 1300–1750 |
+| `orientations[]` | `{ label, factor }` — çatı yönü/eğim verim çarpanı | 0,65–1,0 |
 
 ## Giriş yöntemleri
 
@@ -30,21 +34,40 @@ Kullanıcı üç yöntemden birini seçer; her biri **kurulu güç (kWp)** değe
 3. **Çatı alanına göre** — `alan (m²)`
    `kWp = alan / areaPerKwp`
 
+Çatı yönü çarpanı `yön` (orientations.factor) bölge verimine uygulanır:
+`yıllıkÜretim(1.yıl) = kWp × bölgeVerim × yön`. Yöntem 2 ve 3'te kWp hesabına da `yön` dahildir.
+
 ## Çıktı formülleri
 
 ```
-yıllıkÜretim   = kWp × bölgeVerim                 (kWh/yıl)
+yıllıkÜretim   = kWp × bölgeVerim × yön           (kWh/yıl, 1. yıl)
 panelSayısı    = ceil(kWp × 1000 / panelW)        (adet)
 gerekliAlan    = kWp × areaPerKwp                 (m²)
 aylıkÜretim    = yıllıkÜretim / 12                (kWh)
-yıllıkTasarruf = yıllıkÜretim × birimFiyat        (₺)
+yıllıkTasarruf = yıllıkÜretim × birimFiyat        (₺, 1. yıl)
+aylıkTasarruf  = yıllıkTasarruf / 12              (₺)
 yatırım        = kWp × costPerKwp                 (₺)
-geriÖdeme      = yatırım / yıllıkTasarruf         (yıl)
-25YılKazanç    = yıllıkTasarruf × years           (₺)
-yıllıkCO2      = yıllıkÜretim × co2PerKwh / 1000   (ton)
-25YılCO2       = yıllıkCO2 × years                (ton)
-ağaçEşdeğeri   = yıllıkÜretim × co2PerKwh / treeKg (adet/yıl)
 ```
+
+### 25 yıllık projeksiyon (degradasyon + elektrik zammı)
+Her yıl `y = 0..years-1` için:
+```
+üretim_y   = yıllıkÜretim × (1 − degradation)^y
+fiyat_y    = birimFiyat × (1 + zam)^y
+tasarruf_y = üretim_y × fiyat_y
+```
+```
+ömürÜretim   = Σ üretim_y
+25YılKazanç  = Σ tasarruf_y                        (₺)
+geriÖdeme    = kümülatif tasarrufun yatırımı aştığı yıl (kesirli interpolasyon)
+25YılNet     = 25YılKazanç − yatırım               (₺)
+ROI          = 25YılNet / yatırım × 100            (%)
+yıllıkCO2    = yıllıkÜretim × co2PerKwh / 1000      (ton)
+25YılCO2     = ömürÜretim × co2PerKwh / 1000        (ton)
+ağaçEşdeğeri = yıllıkÜretim × co2PerKwh / treeKg    (adet/yıl)
+araçKm       = ömürÜretim × co2PerKwh / co2PerCarKm (km)
+```
+Grafik: yıllık **kümülatif tasarruf** çubukları + yatırım çizgisi; geri ödeme yılı renkle vurgulanır.
 
 ## Notlar / iyileştirme alanları
 

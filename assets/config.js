@@ -41,11 +41,20 @@ window.GESPA.config = {
     treeKg: 22,             // kg CO₂ / ağaç / yıl
     years: 25,              // ekonomik ömür (yıl)
     defaultUnitPrice: 2.5,  // ₺ / kWh — varsayılan elektrik fiyatı
+    degradation: 0.5,       // %/yıl — panel verim kaybı
+    defaultInflation: 0,    // %/yıl — varsayılan elektrik zammı (temkinli; kullanıcı senaryo girebilir)
+    co2PerCarKm: 0.12,      // kg CO₂ / km — ortalama binek araç
     regions: [
       { label: "Akdeniz / GAP (çok yüksek)", yield: 1750 },
       { label: "İç Anadolu / Ege (yüksek)", yield: 1600, default: true },
       { label: "Marmara (orta)", yield: 1450 },
       { label: "Karadeniz (düşük)", yield: 1300 }
+    ],
+    orientations: [
+      { label: "Güney (ideal)", factor: 1.0, default: true },
+      { label: "Güneydoğu / Güneybatı", factor: 0.95 },
+      { label: "Doğu / Batı", factor: 0.85 },
+      { label: "Kuzey", factor: 0.65 }
     ]
   }
 };

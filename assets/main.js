@@ -51,7 +51,12 @@
       if (sel && !sel.options.length && k.regions) {
         k.regions.forEach(function (r) { var o = doc.createElement("option"); o.value = r.yield; o.textContent = r.label; if (r.default) o.selected = true; sel.appendChild(o); });
       }
+      var orient = $("#orient");
+      if (orient && !orient.options.length && k.orientations) {
+        k.orientations.forEach(function (r) { var o = doc.createElement("option"); o.value = r.factor; o.textContent = r.label; if (r.default) o.selected = true; orient.appendChild(o); });
+      }
       var price = $("#price"); if (price && !price.value && k.defaultUnitPrice != null) price.value = k.defaultUnitPrice;
+      var infl = $("#infl"); if (infl && !infl.value && k.defaultInflation != null) infl.value = k.defaultInflation;
       var nf = new Intl.NumberFormat("tr-TR");
       if (k.panelW != null) setText("#aPanelW", k.panelW + " Wp");
       if (k.areaPerKwp != null) setText("#aArea", k.areaPerKwp + " m²/kWp");
@@ -187,29 +192,69 @@
       });
     });
 
+    var orient = $("#orient"), infl = $("#infl");
+    var DEG = (k.degradation || 0) / 100;            // yıllık verim kaybı
+    var CO2_PER_CAR_KM = k.co2PerCarKm || 0.12;      // kg CO2 / km
+    var chartEl = $("#calcChart"), chartNote = $("#chartNote"), waBtn = $("#calcWa");
+    var WA = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
+
+    function renderChart(cum, cost) {
+      if (!chartEl) return;
+      var n = cum.length, max = Math.max(cum[n - 1], cost) * 1.05 || 1;
+      var W = 520, H = 200, base = H - 22, pad = 3, bw = (W - (n - 1) * pad) / n, s = "";
+      for (var i = 0; i < n; i++) {
+        var h = (cum[i] / max) * (base - 6), x = i * (bw + pad), y = base - h;
+        s += '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + bw.toFixed(1) + '" height="' + Math.max(h, 0).toFixed(1) + '" rx="2" fill="' + (cum[i] >= cost ? "#0a6e4f" : "#bcd9cd") + '"/>';
+      }
+      var cy = base - (cost / max) * (base - 6);
+      s += '<line x1="0" y1="' + cy.toFixed(1) + '" x2="' + W + '" y2="' + cy.toFixed(1) + '" stroke="#f7b500" stroke-width="2" stroke-dasharray="5 4"/>';
+      s += '<text x="' + (W - 4) + '" y="' + (cy - 5).toFixed(1) + '" text-anchor="end" font-size="11" font-weight="700" fill="#f7b500">Yatırım</text>';
+      for (var j = 5; j <= n; j += 5) { var lx = (j - 1) * (bw + pad) + bw / 2; s += '<text x="' + lx.toFixed(1) + '" y="' + (H - 5) + '" text-anchor="middle" font-size="10" fill="#9aa">' + j + '. yıl</text>'; }
+      chartEl.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" width="100%" role="img" aria-label="25 yıllık kümülatif tasarruf grafiği">' + s + '</svg>';
+    }
+
     function calc() {
       var unit = parseFloat(price && price.value) || 2.5;
       var yieldPerKwp = parseFloat(city && city.value) || 1500;
+      var oFac = parseFloat(orient && orient.value) || 1;
+      var inflR = (parseFloat(infl && infl.value) || 0) / 100;
       var kwp = 0;
       if (method === "area") {
         kwp = (parseFloat(area && area.value) || 0) / AREA_PER_KWP;
       } else if (method === "cons") {
-        kwp = ((parseFloat(cons && cons.value) || 0) * 12) / yieldPerKwp;
+        kwp = ((parseFloat(cons && cons.value) || 0) * 12) / (yieldPerKwp * oFac);
       } else {
-        kwp = (((parseFloat(bill && bill.value) || 0) / unit) * 12) / yieldPerKwp;
+        kwp = (((parseFloat(bill && bill.value) || 0) / unit) * 12) / (yieldPerKwp * oFac);
       }
 
-      var prod = kwp * yieldPerKwp;                 // yıllık üretim (kWh)
+      var prod = kwp * yieldPerKwp * oFac;           // 1. yıl üretim (kWh)
       var panels = Math.ceil((kwp * 1000) / PANEL_W);
       var reqArea = kwp * AREA_PER_KWP;
       var monthly = prod / 12;
-      var save = prod * unit;
+      var save = prod * unit;                        // 1. yıl tasarruf
       var cost = kwp * COST_PER_KWP;
-      var payback = save > 0 ? cost / save : 0;
-      var save25 = save * YEARS;
-      var co2 = (prod * CO2_PER_KWH) / 1000;        // ton/yıl
-      var co225 = co2 * YEARS;
+
+      // 25 yıllık projeksiyon (degradasyon + elektrik zammı)
+      var lifeProd = 0, lifeSave = 0, cum = [], running = 0, payback = 0;
+      for (var y = 0; y < YEARS; y++) {
+        var py = prod * Math.pow(1 - DEG, y);
+        var pr = unit * Math.pow(1 + inflR, y);
+        lifeProd += py;
+        var sy = py * pr;
+        lifeSave += sy;
+        running += sy;
+        cum.push(running);
+        if (payback === 0 && running >= cost && cost > 0) {
+          var prev = running - sy;
+          payback = y + (cost - prev) / sy;          // ara değer (kesirli yıl)
+        }
+      }
+      var net = lifeSave - cost;
+      var roi = cost > 0 ? (net / cost) * 100 : 0;
+      var co2 = (prod * CO2_PER_KWH) / 1000;         // ton/yıl
+      var co225 = (lifeProd * CO2_PER_KWH) / 1000;   // ton (25 yıl)
       var trees = (prod * CO2_PER_KWH) / TREE_KG;
+      var carKm = (lifeProd * CO2_PER_KWH) / CO2_PER_CAR_KM;
 
       var ok = kwp > 0 && isFinite(kwp);
       set("#rSize", ok ? fmt1(kwp) + " kWp" : "—");
@@ -217,18 +262,40 @@
       set("#rArea", ok ? fmt(reqArea) + " m²" : "—");
       set("#rProd", ok ? fmt(prod) + " kWh/yıl" : "—");
       set("#rMonthly", ok ? fmt(monthly) + " kWh" : "—");
-      set("#rPayback", ok && payback > 0 ? fmt1(payback) + " yıl" : "—");
+      set("#rPayback", ok && payback > 0 ? fmt1(payback) + " yıl" : (ok ? "25+ yıl" : "—"));
       set("#rSave", ok ? "₺" + fmt(save) + "/yıl" : "—");
-      set("#rSave25", ok ? "₺" + fmt(save25) : "—");
+      set("#rMonthlySave", ok ? "₺" + fmt(save / 12) + "/ay" : "—");
       set("#rCost", ok ? "₺" + fmt(cost) : "—");
+      set("#rSave25", ok ? "₺" + fmt(lifeSave) : "—");
+      set("#rNet", ok ? "₺" + fmt(net) : "—");
+      set("#rRoi", ok ? "%" + fmt(roi) : "—");
       set("#rCo2", ok ? fmt1(co2) + " ton/yıl" : "—");
       set("#rCo225", ok ? fmt(co225) + " ton" : "—");
       set("#rTrees", ok ? fmt(trees) + " ağaç" : "—");
+      set("#rCarKm", ok ? fmt(carKm) + " km" : "—");
+
+      if (ok) {
+        renderChart(cum, cost);
+        if (chartNote) chartNote.textContent = payback > 0
+          ? "Yatırım yaklaşık " + fmt1(payback) + ". yılda geri ödenir; sonraki yıllar net kazanç (sarı çizgi = yatırım tutarı)."
+          : "Seçilen değerlerle yatırım 25 yıl içinde geri ödenmiyor; girdileri güncelleyin.";
+        if (waBtn && WA) {
+          var msg = "Merhaba, GESPA Enerji tasarruf hesaplayıcısından sonuç aldım:\n"
+            + "• Sistem: " + fmt1(kwp) + " kWp (" + fmt(panels) + " panel)\n"
+            + "• Yıllık tasarruf: ₺" + fmt(save) + "\n"
+            + "• Geri ödeme: " + (payback > 0 ? fmt1(payback) + " yıl" : "25+ yıl") + "\n"
+            + "Ücretsiz keşif talep ediyorum.";
+          waBtn.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
+        }
+      } else if (chartEl) {
+        chartEl.innerHTML = ""; if (chartNote) chartNote.textContent = "";
+      }
     }
 
-    [bill, cons, area, city, price].forEach(function (el) {
+    [bill, cons, area, city, price, orient, infl].forEach(function (el) {
       if (el) el.addEventListener("input", calc);
     });
+    if (orient) orient.addEventListener("change", calc);
     calc();
   })();
 

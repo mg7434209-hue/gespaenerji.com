@@ -71,6 +71,8 @@
             <select id="city"></select>
           </div>
           <div class="field"><label for="price">Elektrik birim fiyatı (₺/kWh)</label><input id="price" type="number" inputmode="decimal" min="0.1" step="0.1" /></div>
+          <div class="field"><label for="orient">Çatı yönü / eğim</label><select id="orient"></select></div>
+          <div class="field"><label for="infl">Yıllık elektrik zammı (%)</label><input id="infl" type="number" inputmode="decimal" min="0" max="100" step="1" /></div>
 
           <div class="assumptions">
             <h4>Varsayımlar</h4>
@@ -94,14 +96,23 @@
             <div class="result"><span class="r-label">Yıllık üretim</span><span class="r-value" id="rProd">—</span></div>
             <div class="result"><span class="r-label">Aylık ort. üretim</span><span class="r-value" id="rMonthly">—</span></div>
             <div class="result"><span class="r-label">Geri ödeme süresi</span><span class="r-value" id="rPayback">—</span></div>
-            <div class="result highlight"><span class="r-label">Yıllık tasarruf</span><span class="r-value" id="rSave">—</span></div>
-            <div class="result"><span class="r-label">25 yıllık kazanç</span><span class="r-value" id="rSave25">—</span></div>
+            <div class="result highlight"><span class="r-label">Yıllık tasarruf (1. yıl)</span><span class="r-value" id="rSave">—</span></div>
+            <div class="result"><span class="r-label">Aylık tasarruf</span><span class="r-value" id="rMonthlySave">—</span></div>
             <div class="result"><span class="r-label">Tahmini yatırım</span><span class="r-value" id="rCost">—</span></div>
+            <div class="result"><span class="r-label">25 yıllık kazanç</span><span class="r-value" id="rSave25">—</span></div>
+            <div class="result"><span class="r-label">25 yıl net (kazanç − yatırım)</span><span class="r-value" id="rNet">—</span></div>
+            <div class="result"><span class="r-label">Yatırım getirisi (ROI)</span><span class="r-value" id="rRoi">—</span></div>
             <div class="result"><span class="r-label">Yıllık CO₂ azaltımı</span><span class="r-value" id="rCo2">—</span></div>
             <div class="result"><span class="r-label">25 yıllık CO₂</span><span class="r-value" id="rCo225">—</span></div>
             <div class="result"><span class="r-label">Ağaç eşdeğeri / yıl</span><span class="r-value" id="rTrees">—</span></div>
+            <div class="result"><span class="r-label">Araç-km eşdeğeri (25 yıl)</span><span class="r-value" id="rCarKm">—</span></div>
           </div>
-          <a class="btn btn-block btn-lg" href="iletisim.html" id="calcCta">Bu sonuçlarla ücretsiz teklif iste</a>
+          <div class="calc-chart" id="calcChart" aria-hidden="true"></div>
+          <p class="chart-note" id="chartNote"></p>
+          <div class="calc-actions">
+            <a class="btn btn-block btn-lg" href="iletisim.html" id="calcCta">Bu sonuçlarla ücretsiz teklif iste</a>
+            <a class="btn btn-block btn-ghost" id="calcWa" href="#" target="_blank" rel="noopener">📲 Sonuçları WhatsApp'tan gönder</a>
+          </div>
         </div>
       </div>
     </section>
