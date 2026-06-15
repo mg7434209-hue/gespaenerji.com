@@ -247,6 +247,21 @@
     });
   });
 
+  /* ---- Galeri lightbox ---- */
+  var gallery = $(".gallery");
+  if (gallery) {
+    var lb = doc.createElement("div");
+    lb.className = "lightbox";
+    lb.innerHTML = '<button class="lightbox-close" aria-label="Kapat">×</button><img alt="" />';
+    doc.body.appendChild(lb);
+    var lbImg = lb.querySelector("img");
+    gallery.addEventListener("click", function (e) {
+      if (e.target.tagName === "IMG") { lbImg.src = e.target.src; lb.classList.add("open"); }
+    });
+    lb.addEventListener("click", function (e) { if (e.target !== lbImg) lb.classList.remove("open"); });
+    doc.addEventListener("keydown", function (e) { if (e.key === "Escape") lb.classList.remove("open"); });
+  }
+
   /* ---- Müşteri yorumları slider ---- */
   var track = $("#testiTrack");
   var dotsWrap = $("#testiDots");
