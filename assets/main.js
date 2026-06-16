@@ -64,6 +64,7 @@
       if (k.costPerKwp != null) setText("#aCost", "₺" + nf.format(k.costPerKwp) + "/kWp");
       if (k.co2PerKwh != null) setText("#aCo2", new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 2 }).format(k.co2PerKwh) + " kg/kWh");
     }
+    if (window.GESPA && GESPA.applyLang) GESPA.applyLang(GESPA.lang || "tr");
   })();
 
   /* ---- Tema (açık/koyu) ---- */
@@ -273,23 +274,24 @@
       var carKm = (lifeProd * CO2_PER_KWH) / CO2_PER_CAR_KM;
 
       var ok = kwp > 0 && isFinite(kwp);
+      var u = (window.GESPA && GESPA.units && GESPA.units[GESPA.lang]) || (window.GESPA && GESPA.units && GESPA.units.tr) || {};
       set("#rSize", ok ? fmt1(kwp) + " kWp" : "—");
-      set("#rPanels", ok ? fmt(panels) + " adet" : "—");
+      set("#rPanels", ok ? fmt(panels) + " " + (u.adet || "adet") : "—");
       set("#rArea", ok ? fmt(reqArea) + " m²" : "—");
-      set("#rProd", ok ? fmt(prod) + " kWh/yıl" : "—");
+      set("#rProd", ok ? fmt(prod) + " kWh/" + (u.year || "yıl") : "—");
       set("#rMonthly", ok ? fmt(monthly) + " kWh" : "—");
-      set("#rPayback", ok && payback > 0 ? fmt1(payback) + " yıl" : (ok ? "25+ yıl" : "—"));
-      set("#rSave", ok ? "₺" + fmt(save) + "/yıl" : "—");
-      set("#rMonthlySave", ok ? "₺" + fmt(save / 12) + "/ay" : "—");
+      set("#rPayback", ok && payback > 0 ? fmt1(payback) + " " + (u.yil || "yıl") : (ok ? (u.yilPlus || "25+ yıl") : "—"));
+      set("#rSave", ok ? "₺" + fmt(save) + "/" + (u.year || "yıl") : "—");
+      set("#rMonthlySave", ok ? "₺" + fmt(save / 12) + "/" + (u.ay || "ay") : "—");
       set("#rCost", ok ? "₺" + fmt(cost) : "—");
       set("#rSave25", ok ? "₺" + fmt(lifeSave) : "—");
       set("#rNet", ok ? "₺" + fmt(net) : "—");
       set("#rRoi", ok ? "%" + fmt(roi) : "—");
-      set("#rCo2", ok ? fmt1(co2) + " ton/yıl" : "—");
-      set("#rCo225", ok ? fmt(co225) + " ton" : "—");
-      set("#rTrees", ok ? fmt(trees) + " ağaç" : "—");
-      set("#rCarKm", ok ? fmt(carKm) + " km" : "—");
-      set("#rBattery", ok ? (hasBattery ? fmt(batteryKwh) + " kWh · ₺" + fmt(batteryCost) : "Eklenmedi") : "—");
+      set("#rCo2", ok ? fmt1(co2) + " " + (u.ton || "ton") + "/" + (u.year || "yıl") : "—");
+      set("#rCo225", ok ? fmt(co225) + " " + (u.ton || "ton") : "—");
+      set("#rTrees", ok ? fmt(trees) + " " + (u.agac || "ağaç") : "—");
+      set("#rCarKm", ok ? fmt(carKm) + " " + (u.km || "km") : "—");
+      set("#rBattery", ok ? (hasBattery ? fmt(batteryKwh) + " kWh · ₺" + fmt(batteryCost) : (u.added || "Eklenmedi")) : "—");
 
       if (ok) {
         renderChart(cum, cost);
@@ -315,6 +317,7 @@
     if (orient) orient.addEventListener("change", calc);
     if (batteryEl) batteryEl.addEventListener("change", calc);
     if (printBtn) printBtn.addEventListener("click", function () { window.print(); });
+    document.addEventListener("gespa:lang", calc);
     calc();
   })();
 

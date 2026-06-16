@@ -46,7 +46,7 @@
         <a href="iletisim.html" class="btn btn-sm">Teklif Al</a>
       </nav>
       <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="Tema değiştir" title="Açık/Koyu tema"><span class="theme-icon-sun">☀️</span><span class="theme-icon-moon">🌙</span></button>
+        <div class="lang-switch" role="group" aria-label="Dil"><button data-lang="tr">TR</button><button data-lang="de">DE</button><button data-lang="ru">RU</button></div><button class="theme-toggle" id="themeToggle" aria-label="Tema değiştir" title="Açık/Koyu tema"><span class="theme-icon-sun">☀️</span><span class="theme-icon-moon">🌙</span></button>
         <button class="hamburger" id="hamburger" aria-label="Menüyü aç/kapat" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -59,7 +59,7 @@
       <div class="container hero-grid">
         <div class="hero-copy reveal">
           <span class="eyebrow">Anahtar Teslim Güneş Enerjisi Santralleri</span>
-          <h1>Güneşten <span class="hl">kazanca</span> dönüşen enerji.</h1>
+          <h1 id="heroTitle" data-i18n-html>Güneşten <span class="hl">kazanca</span> dönüşen enerji.</h1>
           <p>Çatı ve arazi tipi GES projelerinizde mühendislikten kuruluma, finansmandan bakıma kadar tüm süreci tek elden yönetiyoruz. Enerji maliyetlerinizi düşürün, karbon ayak izinizi azaltın.</p>
           <div class="hero-cta">
             <a class="btn btn-lg" href="hesaplayici.html">Tasarrufumu Hesapla</a>
@@ -157,6 +157,7 @@
   <a class="fab fab-wa" data-c-wa href="#" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
   <button class="fab fab-top" id="backTop" aria-label="Başa dön">↑</button>
   <script src="assets/config.js"></script>
+  <script src="assets/i18n.js"></script>
   <script src="assets/main.js"></script>
 </body>
 </html>

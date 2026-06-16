@@ -88,6 +88,10 @@ img{max-width:100%;display:block}
 .menu a.btn.active{background:var(--green-dark)}
 .nav-actions{display:flex;align-items:center;gap:10px}
 .theme-toggle{background:var(--bg-alt);border:1px solid var(--line);width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:grid;place-items:center}
+.lang-switch{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--bg-alt)}
+.lang-switch button{border:0;background:none;padding:7px 9px;font-size:.76rem;font-weight:800;color:var(--muted);cursor:pointer;font-family:var(--font);line-height:1}
+.lang-switch button.active{background:var(--green);color:#fff}
+.lang-switch button:hover:not(.active){color:var(--ink)}
 .theme-icon-moon{display:none}
 [data-theme="dark"] .theme-icon-sun{display:none}
 [data-theme="dark"] .theme-icon-moon{display:inline}

@@ -44,6 +44,9 @@ SEO başlığı/açıklaması/canonical/Open Graph içerir.
 - Görseller repoda `assets/img/` altında durur; dış siteden hotlink YAPMA.
 - Açık/koyu tema, mobil menü, scroll animasyonları `assets/main.js` ile yönetilir;
   yeni DOM'lar `.reveal` ve `data-count` desenlerini kullanabilir.
+- Çok dil (TR/DE/RU): `assets/i18n.js` metinleri TR kaynağına göre çevirir; yeni metin
+  eklerken DE/RU karşılığını `DICT`'e ekle, yoksa zarifçe TR kalır. Marka/iletişim
+  (`data-c-text`) ve dinamik sayılar çeviriden hariç tutulur.
 
 ## Ağ Kısıtı (ÖNEMLİ)
 - Buluttaki Claude Code dış sitelere (ör. solaranaliz.tr, gespaenerji.com)
