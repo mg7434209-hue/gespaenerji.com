@@ -46,16 +46,18 @@ const server = http.createServer((req, res) => {
     }
 
     fs.stat(filePath, (err, stat) => {
+      let status = 200;
       if (err || !stat.isFile()) {
-        // Bilinmeyen yol → ana sayfaya düş (SPA benzeri davranış)
-        filePath = path.join(ROOT, "index.html");
+        // Bulunamayan yol → 404 sayfası
+        filePath = path.join(ROOT, "404.html");
+        status = 404;
       }
       const ext = path.extname(filePath).toLowerCase();
       const type = MIME[ext] || "application/octet-stream";
-      const headers = { "Content-Type": type };
+      const headers = { "Content-Type": type, "X-Content-Type-Options": "nosniff" };
       // Statik varlıkları önbelleğe al, HTML'i alma
       if (ext !== ".html") headers["Cache-Control"] = "public, max-age=86400";
-      res.writeHead(200, headers);
+      res.writeHead(status, headers);
       fs.createReadStream(filePath).pipe(res);
     });
   } catch (e) {
