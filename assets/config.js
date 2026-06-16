@@ -44,6 +44,11 @@ window.GESPA.config = {
     degradation: 0.5,       // %/yıl — panel verim kaybı
     defaultInflation: 0,    // %/yıl — varsayılan elektrik zammı (temkinli; kullanıcı senaryo girebilir)
     co2PerCarKm: 0.12,      // kg CO₂ / km — ortalama binek araç
+    defaultSelfConsumption: 70, // % — anlık öz tüketim oranı (kalanı şebekeye)
+    feedInFactor: 0.5,      // şebekeye verilen fazlanın birim fiyata oranı (mahsuplaşma)
+    batterySelfConsumption: 90, // % — batarya ile yükselen öz tüketim oranı
+    batteryCostPerKwh: 9000,    // ₺/kWh — tahmini batarya maliyeti
+    batteryFraction: 0.3,   // batarya boyutu = günlük ortalama üretim × bu oran (kWh)
     regions: [
       { label: "Akdeniz / GAP (çok yüksek)", yield: 1750 },
       { label: "İç Anadolu / Ege (yüksek)", yield: 1600, default: true },

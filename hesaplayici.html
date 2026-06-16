@@ -73,6 +73,8 @@
           <div class="field"><label for="price">Elektrik birim fiyatı (₺/kWh)</label><input id="price" type="number" inputmode="decimal" min="0.1" step="0.1" /></div>
           <div class="field"><label for="orient">Çatı yönü / eğim</label><select id="orient"></select></div>
           <div class="field"><label for="infl">Yıllık elektrik zammı (%)</label><input id="infl" type="number" inputmode="decimal" min="0" max="100" step="1" /></div>
+          <div class="field"><label for="self">Öz tüketim oranı (%) <small>— anlık kullanım, kalanı şebekeye</small></label><input id="self" type="number" inputmode="numeric" min="0" max="100" step="5" /></div>
+          <label class="check"><input type="checkbox" id="battery" /> <span>Batarya / depolama ekle (öz tüketimi artırır)</span></label>
 
           <div class="assumptions">
             <h4>Varsayımlar</h4>
@@ -106,12 +108,14 @@
             <div class="result"><span class="r-label">25 yıllık CO₂</span><span class="r-value" id="rCo225">—</span></div>
             <div class="result"><span class="r-label">Ağaç eşdeğeri / yıl</span><span class="r-value" id="rTrees">—</span></div>
             <div class="result"><span class="r-label">Araç-km eşdeğeri (25 yıl)</span><span class="r-value" id="rCarKm">—</span></div>
+            <div class="result"><span class="r-label">Batarya (opsiyonel)</span><span class="r-value" id="rBattery">—</span></div>
           </div>
           <div class="calc-chart" id="calcChart" aria-hidden="true"></div>
           <p class="chart-note" id="chartNote"></p>
           <div class="calc-actions">
             <a class="btn btn-block btn-lg" href="iletisim.html" id="calcCta">Bu sonuçlarla ücretsiz teklif iste</a>
             <a class="btn btn-block btn-ghost" id="calcWa" href="#" target="_blank" rel="noopener">📲 Sonuçları WhatsApp'tan gönder</a>
+            <button class="btn btn-block btn-ghost" id="calcPrint" type="button">🖨️ Yazdır / PDF olarak kaydet</button>
           </div>
         </div>
       </div>

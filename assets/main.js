@@ -57,6 +57,7 @@
       }
       var price = $("#price"); if (price && !price.value && k.defaultUnitPrice != null) price.value = k.defaultUnitPrice;
       var infl = $("#infl"); if (infl && !infl.value && k.defaultInflation != null) infl.value = k.defaultInflation;
+      var selfI = $("#self"); if (selfI && !selfI.value && k.defaultSelfConsumption != null) selfI.value = k.defaultSelfConsumption;
       var nf = new Intl.NumberFormat("tr-TR");
       if (k.panelW != null) setText("#aPanelW", k.panelW + " Wp");
       if (k.areaPerKwp != null) setText("#aArea", k.areaPerKwp + " m²/kWp");
@@ -197,6 +198,11 @@
     var CO2_PER_CAR_KM = k.co2PerCarKm || 0.12;      // kg CO2 / km
     var chartEl = $("#calcChart"), chartNote = $("#chartNote"), waBtn = $("#calcWa");
     var WA = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
+    var selfEl = $("#self"), batteryEl = $("#battery"), printBtn = $("#calcPrint");
+    var FEED = k.feedInFactor != null ? k.feedInFactor : 0.5;
+    var BAT_SELF = k.batterySelfConsumption || 90;
+    var BAT_COST_KWH = k.batteryCostPerKwh || 9000;
+    var BAT_FRAC = k.batteryFraction || 0.3;
 
     function renderChart(cum, cost) {
       if (!chartEl) return;
@@ -231,8 +237,18 @@
       var panels = Math.ceil((kwp * 1000) / PANEL_W);
       var reqArea = kwp * AREA_PER_KWP;
       var monthly = prod / 12;
-      var save = prod * unit;                        // 1. yıl tasarruf
-      var cost = kwp * COST_PER_KWP;
+
+      // Öz tüketim + mahsuplaşma (+ batarya)
+      var hasBattery = !!(batteryEl && batteryEl.checked);
+      var selfPct = hasBattery ? BAT_SELF : (parseFloat(selfEl && selfEl.value) || 100);
+      selfPct = Math.max(0, Math.min(100, selfPct));
+      var selfR = selfPct / 100;
+      var effFactor = selfR + (1 - selfR) * FEED;
+      var batteryKwh = 0, batteryCost = 0;
+      if (hasBattery) { batteryKwh = Math.round((prod / 365) * BAT_FRAC); batteryCost = batteryKwh * BAT_COST_KWH; }
+
+      var save = prod * unit * effFactor;            // 1. yıl tasarruf
+      var cost = kwp * COST_PER_KWP + batteryCost;
 
       // 25 yıllık projeksiyon (degradasyon + elektrik zammı)
       var lifeProd = 0, lifeSave = 0, cum = [], running = 0, payback = 0;
@@ -240,7 +256,7 @@
         var py = prod * Math.pow(1 - DEG, y);
         var pr = unit * Math.pow(1 + inflR, y);
         lifeProd += py;
-        var sy = py * pr;
+        var sy = py * pr * effFactor;
         lifeSave += sy;
         running += sy;
         cum.push(running);
@@ -273,6 +289,7 @@
       set("#rCo225", ok ? fmt(co225) + " ton" : "—");
       set("#rTrees", ok ? fmt(trees) + " ağaç" : "—");
       set("#rCarKm", ok ? fmt(carKm) + " km" : "—");
+      set("#rBattery", ok ? (hasBattery ? fmt(batteryKwh) + " kWh · ₺" + fmt(batteryCost) : "Eklenmedi") : "—");
 
       if (ok) {
         renderChart(cum, cost);
@@ -292,10 +309,12 @@
       }
     }
 
-    [bill, cons, area, city, price, orient, infl].forEach(function (el) {
+    [bill, cons, area, city, price, orient, infl, selfEl].forEach(function (el) {
       if (el) el.addEventListener("input", calc);
     });
     if (orient) orient.addEventListener("change", calc);
+    if (batteryEl) batteryEl.addEventListener("change", calc);
+    if (printBtn) printBtn.addEventListener("click", function () { window.print(); });
     calc();
   })();
 

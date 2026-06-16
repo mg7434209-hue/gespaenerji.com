@@ -149,6 +149,20 @@ img{max-width:100%;display:block}
 .calc-chart svg{display:block}
 .chart-note{font-size:.82rem;color:var(--muted);margin:8px 0 0}
 .calc-actions{display:grid;gap:10px;margin-top:18px}
+.field label small{color:var(--muted);font-weight:400}
+.check{display:flex;align-items:center;gap:10px;margin:4px 0 14px;font-weight:600;cursor:pointer;font-size:.95rem}
+.check input{width:18px;height:18px;accent-color:var(--green);cursor:pointer}
+
+/* Yazdırma / PDF */
+@media print{
+  .topbar,.site-header,.site-footer,.fab,.cta-band,.calc-actions,.calc-methods,.scroll-progress,.page-hero .crumbs{display:none !important}
+  body{background:#fff;color:#000}
+  .section{padding:10px 0}
+  .calc-full{grid-template-columns:1fr 1fr;gap:16px}
+  .calc-card{box-shadow:none;border:1px solid #ccc}
+  .result{break-inside:avoid}
+  a[href]:after{content:""}
+}
 @media(max-width:980px){.calc-full{grid-template-columns:1fr}}
 @media(max-width:680px){.calc-results.wide{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.calc-results.wide{grid-template-columns:1fr}}
