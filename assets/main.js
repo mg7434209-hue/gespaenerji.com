@@ -59,6 +59,10 @@
       var price = $("#price"); if (price && !price.value && k.defaultUnitPrice != null) price.value = k.defaultUnitPrice;
       var infl = $("#infl"); if (infl && !infl.value && k.defaultInflation != null) infl.value = k.defaultInflation;
       var selfI = $("#self"); if (selfI && !selfI.value && k.defaultSelfConsumption != null) selfI.value = k.defaultSelfConsumption;
+      var ir = k.irrigation || {};
+      var pkI = $("#pumpKw"); if (pkI && !pkI.value && ir.defaultPumpKw != null) pkI.value = ir.defaultPumpKw;
+      var phI = $("#pumpHours"); if (phI && !phI.value && ir.defaultHours != null) phI.value = ir.defaultHours;
+      var pmI = $("#pumpMonths"); if (pmI && !pmI.value && ir.defaultMonths != null) pmI.value = ir.defaultMonths;
       var nf = new Intl.NumberFormat("tr-TR");
       if (k.panelW != null) setText("#aPanelW", k.panelW + " Wp");
       if (k.areaPerKwp != null) setText("#aArea", k.areaPerKwp + " m²/kWp");
@@ -169,6 +173,7 @@
   (function () {
     var city = $("#city"), price = $("#price");
     var bill = $("#bill"), cons = $("#cons"), area = $("#area");
+    var pumpKw = $("#pumpKw"), pumpHours = $("#pumpHours"), pumpMonths = $("#pumpMonths");
     if (!city && !bill) return; // bu sayfada hesaplayıcı yoksa çık
 
     var k = (window.GESPA && window.GESPA.config && window.GESPA.config.calc) || {};
@@ -231,6 +236,9 @@
         kwp = (parseFloat(area && area.value) || 0) / AREA_PER_KWP;
       } else if (method === "cons") {
         kwp = ((parseFloat(cons && cons.value) || 0) * 12) / (yieldPerKwp * oFac);
+      } else if (method === "tarim") {
+        var annualKwh = (parseFloat(pumpKw && pumpKw.value) || 0) * (parseFloat(pumpHours && pumpHours.value) || 0) * (parseFloat(pumpMonths && pumpMonths.value) || 0) * 30;
+        kwp = annualKwh / (yieldPerKwp * oFac);
       } else {
         kwp = (((parseFloat(bill && bill.value) || 0) / unit) * 12) / (yieldPerKwp * oFac);
       }
@@ -317,13 +325,19 @@
       }
     }
 
-    [bill, cons, area, city, price, orient, infl, selfEl].forEach(function (el) {
+    [bill, cons, area, city, price, orient, infl, selfEl, pumpKw, pumpHours, pumpMonths].forEach(function (el) {
       if (el) el.addEventListener("input", calc);
     });
     if (orient) orient.addEventListener("change", calc);
     if (batteryEl) batteryEl.addEventListener("change", calc);
     if (printBtn) printBtn.addEventListener("click", function () { window.print(); });
     document.addEventListener("gespa:lang", calc);
+    // URL ile yöntem seçimi (ör. hesaplayici.html#tarim)
+    var hashM = (location.hash || "").replace("#", "");
+    if (["bill", "cons", "area", "tarim"].indexOf(hashM) >= 0) {
+      var hb = document.querySelector('.calc-methods button[data-method="' + hashM + '"]');
+      if (hb) hb.click();
+    }
     calc();
   })();
 

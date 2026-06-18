@@ -58,6 +58,7 @@
             <button class="active" data-method="bill">Faturaya göre</button>
             <button data-method="cons">Tüketime göre</button>
             <button data-method="area">Çatı alanına göre</button>
+            <button data-method="tarim">Tarımsal sulama</button>
           </div>
 
           <div class="calc-input-group active" data-group="bill">
@@ -68,6 +69,13 @@
           </div>
           <div class="calc-input-group" data-group="area">
             <div class="field"><label for="area">Kullanılabilir çatı alanı (m²)</label><input id="area" type="number" inputmode="numeric" min="0" step="10" value="120" /></div>
+          </div>
+          <div class="calc-input-group" data-group="tarim">
+            <div class="field"><label for="pumpKw">Sulama pompası gücü (kW)</label><input id="pumpKw" type="number" inputmode="decimal" min="0" step="0.5" /></div>
+            <div class="row">
+              <div class="field"><label for="pumpHours">Günlük çalışma (saat)</label><input id="pumpHours" type="number" inputmode="numeric" min="0" max="24" step="1" /></div>
+              <div class="field"><label for="pumpMonths">Sulama sezonu (ay)</label><input id="pumpMonths" type="number" inputmode="numeric" min="1" max="12" step="1" /></div>
+            </div>
           </div>
 
           <div class="field"><label for="city">Bölge (güneşlenme verimi)</label>

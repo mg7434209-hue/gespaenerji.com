@@ -60,6 +60,8 @@ window.GESPA.config = {
       { label: "Güneydoğu / Güneybatı", factor: 0.95 },
       { label: "Doğu / Batı", factor: 0.85 },
       { label: "Kuzey", factor: 0.65 }
-    ]
+    ],
+    // Tarımsal sulama yöntemi için varsayılan girdiler
+    irrigation: { defaultPumpKw: 7.5, defaultHours: 8, defaultMonths: 5 }
   }
 };

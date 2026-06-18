@@ -33,6 +33,9 @@ Kullanıcı üç yöntemden birini seçer; her biri **kurulu güç (kWp)** değe
    `kWp = (aylıkTüketim × 12) / bölgeVerim`
 3. **Çatı alanına göre** — `alan (m²)`
    `kWp = alan / areaPerKwp`
+4. **Tarımsal sulama** — `pompaGücü (kW)`, `günlükSaat`, `sezonAy`
+   `yıllıkTüketim = pompaGücü × günlükSaat × sezonAy × 30`
+   `kWp = yıllıkTüketim / (bölgeVerim × yön)` · varsayılanlar `config.calc.irrigation`
 
 Çatı yönü çarpanı `yön` (orientations.factor) bölge verimine uygulanır:
 `yıllıkÜretim(1.yıl) = kWp × bölgeVerim × yön`. Yöntem 2 ve 3'te kWp hesabına da `yön` dahildir.
