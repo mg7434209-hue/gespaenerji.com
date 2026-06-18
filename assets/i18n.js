@@ -558,25 +558,27 @@
 
   var LANGS = ["tr", "en", "de", "ru"];
 
-  // Geçerli sayfanın temel (parametresiz) URL'sini döndürür
-  function baseUrl() {
-    var link = document.querySelector('link[rel="canonical"]');
-    if (link && link.href) return link.href.split("?")[0].split("#")[0];
-    return location.origin + location.pathname;
+  // URL yolundan aktif dili ve sayfa dosyasını çöz
+  // Kök = TR; /en/ /de/ /ru/ alt dizinleri build ile üretilen statik dil sayfaları
+  function pageInfo() {
+    var p = location.pathname || "/";
+    var m = p.match(/^\/(en|de|ru)\//);
+    var lang = m ? m[1] : "tr";
+    var rest = m ? p.slice(m[0].length) : p.replace(/^\//, "");
+    if (rest === "") rest = "index.html";
+    return { lang: lang, file: rest };
   }
 
-  // Dile göre URL üretir (TR = parametresiz varsayılan)
-  function urlFor(lang) {
-    var b = baseUrl();
-    return lang === "tr" ? b : b + "?lang=" + lang;
+  // Bir dil + sayfa için mutlak URL üret (TR = kök)
+  function urlFor(lang, file) {
+    var prefix = lang === "tr" ? "/" : "/" + lang + "/";
+    var f = file === "index.html" ? "" : file;
+    return location.origin + prefix + f;
   }
 
-  // canonical'ı dile göre güncelle + hreflang alternatiflerini enjekte et
-  function updateSeoLinks(lang) {
+  // hreflang alternatiflerini (tr/en/de/ru + x-default) head'e enjekte et
+  function injectHreflang(file) {
     var head = document.head; if (!head) return;
-    var can = document.querySelector('link[rel="canonical"]');
-    if (can) can.setAttribute("href", urlFor(lang));
-    // Eski hreflang etiketlerini temizle, yeniden bas
     Array.prototype.slice.call(head.querySelectorAll('link[rel="alternate"][hreflang]'))
       .forEach(function (l) { l.parentNode.removeChild(l); });
     var add = function (hl, href) {
@@ -584,35 +586,27 @@
       l.setAttribute("rel", "alternate"); l.setAttribute("hreflang", hl); l.setAttribute("href", href);
       head.appendChild(l);
     };
-    LANGS.forEach(function (l) { add(l, urlFor(l)); });
-    add("x-default", urlFor("tr"));
-  }
-
-  // Adres çubuğundaki ?lang parametresini (geçmiş eklemeden) güncelle
-  function syncUrlParam(lang) {
-    if (!window.history || !history.replaceState) return;
-    try {
-      var u = new URL(location.href);
-      if (lang === "tr") u.searchParams.delete("lang"); else u.searchParams.set("lang", lang);
-      history.replaceState(null, "", u.pathname + (u.search || "") + (u.hash || ""));
-    } catch (e) {}
+    LANGS.forEach(function (l) { add(l, urlFor(l, file)); });
+    add("x-default", urlFor("tr", file));
   }
 
   function init() {
-    var initial = "tr";
-    try {
-      var p = new URLSearchParams(location.search).get("lang");
-      if (p && LANGS.indexOf(p) >= 0) initial = p;            // 1) URL parametresi
-      else initial = localStorage.getItem(LS) || "tr";        // 2) kayıtlı tercih
-    } catch (e) {}
-    apply(initial);
-    updateSeoLinks(initial);
+    var info = pageInfo();
+    // Prerendered dil sayfasında window.__LANG__ önceliklidir; aksi halde yol dili
+    var lang = info.lang;
+    if (window.__LANG__ && LANGS.indexOf(window.__LANG__) >= 0) lang = window.__LANG__;
+    apply(lang);
+    injectHreflang(info.file);
+    // Dil değiştirici: ilgili dilin URL'sine git (SEO için ayrı sayfalar)
     document.addEventListener("click", function (e) {
       var b = e.target.closest && e.target.closest(".lang-switch button");
-      if (b) {
-        var lang = b.getAttribute("data-lang");
-        apply(lang); updateSeoLinks(lang); syncUrlParam(lang);
-      }
+      if (!b) return;
+      var target = b.getAttribute("data-lang");
+      try { localStorage.setItem(LS, target); } catch (err) {}
+      var dest = urlFor(target, info.file);
+      var here = location.origin + location.pathname.replace(/index\.html$/, "");
+      if (dest === here || dest === here + "index.html") { apply(target); injectHreflang(info.file); }
+      else location.href = dest + location.hash;
     });
   }
   if (document.readyState !== "loading") init(); else document.addEventListener("DOMContentLoaded", init);

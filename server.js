@@ -41,7 +41,8 @@ function safeJoin(base, target) {
 const server = http.createServer((req, res) => {
   try {
     let urlPath = decodeURIComponent(req.url.split("?")[0]);
-    if (urlPath === "/") urlPath = "/index.html";
+    // Dizin kökü (/, /en/, /de/, /ru/) → index.html
+    if (urlPath.endsWith("/")) urlPath += "index.html";
 
     let filePath = safeJoin(ROOT, urlPath);
     if (!filePath) {
@@ -86,6 +87,14 @@ const server = http.createServer((req, res) => {
     res.end("Server error");
   }
 });
+
+// Çok dilli statik sayfaları (/en, /de, /ru) başlangıçta üret
+try {
+  const built = require("./build").run();
+  console.log(`GESPA build: ${built} dil sayfası hazır.`);
+} catch (e) {
+  console.warn("GESPA build atlandı:", e && e.message);
+}
 
 server.listen(PORT, () => {
   console.log(`GESPA Enerji sitesi http://localhost:${PORT} adresinde yayında`);

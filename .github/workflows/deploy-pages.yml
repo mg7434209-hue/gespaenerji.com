@@ -28,6 +28,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Build multilingual pages (/en, /de, /ru)
+        run: node build.js
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 

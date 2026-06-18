@@ -6,3 +6,8 @@ npm-debug.log*
 *.log
 dist/
 .cache/
+
+# build.js ile üretilen çok dilli statik sayfalar (kaynak değil, türetilmiş)
+/en/
+/de/
+/ru/

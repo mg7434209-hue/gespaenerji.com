@@ -5,9 +5,11 @@
 
 ## Proje
 Gespa Enerji kurumsal sitesi (gespaenerji.com). Antalya/Manavgat'ta anahtar
-teslim güneş enerjisi (GES) hizmetleri. **Çok sayfalı statik site** (build adımı yok).
+teslim güneş enerjisi (GES) hizmetleri. **Çok sayfalı statik site.**
 Saf HTML + CSS + Vanilla JS. Railway'de küçük Node statik sunucu (`server.js`),
 GitHub Pages ayna sürüm.
+TR sayfaları kök dizinde **kaynaktır**; `/en` `/de` `/ru` dil sayfaları
+`build.js` ile bu kaynaklardan **üretilir** (elle düzenlenmez, `.gitignore`'da).
 
 Sayfalar (her biri kök dizinde, `.html` uzantılı):
 `index.html` · `hizmetler.html` · `hesaplayici.html` · `projeler.html` ·
@@ -47,6 +49,11 @@ SEO başlığı/açıklaması/canonical/Open Graph içerir.
 - Çok dil (TR/EN/DE/RU): `assets/i18n.js` metinleri TR kaynağına göre çevirir; yeni metin
   eklerken DE/RU karşılığını `DICT`'e ekle, yoksa zarifçe TR kalır. Marka/iletişim
   (`data-c-text`) ve dinamik sayılar çeviriden hariç tutulur.
+- SEO için diller **ayrı URL**lerde sunulur: kök=TR, `/en` `/de` `/ru`. `build.js`
+  kök sayfalardan üretir (lang/title/description/canonical/og statik gömülür, gövde
+  istemci i18n ile çevrilir). Sayfa `<title>`/description çevirisi `build.js` içindeki
+  `META` tablosundadır — yeni sayfada oraya da satır ekle. Dil değiştirici ilgili
+  dil URL'sine yönlendirir; `hreflang` `i18n.js` tarafından enjekte edilir.
 
 ## Ağ Kısıtı (ÖNEMLİ)
 - Buluttaki Claude Code dış sitelere (ör. solaranaliz.tr, gespaenerji.com)
@@ -54,9 +61,10 @@ SEO başlığı/açıklaması/canonical/Open Graph içerir.
 - Dış veri gerekiyorsa: içeriği DOSYA olarak repoya ekle, ya da yerel Claude Code kullan.
 
 ## Yerel çalıştırma & Yayın
-- Geliştirme: `npm start` → `node server.js` (http://localhost:3000).
+- Dil sayfalarını üret: `npm run build` → `node build.js` (`/en` `/de` `/ru`).
+- Geliştirme: `npm start` → `node server.js` (http://localhost:3000); başlangıçta build çalışır.
 - Railway: `package.json` + `railway.json`; `npm start` ile yayınlanır (canlı site).
-- GitHub Pages: `.github/workflows/deploy-pages.yml` ile ayna sürüm.
+- GitHub Pages: `.github/workflows/deploy-pages.yml` upload'tan önce `node build.js` çalıştırır.
 
 ## Test (commit öncesi)
 - `node -c assets/main.js && node -c server.js` (söz dizimi).
