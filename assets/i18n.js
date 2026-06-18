@@ -546,7 +546,9 @@
     GESPA.lang = lang;
     try { localStorage.setItem(LS, lang); } catch (e) {}
     document.querySelectorAll(".lang-switch button").forEach(function (b) {
-      b.classList.toggle("active", b.getAttribute("data-lang") === lang);
+      var on = b.getAttribute("data-lang") === lang;
+      b.classList.toggle("active", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
     });
     document.dispatchEvent(new CustomEvent("gespa:lang", { detail: lang }));
   }

@@ -12,6 +12,21 @@
   var yil = $("#yil");
   if (yil) yil.textContent = new Date().getFullYear();
 
+  /* ---- Breadcrumb JSON-LD (kırıntıdan üretilir) ---- */
+  (function () {
+    var c = $(".crumbs"); if (!c) return;
+    var items = [], pos = 1;
+    $$("a", c).forEach(function (a) { items.push({ "@type": "ListItem", position: pos++, name: a.textContent.trim(), item: a.href }); });
+    var last = c.textContent.split("/").pop().trim();
+    if (last) items.push({ "@type": "ListItem", position: pos++, name: last, item: location.href.split("#")[0] });
+    if (items.length < 2) return;
+    try {
+      var s = doc.createElement("script"); s.type = "application/ld+json";
+      s.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: items });
+      doc.head.appendChild(s);
+    } catch (e) {}
+  })();
+
   /* ============================================================
      TEK KAYNAK ENJEKSİYONU (assets/config.js)
      İletişim, markalar, hesaplayıcı katsayıları ve JSON-LD buradan basılır.
