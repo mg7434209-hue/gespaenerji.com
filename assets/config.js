@@ -91,6 +91,8 @@ window.GESPA.config = {
       defV: 600, defI: 11, defLen: 30                 // tipik DC string varsayılanları
     },
     // Batarya / depolama boyutlandırma (batteryCostPerKwh yukarıda)
-    storage: { dod: 0.9, sysEff: 0.9, defDailyKwh: 15, defAutonomy: 1 }
+    storage: { dod: 0.9, sysEff: 0.9, defDailyKwh: 15, defAutonomy: 1 },
+    // Sıra aralığı / gölgelenme (kış gündönümü öğle güneşine göre)
+    shading: { declination: 23.45, defTilt: 30, defLat: 37 }
   }
 };

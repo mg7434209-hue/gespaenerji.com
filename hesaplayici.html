@@ -150,6 +150,7 @@
             <button data-tool="inverter">🔌 İnverter</button>
             <button data-tool="cable">🔻 Kablo / Gerilim Düşümü</button>
             <button data-tool="battery">🔋 Batarya</button>
+            <button data-tool="row">📐 Sıra Aralığı</button>
           </div>
 
           <!-- 1) Panel Yerleşim Planlayıcı -->
@@ -239,6 +240,33 @@
               </div>
             </div>
           </div>
+
+          <!-- 5) Sıra Aralığı / Gölgelenme -->
+          <div class="tool-panel" data-toolpanel="row">
+            <div class="tool-grid">
+              <div class="calc-card">
+                <h3 class="tool-title">Sıra Aralığı / Gölgelenme</h3>
+                <div class="row">
+                  <div class="field"><label for="rsTilt">Panel eğimi (°)</label><input id="rsTilt" type="number" inputmode="decimal" min="0" max="60" step="1" /></div>
+                  <div class="field"><label for="rsLat">Enlem (°)</label><input id="rsLat" type="number" inputmode="decimal" min="0" max="66" step="0.5" /></div>
+                </div>
+                <div class="field"><label for="rsLen">Modül boyu — eğim yönünde (m)</label><input id="rsLen" type="number" inputmode="decimal" min="0" step="0.01" /></div>
+                <p class="tool-hint">Kış gündönümü öğle güneşine göre gölgesiz minimum sıra aralığı. Güneş yüksekliği α = 90° − enlem − 23,45°.</p>
+              </div>
+              <div class="calc-card">
+                <div class="calc-results">
+                  <div class="result"><span class="r-label">Öğle güneş yüksekliği (α)</span><span class="r-value" id="rsAlt">—</span></div>
+                  <div class="result highlight"><span class="r-label">Sıra arası boşluk</span><span class="r-value" id="rsGap">—</span></div>
+                  <div class="result"><span class="r-label">Sıra periyodu (pitch)</span><span class="r-value" id="rsPitch">—</span></div>
+                  <div class="result"><span class="r-label">Alan kullanım oranı (GCR)</span><span class="r-value" id="rsGcr">—</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-cta">
+          <a class="btn btn-ghost" id="toolWa" href="#" target="_blank" rel="noopener">📲 Aktif aracın sonucunu WhatsApp'tan gönder</a>
         </div>
       </div>
     </section>

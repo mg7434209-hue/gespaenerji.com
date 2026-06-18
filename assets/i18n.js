@@ -50,6 +50,18 @@
 
   var DICT = {
     en: {
+      "Mühendislik Araçları": "Engineering Tools", "GES Alet Çantası": "Solar Toolbox",
+      "Ön tasarım ve saha için pratik hesap araçları. Sonuçlar tahminidir; kesin değer projelendirmeyle belirlenir.": "Practical calculators for pre-design and field work. Results are estimates; exact values are set during engineering.",
+      "🔲 Panel Yerleşim": "🔲 Panel Layout", "🔌 İnverter": "🔌 Inverter", "🔻 Kablo / Gerilim Düşümü": "🔻 Cable / Voltage Drop", "🔋 Batarya": "🔋 Battery", "📐 Sıra Aralığı": "📐 Row Spacing",
+      "Panel Yerleşim Planlayıcı": "Panel Layout Planner", "İnverter Boyutlandırma": "Inverter Sizing", "DC Kablo Kesiti / Gerilim Düşümü": "DC Cable Size / Voltage Drop", "Batarya / Depolama Boyutlandırma": "Battery / Storage Sizing", "Sıra Aralığı / Gölgelenme": "Row Spacing / Shading",
+      "Çatı genişliği (m)": "Roof width (m)", "Çatı derinliği (m)": "Roof depth (m)", "Panel yönü": "Panel orientation", "Dikey (portrait)": "Portrait", "Yatay (landscape)": "Landscape", "Paneller arası boşluk (m)": "Gap between panels (m)",
+      "Sistem gücü (kWp)": "System size (kWp)", "Hedef DC/AC oranı": "Target DC/AC ratio", "Akım (A)": "Current (A)", "Gerilim (V)": "Voltage (V)", "Kablo uzunluğu — tek yön (m)": "Cable length — one way (m)",
+      "Günlük tüketim (kWh)": "Daily consumption (kWh)", "Özerklik süresi (gün)": "Autonomy (days)", "Deşarj derinliği — DoD (%)": "Depth of discharge — DoD (%)", "Panel eğimi (°)": "Panel tilt (°)", "Enlem (°)": "Latitude (°)", "Modül boyu — eğim yönünde (m)": "Module length — along tilt (m)",
+      "Sığan panel": "Panels that fit", "Dizilim (sütun × satır)": "Layout (cols × rows)", "Toplam güç": "Total power", "Kullanılan alan": "Used area", "Çatı doluluğu": "Roof coverage", "Tahmini yıllık üretim": "Est. annual yield",
+      "Önerilen inverter": "Recommended inverter", "Uygun aralık": "Suitable range", "Panel sayısı (550 W)": "Number of panels (550 W)", "Seçilen DC/AC": "Selected DC/AC", "Önerilen kesit": "Recommended section",
+      "Karşılanacak enerji": "Energy to cover", "Gerekli batarya": "Required battery", "Tahmini batarya maliyeti": "Est. battery cost",
+      "Öğle güneş yüksekliği (α)": "Noon sun elevation (α)", "Sıra arası boşluk": "Row gap", "Sıra periyodu (pitch)": "Row pitch", "Alan kullanım oranı (GCR)": "Ground coverage (GCR)",
+      "📲 Aktif aracın sonucunu WhatsApp'tan gönder": "📲 Send the active tool's result via WhatsApp",
       "Ana Sayfa": "Home", "Hizmetler": "Services", "Hesaplayıcı": "Calculator",
       "Projeler": "Projects", "Hakkımızda": "About", "İletişim": "Contact", "Teklif Al": "Get a Quote",
       "☀️ 2026 GES teşvikleri açıklandı — yatırımınız için doğru zaman!": "☀️ 2026 solar incentives announced — the right time to invest!",
@@ -192,6 +204,18 @@
       "Aboneliğiniz alındı, teşekkürler!": "You're subscribed, thank you!"
     },
     de: {
+      "Mühendislik Araçları": "Ingenieurwerkzeuge", "GES Alet Çantası": "Solar-Werkzeugkasten",
+      "Ön tasarım ve saha için pratik hesap araçları. Sonuçlar tahminidir; kesin değer projelendirmeyle belirlenir.": "Praktische Rechner für Vorplanung und Einsatz. Ergebnisse sind Schätzungen; genaue Werte werden in der Planung festgelegt.",
+      "🔲 Panel Yerleşim": "🔲 Modul-Layout", "🔌 İnverter": "🔌 Wechselrichter", "🔻 Kablo / Gerilim Düşümü": "🔻 Kabel / Spannungsabfall", "🔋 Batarya": "🔋 Batterie", "📐 Sıra Aralığı": "📐 Reihenabstand",
+      "Panel Yerleşim Planlayıcı": "Modul-Layout-Planer", "İnverter Boyutlandırma": "Wechselrichter-Auslegung", "DC Kablo Kesiti / Gerilim Düşümü": "DC-Kabelquerschnitt / Spannungsabfall", "Batarya / Depolama Boyutlandırma": "Batterie- / Speicherauslegung", "Sıra Aralığı / Gölgelenme": "Reihenabstand / Verschattung",
+      "Çatı genişliği (m)": "Dachbreite (m)", "Çatı derinliği (m)": "Dachtiefe (m)", "Panel yönü": "Modulausrichtung", "Dikey (portrait)": "Hochformat", "Yatay (landscape)": "Querformat", "Paneller arası boşluk (m)": "Abstand zwischen Modulen (m)",
+      "Sistem gücü (kWp)": "Anlagengröße (kWp)", "Hedef DC/AC oranı": "Ziel-DC/AC-Verhältnis", "Akım (A)": "Strom (A)", "Gerilim (V)": "Spannung (V)", "Kablo uzunluğu — tek yön (m)": "Kabellänge — einfach (m)",
+      "Günlük tüketim (kWh)": "Täglicher Verbrauch (kWh)", "Özerklik süresi (gün)": "Autonomie (Tage)", "Deşarj derinliği — DoD (%)": "Entladetiefe — DoD (%)", "Panel eğimi (°)": "Modulneigung (°)", "Enlem (°)": "Breitengrad (°)", "Modül boyu — eğim yönünde (m)": "Modullänge — in Neigungsrichtung (m)",
+      "Sığan panel": "Passende Module", "Dizilim (sütun × satır)": "Anordnung (Spalten × Reihen)", "Toplam güç": "Gesamtleistung", "Kullanılan alan": "Genutzte Fläche", "Çatı doluluğu": "Dachbelegung", "Tahmini yıllık üretim": "Gesch. Jahresertrag",
+      "Önerilen inverter": "Empfohlener Wechselrichter", "Uygun aralık": "Geeigneter Bereich", "Panel sayısı (550 W)": "Modulanzahl (550 W)", "Seçilen DC/AC": "Gewähltes DC/AC", "Önerilen kesit": "Empfohlener Querschnitt",
+      "Karşılanacak enerji": "Zu deckende Energie", "Gerekli batarya": "Benötigte Batterie", "Tahmini batarya maliyeti": "Gesch. Batteriekosten",
+      "Öğle güneş yüksekliği (α)": "Sonnenhöhe mittags (α)", "Sıra arası boşluk": "Reihenabstand", "Sıra periyodu (pitch)": "Reihenteilung (Pitch)", "Alan kullanım oranı (GCR)": "Flächennutzung (GCR)",
+      "📲 Aktif aracın sonucunu WhatsApp'tan gönder": "📲 Ergebnis des aktiven Tools per WhatsApp senden",
       // Navigasyon
       "Ana Sayfa": "Startseite", "Hizmetler": "Leistungen", "Hesaplayıcı": "Rechner",
       "Projeler": "Projekte", "Hakkımızda": "Über uns", "İletişim": "Kontakt", "Teklif Al": "Angebot",
@@ -361,6 +385,18 @@
       "Aboneliğiniz alındı, teşekkürler!": "Anmeldung erhalten, danke!"
     },
     ru: {
+      "Mühendislik Araçları": "Инженерные инструменты", "GES Alet Çantası": "Набор инструментов для СЭС",
+      "Ön tasarım ve saha için pratik hesap araçları. Sonuçlar tahminidir; kesin değer projelendirmeyle belirlenir.": "Практичные калькуляторы для предпроектной и полевой работы. Результаты ориентировочны; точные значения определяются при проектировании.",
+      "🔲 Panel Yerleşim": "🔲 Расположение панелей", "🔌 İnverter": "🔌 Инвертор", "🔻 Kablo / Gerilim Düşümü": "🔻 Кабель / Падение напряжения", "🔋 Batarya": "🔋 Аккумулятор", "📐 Sıra Aralığı": "📐 Межрядный интервал",
+      "Panel Yerleşim Planlayıcı": "Планировщик расположения панелей", "İnverter Boyutlandırma": "Подбор инвертора", "DC Kablo Kesiti / Gerilim Düşümü": "Сечение DC-кабеля / Падение напряжения", "Batarya / Depolama Boyutlandırma": "Подбор аккумулятора / накопителя", "Sıra Aralığı / Gölgelenme": "Межрядный интервал / Затенение",
+      "Çatı genişliği (m)": "Ширина крыши (м)", "Çatı derinliği (m)": "Глубина крыши (м)", "Panel yönü": "Ориентация панели", "Dikey (portrait)": "Вертикально", "Yatay (landscape)": "Горизонтально", "Paneller arası boşluk (m)": "Зазор между панелями (м)",
+      "Sistem gücü (kWp)": "Мощность системы (кВт)", "Hedef DC/AC oranı": "Целевое отношение DC/AC", "Akım (A)": "Ток (А)", "Gerilim (V)": "Напряжение (В)", "Kablo uzunluğu — tek yön (m)": "Длина кабеля — в одну сторону (м)",
+      "Günlük tüketim (kWh)": "Суточное потребление (кВт·ч)", "Özerklik süresi (gün)": "Автономность (дни)", "Deşarj derinliği — DoD (%)": "Глубина разряда — DoD (%)", "Panel eğimi (°)": "Наклон панели (°)", "Enlem (°)": "Широта (°)", "Modül boyu — eğim yönünde (m)": "Длина модуля — вдоль наклона (м)",
+      "Sığan panel": "Помещается панелей", "Dizilim (sütun × satır)": "Сетка (столбцы × ряды)", "Toplam güç": "Суммарная мощность", "Kullanılan alan": "Используемая площадь", "Çatı doluluğu": "Заполнение крыши", "Tahmini yıllık üretim": "Оценка годовой выработки",
+      "Önerilen inverter": "Рекомендуемый инвертор", "Uygun aralık": "Подходящий диапазон", "Panel sayısı (550 W)": "Число панелей (550 Вт)", "Seçilen DC/AC": "Выбранное DC/AC", "Önerilen kesit": "Рекомендуемое сечение",
+      "Karşılanacak enerji": "Покрываемая энергия", "Gerekli batarya": "Требуемый аккумулятор", "Tahmini batarya maliyeti": "Оценка стоимости аккумулятора",
+      "Öğle güneş yüksekliği (α)": "Высота солнца в полдень (α)", "Sıra arası boşluk": "Зазор между рядами", "Sıra periyodu (pitch)": "Шаг ряда (pitch)", "Alan kullanım oranı (GCR)": "Коэффициент покрытия (GCR)",
+      "📲 Aktif aracın sonucunu WhatsApp'tan gönder": "📲 Отправить результат активного инструмента в WhatsApp",
       "Ana Sayfa": "Главная", "Hizmetler": "Услуги", "Hesaplayıcı": "Калькулятор",
       "Projeler": "Проекты", "Hakkımızda": "О нас", "İletişim": "Контакты", "Teklif Al": "Заявка",
       "☀️ 2026 GES teşvikleri açıklandı — yatırımınız için doğru zaman!": "☀️ Льготы на солнечную энергию 2026 объявлены — самое время инвестировать!",

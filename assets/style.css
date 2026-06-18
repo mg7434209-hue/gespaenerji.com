@@ -419,4 +419,5 @@ img{max-width:100%;display:block}
 .cable-row span:nth-child(2),.cable-row span:nth-child(3){text-align:right;font-variant-numeric:tabular-nums}
 .cable-head{font-weight:700;color:var(--muted);background:transparent;padding-bottom:2px}
 .cable-row.ok{background:rgba(10,110,79,.12);font-weight:600}
+.tool-cta{text-align:center;margin-top:24px}
 @media(max-width:760px){.tool-grid{grid-template-columns:1fr}}

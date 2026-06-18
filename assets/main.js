@@ -430,13 +430,30 @@
     var f2 = function (n) { return new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 2 }).format(n); };
     var set = function (sel, v) { var e = $(sel); if (e) e.textContent = v; };
 
+    // Aktif aracın sonucunu WhatsApp'tan gönderme
+    var summaries = {}, activeTool = "layout";
+    var WA = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
+    var waBtn = $("#toolWa");
+    function updateWa() {
+      if (!waBtn) return;
+      var sm = summaries[activeTool];
+      if (!WA || !sm) { waBtn.style.display = "none"; return; }
+      waBtn.style.display = "";
+      var msg = L("Merhaba, GESPA hesaplayıcı aracından sonuç:", "Hello, here is a result from the GESPA tool:", "Hallo, hier ein Ergebnis aus dem GESPA-Tool:", "Здравствуйте, результат из инструмента GESPA:")
+        + "\n" + sm + "\n"
+        + L("Ücretsiz keşif talep ediyorum.", "I'd like a free site survey.", "Ich möchte eine kostenlose Beratung.", "Хочу бесплатный выезд.");
+      waBtn.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
+    }
+
     // Sekme geçişi
     var tabs = $$(".tool-tabs button", box), panels = $$(".tool-panel", box);
     tabs.forEach(function (b) {
       b.addEventListener("click", function () {
         var t = b.getAttribute("data-tool");
+        activeTool = t;
         tabs.forEach(function (x) { x.classList.toggle("active", x === b); });
         panels.forEach(function (p) { p.classList.toggle("active", p.getAttribute("data-toolpanel") === t); });
+        updateWa();
       });
     });
 
@@ -473,6 +490,8 @@
         set("#lyArea", ok ? nf(used) + " m²" : "—");
         set("#lyFill", ok ? "%" + nf(fill) : "—");
         set("#lyProd", ok ? nf(prod) + " kWh/" + L("yıl", "yr", "Jahr", "год") : "—");
+        summaries.layout = ok ? ("Panel yerleşim: " + nf(total) + " panel (" + cols + "×" + rows + "), " + f1(kwp) + " kWp, ~" + nf(prod) + " kWh/yıl") : "";
+        updateWa();
         renderViz(rw, rd, cols, rows, pw, ph, gap);
       }
       function renderViz(rw, rd, cols, rows, pw, ph, gap) {
@@ -510,6 +529,8 @@
         set("#invRange", ok ? f1(lo) + " – " + f1(hi) + " kW" : "—");
         set("#invPanels", ok ? nf(Math.ceil(kwp * 1000 / PANEL_W)) + " " + L("adet", "pcs", "Stk.", "шт.") : "—");
         set("#invDcac", ok ? f2(ratio) : "—");
+        summaries.inverter = ok ? ("İnverter: ~" + f1(rec) + " kW (sistem " + f1(kwp) + " kWp, DC/AC " + f2(ratio) + ")") : "";
+        updateWa();
       }
       [Kwp, R].forEach(function (e) { if (e) e.addEventListener("input", calc); });
       document.addEventListener("gespa:lang", calc);
@@ -539,6 +560,8 @@
         var head = '<div class="cable-row cable-head"><span>' + L("Kesit", "Section", "Querschnitt", "Сечение") + '</span><span>' + L("Düşüm", "Drop", "Abfall", "Падение") + '</span><span>%</span></div>';
         $("#cbTable").innerHTML = ok ? head + rows : "";
         set("#cbRec", ok ? (rec ? rec + " mm²" : L("≥ 25 mm² gerekli", "≥ 25 mm² needed", "≥ 25 mm² nötig", "нужно ≥ 25 мм²")) : "—");
+        summaries.cable = ok ? ("DC kablo: önerilen " + (rec ? rec + " mm²" : "≥25 mm²") + " (I=" + i + "A, L=" + l + "m, V=" + v + "V)") : "";
+        updateWa();
       }
       [I, V, Len].forEach(function (e) { if (e) e.addEventListener("input", calc); });
       document.addEventListener("gespa:lang", calc);
@@ -563,11 +586,46 @@
         set("#btNeed", ok ? f1(need) + " kWh" : "—");
         set("#btKwh", ok ? f1(kwh) + " kWh" : "—");
         set("#btCost", ok ? "₺" + nf(kwh * BCOST) : "—");
+        summaries.battery = ok ? ("Batarya: " + f1(kwh) + " kWh, ~₺" + nf(kwh * BCOST)) : "";
+        updateWa();
       }
       [Daily, Days, Dod].forEach(function (e) { if (e) e.addEventListener("input", calc); });
       document.addEventListener("gespa:lang", calc);
       calc();
     })();
+
+    /* 5) Sıra aralığı / gölgelenme */
+    (function () {
+      var T = $("#rsTilt"), Lat = $("#rsLat"), Len = $("#rsLen"); if (!T) return;
+      var SH = k.shading || { declination: 23.45, defTilt: 30, defLat: 37 };
+      var DECL = SH.declination || 23.45;
+      var modLong = (k.panelDims && k.panelDims.long) || 2.279;
+      if (!T.value && SH.defTilt != null) T.value = SH.defTilt;
+      if (Lat && !Lat.value && SH.defLat != null) Lat.value = SH.defLat;
+      if (Len && !Len.value) Len.value = modLong;
+      var rad = function (d) { return d * Math.PI / 180; };
+      function calc() {
+        var beta = parseFloat(T.value) || 0, lat = parseFloat(Lat && Lat.value) || 0, Lm = parseFloat(Len && Len.value) || 0;
+        var alpha = 90 - lat - DECL;                 // kış gündönümü öğle güneş yüksekliği (°)
+        var feasible = alpha > 0 && Lm > 0;
+        var H = Lm * Math.sin(rad(beta));            // dikey yükseklik
+        var base = Lm * Math.cos(rad(beta));         // yatay izdüşüm
+        var gap = feasible ? H / Math.tan(rad(alpha)) : 0;
+        var pitch = base + gap;
+        var gcr = pitch > 0 ? Lm / pitch * 100 : 0;
+        set("#rsAlt", alpha > 0 ? f1(alpha) + "°" : L("Bu enlemde uygun değil", "Not feasible at this latitude", "Bei diesem Breitengrad nicht möglich", "Невозможно на этой широте"));
+        set("#rsGap", feasible ? f2(gap) + " m" : "—");
+        set("#rsPitch", feasible ? f2(pitch) + " m" : "—");
+        set("#rsGcr", feasible ? "%" + nf(gcr) : "—");
+        summaries.row = feasible ? ("Sıra aralığı: boşluk " + f2(gap) + " m, pitch " + f2(pitch) + " m, GCR %" + nf(gcr) + " (eğim " + nf(beta) + "°, enlem " + f1(lat) + "°)") : "";
+        updateWa();
+      }
+      [T, Lat, Len].forEach(function (e) { if (e) e.addEventListener("input", calc); });
+      document.addEventListener("gespa:lang", calc);
+      calc();
+    })();
+
+    updateWa();
   })();
 
   /* ---- Proje filtreleri ---- */

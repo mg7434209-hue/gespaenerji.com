@@ -137,3 +137,20 @@ ihtiyaç   = günlükTüketim × özerklikGün       (kWh)
 kapasite  = ihtiyaç / (dod × sysEff)          (kWh)
 maliyet   = kapasite × batteryCostPerKwh      (₺)
 ```
+
+### 5) Sıra Aralığı / Gölgelenme
+Katsayılar: `shading {declination, defTilt, defLat}`, modül boyu = `panelDims.long`.
+Kış gündönümü öğle güneşine göre gölgesiz minimum sıra aralığı:
+```
+α      = 90 − enlem − declination             (°, öğle güneş yüksekliği)
+H      = modülBoyu × sin(eğim)                (m, dikey yükseklik)
+taban  = modülBoyu × cos(eğim)                (m, yatay izdüşüm)
+boşluk = H / tan(α)                           (m, gölgesiz arka boşluk)
+pitch  = taban + boşluk                       (m, sıra periyodu)
+GCR    = modülBoyu / pitch                    (%, alan kullanım oranı)
+```
+α ≤ 0 ise bu enlemde uygun değildir (uyarı gösterilir).
+
+## Ortak — WhatsApp paylaşımı
+Aktif aracın özeti `#toolWa` butonuyla `wa.me` üzerinden gönderilir
+(numara `config.company.phone.wa`). Mesaj başlığı/sonu i18n ile çevrilir.
