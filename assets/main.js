@@ -52,6 +52,14 @@
           image: c.web + "/assets/img/gespa-icon.png",
           address: { "@type": "PostalAddress", streetAddress: c.address.line, addressLocality: c.address.district, addressRegion: c.address.city, addressCountry: c.address.country }
         };
+        // Opsiyonel zenginleştirmeler — yalnızca config'te değer varsa eklenir
+        if (c.openingHours) d.openingHours = c.openingHours;
+        if (c.priceRange) d.priceRange = c.priceRange;
+        if (c.areaServed && c.areaServed.length) d.areaServed = c.areaServed;
+        if (c.sameAs && c.sameAs.length) d.sameAs = c.sameAs;
+        if (c.geo && c.geo.lat != null && c.geo.lng != null) {
+          d.geo = { "@type": "GeoCoordinates", latitude: c.geo.lat, longitude: c.geo.lng };
+        }
         var s = doc.createElement("script"); s.type = "application/ld+json"; s.textContent = JSON.stringify(d); doc.head.appendChild(s);
       } catch (e) {}
     }

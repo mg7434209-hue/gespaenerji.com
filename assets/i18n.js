@@ -556,12 +556,63 @@
   GESPA.units = UNITS;
   GESPA.applyLang = apply;
 
+  var LANGS = ["tr", "en", "de", "ru"];
+
+  // Geçerli sayfanın temel (parametresiz) URL'sini döndürür
+  function baseUrl() {
+    var link = document.querySelector('link[rel="canonical"]');
+    if (link && link.href) return link.href.split("?")[0].split("#")[0];
+    return location.origin + location.pathname;
+  }
+
+  // Dile göre URL üretir (TR = parametresiz varsayılan)
+  function urlFor(lang) {
+    var b = baseUrl();
+    return lang === "tr" ? b : b + "?lang=" + lang;
+  }
+
+  // canonical'ı dile göre güncelle + hreflang alternatiflerini enjekte et
+  function updateSeoLinks(lang) {
+    var head = document.head; if (!head) return;
+    var can = document.querySelector('link[rel="canonical"]');
+    if (can) can.setAttribute("href", urlFor(lang));
+    // Eski hreflang etiketlerini temizle, yeniden bas
+    Array.prototype.slice.call(head.querySelectorAll('link[rel="alternate"][hreflang]'))
+      .forEach(function (l) { l.parentNode.removeChild(l); });
+    var add = function (hl, href) {
+      var l = document.createElement("link");
+      l.setAttribute("rel", "alternate"); l.setAttribute("hreflang", hl); l.setAttribute("href", href);
+      head.appendChild(l);
+    };
+    LANGS.forEach(function (l) { add(l, urlFor(l)); });
+    add("x-default", urlFor("tr"));
+  }
+
+  // Adres çubuğundaki ?lang parametresini (geçmiş eklemeden) güncelle
+  function syncUrlParam(lang) {
+    if (!window.history || !history.replaceState) return;
+    try {
+      var u = new URL(location.href);
+      if (lang === "tr") u.searchParams.delete("lang"); else u.searchParams.set("lang", lang);
+      history.replaceState(null, "", u.pathname + (u.search || "") + (u.hash || ""));
+    } catch (e) {}
+  }
+
   function init() {
-    var saved = "tr"; try { saved = localStorage.getItem(LS) || "tr"; } catch (e) {}
-    apply(saved);
+    var initial = "tr";
+    try {
+      var p = new URLSearchParams(location.search).get("lang");
+      if (p && LANGS.indexOf(p) >= 0) initial = p;            // 1) URL parametresi
+      else initial = localStorage.getItem(LS) || "tr";        // 2) kayıtlı tercih
+    } catch (e) {}
+    apply(initial);
+    updateSeoLinks(initial);
     document.addEventListener("click", function (e) {
       var b = e.target.closest && e.target.closest(".lang-switch button");
-      if (b) apply(b.getAttribute("data-lang"));
+      if (b) {
+        var lang = b.getAttribute("data-lang");
+        apply(lang); updateSeoLinks(lang); syncUrlParam(lang);
+      }
     });
   }
   if (document.readyState !== "loading") init(); else document.addEventListener("DOMContentLoaded", init);

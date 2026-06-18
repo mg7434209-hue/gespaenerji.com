@@ -23,7 +23,13 @@ window.GESPA.config = {
       full: "Örnek Mah. 1551 Sok. No:10/1, Manavgat / Antalya"
     },
     web: "https://gespaenerji.com",
-    hours: "Hafta içi 09:00 – 18:00"
+    hours: "Hafta içi 09:00 – 18:00",
+    // SEO / schema.org zenginleştirme — boş bırakılan alanlar JSON-LD'ye yazılmaz
+    openingHours: "Mo-Fr 09:00-18:00",   // schema.org LocalBusiness.openingHours
+    priceRange: "₺₺",                     // tahmini fiyat aralığı (zorunlu değil ama önerilir)
+    areaServed: ["Antalya", "Manavgat", "Alanya", "Serik", "Kırşehir"],
+    geo: { lat: null, lng: null },        // kesin koordinat girilince schema'ya eklenir
+    sameAs: []                            // gerçek sosyal medya URL'leri (LinkedIn/Instagram/X) eklenince doldurun
   },
 
   // Kullanılan markalar

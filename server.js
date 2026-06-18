@@ -5,9 +5,13 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
+const zlib = require("zlib");
 
 const PORT = process.env.PORT || 3000;
 const ROOT = __dirname;
+
+// Sıkıştırılması anlamlı (metin tabanlı) içerik tipleri
+const COMPRESSIBLE = /^(text\/|application\/(javascript|json|manifest\+json|xml)|image\/svg)/;
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -54,11 +58,28 @@ const server = http.createServer((req, res) => {
       }
       const ext = path.extname(filePath).toLowerCase();
       const type = MIME[ext] || "application/octet-stream";
-      const headers = { "Content-Type": type, "X-Content-Type-Options": "nosniff" };
-      // Statik varlıkları önbelleğe al, HTML'i alma
-      if (ext !== ".html") headers["Cache-Control"] = "public, max-age=86400";
-      res.writeHead(status, headers);
-      fs.createReadStream(filePath).pipe(res);
+      const headers = {
+        "Content-Type": type,
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "X-Frame-Options": "SAMEORIGIN"
+      };
+      // HTML her zaman taze; diğer statik varlıkları 7 gün önbelleğe al
+      headers["Cache-Control"] = ext === ".html" ? "no-cache" : "public, max-age=604800";
+
+      // Accept-Encoding destekliyorsa metin içeriği gzip ile gönder
+      const ae = (req.headers["accept-encoding"] || "");
+      const stream = fs.createReadStream(filePath);
+      stream.on("error", function () { try { res.writeHead(500); res.end("Server error"); } catch (e) {} });
+      if (/\bgzip\b/.test(ae) && COMPRESSIBLE.test(type)) {
+        headers["Content-Encoding"] = "gzip";
+        headers["Vary"] = "Accept-Encoding";
+        res.writeHead(status, headers);
+        stream.pipe(zlib.createGzip()).pipe(res);
+      } else {
+        res.writeHead(status, headers);
+        stream.pipe(res);
+      }
     });
   } catch (e) {
     res.writeHead(500);

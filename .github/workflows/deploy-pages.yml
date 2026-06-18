@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - claude/determined-albattani-ol20qb
+      - claude/confident-dirac-om5h20
   workflow_dispatch:
 
 permissions:
