@@ -101,18 +101,21 @@ Mantık: `assets/main.js` (toolbox IIFE) · Katsayılar: `config.calc` · Sekmel
 > KURAL: Buradaki hiçbir sayı da koda gömülmez; tümü `config.calc`'tan okunur.
 
 ### 1) Panel Yerleşim Planlayıcı
-Katsayılar: `panelDims {short,long}` (m), `layoutGap` (m), `panelW`, bölge verimi (`regions` default).
+Katsayılar: `panelDims {short,long}` (m), `layoutGap` (m), `layoutMargin` (m), `panelW`, bölge verimi (`regions` default).
+Girdiler: çatı en×boy, panel yönü, kenar boşluğu (setback), opsiyonel engel (baca/çatı penceresi: soldan/üstten konum + en×boy).
 ```
 pw,ph     = (dikey) short,long  | (yatay) long,short
-sütun     = floor((çatıGen + gap) / (pw + gap))
-satır     = floor((çatıDer + gap) / (ph + gap))
-panel     = sütun × satır
+kullanımEn = çatıGen − 2×kenar ; kullanımDer = çatıDer − 2×kenar
+sütun     = floor((kullanımEn + gap) / (pw + gap))
+satır     = floor((kullanımDer + gap) / (ph + gap))
+panel     = kenar ofsetiyle yerleştirilen, engelle ÇAKIŞMAYAN hücre sayısı
 kWp       = panel × panelW / 1000
 kullanım  = panel × pw × ph                  (m²)
 doluluk   = kullanım / (çatıGen × çatıDer)    (%)
 üretim    = kWp × bölgeVerim                  (kWh/yıl, tahmini)
 ```
-SVG: çatı dikdörtgeni içine ölçekli panel ızgarası çizilir.
+Çakışma: hücre(px,py,pw,ph) ile engel(x,y,w,h) AABB kesişimi → panel elenir.
+SVG: çatı + yerleşen paneller (yeşil), engelle elenenler (gri), engel (kırmızı).
 
 ### 2) İnverter Boyutlandırma
 Katsayılar: `inverterRatio {min,def,max}`, `panelW`.

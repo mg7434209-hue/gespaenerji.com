@@ -162,8 +162,18 @@
                   <div class="field"><label for="roofW">Çatı genişliği (m)</label><input id="roofW" type="number" inputmode="decimal" min="0" step="0.5" value="10" /></div>
                   <div class="field"><label for="roofD">Çatı derinliği (m)</label><input id="roofD" type="number" inputmode="decimal" min="0" step="0.5" value="6" /></div>
                 </div>
-                <div class="field"><label for="panelOrient">Panel yönü</label><select id="panelOrient"><option value="portrait">Dikey (portrait)</option><option value="landscape">Yatay (landscape)</option></select></div>
+                <div class="row">
+                  <div class="field"><label for="panelOrient">Panel yönü</label><select id="panelOrient"><option value="portrait">Dikey (portrait)</option><option value="landscape">Yatay (landscape)</option></select></div>
+                  <div class="field"><label for="roofMargin">Kenar boşluğu (m)</label><input id="roofMargin" type="number" inputmode="decimal" min="0" step="0.1" /></div>
+                </div>
                 <div class="field"><label for="layoutGap">Paneller arası boşluk (m)</label><input id="layoutGap" type="number" inputmode="decimal" min="0" step="0.01" /></div>
+                <label class="check"><input type="checkbox" id="obsOn" /> <span>Engel ekle (baca / çatı penceresi)</span></label>
+                <div class="row" id="obsFields" hidden>
+                  <div class="field"><label for="obsX">Engel — soldan (m)</label><input id="obsX" type="number" inputmode="decimal" min="0" step="0.1" value="2" /></div>
+                  <div class="field"><label for="obsY">Engel — üstten (m)</label><input id="obsY" type="number" inputmode="decimal" min="0" step="0.1" value="1" /></div>
+                  <div class="field"><label for="obsW">Engel genişliği (m)</label><input id="obsW" type="number" inputmode="decimal" min="0" step="0.1" value="1.5" /></div>
+                  <div class="field"><label for="obsH">Engel boyu (m)</label><input id="obsH" type="number" inputmode="decimal" min="0" step="0.1" value="1.5" /></div>
+                </div>
                 <p class="tool-hint" id="lyDims"></p>
               </div>
               <div class="calc-card">
@@ -267,6 +277,7 @@
 
         <div class="tool-cta">
           <a class="btn btn-ghost" id="toolWa" href="#" target="_blank" rel="noopener">📲 Aktif aracın sonucunu WhatsApp'tan gönder</a>
+          <button class="btn btn-ghost" id="toolPrint" type="button">🖨️ Yazdır / PDF</button>
         </div>
       </div>
     </section>

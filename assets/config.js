@@ -81,6 +81,7 @@ window.GESPA.config = {
     // Panel fiziksel ölçüsü (m) — ~550 Wp panel ≈ 2279 × 1134 mm
     panelDims: { short: 1.134, long: 2.279 },
     layoutGap: 0.02,                                  // m — paneller arası montaj boşluğu
+    layoutMargin: 0.3,                                // m — çatı kenar boşluğu (setback) varsayılanı
     // İnverter boyutlandırma — DC/AC güç oranı
     inverterRatio: { min: 1.1, def: 1.2, max: 1.3 },
     // DC kablo kesiti / gerilim düşümü

@@ -444,6 +444,8 @@
         + L("Ücretsiz keşif talep ediyorum.", "I'd like a free site survey.", "Ich möchte eine kostenlose Beratung.", "Хочу бесплатный выезд.");
       waBtn.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
     }
+    var printBtn = $("#toolPrint");
+    if (printBtn) printBtn.addEventListener("click", function () { window.print(); });
 
     // Sekme geçişi
     var tabs = $$(".tool-tabs button", box), panels = $$(".tool-panel", box);
@@ -461,55 +463,89 @@
     var defYield = 1500;
     if (k.regions && k.regions.length) { var dr = k.regions.filter(function (r) { return r.default; })[0] || k.regions[0]; defYield = dr.yield || 1500; }
 
-    /* 1) Panel yerleşim planlayıcı */
+    /* 1) Panel yerleşim planlayıcı (kenar boşluğu + engel desteği) */
     (function () {
-      var W = $("#roofW"), D = $("#roofD"), O = $("#panelOrient"), G = $("#layoutGap");
+      var W = $("#roofW"), D = $("#roofD"), O = $("#panelOrient"), G = $("#layoutGap"), M = $("#roofMargin");
       if (!W) return;
       var P = k.panelDims || { short: 1.134, long: 2.279 };
+      var ObsOn = $("#obsOn"), obsFields = $("#obsFields");
+      var oX = $("#obsX"), oY = $("#obsY"), oW = $("#obsW"), oH = $("#obsH");
       if (G && !G.value && k.layoutGap != null) G.value = k.layoutGap;
+      if (M && !M.value && k.layoutMargin != null) M.value = k.layoutMargin;
       var viz = $("#lyViz");
       set("#lyDims", L("Panel ölçüsü: ", "Panel size: ", "Modulmaß: ", "Размер панели: ") + f2(P.short) + " × " + f2(P.long) + " m");
+
+      // Panel hücresi (px,py,pw,ph) engel diktörtgeniyle çakışıyor mu
+      function hits(px, py, pw, ph, ob) {
+        if (!ob) return false;
+        return !(px + pw <= ob.x || px >= ob.x + ob.w || py + ph <= ob.y || py >= ob.y + ob.h);
+      }
+
       function calc() {
         var rw = parseFloat(W.value) || 0, rd = parseFloat(D.value) || 0;
         var gap = parseFloat(G && G.value) || 0;
+        var mar = parseFloat(M && M.value) || 0;
         var portrait = !O || O.value === "portrait";
         var pw = portrait ? P.short : P.long;   // satır boyunca genişlik
         var ph = portrait ? P.long : P.short;   // derinlik boyunca yükseklik
-        var cols = Math.floor((rw + gap) / (pw + gap));
-        var rows = Math.floor((rd + gap) / (ph + gap));
-        cols = Math.max(0, cols); rows = Math.max(0, rows);
-        var total = cols * rows;
+        if (obsFields) obsFields.hidden = !(ObsOn && ObsOn.checked);
+        var ob = (ObsOn && ObsOn.checked) ? {
+          x: parseFloat(oX && oX.value) || 0, y: parseFloat(oY && oY.value) || 0,
+          w: parseFloat(oW && oW.value) || 0, h: parseFloat(oH && oH.value) || 0
+        } : null;
+        if (ob && (ob.w <= 0 || ob.h <= 0)) ob = null;
+
+        // Kullanılabilir alan (kenar boşluğu çıkarılır), yerleşim mar ofsetiyle başlar
+        var uw = Math.max(0, rw - 2 * mar), ud = Math.max(0, rd - 2 * mar);
+        var cols = Math.max(0, Math.floor((uw + gap) / (pw + gap)));
+        var rows = Math.max(0, Math.floor((ud + gap) / (ph + gap)));
+
+        var placed = 0, cells = [];
+        for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
+          var px = mar + c * (pw + gap), py = mar + r * (ph + gap);
+          var blocked = hits(px, py, pw, ph, ob);
+          if (!blocked) placed++;
+          cells.push({ x: px, y: py, blocked: blocked });
+        }
+        var total = placed;
         var kwp = total * PANEL_W / 1000;
         var used = total * pw * ph;
         var fill = (rw * rd) > 0 ? used / (rw * rd) * 100 : 0;
         var prod = kwp * defYield;
         var ok = total > 0;
         set("#lyPanels", ok ? nf(total) + " " + L("adet", "pcs", "Stk.", "шт.") : "—");
-        set("#lyGrid", ok ? cols + " × " + rows : "—");
+        set("#lyGrid", ok ? cols + " × " + rows + (ob ? " − " + L("engel", "obstacle", "Hindernis", "препятствие") : "") : "—");
         set("#lyKwp", ok ? f1(kwp) + " kWp" : "—");
         set("#lyArea", ok ? nf(used) + " m²" : "—");
         set("#lyFill", ok ? "%" + nf(fill) : "—");
         set("#lyProd", ok ? nf(prod) + " kWh/" + L("yıl", "yr", "Jahr", "год") : "—");
-        summaries.layout = ok ? ("Panel yerleşim: " + nf(total) + " panel (" + cols + "×" + rows + "), " + f1(kwp) + " kWp, ~" + nf(prod) + " kWh/yıl") : "";
+        summaries.layout = ok ? ("Panel yerleşim: " + nf(total) + " panel" + (ob ? " (engelli)" : "") + ", " + f1(kwp) + " kWp, ~" + nf(prod) + " kWh/yıl") : "";
         updateWa();
-        renderViz(rw, rd, cols, rows, pw, ph, gap);
+        renderViz(rw, rd, pw, ph, cells, ob);
       }
-      function renderViz(rw, rd, cols, rows, pw, ph, gap) {
+
+      function renderViz(rw, rd, pw, ph, cells, ob) {
         if (!viz) return;
-        if (!(rw > 0 && rd > 0) || cols * rows <= 0) { viz.innerHTML = ""; return; }
+        if (!(rw > 0 && rd > 0) || !cells.length) { viz.innerHTML = ""; return; }
         var VW = 320, scale = VW / rw, VH = rd * scale;
         var s = '<svg viewBox="0 0 ' + VW.toFixed(1) + ' ' + VH.toFixed(1) + '" width="100%" role="img" aria-label="Panel yerleşim planı">';
         s += '<rect x="0" y="0" width="' + VW.toFixed(1) + '" height="' + VH.toFixed(1) + '" fill="none" stroke="#9aa" stroke-width="1.5" rx="3"/>';
-        var cw = pw * scale, ch = ph * scale, gp = gap * scale;
-        for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
-          var x = c * (cw + gp), y = r * (ch + gp);
-          s += '<rect x="' + (x + 1).toFixed(1) + '" y="' + (y + 1).toFixed(1) + '" width="' + Math.max(cw - 1, 0).toFixed(1) + '" height="' + Math.max(ch - 1, 0).toFixed(1) + '" fill="#0a6e4f" opacity="0.82" rx="1"/>';
+        var cw = pw * scale, ch = ph * scale;
+        cells.forEach(function (cell) {
+          var x = cell.x * scale, y = cell.y * scale;
+          var fill = cell.blocked ? "#cbd5d0" : "#0a6e4f";
+          var op = cell.blocked ? "0.5" : "0.82";
+          s += '<rect x="' + (x + 1).toFixed(1) + '" y="' + (y + 1).toFixed(1) + '" width="' + Math.max(cw - 1, 0).toFixed(1) + '" height="' + Math.max(ch - 1, 0).toFixed(1) + '" fill="' + fill + '" opacity="' + op + '" rx="1"/>';
+        });
+        if (ob) {
+          s += '<rect x="' + (ob.x * scale).toFixed(1) + '" y="' + (ob.y * scale).toFixed(1) + '" width="' + (ob.w * scale).toFixed(1) + '" height="' + (ob.h * scale).toFixed(1) + '" fill="#c0392b" opacity="0.7" rx="1"/>';
         }
         s += '</svg>';
         viz.innerHTML = s;
       }
-      [W, D, G].forEach(function (e) { if (e) e.addEventListener("input", calc); });
+      [W, D, G, M, oX, oY, oW, oH].forEach(function (e) { if (e) e.addEventListener("input", calc); });
       if (O) O.addEventListener("change", calc);
+      if (ObsOn) ObsOn.addEventListener("change", calc);
       document.addEventListener("gespa:lang", calc);
       calc();
     })();
