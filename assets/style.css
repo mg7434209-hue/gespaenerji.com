@@ -257,11 +257,6 @@ img{max-width:100%;display:block}
 
 /* Gradient placeholders (for project/post images) */
 .grad-1{background:linear-gradient(135deg,#0a6e4f,#1b9c73)}
-.grad-2{background:linear-gradient(135deg,#f7b500,#ff8a00)}
-.grad-3{background:linear-gradient(135deg,#1b9c73,#7bd389)}
-.grad-4{background:linear-gradient(135deg,#075138,#0a6e4f)}
-.grad-5{background:linear-gradient(135deg,#ffb347,#f7b500)}
-.grad-6{background:linear-gradient(135deg,#23b083,#0e8a64)}
 
 /* Steps */
 .steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;padding:0;margin:0}
@@ -292,13 +287,6 @@ img{max-width:100%;display:block}
 .testi-dots button.active{background:var(--green);width:26px;border-radius:6px}
 
 /* Blog */
-.post{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .2s,box-shadow .2s}
-.post:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
-.post-img{aspect-ratio:16/9}
-.post-body{padding:20px}
-.post-date{color:var(--green);font-weight:700;font-size:.82rem}
-.post-body h3{font-size:1.12rem;margin:6px 0 6px}
-.post-body p{margin:0;color:var(--muted);font-size:.94rem}
 
 /* FAQ */
 .faq{display:grid;gap:12px}
