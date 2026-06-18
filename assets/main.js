@@ -420,6 +420,156 @@
     calcPump();
   })();
 
+  /* ---- Alet çantası (mühendislik araçları) ---- */
+  (function () {
+    var box = $(".toolbox"); if (!box) return;
+    var k = (window.GESPA && window.GESPA.config && window.GESPA.config.calc) || {};
+    var PANEL_W = k.panelW || 550, COST = k.costPerKwp || 28000;
+    var nf = function (n) { return new Intl.NumberFormat("tr-TR").format(Math.round(n)); };
+    var f1 = function (n) { return new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 1 }).format(n); };
+    var f2 = function (n) { return new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 2 }).format(n); };
+    var set = function (sel, v) { var e = $(sel); if (e) e.textContent = v; };
+
+    // Sekme geçişi
+    var tabs = $$(".tool-tabs button", box), panels = $$(".tool-panel", box);
+    tabs.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var t = b.getAttribute("data-tool");
+        tabs.forEach(function (x) { x.classList.toggle("active", x === b); });
+        panels.forEach(function (p) { p.classList.toggle("active", p.getAttribute("data-toolpanel") === t); });
+      });
+    });
+
+    // Varsayılan bölge verimi (yıllık özgül üretim) — yerleşim üretim tahmini için
+    var defYield = 1500;
+    if (k.regions && k.regions.length) { var dr = k.regions.filter(function (r) { return r.default; })[0] || k.regions[0]; defYield = dr.yield || 1500; }
+
+    /* 1) Panel yerleşim planlayıcı */
+    (function () {
+      var W = $("#roofW"), D = $("#roofD"), O = $("#panelOrient"), G = $("#layoutGap");
+      if (!W) return;
+      var P = k.panelDims || { short: 1.134, long: 2.279 };
+      if (G && !G.value && k.layoutGap != null) G.value = k.layoutGap;
+      var viz = $("#lyViz");
+      set("#lyDims", L("Panel ölçüsü: ", "Panel size: ", "Modulmaß: ", "Размер панели: ") + f2(P.short) + " × " + f2(P.long) + " m");
+      function calc() {
+        var rw = parseFloat(W.value) || 0, rd = parseFloat(D.value) || 0;
+        var gap = parseFloat(G && G.value) || 0;
+        var portrait = !O || O.value === "portrait";
+        var pw = portrait ? P.short : P.long;   // satır boyunca genişlik
+        var ph = portrait ? P.long : P.short;   // derinlik boyunca yükseklik
+        var cols = Math.floor((rw + gap) / (pw + gap));
+        var rows = Math.floor((rd + gap) / (ph + gap));
+        cols = Math.max(0, cols); rows = Math.max(0, rows);
+        var total = cols * rows;
+        var kwp = total * PANEL_W / 1000;
+        var used = total * pw * ph;
+        var fill = (rw * rd) > 0 ? used / (rw * rd) * 100 : 0;
+        var prod = kwp * defYield;
+        var ok = total > 0;
+        set("#lyPanels", ok ? nf(total) + " " + L("adet", "pcs", "Stk.", "шт.") : "—");
+        set("#lyGrid", ok ? cols + " × " + rows : "—");
+        set("#lyKwp", ok ? f1(kwp) + " kWp" : "—");
+        set("#lyArea", ok ? nf(used) + " m²" : "—");
+        set("#lyFill", ok ? "%" + nf(fill) : "—");
+        set("#lyProd", ok ? nf(prod) + " kWh/" + L("yıl", "yr", "Jahr", "год") : "—");
+        renderViz(rw, rd, cols, rows, pw, ph, gap);
+      }
+      function renderViz(rw, rd, cols, rows, pw, ph, gap) {
+        if (!viz) return;
+        if (!(rw > 0 && rd > 0) || cols * rows <= 0) { viz.innerHTML = ""; return; }
+        var VW = 320, scale = VW / rw, VH = rd * scale;
+        var s = '<svg viewBox="0 0 ' + VW.toFixed(1) + ' ' + VH.toFixed(1) + '" width="100%" role="img" aria-label="Panel yerleşim planı">';
+        s += '<rect x="0" y="0" width="' + VW.toFixed(1) + '" height="' + VH.toFixed(1) + '" fill="none" stroke="#9aa" stroke-width="1.5" rx="3"/>';
+        var cw = pw * scale, ch = ph * scale, gp = gap * scale;
+        for (var r = 0; r < rows; r++) for (var c = 0; c < cols; c++) {
+          var x = c * (cw + gp), y = r * (ch + gp);
+          s += '<rect x="' + (x + 1).toFixed(1) + '" y="' + (y + 1).toFixed(1) + '" width="' + Math.max(cw - 1, 0).toFixed(1) + '" height="' + Math.max(ch - 1, 0).toFixed(1) + '" fill="#0a6e4f" opacity="0.82" rx="1"/>';
+        }
+        s += '</svg>';
+        viz.innerHTML = s;
+      }
+      [W, D, G].forEach(function (e) { if (e) e.addEventListener("input", calc); });
+      if (O) O.addEventListener("change", calc);
+      document.addEventListener("gespa:lang", calc);
+      calc();
+    })();
+
+    /* 2) İnverter boyutlandırma */
+    (function () {
+      var Kwp = $("#invKwp"), R = $("#invRatio"); if (!Kwp) return;
+      var IR = k.inverterRatio || { min: 1.1, def: 1.2, max: 1.3 };
+      if (R && !R.value && IR.def != null) R.value = IR.def;
+      function calc() {
+        var kwp = parseFloat(Kwp.value) || 0;
+        var ratio = parseFloat(R && R.value) || IR.def || 1.2;
+        var ok = kwp > 0 && ratio > 0;
+        var rec = kwp / ratio;
+        var lo = kwp / (IR.max || 1.3), hi = kwp / (IR.min || 1.1);
+        set("#invRec", ok ? f1(rec) + " kW" : "—");
+        set("#invRange", ok ? f1(lo) + " – " + f1(hi) + " kW" : "—");
+        set("#invPanels", ok ? nf(Math.ceil(kwp * 1000 / PANEL_W)) + " " + L("adet", "pcs", "Stk.", "шт.") : "—");
+        set("#invDcac", ok ? f2(ratio) : "—");
+      }
+      [Kwp, R].forEach(function (e) { if (e) e.addEventListener("input", calc); });
+      document.addEventListener("gespa:lang", calc);
+      calc();
+    })();
+
+    /* 3) DC kablo kesiti / gerilim düşümü */
+    (function () {
+      var I = $("#cbI"), V = $("#cbV"), Len = $("#cbLen"); if (!I) return;
+      var C = k.cable || {};
+      var RHO = C.rhoCu || 0.0175, SECTIONS = C.sections || [4, 6, 10, 16, 25], TARGET = C.targetDropPct != null ? C.targetDropPct : 1.0;
+      if (!I.value && C.defI != null) I.value = C.defI;
+      if (V && !V.value && C.defV != null) V.value = C.defV;
+      if (Len && !Len.value && C.defLen != null) Len.value = C.defLen;
+      set("#cbTarget", "%" + f1(TARGET));
+      function calc() {
+        var i = parseFloat(I.value) || 0, v = parseFloat(V && V.value) || 0, l = parseFloat(Len && Len.value) || 0;
+        var ok = i > 0 && v > 0 && l > 0;
+        var rec = null, rows = "";
+        SECTIONS.forEach(function (S) {
+          var drop = 2 * i * l * RHO / S;          // volt
+          var pct = v > 0 ? drop / v * 100 : 0;
+          var good = pct <= TARGET;
+          if (good && rec === null) rec = S;
+          rows += '<div class="cable-row' + (good ? " ok" : "") + '"><span>' + S + ' mm²</span><span>' + (ok ? f2(drop) + " V" : "—") + '</span><span>' + (ok ? "%" + f2(pct) : "—") + '</span></div>';
+        });
+        var head = '<div class="cable-row cable-head"><span>' + L("Kesit", "Section", "Querschnitt", "Сечение") + '</span><span>' + L("Düşüm", "Drop", "Abfall", "Падение") + '</span><span>%</span></div>';
+        $("#cbTable").innerHTML = ok ? head + rows : "";
+        set("#cbRec", ok ? (rec ? rec + " mm²" : L("≥ 25 mm² gerekli", "≥ 25 mm² needed", "≥ 25 mm² nötig", "нужно ≥ 25 мм²")) : "—");
+      }
+      [I, V, Len].forEach(function (e) { if (e) e.addEventListener("input", calc); });
+      document.addEventListener("gespa:lang", calc);
+      calc();
+    })();
+
+    /* 4) Batarya / depolama boyutlandırma */
+    (function () {
+      var Daily = $("#btDaily"), Days = $("#btDays"), Dod = $("#btDod"); if (!Daily) return;
+      var S = k.storage || {};
+      var SYS = S.sysEff || 0.9, BCOST = k.batteryCostPerKwh || 9000;
+      if (!Daily.value && S.defDailyKwh != null) Daily.value = S.defDailyKwh;
+      if (Days && !Days.value && S.defAutonomy != null) Days.value = S.defAutonomy;
+      if (Dod && !Dod.value && S.dod != null) Dod.value = Math.round(S.dod * 100);
+      function calc() {
+        var d = parseFloat(Daily.value) || 0, days = parseFloat(Days && Days.value) || 0;
+        var dod = (parseFloat(Dod && Dod.value) || 90) / 100;
+        dod = Math.max(0.1, Math.min(1, dod));
+        var need = d * days;
+        var kwh = (dod * SYS) > 0 ? need / (dod * SYS) : 0;
+        var ok = need > 0;
+        set("#btNeed", ok ? f1(need) + " kWh" : "—");
+        set("#btKwh", ok ? f1(kwh) + " kWh" : "—");
+        set("#btCost", ok ? "₺" + nf(kwh * BCOST) : "—");
+      }
+      [Daily, Days, Dod].forEach(function (e) { if (e) e.addEventListener("input", calc); });
+      document.addEventListener("gespa:lang", calc);
+      calc();
+    })();
+  })();
+
   /* ---- Proje filtreleri ---- */
   var filters = $$(".filter");
   var projects = $$(".project");

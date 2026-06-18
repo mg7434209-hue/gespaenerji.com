@@ -403,3 +403,20 @@ img{max-width:100%;display:block}
   .float-badge{display:none}
   .footer-bottom{flex-direction:column}
 }
+
+/* ---- Alet çantası (mühendislik araçları) ---- */
+.toolbox{max-width:980px;margin:0 auto}
+.tool-tabs{flex-wrap:wrap}
+.tool-panel{display:none}
+.tool-panel.active{display:block}
+.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.tool-title{font-size:1.15rem;font-weight:800;margin-bottom:12px}
+.tool-hint{color:var(--muted);font-size:.85rem;margin-top:12px;line-height:1.5}
+.layout-viz{margin-top:14px;display:flex;justify-content:center}
+.layout-viz svg{max-width:340px;width:100%;height:auto}
+.cable-table{display:flex;flex-direction:column;gap:4px;font-size:.92rem}
+.cable-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:8px 12px;border-radius:8px;background:var(--card)}
+.cable-row span:nth-child(2),.cable-row span:nth-child(3){text-align:right;font-variant-numeric:tabular-nums}
+.cable-head{font-weight:700;color:var(--muted);background:transparent;padding-bottom:2px}
+.cable-row.ok{background:rgba(10,110,79,.12);font-weight:600}
+@media(max-width:760px){.tool-grid{grid-template-columns:1fr}}

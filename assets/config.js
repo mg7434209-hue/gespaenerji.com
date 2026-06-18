@@ -75,6 +75,22 @@ window.GESPA.config = {
     // Tarımsal sulama yöntemi için varsayılan girdiler
     irrigation: { defaultPumpKw: 7.5, defaultHours: 8, defaultMonths: 5 },
     // Solar sulama pompası seçim aracı katsayıları
-    pump: { pumpEfficiency: 0.40, pvOversize: 1.3, hpPerKw: 1.341, defaultWater: 50, defaultHead: 40, defaultSun: 7 }
+    pump: { pumpEfficiency: 0.40, pvOversize: 1.3, hpPerKw: 1.341, defaultWater: 50, defaultHead: 40, defaultSun: 7 },
+
+    // ---- Alet çantası (mühendislik araçları) katsayıları ----
+    // Panel fiziksel ölçüsü (m) — ~550 Wp panel ≈ 2279 × 1134 mm
+    panelDims: { short: 1.134, long: 2.279 },
+    layoutGap: 0.02,                                  // m — paneller arası montaj boşluğu
+    // İnverter boyutlandırma — DC/AC güç oranı
+    inverterRatio: { min: 1.1, def: 1.2, max: 1.3 },
+    // DC kablo kesiti / gerilim düşümü
+    cable: {
+      rhoCu: 0.0175,                                  // Ω·mm²/m — bakır özdirenci
+      sections: [4, 6, 10, 16, 25],                   // mm² — standart kesitler
+      targetDropPct: 1.0,                             // % — hedef maks. gerilim düşümü
+      defV: 600, defI: 11, defLen: 30                 // tipik DC string varsayılanları
+    },
+    // Batarya / depolama boyutlandırma (batteryCostPerKwh yukarıda)
+    storage: { dod: 0.9, sysEff: 0.9, defDailyKwh: 15, defAutonomy: 1 }
   }
 };

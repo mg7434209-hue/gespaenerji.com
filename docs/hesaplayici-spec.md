@@ -94,3 +94,46 @@ yatırım          = panelGücü × costPerKwp
 ```
 Katsayılar: `pumpEfficiency` (telden suya verim), `pvOversize` (panel/pompa oranı),
 `hpPerKw`, varsayılan girdiler (`defaultWater/Head/Sun`).
+
+## Alet Çantası — Mühendislik Araçları (`hesaplayici.html`)
+
+Mantık: `assets/main.js` (toolbox IIFE) · Katsayılar: `config.calc` · Sekmeli 4 araç.
+> KURAL: Buradaki hiçbir sayı da koda gömülmez; tümü `config.calc`'tan okunur.
+
+### 1) Panel Yerleşim Planlayıcı
+Katsayılar: `panelDims {short,long}` (m), `layoutGap` (m), `panelW`, bölge verimi (`regions` default).
+```
+pw,ph     = (dikey) short,long  | (yatay) long,short
+sütun     = floor((çatıGen + gap) / (pw + gap))
+satır     = floor((çatıDer + gap) / (ph + gap))
+panel     = sütun × satır
+kWp       = panel × panelW / 1000
+kullanım  = panel × pw × ph                  (m²)
+doluluk   = kullanım / (çatıGen × çatıDer)    (%)
+üretim    = kWp × bölgeVerim                  (kWh/yıl, tahmini)
+```
+SVG: çatı dikdörtgeni içine ölçekli panel ızgarası çizilir.
+
+### 2) İnverter Boyutlandırma
+Katsayılar: `inverterRatio {min,def,max}`, `panelW`.
+```
+önerilen  = kWp / dcacDef
+aralık    = kWp/dcacMax  …  kWp/dcacMin       (kW)
+panel     = ceil(kWp × 1000 / panelW)
+```
+
+### 3) DC Kablo Kesiti / Gerilim Düşümü
+Katsayılar: `cable {rhoCu, sections[], targetDropPct, defV, defI, defLen}`.
+```
+düşüm(S)  = 2 × I × L × rhoCu / S             (V)   ; 2× = gidiş-dönüş
+düşüm%    = düşüm / V × 100
+öneri     = targetDropPct'i sağlayan en küçük kesit (mm²)
+```
+
+### 4) Batarya / Depolama Boyutlandırma
+Katsayılar: `storage {dod, sysEff, defDailyKwh, defAutonomy}`, `batteryCostPerKwh`.
+```
+ihtiyaç   = günlükTüketim × özerklikGün       (kWh)
+kapasite  = ihtiyaç / (dod × sysEff)          (kWh)
+maliyet   = kapasite × batteryCostPerKwh      (₺)
+```
