@@ -6,7 +6,7 @@
   var doc = document;
   var $ = function (s, c) { return (c || doc).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || doc).querySelectorAll(s)); };
-  function L(tr, de, ru) { var l = (window.GESPA && GESPA.lang) || "tr"; return l === "de" ? de : (l === "ru" ? ru : tr); }
+  function L(tr, en, de, ru) { var l = (window.GESPA && GESPA.lang) || "tr"; return l === "en" ? en : (l === "de" ? de : (l === "ru" ? ru : tr)); }
 
   /* ---- Yıl ---- */
   var yil = $("#yil");
@@ -306,15 +306,18 @@
         renderChart(cum, cost);
         if (chartNote) chartNote.textContent = payback > 0
           ? L("Yatırım yaklaşık " + fmt1(payback) + ". yılda geri ödenir; sonraki yıllar net kazanç (sarı çizgi = yatırım tutarı).",
+              "The investment pays back in about " + fmt1(payback) + " years; net gain afterwards (yellow line = investment).",
               "Die Investition amortisiert sich in ca. " + fmt1(payback) + " Jahren; danach Nettogewinn (gelbe Linie = Investition).",
               "Инвестиция окупается примерно за " + fmt1(payback) + " лет; далее чистая прибыль (жёлтая линия = инвестиция).")
           : L("Seçilen değerlerle yatırım 25 yıl içinde geri ödenmiyor; girdileri güncelleyin.",
+              "With these values it doesn't pay back within 25 years; adjust the inputs.",
               "Mit diesen Werten amortisiert sich die Anlage nicht in 25 Jahren; bitte Eingaben anpassen.",
               "При этих значениях окупаемость не достигается за 25 лет; измените параметры.");
         if (waBtn && WA) {
           var pb = payback > 0 ? fmt1(payback) + " " + (u.yil || "yıl") : (u.yilPlus || "25+ yıl");
           var msg = L(
             "Merhaba, GESPA Enerji hesaplayıcısından sonuç aldım:\n• Sistem: " + fmt1(kwp) + " kWp (" + fmt(panels) + " panel)\n• Yıllık tasarruf: ₺" + fmt(save) + "\n• Geri ödeme: " + pb + "\nÜcretsiz keşif talep ediyorum.",
+            "Hello, here is my result from the GESPA calculator:\n• System: " + fmt1(kwp) + " kWp (" + fmt(panels) + " panels)\n• Annual savings: ₺" + fmt(save) + "\n• Payback: " + pb + "\nI'd like a free site survey.",
             "Hallo, mein Ergebnis vom GESPA-Rechner:\n• Anlage: " + fmt1(kwp) + " kWp (" + fmt(panels) + " Module)\n• Jährliche Ersparnis: ₺" + fmt(save) + "\n• Amortisation: " + pb + "\nIch möchte eine kostenlose Beratung.",
             "Здравствуйте, мой результат из калькулятора GESPA:\n• Система: " + fmt1(kwp) + " кВт (" + fmt(panels) + " панелей)\n• Годовая экономия: ₺" + fmt(save) + "\n• Окупаемость: " + pb + "\nХочу бесплатный выезд."
           );
@@ -415,12 +418,12 @@
       var ad = form.ad.value.trim();
       var tel = form.tel.value.trim();
       if (!ad || !tel) {
-        if (note) { note.style.color = "#c0392b"; note.textContent = L("Lütfen ad ve telefon alanlarını doldurun.", "Bitte Name und Telefon ausfüllen.", "Пожалуйста, заполните имя и телефон."); }
+        if (note) { note.style.color = "#c0392b"; note.textContent = L("Lütfen ad ve telefon alanlarını doldurun.", "Please fill in your name and phone.", "Bitte Name und Telefon ausfüllen.", "Пожалуйста, заполните имя и телефон."); }
         return;
       }
       var wa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
       if (wa) {
-        var m = L("Yeni teklif talebi", "Neue Angebotsanfrage", "Новая заявка") + ":\n"
+        var m = L("Yeni teklif talebi", "New quote request", "Neue Angebotsanfrage", "Новая заявка") + ":\n"
           + "Ad: " + ad + "\nTel: " + tel
           + (form.eposta && form.eposta.value ? "\nE-posta: " + form.eposta.value : "")
           + (form.tip && form.tip.value ? "\nTip: " + form.tip.value : "")
@@ -430,7 +433,7 @@
       }
       if (note) {
         note.style.color = "var(--green)";
-        note.textContent = L("Teşekkürler " + ad + "! Talebiniz WhatsApp üzerinden iletiliyor.", "Danke " + ad + "! Ihre Anfrage wird über WhatsApp gesendet.", "Спасибо, " + ad + "! Ваш запрос отправляется через WhatsApp.");
+        note.textContent = L("Teşekkürler " + ad + "! Talebiniz WhatsApp üzerinden iletiliyor.", "Thank you " + ad + "! Your request is being sent via WhatsApp.", "Danke " + ad + "! Ihre Anfrage wird über WhatsApp gesendet.", "Спасибо, " + ad + "! Ваш запрос отправляется через WhatsApp.");
       }
       form.reset();
     });
@@ -442,7 +445,7 @@
     news.addEventListener("submit", function (e) {
       e.preventDefault();
       var n = $("#newsNote");
-      if (n) n.textContent = L("Aboneliğiniz alındı, teşekkürler!", "Anmeldung erhalten, danke!", "Подписка оформлена, спасибо!");
+      if (n) n.textContent = L("Aboneliğiniz alındı, teşekkürler!", "You're subscribed, thank you!", "Anmeldung erhalten, danke!", "Подписка оформлена, спасибо!");
       news.reset();
     });
   }
