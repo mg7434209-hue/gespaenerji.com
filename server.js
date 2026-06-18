@@ -65,6 +65,20 @@ const server = http.createServer((req, res) => {
         "Referrer-Policy": "strict-origin-when-cross-origin",
         "X-Frame-Options": "SAMEORIGIN"
       };
+      // İçerik Güvenliği Politikası (temkinli) — yalnızca HTML yanıtlarında
+      if (ext === ".html") {
+        headers["Content-Security-Policy"] = [
+          "default-src 'self'",
+          "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
+          "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+          "font-src 'self' https://fonts.gstatic.com",
+          "img-src 'self' data: https:",
+          "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com",
+          "frame-ancestors 'self'",
+          "base-uri 'self'",
+          "form-action 'self'"
+        ].join("; ");
+      }
       // HTML her zaman taze; diğer statik varlıkları 7 gün önbelleğe al
       headers["Cache-Control"] = ext === ".html" ? "no-cache" : "public, max-age=604800";
 

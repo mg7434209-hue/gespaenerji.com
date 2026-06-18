@@ -32,6 +32,11 @@ window.GESPA.config = {
     sameAs: []                            // gerçek sosyal medya URL'leri (LinkedIn/Instagram/X) eklenince doldurun
   },
 
+  // Analitik — ID girilince yüklenir (boş = kapalı). KVKK için çerez onayı önerilir.
+  analytics: {
+    ga4: ""   // örn. "G-XXXXXXXXXX" (Google Analytics 4 ölçüm kimliği)
+  },
+
   // Kullanılan markalar
   brands: {
     panel: ["Arçelik", "Lexron", "Bakırlar"],

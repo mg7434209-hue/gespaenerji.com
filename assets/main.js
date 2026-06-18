@@ -95,6 +95,20 @@
     if (window.GESPA && GESPA.applyLang) GESPA.applyLang(GESPA.lang || "tr");
   })();
 
+  /* ---- Analitik (yalnızca config'te ID varsa — GA4) ---- */
+  (function () {
+    var id = CFG.analytics && CFG.analytics.ga4;
+    if (!id) return; // ID yoksa hiçbir script yüklenmez
+    var s = doc.createElement("script"); s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(id);
+    doc.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag("js", new Date());
+    gtag("config", id, { anonymize_ip: true });
+  })();
+
   /* ---- Tema (açık/koyu) ---- */
   var themeToggle = $("#themeToggle");
   var saved = null;
@@ -481,6 +495,10 @@
       var tel = form.tel.value.trim();
       if (!ad || !tel) {
         if (note) { note.style.color = "#c0392b"; note.textContent = L("Lütfen ad ve telefon alanlarını doldurun.", "Please fill in your name and phone.", "Bitte Name und Telefon ausfüllen.", "Пожалуйста, заполните имя и телефон."); }
+        return;
+      }
+      if (form.kvkkOnay && !form.kvkkOnay.checked) {
+        if (note) { note.style.color = "#c0392b"; note.textContent = L("Devam etmek için KVKK aydınlatma metnini onaylayın.", "Please accept the privacy notice to continue.", "Bitte akzeptieren Sie die Datenschutzerklärung.", "Подтвердите согласие на обработку данных."); }
         return;
       }
       var wa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
