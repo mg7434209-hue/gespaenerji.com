@@ -78,3 +78,19 @@ Grafik: yıllık **kümülatif tasarruf** çubukları + yatırım çizgisi; geri
 - İleride eklenebilir: panel verim kaybı (yıllık ~%0,5 degradasyon), elektrik fiyat
   enflasyonu, öz tüketim/mahsuplaşma oranı, eğim/yön kayıp faktörü.
 - Bu iyileştirmeler de katsayı olarak `config.calc` içine eklenmeli, koda gömülmemeli.
+
+## Ek araç — Solar Sulama Pompası Seçimi (`tarimsal-sulama.html`)
+
+Katsayılar: `config.calc.pump` · Mantık: `assets/main.js` (pump IIFE)
+
+```
+gerekliDebi(Q)   = günlükSu / pompalamaSaati            (m³/saat)
+hidrolikGüç      = Q × yükseklik × 0,002725             (kW)   ; 0,002725 = ρ·g/3.6e6
+pompaGücü        = hidrolikGüç / pumpEfficiency          (kW)
+pompaGücü(HP)    = pompaGücü × hpPerKw
+panelGücü        = pompaGücü × pvOversize                (kWp)
+panelSayısı      = ceil(panelGücü × 1000 / panelW)
+yatırım          = panelGücü × costPerKwp
+```
+Katsayılar: `pumpEfficiency` (telden suya verim), `pvOversize` (panel/pompa oranı),
+`hpPerKw`, varsayılan girdiler (`defaultWater/Head/Sun`).

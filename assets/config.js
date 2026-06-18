@@ -62,6 +62,8 @@ window.GESPA.config = {
       { label: "Kuzey", factor: 0.65 }
     ],
     // Tarımsal sulama yöntemi için varsayılan girdiler
-    irrigation: { defaultPumpKw: 7.5, defaultHours: 8, defaultMonths: 5 }
+    irrigation: { defaultPumpKw: 7.5, defaultHours: 8, defaultMonths: 5 },
+    // Solar sulama pompası seçim aracı katsayıları
+    pump: { pumpEfficiency: 0.40, pvOversize: 1.3, hpPerKw: 1.341, defaultWater: 50, defaultHead: 40, defaultSun: 7 }
   }
 };

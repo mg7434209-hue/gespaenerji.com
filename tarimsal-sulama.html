@@ -84,6 +84,40 @@
       </div>
     </section>
 
+    <section class="section" id="pompa-secimi">
+      <div class="container">
+        <div class="section-head reveal"><span class="kicker">Pratik Araç</span><h2>Solar Sulama Pompası Seçimi</h2><p>Günlük su ihtiyacınızı ve kuyu/basma yüksekliğinizi girin; önerilen pompa gücü ve güneş paneli sistemini anında görün.</p></div>
+        <div class="calc-full">
+          <div class="calc-card reveal">
+            <div class="field"><label for="pumpWater">Günlük su ihtiyacı (m³/gün)</label><input id="pumpWater" type="number" inputmode="numeric" min="0" step="5" /></div>
+            <div class="field"><label for="pumpHead">Toplam basma yüksekliği (m)</label><input id="pumpHead" type="number" inputmode="numeric" min="0" step="5" /></div>
+            <div class="field"><label for="pumpSun">Günlük pompalama süresi (güneşli saat)</label><input id="pumpSun" type="number" inputmode="numeric" min="1" max="12" step="1" /></div>
+            <div class="assumptions">
+              <h4>Varsayımlar</h4>
+              <ul>
+                <li>Sistem verimi (telden suya): <span id="pAEff"></span></li>
+                <li>Panel / pompa oranı: <span id="pAOver"></span></li>
+                <li>Sonuçlar tahminidir; kesin seçim saha keşfiyle yapılır.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="calc-card reveal">
+            <h2 style="font-size:1.4rem;font-weight:800;margin-bottom:6px">Öneri</h2>
+            <p style="color:var(--muted);margin:0 0 18px;font-size:.95rem">Değerler girdilerinizle anlık olarak güncellenir.</p>
+            <div class="calc-results wide">
+              <div class="result"><span class="r-label">Gerekli debi</span><span class="r-value" id="rFlow">—</span></div>
+              <div class="result highlight"><span class="r-label">Önerilen pompa gücü</span><span class="r-value" id="rPump">—</span></div>
+              <div class="result"><span class="r-label">Pompa (HP)</span><span class="r-value" id="rPumpHp">—</span></div>
+              <div class="result"><span class="r-label">Önerilen panel gücü</span><span class="r-value" id="rPumpKwp">—</span></div>
+              <div class="result"><span class="r-label">Panel sayısı (550 W)</span><span class="r-value" id="rPumpPanels">—</span></div>
+              <div class="result"><span class="r-label">Tahmini yatırım</span><span class="r-value" id="rPumpCost">—</span></div>
+            </div>
+            <a class="btn btn-block btn-lg" href="iletisim.html" style="margin-top:18px">Bu sistem için teklif iste</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container">
         <div class="section-head reveal"><span class="kicker">Nasıl Çalışıyoruz?</span><h2>4 adımda anahtar teslim GES</h2></div>

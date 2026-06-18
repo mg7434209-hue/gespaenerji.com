@@ -344,6 +344,45 @@
     calc();
   })();
 
+  /* ---- Solar sulama pompası seçim aracı ---- */
+  (function () {
+    var w = $("#pumpWater"); if (!w) return;
+    var head = $("#pumpHead"), sun = $("#pumpSun");
+    var k = (window.GESPA && window.GESPA.config && window.GESPA.config.calc) || {};
+    var P = k.pump || {};
+    var EFF = P.pumpEfficiency || 0.4, OVER = P.pvOversize || 1.3, HP = P.hpPerKw || 1.341;
+    var PANEL_W = k.panelW || 550, COST = k.costPerKwp || 28000;
+    if (!w.value && P.defaultWater != null) w.value = P.defaultWater;
+    if (head && !head.value && P.defaultHead != null) head.value = P.defaultHead;
+    if (sun && !sun.value && P.defaultSun != null) sun.value = P.defaultSun;
+    function nf(n) { return new Intl.NumberFormat("tr-TR").format(Math.round(n)); }
+    function f1(n) { return new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 1 }).format(n); }
+    function st(sel, v) { var e = $(sel); if (e) e.textContent = v; }
+    st("#pAEff", "%" + Math.round(EFF * 100));
+    st("#pAOver", f1(OVER) + "×");
+    function calcPump() {
+      var u = (window.GESPA && GESPA.units && GESPA.units[GESPA.lang]) || {};
+      var vol = parseFloat(w.value) || 0, H = parseFloat(head && head.value) || 0, hrs = parseFloat(sun && sun.value) || 0;
+      var Q = hrs > 0 ? vol / hrs : 0;            // m³/saat
+      var hyd = Q * H * 0.002725;                 // kW (ρg/3.6e6)
+      var pkw = EFF > 0 ? hyd / EFF : 0;           // kW pompa elektriksel
+      var kwp = pkw * OVER;
+      var panels = Math.ceil((kwp * 1000) / PANEL_W);
+      var cost = kwp * COST;
+      var ok = vol > 0 && H > 0 && pkw > 0 && isFinite(pkw);
+      var hr = L("saat", "h", "Std.", "ч");
+      st("#rFlow", ok ? f1(Q) + " m³/" + hr : "—");
+      st("#rPump", ok ? f1(pkw) + " kW" : "—");
+      st("#rPumpHp", ok ? f1(pkw * HP) + " HP" : "—");
+      st("#rPumpKwp", ok ? f1(kwp) + " kWp" : "—");
+      st("#rPumpPanels", ok ? nf(panels) + " " + (u.adet || "adet") : "—");
+      st("#rPumpCost", ok ? "₺" + nf(cost) : "—");
+    }
+    [w, head, sun].forEach(function (el) { if (el) el.addEventListener("input", calcPump); });
+    document.addEventListener("gespa:lang", calcPump);
+    calcPump();
+  })();
+
   /* ---- Proje filtreleri ---- */
   var filters = $$(".filter");
   var projects = $$(".project");
