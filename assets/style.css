@@ -63,8 +63,9 @@ img{max-width:100%;display:block}
 .legal-note{background:var(--sun-soft,#ffe27a);color:#5a4500;padding:12px 16px;border-radius:12px;font-size:.95rem;margin-bottom:8px}
 /* İletişim formu — KVKK rıza kutusu */
 .field-consent{margin:4px 0 6px}
-.field-consent label{display:flex;align-items:flex-start;gap:10px;font-size:.92rem;color:var(--muted);cursor:pointer}
-.field-consent input{margin-top:3px;flex:0 0 auto;width:18px;height:18px;accent-color:var(--green)}
+.field-consent label{display:flex;align-items:flex-start;gap:10px;font-size:.92rem;color:var(--muted);cursor:pointer;line-height:1.5}
+.field-consent input[type="checkbox"]{flex:0 0 auto;width:18px;height:18px;margin:2px 0 0;accent-color:var(--green)}
+.field-consent label span{flex:1;min-width:0}
 .field-consent a{color:var(--green);font-weight:600}
 
 /* Scroll progress */
