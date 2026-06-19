@@ -7,7 +7,7 @@ npm-debug.log*
 dist/
 .cache/
 
-# build.js ile üretilen çok dilli statik sayfalar (kaynak değil, türetilmiş)
-/en/
-/de/
-/ru/
+# Not: /en /de /ru build.js ile üretilir. Klasik GitHub Pages (Actions kullanmayan)
+# build adımı çalıştırmadığından bu dil sayfaları yayına dahil edilmek üzere
+# sürüm kontrolünde tutulur. Pages kaynağı "GitHub Actions" yapılırsa tekrar
+# .gitignore'a alınabilir (CI build.js çalıştırır).

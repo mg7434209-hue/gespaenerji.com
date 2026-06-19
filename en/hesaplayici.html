@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <script>window.__LANG__="en";</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solar Savings Calculator (PV) | GESPA Energy</title>
+  <meta name="description" content="Free solar calculator: system size, number of panels, annual yield, savings, payback period, 25-year return and CO₂ reduction from your bill, consumption or roof area." />
+  <link rel="canonical" href="https://gespaenerji.com/en/hesaplayici.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Güneş Enerjisi Tasarruf Hesaplayıcı | GESPA Enerji" />
+  <meta property="og:description" content="Çatınızın getirisini saniyeler içinde hesaplayın." />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="GESPA Enerji" />
+  <meta property="og:image" content="https://gespaenerji.com/assets/img/hero.jpg" />
+  <meta property="og:image:alt" content="GESPA Enerji güneş enerjisi santrali" />
+  <meta property="og:image:width" content="1600" />
+  <meta property="og:image:height" content="1200" />
+  <meta property="og:url" content="https://gespaenerji.com/en/hesaplayici.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://gespaenerji.com/assets/img/hero.jpg" />
+  <meta name="theme-color" content="#0a6e4f" />
+  <link rel="icon" href="/assets/img/favicon/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/assets/img/favicon/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" /></noscript>
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">İçeriğe geç</a>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="topbar"><div class="container topbar-inner"><span>☀️ Hesaplama sonuçları tahminidir — kesin değer ücretsiz keşifle belirlenir.</span><a href="iletisim.html">Keşif talep et →</a></div></div>
+  <header class="site-header" id="top">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="GESPA Enerji ana sayfa"><span class="logo" aria-hidden="true"><img src="/assets/img/gespa-icon.png" alt="GESPA" width="36" height="36" /></span><span class="brand-text">GESPA<strong>Enerji</strong></span></a>
+      <nav class="menu" id="menu" aria-label="Ana menü">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hizmetler.html">Hizmetler</a>
+        <a href="hesaplayici.html" class="active">Hesaplayıcı</a>
+        <a href="projeler.html">Projeler</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="iletisim.html" class="btn btn-sm">Teklif Al</a>
+      </nav>
+      <div class="nav-actions"><div class="lang-switch" role="group" aria-label="Dil"><button data-lang="tr">TR</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="ru">RU</button></div><button class="theme-toggle" id="themeToggle" aria-label="Tema değiştir"><span class="theme-icon-sun">☀️</span><span class="theme-icon-moon">🌙</span></button><button class="hamburger" id="hamburger" aria-label="Menüyü aç/kapat" aria-expanded="false"><span></span><span></span><span></span></button></div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container reveal">
+        <div class="crumbs"><a href="index.html">Ana Sayfa</a> <span>/</span> Hesaplayıcı</div>
+        <h1>Güneş Enerjisi Tasarruf Hesaplayıcı</h1>
+        <p class="lead">Faturanıza, tüketiminize veya çatı alanınıza göre sisteminizin gücünü, yıllık tasarrufunuzu, geri ödeme sürenizi ve 25 yıllık kazancınızı saniyeler içinde öğrenin.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container calc-full">
+        <!-- Girdiler -->
+        <div class="calc-card reveal">
+          <div class="calc-methods" role="tablist">
+            <button class="active" data-method="bill">Faturaya göre</button>
+            <button data-method="cons">Tüketime göre</button>
+            <button data-method="area">Çatı alanına göre</button>
+            <button data-method="tarim">Tarımsal sulama</button>
+          </div>
+
+          <div class="calc-input-group active" data-group="bill">
+            <div class="field"><label for="bill">Aylık elektrik faturanız (₺)</label><input id="bill" type="number" inputmode="numeric" min="0" step="100" value="5000" /></div>
+          </div>
+          <div class="calc-input-group" data-group="cons">
+            <div class="field"><label for="cons">Aylık tüketiminiz (kWh)</label><input id="cons" type="number" inputmode="numeric" min="0" step="50" value="2000" /></div>
+          </div>
+          <div class="calc-input-group" data-group="area">
+            <div class="field"><label for="area">Kullanılabilir çatı alanı (m²)</label><input id="area" type="number" inputmode="numeric" min="0" step="10" value="120" /></div>
+          </div>
+          <div class="calc-input-group" data-group="tarim">
+            <div class="field"><label for="pumpKw">Sulama pompası gücü (kW)</label><input id="pumpKw" type="number" inputmode="decimal" min="0" step="0.5" /></div>
+            <div class="row">
+              <div class="field"><label for="pumpHours">Günlük çalışma (saat)</label><input id="pumpHours" type="number" inputmode="numeric" min="0" max="24" step="1" /></div>
+              <div class="field"><label for="pumpMonths">Sulama sezonu (ay)</label><input id="pumpMonths" type="number" inputmode="numeric" min="1" max="12" step="1" /></div>
+            </div>
+          </div>
+
+          <div class="field"><label for="city">Bölge (güneşlenme verimi)</label>
+            <select id="city"></select>
+          </div>
+          <div class="field"><label for="price">Elektrik birim fiyatı (₺/kWh)</label><input id="price" type="number" inputmode="decimal" min="0.1" step="0.1" /></div>
+          <div class="field"><label for="orient">Çatı yönü / eğim</label><select id="orient"></select></div>
+          <div class="field"><label for="infl">Yıllık elektrik zammı (%)</label><input id="infl" type="number" inputmode="decimal" min="0" max="100" step="1" /></div>
+          <div class="field"><label for="self">Öz tüketim oranı (%) <small>— anlık kullanım, kalanı şebekeye</small></label><input id="self" type="number" inputmode="numeric" min="0" max="100" step="5" /></div>
+          <label class="check"><input type="checkbox" id="battery" /> <span>Batarya / depolama ekle (öz tüketimi artırır)</span></label>
+
+          <div class="assumptions">
+            <h4>Varsayımlar</h4>
+            <ul>
+              <li>Panel gücü: <span id="aPanelW"></span> · ~<span id="aArea"></span> alan</li>
+              <li>Tahmini kurulum maliyeti: <span id="aCost"></span></li>
+              <li>CO₂ faktörü: <span id="aCo2"></span></li>
+              <li>Sonuçlar tahminidir; kesin değer saha keşfiyle belirlenir.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Sonuçlar -->
+        <div class="calc-card reveal">
+          <h2 style="font-size:1.4rem;font-weight:800;margin-bottom:6px">Tahmini Sonuçlar</h2>
+          <p style="color:var(--muted);margin:0 0 18px;font-size:.95rem">Değerler girdilerinizle anlık olarak güncellenir.</p>
+          <div class="calc-results wide">
+            <div class="result"><span class="r-label">Önerilen sistem</span><span class="r-value" id="rSize">—</span></div>
+            <div class="result"><span class="r-label">Panel sayısı (550 W)</span><span class="r-value" id="rPanels">—</span></div>
+            <div class="result"><span class="r-label">Gerekli çatı alanı</span><span class="r-value" id="rArea">—</span></div>
+            <div class="result"><span class="r-label">Yıllık üretim</span><span class="r-value" id="rProd">—</span></div>
+            <div class="result"><span class="r-label">Aylık ort. üretim</span><span class="r-value" id="rMonthly">—</span></div>
+            <div class="result"><span class="r-label">Geri ödeme süresi</span><span class="r-value" id="rPayback">—</span></div>
+            <div class="result highlight"><span class="r-label">Yıllık tasarruf (1. yıl)</span><span class="r-value" id="rSave">—</span></div>
+            <div class="result"><span class="r-label">Aylık tasarruf</span><span class="r-value" id="rMonthlySave">—</span></div>
+            <div class="result"><span class="r-label">Tahmini yatırım</span><span class="r-value" id="rCost">—</span></div>
+            <div class="result"><span class="r-label">25 yıllık kazanç</span><span class="r-value" id="rSave25">—</span></div>
+            <div class="result"><span class="r-label">25 yıl net (kazanç − yatırım)</span><span class="r-value" id="rNet">—</span></div>
+            <div class="result"><span class="r-label">Yatırım getirisi (ROI)</span><span class="r-value" id="rRoi">—</span></div>
+            <div class="result"><span class="r-label">Yıllık CO₂ azaltımı</span><span class="r-value" id="rCo2">—</span></div>
+            <div class="result"><span class="r-label">25 yıllık CO₂</span><span class="r-value" id="rCo225">—</span></div>
+            <div class="result"><span class="r-label">Ağaç eşdeğeri / yıl</span><span class="r-value" id="rTrees">—</span></div>
+            <div class="result"><span class="r-label">Araç-km eşdeğeri (25 yıl)</span><span class="r-value" id="rCarKm">—</span></div>
+            <div class="result"><span class="r-label">Batarya (opsiyonel)</span><span class="r-value" id="rBattery">—</span></div>
+          </div>
+          <div class="calc-chart" id="calcChart" aria-hidden="true"></div>
+          <p class="chart-note" id="chartNote"></p>
+          <div class="calc-actions">
+            <a class="btn btn-block btn-lg" href="iletisim.html" id="calcCta">Bu sonuçlarla ücretsiz teklif iste</a>
+            <a class="btn btn-block btn-ghost" id="calcWa" href="#" target="_blank" rel="noopener">📲 Sonuçları WhatsApp'tan gönder</a>
+            <button class="btn btn-block btn-ghost" id="calcPrint" type="button">🖨️ Yazdır / PDF olarak kaydet</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALET ÇANTASI -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal"><span class="kicker">Mühendislik Araçları</span><h2>GES Alet Çantası</h2><p>Ön tasarım ve saha için pratik hesap araçları. Sonuçlar tahminidir; kesin değer projelendirmeyle belirlenir.</p></div>
+
+        <div class="toolbox reveal">
+          <div class="calc-methods tool-tabs" role="tablist">
+            <button class="active" data-tool="layout">🔲 Panel Yerleşim</button>
+            <button data-tool="inverter">🔌 İnverter</button>
+            <button data-tool="cable">🔻 Kablo / Gerilim Düşümü</button>
+            <button data-tool="battery">🔋 Batarya</button>
+            <button data-tool="row">📐 Sıra Aralığı</button>
+          </div>
+
+          <!-- 1) Panel Yerleşim Planlayıcı -->
+          <div class="tool-panel active" data-toolpanel="layout">
+            <div class="tool-grid">
+              <div class="calc-card">
+                <h3 class="tool-title">Panel Yerleşim Planlayıcı</h3>
+                <div class="row">
+                  <div class="field"><label for="roofW">Çatı genişliği (m)</label><input id="roofW" type="number" inputmode="decimal" min="0" step="0.5" value="10" /></div>
+                  <div class="field"><label for="roofD">Çatı derinliği (m)</label><input id="roofD" type="number" inputmode="decimal" min="0" step="0.5" value="6" /></div>
+                </div>
+                <div class="row">
+                  <div class="field"><label for="panelOrient">Panel yönü</label><select id="panelOrient"><option value="portrait">Dikey (portrait)</option><option value="landscape">Yatay (landscape)</option></select></div>
+                  <div class="field"><label for="roofMargin">Kenar boşluğu (m)</label><input id="roofMargin" type="number" inputmode="decimal" min="0" step="0.1" /></div>
+                </div>
+                <div class="field"><label for="layoutGap">Paneller arası boşluk (m)</label><input id="layoutGap" type="number" inputmode="decimal" min="0" step="0.01" /></div>
+                <label class="check"><input type="checkbox" id="obsOn" /> <span>Engel ekle (baca / çatı penceresi)</span></label>
+                <div class="row" id="obsFields" hidden>
+                  <div class="field"><label for="obsX">Engel — soldan (m)</label><input id="obsX" type="number" inputmode="decimal" min="0" step="0.1" value="2" /></div>
+                  <div class="field"><label for="obsY">Engel — üstten (m)</label><input id="obsY" type="number" inputmode="decimal" min="0" step="0.1" value="1" /></div>
+                  <div class="field"><label for="obsW">Engel genişliği (m)</label><input id="obsW" type="number" inputmode="decimal" min="0" step="0.1" value="1.5" /></div>
+                  <div class="field"><label for="obsH">Engel boyu (m)</label><input id="obsH" type="number" inputmode="decimal" min="0" step="0.1" value="1.5" /></div>
+                </div>
+                <p class="tool-hint" id="lyDims"></p>
+              </div>
+              <div class="calc-card">
+                <div class="calc-results">
+                  <div class="result"><span class="r-label">Sığan panel</span><span class="r-value" id="lyPanels">—</span></div>
+                  <div class="result"><span class="r-label">Dizilim (sütun × satır)</span><span class="r-value" id="lyGrid">—</span></div>
+                  <div class="result highlight"><span class="r-label">Toplam güç</span><span class="r-value" id="lyKwp">—</span></div>
+                  <div class="result"><span class="r-label">Kullanılan alan</span><span class="r-value" id="lyArea">—</span></div>
+                  <div class="result"><span class="r-label">Çatı doluluğu</span><span class="r-value" id="lyFill">—</span></div>
+                  <div class="result"><span class="r-label">Tahmini yıllık üretim</span><span class="r-value" id="lyProd">—</span></div>
+                </div>
+                <div class="layout-viz" id="lyViz" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2) İnverter Boyutlandırma -->
+          <div class="tool-panel" data-toolpanel="inverter">
+            <div class="tool-grid">
+              <div class="calc-card">
+                <h3 class="tool-title">İnverter Boyutlandırma</h3>
+                <div class="field"><label for="invKwp">Sistem gücü (kWp)</label><input id="invKwp" type="number" inputmode="decimal" min="0" step="0.5" value="10" /></div>
+                <div class="field"><label for="invRatio">Hedef DC/AC oranı</label><input id="invRatio" type="number" inputmode="decimal" min="1" max="1.6" step="0.05" /></div>
+                <p class="tool-hint">DC/AC oranı 1.1–1.3 arası tipiktir; yüksek oran düşük ışınımda daha verimli, zirvede sınırlama (clipping) yapar.</p>
+              </div>
+              <div class="calc-card">
+                <div class="calc-results">
+                  <div class="result highlight"><span class="r-label">Önerilen inverter</span><span class="r-value" id="invRec">—</span></div>
+                  <div class="result"><span class="r-label">Uygun aralık</span><span class="r-value" id="invRange">—</span></div>
+                  <div class="result"><span class="r-label">Panel sayısı (550 W)</span><span class="r-value" id="invPanels">—</span></div>
+                  <div class="result"><span class="r-label">Seçilen DC/AC</span><span class="r-value" id="invDcac">—</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3) DC Kablo Kesiti / Gerilim Düşümü -->
+          <div class="tool-panel" data-toolpanel="cable">
+            <div class="tool-grid">
+              <div class="calc-card">
+                <h3 class="tool-title">DC Kablo Kesiti / Gerilim Düşümü</h3>
+                <div class="row">
+                  <div class="field"><label for="cbI">Akım (A)</label><input id="cbI" type="number" inputmode="decimal" min="0" step="0.5" /></div>
+                  <div class="field"><label for="cbV">Gerilim (V)</label><input id="cbV" type="number" inputmode="decimal" min="0" step="10" /></div>
+                </div>
+                <div class="field"><label for="cbLen">Kablo uzunluğu — tek yön (m)</label><input id="cbLen" type="number" inputmode="decimal" min="0" step="1" /></div>
+                <p class="tool-hint">Gerilim düşümü = 2 × I × L × ρ ÷ S. Hedef: ≤ <span id="cbTarget"></span>. Gidiş-dönüş (2×) dikkate alınır.</p>
+              </div>
+              <div class="calc-card">
+                <div class="result highlight" style="margin-bottom:12px"><span class="r-label">Önerilen kesit</span><span class="r-value" id="cbRec">—</span></div>
+                <div class="cable-table" id="cbTable"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4) Batarya / Depolama Boyutlandırma -->
+          <div class="tool-panel" data-toolpanel="battery">
+            <div class="tool-grid">
+              <div class="calc-card">
+                <h3 class="tool-title">Batarya / Depolama Boyutlandırma</h3>
+                <div class="field"><label for="btDaily">Günlük tüketim (kWh)</label><input id="btDaily" type="number" inputmode="decimal" min="0" step="1" /></div>
+                <div class="row">
+                  <div class="field"><label for="btDays">Özerklik süresi (gün)</label><input id="btDays" type="number" inputmode="decimal" min="0" step="0.5" /></div>
+                  <div class="field"><label for="btDod">Deşarj derinliği — DoD (%)</label><input id="btDod" type="number" inputmode="numeric" min="10" max="100" step="5" /></div>
+                </div>
+                <p class="tool-hint">Gerekli kapasite = (günlük × gün) ÷ (DoD × sistem verimi). LiFePO4 için DoD ~%90.</p>
+              </div>
+              <div class="calc-card">
+                <div class="calc-results">
+                  <div class="result"><span class="r-label">Karşılanacak enerji</span><span class="r-value" id="btNeed">—</span></div>
+                  <div class="result highlight"><span class="r-label">Gerekli batarya</span><span class="r-value" id="btKwh">—</span></div>
+                  <div class="result"><span class="r-label">Tahmini batarya maliyeti</span><span class="r-value" id="btCost">—</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5) Sıra Aralığı / Gölgelenme -->
+          <div class="tool-panel" data-toolpanel="row">
+            <div class="tool-grid">
+              <div class="calc-card">
+                <h3 class="tool-title">Sıra Aralığı / Gölgelenme</h3>
+                <div class="row">
+                  <div class="field"><label for="rsTilt">Panel eğimi (°)</label><input id="rsTilt" type="number" inputmode="decimal" min="0" max="60" step="1" /></div>
+                  <div class="field"><label for="rsLat">Enlem (°)</label><input id="rsLat" type="number" inputmode="decimal" min="0" max="66" step="0.5" /></div>
+                </div>
+                <div class="field"><label for="rsLen">Modül boyu — eğim yönünde (m)</label><input id="rsLen" type="number" inputmode="decimal" min="0" step="0.01" /></div>
+                <p class="tool-hint">Kış gündönümü öğle güneşine göre gölgesiz minimum sıra aralığı. Güneş yüksekliği α = 90° − enlem − 23,45°.</p>
+              </div>
+              <div class="calc-card">
+                <div class="calc-results">
+                  <div class="result"><span class="r-label">Öğle güneş yüksekliği (α)</span><span class="r-value" id="rsAlt">—</span></div>
+                  <div class="result highlight"><span class="r-label">Sıra arası boşluk</span><span class="r-value" id="rsGap">—</span></div>
+                  <div class="result"><span class="r-label">Sıra periyodu (pitch)</span><span class="r-value" id="rsPitch">—</span></div>
+                  <div class="result"><span class="r-label">Alan kullanım oranı (GCR)</span><span class="r-value" id="rsGcr">—</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-cta">
+          <a class="btn btn-ghost" id="toolWa" href="#" target="_blank" rel="noopener">📲 Aktif aracın sonucunu WhatsApp'tan gönder</a>
+          <button class="btn btn-ghost" id="toolPrint" type="button">🖨️ Yazdır / PDF</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band"><div class="container cta-inner reveal"><div><h2>Net rakamlar için ücretsiz keşif</h2><p>Saha ekibimiz çatınızı/arazinizi inceleyip kesin teklifi hazırlasın.</p></div><a class="btn btn-lg btn-light" href="iletisim.html">Keşif Talep Et</a></div></section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand-col">
+        <span class="brand-text footer-brand">GESPA<strong>Enerji</strong></span>
+        <p>Anahtar teslim güneş enerjisi santralleri. Mühendislik, kurulum, finansman ve bakım.</p>
+        <ul class="footer-contact"><li>📍 <span data-c-text="address.full"></span></li><li>📞 <a data-c-tel data-c-text="phone.display"></a></li><li>✉️ <a data-c-mailto data-c-text="email"></a></li></ul>
+        <div class="socials"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="X">X</a></div>
+      </div>
+      <div class="footer-col"><h4>Hizmetler</h4><a href="hizmetler.html">Çatı GES</a><a href="hizmetler.html">Arazi GES</a><a href="tarimsal-sulama.html">Tarımsal Sulama</a><a href="hizmetler.html">Bakım (O&amp;M)</a></div>
+      <div class="footer-col"><h4>Kurumsal</h4><a href="hakkimizda.html">Hakkımızda</a><a href="projeler.html">Projeler</a><a href="hesaplayici.html">Hesaplayıcı</a><a href="iletisim.html">İletişim</a></div>
+      <div class="footer-col footer-news"><h4>Bülten</h4><p>Güneş enerjisi haberleri ve teşvikler.</p><form id="newsForm" class="news-form"><input type="email" placeholder="E-posta adresiniz" aria-label="E-posta" required /><button class="btn btn-sm" type="submit">Abone ol</button></form><p class="news-note" id="newsNote"></p></div>
+    </div>
+    <div class="container footer-bottom"><p>© <span id="yil"></span> <span data-c-text="legalName"></span>. Tüm hakları saklıdır.</p><p><a href="/gizlilik.html">Gizlilik</a> · <a href="/kvkk.html">KVKK</a> · <a href="/cerez-politikasi.html">Çerez Politikası</a></p></div>
+  </footer>
+
+  <a class="fab fab-wa" data-c-wa href="#" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+  <button class="fab fab-top" id="backTop" aria-label="Başa dön">↑</button>
+  <script defer src="/assets/config.js"></script>
+  <script defer src="/assets/i18n.js"></script>
+  <script defer src="/assets/main.js"></script>
+</body>
+</html>
