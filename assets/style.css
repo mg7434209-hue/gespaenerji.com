@@ -423,6 +423,13 @@ img{max-width:100%;display:block}
 .tool-cta{text-align:center;margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 @media(max-width:760px){.tool-grid{grid-template-columns:1fr}}
 
+/* ---- Sezon kampanyası (tarımsal sulama) ---- */
+.topbar-campaign{background:linear-gradient(90deg,var(--sun),#ff8a00);color:#3a2a00}
+.topbar-campaign a{color:#3a2a00;text-decoration:underline}
+.campaign-badge{display:inline-block;background:linear-gradient(135deg,var(--sun),#ff8a00);color:#3a2a00;font-weight:800;font-size:.82rem;letter-spacing:.3px;padding:7px 16px;border-radius:999px;margin-bottom:14px;box-shadow:0 4px 14px rgba(247,181,0,.35)}
+.urgency{color:#c0392b;font-weight:700;margin:10px 0 0;font-size:.98rem}
+[data-theme="dark"] .urgency{color:#ff8f7a}
+
 /* ---- Öne çıkan hesaplayıcı bölümü (ana sayfa) ---- */
 .calc-hero{display:grid;grid-template-columns:1.4fr .8fr;gap:32px;align-items:center;
   background:linear-gradient(135deg,color-mix(in srgb,var(--green) 9%,var(--card)),var(--card));

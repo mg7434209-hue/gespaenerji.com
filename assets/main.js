@@ -777,6 +777,39 @@
     });
   }
 
+  /* ---- Tarımsal sulama teklif formu (kampanya) ---- */
+  var irrForm = $("#irrigationForm");
+  if (irrForm) {
+    irrForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var note = $("#irrigation-note");
+      var ad = irrForm.ad.value.trim(), tel = irrForm.tel.value.trim();
+      if (!ad || !tel) {
+        if (note) { note.style.color = "#c0392b"; note.textContent = L("Lütfen ad ve telefon alanlarını doldurun.", "Please fill in your name and phone.", "Bitte Name und Telefon ausfüllen.", "Пожалуйста, заполните имя и телефон."); }
+        return;
+      }
+      if (irrForm.kvkkOnay && !irrForm.kvkkOnay.checked) {
+        if (note) { note.style.color = "#c0392b"; note.textContent = L("Devam etmek için KVKK aydınlatma metnini onaylayın.", "Please accept the privacy notice to continue.", "Bitte akzeptieren Sie die Datenschutzerklärung.", "Подтвердите согласие на обработку данных."); }
+        return;
+      }
+      var wa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
+      if (wa) {
+        var val = function (n) { return irrForm[n] && irrForm[n].value ? irrForm[n].value : ""; };
+        var m = "🌾 " + L("Tarımsal sulama teklif talebi", "Agricultural irrigation quote request", "Anfrage Solarbewässerung", "Заявка на солнечное орошение") + ":\n"
+          + "Ad: " + ad + "\nTel: " + tel
+          + (val("pompa") ? "\nPompa: " + val("pompa") : "")
+          + (val("enerji") ? "\nMevcut enerji: " + val("enerji") : "")
+          + (val("su") ? "\nGünlük su: " + val("su") + " m³" : "")
+          + (val("derinlik") ? "\nBasma yüksekliği: " + val("derinlik") + " m" : "")
+          + (val("donum") ? "\nTarla: " + val("donum") + " dönüm" : "")
+          + (val("lokasyon") ? "\nLokasyon: " + val("lokasyon") : "");
+        window.open("https://wa.me/" + wa + "?text=" + encodeURIComponent(m), "_blank");
+      }
+      if (note) { note.style.color = "var(--green)"; note.textContent = L("Teşekkürler " + ad + "! Talebiniz WhatsApp üzerinden iletiliyor.", "Thank you " + ad + "! Your request is being sent via WhatsApp.", "Danke " + ad + "! Ihre Anfrage wird über WhatsApp gesendet.", "Спасибо, " + ad + "! Ваш запрос отправляется через WhatsApp."); }
+      irrForm.reset();
+    });
+  }
+
   /* ---- Bülten formu ---- */
   var news = $("#newsForm");
   if (news) {
