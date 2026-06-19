@@ -40,16 +40,14 @@ function safeJoin(base, target) {
 
 const server = http.createServer((req, res) => {
   try {
-    // HTTPS zorla + www → apex (yalnızca canlı alan adında; localhost atlanır)
+    // HTTP → HTTPS (yalnızca proxy açıkça http dediğinde; aynı host korunur).
+    // x-forwarded-proto yoksa (Railway iç sağlık kontrolü) yönlendirme YAPMA.
+    // Not: www→apex yönlendirmesi yok — canlı alan adı www.gespaenerji.com.
     var host = (req.headers.host || "").toLowerCase();
-    var proto = req.headers["x-forwarded-proto"] || "http";
-    if (host && !/^(localhost|127\.|0\.0\.0\.0)/.test(host)) {
-      var isWww = /^www\./.test(host);
-      if (proto !== "https" || isWww) {
-        var apex = host.replace(/^www\./, "");
-        res.writeHead(301, { Location: "https://" + apex + req.url });
-        return res.end();
-      }
+    var xfp = req.headers["x-forwarded-proto"];
+    if (xfp === "http" && host && !/^(localhost|127\.|0\.0\.0\.0)/.test(host)) {
+      res.writeHead(301, { Location: "https://" + host + req.url });
+      return res.end();
     }
 
     let urlPath = decodeURIComponent(req.url.split("?")[0]);
