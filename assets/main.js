@@ -53,9 +53,22 @@
           address: { "@type": "PostalAddress", streetAddress: c.address.line, addressLocality: c.address.district, addressRegion: c.address.city, addressCountry: c.address.country }
         };
         // Opsiyonel zenginleştirmeler — yalnızca config'te değer varsa eklenir
+        if (c.description) d.description = c.description;
+        if (c.slogan) d.slogan = c.slogan;
         if (c.openingHours) d.openingHours = c.openingHours;
         if (c.priceRange) d.priceRange = c.priceRange;
         if (c.areaServed && c.areaServed.length) d.areaServed = c.areaServed;
+        if (c.knowsAbout && c.knowsAbout.length) d.knowsAbout = c.knowsAbout;
+        if (c.foundingYear) d.foundingDate = String(c.foundingYear);
+        if (c.services && c.services.length) {
+          d.hasOfferCatalog = {
+            "@type": "OfferCatalog", name: "Hizmetler",
+            itemListElement: c.services.map(function (sv) { return { "@type": "Offer", itemOffered: { "@type": "Service", name: sv } }; })
+          };
+        }
+        if (c.rating && c.rating.value && c.rating.count) {
+          d.aggregateRating = { "@type": "AggregateRating", ratingValue: c.rating.value, reviewCount: c.rating.count };
+        }
         if (c.sameAs && c.sameAs.length) d.sameAs = c.sameAs;
         if (c.geo && c.geo.lat != null && c.geo.lng != null) {
           d.geo = { "@type": "GeoCoordinates", latitude: c.geo.lat, longitude: c.geo.lng };

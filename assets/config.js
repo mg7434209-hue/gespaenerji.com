@@ -27,7 +27,13 @@ window.GESPA.config = {
     // SEO / schema.org zenginleştirme — boş bırakılan alanlar JSON-LD'ye yazılmaz
     openingHours: "Mo-Fr 09:00-18:00",   // schema.org LocalBusiness.openingHours
     priceRange: "₺₺",                     // tahmini fiyat aralığı (zorunlu değil ama önerilir)
-    areaServed: ["Antalya", "Manavgat", "Alanya", "Serik", "Kırşehir"],
+    slogan: "Manavgat ve Antalya'da anahtar teslim güneş enerjisi santralleri",
+    description: "Gespa Enerji; Manavgat/Antalya merkezli, çatı ve arazi tipi güneş enerjisi santralleri (GES) ile güneş enerjili tarımsal sulama için anahtar teslim mühendislik, kurulum, finansman ve bakım hizmeti sunar.",
+    foundingYear: null,                   // kuruluş yılı girilince schema'ya eklenir
+    areaServed: ["Manavgat", "Side", "Antalya", "Alanya", "Serik", "Gazipaşa", "Akseki", "Gündoğmuş"],
+    knowsAbout: ["Güneş enerjisi santrali (GES)", "Çatı GES", "Arazi tipi GES", "Güneş enerjili tarımsal sulama", "Güneş paneli", "İnverter", "Enerji depolama / batarya", "Lisanssız elektrik üretimi"],
+    services: ["Çatı GES", "Arazi Tipi GES", "Güneş Enerjili Tarımsal Sulama", "Enerji Depolama (Batarya)", "Mühendislik & Projelendirme", "Finansman & Leasing", "Bakım (O&M)"],
+    rating: { value: null, count: null }, // GERÇEK Google yorum ortalaması/sayısı girilince aggregateRating eklenir (uydurma değer GİRMEYİN)
     geo: { lat: null, lng: null },        // kesin koordinat girilince schema'ya eklenir
     sameAs: []                            // gerçek sosyal medya URL'leri (LinkedIn/Instagram/X) eklenince doldurun
   },

@@ -1,4 +1,23 @@
 User-agent: *
 Allow: /
 
+# AI / yanıt motorları — içeriğimizin AI aramalarında görünmesini istiyoruz
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
 Sitemap: https://www.gespaenerji.com/sitemap.xml
