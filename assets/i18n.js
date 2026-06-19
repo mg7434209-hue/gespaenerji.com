@@ -50,6 +50,7 @@
 
   var DICT = {
     en: {
+      "Çalıştığımız ekipman markaları:": "Equipment brands we work with:", "Ücretsiz Tasarruf Hesaplayıcı": "Free Savings Calculator", "Fatura endişenizi birlikte çözelim": "Let's solve your bill worries together", "Yatırımı kolaylaştırıyoruz": "We make investing easy", "Peşin ödemeden güneşe geçin": "Go solar without upfront payment", "Finansman & Leasing": "Financing & Leasing", "Neden GESPA?": "Why GESPA?", "Sahadan referanslar": "Field references", "Ücretsiz Keşif İste": "Request a Free Survey", "Tasarrufumu Hesapla →": "Calculate My Savings →",
       "Mühendislik Araçları": "Engineering Tools", "GES Alet Çantası": "Solar Toolbox",
       "Ön tasarım ve saha için pratik hesap araçları. Sonuçlar tahminidir; kesin değer projelendirmeyle belirlenir.": "Practical calculators for pre-design and field work. Results are estimates; exact values are set during engineering.",
       "🔲 Panel Yerleşim": "🔲 Panel Layout", "🔌 İnverter": "🔌 Inverter", "🔻 Kablo / Gerilim Düşümü": "🔻 Cable / Voltage Drop", "🔋 Batarya": "🔋 Battery", "📐 Sıra Aralığı": "📐 Row Spacing",
@@ -205,6 +206,7 @@
       "Aboneliğiniz alındı, teşekkürler!": "You're subscribed, thank you!"
     },
     de: {
+      "Çalıştığımız ekipman markaları:": "Von uns verbaute Marken:", "Ücretsiz Tasarruf Hesaplayıcı": "Kostenloser Ersparnisrechner", "Fatura endişenizi birlikte çözelim": "Lösen wir Ihre Stromrechnung gemeinsam", "Yatırımı kolaylaştırıyoruz": "Wir machen die Investition leicht", "Peşin ödemeden güneşe geçin": "Ohne Anzahlung auf Solar umsteigen", "Finansman & Leasing": "Finanzierung & Leasing", "Neden GESPA?": "Warum GESPA?", "Sahadan referanslar": "Referenzen aus der Praxis", "Ücretsiz Keşif İste": "Kostenlose Beratung anfordern", "Tasarrufumu Hesapla →": "Meine Ersparnis berechnen →",
       "Mühendislik Araçları": "Ingenieurwerkzeuge", "GES Alet Çantası": "Solar-Werkzeugkasten",
       "Ön tasarım ve saha için pratik hesap araçları. Sonuçlar tahminidir; kesin değer projelendirmeyle belirlenir.": "Praktische Rechner für Vorplanung und Einsatz. Ergebnisse sind Schätzungen; genaue Werte werden in der Planung festgelegt.",
       "🔲 Panel Yerleşim": "🔲 Modul-Layout", "🔌 İnverter": "🔌 Wechselrichter", "🔻 Kablo / Gerilim Düşümü": "🔻 Kabel / Spannungsabfall", "🔋 Batarya": "🔋 Batterie", "📐 Sıra Aralığı": "📐 Reihenabstand",
@@ -387,6 +389,7 @@
       "Aboneliğiniz alındı, teşekkürler!": "Anmeldung erhalten, danke!"
     },
     ru: {
+      "Çalıştığımız ekipman markaları:": "Бренды оборудования, с которыми работаем:", "Ücretsiz Tasarruf Hesaplayıcı": "Бесплатный калькулятор экономии", "Fatura endişenizi birlikte çözelim": "Решим вашу проблему со счетами вместе", "Yatırımı kolaylaştırıyoruz": "Делаем инвестиции простыми", "Peşin ödemeden güneşe geçin": "Перейдите на солнечную энергию без предоплаты", "Finansman & Leasing": "Финансирование и лизинг", "Neden GESPA?": "Почему GESPA?", "Sahadan referanslar": "Реальные проекты", "Ücretsiz Keşif İste": "Запросить бесплатный выезд", "Tasarrufumu Hesapla →": "Рассчитать экономию →",
       "Mühendislik Araçları": "Инженерные инструменты", "GES Alet Çantası": "Набор инструментов для СЭС",
       "Ön tasarım ve saha için pratik hesap araçları. Sonuçlar tahminidir; kesin değer projelendirmeyle belirlenir.": "Практичные калькуляторы для предпроектной и полевой работы. Результаты ориентировочны; точные значения определяются при проектировании.",
       "🔲 Panel Yerleşim": "🔲 Расположение панелей", "🔌 İnverter": "🔌 Инвертор", "🔻 Kablo / Gerilim Düşümü": "🔻 Кабель / Падение напряжения", "🔋 Batarya": "🔋 Аккумулятор", "📐 Sıra Aralığı": "📐 Межрядный интервал",

@@ -109,6 +109,20 @@
     gtag("config", id, { anonymize_ip: true });
   })();
 
+  /* ---- Sabit mobil CTA çubuğu (her sayfada) ---- */
+  (function () {
+    var c = CFG.company; if (!c || !c.phone) return;
+    if ($(".mobile-cta")) return;
+    var bar = doc.createElement("div");
+    bar.className = "mobile-cta";
+    bar.setAttribute("aria-label", L("Hızlı iletişim", "Quick contact", "Schnellkontakt", "Быстрая связь"));
+    bar.innerHTML =
+      '<a class="mcta mcta-call" href="tel:' + c.phone.tel + '">📞 ' + L("Hemen Ara", "Call now", "Anrufen", "Позвонить") + '</a>' +
+      '<a class="mcta mcta-wa" href="https://wa.me/' + c.phone.wa + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
+      '<a class="mcta mcta-quote" href="iletisim.html">' + L("Ücretsiz Keşif", "Free Survey", "Beratung", "Бесплатно") + '</a>';
+    doc.body.appendChild(bar);
+  })();
+
   /* ---- Tema (açık/koyu) ---- */
   var themeToggle = $("#themeToggle");
   var saved = null;

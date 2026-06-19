@@ -40,6 +40,18 @@ function safeJoin(base, target) {
 
 const server = http.createServer((req, res) => {
   try {
+    // HTTPS zorla + www → apex (yalnızca canlı alan adında; localhost atlanır)
+    var host = (req.headers.host || "").toLowerCase();
+    var proto = req.headers["x-forwarded-proto"] || "http";
+    if (host && !/^(localhost|127\.|0\.0\.0\.0)/.test(host)) {
+      var isWww = /^www\./.test(host);
+      if (proto !== "https" || isWww) {
+        var apex = host.replace(/^www\./, "");
+        res.writeHead(301, { Location: "https://" + apex + req.url });
+        return res.end();
+      }
+    }
+
     let urlPath = decodeURIComponent(req.url.split("?")[0]);
     // Dizin kökü (/, /en/, /de/, /ru/) → index.html
     if (urlPath.endsWith("/")) urlPath += "index.html";
