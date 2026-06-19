@@ -14,7 +14,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = __dirname;
-const ORIGIN = "https://gespaenerji.com";
+const ORIGIN = "https://www.gespaenerji.com";
 const LANGS = ["en", "de", "ru"];
 const OG_LOCALE = { en: "en_US", de: "de_DE", ru: "ru_RU" };
 

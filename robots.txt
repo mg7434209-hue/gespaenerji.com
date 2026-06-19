@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gespaenerji.com/sitemap.xml
+Sitemap: https://www.gespaenerji.com/sitemap.xml
