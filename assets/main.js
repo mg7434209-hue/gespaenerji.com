@@ -136,6 +136,15 @@
     doc.body.appendChild(bar);
   })();
 
+  /* ---- Akıllı asistan (sohbet botu) yükle ---- */
+  (function () {
+    if (window.__gchatLoaded) return;
+    var sub = /^\/(en|de|ru)\//.test(location.pathname);
+    var s = doc.createElement("script"); s.defer = true;
+    s.src = (sub ? "/assets/" : "assets/") + "chatbot.js";
+    doc.body.appendChild(s);
+  })();
+
   /* ---- Tema (açık/koyu) ---- */
   var themeToggle = $("#themeToggle");
   var saved = null;
