@@ -486,12 +486,12 @@ img{max-width:100%;display:block}
 
 /* ---- Akıllı asistan (sohbet botu) — birleşik FAB (sağ alt) ---- */
 .fab-wa{display:none !important}   /* WhatsApp birleşik butona taşındı */
-.gchat-fab{position:fixed;right:20px;bottom:84px;z-index:96;width:56px;height:56px;border-radius:50%;
-  background:var(--green);color:#fff;border:0;display:grid;place-items:center;font-size:1.5rem;cursor:pointer;
-  box-shadow:var(--shadow-lg);transition:transform .15s,opacity .2s}
-.gchat-fab:hover{transform:scale(1.08)}
-.gchat-fab.active{transform:rotate(90deg)}
+.gchat-fab{position:fixed;right:20px;bottom:84px;z-index:96;display:flex;align-items:center;gap:8px;
+  background:var(--green);color:#fff;border:0;border-radius:999px;padding:12px 20px 12px 16px;cursor:pointer;
+  font-family:var(--font);font-weight:800;font-size:.95rem;box-shadow:var(--shadow-lg);transition:transform .15s,opacity .2s}
+.gchat-fab:hover{transform:translateY(-2px)}
 .gchat-fab.hide{opacity:0;pointer-events:none;transform:scale(.9)}
+.gchat-fab-ic{font-size:1.35rem;line-height:1}
 .gchat-menu{position:fixed;right:20px;bottom:150px;z-index:97;display:none;flex-direction:column;gap:8px;min-width:210px}
 .gchat-menu.open{display:flex}
 .gchat-menu-item{display:flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--line);border-radius:12px;
@@ -528,7 +528,7 @@ img{max-width:100%;display:block}
 .gchat-foot input:focus{outline:none;border-color:var(--green)}
 .gchat-foot button{flex:0 0 auto;width:44px;border:0;border-radius:50%;background:var(--green);color:#fff;font-size:1.1rem;cursor:pointer}
 @media(max-width:760px){
-  .gchat-fab{bottom:80px;right:12px}                            /* mobil CTA çubuğunun üstünde */
-  .gchat-menu{bottom:146px;right:12px}
+  .gchat-fab{bottom:80px;right:12px;padding:0;width:54px;height:54px;border-radius:50%;justify-content:center}
+  .gchat-fab-tx{display:none}                                   /* mobilde sadece robot ikonu */
   .gchat{left:8px;right:8px;bottom:8px;width:auto;max-width:none;height:78vh}
 }

@@ -171,12 +171,12 @@
     launcher = doc.createElement("button");
     launcher.className = "gchat-fab"; launcher.type = "button";
     launcher.setAttribute("aria-label", "Asistan ile sohbet");
-    launcher.innerHTML = '<span class="gchat-fab-ic">💬</span>';
+    launcher.innerHTML = '<span class="gchat-fab-ic">🤖</span><span class="gchat-fab-tx">Asistan</span>';
     doc.body.appendChild(launcher);
 
     panel = doc.createElement("div"); panel.className = "gchat"; panel.setAttribute("role", "dialog"); panel.setAttribute("aria-label", "GESPA Enerji asistanı");
     panel.innerHTML =
-      '<div class="gchat-head"><span class="gchat-ava">☀️</span><div><strong>GESPA Asistan</strong><small>Genelde birkaç dakikada yanıt</small></div><button class="gchat-close" type="button" aria-label="Kapat">×</button></div>' +
+      '<div class="gchat-head"><span class="gchat-ava">🤖</span><div><strong>GESPA Asistan</strong><small>Genelde birkaç dakikada yanıt</small></div><button class="gchat-close" type="button" aria-label="Kapat">×</button></div>' +
       '<div class="gchat-body" id="gchatBody"></div>' +
       '<form class="gchat-foot" id="gchatForm"><input id="gchatInput" type="text" autocomplete="off" placeholder="Mesajınızı yazın..." aria-label="Mesaj" /><button type="submit" aria-label="Gönder">➤</button></form>';
     doc.body.appendChild(panel);
