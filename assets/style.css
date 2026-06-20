@@ -481,17 +481,25 @@ img{max-width:100%;display:block}
   body{background:#fff;color:#000;padding-bottom:0}
   .calc-card,.result{box-shadow:none;border:1px solid #ccc}
   a[href]:after{content:""}
-  .gchat-launcher,.gchat{display:none !important}
+  .gchat-fab,.gchat,.gchat-menu{display:none !important}
 }
 
-/* ---- Akıllı asistan (sohbet botu) ---- */
-.gchat-launcher{position:fixed;left:20px;bottom:20px;z-index:96;display:flex;align-items:center;gap:8px;
-  background:var(--green);color:#fff;border:0;border-radius:999px;padding:12px 18px;font-weight:800;font-family:var(--font);
-  font-size:.95rem;cursor:pointer;box-shadow:var(--shadow-lg);transition:transform .15s,opacity .2s}
-.gchat-launcher:hover{transform:translateY(-2px)}
-.gchat-launcher.hide{opacity:0;pointer-events:none;transform:scale(.9)}
-.gchat-launcher-ic{font-size:1.2rem;line-height:1}
-.gchat{position:fixed;left:20px;bottom:20px;z-index:97;width:360px;max-width:calc(100vw - 32px);height:72vh;max-height:560px;
+/* ---- Akıllı asistan (sohbet botu) — birleşik FAB (sağ alt) ---- */
+.fab-wa{display:none !important}   /* WhatsApp birleşik butona taşındı */
+.gchat-fab{position:fixed;right:20px;bottom:84px;z-index:96;width:56px;height:56px;border-radius:50%;
+  background:var(--green);color:#fff;border:0;display:grid;place-items:center;font-size:1.5rem;cursor:pointer;
+  box-shadow:var(--shadow-lg);transition:transform .15s,opacity .2s}
+.gchat-fab:hover{transform:scale(1.08)}
+.gchat-fab.active{transform:rotate(90deg)}
+.gchat-fab.hide{opacity:0;pointer-events:none;transform:scale(.9)}
+.gchat-menu{position:fixed;right:20px;bottom:150px;z-index:97;display:none;flex-direction:column;gap:8px;min-width:210px}
+.gchat-menu.open{display:flex}
+.gchat-menu-item{display:flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--line);border-radius:12px;
+  padding:12px 16px;font-weight:700;font-family:var(--font);font-size:.92rem;color:var(--ink);cursor:pointer;text-decoration:none;
+  box-shadow:var(--shadow);text-align:left}
+.gchat-menu-item:hover{border-color:var(--green);color:var(--green)}
+.gchat-menu-item.wa:hover{border-color:#25d366;color:#1a9e4b}
+.gchat{position:fixed;right:20px;bottom:20px;z-index:98;width:360px;max-width:calc(100vw - 32px);height:72vh;max-height:560px;
   display:none;flex-direction:column;background:var(--bg);border:1px solid var(--line);border-radius:18px;overflow:hidden;
   box-shadow:0 24px 70px rgba(0,0,0,.32)}
 .gchat.open{display:flex}
@@ -520,7 +528,7 @@ img{max-width:100%;display:block}
 .gchat-foot input:focus{outline:none;border-color:var(--green)}
 .gchat-foot button{flex:0 0 auto;width:44px;border:0;border-radius:50%;background:var(--green);color:#fff;font-size:1.1rem;cursor:pointer}
 @media(max-width:760px){
-  .gchat-launcher{bottom:76px;left:12px;padding:11px 15px}      /* mobil CTA çubuğunun üstünde */
-  .gchat-launcher-tx{display:none}                              /* mobilde sadece ikon */
+  .gchat-fab{bottom:80px;right:12px}                            /* mobil CTA çubuğunun üstünde */
+  .gchat-menu{bottom:146px;right:12px}
   .gchat{left:8px;right:8px;bottom:8px;width:auto;max-width:none;height:78vh}
 }

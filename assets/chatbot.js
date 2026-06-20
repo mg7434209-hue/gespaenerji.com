@@ -167,11 +167,20 @@
   }
 
   function build() {
+    // Birleşik FAB (sağ alt) — tıklayınca WhatsApp / Asistan menüsü
     launcher = doc.createElement("button");
-    launcher.className = "gchat-launcher"; launcher.type = "button";
-    launcher.setAttribute("aria-label", "Asistan ile sohbet");
-    launcher.innerHTML = '<span class="gchat-launcher-ic">💬</span><span class="gchat-launcher-tx">Yardımcı olalım</span>';
+    launcher.className = "gchat-fab"; launcher.type = "button";
+    launcher.setAttribute("aria-label", "İletişim ve asistan");
+    launcher.innerHTML = '<span class="gchat-fab-ic">💬</span>';
     doc.body.appendChild(launcher);
+
+    var menu = doc.createElement("div"); menu.className = "gchat-menu";
+    menu.innerHTML =
+      '<a class="gchat-menu-item wa" target="_blank" rel="noopener">💬 WhatsApp\'tan yaz</a>' +
+      '<button class="gchat-menu-item bot" type="button">🤖 Asistan ile sohbet</button>';
+    doc.body.appendChild(menu);
+    var waItem = menu.querySelector(".wa");
+    if (WA) waItem.href = "https://wa.me/" + WA; else waItem.style.display = "none";
 
     panel = doc.createElement("div"); panel.className = "gchat"; panel.setAttribute("role", "dialog"); panel.setAttribute("aria-label", "GESPA Enerji asistanı");
     panel.innerHTML =
@@ -183,10 +192,16 @@
     body = panel.querySelector("#gchatBody");
     input = panel.querySelector("#gchatInput");
 
-    function open() { panel.classList.add("open"); launcher.classList.add("hide"); greet(); setTimeout(function () { input.focus(); }, 100); }
-    function close() { panel.classList.remove("open"); launcher.classList.remove("hide"); }
-    launcher.addEventListener("click", open);
-    panel.querySelector(".gchat-close").addEventListener("click", close);
+    function openMenu() { menu.classList.add("open"); launcher.classList.add("active"); }
+    function closeMenu() { menu.classList.remove("open"); launcher.classList.remove("active"); }
+    function openChat() { closeMenu(); panel.classList.add("open"); launcher.classList.add("hide"); greet(); setTimeout(function () { input.focus(); }, 100); }
+    function closeChat() { panel.classList.remove("open"); launcher.classList.remove("hide"); }
+
+    launcher.addEventListener("click", function (e) { e.stopPropagation(); if (menu.classList.contains("open")) closeMenu(); else openMenu(); });
+    menu.querySelector(".bot").addEventListener("click", openChat);
+    waItem.addEventListener("click", closeMenu);
+    doc.addEventListener("click", function (e) { if (!menu.contains(e.target) && e.target !== launcher) closeMenu(); });
+    panel.querySelector(".gchat-close").addEventListener("click", closeChat);
     panel.querySelector("#gchatForm").addEventListener("submit", function (e) {
       e.preventDefault(); var v = input.value.trim(); if (!v) return; input.value = ""; handleUser(v);
     });
