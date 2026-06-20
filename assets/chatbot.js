@@ -35,11 +35,11 @@
   ];
 
   var QUICK = [
+    { t: "📲 WhatsApp'tan görüş", q: "__wa__" },
     { t: "🌾 Tarımsal sulama", q: "tarımsal sulama" },
     { t: "🏠 Çatı GES", q: "çatı ges" },
     { t: "💰 Teklif / Fiyat", q: "teklif fiyat" },
-    { t: "🧮 Hesaplama", q: "hesaplama tasarruf" },
-    { t: "📞 İletişim", q: "iletişim" }
+    { t: "🧮 Hesaplama", q: "hesaplama tasarruf" }
   ];
 
   var transcript = [];       // {who, text}
@@ -100,37 +100,53 @@
     body.appendChild(w);
   }
 
-  function finishLead() {
-    mode = "done";
-    add("bot", "Teşekkürler " + lead.name + "! Talebinizi aşağıdaki butonla bize iletebilirsiniz. 👇");
+  // Tüm sohbet + iletişim bilgisini tek mesaj olarak derle
+  function buildMsg() {
     var lines = [];
     lines.push("Yeni site asistanı talebi:");
-    lines.push("Ad: " + lead.name);
-    lines.push("Tel: " + lead.phone);
+    if (lead.name) lines.push("Ad: " + lead.name);
+    if (lead.phone) lines.push("Tel: " + lead.phone);
     if (lead.note) lines.push("Not: " + lead.note);
     lines.push("");
     lines.push("— Sohbet —");
     transcript.forEach(function (m) { lines.push((m.who === "user" ? "👤 " : "🤖 ") + m.text); });
-    var msg = lines.join("\n");
+    return lines.join("\n");
+  }
 
+  function sendButtons(waLabel) {
+    var msg = buildMsg();
     var w = doc.createElement("div"); w.className = "gchat-actions";
     if (WA) {
       var wa = doc.createElement("a"); wa.className = "gchat-send wa";
       wa.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
-      wa.target = "_blank"; wa.rel = "noopener"; wa.textContent = "📲 WhatsApp'tan gönder";
+      wa.target = "_blank"; wa.rel = "noopener"; wa.textContent = waLabel || "📲 WhatsApp'tan devam et";
       w.appendChild(wa);
     }
     if (MAIL) {
       var em = doc.createElement("a"); em.className = "gchat-send mail";
-      em.href = "mailto:" + MAIL + "?subject=" + encodeURIComponent("Site asistanı talebi — " + lead.name) + "&body=" + encodeURIComponent(msg);
+      em.href = "mailto:" + MAIL + "?subject=" + encodeURIComponent("Site asistanı talebi — " + (lead.name || "Ziyaretçi")) + "&body=" + encodeURIComponent(msg);
       em.textContent = "✉️ E-posta ile gönder";
       w.appendChild(em);
     }
     body.appendChild(w); body.scrollTop = body.scrollHeight;
   }
 
+  // Hibrit devir: sohbeti olduğu gibi WhatsApp'a taşı
+  function waHandoff() {
+    if (!WA) { add("bot", "Bizi " + (C.phone && C.phone.display ? C.phone.display : "telefondan") + " arayabilirsiniz."); return; }
+    add("bot", "Harika! 👇 Butona dokunun; sohbetin tamamı ve bilgileriniz hazır şekilde WhatsApp'ta açılacak, oradan canlı devam edebiliriz.");
+    sendButtons("📲 WhatsApp'tan devam et");
+  }
+
+  function finishLead() {
+    mode = "done";
+    add("bot", "Teşekkürler " + lead.name + "! 🙌 WhatsApp'tan hemen devam edelim mi? Tüm konuşma ve bilgileriniz otomatik aktarılacak.");
+    sendButtons("📲 WhatsApp'tan gönder ve devam et");
+  }
+
   function handleUser(text, label) {
     add("user", label || text);
+    if (text === "__wa__") { waHandoff(); return; }   // WhatsApp'a hibrit devir
     if (mode === "askName") {
       lead.name = text.trim();
       mode = "askPhone";
