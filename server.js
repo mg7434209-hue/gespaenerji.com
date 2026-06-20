@@ -89,8 +89,11 @@ const server = http.createServer((req, res) => {
           "form-action 'self'"
         ].join("; ");
       }
-      // HTML her zaman taze; diğer statik varlıkları 7 gün önbelleğe al
-      headers["Cache-Control"] = ext === ".html" ? "no-cache" : "public, max-age=604800";
+      // Kod/içerik dosyaları (html/css/js/json/xml/txt/manifest) her zaman taze
+      // (no-cache = önbelleğe alınır ama her seferinde doğrulanır → güncellemeler
+      // anında görünür). Görsel/font/favicon uzun süre önbelleğe alınır.
+      var fresh = /^\.(html|css|js|json|xml|txt|webmanifest)$/.test(ext);
+      headers["Cache-Control"] = fresh ? "no-cache" : "public, max-age=604800";
 
       // Accept-Encoding destekliyorsa metin içeriği gzip ile gönder
       const ae = (req.headers["accept-encoding"] || "");
