@@ -61,38 +61,6 @@ window.GESPA.config = {
   // İsim/açıklama/özellik TR kaynaktır; çeviri assets/i18n.js DICT'ten gelir
   // (eşleşmeyen metin zarifçe TR kalır).
   packages: [
-    // —— Çatı / On-Grid paketler ——
-    {
-      id: "konut-baslangic", icon: "🏠", tag: "Konut", group: "ongrid", kwp: 5,
-      name: "Başlangıç Konut Paketi",
-      desc: "Küçük ve orta ölçekli evler için ekonomik giriş paketi.",
-      features: ["Anahtar teslim kurulum", "On-grid (şebeke bağlantılı)", "Tek fazlı sistem", "25 yıl panel performans garantisi"]
-    },
-    {
-      id: "konut-standart", icon: "🏡", tag: "Konut", group: "ongrid", kwp: 10, popular: true,
-      name: "Standart Konut Paketi",
-      desc: "Aileler için en çok tercih edilen dengeli çözüm.",
-      features: ["Anahtar teslim kurulum", "On-grid (şebeke bağlantılı)", "Üç fazlı sistem", "Uzaktan üretim izleme", "25 yıl panel performans garantisi"]
-    },
-    {
-      id: "villa", icon: "🏘️", tag: "Konut", group: "ongrid", kwp: 15,
-      name: "Villa / Geniş Çatı Paketi",
-      desc: "Yüksek tüketimli villa ve müstakil evler için güçlü paket.",
-      features: ["Anahtar teslim kurulum", "On-grid (şebeke bağlantılı)", "Üç fazlı sistem", "Uzaktan üretim izleme", "25 yıl panel performans garantisi"]
-    },
-    {
-      id: "ticari", icon: "🏭", tag: "Ticari", group: "ongrid", kwp: 50,
-      name: "Ticari / Sanayi Paketi",
-      desc: "İşletmeler için yüksek kapasiteli üretim ve tasarruf çözümü.",
-      features: ["Anahtar teslim mühendislik", "On-grid (şebeke bağlantılı)", "SCADA / uzaktan izleme", "Mahsuplaşma danışmanlığı", "Bakım (O&M) opsiyonu"]
-    },
-    {
-      id: "hibrit-batarya", icon: "🔋", tag: "Depolama", group: "ongrid", kwp: 10, battery: 10,
-      name: "Hibrit + Batarya Paketi",
-      desc: "Elektrik kesintilerinde bile enerji: bataryalı hibrit çözüm.",
-      features: ["Hibrit inverter + batarya", "Kesintide kesintisiz enerji", "Öz tüketimi maksimize eder", "Uzaktan izleme", "25 yıl panel performans garantisi"]
-    },
-
     // —— Taşınabilir & Off-Grid (jel akülü) paketler —— açık perakende fiyatı
     {
       id: "offgrid-1kw", icon: "🎒", tag: "Taşınabilir", group: "offgrid", kwp: 1, portable: true, price: 66129,
@@ -101,7 +69,7 @@ window.GESPA.config = {
       features: ["Jel akü dahil", "Taşınabilir / mobil kullanım", "Off-grid (şebekesiz) çalışma", "Hazır kurulum kiti"]
     },
     {
-      id: "offgrid-3kw", icon: "🛖", tag: "Taşınabilir", group: "offgrid", kwp: 3, portable: true, price: 145934,
+      id: "offgrid-3kw", icon: "🛖", tag: "Taşınabilir", group: "offgrid", kwp: 3, portable: true, price: 145934, popular: true,
       name: "3 kW Off-Grid Paket",
       desc: "Bağ evi ve küçük müstakil yapılar için jel akülü sistem.",
       features: ["Jel akü dahil", "Hibrit inverter dahil", "Off-grid (şebekesiz) çalışma", "Hazır kurulum kiti"]
