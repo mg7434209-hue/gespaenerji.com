@@ -31,13 +31,15 @@
     { k: ["batarya", "depolama", "gece", "aku"], a: "🔋 Enerji depolama (batarya) ile öz tüketiminizi artırıp gece de kullanabilirsiniz. İhtiyacınıza göre boyutlandırırız." },
     { k: ["nerede", "bolge", "manavgat", "antalya", "alanya", "side", "serik", "hizmet bolge"], a: "📍 Manavgat merkezli olarak Side, Antalya, Alanya, Serik, Gazipaşa ve çevresinde; talebe göre tüm Türkiye'de hizmet veriyoruz." },
     { k: ["iletisim", "telefon", "ara", "adres", "ulas", "whatsapp"], a: "📞 Bize " + (C.phone && C.phone.display ? C.phone.display : "telefon") + " numarasından veya WhatsApp'tan ulaşabilirsiniz. Çalışma saatleri: " + (C.hours || "Hafta içi 09:00–18:00") + ".", link: { t: "İletişim sayfası", u: "iletisim.html" } },
-    { k: ["proje", "referans", "ornek"], a: "📷 Sanayi, tarım ve konut projelerimizden örnekleri inceleyebilirsiniz.", link: { t: "Projeler", u: "projeler.html" } }
+    { k: ["proje", "referans", "ornek"], a: "📷 Sanayi, tarım ve konut projelerimizden örnekleri inceleyebilirsiniz.", link: { t: "Projeler", u: "projeler.html" } },
+    { k: ["paket", "urun", "hazir", "kac kwp", "kwp"], a: "📦 Konut, villa, ticari ve tarımsal sulama için anahtar teslim hazır paketlerimiz var (5–50 kWp). Net güç, panel sayısı ve yaklaşık başlangıç fiyatıyla inceleyebilirsiniz.", link: { t: "Paket ürünler", u: "urunler.html" } }
   ];
 
   var QUICK = [
     { t: "📲 WhatsApp'tan görüş", q: "__wa__" },
     { t: "🌾 Tarımsal sulama", q: "tarımsal sulama" },
     { t: "🏠 Çatı GES", q: "çatı ges" },
+    { t: "📦 Paketler", q: "paket ürün" },
     { t: "💰 Teklif / Fiyat", q: "teklif fiyat" },
     { t: "🧮 Hesaplama", q: "hesaplama tasarruf" }
   ];

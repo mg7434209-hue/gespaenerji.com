@@ -279,6 +279,31 @@ img{max-width:100%;display:block}
 /* Gradient placeholders (for project/post images) */
 .grad-1{background:linear-gradient(135deg,#0a6e4f,#1b9c73)}
 
+/* ---- Paket ürünler (urunler.html) ---- */
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+.pkg-card{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.pkg-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:color-mix(in srgb,var(--green) 30%,var(--line))}
+.pkg-card.popular{border-color:var(--green);box-shadow:var(--shadow)}
+.pkg-badge{position:absolute;top:-13px;right:22px;background:var(--sun);color:#3a2c00;font-weight:800;font-size:.74rem;letter-spacing:.4px;text-transform:uppercase;padding:6px 14px;border-radius:999px;box-shadow:var(--shadow)}
+.pkg-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.pkg-icon{font-size:1.9rem;line-height:1}
+.pkg-tag{background:var(--bg-alt);color:var(--green);font-weight:700;font-size:.76rem;padding:5px 12px;border-radius:999px;border:1px solid var(--line)}
+.pkg-name{margin:0 0 6px;font-size:1.2rem}
+.pkg-desc{margin:0;color:var(--muted);font-size:.94rem}
+.pkg-power{margin:16px 0 4px;font-family:var(--font);font-weight:800;font-size:1.7rem;color:var(--green)}
+.pkg-specs{list-style:none;padding:14px 0;margin:12px 0;display:grid;gap:8px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pkg-specs li{position:relative;padding-left:24px;color:var(--ink);font-size:.92rem}
+.pkg-specs li::before{content:"▸";position:absolute;left:4px;top:0;color:var(--green);font-weight:800}
+.pkg-features{margin:16px 0 0!important}
+.pkg-features li{font-size:.9rem}
+.pkg-price{margin:18px 0 16px;display:flex;flex-direction:column;gap:2px}
+.pkg-price-lbl{color:var(--muted);font-size:.8rem}
+.pkg-price strong{font-family:var(--font);font-size:1.55rem;color:var(--ink);font-weight:800}
+.pkg-card .btn{margin-top:auto}
+.pkg-note{text-align:center;color:var(--muted);font-size:.92rem;margin:28px auto 0;max-width:70ch}
+@media(max-width:960px){.pkg-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.pkg-grid{grid-template-columns:1fr}}
+
 /* Steps */
 .steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;padding:0;margin:0}
 .steps li{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;position:relative}

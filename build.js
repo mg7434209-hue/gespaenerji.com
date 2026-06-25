@@ -20,7 +20,7 @@ const OG_LOCALE = { en: "en_US", de: "de_DE", ru: "ru_RU" };
 
 // Üretilecek sayfalar
 const PAGES = [
-  "index.html", "hizmetler.html", "hesaplayici.html",
+  "index.html", "hizmetler.html", "urunler.html", "hesaplayici.html",
   "projeler.html", "hakkimizda.html", "iletisim.html", "tarimsal-sulama.html"
 ];
 
@@ -41,6 +41,14 @@ const META = {
           d: "Aufdach-PV, Freiflächen-PV, Energiespeicher, Engineering, Finanzierung und Wartung (O&M). Schlüsselfertige Solarlösungen — GESPA Energy." },
     ru: { t: "Услуги — Солнечные станции, накопители, обслуживание | GESPA Energy",
           d: "Солнечные станции на крыше и на земле, накопители энергии, инжиниринг, финансирование и обслуживание (O&M). Решения под ключ — GESPA Energy." }
+  },
+  "urunler.html": {
+    en: { t: "Solar Packages — Ready Rooftop, Storage & Irrigation Kits | GESPA Energy",
+          d: "Turnkey ready-made solar (PV) packages for homes, villas, commercial and agricultural irrigation. 5–50 kWp with clear power, panel count and price — GESPA Energy." },
+    de: { t: "Solar-Pakete — Fertige Aufdach-, Speicher- & Bewässerungssets | GESPA Energy",
+          d: "Schlüsselfertige Solar-Pakete (PV) für Wohnhäuser, Villen, Gewerbe und Bewässerung. 5–50 kWp mit klarer Leistung, Modulanzahl und Preis — GESPA Energy." },
+    ru: { t: "Солнечные пакеты — Готовые комплекты СЭС, накопителей и полива | GESPA Energy",
+          d: "Готовые солнечные пакеты под ключ для домов, вилл, бизнеса и аграрного полива. 5–50 кВт с понятной мощностью, числом панелей и ценой — GESPA Energy." }
   },
   "hesaplayici.html": {
     en: { t: "Solar Savings Calculator (PV) | GESPA Energy",

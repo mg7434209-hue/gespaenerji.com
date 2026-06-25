@@ -26,9 +26,16 @@ Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş ve çevr
 - Çok dilli site (TR / EN / DE / RU)
 - Ücretsiz online araçlar: tasarruf hesaplayıcı + mühendislik alet çantası (panel yerleşim, inverter, kablo, batarya, sıra aralığı)
 
+## Paket ürünler
+Anahtar teslim hazır GES paketleri (yaklaşık başlangıç fiyatları, config'ten türetilir):
+- Başlangıç Konut Paketi (5 kWp), Standart Konut Paketi (10 kWp), Villa / Geniş Çatı Paketi (15 kWp)
+- Hibrit + Batarya Paketi (10 kWp + 10 kWh), Tarımsal Sulama Paketi (20 kWp, off-grid), Ticari / Sanayi Paketi (50 kWp)
+Tüm paketler ölçeklenebilir; kesin fiyat ücretsiz keşifle belirlenir.
+
 ## Önemli sayfalar
 - Ana sayfa: https://www.gespaenerji.com/
 - Hizmetler: https://www.gespaenerji.com/hizmetler.html
+- Paket ürünler: https://www.gespaenerji.com/urunler.html
 - Güneş enerjili tarımsal sulama: https://www.gespaenerji.com/tarimsal-sulama.html
 - Tasarruf hesaplayıcı & araçlar: https://www.gespaenerji.com/hesaplayici.html
 - Referans projeler: https://www.gespaenerji.com/projeler.html

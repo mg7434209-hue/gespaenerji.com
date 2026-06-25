@@ -49,6 +49,53 @@ window.GESPA.config = {
     inverter: ["Tescom", "Mexxsun", "Lexron", "Arçelik"]
   },
 
+  // ---- Paket ürünler (urunler.html) ----
+  // TEK YER: paket gücü/özellikleri burada tanımlanır. Fiyat/panel/alan/üretim
+  // KODA GÖMÜLMEZ; assets/main.js bu güçten ve config.calc katsayılarından türetir.
+  //   fiyat ≈ kwp × calc.costPerKwp (+ battery × calc.batteryCostPerKwh)
+  //   panel = ceil(kwp×1000 / calc.panelW) · alan = kwp × calc.areaPerKwp
+  //   üretim ≈ kwp × (varsayılan bölge verimi)
+  // İsim/açıklama/özellik metinleri TR kaynaktır; çeviri assets/i18n.js DICT'ten gelir
+  // (eşleşmeyen metin zarifçe TR kalır).
+  packages: [
+    {
+      id: "konut-baslangic", icon: "🏠", tag: "Konut", kwp: 5,
+      name: "Başlangıç Konut Paketi",
+      desc: "Küçük ve orta ölçekli evler için ekonomik giriş paketi.",
+      features: ["Anahtar teslim kurulum", "On-grid (şebeke bağlantılı)", "Tek fazlı sistem", "25 yıl panel performans garantisi"]
+    },
+    {
+      id: "konut-standart", icon: "🏡", tag: "Konut", kwp: 10, popular: true,
+      name: "Standart Konut Paketi",
+      desc: "Aileler için en çok tercih edilen dengeli çözüm.",
+      features: ["Anahtar teslim kurulum", "On-grid (şebeke bağlantılı)", "Üç fazlı sistem", "Uzaktan üretim izleme", "25 yıl panel performans garantisi"]
+    },
+    {
+      id: "villa", icon: "🏘️", tag: "Konut", kwp: 15,
+      name: "Villa / Geniş Çatı Paketi",
+      desc: "Yüksek tüketimli villa ve müstakil evler için güçlü paket.",
+      features: ["Anahtar teslim kurulum", "On-grid (şebeke bağlantılı)", "Üç fazlı sistem", "Uzaktan üretim izleme", "25 yıl panel performans garantisi"]
+    },
+    {
+      id: "hibrit-batarya", icon: "🔋", tag: "Depolama", kwp: 10, battery: 10,
+      name: "Hibrit + Batarya Paketi",
+      desc: "Elektrik kesintilerinde bile enerji: bataryalı hibrit çözüm.",
+      features: ["Hibrit inverter + batarya", "Kesintide kesintisiz enerji", "Öz tüketimi maksimize eder", "Uzaktan izleme", "25 yıl panel performans garantisi"]
+    },
+    {
+      id: "tarimsal-sulama", icon: "🌾", tag: "Tarım", kwp: 20,
+      name: "Tarımsal Sulama Paketi",
+      desc: "Mazotsuz, şebekeden bağımsız güneş enerjili sulama sistemi.",
+      features: ["Dalgıç/yüzey pompasına uygun", "Off-grid (şebekesiz) çalışma", "Pompa sürücüsü dahil", "Sezonluk boyutlandırma"]
+    },
+    {
+      id: "ticari", icon: "🏭", tag: "Ticari", kwp: 50,
+      name: "Ticari / Sanayi Paketi",
+      desc: "İşletmeler için yüksek kapasiteli üretim ve tasarruf çözümü.",
+      features: ["Anahtar teslim mühendislik", "On-grid (şebeke bağlantılı)", "SCADA / uzaktan izleme", "Mahsuplaşma danışmanlığı", "Bakım (O&M) opsiyonu"]
+    }
+  ],
+
   // Hesaplayıcı katsayıları — TEK YER (koda hardcode edilmez)
   calc: {
     panelW: 550,            // Wp — tek panel gücü
