@@ -280,6 +280,12 @@ img{max-width:100%;display:block}
 .grad-1{background:linear-gradient(135deg,#0a6e4f,#1b9c73)}
 
 /* ---- Paket ürünler (urunler.html) ---- */
+.pkg-group{margin-top:56px}
+.pkg-group:first-child{margin-top:0}
+.pkg-group-head{margin:0 0 26px;text-align:center}
+.pkg-group-head h2{font-size:clamp(1.4rem,3vw,2rem);font-weight:800;display:inline-block;position:relative;padding-bottom:10px}
+.pkg-group-head h2::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:54px;height:3px;border-radius:2px;background:var(--green)}
+.pkg-group-head p{color:var(--muted);margin:12px auto 0;max-width:64ch}
 .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
 .pkg-card{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;transition:transform .2s,box-shadow .2s,border-color .2s}
 .pkg-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:color-mix(in srgb,var(--green) 30%,var(--line))}

@@ -43,12 +43,12 @@ const META = {
           d: "Солнечные станции на крыше и на земле, накопители энергии, инжиниринг, финансирование и обслуживание (O&M). Решения под ключ — GESPA Energy." }
   },
   "urunler.html": {
-    en: { t: "Solar Packages — Ready Rooftop, Storage & Irrigation Kits | GESPA Energy",
-          d: "Turnkey ready-made solar (PV) packages for homes, villas, commercial and agricultural irrigation. 5–50 kWp with clear power, panel count and price — GESPA Energy." },
-    de: { t: "Solar-Pakete — Fertige Aufdach-, Speicher- & Bewässerungssets | GESPA Energy",
-          d: "Schlüsselfertige Solar-Pakete (PV) für Wohnhäuser, Villen, Gewerbe und Bewässerung. 5–50 kWp mit klarer Leistung, Modulanzahl und Preis — GESPA Energy." },
-    ru: { t: "Солнечные пакеты — Готовые комплекты СЭС, накопителей и полива | GESPA Energy",
-          d: "Готовые солнечные пакеты под ключ для домов, вилл, бизнеса и аграрного полива. 5–50 кВт с понятной мощностью, числом панелей и ценой — GESPA Energy." }
+    en: { t: "Solar Packages — Rooftop, Portable Off-Grid & Irrigation Kits | GESPA Energy",
+          d: "Turnkey solar (PV) packages for homes, villas, commercial, portable off-grid (gel battery) and agricultural irrigation. 1–50 kWp with clear power, panel count and price — GESPA Energy." },
+    de: { t: "Solar-Pakete — Aufdach, tragbare Off-Grid- & Bewässerungssets | GESPA Energy",
+          d: "Schlüsselfertige Solar-Pakete (PV) für Häuser, Villen, Gewerbe, tragbare Off-Grid-Sets (Gel-Batterie) und Bewässerung. 1–50 kWp mit klarer Leistung, Modulanzahl und Preis." },
+    ru: { t: "Солнечные пакеты — Крышные, портативные off-grid и для полива | GESPA Energy",
+          d: "Готовые солнечные пакеты для домов, вилл, бизнеса, портативные off-grid (гелевый аккумулятор) и для аграрного полива. 1–50 кВт с понятной мощностью и ценой." }
   },
   "hesaplayici.html": {
     en: { t: "Solar Savings Calculator (PV) | GESPA Energy",

@@ -27,9 +27,10 @@ Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş ve çevr
 - Ücretsiz online araçlar: tasarruf hesaplayıcı + mühendislik alet çantası (panel yerleşim, inverter, kablo, batarya, sıra aralığı)
 
 ## Paket ürünler
-Anahtar teslim hazır GES paketleri (yaklaşık başlangıç fiyatları, config'ten türetilir):
-- Başlangıç Konut Paketi (5 kWp), Standart Konut Paketi (10 kWp), Villa / Geniş Çatı Paketi (15 kWp)
-- Hibrit + Batarya Paketi (10 kWp + 10 kWh), Tarımsal Sulama Paketi (20 kWp, off-grid), Ticari / Sanayi Paketi (50 kWp)
+Anahtar teslim hazır GES paketleri 3 grupta (yaklaşık fiyatlar; config'ten türetilir/açık fiyat):
+- Çatı / On-Grid: Başlangıç Konut (5 kWp), Standart Konut (10 kWp), Villa/Geniş Çatı (15 kWp), Ticari/Sanayi (50 kWp), Hibrit + Batarya (10 kWp + 10 kWh)
+- Taşınabilir & Off-Grid (jel akülü): 1 kW, 3 kW, 4.2 kW, 6.2 kW, 8 kW — bağ evi, karavan, kulübe için hazır kitler
+- Tarımsal Sulama (off-grid): Bağ-Bahçe (3 kWp), Tarla (7.5 kWp), Sera (11 kWp), Geniş Tarla (20 kWp)
 Tüm paketler ölçeklenebilir; kesin fiyat ücretsiz keşifle belirlenir.
 
 ## Önemli sayfalar

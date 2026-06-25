@@ -117,19 +117,27 @@
       var nf1 = new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 1 });
       var WA = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
       var ld = [];
-      var html = CFG.packages.map(function (p, i) {
-        var panels = Math.ceil((p.kwp * 1000) / PANEL_W);
-        var area = Math.round(p.kwp * AREA);
-        var prod = Math.round(p.kwp * defYield);
-        var price = Math.round(p.kwp * COST + (p.battery ? p.battery * BAT_COST : 0));
-        var specs = [
-          nf1.format(p.kwp) + " kWp",
-          "~" + nf.format(panels) + " " + L("panel", "panels", "Module", "панелей") + " (" + PANEL_W + " Wp)",
-          "~" + nf.format(area) + " m² " + L("alan", "area", "Fläche", "площадь"),
-          "~" + nf.format(prod) + " kWh/" + L("yıl", "yr", "Jahr", "год")
-        ];
-        if (p.battery) specs.push(nf.format(p.battery) + " kWh " + L("batarya", "battery", "Batterie", "аккумулятор"));
-        var specLi = specs.map(function (s) { return "<li>" + s + "</li>"; }).join("");
+      function priceOf(p) { return p.price != null ? p.price : Math.round(p.kwp * COST + (p.battery ? p.battery * BAT_COST : 0)); }
+      function specsOf(p) {
+        var pw = p.panelW || PANEL_W;
+        var panels = p.panelCount || Math.ceil((p.kwp * 1000) / pw);
+        var arr = [nf1.format(p.kwp) + " kWp",
+          "~" + nf.format(panels) + " " + L("panel", "panels", "Module", "панелей") + " (" + pw + " Wp)"];
+        if (p.group === "offgrid") {
+          arr.push("~" + nf.format(Math.round(p.kwp * defYield / 365)) + " kWh/" + L("gün", "day", "Tag", "день"));
+        } else if (p.group === "irrigation") {
+          if (p.pumpKw) arr.push(L("Pompa", "Pump", "Pumpe", "Насос") + " ~" + nf1.format(p.pumpKw) + " kW");
+          arr.push("~" + nf.format(Math.round(p.kwp * AREA)) + " m² " + L("alan", "area", "Fläche", "площадь"));
+        } else {
+          arr.push("~" + nf.format(Math.round(p.kwp * AREA)) + " m² " + L("alan", "area", "Fläche", "площадь"));
+          arr.push("~" + nf.format(Math.round(p.kwp * defYield)) + " kWh/" + L("yıl", "yr", "Jahr", "год"));
+          if (p.battery) arr.push(nf.format(p.battery) + " kWh " + L("batarya", "battery", "Batterie", "аккумулятор"));
+        }
+        return arr;
+      }
+      function card(p) {
+        var price = priceOf(p);
+        var specLi = specsOf(p).map(function (s) { return "<li>" + s + "</li>"; }).join("");
         var feat = (p.features || []).map(function (f) { return "<li>" + f + "</li>"; }).join("");
         var href = "iletisim.html";
         if (WA) {
@@ -153,8 +161,21 @@
           '<div class="pkg-price"><span class="pkg-price-lbl">' + L("Yaklaşık başlangıç", "Approx. from", "Ca. ab", "Прибл. от") + "</span><strong>₺" + nf.format(price) + "</strong></div>" +
           '<a class="btn btn-block" href="' + href + '"' + (WA ? ' target="_blank" rel="noopener"' : "") + ">" + L("Bu paket için teklif al", "Get a quote", "Angebot anfordern", "Запросить КП") + "</a>" +
           "</article>";
-      }).join("");
-      grid.innerHTML = html;
+      }
+      var GROUPS = [
+        { id: "ongrid", title: L("Çatı / On-Grid Paketler", "Rooftop / On-Grid Packages", "Aufdach- / On-Grid-Pakete", "Крышные / On-grid пакеты"), desc: L("Şebeke bağlantılı konut, villa ve ticari sistemler.", "Grid-tied residential, villa and commercial systems.", "Netzgekoppelte Wohn-, Villa- und Gewerbesysteme.", "Сетевые системы для домов, вилл и бизнеса.") },
+        { id: "offgrid", title: L("Taşınabilir & Off-Grid Paketler", "Portable & Off-Grid Packages", "Tragbare & Off-Grid-Pakete", "Портативные и off-grid пакеты"), desc: L("Jel akülü, şebekeden bağımsız; bağ evi, karavan ve kulübe için hazır kitler.", "Gel-battery, off-grid ready kits for cabins, caravans and huts.", "Gel-Batterie, netzunabhängige Fertigsets für Gartenhäuser, Wohnmobile und Hütten.", "Готовые автономные комплекты с гелевым аккумулятором для дач, караванов и хижин.") },
+        { id: "irrigation", title: L("Tarımsal Sulama Paketleri", "Agricultural Irrigation Packages", "Pakete für landwirtschaftliche Bewässerung", "Пакеты для аграрного полива"), desc: L("Mazotsuz, şebekesiz güneş enerjili sulama pompa sistemleri.", "Diesel-free, off-grid solar irrigation pump systems.", "Dieselfreie, netzunabhängige solare Bewässerungspumpensysteme.", "Солнечные насосные системы полива без дизеля и без сети.") }
+      ];
+      var out = "";
+      GROUPS.forEach(function (g) {
+        var items = CFG.packages.filter(function (p) { return (p.group || "ongrid") === g.id; });
+        if (!items.length) return;
+        out += '<div class="pkg-group">' +
+          '<div class="pkg-group-head reveal"><h2>' + g.title + "</h2><p>" + g.desc + "</p></div>" +
+          '<div class="pkg-grid">' + items.map(card).join("") + "</div></div>";
+      });
+      grid.innerHTML = out;
       try {
         var s = doc.createElement("script"); s.type = "application/ld+json";
         s.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "ItemList", name: "GESPA Enerji", itemListElement: ld.map(function (o, i) { return { "@type": "ListItem", position: i + 1, item: o }; }) });
