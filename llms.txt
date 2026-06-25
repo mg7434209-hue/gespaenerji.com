@@ -32,6 +32,12 @@ Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş ve çevr
 - Tarımsal Sulama (off-grid): Bağ-Bahçe (3 kWp), Tarla (7.5 kWp), Sera (11 kWp), Geniş Tarla (20 kWp)
 Çatı/on-grid sistemler proje bazlı sunulur (bkz. Hizmetler). Tüm paketler ölçeklenebilir; kesin fiyat ücretsiz keşifle belirlenir.
 
+## PV Güneş Su Isıtıcı (ısıtma ürünü)
+Monokristal güneş panelleriyle suyu güneş enerjisiyle ısıtan fotovoltaik (PV) su ısıtıcı.
+Akıllı GF-20 kontrol; bulutlu havada otomatik şebeke (AC) desteği; emaye iç tank; donma/aşırı ısınma/kuru çalışma korumaları.
+Modeller: 60 L, 80 L, 100 L, 120 L, 150 L (PV gücü 550–1200 W). Sertifikalar: TÜV/CE/UL/UN38.3.
+Sayfa: https://www.gespaenerji.com/su-isitici.html
+
 ## Önemli sayfalar
 - Ana sayfa: https://www.gespaenerji.com/
 - Hizmetler: https://www.gespaenerji.com/hizmetler.html

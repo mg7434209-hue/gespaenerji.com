@@ -20,7 +20,7 @@ const OG_LOCALE = { en: "en_US", de: "de_DE", ru: "ru_RU" };
 
 // Üretilecek sayfalar
 const PAGES = [
-  "index.html", "hizmetler.html", "urunler.html", "hesaplayici.html",
+  "index.html", "hizmetler.html", "urunler.html", "su-isitici.html", "hesaplayici.html",
   "projeler.html", "hakkimizda.html", "iletisim.html", "tarimsal-sulama.html"
 ];
 
@@ -49,6 +49,14 @@ const META = {
           d: "Tragbare Off-Grid-Solarsets (Gel-Batterie) und landwirtschaftliche Bewässerungspakete. 1–20 kWp mit klarer Leistung, Modulanzahl und Preis — netzunabhängige Lösungen." },
     ru: { t: "Солнечные пакеты — Портативные off-grid и для полива | GESPA Energy",
           d: "Портативные автономные солнечные комплекты (гелевый аккумулятор) и пакеты для аграрного полива. 1–20 кВт с понятной мощностью и ценой — автономные решения." }
+  },
+  "su-isitici.html": {
+    en: { t: "PV Solar Water Heater — Photovoltaic Water Heating | GESPA Energy",
+          d: "New-generation photovoltaic (PV) water heater that heats water directly with monocrystalline solar panels. Smart GF-20 controller, automatic grid backup on cloudy days, 60–150 L enamel tank — GESPA Energy." },
+    de: { t: "PV-Solar-Warmwasserbereiter — Photovoltaische Warmwasserbereitung | GESPA Energy",
+          d: "Photovoltaischer (PV) Warmwasserbereiter der neuen Generation: erwärmt Wasser direkt mit Monokristallin-Solarmodulen. Smarter GF-20-Regler, automatische Netz-Reserve bei Bewölkung, 60–150 L Emailtank." },
+    ru: { t: "PV солнечный водонагреватель — Фотоэлектрический нагрев воды | GESPA Energy",
+          d: "Фотоэлектрический (PV) водонагреватель нового поколения, нагревающий воду напрямую монокристаллическими панелями. Умный контроллер GF-20, авто-резерв от сети в пасмурную погоду, эмалевый бак 60–150 л." }
   },
   "hesaplayici.html": {
     en: { t: "Solar Savings Calculator (PV) | GESPA Energy",
@@ -105,6 +113,8 @@ function transform(html, lang, file) {
   // 2) Göreli "assets/..." referanslarını mutlak "/assets/..." yap (alt dizinde de çözülsün)
   //    href/src + <picture><source srcset> dahil
   out = out.replace(/(href|src|srcset)="assets\//g, '$1="/assets/');
+  //    inline stil arka planları: url('assets/...') -> url('/assets/...')
+  out = out.replace(/url\((['"]?)assets\//g, 'url($1/assets/');
 
   // 3) <title> ve meta description (dil-özel)
   if (m) {
