@@ -33,6 +33,13 @@
      ============================================================ */
   var CFG = (window.GESPA && window.GESPA.config) || {};
   function setText(sel, v) { var e = $(sel); if (e && v != null) e.textContent = v; }
+  // Admin panelinden kaydedilen fiyat override'larını uygula (yalnızca bu tarayıcı)
+  (function applyPriceOverrides() {
+    var ov; try { ov = JSON.parse(localStorage.getItem("gespa-prices") || "null"); } catch (e) { ov = null; }
+    if (!ov) return;
+    if (ov.packages && CFG.packages) CFG.packages.forEach(function (p) { if (ov.packages[p.id] != null && ov.packages[p.id] !== "") p.price = +ov.packages[p.id]; });
+    if (ov.heater && CFG.heater && CFG.heater.models) CFG.heater.models.forEach(function (m) { if (ov.heater[m.cap] != null && ov.heater[m.cap] !== "") m.price = +ov.heater[m.cap]; });
+  })();
   (function fillFromConfig() {
     var c = CFG.company;
     if (c) {
@@ -181,6 +188,22 @@
         s.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "ItemList", name: "GESPA Enerji", itemListElement: ld.map(function (o, i) { return { "@type": "ListItem", position: i + 1, item: o }; }) });
         doc.head.appendChild(s);
       } catch (e) {}
+    })();
+    // ---- PV Su Isıtıcı model tablosu (su-isitici.html) ----
+    (function renderHeater() {
+      var tb = $("#heaterRows");
+      if (!tb || !CFG.heater || !CFG.heater.models) return;
+      var nf = new Intl.NumberFormat("tr-TR");
+      tb.innerHTML = CFG.heater.models.map(function (m) {
+        var tank = L("Emaye", "Enamel", "Email", "Эмаль");
+        return "<tr><td>" + m.cap + " L</td><td>" + m.pv + " W</td><td>" + m.dim + "</td><td>" + m.ac + " kW</td><td>" + tank + "</td><td class=\"spec-price\">" + (m.price ? "₺" + nf.format(m.price) : "—") + "</td></tr>";
+      }).join("");
+      var prices = CFG.heater.models.map(function (m) { return m.price; }).filter(Boolean);
+      var fromEl = $("#heaterFrom");
+      if (fromEl && prices.length) {
+        var mn = "₺" + nf.format(Math.min.apply(null, prices));
+        fromEl.textContent = L(mn + "'dan başlayan fiyatlarla", "from " + mn, "ab " + mn, "от " + mn);
+      }
     })();
     if (window.GESPA && GESPA.applyLang) GESPA.applyLang(GESPA.lang || "tr");
   })();

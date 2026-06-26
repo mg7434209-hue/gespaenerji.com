@@ -96,7 +96,7 @@ img{max-width:100%;display:block}
 .logo{display:inline-flex}
 .logo img{display:block;width:36px;height:36px}
 .menu{display:flex;align-items:center;gap:20px;margin-left:auto}
-.menu a{font-weight:600;color:var(--muted);font-size:.97rem;position:relative}
+.menu a{font-weight:600;color:var(--muted);font-size:.97rem;position:relative;white-space:nowrap}
 .menu a:not(.btn):hover{color:var(--ink)}
 .menu a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--green);transition:width .2s}
 .menu a:not(.btn):hover::after{width:100%}
@@ -318,6 +318,10 @@ img{max-width:100%;display:block}
 .spec-table td:first-child{font-weight:700;color:var(--green)}
 .spec-certs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px}
 .spec-certs span{background:var(--bg-alt);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-weight:700;font-size:.85rem;color:var(--ink)}
+.spec-table .spec-price{font-weight:800;color:var(--ink);white-space:nowrap}
+.hero-pill{display:inline-block;background:var(--sun-soft);color:#3a2c00;font-weight:800;font-size:.78rem;letter-spacing:.4px;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:14px}
+.hero-price{margin:14px 0 0;font-weight:700;color:var(--ink)}
+.hero-price a{color:var(--green);font-weight:800}
 @media(max-width:960px){.pkg-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.pkg-grid{grid-template-columns:1fr}}
 

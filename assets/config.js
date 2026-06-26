@@ -120,6 +120,25 @@ window.GESPA.config = {
     }
   ],
 
+  // ---- PV Güneş Su Isıtıcı (su-isitici.html) ----
+  // Modeller ve fiyatlar TEK YER. Fiyatlar ₺; admin panelinden düzenlenebilir
+  // (admin yalnızca tarayıcıda önizler; kalıcı/herkese yansıması için buradaki
+  // değerler güncellenip yayınlanmalıdır — admin "Yayınla" ile dosya üretir).
+  heater: {
+    name: "PV Güneş Su Isıtıcı",
+    models: [
+      { cap: 60,  pv: 550,  dim: "430 × 745",  ac: "1,5 – 2", tank: "Emaye", price: 18900 },
+      { cap: 80,  pv: 600,  dim: "430 × 893",  ac: "1,5 – 2", tank: "Emaye", price: 22900 },
+      { cap: 100, pv: 700,  dim: "470 × 1140", ac: "2 – 2,5", tank: "Emaye", price: 27900 },
+      { cap: 120, pv: 900,  dim: "470 × 1251", ac: "2 – 2,5", tank: "Emaye", price: 32900 },
+      { cap: 150, pv: 1200, dim: "480 × 1380", ac: "2,5",     tank: "Emaye", price: 38900 }
+    ]
+  },
+
+  // Admin paneli (basit koruma — şifre herkese açık koddadır; gerçek güvenlik için
+  // backend gerekir). Şifreyi buradan değiştirin.
+  admin: { pass: "gespa2026" },
+
   // Hesaplayıcı katsayıları — TEK YER (koda hardcode edilmez)
   calc: {
     panelW: 550,            // Wp — tek panel gücü

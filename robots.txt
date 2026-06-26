@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin.html
 
 # AI / yanıt motorları — içeriğimizin AI aramalarında görünmesini istiyoruz
 User-agent: GPTBot
