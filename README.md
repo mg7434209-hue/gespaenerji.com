@@ -1,61 +1,69 @@
 # GESPA Enerji — Kurumsal Web Sitesi
 
 Güneş enerjisi santralleri (GES) için anahtar teslim kurulum, mühendislik, finansman
-ve bakım hizmetleri sunan **GESPA Enerji** firmasının kurumsal web sitesi.
+ve bakım hizmetleri sunan **GESPA Enerji** firmasının çok sayfalı, çok dilli kurumsal sitesi.
 
-Saf **HTML + CSS + JavaScript** (build adımı yok). İki şekilde yayınlanabilir:
-GitHub Pages (statik) **veya** Railway (Node sunucusu).
+Saf **HTML + CSS + Vanilla JS**. Yayın: **Railway** (Node statik sunucu, canlı site)
+ve **GitHub Pages** (ayna). Dil sayfaları (`/en` `/de` `/ru`) `build.js` ile üretilir.
+
+## Sayfalar
+
+| Sayfa | İçerik |
+|---|---|
+| `index.html` | Ana sayfa (hero, hizmetler, yeni ürün tanıtımı, hesaplayıcı CTA, projeler, yorumlar) |
+| `hizmetler.html` | Çatı/arazi GES, depolama, mühendislik, finansman, O&M |
+| `urunler.html` | Paket ürünler: taşınabilir off-grid kitler + tarımsal sulama paketleri |
+| `su-isitici.html` | Yeni ürün: PV güneş su ısıtıcı (modeller + fiyatlar) |
+| `hesaplayici.html` | Tasarruf hesaplayıcı + mühendislik alet çantası |
+| `projeler.html` | Referans projeler + galeri |
+| `tarimsal-sulama.html` | Güneş enerjili sulama + pompa seçim aracı |
+| `hakkimizda.html` / `iletisim.html` | Kurumsal + teklif formu |
+| `admin.html` | Fiyat yönetim paneli (şifreli; arama motorlarına kapalı) |
 
 ## Özellikler
 
-- Açık / koyu tema (tercih hatırlanır)
-- Mobil uyumlu, çalışan hamburger menü
-- Scroll ile beliren animasyonlar + animasyonlu istatistik sayaçları
-- **Güneş enerjisi tasarruf hesaplayıcı** (sistem gücü, yıllık tasarruf, geri ödeme, CO₂)
-- Filtrelenebilir proje galerisi
-- Müşteri yorumları slider'ı
-- SSS akordeon
-- Blog/haberler bölümü
-- Gelişmiş iletişim formu + bülten aboneliği
-- SEO: Open Graph, JSON-LD, `robots.txt`, `sitemap.xml`, favicon
-- WhatsApp ve "başa dön" hızlı butonları
+- Çok dil: TR (kök) / EN / DE / RU — ayrı URL'ler, hreflang, istemci i18n
+- Açık/koyu tema, mobil menü, scroll animasyonları
+- Tasarruf hesaplayıcı + 5 mühendislik aracı (yerleşim, inverter, kablo, batarya, sıra aralığı)
+- Paket ürünler ve su ısıtıcı fiyatları **tek kaynaktan** (`assets/config.js`)
+- Admin panelinde fiyat düzenleme (cihazda önizleme + JSON dışa aktarma)
+- SEO: sayfa başına canonical/OG, LocalBusiness/Product/FAQ JSON-LD, `sitemap.xml`, `llms.txt`
+- WhatsApp entegrasyonu (teklif, hesaplayıcı sonucu paylaşımı) + sohbet botu
 
 ## Dosya yapısı
 
 ```
-index.html            # Tek sayfalık zengin site
+*.html                # TR kaynak sayfalar (kök)
+en/ de/ ru/           # build.js çıktısı dil sayfaları (repoda tutulur)
 assets/
+  config.js           # TEK DOĞRU KAYNAK: iletişim, markalar, paketler, su ısıtıcı fiyatları, katsayılar
+  main.js             # Tüm etkileşimler + config enjeksiyonu
+  i18n.js             # Çeviri sözlüğü (EN/DE/RU)
+  chatbot.js          # Akıllı asistan
   style.css           # Stiller (tema + responsive)
-  main.js             # Tüm etkileşimler
-  favicon.svg
-server.js             # Railway/Node için statik sunucu (sıfır bağımlılık)
-package.json          # start script: node server.js
-railway.json          # Railway dağıtım yapılandırması
-robots.txt, sitemap.xml
-.github/workflows/    # GitHub Pages otomatik dağıtım
+  img/                # Görseller (projeler, ürünler, galeri)
+build.js              # Dil sayfası üreticisi (bağımlılıksız)
+server.js             # Railway/Node statik sunucu (sıfır bağımlılık)
+docs/hesaplayici-spec.md  # Hesaplayıcı formül spesifikasyonu
 ```
 
 ## Yerel çalıştırma
 
 ```bash
-# Seçenek 1 — Node sunucusu (Railway ile aynı)
-npm start
-# http://localhost:3000
-
-# Seçenek 2 — sadece dosyayı aç
-# index.html dosyasını tarayıcıda açın
+npm start        # build + sunucu → http://localhost:3000
+npm run build    # sadece /en /de /ru dil sayfalarını üret
 ```
 
-## Railway'e dağıtım
+## Yayın
 
-1. https://railway.com → **New Project** → **Deploy from GitHub repo**
-2. `mg7434209-hue/gespaenerji.com` deposunu ve dağıtım branch'ini seçin.
-3. Railway `package.json`'ı algılar, `npm start` ile `server.js`'i çalıştırır.
-4. **Settings → Networking → Generate Domain** ile bir URL alın.
-5. Sunucu `process.env.PORT`'u otomatik kullanır — ek ayar gerekmez.
+- **Railway (canlı)**: `claude/determined-albattani-ol20qb` dalına push → otomatik deploy.
+- **GitHub Pages (ayna)**: `main` dalına push → `.github/workflows/deploy-pages.yml`.
 
 ## Özelleştirme
 
-- Firma adı, telefon (`+90 850 000 00 00`), e-posta ve adres bilgilerini `index.html` içinde güncelleyin.
-- Hesaplayıcı katsayıları (`COST_PER_KWP`, `CO2_PER_KWH`, birim fiyat) `assets/main.js` içindedir.
-- İletişim/bülten formları şu an demo modundadır; canlıda bir form servisine (Formspree, kendi API'niz) bağlanması önerilir.
+- İletişim, marka, paket ve fiyat bilgileri **yalnızca** `assets/config.js` içinde tutulur;
+  sayfalara elle gömülmez.
+- Fiyatları `admin.html` panelinden düzenleyip dışa aktarabilirsiniz; kalıcı yayın için
+  değerler `config.js`'e işlenir.
+- Admin şifresi: `config.js → admin.pass` (statik sitede yalnızca caydırıcıdır).
+- İletişim/bülten formları talebi WhatsApp'a yönlendirir; istenirse bir form servisine bağlanabilir.

@@ -310,7 +310,7 @@ img{max-width:100%;display:block}
 
 /* ---- Ürün/spec tablosu (su-isitici.html) ---- */
 .spec-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--card)}
-.spec-table{width:100%;border-collapse:collapse;min-width:560px;font-size:.95rem}
+.spec-table{width:100%;border-collapse:collapse;min-width:640px;font-size:.95rem}
 .spec-table th,.spec-table td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--line)}
 .spec-table thead th{background:var(--bg-alt);color:var(--ink);font-weight:700;font-family:var(--font)}
 .spec-table tbody tr:last-child td{border-bottom:0}

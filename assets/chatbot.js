@@ -40,6 +40,7 @@
     { t: "📲 WhatsApp'tan görüş", q: "__wa__" },
     { t: "🌾 Tarımsal sulama", q: "tarımsal sulama" },
     { t: "🏠 Çatı GES", q: "çatı ges" },
+    { t: "🔆 Yeni Ürün", q: "su ısıtıcı" },
     { t: "📦 Paketler", q: "paket ürün" },
     { t: "💰 Teklif / Fiyat", q: "teklif fiyat" },
     { t: "🧮 Hesaplama", q: "hesaplama tasarruf" }

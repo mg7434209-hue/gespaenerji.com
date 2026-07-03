@@ -9,13 +9,19 @@ teslim güneş enerjisi (GES) hizmetleri. **Çok sayfalı statik site.**
 Saf HTML + CSS + Vanilla JS. Railway'de küçük Node statik sunucu (`server.js`),
 GitHub Pages ayna sürüm.
 TR sayfaları kök dizinde **kaynaktır**; `/en` `/de` `/ru` dil sayfaları
-`build.js` ile bu kaynaklardan **üretilir** (elle düzenlenmez, `.gitignore`'da).
+`build.js` ile bu kaynaklardan **üretilir** (elle düzenlenmez). Dil sayfaları
+klasik Pages yayını için **repoda tutulur** — kaynak değişince `node build.js`
+çalıştırıp çıktıyı da commit'le.
 
 Sayfalar (her biri kök dizinde, `.html` uzantılı):
-`index.html` · `hizmetler.html` · `hesaplayici.html` · `projeler.html` ·
-`hakkimizda.html` · `iletisim.html` · `tarimsal-sulama.html`
-Her sayfa: ortak header/footer, aktif menü vurgusu, breadcrumb, sayfaya özel
-SEO başlığı/açıklaması/canonical/Open Graph içerir.
+`index.html` · `hizmetler.html` · `urunler.html` (paket ürünler) ·
+`su-isitici.html` (yeni ürün: PV su ısıtıcı) · `hesaplayici.html` ·
+`projeler.html` · `hakkimizda.html` · `iletisim.html` · `tarimsal-sulama.html`
+Ayrıca `admin.html`: fiyat yönetim paneli (menüde yok, robots'ta engelli,
+build PAGES listesine EKLENMEZ). Her sayfa: ortak header/footer, aktif menü
+vurgusu, breadcrumb, sayfaya özel SEO başlığı/canonical/Open Graph içerir.
+Nav menü: Ana Sayfa · Hizmetler · Ürünler · Yeni Ürün · Hesaplayıcı ·
+Projeler · Hakkımızda · Teklif Al — yeni sayfa eklenince TÜM sayfalarda güncelle.
 
 ## TEK DOĞRU KAYNAK — `assets/config.js`
 İletişim bilgileri, markalar ve hesaplayıcı katsayıları **yalnızca** burada tutulur.
@@ -34,6 +40,16 @@ SEO başlığı/açıklaması/canonical/Open Graph içerir.
 ### Markalar (config.brands)
 - Panel: Arçelik, Lexron, Bakırlar
 - İnverter: Tescom, Mexxsun, Lexron, Arçelik
+
+### Ürünler & fiyatlar (config.packages · config.heater · config.admin)
+- `packages[]`: paket ürünler (urunler.html) — `group`: offgrid | irrigation
+  (ongrid grubu render'da tanımlı ama şu an paketi yok). Açık `price` verilirse
+  o kullanılır; yoksa fiyat `calc.costPerKwp`'ten türetilir.
+- `heater`: PV su ısıtıcı modelleri + ₺ fiyatları (su-isitici.html tablosu ve
+  Product JSON-LD buradan render edilir).
+- `admin.pass`: admin.html şifresi (statik sitede yalnızca caydırıcı).
+- Admin paneli fiyatları localStorage'da override eder (yalnız o cihaz);
+  kalıcı/herkese yayın = değerleri bu dosyaya işleyip commit'lemek.
 
 ## Hesaplayıcı (`hesaplayici.html`)
 - Tüm formüller ve katsayılar: @docs/hesaplayici-spec.md

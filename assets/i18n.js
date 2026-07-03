@@ -151,6 +151,7 @@
       "Güvenli & doğa dostu": "Safe & eco-friendly", "Donma, aşırı ısınma ve kuru çalışma korumalarıyla güvenli; daha az karbon ayak izi.": "Safe with freeze, overheat and dry-run protection; and a smaller carbon footprint.",
       "Modeller & Fiyatlar": "Models & Prices", "Size uygun modeli seçin": "Choose your model", "Ailenizin sıcak su ihtiyacına göre 60 L'den 150 L'ye kadar emaye iç tanklı modeller. Fiyatlar bilgilendirme amaçlıdır; kesin teklif ücretsiz keşifle netleşir.": "Enamel inner-tank models from 60 L to 150 L for your family's hot water needs. Prices are for guidance; the exact quote is set during a free survey.",
       "Fiyat": "Price", "Bu ürün için teklif al": "Get a quote for this product", "Modeller yükleniyor…": "Loading models…",
+      "Ürünü İncele →": "View the Product →", "Tüm paketleri gör →": "See all packages →",
       "☀️ 2026 GES teşvikleri açıklandı — yatırımınız için doğru zaman!": "☀️ 2026 solar incentives announced — the right time to invest!",
       "Tasarrufunu hesapla →": "Calculate your savings →",
       "☀️ Hesaplama sonuçları tahminidir — kesin değer ücretsiz keşifle belirlenir.": "☀️ Results are estimates — exact figures are set during a free site survey.",
@@ -393,6 +394,7 @@
       "Güvenli & doğa dostu": "Sicher & umweltfreundlich", "Donma, aşırı ısınma ve kuru çalışma korumalarıyla güvenli; daha az karbon ayak izi.": "Sicher dank Frost-, Überhitzungs- und Trockenlaufschutz; und ein kleinerer CO₂-Fußabdruck.",
       "Modeller & Fiyatlar": "Modelle & Preise", "Size uygun modeli seçin": "Wählen Sie Ihr Modell", "Ailenizin sıcak su ihtiyacına göre 60 L'den 150 L'ye kadar emaye iç tanklı modeller. Fiyatlar bilgilendirme amaçlıdır; kesin teklif ücretsiz keşifle netleşir.": "Modelle mit Email-Innentank von 60 L bis 150 L für den Warmwasserbedarf Ihrer Familie. Preise dienen der Orientierung; das genaue Angebot folgt nach kostenloser Begehung.",
       "Fiyat": "Preis", "Bu ürün için teklif al": "Angebot für dieses Produkt anfordern", "Modeller yükleniyor…": "Modelle werden geladen…",
+      "Ürünü İncele →": "Produkt ansehen →", "Tüm paketleri gör →": "Alle Pakete →",
       // Topbar
       "☀️ 2026 GES teşvikleri açıklandı — yatırımınız için doğru zaman!": "☀️ Solarförderungen 2026 sind da — der richtige Zeitpunkt zu investieren!",
       "Tasarrufunu hesapla →": "Ersparnis berechnen →",
@@ -660,6 +662,7 @@
       "Güvenli & doğa dostu": "Безопасно и экологично", "Donma, aşırı ısınma ve kuru çalışma korumalarıyla güvenli; daha az karbon ayak izi.": "Безопасность благодаря защите от замерзания, перегрева и сухого хода; и меньший углеродный след.",
       "Modeller & Fiyatlar": "Модели и цены", "Size uygun modeli seçin": "Выберите свою модель", "Ailenizin sıcak su ihtiyacına göre 60 L'den 150 L'ye kadar emaye iç tanklı modeller. Fiyatlar bilgilendirme amaçlıdır; kesin teklif ücretsiz keşifle netleşir.": "Модели с эмалевым баком от 60 до 150 л под потребности вашей семьи. Цены ориентировочные; точное предложение — после бесплатного выезда.",
       "Fiyat": "Цена", "Bu ürün için teklif al": "Запросить КП на этот продукт", "Modeller yükleniyor…": "Загрузка моделей…",
+      "Ürünü İncele →": "Смотреть продукт →", "Tüm paketleri gör →": "Все пакеты →",
       "☀️ 2026 GES teşvikleri açıklandı — yatırımınız için doğru zaman!": "☀️ Льготы на солнечную энергию 2026 объявлены — самое время инвестировать!",
       "Tasarrufunu hesapla →": "Рассчитать экономию →",
       "☀️ Hesaplama sonuçları tahminidir — kesin değer ücretsiz keşifle belirlenir.": "☀️ Результаты ориентировочны — точное значение определяется при выезде.",

@@ -42,6 +42,7 @@ Sayfa: https://www.gespaenerji.com/su-isitici.html
 - Ana sayfa: https://www.gespaenerji.com/
 - Hizmetler: https://www.gespaenerji.com/hizmetler.html
 - Paket ürünler: https://www.gespaenerji.com/urunler.html
+- PV güneş su ısıtıcı (yeni ürün): https://www.gespaenerji.com/su-isitici.html
 - Güneş enerjili tarımsal sulama: https://www.gespaenerji.com/tarimsal-sulama.html
 - Tasarruf hesaplayıcı & araçlar: https://www.gespaenerji.com/hesaplayici.html
 - Referans projeler: https://www.gespaenerji.com/projeler.html

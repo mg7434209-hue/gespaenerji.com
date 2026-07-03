@@ -204,6 +204,26 @@
         var mn = "₺" + nf.format(Math.min.apply(null, prices));
         fromEl.textContent = L(mn + "'dan başlayan fiyatlarla", "from " + mn, "ab " + mn, "от " + mn);
       }
+      // Product JSON-LD — fiyat aralığı config'ten (tek kaynak)
+      try {
+        var web = (CFG.company && CFG.company.web) || "";
+        var d = {
+          "@context": "https://schema.org", "@type": "Product",
+          name: (CFG.heater.name || "PV Güneş Su Isıtıcı") + " (Fotovoltaik Su Isıtma Sistemi)",
+          image: web + "/assets/img/products/pv-su-isitici.jpg",
+          description: "Monokristal güneş panelleriyle suyu doğrudan güneş enerjisiyle ısıtan fotovoltaik su ısıtıcı. Akıllı GF-20 kontrol, bulutlu havada otomatik şebeke (AC) desteği, emaye iç tank. 60–150 L kapasite seçenekleri.",
+          brand: { "@type": "Brand", name: (CFG.company && CFG.company.brandName) || "GESPA Enerji" },
+          category: "Solar Water Heater"
+        };
+        if (prices.length) {
+          d.offers = {
+            "@type": "AggregateOffer", priceCurrency: "TRY",
+            lowPrice: Math.min.apply(null, prices), highPrice: Math.max.apply(null, prices),
+            offerCount: prices.length, availability: "https://schema.org/InStock"
+          };
+        }
+        var s = doc.createElement("script"); s.type = "application/ld+json"; s.textContent = JSON.stringify(d); doc.head.appendChild(s);
+      } catch (e) {}
     })();
     if (window.GESPA && GESPA.applyLang) GESPA.applyLang(GESPA.lang || "tr");
   })();
