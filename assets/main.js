@@ -125,27 +125,29 @@
       var WA = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
       var ld = [];
       function priceOf(p) { return p.price != null ? p.price : Math.round(p.kwp * COST + (p.battery ? p.battery * BAT_COST : 0)); }
-      function specsOf(p) {
+      // Kompakt özellik çipleri — kart başına en fazla 3 (taranabilirlik)
+      function chipsOf(p) {
         var pw = p.panelW || PANEL_W;
         var panels = p.panelCount || Math.ceil((p.kwp * 1000) / pw);
-        var arr = [nf1.format(p.kwp) + " kWp",
-          "~" + nf.format(panels) + " " + L("panel", "panels", "Module", "панелей") + " (" + pw + " Wp)"];
-        if (p.group === "offgrid") {
-          arr.push("~" + nf.format(Math.round(p.kwp * defYield / 365)) + " kWh/" + L("gün", "day", "Tag", "день"));
-        } else if (p.group === "irrigation") {
-          if (p.pumpKw) arr.push(L("Pompa", "Pump", "Pumpe", "Насос") + " ~" + nf1.format(p.pumpKw) + " kW");
-          arr.push("~" + nf.format(Math.round(p.kwp * AREA)) + " m² " + L("alan", "area", "Fläche", "площадь"));
+        var arr = ["⚡ " + nf1.format(p.kwp) + " kWp",
+          "🔆 ~" + nf.format(panels) + " " + L("panel", "panels", "Module", "панелей")];
+        if (p.group === "irrigation" && p.pumpKw) {
+          arr.push("💧 " + L("Pompa", "Pump", "Pumpe", "Насос") + " ~" + nf1.format(p.pumpKw) + " kW");
+        } else if (p.battery) {
+          arr.push("🔋 " + nf.format(p.battery) + " kWh " + L("batarya", "battery", "Batterie", "аккумулятор"));
         } else {
-          arr.push("~" + nf.format(Math.round(p.kwp * AREA)) + " m² " + L("alan", "area", "Fläche", "площадь"));
-          arr.push("~" + nf.format(Math.round(p.kwp * defYield)) + " kWh/" + L("yıl", "yr", "Jahr", "год"));
-          if (p.battery) arr.push(nf.format(p.battery) + " kWh " + L("batarya", "battery", "Batterie", "аккумулятор"));
+          arr.push("☀️ ~" + nf.format(Math.round(p.kwp * defYield / 365)) + " kWh/" + L("gün", "day", "Tag", "день"));
         }
         return arr;
       }
       function card(p) {
         var price = priceOf(p);
-        var specLi = specsOf(p).map(function (s) { return "<li>" + s + "</li>"; }).join("");
+        var chips = chipsOf(p).map(function (s) { return "<span>" + s + "</span>"; }).join("");
         var feat = (p.features || []).map(function (f) { return "<li>" + f + "</li>"; }).join("");
+        // Açık fiyat = net paket fiyatı; türetilen = yaklaşık başlangıç
+        var priceLbl = p.price != null
+          ? L("Paket fiyatı", "Package price", "Paketpreis", "Цена пакета")
+          : L("Yaklaşık başlangıç", "Approx. from", "Ca. ab", "Прибл. от");
         var href = "iletisim.html";
         if (WA) {
           var msg = L(
@@ -157,15 +159,14 @@
           href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
         }
         ld.push({ "@type": "Product", name: p.name, category: p.tag, description: p.desc, offers: { "@type": "Offer", price: price, priceCurrency: "TRY", availability: "https://schema.org/InStock" } });
-        return '<article class="pkg-card reveal' + (p.popular ? " popular" : "") + '">' +
+        return '<article class="pkg-card reveal' + (p.popular ? " popular" : "") + '" id="pkg-' + p.id + '">' +
           (p.popular ? '<span class="pkg-badge">' + L("En Popüler", "Most Popular", "Beliebt", "Популярный") + "</span>" : "") +
-          '<div class="pkg-top"><span class="pkg-icon" aria-hidden="true">' + (p.icon || "☀️") + '</span><span class="pkg-tag">' + p.tag + "</span></div>" +
+          '<div class="pkg-top"><span class="pkg-icon" aria-hidden="true">' + (p.icon || "☀️") + "</span></div>" +
           '<h3 class="pkg-name">' + p.name + "</h3>" +
-          '<p class="pkg-desc">' + p.desc + "</p>" +
-          '<div class="pkg-power">' + nf1.format(p.kwp) + " kWp</div>" +
-          '<ul class="pkg-specs">' + specLi + "</ul>" +
+          (p.for ? '<p class="pkg-for">👤 <span>Kimin için:</span> <span>' + p.for + "</span></p>" : "") +
+          '<div class="pkg-price"><span class="pkg-price-lbl">' + priceLbl + "</span><strong>₺" + nf.format(price) + "</strong></div>" +
+          '<div class="pkg-chips">' + chips + "</div>" +
           '<ul class="pkg-features ticks">' + feat + "</ul>" +
-          '<div class="pkg-price"><span class="pkg-price-lbl">' + L("Yaklaşık başlangıç", "Approx. from", "Ca. ab", "Прибл. от") + "</span><strong>₺" + nf.format(price) + "</strong></div>" +
           '<a class="btn btn-block" href="' + href + '"' + (WA ? ' target="_blank" rel="noopener"' : "") + ">" + L("Bu paket için teklif al", "Get a quote", "Angebot anfordern", "Запросить КП") + "</a>" +
           "</article>";
       }
@@ -174,15 +175,32 @@
         { id: "offgrid", title: L("Taşınabilir & Off-Grid Paketler", "Portable & Off-Grid Packages", "Tragbare & Off-Grid-Pakete", "Портативные и off-grid пакеты"), desc: L("Jel akülü, şebekeden bağımsız; bağ evi, karavan ve kulübe için hazır kitler.", "Gel-battery, off-grid ready kits for cabins, caravans and huts.", "Gel-Batterie, netzunabhängige Fertigsets für Gartenhäuser, Wohnmobile und Hütten.", "Готовые автономные комплекты с гелевым аккумулятором для дач, караванов и хижин.") },
         { id: "irrigation", title: L("Tarımsal Sulama Paketleri", "Agricultural Irrigation Packages", "Pakete für landwirtschaftliche Bewässerung", "Пакеты для аграрного полива"), desc: L("Mazotsuz, şebekesiz güneş enerjili sulama pompa sistemleri.", "Diesel-free, off-grid solar irrigation pump systems.", "Dieselfreie, netzunabhängige solare Bewässerungspumpensysteme.", "Солнечные насосные системы полива без дизеля и без сети.") }
       ];
+      // "Hangisi size uygun?" rehberi — kullanım yeri çipi -> ilgili karta kaydır + vurgula
       var out = "";
+      if (CFG.packageGuide && CFG.packageGuide.length) {
+        out += '<div class="pkg-guide reveal"><h3>Hangisi size uygun?</h3><p>Kullanım yerinizi seçin, sizi doğru pakete götürelim:</p><div class="pkg-guide-chips">' +
+          CFG.packageGuide.map(function (g) {
+            return '<a class="pkg-jump" href="#pkg-' + g.target + '" data-target="pkg-' + g.target + '"><em aria-hidden="true">' + (g.icon || "☀️") + "</em><span>" + g.label + "</span></a>";
+          }).join("") + "</div></div>";
+      }
       GROUPS.forEach(function (g) {
         var items = CFG.packages.filter(function (p) { return (p.group || "ongrid") === g.id; });
         if (!items.length) return;
-        out += '<div class="pkg-group">' +
+        out += '<div class="pkg-group" id="grp-' + g.id + '">' +
           '<div class="pkg-group-head reveal"><h2>' + g.title + "</h2><p>" + g.desc + "</p></div>" +
           '<div class="pkg-grid">' + items.map(card).join("") + "</div></div>";
       });
       grid.innerHTML = out;
+      // Rehber çipi: hedef kartı kısa süre vurgula (kaydırmayı genel smooth-scroll yapar)
+      $$(".pkg-jump", grid).forEach(function (a) {
+        a.addEventListener("click", function () {
+          var t = doc.getElementById(a.getAttribute("data-target"));
+          if (!t) return;
+          $$(".pkg-card.hl", grid).forEach(function (c) { c.classList.remove("hl"); });
+          t.classList.add("hl");
+          setTimeout(function () { t.classList.remove("hl"); }, 2600);
+        });
+      });
       try {
         var s = doc.createElement("script"); s.type = "application/ld+json";
         s.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "ItemList", name: "GESPA Enerji", itemListElement: ld.map(function (o, i) { return { "@type": "ListItem", position: i + 1, item: o }; }) });

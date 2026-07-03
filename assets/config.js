@@ -64,30 +64,35 @@ window.GESPA.config = {
     // —— Taşınabilir & Off-Grid (jel akülü) paketler —— açık perakende fiyatı
     {
       id: "offgrid-1kw", icon: "🎒", tag: "Taşınabilir", group: "offgrid", kwp: 1, portable: true, price: 66129,
+      for: "Karavan, kamp ve bağ evi",
       name: "1 kW Taşınabilir Off-Grid Paket",
       desc: "Bağ evi, karavan ve kamp için kompakt taşınabilir kit.",
       features: ["Jel akü dahil", "Taşınabilir / mobil kullanım", "Off-grid (şebekesiz) çalışma", "Hazır kurulum kiti"]
     },
     {
       id: "offgrid-3kw", icon: "🛖", tag: "Taşınabilir", group: "offgrid", kwp: 3, portable: true, price: 145934, popular: true,
+      for: "Bağ evi ve küçük yapılar",
       name: "3 kW Off-Grid Paket",
       desc: "Bağ evi ve küçük müstakil yapılar için jel akülü sistem.",
       features: ["Jel akü dahil", "Hibrit inverter dahil", "Off-grid (şebekesiz) çalışma", "Hazır kurulum kiti"]
     },
     {
       id: "offgrid-4kw", icon: "🏕️", tag: "Taşınabilir", group: "offgrid", kwp: 4.2, portable: true, price: 185105,
+      for: "Bağ evi ve tam gün kullanım",
       name: "4.2 kW Off-Grid Paket",
       desc: "Tam günlük temel tüketim için güçlü off-grid kit.",
       features: ["Jel akü dahil", "Hibrit inverter dahil", "Off-grid (şebekesiz) çalışma", "25 yıl panel performans garantisi"]
     },
     {
       id: "offgrid-6kw", icon: "🏚️", tag: "Off-Grid", group: "offgrid", kwp: 6.2, price: 269637,
+      for: "Müstakil ev ve villalar",
       name: "6.2 kW Off-Grid Paket",
       desc: "Müstakil ev ihtiyaçları için yüksek kapasiteli sistem.",
       features: ["Jel akü dahil", "Hibrit inverter dahil", "Off-grid (şebekesiz) çalışma", "25 yıl panel performans garantisi"]
     },
     {
       id: "offgrid-8kw", icon: "🔌", tag: "Off-Grid", group: "offgrid", kwp: 8, price: 538543,
+      for: "Yoğun tüketimli evler",
       name: "8 kW Off-Grid Paket",
       desc: "Yoğun tüketim ve kesintisiz enerji için tam donanım.",
       features: ["Jel akü dahil", "Hibrit inverter dahil", "Off-grid (şebekesiz) çalışma", "25 yıl panel performans garantisi"]
@@ -96,28 +101,41 @@ window.GESPA.config = {
     // —— Tarımsal sulama paketleri —— (off-grid PV; fiyat formülden türetilir)
     {
       id: "sulama-bahce", icon: "🪴", tag: "Tarım", group: "irrigation", kwp: 3, pumpKw: 2.2,
+      for: "Küçük bahçe ve damla sulama",
       name: "Bağ-Bahçe Sulama Paketi",
       desc: "Küçük bağ-bahçe ve damla sulama için kompakt güneş sistemi.",
       features: ["Dalgıç/yüzey pompasına uygun", "Off-grid (şebekesiz) çalışma", "Pompa sürücüsü dahil", "Sezonluk boyutlandırma"]
     },
     {
       id: "sulama-tarla", icon: "🌾", tag: "Tarım", group: "irrigation", kwp: 7.5, pumpKw: 5.5,
+      for: "Orta ölçekli tarlalar",
       name: "Tarla Sulama Paketi",
       desc: "Orta ölçekli tarlalar için dalgıç pompalı güneş enerjisi sistemi.",
       features: ["Dalgıç/yüzey pompasına uygun", "Off-grid (şebekesiz) çalışma", "Pompa sürücüsü dahil", "Sezonluk boyutlandırma"]
     },
     {
       id: "sulama-sera", icon: "🏡", tag: "Tarım", group: "irrigation", kwp: 11, pumpKw: 7.5,
+      for: "Sera ve büyük bahçeler",
       name: "Sera Sulama Paketi",
       desc: "Sera ve büyük bahçe sulaması için yüksek debili sistem.",
       features: ["Dalgıç/yüzey pompasına uygun", "Off-grid (şebekesiz) çalışma", "Pompa sürücüsü dahil", "Sezonluk boyutlandırma"]
     },
     {
       id: "sulama-genis", icon: "🚜", tag: "Tarım", group: "irrigation", kwp: 20, pumpKw: 15,
+      for: "Geniş araziler ve çiftlikler",
       name: "Geniş Tarla Sulama Paketi",
       desc: "Geniş araziler için mazotsuz, şebekeden bağımsız sulama sistemi.",
       features: ["Dalgıç/yüzey pompasına uygun", "Off-grid (şebekesiz) çalışma", "Pompa sürücüsü dahil", "Sezonluk boyutlandırma"]
     }
+  ],
+
+  // Paket seçim rehberi (urunler.html) — kullanım yeri -> önerilen paket id'si
+  packageGuide: [
+    { icon: "🚐", label: "Karavan / Kamp", target: "offgrid-1kw" },
+    { icon: "🏡", label: "Bağ Evi", target: "offgrid-3kw" },
+    { icon: "🏠", label: "Müstakil Ev", target: "offgrid-6kw" },
+    { icon: "🪴", label: "Bahçe Sulama", target: "sulama-bahce" },
+    { icon: "🌾", label: "Tarla / Sera", target: "sulama-tarla" }
   ],
 
   // ---- PV Güneş Su Isıtıcı (su-isitici.html) ----
