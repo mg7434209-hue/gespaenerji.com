@@ -295,23 +295,26 @@ img{max-width:100%;display:block}
 .pkg-jump:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px)}
 .pkg-jump em{font-style:normal;font-size:1.15rem;line-height:1}
 .pkg-card.hl{border-color:var(--sun);box-shadow:0 0 0 3px var(--sun),var(--shadow-lg)}
-.pkg-card{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.pkg-card{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s}
 .pkg-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:color-mix(in srgb,var(--green) 30%,var(--line))}
 .pkg-card.popular{border-color:var(--green);box-shadow:var(--shadow)}
-.pkg-badge{position:absolute;top:-13px;right:22px;background:var(--sun);color:#3a2c00;font-weight:800;font-size:.74rem;letter-spacing:.4px;text-transform:uppercase;padding:6px 14px;border-radius:999px;box-shadow:var(--shadow)}
-.pkg-top{margin-bottom:10px}
-.pkg-icon{font-size:2rem;line-height:1}
-.pkg-name{margin:0 0 4px;font-size:1.2rem}
-.pkg-for{margin:0;color:var(--muted);font-size:.88rem}
+.pkg-media{position:relative;background:radial-gradient(90% 100% at 50% 0%,color-mix(in srgb,var(--green) 7%,var(--bg-alt)),var(--bg-alt));border-bottom:1px solid var(--line);padding:22px 18px 10px}
+.pkg-media svg{display:block;width:82%;max-width:280px;height:auto;margin:0 auto;transition:transform .3s ease}
+.pkg-card:hover .pkg-media svg{transform:translateY(-5px) scale(1.04)}
+.pkg-badge{position:absolute;top:12px;right:12px;z-index:2;background:var(--sun);color:#3a2c00;font-weight:800;font-size:.72rem;letter-spacing:.4px;text-transform:uppercase;padding:6px 13px;border-radius:999px;box-shadow:var(--shadow)}
+.pkg-cat{position:absolute;top:12px;left:12px;z-index:2;background:var(--card);border:1px solid var(--line);color:var(--muted);font-weight:700;font-size:.72rem;letter-spacing:.4px;text-transform:uppercase;padding:5px 11px;border-radius:999px}
+.pkg-body{display:flex;flex-direction:column;flex:1;padding:18px 22px 22px}
+.pkg-name{margin:0 0 4px;font-size:1.15rem}
+.pkg-for{margin:0;color:var(--muted);font-size:.86rem}
 .pkg-for span:first-of-type{font-weight:700;color:var(--ink)}
-.pkg-price{margin:16px 0 0;padding:14px 16px;background:var(--bg-alt);border-radius:12px;display:flex;flex-direction:column;gap:2px}
-.pkg-price-lbl{color:var(--muted);font-size:.8rem}
-.pkg-price strong{font-family:var(--font);font-size:1.6rem;color:var(--green);font-weight:800;line-height:1.2}
-.pkg-chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 2px}
-.pkg-chips span{background:var(--bg-alt);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:.84rem;font-weight:600;color:var(--ink);white-space:nowrap}
-.pkg-features{margin:14px 0 18px!important}
-.pkg-features li{font-size:.9rem}
-.pkg-card .btn{margin-top:auto}
+.pkg-chips{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 2px}
+.pkg-chips span{background:var(--bg-alt);border:1px solid var(--line);border-radius:999px;padding:5px 11px;font-size:.82rem;font-weight:600;color:var(--ink);white-space:nowrap}
+.pkg-features{margin:12px 0 16px!important}
+.pkg-features li{font-size:.88rem}
+.pkg-buy{margin-top:auto;padding-top:14px;border-top:1px dashed var(--line);display:flex;flex-direction:column;gap:12px}
+.pkg-price{display:flex;flex-direction:column;gap:1px}
+.pkg-price-lbl{color:var(--muted);font-size:.78rem}
+.pkg-price strong{font-family:var(--font);font-size:1.65rem;color:var(--green);font-weight:800;line-height:1.15}
 .pkg-note{text-align:center;color:var(--muted);font-size:.92rem;margin:28px auto 0;max-width:70ch}
 
 /* ---- Ürün/spec tablosu (su-isitici.html) ---- */

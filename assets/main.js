@@ -140,8 +140,41 @@
         }
         return arr;
       }
+      // Ürün görseli — e-ticaret tarzı şematik çizim (panel ×adet, inverter, batarya/pompa)
+      function mediaSvg(p, panels) {
+        var s = '<svg viewBox="0 0 300 200" role="img" aria-label="' + p.name + '">';
+        // podyum
+        s += '<ellipse cx="150" cy="178" rx="108" ry="12" fill="var(--line)" opacity=".65"/>';
+        // güneş paneli + hücre çizgileri
+        s += '<rect x="54" y="24" width="112" height="124" rx="8" fill="#0d2b47" stroke="#1d4a75" stroke-width="2.5"/>';
+        var gx, gy;
+        for (gx = 1; gx < 3; gx++) s += '<line x1="' + (54 + gx * 37.3).toFixed(1) + '" y1="26" x2="' + (54 + gx * 37.3).toFixed(1) + '" y2="146" stroke="#29527e" stroke-width="2"/>';
+        for (gy = 1; gy < 5; gy++) s += '<line x1="56" y1="' + (24 + gy * 24.8).toFixed(1) + '" x2="164" y2="' + (24 + gy * 24.8).toFixed(1) + '" stroke="#29527e" stroke-width="2"/>';
+        // panel adedi rozeti
+        s += '<circle cx="57" cy="30" r="17" fill="#13211c"/><text x="57" y="35" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff" font-family="inherit">×' + panels + "</text>";
+        // inverter
+        s += '<rect x="176" y="62" width="60" height="86" rx="9" fill="#f6f8f7" stroke="#c9d6cf" stroke-width="2.5"/>' +
+             '<rect x="186" y="75" width="40" height="13" rx="3" fill="#0a6e4f"/>' +
+             '<circle cx="192" cy="102" r="3.5" fill="#9fb2aa"/><circle cx="206" cy="102" r="3.5" fill="#9fb2aa"/>' +
+             '<line x1="186" y1="126" x2="226" y2="126" stroke="#c9d6cf" stroke-width="3"/><line x1="186" y1="134" x2="226" y2="134" stroke="#c9d6cf" stroke-width="3"/>';
+        if (p.group === "irrigation") {
+          // dalgıç pompa + sola çıkan boru + damlalar (açık zeminde görünür)
+          s += '<rect x="88" y="138" width="62" height="30" rx="15" fill="#2c6db3" stroke="#245a94" stroke-width="2.5"/>' +
+               '<rect x="46" y="148" width="44" height="9" rx="4" fill="#2c6db3"/>' +
+               '<rect x="42" y="138" width="9" height="19" rx="3" fill="#2c6db3"/>' +
+               '<circle cx="46" cy="128" r="5" fill="#4aa3e0"/><circle cx="37" cy="117" r="3.5" fill="#4aa3e0" opacity=".85"/>';
+        } else {
+          // lityum batarya + şimşek
+          s += '<rect x="82" y="128" width="88" height="42" rx="8" fill="#e8f1fb" stroke="#b9d2ec" stroke-width="2.5"/>' +
+               '<rect x="170" y="140" width="6" height="16" rx="2" fill="#b9d2ec"/>' +
+               '<polygon points="130,134 118,152 126,152 122,164 136,146 128,146" fill="#f7b500"/>';
+        }
+        return s + "</svg>";
+      }
       function card(p) {
         var price = priceOf(p);
+        var pw = p.panelW || PANEL_W;
+        var panels = p.panelCount || Math.ceil((p.kwp * 1000) / pw);
         var chips = chipsOf(p).map(function (s) { return "<span>" + s + "</span>"; }).join("");
         var feat = (p.features || []).map(function (f) { return "<li>" + f + "</li>"; }).join("");
         // Açık fiyat = net paket fiyatı; türetilen = yaklaşık başlangıç
@@ -160,14 +193,21 @@
         }
         ld.push({ "@type": "Product", name: p.name, category: p.tag, description: p.desc, offers: { "@type": "Offer", price: price, priceCurrency: "TRY", availability: "https://schema.org/InStock" } });
         return '<article class="pkg-card reveal' + (p.popular ? " popular" : "") + '" id="pkg-' + p.id + '">' +
-          (p.popular ? '<span class="pkg-badge">' + L("En Popüler", "Most Popular", "Beliebt", "Популярный") + "</span>" : "") +
-          '<div class="pkg-top"><span class="pkg-icon" aria-hidden="true">' + (p.icon || "☀️") + "</span></div>" +
-          '<h3 class="pkg-name">' + p.name + "</h3>" +
-          (p.for ? '<p class="pkg-for">👤 <span>Kimin için:</span> <span>' + p.for + "</span></p>" : "") +
-          '<div class="pkg-price"><span class="pkg-price-lbl">' + priceLbl + "</span><strong>₺" + nf.format(price) + "</strong></div>" +
-          '<div class="pkg-chips">' + chips + "</div>" +
-          '<ul class="pkg-features ticks">' + feat + "</ul>" +
-          '<a class="btn btn-block" href="' + href + '"' + (WA ? ' target="_blank" rel="noopener"' : "") + ">" + L("Bu paket için teklif al", "Get a quote", "Angebot anfordern", "Запросить КП") + "</a>" +
+          '<div class="pkg-media">' +
+            (p.popular ? '<span class="pkg-badge">' + L("En Popüler", "Most Popular", "Beliebt", "Популярный") + "</span>" : "") +
+            '<span class="pkg-cat">' + p.tag + "</span>" +
+            mediaSvg(p, panels) +
+          "</div>" +
+          '<div class="pkg-body">' +
+            '<h3 class="pkg-name">' + p.name + "</h3>" +
+            (p.for ? '<p class="pkg-for">👤 <span>Kimin için:</span> <span>' + p.for + "</span></p>" : "") +
+            '<div class="pkg-chips">' + chips + "</div>" +
+            '<ul class="pkg-features ticks">' + feat + "</ul>" +
+            '<div class="pkg-buy">' +
+              '<div class="pkg-price"><span class="pkg-price-lbl">' + priceLbl + "</span><strong>₺" + nf.format(price) + "</strong></div>" +
+              '<a class="btn btn-block" href="' + href + '"' + (WA ? ' target="_blank" rel="noopener"' : "") + ">" + L("Bu paket için teklif al", "Get a quote", "Angebot anfordern", "Запросить КП") + "</a>" +
+            "</div>" +
+          "</div>" +
           "</article>";
       }
       var GROUPS = [
