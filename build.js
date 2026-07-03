@@ -44,11 +44,11 @@ const META = {
   },
   "urunler.html": {
     en: { t: "Solar Packages — Portable Off-Grid & Irrigation Kits | GESPA Energy",
-          d: "Portable off-grid (gel battery) solar kits and agricultural irrigation packages. 1–20 kWp with clear power, panel count and price — off-grid turnkey solutions, GESPA Energy." },
+          d: "Portable off-grid (lithium battery) solar kits and agricultural irrigation packages. 1–20 kWp with clear power, panel count and price — off-grid turnkey solutions, GESPA Energy." },
     de: { t: "Solar-Pakete — Tragbare Off-Grid- & Bewässerungssets | GESPA Energy",
-          d: "Tragbare Off-Grid-Solarsets (Gel-Batterie) und landwirtschaftliche Bewässerungspakete. 1–20 kWp mit klarer Leistung, Modulanzahl und Preis — netzunabhängige Lösungen." },
+          d: "Tragbare Off-Grid-Solarsets (Lithium-Batterie) und landwirtschaftliche Bewässerungspakete. 1–20 kWp mit klarer Leistung, Modulanzahl und Preis — netzunabhängige Lösungen." },
     ru: { t: "Солнечные пакеты — Портативные off-grid и для полива | GESPA Energy",
-          d: "Портативные автономные солнечные комплекты (гелевый аккумулятор) и пакеты для аграрного полива. 1–20 кВт с понятной мощностью и ценой — автономные решения." }
+          d: "Портативные автономные солнечные комплекты (литиевый аккумулятор) и пакеты для аграрного полива. 1–20 кВт с понятной мощностью и ценой — автономные решения." }
   },
   "su-isitici.html": {
     en: { t: "PV Solar Water Heater — Photovoltaic Water Heating | GESPA Energy",

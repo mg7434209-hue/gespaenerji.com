@@ -28,7 +28,7 @@ Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş ve çevr
 
 ## Paket ürünler
 Şebekeden bağımsız hazır GES paketleri 2 grupta (açık fiyat / config'ten türetilir):
-- Taşınabilir & Off-Grid (jel akülü): 1 kW, 3 kW, 4.2 kW, 6.2 kW, 8 kW — bağ evi, karavan, kulübe için hazır kitler
+- Taşınabilir & Off-Grid (lityum bataryalı): 1 kW, 3 kW, 4.2 kW, 6.2 kW, 8 kW — bağ evi, karavan, kulübe için hazır kitler
 - Tarımsal Sulama (off-grid): Bağ-Bahçe (3 kWp), Tarla (7.5 kWp), Sera (11 kWp), Geniş Tarla (20 kWp)
 Çatı/on-grid sistemler proje bazlı sunulur (bkz. Hizmetler). Tüm paketler ölçeklenebilir; kesin fiyat ücretsiz keşifle belirlenir.
 
