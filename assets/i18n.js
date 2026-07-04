@@ -117,7 +117,7 @@
       "Geniş araziler için mazotsuz, şebekeden bağımsız sulama sistemi.": "A diesel-free, off-grid irrigation system for large land.",
       "Lityum batarya dahil": "Lithium battery included", "Taşınabilir / mobil kullanım": "Portable / mobile use", "Hazır kurulum kiti": "Ready-to-install kit", "Hibrit inverter dahil": "Hybrid inverter included",
       // PV Su Isıtıcı sayfası
-      "Su Isıtıcı": "Water Heater", "PV Güneş Su Isıtıcı": "PV Solar Water Heater",
+      "Su Isıtıcı": "Water Heater", "Solar Su Isıtıcı": "Solar Water Heater", "PV Güneş Su Isıtıcı": "PV Solar Water Heater",
       "Güneş panelinden gelen enerjiyle suyu doğrudan ısıtan yeni nesil fotovoltaik su ısıtıcı. Bulutlu havalarda otomatik şebeke desteğiyle yıl boyu kesintisiz, ekonomik sıcak su.": "A new-generation photovoltaic water heater that heats water directly with solar panel energy. With automatic grid backup on cloudy days, enjoy uninterrupted, economical hot water year-round.",
       "🔆 Yeni Nesil Ürün": "🔆 New-Generation Product", "Güneşle bedava sıcak su": "Free hot water from the sun",
       "Monokristal güneş panelleri suyu güneş enerjisiyle ısıtır; akıllı GF-20 kontrol cihazı sıcaklığı yönetir. Güneşsiz günlerde sistem otomatik olarak şebeke (AC) ısıtmaya geçer — termosifonun rahatlığı, güneşin ekonomisi.": "Monocrystalline solar panels heat the water with solar energy; the smart GF-20 controller manages temperature. On sunless days the system automatically switches to grid (AC) heating — the comfort of a boiler, the economy of the sun.",
@@ -442,7 +442,7 @@
       "Geniş araziler için mazotsuz, şebekeden bağımsız sulama sistemi.": "Ein dieselfreies, netzunabhängiges Bewässerungssystem für große Flächen.",
       "Lityum batarya dahil": "Lithium-Batterie inklusive", "Taşınabilir / mobil kullanım": "Tragbar / mobil einsetzbar", "Hazır kurulum kiti": "Fertiges Installationsset", "Hibrit inverter dahil": "Hybrid-Wechselrichter inklusive",
       // PV Su Isıtıcı sayfası
-      "Su Isıtıcı": "Warmwasser", "PV Güneş Su Isıtıcı": "PV-Solar-Warmwasserbereiter",
+      "Su Isıtıcı": "Warmwasser", "Solar Su Isıtıcı": "Solarboiler", "PV Güneş Su Isıtıcı": "PV-Solar-Warmwasserbereiter",
       "Güneş panelinden gelen enerjiyle suyu doğrudan ısıtan yeni nesil fotovoltaik su ısıtıcı. Bulutlu havalarda otomatik şebeke desteğiyle yıl boyu kesintisiz, ekonomik sıcak su.": "Ein photovoltaischer Warmwasserbereiter der neuen Generation, der Wasser direkt mit Solarstrom erwärmt. Mit automatischer Netz-Reserve bei Bewölkung — ganzjährig unterbrechungsfrei und wirtschaftlich.",
       "🔆 Yeni Nesil Ürün": "🔆 Produkt der neuen Generation", "Güneşle bedava sıcak su": "Kostenloses Warmwasser durch Sonne",
       "Monokristal güneş panelleri suyu güneş enerjisiyle ısıtır; akıllı GF-20 kontrol cihazı sıcaklığı yönetir. Güneşsiz günlerde sistem otomatik olarak şebeke (AC) ısıtmaya geçer — termosifonun rahatlığı, güneşin ekonomisi.": "Monokristalline Solarmodule erwärmen das Wasser mit Sonnenenergie; der smarte GF-20-Regler steuert die Temperatur. An sonnenlosen Tagen schaltet das System automatisch auf Netz-(AC)-Heizung — Komfort eines Boilers, Wirtschaftlichkeit der Sonne.",
@@ -792,7 +792,7 @@
       "Geniş araziler için mazotsuz, şebekeden bağımsız sulama sistemi.": "Автономная система полива без дизеля для больших участков.",
       "Lityum batarya dahil": "Литиевый аккумулятор в комплекте", "Taşınabilir / mobil kullanım": "Портативное / мобильное использование", "Hazır kurulum kiti": "Готовый монтажный комплект", "Hibrit inverter dahil": "Гибридный инвертор в комплекте",
       // PV Su Isıtıcı sayfası
-      "Su Isıtıcı": "Водонагреватель", "PV Güneş Su Isıtıcı": "PV солнечный водонагреватель",
+      "Su Isıtıcı": "Водонагреватель", "Solar Su Isıtıcı": "Солнечный бойлер", "PV Güneş Su Isıtıcı": "PV солнечный водонагреватель",
       "Güneş panelinden gelen enerjiyle suyu doğrudan ısıtan yeni nesil fotovoltaik su ısıtıcı. Bulutlu havalarda otomatik şebeke desteğiyle yıl boyu kesintisiz, ekonomik sıcak su.": "Фотоэлектрический водонагреватель нового поколения, нагревающий воду напрямую энергией солнечных панелей. С авто-резервом от сети в пасмурную погоду — круглый год бесперебойно и экономично.",
       "🔆 Yeni Nesil Ürün": "🔆 Продукт нового поколения", "Güneşle bedava sıcak su": "Бесплатная горячая вода от солнца",
       "Monokristal güneş panelleri suyu güneş enerjisiyle ısıtır; akıllı GF-20 kontrol cihazı sıcaklığı yönetir. Güneşsiz günlerde sistem otomatik olarak şebeke (AC) ısıtmaya geçer — termosifonun rahatlığı, güneşin ekonomisi.": "Монокристаллические панели нагревают воду солнечной энергией; умный контроллер GF-20 управляет температурой. В бессолнечные дни система автоматически переходит на нагрев от сети (AC) — комфорт бойлера и экономия солнца.",

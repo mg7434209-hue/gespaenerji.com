@@ -143,7 +143,7 @@ window.GESPA.config = {
   // (admin yalnızca tarayıcıda önizler; kalıcı/herkese yansıması için buradaki
   // değerler güncellenip yayınlanmalıdır — admin "Yayınla" ile dosya üretir).
   heater: {
-    name: "PV Güneş Su Isıtıcı",
+    name: "Solar Su Isıtma Sistemi",
     // mount: "Yatay" (60–100 L, kompakt/balkon) | "Dikey" (120–200 L, yüksek tüketim)
     // pv/dim/ac null = katalogda belirtilmemiş (tabloda "—"); price null = "Teklif alın"
     models: [

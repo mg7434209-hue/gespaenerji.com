@@ -32,7 +32,7 @@
     { k: ["nerede", "bolge", "manavgat", "antalya", "alanya", "side", "serik", "hizmet bolge"], a: "📍 Manavgat merkezli olarak Side, Antalya, Alanya, Serik, Gazipaşa ve çevresinde; talebe göre tüm Türkiye'de hizmet veriyoruz." },
     { k: ["iletisim", "telefon", "ara", "adres", "ulas", "whatsapp"], a: "📞 Bize " + (C.phone && C.phone.display ? C.phone.display : "telefon") + " numarasından veya WhatsApp'tan ulaşabilirsiniz. Çalışma saatleri: " + (C.hours || "Hafta içi 09:00–18:00") + ".", link: { t: "İletişim sayfası", u: "iletisim.html" } },
     { k: ["proje", "referans", "ornek"], a: "📷 Sanayi, tarım ve konut projelerimizden örnekleri inceleyebilirsiniz.", link: { t: "Projeler", u: "projeler.html" } },
-    { k: ["su isitici", "isitici", "isitma", "sicak su", "termosifon", "boyler", "fotovoltaik su", "pv su"], a: "🔆 PV güneş su ısıtıcımız suyu güneş enerjisiyle ısıtır; bulutlu havada otomatik şebeke desteğine geçer. 60–150 L emaye tank, akıllı GF-20 kontrol. Sıcak su faturanızı düşürür.", link: { t: "PV Su Isıtıcı", u: "su-isitici.html" } },
+    { k: ["su isitici", "isitici", "isitma", "sicak su", "termosifon", "boyler", "fotovoltaik su", "pv su"], a: "🔆 PV güneş su ısıtıcımız suyu güneş enerjisiyle ısıtır; bulutlu havada otomatik şebeke desteğine geçer. 60–200 L emaye tank, akıllı GF-20 kontrol. Sıcak su faturanızı düşürür.", link: { t: "Solar Su Isıtıcı", u: "su-isitici.html" } },
     { k: ["paket", "urun", "hazir", "kac kwp", "kwp", "off grid", "offgrid", "tasinabilir", "karavan", "jel aku", "lityum", "lifepo", "sulama paket"], a: "📦 Hazır paketlerimiz: taşınabilir off-grid lityum bataryalı kitler (1–8 kW; bağ evi/karavan/kulübe) ve tarımsal sulama paketleri. Net güç, panel ve yaklaşık fiyatıyla inceleyebilirsiniz. (Çatı/on-grid sistemler proje bazlı sunulur.)", link: { t: "Paket ürünler", u: "urunler.html" } }
   ];
 
@@ -40,7 +40,7 @@
     { t: "📲 WhatsApp'tan görüş", q: "__wa__" },
     { t: "🌾 Tarımsal sulama", q: "tarımsal sulama" },
     { t: "🏠 Çatı GES", q: "çatı ges" },
-    { t: "🔆 Yeni Ürün", q: "su ısıtıcı" },
+    { t: "🔆 Solar Su Isıtıcı", q: "su ısıtıcı" },
     { t: "📦 Paketler", q: "paket ürün" },
     { t: "💰 Teklif / Fiyat", q: "teklif fiyat" },
     { t: "🧮 Hesaplama", q: "hesaplama tasarruf" }

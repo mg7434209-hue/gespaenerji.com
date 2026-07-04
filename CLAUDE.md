@@ -20,7 +20,7 @@ Sayfalar (her biri kök dizinde, `.html` uzantılı):
 Ayrıca `admin.html`: fiyat yönetim paneli (menüde yok, robots'ta engelli,
 build PAGES listesine EKLENMEZ). Her sayfa: ortak header/footer, aktif menü
 vurgusu, breadcrumb, sayfaya özel SEO başlığı/canonical/Open Graph içerir.
-Nav menü: Ana Sayfa · Hizmetler · Ürünler · Yeni Ürün · Hesaplayıcı ·
+Nav menü: Ana Sayfa · Hizmetler · Ürünler · Solar Su Isıtıcı · Hesaplayıcı ·
 Projeler · Hakkımızda · Teklif Al — yeni sayfa eklenince TÜM sayfalarda güncelle.
 
 ## TEK DOĞRU KAYNAK — `assets/config.js`
