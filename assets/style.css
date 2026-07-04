@@ -319,6 +319,9 @@ img{max-width:100%;display:block}
 .pkg-price-lbl{color:var(--muted);font-size:.78rem}
 .pkg-price strong{font-family:var(--font);font-size:1.65rem;color:var(--green);font-weight:800;line-height:1.15}
 .pkg-price strong.pkg-poa{font-size:1.2rem;color:var(--ink)}
+.pkg-price-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.pkg-old{color:var(--muted);font-size:1.02rem;font-weight:600;text-decoration-thickness:2px}
+.pkg-disc{display:inline-block;background:var(--sun);color:#3a2c00;font-style:normal;font-weight:800;font-size:.72rem;padding:2px 9px;border-radius:999px;margin-left:6px;vertical-align:middle}
 .pkg-note{text-align:center;color:var(--muted);font-size:.92rem;margin:28px auto 0;max-width:70ch}
 
 /* ---- Yeni ürün sayfası (su-isitici.html) yardımcıları ---- */

@@ -211,8 +211,17 @@
           href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
         }
         var ldItem = { "@type": "Product", name: p.name, category: p.tag, description: p.desc };
-        if (price != null) ldItem.offers = { "@type": "Offer", price: price, priceCurrency: "TRY", availability: "https://schema.org/InStock" };
+        if (price != null) ldItem.offers = { "@type": "Offer", price: price, priceCurrency: p.currency || "TRY", availability: "https://schema.org/InStock" };
         ld.push(ldItem);
+        var money = function (v) { return (p.currency === "USD" ? "$" : "₺") + nf.format(v); };
+        // indirim: oldPrice verilirse üstü çizili liste fiyatı + yüzde rozeti
+        var disc = (price != null && p.oldPrice && p.oldPrice > price) ? Math.round((1 - price / p.oldPrice) * 100) : 0;
+        var priceHtml = price != null
+          ? '<div class="pkg-price"><span class="pkg-price-lbl">' + priceLbl +
+            (disc ? ' <em class="pkg-disc">%' + disc + " " + L("indirim", "off", "Rabatt", "скидка") + "</em>" : "") + "</span>" +
+            '<span class="pkg-price-row">' + (disc ? '<s class="pkg-old">' + money(p.oldPrice) + "</s>" : "") +
+            "<strong>" + money(price) + "</strong></span></div>"
+          : '<div class="pkg-price"><span class="pkg-price-lbl">' + L("Fiyat", "Price", "Preis", "Цена") + '</span><strong class="pkg-poa">' + L("Teklif alın", "Get a quote", "Angebot", "По запросу") + "</strong></div>";
         return '<article class="pkg-card reveal' + (p.popular ? " popular" : "") + '" id="pkg-' + p.id + '">' +
           '<div class="pkg-media">' +
             (p.popular ? '<span class="pkg-badge">' + L("En Popüler", "Most Popular", "Beliebt", "Популярный") + "</span>" : "") +
@@ -225,9 +234,7 @@
             '<div class="pkg-chips">' + chips + "</div>" +
             '<ul class="pkg-features ticks">' + feat + "</ul>" +
             '<div class="pkg-buy">' +
-              (price != null
-                ? '<div class="pkg-price"><span class="pkg-price-lbl">' + priceLbl + "</span><strong>₺" + nf.format(price) + "</strong></div>"
-                : '<div class="pkg-price"><span class="pkg-price-lbl">' + L("Fiyat", "Price", "Preis", "Цена") + '</span><strong class="pkg-poa">' + L("Teklif alın", "Get a quote", "Angebot", "По запросу") + "</strong></div>") +
+              priceHtml +
               '<a class="btn btn-block" href="' + href + '"' + (WA ? ' target="_blank" rel="noopener"' : "") + ">" + L("Bu paket için teklif al", "Get a quote", "Angebot anfordern", "Запросить КП") + "</a>" +
             "</div>" +
           "</div>" +

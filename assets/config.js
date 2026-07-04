@@ -62,21 +62,25 @@ window.GESPA.config = {
   // (eşleşmeyen metin zarifçe TR kalır).
   packages: [
     // —— Taşınabilir & Off-Grid (lityum bataryalı) paketler —— açık perakende fiyatı
+    // oldPrice: üstü çizili liste fiyatı (indirim rozeti otomatik hesaplanır)
+    // currency: "USD" -> $ ile gösterilir (varsayılan ₺)
     {
       id: "kit-285w", icon: "🧰", tag: "Taşınabilir", group: "offgrid", kit: true,
-      kwp: 0.285, panelW: 285, panelCount: 1, portable: true, priceOnRequest: true,
+      kwp: 0.285, panelW: 285, panelCount: 1, portable: true,
+      price: 22000, oldPrice: 25000,
       for: "Kamp, karavan ve küçük ihtiyaçlar",
       name: "285W Güneş Paneli Paketi",
-      desc: "Komple sistem: 285 W panel, güç kutusu ve bağlantı kabloları dahil tak-çalıştır kit.",
-      features: ["1× 285 W güneş paneli", "Güç kutusu dahil", "Bağlantı kabloları dahil", "Tak-çalıştır kurulum"]
+      desc: "Komple sistem: 285 W panel, güç kutusu ve bağlantı kabloları dahil tak-çalıştır mobil kit. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg.",
+      features: ["TV, lamba ve telefon şarjı çalıştırır", "23–25 kg — mobil taşınabilir", "Güç kutusu ve kablolar dahil", "Tak-çalıştır kurulum"]
     },
     {
       id: "kit-2x540w", icon: "🎒", tag: "Taşınabilir", group: "offgrid", kit: true,
-      kwp: 1.08, panelW: 540, panelCount: 2, portable: true, price: 66129,
+      kwp: 1.08, panelW: 540, panelCount: 2, portable: true,
+      price: 2000, oldPrice: 2200, currency: "USD",
       for: "Karavan, kamp ve bağ evi",
       name: "Tam Kapsamlı Güneş Enerjisi Sistemi",
-      desc: "2× 540 W güneş paneli dahil komple sistem: büyük güç kutusu ve bağlantı kabloları ile hazır.",
-      features: ["2× 540 W güneş paneli", "Büyük güç kutusu dahil", "Bağlantı kabloları dahil", "Off-grid (şebekesiz) çalışma"]
+      desc: "2× 540 W güneş paneli dahil komple mobil sistem: LiFePO₄ lityum batarya ve büyük güç kutusuyla buzdolabı, TV, çamaşır ve bulaşık makinesini çalıştırır.",
+      features: ["Buzdolabı, TV, çamaşır ve bulaşık makinesini çalıştırır", "LiFePO₄ lityum batarya dahil", "Büyük güç kutusu ve kablolar dahil", "Mobil taşınabilir, off-grid çalışma"]
     },
     {
       id: "offgrid-3kw", icon: "🛖", tag: "Taşınabilir", group: "offgrid", kwp: 3, portable: true, price: 145934, popular: true,

@@ -137,7 +137,7 @@
       a.href = URL.createObjectURL(blob); a.download = "gespa-fiyatlar.json"; a.click();
       // Okunabilir özet
       var lines = [];
-      (C.packages || []).forEach(function (p) { if (ov.packages[p.id] != null) lines.push(p.name + " (" + p.id + "): ₺" + nf.format(ov.packages[p.id])); });
+      (C.packages || []).forEach(function (p) { if (ov.packages[p.id] != null) lines.push(p.name + " (" + p.id + "): " + (p.currency === "USD" ? "$" : "₺") + nf.format(ov.packages[p.id])); });
       (C.heater && C.heater.models || []).forEach(function (m) { if (ov.heater[m.cap] != null) lines.push("Su ısıtıcı " + m.cap + " L: ₺" + nf.format(ov.heater[m.cap])); });
       $("#exportPre").textContent = lines.length ? lines.join("\n") : "(değişiklik yok)";
       $("#exportBox").hidden = false;
