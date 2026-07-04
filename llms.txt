@@ -35,7 +35,8 @@ Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş ve çevr
 ## PV Güneş Su Isıtıcı (ısıtma ürünü)
 Monokristal güneş panelleriyle suyu güneş enerjisiyle ısıtan fotovoltaik (PV) su ısıtıcı.
 Akıllı GF-20 kontrol; bulutlu havada otomatik şebeke (AC) desteği; emaye iç tank; donma/aşırı ısınma/kuru çalışma korumaları.
-Modeller: 60 L, 80 L, 100 L, 120 L, 150 L (PV gücü 550–1200 W). Sertifikalar: TÜV/CE/UL/UN38.3.
+Modeller: Yatay 60/80/100 L · Dikey 120/150/200 L (PV gücü 550–1200 W). Emaye tank + magnezyum anot; Baosteel emaye katman teknolojisi.
+Sertifikalar: TÜV/CE/UL/UN38.3 + IEC 61000/62477/62619/63056.
 Sayfa: https://www.gespaenerji.com/su-isitici.html
 
 ## Önemli sayfalar

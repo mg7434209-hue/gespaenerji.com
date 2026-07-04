@@ -52,11 +52,11 @@ const META = {
   },
   "su-isitici.html": {
     en: { t: "PV Solar Water Heater — Photovoltaic Water Heating | GESPA Energy",
-          d: "New-generation photovoltaic (PV) water heater that heats water directly with monocrystalline solar panels. Smart GF-20 controller, automatic grid backup on cloudy days, 60–150 L enamel tank — GESPA Energy." },
+          d: "New-generation photovoltaic (PV) water heater that heats water directly with monocrystalline solar panels. Smart GF-20 controller, automatic grid backup on cloudy days, 60–200 L enamel tank — GESPA Energy." },
     de: { t: "PV-Solar-Warmwasserbereiter — Photovoltaische Warmwasserbereitung | GESPA Energy",
-          d: "Photovoltaischer (PV) Warmwasserbereiter der neuen Generation: erwärmt Wasser direkt mit Monokristallin-Solarmodulen. Smarter GF-20-Regler, automatische Netz-Reserve bei Bewölkung, 60–150 L Emailtank." },
+          d: "Photovoltaischer (PV) Warmwasserbereiter der neuen Generation: erwärmt Wasser direkt mit Monokristallin-Solarmodulen. Smarter GF-20-Regler, automatische Netz-Reserve bei Bewölkung, 60–200 L Emailtank." },
     ru: { t: "PV солнечный водонагреватель — Фотоэлектрический нагрев воды | GESPA Energy",
-          d: "Фотоэлектрический (PV) водонагреватель нового поколения, нагревающий воду напрямую монокристаллическими панелями. Умный контроллер GF-20, авто-резерв от сети в пасмурную погоду, эмалевый бак 60–150 л." }
+          d: "Фотоэлектрический (PV) водонагреватель нового поколения, нагревающий воду напрямую монокристаллическими панелями. Умный контроллер GF-20, авто-резерв от сети в пасмурную погоду, эмалевый бак 60–200 л." }
   },
   "hesaplayici.html": {
     en: { t: "Solar Savings Calculator (PV) | GESPA Energy",

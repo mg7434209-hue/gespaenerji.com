@@ -144,12 +144,15 @@ window.GESPA.config = {
   // değerler güncellenip yayınlanmalıdır — admin "Yayınla" ile dosya üretir).
   heater: {
     name: "PV Güneş Su Isıtıcı",
+    // mount: "Yatay" (60–100 L, kompakt/balkon) | "Dikey" (120–200 L, yüksek tüketim)
+    // pv/dim/ac null = katalogda belirtilmemiş (tabloda "—"); price null = "Teklif alın"
     models: [
-      { cap: 60,  pv: 550,  dim: "430 × 745",  ac: "1,5 – 2", tank: "Emaye", price: 18900 },
-      { cap: 80,  pv: 600,  dim: "430 × 893",  ac: "1,5 – 2", tank: "Emaye", price: 22900 },
-      { cap: 100, pv: 700,  dim: "470 × 1140", ac: "2 – 2,5", tank: "Emaye", price: 27900 },
-      { cap: 120, pv: 900,  dim: "470 × 1251", ac: "2 – 2,5", tank: "Emaye", price: 32900 },
-      { cap: 150, pv: 1200, dim: "480 × 1380", ac: "2,5",     tank: "Emaye", price: 38900 }
+      { cap: 60,  mount: "Yatay", pv: 550,  dim: "430 × 745",  ac: "1,5 – 2", tank: "Emaye", price: 18900 },
+      { cap: 80,  mount: "Yatay", pv: 600,  dim: "430 × 893",  ac: "1,5 – 2", tank: "Emaye", price: 22900 },
+      { cap: 100, mount: "Yatay", pv: 700,  dim: "470 × 1140", ac: "2 – 2,5", tank: "Emaye", price: 27900 },
+      { cap: 120, mount: "Dikey", pv: 900,  dim: "470 × 1251", ac: "2 – 2,5", tank: "Emaye", price: 32900 },
+      { cap: 150, mount: "Dikey", pv: 1200, dim: "480 × 1380", ac: "2,5",     tank: "Emaye", price: 38900 },
+      { cap: 200, mount: "Dikey", pv: null, dim: null,          ac: null,      tank: "Emaye", price: null }
     ]
   },
 

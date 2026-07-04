@@ -254,7 +254,10 @@
       var nf = new Intl.NumberFormat("tr-TR");
       tb.innerHTML = CFG.heater.models.map(function (m) {
         var tank = L("Emaye", "Enamel", "Email", "Эмаль");
-        return "<tr><td>" + m.cap + " L</td><td>" + m.pv + " W</td><td>" + m.dim + "</td><td>" + m.ac + " kW</td><td>" + tank + "</td><td class=\"spec-price\">" + (m.price ? "₺" + nf.format(m.price) : "—") + "</td></tr>";
+        var mount = m.mount === "Dikey" ? L("Dikey", "Vertical", "Vertikal", "Вертик.") : L("Yatay", "Horizontal", "Horizontal", "Горизонт.");
+        var price = m.price ? '<span class="spec-price">₺' + nf.format(m.price) + "</span>"
+          : '<a href="iletisim.html" class="spec-quote">' + L("Teklif alın", "Get a quote", "Angebot", "По запросу") + "</a>";
+        return "<tr><td>" + m.cap + " L</td><td>" + mount + "</td><td>" + (m.pv != null ? m.pv + " W" : "—") + "</td><td>" + (m.dim || "—") + "</td><td>" + (m.ac != null ? m.ac + " kW" : "—") + "</td><td>" + tank + "</td><td>" + price + "</td></tr>";
       }).join("");
       var prices = CFG.heater.models.map(function (m) { return m.price; }).filter(Boolean);
       var fromEl = $("#heaterFrom");
@@ -269,7 +272,7 @@
           "@context": "https://schema.org", "@type": "Product",
           name: (CFG.heater.name || "PV Güneş Su Isıtıcı") + " (Fotovoltaik Su Isıtma Sistemi)",
           image: web + "/assets/img/products/pv-su-isitici.jpg",
-          description: "Monokristal güneş panelleriyle suyu doğrudan güneş enerjisiyle ısıtan fotovoltaik su ısıtıcı. Akıllı GF-20 kontrol, bulutlu havada otomatik şebeke (AC) desteği, emaye iç tank. 60–150 L kapasite seçenekleri.",
+          description: "Monokristal güneş panelleriyle suyu doğrudan güneş enerjisiyle ısıtan fotovoltaik su ısıtıcı. Akıllı GF-20 kontrol, bulutlu havada otomatik şebeke (AC) desteği, emaye iç tank. 60–200 L kapasite seçenekleri (yatay/dikey).",
           brand: { "@type": "Brand", name: (CFG.company && CFG.company.brandName) || "GESPA Enerji" },
           category: "Solar Water Heater"
         };
