@@ -62,6 +62,7 @@ window.GESPA.config = {
   // (eşleşmeyen metin zarifçe TR kalır).
   packages: [
     // —— Taşınabilir & Off-Grid (lityum bataryalı) paketler —— açık perakende fiyatı
+    // img: "assets/img/products/x.webp" -> kartta çizim yerine gerçek ürün fotoğrafı
     // oldPrice: üstü çizili liste fiyatı (indirim rozeti otomatik hesaplanır)
     // currency: "USD" -> $ ile gösterilir (varsayılan ₺)
     {

@@ -223,10 +223,10 @@
             "<strong>" + money(price) + "</strong></span></div>"
           : '<div class="pkg-price"><span class="pkg-price-lbl">' + L("Fiyat", "Price", "Preis", "Цена") + '</span><strong class="pkg-poa">' + L("Teklif alın", "Get a quote", "Angebot", "По запросу") + "</strong></div>";
         return '<article class="pkg-card reveal' + (p.popular ? " popular" : "") + '" id="pkg-' + p.id + '">' +
-          '<div class="pkg-media">' +
+          '<div class="pkg-media' + (p.img ? " has-img" : "") + '">' +
             (p.popular ? '<span class="pkg-badge">' + L("En Popüler", "Most Popular", "Beliebt", "Популярный") + "</span>" : "") +
             '<span class="pkg-cat">' + p.tag + "</span>" +
-            mediaSvg(p, panels) +
+            (p.img ? '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy" decoding="async" />' : mediaSvg(p, panels)) +
           "</div>" +
           '<div class="pkg-body">' +
             '<h3 class="pkg-name">' + p.name + "</h3>" +
