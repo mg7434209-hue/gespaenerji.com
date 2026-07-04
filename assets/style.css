@@ -318,6 +318,7 @@ img{max-width:100%;display:block}
 .pkg-price{display:flex;flex-direction:column;gap:1px}
 .pkg-price-lbl{color:var(--muted);font-size:.78rem}
 .pkg-price strong{font-family:var(--font);font-size:1.65rem;color:var(--green);font-weight:800;line-height:1.15}
+.pkg-price strong.pkg-poa{font-size:1.2rem;color:var(--ink)}
 .pkg-note{text-align:center;color:var(--muted);font-size:.92rem;margin:28px auto 0;max-width:70ch}
 
 /* ---- Yeni ürün sayfası (su-isitici.html) yardımcıları ---- */

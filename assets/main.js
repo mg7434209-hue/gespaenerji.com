@@ -129,8 +129,10 @@
       function chipsOf(p) {
         var pw = p.panelW || PANEL_W;
         var panels = p.panelCount || Math.ceil((p.kwp * 1000) / pw);
-        var arr = ["⚡ " + nf1.format(p.kwp) + " kWp",
-          "🔆 ~" + nf.format(panels) + " " + L("panel", "panels", "Module", "панелей")];
+        var panelChip = p.panelCount
+          ? "🔆 " + p.panelCount + "× " + pw + " W " + L("panel", "panel", "Modul", "панель")
+          : "🔆 ~" + nf.format(panels) + " " + L("panel", "panels", "Module", "панелей");
+        var arr = ["⚡ " + nf1.format(p.kwp) + " kWp", panelChip];
         if (p.group === "irrigation" && p.pumpKw) {
           arr.push("💧 " + L("Pompa", "Pump", "Pumpe", "Насос") + " ~" + nf1.format(p.pumpKw) + " kW");
         } else if (p.battery) {
@@ -152,11 +154,27 @@
         for (gy = 1; gy < 5; gy++) s += '<line x1="56" y1="' + (24 + gy * 24.8).toFixed(1) + '" x2="164" y2="' + (24 + gy * 24.8).toFixed(1) + '" stroke="#29527e" stroke-width="2"/>';
         // panel adedi rozeti
         s += '<circle cx="57" cy="30" r="17" fill="#13211c"/><text x="57" y="35" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff" font-family="inherit">×' + panels + "</text>";
-        // inverter
-        s += '<rect x="176" y="62" width="60" height="86" rx="9" fill="#f6f8f7" stroke="#c9d6cf" stroke-width="2.5"/>' +
-             '<rect x="186" y="75" width="40" height="13" rx="3" fill="#0a6e4f"/>' +
-             '<circle cx="192" cy="102" r="3.5" fill="#9fb2aa"/><circle cx="206" cy="102" r="3.5" fill="#9fb2aa"/>' +
-             '<line x1="186" y1="126" x2="226" y2="126" stroke="#c9d6cf" stroke-width="3"/><line x1="186" y1="134" x2="226" y2="134" stroke="#c9d6cf" stroke-width="3"/>';
+        // inverter (kit'lerde yerine güç kutusu çizilir)
+        if (!p.kit) {
+          s += '<rect x="176" y="62" width="60" height="86" rx="9" fill="#f6f8f7" stroke="#c9d6cf" stroke-width="2.5"/>' +
+               '<rect x="186" y="75" width="40" height="13" rx="3" fill="#0a6e4f"/>' +
+               '<circle cx="192" cy="102" r="3.5" fill="#9fb2aa"/><circle cx="206" cy="102" r="3.5" fill="#9fb2aa"/>' +
+               '<line x1="186" y1="126" x2="226" y2="126" stroke="#c9d6cf" stroke-width="3"/><line x1="186" y1="134" x2="226" y2="134" stroke="#c9d6cf" stroke-width="3"/>';
+        }
+        if (p.kit) {
+          // komple sistem kiti: güç kutusu (ekran + priz + fan) + kablo rulosu
+          s += '<rect x="176" y="52" width="62" height="96" rx="8" fill="#eef1ef" stroke="#c9d6cf" stroke-width="2.5"/>' +
+               '<rect x="186" y="64" width="30" height="12" rx="3" fill="#0a6e4f"/>' +
+               '<circle cx="228" cy="70" r="6" fill="#2c6db3"/>' +
+               '<circle cx="192" cy="90" r="4" fill="#13211c"/><rect x="204" y="86" width="26" height="8" rx="2" fill="#c9d6cf"/>' +
+               '<circle cx="207" cy="124" r="12" fill="none" stroke="#9fb2aa" stroke-width="2.5"/>' +
+               '<line x1="199" y1="124" x2="215" y2="124" stroke="#9fb2aa" stroke-width="2"/>' +
+               '<line x1="207" y1="116" x2="207" y2="132" stroke="#9fb2aa" stroke-width="2"/>' +
+               '<ellipse cx="118" cy="158" rx="34" ry="13" fill="none" stroke="#c0392b" stroke-width="5"/>' +
+               '<ellipse cx="118" cy="152" rx="34" ry="13" fill="none" stroke="#d94f3d" stroke-width="5"/>' +
+               '<ellipse cx="118" cy="146" rx="34" ry="13" fill="none" stroke="#13211c" stroke-width="3" opacity=".55"/>';
+          return s + "</svg>";
+        }
         if (p.group === "irrigation") {
           // dalgıç pompa + sola çıkan boru + damlalar (açık zeminde görünür)
           s += '<rect x="88" y="138" width="62" height="30" rx="15" fill="#2c6db3" stroke="#245a94" stroke-width="2.5"/>' +
@@ -172,7 +190,8 @@
         return s + "</svg>";
       }
       function card(p) {
-        var price = priceOf(p);
+        // priceOnRequest: fiyat girilmediyse "Teklif alın"; admin/config fiyat girerse gösterilir
+        var price = (p.priceOnRequest && p.price == null) ? null : priceOf(p);
         var pw = p.panelW || PANEL_W;
         var panels = p.panelCount || Math.ceil((p.kwp * 1000) / pw);
         var chips = chipsOf(p).map(function (s) { return "<span>" + s + "</span>"; }).join("");
@@ -191,7 +210,9 @@
           );
           href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
         }
-        ld.push({ "@type": "Product", name: p.name, category: p.tag, description: p.desc, offers: { "@type": "Offer", price: price, priceCurrency: "TRY", availability: "https://schema.org/InStock" } });
+        var ldItem = { "@type": "Product", name: p.name, category: p.tag, description: p.desc };
+        if (price != null) ldItem.offers = { "@type": "Offer", price: price, priceCurrency: "TRY", availability: "https://schema.org/InStock" };
+        ld.push(ldItem);
         return '<article class="pkg-card reveal' + (p.popular ? " popular" : "") + '" id="pkg-' + p.id + '">' +
           '<div class="pkg-media">' +
             (p.popular ? '<span class="pkg-badge">' + L("En Popüler", "Most Popular", "Beliebt", "Популярный") + "</span>" : "") +
@@ -204,7 +225,9 @@
             '<div class="pkg-chips">' + chips + "</div>" +
             '<ul class="pkg-features ticks">' + feat + "</ul>" +
             '<div class="pkg-buy">' +
-              '<div class="pkg-price"><span class="pkg-price-lbl">' + priceLbl + "</span><strong>₺" + nf.format(price) + "</strong></div>" +
+              (price != null
+                ? '<div class="pkg-price"><span class="pkg-price-lbl">' + priceLbl + "</span><strong>₺" + nf.format(price) + "</strong></div>"
+                : '<div class="pkg-price"><span class="pkg-price-lbl">' + L("Fiyat", "Price", "Preis", "Цена") + '</span><strong class="pkg-poa">' + L("Teklif alın", "Get a quote", "Angebot", "По запросу") + "</strong></div>") +
               '<a class="btn btn-block" href="' + href + '"' + (WA ? ' target="_blank" rel="noopener"' : "") + ">" + L("Bu paket için teklif al", "Get a quote", "Angebot anfordern", "Запросить КП") + "</a>" +
             "</div>" +
           "</div>" +

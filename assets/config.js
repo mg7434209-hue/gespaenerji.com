@@ -63,11 +63,20 @@ window.GESPA.config = {
   packages: [
     // —— Taşınabilir & Off-Grid (lityum bataryalı) paketler —— açık perakende fiyatı
     {
-      id: "offgrid-1kw", icon: "🎒", tag: "Taşınabilir", group: "offgrid", kwp: 1, portable: true, price: 66129,
+      id: "kit-285w", icon: "🧰", tag: "Taşınabilir", group: "offgrid", kit: true,
+      kwp: 0.285, panelW: 285, panelCount: 1, portable: true, priceOnRequest: true,
+      for: "Kamp, karavan ve küçük ihtiyaçlar",
+      name: "285W Güneş Paneli Paketi",
+      desc: "Komple sistem: 285 W panel, güç kutusu ve bağlantı kabloları dahil tak-çalıştır kit.",
+      features: ["1× 285 W güneş paneli", "Güç kutusu dahil", "Bağlantı kabloları dahil", "Tak-çalıştır kurulum"]
+    },
+    {
+      id: "kit-2x540w", icon: "🎒", tag: "Taşınabilir", group: "offgrid", kit: true,
+      kwp: 1.08, panelW: 540, panelCount: 2, portable: true, price: 66129,
       for: "Karavan, kamp ve bağ evi",
-      name: "1 kW Taşınabilir Off-Grid Paket",
-      desc: "Bağ evi, karavan ve kamp için kompakt taşınabilir kit.",
-      features: ["Lityum batarya dahil", "Taşınabilir / mobil kullanım", "Off-grid (şebekesiz) çalışma", "Hazır kurulum kiti"]
+      name: "Tam Kapsamlı Güneş Enerjisi Sistemi",
+      desc: "2× 540 W güneş paneli dahil komple sistem: büyük güç kutusu ve bağlantı kabloları ile hazır.",
+      features: ["2× 540 W güneş paneli", "Büyük güç kutusu dahil", "Bağlantı kabloları dahil", "Off-grid (şebekesiz) çalışma"]
     },
     {
       id: "offgrid-3kw", icon: "🛖", tag: "Taşınabilir", group: "offgrid", kwp: 3, portable: true, price: 145934, popular: true,
@@ -131,7 +140,7 @@ window.GESPA.config = {
 
   // Paket seçim rehberi (urunler.html) — kullanım yeri -> önerilen paket id'si
   packageGuide: [
-    { icon: "🚐", label: "Karavan / Kamp", target: "offgrid-1kw" },
+    { icon: "🚐", label: "Karavan / Kamp", target: "kit-285w" },
     { icon: "🏡", label: "Bağ Evi", target: "offgrid-3kw" },
     { icon: "🏠", label: "Müstakil Ev", target: "offgrid-6kw" },
     { icon: "🪴", label: "Bahçe Sulama", target: "sulama-bahce" },
