@@ -540,6 +540,40 @@ img{max-width:100%;display:block}
   .fab-top{bottom:74px}                 /* başa-dön çubuğun üstüne */
 }
 
+/* ---- Çerez onay banner'ı (KVKK) ---- */
+.cc-banner{position:fixed;left:0;right:0;bottom:0;z-index:1500;padding:0 14px;
+  padding-bottom:max(14px,env(safe-area-inset-bottom))}
+.cc-inner{max-width:880px;margin:0 auto;background:var(--bg);border:1px solid var(--line);
+  border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.22);padding:16px 18px;
+  display:flex;flex-direction:column;gap:10px}
+.cc-text strong{display:block;margin-bottom:4px;font-size:.98rem}
+.cc-text p{margin:0;font-size:.88rem;color:var(--muted);line-height:1.55}
+.cc-text a{color:var(--green);font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.cc-prefs summary{cursor:pointer;font-weight:700;font-size:.9rem;color:var(--green);
+  min-height:44px;display:flex;align-items:center;width:max-content;padding:0 4px}
+.cc-opt{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:8px 0;
+  font-size:.9rem;font-weight:600;cursor:pointer}
+.cc-opt em{font-style:normal;font-size:.78rem;color:var(--green);font-weight:800}
+.cc-opt input[type="checkbox"]{width:22px;height:22px;accent-color:var(--green);flex:0 0 auto}
+.cc-actions{display:flex;gap:8px;flex-wrap:wrap}
+.cc-btn{min-height:44px;padding:10px 18px;border-radius:999px;font-family:var(--font);
+  font-weight:800;font-size:.9rem;cursor:pointer;border:1.5px solid var(--line);
+  background:var(--bg-alt);color:inherit;flex:1}
+.cc-btn.cc-accept{background:var(--green);border-color:var(--green);color:#fff}
+.cc-btn.cc-save{width:100%;margin-top:2px}
+@media(min-width:761px){
+  .cc-inner{flex-direction:row;align-items:center}
+  .cc-text{flex:1}
+  .cc-prefs{position:relative}
+  .cc-prefs .cc-opt,.cc-prefs .cc-save{max-width:280px}
+  .cc-actions{flex:0 0 auto}
+  .cc-btn{flex:0 0 auto}
+}
+@media(max-width:760px){
+  .cc-banner{bottom:66px;padding-bottom:10px}  /* mobil CTA çubuğunun üstünde durur */
+}
+
 /* ---- Mobil tipografi & tıklama alanları (telefon uyumu) ---- */
 @media(max-width:760px){
   input,select,textarea{font-size:16px}          /* iOS'ta otomatik yakınlaştırmayı önler */
@@ -547,8 +581,26 @@ img{max-width:100%;display:block}
   .btn{padding:14px 24px}                          /* ~48px dokunma yüksekliği */
   .btn-sm{padding:12px 18px}
   .menu a{min-height:46px;display:flex;align-items:center}
-  .lang-switch button{padding:10px 12px;font-size:.82rem}
-  .theme-toggle{width:46px;height:46px}
+  /* Header 390px'e SIĞMALI: taşarsa mobil tarayıcı sayfayı küçültür ve tüm
+     sabit öğelerin (çerez banner'ı, CTA çubuğu) dokunma noktaları kayar. */
+  html,body{overflow-x:clip}
+  .nav{gap:8px}
+  .nav-actions{gap:6px}
+  .brand{gap:8px}
+  .brand-text{font-size:1.05rem}
+  .logo img{width:30px;height:30px}
+  .lang-switch button{padding:11px 7px;font-size:.72rem}
+  .theme-toggle{width:38px;height:38px;font-size:1rem}
+  .hamburger{padding:8px 4px}
+}
+@media(max-width:374px){ /* çok dar ekranlar (320-374px) */
+  .brand-text{font-size:.92rem}
+  .logo img{width:26px;height:26px}
+  .lang-switch button{padding:10px 5px;font-size:.68rem}
+  .theme-toggle{width:34px;height:34px}
+}
+@media(max-width:350px){ /* en dar ekranlar: yalnız logo */
+  .brand-text{display:none}
   .footer-col a{display:inline-block;padding:6px 0}
   .footer-bottom a{padding:6px 4px;display:inline-block}
   .crumbs a{padding:4px 0;display:inline-block}

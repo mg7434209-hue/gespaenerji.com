@@ -319,18 +319,86 @@
     if (window.GESPA && GESPA.applyLang) GESPA.applyLang(GESPA.lang || "tr");
   })();
 
-  /* ---- Analitik (yalnızca config'te ID varsa — GA4) ---- */
+  /* ---- Çerez onayı (KVKK) + Analitik (onaya bağlı, yalnızca config'te ID varsa) ---- */
   (function () {
-    var id = CFG.analytics && CFG.analytics.ga4;
-    if (!id) return; // ID yoksa hiçbir script yüklenmez
-    var s = doc.createElement("script"); s.async = true;
-    s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(id);
-    doc.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { window.dataLayer.push(arguments); }
-    window.gtag = gtag;
-    gtag("js", new Date());
-    gtag("config", id, { anonymize_ip: true });
+    var KEY = "gespa-consent-v1";
+    var TTL = 1000 * 60 * 60 * 24 * 180; // 6 ay — süre dolunca onay yeniden sorulur
+
+    function getConsent() {
+      try {
+        var d = JSON.parse(localStorage.getItem(KEY) || "null");
+        if (!d || typeof d.ts !== "number") return null;
+        if (Date.now() - d.ts > TTL) { localStorage.removeItem(KEY); return null; }
+        return d;
+      } catch (e) { return null; }
+    }
+    function saveConsent(analytics) {
+      var d = { necessary: true, analytics: !!analytics, ts: Date.now() };
+      try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {}
+      return d;
+    }
+
+    var analyticsLoaded = false;
+    function loadAnalytics() {
+      if (analyticsLoaded) return;
+      var id = CFG.analytics && CFG.analytics.ga4;
+      if (!id) return; // ID yoksa hiçbir script yüklenmez
+      analyticsLoaded = true;
+      var s = doc.createElement("script"); s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(id);
+      doc.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag("js", new Date());
+      gtag("consent", "default", { analytics_storage: "granted", ad_storage: "denied" });
+      gtag("config", id, { anonymize_ip: true });
+    }
+
+    var banner = null;
+    function closeBanner() { if (banner) { banner.remove(); banner = null; } }
+    function showBanner(current) {
+      if (banner) return;
+      banner = doc.createElement("div");
+      banner.className = "cc-banner";
+      banner.setAttribute("role", "dialog");
+      banner.setAttribute("aria-label", L("Çerez tercihleri", "Cookie preferences", "Cookie-Einstellungen", "Настройки cookie"));
+      banner.innerHTML =
+        '<div class="cc-inner">' +
+          '<div class="cc-text"><strong>🍪 ' + L("Çerezler Hakkında", "About Cookies", "Über Cookies", "О файлах cookie") + "</strong>" +
+            "<p>" + L(
+              "Deneyiminizi geliştirmek ve site trafiğini analiz etmek için çerez kullanıyoruz. Zorunlu çerezler için KVKK m.5/2-c uyarınca onay gerekmez; analitik çerezler yalnızca onayınızla çalışır.",
+              "We use cookies to improve your experience and analyse site traffic. Essential cookies need no consent; analytics cookies run only with your approval.",
+              "Wir verwenden Cookies, um Ihr Erlebnis zu verbessern und den Verkehr zu analysieren. Notwendige Cookies erfordern keine Einwilligung; Analyse-Cookies nur mit Ihrer Zustimmung.",
+              "Мы используем cookie для улучшения работы сайта и анализа трафика. Обязательные cookie не требуют согласия; аналитические — только с вашего разрешения.") +
+            ' <a href="/cerez-politikasi.html">' + L("Çerez Politikası", "Cookie Policy", "Cookie-Richtlinie", "Политика cookie") + "</a> · " +
+            '<a href="/kvkk.html">' + L("Aydınlatma Metni", "Privacy Notice", "Datenschutzhinweis", "Уведомление") + "</a></p></div>" +
+          '<details class="cc-prefs"><summary>' + L("Tercihler", "Preferences", "Einstellungen", "Настройки") + "</summary>" +
+            '<div class="cc-opt"><span>' + L("Zorunlu çerezler", "Essential cookies", "Notwendige Cookies", "Обязательные cookie") + "</span><em>" + L("Her zaman aktif", "Always on", "Immer aktiv", "Всегда вкл.") + "</em></div>" +
+            '<label class="cc-opt"><span>' + L("Analitik çerezler", "Analytics cookies", "Analyse-Cookies", "Аналитические cookie") + '</span><input type="checkbox" class="cc-analytics"' + (current && !current.analytics ? "" : " checked") + "></label>" +
+            '<button type="button" class="cc-btn cc-save">' + L("Seçimi Kaydet", "Save choices", "Auswahl speichern", "Сохранить выбор") + "</button></details>" +
+          '<div class="cc-actions">' +
+            '<button type="button" class="cc-btn cc-reject">' + L("Reddet", "Reject", "Ablehnen", "Отклонить") + "</button>" +
+            '<button type="button" class="cc-btn cc-accept">' + L("Tümünü Kabul Et", "Accept all", "Alle akzeptieren", "Принять все") + "</button></div></div>";
+      doc.body.appendChild(banner);
+      function apply(analytics) { saveConsent(analytics); closeBanner(); if (analytics) loadAnalytics(); }
+      $(".cc-accept", banner).addEventListener("click", function () { apply(true); });
+      $(".cc-reject", banner).addEventListener("click", function () { apply(false); });
+      $(".cc-save", banner).addEventListener("click", function () { apply($(".cc-analytics", banner).checked); });
+    }
+
+    var stored = getConsent();
+    if (!stored) showBanner(null);
+    else if (stored.analytics) loadAnalytics();
+
+    // Footer yasal satırına "Çerez Tercihleri" linki — onay her zaman geri çekilebilir (KVKK)
+    (function () {
+      var p = $(".footer-bottom p:last-child"); if (!p) return;
+      var a = doc.createElement("a"); a.href = "#";
+      a.textContent = L("Çerez Tercihleri", "Cookie Preferences", "Cookie-Einstellungen", "Настройки cookie");
+      a.addEventListener("click", function (ev) { ev.preventDefault(); showBanner(getConsent()); });
+      p.appendChild(doc.createTextNode(" · ")); p.appendChild(a);
+    })();
   })();
 
   /* ---- Sabit mobil CTA çubuğu (her sayfada) ---- */
