@@ -50,6 +50,23 @@
         $$("[data-c-wa]").forEach(function (el) { el.setAttribute("href", "https://wa.me/" + c.phone.wa); });
       }
       $$("[data-c-mailto]").forEach(function (el) { el.setAttribute("href", "mailto:" + c.email); });
+      // Sosyal medya: config.sameAs'ten üretilir; boşsa blok gizlenir (ölü "#" linki kalmaz)
+      $$(".socials").forEach(function (w) {
+        var links = (c.sameAs || []).filter(Boolean);
+        if (!links.length) { if (w.parentNode) w.parentNode.removeChild(w); return; }
+        w.innerHTML = "";
+        links.forEach(function (u) {
+          var t = /linkedin\./i.test(u) ? ["in", "LinkedIn"]
+            : /instagram\./i.test(u) ? ["ig", "Instagram"]
+            : /(twitter\.|(^|\/\/)(www\.)?x\.com)/i.test(u) ? ["X", "X"]
+            : /facebook\./i.test(u) ? ["f", "Facebook"]
+            : /(youtube\.|youtu\.be)/i.test(u) ? ["yt", "YouTube"] : ["🌐", "Web"];
+          var a = doc.createElement("a");
+          a.href = u; a.target = "_blank"; a.rel = "noopener";
+          a.textContent = t[0]; a.setAttribute("aria-label", t[1]);
+          w.appendChild(a);
+        });
+      });
       // LocalBusiness JSON-LD (her sayfada)
       try {
         var d = {
@@ -511,7 +528,7 @@
     }
 
     function calc() {
-      var unit = parseFloat(price && price.value) || 2.5;
+      var unit = parseFloat(price && price.value) || k.defaultUnitPrice || 2.5;
       var yieldPerKwp = parseFloat(city && city.value) || 1500;
       var oFac = parseFloat(orient && orient.value) || 1;
       var inflR = (parseFloat(infl && infl.value) || 0) / 100;
@@ -970,8 +987,10 @@
     var q = $(".faq-q", item);
     var a = $(".faq-a", item);
     if (!q || !a) return;
+    q.setAttribute("aria-expanded", "false");
     q.addEventListener("click", function () {
       var open = item.classList.toggle("open");
+      q.setAttribute("aria-expanded", open ? "true" : "false");
       a.style.maxHeight = open ? a.scrollHeight + "px" : null;
     });
   });
@@ -1049,6 +1068,13 @@
     news.addEventListener("submit", function (e) {
       e.preventDefault();
       var n = $("#newsNote");
+      // Statik sitede backend yok: abonelik talebi WhatsApp lead kanalından işletmeye iletilir
+      var email = (news.querySelector('input[type="email"]') || {}).value || "";
+      var wa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
+      if (wa && email.trim()) {
+        var m = L("Bülten aboneliği talebi", "Newsletter subscription request", "Newsletter-Anmeldung", "Заявка на рассылку") + ": " + email.trim();
+        window.open("https://wa.me/" + wa + "?text=" + encodeURIComponent(m), "_blank");
+      }
       if (n) n.textContent = L("Aboneliğiniz alındı, teşekkürler!", "You're subscribed, thank you!", "Anmeldung erhalten, danke!", "Подписка оформлена, спасибо!");
       news.reset();
     });

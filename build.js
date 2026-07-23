@@ -132,7 +132,12 @@ function transform(html, lang, file) {
   out = out.replace(/<meta property="og:url" content="[^"]*"\s*\/>/,
     '<meta property="og:url" content="' + canonical + '" />');
 
-  // 6) i18n için dil bayrağını erken tanımla (deferred i18n.js okuyacak)
+  // 6) Statik (TR metinli) FAQPage JSON-LD'yi dil sayfalarından çıkar —
+  //    EN/DE/RU sayfada Türkçe yapılandırılmış veri dil uyumsuzluğu yaratır
+  out = out.replace(/[ \t]*<script type="application\/ld\+json">[\s\S]*?<\/script>\n?/g,
+    function (block) { return /"FAQPage"/.test(block) ? "" : block; });
+
+  // 7) i18n için dil bayrağını erken tanımla (deferred i18n.js okuyacak)
   out = out.replace(/(<meta charset="UTF-8" \/>)/,
     '$1\n  <script>window.__LANG__="' + lang + '";</script>');
 

@@ -62,6 +62,10 @@ Projeler · Hakkımızda · Teklif Al — yeni sayfa eklenince TÜM sayfalarda g
 - Görseller repoda `assets/img/` altında durur; dış siteden hotlink YAPMA.
 - Açık/koyu tema, mobil menü, scroll animasyonları `assets/main.js` ile yönetilir;
   yeni DOM'lar `.reveal` ve `data-count` desenlerini kullanabilir.
+- Sohbet botu `assets/chatbot.js` (main.js dinamik yükler): metinleri kendi içinde
+  `[tr,en,de,ru]` dizileriyle çok dillidir (i18n DICT'e bağlı değildir); yeni yanıt
+  eklerken 4 dili birlikte ekle. Footer sosyal linkleri `config.company.sameAs`'ten
+  üretilir; boşken blok gizlenir.
 - Çok dil (TR/EN/DE/RU): `assets/i18n.js` metinleri TR kaynağına göre çevirir; yeni metin
   eklerken DE/RU karşılığını `DICT`'e ekle, yoksa zarifçe TR kalır. Marka/iletişim
   (`data-c-text`) ve dinamik sayılar çeviriden hariç tutulur.
