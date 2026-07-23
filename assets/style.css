@@ -52,6 +52,7 @@ h1,h2,h3,h4{font-family:var(--font);line-height:1.15;margin:0}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mobil) */
 .container.narrow{max-width:820px}
 
 /* Yasal sayfalar (KVKK / Gizlilik / Çerez) */
@@ -61,6 +62,22 @@ img{max-width:100%;display:block}
 .legal a{color:var(--green);font-weight:600}
 .legal code{background:var(--card,#f1f5f3);padding:2px 6px;border-radius:6px;font-size:.92em}
 .legal-note{background:var(--sun-soft,#ffe27a);color:#5a4500;padding:12px 16px;border-radius:12px;font-size:.95rem;margin-bottom:8px}
+.legal ul{margin:0 0 14px;padding-left:22px;color:var(--muted)}
+.legal ul li{margin:5px 0}
+.legal .updated{color:var(--muted);font-size:.88rem;margin-bottom:16px}
+.legal h2{scroll-margin-top:96px}                     /* yapışkan header çapa kaymasını önler */
+.legal .toc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius,14px);padding:16px 20px;margin:6px 0 22px}
+.legal .toc ol{margin:10px 0 0;padding-left:22px;columns:2;column-gap:28px;color:var(--muted)}
+.legal .toc li{margin:4px 0;break-inside:avoid}
+@media(max-width:640px){.legal .toc ol{columns:1}}
+
+/* Çerez onay bildirimi (analitik yalnızca onayla yüklenir) */
+.cookie-bar{position:fixed;left:12px;right:12px;bottom:12px;z-index:120;display:flex;gap:12px;align-items:center;flex-wrap:wrap;
+  background:var(--bg);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-lg);padding:14px 16px;font-size:.92rem;max-width:720px;margin:0 auto}
+.cookie-bar p{margin:0;flex:1 1 260px;color:var(--muted)}
+.cookie-bar a{color:var(--green);font-weight:700}
+.cookie-actions{display:flex;gap:8px;flex-wrap:wrap}
+@media(max-width:760px){.cookie-bar{bottom:74px}}     /* mobil CTA çubuğunun üstünde durur */
 /* İletişim formu — KVKK rıza kutusu */
 .field-consent{margin:4px 0 6px}
 .field-consent label{display:flex;align-items:flex-start;gap:10px;font-size:.92rem;color:var(--muted);cursor:pointer;line-height:1.5}
@@ -547,12 +564,24 @@ img{max-width:100%;display:block}
   .btn{padding:14px 24px}                          /* ~48px dokunma yüksekliği */
   .btn-sm{padding:12px 18px}
   .menu a{min-height:46px;display:flex;align-items:center}
-  .lang-switch button{padding:10px 12px;font-size:.82rem}
-  .theme-toggle{width:46px;height:46px}
+  /* Header dar ekranda tek satıra sığmalı (dil+tema+menü grubu taşıyordu) */
+  .nav{gap:8px}
+  .nav-actions{gap:6px}
+  .brand{gap:6px}
+  .logo img{width:30px;height:30px}
+  .brand-text{font-size:1.06rem}
+  .lang-switch button{padding:10px 6px;font-size:.72rem}
+  .theme-toggle{width:38px;height:38px}
   .footer-col a{display:inline-block;padding:6px 0}
   .footer-bottom a{padding:6px 4px;display:inline-block}
   .crumbs a{padding:4px 0;display:inline-block}
   .topbar-inner{font-size:.82rem}
+}
+@media(max-width:380px){
+  .brand-text{font-size:.98rem}
+  .lang-switch button{padding:9px 5px;font-size:.7rem}
+  .theme-toggle{width:34px;height:34px}
+  .hamburger{padding:8px 5px}
 }
 
 /* Yazdırma / PDF — sayfa süslerini gizle, içeriği sade bas */

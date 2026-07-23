@@ -82,7 +82,31 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/iletisim.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/iletisim.html" />
   </url>
-  <url><loc>https://www.gespaenerji.com/gizlilik.html</loc><lastmod>2026-07-23</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://www.gespaenerji.com/kvkk.html</loc><lastmod>2026-07-23</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://www.gespaenerji.com/cerez-politikasi.html</loc><lastmod>2026-07-23</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url>
+    <loc>https://www.gespaenerji.com/gizlilik.html</loc>
+    <lastmod>2026-07-23</lastmod><changefreq>yearly</changefreq><priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/gizlilik.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/gizlilik.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/gizlilik.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/gizlilik.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/gizlilik.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/kvkk.html</loc>
+    <lastmod>2026-07-23</lastmod><changefreq>yearly</changefreq><priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/kvkk.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/kvkk.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/kvkk.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/kvkk.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/kvkk.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/cerez-politikasi.html</loc>
+    <lastmod>2026-07-23</lastmod><changefreq>yearly</changefreq><priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/cerez-politikasi.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/cerez-politikasi.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/cerez-politikasi.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/cerez-politikasi.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/cerez-politikasi.html" />
+  </url>
 </urlset>

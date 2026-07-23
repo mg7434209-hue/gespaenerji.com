@@ -336,18 +336,64 @@
     if (window.GESPA && GESPA.applyLang) GESPA.applyLang(GESPA.lang || "tr");
   })();
 
-  /* ---- Analitik (yalnızca config'te ID varsa — GA4) ---- */
+  /* ---- Analitik (yalnızca config'te ID varsa — GA4) + KVKK çerez onayı ----
+     Analitik, ziyaretçi çerez bildiriminde "Kabul et" demeden YÜKLENMEZ.
+     Tercih localStorage 'gespa-consent' anahtarında tutulur (granted/denied);
+     cerez-politikasi.html'deki #cookieReset düğmesi tercihi sıfırlar. ---- */
   (function () {
+    var KEY = "gespa-consent";
     var id = CFG.analytics && CFG.analytics.ga4;
-    if (!id) return; // ID yoksa hiçbir script yüklenmez
-    var s = doc.createElement("script"); s.async = true;
-    s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(id);
-    doc.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { window.dataLayer.push(arguments); }
-    window.gtag = gtag;
-    gtag("js", new Date());
-    gtag("config", id, { anonymize_ip: true });
+
+    // Çerez politikası sayfası: tercihi sıfırlama düğmesi
+    var reset = $("#cookieReset");
+    if (reset) reset.addEventListener("click", function () {
+      try { localStorage.removeItem(KEY); } catch (e) {}
+      var n = $("#cookieResetNote");
+      if (n) n.textContent = L("Tercihiniz sıfırlandı; bir sonraki sayfada yeniden sorulacak.", "Your choice was reset; you'll be asked again on the next page.", "Ihre Auswahl wurde zurückgesetzt; Sie werden erneut gefragt.", "Ваш выбор сброшен; вопрос появится снова на следующей странице.");
+    });
+
+    if (!id) return; // ID yoksa hiçbir analitik script yüklenmez, bildirim de gösterilmez
+
+    function loadGA() {
+      var s = doc.createElement("script"); s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(id);
+      doc.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag("js", new Date());
+      gtag("config", id, { anonymize_ip: true });
+    }
+
+    var choice = null;
+    try { choice = localStorage.getItem(KEY); } catch (e) {}
+    if (choice === "granted") { loadGA(); return; }
+    if (choice === "denied") return;
+
+    // Henüz seçim yapılmadı: çerez bildirimi göster
+    var bar = doc.createElement("div");
+    bar.className = "cookie-bar";
+    bar.setAttribute("role", "region");
+    bar.setAttribute("aria-label", L("Çerez bildirimi", "Cookie notice", "Cookie-Hinweis", "Уведомление о cookie"));
+    bar.innerHTML =
+      "<p>" + L("Deneyiminizi iyileştirmek için isteğe bağlı analitik çerezler kullanmak istiyoruz. Ayrıntı: ",
+                "We'd like to use optional analytics cookies to improve your experience. Details: ",
+                "Wir möchten optionale Analyse-Cookies verwenden, um Ihr Erlebnis zu verbessern. Details: ",
+                "Мы хотели бы использовать необязательные аналитические cookie. Подробнее: ") +
+      '<a href="/cerez-politikasi.html">' + L("Çerez Politikası", "Cookie Policy", "Cookie-Richtlinie", "Политика cookie") + "</a></p>" +
+      '<div class="cookie-actions">' +
+      '<button type="button" class="btn btn-sm" data-consent="granted">' + L("Kabul et", "Accept", "Akzeptieren", "Принять") + "</button>" +
+      '<button type="button" class="btn btn-ghost btn-sm" data-consent="denied">' + L("Reddet", "Reject", "Ablehnen", "Отклонить") + "</button>" +
+      "</div>";
+    doc.body.appendChild(bar);
+    bar.addEventListener("click", function (e) {
+      var b = e.target.closest && e.target.closest("[data-consent]");
+      if (!b) return;
+      var v = b.getAttribute("data-consent");
+      try { localStorage.setItem(KEY, v); } catch (err) {}
+      bar.remove();
+      if (v === "granted") loadGA();
+    });
   })();
 
   /* ---- Sabit mobil CTA çubuğu (her sayfada) ---- */
