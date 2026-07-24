@@ -1,0 +1,76 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0A2A43"/><stop offset="1" stop-color="#123B5C"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#17A8C4"/><stop offset="1" stop-color="#0E7E96"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <!-- stars / ambient dots -->
+  <g fill="#7FD6E8" opacity="0.35">
+    <circle cx="140" cy="90" r="3"/><circle cx="380" cy="60" r="2"/><circle cx="1480" cy="120" r="3"/>
+    <circle cx="1240" cy="70" r="2"/><circle cx="920" cy="50" r="2"/>
+  </g>
+  <!-- pool water -->
+  <rect x="0" y="430" width="1600" height="470" fill="url(#water)"/>
+  <!-- lane lines / ripples -->
+  <g stroke="#7FD6E8" stroke-width="5" opacity="0.5" fill="none">
+    <path d="M0,530 Q200,515 400,530 T800,530 T1200,530 T1600,530"/>
+    <path d="M0,640 Q200,625 400,640 T800,640 T1200,640 T1600,640"/>
+    <path d="M0,760 Q200,745 400,760 T800,760 T1200,760 T1600,760"/>
+  </g>
+  <!-- pool edge -->
+  <rect x="0" y="418" width="1600" height="16" fill="#FDF9F2"/>
+  <!-- camera pole left -->
+  <g>
+    <rect x="150" y="120" width="14" height="300" rx="6" fill="#FDF9F2"/>
+    <g transform="translate(157,120)">
+      <rect x="-8" y="-46" width="120" height="58" rx="14" fill="#FDF9F2"/>
+      <circle cx="86" cy="-17" r="16" fill="#0A2A43"/>
+      <circle cx="86" cy="-17" r="7" fill="#7FD6E8"/>
+      <rect x="4" y="-34" width="46" height="34" rx="8" fill="#123B5C"/>
+    </g>
+  </g>
+  <!-- scan arcs from camera -->
+  <g stroke="#7FD6E8" fill="none" opacity="0.85">
+    <path d="M270,140 A560,560 0 0 1 690,480" stroke-width="7" stroke-dasharray="2 26" stroke-linecap="round"/>
+    <path d="M255,190 A440,440 0 0 1 590,470" stroke-width="6" stroke-dasharray="2 24" stroke-linecap="round" opacity="0.7"/>
+    <path d="M245,240 A330,330 0 0 1 500,462" stroke-width="5" stroke-dasharray="2 22" stroke-linecap="round" opacity="0.5"/>
+  </g>
+  <!-- swimmer safe (left) -->
+  <g transform="translate(430,600)">
+    <circle cx="0" cy="0" r="26" fill="#F2B33D"/>
+    <path d="M-90,40 Q-30,-6 30,26 Q80,52 130,30" stroke="#F2B33D" stroke-width="26" fill="none" stroke-linecap="round"/>
+  </g>
+  <!-- swimmer at risk (right) : vertical, arms up, detection ring -->
+  <g transform="translate(1080,640)">
+    <circle cx="0" cy="-70" r="26" fill="#FDF9F2"/>
+    <path d="M0,-44 L0,60" stroke="#FDF9F2" stroke-width="24" stroke-linecap="round"/>
+    <path d="M0,-30 L-52,-92 M0,-30 L52,-92" stroke="#FDF9F2" stroke-width="18" stroke-linecap="round"/>
+    <!-- detection rings -->
+    <circle cx="0" cy="-20" r="120" fill="none" stroke="#F4523B" stroke-width="8"/>
+    <circle cx="0" cy="-20" r="160" fill="none" stroke="#F4523B" stroke-width="4" opacity="0.55"/>
+    <circle cx="0" cy="-20" r="200" fill="none" stroke="#F4523B" stroke-width="2.5" opacity="0.3"/>
+  </g>
+  <!-- alert line from risk to watch -->
+  <path d="M1080,470 Q1150,300 1300,260" stroke="#F4523B" stroke-width="6" fill="none" stroke-dasharray="4 18" stroke-linecap="round"/>
+  <!-- smartwatch top-right -->
+  <g transform="translate(1300,190)">
+    <rect x="-8" y="-64" width="120" height="44" rx="16" fill="#123B5C"/>
+    <rect x="-8" y="88" width="120" height="44" rx="16" fill="#123B5C"/>
+    <rect x="-30" y="-30" width="164" height="128" rx="34" fill="#FDF9F2"/>
+    <rect x="-14" y="-16" width="132" height="100" rx="24" fill="#0A2A43"/>
+    <circle cx="52" cy="20" r="24" fill="#F4523B"/>
+    <path d="M52,8 L52,24 M52,32 L52,33" stroke="#FDF9F2" stroke-width="6" stroke-linecap="round"/>
+    <text x="52" y="70" text-anchor="middle" font-family="DejaVu Sans" font-size="20" fill="#7FD6E8" font-weight="bold">ALARM</text>
+  </g>
+  <!-- lifebuoy bottom right corner -->
+  <g transform="translate(1490,820)">
+    <circle r="56" fill="#FDF9F2"/>
+    <circle r="56" fill="none" stroke="#F4523B" stroke-width="18" stroke-dasharray="44 44" stroke-dashoffset="22"/>
+    <circle r="24" fill="url(#water)"/>
+  </g>
+</svg>

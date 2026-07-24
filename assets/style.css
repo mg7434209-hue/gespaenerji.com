@@ -643,3 +643,87 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
   .gchat-fab-tx{display:none}                                   /* mobilde sadece robot ikonu */
   .gchat{left:8px;right:8px;bottom:8px;width:auto;max-width:none;height:78vh}
 }
+
+/* ==== Nav: Havuz Teknolojileri açılır grubu ==== */
+.menu-group{position:relative;display:flex;align-items:center}
+.menu-parent{display:flex;align-items:center;gap:5px;background:none;border:0;cursor:pointer;font-family:inherit;font-weight:600;color:var(--muted);font-size:.97rem;padding:0;white-space:nowrap}
+.menu-parent:hover{color:var(--ink)}
+.menu-parent.active{color:var(--green)}
+.menu-parent .caret{font-size:.72em;transition:transform .2s}
+.menu-group.open .menu-parent .caret{transform:rotate(180deg)}
+.submenu{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);background:var(--bg);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-lg);padding:8px;min-width:250px;display:none;flex-direction:column;z-index:110}
+.menu-group.open .submenu,.menu-group:focus-within .submenu{display:flex}
+.submenu a{padding:10px 12px;border-radius:8px;white-space:nowrap;font-weight:600;color:var(--muted)}
+.submenu a:hover{background:var(--bg-alt);color:var(--ink)}
+.submenu a.active{color:var(--green)}
+@media(max-width:760px){
+  /* Mobil menüde grup düzleşir: başlık gizlenir, linkler normal menü ögesi olur */
+  .menu-group{display:contents}
+  .menu-parent{display:none}
+  .submenu{position:static;transform:none;display:flex;box-shadow:none;border:0;padding:0;background:none;min-width:0}
+  .submenu a{padding:0;border-radius:0;min-height:46px;display:flex;align-items:center}
+}
+
+/* ==== Havuz Teknolojileri — AI Cankurtaran sayfası ==== */
+/* Marka paleti (briefe göre): lacivert #0a2a43 · aqua #17a8c4 · mercan #f4523b */
+.btn-coral{background:#f4523b}
+.btn-coral:hover{background:#d94330}
+.pool-hero{background:linear-gradient(175deg,#0a2a43,#123b5c 85%);color:#fdf9f2;padding:40px 0 64px;overflow:hidden}
+.pool-crumbs{color:#8fb6cc;margin-bottom:28px}
+.pool-crumbs a{color:#8fb6cc}
+.pool-crumbs a:hover{color:#7fd6e8}
+.pool-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.pool-kicker{color:#7fd6e8}
+.pool-hero h1{color:#fff;font-size:clamp(1.9rem,4.2vw,2.9rem);font-weight:800;margin:8px 0 10px}
+.pool-sub{color:#7fd6e8;font-weight:700;font-size:1.12rem;margin:0 0 12px}
+.pool-hero p{color:#d9e6ef}
+.pool-cta-row{margin-top:22px}
+.pool-badges{margin-top:16px;font-size:.85rem;color:#7fd6e8}
+.pool-hero-img{border-radius:18px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.pool-hero-img img{display:block;width:100%;height:auto}
+.pool-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
+.pool-fact{background:var(--card);border:1px solid var(--line);border-top:4px solid #17a8c4;border-radius:12px;padding:22px;font-size:.95rem;color:var(--muted);box-shadow:var(--shadow)}
+.pool-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin:8px 0 26px}
+.pool-step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;text-align:center;box-shadow:var(--shadow)}
+.pool-step img{width:140px;height:auto;margin:0 auto 14px}
+.pool-step h3{font-size:1.05rem;margin:0 0 8px}
+.pool-step p{font-size:.92rem;color:var(--muted);text-align:left;margin:0}
+.pool-flow{border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.pool-flow img{display:block;width:100%;height:auto}
+.pool-who{background:linear-gradient(175deg,#0a2a43,#123b5c 90%);padding:72px 0}
+.pool-who h2{color:#fff}
+.pool-who .section-head p{color:#d9e6ef}
+.pool-lead{color:#7fd6e8}
+.pool-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pool-card{background:#123b5c;border-radius:16px;overflow:hidden;color:#d9e6ef}
+.pool-card img{display:block;width:100%;height:auto}
+.pool-card-body{padding:18px}
+.pool-card-body h3{color:#fff;font-size:1rem;margin:0 0 8px}
+.pool-card-body p{font-size:.92rem;margin:0}
+.pool-why{display:grid;grid-template-columns:1.4fr .6fr;gap:44px;align-items:center}
+.pool-why h2{margin:8px 0 12px}
+.pool-why p{color:var(--muted)}
+.pool-why .ticks{margin-top:16px}
+.pool-badge-img{max-width:250px;margin:0 auto}
+.pool-badge-img img{width:100%;height:auto}
+.pool-form-sec{background:linear-gradient(175deg,#0a2a43,#123b5c 90%);padding:72px 0}
+.pool-form-sec h2{color:#fff}
+.pool-form{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:860px}
+.pool-form label{display:block;font-size:.82rem;font-weight:700;color:#7fd6e8;margin-bottom:6px}
+.pool-form input,.pool-form select,.pool-form textarea{width:100%;padding:12px 14px;border-radius:10px;border:1px solid #1b4666;background:#0e3350;color:#fff;font-family:inherit;font-size:.95rem}
+.pool-form input:focus,.pool-form select:focus,.pool-form textarea:focus{outline:none;border-color:#17a8c4}
+.pool-form ::placeholder{color:#7f97aa}
+.pool-form textarea{min-height:100px;resize:vertical}
+.pool-full{grid-column:1/-1}
+.pool-form .field-consent label{display:flex;align-items:flex-start;gap:10px;font-size:.92rem;color:#a9c3d6;cursor:pointer;line-height:1.5;font-weight:500}
+.pool-form .field-consent a{color:#7fd6e8;font-weight:700}
+.pool-form input[type="checkbox"]{width:auto;margin-top:3px}
+.pool-note{color:#7fd6e8;font-weight:600;margin-left:12px}
+.pool-legal{background:var(--bg-alt);border-top:1px solid var(--line);padding:26px 0}
+.pool-legal p{color:var(--muted);font-size:.8rem;line-height:1.6;margin:0}
+@media(max-width:900px){
+  .pool-hero-grid,.pool-why{grid-template-columns:1fr}
+  .pool-facts,.pool-steps,.pool-cards{grid-template-columns:1fr}
+  .pool-form{grid-template-columns:1fr}
+  .pool-who,.pool-form-sec{padding:56px 0}
+}

@@ -124,6 +124,14 @@
       link: { t: ["Solar Su Isıtıcı", "Solar Water Heater", "Solar-Warmwasserbereiter", "Солнечный водонагреватель"], u: "su-isitici.html" }
     },
     {
+      k: ["havuz", "cankurtaran", "bogulma", "aquapark", "havuz guvenlik", "lifeguard", "drowning", "pool safety", "pool", "ertrinken", "rettungsschwimmer", "бассейн", "утоплен", "спасател", "аквапарк"],
+      a: ["🏊 AI Cankurtaran Destek Sistemi: yapay zekâ destekli kameralar havuzu 7/24 tarar, risk algılanınca cankurtaranın akıllı saatine saniyeler içinde konumlu alarm gönderir. Otel, aquapark, belediye ve site havuzları için; ISO 20380 uyumlu, KVKK uyumlu yerel veri işleme. Ücretsiz keşif ve pilot teklifi sunuyoruz.",
+          "🏊 AI Lifeguard Support System: AI-powered cameras scan the pool 24/7 and alert lifeguards within seconds with the swimmer's location. For hotels, water parks, municipal and residential pools; ISO 20380-aligned, privacy-compliant local processing. Free site survey and pilot offer available.",
+          "🏊 KI-Rettungsschwimmer-Assistenzsystem: KI-Kameras überwachen das Becken 24/7 und alarmieren Rettungsschwimmer in Sekunden mit Positionsangabe. Für Hotels, Aquaparks, kommunale und Wohnanlagen-Pools; ISO-20380-konform, lokale Datenverarbeitung. Kostenlose Vor-Ort-Analyse möglich.",
+          "🏊 ИИ-система поддержки спасателей: камеры с ИИ сканируют бассейн 24/7 и за секунды оповещают спасателей с координатами. Для отелей, аквапарков, муниципальных бассейнов и ЖК; по ISO 20380, локальная обработка данных. Бесплатный выезд и пилот."],
+      link: { t: ["AI Cankurtaran Destek Sistemi", "AI Lifeguard Support System", "KI-Assistenzsystem", "ИИ-система поддержки спасателей"], u: "ai-cankurtaran-destek-sistemi.html" }
+    },
+    {
       k: ["paket", "urun", "hazir", "kac kwp", "kwp", "off grid", "offgrid", "tasinabilir", "karavan", "jel aku", "lityum", "lifepo", "sulama paket", "package", "kit", "portable", "caravan", "bausatz", "tragbar", "комплект", "пакет", "караван"],
       a: ["📦 Hazır paketlerimiz: taşınabilir off-grid lityum bataryalı kitler (1–8 kW; bağ evi/karavan/kulübe) ve tarımsal sulama paketleri. Net güç, panel ve yaklaşık fiyatıyla inceleyebilirsiniz. (Çatı/on-grid sistemler proje bazlı sunulur.)",
           "📦 Ready packages: portable off-grid lithium-battery kits (1–8 kW; cabins/caravans/huts) and agricultural irrigation packages — each with clear power, panel count and approx. price. (Rooftop/on-grid systems are quoted per project.)",

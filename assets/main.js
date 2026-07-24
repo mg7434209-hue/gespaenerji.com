@@ -450,6 +450,23 @@
     });
   }
 
+  /* ---- Nav açılır grubu (Havuz Teknolojileri) ---- */
+  $$(".menu-group").forEach(function (mg) {
+    var mp = $(".menu-parent", mg);
+    if (!mp) return;
+    mp.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var open = mg.classList.toggle("open");
+      mp.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    doc.addEventListener("click", function (e) {
+      if (!mg.contains(e.target)) { mg.classList.remove("open"); mp.setAttribute("aria-expanded", "false"); }
+    });
+    doc.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") { mg.classList.remove("open"); mp.setAttribute("aria-expanded", "false"); }
+    });
+  });
+
   /* ---- Scroll progress + başa dön ---- */
   var progress = $("#scrollProgress");
   var backTop = $("#backTop");
@@ -1105,6 +1122,42 @@
       }
       if (note) { note.style.color = "var(--green)"; note.textContent = L("Teşekkürler " + ad + "! Talebiniz WhatsApp üzerinden iletiliyor.", "Thank you " + ad + "! Your request is being sent via WhatsApp.", "Danke " + ad + "! Ihre Anfrage wird über WhatsApp gesendet.", "Спасибо, " + ad + "! Ваш запрос отправляется через WhatsApp."); }
       irrForm.reset();
+    });
+  }
+
+  /* ---- AI Cankurtaran keşif/pilot teklif formu ---- */
+  var poolForm = $("#poolForm");
+  if (poolForm) {
+    poolForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var note = $("#pool-note");
+      var val = function (n) { return poolForm[n] && poolForm[n].value ? poolForm[n].value.trim() : ""; };
+      if (!val("ad") || !val("tesis") || !val("tel") || !val("eposta") || !val("sehir")) {
+        if (note) { note.style.color = "#ffb3a6"; note.textContent = L("Lütfen zorunlu (*) alanları doldurun.", "Please fill in the required (*) fields.", "Bitte Pflichtfelder (*) ausfüllen.", "Пожалуйста, заполните обязательные поля (*)."); }
+        return;
+      }
+      if (poolForm.kvkkOnay && !poolForm.kvkkOnay.checked) {
+        if (note) { note.style.color = "#ffb3a6"; note.textContent = L("Devam etmek için KVKK aydınlatma metnini onaylayın.", "Please accept the privacy notice to continue.", "Bitte akzeptieren Sie die Datenschutzerklärung.", "Подтвердите согласие на обработку данных."); }
+        return;
+      }
+      var wa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
+      if (wa) {
+        var m = "🏊 " + L("AI Cankurtaran — ücretsiz keşif ve pilot teklifi talebi", "AI Lifeguard — free site survey & pilot request", "AI-Rettungsschwimmer — Anfrage Vor-Ort-Analyse & Pilot", "AI-спасатель — заявка на выезд и пилот") + ":\n"
+          + "Ad: " + val("ad") + "\nTesis: " + val("tesis")
+          + (val("gorev") ? "\nGörev: " + val("gorev") : "")
+          + "\nTel: " + val("tel") + "\nE-posta: " + val("eposta") + "\nŞehir: " + val("sehir")
+          + "\nHavuz sayısı: " + val("havuzSayisi") + "\nHavuz tipi: " + val("havuzTipi")
+          + (val("mesaj") ? "\n" + val("mesaj") : "");
+        window.open("https://wa.me/" + wa + "?text=" + encodeURIComponent(m), "_blank");
+      }
+      if (note) {
+        note.style.color = "#7fd6e8";
+        note.textContent = L("Talebiniz alındı. Ekibimiz 1 iş günü içinde belirttiğiniz telefondan size ulaşacak.",
+          "Your request has been received. Our team will call you within 1 business day.",
+          "Ihre Anfrage ist eingegangen. Unser Team ruft Sie innerhalb von 1 Werktag an.",
+          "Ваша заявка получена. Наша команда свяжется с вами в течение 1 рабочего дня.");
+      }
+      poolForm.reset();
     });
   }
 

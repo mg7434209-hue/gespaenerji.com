@@ -15,13 +15,16 @@ klasik Pages yayını için **repoda tutulur** — kaynak değişince `node buil
 
 Sayfalar (her biri kök dizinde, `.html` uzantılı):
 `index.html` · `hizmetler.html` · `urunler.html` (paket ürünler) ·
-`su-isitici.html` (yeni ürün: PV su ısıtıcı) · `hesaplayici.html` ·
-`projeler.html` · `hakkimizda.html` · `iletisim.html` · `tarimsal-sulama.html`
+`su-isitici.html` (PV su ısıtıcı) · `ai-cankurtaran-destek-sistemi.html`
+(havuz güvenliği; lacivert/aqua `pool-*` stilleri, form → WhatsApp lead) ·
+`hesaplayici.html` · `projeler.html` · `hakkimizda.html` · `iletisim.html` ·
+`tarimsal-sulama.html` · yasal: `kvkk.html` `gizlilik.html` `cerez-politikasi.html`
 Ayrıca `admin.html`: fiyat yönetim paneli (menüde yok, robots'ta engelli,
 build PAGES listesine EKLENMEZ). Her sayfa: ortak header/footer, aktif menü
 vurgusu, breadcrumb, sayfaya özel SEO başlığı/canonical/Open Graph içerir.
-Nav menü: Ana Sayfa · Hizmetler · Ürünler · Solar Su Isıtıcı · Hesaplayıcı ·
-Projeler · Hakkımızda · Teklif Al — yeni sayfa eklenince TÜM sayfalarda güncelle.
+Nav menü: Ana Sayfa · Hizmetler · Ürünler · Havuz Teknolojileri (açılır grup:
+AI Cankurtaran Destek Sistemi + Solar Su Isıtıcı) · Hesaplayıcı · Projeler ·
+Hakkımızda · Teklif Al — yeni sayfa eklenince TÜM sayfalarda güncelle.
 
 ## TEK DOĞRU KAYNAK — `assets/config.js`
 İletişim bilgileri, markalar ve hesaplayıcı katsayıları **yalnızca** burada tutulur.

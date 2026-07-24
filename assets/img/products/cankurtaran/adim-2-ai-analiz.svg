@@ -1,0 +1,16 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <rect width="600" height="600" rx="48" fill="#E4F6FA"/>
+  <circle cx="300" cy="270" r="190" fill="#FDF9F2"/>
+  <circle cx="300" cy="270" r="190" fill="none" stroke="#17A8C4" stroke-width="8" stroke-dasharray="6 22" stroke-linecap="round"/>
+  
+  <g transform="translate(300,262)">
+    <rect x="-95" y="-95" width="190" height="190" rx="34" fill="#0A2A43"/>
+    <g stroke="#17A8C4" stroke-width="12" stroke-linecap="round">
+      <path d="M-95,-40 L-140,-40 M-95,40 L-140,40 M95,-40 L140,-40 M95,40 L140,40"/>
+      <path d="M-40,-95 L-40,-140 M40,-95 L40,-140 M-40,95 L-40,140 M40,95 L40,140"/>
+    </g>
+    <text x="0" y="24" text-anchor="middle" font-family="DejaVu Sans" font-size="72" font-weight="bold" fill="#7FD6E8">AI</text>
+  </g>
+  <text x="300" y="545" text-anchor="middle" font-family="DejaVu Sans" font-size="44" font-weight="bold" fill="#0A2A43">Davranış Analizi</text>
+</svg>

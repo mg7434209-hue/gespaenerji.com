@@ -1,0 +1,18 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420">
+  <rect width="600" height="420" rx="40" fill="#0A2A43"/>
+  <rect x="0" y="300" width="600" height="120" fill="#17A8C4" opacity="0.9"/>
+  <path d="M0,304 Q75,288 150,304 T300,304 T450,304 T600,304" stroke="#7FD6E8" stroke-width="8" fill="none"/>
+  
+  <g transform="translate(300,168)">
+    <rect x="-40" y="-150" width="80" height="250" rx="10" fill="#FDF9F2"/>
+    <rect x="-150" y="-70" width="90" height="170" rx="10" fill="#7FD6E8"/>
+    <rect x="60" y="-100" width="90" height="200" rx="10" fill="#7FD6E8"/>
+    <g fill="#0A2A43">
+      <rect x="-24" y="-126" width="20" height="20" rx="4"/><rect x="6" y="-126" width="20" height="20" rx="4"/>
+      <rect x="-24" y="-86" width="20" height="20" rx="4"/><rect x="6" y="-86" width="20" height="20" rx="4"/>
+      <rect x="-24" y="-46" width="20" height="20" rx="4"/><rect x="6" y="-46" width="20" height="20" rx="4"/>
+    </g>
+  </g>
+  <text x="300" y="386" text-anchor="middle" font-family="DejaVu Sans" font-size="40" font-weight="bold" fill="#FDF9F2">Belediye &amp; Site Havuzları</text>
+</svg>

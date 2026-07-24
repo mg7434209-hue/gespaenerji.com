@@ -22,6 +22,7 @@ const OG_LOCALE = { en: "en_US", de: "de_DE", ru: "ru_RU" };
 const PAGES = [
   "index.html", "hizmetler.html", "urunler.html", "su-isitici.html", "hesaplayici.html",
   "projeler.html", "hakkimizda.html", "iletisim.html", "tarimsal-sulama.html",
+  "ai-cankurtaran-destek-sistemi.html",
   // Yasal sayfalar da üretilir: dil değiştirici ve hreflang /en/kvkk.html gibi
   // URL'lere işaret eder; üretilmezse 404 olur. Gövde metni TR kalır (hukuken
   // geçerli metin Türkçedir), başlık/description dile göre yazılır.
@@ -93,6 +94,14 @@ const META = {
           d: "Kontaktieren Sie GESPA Energy: +90 543 743 42 09, gesmarketim@gmail.com, Manavgat/Antalya. Kostenlose Vor-Ort-Analyse und Angebot." },
     ru: { t: "Контакты — Бесплатный выезд и КП | GESPA Energy (Манавгат/Анталья)",
           d: "Свяжитесь с GESPA Energy: +90 543 743 42 09, gesmarketim@gmail.com, Манавгат/Анталья. Бесплатный выезд и коммерческое предложение." }
+  },
+  "ai-cankurtaran-destek-sistemi.html": {
+    en: { t: "AI Lifeguard Support System | Pool Drowning Prevention — Gespa Enerji",
+          d: "AI-powered drowning prevention for hotel and public pools: 24/7 camera monitoring, alerts within seconds, privacy-compliant local processing. Request a free site survey." },
+    de: { t: "KI-Rettungsschwimmer-Assistenzsystem | Ertrinkungsprävention — Gespa Enerji",
+          d: "KI-gestützte Ertrinkungsprävention für Hotel- und öffentliche Pools: 24/7-Kameraüberwachung, Alarm in Sekunden, datenschutzkonforme lokale Verarbeitung. Kostenlose Vor-Ort-Analyse anfordern." },
+    ru: { t: "ИИ-система поддержки спасателей | Предотвращение утопления — Gespa Enerji",
+          d: "ИИ-система предотвращения утопления для отельных и общественных бассейнов: видеонаблюдение 24/7, тревога за секунды, локальная обработка данных. Запросите бесплатный выезд." }
   },
   "kvkk.html": {
     en: { t: "Personal Data Protection (KVKK) Notice | GESPA Energy",
