@@ -22,9 +22,10 @@ Sayfalar (her biri kök dizinde, `.html` uzantılı):
 Ayrıca `admin.html`: fiyat yönetim paneli (menüde yok, robots'ta engelli,
 build PAGES listesine EKLENMEZ). Her sayfa: ortak header/footer, aktif menü
 vurgusu, breadcrumb, sayfaya özel SEO başlığı/canonical/Open Graph içerir.
-Nav menü: Ana Sayfa · Hizmetler · Ürünler · Havuz Teknolojileri (açılır grup:
-AI Cankurtaran Destek Sistemi + Solar Su Isıtıcı) · Hesaplayıcı · Projeler ·
-Hakkımızda · Teklif Al — yeni sayfa eklenince TÜM sayfalarda güncelle.
+Nav menü: Ana Sayfa · Hizmetler · Ürünler · Yeni Teknolojiler (açılır grup:
+AI Cankurtaran Destek Sistemi + Solar Su Isıtıcı; yeni teknoloji ürünleri bu
+gruba eklenir) · Hesaplayıcı · Projeler · Hakkımızda · Teklif Al —
+yeni sayfa eklenince TÜM sayfalarda güncelle.
 
 ## TEK DOĞRU KAYNAK — `assets/config.js`
 İletişim bilgileri, markalar ve hesaplayıcı katsayıları **yalnızca** burada tutulur.

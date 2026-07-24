@@ -1068,6 +1068,7 @@
 
   // ---- Havuz Teknolojileri / AI Cankurtaran Destek Sistemi sayfası ----
   Object.assign(DICT.en, {
+    "Yeni Teknolojiler": "New Technologies",
     "Havuz Teknolojileri": "Pool Technologies",
     "AI Cankurtaran Destek Sistemi": "AI Lifeguard Support System",
     "AI Cankurtaran": "AI Lifeguard",
@@ -1131,6 +1132,7 @@
     "AI Cankurtaran Destek Sistemi, cankurtaran gözetiminin yerine geçmez; onu destekleyen ek bir güvenlik katmanıdır. Hiçbir teknolojik sistem tüm boğulma vakalarını tespit etmeyi garanti edemez. Sistem, ilgili mevzuat kapsamındaki cankurtaran bulundurma yükümlülüklerini ortadan kaldırmaz. Ürün özellikleri, kurulan sistem konfigürasyonuna göre değişiklik gösterebilir.": "The AI Lifeguard Support System does not replace lifeguard supervision; it is an additional safety layer that supports it. No technological system can guarantee detection of every drowning incident. The system does not remove lifeguard staffing obligations under applicable regulations. Product features may vary depending on the installed system configuration."
   });
   Object.assign(DICT.de, {
+    "Yeni Teknolojiler": "Neue Technologien",
     "Havuz Teknolojileri": "Pool-Technologien",
     "AI Cankurtaran Destek Sistemi": "KI-Rettungsschwimmer-Assistenzsystem",
     "AI Cankurtaran": "KI-Rettungsschwimmer",
@@ -1194,6 +1196,7 @@
     "AI Cankurtaran Destek Sistemi, cankurtaran gözetiminin yerine geçmez; onu destekleyen ek bir güvenlik katmanıdır. Hiçbir teknolojik sistem tüm boğulma vakalarını tespit etmeyi garanti edemez. Sistem, ilgili mevzuat kapsamındaki cankurtaran bulundurma yükümlülüklerini ortadan kaldırmaz. Ürün özellikleri, kurulan sistem konfigürasyonuna göre değişiklik gösterebilir.": "Das KI-Rettungsschwimmer-Assistenzsystem ersetzt nicht die Aufsicht durch Rettungsschwimmer; es ist eine zusätzliche, unterstützende Sicherheitsebene. Kein technisches System kann die Erkennung aller Ertrinkungsfälle garantieren. Gesetzliche Pflichten zur Bereitstellung von Rettungsschwimmern bleiben bestehen. Produkteigenschaften können je nach installierter Systemkonfiguration variieren."
   });
   Object.assign(DICT.ru, {
+    "Yeni Teknolojiler": "Новые технологии",
     "Havuz Teknolojileri": "Технологии для бассейнов",
     "AI Cankurtaran Destek Sistemi": "ИИ-система поддержки спасателей",
     "AI Cankurtaran": "ИИ-спасатель",
