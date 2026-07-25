@@ -35,7 +35,13 @@
         <a href="index.html">Ana Sayfa</a>
         <a href="hizmetler.html">Hizmetler</a>
         <a href="urunler.html">Ürünler</a>
-        <a href="su-isitici.html">Solar Su Isıtıcı</a>
+        <div class="menu-group">
+          <button class="menu-parent" type="button" aria-haspopup="true" aria-expanded="false"><span>Yeni Teknolojiler</span> <span class="caret" aria-hidden="true">▾</span></button>
+          <div class="submenu">
+            <a href="ai-cankurtaran-destek-sistemi.html">AI Cankurtaran Destek Sistemi</a>
+            <a href="su-isitici.html">Solar Su Isıtıcı</a>
+          </div>
+        </div>
         <a href="hesaplayici.html">Hesaplayıcı</a>
         <a href="projeler.html">Projeler</a>
         <a href="hakkimizda.html">Hakkımızda</a>
@@ -56,17 +62,26 @@
 
     <section class="section">
       <div class="container narrow legal">
-        <p class="legal-note">⚠️ Bu metin bir <strong>taslaktır</strong> ve yayımlanmadan önce hukuk danışmanınızca gözden geçirilmelidir.</p>
+        <!-- NOT (yayıncıya): Bu metin şablondur; şirketinize özel süreçler için
+             hukuk danışmanınızca gözden geçirilmesi önerilir. -->
+        <p class="updated">Son güncelleme: 23.07.2026</p>
 
         <h2>1. Çerez Nedir?</h2>
-        <p>Çerezler, ziyaret ettiğiniz web siteleri tarafından tarayıcınıza kaydedilen küçük metin dosyalarıdır. Sitenin düzgün çalışması ve deneyiminizin iyileştirilmesi için kullanılır.</p>
+        <p>Çerezler ve benzeri teknolojiler (ör. <code>localStorage</code>), ziyaret ettiğiniz web siteleri tarafından tarayıcınıza/cihazınıza kaydedilen küçük veri parçalarıdır. Sitenin düzgün çalışması ve deneyiminizin iyileştirilmesi için kullanılır.</p>
 
-        <h2>2. Kullandığımız Çerez Türleri</h2>
-        <p><strong>Zorunlu çerezler:</strong> Sitenin temel işlevleri için gereklidir (ör. tema ve dil tercihinin <code>localStorage</code>'da saklanması). Bunlar olmadan site düzgün çalışmaz.</p>
-        <p><strong>Performans/analitik çerezler:</strong> Ziyaretçi davranışını anonim olarak ölçmek için kullanılabilir. Bu çerezler yalnızca onayınızla etkinleştirilir.</p>
+        <h2>2. Kullandığımız Çerezler ve Benzeri Teknolojiler</h2>
+        <p><strong>Zorunlu / işlevsel:</strong> Sitenin temel işlevleri için gereklidir ve onay gerektirmez. Bu sitede sunucu tarafında oturum çerezi kullanılmaz; yalnızca cihazınızdaki <code>localStorage</code> alanında şu tercihler saklanır ve hiçbir sunucuya gönderilmez:</p>
+        <ul>
+          <li><code>gespa-theme</code> — açık/koyu tema tercihiniz,</li>
+          <li><code>gespa-lang</code> — dil tercihiniz,</li>
+          <li><code>gespa-consent</code> — çerez onay tercihiniz.</li>
+        </ul>
+        <p><strong>Performans/analitik (onaya bağlı):</strong> Ziyaretçi davranışını ölçmek için Google Analytics kullanılabilir. Analitik çerezler yalnızca sayfa altındaki çerez bildiriminde <em>onay vermeniz hâlinde</em> yüklenir; onay vermezseniz hiçbir analitik çerez çalışmaz. Bu durumda IP adresiniz gibi sınırlı teknik veriler Google sunucularına (yurt dışı) aktarılabilir.</p>
+        <p><strong>Üçüncü taraf içerikler:</strong> Sitedeki yazı tipleri Google Fonts servisinden yüklenir; bu sırada IP adresiniz Google sunucularına iletilir. WhatsApp bağlantılarına tıkladığınızda WhatsApp'ın (Meta Platforms) kendi gizlilik koşulları geçerli olur.</p>
 
         <h2>3. Tercih Yönetimi</h2>
-        <p>Çerezleri tarayıcı ayarlarınızdan dilediğiniz zaman silebilir veya engelleyebilirsiniz. Zorunlu çerezleri engellemek sitenin bazı işlevlerini bozabilir.</p>
+        <p>Analitik çerez tercihinizi aşağıdaki düğme ile sıfırlayabilir, bir sonraki sayfa yüklemesinde yeniden seçim yapabilirsiniz. Ayrıca çerezleri tarayıcı ayarlarınızdan dilediğiniz zaman silebilir veya engelleyebilirsiniz; zorunlu kayıtları engellemek sitenin bazı işlevlerini (tema/dil hatırlama) bozabilir.</p>
+        <p><button id="cookieReset" class="btn btn-ghost btn-sm" type="button">Çerez tercihimi sıfırla</button> <span id="cookieResetNote" class="news-note"></span></p>
 
         <h2>4. İletişim</h2>
         <p>Çerez politikamızla ilgili sorularınız için <a data-c-mailto data-c-text="email"></a> adresinden bize ulaşabilirsiniz. Ayrıca <a href="/gizlilik.html">Gizlilik Politikası</a> ve <a href="/kvkk.html">KVKK Aydınlatma Metni</a>'ni inceleyebilirsiniz.</p>
@@ -82,7 +97,7 @@
         <ul class="footer-contact"><li>📍 <span data-c-text="address.full"></span></li><li>📞 <a data-c-tel data-c-text="phone.display"></a></li><li>✉️ <a data-c-mailto data-c-text="email"></a></li></ul>
         <div class="socials"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="X">X</a></div>
       </div>
-      <div class="footer-col"><h4>Hizmetler</h4><a href="hizmetler.html">Çatı GES</a><a href="hizmetler.html">Arazi GES</a><a href="tarimsal-sulama.html">Tarımsal Sulama</a><a href="hizmetler.html">Bakım (O&amp;M)</a></div>
+      <div class="footer-col"><h4>Hizmetler</h4><a href="hizmetler.html">Çatı GES</a><a href="hizmetler.html">Arazi GES</a><a href="tarimsal-sulama.html">Tarımsal Sulama</a><a href="ai-cankurtaran-destek-sistemi.html">AI Cankurtaran</a><a href="hizmetler.html">Bakım (O&amp;M)</a></div>
       <div class="footer-col"><h4>Kurumsal</h4><a href="hakkimizda.html">Hakkımızda</a><a href="urunler.html">Ürünler</a><a href="su-isitici.html">Solar Su Isıtıcı</a><a href="projeler.html">Projeler</a><a href="hesaplayici.html">Hesaplayıcı</a><a href="iletisim.html">İletişim</a></div>
       <div class="footer-col footer-news"><h4>Bülten</h4><p>Güneş enerjisi haberleri ve teşvikler.</p><form id="newsForm" class="news-form"><input type="email" placeholder="E-posta adresiniz" aria-label="E-posta" required /><button class="btn btn-sm" type="submit">Abone ol</button></form><p class="news-note" id="newsNote"></p></div>
     </div>

@@ -50,6 +50,23 @@
         $$("[data-c-wa]").forEach(function (el) { el.setAttribute("href", "https://wa.me/" + c.phone.wa); });
       }
       $$("[data-c-mailto]").forEach(function (el) { el.setAttribute("href", "mailto:" + c.email); });
+      // Sosyal medya: config.sameAs'ten üretilir; boşsa blok gizlenir (ölü "#" linki kalmaz)
+      $$(".socials").forEach(function (w) {
+        var links = (c.sameAs || []).filter(Boolean);
+        if (!links.length) { if (w.parentNode) w.parentNode.removeChild(w); return; }
+        w.innerHTML = "";
+        links.forEach(function (u) {
+          var t = /linkedin\./i.test(u) ? ["in", "LinkedIn"]
+            : /instagram\./i.test(u) ? ["ig", "Instagram"]
+            : /(twitter\.|(^|\/\/)(www\.)?x\.com)/i.test(u) ? ["X", "X"]
+            : /facebook\./i.test(u) ? ["f", "Facebook"]
+            : /(youtube\.|youtu\.be)/i.test(u) ? ["yt", "YouTube"] : ["🌐", "Web"];
+          var a = doc.createElement("a");
+          a.href = u; a.target = "_blank"; a.rel = "noopener";
+          a.textContent = t[0]; a.setAttribute("aria-label", t[1]);
+          w.appendChild(a);
+        });
+      });
       // LocalBusiness JSON-LD (her sayfada)
       try {
         var d = {
@@ -319,18 +336,64 @@
     if (window.GESPA && GESPA.applyLang) GESPA.applyLang(GESPA.lang || "tr");
   })();
 
-  /* ---- Analitik (yalnızca config'te ID varsa — GA4) ---- */
+  /* ---- Analitik (yalnızca config'te ID varsa — GA4) + KVKK çerez onayı ----
+     Analitik, ziyaretçi çerez bildiriminde "Kabul et" demeden YÜKLENMEZ.
+     Tercih localStorage 'gespa-consent' anahtarında tutulur (granted/denied);
+     cerez-politikasi.html'deki #cookieReset düğmesi tercihi sıfırlar. ---- */
   (function () {
+    var KEY = "gespa-consent";
     var id = CFG.analytics && CFG.analytics.ga4;
-    if (!id) return; // ID yoksa hiçbir script yüklenmez
-    var s = doc.createElement("script"); s.async = true;
-    s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(id);
-    doc.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { window.dataLayer.push(arguments); }
-    window.gtag = gtag;
-    gtag("js", new Date());
-    gtag("config", id, { anonymize_ip: true });
+
+    // Çerez politikası sayfası: tercihi sıfırlama düğmesi
+    var reset = $("#cookieReset");
+    if (reset) reset.addEventListener("click", function () {
+      try { localStorage.removeItem(KEY); } catch (e) {}
+      var n = $("#cookieResetNote");
+      if (n) n.textContent = L("Tercihiniz sıfırlandı; bir sonraki sayfada yeniden sorulacak.", "Your choice was reset; you'll be asked again on the next page.", "Ihre Auswahl wurde zurückgesetzt; Sie werden erneut gefragt.", "Ваш выбор сброшен; вопрос появится снова на следующей странице.");
+    });
+
+    if (!id) return; // ID yoksa hiçbir analitik script yüklenmez, bildirim de gösterilmez
+
+    function loadGA() {
+      var s = doc.createElement("script"); s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(id);
+      doc.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag("js", new Date());
+      gtag("config", id, { anonymize_ip: true });
+    }
+
+    var choice = null;
+    try { choice = localStorage.getItem(KEY); } catch (e) {}
+    if (choice === "granted") { loadGA(); return; }
+    if (choice === "denied") return;
+
+    // Henüz seçim yapılmadı: çerez bildirimi göster
+    var bar = doc.createElement("div");
+    bar.className = "cookie-bar";
+    bar.setAttribute("role", "region");
+    bar.setAttribute("aria-label", L("Çerez bildirimi", "Cookie notice", "Cookie-Hinweis", "Уведомление о cookie"));
+    bar.innerHTML =
+      "<p>" + L("Deneyiminizi iyileştirmek için isteğe bağlı analitik çerezler kullanmak istiyoruz. Ayrıntı: ",
+                "We'd like to use optional analytics cookies to improve your experience. Details: ",
+                "Wir möchten optionale Analyse-Cookies verwenden, um Ihr Erlebnis zu verbessern. Details: ",
+                "Мы хотели бы использовать необязательные аналитические cookie. Подробнее: ") +
+      '<a href="/cerez-politikasi.html">' + L("Çerez Politikası", "Cookie Policy", "Cookie-Richtlinie", "Политика cookie") + "</a></p>" +
+      '<div class="cookie-actions">' +
+      '<button type="button" class="btn btn-sm" data-consent="granted">' + L("Kabul et", "Accept", "Akzeptieren", "Принять") + "</button>" +
+      '<button type="button" class="btn btn-ghost btn-sm" data-consent="denied">' + L("Reddet", "Reject", "Ablehnen", "Отклонить") + "</button>" +
+      "</div>";
+    doc.body.appendChild(bar);
+    bar.addEventListener("click", function (e) {
+      var b = e.target.closest && e.target.closest("[data-consent]");
+      if (!b) return;
+      var v = b.getAttribute("data-consent");
+      try { localStorage.setItem(KEY, v); } catch (err) {}
+      bar.remove();
+      if (v === "granted") loadGA();
+    });
   })();
 
   /* ---- Sabit mobil CTA çubuğu (her sayfada) ---- */
@@ -386,6 +449,23 @@
       });
     });
   }
+
+  /* ---- Nav açılır grubu (Havuz Teknolojileri) ---- */
+  $$(".menu-group").forEach(function (mg) {
+    var mp = $(".menu-parent", mg);
+    if (!mp) return;
+    mp.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var open = mg.classList.toggle("open");
+      mp.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    doc.addEventListener("click", function (e) {
+      if (!mg.contains(e.target)) { mg.classList.remove("open"); mp.setAttribute("aria-expanded", "false"); }
+    });
+    doc.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") { mg.classList.remove("open"); mp.setAttribute("aria-expanded", "false"); }
+    });
+  });
 
   /* ---- Scroll progress + başa dön ---- */
   var progress = $("#scrollProgress");
@@ -511,7 +591,7 @@
     }
 
     function calc() {
-      var unit = parseFloat(price && price.value) || 2.5;
+      var unit = parseFloat(price && price.value) || k.defaultUnitPrice || 2.5;
       var yieldPerKwp = parseFloat(city && city.value) || 1500;
       var oFac = parseFloat(orient && orient.value) || 1;
       var inflR = (parseFloat(infl && infl.value) || 0) / 100;
@@ -970,8 +1050,10 @@
     var q = $(".faq-q", item);
     var a = $(".faq-a", item);
     if (!q || !a) return;
+    q.setAttribute("aria-expanded", "false");
     q.addEventListener("click", function () {
       var open = item.classList.toggle("open");
+      q.setAttribute("aria-expanded", open ? "true" : "false");
       a.style.maxHeight = open ? a.scrollHeight + "px" : null;
     });
   });
@@ -1043,12 +1125,55 @@
     });
   }
 
+  /* ---- AI Cankurtaran keşif/pilot teklif formu ---- */
+  var poolForm = $("#poolForm");
+  if (poolForm) {
+    poolForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var note = $("#pool-note");
+      var val = function (n) { return poolForm[n] && poolForm[n].value ? poolForm[n].value.trim() : ""; };
+      if (!val("ad") || !val("tesis") || !val("tel") || !val("eposta") || !val("sehir")) {
+        if (note) { note.style.color = "#ffb3a6"; note.textContent = L("Lütfen zorunlu (*) alanları doldurun.", "Please fill in the required (*) fields.", "Bitte Pflichtfelder (*) ausfüllen.", "Пожалуйста, заполните обязательные поля (*)."); }
+        return;
+      }
+      if (poolForm.kvkkOnay && !poolForm.kvkkOnay.checked) {
+        if (note) { note.style.color = "#ffb3a6"; note.textContent = L("Devam etmek için KVKK aydınlatma metnini onaylayın.", "Please accept the privacy notice to continue.", "Bitte akzeptieren Sie die Datenschutzerklärung.", "Подтвердите согласие на обработку данных."); }
+        return;
+      }
+      var wa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
+      if (wa) {
+        var m = "🏊 " + L("AI Cankurtaran — ücretsiz keşif ve pilot teklifi talebi", "AI Lifeguard — free site survey & pilot request", "AI-Rettungsschwimmer — Anfrage Vor-Ort-Analyse & Pilot", "AI-спасатель — заявка на выезд и пилот") + ":\n"
+          + "Ad: " + val("ad") + "\nTesis: " + val("tesis")
+          + (val("gorev") ? "\nGörev: " + val("gorev") : "")
+          + "\nTel: " + val("tel") + "\nE-posta: " + val("eposta") + "\nŞehir: " + val("sehir")
+          + "\nHavuz sayısı: " + val("havuzSayisi") + "\nHavuz tipi: " + val("havuzTipi")
+          + (val("mesaj") ? "\n" + val("mesaj") : "");
+        window.open("https://wa.me/" + wa + "?text=" + encodeURIComponent(m), "_blank");
+      }
+      if (note) {
+        note.style.color = "#7fd6e8";
+        note.textContent = L("Talebiniz alındı. Ekibimiz 1 iş günü içinde belirttiğiniz telefondan size ulaşacak.",
+          "Your request has been received. Our team will call you within 1 business day.",
+          "Ihre Anfrage ist eingegangen. Unser Team ruft Sie innerhalb von 1 Werktag an.",
+          "Ваша заявка получена. Наша команда свяжется с вами в течение 1 рабочего дня.");
+      }
+      poolForm.reset();
+    });
+  }
+
   /* ---- Bülten formu ---- */
   var news = $("#newsForm");
   if (news) {
     news.addEventListener("submit", function (e) {
       e.preventDefault();
       var n = $("#newsNote");
+      // Statik sitede backend yok: abonelik talebi WhatsApp lead kanalından işletmeye iletilir
+      var email = (news.querySelector('input[type="email"]') || {}).value || "";
+      var wa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
+      if (wa && email.trim()) {
+        var m = L("Bülten aboneliği talebi", "Newsletter subscription request", "Newsletter-Anmeldung", "Заявка на рассылку") + ": " + email.trim();
+        window.open("https://wa.me/" + wa + "?text=" + encodeURIComponent(m), "_blank");
+      }
       if (n) n.textContent = L("Aboneliğiniz alındı, teşekkürler!", "You're subscribed, thank you!", "Anmeldung erhalten, danke!", "Подписка оформлена, спасибо!");
       news.reset();
     });

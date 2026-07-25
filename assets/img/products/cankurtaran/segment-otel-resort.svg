@@ -1,0 +1,17 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420">
+  <rect width="600" height="420" rx="40" fill="#0A2A43"/>
+  <rect x="0" y="300" width="600" height="120" fill="#17A8C4" opacity="0.9"/>
+  <path d="M0,304 Q75,288 150,304 T300,304 T450,304 T600,304" stroke="#7FD6E8" stroke-width="8" fill="none"/>
+  
+  <g transform="translate(300,168)">
+    <rect x="-150" y="-90" width="300" height="190" rx="14" fill="#FDF9F2"/>
+    <g fill="#17A8C4">
+      <rect x="-118" y="-58" width="44" height="40" rx="6"/><rect x="-22" y="-58" width="44" height="40" rx="6"/><rect x="74" y="-58" width="44" height="40" rx="6"/>
+      <rect x="-118" y="8" width="44" height="40" rx="6"/><rect x="-22" y="8" width="44" height="40" rx="6"/><rect x="74" y="8" width="44" height="40" rx="6"/>
+    </g>
+    <path d="M-170,-90 L0,-160 L170,-90" stroke="#F4523B" stroke-width="18" fill="none" stroke-linecap="round"/>
+    <circle cx="215" cy="-110" r="34" fill="#F2B33D"/>
+  </g>
+  <text x="300" y="386" text-anchor="middle" font-family="DejaVu Sans" font-size="40" font-weight="bold" fill="#FDF9F2">Otel &amp; Resort Havuzları</text>
+</svg>

@@ -15,13 +15,17 @@ klasik Pages yayını için **repoda tutulur** — kaynak değişince `node buil
 
 Sayfalar (her biri kök dizinde, `.html` uzantılı):
 `index.html` · `hizmetler.html` · `urunler.html` (paket ürünler) ·
-`su-isitici.html` (yeni ürün: PV su ısıtıcı) · `hesaplayici.html` ·
-`projeler.html` · `hakkimizda.html` · `iletisim.html` · `tarimsal-sulama.html`
+`su-isitici.html` (PV su ısıtıcı) · `ai-cankurtaran-destek-sistemi.html`
+(havuz güvenliği; lacivert/aqua `pool-*` stilleri, form → WhatsApp lead) ·
+`hesaplayici.html` · `projeler.html` · `hakkimizda.html` · `iletisim.html` ·
+`tarimsal-sulama.html` · yasal: `kvkk.html` `gizlilik.html` `cerez-politikasi.html`
 Ayrıca `admin.html`: fiyat yönetim paneli (menüde yok, robots'ta engelli,
 build PAGES listesine EKLENMEZ). Her sayfa: ortak header/footer, aktif menü
 vurgusu, breadcrumb, sayfaya özel SEO başlığı/canonical/Open Graph içerir.
-Nav menü: Ana Sayfa · Hizmetler · Ürünler · Solar Su Isıtıcı · Hesaplayıcı ·
-Projeler · Hakkımızda · Teklif Al — yeni sayfa eklenince TÜM sayfalarda güncelle.
+Nav menü: Ana Sayfa · Hizmetler · Ürünler · Yeni Teknolojiler (açılır grup:
+AI Cankurtaran Destek Sistemi + Solar Su Isıtıcı; yeni teknoloji ürünleri bu
+gruba eklenir) · Hesaplayıcı · Projeler · Hakkımızda · Teklif Al —
+yeni sayfa eklenince TÜM sayfalarda güncelle.
 
 ## TEK DOĞRU KAYNAK — `assets/config.js`
 İletişim bilgileri, markalar ve hesaplayıcı katsayıları **yalnızca** burada tutulur.
@@ -62,6 +66,10 @@ Projeler · Hakkımızda · Teklif Al — yeni sayfa eklenince TÜM sayfalarda g
 - Görseller repoda `assets/img/` altında durur; dış siteden hotlink YAPMA.
 - Açık/koyu tema, mobil menü, scroll animasyonları `assets/main.js` ile yönetilir;
   yeni DOM'lar `.reveal` ve `data-count` desenlerini kullanabilir.
+- Sohbet botu `assets/chatbot.js` (main.js dinamik yükler): metinleri kendi içinde
+  `[tr,en,de,ru]` dizileriyle çok dillidir (i18n DICT'e bağlı değildir); yeni yanıt
+  eklerken 4 dili birlikte ekle. Footer sosyal linkleri `config.company.sameAs`'ten
+  üretilir; boşken blok gizlenir.
 - Çok dil (TR/EN/DE/RU): `assets/i18n.js` metinleri TR kaynağına göre çevirir; yeni metin
   eklerken DE/RU karşılığını `DICT`'e ekle, yoksa zarifçe TR kalır. Marka/iletişim
   (`data-c-text`) ve dinamik sayılar çeviriden hariç tutulur.

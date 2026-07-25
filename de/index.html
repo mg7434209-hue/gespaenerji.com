@@ -35,18 +35,6 @@
   <!-- LCP hero görselini erken yükle (WebP öncelikli) -->
   <link rel="preload" as="image" href="/assets/img/hero.webp" type="image/webp" fetchpriority="high" />
   <!-- LocalBusiness JSON-LD, assets/config.js + main.js tarafından enjekte edilir -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      { "@type": "Question", "name": "Manavgat'ta güvenilir bir güneş enerjisi (GES) firması nasıl seçilir?", "acceptedAnswer": { "@type": "Answer", "text": "Anahtar teslim (mühendislik, kurulum, finansman ve bakımı tek elden veren), ücretsiz keşif sunan, panel ve inverterde marka garantisi veren, referans projeleri ve yerel saha ekibi olan firmalar tercih edilmelidir. GESPA Enerji, Manavgat/Antalya merkezli olarak bu hizmetlerin tamamını anahtar teslim sunar." } },
-      { "@type": "Question", "name": "GESPA Enerji hangi bölgelerde hizmet veriyor?", "acceptedAnswer": { "@type": "Answer", "text": "Manavgat merkezli olarak Side, Antalya, Alanya, Serik, Gazipaşa ve çevresinde; talebe göre tüm Türkiye'de çatı GES, arazi tipi GES ve güneş enerjili tarımsal sulama hizmeti verir." } },
-      { "@type": "Question", "name": "Güneş enerjisi santrali (GES) yatırımı kaç yılda amorti olur?", "acceptedAnswer": { "@type": "Answer", "text": "Tüketim profili, bölge ve elektrik fiyatına göre tipik olarak 3–6 yıl arasında değişir. GESPA Enerji'nin ücretsiz online hesaplayıcısıyla çatınıza özel geri ödeme süresini saniyeler içinde tahmin edebilirsiniz." } },
-      { "@type": "Question", "name": "Manavgat'ta çatıma güneş paneli kurulumu için ne yapmalıyım?", "acceptedAnswer": { "@type": "Answer", "text": "GESPA Enerji'den ücretsiz keşif talep etmeniz yeterlidir. Saha incelemesi, üretim simülasyonu ve geri ödeme süresiyle net bir teklif hazırlanır; ardından anahtar teslim kurulum yapılır." } }
-    ]
-  }
-  </script>
 
 </head>
 <body>
@@ -64,7 +52,13 @@
         <a href="index.html" class="active">Ana Sayfa</a>
         <a href="hizmetler.html">Hizmetler</a>
         <a href="urunler.html">Ürünler</a>
-        <a href="su-isitici.html">Solar Su Isıtıcı</a>
+        <div class="menu-group">
+          <button class="menu-parent" type="button" aria-haspopup="true" aria-expanded="false"><span>Yeni Teknolojiler</span> <span class="caret" aria-hidden="true">▾</span></button>
+          <div class="submenu">
+            <a href="ai-cankurtaran-destek-sistemi.html">AI Cankurtaran Destek Sistemi</a>
+            <a href="su-isitici.html">Solar Su Isıtıcı</a>
+          </div>
+        </div>
         <a href="hesaplayici.html">Hesaplayıcı</a>
         <a href="projeler.html">Projeler</a>
         <a href="hakkimizda.html">Hakkımızda</a>
@@ -235,7 +229,7 @@
         </ul>
         <div class="socials"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="X">X</a></div>
       </div>
-      <div class="footer-col"><h4>Hizmetler</h4><a href="hizmetler.html">Çatı GES</a><a href="hizmetler.html">Arazi GES</a><a href="tarimsal-sulama.html">Tarımsal Sulama</a><a href="hizmetler.html">Bakım (O&amp;M)</a></div>
+      <div class="footer-col"><h4>Hizmetler</h4><a href="hizmetler.html">Çatı GES</a><a href="hizmetler.html">Arazi GES</a><a href="tarimsal-sulama.html">Tarımsal Sulama</a><a href="ai-cankurtaran-destek-sistemi.html">AI Cankurtaran</a><a href="hizmetler.html">Bakım (O&amp;M)</a></div>
       <div class="footer-col"><h4>Kurumsal</h4><a href="hakkimizda.html">Hakkımızda</a><a href="urunler.html">Ürünler</a><a href="su-isitici.html">Solar Su Isıtıcı</a><a href="projeler.html">Projeler</a><a href="hesaplayici.html">Hesaplayıcı</a><a href="iletisim.html">İletişim</a></div>
       <div class="footer-col footer-news"><h4>Bülten</h4><p>Güneş enerjisi haberleri ve teşvikler.</p><form id="newsForm" class="news-form"><input type="email" placeholder="E-posta adresiniz" aria-label="E-posta" required /><button class="btn btn-sm" type="submit">Abone ol</button></form><p class="news-note" id="newsNote"></p></div>
     </div>

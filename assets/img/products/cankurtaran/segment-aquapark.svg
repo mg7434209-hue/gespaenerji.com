@@ -1,0 +1,14 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420">
+  <rect width="600" height="420" rx="40" fill="#0A2A43"/>
+  <rect x="0" y="300" width="600" height="120" fill="#17A8C4" opacity="0.9"/>
+  <path d="M0,304 Q75,288 150,304 T300,304 T450,304 T600,304" stroke="#7FD6E8" stroke-width="8" fill="none"/>
+  
+  <g transform="translate(300,150)">
+    <path d="M-190,120 C-190,-60 -40,-140 60,-120 C170,-98 190,-10 120,10 C60,28 20,-20 60,-52"
+          stroke="#F4523B" stroke-width="34" fill="none" stroke-linecap="round"/>
+    <path d="M-190,120 C-190,-60 -40,-140 60,-120" stroke="#F2B33D" stroke-width="12" fill="none" stroke-dasharray="4 26" stroke-linecap="round"/>
+    <circle cx="-150" cy="96" r="26" fill="#FDF9F2"/>
+  </g>
+  <text x="300" y="386" text-anchor="middle" font-family="DejaVu Sans" font-size="40" font-weight="bold" fill="#FDF9F2">Aquapark &amp; Su Oyunları</text>
+</svg>

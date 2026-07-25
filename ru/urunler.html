@@ -29,18 +29,6 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" /></noscript>
   <link rel="stylesheet" href="/assets/style.css" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      { "@type": "Question", "name": "Paket fiyatlarına neler dahil?", "acceptedAnswer": { "@type": "Answer", "text": "Paketler; A-marka panel, inverter, montaj konstrüksiyonu, DC/AC kablolama, pano ve anahtar teslim işçiliği içerir. Gösterilen tutarlar tahminidir; kesin fiyat çatı/arazi keşfiyle netleşir." } },
-      { "@type": "Question", "name": "Gösterilen fiyatlar kesin mi?", "acceptedAnswer": { "@type": "Answer", "text": "Hayır. Fiyatlar yaklaşık başlangıç değerleridir; çatı tipi, yön/eğim, mesafe ve ekipman seçimine göre değişir. Ücretsiz keşifle net teklif hazırlanır." } },
-      { "@type": "Question", "name": "Paketi ihtiyacıma göre büyütebilir miyim?", "acceptedAnswer": { "@type": "Answer", "text": "Evet. Tüm paketler tüketim profilinize göre ölçeklenebilir; batarya, ek panel veya farklı inverter ile özelleştirilebilir." } },
-      { "@type": "Question", "name": "Hangi paket bana uygun?", "acceptedAnswer": { "@type": "Answer", "text": "Faturanıza veya tüketiminize göre ücretsiz hesaplayıcımızı kullanın; uygun sistem gücünü görüp en yakın paketi seçebilirsiniz." } }
-    ]
-  }
-  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">İçeriğe geç</a>
@@ -53,7 +41,13 @@
         <a href="index.html">Ana Sayfa</a>
         <a href="hizmetler.html">Hizmetler</a>
         <a href="urunler.html" class="active">Ürünler</a>
-        <a href="su-isitici.html">Solar Su Isıtıcı</a>
+        <div class="menu-group">
+          <button class="menu-parent" type="button" aria-haspopup="true" aria-expanded="false"><span>Yeni Teknolojiler</span> <span class="caret" aria-hidden="true">▾</span></button>
+          <div class="submenu">
+            <a href="ai-cankurtaran-destek-sistemi.html">AI Cankurtaran Destek Sistemi</a>
+            <a href="su-isitici.html">Solar Su Isıtıcı</a>
+          </div>
+        </div>
         <a href="hesaplayici.html">Hesaplayıcı</a>
         <a href="projeler.html">Projeler</a>
         <a href="hakkimizda.html">Hakkımızda</a>
@@ -154,7 +148,7 @@
         <ul class="footer-contact"><li>📍 <span data-c-text="address.full"></span></li><li>📞 <a data-c-tel data-c-text="phone.display"></a></li><li>✉️ <a data-c-mailto data-c-text="email"></a></li></ul>
         <div class="socials"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="X">X</a></div>
       </div>
-      <div class="footer-col"><h4>Hizmetler</h4><a href="hizmetler.html">Çatı GES</a><a href="hizmetler.html">Arazi GES</a><a href="tarimsal-sulama.html">Tarımsal Sulama</a><a href="hizmetler.html">Bakım (O&amp;M)</a></div>
+      <div class="footer-col"><h4>Hizmetler</h4><a href="hizmetler.html">Çatı GES</a><a href="hizmetler.html">Arazi GES</a><a href="tarimsal-sulama.html">Tarımsal Sulama</a><a href="ai-cankurtaran-destek-sistemi.html">AI Cankurtaran</a><a href="hizmetler.html">Bakım (O&amp;M)</a></div>
       <div class="footer-col"><h4>Kurumsal</h4><a href="hakkimizda.html">Hakkımızda</a><a href="urunler.html">Ürünler</a><a href="su-isitici.html">Solar Su Isıtıcı</a><a href="projeler.html">Projeler</a><a href="hesaplayici.html">Hesaplayıcı</a><a href="iletisim.html">İletişim</a></div>
       <div class="footer-col footer-news"><h4>Bülten</h4><p>Güneş enerjisi haberleri ve teşvikler.</p><form id="newsForm" class="news-form"><input type="email" placeholder="E-posta adresiniz" aria-label="E-posta" required /><button class="btn btn-sm" type="submit">Abone ol</button></form><p class="news-note" id="newsNote"></p></div>
     </div>

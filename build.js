@@ -21,7 +21,12 @@ const OG_LOCALE = { en: "en_US", de: "de_DE", ru: "ru_RU" };
 // Üretilecek sayfalar
 const PAGES = [
   "index.html", "hizmetler.html", "urunler.html", "su-isitici.html", "hesaplayici.html",
-  "projeler.html", "hakkimizda.html", "iletisim.html", "tarimsal-sulama.html"
+  "projeler.html", "hakkimizda.html", "iletisim.html", "tarimsal-sulama.html",
+  "ai-cankurtaran-destek-sistemi.html",
+  // Yasal sayfalar da üretilir: dil değiştirici ve hreflang /en/kvkk.html gibi
+  // URL'lere işaret eder; üretilmezse 404 olur. Gövde metni TR kalır (hukuken
+  // geçerli metin Türkçedir), başlık/description dile göre yazılır.
+  "kvkk.html", "gizlilik.html", "cerez-politikasi.html"
 ];
 
 // Sayfa başına dil-özel <title> ve meta description (en kritik SEO sinyalleri)
@@ -90,6 +95,38 @@ const META = {
     ru: { t: "Контакты — Бесплатный выезд и КП | GESPA Energy (Манавгат/Анталья)",
           d: "Свяжитесь с GESPA Energy: +90 543 743 42 09, gesmarketim@gmail.com, Манавгат/Анталья. Бесплатный выезд и коммерческое предложение." }
   },
+  "ai-cankurtaran-destek-sistemi.html": {
+    en: { t: "AI Lifeguard Support System | Pool Drowning Prevention — Gespa Enerji",
+          d: "AI-powered drowning prevention for hotel and public pools: 24/7 camera monitoring, alerts within seconds, privacy-compliant local processing. Request a free site survey." },
+    de: { t: "KI-Rettungsschwimmer-Assistenzsystem | Ertrinkungsprävention — Gespa Enerji",
+          d: "KI-gestützte Ertrinkungsprävention für Hotel- und öffentliche Pools: 24/7-Kameraüberwachung, Alarm in Sekunden, datenschutzkonforme lokale Verarbeitung. Kostenlose Vor-Ort-Analyse anfordern." },
+    ru: { t: "ИИ-система поддержки спасателей | Предотвращение утопления — Gespa Enerji",
+          d: "ИИ-система предотвращения утопления для отельных и общественных бассейнов: видеонаблюдение 24/7, тревога за секунды, локальная обработка данных. Запросите бесплатный выезд." }
+  },
+  "kvkk.html": {
+    en: { t: "Personal Data Protection (KVKK) Notice | GESPA Energy",
+          d: "Privacy notice under Turkish Data Protection Law No. 6698 (KVKK): data categories, purposes, legal bases, transfers and your rights. The authoritative text is in Turkish." },
+    de: { t: "Hinweis zum Datenschutz (KVKK) | GESPA Energy",
+          d: "Datenschutzhinweis nach dem türkischen Datenschutzgesetz Nr. 6698 (KVKK): Datenkategorien, Zwecke, Rechtsgrundlagen, Übermittlungen und Ihre Rechte. Verbindlich ist der türkische Text." },
+    ru: { t: "Уведомление о защите персональных данных (KVKK) | GESPA Energy",
+          d: "Уведомление согласно турецкому закону № 6698 (KVKK): категории данных, цели, правовые основания, передача и ваши права. Юридически действителен турецкий текст." }
+  },
+  "gizlilik.html": {
+    en: { t: "Privacy Policy | GESPA Energy",
+          d: "How personal data is collected, processed and protected on gespaenerji.com. The authoritative text is in Turkish." },
+    de: { t: "Datenschutzerklärung | GESPA Energy",
+          d: "Wie personenbezogene Daten auf gespaenerji.com erhoben, verarbeitet und geschützt werden. Verbindlich ist der türkische Text." },
+    ru: { t: "Политика конфиденциальности | GESPA Energy",
+          d: "Как собираются, обрабатываются и защищаются персональные данные на gespaenerji.com. Юридически действителен турецкий текст." }
+  },
+  "cerez-politikasi.html": {
+    en: { t: "Cookie Policy | GESPA Energy",
+          d: "Cookies and similar technologies used on gespaenerji.com, consent-based analytics and how to manage your preferences. The authoritative text is in Turkish." },
+    de: { t: "Cookie-Richtlinie | GESPA Energy",
+          d: "Auf gespaenerji.com verwendete Cookies und ähnliche Technologien, einwilligungsbasierte Analyse und Verwaltung Ihrer Einstellungen. Verbindlich ist der türkische Text." },
+    ru: { t: "Политика cookie | GESPA Energy",
+          d: "Cookie и аналогичные технологии на gespaenerji.com, аналитика по согласию и управление настройками. Юридически действителен турецкий текст." }
+  },
   "tarimsal-sulama.html": {
     en: { t: "Agricultural Solar Irrigation — Solar Pumping Systems | GESPA Energy",
           d: "Solar-powered agricultural irrigation: off-grid, diesel-free PV solutions for submersible/surface pumps. Manavgat/Antalya and all Türkiye. Free irrigation calculator." },
@@ -132,7 +169,12 @@ function transform(html, lang, file) {
   out = out.replace(/<meta property="og:url" content="[^"]*"\s*\/>/,
     '<meta property="og:url" content="' + canonical + '" />');
 
-  // 6) i18n için dil bayrağını erken tanımla (deferred i18n.js okuyacak)
+  // 6) Statik (TR metinli) FAQPage JSON-LD'yi dil sayfalarından çıkar —
+  //    EN/DE/RU sayfada Türkçe yapılandırılmış veri dil uyumsuzluğu yaratır
+  out = out.replace(/[ \t]*<script type="application\/ld\+json">[\s\S]*?<\/script>\n?/g,
+    function (block) { return /"FAQPage"/.test(block) ? "" : block; });
+
+  // 7) i18n için dil bayrağını erken tanımla (deferred i18n.js okuyacak)
   out = out.replace(/(<meta charset="UTF-8" \/>)/,
     '$1\n  <script>window.__LANG__="' + lang + '";</script>');
 

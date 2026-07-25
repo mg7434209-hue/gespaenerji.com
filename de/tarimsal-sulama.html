@@ -30,20 +30,6 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" /></noscript>
   <link rel="stylesheet" href="/assets/style.css" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      { "@type": "Question", "name": "Dalgıç pompamı güneşle çalıştırabilir miyim?", "acceptedAnswer": { "@type": "Answer", "text": "Evet. Uygun pompa sürücüsüyle dalgıç ve yüzey pompaları doğrudan güneş enerjisiyle çalıştırılabilir." } },
-      { "@type": "Question", "name": "Güneş enerjili sulama mazota göre ne kadar tasarruf sağlar?", "acceptedAnswer": { "@type": "Answer", "text": "Mazot/dizel ve şebeke faturası neredeyse tamamen ortadan kalkar. Tipik geri ödeme süresi 2–4 yıldır; sonrasında sulama maliyetiniz sıfıra yakındır." } },
-      { "@type": "Question", "name": "Sistem kendini kaç yılda amorti eder?", "acceptedAnswer": { "@type": "Answer", "text": "Mevcut yakıt/elektrik maliyetinize, pompa gücüne ve sulama süresine göre genellikle 2–5 yıl arasında değişir." } },
-      { "@type": "Question", "name": "Gece sulama için batarya şart mı?", "acceptedAnswer": { "@type": "Answer", "text": "Çoğu durumda gündüz sulama yeterlidir; gerekirse batarya veya şebeke destekli hibrit kurgu eklenir." } },
-      { "@type": "Question", "name": "Kurulum ne kadar sürer, sezona yetişir mi?", "acceptedAnswer": { "@type": "Answer", "text": "Keşiften sonra tipik kurulum birkaç gün sürer. Sulama sezonuna yetişmek için erken planlama önerilir; kurulum takvimi sezonda yoğunlaşır." } },
-      { "@type": "Question", "name": "Devlet teşviki veya finansman var mı?", "acceptedAnswer": { "@type": "Answer", "text": "Tarımsal güneş yatırımları için kırsal kalkınma destekleri ve banka kredileri kullanılabilir. Güncel teşvik ve finansman seçeneklerini birlikte değerlendiririz." } }
-    ]
-  }
-  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">İçeriğe geç</a>
@@ -56,7 +42,13 @@
         <a href="index.html">Ana Sayfa</a>
         <a href="hizmetler.html" class="active">Hizmetler</a>
         <a href="urunler.html">Ürünler</a>
-        <a href="su-isitici.html">Solar Su Isıtıcı</a>
+        <div class="menu-group">
+          <button class="menu-parent" type="button" aria-haspopup="true" aria-expanded="false"><span>Yeni Teknolojiler</span> <span class="caret" aria-hidden="true">▾</span></button>
+          <div class="submenu">
+            <a href="ai-cankurtaran-destek-sistemi.html">AI Cankurtaran Destek Sistemi</a>
+            <a href="su-isitici.html">Solar Su Isıtıcı</a>
+          </div>
+        </div>
         <a href="hesaplayici.html">Hesaplayıcı</a>
         <a href="projeler.html">Projeler</a>
         <a href="hakkimizda.html">Hakkımızda</a>
@@ -219,7 +211,7 @@
         <ul class="footer-contact"><li>📍 <span data-c-text="address.full"></span></li><li>📞 <a data-c-tel data-c-text="phone.display"></a></li><li>✉️ <a data-c-mailto data-c-text="email"></a></li></ul>
         <div class="socials"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="X">X</a></div>
       </div>
-      <div class="footer-col"><h4>Hizmetler</h4><a href="hizmetler.html">Çatı GES</a><a href="hizmetler.html">Arazi GES</a><a href="tarimsal-sulama.html">Tarımsal Sulama</a><a href="hizmetler.html">Bakım (O&amp;M)</a></div>
+      <div class="footer-col"><h4>Hizmetler</h4><a href="hizmetler.html">Çatı GES</a><a href="hizmetler.html">Arazi GES</a><a href="tarimsal-sulama.html">Tarımsal Sulama</a><a href="ai-cankurtaran-destek-sistemi.html">AI Cankurtaran</a><a href="hizmetler.html">Bakım (O&amp;M)</a></div>
       <div class="footer-col"><h4>Kurumsal</h4><a href="hakkimizda.html">Hakkımızda</a><a href="urunler.html">Ürünler</a><a href="su-isitici.html">Solar Su Isıtıcı</a><a href="projeler.html">Projeler</a><a href="hesaplayici.html">Hesaplayıcı</a><a href="iletisim.html">İletişim</a></div>
       <div class="footer-col footer-news"><h4>Bülten</h4><p>Güneş enerjisi haberleri ve teşvikler.</p><form id="newsForm" class="news-form"><input type="email" placeholder="E-posta adresiniz" aria-label="E-posta" required /><button class="btn btn-sm" type="submit">Abone ol</button></form><p class="news-note" id="newsNote"></p></div>
     </div>

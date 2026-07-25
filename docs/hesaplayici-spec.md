@@ -38,7 +38,9 @@ Kullanıcı üç yöntemden birini seçer; her biri **kurulu güç (kWp)** değe
    `kWp = yıllıkTüketim / (bölgeVerim × yön)` · varsayılanlar `config.calc.irrigation`
 
 Çatı yönü çarpanı `yön` (orientations.factor) bölge verimine uygulanır:
-`yıllıkÜretim(1.yıl) = kWp × bölgeVerim × yön`. Yöntem 2 ve 3'te kWp hesabına da `yön` dahildir.
+`yıllıkÜretim(1.yıl) = kWp × bölgeVerim × yön`. Yöntem 1, 2 ve 4'te kWp hesabına da `yön`
+dahildir (hedef üretimi karşılamak için gereken güç büyür). Yöntem 3'te (çatı alanı) kWp
+fiziksel alandan gelir, `yön` yalnızca üretimi etkiler.
 
 ## Çıktı formülleri
 

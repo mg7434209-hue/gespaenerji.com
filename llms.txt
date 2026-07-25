@@ -49,3 +49,11 @@ Sayfa: https://www.gespaenerji.com/su-isitici.html
 - Referans projeler: https://www.gespaenerji.com/projeler.html
 - Hakkımızda: https://www.gespaenerji.com/hakkimizda.html
 - İletişim / teklif: https://www.gespaenerji.com/iletisim.html
+
+## Havuz Teknolojileri
+- AI Cankurtaran Destek Sistemi (`/ai-cankurtaran-destek-sistemi.html`): otel, aquapark,
+  belediye ve site havuzları için yapay zekâ destekli boğulma önleme/tespit sistemi.
+  7/24 kamera takibi, cankurtaran akıllı saatine saniyeler içinde konumlu alarm,
+  ISO 20380:2017 ile uyumlu teknoloji, KVKK uyumlu yerel veri işleme.
+  Cankurtaranın yerine geçmez; onu destekleyen ikincil gözetim katmanıdır.
+  Ücretsiz keşif ve pilot teklifi verilir.

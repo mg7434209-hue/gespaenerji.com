@@ -35,7 +35,13 @@
         <a href="index.html">Ana Sayfa</a>
         <a href="hizmetler.html">Hizmetler</a>
         <a href="urunler.html">Ürünler</a>
-        <a href="su-isitici.html">Solar Su Isıtıcı</a>
+        <div class="menu-group">
+          <button class="menu-parent" type="button" aria-haspopup="true" aria-expanded="false"><span>Yeni Teknolojiler</span> <span class="caret" aria-hidden="true">▾</span></button>
+          <div class="submenu">
+            <a href="ai-cankurtaran-destek-sistemi.html">AI Cankurtaran Destek Sistemi</a>
+            <a href="su-isitici.html">Solar Su Isıtıcı</a>
+          </div>
+        </div>
         <a href="hesaplayici.html">Hesaplayıcı</a>
         <a href="projeler.html">Projeler</a>
         <a href="hakkimizda.html">Hakkımızda</a>
@@ -56,28 +62,102 @@
 
     <section class="section">
       <div class="container narrow legal">
-        <p class="legal-note">⚠️ Bu metin bir <strong>taslaktır</strong> ve yayımlanmadan önce hukuk danışmanınızca gözden geçirilmelidir.</p>
+        <!-- NOT (yayıncıya): Bu metin şablondur; şirketinize özel süreçler için
+             hukuk danışmanınızca gözden geçirilmesi önerilir. -->
+        <p class="updated">Son güncelleme: 23.07.2026</p>
 
-        <h2>1. Veri Sorumlusu</h2>
-        <p>Veri sorumlusu: <strong data-c-text="legalName"></strong>. İletişim: <a data-c-mailto data-c-text="email"></a> · <a data-c-tel data-c-text="phone.display"></a> · <span data-c-text="address.full"></span></p>
+        <nav class="toc" aria-label="İçindekiler">
+          <strong>İçindekiler</strong>
+          <ol>
+            <li><a href="#veri-sorumlusu">Veri Sorumlusu</a></li>
+            <li><a href="#veri-kategorileri">İşlenen Kişisel Veri Kategorileri</a></li>
+            <li><a href="#amaclar">İşleme Amaçları</a></li>
+            <li><a href="#hukuki-sebepler">Hukuki Sebepler</a></li>
+            <li><a href="#toplama-yontemi">Toplama Yöntemi</a></li>
+            <li><a href="#aktarim">Verilerin Aktarılması</a></li>
+            <li><a href="#saklama">Saklama Süreleri</a></li>
+            <li><a href="#haklar">İlgili Kişinin Hakları</a></li>
+            <li><a href="#basvuru">Başvuru Usulü</a></li>
+            <li><a href="#guvenlik">Veri Güvenliği</a></li>
+            <li><a href="#riza">Açık Rıza ve Geri Alma</a></li>
+            <li><a href="#degisiklik">Değişiklikler</a></li>
+          </ol>
+        </nav>
 
-        <h2>2. İşlenen Kişisel Veriler</h2>
-        <p>Kimlik (ad-soyad), iletişim (telefon, e-posta), talep/işlem güvenliği bilgileri ve form aracılığıyla ilettiğiniz mesaj içeriği.</p>
+        <h2 id="veri-sorumlusu">1. Veri Sorumlusu</h2>
+        <p>6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca kişisel verileriniz, veri sorumlusu sıfatıyla <strong data-c-text="legalName"></strong> ("Şirket") tarafından aşağıda açıklanan kapsamda işlenmektedir.</p>
+        <p>İletişim: <a data-c-mailto data-c-text="email"></a> · <a data-c-tel data-c-text="phone.display"></a> · <span data-c-text="address.full"></span></p>
 
-        <h2>3. İşleme Amaçları</h2>
-        <p>İletişim taleplerinin karşılanması, ücretsiz keşif ve teklif süreçlerinin yürütülmesi, sözleşme öncesi görüşmeler, hizmetlerin sunulması ve yasal yükümlülüklerin yerine getirilmesi.</p>
+        <h2 id="veri-kategorileri">2. İşlenen Kişisel Veri Kategorileri</h2>
+        <ul>
+          <li><strong>Kimlik bilgileri:</strong> ad, soyad.</li>
+          <li><strong>İletişim bilgileri:</strong> telefon numarası, e-posta adresi, il/lokasyon bilgisi.</li>
+          <li><strong>Müşteri işlem bilgileri:</strong> talep ve teklif içeriği; formlarda ilettiğiniz proje tipi, tüketim, çatı/arazi ve sulama bilgileri; keşif ve görüşme kayıtları.</li>
+          <li><strong>İşlem güvenliği bilgileri:</strong> sitenin çalışması için zorunlu sınırlı teknik kayıtlar (ör. sunucu erişim kayıtlarındaki IP adresi ve tarih/saat bilgisi).</li>
+          <li><strong>Pazarlama bilgileri (isteğe bağlı):</strong> bültene abone olmanız hâlinde e-posta adresiniz.</li>
+        </ul>
+        <p>Şirket, özel nitelikli kişisel veri (sağlık, din, biyometrik veri vb.) talep etmez; lütfen formlar ve mesajlar aracılığıyla bu nitelikte veri iletmeyiniz.</p>
 
-        <h2>4. Hukuki Sebepler</h2>
-        <p>KVKK m.5 kapsamında; bir sözleşmenin kurulması/ifası için gerekli olması, hukuki yükümlülük, meşru menfaat ve gerekli hallerde açık rızanız.</p>
+        <h2 id="amaclar">3. Kişisel Verilerin İşlenme Amaçları</h2>
+        <ul>
+          <li>İletişim ve teklif taleplerinin alınması, değerlendirilmesi ve yanıtlanması,</li>
+          <li>Ücretsiz keşif, fizibilite ve tekliflendirme süreçlerinin yürütülmesi,</li>
+          <li>Sözleşme öncesi görüşmelerin ve kurulacak sözleşmenin ifasının yönetilmesi,</li>
+          <li>Satış sonrası destek, bakım (O&amp;M) ve müşteri ilişkilerinin yürütülmesi,</li>
+          <li>Yasal yükümlülüklerin yerine getirilmesi ve yetkili kurum taleplerinin karşılanması,</li>
+          <li>Açık rızanız bulunması hâlinde bülten/tanıtım iletilerinin gönderilmesi.</li>
+        </ul>
 
-        <h2>5. Toplama Yöntemi</h2>
-        <p>Veriler; web sitesi iletişim/teklif formu, telefon, e-posta ve WhatsApp gibi elektronik kanallar aracılığıyla toplanır.</p>
+        <h2 id="hukuki-sebepler">4. İşlemenin Hukuki Sebepleri</h2>
+        <p>Kişisel verileriniz KVKK m.5'te yer alan aşağıdaki hukuki sebeplere dayanılarak işlenir:</p>
+        <ul>
+          <li><strong>Sözleşmenin kurulması veya ifası</strong> (m.5/2-c): teklif, keşif ve kurulum süreçleri,</li>
+          <li><strong>Hukuki yükümlülüğün yerine getirilmesi</strong> (m.5/2-ç): vergi, ticaret ve tüketici mevzuatı,</li>
+          <li><strong>Bir hakkın tesisi, kullanılması veya korunması</strong> (m.5/2-e),</li>
+          <li><strong>Meşru menfaat</strong> (m.5/2-f): taleplerin yanıtlanması, hizmet kalitesinin iyileştirilmesi,</li>
+          <li><strong>Açık rıza</strong> (m.5/1): bülten aboneliği, ticari elektronik ileti (6563 sayılı Kanun kapsamındaki onay) ve onaya bağlı analitik çerezler gibi yukarıdaki sebeplerin kapsamına girmeyen hâller.</li>
+        </ul>
 
-        <h2>6. İlgili Kişinin Hakları (KVKK m.11)</h2>
-        <p>İşlenip işlenmediğini öğrenme, bilgi talep etme, düzeltme/silme isteme, işlemeye itiraz etme ve zararın giderilmesini talep etme haklarına sahipsiniz. Başvurularınızı <a data-c-mailto data-c-text="email"></a> adresine iletebilirsiniz.</p>
+        <h2 id="toplama-yontemi">5. Kişisel Verilerin Toplanma Yöntemi</h2>
+        <p>Verileriniz; web sitesindeki iletişim/teklif formları, site asistanı (sohbet botu), bülten formu, telefon, e-posta ve WhatsApp yazışmaları ile sitenin teknik işleyişi sırasında otomatik veya kısmen otomatik yollarla toplanır. Çerez ve benzeri teknolojiler hakkında ayrıntı için <a href="/cerez-politikasi.html">Çerez Politikası</a>'nı inceleyiniz.</p>
 
-        <h2>7. Açık Rıza</h2>
-        <p>İletişim formundaki onay kutusunu işaretleyerek, yukarıda belirtilen kapsamda kişisel verilerinizin işlenmesine açık rıza vermiş olursunuz. Rızanızı dilediğiniz zaman geri alabilirsiniz.</p>
+        <h2 id="aktarim">6. Kişisel Verilerin Aktarılması</h2>
+        <p>Kişisel verileriniz, yukarıdaki amaçlarla sınırlı ve ölçülü olmak üzere:</p>
+        <ul>
+          <li><strong>Yurt içinde</strong>: kurulum, finansman ve lojistik süreçlerinde birlikte çalıştığımız iş ortakları ve tedarikçilere (yalnızca gerekli olduğu ölçüde) ve hukuken yetkili kamu kurum ve kuruluşlarına (talep hâlinde) aktarılabilir.</li>
+          <li><strong>Yurt dışına</strong>: iletişiminizi WhatsApp üzerinden başlatmanız veya sürdürmeniz hâlinde yazışma içeriği, sunucuları yurt dışında bulunan WhatsApp'a (Meta Platforms) iletilir. Sitede kullanılan Google yazı tipleri ve — onay vermeniz hâlinde — Google Analytics nedeniyle IP adresiniz gibi sınırlı teknik veriler Google sunucularına aktarılabilir. Bu aktarımlar KVKK m.9 kapsamında, ilgili hizmeti kullanma yönündeki tercihiniz/açık rızanız çerçevesinde gerçekleşir.</li>
+        </ul>
+
+        <h2 id="saklama">7. Saklama Süreleri</h2>
+        <p>Kişisel verileriniz, işleme amacının gerektirdiği süre ve ilgili mevzuatta öngörülen zamanaşımı/saklama süreleri boyunca saklanır; sürenin sonunda silinir, yok edilir veya anonim hâle getirilir. Örneğin sözleşme ilişkisi kurulması hâlinde ticaret ve vergi mevzuatı uyarınca 10 yıla kadar saklama söz konusu olabilir; sonuçlanmayan teklif görüşmelerine ilişkin kayıtlar makul süre sonunda imha edilir.</p>
+
+        <h2 id="haklar">8. İlgili Kişinin Hakları (KVKK m.11)</h2>
+        <p>KVKK m.11 uyarınca herkes, veri sorumlusuna başvurarak kendisiyle ilgili;</p>
+        <ul>
+          <li>Kişisel verilerinin işlenip işlenmediğini öğrenme,</li>
+          <li>İşlenmişse buna ilişkin bilgi talep etme,</li>
+          <li>İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,</li>
+          <li>Yurt içinde veya yurt dışında verilerin aktarıldığı üçüncü kişileri bilme,</li>
+          <li>Eksik veya yanlış işlenmişse düzeltilmesini isteme,</li>
+          <li>KVKK m.7'deki şartlar çerçevesinde silinmesini veya yok edilmesini isteme,</li>
+          <li>Düzeltme, silme ve yok etme işlemlerinin, verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme,</li>
+          <li>Münhasıran otomatik sistemler ile analiz edilmesi nedeniyle aleyhine bir sonucun ortaya çıkmasına itiraz etme,</li>
+          <li>Kanuna aykırı işleme sebebiyle zarara uğraması hâlinde zararın giderilmesini talep etme</li>
+        </ul>
+        <p>haklarına sahiptir.</p>
+
+        <h2 id="basvuru">9. Başvuru Usulü</h2>
+        <p>Bu haklarınıza ilişkin taleplerinizi, Veri Sorumlusuna Başvuru Usul ve Esasları Hakkında Tebliğ'e uygun olarak; kimliğinizi tevsik edici belgelerle birlikte <span data-c-text="address.full"></span> adresine yazılı olarak veya <a data-c-mailto data-c-text="email"></a> e-posta adresine iletebilirsiniz.</p>
+        <p>Başvurunuz, niteliğine göre en kısa sürede ve en geç <strong>30 gün</strong> içinde ücretsiz olarak sonuçlandırılır; işlemin ayrıca bir maliyet gerektirmesi hâlinde Kişisel Verileri Koruma Kurulu'nca belirlenen tarifedeki ücret alınabilir. Başvurunuzun reddedilmesi, verilen yanıtı yetersiz bulmanız veya süresinde yanıt verilmemesi hâllerinde, yanıtı öğrendiğiniz tarihten itibaren 30 gün ve her hâlde başvuru tarihinden itibaren 60 gün içinde <strong>Kişisel Verileri Koruma Kurulu</strong>'na şikâyette bulunma hakkınız saklıdır.</p>
+
+        <h2 id="guvenlik">10. Veri Güvenliği Tedbirleri</h2>
+        <p>Şirket, KVKK m.12 uyarınca kişisel verilerin hukuka aykırı işlenmesini ve bunlara hukuka aykırı erişilmesini önlemek ve muhafazasını sağlamak için uygun güvenlik düzeyini temin etmeye yönelik gerekli teknik ve idari tedbirleri alır: site trafiği TLS (HTTPS) ile şifrelenir, verilere erişim yalnızca yetkili kişilerle sınırlıdır ve formlarda yalnızca amaç için gerekli asgari bilgiler talep edilir.</p>
+
+        <h2 id="riza">11. Açık Rıza ve Rızanın Geri Alınması</h2>
+        <p>Sözleşme, hukuki yükümlülük veya meşru menfaat kapsamına giren işleme faaliyetleri için açık rızanız aranmaz; formlardaki onay kutusu, aydınlatma metnini okuduğunuzu ve iletişim/teklif amaçlı işlemeyi kabul ettiğinizi belgelemeye yöneliktir. Bülten aboneliği ve onaya bağlı analitik çerezler gibi açık rızaya dayanan işlemlerde rızanızı dilediğiniz zaman geri alabilirsiniz: bülten için <a data-c-mailto data-c-text="email"></a> adresine bildirim, çerezler için <a href="/cerez-politikasi.html">Çerez Politikası</a> sayfasındaki tercih sıfırlama seçeneği yeterlidir. Rızanın geri alınması, geri alma anına kadar yapılan işlemlerin hukuka uygunluğunu etkilemez.</p>
+
+        <h2 id="degisiklik">12. Değişiklikler</h2>
+        <p>Şirket bu aydınlatma metnini mevzuat ve iş süreçlerindeki değişikliklere göre güncelleyebilir. Güncel metin her zaman bu sayfada yayımlanır; önemli değişikliklerde sayfanın başındaki "son güncelleme" tarihi yenilenir.</p>
       </div>
     </section>
   </main>
@@ -90,7 +170,7 @@
         <ul class="footer-contact"><li>📍 <span data-c-text="address.full"></span></li><li>📞 <a data-c-tel data-c-text="phone.display"></a></li><li>✉️ <a data-c-mailto data-c-text="email"></a></li></ul>
         <div class="socials"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="X">X</a></div>
       </div>
-      <div class="footer-col"><h4>Hizmetler</h4><a href="hizmetler.html">Çatı GES</a><a href="hizmetler.html">Arazi GES</a><a href="tarimsal-sulama.html">Tarımsal Sulama</a><a href="hizmetler.html">Bakım (O&amp;M)</a></div>
+      <div class="footer-col"><h4>Hizmetler</h4><a href="hizmetler.html">Çatı GES</a><a href="hizmetler.html">Arazi GES</a><a href="tarimsal-sulama.html">Tarımsal Sulama</a><a href="ai-cankurtaran-destek-sistemi.html">AI Cankurtaran</a><a href="hizmetler.html">Bakım (O&amp;M)</a></div>
       <div class="footer-col"><h4>Kurumsal</h4><a href="hakkimizda.html">Hakkımızda</a><a href="urunler.html">Ürünler</a><a href="su-isitici.html">Solar Su Isıtıcı</a><a href="projeler.html">Projeler</a><a href="hesaplayici.html">Hesaplayıcı</a><a href="iletisim.html">İletişim</a></div>
       <div class="footer-col footer-news"><h4>Bülten</h4><p>Güneş enerjisi haberleri ve teşvikler.</p><form id="newsForm" class="news-form"><input type="email" placeholder="E-posta adresiniz" aria-label="E-posta" required /><button class="btn btn-sm" type="submit">Abone ol</button></form><p class="news-note" id="newsNote"></p></div>
     </div>

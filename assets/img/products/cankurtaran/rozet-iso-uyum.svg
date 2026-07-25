@@ -1,0 +1,14 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700">
+  <circle cx="350" cy="350" r="330" fill="#0A2A43"/>
+  <circle cx="350" cy="350" r="330" fill="none" stroke="#F2B33D" stroke-width="14"/>
+  <circle cx="350" cy="350" r="272" fill="none" stroke="#17A8C4" stroke-width="6" stroke-dasharray="6 22" stroke-linecap="round"/>
+  <g transform="translate(350,268)">
+    <circle r="86" fill="#FDF9F2"/>
+    <circle r="86" fill="none" stroke="#F4523B" stroke-width="30" stroke-dasharray="67.5 67.5" stroke-dashoffset="33.75"/>
+    <circle r="36" fill="#17A8C4"/>
+  </g>
+  <text x="350" y="430" text-anchor="middle" font-family="DejaVu Sans" font-size="52" font-weight="bold" fill="#FDF9F2">ISO 20380:2017</text>
+  <text x="350" y="482" text-anchor="middle" font-family="DejaVu Sans" font-size="30" fill="#7FD6E8">standardına uygun teknoloji</text>
+  <text x="350" y="560" text-anchor="middle" font-family="DejaVu Sans" font-size="26" fill="#F2B33D" font-weight="bold">GESPA HAVUZ TEKNOLOJİLERİ</text>
+</svg>

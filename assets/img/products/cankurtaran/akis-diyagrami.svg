@@ -1,0 +1,53 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700">
+  <rect width="1600" height="700" fill="#FDF9F2"/>
+  <text x="800" y="70" text-anchor="middle" font-family="DejaVu Sans" font-size="42" font-weight="bold" fill="#0A2A43">Sistem Nasıl Çalışır?</text>
+
+  <!-- Box 1: cameras -->
+  <g transform="translate(120,180)">
+    <rect width="330" height="330" rx="28" fill="#E4F6FA" stroke="#17A8C4" stroke-width="4"/>
+    <g transform="translate(165,140)">
+      <rect x="-78" y="-46" width="106" height="74" rx="16" fill="#0A2A43"/>
+      <circle cx="46" cy="-9" r="37" fill="#0A2A43"/><circle cx="46" cy="-9" r="21" fill="#17A8C4"/>
+      <path d="M-100,64 Q-45,48 10,64 T120,64" stroke="#17A8C4" stroke-width="10" fill="none" stroke-linecap="round"/>
+    </g>
+    <text x="165" y="248" text-anchor="middle" font-family="DejaVu Sans" font-size="30" font-weight="bold" fill="#0A2A43">Havuz Kameraları</text>
+    <text x="165" y="288" text-anchor="middle" font-family="DejaVu Sans" font-size="22" fill="#123B5C">Su üstü + su altı görüş</text>
+  </g>
+
+  <!-- Box 2: AI server -->
+  <g transform="translate(635,180)">
+    <rect width="330" height="330" rx="28" fill="#0A2A43"/>
+    <g transform="translate(165,140)">
+      <rect x="-62" y="-62" width="124" height="124" rx="24" fill="#123B5C" stroke="#17A8C4" stroke-width="5"/>
+      <text x="0" y="18" text-anchor="middle" font-family="DejaVu Sans" font-size="52" font-weight="bold" fill="#7FD6E8">AI</text>
+    </g>
+    <text x="165" y="248" text-anchor="middle" font-family="DejaVu Sans" font-size="30" font-weight="bold" fill="#FDF9F2">Yerel AI Sunucu</text>
+    <text x="165" y="288" text-anchor="middle" font-family="DejaVu Sans" font-size="22" fill="#7FD6E8">Davranış analizi · KVKK uyumlu</text>
+  </g>
+
+  <!-- Box 3: alerts -->
+  <g transform="translate(1150,180)">
+    <rect width="330" height="330" rx="28" fill="#E4F6FA" stroke="#F4523B" stroke-width="4"/>
+    <g transform="translate(165,132)">
+      <circle cx="-70" cy="0" r="42" fill="#F4523B"/>
+      <path d="M-70,-22 L-70,6 M-70,18 L-70,20" stroke="#FDF9F2" stroke-width="9" stroke-linecap="round"/>
+      <rect x="10" y="-46" width="110" height="92" rx="22" fill="#0A2A43"/>
+      <rect x="24" y="-32" width="82" height="64" rx="14" fill="#E4F6FA"/>
+      <circle cx="65" cy="0" r="17" fill="#F4523B"/>
+    </g>
+    <text x="165" y="248" text-anchor="middle" font-family="DejaVu Sans" font-size="30" font-weight="bold" fill="#0A2A43">Anında Uyarı</text>
+    <text x="165" y="288" text-anchor="middle" font-family="DejaVu Sans" font-size="22" fill="#123B5C">Akıllı saat · Siren · Kontrol paneli</text>
+  </g>
+
+  <!-- arrows -->
+  <g stroke="#17A8C4" stroke-width="10" fill="none" stroke-linecap="round">
+    <path d="M470,345 L610,345"/><path d="M585,320 L615,345 L585,370"/>
+  </g>
+  <g stroke="#F4523B" stroke-width="10" fill="none" stroke-linecap="round">
+    <path d="M985,345 L1125,345"/><path d="M1100,320 L1130,345 L1100,370"/>
+  </g>
+
+  <text x="800" y="600" text-anchor="middle" font-family="DejaVu Sans" font-size="26" fill="#123B5C">Riskli hareket algılandığında konum bilgisiyle birlikte saniyeler içinde alarm üretilir.</text>
+  <text x="800" y="642" text-anchor="middle" font-family="DejaVu Sans" font-size="26" font-weight="bold" fill="#F4523B">Sistem cankurtanın yerini almaz; onun gözünü ve refleksini güçlendirir.</text>
+</svg>
