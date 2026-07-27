@@ -106,14 +106,15 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 
 /* Header */
 .site-header{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:10px}
 .brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.brand-text{font-size:1.3rem;font-weight:500;font-family:var(--font)}
+.brand-text{font-size:1.18rem;font-weight:500;font-family:var(--font)}
 .brand-text strong{color:var(--green);font-weight:800}
 .logo{display:inline-flex}
 .logo img{display:block;width:36px;height:36px}
-.menu{display:flex;align-items:center;gap:20px;margin-left:auto}
-.menu a{font-weight:600;color:var(--muted);font-size:.97rem;position:relative;white-space:nowrap}
+.menu{display:flex;align-items:center;gap:10px;margin-left:auto}
+.menu a{font-weight:600;color:var(--muted);font-size:.9rem;position:relative;white-space:nowrap}
+.menu .btn-sm{padding:8px 14px;font-size:.85rem}
 .menu a:not(.btn):hover{color:var(--ink)}
 .menu a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--green);transition:width .2s}
 .menu a:not(.btn):hover::after{width:100%}
@@ -122,10 +123,10 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .menu a.active{color:var(--green)}
 .menu a.active:not(.btn)::after{width:100%}
 .menu a.btn.active{background:var(--green-dark)}
-.nav-actions{display:flex;align-items:center;gap:10px}
+.nav-actions{display:flex;align-items:center;gap:8px}
 .theme-toggle{background:var(--bg-alt);border:1px solid var(--line);width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:grid;place-items:center}
 .lang-switch{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--bg-alt)}
-.lang-switch button{border:0;background:none;padding:7px 9px;font-size:.76rem;font-weight:800;color:var(--muted);cursor:pointer;font-family:var(--font);line-height:1}
+.lang-switch button{border:0;background:none;padding:7px 6px;font-size:.72rem;font-weight:800;color:var(--muted);cursor:pointer;font-family:var(--font);line-height:1}
 .lang-switch button.active{background:var(--green);color:#fff}
 .lang-switch button:hover:not(.active){color:var(--ink)}
 .theme-icon-moon{display:none}
@@ -481,7 +482,7 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.float-badge{animation:none}html{scroll-behavior:auto}.testi-track{transition:none}.btn,.gchat-fab{transition:none}}
 
 /* Responsive */
-@media(max-width:1080px){.menu{gap:15px;font-size:.92rem}}
+
 @media(max-width:980px){
   .hero-grid,.about,.contact,.calc-grid{grid-template-columns:1fr}
   .hero-art{order:-1}
@@ -489,11 +490,18 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
   .steps{grid-template-columns:repeat(2,1fr)}
   .footer-grid{grid-template-columns:1fr 1fr}
 }
-@media(max-width:760px){
+@media(max-width:1180px){
   .menu{position:fixed;inset:70px 0 auto 0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line);padding:18px 20px;gap:14px;align-items:stretch;transform:translateY(-150%);transition:transform .3s;margin-left:0;box-shadow:var(--shadow)}
   .menu.open{transform:translateY(0)}
   .menu a:not(.btn)::after{display:none}
+  .menu a{min-height:46px;display:flex;align-items:center;font-size:.97rem}
   .hamburger{display:flex}
+  .menu-group{display:contents}
+  .menu-parent{display:none}
+  .submenu{position:static;transform:none;display:flex;flex-direction:column;box-shadow:none;border:0;padding:0;background:none;min-width:0}
+  .submenu a{padding:0;border-radius:0;min-height:46px;display:flex;align-items:center}
+}
+@media(max-width:760px){
   .calc-results{grid-template-columns:1fr}
   .ticks.two-col{grid-template-columns:1fr}
 }
@@ -563,7 +571,6 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
   body{line-height:1.6}
   .btn{padding:14px 24px}                          /* ~48px dokunma yüksekliği */
   .btn-sm{padding:12px 18px}
-  .menu a{min-height:46px;display:flex;align-items:center}
   /* Header dar ekranda tek satıra sığmalı (dil+tema+menü grubu taşıyordu) */
   .nav{gap:8px}
   .nav-actions{gap:6px}
@@ -646,7 +653,7 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 
 /* ==== Nav: Havuz Teknolojileri açılır grubu ==== */
 .menu-group{position:relative;display:flex;align-items:center}
-.menu-parent{display:flex;align-items:center;gap:5px;background:none;border:0;cursor:pointer;font-family:inherit;font-weight:600;color:var(--muted);font-size:.97rem;padding:0;white-space:nowrap}
+.menu-parent{display:flex;align-items:center;gap:5px;background:none;border:0;cursor:pointer;font-family:inherit;font-weight:600;color:var(--muted);font-size:.9rem;padding:0;white-space:nowrap}
 .menu-parent:hover{color:var(--ink)}
 .menu-parent.active{color:var(--green)}
 .menu-parent .caret{font-size:.72em;transition:transform .2s}
@@ -656,13 +663,7 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .submenu a{padding:10px 12px;border-radius:8px;white-space:nowrap;font-weight:600;color:var(--muted)}
 .submenu a:hover{background:var(--bg-alt);color:var(--ink)}
 .submenu a.active{color:var(--green)}
-@media(max-width:760px){
-  /* Mobil menüde grup düzleşir: başlık gizlenir, linkler normal menü ögesi olur */
-  .menu-group{display:contents}
-  .menu-parent{display:none}
-  .submenu{position:static;transform:none;display:flex;box-shadow:none;border:0;padding:0;background:none;min-width:0}
-  .submenu a{padding:0;border-radius:0;min-height:46px;display:flex;align-items:center}
-}
+
 
 /* ==== Havuz Teknolojileri — AI Cankurtaran sayfası ==== */
 /* Marka paleti (briefe göre): lacivert #0a2a43 · aqua #17a8c4 · mercan #f4523b */
@@ -744,3 +745,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .pool-alt{color:#a9c3d6}
 .pool-alt a,.form-alt a{color:var(--green);font-weight:700}
 .pool-alt a{color:#7fd6e8}
+
+/* Hero duyuru rozeti (yeni ürün) */
+.hero-announce{display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;padding:7px 14px 7px 7px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-size:.85rem;font-weight:600;color:var(--muted);box-shadow:var(--shadow);transition:border-color .2s,color .2s}
+.hero-announce:hover{border-color:var(--green);color:var(--ink)}
+.hero-announce em{font-style:normal;background:#c0392b;color:#fff;font-size:.7rem;font-weight:800;letter-spacing:.5px;padding:3px 8px;border-radius:999px}
+.hero-announce b{color:var(--green)}
+@media(max-width:540px){.hero-announce span{white-space:normal}}
