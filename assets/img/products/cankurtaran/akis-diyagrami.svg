@@ -12,7 +12,7 @@
       <path d="M-100,64 Q-45,48 10,64 T120,64" stroke="#17A8C4" stroke-width="10" fill="none" stroke-linecap="round"/>
     </g>
     <text x="165" y="248" text-anchor="middle" font-family="DejaVu Sans" font-size="30" font-weight="bold" fill="#0A2A43">Havuz Kameraları</text>
-    <text x="165" y="288" text-anchor="middle" font-family="DejaVu Sans" font-size="22" fill="#123B5C">Su üstü + su altı görüş</text>
+    <text x="165" y="288" text-anchor="middle" font-family="DejaVu Sans" font-size="22" fill="#123B5C">Su üstünden tam havuz kapsaması</text>
   </g>
 
   <!-- Box 2: AI server -->
