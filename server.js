@@ -51,8 +51,8 @@ const server = http.createServer((req, res) => {
     }
 
     let urlPath = decodeURIComponent(req.url.split("?")[0]);
-    // Kısa/pazarlama URL'i → gerçek sayfa (yayın briefindeki slug)
-    if (/^\/havuz-teknolojileri\/ai-cankurtaran-destek-sistemi\/?$/.test(urlPath)) {
+    // Kısa/pazarlama URL'leri → gerçek sayfa (brief slug'ı + paket talimatındaki ad)
+    if (/^(\/havuz-teknolojileri\/ai-cankurtaran-destek-sistemi\/?|\/cankurtaran(\.html)?)$/.test(urlPath)) {
       res.writeHead(301, { Location: "/ai-cankurtaran-destek-sistemi.html" });
       return res.end();
     }
