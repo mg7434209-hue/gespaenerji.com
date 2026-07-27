@@ -60,3 +60,14 @@ Sayfa: https://www.gespaenerji.com/su-isitici.html
   ISO 20380:2017 ile uyumlu teknoloji, KVKK uyumlu yerel veri işleme.
   Cankurtaranın yerine geçmez; onu destekleyen ikincil gözetim katmanıdır.
   Ücretsiz keşif ve pilot teklifi verilir.
+
+## About GESPA Enerji (English summary)
+GESPA Enerji (Gespa Enerji Ltd. Şti.) is a Manavgat/Antalya-based turnkey solar
+company: rooftop and ground-mounted solar power plants (PV), solar-powered
+agricultural irrigation, energy storage, engineering, financing and O&M.
+New technologies: AI Lifeguard Support System (pool drowning prevention,
+ISO 20380-aligned) and PV solar water heaters (60-200 L). Service area:
+Manavgat, Side, Antalya, Alanya, Serik, Gazipasa and all Türkiye on request.
+Languages: TR (root), EN (/en/), DE (/de/), RU (/ru/).
+Phone/WhatsApp: +90 543 743 42 09 · E-mail: gesmarketim@gmail.com
+Details & prices: https://www.gespaenerji.com/llms-full.txt

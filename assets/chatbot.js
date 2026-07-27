@@ -353,10 +353,10 @@
     launcher.innerHTML = '<span class="gchat-fab-ic">🤖</span><span class="gchat-fab-tx">Asistan</span>';
     doc.body.appendChild(launcher);
 
-    panel = doc.createElement("div"); panel.className = "gchat"; panel.setAttribute("role", "dialog"); panel.setAttribute("aria-label", "GESPA");
+    panel = doc.createElement("div"); panel.className = "gchat"; panel.setAttribute("role", "dialog"); panel.setAttribute("aria-label", "GESPA Asistan sohbeti");
     panel.innerHTML =
       '<div class="gchat-head"><span class="gchat-ava">🤖</span><div><strong>GESPA Asistan</strong><small></small></div><button class="gchat-close" type="button" aria-label="Kapat">×</button></div>' +
-      '<div class="gchat-body" id="gchatBody"></div>' +
+      '<div class="gchat-body" id="gchatBody" aria-live="polite"></div>' +
       '<form class="gchat-foot" id="gchatForm"><input id="gchatInput" type="text" autocomplete="off" placeholder="" aria-label="Mesaj" /><button type="submit" aria-label="Gönder">➤</button></form>';
     doc.body.appendChild(panel);
 
@@ -366,10 +366,11 @@
     doc.addEventListener("gespa:lang", applyUiLang);
 
     function openChat() { panel.classList.add("open"); launcher.classList.add("hide"); greet(); setTimeout(function () { input.focus(); }, 100); }
-    function closeChat() { panel.classList.remove("open"); launcher.classList.remove("hide"); }
+    function closeChat() { panel.classList.remove("open"); launcher.classList.remove("hide"); launcher.focus(); }
 
     launcher.addEventListener("click", openChat);
     panel.querySelector(".gchat-close").addEventListener("click", closeChat);
+    doc.addEventListener("keydown", function (e) { if (e.key === "Escape" && panel.classList.contains("open")) closeChat(); });
     panel.querySelector("#gchatForm").addEventListener("submit", function (e) {
       e.preventDefault(); var v = input.value.trim(); if (!v) return; input.value = ""; handleUser(v);
     });

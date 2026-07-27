@@ -62,6 +62,17 @@ Markalar — panel: Arçelik, Lexron, Bakırlar · inverter: Tescom, Mexxsun, Le
   DC kablo kesiti/gerilim düşümü, batarya boyutlandırma, sıra aralığı/gölgelenme.
 - Solar sulama pompası seçimi (https://www.gespaenerji.com/tarimsal-sulama.html).
 
+## Garanti & Güvence
+- A-marka panellerde 25 yıla varan üretim performans garantisi; inverterlerde 5–12 yıl ürün garantisi.
+- Anahtar teslim teslimat: keşif → projelendirme → kurulum → devreye alma; bakım (O&M) hizmeti sürer.
+- Ücretsiz keşif ve tasarruf analizi tüm hizmetlerde standarttır.
+
+## Nasıl Çalışırız (4 adım)
+1. Ücretsiz keşif ve ihtiyaç analizi (saha incelemesi, tüketim profili)
+2. Projelendirme ve net teklif (üretim simülasyonu, geri ödeme planı)
+3. Anahtar teslim kurulum (sertifikalı ekip, A-marka ekipman)
+4. Devreye alma, izleme ve bakım (O&M)
+
 ## Sık Sorulan Sorular (özet)
 - GES yatırımı tipik olarak 3–6 yılda amorti olur (tüketim, bölge ve elektrik
   fiyatına göre değişir).

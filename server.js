@@ -82,6 +82,7 @@ const server = http.createServer((req, res) => {
         // Bulunamayan yol → 404 sayfası
         filePath = path.join(ROOT, "404.html");
         status = 404;
+        try { stat = fs.statSync(filePath); } catch (e) { stat = null; }
       }
       const ext = path.extname(filePath).toLowerCase();
       const type = MIME[ext] || "application/octet-stream";
@@ -111,10 +112,39 @@ const server = http.createServer((req, res) => {
       // (no-cache = önbelleğe alınır ama her seferinde doğrulanır → güncellemeler
       // anında görünür). Görsel/font/favicon uzun süre önbelleğe alınır.
       var fresh = /^\.(html|css|js|json|xml|txt|webmanifest)$/.test(ext);
-      headers["Cache-Control"] = fresh ? "no-cache" : "public, max-age=604800";
+      headers["Cache-Control"] = fresh
+        ? "no-cache"
+        : "public, max-age=2592000, stale-while-revalidate=86400";
 
-      // Accept-Encoding destekliyorsa metin içeriği gzip ile gönder
+      // Koşullu istekler: ETag (mtime-boyut) + Last-Modified → 304 (bant genişliği tasarrufu)
+      if (stat) {
+        const etag = 'W/"' + stat.mtime.getTime().toString(16) + "-" + stat.size.toString(16) + '"';
+        headers["ETag"] = etag;
+        headers["Last-Modified"] = stat.mtime.toUTCString();
+        const inm = req.headers["if-none-match"];
+        const ims = req.headers["if-modified-since"];
+        if (status === 200 && (inm === etag || (!inm && ims && new Date(ims) >= new Date(stat.mtime.toUTCString())))) {
+          res.writeHead(304, headers);
+          return res.end();
+        }
+      }
+
+      // Ön-sıkıştırılmış sürüm varsa onu gönder (build.js üretir: .br / .gz);
+      // yoksa metin içeriğini anlık gzip'le
       const ae = (req.headers["accept-encoding"] || "");
+      const tryPre = (enc, extra) => {
+        const p = filePath + extra;
+        if (!fs.existsSync(p)) return false;
+        headers["Content-Encoding"] = enc;
+        headers["Vary"] = "Accept-Encoding";
+        res.writeHead(status, headers);
+        fs.createReadStream(p).pipe(res);
+        return true;
+      };
+      if (COMPRESSIBLE.test(type)) {
+        if (/\bbr\b/.test(ae) && tryPre("br", ".br")) return;
+        if (/\bgzip\b/.test(ae) && tryPre("gzip", ".gz")) return;
+      }
       const stream = fs.createReadStream(filePath);
       stream.on("error", function () { try { res.writeHead(500); res.end("Server error"); } catch (e) {} });
       if (/\bgzip\b/.test(ae) && COMPRESSIBLE.test(type)) {

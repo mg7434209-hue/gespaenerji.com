@@ -37,26 +37,26 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" /></noscript>
   <link rel="stylesheet" href="/assets/style.css" />
   <!-- LCP hero görselini erken yükle (WebP öncelikli) -->
-  <link rel="preload" as="image" href="/assets/img/hero.webp" type="image/webp" fetchpriority="high" />
+  <link rel="preload" as="image" type="image/webp" imagesrcset="/assets/img/hero-640.webp 640w, /assets/img/hero-960.webp 960w, /assets/img/hero.webp 1600w" imagesizes="(max-width: 980px) 100vw, 640px" fetchpriority="high" />
   <!-- LocalBusiness JSON-LD, assets/config.js + main.js tarafından enjekte edilir -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Wie wählt man in Manavgat eine zuverlässige Solarfirma (PV)?","acceptedAnswer":{"@type":"Answer","text":"Wählen Sie Firmen, die schlüsselfertig liefern (Engineering, Installation, Finanzierung und Wartung aus einer Hand), eine kostenlose Vor-Ort-Analyse bieten, Markengarantien auf Module und Wechselrichter geben und Referenzprojekte mit lokalem Team vorweisen. GESPA Enerji aus Manavgat/Antalya bietet all das schlüsselfertig."}},{"@type":"Question","name":"Welche Regionen bedient GESPA Enerji?","acceptedAnswer":{"@type":"Answer","text":"Mit Sitz in Manavgat bedienen wir Side, Antalya, Alanya, Serik, Gazipaşa und Umgebung; auf Anfrage Aufdach-PV, Freiflächen-PV und Solarbewässerung in der ganzen Türkei."}},{"@type":"Question","name":"In wie vielen Jahren amortisiert sich ein Solarkraftwerk?","acceptedAnswer":{"@type":"Answer","text":"Tüketim profili, bölge ve elektrik fiyatına göre tipik olarak 3–6 yıl arasında değişir. GESPA Enerji'nin ücretsiz online hesaplayıcısıyla çatınıza özel geri ödeme süresini saniyeler içinde tahmin edebilirsiniz."}},{"@type":"Question","name":"Was muss ich tun, um in Manavgat Solarmodule auf meinem Dach zu installieren?","acceptedAnswer":{"@type":"Answer","text":"GESPA Enerji'den ücretsiz keşif talep etmeniz yeterlidir. Saha incelemesi, üretim simülasyonu ve geri ödeme süresiyle net bir teklif hazırlanır; ardından anahtar teslim kurulum yapılır."}}]}</script>
 
   <!-- LD:STATIC — build.js config'ten üretir; elle düzenlemeyin -->
-  <script type="application/ld+json" data-gld>{"@context":"https://schema.org","@type":"LocalBusiness","name":"GESPA Enerji","legalName":"Gespa Enerji Ltd. Şti.","url":"https://www.gespaenerji.com","telephone":"+905437434209","email":"gesmarketim@gmail.com","image":"https://www.gespaenerji.com/assets/img/gespa-icon.png","address":{"@type":"PostalAddress","streetAddress":"Örnek Mah. 1551 Sok. No:10/1","addressLocality":"Manavgat","addressRegion":"Antalya","addressCountry":"TR"},"description":"Gespa Enerji; Manavgat/Antalya merkezli, çatı ve arazi tipi güneş enerjisi santralleri (GES) ile güneş enerjili tarımsal sulama için anahtar teslim mühendislik, kurulum, finansman ve bakım hizmeti sunar.","slogan":"Manavgat ve Antalya'da anahtar teslim güneş enerjisi santralleri","openingHours":"Mo-Fr 09:00-18:00","priceRange":"₺₺","areaServed":["Manavgat","Side","Antalya","Alanya","Serik","Gazipaşa","Akseki","Gündoğmuş"],"knowsAbout":["Güneş enerjisi santrali (GES)","Çatı GES","Arazi tipi GES","Güneş enerjili tarımsal sulama","Güneş paneli","İnverter","Enerji depolama / batarya","Lisanssız elektrik üretimi"],"foundingDate":"2005","hasOfferCatalog":{"@type":"OfferCatalog","name":"Hizmetler","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Çatı GES"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Arazi Tipi GES"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Güneş Enerjili Tarımsal Sulama"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Enerji Depolama (Batarya)"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Mühendislik & Projelendirme"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Finansman & Leasing"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Bakım (O&M)"}}]}}</script>
+  <script type="application/ld+json" data-gld="localbusiness">{"@context":"https://schema.org","@type":"LocalBusiness","name":"GESPA Enerji","legalName":"Gespa Enerji Ltd. Şti.","url":"https://www.gespaenerji.com","telephone":"+905437434209","email":"gesmarketim@gmail.com","image":"https://www.gespaenerji.com/assets/img/gespa-icon.png","address":{"@type":"PostalAddress","streetAddress":"Örnek Mah. 1551 Sok. No:10/1","addressLocality":"Manavgat","addressRegion":"Antalya","addressCountry":"TR"},"description":"Gespa Enerji; Manavgat/Antalya merkezli, çatı ve arazi tipi güneş enerjisi santralleri (GES) ile güneş enerjili tarımsal sulama için anahtar teslim mühendislik, kurulum, finansman ve bakım hizmeti sunar.","slogan":"Manavgat ve Antalya'da anahtar teslim güneş enerjisi santralleri","openingHours":"Mo-Fr 09:00-18:00","priceRange":"₺₺","areaServed":["Manavgat","Side","Antalya","Alanya","Serik","Gazipaşa","Akseki","Gündoğmuş"],"knowsAbout":["Güneş enerjisi santrali (GES)","Çatı GES","Arazi tipi GES","Güneş enerjili tarımsal sulama","Güneş paneli","İnverter","Enerji depolama / batarya","Lisanssız elektrik üretimi"],"foundingDate":"2005","hasOfferCatalog":{"@type":"OfferCatalog","name":"Hizmetler","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Çatı GES"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Arazi Tipi GES"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Güneş Enerjili Tarımsal Sulama"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Enerji Depolama (Batarya)"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Mühendislik & Projelendirme"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Finansman & Leasing"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Bakım (O&M)"}}]}}</script>
   <!-- /LD:STATIC -->
 </head>
 <body>
-  <a class="skip-link" href="#main">İçeriğe geç</a>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
   <div class="topbar topbar-campaign"><div class="container topbar-inner"><span>🌾 Bewässerungssaison-Aktion — dieselfreie Solarbewässerung!</span><a href="tarimsal-sulama.html#sulama-teklif">Kostenloses Bewässerungsangebot →</a></div></div>
 
   <header class="site-header" id="top">
     <div class="container nav">
-      <a class="brand" href="index.html" aria-label="GESPA Enerji ana sayfa">
-        <span class="logo" aria-hidden="true"><img src="/assets/img/gespa-icon.png" alt="GESPA" width="36" height="36" /></span>
+      <a class="brand" href="index.html" aria-label="GESPA Enerji Startseite">
+        <span class="logo" aria-hidden="true"><img src="/assets/img/gespa-icon-72.png" alt="GESPA" width="36" height="36" /></span>
         <span class="brand-text">GESPA<strong>Enerji</strong></span>
       </a>
-      <nav class="menu" id="menu" aria-label="Ana menü">
+      <nav class="menu" id="menu" aria-label="Hauptmenü">
         <a href="index.html" class="active">Startseite</a>
         <a href="hizmetler.html">Leistungen</a>
         <a href="urunler.html">Produkte</a>
@@ -73,8 +73,8 @@
         <a href="iletisim.html" class="btn btn-sm">Angebot</a>
       </nav>
       <div class="nav-actions">
-        <div class="lang-switch" role="group" aria-label="Dil"><button data-lang="tr">TR</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="ru">RU</button></div><button class="theme-toggle" id="themeToggle" aria-label="Tema değiştir" title="Açık/Koyu tema"><span class="theme-icon-sun">☀️</span><span class="theme-icon-moon">🌙</span></button>
-        <button class="hamburger" id="hamburger" aria-label="Menüyü aç/kapat" aria-expanded="false"><span></span><span></span><span></span></button>
+        <div class="lang-switch" role="group" aria-label="Sprache"><button data-lang="tr">TR</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="ru">RU</button></div><button class="theme-toggle" id="themeToggle" aria-label="Design wechseln" title="Açık/Koyu tema"><span class="theme-icon-sun">☀️</span><span class="theme-icon-moon">🌙</span></button>
+        <button class="hamburger" id="hamburger" aria-label="Menü öffnen/schließen" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
   </header>
@@ -93,13 +93,13 @@
             <a class="btn btn-ghost btn-lg" href="iletisim.html">Kostenlose Beratung</a>
           </div>
           <ul class="hero-stats">
-            <li><strong data-count="500" data-suffix="+">500+</strong><span>Abgeschlossene Projekte</span></li>
-            <li><strong data-count="15" data-suffix=" MW">15 MW</strong><span>Installierte Leistung</span></li>
-            <li><strong data-count="20" data-suffix="+ yıl">20+ yıl</strong><span>Branchenerfahrung</span></li>
+            <li><strong data-stat="projects" data-count="500" data-suffix="+">500+</strong><span>Abgeschlossene Projekte</span></li>
+            <li><strong data-stat="installedMw" data-count="15" data-suffix=" MW">15 MW</strong><span>Installierte Leistung</span></li>
+            <li><strong data-stat="experienceYears" data-count="20" data-suffix="+ yıl">20+ yıl</strong><span>Branchenerfahrung</span></li>
           </ul>
         </div>
         <div class="hero-art reveal">
-          <div class="hero-photo"><picture><source srcset="/assets/img/hero.webp" type="image/webp" /><img src="/assets/img/hero.jpg" alt="GESPA Enerji — sahada güneş enerjisi santrali" width="640" height="460" fetchpriority="high" decoding="async" /></picture></div>
+          <div class="hero-photo"><picture><source type="image/webp" srcset="/assets/img/hero-640.webp 640w, /assets/img/hero-960.webp 960w, /assets/img/hero.webp 1600w" sizes="(max-width: 980px) 100vw, 640px" /><img src="/assets/img/hero.jpg" alt="GESPA Enerji — sahada güneş enerjisi santrali" width="640" height="460" fetchpriority="high" decoding="async" /></picture></div>
           <div class="float-badge badge-1">⚡ Schlüsselfertig</div>
           <div class="float-badge badge-2">🌱 Bis zu 25 Jahre Garantie</div>
         </div>
@@ -140,7 +140,7 @@
               <a class="btn btn-ghost" href="urunler.html">Alle Pakete →</a>
             </div>
           </div>
-          <div class="feature-img" style="background-image:url('/assets/img/products/pv-su-isitici.webp')" role="img" aria-label="PV güneş su ısıtıcı"></div>
+          <div class="feature-img"><img src="/assets/img/products/pv-su-isitici.webp" alt="PV güneş su ısıtıcı" loading="lazy" decoding="async" /></div>
         </div>
       </div>
     </section>
@@ -163,7 +163,7 @@
               <a class="btn btn-ghost" href="ai-cankurtaran-destek-sistemi.html#teklif">Kostenlose Beratung anfordern</a>
             </div>
           </div>
-          <div class="feature-img" style="background-image:url('/assets/img/products/cankurtaran/hero-havuz-guvenlik.png')" role="img" aria-label="AI Cankurtaran Destek Sistemi — havuz güvenliği"></div>
+          <div class="feature-img"><img src="/assets/img/products/cankurtaran/hero-havuz-guvenlik.svg" alt="AI Cankurtaran Destek Sistemi — havuz güvenliği" loading="lazy" decoding="async" /></div>
         </div>
       </div>
     </section>
@@ -182,10 +182,10 @@
             </div>
           </div>
           <ul class="calc-hero-points">
-            <li>⚡ Sistem gücü &amp; panel sayısı</li>
-            <li>💰 Yıllık &amp; 25 yıllık tasarruf</li>
+            <li>⚡ Anlagengröße &amp; Modulanzahl</li>
+            <li>💰 Jährliche &amp; 25-Jahres-Ersparnis</li>
             <li>📅 Amortisationszeit</li>
-            <li>🌱 CO₂ &amp; ağaç eşdeğeri</li>
+            <li>🌱 CO₂- &amp; Baum-Äquivalent</li>
           </ul>
         </div>
       </div>
@@ -196,7 +196,7 @@
       <div class="container">
         <div class="section-head reveal"><span class="kicker">Wir machen die Investition leicht</span><h2>Ohne Anzahlung auf Solar umsteigen</h2></div>
         <div class="cards">
-          <article class="card reveal"><div class="card-icon">💳</div><h3>Finansman &amp; Leasing</h3><p>Finanzieren Sie Ihre Investition mit Kredit- und Leasingoptionen aus der erzielten Ersparnis. Start ohne Eigenkapital.</p><a class="btn btn-ghost btn-sm" href="iletisim.html">Finansman seçeneklerini sor →</a></article>
+          <article class="card reveal"><div class="card-icon">💳</div><h3>Finanzierung &amp; Leasing</h3><p>Finanzieren Sie Ihre Investition mit Kredit- und Leasingoptionen aus der erzielten Ersparnis. Start ohne Eigenkapital.</p><a class="btn btn-ghost btn-sm" href="iletisim.html">Finansman seçeneklerini sor →</a></article>
           <article class="card reveal"><div class="card-icon">🤝</div><h3>Warum GESPA?</h3><p>20+ Jahre Erfahrung, schlüsselfertiges Engineering und bis zu 25 Jahre Garantie. Lernen Sie unser Team kennen.</p><a class="btn btn-ghost btn-sm" href="hakkimizda.html">Hakkımızda →</a></article>
           <article class="card reveal"><div class="card-icon">📍</div><h3>Referenzen aus der Praxis</h3><p>Sehen Sie echte Installationen und Kapazitäten aus Industrie-, Landwirtschafts- und Wohnprojekten.</p><a class="btn btn-ghost btn-sm" href="projeler.html">Projeleri gör →</a></article>
         </div>
@@ -208,9 +208,9 @@
       <div class="container">
         <div class="section-head reveal"><span class="kicker">Referenzprojekte</span><h2>Beispiele aus der Praxis</h2></div>
         <div class="projects">
-          <article class="project reveal"><div class="project-img" style="background:linear-gradient(135deg,#075138,#0a6e4f)"><img src="/assets/img/projects/manavgat-fabrika.webp" alt="Manavgat Fabrika — GESPA Enerji GES projesi" loading="lazy" decoding="async" /><span class="project-tag">Industrie</span></div><div class="project-body"><h3>Manavgat Fabrika</h3><p>Ein 1,2-MW-Solarkraftwerk auf einem großen Fabrikdach in Manavgat.</p><div class="project-meta"><span>📍 Manavgat, Antalya</span><span class="project-power">⚡ 1.2 MWp</span></div></div></article>
-          <article class="project reveal"><div class="project-img" style="background:linear-gradient(135deg,#0a6e4f,#1b9c73)"><img src="/assets/img/projects/kemer-villa.webp" alt="Kemer Villa Projesi — GESPA Enerji GES projesi" loading="lazy" decoding="async" /><span class="project-tag">On-Grid</span></div><div class="project-body"><h3>Kemer Villa Projesi</h3><p>Netzgekoppelte Wohnanlage auf einer Villa mit Ziegel-Satteldach in Kemer.</p><div class="project-meta"><span>📍 Kemer, Antalya</span><span class="project-power">⚡ 12 kWp</span></div></div></article>
-          <article class="project reveal"><div class="project-img" style="background:linear-gradient(135deg,#1b9c73,#7bd389)"><img src="/assets/img/projects/manavgat-tarimsal.webp" alt="Manavgat Tarımsal GES — GESPA Enerji GES projesi" loading="lazy" decoding="async" /><span class="project-tag">Landwirtschaft</span></div><div class="project-body"><h3>Manavgat Tarımsal GES</h3><p>Solaranlage auf einem Gewächshausdach für Gewächshaus- und Feldbewässerung.</p><div class="project-meta"><span>📍 Manavgat, Antalya</span><span class="project-power">⚡ 30 kWp</span></div></div></article>
+          <article class="project reveal"><div class="project-img" style="background:linear-gradient(135deg,#075138,#0a6e4f)"><img src="/assets/img/projects/manavgat-fabrika-800.webp" alt="Manavgat Fabrika — GESPA Enerji GES projesi" loading="lazy" decoding="async" /><span class="project-tag">Industrie</span></div><div class="project-body"><h3>Manavgat Fabrika</h3><p>Ein 1,2-MW-Solarkraftwerk auf einem großen Fabrikdach in Manavgat.</p><div class="project-meta"><span>📍 Manavgat, Antalya</span><span class="project-power">⚡ 1.2 MWp</span></div></div></article>
+          <article class="project reveal"><div class="project-img" style="background:linear-gradient(135deg,#0a6e4f,#1b9c73)"><img src="/assets/img/projects/kemer-villa-800.webp" alt="Kemer Villa Projesi — GESPA Enerji GES projesi" loading="lazy" decoding="async" /><span class="project-tag">On-Grid</span></div><div class="project-body"><h3>Kemer Villa Projesi</h3><p>Netzgekoppelte Wohnanlage auf einer Villa mit Ziegel-Satteldach in Kemer.</p><div class="project-meta"><span>📍 Kemer, Antalya</span><span class="project-power">⚡ 12 kWp</span></div></div></article>
+          <article class="project reveal"><div class="project-img" style="background:linear-gradient(135deg,#1b9c73,#7bd389)"><img src="/assets/img/projects/manavgat-tarimsal-800.webp" alt="Manavgat Tarımsal GES — GESPA Enerji GES projesi" loading="lazy" decoding="async" /><span class="project-tag">Landwirtschaft</span></div><div class="project-body"><h3>Manavgat Tarımsal GES</h3><p>Solaranlage auf einem Gewächshausdach für Gewächshaus- und Feldbewässerung.</p><div class="project-meta"><span>📍 Manavgat, Antalya</span><span class="project-power">⚡ 30 kWp</span></div></div></article>
         </div>
         <div style="text-align:center;margin-top:30px"><a class="btn btn-ghost" href="projeler.html">Alle Projekte →</a></div>
       </div>
@@ -258,17 +258,17 @@
           <li>📞 <a href="tel:+905437434209" data-c-tel data-c-text="phone.display">0543 743 42 09</a></li>
           <li>✉️ <a href="mailto:gesmarketim@gmail.com" data-c-mailto data-c-text="email">gesmarketim@gmail.com</a></li>
         </ul>
-        <div class="socials"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="X">X</a></div>
+        <!-- SOCIALS:BOS -->
       </div>
-      <div class="footer-col"><h4>Leistungen</h4><a href="hizmetler.html">Aufdach-Solar</a><a href="hizmetler.html">Freiflächen-Solar</a><a href="tarimsal-sulama.html">Solar-Bewässerung</a><a href="ai-cankurtaran-destek-sistemi.html">KI-Rettungsschwimmer</a><a href="hizmetler.html">Bakım (O&amp;M)</a></div>
+      <div class="footer-col"><h4>Leistungen</h4><a href="hizmetler.html">Aufdach-Solar</a><a href="hizmetler.html">Freiflächen-Solar</a><a href="tarimsal-sulama.html">Solar-Bewässerung</a><a href="ai-cankurtaran-destek-sistemi.html">KI-Rettungsschwimmer</a><a href="hizmetler.html">Wartung (O&amp;M)</a></div>
       <div class="footer-col"><h4>Unternehmen</h4><a href="hakkimizda.html">Über uns</a><a href="urunler.html">Produkte</a><a href="su-isitici.html">Solarboiler</a><a href="projeler.html">Projekte</a><a href="hesaplayici.html">Rechner</a><a href="iletisim.html">Kontakt</a></div>
-      <div class="footer-col footer-news"><h4>Newsletter</h4><p>Solar-News und Förderungen.</p><form id="newsForm" class="news-form"><input type="email" placeholder="Ihre E-Mail-Adresse" aria-label="E-posta" required /><button class="btn btn-sm" type="submit">Abonnieren</button></form><p class="news-note" id="newsNote"></p></div>
+      <div class="footer-col footer-news"><h4>Newsletter</h4><p>Solar-News und Förderungen.</p><form id="newsForm" class="news-form"><input type="email" placeholder="Ihre E-Mail-Adresse" aria-label="E-Mail" required /><button class="btn btn-sm" type="submit">Abonnieren</button></form><p class="news-note" id="newsNote"></p></div>
     </div>
     <div class="container footer-bottom"><p>© <span id="yil">2026</span> <span data-c-text="legalName">Gespa Enerji Ltd. Şti.</span>. Tüm hakları saklıdır.</p><p><a href="/gizlilik.html">Datenschutz</a> · <a href="/kvkk.html">KVKK</a> · <a href="/cerez-politikasi.html">Cookie-Richtlinie</a></p></div>
   </footer>
 
   <a class="fab fab-wa" data-c-wa href="https://wa.me/905437434209" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
-  <button class="fab fab-top" id="backTop" aria-label="Başa dön">↑</button>
+  <button class="fab fab-top" id="backTop" aria-label="Nach oben">↑</button>
   <script defer src="/assets/config.js"></script>
   <script defer src="/assets/i18n.js"></script>
   <script defer src="/assets/main.js"></script>

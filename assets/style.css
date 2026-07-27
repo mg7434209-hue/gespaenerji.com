@@ -285,7 +285,7 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .project-img{aspect-ratio:16/10;position:relative;display:flex;align-items:flex-start;justify-content:flex-end;padding:14px;background-size:cover;background-position:center;overflow:hidden}
 .project-img>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .project-img>.project-tag{position:relative;z-index:1}
-.project-tag{background:rgba(0,0,0,.45);color:#fff;font-size:.78rem;font-weight:700;padding:5px 12px;border-radius:999px;backdrop-filter:blur(4px)}
+.project-tag{background:rgba(0,0,0,.6);color:#fff;font-size:.78rem;font-weight:700;padding:5px 12px;border-radius:999px;backdrop-filter:blur(4px)}
 .project-body{padding:18px 20px}
 .project-body h3{font-size:1.1rem;margin-bottom:4px}
 .project-body p{margin:0;color:var(--muted);font-size:.92rem}
@@ -478,7 +478,7 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 /* Reveal animation */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.float-badge{animation:none}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.float-badge{animation:none}html{scroll-behavior:auto}.testi-track{transition:none}.btn,.gchat-fab{transition:none}}
 
 /* Responsive */
 @media(max-width:1080px){.menu{gap:15px;font-size:.92rem}}
@@ -666,8 +666,8 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 
 /* ==== Havuz Teknolojileri — AI Cankurtaran sayfası ==== */
 /* Marka paleti (briefe göre): lacivert #0a2a43 · aqua #17a8c4 · mercan #f4523b */
-.btn-coral{background:#f4523b}
-.btn-coral:hover{background:#d94330}
+.btn-coral{background:#c0392b}
+.btn-coral:hover{background:#a93226}
 .pool-hero{background:linear-gradient(175deg,#0a2a43,#123b5c 85%);color:#fdf9f2;padding:40px 0 64px;overflow:hidden}
 .pool-crumbs{color:#8fb6cc;margin-bottom:28px}
 .pool-crumbs a{color:#8fb6cc}
@@ -730,3 +730,17 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 
 /* JS çalışmayan ortamlarda (bazı botlar/okuyucular) içerik gizli kalmasın */
 @media (scripting: none){.reveal{opacity:1;transform:none}}
+
+/* ---- Erişilebilirlik: klavye odak görünürlüğü ---- */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+.pool-form input:focus-visible,.pool-form select:focus-visible,.pool-form textarea:focus-visible,.gchat-foot input:focus-visible{outline:3px solid #7fd6e8;outline-offset:1px}
+
+/* Feature band görseli (lazy <img> — arka plan yerine) */
+.feature-img{overflow:hidden;padding:0}
+.feature-img img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Form e-posta alternatifi satırı */
+.form-alt,.pool-alt{font-size:.85rem;color:var(--muted);margin-top:10px}
+.pool-alt{color:#a9c3d6}
+.pool-alt a,.form-alt a{color:var(--green);font-weight:700}
+.pool-alt a{color:#7fd6e8}
