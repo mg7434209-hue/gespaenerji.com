@@ -4,6 +4,9 @@
 > Çatı ve arazi tipi GES, güneş enerjili tarımsal sulama ve enerji depolama çözümleri;
 > mühendislik, kurulum, finansman ve bakım (O&M) hizmetleri.
 
+## Ayrıntılı bilgi
+Ürünler, güncel fiyatlar, hesaplayıcı araçları ve SSS özeti için: https://www.gespaenerji.com/llms-full.txt
+
 ## Hizmet bölgesi
 Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş ve çevresi; talebe göre tüm Türkiye.
 
@@ -28,7 +31,7 @@ Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş ve çevr
 
 ## Paket ürünler
 Şebekeden bağımsız hazır GES paketleri 2 grupta (açık fiyat / config'ten türetilir):
-- Taşınabilir & Off-Grid (lityum bataryalı): 1 kW, 3 kW, 4.2 kW, 6.2 kW, 8 kW — bağ evi, karavan, kulübe için hazır kitler
+- Taşınabilir & Off-Grid (lityum bataryalı): 285 W ve 1.08 kW taşınabilir kitler + 3 / 4.2 / 6.2 / 8 kW paketler — bağ evi, karavan, kulübe için hazır kitler
 - Tarımsal Sulama (off-grid): Bağ-Bahçe (3 kWp), Tarla (7.5 kWp), Sera (11 kWp), Geniş Tarla (20 kWp)
 Çatı/on-grid sistemler proje bazlı sunulur (bkz. Hizmetler). Tüm paketler ölçeklenebilir; kesin fiyat ücretsiz keşifle belirlenir.
 

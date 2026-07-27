@@ -60,6 +60,24 @@ yeni sayfa eklenince TÜM sayfalarda güncelle.
 - Katsayılar tek config dosyasında (`config.calc`) ve koddan ayarlanabilir.
 - KURAL: Hesaplayıcı bileşenine hiçbir sayı (fiyat, katsayı, güç) hardcode ETME.
 
+## SEO / AEO — statik üretim (AI botları JS çalıştırmaz!)
+`node build.js` dil sayfalarına ek olarak TR kaynak sayfalara da yazar:
+- `<!-- LD:STATIC -->` blokları: LocalBusiness (her sayfa), Product
+  (su-isitici + cankurtaran), ItemList (urunler), BreadcrumbList — hepsi
+  config'ten üretilir, `data-gld` işaretlidir; main.js `data-gld` görünce
+  aynı şemayı yeniden enjekte etmez. Bu blokları ELLE DÜZENLEME.
+- `data-c-text/tel/mailto/wa` iletişim alanları statik doldurulur
+  (kaynak yine config; değişince build çalıştır, çıktıyı commit'le).
+- Ürün içerikleri de statik basılır: su ısıtıcı tablosu (`#heaterRows`), paket
+  listesi (`PKG:STATIC` işaretleri), markalar, sayaç değerleri, hesaplayıcı
+  varsayımları/seçenekleri, hreflang kümesi, telif yılı.
+- Dil sayfalarının GÖVDESİ build'de DICT ile statik çevrilir (FAQPage JSON-LD
+  dahil); istemci i18n dinamik içerik için çalışmaya devam eder. Yeni metin
+  eklerken DICT'e çeviri eklemek statik çıktıya da yansır.
+- `sitemap.xml` build'de üretilir (TR + tüm dil sayfaları ayrı URL, hreflang'li).
+- `llms-full.txt` config'ten üretilir (ürünler+fiyatlar+araçlar; llms.txt özet
+  kalır, elle bakılır). robots.txt AI botlarına açıktır ve llms dosyalarına işaret eder.
+
 ## Konvansiyonlar
 - Sayfa linkleri `.html` uzantılı (GitHub Pages uyumu için).
 - Her sayfada LocalBusiness JSON-LD bulunur (config'ten enjekte edilir).

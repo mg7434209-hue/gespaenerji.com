@@ -12,9 +12,10 @@
   var yil = $("#yil");
   if (yil) yil.textContent = new Date().getFullYear();
 
-  /* ---- Breadcrumb JSON-LD (kırıntıdan üretilir) ---- */
+  /* ---- Breadcrumb JSON-LD (kırıntıdan üretilir; build statik gömdüyse atla) ---- */
   (function () {
     var c = $(".crumbs"); if (!c) return;
+    if ($("script[data-gld]")) return; // build.js statik BreadcrumbList üretti
     var items = [], pos = 1;
     $$("a", c).forEach(function (a) { items.push({ "@type": "ListItem", position: pos++, name: a.textContent.trim(), item: a.href }); });
     var last = c.textContent.split("/").pop().trim();
@@ -67,8 +68,9 @@
           w.appendChild(a);
         });
       });
-      // LocalBusiness JSON-LD (her sayfada)
-      try {
+      // LocalBusiness JSON-LD (her sayfada) — build.js statik gömdüyse (data-gld)
+      // yeniden enjekte etme (AI botları için statik sürüm esastır)
+      if (!$("script[data-gld]")) try {
         var d = {
           "@context": "https://schema.org", "@type": "LocalBusiness",
           name: c.brandName, legalName: c.legalName, url: c.web,
@@ -102,7 +104,7 @@
     }
     var b = CFG.brands;
     if (b) {
-      var fill = function (sel, arr) { var w = $(sel); if (w && arr) arr.forEach(function (n) { var sp = doc.createElement("span"); sp.textContent = n; w.appendChild(sp); }); };
+      var fill = function (sel, arr) { var w = $(sel); if (!w || !arr || w.children.length) return; arr.forEach(function (n) { var sp = doc.createElement("span"); sp.textContent = n; w.appendChild(sp); }); };
       fill("#brandPanels", b.panel);
       fill("#brandInverters", b.inverter);
     }
@@ -288,7 +290,7 @@
           setTimeout(function () { t.classList.remove("hl"); }, 2600);
         });
       });
-      try {
+      if (!$("script[data-gld]")) try {
         var s = doc.createElement("script"); s.type = "application/ld+json";
         s.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "ItemList", name: "GESPA Enerji", itemListElement: ld.map(function (o, i) { return { "@type": "ListItem", position: i + 1, item: o }; }) });
         doc.head.appendChild(s);
@@ -312,8 +314,9 @@
         var mn = "₺" + nf.format(Math.min.apply(null, prices));
         fromEl.textContent = L(mn + "'dan başlayan fiyatlarla", "from " + mn, "ab " + mn, "от " + mn);
       }
-      // Product JSON-LD — fiyat aralığı config'ten (tek kaynak)
-      try {
+      // Product JSON-LD — fiyat aralığı config'ten (tek kaynak);
+      // build.js statik gömdüyse yeniden enjekte etme
+      if (!$("script[data-gld]")) try {
         var web = (CFG.company && CFG.company.web) || "";
         var d = {
           "@context": "https://schema.org", "@type": "Product",
@@ -585,8 +588,9 @@
       }
       var cy = base - (cost / max) * (base - 6);
       s += '<line x1="0" y1="' + cy.toFixed(1) + '" x2="' + W + '" y2="' + cy.toFixed(1) + '" stroke="#f7b500" stroke-width="2" stroke-dasharray="5 4"/>';
-      s += '<text x="' + (W - 4) + '" y="' + (cy - 5).toFixed(1) + '" text-anchor="end" font-size="11" font-weight="700" fill="#f7b500">Yatırım</text>';
-      for (var j = 5; j <= n; j += 5) { var lx = (j - 1) * (bw + pad) + bw / 2; s += '<text x="' + lx.toFixed(1) + '" y="' + (H - 5) + '" text-anchor="middle" font-size="10" fill="#9aa">' + j + '. yıl</text>'; }
+      s += '<text x="' + (W - 4) + '" y="' + (cy - 5).toFixed(1) + '" text-anchor="end" font-size="11" font-weight="700" fill="#f7b500">' + L("Yatırım", "Investment", "Investition", "Инвестиция") + '</text>';
+      var yrLbl = L(". yıl", "y", ". J.", " г.");
+      for (var j = 5; j <= n; j += 5) { var lx = (j - 1) * (bw + pad) + bw / 2; s += '<text x="' + lx.toFixed(1) + '" y="' + (H - 5) + '" text-anchor="middle" font-size="10" fill="#9aa">' + j + yrLbl + '</text>'; }
       chartEl.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" width="100%" role="img" aria-label="25 yıllık kümülatif tasarruf grafiği">' + s + '</svg>';
     }
 
@@ -614,7 +618,9 @@
 
       // Öz tüketim + mahsuplaşma (+ batarya)
       var hasBattery = !!(batteryEl && batteryEl.checked);
-      var selfPct = hasBattery ? BAT_SELF : (parseFloat(selfEl && selfEl.value) || 100);
+      // 0 geçerli bir öz tüketim değeridir; yalnız boş/geçersiz girişte varsayılana dön
+      var selfVal = parseFloat(selfEl && selfEl.value);
+      var selfPct = hasBattery ? BAT_SELF : (isFinite(selfVal) ? selfVal : (k.defaultSelfConsumption != null ? k.defaultSelfConsumption : 100));
       selfPct = Math.max(0, Math.min(100, selfPct));
       var selfR = selfPct / 100;
       var effFactor = selfR + (1 - selfR) * FEED;

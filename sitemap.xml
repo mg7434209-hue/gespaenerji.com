@@ -3,7 +3,34 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.gespaenerji.com/</loc>
-    <lastmod>2026-07-23</lastmod><changefreq>weekly</changefreq><priority>1.0</priority>
+    <lastmod>2026-07-27</lastmod><changefreq>weekly</changefreq><priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/en/</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>weekly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/de/</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>weekly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/ru/</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>weekly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/" />
@@ -12,7 +39,34 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/hizmetler.html</loc>
-    <lastmod>2026-07-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hizmetler.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hizmetler.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hizmetler.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/hizmetler.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/hizmetler.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/en/hizmetler.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hizmetler.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hizmetler.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hizmetler.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/hizmetler.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/hizmetler.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/de/hizmetler.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hizmetler.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hizmetler.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hizmetler.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/hizmetler.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/hizmetler.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/ru/hizmetler.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hizmetler.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hizmetler.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hizmetler.html" />
@@ -21,7 +75,34 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/urunler.html</loc>
-    <lastmod>2026-07-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/urunler.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/urunler.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/urunler.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/urunler.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/urunler.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/en/urunler.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/urunler.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/urunler.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/urunler.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/urunler.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/urunler.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/de/urunler.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/urunler.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/urunler.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/urunler.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/urunler.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/urunler.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/ru/urunler.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/urunler.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/urunler.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/urunler.html" />
@@ -30,7 +111,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/su-isitici.html</loc>
-    <lastmod>2026-07-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/su-isitici.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/su-isitici.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/su-isitici.html" />
@@ -38,17 +119,62 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/su-isitici.html" />
   </url>
   <url>
-    <loc>https://www.gespaenerji.com/tarimsal-sulama.html</loc>
-    <lastmod>2026-07-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/tarimsal-sulama.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/tarimsal-sulama.html" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/tarimsal-sulama.html" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/tarimsal-sulama.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/tarimsal-sulama.html" />
+    <loc>https://www.gespaenerji.com/en/su-isitici.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/su-isitici.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/su-isitici.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/su-isitici.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/su-isitici.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/su-isitici.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/de/su-isitici.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/su-isitici.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/su-isitici.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/su-isitici.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/su-isitici.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/su-isitici.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/ru/su-isitici.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/su-isitici.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/su-isitici.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/su-isitici.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/su-isitici.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/su-isitici.html" />
   </url>
   <url>
     <loc>https://www.gespaenerji.com/hesaplayici.html</loc>
-    <lastmod>2026-07-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hesaplayici.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hesaplayici.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hesaplayici.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/hesaplayici.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/hesaplayici.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/en/hesaplayici.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hesaplayici.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hesaplayici.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hesaplayici.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/hesaplayici.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/hesaplayici.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/de/hesaplayici.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hesaplayici.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hesaplayici.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hesaplayici.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/hesaplayici.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/hesaplayici.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/ru/hesaplayici.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hesaplayici.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hesaplayici.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hesaplayici.html" />
@@ -57,7 +183,34 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/projeler.html</loc>
-    <lastmod>2026-07-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/projeler.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/projeler.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/projeler.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/projeler.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/projeler.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/en/projeler.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/projeler.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/projeler.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/projeler.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/projeler.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/projeler.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/de/projeler.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/projeler.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/projeler.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/projeler.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/projeler.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/projeler.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/ru/projeler.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/projeler.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/projeler.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/projeler.html" />
@@ -66,7 +219,34 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/hakkimizda.html</loc>
-    <lastmod>2026-07-23</lastmod><changefreq>yearly</changefreq><priority>0.6</priority>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hakkimizda.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hakkimizda.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hakkimizda.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/hakkimizda.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/hakkimizda.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/en/hakkimizda.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hakkimizda.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hakkimizda.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hakkimizda.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/hakkimizda.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/hakkimizda.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/de/hakkimizda.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hakkimizda.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hakkimizda.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hakkimizda.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/hakkimizda.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/hakkimizda.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/ru/hakkimizda.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hakkimizda.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hakkimizda.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hakkimizda.html" />
@@ -75,7 +255,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/iletisim.html</loc>
-    <lastmod>2026-07-23</lastmod><changefreq>yearly</changefreq><priority>0.7</priority>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/iletisim.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/iletisim.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/iletisim.html" />
@@ -83,8 +263,71 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/iletisim.html" />
   </url>
   <url>
+    <loc>https://www.gespaenerji.com/en/iletisim.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/iletisim.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/iletisim.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/iletisim.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/iletisim.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/iletisim.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/de/iletisim.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/iletisim.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/iletisim.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/iletisim.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/iletisim.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/iletisim.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/ru/iletisim.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/iletisim.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/iletisim.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/iletisim.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/iletisim.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/iletisim.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/tarimsal-sulama.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/tarimsal-sulama.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/tarimsal-sulama.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/tarimsal-sulama.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/tarimsal-sulama.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/tarimsal-sulama.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/en/tarimsal-sulama.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/tarimsal-sulama.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/tarimsal-sulama.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/tarimsal-sulama.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/tarimsal-sulama.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/tarimsal-sulama.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/de/tarimsal-sulama.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/tarimsal-sulama.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/tarimsal-sulama.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/tarimsal-sulama.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/tarimsal-sulama.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/tarimsal-sulama.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/ru/tarimsal-sulama.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/tarimsal-sulama.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/tarimsal-sulama.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/tarimsal-sulama.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/tarimsal-sulama.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/tarimsal-sulama.html" />
+  </url>
+  <url>
     <loc>https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html</loc>
-    <lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/ai-cankurtaran-destek-sistemi.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/ai-cankurtaran-destek-sistemi.html" />
@@ -92,17 +335,35 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html" />
   </url>
   <url>
-    <loc>https://www.gespaenerji.com/gizlilik.html</loc>
-    <lastmod>2026-07-23</lastmod><changefreq>yearly</changefreq><priority>0.3</priority>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/gizlilik.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/gizlilik.html" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/gizlilik.html" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/gizlilik.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/gizlilik.html" />
+    <loc>https://www.gespaenerji.com/en/ai-cankurtaran-destek-sistemi.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/ai-cankurtaran-destek-sistemi.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/ai-cankurtaran-destek-sistemi.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/ai-cankurtaran-destek-sistemi.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/de/ai-cankurtaran-destek-sistemi.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/ai-cankurtaran-destek-sistemi.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/ai-cankurtaran-destek-sistemi.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/ai-cankurtaran-destek-sistemi.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/ru/ai-cankurtaran-destek-sistemi.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/ai-cankurtaran-destek-sistemi.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/ai-cankurtaran-destek-sistemi.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/ai-cankurtaran-destek-sistemi.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html" />
   </url>
   <url>
     <loc>https://www.gespaenerji.com/kvkk.html</loc>
-    <lastmod>2026-07-23</lastmod><changefreq>yearly</changefreq><priority>0.3</priority>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/kvkk.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/kvkk.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/kvkk.html" />
@@ -110,8 +371,98 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/kvkk.html" />
   </url>
   <url>
+    <loc>https://www.gespaenerji.com/en/kvkk.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/kvkk.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/kvkk.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/kvkk.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/kvkk.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/kvkk.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/de/kvkk.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/kvkk.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/kvkk.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/kvkk.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/kvkk.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/kvkk.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/ru/kvkk.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/kvkk.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/kvkk.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/kvkk.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/kvkk.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/kvkk.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/gizlilik.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/gizlilik.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/gizlilik.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/gizlilik.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/gizlilik.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/gizlilik.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/en/gizlilik.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/gizlilik.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/gizlilik.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/gizlilik.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/gizlilik.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/gizlilik.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/de/gizlilik.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/gizlilik.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/gizlilik.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/gizlilik.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/gizlilik.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/gizlilik.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/ru/gizlilik.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/gizlilik.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/gizlilik.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/gizlilik.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/gizlilik.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/gizlilik.html" />
+  </url>
+  <url>
     <loc>https://www.gespaenerji.com/cerez-politikasi.html</loc>
-    <lastmod>2026-07-23</lastmod><changefreq>yearly</changefreq><priority>0.3</priority>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/cerez-politikasi.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/cerez-politikasi.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/cerez-politikasi.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/cerez-politikasi.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/cerez-politikasi.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/en/cerez-politikasi.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/cerez-politikasi.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/cerez-politikasi.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/cerez-politikasi.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/cerez-politikasi.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/cerez-politikasi.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/de/cerez-politikasi.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/cerez-politikasi.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/cerez-politikasi.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/cerez-politikasi.html" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/cerez-politikasi.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/cerez-politikasi.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/ru/cerez-politikasi.html</loc>
+    <lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/cerez-politikasi.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/cerez-politikasi.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/cerez-politikasi.html" />
