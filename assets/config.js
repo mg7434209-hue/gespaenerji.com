@@ -35,7 +35,9 @@ window.GESPA.config = {
     services: ["Çatı GES", "Arazi Tipi GES", "Güneş Enerjili Tarımsal Sulama", "Enerji Depolama (Batarya)", "Mühendislik & Projelendirme", "Finansman & Leasing", "Bakım (O&M)"],
     rating: { value: null, count: null }, // GERÇEK Google yorum ortalaması/sayısı girilince aggregateRating eklenir (uydurma değer GİRMEYİN)
     geo: { lat: null, lng: null },        // kesin koordinat girilince schema'ya eklenir
-    sameAs: []                            // gerçek sosyal medya URL'leri (LinkedIn/Instagram/X) eklenince doldurun
+    sameAs: [],                           // gerçek sosyal medya URL'leri (LinkedIn/Instagram/X) eklenince doldurun
+    // Vitrin istatistikleri — TEK KAYNAK (build data-stat öğelerine basar)
+    stats: { projects: 500, installedMw: 15, experienceYears: 20, warrantyYears: 25, satisfactionPct: 98 }
   },
 
   // Analitik — ID girilince yüklenir (boş = kapalı). KVKK için çerez onayı önerilir.

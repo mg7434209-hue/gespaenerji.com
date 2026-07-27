@@ -4,6 +4,8 @@
 (function () {
   "use strict";
   var doc = document;
+  var REDUCED = false;
+  try { REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
   var $ = function (s, c) { return (c || doc).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || doc).querySelectorAll(s)); };
   function L(tr, en, de, ru) { var l = (window.GESPA && GESPA.lang) || "tr"; return l === "en" ? en : (l === "de" ? de : (l === "ru" ? ru : tr)); }
@@ -15,7 +17,7 @@
   /* ---- Breadcrumb JSON-LD (kırıntıdan üretilir; build statik gömdüyse atla) ---- */
   (function () {
     var c = $(".crumbs"); if (!c) return;
-    if ($("script[data-gld]")) return; // build.js statik BreadcrumbList üretti
+    if ($('script[data-gld="breadcrumblist"]')) return; // build.js statik BreadcrumbList üretti
     var items = [], pos = 1;
     $$("a", c).forEach(function (a) { items.push({ "@type": "ListItem", position: pos++, name: a.textContent.trim(), item: a.href }); });
     var last = c.textContent.split("/").pop().trim();
@@ -70,7 +72,7 @@
       });
       // LocalBusiness JSON-LD (her sayfada) — build.js statik gömdüyse (data-gld)
       // yeniden enjekte etme (AI botları için statik sürüm esastır)
-      if (!$("script[data-gld]")) try {
+      if (!$('script[data-gld="localbusiness"]')) try {
         var d = {
           "@context": "https://schema.org", "@type": "LocalBusiness",
           name: c.brandName, legalName: c.legalName, url: c.web,
@@ -290,7 +292,7 @@
           setTimeout(function () { t.classList.remove("hl"); }, 2600);
         });
       });
-      if (!$("script[data-gld]")) try {
+      if (!$('script[data-gld="itemlist"]')) try {
         var s = doc.createElement("script"); s.type = "application/ld+json";
         s.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "ItemList", name: "GESPA Enerji", itemListElement: ld.map(function (o, i) { return { "@type": "ListItem", position: i + 1, item: o }; }) });
         doc.head.appendChild(s);
@@ -316,7 +318,7 @@
       }
       // Product JSON-LD — fiyat aralığı config'ten (tek kaynak);
       // build.js statik gömdüyse yeniden enjekte etme
-      if (!$("script[data-gld]")) try {
+      if (!$('script[data-gld="product"]')) try {
         var web = (CFG.company && CFG.company.web) || "";
         var d = {
           "@context": "https://schema.org", "@type": "Product",
@@ -427,11 +429,14 @@
   var saved = null;
   try { saved = localStorage.getItem("gespa-theme"); } catch (e) {}
   if (saved) doc.documentElement.setAttribute("data-theme", saved);
+  function syncThemeBtn() { if (themeToggle) themeToggle.setAttribute("aria-pressed", doc.documentElement.getAttribute("data-theme") === "dark" ? "true" : "false"); }
+  syncThemeBtn();
   if (themeToggle) {
     themeToggle.addEventListener("click", function () {
       var cur = doc.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
       doc.documentElement.setAttribute("data-theme", cur);
       try { localStorage.setItem("gespa-theme", cur); } catch (e) {}
+      syncThemeBtn();
     });
   }
 
@@ -466,7 +471,9 @@
       if (!mg.contains(e.target)) { mg.classList.remove("open"); mp.setAttribute("aria-expanded", "false"); }
     });
     doc.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") { mg.classList.remove("open"); mp.setAttribute("aria-expanded", "false"); }
+      if (e.key !== "Escape") return;
+      if (mg.contains(doc.activeElement)) mp.focus(); // focus-within kuralı da kapansın
+      mg.classList.remove("open"); mp.setAttribute("aria-expanded", "false");
     });
   });
 
@@ -491,7 +498,7 @@
       var id = a.getAttribute("href");
       if (id.length > 1) {
         var t = doc.querySelector(id);
-        if (t) { ev.preventDefault(); t.scrollIntoView({ behavior: "smooth", block: "start" }); }
+        if (t) { ev.preventDefault(); t.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: "start" }); }
       }
     });
   });
@@ -514,6 +521,7 @@
     var target = parseFloat(el.getAttribute("data-count")) || 0;
     var suffix = el.getAttribute("data-suffix") || "";
     var prefix = el.getAttribute("data-prefix") || "";
+    if (REDUCED) { el.textContent = prefix + target + suffix; return; }
     var dur = 1400, start = null;
     function step(ts) {
       if (!start) start = ts;
@@ -588,9 +596,9 @@
       }
       var cy = base - (cost / max) * (base - 6);
       s += '<line x1="0" y1="' + cy.toFixed(1) + '" x2="' + W + '" y2="' + cy.toFixed(1) + '" stroke="#f7b500" stroke-width="2" stroke-dasharray="5 4"/>';
-      s += '<text x="' + (W - 4) + '" y="' + (cy - 5).toFixed(1) + '" text-anchor="end" font-size="11" font-weight="700" fill="#f7b500">' + L("Yatırım", "Investment", "Investition", "Инвестиция") + '</text>';
+      s += '<text x="' + (W - 4) + '" y="' + (cy - 5).toFixed(1) + '" text-anchor="end" font-size="11" font-weight="700" fill="var(--muted)">' + L("Yatırım", "Investment", "Investition", "Инвестиция") + '</text>';
       var yrLbl = L(". yıl", "y", ". J.", " г.");
-      for (var j = 5; j <= n; j += 5) { var lx = (j - 1) * (bw + pad) + bw / 2; s += '<text x="' + lx.toFixed(1) + '" y="' + (H - 5) + '" text-anchor="middle" font-size="10" fill="#9aa">' + j + yrLbl + '</text>'; }
+      for (var j = 5; j <= n; j += 5) { var lx = (j - 1) * (bw + pad) + bw / 2; s += '<text x="' + lx.toFixed(1) + '" y="' + (H - 5) + '" text-anchor="middle" font-size="10" fill="var(--muted)">' + j + yrLbl + '</text>'; }
       chartEl.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" width="100%" role="img" aria-label="25 yıllık kümülatif tasarruf grafiği">' + s + '</svg>';
     }
 
@@ -1017,14 +1025,38 @@
   if (gallery) {
     var lb = doc.createElement("div");
     lb.className = "lightbox";
-    lb.innerHTML = '<button class="lightbox-close" aria-label="Kapat">×</button><img alt="" />';
+    lb.setAttribute("role", "dialog");
+    lb.setAttribute("aria-modal", "true");
+    lb.setAttribute("aria-label", L("Görsel büyütme", "Image zoom", "Bildvergrößerung", "Просмотр изображения"));
+    lb.innerHTML = '<button class="lightbox-close" aria-label="' + L("Kapat", "Close", "Schließen", "Закрыть") + '">×</button><img alt="" />';
     doc.body.appendChild(lb);
     var lbImg = lb.querySelector("img");
-    gallery.addEventListener("click", function (e) {
-      if (e.target.tagName === "IMG") { lbImg.src = e.target.src; lb.classList.add("open"); }
+    var lbClose = lb.querySelector(".lightbox-close");
+    var lbOpener = null;
+    function openLb(img) {
+      lbOpener = img;
+      lbImg.src = img.getAttribute("data-full") || img.src; // küçük resim yerine tam boyut
+      lbImg.alt = img.alt || "";
+      lb.classList.add("open");
+      lbClose.focus();
+    }
+    function closeLb() {
+      if (!lb.classList.contains("open")) return;
+      lb.classList.remove("open");
+      if (lbOpener) { lbOpener.focus(); lbOpener = null; }
+    }
+    $$("img", gallery).forEach(function (img) {
+      img.setAttribute("tabindex", "0");
+      img.setAttribute("role", "button");
+      img.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openLb(img); }
+      });
     });
-    lb.addEventListener("click", function (e) { if (e.target !== lbImg) lb.classList.remove("open"); });
-    doc.addEventListener("keydown", function (e) { if (e.key === "Escape") lb.classList.remove("open"); });
+    gallery.addEventListener("click", function (e) {
+      if (e.target.tagName === "IMG") openLb(e.target);
+    });
+    lb.addEventListener("click", function (e) { if (e.target !== lbImg) closeLb(); });
+    doc.addEventListener("keydown", function (e) { if (e.key === "Escape") closeLb(); });
   }
 
   /* ---- Müşteri yorumları slider ---- */
@@ -1035,7 +1067,7 @@
     var idx = 0, timer;
     slides.forEach(function (_, i) {
       var d = doc.createElement("button");
-      d.setAttribute("aria-label", "Yorum " + (i + 1));
+      d.setAttribute("aria-label", L("Yorum ", "Review ", "Bewertung ", "Отзыв ") + (i + 1));
       if (i === 0) d.classList.add("active");
       d.addEventListener("click", function () { go(i); reset(); });
       dotsWrap.appendChild(d);
@@ -1047,19 +1079,28 @@
       dots.forEach(function (d, di) { d.classList.toggle("active", di === idx); });
     }
     function next() { go(idx + 1); }
-    function reset() { clearInterval(timer); timer = setInterval(next, 5000); }
+    function reset() { clearInterval(timer); if (!REDUCED) timer = setInterval(next, 5000); }
+    var wrap = track.parentNode;
+    wrap.addEventListener("mouseenter", function () { clearInterval(timer); });
+    wrap.addEventListener("mouseleave", reset);
+    wrap.addEventListener("focusin", function () { clearInterval(timer); });
+    wrap.addEventListener("focusout", reset);
     reset();
   }
 
   /* ---- SSS akordeon ---- */
-  $$(".faq-item").forEach(function (item) {
+  $$(".faq-item").forEach(function (item, fi) {
     var q = $(".faq-q", item);
     var a = $(".faq-a", item);
     if (!q || !a) return;
+    if (!a.id) a.id = "faq-a-" + fi;
     q.setAttribute("aria-expanded", "false");
+    q.setAttribute("aria-controls", a.id);
+    a.setAttribute("aria-hidden", "true");
     q.addEventListener("click", function () {
       var open = item.classList.toggle("open");
       q.setAttribute("aria-expanded", open ? "true" : "false");
+      a.setAttribute("aria-hidden", open ? "false" : "true");
       a.style.maxHeight = open ? a.scrollHeight + "px" : null;
     });
   });
@@ -1073,7 +1114,9 @@
       var ad = form.ad.value.trim();
       var tel = form.tel.value.trim();
       if (!ad || !tel) {
-        if (note) { note.style.color = "#c0392b"; note.textContent = L("Lütfen ad ve telefon alanlarını doldurun.", "Please fill in your name and phone.", "Bitte Name und Telefon ausfüllen.", "Пожалуйста, заполните имя и телефон."); }
+        if (note) { note.setAttribute("role", "alert"); note.style.color = "#c0392b"; note.textContent = L("Lütfen ad ve telefon alanlarını doldurun.", "Please fill in your name and phone.", "Bitte Name und Telefon ausfüllen.", "Пожалуйста, заполните имя и телефон."); }
+        var bad = !ad ? form.ad : form.tel;
+        bad.setAttribute("aria-invalid", "true"); bad.focus();
         return;
       }
       if (form.kvkkOnay && !form.kvkkOnay.checked) {
@@ -1106,7 +1149,9 @@
       var note = $("#irrigation-note");
       var ad = irrForm.ad.value.trim(), tel = irrForm.tel.value.trim();
       if (!ad || !tel) {
-        if (note) { note.style.color = "#c0392b"; note.textContent = L("Lütfen ad ve telefon alanlarını doldurun.", "Please fill in your name and phone.", "Bitte Name und Telefon ausfüllen.", "Пожалуйста, заполните имя и телефон."); }
+        if (note) { note.setAttribute("role", "alert"); note.style.color = "#c0392b"; note.textContent = L("Lütfen ad ve telefon alanlarını doldurun.", "Please fill in your name and phone.", "Bitte Name und Telefon ausfüllen.", "Пожалуйста, заполните имя и телефон."); }
+        var bad2 = !ad ? irrForm.ad : irrForm.tel;
+        bad2.setAttribute("aria-invalid", "true"); bad2.focus();
         return;
       }
       if (irrForm.kvkkOnay && !irrForm.kvkkOnay.checked) {
@@ -1138,7 +1183,7 @@
       e.preventDefault();
       var note = $("#pool-note");
       var val = function (n) { return poolForm[n] && poolForm[n].value ? poolForm[n].value.trim() : ""; };
-      if (!val("ad") || !val("tesis") || !val("tel") || !val("eposta") || !val("sehir")) {
+      if (!val("ad") || !val("tesis") || !val("tel")) {
         if (note) { note.style.color = "#ffb3a6"; note.textContent = L("Lütfen zorunlu (*) alanları doldurun.", "Please fill in the required (*) fields.", "Bitte Pflichtfelder (*) ausfüllen.", "Пожалуйста, заполните обязательные поля (*)."); }
         return;
       }

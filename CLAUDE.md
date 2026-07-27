@@ -74,7 +74,11 @@ yeni sayfa eklenince TÜM sayfalarda güncelle.
 - Dil sayfalarının GÖVDESİ build'de DICT ile statik çevrilir (FAQPage JSON-LD
   dahil); istemci i18n dinamik içerik için çalışmaya devam eder. Yeni metin
   eklerken DICT'e çeviri eklemek statik çıktıya da yansır.
-- `sitemap.xml` build'de üretilir (TR + tüm dil sayfaları ayrı URL, hreflang'li).
+- `sitemap.xml` build'de üretilir (TR + tüm dil sayfaları ayrı URL, hreflang'li;
+  lastmod git'ten). Build ayrıca metin varlıklarını ön-sıkıştırır (.br/.gz —
+  gitignore'da; server.js hazır dosyayı servis eder, ETag/304 destekler).
+- Görsel türevleri (hero-640/960, *-thumb, *-800, gespa-icon-72) elle üretilmiş
+  optimize kopyalardır; kaynak görsel değişirse türevini de yenile.
 - `llms-full.txt` config'ten üretilir (ürünler+fiyatlar+araçlar; llms.txt özet
   kalır, elle bakılır). robots.txt AI botlarına açıktır ve llms dosyalarına işaret eder.
 

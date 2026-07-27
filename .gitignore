@@ -11,3 +11,7 @@ dist/
 # build adımı çalıştırmadığından bu dil sayfaları yayına dahil edilmek üzere
 # sürüm kontrolünde tutulur. Pages kaynağı "GitHub Actions" yapılırsa tekrar
 # .gitignore'a alınabilir (CI build.js çalıştırır).
+
+# build.js ön-sıkıştırma çıktıları (sunucu başlangıcında üretilir)
+*.br
+*.gz

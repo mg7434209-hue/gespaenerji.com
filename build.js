@@ -239,11 +239,11 @@ function breadcrumbLd(html, file, cfg) {
   if (!m) return null;
   const inner = m[1];
   const items = [];
-  const linkRe = /<a href="([^"]+)">([^<]+)<\/a>/g;
+  const linkRe = /<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g;
   let lm;
   while ((lm = linkRe.exec(inner)) !== null) {
     const href = lm[1] === "index.html" ? cfg.company.web + "/" : cfg.company.web + "/" + lm[1];
-    items.push({ "@type": "ListItem", position: items.length + 1, name: lm[2].trim(), item: href });
+    items.push({ "@type": "ListItem", position: items.length + 1, name: lm[2].replace(/<[^>]+>/g, "").trim(), item: href });
   }
   // son kırıntı: etiketler ayıklanınca kalan metnin son parçası
   const tail = inner.replace(/<a[\s\S]*?<\/a>/g, "").replace(/<[^>]+>/g, " ").split("/").map(s => s.trim()).filter(Boolean).pop();
@@ -291,7 +291,7 @@ function injectStaticLd(html, file, cfg) {
   const bc = breadcrumbLd(html.replace(LD_RE, ""), file, cfg);
   if (bc) objs.push(bc);
   const block = "  <!-- LD:STATIC — build.js config'ten üretir; elle düzenlemeyin -->\n"
-    + objs.map(o => '  <script type="application/ld+json" data-gld>' + JSON.stringify(o) + "</script>").join("\n")
+    + objs.map(o => '  <script type="application/ld+json" data-gld="' + String(o["@type"] || "x").toLowerCase() + '">' + JSON.stringify(o) + "</script>").join("\n")
     + "\n  <!-- /LD:STATIC -->\n";
   if (LD_RE.test(html)) return html.replace(LD_RE, block);
   return html.replace(/\n?<\/head>/, "\n" + block + "</head>");
@@ -326,12 +326,26 @@ function translateBody(out, lang, i18n) {
   const bodyStart = out.indexOf("<body");
   if (bodyStart < 0) return out;
   let head = out.slice(0, bodyStart), body = out.slice(bodyStart);
+  // data-c-* elemanlarının içeriği çevrilmez (config verisi; runtime da SKIP eder)
+  const GUARDS = [];
+  body = body.replace(/(<[^>]*\bdata-c-[^>]*>)([^<]*)(?=<)/g, (m, tag, inner) => {
+    GUARDS.push(inner); return tag + "\u0000G" + (GUARDS.length - 1) + "\u0000";
+  });
+  const decode = x => x.replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&nbsp;/g, "\u00a0");
+  const enc = x => x.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   body = body.replace(/>([^<>]+)</g, (m, txt) => {
     const t = txt.trim();
-    if (!t || !d[t]) return m;
+    if (!t) return m;
+    const key = d[t] ? t : (d[decode(t)] ? decode(t) : null);
+    if (!key) return m;
+    const tr = t === key ? d[key] : enc(d[key]);
     const i = txt.indexOf(t);
-    return ">" + txt.slice(0, i) + d[t] + txt.slice(i + t.length) + "<";
+    return ">" + txt.slice(0, i) + tr + txt.slice(i + t.length) + "<";
   });
+  body = body.replace(/\u0000G(\d+)\u0000/g, (m, i) => GUARDS[+i]);
+  // aria-label / title / alt öznitelikleri de DICT ile çevrilir
+  body = body.replace(/((?:aria-label|title|alt)=")([^"]+)(")/g,
+    (m, a, v, c) => (d[v] || d[decode(v)]) ? a + enc(d[v] || d[decode(v)]) + c : m);
   const ph = (i18n.PH && i18n.PH[lang]) || {};
   body = body.replace(/placeholder="([^"]*)"/g, (m, v) => (ph[v] ? 'placeholder="' + esc(ph[v]) + '"' : m));
   // data-i18n-html elemanları (ör. #heroTitle) — HTMLMAP'ten statik bas
@@ -393,6 +407,18 @@ function hydrateExtras(html, file, cfg) {
     html = html.replace(/(<select id="city"[^>]*>)[\s\S]*?(<\/select>)/, "$1" + opts(k.regions, "yield") + "$2");
     html = html.replace(/(<select id="orient"[^>]*>)[\s\S]*?(<\/select>)/, "$1" + opts(k.orientations, "factor") + "$2");
   }
+  // Vitrin istatistikleri — config.company.stats tek kaynak
+  if (c.stats) {
+    html = html.replace(/(<([a-z0-9]+)[^>]*\bdata-stat="([^"]+)"[^>]*\bdata-count=")[^"]*("[^>]*>)[^<]*(<\/\2>)/g,
+      (m, pre, tag, key, mid, close) => {
+        const v = c.stats[key];
+        if (v == null) return m;
+        const attrs = m.slice(0, m.indexOf(">"));
+        const suf = (attrs.match(/data-suffix="([^"]*)"/) || [])[1] || "";
+        const prefix = (attrs.match(/data-prefix="([^"]*)"/) || [])[1] || "";
+        return pre + v + mid + prefix + v + suf + close;
+      });
+  }
   // Su ısıtıcı model tablosu + başlangıç fiyatı
   if (file === "su-isitici.html" && cfg.heater) {
     const rows = cfg.heater.models.map(m =>
@@ -429,6 +455,22 @@ function hydrateExtras(html, file, cfg) {
     if (marker.test(html)) html = html.replace(marker, block);
     else html = html.replace(/(<div id="packageGrid"[^>]*>)/, "$1" + block);
   }
+  // Sosyal medya bloğu: sameAs boşken statik HTML'den çıkar (JS'siz ortamda ölü
+  // '#' linkleri kalmasın); yerine işaretleyici konur ki sameAs dolunca build
+  // bloğu gerçek linklerle geri üretebilsin.
+  const sameAs = (c.sameAs || []).filter(Boolean);
+  const socialsRe = /(?:<div class="socials">[\s\S]*?<\/div>|<!-- SOCIALS:BOS -->)/g;
+  if (!sameAs.length) {
+    html = html.replace(socialsRe, "<!-- SOCIALS:BOS -->");
+  } else {
+    const links = sameAs.map(u => {
+      const t = /linkedin\./i.test(u) ? ["in", "LinkedIn"] : /instagram\./i.test(u) ? ["ig", "Instagram"]
+        : /(twitter\.|x\.com)/i.test(u) ? ["X", "X"] : /facebook\./i.test(u) ? ["f", "Facebook"]
+        : /youtu/i.test(u) ? ["yt", "YouTube"] : ["🌐", "Web"];
+      return '<a href="' + u + '" target="_blank" rel="noopener" aria-label="' + t[1] + '">' + t[0] + "</a>";
+    }).join("");
+    html = html.replace(socialsRe, '<div class="socials">' + links + "</div>");
+  }
   // Statik hreflang kümesi (canonical'ın hemen ardına; mevcut küme yenilenir)
   html = html.replace(/[ \t]*<link rel="alternate" hreflang=[^>]*\/>\n?/g, "");
   const urlFor = l => l === "tr" ? ORIGIN + "/" + (file === "index.html" ? "" : file) : ORIGIN + "/" + l + "/" + (file === "index.html" ? "" : file);
@@ -452,7 +494,13 @@ function writeSitemap() {
   for (const file of PAGES) {
     const p = path.join(ROOT, file);
     if (!fs.existsSync(p)) continue;
-    const lastmod = fs.statSync(p).mtime.toISOString().slice(0, 10);
+    let lastmod;
+    try {
+      lastmod = require("child_process").execSync(
+        'git log -1 --format=%cI -- "' + file + '"', { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }
+      ).toString().trim().slice(0, 10);
+    } catch (e) { /* git yoksa mtime */ }
+    if (!lastmod) lastmod = fs.statSync(p).mtime.toISOString().slice(0, 10);
     const cluster = ["tr", ...LANGS].map(l => '    <xhtml:link rel="alternate" hreflang="' + l + '" href="' + urlFor(l, file) + '" />').join("\n")
       + '\n    <xhtml:link rel="alternate" hreflang="x-default" href="' + urlFor("tr", file) + '" />';
     for (const l of ["tr", ...LANGS]) {
@@ -466,9 +514,33 @@ function writeSitemap() {
   fs.writeFileSync(path.join(ROOT, "sitemap.xml"), xml);
 }
 
+// Metin varlıklarını ön-sıkıştır (.br + .gz) — server.js hazır dosyayı servis eder.
+// Çıktılar .gitignore'dadır; her build'de yeniden üretilir (Railway start'ta da çalışır).
+function precompress() {
+  const zlibN = require("zlib");
+  const targets = [];
+  const addDir = (dir, re) => {
+    for (const f of fs.readdirSync(dir)) {
+      if (re.test(f)) targets.push(path.join(dir, f));
+    }
+  };
+  addDir(ROOT, /\.(html|xml|txt)$/);
+  addDir(path.join(ROOT, "assets"), /\.(js|css)$/);
+  for (const l of LANGS) { const d = path.join(ROOT, l); if (fs.existsSync(d)) addDir(d, /\.html$/); }
+  let n = 0;
+  for (const p of targets) {
+    const buf = fs.readFileSync(p);
+    if (buf.length < 2048) continue; // küçük dosyada kazanç yok
+    fs.writeFileSync(p + ".gz", zlibN.gzipSync(buf, { level: 9 }));
+    fs.writeFileSync(p + ".br", zlibN.brotliCompressSync(buf, { params: { [zlibN.constants.BROTLI_PARAM_QUALITY]: 11 } }));
+    n++;
+  }
+  return n;
+}
+
 // İletişim bilgilerini statik doldur (JS'siz botlar için; main.js runtime'da tazeler)
 function hydrateContact(html, c) {
-  html = html.replace(/(<(a|span|strong)\b[^>]*\bdata-c-text="([^"]+)"[^>]*>)[^<]*(<\/\2>)/g,
+  html = html.replace(/(<([a-zA-Z][a-zA-Z0-9]*)\b[^>]*\bdata-c-text="([^"]+)"[^>]*>)[^<]*(<\/\2>)/g,
     (m, open, tag, key, close) => {
       const v = key.split(".").reduce((o, k) => (o == null ? o : o[k]), c);
       return v == null ? m : open + v + close;
@@ -541,6 +613,17 @@ ${pkgLines}
   DC kablo kesiti/gerilim düşümü, batarya boyutlandırma, sıra aralığı/gölgelenme.
 - Solar sulama pompası seçimi (${c.web}/tarimsal-sulama.html).
 
+## Garanti & Güvence
+- A-marka panellerde 25 yıla varan üretim performans garantisi; inverterlerde 5–12 yıl ürün garantisi.
+- Anahtar teslim teslimat: keşif → projelendirme → kurulum → devreye alma; bakım (O&M) hizmeti sürer.
+- Ücretsiz keşif ve tasarruf analizi tüm hizmetlerde standarttır.
+
+## Nasıl Çalışırız (4 adım)
+1. Ücretsiz keşif ve ihtiyaç analizi (saha incelemesi, tüketim profili)
+2. Projelendirme ve net teklif (üretim simülasyonu, geri ödeme planı)
+3. Anahtar teslim kurulum (sertifikalı ekip, A-marka ekipman)
+4. Devreye alma, izleme ve bakım (O&M)
+
 ## Sık Sorulan Sorular (özet)
 - GES yatırımı tipik olarak 3–6 yılda amorti olur (tüketim, bölge ve elektrik
   fiyatına göre değişir).
@@ -566,7 +649,10 @@ function transform(html, lang, file, i18n) {
 
   // 2) Göreli "assets/..." referanslarını mutlak "/assets/..." yap (alt dizinde de çözülsün)
   //    href/src + <picture><source srcset> dahil
-  out = out.replace(/(href|src|srcset)="assets\//g, '$1="/assets/');
+  out = out.replace(/(href|src)="assets\//g, '$1="/assets/');
+  //    srcset/imagesrcset çok adaylı olabilir: her adayın başındaki assets/ önekini çevir
+  out = out.replace(/((?:image)?srcset)="([^"]*)"/g,
+    (m, attr, v) => attr + '="' + v.replace(/(^|,\s*)assets\//g, "$1/assets/") + '"');
   //    inline stil arka planları: url('assets/...') -> url('/assets/...')
   out = out.replace(/url\((['"]?)assets\//g, 'url($1/assets/');
 
@@ -599,6 +685,11 @@ function transform(html, lang, file, i18n) {
   // 7) i18n için dil bayrağını erken tanımla (deferred i18n.js okuyacak)
   out = out.replace(/(<meta charset="UTF-8" \/>)/,
     '$1\n  <script>window.__LANG__="' + lang + '";</script>');
+
+  // Güvenlik ağı: kritik replace'ler etkisiz kaldıysa görünür uyarı ver
+  if (out.indexOf('<link rel="canonical" href="' + canonical + '"') < 0) {
+    console.warn("UYARI: canonical dile çevrilemedi → " + lang + "/" + file);
+  }
 
   // 8) Gövdeyi DICT ile statik çevir — AI botları JS çalıştırmadığı için
   //    /en /de /ru sayfaların ham HTML'i de hedef dilde olmalı
@@ -638,6 +729,8 @@ function run() {
       count++;
     }
   }
+  // Tüm çıktılar yazıldıktan SONRA ön-sıkıştır (dil sayfaları dahil)
+  precompress();
   return count;
 }
 
