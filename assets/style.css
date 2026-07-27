@@ -727,3 +727,6 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
   .pool-form{grid-template-columns:1fr}
   .pool-who,.pool-form-sec{padding:56px 0}
 }
+
+/* JS çalışmayan ortamlarda (bazı botlar/okuyucular) içerik gizli kalmasın */
+@media (scripting: none){.reveal{opacity:1;transform:none}}

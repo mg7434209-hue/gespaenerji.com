@@ -54,12 +54,24 @@ aylıkTasarruf  = yıllıkTasarruf / 12              (₺)
 yatırım        = kWp × costPerKwp                 (₺)
 ```
 
+### Öz tüketim / mahsuplaşma (+ opsiyonel batarya)
+Katsayılar: `defaultSelfConsumption` (%70), `feedInFactor` (0,5),
+`batterySelfConsumption` (%90), `batteryCostPerKwh` (₺9.000), `batteryFraction` (0,3).
+```
+özTüketim  = kullanıcı girdisi (%; boşsa defaultSelfConsumption; 0 geçerli değerdir)
+             batarya işaretliyse batterySelfConsumption kullanılır
+etki       = öz + (1 − öz) × feedInFactor          (mahsuplaşma çarpanı)
+tasarruflar = üretim × birimFiyat × etki            (tüm yıllarda uygulanır)
+bataryaKwh = round(yıllıkÜretim/365 × batteryFraction)
+yatırım    = kWp × costPerKwp + bataryaKwh × batteryCostPerKwh
+```
+
 ### 25 yıllık projeksiyon (degradasyon + elektrik zammı)
 Her yıl `y = 0..years-1` için:
 ```
 üretim_y   = yıllıkÜretim × (1 − degradation)^y
 fiyat_y    = birimFiyat × (1 + zam)^y
-tasarruf_y = üretim_y × fiyat_y
+tasarruf_y = üretim_y × fiyat_y × etki
 ```
 ```
 ömürÜretim   = Σ üretim_y

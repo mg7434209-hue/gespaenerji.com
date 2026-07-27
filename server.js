@@ -26,6 +26,7 @@ const MIME = {
   ".webp": "image/webp",
   ".ico": "image/x-icon",
   ".txt": "text/plain; charset=utf-8",
+  ".md": "text/markdown; charset=utf-8",
   ".xml": "application/xml; charset=utf-8",
   ".webmanifest": "application/manifest+json",
   ".woff": "font/woff",
@@ -34,7 +35,8 @@ const MIME = {
 
 function safeJoin(base, target) {
   const targetPath = path.normalize(path.join(base, target));
-  if (!targetPath.startsWith(base)) return null; // path traversal koruması
+  // Ayırıcı dahil önek kontrolü: '/base-evil' gibi kardeş yollar da elenir
+  if (targetPath !== base && !targetPath.startsWith(base + path.sep)) return null;
   return targetPath;
 }
 
@@ -50,10 +52,14 @@ const server = http.createServer((req, res) => {
       return res.end();
     }
 
-    let urlPath = decodeURIComponent(req.url.split("?")[0]);
-    // Kısa/pazarlama URL'leri → gerçek sayfa (brief slug'ı + paket talimatındaki ad)
+    let urlPath;
+    try { urlPath = decodeURIComponent(req.url.split("?")[0]); }
+    catch (e) { res.writeHead(400); return res.end("Bad request"); }
+    var qs = req.url.indexOf("?") >= 0 ? req.url.slice(req.url.indexOf("?")) : "";
+    // Kısa/pazarlama URL'leri → gerçek sayfa (brief slug'ı + paket talimatındaki ad);
+    // sorgu parametreleri (utm vb.) korunur
     if (/^(\/havuz-teknolojileri\/ai-cankurtaran-destek-sistemi\/?|\/cankurtaran(\.html)?)$/.test(urlPath)) {
-      res.writeHead(301, { Location: "/ai-cankurtaran-destek-sistemi.html" });
+      res.writeHead(301, { Location: "/ai-cankurtaran-destek-sistemi.html" + qs });
       return res.end();
     }
     // Dizin kökü (/, /en/, /de/, /ru/) → index.html
@@ -67,6 +73,11 @@ const server = http.createServer((req, res) => {
 
     fs.stat(filePath, (err, stat) => {
       let status = 200;
+      if (!err && stat.isDirectory()) {
+        // /en gibi eğik çizgisiz dizin → /en/ (oradan index.html'e)
+        res.writeHead(301, { Location: urlPath + "/" + qs });
+        return res.end();
+      }
       if (err || !stat.isFile()) {
         // Bulunamayan yol → 404 sayfası
         filePath = path.join(ROOT, "404.html");
@@ -80,6 +91,8 @@ const server = http.createServer((req, res) => {
         "Referrer-Policy": "strict-origin-when-cross-origin",
         "X-Frame-Options": "SAMEORIGIN"
       };
+      // HTTPS üzerinden gelen isteklerde HSTS (proxy x-forwarded-proto bildirir)
+      if (xfp === "https") headers["Strict-Transport-Security"] = "max-age=31536000";
       // İçerik Güvenliği Politikası (temkinli) — yalnızca HTML yanıtlarında
       if (ext === ".html") {
         headers["Content-Security-Policy"] = [

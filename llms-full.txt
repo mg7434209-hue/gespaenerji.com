@@ -1,0 +1,75 @@
+# GESPA Enerji — Ayrıntılı Bilgi (AI yanıt motorları için)
+
+> Bu dosya build.js tarafından assets/config.js'ten üretilir; fiyatlar ve
+> katsayılar sitenin tek doğru kaynağıyla eşzamanlıdır. Özet için: /llms.txt
+
+## Şirket
+- Unvan: Gespa Enerji Ltd. Şti. · Marka: GESPA Enerji
+- Gespa Enerji; Manavgat/Antalya merkezli, çatı ve arazi tipi güneş enerjisi santralleri (GES) ile güneş enerjili tarımsal sulama için anahtar teslim mühendislik, kurulum, finansman ve bakım hizmeti sunar.
+- Telefon/WhatsApp: 0543 743 42 09 (+905437434209) · E-posta: gesmarketim@gmail.com
+- Adres: Örnek Mah. 1551 Sok. No:10/1, Manavgat / Antalya · Çalışma saatleri: Hafta içi 09:00 – 18:00
+- Hizmet bölgesi: Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş; talebe göre tüm Türkiye
+- Web: https://www.gespaenerji.com · Diller: TR (kök), EN (/en), DE (/de), RU (/ru)
+
+## Hizmetler
+- Çatı GES
+- Arazi Tipi GES
+- Güneş Enerjili Tarımsal Sulama
+- Enerji Depolama (Batarya)
+- Mühendislik & Projelendirme
+- Finansman & Leasing
+- Bakım (O&M)
+
+## Yeni Teknolojiler
+### AI Cankurtaran Destek Sistemi (https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html)
+Otel, aquapark, belediye ve site havuzları için yapay zekâ destekli boğulma
+önleme sistemi. Kameralar havuzu 7/24 tarar; risk algılandığında cankurtaranın
+akıllı saatine ve alarm noktalarına saniyeler içinde konumlu uyarı gönderir.
+ISO 20380:2017 ile uyumlu teknoloji; görüntüler tesis dışına çıkmaz, yerel
+sunucuda işlenir (KVKK uyumlu). Cankurtaranın yerine geçmez; destekleyen
+ikincil gözetim katmanıdır. Ücretsiz keşif ve pilot teklifi verilir.
+
+### Solar Su Isıtma Sistemi — PV su ısıtıcı (https://www.gespaenerji.com/su-isitici.html)
+Monokristal panellerle suyu doğrudan güneş enerjisiyle ısıtır; bulutlu havada
+otomatik şebeke (AC) desteğine geçer. Emaye iç tank, akıllı GF-20 kontrol.
+Modeller ve fiyatlar (KDV dahil, ₺):
+- 60 L (Yatay, 550 W panel): ₺18.900
+- 80 L (Yatay, 600 W panel): ₺22.900
+- 100 L (Yatay, 700 W panel): ₺27.900
+- 120 L (Dikey, 900 W panel): ₺32.900
+- 150 L (Dikey, 1200 W panel): ₺38.900
+- 200 L (Dikey): fiyat için teklif alın
+
+## Paket Ürünler (https://www.gespaenerji.com/urunler.html)
+Markalar — panel: Arçelik, Lexron, Bakırlar · inverter: Tescom, Mexxsun, Lexron, Arçelik
+- 285W Güneş Paneli Paketi — 0.285 kWp · Kamp, karavan ve küçük ihtiyaçlar · ₺22.000
+- Tam Kapsamlı Güneş Enerjisi Sistemi — 1.08 kWp · Karavan, kamp ve bağ evi · $2.000
+- 3 kW Off-Grid Paket — 3 kWp · Bağ evi ve küçük yapılar · ₺145.934
+- 4.2 kW Off-Grid Paket — 4.2 kWp · Bağ evi ve tam gün kullanım · ₺185.105
+- 6.2 kW Off-Grid Paket — 6.2 kWp · Müstakil ev ve villalar · ₺269.637
+- 8 kW Off-Grid Paket — 8 kWp · Yoğun tüketimli evler · ₺538.543
+- Bağ-Bahçe Sulama Paketi — 3 kWp · Küçük bahçe ve damla sulama · ₺84.000 (yaklaşık, keşifle netleşir)
+- Tarla Sulama Paketi — 7.5 kWp · Orta ölçekli tarlalar · ₺210.000 (yaklaşık, keşifle netleşir)
+- Sera Sulama Paketi — 11 kWp · Sera ve büyük bahçeler · ₺308.000 (yaklaşık, keşifle netleşir)
+- Geniş Tarla Sulama Paketi — 20 kWp · Geniş araziler ve çiftlikler · ₺560.000 (yaklaşık, keşifle netleşir)
+
+## Ücretsiz Online Araçlar (https://www.gespaenerji.com/hesaplayici.html)
+- GES tasarruf hesaplayıcı: fatura/tüketim/çatı alanı/tarımsal sulama girişiyle
+  sistem gücü, panel sayısı, yıllık üretim-tasarruf, geri ödeme süresi, 25 yıllık
+  kazanç ve CO₂ etkisi. Varsayılanlar: panel 550 Wp, kurulum ~₺28.000/kWp,
+  elektrik ₺2.5/kWh. Bölge verimleri — Akdeniz / GAP (çok yüksek): 1750 kWh/kWp/yıl · İç Anadolu / Ege (yüksek): 1600 kWh/kWp/yıl · Marmara (orta): 1450 kWh/kWp/yıl · Karadeniz (düşük): 1300 kWh/kWp/yıl.
+- Mühendislik alet çantası: panel yerleşim planlayıcı, inverter boyutlandırma,
+  DC kablo kesiti/gerilim düşümü, batarya boyutlandırma, sıra aralığı/gölgelenme.
+- Solar sulama pompası seçimi (https://www.gespaenerji.com/tarimsal-sulama.html).
+
+## Sık Sorulan Sorular (özet)
+- GES yatırımı tipik olarak 3–6 yılda amorti olur (tüketim, bölge ve elektrik
+  fiyatına göre değişir).
+- Güneş enerjili tarımsal sulamada tipik geri ödeme 2–4 yıldır; mazot maliyeti
+  sıfıra yaklaşır.
+- Panellerde 25 yıla varan performans garantisi sunulur; bakım (O&M) hizmeti vardır.
+- Finansman & leasing seçenekleriyle peşin sermaye gerekmeden başlanabilir.
+- Ücretsiz keşif ve tasarruf analizi tüm hizmetler için standarttır.
+
+## Yasal
+KVKK aydınlatma metni: https://www.gespaenerji.com/kvkk.html · Gizlilik: https://www.gespaenerji.com/gizlilik.html · Çerez: https://www.gespaenerji.com/cerez-politikasi.html

@@ -2,23 +2,66 @@ User-agent: *
 Allow: /
 Disallow: /admin.html
 
-# AI / yanıt motorları — içeriğimizin AI aramalarında görünmesini istiyoruz
+# AI / yanıt motorları — içeriğimizin AI aramalarında görünmesini istiyoruz.
+# LLM bilgi dosyaları: /llms.txt (özet) ve /llms-full.txt (ürün/fiyat ayrıntısı)
 User-agent: GPTBot
 Allow: /
+Disallow: /admin.html
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /admin.html
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /admin.html
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /admin.html
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /admin.html
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /admin.html
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /admin.html
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /admin.html
+
+User-agent: Claude-User
+Allow: /
+Disallow: /admin.html
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /admin.html
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /admin.html
+
+User-agent: CCBot
+Allow: /
+Disallow: /admin.html
+
+User-agent: meta-externalagent
+Allow: /
+Disallow: /admin.html
+
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /admin.html
+
+User-agent: YouBot
+Allow: /
+Disallow: /admin.html
 
 Sitemap: https://www.gespaenerji.com/sitemap.xml

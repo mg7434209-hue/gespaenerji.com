@@ -12,6 +12,7 @@
 "use strict";
 const fs = require("fs");
 const path = require("path");
+const vm = require("vm");
 
 const ROOT = __dirname;
 const ORIGIN = "https://www.gespaenerji.com";
@@ -139,7 +140,423 @@ const META = {
 
 function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
 
-function transform(html, lang, file) {
+/* ============================================================
+   STATİK SEO/AEO ÜRETİMİ — tek kaynak assets/config.js
+   AI botları (GPTBot, ClaudeBot, PerplexityBot...) JavaScript
+   ÇALIŞTIRMAZ; bu yüzden JSON-LD ve iletişim bilgileri build
+   sırasında TR kaynak sayfalara statik işlenir. main.js aynı
+   veriyi çalışma zamanında tazeler (data-gld varsa yeniden
+   enjekte etmez). Elle düzenlemeyin; kaynak = config.js.
+   ============================================================ */
+function loadConfig() {
+  const sandbox = { window: {} };
+  vm.runInNewContext(fs.readFileSync(path.join(ROOT, "assets/config.js"), "utf8"), sandbox);
+  return sandbox.window.GESPA.config;
+}
+
+function localBusinessLd(c) {
+  const d = {
+    "@context": "https://schema.org", "@type": "LocalBusiness",
+    name: c.brandName, legalName: c.legalName, url: c.web,
+    telephone: c.phone && c.phone.tel, email: c.email,
+    image: c.web + "/assets/img/gespa-icon.png",
+    address: { "@type": "PostalAddress", streetAddress: c.address.line, addressLocality: c.address.district, addressRegion: c.address.city, addressCountry: c.address.country }
+  };
+  if (c.description) d.description = c.description;
+  if (c.slogan) d.slogan = c.slogan;
+  if (c.openingHours) d.openingHours = c.openingHours;
+  if (c.priceRange) d.priceRange = c.priceRange;
+  if (c.areaServed && c.areaServed.length) d.areaServed = c.areaServed;
+  if (c.knowsAbout && c.knowsAbout.length) d.knowsAbout = c.knowsAbout;
+  if (c.foundingYear) d.foundingDate = String(c.foundingYear);
+  if (c.services && c.services.length) {
+    d.hasOfferCatalog = {
+      "@type": "OfferCatalog", name: "Hizmetler",
+      itemListElement: c.services.map(sv => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: sv } }))
+    };
+  }
+  if (c.rating && c.rating.value && c.rating.count) d.aggregateRating = { "@type": "AggregateRating", ratingValue: c.rating.value, reviewCount: c.rating.count };
+  if (c.sameAs && c.sameAs.length) d.sameAs = c.sameAs;
+  if (c.geo && c.geo.lat != null && c.geo.lng != null) d.geo = { "@type": "GeoCoordinates", latitude: c.geo.lat, longitude: c.geo.lng };
+  return d;
+}
+
+function heaterProductLd(cfg) {
+  const prices = cfg.heater.models.map(m => m.price).filter(Boolean);
+  const d = {
+    "@context": "https://schema.org", "@type": "Product",
+    name: (cfg.heater.name || "Solar Su Isıtma Sistemi") + " — Fotovoltaik Güneş Enerjili Su Isıtıcı",
+    image: cfg.company.web + "/assets/img/products/pv-su-isitici.jpg",
+    description: "Monokristal güneş panelleriyle suyu doğrudan güneş enerjisiyle ısıtan fotovoltaik su ısıtıcı. Akıllı GF-20 kontrol, bulutlu havada otomatik şebeke (AC) desteği, emaye iç tank. 60–200 L kapasite seçenekleri (yatay/dikey).",
+    brand: { "@type": "Brand", name: cfg.company.brandName },
+    category: "Solar Water Heater",
+    url: cfg.company.web + "/su-isitici.html"
+  };
+  if (prices.length) {
+    d.offers = {
+      "@type": "AggregateOffer", priceCurrency: "TRY",
+      lowPrice: Math.min.apply(null, prices), highPrice: Math.max.apply(null, prices),
+      offerCount: prices.length, availability: "https://schema.org/InStock"
+    };
+  }
+  return d;
+}
+
+function packagesItemListLd(cfg) {
+  const COST = (cfg.calc && cfg.calc.costPerKwp) || 28000;
+  const items = cfg.packages.map(p => {
+    const item = {
+      "@type": "Product", name: p.name, category: p.tag, description: p.desc,
+      url: cfg.company.web + "/urunler.html#pkg-" + p.id
+    };
+    const price = p.price != null ? p.price : (p.priceOnRequest ? null : Math.round(p.kwp * COST));
+    if (price != null) item.offers = { "@type": "Offer", price: price, priceCurrency: p.currency || "TRY", availability: "https://schema.org/InStock" };
+    return item;
+  });
+  return {
+    "@context": "https://schema.org", "@type": "ItemList",
+    name: "GESPA Enerji Paket Ürünler",
+    itemListElement: items.map((o, i) => ({ "@type": "ListItem", position: i + 1, item: o }))
+  };
+}
+
+function cankurtaranProductLd(cfg) {
+  return {
+    "@context": "https://schema.org", "@type": "Product",
+    name: "AI Cankurtaran Destek Sistemi",
+    alternateName: "AI Lifeguard Support System",
+    image: cfg.company.web + "/assets/img/products/cankurtaran/hero-havuz-guvenlik.png",
+    description: "Otel, aquapark, belediye ve site havuzları için yapay zekâ destekli boğulma önleme sistemi. Kameralar havuzu 7/24 tarar; risk algılandığında cankurtaranın akıllı saatine ve alarm noktalarına saniyeler içinde konumlu uyarı gönderir. ISO 20380:2017 ile uyumlu teknoloji; görüntüler tesis içindeki yerel sunucuda işlenir (KVKK uyumlu). Cankurtaranın yerine geçmez; onu destekleyen ikincil gözetim katmanıdır.",
+    brand: { "@type": "Brand", name: cfg.company.brandName },
+    category: "Pool Drowning Detection System",
+    url: cfg.company.web + "/ai-cankurtaran-destek-sistemi.html"
+  };
+}
+
+// Sayfadaki .crumbs bloğundan statik BreadcrumbList üret (bot'lar JS'siz görür)
+function breadcrumbLd(html, file, cfg) {
+  const m = html.match(/<div class="crumbs[^"]*">([\s\S]*?)<\/div>/);
+  if (!m) return null;
+  const inner = m[1];
+  const items = [];
+  const linkRe = /<a href="([^"]+)">([^<]+)<\/a>/g;
+  let lm;
+  while ((lm = linkRe.exec(inner)) !== null) {
+    const href = lm[1] === "index.html" ? cfg.company.web + "/" : cfg.company.web + "/" + lm[1];
+    items.push({ "@type": "ListItem", position: items.length + 1, name: lm[2].trim(), item: href });
+  }
+  // son kırıntı: etiketler ayıklanınca kalan metnin son parçası
+  const tail = inner.replace(/<a[\s\S]*?<\/a>/g, "").replace(/<[^>]+>/g, " ").split("/").map(s => s.trim()).filter(Boolean).pop();
+  if (tail) items.push({ "@type": "ListItem", position: items.length + 1, name: tail, item: cfg.company.web + "/" + file });
+  if (items.length < 2) return null;
+  return { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: items };
+}
+
+// Projeler sayfasındaki statik kartlardan ItemList üret
+function projectsItemListLd(html, cfg) {
+  const items = [];
+  const re = /<article class="project[\s\S]*?<h3>([^<]+)<\/h3>\s*<p>([^<]+)<\/p>[\s\S]*?📍\s*([^<]+)<[\s\S]*?⚡\s*([^<]+)</g;
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    items.push({
+      "@type": "ListItem", position: items.length + 1,
+      item: { "@type": "Project", name: m[1].trim(), description: m[2].trim(), location: m[3].trim(), additionalProperty: { "@type": "PropertyValue", name: "Kurulu güç", value: m[4].trim() } }
+    });
+  }
+  if (!items.length) return null;
+  return { "@context": "https://schema.org", "@type": "ItemList", name: "GESPA Enerji Referans Projeler", itemListElement: items };
+}
+
+function webAppLd(cfg) {
+  return {
+    "@context": "https://schema.org", "@type": "WebApplication",
+    name: "GES Tasarruf Hesaplayıcı", url: cfg.company.web + "/hesaplayici.html",
+    applicationCategory: "UtilityApplication", operatingSystem: "Web",
+    offers: { "@type": "Offer", price: 0, priceCurrency: "TRY" },
+    description: "Ücretsiz güneş enerjisi hesaplayıcı: fatura, tüketim veya çatı alanından sistem gücü, panel sayısı, yıllık tasarruf, geri ödeme süresi, 25 yıllık kazanç ve CO₂ etkisini hesaplar. Panel yerleşimi, inverter, kablo, batarya ve sıra aralığı mühendislik araçları içerir.",
+    provider: { "@type": "Organization", name: cfg.company.brandName, url: cfg.company.web }
+  };
+}
+
+const LD_RE = /[ \t]*<!-- LD:STATIC[\s\S]*?\/LD:STATIC -->\n?/;
+function injectStaticLd(html, file, cfg) {
+  const objs = [localBusinessLd(cfg.company)];
+  if (file === "su-isitici.html") objs.push(heaterProductLd(cfg));
+  if (file === "urunler.html") objs.push(packagesItemListLd(cfg));
+  if (file === "ai-cankurtaran-destek-sistemi.html") objs.push(cankurtaranProductLd(cfg));
+  if (file === "hesaplayici.html") objs.push(webAppLd(cfg));
+  if (file === "hakkimizda.html") objs.push({ "@context": "https://schema.org", "@type": "AboutPage", name: "Hakkımızda — " + cfg.company.brandName, url: cfg.company.web + "/hakkimizda.html", about: { "@type": "Organization", name: cfg.company.brandName, url: cfg.company.web } });
+  if (file === "iletisim.html") objs.push({ "@context": "https://schema.org", "@type": "ContactPage", name: "İletişim — " + cfg.company.brandName, url: cfg.company.web + "/iletisim.html" });
+  if (file === "projeler.html") { const pl = projectsItemListLd(html, cfg); if (pl) objs.push(pl); }
+  const bc = breadcrumbLd(html.replace(LD_RE, ""), file, cfg);
+  if (bc) objs.push(bc);
+  const block = "  <!-- LD:STATIC — build.js config'ten üretir; elle düzenlemeyin -->\n"
+    + objs.map(o => '  <script type="application/ld+json" data-gld>' + JSON.stringify(o) + "</script>").join("\n")
+    + "\n  <!-- /LD:STATIC -->\n";
+  if (LD_RE.test(html)) return html.replace(LD_RE, block);
+  return html.replace(/\n?<\/head>/, "\n" + block + "</head>");
+}
+
+// i18n sözlüğünü Node tarafında yükle (i18n.js window.GESPA.i18nData'ya koyar)
+function loadI18n() {
+  const noop = function () {};
+  const sandbox = {
+    document: {
+      readyState: "loading", addEventListener: noop, dispatchEvent: noop,
+      querySelectorAll: () => [], querySelector: () => null,
+      head: { appendChild: noop, querySelectorAll: () => [] },
+      documentElement: { setAttribute: noop },
+      createElement: () => ({ setAttribute: noop }),
+    },
+    localStorage: { getItem: () => null, setItem: noop },
+    location: { pathname: "/", origin: ORIGIN },
+    CustomEvent: function () {},
+  };
+  sandbox.window = sandbox; // i18n.js 'GESPA' global adına bare erişir
+  vm.runInNewContext(fs.readFileSync(path.join(ROOT, "assets/i18n.js"), "utf8"), sandbox);
+  return sandbox.GESPA.i18nData; // { DICT, PH, HTMLMAP }
+}
+
+function nfTr(n) { return new Intl.NumberFormat("tr-TR").format(Math.round(n)); }
+
+// Dil sayfası gövdesini DICT ile statik çevir (istemci i18n dinamik içerik için kalır).
+// Leaf yaklaşımı: >METİN< aralıklarında tam (trim) eşleşme; eşleşmeyen TR kalır.
+function translateBody(out, lang, i18n) {
+  const d = (i18n.DICT && i18n.DICT[lang]) || {};
+  const bodyStart = out.indexOf("<body");
+  if (bodyStart < 0) return out;
+  let head = out.slice(0, bodyStart), body = out.slice(bodyStart);
+  body = body.replace(/>([^<>]+)</g, (m, txt) => {
+    const t = txt.trim();
+    if (!t || !d[t]) return m;
+    const i = txt.indexOf(t);
+    return ">" + txt.slice(0, i) + d[t] + txt.slice(i + t.length) + "<";
+  });
+  const ph = (i18n.PH && i18n.PH[lang]) || {};
+  body = body.replace(/placeholder="([^"]*)"/g, (m, v) => (ph[v] ? 'placeholder="' + esc(ph[v]) + '"' : m));
+  // data-i18n-html elemanları (ör. #heroTitle) — HTMLMAP'ten statik bas
+  const HM = i18n.HTMLMAP || {};
+  for (const sel of Object.keys(HM)) {
+    if (sel[0] !== "#") continue;
+    const re = new RegExp('(<([a-z0-9]+)[^>]*\\bid="' + sel.slice(1) + '"[^>]*>)[\\s\\S]*?(</\\2>)');
+    body = body.replace(re, (mm, open, tag, close) => open + (HM[sel][lang] || HM[sel].tr) + close);
+  }
+  return head + body;
+}
+
+// FAQPage JSON-LD'yi silmek yerine DICT ile çevir (eşleşmeyen TR kalır)
+function translateFaqLd(block, lang, i18n) {
+  const d = (i18n.DICT && i18n.DICT[lang]) || {};
+  const m = block.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+  if (!m) return block;
+  try {
+    const obj = JSON.parse(m[1]);
+    if (obj["@type"] !== "FAQPage") return block;
+    (obj.mainEntity || []).forEach(q => {
+      if (d[q.name]) q.name = d[q.name];
+      const a = q.acceptedAnswer;
+      if (a && d[a.text]) a.text = d[a.text];
+    });
+    return block.replace(m[1], JSON.stringify(obj));
+  } catch (e) { return block; }
+}
+
+// ---- TR kaynaklara ek statik içerik (JS'siz botlar tam veri görsün) ----
+function hydrateExtras(html, file, cfg) {
+  const c = cfg.company;
+  // Telif yılı
+  html = html.replace(/(<span id="yil">)[^<]*(<\/span>)/, "$1" + new Date().getFullYear() + "$2");
+  // Sayaçlar: nihai değer statik yazılır (animasyon 0'dan sayarak üzerine gelir)
+  html = html.replace(/(<([a-z0-9]+)([^>]*\bdata-count="([^"]+)"[^>]*)>)[^<]*(<\/\2>)/g,
+    (m, open, tag, attrs, val, close) => {
+      const pre = (attrs.match(/data-prefix="([^"]*)"/) || [])[1] || "";
+      const suf = (attrs.match(/data-suffix="([^"]*)"/) || [])[1] || "";
+      return open + pre + val + suf + close;
+    });
+  // Marka vitrinleri
+  const brandSpans = arr => arr.map(n => "<span>" + esc(n) + "</span>").join("");
+  html = html.replace(/(<div class="trust-logos" id="brandPanels">)[\s\S]*?(<\/div>)/, "$1" + brandSpans(cfg.brands.panel) + "$2");
+  html = html.replace(/(<div class="trust-logos" id="brandInverters">)[\s\S]*?(<\/div>)/, "$1" + brandSpans(cfg.brands.inverter) + "$2");
+  // Hesaplayıcı varsayımları + bölge/yön seçenekleri
+  const setSpan = (id, v) => { html = html.replace(new RegExp('(<[^>]*id="' + id + '"[^>]*>)[^<]*(</)'), "$1" + v + "$2"); };
+  if (cfg.calc) {
+    const k = cfg.calc;
+    setSpan("aPanelW", k.panelW + " Wp");
+    setSpan("aArea", k.areaPerKwp + " m²/kWp");
+    setSpan("aCost", "₺" + nfTr(k.costPerKwp) + "/kWp");
+    setSpan("aCo2", new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 2 }).format(k.co2PerKwh) + " kg/kWh");
+    if (k.pump) {
+      setSpan("pAEff", "%" + Math.round(k.pump.pumpEfficiency * 100));
+      setSpan("pAOver", new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 1 }).format(k.pump.pvOversize) + "×");
+    }
+    const opts = (arr, vKey) => arr.map(r => '<option value="' + r[vKey] + '"' + (r.default ? " selected" : "") + ">" + esc(r.label) + "</option>").join("");
+    html = html.replace(/(<select id="city"[^>]*>)[\s\S]*?(<\/select>)/, "$1" + opts(k.regions, "yield") + "$2");
+    html = html.replace(/(<select id="orient"[^>]*>)[\s\S]*?(<\/select>)/, "$1" + opts(k.orientations, "factor") + "$2");
+  }
+  // Su ısıtıcı model tablosu + başlangıç fiyatı
+  if (file === "su-isitici.html" && cfg.heater) {
+    const rows = cfg.heater.models.map(m =>
+      "<tr><td>" + m.cap + " L</td><td>" + m.mount + "</td><td>" + (m.pv != null ? m.pv + " W" : "—") + "</td><td>" + (m.dim || "—") +
+      "</td><td>" + (m.ac != null ? m.ac + " kW" : "—") + "</td><td>Emaye</td><td>" +
+      (m.price ? '<span class="spec-price">₺' + nfTr(m.price) + "</span>" : '<a href="iletisim.html" class="spec-quote">Teklif alın</a>') + "</td></tr>"
+    ).join("");
+    html = html.replace(/(<tbody id="heaterRows">)[\s\S]*?(<\/tbody>)/, "$1" + rows + "$2");
+    const prices = cfg.heater.models.map(m => m.price).filter(Boolean);
+    if (prices.length) setSpan("heaterFrom", "₺" + nfTr(Math.min.apply(null, prices)) + "'dan başlayan fiyatlarla");
+  }
+  // Paket kataloğu — kompakt statik liste (main.js istemcide tam kartlarla değiştirir)
+  if (file === "urunler.html" && cfg.packages) {
+    const GROUPS = [
+      { id: "offgrid", title: "Taşınabilir & Off-Grid Paketler" },
+      { id: "irrigation", title: "Tarımsal Sulama Paketleri" },
+      { id: "ongrid", title: "Çatı / On-Grid Paketler" }
+    ];
+    const COST = cfg.calc.costPerKwp;
+    let staticList = "";
+    for (const g of GROUPS) {
+      const items = cfg.packages.filter(p => (p.group || "ongrid") === g.id);
+      if (!items.length) continue;
+      staticList += '<div class="pkg-group"><div class="pkg-group-head"><h2>' + g.title + "</h2></div><ul class=\"ticks\">" +
+        items.map(p => {
+          const price = p.price != null ? p.price : Math.round(p.kwp * COST);
+          const cur = p.currency === "USD" ? "$" : "₺";
+          return "<li><strong>" + esc(p.name) + "</strong> — " + p.kwp + " kWp · " + esc(p.for) + " · " +
+            cur + nfTr(price) + (p.price != null ? "" : " (yaklaşık)") + ". " + esc(p.desc) + "</li>";
+        }).join("") + "</ul></div>";
+    }
+    const marker = /<!-- PKG:STATIC -->[\s\S]*?<!-- \/PKG:STATIC -->/;
+    const block = "<!-- PKG:STATIC -->" + staticList + "<!-- /PKG:STATIC -->";
+    if (marker.test(html)) html = html.replace(marker, block);
+    else html = html.replace(/(<div id="packageGrid"[^>]*>)/, "$1" + block);
+  }
+  // Statik hreflang kümesi (canonical'ın hemen ardına; mevcut küme yenilenir)
+  html = html.replace(/[ \t]*<link rel="alternate" hreflang=[^>]*\/>\n?/g, "");
+  const urlFor = l => l === "tr" ? ORIGIN + "/" + (file === "index.html" ? "" : file) : ORIGIN + "/" + l + "/" + (file === "index.html" ? "" : file);
+  const cluster = ["tr", ...LANGS].map(l => '  <link rel="alternate" hreflang="' + l + '" href="' + urlFor(l) + '" />').join("\n")
+    + '\n  <link rel="alternate" hreflang="x-default" href="' + urlFor("tr") + '" />';
+  html = html.replace(/(<link rel="canonical"[^>]*\/>)/, "$1\n" + cluster);
+  return html;
+}
+
+// ---- sitemap.xml üretimi: TR + tüm dil sayfaları ayrı <url> girdileriyle ----
+const PRIORITY = {
+  "index.html": "1.0", "hizmetler.html": "0.9", "urunler.html": "0.9",
+  "ai-cankurtaran-destek-sistemi.html": "0.9", "su-isitici.html": "0.8",
+  "tarimsal-sulama.html": "0.9", "hesaplayici.html": "0.8", "projeler.html": "0.7",
+  "hakkimizda.html": "0.6", "iletisim.html": "0.8",
+  "kvkk.html": "0.3", "gizlilik.html": "0.3", "cerez-politikasi.html": "0.3"
+};
+function writeSitemap() {
+  const urlFor = (l, file) => l === "tr" ? ORIGIN + "/" + (file === "index.html" ? "" : file) : ORIGIN + "/" + l + "/" + (file === "index.html" ? "" : file);
+  const entries = [];
+  for (const file of PAGES) {
+    const p = path.join(ROOT, file);
+    if (!fs.existsSync(p)) continue;
+    const lastmod = fs.statSync(p).mtime.toISOString().slice(0, 10);
+    const cluster = ["tr", ...LANGS].map(l => '    <xhtml:link rel="alternate" hreflang="' + l + '" href="' + urlFor(l, file) + '" />').join("\n")
+      + '\n    <xhtml:link rel="alternate" hreflang="x-default" href="' + urlFor("tr", file) + '" />';
+    for (const l of ["tr", ...LANGS]) {
+      entries.push("  <url>\n    <loc>" + urlFor(l, file) + "</loc>\n    <lastmod>" + lastmod +
+        "</lastmod><changefreq>" + (file === "index.html" ? "weekly" : "monthly") + "</changefreq><priority>" +
+        (l === "tr" ? (PRIORITY[file] || "0.7") : "0.5") + "</priority>\n" + cluster + "\n  </url>");
+    }
+  }
+  const xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' +
+    entries.join("\n") + "\n</urlset>\n";
+  fs.writeFileSync(path.join(ROOT, "sitemap.xml"), xml);
+}
+
+// İletişim bilgilerini statik doldur (JS'siz botlar için; main.js runtime'da tazeler)
+function hydrateContact(html, c) {
+  html = html.replace(/(<(a|span|strong)\b[^>]*\bdata-c-text="([^"]+)"[^>]*>)[^<]*(<\/\2>)/g,
+    (m, open, tag, key, close) => {
+      const v = key.split(".").reduce((o, k) => (o == null ? o : o[k]), c);
+      return v == null ? m : open + v + close;
+    });
+  const setHref = (tag, url) => /\bhref="/.test(tag)
+    ? tag.replace(/href="[^"]*"/, 'href="' + url + '"')
+    : tag.replace(/^<a\b/, '<a href="' + url + '"');
+  html = html.replace(/<a\b[^>]*\bdata-c-tel\b[^>]*>/g, t => setHref(t, "tel:" + c.phone.tel));
+  html = html.replace(/<a\b[^>]*\bdata-c-mailto\b[^>]*>/g, t => setHref(t, "mailto:" + c.email));
+  html = html.replace(/<a\b[^>]*\bdata-c-wa\b[^>]*>/g, t => setHref(t, "https://wa.me/" + c.phone.wa));
+  return html;
+}
+
+// AI yanıt motorları için ayrıntılı bilgi dosyası (fiyatlar config'ten)
+function writeLlmsFull(cfg) {
+  const nf = n => new Intl.NumberFormat("tr-TR").format(Math.round(n));
+  const COST = cfg.calc.costPerKwp;
+  const pkgLines = cfg.packages.map(p => {
+    const price = p.price != null ? p.price : Math.round(p.kwp * COST);
+    const cur = p.currency === "USD" ? "$" : "₺";
+    const tag = p.price != null ? "" : " (yaklaşık, keşifle netleşir)";
+    return `- ${p.name} — ${p.kwp} kWp · ${p.for} · ${cur}${nf(price)}${tag}`;
+  }).join("\n");
+  const heaterLines = cfg.heater.models.map(m =>
+    `- ${m.cap} L (${m.mount}${m.pv ? ", " + m.pv + " W panel" : ""}): ${m.price ? "₺" + nf(m.price) : "fiyat için teklif alın"}`
+  ).join("\n");
+  const regions = cfg.calc.regions.map(r => `${r.label}: ${r.yield} kWh/kWp/yıl`).join(" · ");
+  const c = cfg.company;
+  const out = `# GESPA Enerji — Ayrıntılı Bilgi (AI yanıt motorları için)
+
+> Bu dosya build.js tarafından assets/config.js'ten üretilir; fiyatlar ve
+> katsayılar sitenin tek doğru kaynağıyla eşzamanlıdır. Özet için: /llms.txt
+
+## Şirket
+- Unvan: ${c.legalName} · Marka: ${c.brandName}
+- ${c.description}
+- Telefon/WhatsApp: ${c.phone.display} (+${c.phone.wa}) · E-posta: ${c.email}
+- Adres: ${c.address.full} · Çalışma saatleri: ${c.hours}
+- Hizmet bölgesi: ${c.areaServed.join(", ")}; talebe göre tüm Türkiye
+- Web: ${c.web} · Diller: TR (kök), EN (/en), DE (/de), RU (/ru)
+
+## Hizmetler
+${c.services.map(s => "- " + s).join("\n")}
+
+## Yeni Teknolojiler
+### AI Cankurtaran Destek Sistemi (${c.web}/ai-cankurtaran-destek-sistemi.html)
+Otel, aquapark, belediye ve site havuzları için yapay zekâ destekli boğulma
+önleme sistemi. Kameralar havuzu 7/24 tarar; risk algılandığında cankurtaranın
+akıllı saatine ve alarm noktalarına saniyeler içinde konumlu uyarı gönderir.
+ISO 20380:2017 ile uyumlu teknoloji; görüntüler tesis dışına çıkmaz, yerel
+sunucuda işlenir (KVKK uyumlu). Cankurtaranın yerine geçmez; destekleyen
+ikincil gözetim katmanıdır. Ücretsiz keşif ve pilot teklifi verilir.
+
+### Solar Su Isıtma Sistemi — PV su ısıtıcı (${c.web}/su-isitici.html)
+Monokristal panellerle suyu doğrudan güneş enerjisiyle ısıtır; bulutlu havada
+otomatik şebeke (AC) desteğine geçer. Emaye iç tank, akıllı GF-20 kontrol.
+Modeller ve fiyatlar (KDV dahil, ₺):
+${heaterLines}
+
+## Paket Ürünler (${c.web}/urunler.html)
+Markalar — panel: ${cfg.brands.panel.join(", ")} · inverter: ${cfg.brands.inverter.join(", ")}
+${pkgLines}
+
+## Ücretsiz Online Araçlar (${c.web}/hesaplayici.html)
+- GES tasarruf hesaplayıcı: fatura/tüketim/çatı alanı/tarımsal sulama girişiyle
+  sistem gücü, panel sayısı, yıllık üretim-tasarruf, geri ödeme süresi, 25 yıllık
+  kazanç ve CO₂ etkisi. Varsayılanlar: panel ${cfg.calc.panelW} Wp, kurulum ~₺${nf(cfg.calc.costPerKwp)}/kWp,
+  elektrik ₺${cfg.calc.defaultUnitPrice}/kWh. Bölge verimleri — ${regions}.
+- Mühendislik alet çantası: panel yerleşim planlayıcı, inverter boyutlandırma,
+  DC kablo kesiti/gerilim düşümü, batarya boyutlandırma, sıra aralığı/gölgelenme.
+- Solar sulama pompası seçimi (${c.web}/tarimsal-sulama.html).
+
+## Sık Sorulan Sorular (özet)
+- GES yatırımı tipik olarak 3–6 yılda amorti olur (tüketim, bölge ve elektrik
+  fiyatına göre değişir).
+- Güneş enerjili tarımsal sulamada tipik geri ödeme 2–4 yıldır; mazot maliyeti
+  sıfıra yaklaşır.
+- Panellerde 25 yıla varan performans garantisi sunulur; bakım (O&M) hizmeti vardır.
+- Finansman & leasing seçenekleriyle peşin sermaye gerekmeden başlanabilir.
+- Ücretsiz keşif ve tasarruf analizi tüm hizmetler için standarttır.
+
+## Yasal
+KVKK aydınlatma metni: ${c.web}/kvkk.html · Gizlilik: ${c.web}/gizlilik.html · Çerez: ${c.web}/cerez-politikasi.html
+`;
+  fs.writeFileSync(path.join(ROOT, "llms-full.txt"), out);
+}
+
+function transform(html, lang, file, i18n) {
   const m = META[file] && META[file][lang];
   const canonical = ORIGIN + "/" + lang + "/" + (file === "index.html" ? "" : file);
   let out = html;
@@ -153,12 +570,18 @@ function transform(html, lang, file) {
   //    inline stil arka planları: url('assets/...') -> url('/assets/...')
   out = out.replace(/url\((['"]?)assets\//g, 'url($1/assets/');
 
-  // 3) <title> ve meta description (dil-özel)
+  // 3) <title>, meta description ve og:title/og:description (dil-özel)
   if (m) {
     out = out.replace(/<title>[\s\S]*?<\/title>/, "<title>" + esc(m.t) + "</title>");
     out = out.replace(/<meta name="description" content="[^"]*"\s*\/>/,
       '<meta name="description" content="' + esc(m.d) + '" />');
+    out = out.replace(/<meta property="og:title" content="[^"]*"\s*\/>/,
+      '<meta property="og:title" content="' + esc(m.t) + '" />');
+    out = out.replace(/<meta property="og:description" content="[^"]*"\s*\/>/,
+      '<meta property="og:description" content="' + esc(m.d) + '" />');
   }
+  //    TR anahtar kelimeler dil sayfalarında yanıltıcı — kaldır
+  out = out.replace(/[ \t]*<meta name="keywords" content="[^"]*"\s*\/>\n?/, "");
 
   // 4) og:locale
   out = out.replace(/content="tr_TR"/, 'content="' + OG_LOCALE[lang] + '"');
@@ -169,19 +592,40 @@ function transform(html, lang, file) {
   out = out.replace(/<meta property="og:url" content="[^"]*"\s*\/>/,
     '<meta property="og:url" content="' + canonical + '" />');
 
-  // 6) Statik (TR metinli) FAQPage JSON-LD'yi dil sayfalarından çıkar —
-  //    EN/DE/RU sayfada Türkçe yapılandırılmış veri dil uyumsuzluğu yaratır
-  out = out.replace(/[ \t]*<script type="application\/ld\+json">[\s\S]*?<\/script>\n?/g,
-    function (block) { return /"FAQPage"/.test(block) ? "" : block; });
+  // 6) FAQPage JSON-LD'yi silme; DICT ile çevir (eşleşmeyen TR kalır)
+  out = out.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g,
+    block => /"FAQPage"/.test(block) ? translateFaqLd(block, lang, i18n) : block);
 
   // 7) i18n için dil bayrağını erken tanımla (deferred i18n.js okuyacak)
   out = out.replace(/(<meta charset="UTF-8" \/>)/,
     '$1\n  <script>window.__LANG__="' + lang + '";</script>');
 
+  // 8) Gövdeyi DICT ile statik çevir — AI botları JS çalıştırmadığı için
+  //    /en /de /ru sayfaların ham HTML'i de hedef dilde olmalı
+  out = translateBody(out, lang, i18n);
+
   return out;
 }
 
 function run() {
+  // 0) TR kaynak sayfalara statik SEO/AEO çıktısını işle (JSON-LD + iletişim +
+  //    ürün/marka/sayaç içerikleri + hreflang) ve llms-full.txt + sitemap üret
+  //    — tek kaynak: assets/config.js
+  const cfg = loadConfig();
+  const i18n = loadI18n();
+  for (const file of PAGES) {
+    const p = path.join(ROOT, file);
+    if (!fs.existsSync(p)) continue;
+    let html = fs.readFileSync(p, "utf8");
+    const before = html;
+    html = hydrateContact(html, cfg.company);
+    html = hydrateExtras(html, file, cfg);
+    html = injectStaticLd(html, file, cfg);
+    if (html !== before) fs.writeFileSync(p, html);
+  }
+  writeLlmsFull(cfg);
+  writeSitemap();
+
   let count = 0;
   for (const lang of LANGS) {
     const dir = path.join(ROOT, lang);
@@ -190,7 +634,7 @@ function run() {
       const src = path.join(ROOT, file);
       if (!fs.existsSync(src)) continue;
       const html = fs.readFileSync(src, "utf8");
-      fs.writeFileSync(path.join(dir, file), transform(html, lang, file));
+      fs.writeFileSync(path.join(dir, file), transform(html, lang, file, i18n));
       count++;
     }
   }

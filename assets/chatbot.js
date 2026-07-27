@@ -133,21 +133,23 @@
     },
     {
       k: ["paket", "urun", "hazir", "kac kwp", "kwp", "off grid", "offgrid", "tasinabilir", "karavan", "jel aku", "lityum", "lifepo", "sulama paket", "package", "kit", "portable", "caravan", "bausatz", "tragbar", "комплект", "пакет", "караван"],
-      a: ["📦 Hazır paketlerimiz: taşınabilir off-grid lityum bataryalı kitler (1–8 kW; bağ evi/karavan/kulübe) ve tarımsal sulama paketleri. Net güç, panel ve yaklaşık fiyatıyla inceleyebilirsiniz. (Çatı/on-grid sistemler proje bazlı sunulur.)",
-          "📦 Ready packages: portable off-grid lithium-battery kits (1–8 kW; cabins/caravans/huts) and agricultural irrigation packages — each with clear power, panel count and approx. price. (Rooftop/on-grid systems are quoted per project.)",
-          "📦 Fertige Pakete: tragbare Off-Grid-Kits mit Lithium-Batterie (1–8 kW; Gartenhaus/Wohnmobil/Hütte) und Bewässerungspakete — mit klarer Leistung, Modulanzahl und ca.-Preis. (Aufdach-/On-Grid-Anlagen projektbezogen.)",
-          "📦 Готовые пакеты: портативные автономные комплекты с литиевым аккумулятором (1–8 кВт; дача/караван) и пакеты для полива — с понятной мощностью и ценой. (Сетевые системы — по проекту.)"],
+      a: ["📦 Hazır paketlerimiz: taşınabilir off-grid lityum bataryalı kitler (285 W – 8 kW; bağ evi/karavan/kulübe) ve tarımsal sulama paketleri. Net güç, panel ve yaklaşık fiyatıyla inceleyebilirsiniz. (Çatı/on-grid sistemler proje bazlı sunulur.)",
+          "📦 Ready packages: portable off-grid lithium-battery kits (285 W – 8 kW; cabins/caravans/huts) and agricultural irrigation packages — each with clear power, panel count and approx. price. (Rooftop/on-grid systems are quoted per project.)",
+          "📦 Fertige Pakete: tragbare Off-Grid-Kits mit Lithium-Batterie (285 W – 8 kW; Gartenhaus/Wohnmobil/Hütte) und Bewässerungspakete — mit klarer Leistung, Modulanzahl und ca.-Preis. (Aufdach-/On-Grid-Anlagen projektbezogen.)",
+          "📦 Готовые пакеты: портативные автономные комплекты с литиевым аккумулятором (285 Вт – 8 кВт; дача/караван) и пакеты для полива — с понятной мощностью и ценой. (Сетевые системы — по проекту.)"],
       link: { t: ["Paket ürünler", "Solar packages", "Solar-Pakete", "Солнечные пакеты"], u: "urunler.html" }
     }
   ];
 
   function contactAnswer() {
     var tel = (C.phone && C.phone.display) || "";
-    var hrs = C.hours || "Hafta içi 09:00 – 18:00";
-    return L("📞 Bize " + (tel || "telefon") + " numarasından veya WhatsApp'tan ulaşabilirsiniz. Çalışma saatleri: " + hrs + ".",
-             "📞 You can reach us at " + (tel || "our phone") + " or on WhatsApp. Working hours: weekdays 09:00–18:00.",
-             "📞 Sie erreichen uns unter " + (tel || "Telefon") + " oder per WhatsApp. Erreichbar: werktags 09:00–18:00.",
-             "📞 Свяжитесь с нами по номеру " + (tel || "телефона") + " или в WhatsApp. Часы работы: будни 09:00–18:00.");
+    // Dilden bağımsız saat gösterimi config'ten (Mo-Fr 09:00-18:00); TR'de okunur biçim
+    var hrsTr = C.hours || "Hafta içi 09:00 – 18:00";
+    var hrsIntl = C.openingHours || "Mo-Fr 09:00-18:00";
+    return L("📞 Bize " + (tel || "telefon") + " numarasından veya WhatsApp'tan ulaşabilirsiniz. Çalışma saatleri: " + hrsTr + ".",
+             "📞 You can reach us at " + (tel || "our phone") + " or on WhatsApp. Working hours: " + hrsIntl + ".",
+             "📞 Sie erreichen uns unter " + (tel || "Telefon") + " oder per WhatsApp. Erreichbar: " + hrsIntl + ".",
+             "📞 Свяжитесь с нами по номеру " + (tel || "телефона") + " или в WhatsApp. Часы работы: " + hrsIntl + ".");
   }
 
   // Hızlı seçim çipleri — etiket çok dilli, sorgu TR (anahtar kelimeler TR içerir)
