@@ -39,8 +39,16 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
 - Akü adedi model DoD'una göre hesaplanır (LiFePO₄ 0.9, jel 0.5).
 - 4. adımda DÖRT kategori de aynı düzendedir: başlığa dokununca kayarak açılan
   akordeon + `.bld-list` satırları (panel/akü/inverter tek seçim = radyo;
-  kablo/pano/işçilik çoklu seçim = kutucuk, miktar `extraQty()` ile panel
-  sayısı/metraj/kWp'ye göre). Yeni kategori eklerken bu deseni koru.
+  kablo/pano/işçilik çoklu seçim = kutucuk). Yeni kategori eklerken deseni koru.
+- Her seçili satırda kendi adet kutusu (− n +) vardır; elle girilen adet
+  `state.qty[type]` / `state.exQty[ekId]`'de saklanır, "↺ otomatik" bağlantısı
+  hesaplanan adede döndürür (öneri: `autoQtyFor` / `extraAutoQty`).
+- YAPI KURALI: adet kutusu ve "↺ otomatik" düğmesi satırın `<label>`'ının
+  DIŞINDA durur (`.bld-row-hit` = `display:contents`); label'ın içinde olsalar
+  tıklama seçimi değiştirir. Ayrıca `softSelect()` yeniden çizmeden günceller —
+  tıklanan düğümü DEĞİŞTİRME, yoksa click olayı düşer.
+- 4. adımın altında canlı sepet (`.bld-cart` → `cartInner()`): seçilen her kalem
+  adet × birim = tutar ve genel toplam. 5. adımdaki BOM ile aynı `bom()` verisi.
 - Durum localStorage `gespa-builder`'da (`state.open` = açık akordeonlar);
   `?tip=<presetId>` ile ön seçim yapılır.
 - Cihaz/ürün adları `T()` ile i18n DICT'ten çevrilir — yeni ürün eklerken
