@@ -828,21 +828,40 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .bld-sec{margin-bottom:26px}
 .bld-sec-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
 .bld-sec-head h3{margin:0}
-.bld-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px}
-.bld-opt{position:relative;display:block;cursor:pointer}
-.bld-opt input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
-.bld-opt-body{display:block;height:100%;background:var(--bg-alt);border:2px solid var(--line);border-radius:14px;padding:14px;transition:border-color .18s}
-.bld-opt:hover .bld-opt-body{border-color:var(--green-light)}
-.bld-opt.sel .bld-opt-body{border-color:var(--green);background:color-mix(in srgb,var(--green) 8%,var(--card))}
-.bld-opt input:focus-visible + .bld-opt-body{outline:3px solid var(--green);outline-offset:2px}
-.bld-opt-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.bld-opt-head strong{font-family:var(--font);font-size:.95rem}
-.bld-rec{font-style:normal;background:var(--sun-soft);color:#5a4500;font-size:.68rem;font-weight:800;padding:3px 8px;border-radius:999px}
-.bld-opt-name{display:block;font-size:.88rem;color:var(--ink);margin:4px 0 2px}
-.bld-opt-spec{display:block;font-size:.8rem;color:var(--muted)}
-.bld-opt-price{display:block;font-family:var(--font);font-weight:800;color:var(--green);margin-top:8px}
-.bld-opt-price small{font-weight:600;color:var(--muted)}
-.bld-opt-qty{display:block;font-size:.8rem;color:var(--muted);margin-top:2px}
+.bld-list{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
+.bld-row{display:grid;grid-template-columns:26px 1fr 150px 96px 118px;align-items:center;gap:12px;
+  padding:12px 16px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .15s}
+.bld-row:last-child{border-bottom:0}
+.bld-row:hover{background:var(--bg-alt)}
+.bld-row input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.bld-row-mark{width:20px;height:20px;border:2px solid var(--line);border-radius:50%;display:block;position:relative}
+.bld-row.sel{background:color-mix(in srgb,var(--green) 8%,var(--card))}
+.bld-row.sel .bld-row-mark{border-color:var(--green)}
+.bld-row.sel .bld-row-mark::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--green)}
+.bld-row input:focus-visible ~ .bld-row-mark{outline:3px solid var(--green);outline-offset:2px}
+.bld-row-main{min-width:0}
+.bld-row-title{display:block;font-size:.95rem;color:var(--ink)}
+.bld-row-title strong{font-family:var(--font);font-weight:800}
+.bld-row-spec{display:block;font-size:.82rem;color:var(--muted);margin-top:2px}
+.bld-rec{font-style:normal;background:var(--sun-soft);color:#5a4500;font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.bld-row-unit,.bld-row-qty,.bld-row-sum{font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+.bld-row-unit b{font-family:var(--font);font-weight:700}
+.bld-row-unit small{display:block;color:var(--muted);font-size:.72rem}
+.bld-row-qty{color:var(--muted);font-size:.88rem}
+.bld-row-sum{font-family:var(--font);font-weight:800;color:var(--green)}
+.bld-row-head{background:var(--bg-alt);cursor:default;font-family:var(--font);font-size:.76rem;font-weight:700;
+  color:var(--muted);text-transform:uppercase;letter-spacing:.03em;padding:9px 16px}
+.bld-row-head:hover{background:var(--bg-alt)}
+.bld-row-head .bld-row-main{font-size:.76rem}
+@media(max-width:760px){
+  .bld-row{grid-template-columns:22px 1fr auto;gap:8px 10px;padding:12px 14px}
+  .bld-row-head{display:none}
+  .bld-row-main{grid-column:2/4}
+  .bld-row-unit{grid-column:2;text-align:left;font-size:.9rem}
+  .bld-row-unit small{display:inline;margin-left:4px}
+  .bld-row-qty{grid-column:3;text-align:right}
+  .bld-row-sum{grid-column:2/4;text-align:right;border-top:1px dashed var(--line);padding-top:6px}
+}
 .bld-extras{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}
 .bld-extra{display:flex;align-items:center;gap:10px;background:var(--bg-alt);border:1px solid var(--line);border-radius:10px;padding:11px 14px;cursor:pointer;font-size:.9rem}
 .bld-extra input{width:18px;height:18px;accent-color:var(--green);flex:0 0 auto}
