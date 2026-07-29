@@ -250,19 +250,22 @@
   function cardList(type, need) {
     var arr = B.catalog[type] || [];
     var auto = recommend(type, need);
+    var uAdet = L("adet", "pcs", "Stk.", "шт.");
     return arr.map(function (p) {
       var sel = state.sel[type] === p.id;
       var spec = type === "panel" ? p.w + " W"
         : type === "battery" ? nf2(p.kwh) + " kWh · " + p.chem + " · " + L("kullanılabilir", "usable", "nutzbar", "полезно") + " %" + Math.round((p.dod || SZ.dod || 0.9) * 100) + (p.cycles ? " · " + nf(p.cycles) + " " + L("çevrim", "cycles", "Zyklen", "циклов") : "")
         : p.kw + " kW · " + p.type;
       var q = sel ? qtyOf(type, need) : autoQtyFor(type, p, need);
-      return '<label class="bld-opt' + (sel ? " sel" : "") + (p.id === auto ? " rec" : "") + '">' +
+      return '<label class="bld-row' + (sel ? " sel" : "") + '">' +
         '<input type="radio" name="bld-' + type + '" value="' + p.id + '"' + (sel ? " checked" : "") + ' data-sel="' + type + '" />' +
-        '<span class="bld-opt-body"><span class="bld-opt-head"><strong>' + p.brand + "</strong>" +
-        (p.id === auto ? '<em class="bld-rec">' + L("Önerilen", "Recommended", "Empfohlen", "Рекомендуем") + "</em>" : "") + "</span>" +
-        "<span class=\"bld-opt-name\">" + T(p.name) + "</span><span class=\"bld-opt-spec\">" + spec + "</span>" +
-        '<span class="bld-opt-price">' + money(p.price) + ' <small>/ ' + L("adet", "pcs", "Stk.", "шт.") + "</small></span>" +
-        '<span class="bld-opt-qty">' + L("Gereken", "Needed", "Benötigt", "Нужно") + ": <b>" + q + " " + L("adet", "pcs", "Stk.", "шт.") + "</b></span></span></label>";
+        '<span class="bld-row-mark" aria-hidden="true"></span>' +
+        '<span class="bld-row-main"><span class="bld-row-title"><strong>' + p.brand + "</strong> " + T(p.name) +
+          (p.id === auto ? ' <em class="bld-rec">' + L("Önerilen", "Recommended", "Empfohlen", "Рекомендуем") + "</em>" : "") + "</span>" +
+          '<span class="bld-row-spec">' + spec + "</span></span>" +
+        '<span class="bld-row-unit"><b>' + money(p.price) + "</b><small>/ " + uAdet + "</small></span>" +
+        '<span class="bld-row-qty">' + q + " " + uAdet + "</span>" +
+        '<span class="bld-row-sum">' + money(p.price * q) + "</span></label>";
     }).join("");
   }
   function autoQtyFor(type, p, need) {
@@ -290,7 +293,12 @@
         '<div class="bld-qty bld-qty-lg"><button type="button" data-qdec="' + type + '" aria-label="−">−</button>' +
         '<input type="number" min="1" value="' + qtyOf(type, need) + '" data-qset="' + type + '" aria-label="' + titles[type] + " " + L("adet", "quantity", "Anzahl", "количество") + '" />' +
         '<button type="button" data-qinc="' + type + '" aria-label="+">+</button></div></div>' +
-        '<div class="bld-opts">' + cardList(type, need) + "</div></div>";
+        '<div class="bld-list"><div class="bld-row bld-row-head" aria-hidden="true">' +
+          '<span></span><span class="bld-row-main">' + L("Marka / model", "Brand / model", "Marke / Modell", "Бренд / модель") + "</span>" +
+          '<span class="bld-row-unit">' + L("Birim", "Unit price", "Einzelpreis", "Цена") + "</span>" +
+          '<span class="bld-row-qty">' + L("Gereken", "Needed", "Benötigt", "Нужно") + "</span>" +
+          '<span class="bld-row-sum">' + L("Tutar", "Total", "Summe", "Сумма") + "</span></div>" +
+          cardList(type, need) + "</div></div>";
     });
 
     out += '<div class="bld-sec"><h3>' + L("Kablo, pano ve işçilik", "Cabling, panel box and labour", "Verkabelung, Verteiler und Montage", "Кабели, щит и монтаж") + "</h3>" +
