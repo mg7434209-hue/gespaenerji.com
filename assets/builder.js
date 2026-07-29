@@ -109,6 +109,24 @@
     var manual = state.qty[type];
     return manual != null && manual > 0 ? manual : autoQty(type, need);
   }
+  // Ek malzeme miktarı: panel sayısına / kablo metrajına / kurulu güce bağlı
+  function extraQty(x, panelQty, instKwp) {
+    if (x.qty === "perPanel") return panelQty;
+    if (x.qty === "perCableMeter") return panelQty * (SZ.cableMetersPerPanel || 4);
+    if (x.qty === "perKwp") return Math.max(1, Math.round(instKwp * 10) / 10);
+    return 1;
+  }
+  function extraOn(x) { return state.extras[x.id] != null ? state.extras[x.id] : !!x.on; }
+  // Miktarın nereden geldiğini müşteriye açıklayan kısa not
+  function extraNote(x) {
+    if (x.qty === "perPanel") return L("Her panel için", "Per panel", "Pro Modul", "На каждую панель");
+    if (x.qty === "perCableMeter") {
+      var m = nf1(SZ.cableMetersPerPanel || 4);
+      return L("Panel başına " + m + " m", m + " m per panel", m + " m pro Modul", m + " м на панель");
+    }
+    if (x.qty === "perKwp") return L("Kurulu kWp başına", "Per installed kWp", "Pro installiertem kWp", "На кВт·п мощности");
+    return L("Sistem başına tek", "One per system", "Einmal pro Anlage", "Один на систему");
+  }
 
   function bom() {
     var need = calc();
@@ -127,12 +145,8 @@
     var panelQty = pnl ? qtyOf("panel", need) : 0;
     var instKwp = pnl ? (panelQty * pnl.w) / 1000 : need.kwp;
     (B.catalog.extras || []).forEach(function (x) {
-      var on = state.extras[x.id] != null ? state.extras[x.id] : !!x.on;
-      if (!on) return;
-      var q = 1;
-      if (x.qty === "perPanel") q = panelQty;
-      else if (x.qty === "perCableMeter") q = panelQty * (SZ.cableMetersPerPanel || 4);
-      else if (x.qty === "perKwp") q = Math.max(1, Math.round(instKwp * 10) / 10);
+      if (!extraOn(x)) return;
+      var q = extraQty(x, panelQty, instKwp);
       if (!q) return;
       var sum = x.price * q;
       total += sum;
@@ -319,15 +333,33 @@
       out += acc(type, meta[type].icon, meta[type].title, sum, body);
     });
 
-    // Kablo, pano ve işçilik — seçili kalem sayısı ve tutarı başlıkta
-    var exOn = 0, exSum = 0;
+    // Kablo, pano ve işçilik — diğer kategorilerle aynı liste düzeni (çoklu seçim)
     var r = bom();
+    var exBody =
+      '<p class="bld-hint bld-hint-top">' + L("Sisteme dahil edilecek kalemler işaretlidir; ihtiyacınız olmayanların işaretini kaldırın. Miktarlar panel sayısı ve kurulu güce göre otomatik hesaplanır.",
+        "Included items are ticked; untick what you don't need. Quantities are calculated from panel count and installed power.",
+        "Enthaltene Positionen sind angehakt; nicht Benötigtes abwählen. Mengen ergeben sich aus Modulanzahl und Anlagenleistung.",
+        "Отмеченные позиции входят в систему; снимите отметку с ненужных. Количество считается по числу панелей и мощности.") + "</p>" +
+      '<div class="bld-list"><div class="bld-row bld-row-head" aria-hidden="true">' +
+        '<span></span><span class="bld-row-main">' + L("Kalem / hizmet", "Item / service", "Position / Leistung", "Позиция / услуга") + "</span>" +
+        '<span class="bld-row-unit">' + L("Birim", "Unit price", "Einzelpreis", "Цена") + "</span>" +
+        '<span class="bld-row-qty">' + L("Gereken", "Needed", "Benötigt", "Нужно") + "</span>" +
+        '<span class="bld-row-sum">' + L("Tutar", "Total", "Summe", "Сумма") + "</span></div>" +
+      (B.catalog.extras || []).map(function (x) {
+        var on = extraOn(x);
+        var q = extraQty(x, r.panelQty, r.instKwp);
+        var u = T(x.unit);
+        return '<label class="bld-row bld-row-check' + (on ? " sel" : "") + '">' +
+          '<input type="checkbox" data-extra="' + x.id + '"' + (on ? " checked" : "") + " />" +
+          '<span class="bld-row-mark" aria-hidden="true"></span>' +
+          '<span class="bld-row-main"><span class="bld-row-title"><strong>' + T(x.name) + "</strong></span>" +
+            '<span class="bld-row-spec">' + extraNote(x) + "</span></span>" +
+          '<span class="bld-row-unit"><b>' + money(x.price) + "</b><small>/ " + u + "</small></span>" +
+          '<span class="bld-row-qty">' + nf1(q) + " " + u + "</span>" +
+          '<span class="bld-row-sum">' + money(x.price * q) + "</span></label>";
+      }).join("") + "</div>";
+    var exOn = 0, exSum = 0;
     r.lines.forEach(function (l) { if (l.type === "extra") { exOn++; exSum += l.sum; } });
-    var exBody = '<div class="bld-extras">' + (B.catalog.extras || []).map(function (x) {
-      var on = state.extras[x.id] != null ? state.extras[x.id] : !!x.on;
-      return '<label class="bld-extra"><input type="checkbox" data-extra="' + x.id + '"' + (on ? " checked" : "") + " />" +
-        "<span>" + T(x.name) + '</span><b>' + money(x.price) + " <small>/ " + T(x.unit) + "</small></b></label>";
-    }).join("") + "</div>";
     out += acc("extras", "🧰", L("Kablo, pano ve işçilik", "Cabling, panel box and labour", "Verkabelung, Verteiler und Montage", "Кабели, щит и монтаж"),
       "<b>" + exOn + " " + L("kalem seçili", "items selected", "Positionen gewählt", "позиций выбрано") + "</b><small>" + money(exSum) + "</small>", exBody);
 
@@ -433,6 +465,13 @@
       bodyEl.style.maxHeight = willOpen ? bodyEl.scrollHeight + "px" : "0px";
       state.open[key] = willOpen;
       save();
+      // Açılan liste ekranın dışında kalmasın: açılma bitince başlığı üst çubuğun altına getir
+      if (willOpen) setTimeout(function () {
+        var rect = accBtn.getBoundingClientRect();
+        if (rect.top < 88 || rect.top > window.innerHeight - 140) {
+          window.scrollTo({ top: window.scrollY + rect.top - 96, behavior: "smooth" });
+        }
+      }, 360);
       return;
     }
     var t = e.target.closest("[data-preset],[data-goto],[data-inc],[data-dec],[data-qinc],[data-qdec],#bldNext,#bldPrev,#bldPrint,#bldReset");
@@ -500,10 +539,25 @@
     save();
   }
 
+  // Ek malzeme işaretlenince akordeon başlığındaki özeti yeniden çizmeden güncelle
+  function refreshExtras() {
+    var head = $('[data-acc="extras"]', root);
+    if (!head) return;
+    var on = 0, sum = 0;
+    bom().lines.forEach(function (l) { if (l.type === "extra") { on++; sum += l.sum; } });
+    var b = $(".bld-acc-sum b", head), s = $(".bld-acc-sum small", head);
+    if (b) b.textContent = on + " " + L("kalem seçili", "items selected", "Positionen gewählt", "позиций выбрано");
+    if (s) s.textContent = money(sum);
+  }
+
   root.addEventListener("change", function (e) {
     var el = e.target;
     if (el.hasAttribute && el.hasAttribute("data-sel")) { state.sel[el.getAttribute("data-sel")] = el.value; state.qty[el.getAttribute("data-sel")] = null; render(); return; }
-    if (el.hasAttribute && el.hasAttribute("data-extra")) { state.extras[el.getAttribute("data-extra")] = el.checked; save(); return; }
+    if (el.hasAttribute && el.hasAttribute("data-extra")) {
+      state.extras[el.getAttribute("data-extra")] = el.checked;
+      var row = el.closest(".bld-row"); if (row) row.classList.toggle("sel", el.checked);
+      refreshExtras(); save(); return;
+    }
     if (el.id === "bldAuto") { state.autonomy = parseInt(el.value, 10) || 1; state.qty = {}; render(); return; }
   });
 

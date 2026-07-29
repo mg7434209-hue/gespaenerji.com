@@ -37,7 +37,12 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   `appliances` (W/saat/kalkış), `groups`, `catalog` (panel/battery/inverter/extras).
   Koda hiçbir sayı/fiyat gömülmez. Fiyatlar tahmini liste fiyatıdır.
 - Akü adedi model DoD'una göre hesaplanır (LiFePO₄ 0.9, jel 0.5).
-- Durum localStorage `gespa-builder`'da; `?tip=<presetId>` ile ön seçim yapılır.
+- 4. adımda DÖRT kategori de aynı düzendedir: başlığa dokununca kayarak açılan
+  akordeon + `.bld-list` satırları (panel/akü/inverter tek seçim = radyo;
+  kablo/pano/işçilik çoklu seçim = kutucuk, miktar `extraQty()` ile panel
+  sayısı/metraj/kWp'ye göre). Yeni kategori eklerken bu deseni koru.
+- Durum localStorage `gespa-builder`'da (`state.open` = açık akordeonlar);
+  `?tip=<presetId>` ile ön seçim yapılır.
 - Cihaz/ürün adları `T()` ile i18n DICT'ten çevrilir — yeni ürün eklerken
   adını DICT'e de ekle (yoksa zarifçe TR kalır).
 
