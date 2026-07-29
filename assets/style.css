@@ -752,3 +752,143 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .hero-announce em{font-style:normal;background:#c0392b;color:#fff;font-size:.7rem;font-weight:800;letter-spacing:.5px;padding:3px 8px;border-radius:999px}
 .hero-announce b{color:var(--green)}
 @media(max-width:540px){.hero-announce span{white-space:normal}}
+
+/* ============================================================
+   Sistem Kurucu (sistem-kur.html)
+   ============================================================ */
+.builder{max-width:960px;margin:0 auto}
+.bld-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:28px}
+.bld-card h2{font-size:clamp(1.4rem,2.6vw,1.9rem);margin-bottom:8px}
+.bld-card h3{font-size:1.05rem;margin:0 0 12px}
+.bld-lead{color:var(--muted);margin:0 0 22px}
+.bld-note{color:var(--muted);font-size:.85rem;margin-top:16px;line-height:1.55}
+.bld-hint{color:var(--muted);font-size:.82rem;margin:6px 0 0}
+
+/* Adım göstergesi */
+.bld-steps{display:flex;list-style:none;margin:0 0 18px;padding:0;gap:6px;overflow-x:auto}
+.bld-step{flex:1 1 0;min-width:96px}
+.bld-step button{width:100%;display:flex;flex-direction:column;align-items:center;gap:5px;background:none;border:0;cursor:pointer;
+  padding:10px 6px;border-radius:12px;font-family:var(--font);font-size:.78rem;font-weight:700;color:var(--muted);border-top:3px solid var(--line)}
+.bld-step button:disabled{cursor:default;opacity:.55}
+.bld-step em{font-style:normal;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--bg-alt);border:1px solid var(--line);font-size:.8rem}
+.bld-step.active button{color:var(--green);border-top-color:var(--green)}
+.bld-step.active em{background:var(--green);color:#fff;border-color:var(--green)}
+.bld-step.done button{color:var(--ink);border-top-color:var(--green-light)}
+.bld-step.done em{background:var(--green-light);color:#fff;border-color:var(--green-light)}
+
+/* 1. adım — senaryolar */
+.bld-presets{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.bld-preset{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;cursor:pointer;
+  background:var(--bg-alt);border:2px solid var(--line);border-radius:16px;padding:18px;font-family:var(--font);transition:border-color .18s,transform .18s}
+.bld-preset:hover{border-color:var(--green);transform:translateY(-2px)}
+.bld-preset.sel{border-color:var(--green);background:color-mix(in srgb,var(--green) 8%,var(--card))}
+.bld-preset em{font-style:normal;font-size:1.7rem;line-height:1}
+.bld-preset strong{font-size:1.02rem;color:var(--ink)}
+.bld-preset span{font-size:.85rem;color:var(--muted);font-family:var(--font-body)}
+.bld-preset-blank{background:transparent;border-style:dashed}
+
+/* 2. adım — cihaz tablosu */
+.bld-group{margin-bottom:22px}
+.bld-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+.bld-table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:520px}
+.bld-table th,.bld-table td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line)}
+.bld-table thead th{background:var(--bg-alt);font-family:var(--font);font-weight:700;font-size:.8rem;color:var(--muted);white-space:nowrap}
+.bld-table tbody tr:last-child td{border-bottom:0}
+.bld-table tr.on{background:color-mix(in srgb,var(--green) 6%,transparent)}
+.bld-app{display:flex;align-items:center;gap:9px;font-weight:600}
+.bld-app em{font-style:normal;font-size:1.1rem}
+.bld-wh{font-variant-numeric:tabular-nums;color:var(--muted);white-space:nowrap}
+.bld-qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--bg)}
+.bld-qty button{width:32px;height:34px;border:0;background:var(--bg-alt);color:var(--ink);font-size:1.05rem;font-weight:700;cursor:pointer;line-height:1}
+.bld-qty button:hover{background:var(--green);color:#fff}
+.bld-qty input{width:46px;height:34px;border:0;text-align:center;font:inherit;font-weight:700;background:transparent;color:var(--ink);
+  -moz-appearance:textfield}
+.bld-qty input::-webkit-outer-spin-button,.bld-qty input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.bld-qty-lg button{width:38px;height:40px}
+.bld-qty-lg input{width:58px;height:40px}
+.bld-h{width:64px;padding:7px 8px;border:1px solid var(--line);border-radius:8px;font:inherit;background:var(--bg);color:var(--ink)}
+.bld-live{position:sticky;bottom:0;display:flex;flex-wrap:wrap;gap:18px;justify-content:space-around;
+  background:var(--green);color:#fff;border-radius:14px;padding:14px 18px;margin-top:8px;box-shadow:var(--shadow-lg)}
+.bld-live div{text-align:center}
+.bld-live span{display:block;font-size:.76rem;opacity:.9}
+.bld-live strong{font-size:1.15rem;font-family:var(--font)}
+
+/* 3. adım — ihtiyaç kartları */
+.bld-needs{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.bld-need{background:var(--bg-alt);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:12px;padding:18px}
+.bld-need em{font-style:normal;font-size:1.5rem;display:block;margin-bottom:6px}
+.bld-need span{display:block;font-size:.85rem;color:var(--muted)}
+.bld-need strong{display:block;font-size:1.6rem;font-family:var(--font);color:var(--green);margin:2px 0 4px}
+.bld-need small{color:var(--muted);font-size:.78rem;line-height:1.4;display:block}
+.bld-field{margin-top:20px}
+.bld-field label{display:block;font-weight:700;font-size:.88rem;margin-bottom:6px}
+.bld-field select{padding:11px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--bg);color:var(--ink);min-width:180px}
+
+/* 4. adım — ürün seçimi */
+.bld-sec{margin-bottom:26px}
+.bld-sec-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.bld-sec-head h3{margin:0}
+.bld-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px}
+.bld-opt{position:relative;display:block;cursor:pointer}
+.bld-opt input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.bld-opt-body{display:block;height:100%;background:var(--bg-alt);border:2px solid var(--line);border-radius:14px;padding:14px;transition:border-color .18s}
+.bld-opt:hover .bld-opt-body{border-color:var(--green-light)}
+.bld-opt.sel .bld-opt-body{border-color:var(--green);background:color-mix(in srgb,var(--green) 8%,var(--card))}
+.bld-opt input:focus-visible + .bld-opt-body{outline:3px solid var(--green);outline-offset:2px}
+.bld-opt-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.bld-opt-head strong{font-family:var(--font);font-size:.95rem}
+.bld-rec{font-style:normal;background:var(--sun-soft);color:#5a4500;font-size:.68rem;font-weight:800;padding:3px 8px;border-radius:999px}
+.bld-opt-name{display:block;font-size:.88rem;color:var(--ink);margin:4px 0 2px}
+.bld-opt-spec{display:block;font-size:.8rem;color:var(--muted)}
+.bld-opt-price{display:block;font-family:var(--font);font-weight:800;color:var(--green);margin-top:8px}
+.bld-opt-price small{font-weight:600;color:var(--muted)}
+.bld-opt-qty{display:block;font-size:.8rem;color:var(--muted);margin-top:2px}
+.bld-extras{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}
+.bld-extra{display:flex;align-items:center;gap:10px;background:var(--bg-alt);border:1px solid var(--line);border-radius:10px;padding:11px 14px;cursor:pointer;font-size:.9rem}
+.bld-extra input{width:18px;height:18px;accent-color:var(--green);flex:0 0 auto}
+.bld-extra span{flex:1}
+.bld-extra b{font-family:var(--font);white-space:nowrap}
+.bld-extra b small{color:var(--muted);font-weight:600}
+
+/* 5. adım — özet */
+.bld-sum-top{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:18px}
+.bld-sum-top div{background:var(--bg-alt);border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}
+.bld-sum-top span{display:block;font-size:.8rem;color:var(--muted)}
+.bld-sum-top strong{font-size:1.25rem;font-family:var(--font);color:var(--green)}
+.bld-bom td:nth-child(2),.bld-bom td:nth-child(3),.bld-bom td:nth-child(4){font-variant-numeric:tabular-nums;white-space:nowrap}
+.bld-bom tfoot td{background:var(--bg-alt);font-family:var(--font);font-weight:800;font-size:1.02rem;border-top:2px solid var(--green)}
+.bld-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+
+/* Gezinme */
+.bld-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:18px}
+
+@media(max-width:640px){
+  .bld-card{padding:20px 16px}
+  .bld-step span{display:none}
+  .bld-step{min-width:0}
+  .bld-actions .btn{width:100%}
+}
+@media print{
+  .bld-steps,.bld-nav,.bld-actions,.builder .bld-live{display:none !important}
+  .bld-card{box-shadow:none;border:1px solid #ccc}
+}
+
+/* Sistem Kurucu tanıtım bandı (ürünler sayfası) */
+.bld-promo{background:linear-gradient(135deg,color-mix(in srgb,var(--green) 9%,var(--card)),var(--card));
+  border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow-lg);padding:34px}
+.bld-promo h2{font-size:clamp(1.5rem,3vw,2.1rem);margin:10px 0 12px}
+.bld-promo p{color:var(--muted);max-width:70ch;margin:0 0 18px}
+.bld-promo-chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+.bld-promo-chip{display:inline-flex;align-items:center;gap:8px;background:var(--bg);border:1.5px solid var(--line);
+  border-radius:999px;padding:9px 16px;font-weight:700;font-size:.92rem;transition:border-color .18s,transform .18s}
+.bld-promo-chip:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px)}
+.bld-promo-chip em{font-style:normal;font-size:1.1rem}
+.bld-crosslink{background:var(--bg-alt);border:1px solid var(--line);border-radius:14px;padding:16px 20px;color:var(--muted);margin:0}
+.bld-crosslink a{color:var(--green);font-weight:700}
+@media(max-width:640px){.bld-promo{padding:22px 18px}}
+
+/* Mobilde canlı özet, sabit CTA çubuğunun üstünde dursun (çakışma önlenir) */
+@media(max-width:760px){
+  .builder .bld-live{bottom:74px;padding-right:64px}
+  .bld-table{min-width:460px}
+}

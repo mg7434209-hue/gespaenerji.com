@@ -17,15 +17,29 @@ Sayfalar (her biri kök dizinde, `.html` uzantılı):
 `index.html` · `hizmetler.html` · `urunler.html` (paket ürünler) ·
 `su-isitici.html` (PV su ısıtıcı) · `ai-cankurtaran-destek-sistemi.html`
 (havuz güvenliği; lacivert/aqua `pool-*` stilleri, form → WhatsApp lead) ·
-`hesaplayici.html` · `projeler.html` · `hakkimizda.html` · `iletisim.html` ·
+`hesaplayici.html` · `sistem-kur.html` (Sistem Kurucu sihirbazı) ·
+`projeler.html` · `hakkimizda.html` · `iletisim.html` ·
 `tarimsal-sulama.html` · yasal: `kvkk.html` `gizlilik.html` `cerez-politikasi.html`
 Ayrıca `admin.html`: fiyat yönetim paneli (menüde yok, robots'ta engelli,
 build PAGES listesine EKLENMEZ). Her sayfa: ortak header/footer, aktif menü
 vurgusu, breadcrumb, sayfaya özel SEO başlığı/canonical/Open Graph içerir.
 Nav menü: Ana Sayfa · Hizmetler · Ürünler · Yeni Teknolojiler (açılır grup:
-AI Cankurtaran Destek Sistemi + Solar Su Isıtıcı; yeni teknoloji ürünleri bu
-gruba eklenir) · Hesaplayıcı · Projeler · Hakkımızda · Teklif Al —
-yeni sayfa eklenince TÜM sayfalarda güncelle.
+AI Cankurtaran + Solar Su Isıtıcı) · Araçlar (açılır grup: Tasarruf Hesaplayıcı +
+Sistem Kurucu) · Projeler · Hakkımızda · Teklif Al — yeni sayfa eklenince TÜM
+sayfalarda güncelle (menü 1180px altında hamburger'a düşer).
+
+## Sistem Kurucu (`sistem-kur.html` · `assets/builder.js`)
+"İhtiyaçtan siparişe" 5 adımlı sihirbaz: kullanım senaryosu → cihaz listesi
+(adet + günlük saat) → ihtiyaç (kWp / kWh akü / kW inverter) → marka-model
+seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sipariş
+özeti (BOM + toplam) → WhatsApp.
+- TÜM veri `config.builder`: `sizing` (katsayılar), `presets` (senaryolar),
+  `appliances` (W/saat/kalkış), `groups`, `catalog` (panel/battery/inverter/extras).
+  Koda hiçbir sayı/fiyat gömülmez. Fiyatlar tahmini liste fiyatıdır.
+- Akü adedi model DoD'una göre hesaplanır (LiFePO₄ 0.9, jel 0.5).
+- Durum localStorage `gespa-builder`'da; `?tip=<presetId>` ile ön seçim yapılır.
+- Cihaz/ürün adları `T()` ile i18n DICT'ten çevrilir — yeni ürün eklerken
+  adını DICT'e de ekle (yoksa zarifçe TR kalır).
 
 ## TEK DOĞRU KAYNAK — `assets/config.js`
 İletişim bilgileri, markalar ve hesaplayıcı katsayıları **yalnızca** burada tutulur.
