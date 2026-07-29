@@ -804,8 +804,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .bld-qty input{width:46px;height:34px;border:0;text-align:center;font:inherit;font-weight:700;background:transparent;color:var(--ink);
   -moz-appearance:textfield}
 .bld-qty input::-webkit-outer-spin-button,.bld-qty input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-.bld-qty-lg button{width:38px;height:40px}
-.bld-qty-lg input{width:58px;height:40px}
 .bld-h{width:64px;padding:7px 8px;border:1px solid var(--line);border-radius:8px;font:inherit;background:var(--bg);color:var(--ink)}
 .bld-live{position:sticky;bottom:0;display:flex;flex-wrap:wrap;gap:18px;justify-content:space-around;
   background:var(--green);color:#fff;border-radius:14px;padding:14px 18px;margin-top:8px;box-shadow:var(--shadow-lg)}
@@ -826,9 +824,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 /* 4. adım — ürün seçimi */
 .bld-sec{margin-bottom:26px}
-.bld-sec-head{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin-bottom:12px}
-.bld-sec-head h3{margin:0}
-.bld-qty-label{font-size:.82rem;font-weight:700;color:var(--muted)}
 
 /* Açılır kategori (akordeon) */
 .bld-acc{border:1px solid var(--line);border-radius:14px;margin-bottom:12px;background:var(--card);overflow:hidden}
@@ -856,16 +851,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 @media (prefers-reduced-motion:reduce){.bld-acc-body{transition:none}.bld-acc-caret{transition:none}}
 .bld-list{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
-.bld-row{display:grid;grid-template-columns:26px 1fr 150px 96px 118px;align-items:center;gap:12px;
+.bld-row{display:grid;grid-template-columns:26px 1fr 118px 162px 118px;align-items:center;gap:12px;
   padding:12px 16px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .15s}
 .bld-row:last-child{border-bottom:0}
 .bld-row:hover{background:var(--bg-alt)}
-.bld-row input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+/* seçim alanı (kutucuk + ad + birim) tek <label>; adet kutusu label'ın dışındadır */
+.bld-row-hit{display:contents;cursor:pointer}
+.bld-row-hit > input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
 .bld-row-mark{width:20px;height:20px;border:2px solid var(--line);border-radius:50%;display:block;position:relative}
 .bld-row.sel{background:color-mix(in srgb,var(--green) 8%,var(--card))}
 .bld-row.sel .bld-row-mark{border-color:var(--green)}
 .bld-row.sel .bld-row-mark::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--green)}
-.bld-row input:focus-visible ~ .bld-row-mark{outline:3px solid var(--green);outline-offset:2px}
+.bld-row-hit > input:focus-visible ~ .bld-row-mark{outline:3px solid var(--green);outline-offset:2px}
 .bld-row-main{min-width:0}
 .bld-row-title{display:block;font-size:.95rem;color:var(--ink)}
 .bld-row-title strong{font-family:var(--font);font-weight:800}
@@ -874,7 +871,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .bld-row-unit,.bld-row-qty,.bld-row-sum{font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
 .bld-row-unit b{font-family:var(--font);font-weight:700}
 .bld-row-unit small{display:block;color:var(--muted);font-size:.72rem}
-.bld-row-qty{color:var(--muted);font-size:.88rem}
+.bld-row-qty{color:var(--muted);font-size:.88rem;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
 .bld-row-sum{font-family:var(--font);font-weight:800;color:var(--green)}
 .bld-row-head{background:var(--bg-alt);cursor:default;font-family:var(--font);font-size:.76rem;font-weight:700;
   color:var(--muted);text-transform:uppercase;letter-spacing:.03em;padding:9px 16px}
@@ -888,7 +885,22 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .bld-row-unit small{display:inline;margin-left:4px}
   .bld-row-qty{grid-column:3;text-align:right}
   .bld-row-sum{grid-column:2/4;text-align:right;border-top:1px dashed var(--line);padding-top:6px}
+  /* adet kutusu olan satırda kutu kendi satırına iner (dar ekranda sığmıyor) */
+  .bld-row.qbox .bld-row-unit{grid-row:2}
+  .bld-row.qbox .bld-row-qty{grid-column:2/4;grid-row:3;align-items:flex-start}
+  .bld-row.qbox .bld-row-sum{grid-column:2/4;grid-row:4}
 }
+/* Satır içi adet kutusu — seçili/işaretli kalemde görünür */
+.bld-row-qty .bld-qty{background:var(--card)}
+.bld-qty-sm button{width:28px;height:30px;font-size:1rem}
+.bld-qty-sm input{width:44px;height:30px;font-size:.92rem}
+.bld-qty-unit{padding:0 10px 0 6px;font-size:.78rem;color:var(--muted);white-space:nowrap}
+.bld-row-qtytext{color:var(--muted)}
+.bld-row-auto:empty{display:none}
+.bld-auto{background:none;border:0;padding:0;margin-left:6px;font:inherit;font-size:.78rem;font-weight:700;
+  color:var(--green);cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.bld-auto:hover{color:var(--ink)}
+
 /* Çoklu seçim satırı (kablo/pano/işçilik) — panel listesiyle aynı düzen, kare kutucuk */
 .bld-row-check .bld-row-mark{border-radius:6px}
 .bld-row-check.sel .bld-row-mark{background:var(--green);border-color:var(--green)}
@@ -897,6 +909,27 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   background:none;transform:rotate(45deg)}
 .bld-row-check:not(.sel) .bld-row-sum,.bld-row-check:not(.sel) .bld-row-qty{opacity:.45}
 .bld-hint-top{margin:0 0 12px}
+
+/* Alınacak ürünler — canlı sepet (4. adım altı) */
+.bld-cart{border:2px solid var(--green);border-radius:16px;background:var(--bg-alt);padding:18px 20px;margin-top:22px}
+.bld-cart-title{margin:0 0 12px;font-size:1.06rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.bld-cart-count{font-family:var(--font-body);font-size:.78rem;font-weight:700;color:var(--muted);
+  background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.bld-cart-row{display:grid;grid-template-columns:1fr auto 118px;align-items:baseline;gap:10px;
+  padding:8px 0;border-bottom:1px dashed var(--line)}
+.bld-cart-name{font-weight:600;min-width:0}
+.bld-cart-qty{font-size:.84rem;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bld-cart-sum{font-family:var(--font);font-weight:800;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bld-cart-total{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;
+  padding-top:12px;border-top:2px solid var(--green);font-family:var(--font)}
+.bld-cart-total span{font-weight:700}
+.bld-cart-total b{font-size:1.4rem;color:var(--green)}
+@media(max-width:640px){
+  .bld-cart{padding:16px 14px}
+  .bld-cart-row{grid-template-columns:1fr auto;row-gap:2px}
+  .bld-cart-name{grid-column:1/3}
+  .bld-cart-sum{width:auto}
+}
 
 /* 5. adım — özet */
 .bld-sum-top{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:18px}
