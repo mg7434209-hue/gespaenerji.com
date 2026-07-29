@@ -134,7 +134,11 @@ const server = http.createServer((req, res) => {
       const ae = (req.headers["accept-encoding"] || "");
       const tryPre = (enc, extra) => {
         const p = filePath + extra;
-        if (!fs.existsSync(p)) return false;
+        let pre;
+        try { pre = fs.statSync(p); } catch (e) { return false; }
+        // Kaynak dosya sıkıştırılmış sürümden yeniyse bayat kopyayı SERVİS ETME
+        // (ETag/Last-Modified kaynağa göre üretiliyor; eski gövde taze etiketle önbelleğe girerdi)
+        if (stat && pre.mtimeMs < stat.mtimeMs) return false;
         headers["Content-Encoding"] = enc;
         headers["Vary"] = "Accept-Encoding";
         res.writeHead(status, headers);
