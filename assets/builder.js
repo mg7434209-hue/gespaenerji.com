@@ -35,7 +35,7 @@
 
   /* ---- Durum (localStorage'da saklanır; yenilemede kaybolmaz) ---- */
   var LSKEY = "gespa-builder";
-  var state = { step: 1, preset: "", items: {}, hours: {}, sel: {}, extras: {}, qty: {}, autonomy: SZ.autonomyDays || 1 };
+  var state = { step: 1, preset: "", items: {}, hours: {}, sel: {}, extras: {}, qty: {}, open: { panel: true }, autonomy: SZ.autonomyDays || 1 };
   try {
     var saved = JSON.parse(localStorage.getItem(LSKEY) || "null");
     if (saved && saved.items) state = Object.assign(state, saved);
@@ -277,37 +277,61 @@
   function viewSelect() {
     var need = calc();
     ensureDefaults(need); // adet ve fiyatlar seçili modele bağlı — önce ata
-    var titles = {
-      panel: L("Güneş Paneli", "Solar Panel", "Solarmodul", "Солнечная панель"),
-      battery: L("Akü / Batarya", "Battery", "Batterie", "Аккумулятор"),
-      inverter: L("İnverter", "Inverter", "Wechselrichter", "Инвертор")
+    var meta = {
+      panel: { icon: "🔆", title: L("Güneş Paneli", "Solar Panel", "Solarmodul", "Солнечная панель") },
+      battery: { icon: "🔋", title: L("Akü / Batarya", "Battery", "Batterie", "Аккумулятор") },
+      inverter: { icon: "⚡", title: L("İnverter", "Inverter", "Wechselrichter", "Инвертор") }
     };
+    var uAdet = L("adet", "pcs", "Stk.", "шт.");
+
+    function acc(key, icon, title, sumHtml, bodyHtml) {
+      var open = !!state.open[key];
+      return '<div class="bld-acc' + (open ? " open" : "") + '">' +
+        '<button class="bld-acc-head" type="button" data-acc="' + key + '" aria-expanded="' + (open ? "true" : "false") + '" aria-controls="acc-' + key + '">' +
+          '<span class="bld-acc-title"><em aria-hidden="true">' + icon + "</em>" + title + "</span>" +
+          '<span class="bld-acc-sum">' + sumHtml + "</span>" +
+          '<span class="bld-acc-caret" aria-hidden="true">▾</span>' +
+        "</button>" +
+        '<div class="bld-acc-body" id="acc-' + key + '"><div class="bld-acc-inner">' + bodyHtml + "</div></div></div>";
+    }
+
     var out = '<div class="bld-card"><h2>' + L("Ürünlerinizi seçin", "Choose your products", "Wählen Sie Ihre Produkte", "Выберите товары") + "</h2>" +
-      '<p class="bld-lead">' + L("Öneriler ihtiyacınıza göre işaretlendi; marka ve modeli dilediğiniz gibi değiştirin. Adetler otomatik hesaplanır, elle de düzenleyebilirsiniz.",
-        "Recommendations are pre-selected for your needs; change brand and model as you like. Quantities are auto-calculated and editable.",
-        "Empfehlungen sind vorausgewählt; Marke und Modell frei änderbar. Mengen werden berechnet und sind editierbar.",
-        "Рекомендации выбраны под вашу потребность; бренд и модель можно менять. Количество считается автоматически и редактируется.") + "</p>";
+      '<p class="bld-lead">' + L("Başlığa dokunarak listeyi açın; öneriler ihtiyacınıza göre işaretlendi. Marka ve modeli dilediğiniz gibi değiştirin, adetler otomatik hesaplanır.",
+        "Tap a heading to open the list; recommendations are pre-selected for your needs. Change brand and model freely — quantities are calculated automatically.",
+        "Tippen Sie auf eine Überschrift, um die Liste zu öffnen; Empfehlungen sind vorausgewählt. Marke und Modell frei änderbar — Mengen werden berechnet.",
+        "Нажмите на заголовок, чтобы открыть список; рекомендации уже выбраны. Меняйте бренд и модель — количество считается автоматически.") + "</p>";
 
     ["panel", "battery", "inverter"].forEach(function (type) {
-      out += '<div class="bld-sec"><div class="bld-sec-head"><h3>' + titles[type] + "</h3>" +
+      var p = pick(type, state.sel[type]);
+      var q = qtyOf(type, need);
+      var sum = p ? '<b>' + p.brand + " " + T(p.name) + "</b><small>" + q + " " + uAdet + " · " + money(p.price * q) + "</small>" : "";
+      var body =
+        '<div class="bld-sec-head"><span class="bld-qty-label">' + L("Adet", "Quantity", "Anzahl", "Количество") + "</span>" +
         '<div class="bld-qty bld-qty-lg"><button type="button" data-qdec="' + type + '" aria-label="−">−</button>' +
-        '<input type="number" min="1" value="' + qtyOf(type, need) + '" data-qset="' + type + '" aria-label="' + titles[type] + " " + L("adet", "quantity", "Anzahl", "количество") + '" />' +
+        '<input type="number" min="1" value="' + q + '" data-qset="' + type + '" aria-label="' + meta[type].title + " " + L("adet", "quantity", "Anzahl", "количество") + '" />' +
         '<button type="button" data-qinc="' + type + '" aria-label="+">+</button></div></div>' +
         '<div class="bld-list"><div class="bld-row bld-row-head" aria-hidden="true">' +
           '<span></span><span class="bld-row-main">' + L("Marka / model", "Brand / model", "Marke / Modell", "Бренд / модель") + "</span>" +
           '<span class="bld-row-unit">' + L("Birim", "Unit price", "Einzelpreis", "Цена") + "</span>" +
           '<span class="bld-row-qty">' + L("Gereken", "Needed", "Benötigt", "Нужно") + "</span>" +
           '<span class="bld-row-sum">' + L("Tutar", "Total", "Summe", "Сумма") + "</span></div>" +
-          cardList(type, need) + "</div></div>";
+          cardList(type, need) + "</div>";
+      out += acc(type, meta[type].icon, meta[type].title, sum, body);
     });
 
-    out += '<div class="bld-sec"><h3>' + L("Kablo, pano ve işçilik", "Cabling, panel box and labour", "Verkabelung, Verteiler und Montage", "Кабели, щит и монтаж") + "</h3>" +
-      '<div class="bld-extras">' + (B.catalog.extras || []).map(function (x) {
-        var on = state.extras[x.id] != null ? state.extras[x.id] : !!x.on;
-        return '<label class="bld-extra"><input type="checkbox" data-extra="' + x.id + '"' + (on ? " checked" : "") + " />" +
-          "<span>" + T(x.name) + '</span><b>' + money(x.price) + " <small>/ " + x.unit + "</small></b></label>";
-      }).join("") + "</div></div></div>";
-    return out;
+    // Kablo, pano ve işçilik — seçili kalem sayısı ve tutarı başlıkta
+    var exOn = 0, exSum = 0;
+    var r = bom();
+    r.lines.forEach(function (l) { if (l.type === "extra") { exOn++; exSum += l.sum; } });
+    var exBody = '<div class="bld-extras">' + (B.catalog.extras || []).map(function (x) {
+      var on = state.extras[x.id] != null ? state.extras[x.id] : !!x.on;
+      return '<label class="bld-extra"><input type="checkbox" data-extra="' + x.id + '"' + (on ? " checked" : "") + " />" +
+        "<span>" + T(x.name) + '</span><b>' + money(x.price) + " <small>/ " + T(x.unit) + "</small></b></label>";
+    }).join("") + "</div>";
+    out += acc("extras", "🧰", L("Kablo, pano ve işçilik", "Cabling, panel box and labour", "Verkabelung, Verteiler und Montage", "Кабели, щит и монтаж"),
+      "<b>" + exOn + " " + L("kalem seçili", "items selected", "Positionen gewählt", "позиций выбрано") + "</b><small>" + money(exSum) + "</small>", exBody);
+
+    return out + "</div>";
   }
 
   function viewSummary() {
@@ -377,6 +401,8 @@
         L("Devam et", "Continue", "Weiter", "Далее") + " →</button>" : "<span></span>") + "</div>";
 
     root.innerHTML = stepNav() + body + nav;
+    // Açık akordeon gövdelerine gerçek yükseklik ver (animasyonsuz ilk çizim)
+    $$(".bld-acc.open .bld-acc-body", root).forEach(function (el) { el.style.maxHeight = el.scrollHeight + "px"; });
     if (state.step === 3) { var sel = $("#bldAuto"); if (sel) sel.value = String(state.autonomy); }
     if (state.step === 5) {
       var wa = $("#bldWa");
@@ -397,6 +423,18 @@
   }
 
   root.addEventListener("click", function (e) {
+    var accBtn = e.target.closest("[data-acc]");
+    if (accBtn) {
+      var key = accBtn.getAttribute("data-acc");
+      var box = accBtn.parentNode, bodyEl = $(".bld-acc-body", box);
+      var willOpen = !box.classList.contains("open");
+      box.classList.toggle("open", willOpen);
+      accBtn.setAttribute("aria-expanded", willOpen ? "true" : "false");
+      bodyEl.style.maxHeight = willOpen ? bodyEl.scrollHeight + "px" : "0px";
+      state.open[key] = willOpen;
+      save();
+      return;
+    }
     var t = e.target.closest("[data-preset],[data-goto],[data-inc],[data-dec],[data-qinc],[data-qdec],#bldNext,#bldPrev,#bldPrint,#bldReset");
     if (!t) return;
     if (t.hasAttribute("data-preset")) { applyPreset(t.getAttribute("data-preset")); state.step = 2; render(); return; }
@@ -418,7 +456,7 @@
     if (t.id === "bldPrev") { state.step = Math.max(1, state.step - 1); render(); window.scrollTo({ top: root.offsetTop - 90, behavior: "smooth" }); return; }
     if (t.id === "bldPrint") { window.print(); return; }
     if (t.id === "bldReset") {
-      state = { step: 1, preset: "", items: {}, hours: {}, sel: {}, extras: {}, qty: {}, autonomy: SZ.autonomyDays || 1 };
+      state = { step: 1, preset: "", items: {}, hours: {}, sel: {}, extras: {}, qty: {}, open: { panel: true }, autonomy: SZ.autonomyDays || 1 };
       render(); return;
     }
   });
