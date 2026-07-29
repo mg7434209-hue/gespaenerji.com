@@ -4,6 +4,11 @@
 > Kaynak: uçtan uca denetim turları (Temmuz 2026, toplam 123 bulgu — uygulananlar hariç).
 
 ## Sizden veri bekleyenler (kod hazır, bilgi gelince dakikalar sürer)
+- [ ] **Sistem Kurucu ürün fiyatları**: `config.builder.catalog` içindeki panel/akü/
+      inverter/kablo/pano/işçilik fiyatları tahmini liste fiyatıdır — güncel alış+marj
+      fiyatlarınızı verin, tek dosyada güncelleyeyim (admin panelinden de override edilebilir)
+- [ ] **Sistem Kurucu ürün kataloğu**: satmak istediğiniz gerçek marka/model listesi
+      (ör. TitanX kapasiteleri, Lexron/Tescom inverter modelleri) — ekleyip çıkaralım
 - [ ] **Google Business Profile** açılması + işyeri koordinatı → `assets/config.js` `company.geo.lat/lng`
       (girilince JSON-LD'ye otomatik girer; iletisim.html'e harita/yol tarifi bloğu eklenecek)
 - [ ] **Gerçek müşteri yorumları** (izinli; ad/ilçe/sistem gücü/yıl) → ana sayfadaki yer tutucu

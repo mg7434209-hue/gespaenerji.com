@@ -23,7 +23,7 @@ const OG_LOCALE = { en: "en_US", de: "de_DE", ru: "ru_RU" };
 const PAGES = [
   "index.html", "hizmetler.html", "urunler.html", "su-isitici.html", "hesaplayici.html",
   "projeler.html", "hakkimizda.html", "iletisim.html", "tarimsal-sulama.html",
-  "ai-cankurtaran-destek-sistemi.html",
+  "ai-cankurtaran-destek-sistemi.html", "sistem-kur.html",
   // Yasal sayfalar da üretilir: dil değiştirici ve hreflang /en/kvkk.html gibi
   // URL'lere işaret eder; üretilmezse 404 olur. Gövde metni TR kalır (hukuken
   // geçerli metin Türkçedir), başlık/description dile göre yazılır.
@@ -95,6 +95,14 @@ const META = {
           d: "Kontaktieren Sie GESPA Energy: +90 543 743 42 09, gesmarketim@gmail.com, Manavgat/Antalya. Kostenlose Vor-Ort-Analyse und Angebot." },
     ru: { t: "Контакты — Бесплатный выезд и КП | GESPA Energy (Манавгат/Анталья)",
           d: "Свяжитесь с GESPA Energy: +90 543 743 42 09, gesmarketim@gmail.com, Манавгат/Анталья. Бесплатный выезд и коммерческое предложение." }
+  },
+  "sistem-kur.html": {
+    en: { t: "System Builder — Size Your Own Solar Kit | GESPA Energy",
+          d: "Pick the appliances you'll run and instantly see the required PV power, battery capacity and inverter size. Choose brands and models, then create your order." },
+    de: { t: "Systemkonfigurator — Eigene Solaranlage auslegen | GESPA Energy",
+          d: "Wählen Sie Ihre Geräte und sehen Sie sofort benötigte PV-Leistung, Batteriekapazität und Wechselrichtergröße. Marken und Modelle wählen und Bestellung erstellen." },
+    ru: { t: "Конфигуратор системы — соберите свой солнечный комплект | GESPA Energy",
+          d: "Выберите приборы и сразу увидите нужную мощность панелей, ёмкость аккумулятора и мощность инвертора. Выберите бренды и модели и создайте заказ." }
   },
   "ai-cankurtaran-destek-sistemi.html": {
     en: { t: "AI Lifeguard Support System | Pool Drowning Prevention — Gespa Enerji",
@@ -603,6 +611,15 @@ ${heaterLines}
 ## Paket Ürünler (${c.web}/urunler.html)
 Markalar — panel: ${cfg.brands.panel.join(", ")} · inverter: ${cfg.brands.inverter.join(", ")}
 ${pkgLines}
+
+## Sistem Kurucu (${c.web}/sistem-kur.html)
+Off-grid sistemini adım adım kurma aracı: kullanım yeri (bağ evi, karavan, müstakil
+ev, tarla/sulama, dükkân) seçilir; buzdolabı, TV, lamba, pompa gibi cihazlar adet ve
+günlük çalışma saatiyle listelenir. Araç günlük kWh tüketimini ve tepe gücü hesaplar;
+gerekli panel gücü (kWp), akü kapasitesi (kWh, model DoD'una göre) ve inverter gücünü
+(kW, kalkış payı dahil) çıkarır. Ardından panel/akü/inverter markası ve modeli seçilir
+(MC4, DC kablo, hazır pano, konstrüksiyon ve işçilik dahil) ve toplam tutarlı sipariş
+özeti oluşturulur. Fiyatlar tahmini liste fiyatıdır; kesin teklif ücretsiz keşifle verilir.
 
 ## Ücretsiz Online Araçlar (${c.web}/hesaplayici.html)
 - GES tasarruf hesaplayıcı: fatura/tüketim/çatı alanı/tarımsal sulama girişiyle

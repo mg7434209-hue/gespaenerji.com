@@ -154,6 +154,112 @@ window.GESPA.config = {
     { icon: "🌾", label: "Tarla / Sera", target: "sulama-tarla" }
   ],
 
+  // ============================================================
+  // SİSTEM KURUCU (sistem-kur.html) — "ihtiyaçtan siparişe" sihirbazı
+  // Kullanıcı cihazlarını seçer → ihtiyaç (panel/akü/inverter) hesaplanır →
+  // marka/model seçer → sipariş özeti WhatsApp'a gider.
+  // KURAL: builder.js'e hiçbir sayı/fiyat gömülmez; tümü buradan okunur.
+  // Fiyatlar TAHMİNİ LİSTE fiyatlarıdır (KDV dahil); kesin fiyat keşifle netleşir.
+  // Admin paneli bu fiyatları localStorage'da geçici override edebilir.
+  // ============================================================
+  builder: {
+    // Boyutlandırma katsayıları
+    sizing: {
+      sunHours: 4.5,        // saat/gün — tasarım günü (kış ortalaması, Akdeniz)
+      systemEff: 0.75,      // panel→akü→yük toplam sistem verimi (off-grid)
+      simultaneity: 0.7,    // eşzamanlılık: tüm cihazlar aynı anda çalışmaz
+      surgeMargin: 1.3,     // inverter kalkış (sürge) payı
+      dod: 0.9,             // lityum deşarj derinliği
+      invEff: 0.92,         // inverter verimi
+      autonomyDays: 1,      // güneşsiz gün özerkliği (varsayılan)
+      minInverterKw: 1,     // seçilebilir en küçük inverter (kW)
+      cableMetersPerPanel: 4 // panel başına tahmini DC kablo (m)
+    },
+
+    // Kullanım senaryoları — seçilince cihaz listesi ön-doldurulur ({cihazId: adet})
+    presets: [
+      { id: "bagevi", icon: "🏡", label: "Bağ Evi", desc: "Hafta sonu kullanımı, temel konfor",
+        items: { buzdolabi: 1, tv: 1, led: 6, telefon: 2, wifi: 1, su_pompasi: 1 } },
+      { id: "karavan", icon: "🚐", label: "Karavan / Kamp", desc: "Mobil kullanım, düşük tüketim",
+        items: { buzdolabi_mini: 1, led: 4, telefon: 2, laptop: 1 } },
+      { id: "mustakil", icon: "🏠", label: "Müstakil Ev", desc: "Tam zamanlı yaşam",
+        items: { buzdolabi: 1, tv: 2, led: 12, telefon: 4, wifi: 1, camasir: 1, bulasik: 1, su_pompasi: 1, klima: 1 } },
+      { id: "tarla", icon: "🌾", label: "Tarla / Sulama", desc: "Pompa ağırlıklı sezonluk",
+        items: { dalgic_pompa: 1, led: 2, kamera: 2 } },
+      { id: "isyeri", icon: "🏪", label: "Dükkân / Ofis", desc: "Gündüz ağırlıklı işletme",
+        items: { led: 15, bilgisayar: 3, klima: 2, buzdolabi: 1, wifi: 1, yazarkasa: 1 } }
+    ],
+
+    // Cihaz kataloğu — w: çalışma gücü (W), h: varsayılan günlük çalışma (saat),
+    // surge: kalkış akımı çarpanı (motorlu cihazlarda >1), group: arayüz grubu
+    appliances: [
+      { id: "led",           icon: "💡", name: "LED Lamba",            w: 10,   h: 5,  surge: 1,   group: "temel" },
+      { id: "telefon",       icon: "📱", name: "Telefon Şarjı",        w: 15,   h: 3,  surge: 1,   group: "temel" },
+      { id: "wifi",          icon: "📶", name: "Modem / Wi-Fi",        w: 15,   h: 24, surge: 1,   group: "temel" },
+      { id: "tv",            icon: "📺", name: "Televizyon (LED)",     w: 90,   h: 5,  surge: 1,   group: "temel" },
+      { id: "laptop",        icon: "💻", name: "Dizüstü Bilgisayar",   w: 65,   h: 4,  surge: 1,   group: "temel" },
+      { id: "bilgisayar",    icon: "🖥️", name: "Masaüstü Bilgisayar",  w: 200,  h: 8,  surge: 1,   group: "temel" },
+      { id: "buzdolabi_mini",icon: "🧊", name: "Mini Buzdolabı",       w: 60,   h: 8,  surge: 3,   group: "beyaz" },
+      { id: "buzdolabi",     icon: "🧊", name: "Buzdolabı (A+)",       w: 120,  h: 8,  surge: 3,   group: "beyaz" },
+      { id: "derin_dondurucu",icon: "❄️", name: "Derin Dondurucu",     w: 150,  h: 8,  surge: 3,   group: "beyaz" },
+      { id: "camasir",       icon: "🧺", name: "Çamaşır Makinesi",     w: 500,  h: 1,  surge: 2.5, group: "beyaz" },
+      { id: "bulasik",       icon: "🍽️", name: "Bulaşık Makinesi",    w: 900,  h: 1,  surge: 2,   group: "beyaz" },
+      { id: "firin",         icon: "🔥", name: "Elektrikli Fırın",     w: 2000, h: 0.5,surge: 1,   group: "beyaz" },
+      { id: "su_isitici",    icon: "🚿", name: "Termosifon / Şofben",  w: 1500, h: 1,  surge: 1,   group: "beyaz" },
+      { id: "klima",         icon: "🌬️", name: "Klima (12.000 BTU)",   w: 1100, h: 6,  surge: 2.5, group: "iklim" },
+      { id: "isitici",       icon: "🔌", name: "Elektrikli Isıtıcı",   w: 1500, h: 3,  surge: 1,   group: "iklim" },
+      { id: "vantilator",    icon: "🌀", name: "Vantilatör",           w: 60,   h: 6,  surge: 1.5, group: "iklim" },
+      { id: "su_pompasi",    icon: "💧", name: "Hidrofor / Su Pompası",w: 750,  h: 1,  surge: 3,   group: "pompa" },
+      { id: "dalgic_pompa",  icon: "⛲", name: "Dalgıç Pompa (1.5 kW)",w: 1500, h: 6,  surge: 3,   group: "pompa" },
+      { id: "kamera",        icon: "🎥", name: "Güvenlik Kamerası",    w: 12,   h: 24, surge: 1,   group: "temel" },
+      { id: "yazarkasa",     icon: "🧾", name: "Yazarkasa / POS",      w: 40,   h: 10, surge: 1,   group: "temel" }
+    ],
+
+    // Cihaz grubu başlıkları (arayüz)
+    groups: [
+      { id: "temel", label: "Temel & Elektronik" },
+      { id: "beyaz", label: "Beyaz Eşya" },
+      { id: "iklim", label: "Isıtma & Soğutma" },
+      { id: "pompa", label: "Pompa & Bahçe" }
+    ],
+
+    // Ürün kataloğu — sipariş adımında seçilir (fiyatlar tahmini liste, ₺ KDV dahil)
+    // battery.dod: kullanılabilir kapasite oranı (LiFePO₄ ~0.9, jel ~0.5) —
+    // akü adedi bu değere göre hesaplanır, jel akü daha fazla adet gerektirir.
+    catalog: {
+      panel: [
+        { id: "pnl-lexron-550", brand: "Lexron", name: "550 W Monokristal Half-Cut", w: 550, price: 5900 },
+        { id: "pnl-arcelik-560", brand: "Arçelik", name: "560 W Monokristal N-Type", w: 560, price: 6800 },
+        { id: "pnl-bakirlar-450", brand: "Bakırlar", name: "450 W Monokristal", w: 450, price: 4900 },
+        { id: "pnl-lexron-285", brand: "Lexron", name: "285 W Kompakt (karavan/mobil)", w: 285, price: 3400 }
+      ],
+      battery: [
+        { id: "bat-titanx-51-5", brand: "TitanX", name: "LiFePO₄ 51.2V 100Ah Rack", kwh: 5.12, chem: "LiFePO₄", dod: 0.9, cycles: 6000, price: 62000 },
+        { id: "bat-titanx-25-6", brand: "TitanX", name: "LiFePO₄ 25.6V 100Ah", kwh: 2.56, chem: "LiFePO₄", dod: 0.9, cycles: 6000, price: 34000 },
+        { id: "bat-lexron-24-100", brand: "Lexron", name: "LiFePO₄ 24V 100Ah", kwh: 2.4, chem: "LiFePO₄", dod: 0.9, cycles: 4000, price: 29500 },
+        { id: "bat-jel-12-150", brand: "Jel Akü", name: "12V 150Ah Jel (bakımsız)", kwh: 1.8, chem: "Jel", dod: 0.5, cycles: 800, price: 12500 }
+      ],
+      inverter: [
+        { id: "inv-tescom-3", brand: "Tescom", name: "3 kW Hibrit MPPT 24V", kw: 3, type: "Hibrit", price: 24500 },
+        { id: "inv-tescom-5", brand: "Tescom", name: "5 kW Hibrit MPPT 48V", kw: 5, type: "Hibrit", price: 38500 },
+        { id: "inv-mexxsun-8", brand: "Mexxsun", name: "8 kW Hibrit MPPT 48V", kw: 8, type: "Hibrit", price: 62000 },
+        { id: "inv-lexron-1-5", brand: "Lexron", name: "1.5 kW Off-Grid MPPT 12V", kw: 1.5, type: "Off-Grid", price: 13500 }
+      ],
+      // Yardımcı ürünler — qty: hesaplanan miktar kuralı
+      //   perPanel  : panel adedi kadar · perPanelPair: her panel için çift (MC4)
+      //   perSystem : 1 adet · perCableMeter: kablo metresi · perKwp: kurulu güç
+      extras: [
+        { id: "ext-mc4", name: "MC4 Konnektör Çifti", unit: "çift", qty: "perPanel", price: 120, on: true },
+        { id: "ext-dckablo", name: "Solar DC Kablo 6 mm²", unit: "m", qty: "perCableMeter", price: 95, on: true },
+        { id: "ext-box", name: "Hazır Bağlantı Panosu (DC/AC koruma)", unit: "adet", qty: "perSystem", price: 8500, on: true },
+        { id: "ext-konstruksiyon", name: "Montaj Konstrüksiyonu (alüminyum)", unit: "panel", qty: "perPanel", price: 1450, on: true },
+        { id: "ext-iscilik", name: "Kurulum İşçiliği ve Devreye Alma", unit: "kWp", qty: "perKwp", price: 6500, on: true },
+        { id: "ext-nakliye", name: "Nakliye ve Sigorta", unit: "adet", qty: "perSystem", price: 4500, on: false },
+        { id: "ext-izleme", name: "Uzaktan İzleme Modülü (Wi-Fi)", unit: "adet", qty: "perSystem", price: 5900, on: false }
+      ]
+    }
+  },
+
   // ---- PV Güneş Su Isıtıcı (su-isitici.html) ----
   // Modeller ve fiyatlar TEK YER. Fiyatlar ₺; admin panelinden düzenlenebilir
   // (admin yalnızca tarayıcıda önizler; kalıcı/herkese yansıması için buradaki

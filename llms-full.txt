@@ -53,6 +53,15 @@ Markalar — panel: Arçelik, Lexron, Bakırlar · inverter: Tescom, Mexxsun, Le
 - Sera Sulama Paketi — 11 kWp · Sera ve büyük bahçeler · ₺308.000 (yaklaşık, keşifle netleşir)
 - Geniş Tarla Sulama Paketi — 20 kWp · Geniş araziler ve çiftlikler · ₺560.000 (yaklaşık, keşifle netleşir)
 
+## Sistem Kurucu (https://www.gespaenerji.com/sistem-kur.html)
+Off-grid sistemini adım adım kurma aracı: kullanım yeri (bağ evi, karavan, müstakil
+ev, tarla/sulama, dükkân) seçilir; buzdolabı, TV, lamba, pompa gibi cihazlar adet ve
+günlük çalışma saatiyle listelenir. Araç günlük kWh tüketimini ve tepe gücü hesaplar;
+gerekli panel gücü (kWp), akü kapasitesi (kWh, model DoD'una göre) ve inverter gücünü
+(kW, kalkış payı dahil) çıkarır. Ardından panel/akü/inverter markası ve modeli seçilir
+(MC4, DC kablo, hazır pano, konstrüksiyon ve işçilik dahil) ve toplam tutarlı sipariş
+özeti oluşturulur. Fiyatlar tahmini liste fiyatıdır; kesin teklif ücretsiz keşifle verilir.
+
 ## Ücretsiz Online Araçlar (https://www.gespaenerji.com/hesaplayici.html)
 - GES tasarruf hesaplayıcı: fatura/tüketim/çatı alanı/tarımsal sulama girişiyle
   sistem gücü, panel sayısı, yıllık üretim-tasarruf, geri ödeme süresi, 25 yıllık
