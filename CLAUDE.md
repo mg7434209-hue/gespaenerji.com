@@ -81,6 +81,9 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   HİÇBİR yerde görünmez — tabloda "Teklif alın", hero'da "Güncel fiyat için bize
   ulaşın", JSON-LD'de offers yok, llms-full.txt'te "fiyat için teklif alın".
   Fiyatları yeniden yayınlamak: `true` yap + `node build.js`.
+- `pool`: AI Cankurtaran sayfasının aylık "çapa" rakamı ve lansman kontenjanı
+  (build.js `poolMonthly`/`poolSlots`/`poolLaunchYear`/`poolNextSeason` span'lerine
+  basar). TAM FİYAT LİSTESİ ve belge PDF'leri siteye KONMAZ — brief kuralı.
 - `admin.pass`: admin.html şifresi (statik sitede yalnızca caydırıcı).
 - Admin paneli fiyatları localStorage'da override eder (yalnız o cihaz);
   kalıcı/herkese yayın = değerleri bu dosyaya işleyip commit'lemek.

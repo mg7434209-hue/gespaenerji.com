@@ -281,6 +281,16 @@ window.GESPA.config = {
     ]
   },
 
+  // AI Cankurtaran (ai-cankurtaran-destek-sistemi.html) — sitede yalnızca aylık
+  // "çapa" rakam ve lansman kontenjanı yayınlanır; tam fiyat listesi SİTEYE KONMAZ.
+  pool: {
+    monthlyFrom: 299,          // aylık hizmet planı başlangıcı
+    monthlyCurrency: "USD",
+    launchSlots: 5,            // lansman koşullarından yararlanacak tesis sayısı
+    launchYear: 2026,
+    nextSeason: 2027
+  },
+
   // Admin paneli (basit koruma — şifre herkese açık koddadır; gerçek güvenlik için
   // backend gerekir). Şifreyi buradan değiştirin.
   admin: { pass: "gespa2026" },

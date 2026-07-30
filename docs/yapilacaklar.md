@@ -52,3 +52,23 @@
 - [ ] Yerel dizinler (Yandex Haritalar, sektörel B2B dizinler) NAP tutarlı kayıt
 - [ ] Üretici/distribütör sayfalarından backlink (bayilik netleşince cankurtaran
       üretici logosu + karşılıklı link)
+
+## AI Cankurtaran — brief v2 (Temmuz 2026) kalan maddeler
+Brief'in "hemen yayınlanacak" bölümleri (1-4, 7) işlendi: belge numaraları, Türkiye
+vaka verisi, teknoloji kartları, aylık hizmet modeli, lansman şeridi, 2 yeni SSS,
+meta/anahtar kelime güncellemesi. Aşağıdakiler KİLİTLİ ya da veri bekliyor.
+
+- [ ] **KİLİTLİ — referans içerikleri (brief bölüm 5).** Açılma koşulu: üretici
+      işbirliği sözleşmesi imzalanacak **ve** yazılı görsel kullanım izni e-postası
+      gelecek. İkisi tamam olmadan hiçbir marka adı, otel adı veya görsel siteye
+      KONMAYACAK — bu yüzden adlar repoda da tutulmuyor, brief PDF'inde duruyor.
+      Geldiğinde: referans bölümüne "Kurulu tesislerden bazıları:" satırı, izinli
+      görsellerden foto galerisi, footer + "Neden GESPA" bölümüne resmî bayilik
+      unvanı. Müşteri projesi yerleşim çizimleri yayınlanmaz.
+- [ ] **Pilot sonrası (brief bölüm 6).** Türkiye kurulum galerisi (6-8 kare: kamera
+      montajı, izleme ekranı, saat alarmı yakın çekim, gece görüntüsü), otel onaylı
+      vaka çalışması bloğu, referans sayaçlarına "Türkiye: 1. kurulum canlı" kutusu.
+- [ ] Belge PDF'leri siteye YÜKLENMEYECEK; yalnızca numara yayında, kopya talep
+      üzerine e-postayla verilir (brief kuralı).
+- [ ] Tam fiyat listesi siteye konmayacak; yalnızca aylık çapa rakam
+      (`config.pool.monthlyFrom`) yayında kalacak.
