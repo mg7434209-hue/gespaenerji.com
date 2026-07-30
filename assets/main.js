@@ -1021,8 +1021,9 @@
   });
 
   /* ---- Galeri lightbox ---- */
-  var gallery = $(".gallery");
-  if (gallery) {
+  var galleries = $$(".gallery");
+  var zoomables = $$("img[data-zoom]");
+  if (galleries.length || zoomables.length) {
     var lb = doc.createElement("div");
     lb.className = "lightbox";
     lb.setAttribute("role", "dialog");
@@ -1045,18 +1046,41 @@
       lb.classList.remove("open");
       if (lbOpener) { lbOpener.focus(); lbOpener = null; }
     }
-    $$("img", gallery).forEach(function (img) {
+    function bindZoom(img) {
       img.setAttribute("tabindex", "0");
       img.setAttribute("role", "button");
       img.addEventListener("keydown", function (e) {
         if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openLb(img); }
       });
+    }
+    galleries.forEach(function (g) {
+      $$("img", g).forEach(bindZoom);
+      g.addEventListener("click", function (e) { if (e.target.tagName === "IMG") openLb(e.target); });
     });
-    gallery.addEventListener("click", function (e) {
-      if (e.target.tagName === "IMG") openLb(e.target);
+    // Galeri dışındaki tekil büyütülebilir görseller (ör. ürün galerisi ana görseli)
+    zoomables.forEach(function (img) {
+      if (img.closest(".gallery")) return;
+      bindZoom(img);
+      img.addEventListener("click", function () { openLb(img); });
     });
     lb.addEventListener("click", function (e) { if (e.target !== lbImg) closeLb(); });
     doc.addEventListener("keydown", function (e) { if (e.key === "Escape") closeLb(); });
+  }
+
+  /* ---- Ürün galerisi (küçük resim → ana görsel) ---- */
+  var pgMain = $("#pgMain"), pgThumbs = $(".prod-thumbs");
+  if (pgMain && pgThumbs) {
+    var pgCap = $("#pgCap");
+    pgThumbs.addEventListener("click", function (e) {
+      var a = e.target.closest(".prod-thumb");
+      if (!a) return;
+      e.preventDefault(); // JS yokken bağlantı görseli açar; varken yerinde değiştir
+      var thumbImg = $("img", a);
+      pgMain.src = a.getAttribute("href");
+      pgMain.alt = (thumbImg && thumbImg.alt) || pgMain.alt;
+      if (pgCap) pgCap.textContent = a.getAttribute("data-cap") || "";
+      $$(".prod-thumb", pgThumbs).forEach(function (t) { t.classList.toggle("is-on", t === a); });
+    });
   }
 
   /* ---- Müşteri yorumları slider ---- */

@@ -194,7 +194,12 @@ function heaterProductLd(cfg) {
   const d = {
     "@context": "https://schema.org", "@type": "Product",
     name: (cfg.heater.name || "Solar Su Isıtma Sistemi") + " — Fotovoltaik Güneş Enerjili Su Isıtıcı",
-    image: cfg.company.web + "/assets/img/products/pv-su-isitici.jpg",
+    image: [
+      cfg.company.web + "/assets/img/products/heater/og-su-isitici.jpg",
+      cfg.company.web + "/assets/img/products/heater/tank-1.webp",
+      cfg.company.web + "/assets/img/products/heater/tank-3.webp",
+      cfg.company.web + "/assets/img/products/heater/tank-5.webp"
+    ],
     description: "Monokristal güneş panelleriyle suyu doğrudan güneş enerjisiyle ısıtan fotovoltaik su ısıtıcı. Akıllı GF-20 kontrol, bulutlu havada otomatik şebeke (AC) desteği, emaye iç tank. 60–200 L kapasite seçenekleri (yatay/dikey).",
     brand: { "@type": "Brand", name: cfg.company.brandName },
     category: "Solar Water Heater",

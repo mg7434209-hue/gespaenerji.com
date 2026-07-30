@@ -113,6 +113,11 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
 - Sayfa linkleri `.html` uzantılı (GitHub Pages uyumu için).
 - Her sayfada LocalBusiness JSON-LD bulunur (config'ten enjekte edilir).
 - Görseller repoda `assets/img/` altında durur; dış siteden hotlink YAPMA.
+- Galeri büyütme (lightbox) `main.js`'te: TÜM `.gallery` blokları + tekil
+  `img[data-zoom]` görselleri. Su ısıtıcı ürün galerisi `assets/img/products/heater/`
+  (`tank-1..8` + `-thumb`, beyaz zemin otomatik kırpılıp 4:3'e getirilmiş;
+  `detay-*` yakın planlar, `og-su-isitici.jpg` paylaşım görseli). Küçük resim →
+  ana görsel geçişi `#pgMain` / `.prod-thumbs` ile; JS yokken bağlantı görseli açar.
 - Açık/koyu tema, mobil menü, scroll animasyonları `assets/main.js` ile yönetilir;
   yeni DOM'lar `.reveal` ve `data-count` desenlerini kullanabilir.
 - Sohbet botu `assets/chatbot.js` (main.js dinamik yükler): metinleri kendi içinde
