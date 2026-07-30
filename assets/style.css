@@ -973,3 +973,37 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .builder .bld-live{bottom:74px;padding-right:64px}
   .bld-table{min-width:460px}
 }
+
+/* ===== Su ısıtıcı — ürün galerisi, fotoğraflı kart, kapasite rehberi ===== */
+.prod-gallery{max-width:800px;margin:0 auto;display:grid;gap:14px}
+.prod-main{margin:0;border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+.prod-main img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;background:#fff;cursor:zoom-in}
+.prod-cap{padding:12px 18px;font-size:.9rem;color:var(--muted);background:var(--card);border-top:1px solid var(--line)}
+.prod-thumbs{display:grid;grid-template-columns:repeat(8,1fr);gap:10px}
+.prod-thumb{display:block;border:2px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;
+  transition:border-color .18s,transform .18s,box-shadow .18s}
+.prod-thumb img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:contain}
+.prod-thumb:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.prod-thumb.is-on{border-color:var(--green);box-shadow:0 0 0 3px color-mix(in srgb,var(--green) 20%,transparent)}
+.prod-thumb:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+@media(max-width:720px){.prod-thumbs{grid-template-columns:repeat(4,1fr)}}
+
+.photo-row{margin-top:34px}
+.card-photo{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.card-photo img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:#fff;cursor:zoom-in}
+.card-photo-body{padding:22px 24px}
+.card-photo-body h3{margin:0 0 8px;font-size:1.12rem}
+.card-photo-body p{margin:0;color:var(--muted);font-size:.95rem}
+
+.size-guide{max-width:760px;margin:0 auto 34px;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius);padding:24px 26px;box-shadow:var(--shadow)}
+.size-guide h3{margin:0 0 14px;font-size:1.15rem}
+.size-guide > p{margin:0;color:var(--muted);font-size:.9rem}
+.size-guide-list{list-style:none;padding:0;margin:0 0 14px;display:grid;gap:2px}
+.size-guide-list li{display:grid;grid-template-columns:96px 108px 1fr;align-items:center;gap:14px;
+  padding:11px 0;border-bottom:1px dashed var(--line)}
+.size-guide-list li:last-child{border-bottom:0}
+.sg-who{font-weight:800;font-family:var(--font)}
+.sg-cap{font-weight:800;color:var(--green);font-family:var(--font);white-space:nowrap}
+.sg-note{color:var(--muted);font-size:.92rem}
+@media(max-width:560px){.size-guide{padding:20px 16px}.size-guide-list li{grid-template-columns:1fr auto;row-gap:2px}.sg-note{grid-column:1/3}}
