@@ -77,7 +77,10 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   (ongrid grubu render'da tanımlı ama şu an paketi yok). Açık `price` verilirse
   o kullanılır; yoksa fiyat `calc.costPerKwp`'ten türetilir.
 - `heater`: PV su ısıtıcı modelleri + ₺ fiyatları (su-isitici.html tablosu ve
-  Product JSON-LD buradan render edilir).
+  Product JSON-LD buradan render edilir). `heater.showPrices: false` iken fiyat
+  HİÇBİR yerde görünmez — tabloda "Teklif alın", hero'da "Güncel fiyat için bize
+  ulaşın", JSON-LD'de offers yok, llms-full.txt'te "fiyat için teklif alın".
+  Fiyatları yeniden yayınlamak: `true` yap + `node build.js`.
 - `admin.pass`: admin.html şifresi (statik sitede yalnızca caydırıcı).
 - Admin paneli fiyatları localStorage'da override eder (yalnız o cihaz);
   kalıcı/herkese yayın = değerleri bu dosyaya işleyip commit'lemek.

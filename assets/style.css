@@ -1007,3 +1007,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .sg-cap{font-weight:800;color:var(--green);font-family:var(--font);white-space:nowrap}
 .sg-note{color:var(--muted);font-size:.92rem}
 @media(max-width:560px){.size-guide{padding:20px 16px}.size-guide-list li{grid-template-columns:1fr auto;row-gap:2px}.sg-note{grid-column:1/3}}
+
+/* Bağlantı şeması (su ısıtıcı) */
+.wire-figure{max-width:920px;margin:0 auto 34px;background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden}
+.wire-figure svg{display:block;width:100%;height:auto;font-family:var(--font-body)}
+.wire-figure figcaption{padding:14px 20px;font-size:.9rem;color:var(--muted);
+  background:var(--card);border-top:1px solid var(--line)}
+@media(max-width:760px){
+  /* dar ekranda etiketler okunmaz küçülmesin: şema kendi içinde yatay kayar */
+  .wire-figure{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .wire-figure svg{min-width:620px}
+  .wire-figure figcaption{position:sticky;left:0;padding:12px 14px;font-size:.86rem}
+}

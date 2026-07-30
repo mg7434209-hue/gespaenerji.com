@@ -266,6 +266,9 @@ window.GESPA.config = {
   // değerler güncellenip yayınlanmalıdır — admin "Yayınla" ile dosya üretir).
   heater: {
     name: "Solar Su Isıtma Sistemi",
+    // false = tabloda ve şemada fiyat GÖSTERİLMEZ, yerine "Teklif alın" çıkar.
+    // Fiyatları yeniden yayınlamak için true yapıp build çalıştırmak yeterli.
+    showPrices: false,
     // mount: "Yatay" (60–100 L, kompakt/balkon) | "Dikey" (120–200 L, yüksek tüketim)
     // pv/dim/ac null = katalogda belirtilmemiş (tabloda "—"); price null = "Teklif alın"
     models: [

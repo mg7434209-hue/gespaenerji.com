@@ -1991,6 +1991,59 @@
     "Hareketli parçası yoktur. Yılda 1–2 kez panelin tozunun alınması, yılda bir emniyet ventilinin kontrolü ve su sertliğine göre 2–4 yılda bir magnezyum anot kontrolü yeterlidir.": "Движущихся частей нет. Достаточно 1–2 раза в год очищать панель от пыли, раз в год проверять предохранительный клапан и раз в 2–4 года — магниевый анод, в зависимости от жёсткости воды."
   });
 
+  /* --- su-isitici.html: bağlantı şeması ve fiyat yerine teklif metinleri --- */
+  Object.assign(DICT.en, {
+    "Güneş paneli": "Solar panel",
+    "çatı veya balkon": "roof or balcony",
+    "Su ısıtıcı": "Water heater",
+    "banyo veya iç mekân": "bathroom or indoors",
+    "Tank üzerindeki bağlantı klemensi": "Connection terminal on the tank",
+    "Panel kablosu ve şebeke beslemesi aynı klemense bağlanır": "The panel cable and the grid supply go to the same terminal",
+    "DC güneş kablosu (MC4)": "DC solar cable (MC4)",
+    "Sıcak su çıkışı": "Hot water outlet",
+    "Soğuk su girişi": "Cold water inlet",
+    "Kontrol paneli": "Control panel",
+    "Fotovoltaik su ısıtıcı bağlantı şeması": "Photovoltaic water heater wiring diagram",
+    "Çatıdaki güneş paneli iki damarlı DC kablo ile iç mekândaki su ısıtıcının klemensine bağlanır; klemenste PV artı, PV eksi, AC faz ve nötr uçları bulunur. Tankın altında sıcak su çıkışı ve soğuk su girişi yer alır.": "The solar panel on the roof connects to the terminal of the indoor water heater with a two-core DC cable; the terminal carries PV plus, PV minus, AC live and neutral. The hot water outlet and cold water inlet are underneath the tank.",
+    "Panel çatıda veya balkonda, tank iç mekânda durur; aralarında yalnızca iki damarlı DC kablo geçer — su panele hiç çıkmaz, bu yüzden donma ve kireçlenme riski yoktur.": "The panel sits on the roof or balcony and the tank indoors; only a two-core DC cable runs between them — water never goes up to the panel, so there is no freezing or scaling risk.",
+    "Güncel fiyat için bize ulaşın": "Contact us for current pricing",
+    "Ailenizin sıcak su ihtiyacına göre 60 L'den 200 L'ye kadar emaye iç tanklı modeller. Güncel fiyat ve stok durumu için bize ulaşın; kesin teklif ücretsiz keşifle netleşir.": "Models with enamel inner tanks from 60 L to 200 L for your family's hot water needs. Contact us for current pricing and stock; the binding quote follows a free site survey."
+  });
+  Object.assign(DICT.de, {
+    "Güneş paneli": "Solarmodul",
+    "çatı veya balkon": "Dach oder Balkon",
+    "Su ısıtıcı": "Warmwasserspeicher",
+    "banyo veya iç mekân": "Bad oder Innenraum",
+    "Tank üzerindeki bağlantı klemensi": "Anschlussklemme am Speicher",
+    "Panel kablosu ve şebeke beslemesi aynı klemense bağlanır": "Modulkabel und Netzversorgung gehen auf dieselbe Klemme",
+    "DC güneş kablosu (MC4)": "DC-Solarkabel (MC4)",
+    "Sıcak su çıkışı": "Warmwasseraustritt",
+    "Soğuk su girişi": "Kaltwassereintritt",
+    "Kontrol paneli": "Bedienfeld",
+    "Fotovoltaik su ısıtıcı bağlantı şeması": "Anschlussschema Photovoltaik-Warmwasserspeicher",
+    "Çatıdaki güneş paneli iki damarlı DC kablo ile iç mekândaki su ısıtıcının klemensine bağlanır; klemenste PV artı, PV eksi, AC faz ve nötr uçları bulunur. Tankın altında sıcak su çıkışı ve soğuk su girişi yer alır.": "Das Solarmodul auf dem Dach wird mit einem zweiadrigen DC-Kabel an die Klemme des Speichers im Innenraum angeschlossen; die Klemme führt PV plus, PV minus, AC-Außenleiter und Neutralleiter. Warmwasseraustritt und Kaltwassereintritt liegen unter dem Speicher.",
+    "Panel çatıda veya balkonda, tank iç mekânda durur; aralarında yalnızca iki damarlı DC kablo geçer — su panele hiç çıkmaz, bu yüzden donma ve kireçlenme riski yoktur.": "Das Modul sitzt auf Dach oder Balkon, der Speicher im Innenraum; dazwischen läuft nur ein zweiadriges DC-Kabel — Wasser gelangt nie zum Modul, daher kein Frost- und Kalkrisiko.",
+    "Güncel fiyat için bize ulaşın": "Aktuelle Preise auf Anfrage",
+    "Ailenizin sıcak su ihtiyacına göre 60 L'den 200 L'ye kadar emaye iç tanklı modeller. Güncel fiyat ve stok durumu için bize ulaşın; kesin teklif ücretsiz keşifle netleşir.": "Modelle mit Email-Innentank von 60 L bis 200 L für den Warmwasserbedarf Ihrer Familie. Aktuelle Preise und Verfügbarkeit auf Anfrage; das verbindliche Angebot folgt nach der kostenlosen Begehung."
+  });
+  Object.assign(DICT.ru, {
+    "Güneş paneli": "Солнечная панель",
+    "çatı veya balkon": "крыша или балкон",
+    "Su ısıtıcı": "Водонагреватель",
+    "banyo veya iç mekân": "ванная или помещение",
+    "Tank üzerindeki bağlantı klemensi": "Клеммная колодка на баке",
+    "Panel kablosu ve şebeke beslemesi aynı klemense bağlanır": "Кабель панели и питание от сети идут на одну колодку",
+    "DC güneş kablosu (MC4)": "Солнечный DC-кабель (MC4)",
+    "Sıcak su çıkışı": "Выход горячей воды",
+    "Soğuk su girişi": "Вход холодной воды",
+    "Kontrol paneli": "Панель управления",
+    "Fotovoltaik su ısıtıcı bağlantı şeması": "Схема подключения фотоэлектрического водонагревателя",
+    "Çatıdaki güneş paneli iki damarlı DC kablo ile iç mekândaki su ısıtıcının klemensine bağlanır; klemenste PV artı, PV eksi, AC faz ve nötr uçları bulunur. Tankın altında sıcak su çıkışı ve soğuk su girişi yer alır.": "Солнечная панель на крыше подключается двухжильным DC-кабелем к клеммной колодке водонагревателя внутри помещения; на колодке — PV плюс, PV минус, фаза AC и ноль. Выход горячей и вход холодной воды расположены снизу бака.",
+    "Panel çatıda veya balkonda, tank iç mekânda durur; aralarında yalnızca iki damarlı DC kablo geçer — su panele hiç çıkmaz, bu yüzden donma ve kireçlenme riski yoktur.": "Панель стоит на крыше или балконе, бак — внутри помещения; между ними идёт только двухжильный DC-кабель — вода к панели не поднимается, поэтому нет риска замерзания и накипи.",
+    "Güncel fiyat için bize ulaşın": "Актуальные цены — по запросу",
+    "Ailenizin sıcak su ihtiyacına göre 60 L'den 200 L'ye kadar emaye iç tanklı modeller. Güncel fiyat ve stok durumu için bize ulaşın; kesin teklif ücretsiz keşifle netleşir.": "Модели с эмалированным внутренним баком от 60 до 200 л под потребность вашей семьи. Актуальные цены и наличие — по запросу; точное предложение после бесплатного выезда."
+  });
+
   Object.assign(PH.en, {
     "Otel / site / tesis adı": "Hotel / residence / facility name",
     "Genel müdür, teknik müdür...": "General manager, technical manager...",

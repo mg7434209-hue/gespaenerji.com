@@ -190,7 +190,7 @@ function localBusinessLd(c) {
 }
 
 function heaterProductLd(cfg) {
-  const prices = cfg.heater.models.map(m => m.price).filter(Boolean);
+  const prices = cfg.heater.showPrices === false ? [] : cfg.heater.models.map(m => m.price).filter(Boolean);
   const d = {
     "@context": "https://schema.org", "@type": "Product",
     name: (cfg.heater.name || "Solar Su Isıtma Sistemi") + " — Fotovoltaik Güneş Enerjili Su Isıtıcı",
@@ -434,14 +434,17 @@ function hydrateExtras(html, file, cfg) {
   }
   // Su ısıtıcı model tablosu + başlangıç fiyatı
   if (file === "su-isitici.html" && cfg.heater) {
+    const showPrice = cfg.heater.showPrices !== false;
     const rows = cfg.heater.models.map(m =>
       "<tr><td>" + m.cap + " L</td><td>" + m.mount + "</td><td>" + (m.pv != null ? m.pv + " W" : "—") + "</td><td>" + (m.dim || "—") +
       "</td><td>" + (m.ac != null ? m.ac + " kW" : "—") + "</td><td>Emaye</td><td>" +
-      (m.price ? '<span class="spec-price">₺' + nfTr(m.price) + "</span>" : '<a href="iletisim.html" class="spec-quote">Teklif alın</a>') + "</td></tr>"
+      (showPrice && m.price ? '<span class="spec-price">₺' + nfTr(m.price) + "</span>" : '<a href="iletisim.html" class="spec-quote">Teklif alın</a>') + "</td></tr>"
     ).join("");
     html = html.replace(/(<tbody id="heaterRows">)[\s\S]*?(<\/tbody>)/, "$1" + rows + "$2");
-    const prices = cfg.heater.models.map(m => m.price).filter(Boolean);
-    if (prices.length) setSpan("heaterFrom", "₺" + nfTr(Math.min.apply(null, prices)) + "'dan başlayan fiyatlarla");
+    const prices = showPrice ? cfg.heater.models.map(m => m.price).filter(Boolean) : [];
+    setSpan("heaterFrom", prices.length
+      ? "₺" + nfTr(Math.min.apply(null, prices)) + "'dan başlayan fiyatlarla"
+      : "Güncel fiyat için bize ulaşın");
   }
   // Paket kataloğu — kompakt statik liste (main.js istemcide tam kartlarla değiştirir)
   if (file === "urunler.html" && cfg.packages) {
@@ -577,8 +580,9 @@ function writeLlmsFull(cfg) {
     const tag = p.price != null ? "" : " (yaklaşık, keşifle netleşir)";
     return `- ${p.name} — ${p.kwp} kWp · ${p.for} · ${cur}${nf(price)}${tag}`;
   }).join("\n");
+  const showHeaterPrice = cfg.heater.showPrices !== false;
   const heaterLines = cfg.heater.models.map(m =>
-    `- ${m.cap} L (${m.mount}${m.pv ? ", " + m.pv + " W panel" : ""}): ${m.price ? "₺" + nf(m.price) : "fiyat için teklif alın"}`
+    `- ${m.cap} L (${m.mount}${m.pv ? ", " + m.pv + " W panel" : ""}): ${showHeaterPrice && m.price ? "₺" + nf(m.price) : "fiyat için teklif alın"}`
   ).join("\n");
   const regions = cfg.calc.regions.map(r => `${r.label}: ${r.yield} kWh/kWp/yıl`).join(" · ");
   const c = cfg.company;
