@@ -432,6 +432,16 @@ function hydrateExtras(html, file, cfg) {
         return pre + v + mid + prefix + v + suf + close;
       });
   }
+  // AI Cankurtaran — aylık çapa rakam ve lansman kontenjanı (config.pool)
+  if (file === "ai-cankurtaran-destek-sistemi.html" && cfg.pool) {
+    const pl = cfg.pool;
+    const monthly = nfTr(pl.monthlyFrom) + " " + (pl.monthlyCurrency || "USD");
+    setSpan("poolMonthly", monthly);
+    setSpan("poolMonthlyFaq", monthly);
+    setSpan("poolSlots", String(pl.launchSlots));
+    setSpan("poolLaunchYear", String(pl.launchYear));
+    setSpan("poolNextSeason", String(pl.nextSeason));
+  }
   // Su ısıtıcı model tablosu + başlangıç fiyatı
   if (file === "su-isitici.html" && cfg.heater) {
     const showPrice = cfg.heater.showPrices !== false;
