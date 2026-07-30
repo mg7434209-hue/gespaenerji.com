@@ -2044,6 +2044,20 @@
     "Ailenizin sıcak su ihtiyacına göre 60 L'den 200 L'ye kadar emaye iç tanklı modeller. Güncel fiyat ve stok durumu için bize ulaşın; kesin teklif ücretsiz keşifle netleşir.": "Модели с эмалированным внутренним баком от 60 до 200 л под потребность вашей семьи. Актуальные цены и наличие — по запросу; точное предложение после бесплатного выезда."
   });
 
+  /* --- su-isitici.html: bağlantı şeması görseli (alt metin + açıklama) --- */
+  Object.assign(DICT.en, {
+    "Bağlantı şeması: çatıdaki güneş paneli iki damarlı DC kabloyla banyodaki termosifonun klemensine bağlanır; klemenste PV artı, PV eksi, AC faz ve nötr uçları, tankta sıcak su çıkışı ve soğuk su girişi bulunur.": "Wiring diagram: the solar panel on the roof connects to the terminal of the water heater in the bathroom with a two-core DC cable; the terminal carries PV plus, PV minus, AC live and neutral, and the tank has a hot water outlet and a cold water inlet.",
+    "Panel çatıda veya balkonda, tank iç mekânda durur; aralarında yalnızca iki damarlı DC kablo geçer — su panele hiç çıkmaz, bu yüzden donma ve kireçlenme riski yoktur. Büyütmek için görsele tıklayın.": "The panel sits on the roof or balcony and the tank indoors; only a two-core DC cable runs between them — water never goes up to the panel, so there is no freezing or scaling risk. Click the image to enlarge."
+  });
+  Object.assign(DICT.de, {
+    "Bağlantı şeması: çatıdaki güneş paneli iki damarlı DC kabloyla banyodaki termosifonun klemensine bağlanır; klemenste PV artı, PV eksi, AC faz ve nötr uçları, tankta sıcak su çıkışı ve soğuk su girişi bulunur.": "Anschlussschema: Das Solarmodul auf dem Dach wird mit einem zweiadrigen DC-Kabel an die Klemme des Warmwasserspeichers im Bad angeschlossen; die Klemme führt PV plus, PV minus, AC-Außenleiter und Neutralleiter, der Speicher hat Warmwasseraustritt und Kaltwassereintritt.",
+    "Panel çatıda veya balkonda, tank iç mekânda durur; aralarında yalnızca iki damarlı DC kablo geçer — su panele hiç çıkmaz, bu yüzden donma ve kireçlenme riski yoktur. Büyütmek için görsele tıklayın.": "Das Modul sitzt auf Dach oder Balkon, der Speicher im Innenraum; dazwischen läuft nur ein zweiadriges DC-Kabel — Wasser gelangt nie zum Modul, daher kein Frost- und Kalkrisiko. Zum Vergrößern auf das Bild klicken."
+  });
+  Object.assign(DICT.ru, {
+    "Bağlantı şeması: çatıdaki güneş paneli iki damarlı DC kabloyla banyodaki termosifonun klemensine bağlanır; klemenste PV artı, PV eksi, AC faz ve nötr uçları, tankta sıcak su çıkışı ve soğuk su girişi bulunur.": "Схема подключения: солнечная панель на крыше соединяется двухжильным DC-кабелем с клеммной колодкой водонагревателя в ванной; на колодке — PV плюс, PV минус, фаза AC и ноль, у бака есть выход горячей и вход холодной воды.",
+    "Panel çatıda veya balkonda, tank iç mekânda durur; aralarında yalnızca iki damarlı DC kablo geçer — su panele hiç çıkmaz, bu yüzden donma ve kireçlenme riski yoktur. Büyütmek için görsele tıklayın.": "Панель стоит на крыше или балконе, бак — внутри помещения; между ними идёт только двухжильный DC-кабель — вода к панели не поднимается, поэтому нет риска замерзания и накипи. Нажмите на изображение, чтобы увеличить."
+  });
+
   Object.assign(PH.en, {
     "Otel / site / tesis adı": "Hotel / residence / facility name",
     "Genel müdür, teknik müdür...": "General manager, technical manager...",
