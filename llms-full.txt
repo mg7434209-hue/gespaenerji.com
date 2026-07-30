@@ -33,11 +33,11 @@ ikincil gözetim katmanıdır. Ücretsiz keşif ve pilot teklifi verilir.
 Monokristal panellerle suyu doğrudan güneş enerjisiyle ısıtır; bulutlu havada
 otomatik şebeke (AC) desteğine geçer. Emaye iç tank, akıllı GF-20 kontrol.
 Modeller ve fiyatlar (KDV dahil, ₺):
-- 60 L (Yatay, 550 W panel): ₺18.900
-- 80 L (Yatay, 600 W panel): ₺22.900
-- 100 L (Yatay, 700 W panel): ₺27.900
-- 120 L (Dikey, 900 W panel): ₺32.900
-- 150 L (Dikey, 1200 W panel): ₺38.900
+- 60 L (Yatay, 550 W panel): fiyat için teklif alın
+- 80 L (Yatay, 600 W panel): fiyat için teklif alın
+- 100 L (Yatay, 700 W panel): fiyat için teklif alın
+- 120 L (Dikey, 900 W panel): fiyat için teklif alın
+- 150 L (Dikey, 1200 W panel): fiyat için teklif alın
 - 200 L (Dikey): fiyat için teklif alın
 
 ## Paket Ürünler (https://www.gespaenerji.com/urunler.html)

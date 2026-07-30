@@ -303,18 +303,24 @@
       var tb = $("#heaterRows");
       if (!tb || !CFG.heater || !CFG.heater.models) return;
       var nf = new Intl.NumberFormat("tr-TR");
+      var showPrice = CFG.heater.showPrices !== false; // config kapalıysa fiyat yerine "Teklif alın"
       tb.innerHTML = CFG.heater.models.map(function (m) {
         var tank = L("Emaye", "Enamel", "Email", "Эмаль");
         var mount = m.mount === "Dikey" ? L("Dikey", "Vertical", "Vertikal", "Вертик.") : L("Yatay", "Horizontal", "Horizontal", "Горизонт.");
-        var price = m.price ? '<span class="spec-price">₺' + nf.format(m.price) + "</span>"
+        var price = showPrice && m.price ? '<span class="spec-price">₺' + nf.format(m.price) + "</span>"
           : '<a href="iletisim.html" class="spec-quote">' + L("Teklif alın", "Get a quote", "Angebot", "По запросу") + "</a>";
         return "<tr><td>" + m.cap + " L</td><td>" + mount + "</td><td>" + (m.pv != null ? m.pv + " W" : "—") + "</td><td>" + (m.dim || "—") + "</td><td>" + (m.ac != null ? m.ac + " kW" : "—") + "</td><td>" + tank + "</td><td>" + price + "</td></tr>";
       }).join("");
-      var prices = CFG.heater.models.map(function (m) { return m.price; }).filter(Boolean);
+      var prices = showPrice ? CFG.heater.models.map(function (m) { return m.price; }).filter(Boolean) : [];
       var fromEl = $("#heaterFrom");
-      if (fromEl && prices.length) {
-        var mn = "₺" + nf.format(Math.min.apply(null, prices));
-        fromEl.textContent = L(mn + "'dan başlayan fiyatlarla", "from " + mn, "ab " + mn, "от " + mn);
+      if (fromEl) {
+        if (prices.length) {
+          var mn = "₺" + nf.format(Math.min.apply(null, prices));
+          fromEl.textContent = L(mn + "'dan başlayan fiyatlarla", "from " + mn, "ab " + mn, "от " + mn);
+        } else {
+          fromEl.textContent = L("Güncel fiyat için bize ulaşın", "Contact us for current pricing",
+            "Aktuelle Preise auf Anfrage", "Актуальные цены — по запросу");
+        }
       }
       // Product JSON-LD — fiyat aralığı config'ten (tek kaynak);
       // build.js statik gömdüyse yeniden enjekte etme
