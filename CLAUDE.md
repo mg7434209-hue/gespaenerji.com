@@ -119,7 +119,8 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
 - Galeri büyütme (lightbox) `main.js`'te: TÜM `.gallery` blokları + tekil
   `img[data-zoom]` görselleri. Su ısıtıcı ürün galerisi `assets/img/products/heater/`
   (`tank-1..8` + `-thumb`, beyaz zemin otomatik kırpılıp 4:3'e getirilmiş;
-  `detay-*` yakın planlar, `og-su-isitici.jpg` paylaşım görseli). Küçük resim →
+  `detay-*` yakın planlar, `baglanti-semasi.webp` (+`-900`) montaj şeması,
+  `og-su-isitici.jpg` paylaşım görseli). Küçük resim →
   ana görsel geçişi `#pgMain` / `.prod-thumbs` ile; JS yokken bağlantı görseli açar.
 - Açık/koyu tema, mobil menü, scroll animasyonları `assets/main.js` ile yönetilir;
   yeni DOM'lar `.reveal` ve `data-count` desenlerini kullanabilir.
