@@ -159,7 +159,8 @@
         } else if (p.battery) {
           arr.push("🔋 " + nf.format(p.battery) + " kWh " + L("batarya", "battery", "Batterie", "аккумулятор"));
         } else {
-          arr.push("☀️ ~" + nf.format(Math.round(p.kwp * defYield / 365)) + " kWh/" + L("gün", "day", "Tag", "день"));
+          var dk = p.dailyKwh != null ? p.dailyKwh : Math.round(p.kwp * defYield / 365);
+          arr.push("☀️ ~" + nf1.format(dk) + " kWh/" + L("gün", "day", "Tag", "день"));
         }
         return arr;
       }

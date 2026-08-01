@@ -69,21 +69,23 @@ window.GESPA.config = {
     // currency: "USD" -> $ ile gösterilir (varsayılan ₺)
     {
       id: "kit-285w", icon: "🧰", tag: "Taşınabilir", group: "offgrid", kit: true,
-      kwp: 0.285, panelW: 285, panelCount: 1, portable: true,
+      kwp: 0.285, panelW: 285, panelCount: 1, portable: true, dailyKwh: 1.7,
+      img: "assets/img/products/kit-285w.webp",
       price: 22000, oldPrice: 25000,
       for: "Kamp, karavan ve küçük ihtiyaçlar",
       name: "285W Güneş Paneli Paketi",
       desc: "Komple sistem: 285 W panel, güç kutusu ve bağlantı kabloları dahil tak-çalıştır mobil kit. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg.",
-      features: ["TV, lamba ve telefon şarjı çalıştırır", "23–25 kg — mobil taşınabilir", "Güç kutusu ve kablolar dahil", "Tak-çalıştır kurulum"]
+      features: ["TV, lambalar ve telefon şarjı çalıştırır", "Günlük ~1,7 kWh güneş üretimi", "23–25 kg — mobil taşınabilir", "Güç kutusu ve kablolar dahil"]
     },
     {
       id: "kit-2x540w", icon: "🎒", tag: "Taşınabilir", group: "offgrid", kit: true,
-      kwp: 1.08, panelW: 540, panelCount: 2, portable: true,
+      kwp: 1.08, panelW: 540, panelCount: 2, portable: true, dailyKwh: 6.5,
+      img: "assets/img/products/kit-2x540w.webp",
       price: 2000, oldPrice: 2200, currency: "USD",
       for: "Karavan, kamp ve bağ evi",
       name: "Tam Kapsamlı Güneş Enerjisi Sistemi",
       desc: "2× 540 W güneş paneli dahil komple mobil sistem: LiFePO₄ lityum batarya ve büyük güç kutusuyla buzdolabı, TV, çamaşır ve bulaşık makinesini çalıştırır.",
-      features: ["Buzdolabı, TV, çamaşır ve bulaşık makinesini çalıştırır", "LiFePO₄ lityum batarya dahil", "Büyük güç kutusu ve kablolar dahil", "Mobil taşınabilir, off-grid çalışma"]
+      features: ["Büyük boy buzdolabı, TV, çamaşır-bulaşık makinesi ve süpürgeyi çalıştırır", "Günlük ~6,5 kWh güneş üretimi", "LiFePO₄ lityum batarya dahil", "Mobil taşınabilir, off-grid çalışma"]
     },
     {
       id: "offgrid-3kw", icon: "🛖", tag: "Taşınabilir", group: "offgrid", kwp: 3, portable: true, price: 145934, popular: true,
