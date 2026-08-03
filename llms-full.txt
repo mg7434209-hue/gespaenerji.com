@@ -42,8 +42,8 @@ Modeller ve fiyatlar (KDV dahil, ₺):
 
 ## Paket Ürünler (https://www.gespaenerji.com/urunler.html)
 Markalar — panel: Arçelik, Lexron, Bakırlar · inverter: Tescom, Mexxsun, Lexron, Arçelik
-- 285W Güneş Paneli Paketi — 0.285 kWp · Kamp, karavan ve küçük ihtiyaçlar · ₺25.000
-- Tam Kapsamlı Güneş Enerjisi Sistemi — 1.08 kWp · Karavan, kamp ve bağ evi · $2.200
+- 285W Güneş Paneli Paketi — 0.285 kWp · Kamp, karavan ve küçük ihtiyaçlar · ₺25.000 (≈ $526) liste (KDV dahil) · havale/EFT ile ₺22.500 (%10 indirimli)
+- Tam Kapsamlı Güneş Enerjisi Sistemi — 1.08 kWp · Karavan, kamp ve bağ evi · ₺104.500 (≈ $2.200) liste (KDV dahil) · havale/EFT ile ₺94.050 (%10 indirimli)
 
 ## Sistem Kurucu (https://www.gespaenerji.com/sistem-kur.html)
 Off-grid sistemini adım adım kurma aracı: kullanım yeri (bağ evi, karavan, müstakil

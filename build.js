@@ -481,6 +481,8 @@ function hydrateExtras(html, file, cfg) {
       { id: "ongrid", title: "Çatı / On-Grid Paketler" }
     ];
     const COST = cfg.calc.costPerKwp;
+    const RATE = cfg.usdTry || 0;
+    const PCT = cfg.cartDiscountPct || 0;
     let staticList = "";
     for (const g of GROUPS) {
       const items = cfg.packages.filter(p => (p.group || "ongrid") === g.id);
@@ -488,9 +490,16 @@ function hydrateExtras(html, file, cfg) {
       staticList += '<div class="pkg-group"><div class="pkg-group-head"><h2>' + g.title + "</h2></div><ul class=\"ticks\">" +
         items.map(p => {
           const price = p.price != null ? p.price : Math.round(p.kwp * COST);
-          const cur = p.currency === "USD" ? "$" : "₺";
+          // Vitrin kartıyla AYNI gösterim: ana fiyat ₺, yanında ≈$, altında havale/EFT tutarı
+          const tl = p.currency === "USD" ? Math.round(price * RATE / 100) * 100 : price;
+          const usd = p.currency === "USD" ? price : (RATE ? Math.round(price / RATE) : 0);
+          const hav = Math.round(tl * (100 - PCT) / 100 / 50) * 50;
+          const priceTxt = "₺" + nfTr(tl) + (usd ? " (≈ $" + nfTr(usd) + ")" : "") +
+            (p.price != null
+              ? (PCT ? " liste · havale/EFT ile ₺" + nfTr(hav) + " (%" + PCT + " indirimli, KDV dahil)" : " (KDV dahil)")
+              : " (yaklaşık)");
           return "<li><strong>" + esc(p.name) + "</strong> — " + p.kwp + " kWp · " + esc(p.for) + " · " +
-            cur + nfTr(price) + (p.price != null ? "" : " (yaklaşık)") + ". " + esc(p.desc) + "</li>";
+            priceTxt + ". " + esc(p.desc) + "</li>";
         }).join("") + "</ul></div>";
     }
     const marker = /<!-- PKG:STATIC -->[\s\S]*?<!-- \/PKG:STATIC -->/;
@@ -601,11 +610,17 @@ function hydrateContact(html, c) {
 function writeLlmsFull(cfg) {
   const nf = n => new Intl.NumberFormat("tr-TR").format(Math.round(n));
   const COST = cfg.calc.costPerKwp;
+  const RATE = cfg.usdTry || 0;
+  const PCT = cfg.cartDiscountPct || 0;
   const pkgLines = cfg.packages.map(p => {
     const price = p.price != null ? p.price : Math.round(p.kwp * COST);
-    const cur = p.currency === "USD" ? "$" : "₺";
-    const tag = p.price != null ? "" : " (yaklaşık, keşifle netleşir)";
-    return `- ${p.name} — ${p.kwp} kWp · ${p.for} · ${cur}${nf(price)}${tag}`;
+    const tl = p.currency === "USD" ? Math.round(price * RATE / 100) * 100 : price;
+    const usd = p.currency === "USD" ? price : (RATE ? Math.round(price / RATE) : 0);
+    const hav = Math.round(tl * (100 - PCT) / 100 / 50) * 50;
+    const tag = p.price != null
+      ? (PCT ? ` liste (KDV dahil) · havale/EFT ile ₺${nf(hav)} (%${PCT} indirimli)` : " (KDV dahil)")
+      : " (yaklaşık, keşifle netleşir)";
+    return `- ${p.name} — ${p.kwp} kWp · ${p.for} · ₺${nf(tl)}${usd ? ` (≈ $${nf(usd)})` : ""}${tag}`;
   }).join("\n");
   const showHeaterPrice = cfg.heater.showPrices !== false;
   const heaterLines = cfg.heater.models.map(m =>

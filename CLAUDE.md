@@ -85,6 +85,13 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   `dailyKwh` günlük üretim. `usdTry` kuru ile ikinci para "≈" gösterilir;
   kur değişince SADECE config.usdTry güncellenir. Yeni ürün eklerken aynı
   alanlar + detay sayfası (mevcut paket-*.html kopyala) + build META satırı.
+- Fiyat gösterimi HER YERDE aynı: liste fiyatı ₺ (+ "≈ $") · altında
+  `💰 Havale/EFT ile: ₺X (%N indirimli)` · "KDV dahil · kargo hariç" notu.
+  İndirimli tutar `config.cartDiscountPct` ile hesaplanır ve **en yakın 50 ₺'ye**
+  yuvarlanır — vitrin kartı (main.js `card()`), paket detay hero'su
+  (`data-pkg-havale`), sipariş özeti, build'in statik `PKG:STATIC` listesi ve
+  llms-full.txt AYNI formülü kullanır; birini değiştirirsen hepsini değiştir.
+  Detay hero'sundaki satın alma düğmesi de `data-pkg-cta` ile config'ten dolar.
 - `heater`: PV su ısıtıcı modelleri + ₺ fiyatları (su-isitici.html tablosu ve
   Product JSON-LD buradan render edilir). `heater.showPrices: false` iken fiyat
   HİÇBİR yerde görünmez — tabloda "Teklif alın", hero'da "Güncel fiyat için bize
