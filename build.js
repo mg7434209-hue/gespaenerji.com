@@ -250,6 +250,42 @@ function packagesItemListLd(cfg) {
   };
 }
 
+// Paket detay sayfası için Product şeması (statik; main.js data-gld görünce tekrar enjekte etmez)
+function packageProductLd(cfg, p) {
+  const web = cfg.company.web;
+  const com = cfg.commerce || {};
+  const ld = {
+    "@context": "https://schema.org", "@type": "Product",
+    name: p.name, description: p.desc, category: p.tag,
+    brand: { "@type": "Brand", name: cfg.company.brandName },
+    url: web + "/" + (p.url || "")
+  };
+  if (p.sku) ld.sku = p.sku;
+  if (p.img) ld.image = web + "/" + p.img;
+  if (p.price != null) {
+    ld.offers = {
+      "@type": "Offer", price: p.price, priceCurrency: p.currency || "TRY",
+      availability: "https://schema.org/InStock", url: web + "/" + (p.url || ""),
+      seller: { "@type": "Organization", name: cfg.company.legalName },
+      shippingDetails: {
+        "@type": "OfferShippingDetails",
+        shippingDestination: { "@type": "DefinedRegion", addressCountry: "TR" }
+      }
+    };
+    if (com.returnDays) {
+      ld.offers.hasMerchantReturnPolicy = {
+        "@type": "MerchantReturnPolicy",
+        applicableCountry: "TR",
+        returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+        merchantReturnDays: com.returnDays,
+        returnMethod: "https://schema.org/ReturnByMail",
+        returnFees: "https://schema.org/ReturnShippingFees"
+      };
+    }
+  }
+  return ld;
+}
+
 function cankurtaranProductLd(cfg) {
   return {
     "@context": "https://schema.org", "@type": "Product",
@@ -315,6 +351,11 @@ function injectStaticLd(html, file, cfg) {
   if (file === "urunler.html") objs.push(packagesItemListLd(cfg));
   if (file === "ai-cankurtaran-destek-sistemi.html") objs.push(cankurtaranProductLd(cfg));
   if (file === "hesaplayici.html") objs.push(webAppLd(cfg));
+  if (/^paket-/.test(file) && cfg.packages) {
+    const id = (html.match(/data-pkg-detail="([^"]+)"/) || [])[1];
+    const p = cfg.packages.filter(x => x.id === id)[0];
+    if (p) objs.push(packageProductLd(cfg, p));
+  }
   if (file === "hakkimizda.html") objs.push({ "@context": "https://schema.org", "@type": "AboutPage", name: "Hakkımızda — " + cfg.company.brandName, url: cfg.company.web + "/hakkimizda.html", about: { "@type": "Organization", name: cfg.company.brandName, url: cfg.company.web } });
   if (file === "iletisim.html") objs.push({ "@context": "https://schema.org", "@type": "ContactPage", name: "İletişim — " + cfg.company.brandName, url: cfg.company.web + "/iletisim.html" });
   if (file === "projeler.html") { const pl = projectsItemListLd(html, cfg); if (pl) objs.push(pl); }
@@ -422,7 +463,30 @@ function hydrateExtras(html, file, cfg) {
   html = html.replace(/(<div class="trust-logos" id="brandPanels">)[\s\S]*?(<\/div>)/, "$1" + brandSpans(cfg.brands.panel) + "$2");
   html = html.replace(/(<div class="trust-logos" id="brandInverters">)[\s\S]*?(<\/div>)/, "$1" + brandSpans(cfg.brands.inverter) + "$2");
   // Hesaplayıcı varsayımları + bölge/yön seçenekleri
-  const setSpan = (id, v) => { html = html.replace(new RegExp('(<[^>]*id="' + id + '"[^>]*>)[^<]*(</)'), "$1" + v + "$2"); };
+  // NOT: değer "$2.200" gibi $ içerebilir — replace'in $1/$2 desenine yem olmasın diye
+  // fonksiyon biçimi kullanılır.
+  const setSpan = (id, v) => {
+    html = html.replace(new RegExp('(<[^>]*id="' + id + '"[^>]*>)[^<]*(</)'), (m, open, close) => open + v + close);
+  };
+  // Paket detay sayfası (paket-*.html) — fiyat/ürün kodu/stok/kargo statik basılır.
+  // AI botları JS çalıştırmaz; main.js aynı değerleri istemcide tazeler.
+  const pkgId = (html.match(/data-pkg-detail="([^"]+)"/) || [])[1];
+  if (pkgId && cfg.packages) {
+    const p = cfg.packages.filter(x => x.id === pkgId)[0];
+    if (p && p.price != null) {
+      const RATE = cfg.usdTry || 0, PCT = cfg.cartDiscountPct || 0;
+      const tl = p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
+      const usd = p.currency === "USD" ? p.price : (RATE ? Math.round(p.price / RATE) : 0);
+      setSpan("pkgPrice", "₺" + nfTr(tl));
+      setSpan("pkgAlt", usd ? "≈ $" + nfTr(usd) : "");
+      setSpan("pkgHavale", "₺" + nfTr(Math.round(tl * (100 - PCT) / 100 / 50) * 50));
+      if (p.sku) setSpan("pkgSku", esc(p.sku));
+    }
+    const com = cfg.commerce || {};
+    if (com.stockLabel) setSpan("pkgStock", esc(com.stockLabel));
+    if (com.shipDays) setSpan("shipDays", esc(com.shipDays));
+    if (com.returnDays) setSpan("returnDays", String(com.returnDays));
+  }
   if (cfg.calc) {
     const k = cfg.calc;
     setSpan("aPanelW", k.panelW + " Wp");
@@ -662,6 +726,12 @@ ${heaterLines}
 ## Paket Ürünler (${c.web}/urunler.html)
 Markalar — panel: ${cfg.brands.panel.join(", ")} · inverter: ${cfg.brands.inverter.join(", ")}
 ${pkgLines}
+Kargo & iade: Paketler TÜRKİYE'NİN HER İLİNE anlaşmalı kargo ile gönderilir (teslimat
+Antalya ile sınırlı değildir). Sipariş onayından sonra tahmini teslim ${(cfg.commerce || {}).shipDays || "2–5"} iş günü;
+kargo ücreti alıcıya aittir, fiyatlara KDV dahildir. Mesafeli satışta ${(cfg.commerce || {}).returnDays || 14} gün cayma
+hakkı vardır (sorunsuz teslimde iade kargosu alıcıya ait; hasarlı/ayıplı üründe satıcıya).
+Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi verilir.
+Ödeme: havale/EFT'te %${cfg.cartDiscountPct || 0} indirim; kapıda ödemede %30 peşin + %70 teslimatta.
 
 ## Sistem Kurucu (${c.web}/sistem-kur.html)
 Off-grid sistemini adım adım kurma aracı: kullanım yeri (bağ evi, karavan, müstakil

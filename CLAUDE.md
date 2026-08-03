@@ -15,8 +15,12 @@ klasik Pages yayını için **repoda tutulur** — kaynak değişince `node buil
 
 Sayfalar (her biri kök dizinde, `.html` uzantılı):
 `index.html` · `hizmetler.html` · `urunler.html` (paket vitrini; yalnız 2 kit) ·
-`paket-285w.html` `paket-2x540w.html` (ürün detay sayfaları; fiyat/WhatsApp/LD
-config'ten `data-pkg-detail` ile dolar) ·
+`paket-285w.html` `paket-2x540w.html` (e-ticaret ürün sayfası: solda galeri
+`#pgMain`+`.prod-thumbs`, sağda satın alma kutusu `.buy-box` — ürün kodu, stok,
+fiyat, havale tutarı, `.qbox` adet kutusu, CTA'lar, kargo/iade bilgi listesi;
+altında 4 sekme `.ptabs`/`.ptab-panel` = açıklama · pakete dahil olanlar · teknik ·
+kargo-iade; sonra sipariş formu `#siparis`. Fiyat/kod/stok hem build'de statik
+basılır hem main.js'te `data-pkg-*` ile tazelenir; adet sipariş özetini çarpar) ·
 `su-isitici.html` (PV su ısıtıcı) · `ai-cankurtaran-destek-sistemi.html`
 (havuz güvenliği; lacivert/aqua `pool-*` stilleri, form → WhatsApp lead) ·
 `hesaplayici.html` · `sistem-kur.html` (Sistem Kurucu sihirbazı) ·
@@ -92,6 +96,10 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   (`data-pkg-havale`), sipariş özeti, build'in statik `PKG:STATIC` listesi ve
   llms-full.txt AYNI formülü kullanır; birini değiştirirsen hepsini değiştir.
   Detay hero'sundaki satın alma düğmesi de `data-pkg-cta` ile config'ten dolar.
+- `commerce`: stok rozeti, teslim süresi (gün), cayma süresi. Kargo TÜM Türkiye'ye
+  yapılır (Antalya yalnızca isteğe bağlı yerinde kurulum bölgesidir) — bu ifadeyi
+  kart güven satırında, ürün sayfası bilgi listesinde, "Kargo ve İade" sekmesinde
+  ve llms-full.txt'te birlikte güncelle.
 - `heater`: PV su ısıtıcı modelleri + ₺ fiyatları (su-isitici.html tablosu ve
   Product JSON-LD buradan render edilir). `heater.showPrices: false` iken fiyat
   HİÇBİR yerde görünmez — tabloda "Teklif alın", hero'da "Güncel fiyat için bize
