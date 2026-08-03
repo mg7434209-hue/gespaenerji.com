@@ -341,6 +341,17 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .pkg-price-lbl{color:var(--muted);font-size:.78rem}
 .pkg-price strong{font-family:var(--font);font-size:1.65rem;color:var(--green);font-weight:800;line-height:1.15}
 .pkg-price strong.pkg-poa{font-size:1.2rem;color:var(--ink)}
+.pkg-alt{color:var(--muted);font-weight:700;font-size:.95rem}
+.pkg-media-link{display:block}
+.pkg-name a{color:inherit}
+.pkg-name a:hover{color:var(--green)}
+/* Paket detay sayfası fiyat kutusu */
+.pd-price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:12px 0 4px}
+.pd-price strong{font-family:var(--font);font-size:2.1rem;color:var(--green);font-weight:800}
+.pd-price s{color:var(--muted);font-size:1.15rem;font-weight:600}
+.pd-price .pd-alt{color:var(--muted);font-weight:700;font-size:1.05rem}
+.pd-disc{display:inline-block;background:var(--sun);color:#3a2c00;font-weight:800;font-size:.78rem;padding:3px 11px;border-radius:999px;vertical-align:middle;margin-left:8px}
+.pd-note{color:var(--muted);font-size:.85rem;margin:2px 0 0}
 .pkg-price-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
 .pkg-old{color:var(--muted);font-size:1.02rem;font-weight:600;text-decoration-thickness:2px}
 .pkg-disc{display:inline-block;background:var(--sun);color:#3a2c00;font-style:normal;font-weight:800;font-size:.72rem;padding:2px 9px;border-radius:999px;margin-left:6px;vertical-align:middle}

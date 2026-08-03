@@ -24,6 +24,7 @@ const PAGES = [
   "index.html", "hizmetler.html", "urunler.html", "su-isitici.html", "hesaplayici.html",
   "projeler.html", "hakkimizda.html", "iletisim.html", "tarimsal-sulama.html",
   "ai-cankurtaran-destek-sistemi.html", "sistem-kur.html",
+  "paket-285w.html", "paket-2x540w.html",
   // Yasal sayfalar da üretilir: dil değiştirici ve hreflang /en/kvkk.html gibi
   // URL'lere işaret eder; üretilmezse 404 olur. Gövde metni TR kalır (hukuken
   // geçerli metin Türkçedir), başlık/description dile göre yazılır.
@@ -63,6 +64,22 @@ const META = {
           d: "Photovoltaischer (PV) Warmwasserbereiter der neuen Generation: erwärmt Wasser direkt mit Monokristallin-Solarmodulen. Smarter GF-20-Regler, automatische Netz-Reserve bei Bewölkung, 60–200 L Emailtank." },
     ru: { t: "PV солнечный водонагреватель — Фотоэлектрический нагрев воды | GESPA Energy",
           d: "Фотоэлектрический (PV) водонагреватель нового поколения, нагревающий воду напрямую монокристаллическими панелями. Умный контроллер GF-20, авто-резерв от сети в пасмурную погоду, эмалевый бак 60–200 л." }
+  },
+  "paket-285w.html": {
+    en: { t: "285W Solar Panel Package — Complete Plug-and-Play Kit | GESPA Energy",
+          d: "Complete 285W solar kit for camping, caravans and small needs: panel + power box + cables. Runs a TV, lights and phone charging; 23–25 kg, plug-and-play." },
+    de: { t: "285-W-Solarmodul-Paket — Komplettes Plug-and-Play-Set | GESPA Energy",
+          d: "Komplettes 285-W-Solarset für Camping, Wohnmobil und kleine Verbraucher: Modul + Power-Box + Kabel. Betreibt TV, Licht und Handy-Ladung; 23–25 kg, Plug-and-Play." },
+    ru: { t: "Пакет с панелью 285 Вт — комплект подключи-и-работай | GESPA Energy",
+          d: "Полный солнечный комплект 285 Вт для кемпинга и караванов: панель + блок питания + кабели. Питает ТВ, свет и зарядку телефона; 23–25 кг." }
+  },
+  "paket-2x540w.html": {
+    en: { t: "Complete Solar Energy System 2×540W — LiFePO₄ Battery | GESPA Energy",
+          d: "2×540W panels + large power box with LiFePO₄ battery + cables: complete mobile solar system that runs a fridge, TV, washer and dishwasher. ~6.5 kWh solar yield per day." },
+    de: { t: "Komplettes Solarenergiesystem 2×540 W — LiFePO₄-Batterie | GESPA Energy",
+          d: "2×540-W-Module + große Power-Box mit LiFePO₄-Batterie + Kabel: komplettes mobiles Solarsystem für Kühlschrank, TV, Wasch- und Spülmaschine. ~6,5 kWh Ertrag pro Tag." },
+    ru: { t: "Полная солнечная энергосистема 2×540 Вт — батарея LiFePO₄ | GESPA Energy",
+          d: "Панели 2×540 Вт + большой блок питания с батареей LiFePO₄ + кабели: полная мобильная система для холодильника, ТВ, стиральной и посудомоечной машин. ~6,5 кВт·ч в день." }
   },
   "hesaplayici.html": {
     en: { t: "Solar Savings Calculator (PV) | GESPA Energy",

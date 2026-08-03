@@ -62,6 +62,10 @@ window.GESPA.config = {
   // perakende fiyatı formülle örtüşmez). `group`: ongrid | offgrid | irrigation.
   // İsim/açıklama/özellik TR kaynaktır; çeviri assets/i18n.js DICT'ten gelir
   // (eşleşmeyen metin zarifçe TR kalır).
+  // USD/TRY kuru — kitlerde ikinci para birimi karşılığı için (₺/$).
+  // Kur değişince SADECE burayı güncelleyin; "≈" ile yaklaşık gösterilir.
+  usdTry: 47.5,
+
   packages: [
     // —— Taşınabilir & Off-Grid (lityum bataryalı) paketler —— açık perakende fiyatı
     // img: "assets/img/products/x.webp" -> kartta çizim yerine gerçek ürün fotoğrafı
@@ -69,6 +73,7 @@ window.GESPA.config = {
     // currency: "USD" -> $ ile gösterilir (varsayılan ₺)
     {
       id: "kit-285w", icon: "🧰", tag: "Taşınabilir", group: "offgrid", kit: true,
+      url: "paket-285w.html",
       kwp: 0.285, panelW: 285, panelCount: 1, portable: true, dailyKwh: 1.7,
       img: "assets/img/products/kit-285w.webp",
       price: 22000, oldPrice: 25000,
@@ -79,6 +84,7 @@ window.GESPA.config = {
     },
     {
       id: "kit-2x540w", icon: "🎒", tag: "Taşınabilir", group: "offgrid", kit: true,
+      url: "paket-2x540w.html",
       kwp: 1.08, panelW: 540, panelCount: 2, portable: true, dailyKwh: 6.5,
       img: "assets/img/products/kit-2x540w.webp",
       price: 2000, oldPrice: 2200, currency: "USD",
@@ -87,74 +93,9 @@ window.GESPA.config = {
       desc: "2× 540 W güneş paneli dahil komple mobil sistem: LiFePO₄ lityum batarya ve büyük güç kutusuyla buzdolabı, TV, çamaşır ve bulaşık makinesini çalıştırır.",
       features: ["Büyük boy buzdolabı, TV, çamaşır-bulaşık makinesi ve süpürgeyi çalıştırır", "Günlük ~6,5 kWh güneş üretimi", "LiFePO₄ lityum batarya dahil", "Mobil taşınabilir, off-grid çalışma"]
     },
-    {
-      id: "offgrid-3kw", icon: "🛖", tag: "Taşınabilir", group: "offgrid", kwp: 3, portable: true, price: 145934, popular: true,
-      for: "Bağ evi ve küçük yapılar",
-      name: "3 kW Off-Grid Paket",
-      desc: "Bağ evi ve küçük müstakil yapılar için lityum bataryalı sistem.",
-      features: ["Lityum batarya dahil", "Hibrit inverter dahil", "Off-grid (şebekesiz) çalışma", "Hazır kurulum kiti"]
-    },
-    {
-      id: "offgrid-4kw", icon: "🏕️", tag: "Taşınabilir", group: "offgrid", kwp: 4.2, portable: true, price: 185105,
-      for: "Bağ evi ve tam gün kullanım",
-      name: "4.2 kW Off-Grid Paket",
-      desc: "Tam günlük temel tüketim için güçlü off-grid kit.",
-      features: ["Lityum batarya dahil", "Hibrit inverter dahil", "Off-grid (şebekesiz) çalışma", "25 yıl panel performans garantisi"]
-    },
-    {
-      id: "offgrid-6kw", icon: "🏚️", tag: "Off-Grid", group: "offgrid", kwp: 6.2, price: 269637,
-      for: "Müstakil ev ve villalar",
-      name: "6.2 kW Off-Grid Paket",
-      desc: "Müstakil ev ihtiyaçları için yüksek kapasiteli sistem.",
-      features: ["Lityum batarya dahil", "Hibrit inverter dahil", "Off-grid (şebekesiz) çalışma", "25 yıl panel performans garantisi"]
-    },
-    {
-      id: "offgrid-8kw", icon: "🔌", tag: "Off-Grid", group: "offgrid", kwp: 8, price: 538543,
-      for: "Yoğun tüketimli evler",
-      name: "8 kW Off-Grid Paket",
-      desc: "Yoğun tüketim ve kesintisiz enerji için tam donanım.",
-      features: ["Lityum batarya dahil", "Hibrit inverter dahil", "Off-grid (şebekesiz) çalışma", "25 yıl panel performans garantisi"]
-    },
 
-    // —— Tarımsal sulama paketleri —— (off-grid PV; fiyat formülden türetilir)
-    {
-      id: "sulama-bahce", icon: "🪴", tag: "Tarım", group: "irrigation", kwp: 3, pumpKw: 2.2,
-      for: "Küçük bahçe ve damla sulama",
-      name: "Bağ-Bahçe Sulama Paketi",
-      desc: "Küçük bağ-bahçe ve damla sulama için kompakt güneş sistemi.",
-      features: ["Dalgıç/yüzey pompasına uygun", "Off-grid (şebekesiz) çalışma", "Pompa sürücüsü dahil", "Sezonluk boyutlandırma"]
-    },
-    {
-      id: "sulama-tarla", icon: "🌾", tag: "Tarım", group: "irrigation", kwp: 7.5, pumpKw: 5.5,
-      for: "Orta ölçekli tarlalar",
-      name: "Tarla Sulama Paketi",
-      desc: "Orta ölçekli tarlalar için dalgıç pompalı güneş enerjisi sistemi.",
-      features: ["Dalgıç/yüzey pompasına uygun", "Off-grid (şebekesiz) çalışma", "Pompa sürücüsü dahil", "Sezonluk boyutlandırma"]
-    },
-    {
-      id: "sulama-sera", icon: "🏡", tag: "Tarım", group: "irrigation", kwp: 11, pumpKw: 7.5,
-      for: "Sera ve büyük bahçeler",
-      name: "Sera Sulama Paketi",
-      desc: "Sera ve büyük bahçe sulaması için yüksek debili sistem.",
-      features: ["Dalgıç/yüzey pompasına uygun", "Off-grid (şebekesiz) çalışma", "Pompa sürücüsü dahil", "Sezonluk boyutlandırma"]
-    },
-    {
-      id: "sulama-genis", icon: "🚜", tag: "Tarım", group: "irrigation", kwp: 20, pumpKw: 15,
-      for: "Geniş araziler ve çiftlikler",
-      name: "Geniş Tarla Sulama Paketi",
-      desc: "Geniş araziler için mazotsuz, şebekeden bağımsız sulama sistemi.",
-      features: ["Dalgıç/yüzey pompasına uygun", "Off-grid (şebekesiz) çalışma", "Pompa sürücüsü dahil", "Sezonluk boyutlandırma"]
-    }
   ],
 
-  // Paket seçim rehberi (urunler.html) — kullanım yeri -> önerilen paket id'si
-  packageGuide: [
-    { icon: "🚐", label: "Karavan / Kamp", target: "kit-285w" },
-    { icon: "🏡", label: "Bağ Evi", target: "offgrid-3kw" },
-    { icon: "🏠", label: "Müstakil Ev", target: "offgrid-6kw" },
-    { icon: "🪴", label: "Bahçe Sulama", target: "sulama-bahce" },
-    { icon: "🌾", label: "Tarla / Sera", target: "sulama-tarla" }
-  ],
 
   // ============================================================
   // SİSTEM KURUCU (sistem-kur.html) — "ihtiyaçtan siparişe" sihirbazı

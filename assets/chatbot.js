@@ -133,10 +133,10 @@
     },
     {
       k: ["paket", "urun", "hazir", "kac kwp", "kwp", "off grid", "offgrid", "tasinabilir", "karavan", "jel aku", "lityum", "lifepo", "sulama paket", "package", "kit", "portable", "caravan", "bausatz", "tragbar", "комплект", "пакет", "караван"],
-      a: ["📦 Hazır paketlerimiz: taşınabilir off-grid lityum bataryalı kitler (285 W – 8 kW; bağ evi/karavan/kulübe) ve tarımsal sulama paketleri. Net güç, panel ve yaklaşık fiyatıyla inceleyebilirsiniz. (Çatı/on-grid sistemler proje bazlı sunulur.)",
+      a: ["📦 Hazır paketlerimiz: 285W tak-çalıştır kit (TV/ışık/şarj) ve 2×540W LiFePO₄ bataryalı Tam Kapsamlı sistem (buzdolabı/çamaşır/bulaşık). Detay sayfalarında fiyat, galeri ve özellikler var. (Daha büyük sistemler proje bazlı: Sistem Kurucu'yu deneyin.)",
           "📦 Ready packages: portable off-grid lithium-battery kits (285 W – 8 kW; cabins/caravans/huts) and agricultural irrigation packages — each with clear power, panel count and approx. price. (Rooftop/on-grid systems are quoted per project.)",
-          "📦 Fertige Pakete: tragbare Off-Grid-Kits mit Lithium-Batterie (285 W – 8 kW; Gartenhaus/Wohnmobil/Hütte) und Bewässerungspakete — mit klarer Leistung, Modulanzahl und ca.-Preis. (Aufdach-/On-Grid-Anlagen projektbezogen.)",
-          "📦 Готовые пакеты: портативные автономные комплекты с литиевым аккумулятором (285 Вт – 8 кВт; дача/караван) и пакеты для полива — с понятной мощностью и ценой. (Сетевые системы — по проекту.)"],
+          "📦 Fertige Pakete: das 285-W-Plug-and-Play-Set (TV/Licht/Laden) und das Komplettsystem 2×540 W mit LiFePO₄-Batterie (Kühlschrank/Wasch-/Spülmaschine). Detailseiten mit Preis, Galerie und Daten. (Größere Anlagen projektbezogen: System-Builder testen.)",
+          "📦 Готовые комплекты: 285 Вт подключи-и-работай (ТВ/свет/зарядка) и полная система 2×540 Вт с батареей LiFePO₄ (холодильник/стиральная/посудомоечная). На страницах товаров — цены, галерея и характеристики."],
       link: { t: ["Paket ürünler", "Solar packages", "Solar-Pakete", "Солнечные пакеты"], u: "urunler.html" }
     }
   ];

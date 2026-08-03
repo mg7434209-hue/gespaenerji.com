@@ -133,6 +133,44 @@
       if (k.costPerKwp != null) setText("#aCost", "₺" + nf.format(k.costPerKwp) + "/kWp");
       if (k.co2PerKwh != null) setText("#aCo2", new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 2 }).format(k.co2PerKwh) + " kg/kWh");
     }
+    // ---- Paket detay sayfası (paket-*.html) — fiyat + WhatsApp + Product LD config'ten ----
+    (function () {
+      var host = document.querySelector("[data-pkg-detail]");
+      if (!host || !CFG.packages) return;
+      var p = null;
+      CFG.packages.forEach(function (x) { if (x.id === host.getAttribute("data-pkg-detail")) p = x; });
+      if (!p) return;
+      var nf = new Intl.NumberFormat("tr-TR");
+      var money = function (v) { return (p.currency === "USD" ? "$" : "₺") + nf.format(v); };
+      var RATE = CFG.usdTry || 0;
+      var alt = RATE && p.price != null ? (p.currency === "USD" ? "≈ ₺" + nf.format(Math.round(p.price * RATE / 100) * 100) : "≈ $" + nf.format(Math.round(p.price / RATE))) : "";
+      var set = function (sel, txt) { document.querySelectorAll(sel).forEach(function (el) { el.textContent = txt; }); };
+      if (p.price != null) set("[data-pkg-price]", money(p.price));
+      if (p.oldPrice) set("[data-pkg-old]", money(p.oldPrice));
+      if (alt) set("[data-pkg-alt]", alt);
+      if (p.oldPrice && p.price) set("[data-pkg-disc]", "%" + Math.round((1 - p.price / p.oldPrice) * 100) + " " + L("indirim", "off", "Rabatt", "скидка"));
+      var wa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
+      if (wa) {
+        var msg = L('Merhaba, "' + p.name + '" paketi için sipariş/teklif almak istiyorum.',
+          'Hello, I would like to order the "' + p.name + '" package.',
+          'Hallo, ich möchte das Paket "' + p.name + '" bestellen.',
+          'Здравствуйте, хочу заказать пакет «' + p.name + '».');
+        document.querySelectorAll("[data-pkg-wa]").forEach(function (el) {
+          el.href = "https://wa.me/" + wa + "?text=" + encodeURIComponent(msg);
+          el.target = "_blank"; el.rel = "noopener";
+        });
+      }
+      if (!document.querySelector('script[data-gld="product"]')) {
+        var web = (CFG.company && CFG.company.web) || "";
+        var ld = { "@context": "https://schema.org", "@type": "Product", name: p.name, description: p.desc,
+          image: p.img ? web + "/" + p.img : undefined,
+          brand: { "@type": "Brand", name: "GESPA Enerji" }, url: web + "/" + (p.url || "") };
+        if (p.price != null) ld.offers = { "@type": "Offer", price: p.price, priceCurrency: p.currency || "TRY", availability: "https://schema.org/InStock" };
+        var sc = document.createElement("script"); sc.type = "application/ld+json"; sc.textContent = JSON.stringify(ld);
+        document.head.appendChild(sc);
+      }
+    })();
+
     // ---- Paket ürünler (urunler.html) — config.packages + config.calc'tan türetilir ----
     (function renderPackages() {
       var grid = $("#packageGrid");
@@ -236,27 +274,39 @@
         if (price != null) ldItem.offers = { "@type": "Offer", price: price, priceCurrency: p.currency || "TRY", availability: "https://schema.org/InStock" };
         ld.push(ldItem);
         var money = function (v) { return (p.currency === "USD" ? "$" : "₺") + nf.format(v); };
+        // ikinci para birimi karşılığı (config.usdTry kuru; "≈" yaklaşık)
+        var RATE = CFG.usdTry || 0;
+        var altMoney = function (v) {
+          if (!RATE) return "";
+          return p.currency === "USD"
+            ? "≈ ₺" + nf.format(Math.round(v * RATE / 100) * 100)
+            : "≈ $" + nf.format(Math.round(v / RATE));
+        };
         // indirim: oldPrice verilirse üstü çizili liste fiyatı + yüzde rozeti
         var disc = (price != null && p.oldPrice && p.oldPrice > price) ? Math.round((1 - price / p.oldPrice) * 100) : 0;
         var priceHtml = price != null
           ? '<div class="pkg-price"><span class="pkg-price-lbl">' + priceLbl +
             (disc ? ' <em class="pkg-disc">%' + disc + " " + L("indirim", "off", "Rabatt", "скидка") + "</em>" : "") + "</span>" +
             '<span class="pkg-price-row">' + (disc ? '<s class="pkg-old">' + money(p.oldPrice) + "</s>" : "") +
-            "<strong>" + money(price) + "</strong></span></div>"
+            "<strong>" + money(price) + "</strong>" +
+            (altMoney(price) ? '<span class="pkg-alt">' + altMoney(price) + "</span>" : "") + "</span></div>"
           : '<div class="pkg-price"><span class="pkg-price-lbl">' + L("Fiyat", "Price", "Preis", "Цена") + '</span><strong class="pkg-poa">' + L("Teklif alın", "Get a quote", "Angebot", "По запросу") + "</strong></div>";
         return '<article class="pkg-card reveal' + (p.popular ? " popular" : "") + '" id="pkg-' + p.id + '">' +
+          (p.url ? '<a class="pkg-media-link" href="' + p.url + '">' : "") +
           '<div class="pkg-media' + (p.img ? " has-img" : "") + '">' +
             (p.popular ? '<span class="pkg-badge">' + L("En Popüler", "Most Popular", "Beliebt", "Популярный") + "</span>" : "") +
             '<span class="pkg-cat">' + p.tag + "</span>" +
             (p.img ? '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy" decoding="async" />' : mediaSvg(p, panels)) +
           "</div>" +
+          (p.url ? "</a>" : "") +
           '<div class="pkg-body">' +
-            '<h3 class="pkg-name">' + p.name + "</h3>" +
+            '<h3 class="pkg-name">' + (p.url ? '<a href="' + p.url + '">' + p.name + "</a>" : p.name) + "</h3>" +
             (p.for ? '<p class="pkg-for">👤 <span>Kimin için:</span> <span>' + p.for + "</span></p>" : "") +
             '<div class="pkg-chips">' + chips + "</div>" +
             '<ul class="pkg-features ticks">' + feat + "</ul>" +
             '<div class="pkg-buy">' +
               priceHtml +
+              (p.url ? '<a class="btn btn-ghost btn-block" style="margin-bottom:8px" href="' + p.url + '">' + L("Detayları gör →", "View details →", "Details ansehen →", "Подробнее →") + "</a>" : "") +
               '<a class="btn btn-block" href="' + href + '"' + (WA ? ' target="_blank" rel="noopener"' : "") + ">" + L("Bu paket için teklif al", "Get a quote", "Angebot anfordern", "Запросить КП") + "</a>" +
             "</div>" +
           "</div>" +

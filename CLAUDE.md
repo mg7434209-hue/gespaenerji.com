@@ -14,7 +14,9 @@ klasik Pages yayını için **repoda tutulur** — kaynak değişince `node buil
 çalıştırıp çıktıyı da commit'le.
 
 Sayfalar (her biri kök dizinde, `.html` uzantılı):
-`index.html` · `hizmetler.html` · `urunler.html` (paket ürünler) ·
+`index.html` · `hizmetler.html` · `urunler.html` (paket vitrini; yalnız 2 kit) ·
+`paket-285w.html` `paket-2x540w.html` (ürün detay sayfaları; fiyat/WhatsApp/LD
+config'ten `data-pkg-detail` ile dolar) ·
 `su-isitici.html` (PV su ısıtıcı) · `ai-cankurtaran-destek-sistemi.html`
 (havuz güvenliği; lacivert/aqua `pool-*` stilleri, form → WhatsApp lead) ·
 `hesaplayici.html` · `sistem-kur.html` (Sistem Kurucu sihirbazı) ·
@@ -73,9 +75,11 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
 - İnverter: Tescom, Mexxsun, Lexron, Arçelik
 
 ### Ürünler & fiyatlar (config.packages · config.heater · config.admin)
-- `packages[]`: paket ürünler (urunler.html) — `group`: offgrid | irrigation
-  (ongrid grubu render'da tanımlı ama şu an paketi yok). Açık `price` verilirse
-  o kullanılır; yoksa fiyat `calc.costPerKwp`'ten türetilir.
+- `packages[]`: 2 komple kit (285W ₺ · 2x540W USD) — `url` detay sayfası,
+  `img` gerçek foto, `oldPrice` indirim rozeti, `currency:"USD"` dolar,
+  `dailyKwh` günlük üretim. `usdTry` kuru ile ikinci para "≈" gösterilir;
+  kur değişince SADECE config.usdTry güncellenir. Yeni ürün eklerken aynı
+  alanlar + detay sayfası (mevcut paket-*.html kopyala) + build META satırı.
 - `heater`: PV su ısıtıcı modelleri + ₺ fiyatları (su-isitici.html tablosu ve
   Product JSON-LD buradan render edilir). `heater.showPrices: false` iken fiyat
   HİÇBİR yerde görünmez — tabloda "Teklif alın", hero'da "Güncel fiyat için bize

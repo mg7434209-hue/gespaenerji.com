@@ -30,10 +30,10 @@ Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş ve çevr
 - Ücretsiz online araçlar: tasarruf hesaplayıcı + mühendislik alet çantası (panel yerleşim, inverter, kablo, batarya, sıra aralığı)
 
 ## Paket ürünler
-Şebekeden bağımsız hazır GES paketleri 2 grupta (açık fiyat / config'ten türetilir):
-- Taşınabilir & Off-Grid (lityum bataryalı): 285 W ve 1.08 kW taşınabilir kitler + 3 / 4.2 / 6.2 / 8 kW paketler — bağ evi, karavan, kulübe için hazır kitler
-- Tarımsal Sulama (off-grid): Bağ-Bahçe (3 kWp), Tarla (7.5 kWp), Sera (11 kWp), Geniş Tarla (20 kWp)
-Çatı/on-grid sistemler proje bazlı sunulur (bkz. Hizmetler). Tüm paketler ölçeklenebilir; kesin fiyat ücretsiz keşifle belirlenir.
+İki komple tak-çalıştır güneş kiti (gerçek ürün fotoğraflı, detay sayfalı):
+- 285W Güneş Paneli Paketi — ₺22.000 (liste ₺25.000): TV, lambalar, telefon şarjı; ~1,7 kWh/gün; 23–25 kg. Detay: /paket-285w.html
+- Tam Kapsamlı Güneş Enerjisi Sistemi (2×540W) — $2.000 (liste $2.200): LiFePO₄ bataryalı; buzdolabı, çamaşır-bulaşık makinesi, süpürge; ~6,5 kWh/gün. Detay: /paket-2x540w.html
+Fiyatlarda TL/USD karşılığı yaklaşık kur ile gösterilir. Daha büyük sistemler proje bazlıdır (Sistem Kurucu / ücretsiz keşif).
 
 ## PV Güneş Su Isıtıcı (ısıtma ürünü)
 Monokristal güneş panelleriyle suyu güneş enerjisiyle ısıtan fotovoltaik (PV) su ısıtıcı.
