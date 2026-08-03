@@ -133,6 +133,64 @@
       if (k.costPerKwp != null) setText("#aCost", "₺" + nf.format(k.costPerKwp) + "/kWp");
       if (k.co2PerKwh != null) setText("#aCo2", new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 2 }).format(k.co2PerKwh) + " kg/kWh");
     }
+    // ============================================================
+    // SEPET — localStorage "gespa-cart" = { paketId: adet }
+    // Ürün verisi config.packages'ten okunur; birim fiyat kuralı vitrinle
+    // AYNIDIR: havale fiyatı birim başına en yakın 50 ₺'ye yuvarlanır.
+    // ============================================================
+    // Birim fiyatlar (₺): list = liste, cart = havale/EFT, usd = yaklaşık $
+    function pkgUnit(p) {
+      var RATE = CFG.usdTry || 0, pct = CFG.cartDiscountPct || 0;
+      var tl = p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
+      return {
+        list: tl,
+        cart: Math.round(tl * (100 - pct) / 100 / 50) * 50,
+        usd: p.currency === "USD" ? p.price : (RATE ? Math.round(p.price / RATE) : 0)
+      };
+    }
+    var cart = (function () {
+      var KEY = "gespa-cart";
+      function read() { try { var c = JSON.parse(localStorage.getItem(KEY) || "{}"); return (c && typeof c === "object" && !Array.isArray(c)) ? c : {}; } catch (e) { return {}; } }
+      function write(c) { try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {} badge(); }
+      function count() { var c = read(), n = 0; Object.keys(c).forEach(function (k) { n += c[k]; }); return n; }
+      function badge() { var n = count(); $$(".cart-count").forEach(function (b) { b.textContent = n; b.hidden = !n; }); }
+      function pkgOf(id) { var f = null; (CFG.packages || []).forEach(function (x) { if (x.id === id) f = x; }); return f; }
+      return {
+        read: read, count: count, badge: badge, pkgOf: pkgOf,
+        add: function (id, qty) { if (!pkgOf(id)) return; var c = read(); c[id] = Math.max(1, Math.min(99, (c[id] || 0) + (qty || 1))); write(c); },
+        setQty: function (id, qty) { var c = read(); if (qty > 0) c[id] = Math.min(99, qty); else delete c[id]; write(c); },
+        remove: function (id) { var c = read(); delete c[id]; write(c); }
+      };
+    })();
+    // Üst menüye sepet simgesi — istemci tarafı özellik olduğundan JS ile
+    // enjekte edilir (sayfalara elle eklenmez); rozet toplam adedi gösterir.
+    (function () {
+      var acts = $(".nav-actions"); if (!acts) return;
+      var a = doc.createElement("a");
+      a.className = "cart-btn"; a.href = "sepet.html";
+      a.setAttribute("aria-label", L("Sepet", "Cart", "Warenkorb", "Корзина"));
+      a.innerHTML = '<span aria-hidden="true">🛒</span><b class="cart-count" hidden>0</b>';
+      acts.insertBefore(a, $("#themeToggle", acts) || acts.firstChild);
+      cart.badge();
+      window.addEventListener("storage", function (e) { if (e.key === "gespa-cart") cart.badge(); });
+    })();
+    // "Sepete eklendi" onayı: Sepete git / Alışverişe devam et
+    function cartPop(name) {
+      var old = $(".cart-pop"); if (old) old.parentNode.removeChild(old);
+      var d = doc.createElement("div");
+      d.className = "cart-pop";
+      d.innerHTML = '<div class="cart-pop-box" role="dialog" aria-modal="true">' +
+        '<p class="cart-pop-ok">✅ <b>' + name + "</b> " + L("sepete eklendi.", "added to cart.", "wurde in den Warenkorb gelegt.", "добавлен в корзину.") + "</p>" +
+        '<div class="cart-pop-btns">' +
+        '<a class="btn" href="sepet.html">🛒 ' + L("Sepete git", "Go to cart", "Zum Warenkorb", "В корзину") + " (" + cart.count() + ")</a>" +
+        '<button class="btn btn-ghost" type="button" data-close>← ' + L("Alışverişe devam et", "Continue shopping", "Weiter einkaufen", "Продолжить покупки") + "</button>" +
+        "</div></div>";
+      doc.body.appendChild(d);
+      var close = function () { if (d.parentNode) d.parentNode.removeChild(d); };
+      d.addEventListener("click", function (e) { if (e.target === d || e.target.closest("[data-close]")) close(); });
+      doc.addEventListener("keydown", function esc(e) { if (e.key === "Escape") { close(); doc.removeEventListener("keydown", esc); } });
+    }
+
     // ---- Paket detay sayfası (paket-*.html) — fiyat, sipariş akışı, Product LD ----
     (function () {
       var host = document.querySelector("[data-pkg-detail]");
@@ -145,10 +203,9 @@
       var pct = CFG.cartDiscountPct || 0;
       var tlOf = function (v) { return p.currency === "USD" ? Math.round(v * RATE / 100) * 100 : v; };
       var usdOf = function (v) { return p.currency === "USD" ? v : (RATE ? Math.round(v / RATE) : 0); };
-      var both = function (v) { return "₺" + nf.format(tlOf(v)) + (usdOf(v) ? " (≈ $" + nf.format(usdOf(v)) + ")" : ""); };
-      // Birim tutarlar (adet ile çarpılır) — yuvarlama vitrin kartıyla AYNI
-      var unitList = tlOf(p.price);
-      var unitCart = Math.round(unitList * (100 - pct) / 100 / 50) * 50;   // havale/EFT birim fiyatı
+      // Birim tutarlar (adet ile çarpılır) — kural sepet/vitrinle AYNI (pkgUnit)
+      var unit = pkgUnit(p);
+      var unitList = unit.list, unitCart = unit.cart;
       var qty = 1;                                                          // adet (adet kutusu değiştirir)
       var set = function (sel, txt) { document.querySelectorAll(sel).forEach(function (el) { el.textContent = txt; }); };
       set("[data-pkg-price]", "₺" + nf.format(unitList));
@@ -172,80 +229,29 @@
           el.target = "_blank"; el.rel = "noopener";
         });
       }
-      // Sipariş formu — özet + ödeme planı + WhatsApp'a gönderim
-      var form = document.getElementById("ordForm");
-      if (form) {
-        var planEl = form.querySelector("[data-ord-plan]");
-        var render = function () {
-          var method = (form.odeme && form.odeme.value) || "havale";
-          var listTL = unitList * qty, cartTL = unitCart * qty;
-          var downTL = Math.round(listTL * 0.30 / 50) * 50;   // kapıda: %30 peşin
-          var restTL = listTL - downTL;                        // kapıda: kalan %70
-          set("[data-ord-qty]", nf.format(qty) + " " + L("adet", "pcs", "Stk.", "шт."));
-          set("[data-ord-list]", qty > 1
-            ? nf.format(qty) + " × ₺" + nf.format(unitList) + " = ₺" + nf.format(listTL)
-            : both(p.price));
-          if (method === "havale") {
-            set("[data-ord-disc]", "−₺" + nf.format(listTL - cartTL) + " (%" + pct + ")");
-            set("[data-ord-total]", "₺" + nf.format(cartTL));
-            if (planEl) planEl.hidden = true;
-          } else {
-            set("[data-ord-disc]", L("Kapıda ödemede uygulanmaz", "Not applied for pay-on-delivery", "Bei Nachnahme nicht anwendbar", "При оплате при получении не применяется"));
-            set("[data-ord-total]", "₺" + nf.format(listTL));
-            if (planEl) {
-              planEl.hidden = false;
-              planEl.textContent = L("Peşin (%30 havale): ", "Deposit (30% transfer): ", "Anzahlung (30 %): ", "Аванс (30 %): ") + "₺" + nf.format(downTL) +
-                L(" · Teslimatta: ", " · On delivery: ", " · Bei Lieferung: ", " · При доставке: ") + "₺" + nf.format(restTL);
-            }
-          }
-        };
-        Array.prototype.forEach.call(form.querySelectorAll('input[name="odeme"]'), function (r) { r.addEventListener("change", render); });
-        render();
-        // Adet kutusu (ürün üstündeki − n +) — sipariş özetini canlı günceller
-        var qtyIn = document.querySelector("[data-qty-input]");
-        if (qtyIn) {
-          var setQty = function (n) {
-            qty = Math.max(1, Math.min(99, Math.round(n) || 1));
-            qtyIn.value = qty;
-            render();
-          };
-          document.querySelectorAll("[data-q]").forEach(function (b) {
-            b.addEventListener("click", function () { setQty(qty + (+b.getAttribute("data-q"))); });
-          });
-          qtyIn.addEventListener("input", function () { setQty(parseInt(qtyIn.value, 10)); });
-          setQty(1);
-        }
-        form.addEventListener("submit", function (e) {
+      // Adet kutusu (− n +) — seçilen adet "Sepete ekle" ile sepete geçer
+      var qtyIn = document.querySelector("[data-qty-input]");
+      var setQty = function (n) { qty = Math.max(1, Math.min(99, Math.round(n) || 1)); if (qtyIn) qtyIn.value = qty; };
+      document.querySelectorAll(".buy-row [data-q]").forEach(function (b) {
+        b.addEventListener("click", function () { setQty(qty + (+b.getAttribute("data-q"))); });
+      });
+      if (qtyIn) qtyIn.addEventListener("input", function () { setQty(parseInt(qtyIn.value, 10)); });
+      // "Sepete ekle": ürünü ekler, onay penceresi açar (Sepete git / Alışverişe devam)
+      document.querySelectorAll("[data-add-cart]").forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
           e.preventDefault();
-          var v = function (n) { return (form[n] && form[n].value.trim()) || ""; };
-          if (!v("ad") || !v("tel") || !v("il") || !v("adres")) return;
-          var method = form.odeme.value;
-          var listTL = unitList * qty, cartTL = unitCart * qty;
-          var downTL = Math.round(listTL * 0.30 / 50) * 50, restTL = listTL - downTL;
-          var lines = ["🛒 YENİ SİPARİŞ — " + p.name, "Adet: " + qty,
-            "Liste fiyatı: " + (qty > 1 ? qty + " × ₺" + nf.format(unitList) + " = ₺" + nf.format(listTL) : both(p.price))];
-          if (method === "havale") {
-            lines.push("Ödeme: Havale/EFT (sepette %" + pct + " indirim)");
-            lines.push("Ödenecek: ₺" + nf.format(cartTL));
-          } else {
-            lines.push("Ödeme: Kapıda ödeme (%30 peşin + %70 teslimatta)");
-            lines.push("Peşin havale: ₺" + nf.format(downTL) + " · Teslimatta: ₺" + nf.format(restTL));
-          }
-          lines.push("— Teslimat —", "Ad: " + v("ad"), "Tel: " + v("tel"));
-          if (v("eposta")) lines.push("E-posta: " + v("eposta"));
-          lines.push("İl/İlçe: " + v("il"), "Adres: " + v("adres"));
-          if (v("not")) lines.push("Not: " + v("not"));
-          if (wa) window.open(waHref(lines.join("\n")), "_blank");
-          var done = document.getElementById("ordDone");
-          if (done) {
-            done.hidden = false;
-            done.textContent = L("Teşekkürler " + v("ad") + "! Siparişiniz WhatsApp üzerinden iletiliyor; onay ve ödeme bilgisi için aynı gün dönüş yapacağız.",
-              "Thank you " + v("ad") + "! Your order is being sent via WhatsApp.",
-              "Danke " + v("ad") + "! Ihre Bestellung wird per WhatsApp übermittelt.",
-              "Спасибо, " + v("ad") + "! Заказ отправляется через WhatsApp.");
-          }
+          cart.add(p.id, qty);
+          cartPop(p.name);
         });
-      }
+      });
+      // Alt banttaki CTA: sepette yoksa ekler, doğrudan sepete götürür
+      document.querySelectorAll("[data-add-cart-go]").forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          if (!cart.read()[p.id]) cart.add(p.id, qty);
+          location.href = "sepet.html";
+        });
+      });
       // Product JSON-LD (liste fiyatı, orijinal para birimi)
       if (!document.querySelector('script[data-gld="product"]')) {
         var web = (CFG.company && CFG.company.web) || "";
@@ -256,6 +262,121 @@
         var sc = document.createElement("script"); sc.type = "application/ld+json"; sc.textContent = JSON.stringify(ld);
         document.head.appendChild(sc);
       }
+    })();
+
+    // ---- Sepet sayfası (sepet.html) — kalemler + sipariş özeti + WhatsApp siparişi ----
+    (function () {
+      var wrap = $("#cartItems");
+      if (!wrap || !CFG.packages) return;
+      var nf = new Intl.NumberFormat("tr-TR");
+      var pct = CFG.cartDiscountPct || 0;
+      var side = $("#cartSide"), empty = $("#cartEmpty"), form = $("#cartForm");
+      var wa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
+      var set = function (sel, txt) { $$(sel).forEach(function (el) { el.textContent = txt; }); };
+      // Sepet kalemleri: {p, qty, unit, sumList, sumCart} — fiyat kuralı pkgUnit ile ortak
+      function lines() {
+        var c = cart.read(), out = [];
+        (CFG.packages || []).forEach(function (p) {
+          if (!c[p.id] || p.price == null) return;
+          var u = pkgUnit(p);
+          out.push({ p: p, qty: c[p.id], unit: u, sumList: u.list * c[p.id], sumCart: u.cart * c[p.id] });
+        });
+        return out;
+      }
+      function totals() {
+        var ls = lines(), listT = 0, cartT = 0;
+        ls.forEach(function (l) { listT += l.sumList; cartT += l.sumCart; });
+        var method = (form && form.odeme && form.odeme.value) || "havale";
+        var planEl = form && form.querySelector("[data-ord-plan]");
+        var downTL = Math.round(listT * 0.30 / 50) * 50, restTL = listT - downTL;   // kapıda: %30 peşin
+        set("[data-ord-list]", "₺" + nf.format(listT));
+        if (method === "havale") {
+          set("[data-ord-disc]", "−₺" + nf.format(listT - cartT) + " (%" + pct + ")");
+          set("[data-ord-total]", "₺" + nf.format(cartT));
+          if (planEl) planEl.hidden = true;
+        } else {
+          set("[data-ord-disc]", L("Kapıda ödemede uygulanmaz", "Not applied for pay-on-delivery", "Bei Nachnahme nicht anwendbar", "При оплате при получении не применяется"));
+          set("[data-ord-total]", "₺" + nf.format(listT));
+          if (planEl) {
+            planEl.hidden = false;
+            planEl.textContent = L("Peşin (%30 havale): ", "Deposit (30% transfer): ", "Anzahlung (30 %): ", "Аванс (30 %): ") + "₺" + nf.format(downTL) +
+              L(" · Teslimatta: ", " · On delivery: ", " · Bei Lieferung: ", " · При доставке: ") + "₺" + nf.format(restTL);
+          }
+        }
+        return { ls: ls, listT: listT, cartT: cartT, downTL: downTL, restTL: restTL, method: method };
+      }
+      function render() {
+        var ls = lines();
+        if (empty) empty.hidden = !!ls.length;
+        if (side) side.hidden = !ls.length;
+        wrap.innerHTML = ls.map(function (l) {
+          // Görsel yolu mutlaktır ki /en /de /ru altındaki sepette de çözülsün
+          var img = l.p.img ? '<img src="/' + l.p.img + '" alt="' + l.p.name + '" loading="lazy" decoding="async" />' : "";
+          return '<div class="cart-item" data-id="' + l.p.id + '">' +
+            '<a class="cart-item-media" href="' + (l.p.url || "urunler.html") + '">' + img + "</a>" +
+            '<div class="cart-item-body">' +
+              '<p class="cart-item-name"><a href="' + (l.p.url || "urunler.html") + '">' + l.p.name + "</a></p>" +
+              '<p class="cart-item-unit">₺' + nf.format(l.unit.list) + (l.unit.usd ? " (≈ $" + nf.format(l.unit.usd) + ")" : "") + " × " + l.qty + " " + L("adet", "pcs", "Stk.", "шт.") + "</p>" +
+              '<div class="qbox"><button type="button" data-q="-1" aria-label="' + L("Adet azalt", "Decrease quantity", "Menge verringern", "Уменьшить количество") + '">−</button>' +
+              '<input type="text" inputmode="numeric" value="' + l.qty + '" aria-label="' + L("Adet", "Quantity", "Menge", "Количество") + '" />' +
+              '<button type="button" data-q="1" aria-label="' + L("Adet artır", "Increase quantity", "Menge erhöhen", "Увеличить количество") + '">+</button></div>' +
+            "</div>" +
+            '<div class="cart-item-right"><b class="cart-item-sum">₺' + nf.format(l.sumList) + "</b>" +
+            '<button type="button" class="cart-remove">🗑 ' + L("Kaldır", "Remove", "Entfernen", "Убрать") + "</button></div>" +
+          "</div>";
+        }).join("");
+        totals();
+      }
+      // Adet değişimi / kaldırma — satırdaki kutudan
+      wrap.addEventListener("click", function (e) {
+        var row = e.target.closest(".cart-item"); if (!row) return;
+        var id = row.getAttribute("data-id");
+        var q = e.target.closest("[data-q]");
+        if (q) { cart.setQty(id, Math.max(1, (cart.read()[id] || 1) + (+q.getAttribute("data-q")))); render(); return; }
+        if (e.target.closest(".cart-remove")) { cart.remove(id); render(); }
+      });
+      wrap.addEventListener("input", function (e) {
+        var row = e.target.closest(".cart-item");
+        if (!row || e.target.tagName !== "INPUT") return;
+        var n = parseInt(e.target.value, 10);
+        if (n >= 1) { cart.setQty(row.getAttribute("data-id"), Math.min(99, n)); totals(); }
+      });
+      if (form) {
+        Array.prototype.forEach.call(form.querySelectorAll('input[name="odeme"]'), function (r) { r.addEventListener("change", totals); });
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var t = totals();
+          if (!t.ls.length) return;
+          var v = function (n) { return (form[n] && form[n].value.trim()) || ""; };
+          if (!v("ad") || !v("tel") || !v("il") || !v("adres")) return;
+          var msg = ["🛒 YENİ SİPARİŞ — Sepet (" + t.ls.length + " ürün)"];
+          t.ls.forEach(function (l, i) {
+            msg.push((i + 1) + ") " + l.p.name + (l.p.sku ? " [" + l.p.sku + "]" : "") + " × " + l.qty + " = ₺" + nf.format(l.sumList));
+          });
+          msg.push("Liste toplamı: ₺" + nf.format(t.listT));
+          if (t.method === "havale") {
+            msg.push("Ödeme: Havale/EFT (sepette %" + pct + " indirim)");
+            msg.push("Ödenecek: ₺" + nf.format(t.cartT));
+          } else {
+            msg.push("Ödeme: Kapıda ödeme (%30 peşin + %70 teslimatta)");
+            msg.push("Peşin havale: ₺" + nf.format(t.downTL) + " · Teslimatta: ₺" + nf.format(t.restTL));
+          }
+          msg.push("— Teslimat —", "Ad: " + v("ad"), "Tel: " + v("tel"));
+          if (v("eposta")) msg.push("E-posta: " + v("eposta"));
+          msg.push("İl/İlçe: " + v("il"), "Adres: " + v("adres"));
+          if (v("not")) msg.push("Not: " + v("not"));
+          if (wa) window.open("https://wa.me/" + wa + "?text=" + encodeURIComponent(msg.join("\n")), "_blank");
+          var done = $("#ordDone");
+          if (done) {
+            done.hidden = false;
+            done.textContent = L("Teşekkürler " + v("ad") + "! Siparişiniz WhatsApp üzerinden iletiliyor; onay ve ödeme bilgisi için aynı gün dönüş yapacağız.",
+              "Thank you " + v("ad") + "! Your order is being sent via WhatsApp.",
+              "Danke " + v("ad") + "! Ihre Bestellung wird per WhatsApp übermittelt.",
+              "Спасибо, " + v("ad") + "! Заказ отправляется через WhatsApp.");
+          }
+        });
+      }
+      render();
     })();
 
     // ---- Paket ürünler (urunler.html) — config.packages + config.calc'tan türetilir ----
@@ -393,7 +514,7 @@
           '<div class="pkg-media' + (p.img ? " has-img" : "") + '">' +
             (p.popular ? '<span class="pkg-badge">' + L("En Popüler", "Most Popular", "Beliebt", "Популярный") + "</span>" : "") +
             '<span class="pkg-cat">' + p.tag + "</span>" +
-            (p.img ? '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy" decoding="async" />' : mediaSvg(p, panels)) +
+            (p.img ? '<img src="/' + p.img + '" alt="' + p.name + '" loading="lazy" decoding="async" />' : mediaSvg(p, panels)) +
           "</div>" +
           (p.url ? "</a>" : "") +
           '<div class="pkg-body">' +

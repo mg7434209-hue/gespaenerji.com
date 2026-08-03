@@ -19,8 +19,16 @@ Sayfalar (her biri kök dizinde, `.html` uzantılı):
 `#pgMain`+`.prod-thumbs`, sağda satın alma kutusu `.buy-box` — ürün kodu, stok,
 fiyat, havale tutarı, `.qbox` adet kutusu, CTA'lar, kargo/iade bilgi listesi;
 altında 4 sekme `.ptabs`/`.ptab-panel` = açıklama · pakete dahil olanlar · teknik ·
-kargo-iade; sonra sipariş formu `#siparis`. Fiyat/kod/stok hem build'de statik
-basılır hem main.js'te `data-pkg-*` ile tazelenir; adet sipariş özetini çarpar) ·
+kargo-iade. Fiyat/kod/stok hem build'de statik basılır hem main.js'te
+`data-pkg-*` ile tazelenir. Satın alma sepet üzerinden: `data-add-cart` =
+sepete ekle + onay penceresi (Sepete git / Alışverişe devam), `data-add-cart-go`
+= ekle ve sepete git) ·
+`sepet.html` (sepet + sipariş: kalem listesi JS ile çizilir, özet/form statik;
+noindex + robots engelli + sitemap dışı ama build dil kopyalarını üretir.
+Sepet verisi localStorage `gespa-cart` = {paketId: adet}; birim fiyat kuralı
+main.js `pkgUnit()` — TÜM fiyat noktaları bununla hesaplanır. Üst menüdeki 🛒
+rozeti main.js'in `.nav-actions`a enjekte ettiği istemci bileşenidir, sayfalara
+elle eklenmez. Sipariş WhatsApp mesajına çok kalemli döküm yazılır) ·
 `su-isitici.html` (PV su ısıtıcı) · `ai-cankurtaran-destek-sistemi.html`
 (havuz güvenliği; lacivert/aqua `pool-*` stilleri, form → WhatsApp lead) ·
 `hesaplayici.html` · `sistem-kur.html` (Sistem Kurucu sihirbazı) ·

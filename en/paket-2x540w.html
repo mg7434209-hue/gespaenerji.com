@@ -97,7 +97,7 @@
                   <input type="text" inputmode="numeric" value="1" aria-label="Quantity" data-qty-input />
                   <button type="button" data-q="1" aria-label="Increase quantity">+</button>
                 </div>
-                <a class="btn btn-buy" href="#siparis" data-pkg-cta>🛒 Add to cart — go to order</a>
+                <a class="btn btn-buy" href="sepet.html" data-pkg-cta data-add-cart>🛒 Add to cart</a>
               </div>
               <div class="buy-row2">
                 <a class="btn btn-ghost" href="iletisim.html" data-pkg-wa>💬 Ask on WhatsApp</a>
@@ -187,41 +187,8 @@
 
     <section class="section section-alt"><div class="container"><div class="how-note reveal" style="max-width:720px"><strong>🧰 Daha küçük bir çözüm mü lazım?</strong><p>Yalnızca TV, aydınlatma ve şarj ihtiyacınız varsa <a href="paket-285w.html" style="color:var(--green);font-weight:700">285W Güneş Paneli Paketi'ne göz atın →</a></p></div></div></section>
 
-    <section class="section section-alt" id="siparis">
-      <div class="container narrow">
-        <div class="section-head reveal"><span class="kicker">🛒 Order</span><h2>Complete your order</h2><p>Fill in the form; your order reaches us instantly via WhatsApp. We reply the same day with confirmation, payment details and delivery plan.</p></div>
-        <form id="ordForm" class="ord-form reveal">
-          <div class="ord-summary">
-            <div><span>Quantity</span><em data-ord-qty>1 pcs</em></div>
-            <div><span>List price</span><s data-ord-list></s></div>
-            <div><span>Cart discount</span><em data-ord-disc></em></div>
-            <div class="ord-total"><span>Amount to pay</span><strong data-ord-total></strong></div>
-            <div class="ord-plan" data-ord-plan hidden></div>
-            <p class="pd-note">VAT included; shipping is paid by the buyer. For USD-based products the current rate at order time applies.</p>
-          </div>
-          <fieldset class="ord-pay">
-            <legend>Payment method</legend>
-            <label><input type="radio" name="odeme" value="havale" checked /><span><strong>🏦 Havale / EFT — %10 indirimli</strong><small>IBAN details are sent via WhatsApp after order confirmation.</small></span></label>
-            <label><input type="radio" name="odeme" value="kapida" /><span><strong>🚚 Kapıda Ödeme</strong><small>30% deposit by transfer, remaining 70% on delivery.</small></span></label>
-            <label class="ord-soon"><input type="radio" name="odeme" value="kart" disabled /><span><strong>💳 Kredi Kartı</strong><small>Coming soon.</small></span></label>
-          </fieldset>
-          <div class="ord-grid">
-            <div><label>Full Name *</label><input required name="ad" placeholder="Your full name" /></div>
-            <div><label>Phone *</label><input required name="tel" type="tel" placeholder="+90 5__ ___ __ __" /></div>
-            <div><label>E-mail</label><input name="eposta" type="email" placeholder="ornek@eposta.com" /></div>
-            <div><label>City / District *</label><input required name="il" placeholder="Antalya / Manavgat" /></div>
-            <div class="full"><label>Delivery address *</label><textarea required name="adres" rows="3" placeholder="Mahalle, sokak, no, daire..."></textarea></div>
-            <div class="full"><label>Note (optional)</label><input name="not" placeholder="Teslimat notu, soru..." /></div>
-          </div>
-          <p class="ord-consent">By submitting the order you accept the <a href="/kvkk.html">KVKK Aydınlatma Metni</a>'ni ve aşağıdaki satış şartlarını kabul etmiş olursunuz.</p>
-          <button class="btn btn-lg btn-block" type="submit">🛒 Complete order via WhatsApp</button>
-          <p class="pd-note" id="ordDone" hidden style="margin-top:12px"></p>
-        </form>
-        <div class="how-note reveal" style="margin-top:22px"><strong>📋 Sales & delivery terms</strong><p>A 10% cart discount applies to bank-transfer payments. For pay-on-delivery, 30% is paid by transfer at confirmation and 70% on delivery. Credit card payment is coming soon. If you withdraw after a problem-free delivery, return shipping is paid by the buyer; for damaged or defective products all costs are ours. Prices include VAT.</p></div>
-      </div>
-    </section>
 
-    <section class="cta-band"><div class="container cta-inner reveal"><div><h2>Order today, have your sunshine ready</h2><p>Message us on WhatsApp for stock and delivery; we reply the same day.</p></div><a class="btn btn-lg btn-light" href="#siparis">🛒 Complete your order</a></div></section>
+    <section class="cta-band"><div class="container cta-inner reveal"><div><h2>Order today, have your sunshine ready</h2><p>Message us on WhatsApp for stock and delivery; we reply the same day.</p></div><a class="btn btn-lg btn-light" href="sepet.html" data-add-cart-go>🛒 Add to cart & complete order</a></div></section>
   </main>
 
   <footer class="site-footer">

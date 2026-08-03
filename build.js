@@ -25,6 +25,7 @@ const PAGES = [
   "projeler.html", "hakkimizda.html", "iletisim.html", "tarimsal-sulama.html",
   "ai-cankurtaran-destek-sistemi.html", "sistem-kur.html",
   "paket-285w.html", "paket-2x540w.html",
+  "sepet.html",   // noindex; sitemap'e girmez (NOSITEMAP)
   // Yasal sayfalar da üretilir: dil değiştirici ve hreflang /en/kvkk.html gibi
   // URL'lere işaret eder; üretilmezse 404 olur. Gövde metni TR kalır (hukuken
   // geçerli metin Türkçedir), başlık/description dile göre yazılır.
@@ -80,6 +81,14 @@ const META = {
           d: "2×540-W-Module + große Power-Box mit LiFePO₄-Batterie + Kabel: komplettes mobiles Solarsystem für Kühlschrank, TV, Wasch- und Spülmaschine. ~6,5 kWh Ertrag pro Tag." },
     ru: { t: "Полная солнечная энергосистема 2×540 Вт — батарея LiFePO₄ | GESPA Energy",
           d: "Панели 2×540 Вт + большой блок питания с батареей LiFePO₄ + кабели: полная мобильная система для холодильника, ТВ, стиральной и посудомоечной машин. ~6,5 кВт·ч в день." }
+  },
+  "sepet.html": {
+    en: { t: "My Cart | GESPA Energy",
+          d: "View your GESPA Energy cart: adjust quantities and complete your solar package order via WhatsApp." },
+    de: { t: "Mein Warenkorb | GESPA Energy",
+          d: "Ihr GESPA-Warenkorb: Mengen anpassen und die Bestellung Ihrer Solarpakete per WhatsApp abschließen." },
+    ru: { t: "Моя корзина | GESPA Energy",
+          d: "Корзина GESPA Energy: измените количество и завершите заказ солнечных комплектов через WhatsApp." }
   },
   "hesaplayici.html": {
     en: { t: "Solar Savings Calculator (PV) | GESPA Energy",
@@ -607,7 +616,9 @@ const PRIORITY = {
 function writeSitemap() {
   const urlFor = (l, file) => l === "tr" ? ORIGIN + "/" + (file === "index.html" ? "" : file) : ORIGIN + "/" + l + "/" + (file === "index.html" ? "" : file);
   const entries = [];
+  const NOSITEMAP = { "sepet.html": 1 };   // noindex sayfalar haritaya girmez
   for (const file of PAGES) {
+    if (NOSITEMAP[file]) continue;
     const p = path.join(ROOT, file);
     if (!fs.existsSync(p)) continue;
     let lastmod;
