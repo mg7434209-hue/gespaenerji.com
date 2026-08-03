@@ -51,6 +51,11 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   tıklanan düğümü DEĞİŞTİRME, yoksa click olayı düşer.
 - 4. adımın altında canlı sepet (`.bld-cart` → `cartInner()`): seçilen her kalem
   adet × birim = tutar ve genel toplam. 5. adımdaki BOM ile aynı `bom()` verisi.
+- Sepet ve sipariş özetinde ortak fiyat kutusu (`priceBox()`): toplam, KDV notu,
+  havale/EFT indirimi, kurulu güç, WhatsApp siparişi ve güven satırları. İndirim
+  oranı site geneli `config.cartDiscountPct` (paket ürünlerle AYNI oran);
+  gerekirse `config.builder.commerce.havaleDiscountPct` ile ezilir, 0 = gizli.
+  5. adımda `{total:false}` ile çağrılır (toplam tabloda zaten var).
 - Durum localStorage `gespa-builder`'da (`state.open` = açık akordeonlar);
   `?tip=<presetId>` ile ön seçim yapılır.
 - Cihaz/ürün adları `T()` ile i18n DICT'ten çevrilir — yeni ürün eklerken
