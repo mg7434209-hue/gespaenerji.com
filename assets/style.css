@@ -352,6 +352,30 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .pd-price .pd-alt{color:var(--muted);font-weight:700;font-size:1.05rem}
 .pd-disc{display:inline-block;background:var(--sun);color:#3a2c00;font-weight:800;font-size:.78rem;padding:3px 11px;border-radius:999px;vertical-align:middle;margin-left:8px}
 .pd-note{color:var(--muted);font-size:.85rem;margin:2px 0 0}
+/* Siparis bolumu (paket detay) */
+.ord-form{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.ord-summary{border:1px dashed var(--line);border-radius:12px;padding:16px 18px;margin-bottom:18px}
+.ord-summary>div{display:flex;justify-content:space-between;gap:12px;padding:4px 0;font-size:.97rem}
+.ord-summary s{color:var(--muted)}
+.ord-summary em{font-style:normal;color:var(--green);font-weight:700}
+.ord-total{border-top:1px solid var(--line);margin-top:6px;padding-top:10px!important}
+.ord-total strong{font-family:var(--font);font-size:1.5rem;color:var(--green)}
+.ord-plan{color:var(--muted);font-size:.92rem;font-weight:600}
+.ord-pay{border:0;padding:0;margin:0 0 18px}
+.ord-pay legend{font-weight:800;font-family:var(--font);margin-bottom:10px}
+.ord-pay label{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:10px;cursor:pointer}
+.ord-pay label:has(input:checked){border-color:var(--green);background:color-mix(in srgb,var(--green) 6%,transparent)}
+.ord-pay input{margin-top:4px;accent-color:var(--green)}
+.ord-pay small{display:block;color:var(--muted)}
+.ord-pay .ord-soon{opacity:.55;cursor:not-allowed}
+.ord-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ord-grid .full{grid-column:1/-1}
+.ord-grid label{display:block;font-size:.85rem;font-weight:700;margin-bottom:5px}
+.ord-grid input,.ord-grid textarea{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--bg-alt);color:var(--ink)}
+.ord-grid input:focus,.ord-grid textarea:focus{outline:none;border-color:var(--green)}
+.ord-consent{font-size:.82rem;color:var(--muted);margin:14px 0}
+.ord-consent a{color:var(--green);font-weight:700}
+@media(max-width:640px){.ord-grid{grid-template-columns:1fr}}
 .pkg-price-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
 .pkg-old{color:var(--muted);font-size:1.02rem;font-weight:600;text-decoration-thickness:2px}
 .pkg-disc{display:inline-block;background:var(--sun);color:#3a2c00;font-style:normal;font-weight:800;font-size:.72rem;padding:2px 9px;border-radius:999px;margin-left:6px;vertical-align:middle}

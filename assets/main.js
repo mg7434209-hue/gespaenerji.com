@@ -133,39 +133,97 @@
       if (k.costPerKwp != null) setText("#aCost", "₺" + nf.format(k.costPerKwp) + "/kWp");
       if (k.co2PerKwh != null) setText("#aCo2", new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 2 }).format(k.co2PerKwh) + " kg/kWh");
     }
-    // ---- Paket detay sayfası (paket-*.html) — fiyat + WhatsApp + Product LD config'ten ----
+    // ---- Paket detay sayfası (paket-*.html) — fiyat, sipariş akışı, Product LD ----
     (function () {
       var host = document.querySelector("[data-pkg-detail]");
       if (!host || !CFG.packages) return;
       var p = null;
       CFG.packages.forEach(function (x) { if (x.id === host.getAttribute("data-pkg-detail")) p = x; });
-      if (!p) return;
+      if (!p || p.price == null) return;
       var nf = new Intl.NumberFormat("tr-TR");
-      var money = function (v) { return (p.currency === "USD" ? "$" : "₺") + nf.format(v); };
       var RATE = CFG.usdTry || 0;
-      var alt = RATE && p.price != null ? (p.currency === "USD" ? "≈ ₺" + nf.format(Math.round(p.price * RATE / 100) * 100) : "≈ $" + nf.format(Math.round(p.price / RATE))) : "";
+      var pct = CFG.cartDiscountPct || 0;
+      var tlOf = function (v) { return p.currency === "USD" ? Math.round(v * RATE / 100) * 100 : v; };
+      var usdOf = function (v) { return p.currency === "USD" ? v : (RATE ? Math.round(v / RATE) : 0); };
+      var both = function (v) { return "₺" + nf.format(tlOf(v)) + (usdOf(v) ? " (≈ $" + nf.format(usdOf(v)) + ")" : ""); };
+      var listTL = tlOf(p.price);
+      var cartTL = Math.round(listTL * (100 - pct) / 100 / 50) * 50;   // havale/EFT fiyatı
+      var downTL = Math.round(listTL * 0.30 / 50) * 50;               // kapıda: %30 peşin
+      var restTL = listTL - downTL;                                    // kapıda: kalan %70
       var set = function (sel, txt) { document.querySelectorAll(sel).forEach(function (el) { el.textContent = txt; }); };
-      if (p.price != null) set("[data-pkg-price]", money(p.price));
-      if (p.oldPrice) set("[data-pkg-old]", money(p.oldPrice));
-      if (alt) set("[data-pkg-alt]", alt);
-      if (p.oldPrice && p.price) set("[data-pkg-disc]", "%" + Math.round((1 - p.price / p.oldPrice) * 100) + " " + L("indirim", "off", "Rabatt", "скидка"));
+      set("[data-pkg-price]", "₺" + nf.format(listTL));
+      if (usdOf(p.price)) set("[data-pkg-alt]", "≈ $" + nf.format(usdOf(p.price)));
+      if (pct) set("[data-pkg-cart]", "🛒 " + L("Sepette %" + pct + " indirim", pct + "% off in cart", pct + " % Rabatt im Warenkorb", "−" + pct + " % в корзине"));
+      // WhatsApp bilgi linkleri
       var wa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
+      var waHref = function (msg) { return "https://wa.me/" + wa + "?text=" + encodeURIComponent(msg); };
       if (wa) {
-        var msg = L('Merhaba, "' + p.name + '" paketi için sipariş/teklif almak istiyorum.',
-          'Hello, I would like to order the "' + p.name + '" package.',
-          'Hallo, ich möchte das Paket "' + p.name + '" bestellen.',
-          'Здравствуйте, хочу заказать пакет «' + p.name + '».');
         document.querySelectorAll("[data-pkg-wa]").forEach(function (el) {
-          el.href = "https://wa.me/" + wa + "?text=" + encodeURIComponent(msg);
+          el.href = waHref(L("Merhaba, \"" + p.name + "\" paketi hakkında bilgi almak istiyorum.",
+            "Hello, I would like information about the \"" + p.name + "\" package.",
+            "Hallo, ich interessiere mich für das Paket \"" + p.name + "\".",
+            "Здравствуйте, интересует пакет «" + p.name + "»."));
           el.target = "_blank"; el.rel = "noopener";
         });
       }
+      // Sipariş formu — özet + ödeme planı + WhatsApp'a gönderim
+      var form = document.getElementById("ordForm");
+      if (form) {
+        var planEl = form.querySelector("[data-ord-plan]");
+        var render = function () {
+          var method = (form.odeme && form.odeme.value) || "havale";
+          set("[data-ord-list]", both(p.price));
+          if (method === "havale") {
+            set("[data-ord-disc]", "−₺" + nf.format(listTL - cartTL) + " (%" + pct + ")");
+            set("[data-ord-total]", "₺" + nf.format(cartTL));
+            if (planEl) planEl.hidden = true;
+          } else {
+            set("[data-ord-disc]", L("Kapıda ödemede uygulanmaz", "Not applied for pay-on-delivery", "Bei Nachnahme nicht anwendbar", "При оплате при получении не применяется"));
+            set("[data-ord-total]", "₺" + nf.format(listTL));
+            if (planEl) {
+              planEl.hidden = false;
+              planEl.textContent = L("Peşin (%30 havale): ", "Deposit (30% transfer): ", "Anzahlung (30 %): ", "Аванс (30 %): ") + "₺" + nf.format(downTL) +
+                L(" · Teslimatta: ", " · On delivery: ", " · Bei Lieferung: ", " · При доставке: ") + "₺" + nf.format(restTL);
+            }
+          }
+        };
+        Array.prototype.forEach.call(form.querySelectorAll('input[name="odeme"]'), function (r) { r.addEventListener("change", render); });
+        render();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var v = function (n) { return (form[n] && form[n].value.trim()) || ""; };
+          if (!v("ad") || !v("tel") || !v("il") || !v("adres")) return;
+          var method = form.odeme.value;
+          var lines = ["🛒 YENİ SİPARİŞ — " + p.name, "Liste fiyatı: " + both(p.price)];
+          if (method === "havale") {
+            lines.push("Ödeme: Havale/EFT (sepette %" + pct + " indirim)");
+            lines.push("Ödenecek: ₺" + nf.format(cartTL));
+          } else {
+            lines.push("Ödeme: Kapıda ödeme (%30 peşin + %70 teslimatta)");
+            lines.push("Peşin havale: ₺" + nf.format(downTL) + " · Teslimatta: ₺" + nf.format(restTL));
+          }
+          lines.push("— Teslimat —", "Ad: " + v("ad"), "Tel: " + v("tel"));
+          if (v("eposta")) lines.push("E-posta: " + v("eposta"));
+          lines.push("İl/İlçe: " + v("il"), "Adres: " + v("adres"));
+          if (v("not")) lines.push("Not: " + v("not"));
+          if (wa) window.open(waHref(lines.join("\n")), "_blank");
+          var done = document.getElementById("ordDone");
+          if (done) {
+            done.hidden = false;
+            done.textContent = L("Teşekkürler " + v("ad") + "! Siparişiniz WhatsApp üzerinden iletiliyor; onay ve ödeme bilgisi için aynı gün dönüş yapacağız.",
+              "Thank you " + v("ad") + "! Your order is being sent via WhatsApp.",
+              "Danke " + v("ad") + "! Ihre Bestellung wird per WhatsApp übermittelt.",
+              "Спасибо, " + v("ad") + "! Заказ отправляется через WhatsApp.");
+          }
+        });
+      }
+      // Product JSON-LD (liste fiyatı, orijinal para birimi)
       if (!document.querySelector('script[data-gld="product"]')) {
         var web = (CFG.company && CFG.company.web) || "";
         var ld = { "@context": "https://schema.org", "@type": "Product", name: p.name, description: p.desc,
           image: p.img ? web + "/" + p.img : undefined,
           brand: { "@type": "Brand", name: "GESPA Enerji" }, url: web + "/" + (p.url || "") };
-        if (p.price != null) ld.offers = { "@type": "Offer", price: p.price, priceCurrency: p.currency || "TRY", availability: "https://schema.org/InStock" };
+        ld.offers = { "@type": "Offer", price: p.price, priceCurrency: p.currency || "TRY", availability: "https://schema.org/InStock" };
         var sc = document.createElement("script"); sc.type = "application/ld+json"; sc.textContent = JSON.stringify(ld);
         document.head.appendChild(sc);
       }
@@ -273,23 +331,17 @@
         var ldItem = { "@type": "Product", name: p.name, category: p.tag, description: p.desc };
         if (price != null) ldItem.offers = { "@type": "Offer", price: price, priceCurrency: p.currency || "TRY", availability: "https://schema.org/InStock" };
         ld.push(ldItem);
-        var money = function (v) { return (p.currency === "USD" ? "$" : "₺") + nf.format(v); };
-        // ikinci para birimi karşılığı (config.usdTry kuru; "≈" yaklaşık)
+        // TEK FORMAT: ana fiyat TL (USD ürünlerde kurla), yanında yaklaşık USD.
         var RATE = CFG.usdTry || 0;
-        var altMoney = function (v) {
-          if (!RATE) return "";
-          return p.currency === "USD"
-            ? "≈ ₺" + nf.format(Math.round(v * RATE / 100) * 100)
-            : "≈ $" + nf.format(Math.round(v / RATE));
-        };
-        // indirim: oldPrice verilirse üstü çizili liste fiyatı + yüzde rozeti
-        var disc = (price != null && p.oldPrice && p.oldPrice > price) ? Math.round((1 - price / p.oldPrice) * 100) : 0;
+        var tlOf = function (v) { return p.currency === "USD" ? Math.round(v * RATE / 100) * 100 : v; };
+        var usdOf = function (v) { return p.currency === "USD" ? v : (RATE ? Math.round(v / RATE) : 0); };
+        // vitrin LISTE fiyati gosterir; indirim sepette (cartDiscountPct)
+        var cartPct = CFG.cartDiscountPct || 0;
         var priceHtml = price != null
           ? '<div class="pkg-price"><span class="pkg-price-lbl">' + priceLbl +
-            (disc ? ' <em class="pkg-disc">%' + disc + " " + L("indirim", "off", "Rabatt", "скидка") + "</em>" : "") + "</span>" +
-            '<span class="pkg-price-row">' + (disc ? '<s class="pkg-old">' + money(p.oldPrice) + "</s>" : "") +
-            "<strong>" + money(price) + "</strong>" +
-            (altMoney(price) ? '<span class="pkg-alt">' + altMoney(price) + "</span>" : "") + "</span></div>"
+            (cartPct ? ' <em class="pkg-disc">🛒 ' + L("Sepette %" + cartPct + " indirim", cartPct + "% off in cart", cartPct + " % Rabatt im Warenkorb", "−" + cartPct + " % в корзине") + "</em>" : "") + "</span>" +
+            '<span class="pkg-price-row"><strong>₺' + nf.format(tlOf(price)) + "</strong>" +
+            (usdOf(price) ? '<span class="pkg-alt">≈ $' + nf.format(usdOf(price)) + "</span>" : "") + "</span></div>"
           : '<div class="pkg-price"><span class="pkg-price-lbl">' + L("Fiyat", "Price", "Preis", "Цена") + '</span><strong class="pkg-poa">' + L("Teklif alın", "Get a quote", "Angebot", "По запросу") + "</strong></div>";
         return '<article class="pkg-card reveal' + (p.popular ? " popular" : "") + '" id="pkg-' + p.id + '">' +
           (p.url ? '<a class="pkg-media-link" href="' + p.url + '">' : "") +

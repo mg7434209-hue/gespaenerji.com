@@ -90,10 +90,10 @@
         <span class="hero-pill">📦 Komple Sistem</span>
         <h1>Tam Kapsamlı Güneş Enerjisi Sistemi</h1>
         <p class="lead">Bir evin temel yükünü güneşten karşılayın: 2×540 W panel ve LiFePO₄ bataryalı büyük güç kutusuyla buzdolabınız gece-gündüz çalışır, çamaşırınız güneş enerjisiyle yıkanır.</p>
-        <p class="pd-price"><s data-pkg-old></s> <strong data-pkg-price></strong> <span class="pd-alt" data-pkg-alt></span> <em class="pd-disc" data-pkg-disc></em></p>
-        <p class="pd-note">TL/USD karşılığı yaklaşıktır; sipariş anındaki güncel kur uygulanır. Fiyata KDV dahildir, kargo hariçtir.</p>
+        <p class="pd-price"><strong data-pkg-price></strong> <span class="pd-alt" data-pkg-alt></span> <em class="pd-disc" data-pkg-cart></em></p>
+        <p class="pd-note">Liste fiyatıdır — indirim sipariş adımında uygulanır. TL/USD karşılığı yaklaşıktır; sipariş anındaki güncel kur geçerlidir. KDV dahildir, kargo hariçtir.</p>
         <div class="calc-hero-cta" style="margin-top:16px">
-          <a class="btn btn-lg" data-pkg-wa href="iletisim.html">📲 WhatsApp'tan sipariş ver</a>
+          <a class="btn btn-lg" href="#siparis">🛒 Şimdi al — %10 indirimi kap</a>
           <a class="btn btn-ghost btn-lg" href="iletisim.html">Soru sor / Teklif al</a>
         </div>
         <div class="hero-badges reveal"><span>⚡ 2× 540 W panel</span><span>☀️ Günlük ~6,5 kWh üretim</span><span>🔋 LiFePO₄ lityum batarya</span><span>🎒 Mobil taşınabilir</span></div>
@@ -108,7 +108,7 @@
             <h2>Kutudan çıkan her şey, çalışmaya hazır</h2>
             <p>Parça toplamakla uğraşmayın: panelden kablosuna kadar ihtiyacınız olan her bileşen tek pakette, birbiriyle uyumlu şekilde hazırlanmış olarak gelir.</p>
             <ul class="ticks"><li>2× 540 W monokristal güneş paneli</li><li>LiFePO₄ lityum bataryalı büyük güç kutusu</li><li>MC4 bağlantı kabloları</li><li>GESPA sipariş öncesi ücretsiz danışmanlık</li></ul>
-            <a class="btn" data-pkg-wa href="iletisim.html">Hemen sipariş ver →</a>
+            <a class="btn" href="#siparis">Hemen sipariş ver →</a>
           </div>
           <div class="feature-img" style="background-image:url('assets/img/products/kit-2x540w.webp')" role="img" aria-label="Tam kapsamlı güneş enerjisi sistemi — 2×540W panel, büyük güç kutusu ve kablolar"></div>
         </div>
@@ -171,7 +171,40 @@
 
     <section class="section section-alt"><div class="container"><div class="how-note reveal" style="max-width:720px"><strong>🧰 Daha küçük bir çözüm mü lazım?</strong><p>Yalnızca TV, aydınlatma ve şarj ihtiyacınız varsa <a href="paket-285w.html" style="color:var(--green);font-weight:700">285W Güneş Paneli Paketi'ne göz atın →</a></p></div></div></section>
 
-    <section class="cta-band"><div class="container cta-inner reveal"><div><h2>Bugün sipariş verin, güneşiniz hazır olsun</h2><p>Stok ve teslimat için WhatsApp'tan yazın; aynı gün dönüş yapıyoruz.</p></div><a class="btn btn-lg btn-light" data-pkg-wa href="iletisim.html">📲 WhatsApp'tan yaz</a></div></section>
+    <section class="section section-alt" id="siparis">
+      <div class="container narrow">
+        <div class="section-head reveal"><span class="kicker">🛒 Sipariş</span><h2>Siparişinizi tamamlayın</h2><p>Formu doldurun; siparişiniz WhatsApp üzerinden anında bize ulaşır. Aynı gün onay, ödeme bilgisi ve teslimat planıyla dönüş yaparız.</p></div>
+        <form id="ordForm" class="ord-form reveal">
+          <div class="ord-summary">
+            <div><span>Liste fiyatı</span><s data-ord-list></s></div>
+            <div><span>Sepet indirimi</span><em data-ord-disc></em></div>
+            <div class="ord-total"><span>Ödenecek tutar</span><strong data-ord-total></strong></div>
+            <div class="ord-plan" data-ord-plan hidden></div>
+            <p class="pd-note">Fiyata KDV dahildir; kargo ücreti alıcıya aittir. USD bazlı ürünlerde sipariş anındaki güncel kur uygulanır.</p>
+          </div>
+          <fieldset class="ord-pay">
+            <legend>Ödeme yöntemi</legend>
+            <label><input type="radio" name="odeme" value="havale" checked /><span><strong>🏦 Havale / EFT — %10 indirimli</strong><small>Sipariş onayından sonra IBAN bilgisi WhatsApp'tan iletilir.</small></span></label>
+            <label><input type="radio" name="odeme" value="kapida" /><span><strong>🚚 Kapıda Ödeme</strong><small>%30 peşin havale, kalan %70 teslimatta ödenir.</small></span></label>
+            <label class="ord-soon"><input type="radio" name="odeme" value="kart" disabled /><span><strong>💳 Kredi Kartı</strong><small>Çok yakında.</small></span></label>
+          </fieldset>
+          <div class="ord-grid">
+            <div><label>Ad Soyad *</label><input required name="ad" placeholder="Adınız Soyadınız" /></div>
+            <div><label>Telefon *</label><input required name="tel" type="tel" placeholder="+90 5__ ___ __ __" /></div>
+            <div><label>E-posta</label><input name="eposta" type="email" placeholder="ornek@eposta.com" /></div>
+            <div><label>İl / İlçe *</label><input required name="il" placeholder="Antalya / Manavgat" /></div>
+            <div class="full"><label>Teslimat adresi *</label><textarea required name="adres" rows="3" placeholder="Mahalle, sokak, no, daire..."></textarea></div>
+            <div class="full"><label>Not (isteğe bağlı)</label><input name="not" placeholder="Teslimat notu, soru..." /></div>
+          </div>
+          <p class="ord-consent">Siparişi göndererek <a href="/kvkk.html">KVKK Aydınlatma Metni</a>'ni ve aşağıdaki satış şartlarını kabul etmiş olursunuz.</p>
+          <button class="btn btn-lg btn-block" type="submit">🛒 Siparişi WhatsApp ile tamamla</button>
+          <p class="pd-note" id="ordDone" hidden style="margin-top:12px"></p>
+        </form>
+        <div class="how-note reveal" style="margin-top:22px"><strong>📋 Satış ve teslimat şartları</strong><p>Havale/EFT ödemelerinde %10 sepet indirimi uygulanır. Kapıda ödemede toplamın %30'u sipariş onayında havale ile, kalan %70'i ürün tesliminde ödenir. Kredi kartı ile ödeme çok yakında eklenecektir. Sorunsuz teslim edilen üründe cayma hâlinde iade kargo ücreti alıcıya aittir; hasarlı veya ayıplı ürünlerde tüm masraflar tarafımıza aittir. Fiyatlara KDV dahildir.</p></div>
+      </div>
+    </section>
+
+    <section class="cta-band"><div class="container cta-inner reveal"><div><h2>Bugün sipariş verin, güneşiniz hazır olsun</h2><p>Stok ve teslimat için WhatsApp'tan yazın; aynı gün dönüş yapıyoruz.</p></div><a class="btn btn-lg btn-light" href="#siparis">🛒 Siparişi tamamla</a></div></section>
   </main>
 
   <footer class="site-footer">

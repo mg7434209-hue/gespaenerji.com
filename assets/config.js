@@ -65,6 +65,9 @@ window.GESPA.config = {
   // USD/TRY kuru — kitlerde ikinci para birimi karşılığı için (₺/$).
   // Kur değişince SADECE burayı güncelleyin; "≈" ile yaklaşık gösterilir.
   usdTry: 47.5,
+  // Sepet indirimi (%) — vitrinde LİSTE fiyatı gösterilir, indirim sipariş
+  // adımında uygulanır ("Sepette %10 indirim" rozeti). 0 = kapalı.
+  cartDiscountPct: 10,
 
   packages: [
     // —— Taşınabilir & Off-Grid (lityum bataryalı) paketler —— açık perakende fiyatı
@@ -76,7 +79,7 @@ window.GESPA.config = {
       url: "paket-285w.html",
       kwp: 0.285, panelW: 285, panelCount: 1, portable: true, dailyKwh: 1.7,
       img: "assets/img/products/kit-285w.webp",
-      price: 22000, oldPrice: 25000,
+      price: 25000,
       for: "Kamp, karavan ve küçük ihtiyaçlar",
       name: "285W Güneş Paneli Paketi",
       desc: "Komple sistem: 285 W panel, güç kutusu ve bağlantı kabloları dahil tak-çalıştır mobil kit. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg.",
@@ -87,7 +90,7 @@ window.GESPA.config = {
       url: "paket-2x540w.html",
       kwp: 1.08, panelW: 540, panelCount: 2, portable: true, dailyKwh: 6.5,
       img: "assets/img/products/kit-2x540w.webp",
-      price: 2000, oldPrice: 2200, currency: "USD",
+      price: 2200, currency: "USD",
       for: "Karavan, kamp ve bağ evi",
       name: "Tam Kapsamlı Güneş Enerjisi Sistemi",
       desc: "2× 540 W güneş paneli dahil komple mobil sistem: LiFePO₄ lityum batarya ve büyük güç kutusuyla buzdolabı, TV, çamaşır ve bulaşık makinesini çalıştırır.",

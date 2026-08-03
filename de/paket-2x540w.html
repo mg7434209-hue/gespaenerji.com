@@ -79,10 +79,10 @@
         <span class="hero-pill">📦 Komplettsystem</span>
         <h1>Komplettes Solarenergiesystem</h1>
         <p class="lead">Bir evin temel yükünü güneşten karşılayın: 2×540 W panel ve LiFePO₄ bataryalı büyük güç kutusuyla buzdolabınız gece-gündüz çalışır, çamaşırınız güneş enerjisiyle yıkanır.</p>
-        <p class="pd-price"><s data-pkg-old></s> <strong data-pkg-price></strong> <span class="pd-alt" data-pkg-alt></span> <em class="pd-disc" data-pkg-disc></em></p>
-        <p class="pd-note">TL/USD-Gegenwert ist ungefähr; es gilt der Kurs zum Bestellzeitpunkt. Inkl. MwSt., zzgl. Versand.</p>
+        <p class="pd-price"><strong data-pkg-price></strong> <span class="pd-alt" data-pkg-alt></span> <em class="pd-disc" data-pkg-cart></em></p>
+        <p class="pd-note">Listenpreis — Rabatt im Bestellschritt. TL/USD-Gegenwert ungefähr; Kurs zum Bestellzeitpunkt gilt. Inkl. MwSt., zzgl. Versand.</p>
         <div class="calc-hero-cta" style="margin-top:16px">
-          <a class="btn btn-lg" data-pkg-wa href="iletisim.html">📲 Per WhatsApp bestellen</a>
+          <a class="btn btn-lg" href="#siparis">🛒 Jetzt kaufen — 10 % sichern</a>
           <a class="btn btn-ghost btn-lg" href="iletisim.html">Frage stellen / Angebot</a>
         </div>
         <div class="hero-badges reveal"><span>⚡ 2× 540 W panel</span><span>☀️ Günlük ~6,5 kWh üretim</span><span>🔋 LiFePO₄ lityum batarya</span><span>🎒 Mobil taşınabilir</span></div>
@@ -97,7 +97,7 @@
             <h2>Alles in der Box, sofort einsatzbereit</h2>
             <p>Kein Teile-Suchen: jede Komponente von Modul bis Kabel kommt aufeinander abgestimmt in einem Paket.</p>
             <ul class="ticks"><li>2× 540 W monokristal güneş paneli</li><li>LiFePO₄ lityum bataryalı büyük güç kutusu</li><li>MC4 bağlantı kabloları</li><li>GESPA sipariş öncesi ücretsiz danışmanlık</li></ul>
-            <a class="btn" data-pkg-wa href="iletisim.html">Jetzt bestellen →</a>
+            <a class="btn" href="#siparis">Jetzt bestellen →</a>
           </div>
           <div class="feature-img" style="background-image:url('/assets/img/products/kit-2x540w.webp')" role="img" aria-label="Tam kapsamlı güneş enerjisi sistemi — 2×540W panel, büyük güç kutusu ve kablolar"></div>
         </div>
@@ -160,7 +160,40 @@
 
     <section class="section section-alt"><div class="container"><div class="how-note reveal" style="max-width:720px"><strong>🧰 Daha küçük bir çözüm mü lazım?</strong><p>Yalnızca TV, aydınlatma ve şarj ihtiyacınız varsa <a href="paket-285w.html" style="color:var(--green);font-weight:700">285W Güneş Paneli Paketi'ne göz atın →</a></p></div></div></section>
 
-    <section class="cta-band"><div class="container cta-inner reveal"><div><h2>Heute bestellen, morgen Sonne ernten</h2><p>Für Lager & Lieferung per WhatsApp schreiben; Antwort am selben Tag.</p></div><a class="btn btn-lg btn-light" data-pkg-wa href="iletisim.html">📲 WhatsApp schreiben</a></div></section>
+    <section class="section section-alt" id="siparis">
+      <div class="container narrow">
+        <div class="section-head reveal"><span class="kicker">🛒 Bestellung</span><h2>Bestellung abschließen</h2><p>Formular ausfüllen; Ihre Bestellung erreicht uns sofort per WhatsApp. Antwort am selben Tag mit Bestätigung, Zahlungsdaten und Lieferplan.</p></div>
+        <form id="ordForm" class="ord-form reveal">
+          <div class="ord-summary">
+            <div><span>Listenpreis</span><s data-ord-list></s></div>
+            <div><span>Warenkorb-Rabatt</span><em data-ord-disc></em></div>
+            <div class="ord-total"><span>Zu zahlen</span><strong data-ord-total></strong></div>
+            <div class="ord-plan" data-ord-plan hidden></div>
+            <p class="pd-note">Inkl. MwSt.; Versand trägt der Käufer. Bei USD-Produkten gilt der Kurs zum Bestellzeitpunkt.</p>
+          </div>
+          <fieldset class="ord-pay">
+            <legend>Zahlungsart</legend>
+            <label><input type="radio" name="odeme" value="havale" checked /><span><strong>🏦 Havale / EFT — %10 indirimli</strong><small>IBAN wird nach Bestellbestätigung per WhatsApp mitgeteilt.</small></span></label>
+            <label><input type="radio" name="odeme" value="kapida" /><span><strong>🚚 Kapıda Ödeme</strong><small>30 % Anzahlung per Überweisung, 70 % bei Lieferung.</small></span></label>
+            <label class="ord-soon"><input type="radio" name="odeme" value="kart" disabled /><span><strong>💳 Kredi Kartı</strong><small>Bald verfügbar.</small></span></label>
+          </fieldset>
+          <div class="ord-grid">
+            <div><label>Vor- und Nachname *</label><input required name="ad" placeholder="Vor- und Nachname" /></div>
+            <div><label>Telefon *</label><input required name="tel" type="tel" placeholder="+90 5__ ___ __ __" /></div>
+            <div><label>E-Mail</label><input name="eposta" type="email" placeholder="ornek@eposta.com" /></div>
+            <div><label>Stadt / Bezirk *</label><input required name="il" placeholder="Antalya / Manavgat" /></div>
+            <div class="full"><label>Lieferadresse *</label><textarea required name="adres" rows="3" placeholder="Mahalle, sokak, no, daire..."></textarea></div>
+            <div class="full"><label>Notiz (optional)</label><input name="not" placeholder="Teslimat notu, soru..." /></div>
+          </div>
+          <p class="ord-consent">Mit dem Absenden akzeptieren Sie die <a href="/kvkk.html">KVKK Aydınlatma Metni</a>'ni ve aşağıdaki satış şartlarını kabul etmiş olursunuz.</p>
+          <button class="btn btn-lg btn-block" type="submit">🛒 Bestellung per WhatsApp abschließen</button>
+          <p class="pd-note" id="ordDone" hidden style="margin-top:12px"></p>
+        </form>
+        <div class="how-note reveal" style="margin-top:22px"><strong>📋 Verkaufs- & Lieferbedingungen</strong><p>Bei Überweisung gilt 10 % Warenkorb-Rabatt. Bei Nachnahme: 30 % Anzahlung per Überweisung, 70 % bei Lieferung. Kreditkartenzahlung folgt in Kürze. Bei Widerruf nach einwandfreier Lieferung trägt der Käufer die Rücksendekosten; bei beschädigter oder mangelhafter Ware tragen wir alle Kosten. Preise inkl. MwSt.</p></div>
+      </div>
+    </section>
+
+    <section class="cta-band"><div class="container cta-inner reveal"><div><h2>Heute bestellen, morgen Sonne ernten</h2><p>Für Lager & Lieferung per WhatsApp schreiben; Antwort am selben Tag.</p></div><a class="btn btn-lg btn-light" href="#siparis">🛒 Bestellung abschließen</a></div></section>
   </main>
 
   <footer class="site-footer">

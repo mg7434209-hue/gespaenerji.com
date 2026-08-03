@@ -79,10 +79,10 @@
         <span class="hero-pill">📦 Полный комплект</span>
         <h1>Полная солнечная энергосистема</h1>
         <p class="lead">Bir evin temel yükünü güneşten karşılayın: 2×540 W panel ve LiFePO₄ bataryalı büyük güç kutusuyla buzdolabınız gece-gündüz çalışır, çamaşırınız güneş enerjisiyle yıkanır.</p>
-        <p class="pd-price"><s data-pkg-old></s> <strong data-pkg-price></strong> <span class="pd-alt" data-pkg-alt></span> <em class="pd-disc" data-pkg-disc></em></p>
-        <p class="pd-note">Эквивалент TL/USD приблизителен; применяется курс на момент заказа. НДС включён, доставка отдельно.</p>
+        <p class="pd-price"><strong data-pkg-price></strong> <span class="pd-alt" data-pkg-alt></span> <em class="pd-disc" data-pkg-cart></em></p>
+        <p class="pd-note">Цена по прайсу — скидка применяется при заказе. Эквивалент TL/USD приблизителен; действует курс на момент заказа. НДС включён, доставка отдельно.</p>
         <div class="calc-hero-cta" style="margin-top:16px">
-          <a class="btn btn-lg" data-pkg-wa href="iletisim.html">📲 Заказать в WhatsApp</a>
+          <a class="btn btn-lg" href="#siparis">🛒 Купить сейчас — скидка 10 %</a>
           <a class="btn btn-ghost btn-lg" href="iletisim.html">Задать вопрос / Получить КП</a>
         </div>
         <div class="hero-badges reveal"><span>⚡ 2× 540 W panel</span><span>☀️ Günlük ~6,5 kWh üretim</span><span>🔋 LiFePO₄ lityum batarya</span><span>🎒 Mobil taşınabilir</span></div>
@@ -97,7 +97,7 @@
             <h2>Всё в коробке — готово к работе</h2>
             <p>Не ищите комплектующие: все компоненты от панели до кабелей идут в одном согласованном комплекте.</p>
             <ul class="ticks"><li>2× 540 W monokristal güneş paneli</li><li>LiFePO₄ lityum bataryalı büyük güç kutusu</li><li>MC4 bağlantı kabloları</li><li>GESPA sipariş öncesi ücretsiz danışmanlık</li></ul>
-            <a class="btn" data-pkg-wa href="iletisim.html">Заказать сейчас →</a>
+            <a class="btn" href="#siparis">Заказать сейчас →</a>
           </div>
           <div class="feature-img" style="background-image:url('/assets/img/products/kit-2x540w.webp')" role="img" aria-label="Tam kapsamlı güneş enerjisi sistemi — 2×540W panel, büyük güç kutusu ve kablolar"></div>
         </div>
@@ -160,7 +160,40 @@
 
     <section class="section section-alt"><div class="container"><div class="how-note reveal" style="max-width:720px"><strong>🧰 Daha küçük bir çözüm mü lazım?</strong><p>Yalnızca TV, aydınlatma ve şarj ihtiyacınız varsa <a href="paket-285w.html" style="color:var(--green);font-weight:700">285W Güneş Paneli Paketi'ne göz atın →</a></p></div></div></section>
 
-    <section class="cta-band"><div class="container cta-inner reveal"><div><h2>Закажите сегодня — солнце уже ваше</h2><p>Пишите в WhatsApp о наличии и доставке; отвечаем в тот же день.</p></div><a class="btn btn-lg btn-light" data-pkg-wa href="iletisim.html">📲 Написать в WhatsApp</a></div></section>
+    <section class="section section-alt" id="siparis">
+      <div class="container narrow">
+        <div class="section-head reveal"><span class="kicker">🛒 Заказ</span><h2>Завершите заказ</h2><p>Заполните форму — заказ мгновенно поступит нам в WhatsApp. В тот же день ответим с подтверждением, оплатой и планом доставки.</p></div>
+        <form id="ordForm" class="ord-form reveal">
+          <div class="ord-summary">
+            <div><span>Цена по прайсу</span><s data-ord-list></s></div>
+            <div><span>Скидка в корзине</span><em data-ord-disc></em></div>
+            <div class="ord-total"><span>К оплате</span><strong data-ord-total></strong></div>
+            <div class="ord-plan" data-ord-plan hidden></div>
+            <p class="pd-note">НДС включён; доставку оплачивает покупатель. Для товаров в USD применяется курс на момент заказа.</p>
+          </div>
+          <fieldset class="ord-pay">
+            <legend>Способ оплаты</legend>
+            <label><input type="radio" name="odeme" value="havale" checked /><span><strong>🏦 Havale / EFT — %10 indirimli</strong><small>IBAN отправляется в WhatsApp после подтверждения заказа.</small></span></label>
+            <label><input type="radio" name="odeme" value="kapida" /><span><strong>🚚 Kapıda Ödeme</strong><small>30 % предоплата переводом, 70 % при доставке.</small></span></label>
+            <label class="ord-soon"><input type="radio" name="odeme" value="kart" disabled /><span><strong>💳 Kredi Kartı</strong><small>Скоро.</small></span></label>
+          </fieldset>
+          <div class="ord-grid">
+            <div><label>Имя и фамилия *</label><input required name="ad" placeholder="Имя и фамилия" /></div>
+            <div><label>Телефон *</label><input required name="tel" type="tel" placeholder="+90 5__ ___ __ __" /></div>
+            <div><label>E-mail</label><input name="eposta" type="email" placeholder="ornek@eposta.com" /></div>
+            <div><label>Город / район *</label><input required name="il" placeholder="Antalya / Manavgat" /></div>
+            <div class="full"><label>Адрес доставки *</label><textarea required name="adres" rows="3" placeholder="Mahalle, sokak, no, daire..."></textarea></div>
+            <div class="full"><label>Примечание (необязательно)</label><input name="not" placeholder="Teslimat notu, soru..." /></div>
+          </div>
+          <p class="ord-consent">Отправляя заказ, вы принимаете <a href="/kvkk.html">KVKK Aydınlatma Metni</a>'ni ve aşağıdaki satış şartlarını kabul etmiş olursunuz.</p>
+          <button class="btn btn-lg btn-block" type="submit">🛒 Завершить заказ в WhatsApp</button>
+          <p class="pd-note" id="ordDone" hidden style="margin-top:12px"></p>
+        </form>
+        <div class="how-note reveal" style="margin-top:22px"><strong>📋 Условия продажи и доставки</strong><p>При оплате переводом действует скидка 10 %. При оплате при получении: 30 % предоплата переводом, 70 % при доставке. Оплата картой появится скоро. При отказе после исправной доставки возвратную пересылку оплачивает покупатель; при повреждённом или бракованном товаре все расходы несём мы. Цены с НДС.</p></div>
+      </div>
+    </section>
+
+    <section class="cta-band"><div class="container cta-inner reveal"><div><h2>Закажите сегодня — солнце уже ваше</h2><p>Пишите в WhatsApp о наличии и доставке; отвечаем в тот же день.</p></div><a class="btn btn-lg btn-light" href="#siparis">🛒 Завершить заказ</a></div></section>
   </main>
 
   <footer class="site-footer">
