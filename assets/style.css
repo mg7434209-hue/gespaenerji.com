@@ -986,7 +986,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .bld-actions .btn{width:100%}
 }
 @media print{
-  .bld-steps,.bld-nav,.bld-actions,.builder .bld-live{display:none !important}
+  .bld-steps,.bld-nav,.bld-actions,.builder .bld-live,.bld-price-cta{display:none !important}
   .bld-card{box-shadow:none;border:1px solid #ccc}
 }
 
@@ -1096,4 +1096,25 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .pool-stats,.pool-pattern,.cert-grid{grid-template-columns:1fr}
   .pool-plan{padding:24px 18px}
   .pool-launch-inner{font-size:.88rem;padding:12px 0}
+}
+
+/* Sepet fiyat kutusu — e-ticaret düzeni (Sistem Kurucu 4. ve 5. adım) */
+.bld-price-box{margin-top:16px;padding-top:16px;border-top:2px solid var(--green)}
+.bld-price-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:var(--font)}
+.bld-price-row span{font-weight:700}
+.bld-price{font-size:1.9rem;font-weight:800;color:var(--green);letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.bld-price-note{margin:2px 0 0;font-size:.82rem;color:var(--muted)}
+.bld-havale{margin:8px 0 0;font-size:.95rem;font-weight:600;color:var(--green);
+  background:color-mix(in srgb,var(--green) 8%,transparent);border-radius:10px;padding:8px 12px}
+.bld-havale b{font-weight:800}
+.bld-price-kwp{margin:8px 0 0;font-size:.86rem;color:var(--muted)}
+.bld-price-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.bld-price-cta .btn{flex:1 1 240px;justify-content:center;text-align:center}
+.bld-trust{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:7px}
+.bld-trust li{font-size:.86rem;color:var(--muted);padding-left:2px}
+@media(max-width:640px){
+  .bld-price-row{display:grid;grid-template-columns:1fr;gap:2px}
+  .bld-price{font-size:1.75rem;text-align:right}
+  .bld-price-cta .btn{flex:1 1 100%}
 }

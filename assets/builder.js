@@ -32,6 +32,10 @@
   var nf1 = function (n) { return new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 1 }).format(n); };
   var nf2 = function (n) { return new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 2 }).format(n); };
   var money = function (n) { return "₺" + nf(n); };
+  // Havale/EFT indirimi: site geneli oran (config.cartDiscountPct) — builder'a özel
+  // oran gerekirse config.builder.commerce.havaleDiscountPct ile ezilir. 0 = satır gizli.
+  var HAV = (B.commerce && B.commerce.havaleDiscountPct != null ? +B.commerce.havaleDiscountPct : +CFG.cartDiscountPct) || 0;
+  var havale = function (n) { return n * (1 - HAV / 100); };
   // Adet kutusuna yazılan metni sayıya çevir (hem "2,2" hem "2.2" kabul edilir)
   var parseQ = function (v) { return parseFloat(String(v).replace(/\s/g, "").replace(",", ".")); };
 
@@ -426,6 +430,33 @@
   }
 
   // Sepet içeriği (yeniden çizilebilir olsun diye ayrı)
+  // Sepet fiyat kutusu — sipariş özetinde de aynısı kullanılır
+  function priceBox(r, opts) {
+    var wa = WA ? "https://wa.me/" + WA + "?text=" + encodeURIComponent(waText()) : "iletisim.html";
+    var showTotal = !opts || opts.total !== false;   // 5. adımda toplam tabloda zaten var
+    return '<div class="bld-price-box">' +
+      (showTotal
+        ? '<div class="bld-price-row"><span>' + L("Toplam (tahmini)", "Total (estimate)", "Gesamt (ca.)", "Итого (оценка)") +
+          '</span><b class="bld-price">' + money(r.total) + "</b></div>" +
+          '<p class="bld-price-note">' + L("KDV dahil tahmini liste fiyatıdır.", "Estimated list price incl. VAT.",
+            "Geschätzter Listenpreis inkl. MwSt.", "Ориентировочная прейскурантная цена с НДС.") + "</p>"
+        : "") +
+      (HAV > 0 ? '<p class="bld-havale">💰 ' + L("Havale/EFT ile:", "By bank transfer:", "Per Überweisung:", "Банковским переводом:") +
+        " <b>" + money(havale(r.total)) + "</b> (%" + nf1(HAV) + " " + L("indirimli", "off", "Rabatt", "скидка") + ")</p>" : "") +
+      '<p class="bld-price-kwp">' + L("Kurulu güç", "Installed power", "Installierte Leistung", "Мощность") + " <b>" + nf1(r.instKwp) + " kWp</b></p>" +
+      '<div class="bld-price-cta">' +
+        '<a class="btn btn-lg" href="' + wa + '"' + (WA ? ' target="_blank" rel="noopener"' : "") + '>📲 ' +
+          L("Siparişi WhatsApp'tan gönder", "Send order via WhatsApp", "Bestellung per WhatsApp senden", "Отправить заказ в WhatsApp") + "</a>" +
+        (opts && opts.next ? '<button class="btn btn-ghost btn-lg" type="button" data-goto="5">' +
+          L("Sipariş özetini gör", "See order summary", "Bestellübersicht ansehen", "Посмотреть итог заказа") + " →</button>" : "") +
+      "</div>" +
+      '<ul class="bld-trust">' +
+        "<li>✔ " + L("Ücretsiz keşif ve kesin teklif", "Free site survey and binding quote", "Kostenlose Begehung und verbindliches Angebot", "Бесплатный выезд и точное предложение") + "</li>" +
+        "<li>🔧 " + L("Antalya bölgesinde montaj ekibimizce kurulum", "Installed by our own team in the Antalya region", "Montage durch unser Team in der Region Antalya", "Монтаж нашей бригадой в регионе Антальи") + "</li>" +
+        "<li>🔄 " + L("Sipariş öncesi ürün ve adetleri istediğiniz gibi değiştirebilirsiniz", "You can change products and quantities freely before ordering", "Produkte und Mengen vor der Bestellung frei änderbar", "До заказа можно свободно менять товары и количество") + "</li>" +
+      "</ul></div>";
+  }
+
   function cartInner(r) {
     if (!r.lines.length) {
       return '<h3 class="bld-cart-title">🧾 ' + L("Alınacak ürünler", "Your selection", "Ihre Auswahl", "Ваш выбор") + "</h3>" +
@@ -439,12 +470,7 @@
     return '<h3 class="bld-cart-title">🧾 ' + L("Alınacak ürünler", "Your selection", "Ihre Auswahl", "Ваш выбор") +
       ' <span class="bld-cart-count">' + r.lines.length + " " + L("kalem", "items", "Positionen", "позиций") + "</span></h3>" +
       '<div class="bld-cart-list">' + rows + "</div>" +
-      '<div class="bld-cart-total"><span>' + L("Toplam (tahmini)", "Total (estimate)", "Gesamt (ca.)", "Итого (оценка)") +
-        "</span><b>" + money(r.total) + "</b></div>" +
-      '<p class="bld-hint">' + L("Kurulu güç " + nf1(r.instKwp) + " kWp · fiyatlar KDV dahil tahmini liste fiyatlarıdır.",
-        "Installed power " + nf1(r.instKwp) + " kWp · prices are estimated list prices incl. VAT.",
-        "Installierte Leistung " + nf1(r.instKwp) + " kWp · Preise sind geschätzte Listenpreise inkl. MwSt.",
-        "Мощность " + nf1(r.instKwp) + " кВт·п · цены ориентировочные, с НДС.") + "</p>";
+      priceBox(r, { next: true });
   }
 
   function viewSummary() {
@@ -464,12 +490,12 @@
       '<div class="bld-table-wrap"><table class="bld-table bld-bom"><thead><tr><th>' + L("Ürün / hizmet", "Item", "Position", "Позиция") + "</th><th>" +
         L("Miktar", "Qty", "Menge", "Кол-во") + "</th><th>" + L("Birim", "Unit price", "Einzelpreis", "Цена") + "</th><th>" + L("Tutar", "Total", "Summe", "Сумма") + "</th></tr></thead>" +
       "<tbody>" + rows + "</tbody><tfoot><tr><td colspan=\"3\">" + L("Toplam (tahmini)", "Total (estimate)", "Gesamt (ca.)", "Итого (оценка)") + "</td><td><b>" + money(r.total) + "</b></td></tr></tfoot></table></div>" +
+      priceBox(r, { total: false }) +
       '<p class="bld-note">' + L("Fiyatlar tahmini liste fiyatlarıdır (KDV dahil); stok ve kur durumuna göre değişebilir. Kesin teklif ücretsiz keşif sonrası verilir.",
         "Prices are estimated list prices (VAT included) and may change with stock and exchange rates. A binding quote follows the free site survey.",
         "Preise sind geschätzte Listenpreise (inkl. MwSt.) und können sich ändern. Ein verbindliches Angebot folgt nach der Vor-Ort-Analyse.",
         "Цены ориентировочные (с НДС) и могут меняться. Точное предложение — после бесплатного выезда.") + "</p>" +
-      '<div class="bld-actions"><a class="btn btn-lg" id="bldWa" href="#" target="_blank" rel="noopener">📲 ' +
-        L("Siparişi WhatsApp'tan gönder", "Send order via WhatsApp", "Bestellung per WhatsApp senden", "Отправить заказ в WhatsApp") + "</a>" +
+      '<div class="bld-actions">' +
       '<button class="btn btn-ghost btn-lg" type="button" id="bldPrint">🖨️ ' + L("Yazdır / PDF", "Print / PDF", "Drucken / PDF", "Печать / PDF") + "</button>" +
       '<button class="btn btn-ghost btn-lg" type="button" id="bldReset">' + L("Baştan başla", "Start over", "Neu beginnen", "Начать заново") + "</button></div></div>";
   }
@@ -517,11 +543,6 @@
     // Açık akordeon gövdelerine gerçek yükseklik ver (animasyonsuz ilk çizim)
     $$(".bld-acc.open .bld-acc-body", root).forEach(function (el) { el.style.maxHeight = el.scrollHeight + "px"; });
     if (state.step === 3) { var sel = $("#bldAuto"); if (sel) sel.value = String(state.autonomy); }
-    if (state.step === 5) {
-      var wa = $("#bldWa");
-      if (wa && WA) wa.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(waText());
-      else if (wa) { wa.href = "iletisim.html"; wa.removeAttribute("target"); }
-    }
     save();
   }
 
