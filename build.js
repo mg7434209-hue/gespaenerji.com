@@ -356,6 +356,13 @@ function webAppLd(cfg) {
 const LD_RE = /[ \t]*<!-- LD:STATIC[\s\S]*?\/LD:STATIC -->\n?/;
 function injectStaticLd(html, file, cfg) {
   const objs = [localBusinessLd(cfg.company)];
+  // WebSite varlığı — marka adı/sitelink sinyali (yalnız ana sayfada)
+  if (file === "index.html") objs.push({
+    "@context": "https://schema.org", "@type": "WebSite",
+    name: cfg.company.brandName, alternateName: cfg.company.legalName,
+    url: cfg.company.web + "/", inLanguage: ["tr", "en", "de", "ru"],
+    publisher: { "@type": "Organization", name: cfg.company.brandName, url: cfg.company.web }
+  });
   if (file === "su-isitici.html") objs.push(heaterProductLd(cfg));
   if (file === "urunler.html") objs.push(packagesItemListLd(cfg));
   if (file === "ai-cankurtaran-destek-sistemi.html") objs.push(cankurtaranProductLd(cfg));

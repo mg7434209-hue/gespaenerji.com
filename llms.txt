@@ -30,10 +30,20 @@ Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş ve çevr
 - Ücretsiz online araçlar: tasarruf hesaplayıcı + mühendislik alet çantası (panel yerleşim, inverter, kablo, batarya, sıra aralığı)
 
 ## Paket ürünler
-İki komple tak-çalıştır güneş kiti (gerçek ürün fotoğraflı, detay sayfalı):
-- 285W Güneş Paneli Paketi — ₺22.000 (liste ₺25.000): TV, lambalar, telefon şarjı; ~1,7 kWh/gün; 23–25 kg. Detay: /paket-285w.html
-- Tam Kapsamlı Güneş Enerjisi Sistemi (2×540W) — $2.000 (liste $2.200): LiFePO₄ bataryalı; buzdolabı, çamaşır-bulaşık makinesi, süpürge; ~6,5 kWh/gün. Detay: /paket-2x540w.html
-Fiyatlarda TL/USD karşılığı yaklaşık kur ile gösterilir. Daha büyük sistemler proje bazlıdır (Sistem Kurucu / ücretsiz keşif).
+İki komple tak-çalıştır güneş kiti (gerçek ürün fotoğraflı, detay sayfalı, sepetle sipariş):
+- 285W Güneş Paneli Paketi — liste ₺25.000; havale/EFT ile ₺22.500 (%10 indirimli). TV, lambalar, telefon şarjı; ~1,7 kWh/gün; 23–25 kg. Detay: /paket-285w.html
+- Tam Kapsamlı Güneş Enerjisi Sistemi (2×540W) — liste ₺104.500 (≈ $2.200); havale/EFT ile ₺94.050 (%10 indirimli). LiFePO₄ bataryalı; buzdolabı, çamaşır-bulaşık makinesi, süpürge; ~6,5 kWh/gün. Detay: /paket-2x540w.html
+Fiyatlar KDV dahildir; TL/USD karşılığı yaklaşık kur ile gösterilir. GÜNCEL fiyatların tek doğru
+kaynağı /llms-full.txt dosyasıdır (config'ten otomatik üretilir; burada fark varsa oradaki geçerlidir).
+Daha büyük sistemler proje bazlıdır (Sistem Kurucu / ücretsiz keşif).
+
+## Satın alma, kargo ve iade
+- Sipariş: ürün sayfasından sepete eklenir, sipariş WhatsApp üzerinden tamamlanır (aynı gün onay).
+- Kargo: paketler TÜRKİYE'NİN HER İLİNE anlaşmalı kargo ile gönderilir; teslimat Antalya ile sınırlı değildir.
+  Tahmini teslim 2–5 iş günü; kargo ücreti alıcıya aittir.
+- Ödeme: havale/EFT'te %10 sepet indirimi; kapıda ödemede %30 peşin + %70 teslimatta. Kredi kartı yakında.
+- İade: mesafeli satışta 14 gün cayma hakkı (sorunsuz teslimde iade kargosu alıcıya aittir).
+- Kurulum: kitler tak-çalıştır; Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi verilir.
 
 ## PV Güneş Su Isıtıcı (ısıtma ürünü)
 Monokristal güneş panelleriyle suyu güneş enerjisiyle ısıtan fotovoltaik (PV) su ısıtıcı.

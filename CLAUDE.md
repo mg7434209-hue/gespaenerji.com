@@ -145,7 +145,11 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
 - Görsel türevleri (hero-640/960, *-thumb, *-800, gespa-icon-72) elle üretilmiş
   optimize kopyalardır; kaynak görsel değişirse türevini de yenile.
 - `llms-full.txt` config'ten üretilir (ürünler+fiyatlar+araçlar; llms.txt özet
-  kalır, elle bakılır). robots.txt AI botlarına açıktır ve llms dosyalarına işaret eder.
+  kalır, elle bakılır — fiyat/indirim değişince llms.txt'teki paket satırlarını da
+  elle güncelle; çelişkide llms-full.txt esastır ve dosyada böyle yazar).
+  robots.txt AI botlarına açıktır ve llms dosyalarına işaret eder.
+- Ana sayfada WebSite JSON-LD (build üretir); statik `<img>`lerde width/height
+  zorunludur (CLS) — JS kartları için yer `.pkg-media img{aspect-ratio}` ile ayrılır.
 
 ## Konvansiyonlar
 - Sayfa linkleri `.html` uzantılı (GitHub Pages uyumu için).
