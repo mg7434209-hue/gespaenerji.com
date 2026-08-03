@@ -342,6 +342,13 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .pkg-price strong{font-family:var(--font);font-size:1.65rem;color:var(--green);font-weight:800;line-height:1.15}
 .pkg-price strong.pkg-poa{font-size:1.2rem;color:var(--ink)}
 .pkg-alt{color:var(--muted);font-weight:700;font-size:.95rem}
+/* Vitrin kartinda havale/EFT tutari + guven satirlari (Sistem Kurucu sepetiyle ayni dil) */
+.pkg-havale{margin:8px 0 0;font-size:.9rem;font-weight:600;color:var(--green);
+  background:color-mix(in srgb,var(--green) 8%,transparent);border-radius:10px;padding:7px 11px}
+.pkg-havale b{font-weight:800;white-space:nowrap}
+.pkg-price-note{margin:6px 0 0;font-size:.8rem;color:var(--muted)}
+.pkg-trust{list-style:none;padding:0;margin:2px 0 0;display:grid;gap:6px}
+.pkg-trust li{font-size:.82rem;color:var(--muted);line-height:1.45}
 .pkg-media-link{display:block}
 .pkg-name a{color:inherit}
 .pkg-name a:hover{color:var(--green)}
@@ -351,6 +358,9 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .pd-price s{color:var(--muted);font-size:1.15rem;font-weight:600}
 .pd-price .pd-alt{color:var(--muted);font-weight:700;font-size:1.05rem}
 .pd-disc{display:inline-block;background:var(--sun);color:#3a2c00;font-weight:800;font-size:.78rem;padding:3px 11px;border-radius:999px;vertical-align:middle;margin-left:8px}
+.pd-havale{display:inline-block;margin:4px 0 6px;font-size:1rem;font-weight:700;color:var(--green);
+  background:color-mix(in srgb,var(--green) 10%,transparent);border-radius:12px;padding:9px 14px}
+.pd-havale:empty{display:none}
 .pd-note{color:var(--muted);font-size:.85rem;margin:2px 0 0}
 /* Siparis bolumu (paket detay) */
 .ord-form{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}

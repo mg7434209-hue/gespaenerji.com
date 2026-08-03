@@ -153,7 +153,13 @@
       var set = function (sel, txt) { document.querySelectorAll(sel).forEach(function (el) { el.textContent = txt; }); };
       set("[data-pkg-price]", "₺" + nf.format(listTL));
       if (usdOf(p.price)) set("[data-pkg-alt]", "≈ $" + nf.format(usdOf(p.price)));
-      if (pct) set("[data-pkg-cart]", "🛒 " + L("Sepette %" + pct + " indirim", pct + "% off in cart", pct + " % Rabatt im Warenkorb", "−" + pct + " % в корзине"));
+      if (pct) {
+        set("[data-pkg-cart]", "🛒 " + L("Sepette %" + pct + " indirim", pct + "% off in cart", pct + " % Rabatt im Warenkorb", "−" + pct + " % в корзине"));
+        // Havale/EFT tutarı vitrindeki kartla AYNI hesapla gösterilir
+        set("[data-pkg-havale]", "💰 " + L("Havale/EFT ile: ", "By bank transfer: ", "Per Überweisung: ", "Банковским переводом: ") +
+          "₺" + nf.format(cartTL) + " (" + L("%" + pct + " indirimli", pct + "% off", pct + " % Rabatt", "скидка " + pct + " %") + ")");
+        set("[data-pkg-cta]", "🛒 " + L("Şimdi al — %" + pct + " indirimi kap", "Buy now — get " + pct + "% off", "Jetzt kaufen — " + pct + " % sichern", "Купить сейчас — скидка " + pct + " %"));
+      }
       // WhatsApp bilgi linkleri
       var wa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
       var waHref = function (msg) { return "https://wa.me/" + wa + "?text=" + encodeURIComponent(msg); };
@@ -335,14 +341,30 @@
         var RATE = CFG.usdTry || 0;
         var tlOf = function (v) { return p.currency === "USD" ? Math.round(v * RATE / 100) * 100 : v; };
         var usdOf = function (v) { return p.currency === "USD" ? v : (RATE ? Math.round(v / RATE) : 0); };
-        // vitrin LISTE fiyati gosterir; indirim sepette (cartDiscountPct)
+        // vitrin LISTE fiyati gosterir; havale/EFT indirimli tutar altta yazar
+        // (yuvarlama paket detay sayfasiyla AYNI: en yakin 50 TL)
         var cartPct = CFG.cartDiscountPct || 0;
-        var priceHtml = price != null
-          ? '<div class="pkg-price"><span class="pkg-price-lbl">' + priceLbl +
+        var priceHtml;
+        if (price != null) {
+          var listTL = tlOf(price);
+          var havTL = Math.round(listTL * (100 - cartPct) / 100 / 50) * 50;
+          priceHtml = '<div class="pkg-price"><span class="pkg-price-lbl">' + priceLbl +
             (cartPct ? ' <em class="pkg-disc">🛒 ' + L("Sepette %" + cartPct + " indirim", cartPct + "% off in cart", cartPct + " % Rabatt im Warenkorb", "−" + cartPct + " % в корзине") + "</em>" : "") + "</span>" +
-            '<span class="pkg-price-row"><strong>₺' + nf.format(tlOf(price)) + "</strong>" +
-            (usdOf(price) ? '<span class="pkg-alt">≈ $' + nf.format(usdOf(price)) + "</span>" : "") + "</span></div>"
-          : '<div class="pkg-price"><span class="pkg-price-lbl">' + L("Fiyat", "Price", "Preis", "Цена") + '</span><strong class="pkg-poa">' + L("Teklif alın", "Get a quote", "Angebot", "По запросу") + "</strong></div>";
+            '<span class="pkg-price-row"><strong>₺' + nf.format(listTL) + "</strong>" +
+            (usdOf(price) ? '<span class="pkg-alt">≈ $' + nf.format(usdOf(price)) + "</span>" : "") + "</span></div>" +
+            (cartPct ? '<p class="pkg-havale">💰 ' + L("Havale/EFT ile:", "By bank transfer:", "Per Überweisung:", "Банковским переводом:") +
+              " <b>₺" + nf.format(havTL) + "</b> (" +
+              L("%" + cartPct + " indirimli", cartPct + "% off", cartPct + " % Rabatt", "скидка " + cartPct + " %") + ")</p>" : "") +
+            '<p class="pkg-price-note">' + L("KDV dahil · kargo hariç", "VAT included · shipping excluded", "Inkl. MwSt. · zzgl. Versand", "НДС включён · доставка отдельно") + "</p>";
+        } else {
+          priceHtml = '<div class="pkg-price"><span class="pkg-price-lbl">' + L("Fiyat", "Price", "Preis", "Цена") + '</span><strong class="pkg-poa">' + L("Teklif alın", "Get a quote", "Angebot", "По запросу") + "</strong></div>";
+        }
+        // Güven satırları — sepetteki (Sistem Kurucu) kutusuyla aynı dil
+        var trust = '<ul class="pkg-trust">' +
+          "<li>💬 " + L("Sipariş öncesi ücretsiz danışmanlık", "Free pre-order consultation", "Kostenlose Beratung vor der Bestellung", "Бесплатная консультация до заказа") + "</li>" +
+          "<li>🔧 " + L("Antalya bölgesinde kurulum ve satış sonrası destek", "Installation and after-sales support in the Antalya region", "Montage und After-Sales in der Region Antalya", "Монтаж и поддержка в регионе Анталья") + "</li>" +
+          "<li>📲 " + L("Aynı gün WhatsApp'tan onay ve teslimat planı", "Same-day confirmation and delivery plan via WhatsApp", "Bestätigung und Lieferplan am selben Tag per WhatsApp", "Подтверждение и план доставки в тот же день в WhatsApp") + "</li>" +
+          "</ul>";
         return '<article class="pkg-card reveal' + (p.popular ? " popular" : "") + '" id="pkg-' + p.id + '">' +
           (p.url ? '<a class="pkg-media-link" href="' + p.url + '">' : "") +
           '<div class="pkg-media' + (p.img ? " has-img" : "") + '">' +
@@ -360,6 +382,7 @@
               priceHtml +
               (p.url ? '<a class="btn btn-ghost btn-block" style="margin-bottom:8px" href="' + p.url + '">' + L("Detayları gör →", "View details →", "Details ansehen →", "Подробнее →") + "</a>" : "") +
               '<a class="btn btn-block" href="' + href + '"' + (WA ? ' target="_blank" rel="noopener"' : "") + ">" + L("Bu paket için teklif al", "Get a quote", "Angebot anfordern", "Запросить КП") + "</a>" +
+              trust +
             "</div>" +
           "</div>" +
           "</article>";

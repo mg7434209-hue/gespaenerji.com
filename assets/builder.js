@@ -442,7 +442,8 @@
             "Geschätzter Listenpreis inkl. MwSt.", "Ориентировочная прейскурантная цена с НДС.") + "</p>"
         : "") +
       (HAV > 0 ? '<p class="bld-havale">💰 ' + L("Havale/EFT ile:", "By bank transfer:", "Per Überweisung:", "Банковским переводом:") +
-        " <b>" + money(havale(r.total)) + "</b> (%" + nf1(HAV) + " " + L("indirimli", "off", "Rabatt", "скидка") + ")</p>" : "") +
+        " <b>" + money(havale(r.total)) + "</b> (" +
+        L("%" + nf1(HAV) + " indirimli", nf1(HAV) + "% off", nf1(HAV) + " % Rabatt", "скидка " + nf1(HAV) + " %") + ")</p>" : "") +
       '<p class="bld-price-kwp">' + L("Kurulu güç", "Installed power", "Installierte Leistung", "Мощность") + " <b>" + nf1(r.instKwp) + " kWp</b></p>" +
       '<div class="bld-price-cta">' +
         '<a class="btn btn-lg" href="' + wa + '"' + (WA ? ' target="_blank" rel="noopener"' : "") + '>📲 ' +
