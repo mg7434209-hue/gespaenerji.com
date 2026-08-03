@@ -379,6 +379,57 @@
       render();
     })();
 
+    // ---- Toptan / B2B (toptan.html) — kartlar build'de statik basılır;
+    //      burada yalnız adet kutusu, dile göre WhatsApp mesajı ve form canlanır ----
+    (function () {
+      var grid = $("#b2bGrid");
+      if (!grid || !CFG.b2b) return;
+      var wa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
+      var waHref = function (msg) { return "https://wa.me/" + wa + "?text=" + encodeURIComponent(msg); };
+      function b2bOf(id) { var f = null; (CFG.b2b.products || []).forEach(function (x) { if (x.id === id) f = x; }); return f; }
+      // Kart: adet değişince WhatsApp teklif mesajını güncelle (dil dahil)
+      $$(".b2b-card", grid).forEach(function (card) {
+        var p = b2bOf(card.getAttribute("data-b2b")); if (!p) return;
+        var input = $(".b2b-qty input", card), cta = $(".b2b-cta", card);
+        var sync = function () {
+          var n = Math.max(1, Math.min(100000, parseInt(input.value, 10) || 1));
+          input.value = n;
+          if (wa && cta) cta.href = waHref(L(
+            "Merhaba, toptan teklif istiyorum: " + p.name + " × " + n + " " + (p.unit || "adet") + ".",
+            "Hello, I would like a wholesale quote: " + p.name + " × " + n + " pcs.",
+            "Hallo, ich bitte um ein Großhandelsangebot: " + p.name + " × " + n + " Stk.",
+            "Здравствуйте, прошу оптовое предложение: " + p.name + " × " + n + " шт."));
+        };
+        $$("[data-q]", card).forEach(function (b) {
+          b.addEventListener("click", function () { input.value = (parseInt(input.value, 10) || 1) + (+b.getAttribute("data-q")); sync(); });
+        });
+        input.addEventListener("input", sync);
+        sync();
+      });
+      // Toptan teklif formu → WhatsApp
+      var form = $("#b2bForm");
+      if (form) form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var v = function (n) { return (form[n] && form[n].value.trim()) || ""; };
+        if (!v("firma") || !v("ad") || !v("tel") || !v("il") || !v("liste")) return;
+        var msg = ["🏭 TOPTAN TEKLİF TALEBİ", "Firma: " + v("firma"), "Yetkili: " + v("ad"), "Tel: " + v("tel")];
+        if (v("eposta")) msg.push("E-posta: " + v("eposta"));
+        msg.push("İl/İlçe: " + v("il"));
+        if (v("faaliyet")) msg.push("Faaliyet: " + v("faaliyet"));
+        msg.push("— İhtiyaç listesi —", v("liste"));
+        if (v("not")) msg.push("Not: " + v("not"));
+        if (wa) window.open(waHref(msg.join("\n")), "_blank");
+        var done = $("#b2bDone");
+        if (done) {
+          done.hidden = false;
+          done.textContent = L("Teşekkürler! Talebiniz WhatsApp üzerinden iletiliyor; aynı gün proforma teklifle dönüş yapacağız.",
+            "Thank you! Your request is being sent via WhatsApp; we will reply with a proforma quote the same day.",
+            "Danke! Ihre Anfrage wird per WhatsApp übermittelt; wir antworten noch am selben Tag mit einem Proforma-Angebot.",
+            "Спасибо! Запрос отправляется через WhatsApp; в тот же день пришлём проформу с ценами.");
+        }
+      });
+    })();
+
     // ---- Paket ürünler (urunler.html) — config.packages + config.calc'tan türetilir ----
     (function renderPackages() {
       var grid = $("#packageGrid");

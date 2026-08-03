@@ -33,11 +33,15 @@ elle eklenmez. Sipariş WhatsApp mesajına çok kalemli döküm yazılır) ·
 (havuz güvenliği; lacivert/aqua `pool-*` stilleri, form → WhatsApp lead) ·
 `hesaplayici.html` · `sistem-kur.html` (Sistem Kurucu sihirbazı) ·
 `projeler.html` · `hakkimizda.html` · `iletisim.html` ·
-`tarimsal-sulama.html` · yasal: `kvkk.html` `gizlilik.html` `cerez-politikasi.html`
+`tarimsal-sulama.html` · `toptan.html` (B2B toptan satış: stok kartları ve
+koşullar `config.b2b`'den build ile STATİK basılır — B2B:STATIC işareti;
+fiyat YAZILMAZ, adede göre teklif; adet kutusu + WhatsApp mesajı ve teklif
+formu main.js toptan IIFE'sinde; stok değişince config.b2b.stock güncelle +
+`node build.js`) · yasal: `kvkk.html` `gizlilik.html` `cerez-politikasi.html`
 Ayrıca `admin.html`: fiyat yönetim paneli (menüde yok, robots'ta engelli,
 build PAGES listesine EKLENMEZ). Her sayfa: ortak header/footer, aktif menü
 vurgusu, breadcrumb, sayfaya özel SEO başlığı/canonical/Open Graph içerir.
-Nav menü: Ana Sayfa · Hizmetler · Ürünler · Yeni Teknolojiler (açılır grup:
+Nav menü: Ana Sayfa · Hizmetler · Ürünler · Toptan · Yeni Teknolojiler (açılır grup:
 AI Cankurtaran + Solar Su Isıtıcı) · Araçlar (açılır grup: Tasarruf Hesaplayıcı +
 Sistem Kurucu) · Projeler · Hakkımızda · Teklif Al — yeni sayfa eklenince TÜM
 sayfalarda güncelle (menü 1180px altında hamburger'a düşer).

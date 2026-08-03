@@ -45,6 +45,12 @@ Daha büyük sistemler proje bazlıdır (Sistem Kurucu / ücretsiz keşif).
 - İade: mesafeli satışta 14 gün cayma hakkı (sorunsuz teslimde iade kargosu alıcıya aittir).
 - Kurulum: kitler tak-çalıştır; Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi verilir.
 
+## Toptan Satış / B2B
+Bayi, EPC/kurulumcu, toptancı, otel ve kooperatiflere kurumsal faturalı TOPTAN satış: https://www.gespaenerji.com/toptan.html
+Hazır stok: Arçelik 540 W güneş paneli (500 adet) · 51,2 V 100 Ah LiFePO₄ akü (50 adet, 5,12 kWh) · inverter (model/stok teklifle).
+Toptan fiyat yayımlanmaz; sipariş adedine göre kademeli fiyat aynı gün proforma teklifle bildirilir.
+Ödeme: proforma ile havale/EFT · Türkiye'nin her iline nakliye.
+
 ## PV Güneş Su Isıtıcı (ısıtma ürünü)
 Monokristal güneş panelleriyle suyu güneş enerjisiyle ısıtan fotovoltaik (PV) su ısıtıcı.
 Akıllı GF-20 kontrol; bulutlu havada otomatik şebeke (AC) desteği; emaye iç tank; donma/aşırı ısınma/kuru çalışma korumaları.

@@ -51,6 +51,14 @@ hakkı vardır (sorunsuz teslimde iade kargosu alıcıya ait; hasarlı/ayıplı 
 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi verilir.
 Ödeme: havale/EFT'te %10 indirim; kapıda ödemede %30 peşin + %70 teslimatta.
 
+## Toptan Satış / B2B (https://www.gespaenerji.com/toptan.html)
+Bayi, EPC/kurulumcu, toptancı, otel ve kooperatiflere kurumsal faturalı toptan satış. Hazır stok:
+- Arçelik 540 W Güneş Paneli — 500 adet hazır stokta. 540 W güç · Yetkili tedarik — orijinal ürün · Palet bazında sevkiyat
+- 51,2 V 100 Ah LiFePO₄ Akü — 50 adet hazır stokta. 51,2 V · 100 Ah — 5,12 kWh · LiFePO₄ (lityum demir fosfat) kimya · Ev/ticari depolama ve off-grid sistemler
+- Toptan İnverter — model ve stok teklifle bildirilir. Tescom · Mexxsun · Lexron · Arçelik · On-grid ve off-grid modeller · Model ve güncel stok için teklif isteyin
+Toptan fiyat YAYIMLANMAZ; sipariş adedine göre kademeli fiyat aynı gün proforma teklifle
+bildirilir (WhatsApp/form). Ödeme proforma ile havale/EFT; Türkiye'nin her iline nakliye.
+
 ## Sistem Kurucu (https://www.gespaenerji.com/sistem-kur.html)
 Off-grid sistemini adım adım kurma aracı: kullanım yeri (bağ evi, karavan, müstakil
 ev, tarla/sulama, dükkân) seçilir; buzdolabı, TV, lamba, pompa gibi cihazlar adet ve
