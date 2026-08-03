@@ -24,7 +24,7 @@ const PAGES = [
   "index.html", "hizmetler.html", "urunler.html", "su-isitici.html", "hesaplayici.html",
   "projeler.html", "hakkimizda.html", "iletisim.html", "tarimsal-sulama.html",
   "ai-cankurtaran-destek-sistemi.html", "sistem-kur.html",
-  "paket-285w.html", "paket-2x540w.html",
+  "paket-285w.html", "paket-2x540w.html", "toptan.html",
   "sepet.html",   // noindex; sitemap'e girmez (NOSITEMAP)
   // Yasal sayfalar da üretilir: dil değiştirici ve hreflang /en/kvkk.html gibi
   // URL'lere işaret eder; üretilmezse 404 olur. Gövde metni TR kalır (hukuken
@@ -81,6 +81,14 @@ const META = {
           d: "2×540-W-Module + große Power-Box mit LiFePO₄-Batterie + Kabel: komplettes mobiles Solarsystem für Kühlschrank, TV, Wasch- und Spülmaschine. ~6,5 kWh Ertrag pro Tag." },
     ru: { t: "Полная солнечная энергосистема 2×540 Вт — батарея LiFePO₄ | GESPA Energy",
           d: "Панели 2×540 Вт + большой блок питания с батареей LiFePO₄ + кабели: полная мобильная система для холодильника, ТВ, стиральной и посудомоечной машин. ~6,5 кВт·ч в день." }
+  },
+  "toptan.html": {
+    en: { t: "Wholesale Solar Panels, Inverters & Batteries — B2B | GESPA Energy",
+          d: "B2B wholesale from ready stock: Arçelik 540 W panels (500 pcs), 51.2 V 100 Ah LiFePO₄ batteries (50 pcs), inverters. Corporate invoicing, nationwide delivery in Türkiye, tiered volume pricing." },
+    de: { t: "Solarmodule, Wechselrichter & Batterien im Großhandel — B2B | GESPA Energy",
+          d: "B2B-Großhandel ab Lager: Arçelik-540-W-Module (500 Stk.), 51,2-V-100-Ah-LiFePO₄-Batterien (50 Stk.), Wechselrichter. Firmenrechnung, Lieferung in die ganze Türkei, Staffelpreise." },
+    ru: { t: "Оптовая продажа панелей, инверторов и АКБ — B2B | GESPA Energy",
+          d: "Опт со склада: панели Arçelik 540 Вт (500 шт.), АКБ LiFePO₄ 51,2 В 100 Ач (50 шт.), инверторы. Счёт для юрлиц, доставка по всей Турции, цены по объёму." }
   },
   "sepet.html": {
     en: { t: "My Cart | GESPA Energy",
@@ -553,6 +561,34 @@ function hydrateExtras(html, file, cfg) {
       ? "₺" + nfTr(Math.min.apply(null, prices)) + "'dan başlayan fiyatlarla"
       : "Güncel fiyat için bize ulaşın");
   }
+  // Toptan (B2B) — stok kartları ve koşullar config.b2b'den STATİK basılır
+  // (fiyat yazılmaz; adet kutusu ve WhatsApp mesajını main.js canlandırır)
+  if (file === "toptan.html" && cfg.b2b) {
+    const wa = cfg.company.phone.wa;
+    const cards = (cfg.b2b.products || []).map(p => {
+      // sayı ayrı düğümde kalır ki "adet stokta" DICT ile statik çevrilebilsin
+      const stok = p.stock != null
+        ? '<span class="b2b-stock">✅ ' + nfTr(p.stock) + " <b>" + esc(p.unit || "adet") + " stokta</b></span>"
+        : '<span class="b2b-stock b2b-ask">Stok için sorunuz</span>';
+      const specs = (p.specs || []).map(x => "<li>" + esc(x) + "</li>").join("");
+      const msg = "Merhaba, toptan teklif istiyorum: " + p.name + " × 10 " + (p.unit || "adet") + ".";
+      return '<article class="b2b-card reveal" data-b2b="' + p.id + '">' +
+        '<div class="b2b-head"><span class="b2b-ico" aria-hidden="true">' + (p.icon || "📦") + "</span>" + stok + "</div>" +
+        "<h3>" + esc(p.name) + "</h3>" +
+        '<ul class="ticks">' + specs + "</ul>" +
+        '<div class="b2b-qty"><label>Adet</label>' +
+          '<div class="qbox"><button type="button" data-q="-1" aria-label="Adet azalt">−</button>' +
+          '<input type="text" inputmode="numeric" value="10" aria-label="Adet" />' +
+          '<button type="button" data-q="1" aria-label="Adet artır">+</button></div></div>' +
+        '<a class="btn btn-block b2b-cta" href="https://wa.me/' + wa + "?text=" + encodeURIComponent(msg) + '" target="_blank" rel="noopener">📲 Toptan teklif iste</a>' +
+        '<p class="b2b-note">Fiyat, sipariş adedine göre teklifle bildirilir.</p>' +
+      "</article>";
+    }).join("");
+    const marker = /<!-- B2B:STATIC -->[\s\S]*?<!-- \/B2B:STATIC -->/;
+    if (marker.test(html)) html = html.replace(marker, () => "<!-- B2B:STATIC -->" + cards + "<!-- /B2B:STATIC -->");
+    const terms = (cfg.b2b.terms || []).map(x => "<li>" + esc(x) + "</li>").join("");
+    html = html.replace(/(<ul class="ticks" id="b2bTerms">)[\s\S]*?(<\/ul>)/, (m, a, b) => a + terms + b);
+  }
   // Paket kataloğu — kompakt statik liste (main.js istemcide tam kartlarla değiştirir)
   if (file === "urunler.html" && cfg.packages) {
     const GROUPS = [
@@ -750,6 +786,14 @@ kargo ücreti alıcıya aittir, fiyatlara KDV dahildir. Mesafeli satışta ${(cf
 hakkı vardır (sorunsuz teslimde iade kargosu alıcıya ait; hasarlı/ayıplı üründe satıcıya).
 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi verilir.
 Ödeme: havale/EFT'te %${cfg.cartDiscountPct || 0} indirim; kapıda ödemede %30 peşin + %70 teslimatta.
+
+## Toptan Satış / B2B (${c.web}/toptan.html)
+Bayi, EPC/kurulumcu, toptancı, otel ve kooperatiflere kurumsal faturalı toptan satış. Hazır stok:
+${(cfg.b2b && cfg.b2b.products || []).map(p =>
+  `- ${p.name}${p.stock != null ? ` — ${nf(p.stock)} ${p.unit || "adet"} hazır stokta` : " — model ve stok teklifle bildirilir"}. ${(p.specs || []).join(" · ")}`
+).join("\n")}
+Toptan fiyat YAYIMLANMAZ; sipariş adedine göre kademeli fiyat aynı gün proforma teklifle
+bildirilir (WhatsApp/form). Ödeme proforma ile havale/EFT; Türkiye'nin her iline nakliye.
 
 ## Sistem Kurucu (${c.web}/sistem-kur.html)
 Off-grid sistemini adım adım kurma aracı: kullanım yeri (bağ evi, karavan, müstakil

@@ -69,6 +69,43 @@ window.GESPA.config = {
   // adımında uygulanır ("Sepette %10 indirim" rozeti). 0 = kapalı.
   cartDiscountPct: 10,
 
+  // ============================================================
+  // TOPTAN SATIŞ / B2B (toptan.html) — hazır stok listesi
+  // KURAL: Fiyat YAZILMAZ (toptan fiyat adede göre teklifle verilir).
+  // `stock` gerçek stok adedidir; stok değişince SADECE burası güncellenir,
+  // ardından `node build.js` (sayfa + llms-full statik basılır).
+  // `price` alanı eklenirse kartta gösterilir (istenirse ileride).
+  // ============================================================
+  b2b: {
+    // Sevkiyat/koşul satırları (sayfada "Toptan koşullar" kutusu)
+    terms: [
+      "Kurumsal faturalı satış — bayi, EPC, kurulumcu, otel ve kooperatiflere",
+      "Hazır stok: sipariş onayından sonra hızlı sevkiyat, Türkiye'nin her iline nakliye",
+      "Adede göre kademeli toptan fiyat — teklif aynı gün iletilir",
+      "Ödeme: havale/EFT (proforma fatura ile)"
+    ],
+    products: [
+      {
+        id: "b2b-arcelik-540", cat: "panel", icon: "🔆",
+        brand: "Arçelik", name: "Arçelik 540 W Güneş Paneli",
+        stock: 500, unit: "adet",
+        specs: ["540 W güç", "Yetkili tedarik — orijinal ürün", "Palet bazında sevkiyat"]
+      },
+      {
+        id: "b2b-aku-51v-100ah", cat: "aku", icon: "🔋",
+        brand: "", name: "51,2 V 100 Ah LiFePO₄ Akü",
+        stock: 50, unit: "adet",
+        specs: ["51,2 V · 100 Ah — 5,12 kWh", "LiFePO₄ (lityum demir fosfat) kimya", "Ev/ticari depolama ve off-grid sistemler"]
+      },
+      {
+        id: "b2b-inverter", cat: "inverter", icon: "⚡",
+        brand: "", name: "Toptan İnverter",
+        stock: null, unit: "adet",   // stok modele göre değişir — teklifle bildirilir
+        specs: ["Tescom · Mexxsun · Lexron · Arçelik", "On-grid ve off-grid modeller", "Model ve güncel stok için teklif isteyin"]
+      }
+    ]
+  },
+
   // Ticari koşullar — ürün kartı, paket detay sayfası ve sipariş akışı BURADAN
   // okur. Kargo/iade/stok ifadesini değiştirmek için yalnızca burayı düzenleyin.
   commerce: {
