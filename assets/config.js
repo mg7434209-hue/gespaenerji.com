@@ -69,6 +69,15 @@ window.GESPA.config = {
   // adımında uygulanır ("Sepette %10 indirim" rozeti). 0 = kapalı.
   cartDiscountPct: 10,
 
+  // Ticari koşullar — ürün kartı, paket detay sayfası ve sipariş akışı BURADAN
+  // okur. Kargo/iade/stok ifadesini değiştirmek için yalnızca burayı düzenleyin.
+  commerce: {
+    stockLabel: "Stokta / tedarikte",   // ürün sayfasındaki durum rozeti
+    shipCountry: "Türkiye",             // gönderim yapılan ülke (tüm iller)
+    shipDays: "2–5",                    // teslim süresi (gün sayısı; birim metinde yazılı)
+    returnDays: 14                      // cayma hakkı süresi (mesafeli satış)
+  },
+
   packages: [
     // —— Taşınabilir & Off-Grid (lityum bataryalı) paketler —— açık perakende fiyatı
     // img: "assets/img/products/x.webp" -> kartta çizim yerine gerçek ürün fotoğrafı
@@ -76,7 +85,7 @@ window.GESPA.config = {
     // currency: "USD" -> $ ile gösterilir (varsayılan ₺)
     {
       id: "kit-285w", icon: "🧰", tag: "Taşınabilir", group: "offgrid", kit: true,
-      url: "paket-285w.html",
+      url: "paket-285w.html", sku: "GES-KIT-285",
       kwp: 0.285, panelW: 285, panelCount: 1, portable: true, dailyKwh: 1.7,
       img: "assets/img/products/kit-285w.webp",
       price: 25000,
@@ -87,7 +96,7 @@ window.GESPA.config = {
     },
     {
       id: "kit-2x540w", icon: "🎒", tag: "Taşınabilir", group: "offgrid", kit: true,
-      url: "paket-2x540w.html",
+      url: "paket-2x540w.html", sku: "GES-KIT-2X540",
       kwp: 1.08, panelW: 540, panelCount: 2, portable: true, dailyKwh: 6.5,
       img: "assets/img/products/kit-2x540w.webp",
       price: 2200, currency: "USD",

@@ -146,19 +146,19 @@
       var tlOf = function (v) { return p.currency === "USD" ? Math.round(v * RATE / 100) * 100 : v; };
       var usdOf = function (v) { return p.currency === "USD" ? v : (RATE ? Math.round(v / RATE) : 0); };
       var both = function (v) { return "₺" + nf.format(tlOf(v)) + (usdOf(v) ? " (≈ $" + nf.format(usdOf(v)) + ")" : ""); };
-      var listTL = tlOf(p.price);
-      var cartTL = Math.round(listTL * (100 - pct) / 100 / 50) * 50;   // havale/EFT fiyatı
-      var downTL = Math.round(listTL * 0.30 / 50) * 50;               // kapıda: %30 peşin
-      var restTL = listTL - downTL;                                    // kapıda: kalan %70
+      // Birim tutarlar (adet ile çarpılır) — yuvarlama vitrin kartıyla AYNI
+      var unitList = tlOf(p.price);
+      var unitCart = Math.round(unitList * (100 - pct) / 100 / 50) * 50;   // havale/EFT birim fiyatı
+      var qty = 1;                                                          // adet (adet kutusu değiştirir)
       var set = function (sel, txt) { document.querySelectorAll(sel).forEach(function (el) { el.textContent = txt; }); };
-      set("[data-pkg-price]", "₺" + nf.format(listTL));
+      set("[data-pkg-price]", "₺" + nf.format(unitList));
       if (usdOf(p.price)) set("[data-pkg-alt]", "≈ $" + nf.format(usdOf(p.price)));
+      if (p.sku) set("[data-pkg-sku]", p.sku);
+      if (!pct) document.querySelectorAll(".pd-havale").forEach(function (el) { el.hidden = true; });
       if (pct) {
         set("[data-pkg-cart]", "🛒 " + L("Sepette %" + pct + " indirim", pct + "% off in cart", pct + " % Rabatt im Warenkorb", "−" + pct + " % в корзине"));
-        // Havale/EFT tutarı vitrindeki kartla AYNI hesapla gösterilir
-        set("[data-pkg-havale]", "💰 " + L("Havale/EFT ile: ", "By bank transfer: ", "Per Überweisung: ", "Банковским переводом: ") +
-          "₺" + nf.format(cartTL) + " (" + L("%" + pct + " indirimli", pct + "% off", pct + " % Rabatt", "скидка " + pct + " %") + ")");
-        set("[data-pkg-cta]", "🛒 " + L("Şimdi al — %" + pct + " indirimi kap", "Buy now — get " + pct + "% off", "Jetzt kaufen — " + pct + " % sichern", "Купить сейчас — скидка " + pct + " %"));
+        set("[data-pkg-havale]", "₺" + nf.format(unitCart));
+        set("[data-pkg-cta]", "🛒 " + L("Sepete ekle — %" + pct + " indirimle al", "Add to cart — get " + pct + "% off", "In den Warenkorb — " + pct + " % sparen", "В корзину — скидка " + pct + " %"));
       }
       // WhatsApp bilgi linkleri
       var wa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
@@ -178,7 +178,13 @@
         var planEl = form.querySelector("[data-ord-plan]");
         var render = function () {
           var method = (form.odeme && form.odeme.value) || "havale";
-          set("[data-ord-list]", both(p.price));
+          var listTL = unitList * qty, cartTL = unitCart * qty;
+          var downTL = Math.round(listTL * 0.30 / 50) * 50;   // kapıda: %30 peşin
+          var restTL = listTL - downTL;                        // kapıda: kalan %70
+          set("[data-ord-qty]", nf.format(qty) + " " + L("adet", "pcs", "Stk.", "шт."));
+          set("[data-ord-list]", qty > 1
+            ? nf.format(qty) + " × ₺" + nf.format(unitList) + " = ₺" + nf.format(listTL)
+            : both(p.price));
           if (method === "havale") {
             set("[data-ord-disc]", "−₺" + nf.format(listTL - cartTL) + " (%" + pct + ")");
             set("[data-ord-total]", "₺" + nf.format(cartTL));
@@ -195,12 +201,29 @@
         };
         Array.prototype.forEach.call(form.querySelectorAll('input[name="odeme"]'), function (r) { r.addEventListener("change", render); });
         render();
+        // Adet kutusu (ürün üstündeki − n +) — sipariş özetini canlı günceller
+        var qtyIn = document.querySelector("[data-qty-input]");
+        if (qtyIn) {
+          var setQty = function (n) {
+            qty = Math.max(1, Math.min(99, Math.round(n) || 1));
+            qtyIn.value = qty;
+            render();
+          };
+          document.querySelectorAll("[data-q]").forEach(function (b) {
+            b.addEventListener("click", function () { setQty(qty + (+b.getAttribute("data-q"))); });
+          });
+          qtyIn.addEventListener("input", function () { setQty(parseInt(qtyIn.value, 10)); });
+          setQty(1);
+        }
         form.addEventListener("submit", function (e) {
           e.preventDefault();
           var v = function (n) { return (form[n] && form[n].value.trim()) || ""; };
           if (!v("ad") || !v("tel") || !v("il") || !v("adres")) return;
           var method = form.odeme.value;
-          var lines = ["🛒 YENİ SİPARİŞ — " + p.name, "Liste fiyatı: " + both(p.price)];
+          var listTL = unitList * qty, cartTL = unitCart * qty;
+          var downTL = Math.round(listTL * 0.30 / 50) * 50, restTL = listTL - downTL;
+          var lines = ["🛒 YENİ SİPARİŞ — " + p.name, "Adet: " + qty,
+            "Liste fiyatı: " + (qty > 1 ? qty + " × ₺" + nf.format(unitList) + " = ₺" + nf.format(listTL) : both(p.price))];
           if (method === "havale") {
             lines.push("Ödeme: Havale/EFT (sepette %" + pct + " indirim)");
             lines.push("Ödenecek: ₺" + nf.format(cartTL));
@@ -227,7 +250,7 @@
       if (!document.querySelector('script[data-gld="product"]')) {
         var web = (CFG.company && CFG.company.web) || "";
         var ld = { "@context": "https://schema.org", "@type": "Product", name: p.name, description: p.desc,
-          image: p.img ? web + "/" + p.img : undefined,
+          image: p.img ? web + "/" + p.img : undefined, sku: p.sku || undefined,
           brand: { "@type": "Brand", name: "GESPA Enerji" }, url: web + "/" + (p.url || "") };
         ld.offers = { "@type": "Offer", price: p.price, priceCurrency: p.currency || "TRY", availability: "https://schema.org/InStock" };
         var sc = document.createElement("script"); sc.type = "application/ld+json"; sc.textContent = JSON.stringify(ld);
@@ -359,11 +382,11 @@
         } else {
           priceHtml = '<div class="pkg-price"><span class="pkg-price-lbl">' + L("Fiyat", "Price", "Preis", "Цена") + '</span><strong class="pkg-poa">' + L("Teklif alın", "Get a quote", "Angebot", "По запросу") + "</strong></div>";
         }
-        // Güven satırları — sepetteki (Sistem Kurucu) kutusuyla aynı dil
+        // Güven satırları — kargo TÜM Türkiye'ye; kurulum Antalya bölgesinde isteğe bağlı
         var trust = '<ul class="pkg-trust">' +
+          "<li>🚚 " + L("Türkiye'nin her yerine kargo ile gönderim", "Shipped to anywhere in Türkiye", "Versand in die ganze Türkei", "Доставка по всей Турции") + "</li>" +
           "<li>💬 " + L("Sipariş öncesi ücretsiz danışmanlık", "Free pre-order consultation", "Kostenlose Beratung vor der Bestellung", "Бесплатная консультация до заказа") + "</li>" +
-          "<li>🔧 " + L("Antalya bölgesinde kurulum ve satış sonrası destek", "Installation and after-sales support in the Antalya region", "Montage und After-Sales in der Region Antalya", "Монтаж и поддержка в регионе Анталья") + "</li>" +
-          "<li>📲 " + L("Aynı gün WhatsApp'tan onay ve teslimat planı", "Same-day confirmation and delivery plan via WhatsApp", "Bestätigung und Lieferplan am selben Tag per WhatsApp", "Подтверждение и план доставки в тот же день в WhatsApp") + "</li>" +
+          "<li>🔧 " + L("Antalya bölgesinde isteğe bağlı yerinde kurulum", "Optional on-site installation in the Antalya region", "Optionale Vor-Ort-Montage in der Region Antalya", "Опциональный монтаж на месте в регионе Анталья") + "</li>" +
           "</ul>";
         return '<article class="pkg-card reveal' + (p.popular ? " popular" : "") + '" id="pkg-' + p.id + '">' +
           (p.url ? '<a class="pkg-media-link" href="' + p.url + '">' : "") +
@@ -1212,6 +1235,23 @@
       pgMain.alt = (thumbImg && thumbImg.alt) || pgMain.alt;
       if (pgCap) pgCap.textContent = a.getAttribute("data-cap") || "";
       $$(".prod-thumb", pgThumbs).forEach(function (t) { t.classList.toggle("is-on", t === a); });
+    });
+  }
+
+  /* ---- Ürün sekmeleri (paket detay: açıklama / içerik / teknik / kargo) ---- */
+  var ptabs = $(".ptabs");
+  if (ptabs) {
+    var ptabBtns = $$("button", ptabs), ptabPanels = $$(".ptab-panel");
+    ptabs.addEventListener("click", function (e) {
+      var b = e.target.closest("button[data-ptab]");
+      if (!b) return;
+      var t = b.getAttribute("data-ptab");
+      ptabBtns.forEach(function (x) {
+        var on = x === b;
+        x.classList.toggle("active", on);
+        x.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      ptabPanels.forEach(function (p) { p.classList.toggle("active", p.getAttribute("data-ptabpanel") === t); });
     });
   }
 
