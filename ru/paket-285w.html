@@ -97,7 +97,7 @@
                   <input type="text" inputmode="numeric" value="1" aria-label="Количество" data-qty-input />
                   <button type="button" data-q="1" aria-label="Увеличить количество">+</button>
                 </div>
-                <a class="btn btn-buy" href="#siparis" data-pkg-cta>🛒 В корзину — к оформлению</a>
+                <a class="btn btn-buy" href="sepet.html" data-pkg-cta data-add-cart>🛒 В корзину</a>
               </div>
               <div class="buy-row2">
                 <a class="btn btn-ghost" href="iletisim.html" data-pkg-wa>💬 Спросить в WhatsApp</a>
@@ -187,41 +187,8 @@
 
     <section class="section section-alt"><div class="container"><div class="how-note reveal" style="max-width:720px"><strong>🎒 Daha fazla güç mü gerekiyor?</strong><p>Buzdolabı, çamaşır ve bulaşık makinesi de çalıştırmak istiyorsanız <a href="paket-2x540w.html" style="color:var(--green);font-weight:700">Tam Kapsamlı Güneş Enerjisi Sistemi'ne (2×540W) göz atın →</a></p></div></div></section>
 
-    <section class="section section-alt" id="siparis">
-      <div class="container narrow">
-        <div class="section-head reveal"><span class="kicker">🛒 Заказ</span><h2>Завершите заказ</h2><p>Заполните форму — заказ мгновенно поступит нам в WhatsApp. В тот же день ответим с подтверждением, оплатой и планом доставки.</p></div>
-        <form id="ordForm" class="ord-form reveal">
-          <div class="ord-summary">
-            <div><span>Количество</span><em data-ord-qty>1 шт.</em></div>
-            <div><span>Цена по прайсу</span><s data-ord-list></s></div>
-            <div><span>Скидка в корзине</span><em data-ord-disc></em></div>
-            <div class="ord-total"><span>К оплате</span><strong data-ord-total></strong></div>
-            <div class="ord-plan" data-ord-plan hidden></div>
-            <p class="pd-note">НДС включён; доставку оплачивает покупатель. Для товаров в USD применяется курс на момент заказа.</p>
-          </div>
-          <fieldset class="ord-pay">
-            <legend>Способ оплаты</legend>
-            <label><input type="radio" name="odeme" value="havale" checked /><span><strong>🏦 Havale / EFT — %10 indirimli</strong><small>IBAN отправляется в WhatsApp после подтверждения заказа.</small></span></label>
-            <label><input type="radio" name="odeme" value="kapida" /><span><strong>🚚 Kapıda Ödeme</strong><small>30 % предоплата переводом, 70 % при доставке.</small></span></label>
-            <label class="ord-soon"><input type="radio" name="odeme" value="kart" disabled /><span><strong>💳 Kredi Kartı</strong><small>Скоро.</small></span></label>
-          </fieldset>
-          <div class="ord-grid">
-            <div><label>Имя и фамилия *</label><input required name="ad" placeholder="Имя и фамилия" /></div>
-            <div><label>Телефон *</label><input required name="tel" type="tel" placeholder="+90 5__ ___ __ __" /></div>
-            <div><label>E-mail</label><input name="eposta" type="email" placeholder="ornek@eposta.com" /></div>
-            <div><label>Город / район *</label><input required name="il" placeholder="Antalya / Manavgat" /></div>
-            <div class="full"><label>Адрес доставки *</label><textarea required name="adres" rows="3" placeholder="Mahalle, sokak, no, daire..."></textarea></div>
-            <div class="full"><label>Примечание (необязательно)</label><input name="not" placeholder="Teslimat notu, soru..." /></div>
-          </div>
-          <p class="ord-consent">Отправляя заказ, вы принимаете <a href="/kvkk.html">KVKK Aydınlatma Metni</a>'ni ve aşağıdaki satış şartlarını kabul etmiş olursunuz.</p>
-          <button class="btn btn-lg btn-block" type="submit">🛒 Завершить заказ в WhatsApp</button>
-          <p class="pd-note" id="ordDone" hidden style="margin-top:12px"></p>
-        </form>
-        <div class="how-note reveal" style="margin-top:22px"><strong>📋 Условия продажи и доставки</strong><p>При оплате переводом действует скидка 10 %. При оплате при получении: 30 % предоплата переводом, 70 % при доставке. Оплата картой появится скоро. При отказе после исправной доставки возвратную пересылку оплачивает покупатель; при повреждённом или бракованном товаре все расходы несём мы. Цены с НДС.</p></div>
-      </div>
-    </section>
 
-    <section class="cta-band"><div class="container cta-inner reveal"><div><h2>Закажите сегодня — солнце уже ваше</h2><p>Пишите в WhatsApp о наличии и доставке; отвечаем в тот же день.</p></div><a class="btn btn-lg btn-light" href="#siparis">🛒 Завершить заказ</a></div></section>
+    <section class="cta-band"><div class="container cta-inner reveal"><div><h2>Закажите сегодня — солнце уже ваше</h2><p>Пишите в WhatsApp о наличии и доставке; отвечаем в тот же день.</p></div><a class="btn btn-lg btn-light" href="sepet.html" data-add-cart-go>🛒 В корзину и оформить заказ</a></div></section>
   </main>
 
   <footer class="site-footer">

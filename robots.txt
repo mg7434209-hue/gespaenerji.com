@@ -1,67 +1,131 @@
 User-agent: *
 Allow: /
 Disallow: /admin.html
+Disallow: /sepet.html
+Disallow: /en/sepet.html
+Disallow: /de/sepet.html
+Disallow: /ru/sepet.html
 
 # AI / yanıt motorları — içeriğimizin AI aramalarında görünmesini istiyoruz.
 # LLM bilgi dosyaları: /llms.txt (özet) ve /llms-full.txt (ürün/fiyat ayrıntısı)
 User-agent: GPTBot
 Allow: /
 Disallow: /admin.html
+Disallow: /sepet.html
+Disallow: /en/sepet.html
+Disallow: /de/sepet.html
+Disallow: /ru/sepet.html
 
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /admin.html
+Disallow: /sepet.html
+Disallow: /en/sepet.html
+Disallow: /de/sepet.html
+Disallow: /ru/sepet.html
 
 User-agent: ChatGPT-User
 Allow: /
 Disallow: /admin.html
+Disallow: /sepet.html
+Disallow: /en/sepet.html
+Disallow: /de/sepet.html
+Disallow: /ru/sepet.html
 
 User-agent: PerplexityBot
 Allow: /
 Disallow: /admin.html
+Disallow: /sepet.html
+Disallow: /en/sepet.html
+Disallow: /de/sepet.html
+Disallow: /ru/sepet.html
 
 User-agent: Perplexity-User
 Allow: /
 Disallow: /admin.html
+Disallow: /sepet.html
+Disallow: /en/sepet.html
+Disallow: /de/sepet.html
+Disallow: /ru/sepet.html
 
 User-agent: Google-Extended
 Allow: /
 Disallow: /admin.html
+Disallow: /sepet.html
+Disallow: /en/sepet.html
+Disallow: /de/sepet.html
+Disallow: /ru/sepet.html
 
 User-agent: ClaudeBot
 Allow: /
 Disallow: /admin.html
+Disallow: /sepet.html
+Disallow: /en/sepet.html
+Disallow: /de/sepet.html
+Disallow: /ru/sepet.html
 
 User-agent: Claude-SearchBot
 Allow: /
 Disallow: /admin.html
+Disallow: /sepet.html
+Disallow: /en/sepet.html
+Disallow: /de/sepet.html
+Disallow: /ru/sepet.html
 
 User-agent: Claude-User
 Allow: /
 Disallow: /admin.html
+Disallow: /sepet.html
+Disallow: /en/sepet.html
+Disallow: /de/sepet.html
+Disallow: /ru/sepet.html
 
 User-agent: Applebot-Extended
 Allow: /
 Disallow: /admin.html
+Disallow: /sepet.html
+Disallow: /en/sepet.html
+Disallow: /de/sepet.html
+Disallow: /ru/sepet.html
 
 User-agent: Amazonbot
 Allow: /
 Disallow: /admin.html
+Disallow: /sepet.html
+Disallow: /en/sepet.html
+Disallow: /de/sepet.html
+Disallow: /ru/sepet.html
 
 User-agent: CCBot
 Allow: /
 Disallow: /admin.html
+Disallow: /sepet.html
+Disallow: /en/sepet.html
+Disallow: /de/sepet.html
+Disallow: /ru/sepet.html
 
 User-agent: meta-externalagent
 Allow: /
 Disallow: /admin.html
+Disallow: /sepet.html
+Disallow: /en/sepet.html
+Disallow: /de/sepet.html
+Disallow: /ru/sepet.html
 
 User-agent: DuckAssistBot
 Allow: /
 Disallow: /admin.html
+Disallow: /sepet.html
+Disallow: /en/sepet.html
+Disallow: /de/sepet.html
+Disallow: /ru/sepet.html
 
 User-agent: YouBot
 Allow: /
 Disallow: /admin.html
+Disallow: /sepet.html
+Disallow: /en/sepet.html
+Disallow: /de/sepet.html
+Disallow: /ru/sepet.html
 
 Sitemap: https://www.gespaenerji.com/sitemap.xml

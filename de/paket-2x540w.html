@@ -97,7 +97,7 @@
                   <input type="text" inputmode="numeric" value="1" aria-label="Menge" data-qty-input />
                   <button type="button" data-q="1" aria-label="Menge erhöhen">+</button>
                 </div>
-                <a class="btn btn-buy" href="#siparis" data-pkg-cta>🛒 In den Warenkorb — zur Bestellung</a>
+                <a class="btn btn-buy" href="sepet.html" data-pkg-cta data-add-cart>🛒 In den Warenkorb</a>
               </div>
               <div class="buy-row2">
                 <a class="btn btn-ghost" href="iletisim.html" data-pkg-wa>💬 Per WhatsApp fragen</a>
@@ -187,41 +187,8 @@
 
     <section class="section section-alt"><div class="container"><div class="how-note reveal" style="max-width:720px"><strong>🧰 Daha küçük bir çözüm mü lazım?</strong><p>Yalnızca TV, aydınlatma ve şarj ihtiyacınız varsa <a href="paket-285w.html" style="color:var(--green);font-weight:700">285W Güneş Paneli Paketi'ne göz atın →</a></p></div></div></section>
 
-    <section class="section section-alt" id="siparis">
-      <div class="container narrow">
-        <div class="section-head reveal"><span class="kicker">🛒 Bestellung</span><h2>Bestellung abschließen</h2><p>Formular ausfüllen; Ihre Bestellung erreicht uns sofort per WhatsApp. Antwort am selben Tag mit Bestätigung, Zahlungsdaten und Lieferplan.</p></div>
-        <form id="ordForm" class="ord-form reveal">
-          <div class="ord-summary">
-            <div><span>Menge</span><em data-ord-qty>1 Stk.</em></div>
-            <div><span>Listenpreis</span><s data-ord-list></s></div>
-            <div><span>Warenkorb-Rabatt</span><em data-ord-disc></em></div>
-            <div class="ord-total"><span>Zu zahlen</span><strong data-ord-total></strong></div>
-            <div class="ord-plan" data-ord-plan hidden></div>
-            <p class="pd-note">Inkl. MwSt.; Versand trägt der Käufer. Bei USD-Produkten gilt der Kurs zum Bestellzeitpunkt.</p>
-          </div>
-          <fieldset class="ord-pay">
-            <legend>Zahlungsart</legend>
-            <label><input type="radio" name="odeme" value="havale" checked /><span><strong>🏦 Havale / EFT — %10 indirimli</strong><small>IBAN wird nach Bestellbestätigung per WhatsApp mitgeteilt.</small></span></label>
-            <label><input type="radio" name="odeme" value="kapida" /><span><strong>🚚 Kapıda Ödeme</strong><small>30 % Anzahlung per Überweisung, 70 % bei Lieferung.</small></span></label>
-            <label class="ord-soon"><input type="radio" name="odeme" value="kart" disabled /><span><strong>💳 Kredi Kartı</strong><small>Bald verfügbar.</small></span></label>
-          </fieldset>
-          <div class="ord-grid">
-            <div><label>Vor- und Nachname *</label><input required name="ad" placeholder="Vor- und Nachname" /></div>
-            <div><label>Telefon *</label><input required name="tel" type="tel" placeholder="+90 5__ ___ __ __" /></div>
-            <div><label>E-Mail</label><input name="eposta" type="email" placeholder="ornek@eposta.com" /></div>
-            <div><label>Stadt / Bezirk *</label><input required name="il" placeholder="Antalya / Manavgat" /></div>
-            <div class="full"><label>Lieferadresse *</label><textarea required name="adres" rows="3" placeholder="Mahalle, sokak, no, daire..."></textarea></div>
-            <div class="full"><label>Notiz (optional)</label><input name="not" placeholder="Teslimat notu, soru..." /></div>
-          </div>
-          <p class="ord-consent">Mit dem Absenden akzeptieren Sie die <a href="/kvkk.html">KVKK Aydınlatma Metni</a>'ni ve aşağıdaki satış şartlarını kabul etmiş olursunuz.</p>
-          <button class="btn btn-lg btn-block" type="submit">🛒 Bestellung per WhatsApp abschließen</button>
-          <p class="pd-note" id="ordDone" hidden style="margin-top:12px"></p>
-        </form>
-        <div class="how-note reveal" style="margin-top:22px"><strong>📋 Verkaufs- & Lieferbedingungen</strong><p>Bei Überweisung gilt 10 % Warenkorb-Rabatt. Bei Nachnahme: 30 % Anzahlung per Überweisung, 70 % bei Lieferung. Kreditkartenzahlung folgt in Kürze. Bei Widerruf nach einwandfreier Lieferung trägt der Käufer die Rücksendekosten; bei beschädigter oder mangelhafter Ware tragen wir alle Kosten. Preise inkl. MwSt.</p></div>
-      </div>
-    </section>
 
-    <section class="cta-band"><div class="container cta-inner reveal"><div><h2>Heute bestellen, morgen Sonne ernten</h2><p>Für Lager & Lieferung per WhatsApp schreiben; Antwort am selben Tag.</p></div><a class="btn btn-lg btn-light" href="#siparis">🛒 Bestellung abschließen</a></div></section>
+    <section class="cta-band"><div class="container cta-inner reveal"><div><h2>Heute bestellen, morgen Sonne ernten</h2><p>Für Lager & Lieferung per WhatsApp schreiben; Antwort am selben Tag.</p></div><a class="btn btn-lg btn-light" href="sepet.html" data-add-cart-go>🛒 In den Warenkorb & Bestellung abschließen</a></div></section>
   </main>
 
   <footer class="site-footer">
