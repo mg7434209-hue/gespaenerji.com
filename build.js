@@ -849,7 +849,7 @@ function transform(html, lang, file, i18n) {
 
   // 2) Göreli "assets/..." referanslarını mutlak "/assets/..." yap (alt dizinde de çözülsün)
   //    href/src + <picture><source srcset> dahil
-  out = out.replace(/(href|src)="assets\//g, '$1="/assets/');
+  out = out.replace(/(href|src|poster)="assets\//g, '$1="/assets/');
   //    srcset/imagesrcset çok adaylı olabilir: her adayın başındaki assets/ önekini çevir
   out = out.replace(/((?:image)?srcset)="([^"]*)"/g,
     (m, attr, v) => attr + '="' + v.replace(/(^|,\s*)assets\//g, "$1/assets/") + '"');
