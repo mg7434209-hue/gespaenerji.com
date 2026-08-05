@@ -30,7 +30,10 @@ main.js `pkgUnit()` — TÜM fiyat noktaları bununla hesaplanır. Üst menüdek
 rozeti main.js'in `.nav-actions`a enjekte ettiği istemci bileşenidir, sayfalara
 elle eklenmez. Sipariş WhatsApp mesajına çok kalemli döküm yazılır) ·
 `su-isitici.html` (PV su ısıtıcı) · `ai-cankurtaran-destek-sistemi.html`
-(havuz güvenliği; lacivert/aqua `pool-*` stilleri, form → WhatsApp lead) ·
+(havuz güvenliği; lacivert/aqua `pool-*` stilleri, form → WhatsApp lead;
+gerçek tespit videosu `assets/video/cankurtaran-ai-tespit.mp4` + poster —
+`#canli` bölümü, VideoObject JSON-LD sayfada statik; server.js mp4'e Range/206
+verir; video/poster yolları build'de mutlaklaştırılır: href|src|poster) ·
 `hesaplayici.html` · `sistem-kur.html` (Sistem Kurucu sihirbazı) ·
 `projeler.html` · `hakkimizda.html` · `iletisim.html` ·
 `tarimsal-sulama.html` · `toptan.html` (B2B toptan satış: stok kartları ve

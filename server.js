@@ -24,6 +24,7 @@ const MIME = {
   ".jpeg": "image/jpeg",
   ".gif": "image/gif",
   ".webp": "image/webp",
+  ".mp4": "video/mp4",
   ".ico": "image/x-icon",
   ".txt": "text/plain; charset=utf-8",
   ".md": "text/markdown; charset=utf-8",
@@ -126,6 +127,25 @@ const server = http.createServer((req, res) => {
         if (status === 200 && (inm === etag || (!inm && ims && new Date(ims) >= new Date(stat.mtime.toUTCString())))) {
           res.writeHead(304, headers);
           return res.end();
+        }
+      }
+
+      // Video: mp4 için Range istekleri desteklenir (sarma/ileri alma → 206)
+      if (ext === ".mp4" && stat) {
+        headers["Accept-Ranges"] = "bytes";
+        const rng = /^bytes=(\d*)-(\d*)$/.exec(req.headers.range || "");
+        if (rng && status === 200 && (rng[1] !== "" || rng[2] !== "")) {
+          let start = rng[1] === "" ? stat.size - parseInt(rng[2], 10) : parseInt(rng[1], 10);
+          let end = rng[1] !== "" && rng[2] !== "" ? parseInt(rng[2], 10) : stat.size - 1;
+          if (!(start >= 0 && start <= end && end < stat.size)) {
+            headers["Content-Range"] = "bytes */" + stat.size;
+            res.writeHead(416, headers);
+            return res.end();
+          }
+          headers["Content-Range"] = "bytes " + start + "-" + end + "/" + stat.size;
+          headers["Content-Length"] = end - start + 1;
+          res.writeHead(206, headers);
+          return fs.createReadStream(filePath, { start, end }).pipe(res);
         }
       }
 

@@ -1266,3 +1266,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .b2b-qty label{font-size:.85rem;font-weight:700;color:var(--muted)}
 .b2b-note{margin:0;font-size:.8rem;color:var(--muted);text-align:center}
 @media(max-width:560px){.b2b-grid{grid-template-columns:1fr}}
+
+/* AI Cankurtaran — gerçek tespit videosu */
+.pool-video{max-width:880px;margin:0 auto}
+.pool-video video{display:block;width:100%;height:auto;border-radius:var(--radius-lg);
+  background:#0b1f33;box-shadow:var(--shadow-lg);border:1px solid var(--line)}
+.pool-video figcaption{margin-top:12px;text-align:center;font-size:.88rem;color:var(--muted)}
+.pool-video-cta{white-space:nowrap}
