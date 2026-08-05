@@ -139,12 +139,12 @@ const META = {
           d: "Выберите приборы и сразу увидите нужную мощность панелей, ёмкость аккумулятора и мощность инвертора. Выберите бренды и модели и создайте заказ." }
   },
   "ai-cankurtaran-destek-sistemi.html": {
-    en: { t: "AI Lifeguard Support System | Pool Drowning Prevention — Gespa Enerji",
-          d: "AI-powered drowning prevention for hotel and public pools: 24/7 camera monitoring, alerts within seconds, privacy-compliant local processing. Request a free site survey." },
-    de: { t: "KI-Rettungsschwimmer-Assistenzsystem | Ertrinkungsprävention — Gespa Enerji",
-          d: "KI-gestützte Ertrinkungsprävention für Hotel- und öffentliche Pools: 24/7-Kameraüberwachung, Alarm in Sekunden, datenschutzkonforme lokale Verarbeitung. Kostenlose Vor-Ort-Analyse anfordern." },
-    ru: { t: "ИИ-система поддержки спасателей | Предотвращение утопления — Gespa Enerji",
-          d: "ИИ-система предотвращения утопления для отельных и общественных бассейнов: видеонаблюдение 24/7, тревога за секунды, локальная обработка данных. Запросите бесплатный выезд." }
+    en: { t: "AI Lifeguard Support System — Hotel Pool Safety & Drowning Prevention | GESPA Energy",
+          d: "AI-powered drowning prevention for hotel, aquapark, municipal and residential pools: 24/7 monitoring, instant location alerts to the lifeguard's smartwatch, ISO 20380-aligned, GDPR/KVKK-compliant on-site processing. It supports lifeguards — never replaces them." },
+    de: { t: "KI-Rettungsschwimmer-Assistenzsystem — Hotelpool-Sicherheit & Ertrinkungsprävention | GESPA Energy",
+          d: "KI-gestützte Ertrinkungsprävention für Hotel-, Aquapark-, Kommunal- und Wohnanlagenpools: 24/7-Überwachung, sofortige Standort-Alarme auf die Smartwatch des Rettungsschwimmers, ISO-20380-konform, lokale KVKK/DSGVO-konforme Verarbeitung. Unterstützt Rettungsschwimmer — ersetzt sie nie." },
+    ru: { t: "ИИ-система поддержки спасателей — безопасность бассейнов отелей | GESPA Energy",
+          d: "ИИ-предотвращение утоплений для бассейнов отелей, аквапарков и ЖК: наблюдение 24/7, мгновенный сигнал с координатами на смарт-часы спасателя, соответствие ISO 20380, локальная обработка данных (KVKK). Поддерживает спасателей, а не заменяет их." }
   },
   "kvkk.html": {
     en: { t: "Personal Data Protection (KVKK) Notice | GESPA Energy",
@@ -543,6 +543,7 @@ function hydrateExtras(html, file, cfg) {
     const monthly = nfTr(pl.monthlyFrom) + " " + (pl.monthlyCurrency || "USD");
     setSpan("poolMonthly", monthly);
     setSpan("poolMonthlyFaq", monthly);
+    setSpan("poolMonthlyFaq2", monthly);
     setSpan("poolSlots", String(pl.launchSlots));
     setSpan("poolLaunchYear", String(pl.launchYear));
     setSpan("poolNextSeason", String(pl.nextSeason));
@@ -770,6 +771,9 @@ akıllı saatine ve alarm noktalarına saniyeler içinde konumlu uyarı gönderi
 ISO 20380:2017 ile uyumlu teknoloji; görüntüler tesis dışına çıkmaz, yerel
 sunucuda işlenir (KVKK uyumlu). Cankurtaranın yerine geçmez; destekleyen
 ikincil gözetim katmanıdır. Ücretsiz keşif ve pilot teklifi verilir.
+
+Cankurtaran sayısı mevzuatla belirlenir; sistem personel AZALTMAZ, mevcut kadroyu güçlendirir
+(karşılaştırma, özen yükümlülüğü kayıtları ve SSS ayrıntıları sayfadadır).
 
 ### Solar Su Isıtma Sistemi — PV su ısıtıcı (${c.web}/su-isitici.html)
 Monokristal panellerle suyu doğrudan güneş enerjisiyle ısıtır; bulutlu havada

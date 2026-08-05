@@ -29,6 +29,9 @@ ISO 20380:2017 ile uyumlu teknoloji; görüntüler tesis dışına çıkmaz, yer
 sunucuda işlenir (KVKK uyumlu). Cankurtaranın yerine geçmez; destekleyen
 ikincil gözetim katmanıdır. Ücretsiz keşif ve pilot teklifi verilir.
 
+Cankurtaran sayısı mevzuatla belirlenir; sistem personel AZALTMAZ, mevcut kadroyu güçlendirir
+(karşılaştırma, özen yükümlülüğü kayıtları ve SSS ayrıntıları sayfadadır).
+
 ### Solar Su Isıtma Sistemi — PV su ısıtıcı (https://www.gespaenerji.com/su-isitici.html)
 Monokristal panellerle suyu doğrudan güneş enerjisiyle ısıtır; bulutlu havada
 otomatik şebeke (AC) desteğine geçer. Emaye iç tank, akıllı GF-20 kontrol.

@@ -1273,3 +1273,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   background:#0b1f33;box-shadow:var(--shadow-lg);border:1px solid var(--line)}
 .pool-video figcaption{margin-top:12px;text-align:center;font-size:.88rem;color:var(--muted)}
 .pool-video-cta{white-space:nowrap}
+
+/* AI Cankurtaran — karşılaştırma tablosu, bilanço, ödeme seçenekleri */
+.vs-table{min-width:560px}
+.vs-table thead th{white-space:nowrap}
+.vs-table thead th:nth-child(2){color:var(--ink)}
+.vs-table thead th:nth-child(3){color:var(--green)}
+.vs-table td:first-child{font-weight:600}
+.vs-table td:nth-child(2),.vs-table td:nth-child(3){font-size:.92rem}
+.pool-cost li{margin-bottom:6px}
+.pool-cost-note{max-width:72ch;margin:14px auto 0;color:var(--muted);font-size:.93rem;line-height:1.7}
+.pool-plan-lead{font-weight:800;margin:0 0 10px}
+.pool-plan-opts{margin:0 0 14px;padding-left:22px;display:grid;gap:10px}
+.pool-plan-opts li{line-height:1.65}
