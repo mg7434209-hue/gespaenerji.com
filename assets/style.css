@@ -1286,3 +1286,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .pool-plan-lead{font-weight:800;margin:0 0 10px}
 .pool-plan-opts{margin:0 0 14px;padding-left:22px;display:grid;gap:10px}
 .pool-plan-opts li{line-height:1.65}
+
+/* AI Cankurtaran — referans bandı (rakamsal özet) */
+.pool-refs{background:linear-gradient(175deg,#0a2a43,#123b5c 90%);padding:64px 0;color:#eaf4fb}
+.pool-refs .section-head h2{color:#fff}
+.pool-refs .pool-lead{color:#c9dcea}
+.pool-refstats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:880px;margin:0 auto 22px}
+.pool-refstat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;
+  padding:18px 14px;text-align:center}
+.pool-refstat b{display:block;font-family:var(--font);font-size:1.7rem;font-weight:800;color:#7fd7c0}
+.pool-refstat span{font-size:.82rem;color:#c9dcea}
+.pool-refs-p{max-width:76ch;margin:0 auto 10px;text-align:center;color:#d9e6ef;font-size:.95rem}
+.pool-refnote{max-width:76ch;margin:0 auto;text-align:center;color:#9db8cc;font-size:.82rem}
+@media(max-width:760px){.pool-refstats{grid-template-columns:repeat(2,1fr)}}
