@@ -15,3 +15,6 @@ dist/
 # build.js ön-sıkıştırma çıktıları (sunucu başlangıcında üretilir)
 *.br
 *.gz
+
+# Ziyaretçi sayacı kalıcı verisi (server.js üretir; Railway'de DATA_DIR/Volume)
+data/

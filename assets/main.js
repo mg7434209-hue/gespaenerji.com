@@ -871,6 +871,41 @@
     counters.forEach(animateCount);
   }
 
+  /* ---- Ziyaretçi sayacı (footer rozeti) — ayarlar config.visitors ----
+     Canlı sitede server.js /api/visitors gerçek sayar; gösterilen toplam =
+     base + sunucu sayacı. API yoksa (statik yayın) base + günlük tahmin. */
+  (function () {
+    var v = CFG.visitors;
+    if (!v || !v.enabled) return;
+    var host = $(".footer-bottom");
+    if (!host) return;
+    var nf = new Intl.NumberFormat("tr-TR");
+    var p = doc.createElement("p");
+    p.className = "visit-counter";
+    host.appendChild(p);
+    function render(total, online) {
+      var html = '<span aria-hidden="true">👥</span> <b>' + nf.format(total) + "</b> " +
+        L("ziyaretçi", "visitors", "Besucher", "посетителей");
+      if (v.showOnline && online > 0) {
+        html += ' <span class="visit-online">· <span class="visit-dot" aria-hidden="true"></span> ' + nf.format(online) + " " +
+          L("kişi şu an sitede", "online now", "gerade online", "сейчас на сайте") + "</span>";
+      }
+      p.innerHTML = html;
+    }
+    function estimate() {
+      var t0 = Date.parse((v.start || "2026-01-01") + "T00:00:00");
+      var days = Math.max(0, (Date.now() - t0) / 864e5);
+      return Math.round((v.base || 0) + days * (v.perDayEstimate || 0));
+    }
+    render(estimate(), 0); // önce tahmini bas (API yanıtı gelirse üzerine yazar)
+    try {
+      fetch("/api/visitors", { cache: "no-store" })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function (d) { render((v.base || 0) + (+d.total || 0), +d.online || 0); })
+        .catch(function () {});
+    } catch (e) {}
+  })();
+
   /* ---- Tasarruf hesaplayıcı (çok yöntemli: fatura / tüketim / çatı alanı) ---- */
   (function () {
     var city = $("#city"), price = $("#price");

@@ -170,6 +170,12 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   ana görsel geçişi `#pgMain` / `.prod-thumbs` ile; JS yokken bağlantı görseli açar.
 - Açık/koyu tema, mobil menü, scroll animasyonları `assets/main.js` ile yönetilir;
   yeni DOM'lar `.reveal` ve `data-count` desenlerini kullanabilir.
+- Ziyaretçi sayacı: footer'daki `.visit-counter` rozetini main.js enjekte eder
+  (sayfalara elle eklenmez; ayarlar `config.visitors`). Canlıda server.js
+  `/api/visitors` ile gerçek sayar (çerezle günde 1, bot filtreli; kalıcı veri
+  `data/visitors.json` — gitignore'da, Railway'de DATA_DIR/Volume ile korunur).
+  Gösterilen toplam = `visitors.base` + sunucu sayacı; API yoksa (Pages)
+  base + günlük tahminle gösterilir.
 - Sohbet botu `assets/chatbot.js` (main.js dinamik yükler): metinleri kendi içinde
   `[tr,en,de,ru]` dizileriyle çok dillidir (i18n DICT'e bağlı değildir); yeni yanıt
   eklerken 4 dili birlikte ekle. Footer sosyal linkleri `config.company.sameAs`'ten

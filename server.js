@@ -41,6 +41,51 @@ function safeJoin(base, target) {
   return targetPath;
 }
 
+// ---- Ziyaretçi sayacı ----
+// Gerçek ziyaretleri sayar: HTML sayfası isteyen ve çerezi olmayan her tarayıcı
+// günde 1 kez sayılır (çerez 24 saat yaşar); bilinen botlar sayılmaz.
+// Toplam DATA_DIR/visitors.json dosyasında kalıcıdır (Railway'de Volume bağlanıp
+// DATA_DIR verilirse dağıtımlar arası korunur; yoksa dağıtımda sıfırlanabilir —
+// gösterilen toplamın tabanı config.visitors.base olduğundan site sayacı geriye
+// düşmez, base güncellenerek taşınır). Footer rozeti /api/visitors'tan okur.
+const DATA_DIR = process.env.DATA_DIR || path.join(ROOT, "data");
+const VISIT_FILE = path.join(DATA_DIR, "visitors.json");
+const VISIT_COOKIE = "gespa_v";
+const ONLINE_WINDOW_MS = 5 * 60 * 1000; // son 5 dk içinde istek atan = "şu an sitede"
+const BOT_RE = /bot|crawl|spider|slurp|preview|scan|monitor|probe|fetch|curl|wget|python|node-fetch|axios|headless|lighthouse|pingdom|facebookexternal|whatsapp|telegram/i;
+let visitTotal = 0;
+try { visitTotal = +JSON.parse(fs.readFileSync(VISIT_FILE, "utf8")).total || 0; } catch (e) {}
+let visitSaveTimer = null;
+function saveVisits() {
+  if (visitSaveTimer) return; // yazımlar 2 sn'de bire toplanır
+  visitSaveTimer = setTimeout(() => {
+    visitSaveTimer = null;
+    try {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+      fs.writeFileSync(VISIT_FILE, JSON.stringify({ total: visitTotal, saved: new Date().toISOString() }));
+    } catch (e) {}
+  }, 2000);
+}
+const onlineMap = new Map(); // ip → son istek zamanı
+function onlineCount() {
+  const now = Date.now();
+  onlineMap.forEach((t, k) => { if (now - t > ONLINE_WINDOW_MS) onlineMap.delete(k); });
+  return onlineMap.size;
+}
+function countVisit(req, headers) {
+  try {
+    const ua = req.headers["user-agent"] || "";
+    if (!ua || BOT_RE.test(ua)) return;
+    const ip = (req.headers["x-forwarded-for"] || "").split(",")[0].trim() ||
+      (req.socket && req.socket.remoteAddress) || "?";
+    onlineMap.set(ip, Date.now());
+    if (new RegExp("(^|;\\s*)" + VISIT_COOKIE + "=1").test(req.headers.cookie || "")) return; // son 24 saatte sayıldı
+    visitTotal++;
+    saveVisits();
+    headers["Set-Cookie"] = VISIT_COOKIE + "=1; Max-Age=86400; Path=/; SameSite=Lax";
+  } catch (e) {}
+}
+
 const server = http.createServer((req, res) => {
   try {
     // HTTP → HTTPS (yalnızca proxy açıkça http dediğinde; aynı host korunur).
@@ -62,6 +107,11 @@ const server = http.createServer((req, res) => {
     if (/^(\/havuz-teknolojileri\/ai-cankurtaran-destek-sistemi\/?|\/cankurtaran(\.html)?)$/.test(urlPath)) {
       res.writeHead(301, { Location: "/ai-cankurtaran-destek-sistemi.html" + qs });
       return res.end();
+    }
+    // Ziyaretçi API — footer sayacı (main.js) buradan okur; sayım HTML servisinde
+    if (urlPath === "/api/visitors") {
+      res.writeHead(200, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" });
+      return res.end(JSON.stringify({ total: visitTotal, online: onlineCount() }));
     }
     // Dizin kökü (/, /en/, /de/, /ru/) → index.html
     if (urlPath.endsWith("/")) urlPath += "index.html";
@@ -95,6 +145,10 @@ const server = http.createServer((req, res) => {
       };
       // HTTPS üzerinden gelen isteklerde HSTS (proxy x-forwarded-proto bildirir)
       if (xfp === "https") headers["Strict-Transport-Security"] = "max-age=31536000";
+      // Ziyaret sayımı: başarıyla servis edilen sayfa görüntülemeleri (admin hariç)
+      if (ext === ".html" && status === 200 && req.method === "GET" && !/(^|\/)admin\.html$/.test(urlPath)) {
+        countVisit(req, headers);
+      }
       // İçerik Güvenliği Politikası (temkinli) — yalnızca HTML yanıtlarında
       if (ext === ".html") {
         headers["Content-Security-Policy"] = [

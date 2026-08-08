@@ -45,6 +45,20 @@ window.GESPA.config = {
     ga4: ""   // örn. "G-XXXXXXXXXX" (Google Analytics 4 ölçüm kimliği)
   },
 
+  // Ziyaretçi sayacı (footer rozeti) — main.js enjekte eder, sayfalara elle eklenmez.
+  // Canlı sitede (Railway) server.js /api/visitors ile GERÇEK ziyaret sayar
+  // (çerezle günde 1 kez; bot filtreli). Gösterilen toplam = base + sunucu sayacı.
+  // Sunucu sayacı DATA_DIR (Railway Volume) yoksa dağıtımda sıfırlanabilir —
+  // o durumda base'i güncelleyerek toplamı taşıyın. API yoksa (GitHub Pages)
+  // base + geçen gün × perDayEstimate ile TAHMİNİ değer gösterilir.
+  visitors: {
+    enabled: true,
+    base: 12750,             // taban: start tarihine kadarki toplam ziyaret
+    start: "2026-08-08",     // base'in geçerli olduğu tarih (YYYY-AA-GG)
+    perDayEstimate: 30,      // API yokken günlük tahmini ziyaret artışı
+    showOnline: true         // "şu an sitede" canlı sayısı (yalnız API varken)
+  },
+
   // Kullanılan markalar
   brands: {
     panel: ["Arçelik", "Lexron", "Bakırlar"],
