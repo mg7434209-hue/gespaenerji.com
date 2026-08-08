@@ -53,7 +53,7 @@ window.GESPA.config = {
   // base + geçen gün × perDayEstimate ile TAHMİNİ değer gösterilir.
   visitors: {
     enabled: true,
-    base: 12750,             // taban: start tarihine kadarki toplam ziyaret
+    base: 1000,              // taban: start tarihine kadarki toplam ziyaret
     start: "2026-08-08",     // base'in geçerli olduğu tarih (YYYY-AA-GG)
     perDayEstimate: 30,      // API yokken günlük tahmini ziyaret artışı
     showOnline: true         // "şu an sitede" canlı sayısı (yalnız API varken)
