@@ -1,11 +1,13 @@
 name: Deploy to GitHub Pages
 
+# Yalnız canlı dal tetikler: birden çok dala aynı anda push edildiğinde
+# concurrency (cancel-in-progress) run'ları birbirine iptal ettiriyor ve
+# main run'ı Pages ortam korumasına takılıp "failure" veriyordu — site
+# eski sürümde kalıyordu. Tek tetikleyici dal bu kilitlenmeyi bitirir.
 on:
   push:
     branches:
-      - main
       - claude/determined-albattani-ol20qb
-      - claude/confident-dirac-om5h20
   workflow_dispatch:
 
 permissions:
