@@ -124,6 +124,14 @@
       link: { t: ["Solar Su Isıtıcı", "Solar Water Heater", "Solar-Warmwasserbereiter", "Солнечный водонагреватель"], u: "su-isitici.html" }
     },
     {
+      k: ["toptan", "bayilik", "bayi", "wholesale", "distribut", "dealer", "grosshandel", "haendler", "опт", "дилер"],
+      a: ["🏭 Toptan satış: bayiler, EPC/kurulumcular, oteller ve kooperatifler için hazır stoktan panel, akü ve inverter. Adede göre kademeli fiyat; ihtiyaç listenizi gönderin, aynı gün proforma teklif gelsin.",
+          "🏭 Wholesale: panels, batteries and inverters from ready stock for dealers, EPCs, hotels and cooperatives. Tiered volume pricing; send your list and get a proforma quote the same day.",
+          "🏭 Großhandel: Module, Batterien und Wechselrichter ab Lager für Händler, EPCs und Hotels. Staffelpreise nach Menge; Liste senden, Proforma-Angebot am selben Tag.",
+          "🏭 Оптовые продажи: панели, АКБ и инверторы со склада для дилеров, EPC и отелей. Цены от объёма; отправьте список — проформа в тот же день."],
+      link: { t: ["Toptan Satış (B2B)", "Wholesale (B2B)", "Großhandel (B2B)", "Опт (B2B)"], u: "toptan.html" }
+    },
+    {
       k: ["havuz", "cankurtaran", "bogulma", "aquapark", "havuz guvenlik", "lifeguard", "drowning", "pool safety", "pool", "ertrinken", "rettungsschwimmer", "бассейн", "утоплен", "спасател", "аквапарк"],
       a: ["🏊 AI Cankurtaran Destek Sistemi: yapay zekâ destekli kameralar havuzu 7/24 tarar, risk algılanınca cankurtaranın akıllı saatine saniyeler içinde konumlu alarm gönderir. Otel, aquapark, belediye ve site havuzları için; ISO 20380 uyumlu, KVKK uyumlu yerel veri işleme. Ücretsiz keşif ve pilot teklifi sunuyoruz.",
           "🏊 AI Lifeguard Support System: AI-powered cameras scan the pool 24/7 and alert lifeguards within seconds with the swimmer's location. For hotels, water parks, municipal and residential pools; ISO 20380-aligned, privacy-compliant local processing. Free site survey and pilot offer available.",
