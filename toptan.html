@@ -92,15 +92,25 @@
         <span class="hero-pill">🏭 B2B</span>
         <h1>Toptan Satış — Panel, İnverter, Akü</h1>
         <p class="lead">Bayiler, EPC ve kurulum firmaları için hazır stoktan toptan güneş ekipmanı. Kurumsal fatura, adede göre kademeli fiyat, Türkiye'nin her iline nakliye.</p>
+        <div class="calc-hero-cta" style="margin-top:18px">
+          <a class="btn btn-lg" href="#stok">📦 Stoktaki ürünleri gör</a>
+          <a class="btn btn-ghost btn-lg" href="#teklif">🧾 Hemen teklif iste</a>
+        </div>
         <div class="hero-badges reveal">
           <span>📦 Hazır stok — hızlı sevkiyat</span>
           <span>🧾 Kurumsal faturalı satış</span>
           <span>🚛 Türkiye geneli nakliye</span>
+          <span>🤝 Bayilik programı</span>
         </div>
+        <ol class="flow-strip reveal" aria-label="Toptan süreç">
+          <li><b>1</b> Listenizi gönderin</li>
+          <li><b>2</b> Aynı gün proforma teklif</li>
+          <li><b>3</b> Her ile sevkiyat</li>
+        </ol>
       </div>
     </section>
 
-    <section class="section pkg-first">
+    <section class="section pkg-first" id="stok">
       <div class="container">
         <div class="section-head reveal"><span class="kicker">📦 Hazır Stok</span><h2>Stoktaki toptan ürünler</h2><p>Fiyatlar sipariş adedine göre teklifle bildirilir — listenizi gönderin, aynı gün dönelim.</p></div>
         <div class="b2b-grid" id="b2bGrid"><!-- B2B:STATIC --><article class="b2b-card reveal" data-b2b="b2b-arcelik-540"><div class="b2b-head"><span class="b2b-ico" aria-hidden="true">🔆</span><span class="b2b-stock">✅ 500 <b>adet stokta</b></span></div><h3>Arçelik 540 W Güneş Paneli</h3><ul class="ticks"><li>540 W güç</li><li>Yetkili tedarik — orijinal ürün</li><li>Palet bazında sevkiyat</li></ul><div class="b2b-qty"><label>Adet</label><div class="qbox"><button type="button" data-q="-1" aria-label="Adet azalt">−</button><input type="text" inputmode="numeric" value="10" aria-label="Adet" /><button type="button" data-q="1" aria-label="Adet artır">+</button></div></div><a class="btn btn-block b2b-cta" href="https://wa.me/905437434209?text=Merhaba%2C%20toptan%20teklif%20istiyorum%3A%20Ar%C3%A7elik%20540%20W%20G%C3%BCne%C5%9F%20Paneli%20%C3%97%2010%20adet." target="_blank" rel="noopener">📲 Toptan teklif iste</a><p class="b2b-note">Fiyat, sipariş adedine göre teklifle bildirilir.</p></article><article class="b2b-card reveal" data-b2b="b2b-aku-51v-100ah"><div class="b2b-head"><span class="b2b-ico" aria-hidden="true">🔋</span><span class="b2b-stock">✅ 50 <b>adet stokta</b></span></div><h3>51,2 V 100 Ah LiFePO₄ Akü</h3><ul class="ticks"><li>51,2 V · 100 Ah — 5,12 kWh</li><li>LiFePO₄ (lityum demir fosfat) kimya</li><li>Ev/ticari depolama ve off-grid sistemler</li></ul><div class="b2b-qty"><label>Adet</label><div class="qbox"><button type="button" data-q="-1" aria-label="Adet azalt">−</button><input type="text" inputmode="numeric" value="10" aria-label="Adet" /><button type="button" data-q="1" aria-label="Adet artır">+</button></div></div><a class="btn btn-block b2b-cta" href="https://wa.me/905437434209?text=Merhaba%2C%20toptan%20teklif%20istiyorum%3A%2051%2C2%20V%20100%20Ah%20LiFePO%E2%82%84%20Ak%C3%BC%20%C3%97%2010%20adet." target="_blank" rel="noopener">📲 Toptan teklif iste</a><p class="b2b-note">Fiyat, sipariş adedine göre teklifle bildirilir.</p></article><article class="b2b-card reveal" data-b2b="b2b-inverter"><div class="b2b-head"><span class="b2b-ico" aria-hidden="true">⚡</span><span class="b2b-stock b2b-ask">Stok için sorunuz</span></div><h3>Toptan İnverter</h3><ul class="ticks"><li>Tescom · Mexxsun · Lexron · Arçelik</li><li>On-grid ve off-grid modeller</li><li>Model ve güncel stok için teklif isteyin</li></ul><div class="b2b-qty"><label>Adet</label><div class="qbox"><button type="button" data-q="-1" aria-label="Adet azalt">−</button><input type="text" inputmode="numeric" value="10" aria-label="Adet" /><button type="button" data-q="1" aria-label="Adet artır">+</button></div></div><a class="btn btn-block b2b-cta" href="https://wa.me/905437434209?text=Merhaba%2C%20toptan%20teklif%20istiyorum%3A%20Toptan%20%C4%B0nverter%20%C3%97%2010%20adet." target="_blank" rel="noopener">📲 Toptan teklif iste</a><p class="b2b-note">Fiyat, sipariş adedine göre teklifle bildirilir.</p></article><!-- /B2B:STATIC -->
@@ -111,29 +121,6 @@
     </section>
 
     <section class="section section-alt">
-      <div class="container">
-        <div class="section-head reveal"><span class="kicker">Nasıl çalışır?</span><h2>3 adımda toptan tedarik</h2></div>
-        <ol class="steps steps-3">
-          <li class="reveal"><span class="step-no">1</span><h3>İhtiyaç listenizi gönderin</h3><p>Ürün ve adetleri WhatsApp'tan ya da aşağıdaki formla iletin.</p></li>
-          <li class="reveal"><span class="step-no">2</span><h3>Proforma teklif alın</h3><p>Adede göre toptan fiyat aynı gün proforma fatura ile gönderilir.</p></li>
-          <li class="reveal"><span class="step-no">3</span><h3>Sevkiyat planlanır</h3><p>Ödeme onayıyla ürünler Türkiye'nin her iline anlaşmalı nakliye ile çıkar.</p></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head reveal"><span class="kicker">Kimler için?</span><h2>Toptan çalıştığımız firmalar</h2></div>
-        <div class="cards cards-4">
-          <article class="card reveal"><div class="card-icon">🏪</div><h3>Bayiler &amp; toptancılar</h3><p>Elektrik ve solar malzeme satıcıları için düzenli tedarik.</p></article>
-          <article class="card reveal"><div class="card-icon">👷</div><h3>EPC &amp; kurulumcular</h3><p>Proje bazlı panel, inverter ve akü tedariki.</p></article>
-          <article class="card reveal"><div class="card-icon">🏨</div><h3>Otel &amp; site yönetimleri</h3><p>Tesis yatırımları için doğrudan toptan alım.</p></article>
-          <article class="card reveal"><div class="card-icon">🌾</div><h3>Tarımsal kooperatifler</h3><p>Sulama projeleri için toplu ekipman alımı.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
       <div class="container">
         <div class="section-head reveal"><span class="kicker">🤝 Bayimiz Olun</span><h2>Sadece ürün değil, satış altyapısı</h2><p>Düzenli çalışan bayilerimize ürünün yanında satışı kolaylaştıran her şeyi veriyoruz.</p></div>
         <div class="cards cards-4">
@@ -146,7 +133,7 @@
       </div>
     </section>
 
-    <section class="section section-alt" id="teklif">
+    <section class="section" id="teklif">
       <div class="container narrow">
         <div class="section-head reveal"><span class="kicker">🧾 Toptan Teklif</span><h2>İhtiyaç listenizi iletin</h2><p>Formu doldurun; listeniz WhatsApp üzerinden bize ulaşır, aynı gün proforma teklifle dönüş yaparız.</p></div>
         <form id="b2bForm" class="ord-form reveal">
