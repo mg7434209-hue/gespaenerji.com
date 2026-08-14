@@ -14,7 +14,12 @@ klasik Pages yayını için **repoda tutulur** — kaynak değişince `node buil
 çalıştırıp çıktıyı da commit'le.
 
 Sayfalar (her biri kök dizinde, `.html` uzantılı):
-`index.html` · `hizmetler.html` · `urunler.html` (paket vitrini; yalnız 2 kit) ·
+`index.html` (hero'da dönen vitrin `#heroShow`: GES foto → su ısıtıcı →
+cankurtaran → GES Marketim e-mağaza; ilk slayt LCP'dir — `fetchpriority`
+korunur, diğerleri lazy; döngü main.js'te, azaltılmış harekette otomatik
+dönmez. E-mağaza linkleri: `config.company.shop` kaydı; hero slaytı,
+urunler şeridi ve TÜM footer'lardaki "GES Marketim (E-Mağaza) ↗") ·
+`hizmetler.html` · `urunler.html` (paket vitrini; yalnız 2 kit) ·
 `paket-285w.html` `paket-2x540w.html` (e-ticaret ürün sayfası: solda galeri
 `#pgMain`+`.prod-thumbs`, sağda satın alma kutusu `.buy-box` — ürün kodu, stok,
 fiyat, havale tutarı, `.qbox` adet kutusu, CTA'lar, kargo/iade bilgi listesi;
