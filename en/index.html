@@ -60,14 +60,21 @@
       </a>
       <nav class="menu" id="menu" aria-label="Main menu">
         <a href="index.html" class="active">Home</a>
-        <a href="hizmetler.html">Services</a>
-        <a href="urunler.html">Products</a>
-        <a href="toptan.html">Wholesale</a>
         <div class="menu-group">
-          <button class="menu-parent" type="button" aria-haspopup="true" aria-expanded="false"><span>New Technologies</span> <span class="caret" aria-hidden="true">▾</span></button>
+          <button class="menu-parent" type="button" aria-haspopup="true" aria-expanded="false"><span>Solar Systems</span> <span class="caret" aria-hidden="true">▾</span></button>
+          <div class="submenu">
+            <a href="hizmetler.html">Rooftop &amp; Ground-Mount Solar</a>
+            <a href="urunler.html">Solar Packages</a>
+            <a href="tarimsal-sulama.html">Solar Irrigation</a>
+            <a href="su-isitici.html">Solar Water Heater</a>
+            <a href="toptan.html">Wholesale (B2B)</a>
+            <a href="https://www.gesmarketim.com" target="_blank" rel="noopener">GES Marketim (E-Mağaza) ↗</a>
+          </div>
+        </div>
+        <div class="menu-group">
+          <button class="menu-parent" type="button" aria-haspopup="true" aria-expanded="false"><span>AI Technologies</span> <span class="caret" aria-hidden="true">▾</span></button>
           <div class="submenu">
             <a href="ai-cankurtaran-destek-sistemi.html">AI Lifeguard Support System</a>
-            <a href="su-isitici.html">Solar Water Heater</a>
           </div>
         </div>
         <div class="menu-group menu-tools">
@@ -90,47 +97,137 @@
 
   <main id="main">
     <!-- HERO -->
-    <section class="hero">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <a class="hero-announce" href="ai-cankurtaran-destek-sistemi.html"><em>NEW</em> <span>AI Lifeguard Support System — AI safety for swimming pools</span> <b aria-hidden="true">→</b></a>
-          <span class="eyebrow">Turnkey Solar Power Plants</span>
+    <section class="hero2" id="heroShow" aria-roledescription="carousel" aria-label="Highlights">
+      <div class="hero2-slide is-on">
+        <picture class="hero2-bg"><source type="image/webp" srcset="/assets/img/hero-640.webp 640w, /assets/img/hero-960.webp 960w, /assets/img/hero.webp 1600w" sizes="100vw" /><img src="/assets/img/hero.jpg" alt="GESPA Enerji — sahada güneş enerjisi santrali" width="1600" height="1200" fetchpriority="high" decoding="async" /></picture>
+        <div class="hero2-shade" aria-hidden="true"></div>
+        <div class="container hero2-inner">
+          <span class="hero2-kicker">Turnkey Solar Power Plants</span>
           <h1 id="heroTitle" data-i18n-html>Energy that turns sunshine into <span class="hl">profit</span>.</h1>
-          <p>From engineering to installation, from financing to maintenance — we manage your rooftop or ground-mount solar project end to end. Cut your energy costs and your carbon footprint.</p>
-          <div class="hero-cta">
+          <p class="hero2-sub">For rooftop and ground-mount solar projects: engineering, installation, financing and maintenance — the whole process from one hand.</p>
+          <div class="hero2-cta">
             <a class="btn btn-lg" href="hesaplayici.html">Calculate My Savings</a>
-            <a class="btn btn-ghost btn-lg" href="iletisim.html">Free Site Survey</a>
+            <a class="btn btn-lg btn-light2" href="iletisim.html">Free Site Survey</a>
           </div>
-          <ul class="hero-stats">
+          <ul class="hero2-stats">
             <li><strong data-stat="projects" data-count="500" data-suffix="+">500+</strong><span>Completed Projects</span></li>
             <li><strong data-stat="installedMw" data-count="15" data-suffix=" MW">15 MW</strong><span>Installed Capacity</span></li>
             <li><strong data-stat="experienceYears" data-count="20" data-suffix="+ yıl">20+ yıl</strong><span>Industry Experience</span></li>
           </ul>
         </div>
-        <div class="hero-art reveal">
-          <div class="hero-show" id="heroShow" aria-roledescription="carousel" aria-label="Highlights">
-            <div class="hero-slide is-on">
-              <div class="hero-photo"><picture><source type="image/webp" srcset="/assets/img/hero-640.webp 640w, /assets/img/hero-960.webp 960w, /assets/img/hero.webp 1600w" sizes="(max-width: 980px) 100vw, 640px" /><img src="/assets/img/hero.jpg" alt="GESPA Enerji — sahada güneş enerjisi santrali" width="640" height="460" fetchpriority="high" decoding="async" /></picture></div>
-              <div class="float-badge badge-1">⚡ Turnkey installation</div>
-              <div class="float-badge badge-2">🌱 Up to 25-year warranty</div>
-            </div>
-            <a class="hero-slide" href="su-isitici.html">
-              <div class="hero-photo"><img src="/assets/img/products/pv-su-isitici-urun.webp" alt="PV güneş enerjili su ısıtıcı" width="660" height="510" loading="lazy" decoding="async" /></div>
-              <span class="hero-slide-cap"><em>🔥 New Product</em><strong>Free Hot Water from the Sun</strong><span>PV water heater: heats for free in sunshine, grid power takes over on cloudy days</span><b class="hero-slide-btn">Explore →</b></span>
-            </a>
-            <a class="hero-slide" href="ai-cankurtaran-destek-sistemi.html">
-              <div class="hero-photo"><img src="/assets/img/products/cankurtaran/video-poster.jpg" alt="Havuzda yapay zekâ tespit görüntüsü — AI Cankurtaran" width="1280" height="720" loading="lazy" decoding="async" /></div>
-              <span class="hero-slide-cap"><em>🛟 New Technology</em><strong>AI Lifeguard Support System</strong><span>Reports a risky moment in the pool to the lifeguard's watch within seconds</span><b class="hero-slide-btn">Explore →</b></span>
-            </a>
-            <a class="hero-slide hero-slide-shop" href="https://www.gesmarketim.com" target="_blank" rel="noopener">
-              <span class="hero-shop-art" aria-hidden="true">🛒</span>
-              <span class="hero-slide-cap"><em>🧰 Online Store</em><strong>GES Marketim</strong><span>Panels, batteries, inverters and accessories — hundreds of solar products from stock</span><b class="hero-slide-btn">gesmarketim.com ↗</b></span>
-            </a>
-            <div class="hero-dots" role="tablist" aria-label="Showcase slides"></div>
+      </div>
+      <div class="hero2-slide hero2-sim">
+        <svg class="sim-svg" viewBox="0 0 1440 620" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                  <linearGradient id="simSky" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#062e22"/><stop offset=".55" stop-color="#0a4634"/><stop offset="1" stop-color="#0d5a41"/>
+                  </linearGradient>
+                  <linearGradient id="simPanel" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#123a5e"/><stop offset="1" stop-color="#1c5586"/>
+                  </linearGradient>
+                  <radialGradient id="simSun" cx=".5" cy=".5" r=".5">
+                    <stop offset="0" stop-color="#ffd76a"/><stop offset=".7" stop-color="#f8b500"/><stop offset="1" stop-color="#f8b500" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+                <rect width="1440" height="620" fill="url(#simSky)"/>
+                <g class="sim-sun">
+                  <circle cx="150" cy="95" r="105" fill="url(#simSun)" opacity=".3"/>
+                  <circle cx="150" cy="95" r="44" fill="#ffd76a"/>
+                </g>
+                <rect x="0" y="520" width="1440" height="100" fill="#07301f"/>
+                <g class="sim-scene" transform="translate(140,0)">
+                <path class="sim-beam" d="M-40 130 L560 290" stroke="#ffd76a" stroke-width="3" stroke-dasharray="4 14" fill="none" opacity=".6"/>
+                <g>
+                  <rect x="520" y="330" width="330" height="190" rx="6" fill="#0e3a2b"/>
+                  <path d="M500 336 L685 220 L870 336 Z" fill="#0b2f23"/>
+                  <g class="sim-array">
+                    <rect x="545" y="258" width="88" height="56" rx="4" fill="url(#simPanel)" transform="skewX(-18)" stroke="#7fd7c0" stroke-width="1.4"/>
+                    <rect x="645" y="258" width="88" height="56" rx="4" fill="url(#simPanel)" transform="skewX(-18)" stroke="#7fd7c0" stroke-width="1.4"/>
+                    <rect x="745" y="258" width="88" height="56" rx="4" fill="url(#simPanel)" transform="skewX(-18)" stroke="#7fd7c0" stroke-width="1.4"/>
+                  </g>
+                  <rect x="560" y="400" width="54" height="66" rx="6" fill="#ffd76a" opacity=".9" class="sim-window"/>
+                  <rect x="640" y="400" width="54" height="66" rx="6" fill="#ffd76a" opacity=".55" class="sim-window w2"/>
+                  <text x="685" y="558" text-anchor="middle" class="sim-label">Home</text>
+                </g>
+                <g>
+                  <rect x="905" y="430" width="86" height="92" rx="10" fill="#10422f" stroke="#7fd7c0" stroke-width="1.6"/>
+                  <rect x="922" y="450" width="52" height="8" rx="4" fill="#7fd7c0"/>
+                  <rect x="922" y="466" width="52" height="8" rx="4" fill="#7fd7c0" opacity=".7"/>
+                  <rect x="922" y="482" width="52" height="8" rx="4" fill="#7fd7c0" opacity=".4" class="sim-invled"/>
+                  <text x="948" y="558" text-anchor="middle" class="sim-label">Inverter</text>
+                </g>
+                <g>
+                  <rect x="1052" y="440" width="120" height="82" rx="12" fill="#10422f" stroke="#9fe3b6" stroke-width="1.6"/>
+                  <rect x="1172" y="462" width="10" height="30" rx="4" fill="#9fe3b6"/>
+                  <rect class="sim-charge c1" x="1066" y="454" width="24" height="54" rx="5" fill="#37c978"/>
+                  <rect class="sim-charge c2" x="1096" y="454" width="24" height="54" rx="5" fill="#37c978"/>
+                  <rect class="sim-charge c3" x="1126" y="454" width="24" height="54" rx="5" fill="#37c978"/>
+                  <text x="1112" y="558" text-anchor="middle" class="sim-label">Battery</text>
+                </g>
+                <g stroke="#cfe8dd" stroke-width="4" fill="none" opacity=".85">
+                  <path d="M1195 520 L1225 380 L1255 520 M1180 428 L1270 428 M1188 462 L1262 462"/>
+                </g>
+                <text x="1225" y="558" text-anchor="middle" class="sim-label">Grid</text>
+                <g fill="none" stroke="#2f7c5f" stroke-width="3">
+                  <path id="fPanelInv" d="M800 330 C860 380 880 440 905 470"/>
+                  <path id="fInvHome" d="M905 480 C860 500 780 500 700 468"/>
+                  <path id="fInvBat" d="M991 476 C1010 476 1030 478 1052 480"/>
+                  <path id="fInvGrid" d="M991 500 C1070 542 1120 522 1180 470"/>
+                </g>
+                <g class="sim-dots">
+                  <circle r="6" fill="#ffd76a"><animateMotion dur="2.1s" repeatCount="indefinite"><mpath href="#fPanelInv"/></animateMotion></circle>
+                  <circle r="6" fill="#ffd76a" opacity=".8"><animateMotion dur="2.1s" begin="0.9s" repeatCount="indefinite"><mpath href="#fPanelInv"/></animateMotion></circle>
+                  <circle r="6" fill="#37c978"><animateMotion dur="2.4s" begin="0.3s" repeatCount="indefinite"><mpath href="#fInvHome"/></animateMotion></circle>
+                  <circle r="6" fill="#37c978" opacity=".8"><animateMotion dur="2.4s" begin="1.5s" repeatCount="indefinite"><mpath href="#fInvHome"/></animateMotion></circle>
+                  <circle r="5" fill="#37c978"><animateMotion dur="1.6s" begin="0.6s" repeatCount="indefinite"><mpath href="#fInvBat"/></animateMotion></circle>
+                  <circle r="5" fill="#7fd7c0"><animateMotion dur="3s" begin="0.2s" repeatCount="indefinite"><mpath href="#fInvGrid"/></animateMotion></circle>
+                  <circle r="5" fill="#7fd7c0" opacity=".7"><animateMotion dur="3s" begin="1.7s" repeatCount="indefinite"><mpath href="#fInvGrid"/></animateMotion></circle>
+                </g>
+                </g>
+              </svg>
+        <div class="hero2-shade sim-shade" aria-hidden="true"></div>
+        <div class="container hero2-inner">
+          <span class="hero2-kicker">⚡ Live Simulation</span>
+          <p class="hero2-title">From sun to socket: this is how your energy flows</p>
+          <p class="hero2-sub">From panel to inverter, battery to grid. Design your own system around your appliances and price it instantly.</p>
+          <div class="hero2-cta">
+            <a class="btn btn-lg" href="sistem-kur.html">Open the System Builder</a>
+            <a class="btn btn-lg btn-light2" href="hesaplayici.html">Savings Calculator</a>
           </div>
         </div>
       </div>
+      <div class="hero2-slide">
+        <img class="hero2-bg" src="/assets/img/products/pv-su-isitici-villa.webp" alt="Villa çatısında PV güneş enerjili su ısıtıcı" width="1200" height="800" loading="lazy" decoding="async" />
+        <div class="hero2-shade" aria-hidden="true"></div>
+        <div class="container hero2-inner">
+          <span class="hero2-kicker">🔥 New Product</span>
+          <p class="hero2-title">Free Hot Water from the Sun</p>
+          <p class="hero2-sub">PV water heater: heats for free in sunshine, grid takes over automatically on cloudy days. 60–200 litre models.</p>
+          <div class="hero2-cta"><a class="btn btn-lg" href="su-isitici.html">View Product</a></div>
+        </div>
+      </div>
+      <div class="hero2-slide">
+        <img class="hero2-bg" src="/assets/img/products/cankurtaran/video-poster.jpg" alt="Havuzda yapay zekâ tespit görüntüsü — AI Cankurtaran" width="1280" height="720" loading="lazy" decoding="async" />
+        <div class="hero2-shade" aria-hidden="true"></div>
+        <div class="container hero2-inner">
+          <span class="hero2-kicker">🛟 AI Teknolojileri</span>
+          <p class="hero2-title">AI Lifeguard Support System</p>
+          <p class="hero2-sub">Reports a risky moment in the pool to the lifeguard's smartwatch within seconds. For hotel, aquapark and residential pools.</p>
+          <div class="hero2-cta"><a class="btn btn-lg" href="ai-cankurtaran-destek-sistemi.html">Watch the System</a></div>
+        </div>
+      </div>
+      <div class="hero2-slide hero2-shop">
+        <div class="hero2-shopbg" aria-hidden="true"><span>🛒</span></div>
+        <div class="container hero2-inner">
+          <span class="hero2-kicker">🧰 Online Store</span>
+          <p class="hero2-title">GES Marketim — Solar Online Store</p>
+          <p class="hero2-sub">Panels, batteries, inverters and accessories: hundreds of solar products from stock, shipped across Türkiye.</p>
+          <div class="hero2-cta"><a class="btn btn-lg" href="https://www.gesmarketim.com" target="_blank" rel="noopener">gesmarketim.com ↗</a></div>
+        </div>
+      </div>
+      <button class="hero2-arrow prev" type="button" aria-label="Previous slide">‹</button>
+      <button class="hero2-arrow next" type="button" aria-label="Next slide">›</button>
+      <div class="hero-dots" role="tablist" aria-label="Showcase slides"></div>
     </section>
 
     <!-- GÜVEN ŞERİDİ -->

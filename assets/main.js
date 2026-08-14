@@ -1462,12 +1462,14 @@
     });
   }
 
-  /* ---- Ana sayfa hero vitrini — dönen tanıtım (GES/su ısıtıcı/cankurtaran/e-mağaza) ---- */
+  /* ---- Ana sayfa hero vitrini — tam genişlik dönen tanıtım (hero2) ---- */
   (function () {
     var show = $("#heroShow"); if (!show) return;
-    var slides = $$(".hero-slide", show);
+    var slides = $$(".hero2-slide, .hero-slide", show);
     var dotsWrap = $(".hero-dots", show);
     if (slides.length < 2 || !dotsWrap) return;
+    // Azaltılmış harekette SMIL simülasyonu da durdurulur
+    if (REDUCED) $$("svg", show).forEach(function (sv) { if (sv.pauseAnimations) sv.pauseAnimations(); });
     var idx = 0, timer = null;
     slides.forEach(function (_, i) {
       var b = doc.createElement("button");
@@ -1483,9 +1485,13 @@
       slides.forEach(function (s, j) { s.classList.toggle("is-on", j === idx); });
       dots.forEach(function (d, j) { d.classList.toggle("is-on", j === idx); });
     }
-    function start() { if (!REDUCED && !timer) timer = setInterval(function () { go(idx + 1); }, 5500); }
+    var ms = (CFG.hero && CFG.hero.intervalMs) || 5000;
+    function start() { if (!REDUCED && !timer) timer = setInterval(function () { go(idx + 1); }, ms); }
     function stop() { clearInterval(timer); timer = null; }
     function restart() { stop(); start(); }
+    $$(".hero2-arrow", show).forEach(function (b) {
+      b.addEventListener("click", function () { go(idx + (b.classList.contains("next") ? 1 : -1)); restart(); });
+    });
     show.addEventListener("mouseenter", stop);
     show.addEventListener("mouseleave", start);
     show.addEventListener("focusin", stop);
