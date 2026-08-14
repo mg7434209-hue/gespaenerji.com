@@ -1462,6 +1462,37 @@
     });
   }
 
+  /* ---- Ana sayfa hero vitrini — dönen tanıtım (GES/su ısıtıcı/cankurtaran/e-mağaza) ---- */
+  (function () {
+    var show = $("#heroShow"); if (!show) return;
+    var slides = $$(".hero-slide", show);
+    var dotsWrap = $(".hero-dots", show);
+    if (slides.length < 2 || !dotsWrap) return;
+    var idx = 0, timer = null;
+    slides.forEach(function (_, i) {
+      var b = doc.createElement("button");
+      b.type = "button";
+      b.setAttribute("aria-label", L("Tanıtım", "Slide", "Folie", "Слайд") + " " + (i + 1));
+      if (i === 0) b.className = "is-on";
+      b.addEventListener("click", function () { go(i); restart(); });
+      dotsWrap.appendChild(b);
+    });
+    var dots = $$("button", dotsWrap);
+    function go(i) {
+      idx = (i + slides.length) % slides.length;
+      slides.forEach(function (s, j) { s.classList.toggle("is-on", j === idx); });
+      dots.forEach(function (d, j) { d.classList.toggle("is-on", j === idx); });
+    }
+    function start() { if (!REDUCED && !timer) timer = setInterval(function () { go(idx + 1); }, 5500); }
+    function stop() { clearInterval(timer); timer = null; }
+    function restart() { stop(); start(); }
+    show.addEventListener("mouseenter", stop);
+    show.addEventListener("mouseleave", start);
+    show.addEventListener("focusin", stop);
+    show.addEventListener("focusout", start);
+    start();
+  })();
+
   /* ---- Müşteri yorumları slider ---- */
   var track = $("#testiTrack");
   var dotsWrap = $("#testiDots");

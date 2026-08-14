@@ -36,6 +36,8 @@ window.GESPA.config = {
     rating: { value: null, count: null }, // GERÇEK Google yorum ortalaması/sayısı girilince aggregateRating eklenir (uydurma değer GİRMEYİN)
     geo: { lat: null, lng: null },        // kesin koordinat girilince schema'ya eklenir
     sameAs: [],                           // gerçek sosyal medya URL'leri (LinkedIn/Instagram/X) eklenince doldurun
+    // Solar e-mağazamız (ayrı site; Google Ads trafiği alır) — vitrin/footer linkleri
+    shop: { name: "GES Marketim", url: "https://www.gesmarketim.com" },
     // Vitrin istatistikleri — TEK KAYNAK (build data-stat öğelerine basar)
     stats: { projects: 500, installedMw: 15, experienceYears: 20, warrantyYears: 25, satisfactionPct: 98 }
   },
