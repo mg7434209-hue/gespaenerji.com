@@ -14,11 +14,15 @@ klasik Pages yayını için **repoda tutulur** — kaynak değişince `node buil
 çalıştırıp çıktıyı da commit'le.
 
 Sayfalar (her biri kök dizinde, `.html` uzantılı):
-`index.html` (hero'da dönen vitrin `#heroShow`: GES foto → su ısıtıcı →
-cankurtaran → GES Marketim e-mağaza; ilk slayt LCP'dir — `fetchpriority`
-korunur, diğerleri lazy; döngü main.js'te, azaltılmış harekette otomatik
-dönmez. E-mağaza linkleri: `config.company.shop` kaydı; hero slaytı,
-urunler şeridi ve TÜM footer'lardaki "GES Marketim (E-Mağaza) ↗") ·
+`index.html` (tam-genişlik hero slider `.hero2`, 5 slayt: GES foto →
+canlı SVG enerji simülasyonu (`.hero2-sim`: panel→inverter→ev/batarya/şebeke
+akışı, SMIL `animateMotion` noktalar; azaltılmış harekette main.js
+`pauseAnimations()` çağırır) → su ısıtıcı → AI cankurtaran → GES Marketim
+e-mağaza. İlk slayt LCP'dir — `fetchpriority` + preload korunur, diğer
+görseller lazy; döngü main.js hero IIFE'sinde, süre `config.hero.intervalMs`,
+ok/nokta kontrolleri var, azaltılmış harekette otomatik dönmez. E-mağaza
+linkleri: `config.company.shop` kaydı; hero slaytı, urunler şeridi ve TÜM
+footer'lardaki "GES Marketim (E-Mağaza) ↗") ·
 `hizmetler.html` · `urunler.html` (paket vitrini; yalnız 2 kit) ·
 `paket-285w.html` `paket-2x540w.html` (e-ticaret ürün sayfası: solda galeri
 `#pgMain`+`.prod-thumbs`, sağda satın alma kutusu `.buy-box` — ürün kodu, stok,
@@ -49,10 +53,15 @@ formu main.js toptan IIFE'sinde; stok değişince config.b2b.stock güncelle +
 Ayrıca `admin.html`: fiyat yönetim paneli (menüde yok, robots'ta engelli,
 build PAGES listesine EKLENMEZ). Her sayfa: ortak header/footer, aktif menü
 vurgusu, breadcrumb, sayfaya özel SEO başlığı/canonical/Open Graph içerir.
-Nav menü: Ana Sayfa · Hizmetler · Ürünler · Toptan · Yeni Teknolojiler (açılır grup:
-AI Cankurtaran + Solar Su Isıtıcı) · Araçlar (açılır grup: Tasarruf Hesaplayıcı +
-Sistem Kurucu) · Projeler · Hakkımızda · Teklif Al — yeni sayfa eklenince TÜM
-sayfalarda güncelle (menü 1180px altında hamburger'a düşer).
+Nav menü (teknoloji firması yapısı): Ana Sayfa · Solar Sistemler (açılır grup:
+Çatı & Arazi GES Kurulumu → hizmetler.html + Paket Ürünler → urunler.html +
+Tarımsal Sulama + Solar Su Isıtıcı + Toptan Satış (B2B) + GES Marketim
+(E-Mağaza) ↗ dış link) · AI Teknolojileri (açılır grup: AI Cankurtaran Destek
+Sistemi) · Araçlar (açılır grup: Tasarruf Hesaplayıcı + Sistem Kurucu) ·
+Projeler · Hakkımızda · Teklif Al. Paket detay/sepet sayfalarında "Paket
+Ürünler" aktif işaretlenir; alt sayfa aktifken üst `menu-parent` de ` active`
+alır. Yeni sayfa eklenince TÜM sayfalarda güncelle (toplu değişiklik için
+scratchpad `nav2.py` deseni; menü 1180px altında hamburger'a düşer).
 
 ## Sistem Kurucu (`sistem-kur.html` · `assets/builder.js`)
 "İhtiyaçtan siparişe" 5 adımlı sihirbaz: kullanım senaryosu → cihaz listesi
