@@ -186,6 +186,10 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   fotoğrafları OEM marka (sino spring / LEXRUN / CIWA) taşır; `tools/marka-logo.py`
   bunu bulup yüzeyi doldurur ve aynı açı/tonda GESPA yazar (`--uygula` yazar,
   `-thumb` türevlerini de yeniler). Yeni foto gelince TARGETS'a satır ekle.
+- Tedarikçiden gelen HAM fotoğraflar `assets/img/products/kaynak/` altında durur;
+  `tools/foto-hazirla.py` bunları kırpar (kenar artefaktı/siyah şerit), OEM
+  yazısını GESPA ile değiştirir ve yayın `.webp` türevini üretir — işler JOBS
+  listesindedir (`--uygula` yazar). Kaynak dosyayı SİLME, yeniden üretilebilsin.
 - Açık/koyu tema, mobil menü, scroll animasyonları `assets/main.js` ile yönetilir;
   yeni DOM'lar `.reveal` ve `data-count` desenlerini kullanabilir.
 - Ziyaretçi sayacı: footer'daki `.visit-counter` rozetini main.js enjekte eder
