@@ -182,6 +182,10 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   `detay-*` yakın planlar, `baglanti-semasi.webp` (+`-900`) montaj şeması,
   `og-su-isitici.jpg` paylaşım görseli). Küçük resim →
   ana görsel geçişi `#pgMain` / `.prod-thumbs` ile; JS yokken bağlantı görseli açar.
+- Ürün fotoğraflarında gövde üzerindeki yazı markası **GESPA**'dır. Tedarikçi
+  fotoğrafları OEM marka (sino spring / LEXRUN / CIWA) taşır; `tools/marka-logo.py`
+  bunu bulup yüzeyi doldurur ve aynı açı/tonda GESPA yazar (`--uygula` yazar,
+  `-thumb` türevlerini de yeniler). Yeni foto gelince TARGETS'a satır ekle.
 - Açık/koyu tema, mobil menü, scroll animasyonları `assets/main.js` ile yönetilir;
   yeni DOM'lar `.reveal` ve `data-count` desenlerini kullanabilir.
 - Ziyaretçi sayacı: footer'daki `.visit-counter` rozetini main.js enjekte eder
