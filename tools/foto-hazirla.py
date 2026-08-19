@@ -37,6 +37,16 @@ JOBS = [
         "quality": 86,
     },
     {
+        # Ana sayfa "Güneşten Bedava Sıcak Su" seridi: yayin dosyasindan
+        # 1.3:1 manzara kirpma (feature-img object-fit:cover ile calisir).
+        # NOT: `from` isi, kendinden ONCE uretilen isin BELLEKTEKI sonucunu
+        # okur (webp'yi yeniden acmaz — cift sikistirma olmaz).
+        "from": "pv-su-isitici-urun.webp",
+        "out": "pv-su-isitici-ana.webp",
+        "crop": (0, 129, 850, 783),
+        "quality": 86,
+    },
+    {
         # Banyoda duvara monte tank. Ust kenardaki siyah serit kirpilir;
         # govdedeki OEM yazi markasi silinip yerine GESPA yazilir.
         "src": "banyo-duvar.png",
@@ -46,6 +56,9 @@ JOBS = [
         "quality": 84,
     },
 ]
+
+
+DONE = {}
 
 
 def erase(arr, box):
@@ -74,7 +87,11 @@ def stamp(arr, cx, cy, w, ang, tone):
 
 
 def run(job, write):
-    im = Image.open(SRC + job["src"]).convert("RGB").crop(job["crop"])
+    if "from" in job:
+        label, base = job["from"], DONE[job["from"]]
+    else:
+        label, base = job["src"], Image.open(SRC + job["src"]).convert("RGB")
+    im = base.crop(job["crop"])
     arr = np.asarray(im, dtype=np.float64).copy()
     for b in job.get("erase", []):
         arr = erase(arr, b)
@@ -87,7 +104,8 @@ def run(job, write):
         arr, info = swap(arr, s)
         print(f"  OEM yazi degistirildi: {info}")
     res = Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8))
-    print(f"{job['src']} -> {job['out']}  {res.size}")
+    DONE[job["out"]] = res
+    print(f"{label} -> {job['out']}  {res.size}")
     if write:
         res.save(OUT + job["out"], "WEBP", quality=job["quality"], method=6)
     return res
