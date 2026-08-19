@@ -175,9 +175,107 @@
             <p>Risk algılandığında cankurtaranların akıllı saatlerine titreşimli uyarı, havuz başına sesli-ışıklı alarm ve kontrol paneline olayın konum görüntüsü iletilir. Cankurtaran nereye bakacağını değil, nereye atlayacağını bilir.</p>
           </div>
         </div>
-        <div class="pool-flow reveal">
-          <img src="assets/img/products/cankurtaran/akis-diyagrami.svg" alt="Kamera, yapay zekâ sunucusu ve alarm birimlerinden oluşan sistem şeması" width="1600" height="600" loading="lazy" decoding="async" />
-        </div>
+        <figure class="pool-sim reveal">
+          <svg class="ps" viewBox="0 0 940 470" role="img" aria-labelledby="psTitle">
+            <title id="psTitle">Simülasyon: kamera havuzu tarar, yapay zekâ riskli yüzücüyü işaretler, alarm cankurtaranın saatine ve sirene gider</title>
+            <defs>
+              <linearGradient id="psBg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#0a2a43"/><stop offset="1" stop-color="#123b5c"/>
+              </linearGradient>
+              <linearGradient id="psWater" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#12608a"/><stop offset="1" stop-color="#17a8c4"/>
+              </linearGradient>
+              <linearGradient id="psCone" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#7fd6e8" stop-opacity=".55"/><stop offset="1" stop-color="#7fd6e8" stop-opacity="0"/>
+              </linearGradient>
+              <clipPath id="psPoolClip"><rect x="28" y="84" width="548" height="296" rx="24"/></clipPath>
+            </defs>
+            <rect width="940" height="470" fill="url(#psBg)"/>
+
+            <rect x="28" y="84" width="548" height="296" rx="24" fill="url(#psWater)" opacity=".9"/>
+            <g clip-path="url(#psPoolClip)">
+              <g stroke="#bdf0fb" stroke-opacity=".22" stroke-width="3" fill="none" stroke-linecap="round">
+                <path class="ps-wave" d="M20 150q34-16 68 0t68 0 68 0 68 0 68 0 68 0 68 0 68 0 68 0 68 0"/>
+                <path class="ps-wave w2" d="M20 240q34-16 68 0t68 0 68 0 68 0 68 0 68 0 68 0 68 0 68 0 68 0"/>
+                <path class="ps-wave w3" d="M20 330q34-16 68 0t68 0 68 0 68 0 68 0 68 0 68 0 68 0 68 0 68 0"/>
+              </g>
+              <path class="ps-cone" d="M96 36 470 300 300 380Z" fill="url(#psCone)"/>
+            </g>
+
+            <path d="M74 46V84" stroke="#7fd6e8" stroke-width="4" stroke-linecap="round"/>
+            <rect x="48" y="22" width="46" height="26" rx="8" fill="#0a2a43" stroke="#7fd6e8" stroke-width="2"/>
+            <circle class="ps-lens" cx="98" cy="36" r="8" fill="#17a8c4"/>
+            <text class="ps-cap" x="52" y="14">Kamera</text>
+
+            <g transform="translate(120,150)"><g class="ps-sw s1">
+              <rect class="ps-box" x="-30" y="-20" width="60" height="40" rx="8"/>
+              <ellipse cx="2" cy="0" rx="13" ry="8" fill="#fdf9f2" opacity=".95"/><circle cx="-14" cy="0" r="6" fill="#fdf9f2"/>
+            </g></g>
+            <g transform="translate(380,130)"><g class="ps-sw s2">
+              <rect class="ps-box" x="-30" y="-20" width="60" height="40" rx="8"/>
+              <ellipse cx="2" cy="0" rx="13" ry="8" fill="#fdf9f2" opacity=".95"/><circle cx="-14" cy="0" r="6" fill="#fdf9f2"/>
+            </g></g>
+            <g transform="translate(150,320)"><g class="ps-sw s3">
+              <rect class="ps-box" x="-30" y="-20" width="60" height="40" rx="8"/>
+              <ellipse cx="2" cy="0" rx="13" ry="8" fill="#fdf9f2" opacity=".95"/><circle cx="-14" cy="0" r="6" fill="#fdf9f2"/>
+            </g></g>
+            <g transform="translate(420,252)"><g class="ps-sw ps-risk">
+              <circle class="ps-ring" cx="0" cy="0" r="34" fill="none" stroke="#f4523b" stroke-width="3"/>
+              <rect class="ps-box ps-box-risk" x="-30" y="-20" width="60" height="40" rx="8"/>
+              <ellipse cx="2" cy="0" rx="13" ry="8" fill="#fdf9f2" opacity=".95"/><circle cx="-14" cy="0" r="6" fill="#fdf9f2"/>
+              <text class="ps-risktag" x="0" y="-46" text-anchor="middle">RİSK</text>
+            </g></g>
+
+            <path class="ps-sig s-a" d="M398 244C470 216 546 190 622 166" fill="none" stroke="#7fd6e8" stroke-width="3.5" stroke-linecap="round"/>
+            <path class="ps-sig s-b" d="M700 200C700 226 694 238 688 250" fill="none" stroke="#f4523b" stroke-width="3.5" stroke-linecap="round"/>
+            <path class="ps-sig s-c" d="M806 196C838 218 854 244 860 266" fill="none" stroke="#f4523b" stroke-width="3.5" stroke-linecap="round"/>
+
+            <rect x="630" y="104" width="182" height="92" rx="16" fill="#123b5c" stroke="#17a8c4" stroke-width="2"/>
+            <rect x="648" y="122" width="46" height="46" rx="11" fill="#0a2a43" stroke="#7fd6e8" stroke-width="2"/>
+            <text class="ps-ai" x="671" y="154" text-anchor="middle">AI</text>
+            <g fill="#17a8c4">
+              <rect class="ps-bar" x="710" y="124" width="84" height="11" rx="5.5"/>
+              <rect class="ps-bar b2" x="710" y="144" width="84" height="11" rx="5.5"/>
+              <rect class="ps-bar b3" x="710" y="164" width="84" height="11" rx="5.5"/>
+            </g>
+            <text class="ps-cap" x="721" y="92" text-anchor="middle">Yerel sunucu</text>
+
+            <rect x="666" y="246" width="34" height="22" rx="8" fill="#0a2a43"/>
+            <rect x="666" y="330" width="34" height="22" rx="8" fill="#0a2a43"/>
+            <rect x="644" y="262" width="78" height="72" rx="18" fill="#0a2a43" stroke="#7fd6e8" stroke-width="2"/>
+            <rect class="ps-screen" x="652" y="270" width="62" height="56" rx="12"/>
+            <g class="ps-alarmicon">
+              <path d="M683 284v18" stroke="#fff" stroke-width="5" stroke-linecap="round"/><circle cx="683" cy="311" r="3" fill="#fff"/>
+            </g>
+            <g class="ps-vib" stroke="#f4523b" stroke-width="3" fill="none" stroke-linecap="round">
+              <path d="M632 284a16 16 0 0 0 0 28M622 276a26 26 0 0 0 0 44M734 284a16 16 0 0 1 0 28M744 276a26 26 0 0 1 0 44"/>
+            </g>
+            <text class="ps-cap" x="683" y="372" text-anchor="middle">Cankurtaran saati</text>
+
+            <circle class="ps-halo" cx="863" cy="282" r="34" fill="none" stroke="#f4523b" stroke-width="3"/>
+            <rect x="858" y="300" width="10" height="44" fill="#123b5c"/>
+            <path class="ps-siren" d="M840 296a23 23 0 0 1 46 0z" fill="#f4523b"/>
+            <rect x="836" y="296" width="54" height="12" rx="4" fill="#0a2a43" stroke="#7fd6e8" stroke-width="2"/>
+            <text class="ps-cap ps-cap-siren" x="863" y="372" text-anchor="middle">Sesli-ışıklı alarm</text>
+
+            <g class="ps-step st1">
+              <rect x="28" y="404" width="280" height="44" rx="22"/>
+              <text class="ps-num" x="56" y="433" text-anchor="middle">1</text>
+              <text class="ps-lbl" x="78" y="433">İzleniyor</text>
+            </g>
+            <g class="ps-step st2">
+              <rect x="324" y="404" width="280" height="44" rx="22"/>
+              <text class="ps-num" x="352" y="433" text-anchor="middle">2</text>
+              <text class="ps-lbl" x="374" y="433">Risk analizi</text>
+            </g>
+            <g class="ps-step st3">
+              <rect x="620" y="404" width="292" height="44" rx="22"/>
+              <text class="ps-num" x="648" y="433" text-anchor="middle">3</text>
+              <text class="ps-lbl" x="670" y="433">Alarm</text>
+            </g>
+          </svg>
+          <figcaption>Şematik canlı gösterimdir; gerçek tespit kaydı için yukarıdaki videoya bakın.</figcaption>
+        </figure>
       </div>
     </section>
     <!-- CANKURTARAN + SİSTEM: BİR BAKIŞTA -->

@@ -14,13 +14,21 @@ klasik Pages yayını için **repoda tutulur** — kaynak değişince `node buil
 çalıştırıp çıktıyı da commit'le.
 
 Sayfalar (her biri kök dizinde, `.html` uzantılı):
-`index.html` (tam-genişlik hero slider `.hero2`, 5 slayt: GES foto →
-canlı SVG enerji simülasyonu (`.hero2-sim`: panel→inverter→ev/batarya/şebeke
-akışı, SMIL `animateMotion` noktalar; azaltılmış harekette main.js
-`pauseAnimations()` çağırır) → su ısıtıcı → AI cankurtaran → GES Marketim
-e-mağaza. İlk slayt LCP'dir — `fetchpriority` + preload korunur, diğer
-görseller lazy; döngü main.js hero IIFE'sinde, süre `config.hero.intervalMs`,
-ok/nokta kontrolleri var, azaltılmış harekette otomatik dönmez. E-mağaza
+`index.html` (tam-genişlik hero slider `.hero2`, 5 slayt: PV enerji sahnesi →
+GES foto → su ısıtıcı → AI cankurtaran → GES Marketim e-mağaza.
+1. slayt `.hero2-pv`: solda metin, sağda inline SVG sahne (`.pv-*`) —
+güneş → panel → DC → inverter/batarya → AC 220V → ev; tümü CSS animasyonu
+(SMIL yok), azaltılmış harekette `.hero2-pv .pv-scene *{animation:none}`.
+Tema değişkenlerini kullanır, koyu temada da doğru görünür. Sayfanın TEK `<h1>`'i
+bu slayttadır (diğer slaytlar `<p class="hero2-title">`) — gizli slayttaki h1
+erişilebilirlik ağacına girmiyordu. Hero fotoğrafı 2. slayt: `loading="lazy"`,
+preload YOK. Otomatik döngü İLK KULLANICI ETKİLEŞİMİNDE başlar (main.js hero
+IIFE, `engage()`): karusel kendiliğinden tam ekran fotoğrafa geçerse o boyama
+LCP adayı olup metriği ~0,2 sn'den ~5 sn'ye çıkarıyordu. Süre
+`config.hero.intervalMs`, ok/nokta kontrolleri var, azaltılmış harekette
+otomatik dönmez. Slaytlar tek grid hücresinde üst üste durur — bölüm yüksekliği
+en uzun slayta göre sabit, dile göre zıplama olmaz. Açık zeminli 1. slayt
+aktifken nokta/oklar `.hero2-pv.is-on ~ ...` ile koyulaştırılır. E-mağaza
 linkleri: `config.company.shop` kaydı; hero slaytı, urunler şeridi ve TÜM
 footer'lardaki "GES Marketim (E-Mağaza) ↗") ·
 `hizmetler.html` · `urunler.html` (paket vitrini; yalnız 2 kit) ·
@@ -40,6 +48,14 @@ rozeti main.js'in `.nav-actions`a enjekte ettiği istemci bileşenidir, sayfalar
 elle eklenmez. Sipariş WhatsApp mesajına çok kalemli döküm yazılır) ·
 `su-isitici.html` (PV su ısıtıcı) · `ai-cankurtaran-destek-sistemi.html`
 (havuz güvenliği; lacivert/aqua `pool-*` stilleri, form → WhatsApp lead;
+"Nasıl çalışır?" bölümünün sonunda canlı simülasyon `.pool-sim` — inline SVG,
+10 sn'lik döngü: izleniyor (0-42%) → risk analizi (42-62%) → alarm (62-100%);
+kamera taraması, yüzücü takip kutuları, riskli yüzücünün kırmızıya dönmesi,
+saat + sirene giden sinyal ve alttaki 3 adım şeridi. TÜM animasyonlar aynı
+10 sn'yi paylaşır — evre yüzdelerini değiştirirsen hepsini birlikte değiştir;
+azaltılmış harekette `.pool-sim *{animation:none!important}` ile alarm karesi
+sabit kalır. Etiketler `<text>` ve i18n DICT'ten çevrilir (4 dilde kutuya
+sığdığını doğrula). Eski statik şema `akis-diyagrami.svg` repoda duruyor;
 gerçek tespit videosu `assets/video/cankurtaran-ai-tespit.mp4` + poster —
 `#canli` bölümü, VideoObject JSON-LD sayfada statik; server.js mp4'e Range/206
 verir; video/poster yolları build'de mutlaklaştırılır: href|src|poster) ·

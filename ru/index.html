@@ -38,7 +38,6 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" /></noscript>
   <link rel="stylesheet" href="/assets/style.css" />
   <!-- LCP hero görselini erken yükle (WebP öncelikli) -->
-  <link rel="preload" as="image" type="image/webp" imagesrcset="/assets/img/hero-640.webp 640w, /assets/img/hero-960.webp 960w, /assets/img/hero.webp 1600w" imagesizes="(max-width: 980px) 100vw, 640px" fetchpriority="high" />
   <!-- LocalBusiness JSON-LD, assets/config.js + main.js tarafından enjekte edilir -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Как выбрать надёжную солнечную компанию в Манавгате?","acceptedAnswer":{"@type":"Answer","text":"Выбирайте компании «под ключ» (инжиниринг, монтаж, финансирование и сервис из одних рук), с бесплатным выездом, фирменными гарантиями на панели и инверторы, референс-проектами и местной командой. GESPA Enerji из Манавгата/Антальи предоставляет всё это под ключ."}},{"@type":"Question","name":"В каких регионах работает GESPA Enerji?","acceptedAnswer":{"@type":"Answer","text":"Мы из Манавгата: работаем в Сиде, Анталье, Алании, Серике, Газипаше и окрестностях; по запросу — крышные и наземные СЭС и солнечный полив по всей Турции."}},{"@type":"Question","name":"За сколько лет окупается солнечная электростанция?","acceptedAnswer":{"@type":"Answer","text":"Tüketim profili, bölge ve elektrik fiyatına göre tipik olarak 3–6 yıl arasında değişir. GESPA Enerji'nin ücretsiz online hesaplayıcısıyla çatınıza özel geri ödeme süresini saniyeler içinde tahmin edebilirsiniz."}},{"@type":"Question","name":"Что нужно, чтобы установить солнечные панели на крыше в Манавгате?","acceptedAnswer":{"@type":"Answer","text":"GESPA Enerji'den ücretsiz keşif talep etmeniz yeterlidir. Saha incelemesi, üretim simülasyonu ve geri ödeme süresiyle net bir teklif hazırlanır; ardından anahtar teslim kurulum yapılır."}}]}</script>
 
@@ -98,12 +97,86 @@
   <main id="main">
     <!-- HERO -->
     <section class="hero2" id="heroShow" aria-roledescription="carousel" aria-label="Главное">
-      <div class="hero2-slide is-on">
-        <picture class="hero2-bg"><source type="image/webp" srcset="/assets/img/hero-640.webp 640w, /assets/img/hero-960.webp 960w, /assets/img/hero.webp 1600w" sizes="100vw" /><img src="/assets/img/hero.jpg" alt="GESPA Enerji — sahada güneş enerjisi santrali" width="1600" height="1200" fetchpriority="high" decoding="async" /></picture>
+      <div class="hero2-slide hero2-pv is-on">
+        <div class="container hero2-inner">
+          <div class="hero2-pv-text">
+            <span class="hero2-kicker">⚡ Живая симуляция</span>
+            <h1 class="hero2-title">От солнца до розетки: так течёт ваша энергия</h1>
+            <p class="hero2-sub">От панели к инвертору, от батареи в сеть. Соберите систему под свои приборы и сразу узнайте цену.</p>
+            <div class="hero2-cta">
+              <a class="btn btn-lg" href="sistem-kur.html">Открыть конфигуратор</a>
+              <a class="btn btn-lg btn-light2" href="hesaplayici.html">Калькулятор экономии</a>
+            </div>
+          </div>
+          <svg class="pv-scene" viewBox="0 0 660 400" role="img" aria-labelledby="pvSceneTitle">
+            <title id="pvSceneTitle">Поток энергии от солнца к дому: солнце, панель, линия DC, инвертор, аккумулятор, AC 220 В и дом</title>
+            <defs>
+              <radialGradient id="pvSunGlow" cx=".5" cy=".5" r=".5">
+                <stop offset="0" stop-color="#f7b500" stop-opacity=".45"/><stop offset="1" stop-color="#f7b500" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="pvCell" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#2f6497"/><stop offset="1" stop-color="#1b3a5c"/>
+              </linearGradient>
+              <clipPath id="pvPanelClip"><rect x="116" y="182" width="188" height="118" rx="6"/></clipPath>
+            </defs>
+
+            <ellipse class="pv-ground" cx="340" cy="356" rx="300" ry="17"/>
+            <line class="pv-hairline" x1="40" y1="352" x2="640" y2="352" stroke-width="2" stroke-linecap="round"/>
+
+            <circle cx="86" cy="82" r="64" fill="url(#pvSunGlow)"/>
+            <g class="pv-rays" stroke="#f7b500" stroke-width="5" stroke-linecap="round">
+              <path d="M126 82h14M120.6 102l12.2 7M106 116.6l7 13.2M86 122v14M66 116.6l-7 13.2M51.4 102l-12.2 7M46 82H32M51.4 62l-12.2-7M66 47.4l-7-13.2M86 42V28M106 47.4l7-13.2M120.6 62l12.2-7"/>
+            </g>
+            <circle class="pv-sun" cx="86" cy="82" r="30" fill="#f7b500"/>
+
+            <path class="pv-flow" d="M124 118 Q160 152 190 178" stroke="#f7b500" stroke-width="3.5" opacity=".85"/>
+
+            <g class="pv-leg" stroke-width="6" stroke-linecap="round"><path d="M158 304v48M262 304v48"/></g>
+            <rect class="pv-frame" x="112" y="178" width="196" height="126" rx="10"/>
+            <rect x="116" y="182" width="188" height="118" rx="6" fill="url(#pvCell)"/>
+            <g stroke="#ffffff" stroke-opacity=".26" stroke-width="2">
+              <path d="M147 182v118M178 182v118M210 182v118M241 182v118M272 182v118M116 221h188M116 261h188"/>
+            </g>
+            <g clip-path="url(#pvPanelClip)"><rect class="pv-sweep" x="100" y="170" width="40" height="142" fill="#ffffff" opacity="0"/></g>
+
+            <path class="pv-flow" d="M208 306 C208 342 272 336 322 330" stroke="#2b9fd0" stroke-width="3.5"/>
+            <text class="pv-tag pv-tag-dc" x="298" y="318" text-anchor="middle">DC</text>
+
+            <rect class="pv-box" x="324" y="288" width="44" height="64" rx="7"/>
+            <rect x="332" y="296" width="28" height="16" rx="3" fill="#2b9fd0" opacity=".85"/>
+            <circle class="pv-led" cx="336" cy="324" r="3.5" fill="#1b9c73"/>
+            <circle class="pv-led d2" cx="348" cy="324" r="3.5" fill="#f7b500"/>
+            <rect x="332" y="334" width="28" height="11" rx="2" fill="#1b9c73" opacity=".85"/>
+            <rect x="334" y="336" width="16" height="7" rx="1" fill="#ffffff" opacity=".5"/>
+
+            <rect class="pv-term" x="398" y="300" width="14" height="7" rx="2.5"/>
+            <rect class="pv-box" x="384" y="306" width="42" height="46" rx="6"/>
+            <g fill="#1b9c73">
+              <rect x="391" y="338" width="28" height="7" rx="2.5"/>
+              <rect x="391" y="328" width="28" height="7" rx="2.5" opacity=".72"/>
+              <rect class="pv-chg" x="391" y="318" width="28" height="7" rx="2.5"/>
+            </g>
+
+            <path class="pv-flow" d="M368 302 C392 286 420 282 446 294" stroke="#1b9c73" stroke-width="3.5"/>
+            <text class="pv-tag pv-tag-ac" x="408" y="264" text-anchor="middle">AC</text>
+            <text class="pv-tag pv-tag-ac pv-tag-sm" x="408" y="276" text-anchor="middle">220V</text>
+
+            <polygon class="pv-roof" points="434,248 528,168 622,248"/>
+            <polygon class="pv-roof2" points="448,240 528,174 608,240"/>
+            <rect class="pv-box" x="448" y="244" width="160" height="108" rx="5"/>
+            <rect class="pv-win" x="472" y="270" width="36" height="36" rx="4" fill="#f7b500"/>
+            <g stroke="#ffffff" stroke-width="2"><path d="M490 270v36M472 288h36"/></g>
+            <rect class="pv-door" x="554" y="300" width="34" height="52" rx="3"/>
+            <circle class="pv-knob" cx="562" cy="328" r="2.6"/>
+          </svg>
+        </div>
+      </div>
+      <div class="hero2-slide">
+        <picture class="hero2-bg"><source type="image/webp" srcset="/assets/img/hero-640.webp 640w, /assets/img/hero-960.webp 960w, /assets/img/hero.webp 1600w" sizes="100vw" /><img src="/assets/img/hero.jpg" alt="GESPA Enerji — sahada güneş enerjisi santrali" width="1600" height="1200" loading="lazy" decoding="async" /></picture>
         <div class="hero2-shade" aria-hidden="true"></div>
         <div class="container hero2-inner">
           <span class="hero2-kicker">Солнечные электростанции под ключ</span>
-          <h1 id="heroTitle" data-i18n-html>Энергия солнца, превращённая в <span class="hl">прибыль</span>.</h1>
+          <p class="hero2-title" id="heroTitle" data-i18n-html>Энергия солнца, превращённая в <span class="hl">прибыль</span>.</p>
           <p class="hero2-sub">Крышные и наземные СЭС: инжиниринг, монтаж, финансирование и обслуживание — всё из одних рук.</p>
           <div class="hero2-cta">
             <a class="btn btn-lg" href="hesaplayici.html">Рассчитать экономию</a>
@@ -114,86 +187,6 @@
             <li><strong data-stat="installedMw" data-count="15" data-suffix=" MW">15 MW</strong><span>Установленная мощность</span></li>
             <li><strong data-stat="experienceYears" data-count="20" data-suffix="+ yıl">20+ yıl</strong><span>Опыт в отрасли</span></li>
           </ul>
-        </div>
-      </div>
-      <div class="hero2-slide hero2-sim">
-        <svg class="sim-svg" viewBox="0 0 1440 620" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                <defs>
-                  <linearGradient id="simSky" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stop-color="#062e22"/><stop offset=".55" stop-color="#0a4634"/><stop offset="1" stop-color="#0d5a41"/>
-                  </linearGradient>
-                  <linearGradient id="simPanel" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#123a5e"/><stop offset="1" stop-color="#1c5586"/>
-                  </linearGradient>
-                  <radialGradient id="simSun" cx=".5" cy=".5" r=".5">
-                    <stop offset="0" stop-color="#ffd76a"/><stop offset=".7" stop-color="#f8b500"/><stop offset="1" stop-color="#f8b500" stop-opacity="0"/>
-                  </radialGradient>
-                </defs>
-                <rect width="1440" height="620" fill="url(#simSky)"/>
-                <g class="sim-sun">
-                  <circle cx="150" cy="95" r="105" fill="url(#simSun)" opacity=".3"/>
-                  <circle cx="150" cy="95" r="44" fill="#ffd76a"/>
-                </g>
-                <rect x="0" y="520" width="1440" height="100" fill="#07301f"/>
-                <g class="sim-scene" transform="translate(140,0)">
-                <path class="sim-beam" d="M-40 130 L560 290" stroke="#ffd76a" stroke-width="3" stroke-dasharray="4 14" fill="none" opacity=".6"/>
-                <g>
-                  <rect x="520" y="330" width="330" height="190" rx="6" fill="#0e3a2b"/>
-                  <path d="M500 336 L685 220 L870 336 Z" fill="#0b2f23"/>
-                  <g class="sim-array">
-                    <rect x="545" y="258" width="88" height="56" rx="4" fill="url(#simPanel)" transform="skewX(-18)" stroke="#7fd7c0" stroke-width="1.4"/>
-                    <rect x="645" y="258" width="88" height="56" rx="4" fill="url(#simPanel)" transform="skewX(-18)" stroke="#7fd7c0" stroke-width="1.4"/>
-                    <rect x="745" y="258" width="88" height="56" rx="4" fill="url(#simPanel)" transform="skewX(-18)" stroke="#7fd7c0" stroke-width="1.4"/>
-                  </g>
-                  <rect x="560" y="400" width="54" height="66" rx="6" fill="#ffd76a" opacity=".9" class="sim-window"/>
-                  <rect x="640" y="400" width="54" height="66" rx="6" fill="#ffd76a" opacity=".55" class="sim-window w2"/>
-                  <text x="685" y="558" text-anchor="middle" class="sim-label">Дом</text>
-                </g>
-                <g>
-                  <rect x="905" y="430" width="86" height="92" rx="10" fill="#10422f" stroke="#7fd7c0" stroke-width="1.6"/>
-                  <rect x="922" y="450" width="52" height="8" rx="4" fill="#7fd7c0"/>
-                  <rect x="922" y="466" width="52" height="8" rx="4" fill="#7fd7c0" opacity=".7"/>
-                  <rect x="922" y="482" width="52" height="8" rx="4" fill="#7fd7c0" opacity=".4" class="sim-invled"/>
-                  <text x="948" y="558" text-anchor="middle" class="sim-label">Инвертор</text>
-                </g>
-                <g>
-                  <rect x="1052" y="440" width="120" height="82" rx="12" fill="#10422f" stroke="#9fe3b6" stroke-width="1.6"/>
-                  <rect x="1172" y="462" width="10" height="30" rx="4" fill="#9fe3b6"/>
-                  <rect class="sim-charge c1" x="1066" y="454" width="24" height="54" rx="5" fill="#37c978"/>
-                  <rect class="sim-charge c2" x="1096" y="454" width="24" height="54" rx="5" fill="#37c978"/>
-                  <rect class="sim-charge c3" x="1126" y="454" width="24" height="54" rx="5" fill="#37c978"/>
-                  <text x="1112" y="558" text-anchor="middle" class="sim-label">Аккумулятор</text>
-                </g>
-                <g stroke="#cfe8dd" stroke-width="4" fill="none" opacity=".85">
-                  <path d="M1195 520 L1225 380 L1255 520 M1180 428 L1270 428 M1188 462 L1262 462"/>
-                </g>
-                <text x="1225" y="558" text-anchor="middle" class="sim-label">Сеть</text>
-                <g fill="none" stroke="#2f7c5f" stroke-width="3">
-                  <path id="fPanelInv" d="M800 330 C860 380 880 440 905 470"/>
-                  <path id="fInvHome" d="M905 480 C860 500 780 500 700 468"/>
-                  <path id="fInvBat" d="M991 476 C1010 476 1030 478 1052 480"/>
-                  <path id="fInvGrid" d="M991 500 C1070 542 1120 522 1180 470"/>
-                </g>
-                <g class="sim-dots">
-                  <circle r="6" fill="#ffd76a"><animateMotion dur="2.1s" repeatCount="indefinite"><mpath href="#fPanelInv"/></animateMotion></circle>
-                  <circle r="6" fill="#ffd76a" opacity=".8"><animateMotion dur="2.1s" begin="0.9s" repeatCount="indefinite"><mpath href="#fPanelInv"/></animateMotion></circle>
-                  <circle r="6" fill="#37c978"><animateMotion dur="2.4s" begin="0.3s" repeatCount="indefinite"><mpath href="#fInvHome"/></animateMotion></circle>
-                  <circle r="6" fill="#37c978" opacity=".8"><animateMotion dur="2.4s" begin="1.5s" repeatCount="indefinite"><mpath href="#fInvHome"/></animateMotion></circle>
-                  <circle r="5" fill="#37c978"><animateMotion dur="1.6s" begin="0.6s" repeatCount="indefinite"><mpath href="#fInvBat"/></animateMotion></circle>
-                  <circle r="5" fill="#7fd7c0"><animateMotion dur="3s" begin="0.2s" repeatCount="indefinite"><mpath href="#fInvGrid"/></animateMotion></circle>
-                  <circle r="5" fill="#7fd7c0" opacity=".7"><animateMotion dur="3s" begin="1.7s" repeatCount="indefinite"><mpath href="#fInvGrid"/></animateMotion></circle>
-                </g>
-                </g>
-              </svg>
-        <div class="hero2-shade sim-shade" aria-hidden="true"></div>
-        <div class="container hero2-inner">
-          <span class="hero2-kicker">⚡ Живая симуляция</span>
-          <p class="hero2-title">От солнца до розетки: так течёт ваша энергия</p>
-          <p class="hero2-sub">От панели к инвертору, от батареи в сеть. Соберите систему под свои приборы и сразу узнайте цену.</p>
-          <div class="hero2-cta">
-            <a class="btn btn-lg" href="sistem-kur.html">Открыть конфигуратор</a>
-            <a class="btn btn-lg btn-light2" href="hesaplayici.html">Калькулятор экономии</a>
-          </div>
         </div>
       </div>
       <div class="hero2-slide">

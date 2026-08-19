@@ -1476,7 +1476,7 @@
       b.type = "button";
       b.setAttribute("aria-label", L("Tanıtım", "Slide", "Folie", "Слайд") + " " + (i + 1));
       if (i === 0) b.className = "is-on";
-      b.addEventListener("click", function () { go(i); restart(); });
+      b.addEventListener("click", function () { engage(); go(i); restart(); });
       dotsWrap.appendChild(b);
     });
     var dots = $$("button", dotsWrap);
@@ -1486,11 +1486,21 @@
       dots.forEach(function (d, j) { d.classList.toggle("is-on", j === idx); });
     }
     var ms = (CFG.hero && CFG.hero.intervalMs) || 5000;
-    function start() { if (!REDUCED && !timer) timer = setInterval(function () { go(idx + 1); }, ms); }
+    // Otomatik döngü ilk kullanıcı etkileşimine kadar başlamaz. Sebep: 1. slayt
+    // artık SVG sahne; karusel kendiliğinden tam ekran hero fotoğrafına geçerse
+    // o boyama LCP adayı olup metriği ~0,2 sn'den ~5 sn'ye çıkarıyordu (ölçüldü).
+    // LCP penceresi ilk girdide kapandığı için etkileşimden sonra dönmek güvenli;
+    // ayrıca otomatik hareket kullanıcı istemeden başlamamış olur (WCAG 2.2.2).
+    var engaged = false;
+    function engage() { if (!engaged) { engaged = true; start(); } }
+    function start() { if (!REDUCED && engaged && !timer) timer = setInterval(function () { go(idx + 1); }, ms); }
     function stop() { clearInterval(timer); timer = null; }
     function restart() { stop(); start(); }
+    ["pointerdown", "keydown", "wheel", "touchstart", "scroll"].forEach(function (ev) {
+      window.addEventListener(ev, engage, { once: true, passive: true });
+    });
     $$(".hero2-arrow", show).forEach(function (b) {
-      b.addEventListener("click", function () { go(idx + (b.classList.contains("next") ? 1 : -1)); restart(); });
+      b.addEventListener("click", function () { engage(); go(idx + (b.classList.contains("next") ? 1 : -1)); restart(); });
     });
     show.addEventListener("mouseenter", stop);
     show.addEventListener("mouseleave", start);
