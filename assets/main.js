@@ -650,7 +650,7 @@
         var d = {
           "@context": "https://schema.org", "@type": "Product",
           name: (CFG.heater.name || "Solar Su Isıtma Sistemi") + " — Fotovoltaik Güneş Enerjili Su Isıtıcı",
-          image: web + "/assets/img/products/pv-su-isitici.jpg",
+          image: web + "/assets/img/products/pv-su-isitici-ana.webp",
           description: "Monokristal güneş panelleriyle suyu doğrudan güneş enerjisiyle ısıtan fotovoltaik su ısıtıcı. Akıllı GF-20 kontrol, bulutlu havada otomatik şebeke (AC) desteği, emaye iç tank. 60–200 L kapasite seçenekleri (yatay/dikey).",
           brand: { "@type": "Brand", name: (CFG.company && CFG.company.brandName) || "GESPA Enerji" },
           category: "Solar Water Heater"
