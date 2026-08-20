@@ -38,6 +38,7 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" /></noscript>
   <link rel="stylesheet" href="/assets/style.css" />
   <!-- LCP hero görselini erken yükle (WebP öncelikli) -->
+  <link rel="preload" as="image" type="image/webp" imagesrcset="/assets/img/hero-640.webp 640w, /assets/img/hero-960.webp 960w, /assets/img/hero.webp 1600w" imagesizes="(max-width: 980px) 100vw, 640px" fetchpriority="high" />
   <!-- LocalBusiness JSON-LD, assets/config.js + main.js tarafından enjekte edilir -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do you choose a reliable solar (PV) company in Manavgat?","acceptedAnswer":{"@type":"Answer","text":"Choose companies that deliver turnkey (engineering, installation, financing and maintenance from one source), offer a free site survey, provide brand warranties on panels and inverters, and have reference projects with a local field team. GESPA Enerji, based in Manavgat/Antalya, provides all of these turnkey."}},{"@type":"Question","name":"Which regions does GESPA Enerji serve?","acceptedAnswer":{"@type":"Answer","text":"Based in Manavgat, we serve Side, Antalya, Alanya, Serik, Gazipaşa and the region; rooftop solar, ground-mounted solar and solar irrigation across Türkiye on request."}},{"@type":"Question","name":"How many years does a solar power plant investment take to pay back?","acceptedAnswer":{"@type":"Answer","text":"Tüketim profili, bölge ve elektrik fiyatına göre tipik olarak 3–6 yıl arasında değişir. GESPA Enerji'nin ücretsiz online hesaplayıcısıyla çatınıza özel geri ödeme süresini saniyeler içinde tahmin edebilirsiniz."}},{"@type":"Question","name":"What should I do to install solar panels on my roof in Manavgat?","acceptedAnswer":{"@type":"Answer","text":"GESPA Enerji'den ücretsiz keşif talep etmeniz yeterlidir. Saha incelemesi, üretim simülasyonu ve geri ödeme süresiyle net bir teklif hazırlanır; ardından anahtar teslim kurulum yapılır."}}]}</script>
 
@@ -71,7 +72,7 @@
           </div>
         </div>
         <div class="menu-group">
-          <button class="menu-parent" type="button" aria-haspopup="true" aria-expanded="false"><span>AI Technologies</span> <span class="caret" aria-hidden="true">▾</span></button>
+          <button class="menu-parent" type="button" aria-haspopup="true" aria-expanded="false"><span>Alternative Products</span> <span class="caret" aria-hidden="true">▾</span></button>
           <div class="submenu">
             <a href="ai-cankurtaran-destek-sistemi.html">AI Lifeguard Support System</a>
           </div>
@@ -97,18 +98,119 @@
   <main id="main">
     <!-- HERO -->
     <section class="hero2" id="heroShow" aria-roledescription="carousel" aria-label="Highlights">
-      <div class="hero2-slide hero2-pv is-on">
+      <div class="hero2-slide is-on">
+        <picture class="hero2-bg"><source type="image/webp" srcset="/assets/img/hero-640.webp 640w, /assets/img/hero-960.webp 960w, /assets/img/hero.webp 1600w" sizes="100vw" /><img src="/assets/img/hero.jpg" alt="GESPA Enerji — sahada güneş enerjisi santrali" width="1600" height="1200" fetchpriority="high" decoding="async" /></picture>
+        <div class="hero2-shade" aria-hidden="true"></div>
         <div class="container hero2-inner">
-          <div class="hero2-pv-text">
-            <span class="hero2-kicker">⚡ Live Simulation</span>
-            <h1 class="hero2-title">From sun to socket: this is how your energy flows</h1>
-            <p class="hero2-sub">From panel to inverter, battery to grid. Design your own system around your appliances and price it instantly.</p>
-            <div class="hero2-cta">
-              <a class="btn btn-lg" href="sistem-kur.html">Open the System Builder</a>
-              <a class="btn btn-lg btn-light2" href="hesaplayici.html">Savings Calculator</a>
-            </div>
+          <span class="hero2-kicker">Turnkey Solar Power Plants</span>
+          <h1 id="heroTitle" data-i18n-html>Energy that turns sunshine into <span class="hl">profit</span>.</h1>
+          <p class="hero2-sub">For rooftop and ground-mount solar projects: engineering, installation, financing and maintenance — the whole process from one hand.</p>
+          <div class="hero2-cta">
+            <a class="btn btn-lg" href="iletisim.html">Free Site Survey</a>
+            <a class="btn btn-lg btn-light2" href="hesaplayici.html">Calculate My Savings</a>
           </div>
-          <svg class="pv-scene" viewBox="0 0 660 400" role="img" aria-labelledby="pvSceneTitle">
+          <ul class="hero2-stats">
+            <li><strong data-stat="projects" data-count="500" data-suffix="+">500+</strong><span>Completed Projects</span></li>
+            <li><strong data-stat="installedMw" data-count="15" data-suffix=" MW">15 MW</strong><span>Installed Capacity</span></li>
+            <li><strong data-stat="experienceYears" data-count="20" data-suffix="+ yıl">20+ yıl</strong><span>Industry Experience</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="hero2-slide">
+        <img class="hero2-bg" src="/assets/img/products/pv-su-isitici-villa.webp" alt="Villa çatısında PV güneş enerjili su ısıtıcı" width="1200" height="800" loading="lazy" decoding="async" />
+        <div class="hero2-shade" aria-hidden="true"></div>
+        <div class="container hero2-inner">
+          <span class="hero2-kicker">🔥 New Product</span>
+          <p class="hero2-title">Free Hot Water from the Sun</p>
+          <p class="hero2-sub">PV water heater: heats for free in sunshine, grid takes over automatically on cloudy days. 60–200 litre models.</p>
+          <div class="hero2-cta"><a class="btn btn-lg" href="su-isitici.html">View Product</a></div>
+        </div>
+      </div>
+      <div class="hero2-slide">
+        <img class="hero2-bg" src="/assets/img/products/cankurtaran/video-poster.jpg" alt="Havuzda yapay zekâ tespit görüntüsü — AI Cankurtaran" width="1280" height="720" loading="lazy" decoding="async" />
+        <div class="hero2-shade" aria-hidden="true"></div>
+        <div class="container hero2-inner">
+          <span class="hero2-kicker">🛟 AI Teknolojileri</span>
+          <p class="hero2-title">AI Lifeguard Support System</p>
+          <p class="hero2-sub">Reports a risky moment in the pool to the lifeguard's smartwatch within seconds. For hotel, aquapark and residential pools.</p>
+          <div class="hero2-cta"><a class="btn btn-lg" href="ai-cankurtaran-destek-sistemi.html">Watch the System</a></div>
+        </div>
+      </div>
+      <div class="hero2-slide hero2-shop">
+        <div class="hero2-shopbg" aria-hidden="true"><span>🛒</span></div>
+        <div class="container hero2-inner">
+          <span class="hero2-kicker">🧰 Online Store</span>
+          <p class="hero2-title">GES Marketim — Solar Online Store</p>
+          <p class="hero2-sub">Panels, batteries, inverters and accessories: hundreds of solar products from stock, shipped across Türkiye.</p>
+          <div class="hero2-cta"><a class="btn btn-lg" href="https://www.gesmarketim.com" target="_blank" rel="noopener">gesmarketim.com ↗</a></div>
+        </div>
+      </div>
+      <button class="hero2-arrow prev" type="button" aria-label="Previous slide">‹</button>
+      <button class="hero2-arrow next" type="button" aria-label="Next slide">›</button>
+      <div class="hero-dots" role="tablist" aria-label="Showcase slides"></div>
+    </section>
+
+    <!-- GÜVEN ŞERİDİ -->
+    <section class="trust"><div class="container trust-inner"><span>Equipment brands we work with:</span><div class="trust-logos" id="brandPanels"><span>Arçelik</span><span>Lexron</span><span>Bakırlar</span></div><div class="trust-logos" id="brandInverters"><span>Tescom</span><span>Mexxsun</span><span>Lexron</span><span>Arçelik</span></div></div></section>
+
+    <!-- HİZMETLER ÖNİZLEME -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal"><span class="kicker">Our Services</span><h2>By your side at every stage</h2><p>End-to-end solutions from feasibility to commissioning, maintenance to financing.</p></div>
+        <div class="cards svc-cards">
+          <a class="card svc-card reveal" href="hizmetler.html">
+            <div class="svc-media"><img src="/assets/img/projects/kemer-villa-800.webp" alt="Kiremit çatıya kurulu güneş enerjisi santrali — Kemer" width="800" height="450" loading="lazy" decoding="async" /></div>
+            <div class="svc-body"><h3>Rooftop Solar</h3><p>Custom, space-efficient systems for residential, commercial and industrial roofs.</p></div>
+          </a>
+          <a class="card svc-card reveal" href="hizmetler.html">
+            <div class="svc-media"><img src="/assets/img/projects/manavgat-sanayi-800.webp" alt="Sanayi tesisi çatısındaki güneş enerjisi santralinin havadan görünümü" width="800" height="450" loading="lazy" decoding="async" /></div>
+            <div class="svc-body"><h3>Ground-Mount Solar</h3><p>Feasibility, installation and grid connection for licensed and unlicensed ground plants.</p></div>
+          </a>
+          <a class="card svc-card reveal" href="tarimsal-sulama.html">
+            <div class="svc-media"><img src="/assets/img/projects/manavgat-tarimsal-800.webp" alt="Sera çatısına kurulu tarımsal güneş enerjisi santrali" width="800" height="450" loading="lazy" decoding="async" /></div>
+            <div class="svc-body"><h3>Solar Irrigation</h3><p>Field and greenhouse irrigation with solar pumps — off-grid and diesel-free.</p></div>
+          </a>
+        </div>
+        <div style="text-align:center;margin-top:30px"><a class="btn btn-ghost" href="hizmetler.html">See all services →</a></div>
+      </div>
+    </section>
+
+    <!-- PROJELER ÖNİZLEME -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal"><span class="kicker">Reference Projects</span><h2>Examples from the field</h2></div>
+        <div class="projects">
+          <article class="project reveal"><div class="project-img" style="background:linear-gradient(135deg,#075138,#0a6e4f)"><img src="/assets/img/projects/manavgat-fabrika-800.webp" alt="Manavgat Fabrika — GESPA Enerji GES projesi" loading="lazy" decoding="async" width="800" height="1067" /><span class="project-tag">Industrial</span></div><div class="project-body"><h3>Manavgat Fabrika</h3><p>A 1.2 MW solar power plant installed on a large factory roof in Manavgat.</p><div class="project-meta"><span>📍 Manavgat, Antalya</span><span class="project-power">⚡ 1.2 MWp</span></div></div></article>
+          <article class="project reveal"><div class="project-img" style="background:linear-gradient(135deg,#0a6e4f,#1b9c73)"><img src="/assets/img/projects/kemer-villa-800.webp" alt="Kemer Villa Projesi — GESPA Enerji GES projesi" loading="lazy" decoding="async" width="800" height="1067" /><span class="project-tag">On-Grid</span></div><div class="project-body"><h3>Kemer Villa Projesi</h3><p>A grid-tied residential system installed on a double-pitched tiled-roof villa in Kemer.</p><div class="project-meta"><span>📍 Kemer, Antalya</span><span class="project-power">⚡ 12 kWp</span></div></div></article>
+          <article class="project reveal"><div class="project-img" style="background:linear-gradient(135deg,#1b9c73,#7bd389)"><img src="/assets/img/projects/manavgat-tarimsal-800.webp" alt="Manavgat Tarımsal GES — GESPA Enerji GES projesi" loading="lazy" decoding="async" width="800" height="600" /><span class="project-tag">Agricultural</span></div><div class="project-body"><h3>Manavgat Tarımsal GES</h3><p>A solar plant installed on a greenhouse roof for greenhouse and field irrigation.</p><div class="project-meta"><span>📍 Manavgat, Antalya</span><span class="project-power">⚡ 30 kWp</span></div></div></article>
+        </div>
+        <div style="text-align:center;margin-top:30px"><a class="btn btn-ghost" href="projeler.html">See all projects →</a></div>
+      </div>
+    </section>
+
+    <!-- HESAPLAYICI CTA (öne çıkan) -->
+    <section class="section">
+      <div class="container">
+        <div class="calc-hero calc-hero-pv reveal">
+          <div class="calc-hero-copy">
+            <span class="kicker">Free Savings Calculator</span>
+            <h2>Let's solve your bill worries together</h2>
+            <p>Sadece faturanızı girin; <strong>sistem gücü, yıllık tasarruf, geri ödeme süresi ve 25 yıllık kazancınızı</strong> saniyeler içinde görün. Üstelik panel yerleşimi, inverter ve kablo gibi <strong>mühendislik araçları</strong> da burada.</p>
+            <div class="calc-hero-cta">
+              <a class="btn btn-lg" href="hesaplayici.html">Calculate My Savings →</a>
+              <a class="btn btn-ghost btn-lg" href="sistem-kur.html">System Builder →</a>
+            </div>
+            <ul class="calc-hero-points calc-points-row">
+              <li>⚡ System size &amp; panel count</li>
+              <li>💰 Annual &amp; 25-year savings</li>
+              <li>📅 Payback period</li>
+              <li>🌱 CO₂ &amp; tree equivalent</li>
+            </ul>
+          </div>
+          <div class="calc-hero-scene">
+            <span class="kicker">⚡ Live Simulation</span>
+            <p class="scene-title">From sun to socket: this is how your energy flows</p>
+            <svg class="pv-scene" viewBox="0 0 660 400" role="img" aria-labelledby="pvSceneTitle">
             <title id="pvSceneTitle">Energy flow from sun to home: sun, panel, DC line, inverter, battery, AC 220 V and house</title>
             <defs>
               <radialGradient id="pvSunGlow" cx=".5" cy=".5" r=".5">
@@ -169,80 +271,49 @@
             <rect class="pv-door" x="554" y="300" width="34" height="52" rx="3"/>
             <circle class="pv-knob" cx="562" cy="328" r="2.6"/>
           </svg>
-        </div>
-      </div>
-      <div class="hero2-slide">
-        <picture class="hero2-bg"><source type="image/webp" srcset="/assets/img/hero-640.webp 640w, /assets/img/hero-960.webp 960w, /assets/img/hero.webp 1600w" sizes="100vw" /><img src="/assets/img/hero.jpg" alt="GESPA Enerji — sahada güneş enerjisi santrali" width="1600" height="1200" loading="lazy" decoding="async" /></picture>
-        <div class="hero2-shade" aria-hidden="true"></div>
-        <div class="container hero2-inner">
-          <span class="hero2-kicker">Turnkey Solar Power Plants</span>
-          <p class="hero2-title" id="heroTitle" data-i18n-html>Energy that turns sunshine into <span class="hl">profit</span>.</p>
-          <p class="hero2-sub">For rooftop and ground-mount solar projects: engineering, installation, financing and maintenance — the whole process from one hand.</p>
-          <div class="hero2-cta">
-            <a class="btn btn-lg" href="hesaplayici.html">Calculate My Savings</a>
-            <a class="btn btn-lg btn-light2" href="iletisim.html">Free Site Survey</a>
           </div>
-          <ul class="hero2-stats">
-            <li><strong data-stat="projects" data-count="500" data-suffix="+">500+</strong><span>Completed Projects</span></li>
-            <li><strong data-stat="installedMw" data-count="15" data-suffix=" MW">15 MW</strong><span>Installed Capacity</span></li>
-            <li><strong data-stat="experienceYears" data-count="20" data-suffix="+ yıl">20+ yıl</strong><span>Industry Experience</span></li>
-          </ul>
         </div>
       </div>
-      <div class="hero2-slide">
-        <img class="hero2-bg" src="/assets/img/products/pv-su-isitici-villa.webp" alt="Villa çatısında PV güneş enerjili su ısıtıcı" width="1200" height="800" loading="lazy" decoding="async" />
-        <div class="hero2-shade" aria-hidden="true"></div>
-        <div class="container hero2-inner">
-          <span class="hero2-kicker">🔥 New Product</span>
-          <p class="hero2-title">Free Hot Water from the Sun</p>
-          <p class="hero2-sub">PV water heater: heats for free in sunshine, grid takes over automatically on cloudy days. 60–200 litre models.</p>
-          <div class="hero2-cta"><a class="btn btn-lg" href="su-isitici.html">View Product</a></div>
-        </div>
-      </div>
-      <div class="hero2-slide">
-        <img class="hero2-bg" src="/assets/img/products/cankurtaran/video-poster.jpg" alt="Havuzda yapay zekâ tespit görüntüsü — AI Cankurtaran" width="1280" height="720" loading="lazy" decoding="async" />
-        <div class="hero2-shade" aria-hidden="true"></div>
-        <div class="container hero2-inner">
-          <span class="hero2-kicker">🛟 AI Teknolojileri</span>
-          <p class="hero2-title">AI Lifeguard Support System</p>
-          <p class="hero2-sub">Reports a risky moment in the pool to the lifeguard's smartwatch within seconds. For hotel, aquapark and residential pools.</p>
-          <div class="hero2-cta"><a class="btn btn-lg" href="ai-cankurtaran-destek-sistemi.html">Watch the System</a></div>
-        </div>
-      </div>
-      <div class="hero2-slide hero2-shop">
-        <div class="hero2-shopbg" aria-hidden="true"><span>🛒</span></div>
-        <div class="container hero2-inner">
-          <span class="hero2-kicker">🧰 Online Store</span>
-          <p class="hero2-title">GES Marketim — Solar Online Store</p>
-          <p class="hero2-sub">Panels, batteries, inverters and accessories: hundreds of solar products from stock, shipped across Türkiye.</p>
-          <div class="hero2-cta"><a class="btn btn-lg" href="https://www.gesmarketim.com" target="_blank" rel="noopener">gesmarketim.com ↗</a></div>
-        </div>
-      </div>
-      <button class="hero2-arrow prev" type="button" aria-label="Previous slide">‹</button>
-      <button class="hero2-arrow next" type="button" aria-label="Next slide">›</button>
-      <div class="hero-dots" role="tablist" aria-label="Showcase slides"></div>
     </section>
 
-    <!-- GÜVEN ŞERİDİ -->
-    <section class="trust"><div class="container trust-inner"><span>Equipment brands we work with:</span><div class="trust-logos" id="brandPanels"><span>Arçelik</span><span>Lexron</span><span>Bakırlar</span></div><div class="trust-logos" id="brandInverters"><span>Tescom</span><span>Mexxsun</span><span>Lexron</span><span>Arçelik</span></div></div></section>
-
-    <!-- HİZMETLER ÖNİZLEME -->
-    <section class="section">
+    <!-- FİNANSMAN & NEDEN GESPA (iç bağlantılar) -->
+    <section class="section section-alt">
       <div class="container">
-        <div class="section-head reveal"><span class="kicker">Our Services</span><h2>By your side at every stage</h2><p>End-to-end solutions from feasibility to commissioning, maintenance to financing.</p></div>
+        <div class="section-head reveal"><span class="kicker">We make investing easy</span><h2>Go solar without upfront payment</h2></div>
         <div class="cards">
-          <article class="card reveal"><div class="card-icon">☀️</div><h3>Rooftop Solar</h3><p>Custom, space-efficient systems for residential, commercial and industrial roofs.</p></article>
-          <article class="card reveal"><div class="card-icon">🌄</div><h3>Ground-Mount Solar</h3><p>Feasibility, installation and grid connection for licensed and unlicensed ground plants.</p></article>
-          <a class="card reveal" href="tarimsal-sulama.html" style="text-decoration:none;color:inherit"><div class="card-icon">🌾</div><h3>Solar Irrigation</h3><p>Field and greenhouse irrigation with solar pumps — off-grid and diesel-free.</p></a>
+          <article class="card reveal"><div class="card-icon">💳</div><h3>Financing &amp; Leasing</h3><p>Finance your investment with loan and leasing options, paid from the savings you generate. Start without upfront capital.</p><a class="btn btn-ghost btn-sm" href="iletisim.html">Finansman seçeneklerini sor →</a></article>
+          <article class="card reveal"><div class="card-icon">🤝</div><h3>Why GESPA?</h3><p>20+ years of experience, turnkey engineering and up to 25-year warranty. Meet our team and how we work.</p><a class="btn btn-ghost btn-sm" href="hakkimizda.html">Hakkımızda →</a></article>
+          <article class="card reveal"><div class="card-icon">📍</div><h3>Field references</h3><p>See real installation examples and capacities from our industrial, agricultural and residential projects.</p><a class="btn btn-ghost btn-sm" href="projeler.html">Projeleri gör →</a></article>
         </div>
-        <div style="text-align:center;margin-top:30px"><a class="btn btn-ghost" href="hizmetler.html">See all services →</a></div>
       </div>
     </section>
 
-    <!-- YENİ TEKNOLOJİLER -->
+    <!-- E-MAĞAZA ŞERİDİ -->
     <section class="section">
       <div class="container">
-        <div class="section-head reveal"><span class="kicker">New Technologies</span><h2>Next-generation energy solutions</h2></div>
+        <div class="section-head reveal"><span class="kicker">🧰 Online Store</span><h2>Buy solar products from stock</h2><p>Panels, batteries, inverters and accessories: hundreds of products at GES Marketim, shipped across Türkiye. Our ready-made packages can be ordered right here.</p></div>
+        <div class="shop-grid">
+          <a class="card shop-card reveal" href="paket-285w.html">
+            <div class="shop-media"><img src="/assets/img/products/kit-285w.webp" alt="285 W güneş paneli paketi" width="800" height="600" loading="lazy" decoding="async" /></div>
+            <div class="shop-body"><h3 data-pkg-name="kit-285w">285W Solar Panel Package</h3><p>Kamp, karavan ve küçük ihtiyaçlar için tak-çalıştır mobil kit.</p><span class="shop-link">View the Product →</span></div>
+          </a>
+          <a class="card shop-card reveal" href="paket-2x540w.html">
+            <div class="shop-media"><img src="/assets/img/products/kit-2x540w.webp" alt="2x540 W lityum bataryalı güneş enerjisi sistemi" width="800" height="600" loading="lazy" decoding="async" /></div>
+            <div class="shop-body"><h3 data-pkg-name="kit-2x540w">Complete Solar Energy System</h3><p>LiFePO₄ bataryalı komple sistem; bağ evi ve karavan için.</p><span class="shop-link">View the Product →</span></div>
+          </a>
+          <a class="shop-cta reveal" href="https://www.gesmarketim.com" target="_blank" rel="noopener">
+            <span class="shop-cta-icon" aria-hidden="true">🛒</span>
+            <h3>GES Marketim</h3>
+            <p>Panel · Battery · Inverter · Accessories</p>
+            <span class="shop-cta-btn">Go to the store ↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLAR SU ISITICI -->
+    <section class="section section-alt">
+      <div class="container">
         <div class="feature-band reveal">
           <div class="feature-text">
             <span class="kicker">🔆 Solar Water Heater</span>
@@ -334,14 +405,20 @@
             </svg>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="feature-band reveal" style="margin-top:26px">
-          <div class="feature-text">
+    <!-- ALTERNATİF ÜRÜNLER -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal"><span class="kicker">Alternative Products</span><h2>Next-generation solutions alongside energy</h2><p>Solar energy is our core business; the technology products we build alongside it are here too.</p></div>
+        <div class="alt-grid">
+          <div class="alt-card reveal">
+          <div class="alt-body">
             <span class="kicker">🛟 AI Lifeguard Support System</span>
             <h2><a href="ai-cankurtaran-destek-sistemi.html" style="color:inherit;text-decoration:none">Every Second Counts in the Water</a></h2>
-            <p>The AI Lifeguard Support System for hotel and public pools. AI-powered cameras scan the pool 24/7; on risk, lifeguards get a location-tagged alert within seconds.</p>
+            <p>Yapay zekâ destekli kameralar havuzu 7/24 tarar; riskli durumda cankurtarana saniyeler içinde konumlu alarm gönderir.</p>
             <ul class="ticks">
-              <li>24/7 continuous pool video analysis</li>
               <li>Instant alerts to smartwatch and alarm points</li>
               <li>ISO 20380:2017-aligned · privacy-compliant local processing</li>
             </ul>
@@ -350,56 +427,8 @@
               <a class="btn btn-ghost" href="ai-cankurtaran-destek-sistemi.html#teklif">Request a Free Survey</a>
             </div>
           </div>
-          <div class="feature-img"><img src="/assets/img/products/cankurtaran/hero-havuz-guvenlik.svg" alt="AI Cankurtaran Destek Sistemi — havuz güvenliği" loading="lazy" decoding="async" width="1600" height="900" /></div>
+          <div class="alt-media"><img src="/assets/img/products/cankurtaran/hero-havuz-guvenlik.svg" alt="AI Cankurtaran Destek Sistemi — havuz güvenliği" loading="lazy" decoding="async" width="1600" height="900" /></div>
         </div>
-      </div>
-    </section>
-
-    <!-- HESAPLAYICI CTA (öne çıkan) -->
-    <section class="section section-alt">
-      <div class="container">
-        <div class="calc-hero reveal">
-          <div class="calc-hero-copy">
-            <span class="kicker">Free Savings Calculator</span>
-            <h2>Let's solve your bill worries together</h2>
-            <p>Sadece faturanızı girin; <strong>sistem gücü, yıllık tasarruf, geri ödeme süresi ve 25 yıllık kazancınızı</strong> saniyeler içinde görün. Üstelik panel yerleşimi, inverter ve kablo gibi <strong>mühendislik araçları</strong> da burada.</p>
-            <div class="calc-hero-cta">
-              <a class="btn btn-lg" href="hesaplayici.html">Calculate My Savings →</a>
-              <a class="btn btn-ghost btn-lg" href="sistem-kur.html">System Builder →</a>
-            </div>
-          </div>
-          <ul class="calc-hero-points">
-            <li>⚡ System size &amp; panel count</li>
-            <li>💰 Annual &amp; 25-year savings</li>
-            <li>📅 Payback period</li>
-            <li>🌱 CO₂ &amp; tree equivalent</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- FİNANSMAN & NEDEN GESPA (iç bağlantılar) -->
-    <section class="section">
-      <div class="container">
-        <div class="section-head reveal"><span class="kicker">We make investing easy</span><h2>Go solar without upfront payment</h2></div>
-        <div class="cards">
-          <article class="card reveal"><div class="card-icon">💳</div><h3>Financing &amp; Leasing</h3><p>Finance your investment with loan and leasing options, paid from the savings you generate. Start without upfront capital.</p><a class="btn btn-ghost btn-sm" href="iletisim.html">Finansman seçeneklerini sor →</a></article>
-          <article class="card reveal"><div class="card-icon">🤝</div><h3>Why GESPA?</h3><p>20+ years of experience, turnkey engineering and up to 25-year warranty. Meet our team and how we work.</p><a class="btn btn-ghost btn-sm" href="hakkimizda.html">Hakkımızda →</a></article>
-          <article class="card reveal"><div class="card-icon">📍</div><h3>Field references</h3><p>See real installation examples and capacities from our industrial, agricultural and residential projects.</p><a class="btn btn-ghost btn-sm" href="projeler.html">Projeleri gör →</a></article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJELER ÖNİZLEME -->
-    <section class="section">
-      <div class="container">
-        <div class="section-head reveal"><span class="kicker">Reference Projects</span><h2>Examples from the field</h2></div>
-        <div class="projects">
-          <article class="project reveal"><div class="project-img" style="background:linear-gradient(135deg,#075138,#0a6e4f)"><img src="/assets/img/projects/manavgat-fabrika-800.webp" alt="Manavgat Fabrika — GESPA Enerji GES projesi" loading="lazy" decoding="async" width="800" height="1067" /><span class="project-tag">Industrial</span></div><div class="project-body"><h3>Manavgat Fabrika</h3><p>A 1.2 MW solar power plant installed on a large factory roof in Manavgat.</p><div class="project-meta"><span>📍 Manavgat, Antalya</span><span class="project-power">⚡ 1.2 MWp</span></div></div></article>
-          <article class="project reveal"><div class="project-img" style="background:linear-gradient(135deg,#0a6e4f,#1b9c73)"><img src="/assets/img/projects/kemer-villa-800.webp" alt="Kemer Villa Projesi — GESPA Enerji GES projesi" loading="lazy" decoding="async" width="800" height="1067" /><span class="project-tag">On-Grid</span></div><div class="project-body"><h3>Kemer Villa Projesi</h3><p>A grid-tied residential system installed on a double-pitched tiled-roof villa in Kemer.</p><div class="project-meta"><span>📍 Kemer, Antalya</span><span class="project-power">⚡ 12 kWp</span></div></div></article>
-          <article class="project reveal"><div class="project-img" style="background:linear-gradient(135deg,#1b9c73,#7bd389)"><img src="/assets/img/projects/manavgat-tarimsal-800.webp" alt="Manavgat Tarımsal GES — GESPA Enerji GES projesi" loading="lazy" decoding="async" width="800" height="600" /><span class="project-tag">Agricultural</span></div><div class="project-body"><h3>Manavgat Tarımsal GES</h3><p>A solar plant installed on a greenhouse roof for greenhouse and field irrigation.</p><div class="project-meta"><span>📍 Manavgat, Antalya</span><span class="project-power">⚡ 30 kWp</span></div></div></article>
-        </div>
-        <div style="text-align:center;margin-top:30px"><a class="btn btn-ghost" href="projeler.html">See all projects →</a></div>
       </div>
     </section>
 
