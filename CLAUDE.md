@@ -16,8 +16,8 @@ klasik Pages yayını için **repoda tutulur** — kaynak değişince `node buil
 Sayfalar (her biri kök dizinde, `.html` uzantılı):
 `index.html` (BÖLÜM SIRASI ÖNEMLİ — görsel denge ölçümüne göre kuruldu:
 hero → marka şeridi → hizmetler → projeler → araçlar → finansman → e-mağaza →
-su ısıtıcı → alternatif ürünler → yorumlar → SSS → CTA. KURAL: yan ürünlerin
-(su ısıtıcı + alternatif ürünler) toplam dikey alanı, GES + araç bölümlerinin
+su ısıtıcı → yapay zekâ ürünleri → yorumlar → SSS → CTA. KURAL: yan ürünlerin
+(su ısıtıcı + yapay zekâ ürünleri) toplam dikey alanı, GES + araç bölümlerinin
 toplamının %40'ını AŞMASIN ve ikisi de sayfanın ikinci yarısında kalsın —
 şu an %33, ilk yan ürün %63 derinlikte. Yeni yan ürün eklerken yeniden ölç.
 Tam genişlik hero slider `.hero2`, 4 slayt: GES fotoğrafı → su ısıtıcı →
@@ -78,7 +78,7 @@ vurgusu, breadcrumb, sayfaya özel SEO başlığı/canonical/Open Graph içerir.
 Nav menü (teknoloji firması yapısı): Ana Sayfa · Solar Sistemler (açılır grup:
 Çatı & Arazi GES Kurulumu → hizmetler.html + Paket Ürünler → urunler.html +
 Tarımsal Sulama + Solar Su Isıtıcı + Toptan Satış (B2B) + GES Marketim
-(E-Mağaza) ↗ dış link) · Alternatif Ürünler (açılır grup: AI Cankurtaran Destek
+(E-Mağaza) ↗ dış link) · Yapay Zekâ Ürünleri (açılır grup: AI Cankurtaran Destek
 Sistemi) · Araçlar (açılır grup: Tasarruf Hesaplayıcı + Sistem Kurucu) ·
 Projeler · Hakkımızda · Teklif Al. Paket detay/sepet sayfalarında "Paket
 Ürünler" aktif işaretlenir; alt sayfa aktifken üst `menu-parent` de ` active`
