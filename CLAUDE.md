@@ -14,23 +14,29 @@ klasik Pages yayını için **repoda tutulur** — kaynak değişince `node buil
 çalıştırıp çıktıyı da commit'le.
 
 Sayfalar (her biri kök dizinde, `.html` uzantılı):
-`index.html` (tam-genişlik hero slider `.hero2`, 5 slayt: PV enerji sahnesi →
-GES foto → su ısıtıcı → AI cankurtaran → GES Marketim e-mağaza.
-1. slayt `.hero2-pv`: solda metin, sağda inline SVG sahne (`.pv-*`) —
-güneş → panel → DC → inverter/batarya → AC 220V → ev; tümü CSS animasyonu
-(SMIL yok), azaltılmış harekette `.hero2-pv .pv-scene *{animation:none}`.
-Tema değişkenlerini kullanır, koyu temada da doğru görünür. Sayfanın TEK `<h1>`'i
-bu slayttadır (diğer slaytlar `<p class="hero2-title">`) — gizli slayttaki h1
-erişilebilirlik ağacına girmiyordu. Hero fotoğrafı 2. slayt: `loading="lazy"`,
-preload YOK. Otomatik döngü İLK KULLANICI ETKİLEŞİMİNDE başlar (main.js hero
-IIFE, `engage()`): karusel kendiliğinden tam ekran fotoğrafa geçerse o boyama
-LCP adayı olup metriği ~0,2 sn'den ~5 sn'ye çıkarıyordu. Süre
-`config.hero.intervalMs`, ok/nokta kontrolleri var, azaltılmış harekette
-otomatik dönmez. Slaytlar tek grid hücresinde üst üste durur — bölüm yüksekliği
-en uzun slayta göre sabit, dile göre zıplama olmaz. Açık zeminli 1. slayt
-aktifken nokta/oklar `.hero2-pv.is-on ~ ...` ile koyulaştırılır. E-mağaza
-linkleri: `config.company.shop` kaydı; hero slaytı, urunler şeridi ve TÜM
-footer'lardaki "GES Marketim (E-Mağaza) ↗") ·
+`index.html` (BÖLÜM SIRASI ÖNEMLİ — görsel denge ölçümüne göre kuruldu:
+hero → marka şeridi → hizmetler → projeler → araçlar → finansman → e-mağaza →
+su ısıtıcı → alternatif ürünler → yorumlar → SSS → CTA. KURAL: yan ürünlerin
+(su ısıtıcı + alternatif ürünler) toplam dikey alanı, GES + araç bölümlerinin
+toplamının %40'ını AŞMASIN ve ikisi de sayfanın ikinci yarısında kalsın —
+şu an %33, ilk yan ürün %63 derinlikte. Yeni yan ürün eklerken yeniden ölç.
+Tam genişlik hero slider `.hero2`, 4 slayt: GES fotoğrafı → su ısıtıcı →
+AI cankurtaran → GES Marketim. 1. slayt LCP'dir (fetchpriority + preload
+KORUNUR) ve sayfanın TEK `<h1>`'ini taşır; diğer slaytlar `<p class="hero2-title">`.
+Birincil hero düğmesi "Ücretsiz Keşif" (ticari eylem), ikincil hesaplayıcı.
+Döngü main.js hero IIFE'sinde, süre `config.hero.intervalMs`, ok/nokta
+kontrolleri var, azaltılmış harekette dönmez. Slaytlar tek grid hücresinde
+üst üste durur — yükseklik dile göre zıplamaz.
+Hizmet kartları `.svc-card`: emoji DEĞİL, `assets/img/projects/` altındaki
+gerçek saha fotoğrafları (16:9 kırpma). Araçlar bölümünde `.calc-hero-pv`:
+solda hesaplayıcı metni + 4 madde, sağda PV enerji sahnesi (inline SVG
+`.pv-*`, güneş → panel → DC → inverter/batarya → AC 220V → ev; saf CSS
+animasyon, azaltılmış harekette durur). E-mağaza şeridi `.shop-grid`:
+2 paket kartı (`data-pkg-name` ile config.packages'ten tazelenir) +
+`.shop-cta` GES Marketim kartı. Alternatif ürünler `.alt-grid`/`.alt-card`:
+kompakt yatay kart, AI Cankurtaran ilk kart — yeni ürün geldikçe grid büyür,
+lacivert/aqua palet kart İÇİNDE kalır, sayfaya taşmaz. E-mağaza linkleri:
+`config.company.shop`; hero slaytı, mağaza şeridi ve TÜM footer'lar) ·
 `hizmetler.html` · `urunler.html` (paket vitrini; yalnız 2 kit) ·
 `paket-285w.html` `paket-2x540w.html` (e-ticaret ürün sayfası: solda galeri
 `#pgMain`+`.prod-thumbs`, sağda satın alma kutusu `.buy-box` — ürün kodu, stok,
@@ -72,7 +78,7 @@ vurgusu, breadcrumb, sayfaya özel SEO başlığı/canonical/Open Graph içerir.
 Nav menü (teknoloji firması yapısı): Ana Sayfa · Solar Sistemler (açılır grup:
 Çatı & Arazi GES Kurulumu → hizmetler.html + Paket Ürünler → urunler.html +
 Tarımsal Sulama + Solar Su Isıtıcı + Toptan Satış (B2B) + GES Marketim
-(E-Mağaza) ↗ dış link) · AI Teknolojileri (açılır grup: AI Cankurtaran Destek
+(E-Mağaza) ↗ dış link) · Alternatif Ürünler (açılır grup: AI Cankurtaran Destek
 Sistemi) · Araçlar (açılır grup: Tasarruf Hesaplayıcı + Sistem Kurucu) ·
 Projeler · Hakkımızda · Teklif Al. Paket detay/sepet sayfalarında "Paket
 Ürünler" aktif işaretlenir; alt sayfa aktifken üst `menu-parent` de ` active`
