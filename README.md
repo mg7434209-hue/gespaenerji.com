@@ -67,3 +67,23 @@ npm run build    # sadece /en /de /ru dil sayfalarını üret
   değerler `config.js`'e işlenir.
 - Admin şifresi: `config.js → admin.pass` (statik sitede yalnızca caydırıcıdır).
 - İletişim/bülten formları talebi WhatsApp'a yönlendirir; istenirse bir form servisine bağlanabilir.
+
+## Online ödeme (iyzico)
+
+Kartla ödeme iyzico Ödeme Formu ile alınır; kart bilgisi bu sunucuya hiç gelmez.
+Anahtarlar **koda yazılmaz**, Railway ortam değişkeni olarak tanımlanır:
+
+| Değişken | Açıklama |
+|---|---|
+| `IYZICO_API_KEY` | iyzico API anahtarı |
+| `IYZICO_SECRET_KEY` | iyzico gizli anahtarı |
+| `IYZICO_URI` | boş = `https://sandbox-api.iyzipay.com` · canlı için `https://api.iyzipay.com` |
+| `SITE_URL` | ödeme dönüş adresi (ör. `https://www.gespaenerji.com`) |
+| `DATA_DIR` | siparişlerin yazıldığı kalıcı dizin — **Railway'de Volume bağlayın** |
+
+Anahtar tanımlı değilken sepette kart seçeneği kapalı kalır; havale/EFT ve kapıda
+ödeme akışı çalışmaya devam eder. Siparişler `DATA_DIR/orders/` altında tutulur.
+
+Kum havuzunda test: iyzico'nun test kartlarıyla ödeme yapın, `odeme-sonuc.html`
+sayfasında durumun `Ödemeniz alındı` olduğunu ve `DATA_DIR/orders/<KOD>.json`
+dosyasında `status: "odendi"` yazdığını doğrulayın.

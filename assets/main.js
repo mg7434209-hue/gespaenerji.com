@@ -342,14 +342,64 @@
         if (n >= 1) { cart.setQty(row.getAttribute("data-id"), Math.min(99, n)); totals(); }
       });
       if (form) {
-        Array.prototype.forEach.call(form.querySelectorAll('input[name="odeme"]'), function (r) { r.addEventListener("change", totals); });
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-          var t = totals();
-          if (!t.ls.length) return;
-          var v = function (n) { return (form[n] && form[n].value.trim()) || ""; };
-          if (!v("ad") || !v("tel") || !v("il") || !v("adres")) return;
+        var submitBtn = form.querySelector("[data-ord-submit]");
+        var cardLabel = form.querySelector("[data-pay-card]");
+        var cardRadio = cardLabel && cardLabel.querySelector('input[name="odeme"]');
+        var cardNote = form.querySelector("[data-pay-card-note]");
+        var done = $("#ordDone");
+        var v = function (n) { return (form[n] && form[n].value.trim()) || ""; };
+
+        // Kartla ödeme yalnız sunucu açtığında görünür. GitHub Pages aynasında
+        // /api/odeme yoktur → istek düşer, seçenek "çok yakında" olarak kalır.
+        (function () {
+          if (!window.fetch || !cardRadio) return;
+          fetch("/api/odeme", { headers: { Accept: "application/json" } })
+            .then(function (r) { return r.ok ? r.json() : null; })
+            .then(function (j) {
+              if (!j || !j.enabled) return;
+              cardRadio.disabled = false;
+              if (cardLabel) cardLabel.classList.remove("ord-soon");
+              if (cardNote) {
+                cardNote.textContent =
+                  L("3D Secure ile güvenli ödeme (iyzico). Liste fiyatı geçerlidir.",
+                    "Secure 3D Secure payment (iyzico). List price applies.",
+                    "Sichere Zahlung mit 3D Secure (iyzico). Es gilt der Listenpreis.",
+                    "Безопасная оплата 3D Secure (iyzico). Действует прайс-цена.") +
+                  (j.sandbox ? " " + L("[TEST MODU]", "[TEST MODE]", "[TESTMODUS]", "[ТЕСТ]") : "");
+              }
+            })
+            .catch(function () { /* sunucu yok: havale/kapıda ile devam */ });
+        })();
+
+        // Buton metni seçilen yönteme göre değişir
+        function syncBtn() {
+          if (!submitBtn) return;
+          var kart = (form.odeme && form.odeme.value) === "kart";
+          submitBtn.textContent = kart
+            ? "💳 " + L("Güvenli ödemeye geç", "Continue to secure payment", "Weiter zur sicheren Zahlung", "Перейти к оплате")
+            : "🛒 " + L("Siparişi WhatsApp ile tamamla", "Complete order via WhatsApp", "Bestellung per WhatsApp abschließen", "Оформить заказ через WhatsApp");
+        }
+        function busy(on, text) {
+          if (!submitBtn) return;
+          submitBtn.disabled = on;
+          if (on) submitBtn.textContent = text; else syncBtn();
+        }
+        function say(text, bad) {
+          if (!done) return;
+          done.hidden = false;
+          done.style.color = bad ? "#c0392b" : "var(--green)";
+          done.textContent = text;
+        }
+
+        Array.prototype.forEach.call(form.querySelectorAll('input[name="odeme"]'), function (r) {
+          r.addEventListener("change", function () { totals(); syncBtn(); });
+        });
+        syncBtn();
+
+        // WhatsApp sipariş mesajı (havale / kapıda) — sipariş kodu varsa eklenir
+        function waMessage(t, code) {
           var msg = ["🛒 YENİ SİPARİŞ — Sepet (" + t.ls.length + " ürün)"];
+          if (code) msg.push("Sipariş kodu: " + code);
           t.ls.forEach(function (l, i) {
             msg.push((i + 1) + ") " + l.p.name + (l.p.sku ? " [" + l.p.sku + "]" : "") + " × " + l.qty + " = ₺" + nf.format(l.sumList));
           });
@@ -365,18 +415,164 @@
           if (v("eposta")) msg.push("E-posta: " + v("eposta"));
           msg.push("İl/İlçe: " + v("il"), "Adres: " + v("adres"));
           if (v("not")) msg.push("Not: " + v("not"));
-          if (wa) window.open("https://wa.me/" + wa + "?text=" + encodeURIComponent(msg.join("\n")), "_blank");
-          var done = $("#ordDone");
-          if (done) {
-            done.hidden = false;
-            done.textContent = L("Teşekkürler " + v("ad") + "! Siparişiniz WhatsApp üzerinden iletiliyor; onay ve ödeme bilgisi için aynı gün dönüş yapacağız.",
-              "Thank you " + v("ad") + "! Your order is being sent via WhatsApp.",
-              "Danke " + v("ad") + "! Ihre Bestellung wird per WhatsApp übermittelt.",
-              "Спасибо, " + v("ad") + "! Заказ отправляется через WhatsApp.");
+          return msg.join("\n");
+        }
+        function openWa(t, code) {
+          if (wa) window.open("https://wa.me/" + wa + "?text=" + encodeURIComponent(waMessage(t, code)), "_blank");
+        }
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var t = totals();
+          if (!t.ls.length) return;
+          if (!v("ad") || !v("tel") || !v("il") || !v("adres")) return;
+          if (form.sozlesme && !form.sozlesme.checked) {
+            say(L("Devam etmek için satış şartlarını onaylayın.", "Please accept the sales terms to continue.",
+                  "Bitte akzeptieren Sie die Verkaufsbedingungen.", "Подтвердите условия продажи."), true);
+            return;
           }
+          if (t.method === "kart" && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v("eposta"))) {
+            say(L("Kartla ödeme için geçerli bir e-posta adresi girin.", "Enter a valid e-mail address to pay by card.",
+                  "Für die Kartenzahlung bitte eine gültige E-Mail angeben.", "Укажите действительный e-mail для оплаты картой."), true);
+            if (form.eposta) form.eposta.focus();
+            return;
+          }
+
+          // Sipariş ÖNCE sunucuya kaydedilir (WhatsApp gönderilmese bile kaybolmaz).
+          // Tutar sunucuda config'ten yeniden hesaplanır; buradan yalnız ürün+adet gider.
+          var payload = {
+            method: t.method,
+            locale: (window.GESPA && GESPA.lang) || doc.documentElement.lang || "tr",
+            consent: true,
+            items: t.ls.map(function (l) { return { id: l.p.id, qty: l.qty }; }),
+            customer: { name: v("ad"), phone: v("tel"), email: v("eposta"), city: v("il"), address: v("adres"), note: v("not") }
+          };
+
+          busy(true, L("Gönderiliyor…", "Sending…", "Wird gesendet…", "Отправка…"));
+
+          var req = window.fetch
+            ? fetch("/api/siparis", {
+                method: "POST",
+                headers: { "Content-Type": "application/json", Accept: "application/json" },
+                body: JSON.stringify(payload)
+              }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+            : Promise.reject(new Error("fetch yok"));
+
+          req.then(function (res) {
+            busy(false);
+            if (!res.ok || !res.j || !res.j.ok) {
+              say((res.j && res.j.error) || L("Sipariş alınamadı, lütfen tekrar deneyin.", "Order could not be placed, please try again.",
+                "Bestellung fehlgeschlagen, bitte erneut versuchen.", "Не удалось оформить заказ, попробуйте ещё раз."), true);
+              return;
+            }
+            if (res.j.method === "kart" && res.j.paymentPageUrl) {
+              busy(true, L("Ödeme sayfasına yönlendiriliyorsunuz…", "Redirecting to payment…",
+                "Weiterleitung zur Zahlung…", "Перенаправление на оплату…"));
+              window.location.href = res.j.paymentPageUrl;
+              return;
+            }
+            // Havale / kapıda: kayıt tamam → WhatsApp'ı aç, sepeti boşalt
+            openWa(t, res.j.code);
+            say(L("Siparişiniz alındı ✅ Kod: " + res.j.code + " — WhatsApp penceresinden mesajı göndermeniz yeterli; açılmadıysa " + (CFG.company.phone.display || "") + " numarasını arayın.",
+                  "Order received ✅ Code: " + res.j.code + " — just send the message in WhatsApp.",
+                  "Bestellung erhalten ✅ Code: " + res.j.code + " — bitte die Nachricht in WhatsApp senden.",
+                  "Заказ принят ✅ Код: " + res.j.code + " — отправьте сообщение в WhatsApp."));
+            Object.keys(cart.read()).forEach(function (id) { cart.remove(id); });
+            form.reset();
+            render();
+          }).catch(function () {
+            // Sunucu yok (GitHub Pages aynası) → eski davranış: doğrudan WhatsApp
+            busy(false);
+            openWa(t, null);
+            say(L("Siparişiniz WhatsApp üzerinden iletiliyor; mesajı gönderdiğinizden emin olun.",
+                  "Your order is being sent via WhatsApp; please make sure the message is sent.",
+                  "Ihre Bestellung wird per WhatsApp übermittelt; bitte Nachricht absenden.",
+                  "Заказ отправляется через WhatsApp; убедитесь, что сообщение отправлено."));
+          });
         });
       }
       render();
+    })();
+
+    // ---- Ödeme sonucu (odeme-sonuc.html) ----
+    // iyzico dönüşünde sunucu bizi buraya ?durum=...&kod=... ile yönlendirir.
+    // URL'deki durum yalnız ÖN gösterimdir; nihai durum /api/siparis-durumu'ndan
+    // okunur (adres çubuğu elle değiştirilerek "ödendi" gösterilemesin).
+    (function () {
+      var box = $("#payResult");
+      if (!box) return;
+      var q = new URLSearchParams(location.search);
+      var code = q.get("kod") || "";
+      var nf2 = new Intl.NumberFormat("tr-TR");
+      var ico = box.querySelector(".pay-ico"), head = box.querySelector(".pay-head");
+      var msg = box.querySelector(".pay-msg"), codeRow = box.querySelector(".pay-code");
+      var codeEl = $("#payCode"), actions = box.querySelector(".pay-actions");
+
+      function show(state, text, extra) {
+        var map = {
+          basarili: { i: "✅", c: "pay-ok", h: L("Ödemeniz alındı", "Payment received", "Zahlung erhalten", "Оплата получена") },
+          bekliyor: { i: "⏳", c: "pay-wait", h: L("Siparişiniz alındı", "Order received", "Bestellung erhalten", "Заказ принят") },
+          basarisiz: { i: "❌", c: "pay-fail", h: L("Ödeme tamamlanamadı", "Payment failed", "Zahlung fehlgeschlagen", "Оплата не прошла") },
+          hata: { i: "⚠️", c: "pay-fail", h: L("Sonuç doğrulanamadı", "Result could not be verified", "Ergebnis nicht bestätigt", "Не удалось проверить результат") }
+        };
+        var s = map[state] || map.hata;
+        box.className = "pay-result " + s.c;
+        if (ico) ico.textContent = s.i;
+        if (head) head.textContent = s.h;
+        if (msg) msg.innerHTML = text;
+        if (codeRow) codeRow.hidden = !code;
+        if (codeEl && code) codeEl.textContent = code;
+        if (actions && extra) actions.innerHTML = extra;
+      }
+
+      var contact = '<a href="tel:' + CFG.company.phone.tel + '" data-c-tel>' + CFG.company.phone.display + "</a>";
+      var again = '<a class="btn" href="sepet.html">🛒 ' + L("Sepete dön ve tekrar dene", "Back to cart and retry", "Zurück zum Warenkorb", "Вернуться в корзину") + "</a>" +
+        '<a class="btn btn-ghost" href="iletisim.html">' + L("Bize ulaşın", "Contact us", "Kontakt", "Связаться") + "</a>";
+      var shopOn = '<a class="btn" href="urunler.html">' + L("Alışverişe devam et", "Continue shopping", "Weiter einkaufen", "Продолжить покупки") + "</a>" +
+        '<a class="btn btn-ghost" href="index.html">' + L("Ana sayfa", "Home", "Startseite", "На главную") + "</a>";
+
+      // Ön gösterim (sunucu yanıtı gelene kadar)
+      var pre = q.get("durum");
+      if (pre === "basarisiz") show("basarisiz", L("Bankanız işlemi onaylamadı. Tutar kartınızdan çekilmediyse bir işlem yapmanıza gerek yoktur.",
+        "Your bank declined the transaction.", "Ihre Bank hat die Zahlung abgelehnt.", "Банк отклонил операцию."), again);
+      else if (pre === "hata") show("hata", L("Ödeme sonucu doğrulanamadı. Sipariş kodunuzla bize ulaşın: ", "Could not verify the payment result. Contact us with your order code: ",
+        "Zahlungsergebnis nicht überprüfbar. Kontaktieren Sie uns mit Ihrem Bestellcode: ", "Не удалось проверить результат. Свяжитесь с нами: ") + contact, again);
+
+      if (!code) return;
+      if (!window.fetch) return;
+
+      fetch("/api/siparis-durumu?kod=" + encodeURIComponent(code), { headers: { Accept: "application/json" } })
+        .then(function (r) { return r.json(); })
+        .then(function (j) {
+          if (!j || !j.ok || !j.order) throw new Error("yok");
+          var o = j.order;
+          var tutar = "₺" + nf2.format(o.total);
+          if (o.status === "odendi") {
+            // Ödeme kesinleşti → sepeti boşalt (çift sipariş olmasın)
+            Object.keys(cart.read()).forEach(function (id) { cart.remove(id); });
+            show("basarili",
+              L("Teşekkürler" + (o.firstName ? " " + o.firstName : "") + "! " + tutar + " tutarındaki ödemeniz alındı. Siparişiniz hazırlanıyor; kargo bilgisi telefonunuza iletilecek.",
+                "Thank you! Your payment of " + tutar + " was received. We are preparing your order.",
+                "Danke! Ihre Zahlung über " + tutar + " ist eingegangen. Ihre Bestellung wird vorbereitet.",
+                "Спасибо! Оплата " + tutar + " получена. Заказ готовится."), shopOn);
+          } else if (o.status === "bekliyor" || o.status === "odeme-bekliyor") {
+            show("bekliyor",
+              L("Siparişiniz kaydedildi ancak ödeme henüz tamamlanmadı. Ödemeyi tamamlamak veya yöntemi değiştirmek için bize ulaşın: ",
+                "Your order is saved but payment is not completed yet. Contact us: ",
+                "Ihre Bestellung ist gespeichert, die Zahlung steht noch aus. Kontakt: ",
+                "Заказ сохранён, оплата не завершена. Свяжитесь с нами: ") + contact, again);
+          } else {
+            show("basarisiz",
+              L("Ödeme tamamlanamadı" + (o.error ? " (" + o.error + ")" : "") + ". Kartınızdan tutar çekilmediyse işlem yapmanıza gerek yoktur; tekrar denemek için sepete dönebilirsiniz.",
+                "Payment could not be completed. You can return to the cart and try again.",
+                "Zahlung fehlgeschlagen. Sie können es erneut versuchen.",
+                "Оплата не завершена. Попробуйте ещё раз."), again);
+          }
+        })
+        .catch(function () {
+          show("hata", L("Sipariş durumu okunamadı. Sipariş kodunuzla bize ulaşın: ", "Could not read the order status. Contact us with your code: ",
+            "Bestellstatus nicht lesbar. Kontaktieren Sie uns: ", "Не удалось получить статус. Свяжитесь с нами: ") + contact, again);
+        });
     })();
 
     // ---- Toptan / B2B (toptan.html) — kartlar build'de statik basılır;

@@ -237,6 +237,16 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   `META` tablosundadır — yeni sayfada oraya da satır ekle. Dil değiştirici ilgili
   dil URL'sine yönlendirir; `hreflang` `i18n.js` tarafından enjekte edilir.
 
+## Ödeme (iyzico)
+Kartla ödeme iyzico Ödeme Formu ile alınır; kart bilgisi sunucumuza HİÇ gelmez.
+HER sipariş (havale/kapıda/kart) önce `DATA_DIR/orders/`'a yazılır, sonra ödeme
+veya WhatsApp adımına geçilir. **ALTIN KURAL:** tutar istemciden kabul edilmez —
+sepetten yalnız `{id, qty}` gelir, fiyat sunucuda `config.js`'ten hesaplanır
+(`lib/checkout.js` `priceOf` = main.js `pkgUnit`; birini değiştirirsen ikisini de).
+Anahtarlar KODA YAZILMAZ, ortam değişkenindedir; yoksa sepette kart seçeneği
+kapalı kalır (GitHub Pages aynasında da böyle — orada API yoktur).
+Ayrıntı, akış ve sınırlar: @docs/odeme-iyzico.md
+
 ## Ağ Kısıtı (ÖNEMLİ)
 - Buluttaki Claude Code dış sitelere (ör. solaranaliz.tr, gespaenerji.com)
   ERİŞEMEZ — egress izin listesi kısıtı. "Git şu siteyi taklit et / kazı" çalışmaz.

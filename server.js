@@ -6,9 +6,37 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 const zlib = require("zlib");
+const checkout = require("./lib/checkout");
 
 const PORT = process.env.PORT || 3000;
 const ROOT = __dirname;
+
+// Sunucu kaynağı ve veri dizini ASLA servis edilmez. (Sipariş dosyaları
+// data/orders altında durur; bunlar dışarıya açılırsa kişisel veri sızar.)
+const PRIVATE_RE = /^\/(?:data|lib|node_modules|tools|docs|\.[^/]*)(?:\/|$)|^\/(?:server|build)\.js$|^\/(?:package(?:-lock)?|railway)\.json$/i;
+
+// Sipariş fiyatları tek kaynaktan (assets/config.js) okunur; dosya değişirse
+// yeniden yüklenir, böylece fiyat güncellemesi için yeniden başlatmak gerekmez.
+let cfgCache = null, cfgMtime = 0;
+function siteConfig() {
+  const f = path.join(ROOT, "assets/config.js");
+  let m = 0;
+  try { m = fs.statSync(f).mtimeMs; } catch (e) {}
+  if (!cfgCache || m !== cfgMtime) {
+    cfgCache = require("./build").loadConfig();
+    cfgMtime = m;
+  }
+  return cfgCache;
+}
+
+// iyzico'ya bildirilecek dönüş adresi — proxy başlıklarından türetilir,
+// SITE_URL ortam değişkeni verilmişse o kazanır.
+function siteOrigin(req) {
+  if (process.env.SITE_URL) return process.env.SITE_URL.replace(/\/+$/, "");
+  const host = req.headers.host || "localhost:" + PORT;
+  const proto = req.headers["x-forwarded-proto"] === "https" || !/^(localhost|127\.)/.test(host) ? "https" : "http";
+  return proto + "://" + host;
+}
 
 // Sıkıştırılması anlamlı (metin tabanlı) içerik tipleri
 const COMPRESSIBLE = /^(text\/|application\/(javascript|json|manifest\+json|xml)|image\/svg)/;
@@ -107,6 +135,19 @@ const server = http.createServer((req, res) => {
     if (/^(\/havuz-teknolojileri\/ai-cankurtaran-destek-sistemi\/?|\/cankurtaran(\.html)?)$/.test(urlPath)) {
       res.writeHead(301, { Location: "/ai-cankurtaran-destek-sistemi.html" + qs });
       return res.end();
+    }
+    // Sipariş / ödeme uçları (lib/checkout.js): /api/odeme · /api/siparis ·
+    // /odeme/callback · /api/siparis-durumu
+    if (/^\/(api\/(odeme|siparis|siparis-durumu)|odeme\/callback)$/.test(urlPath)) {
+      const query = new URLSearchParams(qs.slice(1));
+      if (checkout.handle(req, res, urlPath, query, { config: siteConfig, siteOrigin: siteOrigin })) return;
+      res.writeHead(405, { "Content-Type": "text/plain; charset=utf-8", Allow: "GET, POST" });
+      return res.end("Method not allowed");
+    }
+    // Sunucu kaynağı ve sipariş verisi dışarıya kapalı
+    if (PRIVATE_RE.test(urlPath)) {
+      res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
+      return res.end("Not found");
     }
     // Ziyaretçi API — footer sayacı (main.js) buradan okur; sayım HTML servisinde
     if (urlPath === "/api/visitors") {

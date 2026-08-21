@@ -394,6 +394,10 @@
       "Kurumsal": "Company", "Bülten": "Newsletter", "Güneş enerjisi haberleri ve teşvikler.": "Solar news and incentives.",
       "Abone ol": "Subscribe", "Bakım (O&M)": "Maintenance (O&M)",
       "Tüm hakları saklıdır.": "All rights reserved.", "Gizlilik": "Privacy", "Çerez Politikası": "Cookie Policy",
+      "Mesafeli Satış Sözleşmesi": "Distance Sales Agreement", "Teslimat ve İade": "Delivery & Returns",
+      "Teslimat ve İade Koşulları": "Delivery & Returns", "Ödeme Sonucu": "Payment Result",
+      "Ödemeniz kontrol ediliyor…": "Checking your payment…", "Ödeme güvenliği": "Payment security",
+      "Ürünlere dön": "Back to products", "Bize ulaşın": "Contact us",
       "Aboneliğiniz alındı, teşekkürler!": "You're subscribed, thank you!"
     },
     de: {
@@ -768,6 +772,10 @@
       "Kurumsal": "Unternehmen", "Bülten": "Newsletter", "Güneş enerjisi haberleri ve teşvikler.": "Solar-News und Förderungen.",
       "Abone ol": "Abonnieren", "Bakım (O&M)": "Wartung (O&M)",
       "Tüm hakları saklıdır.": "Alle Rechte vorbehalten.", "Gizlilik": "Datenschutz", "Çerez Politikası": "Cookie-Richtlinie",
+      "Mesafeli Satış Sözleşmesi": "Fernabsatzvertrag", "Teslimat ve İade": "Lieferung & Rückgabe",
+      "Teslimat ve İade Koşulları": "Lieferung & Rückgabe", "Ödeme Sonucu": "Zahlungsergebnis",
+      "Ödemeniz kontrol ediliyor…": "Ihre Zahlung wird geprüft…", "Ödeme güvenliği": "Zahlungssicherheit",
+      "Ürünlere dön": "Zurück zu den Produkten", "Bize ulaşın": "Kontakt",
       "Aboneliğiniz alındı, teşekkürler!": "Anmeldung erhalten, danke!"
     },
     ru: {
@@ -1125,6 +1133,10 @@
       "Kurumsal": "Компания", "Bülten": "Рассылка", "Güneş enerjisi haberleri ve teşvikler.": "Новости солнечной энергетики и льготы.",
       "Abone ol": "Подписаться", "Bakım (O&M)": "Обслуживание (O&M)",
       "Tüm hakları saklıdır.": "Все права защищены.", "Gizlilik": "Конфиденциальность", "Çerez Politikası": "Политика cookie",
+      "Mesafeli Satış Sözleşmesi": "Договор дистанционной продажи", "Teslimat ve İade": "Доставка и возврат",
+      "Teslimat ve İade Koşulları": "Доставка и возврат", "Ödeme Sonucu": "Результат оплаты",
+      "Ödemeniz kontrol ediliyor…": "Проверяем оплату…", "Ödeme güvenliği": "Безопасность платежей",
+      "Ürünlere dön": "К товарам", "Bize ulaşın": "Связаться с нами",
       "Aboneliğiniz alındı, teşekkürler!": "Подписка оформлена, спасибо!"
     }
   };
@@ -2337,7 +2349,9 @@
     "Tesisiniz ve ihtiyacınız hakkında kısa bilgi": "Кратко о вашем объекте и потребностях"
   });
 
-  var SKIP = "[data-c-text],[data-count],.r-value,#yil,.brand,.footer-brand,.logo,.lang-switch,[data-i18n-html]";
+  // .pay-result: ödeme sonucu kartının metnini main.js dört dilde kendisi üretir;
+  // i18n dokunursa istemci yazdığı metni önbelleğe alınmış TR aslıyla geri alır.
+  var SKIP = "[data-c-text],[data-count],.r-value,#yil,.brand,.footer-brand,.logo,.lang-switch,[data-i18n-html],.pay-result";
   function skipped(el) { return el.closest && el.closest(SKIP); }
   function leaves() {
     var out = [];

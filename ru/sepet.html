@@ -5,7 +5,7 @@
   <script>window.__LANG__="ru";</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Моя корзина | GESPA Energy</title>
-  <meta name="description" content="Корзина GESPA Energy: измените количество и завершите заказ солнечных комплектов через WhatsApp." />
+  <meta name="description" content="Корзина GESPA Energy: измените количество и оплатите картой, переводом или при получении." />
   <meta name="robots" content="noindex,follow" />
   <link rel="canonical" href="https://www.gespaenerji.com/ru/sepet.html" />
   <link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/sepet.html" />
@@ -15,7 +15,7 @@
   <link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/sepet.html" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Моя корзина | GESPA Energy" />
-  <meta property="og:description" content="Корзина GESPA Energy: измените количество и завершите заказ солнечных комплектов через WhatsApp." />
+  <meta property="og:description" content="Корзина GESPA Energy: измените количество и оплатите картой, переводом или при получении." />
   <meta property="og:locale" content="ru_RU" />
   <meta property="og:site_name" content="GESPA Enerji" />
   <meta property="og:image" content="https://www.gespaenerji.com/assets/img/hero.jpg" />
@@ -113,7 +113,7 @@
                 <legend>Способ оплаты</legend>
                 <label><input type="radio" name="odeme" value="havale" checked /><span><strong>🏦 Havale / EFT — %10 indirimli</strong><small>IBAN отправляется в WhatsApp после подтверждения заказа.</small></span></label>
                 <label><input type="radio" name="odeme" value="kapida" /><span><strong>🚚 Kapıda Ödeme</strong><small>30 % предоплата переводом, 70 % при доставке.</small></span></label>
-                <label class="ord-soon"><input type="radio" name="odeme" value="kart" disabled /><span><strong>💳 Kredi Kartı</strong><small>Скоро.</small></span></label>
+                <label class="ord-soon" data-pay-card><input type="radio" name="odeme" value="kart" disabled /><span><strong>💳 Kredi / Banka Kartı</strong><small data-pay-card-note>Скоро.</small></span></label>
               </fieldset>
               <div class="ord-grid">
                 <div><label>Имя и фамилия *</label><input required name="ad" placeholder="Имя и фамилия" /></div>
@@ -123,13 +123,13 @@
                 <div class="full"><label>Адрес доставки *</label><textarea required name="adres" rows="3" placeholder="Mahalle, sokak, no, daire..."></textarea></div>
                 <div class="full"><label>Примечание (необязательно)</label><input name="not" placeholder="Teslimat notu, soru..." /></div>
               </div>
-              <p class="ord-consent">Отправляя заказ, вы принимаете <a href="/kvkk.html">KVKK Aydınlatma Metni</a>'ni ve aşağıdaki satış şartlarını kabul etmiş olursunuz.</p>
-              <button class="btn btn-lg btn-block" type="submit">🛒 Завершить заказ в WhatsApp</button>
+              <p class="ord-consent"><label class="ord-check"><input type="checkbox" name="sozlesme" required /> <span><a href="/mesafeli-satis-sozlesmesi.html" target="_blank" rel="noopener">Договор дистанционной продажи</a>, <a href="/teslimat-iade.html" target="_blank" rel="noopener">Доставка и возврат</a> ile <a href="/kvkk.html" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a>'ni okudum ve onaylıyorum. *</span></label></p>
+              <button class="btn btn-lg btn-block" type="submit" data-ord-submit>🛒 Завершить заказ в WhatsApp</button>
               <p class="pd-note" id="ordDone" hidden style="margin-top:12px"></p>
             </form>
           </aside>
         </div>
-        <div class="how-note reveal" style="margin-top:26px"><strong>📋 Условия продажи и доставки</strong><p>При оплате переводом действует скидка 10 %. При оплате при получении: 30 % предоплата переводом, 70 % при доставке. Оплата картой появится скоро. При отказе после исправной доставки возвратную пересылку оплачивает покупатель; при повреждённом или бракованном товаре все расходы несём мы. Цены с НДС. Товары доставляются во все провинции Турции.</p></div>
+        <div class="how-note reveal" style="margin-top:26px"><strong>📋 Условия продажи и доставки</strong><p>Havale/EFT ödemelerinde %10 sepet indirimi uygulanır. Kapıda ödemede toplamın %30'u sipariş onayında havale ile, kalan %70'i ürün tesliminde ödenir. Kredi/banka kartıyla ödeme iyzico altyapısıyla, 3D Secure doğrulamasıyla alınır; kart bilgileriniz bize iletilmez ve sitemizde saklanmaz. Kartla ödemede liste fiyatı geçerlidir (havale indirimi uygulanmaz). Sorunsuz teslim edilen üründe cayma hâlinde iade kargo ücreti alıcıya aittir; hasarlı veya ayıplı ürünlerde tüm masraflar tarafımıza aittir. Fiyatlara KDV dahildir. Ürünler Türkiye'nin her iline anlaşmalı kargo ile gönderilir.</p></div>
       </div>
     </section>
   </main>
@@ -152,7 +152,7 @@
         </div><a href="iletisim.html">Контакты</a></div>
       <div class="footer-col footer-news"><h4>Рассылка</h4><p>Новости солнечной энергетики и льготы.</p><form id="newsForm" class="news-form"><input type="email" placeholder="Ваш e-mail" aria-label="E-mail" required /><button class="btn btn-sm" type="submit">Подписаться</button></form><p class="news-note" id="newsNote"></p></div>
     </div>
-    <div class="container footer-bottom"><p>© <span id="yil">2026</span> <span data-c-text="legalName">Gespa Enerji Ltd. Şti.</span>. Tüm hakları saklıdır.</p><p><a href="/gizlilik.html">Конфиденциальность</a> · <a href="/kvkk.html">KVKK</a> · <a href="/cerez-politikasi.html">Политика cookie</a></p></div>
+    <div class="container footer-bottom"><p>© <span id="yil">2026</span> <span data-c-text="legalName">Gespa Enerji Ltd. Şti.</span>. Tüm hakları saklıdır.</p><p><a href="/gizlilik.html">Конфиденциальность</a> · <a href="/kvkk.html">KVKK</a> · <a href="/cerez-politikasi.html">Политика cookie</a> · <a href="/mesafeli-satis-sozlesmesi.html">Договор дистанционной продажи</a> · <a href="/teslimat-iade.html">Доставка и возврат</a></p></div>
   </footer>
 
   <a class="fab fab-wa" data-c-wa href="https://wa.me/905437434209" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>

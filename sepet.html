@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sepetim | GESPA Enerji</title>
-  <meta name="description" content="GESPA Enerji sepetiniz: seçtiğiniz güneş enerjisi paketlerini görüntüleyin, adet ayarlayın ve siparişinizi WhatsApp üzerinden tamamlayın." />
+  <meta name="description" content="GESPA Enerji sepetiniz: seçtiğiniz güneş enerjisi paketlerini görüntüleyin, adet ayarlayın ve siparişinizi kredi kartı, havale/EFT veya kapıda ödeme ile tamamlayın." />
   <meta name="robots" content="noindex,follow" />
   <link rel="canonical" href="https://www.gespaenerji.com/sepet.html" />
   <link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/sepet.html" />
@@ -14,7 +14,7 @@
   <link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/sepet.html" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Sepetim | GESPA Enerji" />
-  <meta property="og:description" content="Sepetinizi görüntüleyin ve siparişinizi WhatsApp üzerinden tamamlayın." />
+  <meta property="og:description" content="Sepetinizi görüntüleyin ve siparişinizi kredi kartı, havale/EFT veya kapıda ödeme ile tamamlayın." />
   <meta property="og:locale" content="tr_TR" />
   <meta property="og:site_name" content="GESPA Enerji" />
   <meta property="og:image" content="https://www.gespaenerji.com/assets/img/hero.jpg" />
@@ -112,7 +112,7 @@
                 <legend>Ödeme yöntemi</legend>
                 <label><input type="radio" name="odeme" value="havale" checked /><span><strong>🏦 Havale / EFT — %10 indirimli</strong><small>Sipariş onayından sonra IBAN bilgisi WhatsApp'tan iletilir.</small></span></label>
                 <label><input type="radio" name="odeme" value="kapida" /><span><strong>🚚 Kapıda Ödeme</strong><small>%30 peşin havale, kalan %70 teslimatta ödenir.</small></span></label>
-                <label class="ord-soon"><input type="radio" name="odeme" value="kart" disabled /><span><strong>💳 Kredi Kartı</strong><small>Çok yakında.</small></span></label>
+                <label class="ord-soon" data-pay-card><input type="radio" name="odeme" value="kart" disabled /><span><strong>💳 Kredi / Banka Kartı</strong><small data-pay-card-note>Çok yakında.</small></span></label>
               </fieldset>
               <div class="ord-grid">
                 <div><label>Ad Soyad *</label><input required name="ad" placeholder="Adınız Soyadınız" /></div>
@@ -122,13 +122,13 @@
                 <div class="full"><label>Teslimat adresi *</label><textarea required name="adres" rows="3" placeholder="Mahalle, sokak, no, daire..."></textarea></div>
                 <div class="full"><label>Not (isteğe bağlı)</label><input name="not" placeholder="Teslimat notu, soru..." /></div>
               </div>
-              <p class="ord-consent">Siparişi göndererek <a href="/kvkk.html">KVKK Aydınlatma Metni</a>'ni ve aşağıdaki satış şartlarını kabul etmiş olursunuz.</p>
-              <button class="btn btn-lg btn-block" type="submit">🛒 Siparişi WhatsApp ile tamamla</button>
+              <p class="ord-consent"><label class="ord-check"><input type="checkbox" name="sozlesme" required /> <span><a href="/mesafeli-satis-sozlesmesi.html" target="_blank" rel="noopener">Mesafeli Satış Sözleşmesi</a>, <a href="/teslimat-iade.html" target="_blank" rel="noopener">Teslimat ve İade Koşulları</a> ile <a href="/kvkk.html" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a>'ni okudum ve onaylıyorum. *</span></label></p>
+              <button class="btn btn-lg btn-block" type="submit" data-ord-submit>🛒 Siparişi WhatsApp ile tamamla</button>
               <p class="pd-note" id="ordDone" hidden style="margin-top:12px"></p>
             </form>
           </aside>
         </div>
-        <div class="how-note reveal" style="margin-top:26px"><strong>📋 Satış ve teslimat şartları</strong><p>Havale/EFT ödemelerinde %10 sepet indirimi uygulanır. Kapıda ödemede toplamın %30'u sipariş onayında havale ile, kalan %70'i ürün tesliminde ödenir. Kredi kartı ile ödeme çok yakında eklenecektir. Sorunsuz teslim edilen üründe cayma hâlinde iade kargo ücreti alıcıya aittir; hasarlı veya ayıplı ürünlerde tüm masraflar tarafımıza aittir. Fiyatlara KDV dahildir. Ürünler Türkiye'nin her iline anlaşmalı kargo ile gönderilir.</p></div>
+        <div class="how-note reveal" style="margin-top:26px"><strong>📋 Satış ve teslimat şartları</strong><p>Havale/EFT ödemelerinde %10 sepet indirimi uygulanır. Kapıda ödemede toplamın %30'u sipariş onayında havale ile, kalan %70'i ürün tesliminde ödenir. Kredi/banka kartıyla ödeme iyzico altyapısıyla, 3D Secure doğrulamasıyla alınır; kart bilgileriniz bize iletilmez ve sitemizde saklanmaz. Kartla ödemede liste fiyatı geçerlidir (havale indirimi uygulanmaz). Sorunsuz teslim edilen üründe cayma hâlinde iade kargo ücreti alıcıya aittir; hasarlı veya ayıplı ürünlerde tüm masraflar tarafımıza aittir. Fiyatlara KDV dahildir. Ürünler Türkiye'nin her iline anlaşmalı kargo ile gönderilir.</p></div>
       </div>
     </section>
   </main>
@@ -151,7 +151,7 @@
         </div><a href="iletisim.html">İletişim</a></div>
       <div class="footer-col footer-news"><h4>Bülten</h4><p>Güneş enerjisi haberleri ve teşvikler.</p><form id="newsForm" class="news-form"><input type="email" placeholder="E-posta adresiniz" aria-label="E-posta" required /><button class="btn btn-sm" type="submit">Abone ol</button></form><p class="news-note" id="newsNote"></p></div>
     </div>
-    <div class="container footer-bottom"><p>© <span id="yil">2026</span> <span data-c-text="legalName">Gespa Enerji Ltd. Şti.</span>. Tüm hakları saklıdır.</p><p><a href="/gizlilik.html">Gizlilik</a> · <a href="/kvkk.html">KVKK</a> · <a href="/cerez-politikasi.html">Çerez Politikası</a></p></div>
+    <div class="container footer-bottom"><p>© <span id="yil">2026</span> <span data-c-text="legalName">Gespa Enerji Ltd. Şti.</span>. Tüm hakları saklıdır.</p><p><a href="/gizlilik.html">Gizlilik</a> · <a href="/kvkk.html">KVKK</a> · <a href="/cerez-politikasi.html">Çerez Politikası</a> · <a href="/mesafeli-satis-sozlesmesi.html">Mesafeli Satış Sözleşmesi</a> · <a href="/teslimat-iade.html">Teslimat ve İade</a></p></div>
   </footer>
 
   <a class="fab fab-wa" data-c-wa href="https://wa.me/905437434209" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>

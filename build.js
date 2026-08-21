@@ -26,10 +26,14 @@ const PAGES = [
   "ai-cankurtaran-destek-sistemi.html", "sistem-kur.html",
   "paket-285w.html", "paket-2x540w.html", "toptan.html",
   "sepet.html",   // noindex; sitemap'e girmez (NOSITEMAP)
+  "odeme-sonuc.html",   // noindex; sitemap'e girmez (NOSITEMAP)
   // Yasal sayfalar da üretilir: dil değiştirici ve hreflang /en/kvkk.html gibi
   // URL'lere işaret eder; üretilmezse 404 olur. Gövde metni TR kalır (hukuken
   // geçerli metin Türkçedir), başlık/description dile göre yazılır.
-  "kvkk.html", "gizlilik.html", "cerez-politikasi.html"
+  "kvkk.html", "gizlilik.html", "cerez-politikasi.html",
+  // Kartla satış için mevzuat gereği (Mesafeli Sözleşmeler Yönetmeliği) —
+  // sepetteki onay kutusu bu iki sayfaya bağlıdır.
+  "mesafeli-satis-sozlesmesi.html", "teslimat-iade.html"
 ];
 
 // Sayfa başına dil-özel <title> ve meta description (en kritik SEO sinyalleri)
@@ -90,13 +94,37 @@ const META = {
     ru: { t: "Оптовая продажа панелей, инверторов и АКБ — B2B | GESPA Energy",
           d: "Опт со склада: панели Arçelik 540 Вт (500 шт.), АКБ LiFePO₄ 51,2 В 100 Ач (50 шт.), инверторы. Счёт для юрлиц, доставка по всей Турции, цены по объёму." }
   },
+  "odeme-sonuc.html": {
+    en: { t: "Payment Result | GESPA Energy",
+          d: "Status of your GESPA Energy order and payment." },
+    de: { t: "Zahlungsergebnis | GESPA Energy",
+          d: "Status Ihrer Bestellung und Zahlung bei GESPA Energy." },
+    ru: { t: "Результат оплаты | GESPA Energy",
+          d: "Статус вашего заказа и платежа в GESPA Energy." }
+  },
+  "mesafeli-satis-sozlesmesi.html": {
+    en: { t: "Distance Sales Agreement | GESPA Energy",
+          d: "GESPA Energy distance sales agreement: order, payment, delivery, right of withdrawal and dispute resolution terms." },
+    de: { t: "Fernabsatzvertrag | GESPA Energy",
+          d: "Fernabsatzvertrag von GESPA Energy: Bestellung, Zahlung, Lieferung, Widerrufsrecht und Streitbeilegung." },
+    ru: { t: "Договор дистанционной продажи | GESPA Energy",
+          d: "Договор дистанционной продажи GESPA Energy: заказ, оплата, доставка, право отказа и разрешение споров." }
+  },
+  "teslimat-iade.html": {
+    en: { t: "Delivery & Returns | GESPA Energy",
+          d: "GESPA Energy delivery and returns: shipping across Türkiye, delivery times, damaged parcels, 14-day withdrawal right and refunds." },
+    de: { t: "Lieferung & Rückgabe | GESPA Energy",
+          d: "Lieferung und Rückgabe bei GESPA Energy: Versand in der ganzen Türkei, Lieferzeiten, beschädigte Pakete, 14-tägiges Widerrufsrecht und Erstattung." },
+    ru: { t: "Доставка и возврат | GESPA Energy",
+          d: "Доставка и возврат GESPA Energy: отправка по всей Турции, сроки, повреждённые посылки, 14 дней на отказ и возврат средств." }
+  },
   "sepet.html": {
     en: { t: "My Cart | GESPA Energy",
-          d: "View your GESPA Energy cart: adjust quantities and complete your solar package order via WhatsApp." },
+          d: "View your GESPA Energy cart: adjust quantities and pay by credit card, bank transfer or cash on delivery." },
     de: { t: "Mein Warenkorb | GESPA Energy",
-          d: "Ihr GESPA-Warenkorb: Mengen anpassen und die Bestellung Ihrer Solarpakete per WhatsApp abschließen." },
+          d: "Ihr GESPA-Warenkorb: Mengen anpassen und per Kreditkarte, Überweisung oder Nachnahme bezahlen." },
     ru: { t: "Моя корзина | GESPA Energy",
-          d: "Корзина GESPA Energy: измените количество и завершите заказ солнечных комплектов через WhatsApp." }
+          d: "Корзина GESPA Energy: измените количество и оплатите картой, переводом или при получении." }
   },
   "hesaplayici.html": {
     en: { t: "Solar Savings Calculator (PV) | GESPA Energy",
@@ -510,6 +538,16 @@ function hydrateExtras(html, file, cfg) {
     if (com.stockLabel) setSpan("pkgStock", esc(com.stockLabel));
     if (com.shipDays) setSpan("shipDays", esc(com.shipDays));
     if (com.returnDays) setSpan("returnDays", String(com.returnDays));
+    // Yasal sayfalarda aynı ticari değer birden çok yerde geçer; id tekil olmak
+    // zorunda olduğundan çoklu değiştirme data-com ile yapılır (tek kaynak: config).
+    const comVals = { shipDays: com.shipDays, returnDays: com.returnDays, shipCountry: com.shipCountry };
+    Object.keys(comVals).forEach((k) => {
+      if (comVals[k] == null) return;
+      html = html.replace(
+        new RegExp('(<([a-z]+)[^>]*\\bdata-com="' + k + '"[^>]*>)[^<]*(</\\2>)', "g"),
+        (m, open, tag, close) => open + esc(String(comVals[k])) + close
+      );
+    });
   }
   if (cfg.calc) {
     const k = cfg.calc;
@@ -660,7 +698,7 @@ const PRIORITY = {
 function writeSitemap() {
   const urlFor = (l, file) => l === "tr" ? ORIGIN + "/" + (file === "index.html" ? "" : file) : ORIGIN + "/" + l + "/" + (file === "index.html" ? "" : file);
   const entries = [];
-  const NOSITEMAP = { "sepet.html": 1 };   // noindex sayfalar haritaya girmez
+  const NOSITEMAP = { "sepet.html": 1, "odeme-sonuc.html": 1 };   // noindex sayfalar haritaya girmez
   for (const file of PAGES) {
     if (NOSITEMAP[file]) continue;
     const p = path.join(ROOT, file);
@@ -943,4 +981,4 @@ if (require.main === module) {
   console.log("GESPA build: " + n + " dil sayfası üretildi (" + LANGS.join(", ") + ").");
 }
 
-module.exports = { run };
+module.exports = { run, loadConfig };

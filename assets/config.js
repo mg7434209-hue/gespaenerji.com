@@ -134,6 +134,23 @@ window.GESPA.config = {
     returnDays: 14                      // cayma hakkı süresi (mesafeli satış)
   },
 
+  // ============================================================
+  // ONLINE ÖDEME (iyzico Ödeme Formu) — sepet.html · lib/checkout.js
+  // Kart bilgisi bizim sunucumuza HİÇ uğramaz; iyzico'nun 3D Secure'lü
+  // ödeme sayfasına yönlendirilir. Buradaki `enabled` yalnızca arayüz
+  // anahtarıdır — API anahtarları ORTAM DEĞİŞKENİNDEDİR (koda yazılmaz):
+  //   IYZICO_API_KEY · IYZICO_SECRET_KEY · IYZICO_URI
+  // Anahtar tanımlı değilse sepet kartla ödemeyi otomatik gizler.
+  // Kartta havale indirimi YOKTUR: ödenecek tutar liste fiyatıdır.
+  // ============================================================
+  payment: {
+    enabled: true,
+    provider: "iyzico",
+    currency: "TRY",
+    installments: [1]     // taksit: [1] = tek çekim. Taksit açmak için hem burayı
+                          // (ör. [1,2,3,6]) hem iyzico panelini güncelleyin.
+  },
+
   packages: [
     // —— Taşınabilir & Off-Grid (lityum bataryalı) paketler —— açık perakende fiyatı
     // img: "assets/img/products/x.webp" -> kartta çizim yerine gerçek ürün fotoğrafı
