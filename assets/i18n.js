@@ -323,8 +323,8 @@
       "Sertifikalı ekiplerle hızlı ve güvenli montaj.": "Fast, safe installation by certified teams.",
       "Şebeke bağlantısı ve sürekli performans takibi.": "Grid connection and continuous performance monitoring.",
       "Kullandığımız Markalar": "Brands We Use", "Güvenilir ekipman": "Reliable equipment",
-      "Projelerimizde tercih ettiğimiz panel ve inverter markaları.": "Panel and inverter brands we prefer in our projects.",
-      "Güneş Panelleri": "Solar Panels", "İnverterler": "Inverters",
+      "Projelerimizde tercih ettiğimiz panel, inverter, MPPT ve akü markaları.": "Panel, inverter, MPPT and battery brands we prefer in our projects.",
+      "Güneş Panelleri": "Solar Panels", "İnverterler": "Inverters", "MPPT & DC-DC Kontrol Cihazları": "MPPT & DC-DC Controllers", "Aküler": "Batteries",
       "Sıkça Sorulan Sorular": "Frequently Asked Questions", "Merak edilenler": "Good to know",
       "Güneş Enerjisi Tasarruf Hesaplayıcı": "Solar Savings Calculator",
       "Faturanıza, tüketiminize veya çatı alanınıza göre sisteminizin gücünü, yıllık tasarrufunuzu, geri ödeme sürenizi ve 25 yıllık kazancınızı saniyeler içinde öğrenin.": "Find your system size, annual savings, payback time and 25-year gain in seconds — based on your bill, consumption or roof area.",
@@ -687,8 +687,8 @@
       "Şebeke bağlantısı ve sürekli performans takibi.": "Netzanschluss und laufende Leistungsüberwachung.",
       // Markalar
       "Kullandığımız Markalar": "Verwendete Marken", "Güvenilir ekipman": "Zuverlässige Komponenten",
-      "Projelerimizde tercih ettiğimiz panel ve inverter markaları.": "Von uns bevorzugte Panel- und Wechselrichter-Marken.",
-      "Güneş Panelleri": "Solarmodule", "İnverterler": "Wechselrichter",
+      "Projelerimizde tercih ettiğimiz panel, inverter, MPPT ve akü markaları.": "Von uns bevorzugte Panel-, Wechselrichter-, MPPT- und Batterie-Marken.",
+      "Güneş Panelleri": "Solarmodule", "İnverterler": "Wechselrichter", "MPPT & DC-DC Kontrol Cihazları": "MPPT- & DC-DC-Regler", "Aküler": "Batterien",
       // SSS
       "Sıkça Sorulan Sorular": "Häufige Fragen", "Merak edilenler": "Wissenswertes",
       // Hesaplayıcı sayfası
@@ -1051,8 +1051,8 @@
       "Sertifikalı ekiplerle hızlı ve güvenli montaj.": "Быстрый и безопасный монтаж сертифицированными бригадами.",
       "Şebeke bağlantısı ve sürekli performans takibi.": "Подключение к сети и постоянный контроль производительности.",
       "Kullandığımız Markalar": "Используемые бренды", "Güvenilir ekipman": "Надёжное оборудование",
-      "Projelerimizde tercih ettiğimiz panel ve inverter markaları.": "Бренды панелей и инверторов, которые мы используем.",
-      "Güneş Panelleri": "Солнечные панели", "İnverterler": "Инверторы",
+      "Projelerimizde tercih ettiğimiz panel, inverter, MPPT ve akü markaları.": "Бренды панелей, инверторов, MPPT-контроллеров и аккумуляторов, которые мы используем.",
+      "Güneş Panelleri": "Солнечные панели", "İnverterler": "Инверторы", "MPPT & DC-DC Kontrol Cihazları": "MPPT и DC-DC контроллеры", "Aküler": "Аккумуляторы",
       "Sıkça Sorulan Sorular": "Частые вопросы", "Merak edilenler": "Полезно знать",
       "Güneş Enerjisi Tasarruf Hesaplayıcı": "Калькулятор экономии на солнце",
       "Faturanıza, tüketiminize veya çatı alanınıza göre sisteminizin gücünü, yıllık tasarrufunuzu, geri ödeme sürenizi ve 25 yıllık kazancınızı saniyeler içinde öğrenin.": "По счёту, потреблению или площади крыши за секунды узнайте мощность, годовую экономию, окупаемость и доход за 25 лет.",

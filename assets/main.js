@@ -109,6 +109,14 @@
       var fill = function (sel, arr) { var w = $(sel); if (!w || !arr || w.children.length) return; arr.forEach(function (n) { var sp = doc.createElement("span"); sp.textContent = n; w.appendChild(sp); }); };
       fill("#brandPanels", b.panel);
       fill("#brandInverters", b.inverter);
+      fill("#brandMppt", b.mppt);
+      fill("#brandBatteries", b.battery);
+      // Ana sayfa şeridi: tüm grupların tekrarsız birleşimi
+      var all = [];
+      ["panel", "inverter", "mppt", "battery"].forEach(function (g) {
+        (b[g] || []).forEach(function (n) { if (all.indexOf(n) < 0) all.push(n); });
+      });
+      fill("#brandAll", all);
     }
     var k = CFG.calc;
     if (k) {

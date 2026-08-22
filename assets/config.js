@@ -61,10 +61,13 @@ window.GESPA.config = {
     showOnline: true         // "şu an sitede" canlı sayısı (yalnız API varken)
   },
 
-  // Kullanılan markalar
+  // Kullanılan markalar — her grup kendi başlığıyla listelenir
+  // (hizmetler.html blokları + ana sayfa marka şeridi; boş dizi = gizli).
   brands: {
     panel: ["Arçelik", "Lexron", "Bakırlar"],
-    inverter: ["Tescom", "Mexxsun", "Lexron", "Arçelik"]
+    inverter: ["Tescom", "Mexxsun", "Lexron", "Arçelik", "Deye", "TitanX"],
+    mppt: ["Havensis"],
+    battery: ["Orbus", "TitanX"]
   },
 
   // ---- Paket ürünler (urunler.html) ----

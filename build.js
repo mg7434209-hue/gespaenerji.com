@@ -484,8 +484,16 @@ function hydrateExtras(html, file, cfg) {
     });
   // Marka vitrinleri
   const brandSpans = arr => arr.map(n => "<span>" + esc(n) + "</span>").join("");
-  html = html.replace(/(<div class="trust-logos" id="brandPanels">)[\s\S]*?(<\/div>)/, "$1" + brandSpans(cfg.brands.panel) + "$2");
-  html = html.replace(/(<div class="trust-logos" id="brandInverters">)[\s\S]*?(<\/div>)/, "$1" + brandSpans(cfg.brands.inverter) + "$2");
+  const brandAll = [];
+  ["panel", "inverter", "mppt", "battery"].forEach(g => (cfg.brands[g] || []).forEach(n => { if (!brandAll.includes(n)) brandAll.push(n); }));
+  const fillBrands = (id, arr) => {
+    html = html.replace(new RegExp('(<div class="trust-logos" id="' + id + '">)[\\s\\S]*?(</div>)'), "$1" + brandSpans(arr || []) + "$2");
+  };
+  fillBrands("brandPanels", cfg.brands.panel);
+  fillBrands("brandInverters", cfg.brands.inverter);
+  fillBrands("brandMppt", cfg.brands.mppt);
+  fillBrands("brandBatteries", cfg.brands.battery);
+  fillBrands("brandAll", brandAll);
   // Hesaplayıcı varsayımları + bölge/yön seçenekleri
   // NOT: değer "$2.200" gibi $ içerebilir — replace'in $1/$2 desenine yem olmasın diye
   // fonksiyon biçimi kullanılır.
@@ -782,7 +790,7 @@ Modeller ve fiyatlar (KDV dahil, ₺):
 ${heaterLines}
 
 ## Paket Ürünler (${c.web}/urunler.html)
-Markalar — panel: ${cfg.brands.panel.join(", ")} · inverter: ${cfg.brands.inverter.join(", ")}
+Markalar — panel: ${cfg.brands.panel.join(", ")} · inverter: ${cfg.brands.inverter.join(", ")} · MPPT/DC-DC: ${(cfg.brands.mppt || []).join(", ")} · akü: ${(cfg.brands.battery || []).join(", ")}
 ${pkgLines}
 Kargo & iade: Paketler TÜRKİYE'NİN HER İLİNE anlaşmalı kargo ile gönderilir (teslimat
 Antalya ile sınırlı değildir). Sipariş onayından sonra tahmini teslim ${(cfg.commerce || {}).shipDays || "2–5"} iş günü;
