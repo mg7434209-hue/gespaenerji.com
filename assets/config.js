@@ -48,6 +48,11 @@ window.GESPA.config = {
     slogan: "Manavgat ve Antalya'da anahtar teslim güneş enerjisi santralleri",
     description: "Gespa Enerji; Manavgat/Antalya merkezli, çatı ve arazi tipi güneş enerjisi santralleri (GES) ile güneş enerjili tarımsal sulama için anahtar teslim mühendislik, kurulum, finansman ve bakım hizmeti sunar.",
     foundingYear: 2022,                   // ticaret siciline tescil: 01.11.2022 (BELGELİ — değiştirmeyin)
+    // Faaliyetin fiilen başladığı yıl (ŞAHIS İŞLETMESİ dönemi). Şirket 2022'de
+    // limitede dönüştü; deneyim iddiası bu tarihe dayanır. Bu yıl, şahıs
+    // işletmesinin işe başlama/oda kayıt BELGESİ ile doğrulanabilir olmalıdır —
+    // aksi hâlde alanı boşaltın, "deneyim" rozeti otomatik olarak gizlenir.
+    experienceSince: 2005,
     areaServed: ["Manavgat", "Side", "Antalya", "Alanya", "Serik", "Gazipaşa", "Akseki", "Gündoğmuş"],
     knowsAbout: ["Güneş enerjisi santrali (GES)", "Çatı GES", "Arazi tipi GES", "Güneş enerjili tarımsal sulama", "Güneş paneli", "İnverter", "Enerji depolama / batarya", "Lisanssız elektrik üretimi"],
     services: ["Çatı GES", "Arazi Tipi GES", "Güneş Enerjili Tarımsal Sulama", "Enerji Depolama (Batarya)", "Mühendislik & Projelendirme", "Finansman & Leasing", "Bakım (O&M)"],
@@ -381,3 +386,16 @@ window.GESPA.config = {
     shading: { declination: 23.45, defTilt: 30, defLat: 37 }
   }
 };
+
+/* Türetilen alanlar — elle yazılmaz.
+   Deneyim yılı, faaliyet başlangıcından (experienceSince) hesaplanır; böylece
+   yıl dönümünde eskimez ve tescil tarihiyle çelişmez. */
+(function (c) {
+  if (!c) return;
+  if (c.experienceSince) {
+    c.stats = c.stats || {};
+    c.stats.experienceYears = new Date().getFullYear() - c.experienceSince;
+  } else if (c.stats) {
+    delete c.stats.experienceYears;
+  }
+})(window.GESPA.config.company);
