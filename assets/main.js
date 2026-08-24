@@ -48,6 +48,12 @@
     if (c) {
       var val = function (p) { return p.split(".").reduce(function (o, k) { return o == null ? o : o[k]; }, c); };
       $$("[data-c-text]").forEach(function (el) { var v = val(el.getAttribute("data-c-text")); if (v != null) el.textContent = v; });
+      // data-cfg-text: config KÖKÜNDEN noktalı yol (ör. "commerce.returnDays") —
+      // yasal sayfalardaki süre/koşul sayıları config ile tek kaynaktan gelsin diye
+      $$("[data-cfg-text]").forEach(function (el) {
+        var v = el.getAttribute("data-cfg-text").split(".").reduce(function (o, k) { return o == null ? o : o[k]; }, CFG);
+        if (v != null) el.textContent = v;
+      });
       if (c.phone) {
         $$("[data-c-tel]").forEach(function (el) { el.setAttribute("href", "tel:" + c.phone.tel); });
         $$("[data-c-wa]").forEach(function (el) { el.setAttribute("href", "https://wa.me/" + c.phone.wa); });
@@ -88,6 +94,10 @@
         if (c.areaServed && c.areaServed.length) d.areaServed = c.areaServed;
         if (c.knowsAbout && c.knowsAbout.length) d.knowsAbout = c.knowsAbout;
         if (c.foundingYear) d.foundingDate = String(c.foundingYear);
+        if (c.registry) {
+          if (c.registry.taxNo) { d.taxID = c.registry.taxNo; d.vatID = c.registry.taxNo; }
+          if (c.registry.mersis) d.identifier = { "@type": "PropertyValue", propertyID: "MERSIS", value: c.registry.mersis };
+        }
         if (c.services && c.services.length) {
           d.hasOfferCatalog = {
             "@type": "OfferCatalog", name: "Hizmetler",

@@ -29,7 +29,8 @@ const PAGES = [
   // Yasal sayfalar da üretilir: dil değiştirici ve hreflang /en/kvkk.html gibi
   // URL'lere işaret eder; üretilmezse 404 olur. Gövde metni TR kalır (hukuken
   // geçerli metin Türkçedir), başlık/description dile göre yazılır.
-  "kvkk.html", "gizlilik.html", "cerez-politikasi.html"
+  "kvkk.html", "gizlilik.html", "cerez-politikasi.html",
+  "mesafeli-satis-sozlesmesi.html", "iade-teslimat.html"
 ];
 
 // Sayfa başına dil-özel <title> ve meta description (en kritik SEO sinyalleri)
@@ -146,6 +147,22 @@ const META = {
     ru: { t: "ИИ-система поддержки спасателей — безопасность бассейнов отелей | GESPA Energy",
           d: "ИИ-предотвращение утоплений для бассейнов отелей, аквапарков и ЖК: наблюдение 24/7, мгновенный сигнал с координатами на смарт-часы спасателя, соответствие ISO 20380, локальная обработка данных (KVKK). Поддерживает спасателей, а не заменяет их." }
   },
+  "mesafeli-satis-sozlesmesi.html": {
+    en: { t: "Distance Sales Agreement | GESPA Energy",
+          d: "Distance sales agreement under Turkish Consumer Protection Law No. 6502: parties, product and price, payment, delivery, 14-day right of withdrawal, warranty and dispute resolution. The authoritative text is in Turkish." },
+    de: { t: "Fernabsatzvertrag | GESPA Energy",
+          d: "Fernabsatzvertrag nach dem türkischen Verbraucherschutzgesetz Nr. 6502: Parteien, Ware und Preis, Zahlung, Lieferung, 14-tägiges Widerrufsrecht, Garantie und Streitbeilegung. Verbindlich ist der türkische Text." },
+    ru: { t: "Договор дистанционной купли-продажи | GESPA Energy",
+          d: "Договор дистанционной продажи согласно закону Турции № 6502: стороны, товар и цена, оплата, доставка, право отказа в течение 14 дней, гарантия и разрешение споров. Юридически действителен турецкий текст." }
+  },
+  "iade-teslimat.html": {
+    en: { t: "Returns, Delivery & Shipping | GESPA Energy",
+          d: "Shipping across Turkey, delivery times, damaged-parcel procedure, 14-day right of withdrawal, return steps, refunds and warranty coverage. The authoritative text is in Turkish." },
+    de: { t: "Rückgabe, Lieferung & Versand | GESPA Energy",
+          d: "Versand in die ganze Türkei, Lieferzeiten, Vorgehen bei Transportschäden, 14-tägiges Widerrufsrecht, Rückgabeschritte, Erstattungen und Garantieumfang. Verbindlich ist der türkische Text." },
+    ru: { t: "Возврат, доставка и отправка | GESPA Energy",
+          d: "Доставка по всей Турции, сроки, порядок при повреждении посылки, право отказа в течение 14 дней, шаги возврата, возмещение и гарантия. Юридически действителен турецкий текст." }
+  },
   "kvkk.html": {
     en: { t: "Personal Data Protection (KVKK) Notice | GESPA Energy",
           d: "Privacy notice under Turkish Data Protection Law No. 6698 (KVKK): data categories, purposes, legal bases, transfers and your rights. The authoritative text is in Turkish." },
@@ -211,6 +228,10 @@ function localBusinessLd(c) {
   if (c.areaServed && c.areaServed.length) d.areaServed = c.areaServed;
   if (c.knowsAbout && c.knowsAbout.length) d.knowsAbout = c.knowsAbout;
   if (c.foundingYear) d.foundingDate = String(c.foundingYear);
+  if (c.registry) {
+    if (c.registry.taxNo) { d.taxID = c.registry.taxNo; d.vatID = c.registry.taxNo; }
+    if (c.registry.mersis) d.identifier = { "@type": "PropertyValue", propertyID: "MERSIS", value: c.registry.mersis };
+  }
   if (c.services && c.services.length) {
     d.hasOfferCatalog = {
       "@type": "OfferCatalog", name: "Hizmetler",
@@ -482,6 +503,12 @@ function hydrateExtras(html, file, cfg) {
       const suf = (attrs.match(/data-suffix="([^"]*)"/) || [])[1] || "";
       return open + pre + val + suf + close;
     });
+  // data-cfg-text — config kökünden noktalı yol (yasal sayfalardaki süreler vb.)
+  html = html.replace(/(<(?:span|strong|b)\b[^>]*data-cfg-text="([^"]+)"[^>]*>)([\s\S]*?)(<\/(?:span|strong|b)>)/g,
+    (m, open_, path, val, close) => {
+      const v = path.split(".").reduce((o, k) => (o == null ? o : o[k]), cfg);
+      return v == null ? m : open_ + esc(String(v)) + close;
+    });
   // Marka vitrinleri
   const brandSpans = arr => arr.map(n => "<span>" + esc(n) + "</span>").join("");
   const brandAll = [];
@@ -663,7 +690,8 @@ const PRIORITY = {
   "ai-cankurtaran-destek-sistemi.html": "0.9", "su-isitici.html": "0.8",
   "tarimsal-sulama.html": "0.9", "hesaplayici.html": "0.8", "projeler.html": "0.7",
   "hakkimizda.html": "0.6", "iletisim.html": "0.8",
-  "kvkk.html": "0.3", "gizlilik.html": "0.3", "cerez-politikasi.html": "0.3"
+  "kvkk.html": "0.3", "gizlilik.html": "0.3", "cerez-politikasi.html": "0.3",
+  "mesafeli-satis-sozlesmesi.html": "0.4", "iade-teslimat.html": "0.4"
 };
 function writeSitemap() {
   const urlFor = (l, file) => l === "tr" ? ORIGIN + "/" + (file === "index.html" ? "" : file) : ORIGIN + "/" + l + "/" + (file === "index.html" ? "" : file);

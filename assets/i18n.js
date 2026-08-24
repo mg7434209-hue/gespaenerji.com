@@ -324,6 +324,7 @@
       "Şebeke bağlantısı ve sürekli performans takibi.": "Grid connection and continuous performance monitoring.",
       "Kullandığımız Markalar": "Brands We Use", "Güvenilir ekipman": "Reliable equipment",
       "Projelerimizde tercih ettiğimiz panel, inverter, MPPT ve akü markaları.": "Panel, inverter, MPPT and battery brands we prefer in our projects.",
+      "Şirket Bilgileri": "Company Details", "Ticaret Unvanı": "Legal Name", "Merkez Adresi": "Registered Address", "MERSİS No": "MERSIS No", "Vergi Dairesi / No": "Tax Office / Tax No", "Ticaret Sicil No": "Trade Registry No", "Kayıtlı Oda": "Chamber of Commerce", "Faaliyet Kodu": "Activity (NACE) Code", "Kuruluş": "Founded", "Kayıtlı Sermaye": "Registered Capital", "Mesafeli Satış Sözleşmesi": "Distance Sales Agreement", "İade ve Teslimat": "Returns & Delivery",
       "Güneş Panelleri": "Solar Panels", "İnverterler": "Inverters", "MPPT & DC-DC Kontrol Cihazları": "MPPT & DC-DC Controllers", "Aküler": "Batteries",
       "Sıkça Sorulan Sorular": "Frequently Asked Questions", "Merak edilenler": "Good to know",
       "Güneş Enerjisi Tasarruf Hesaplayıcı": "Solar Savings Calculator",
@@ -688,6 +689,7 @@
       // Markalar
       "Kullandığımız Markalar": "Verwendete Marken", "Güvenilir ekipman": "Zuverlässige Komponenten",
       "Projelerimizde tercih ettiğimiz panel, inverter, MPPT ve akü markaları.": "Von uns bevorzugte Panel-, Wechselrichter-, MPPT- und Batterie-Marken.",
+      "Şirket Bilgileri": "Firmenangaben", "Ticaret Unvanı": "Firmenname", "Merkez Adresi": "Eingetragene Adresse", "MERSİS No": "MERSIS-Nr.", "Vergi Dairesi / No": "Finanzamt / Steuernummer", "Ticaret Sicil No": "Handelsregister-Nr.", "Kayıtlı Oda": "Handelskammer", "Faaliyet Kodu": "Tätigkeitscode (NACE)", "Kuruluş": "Gegründet", "Kayıtlı Sermaye": "Stammkapital", "Mesafeli Satış Sözleşmesi": "Fernabsatzvertrag", "İade ve Teslimat": "Rückgabe & Lieferung",
       "Güneş Panelleri": "Solarmodule", "İnverterler": "Wechselrichter", "MPPT & DC-DC Kontrol Cihazları": "MPPT- & DC-DC-Regler", "Aküler": "Batterien",
       // SSS
       "Sıkça Sorulan Sorular": "Häufige Fragen", "Merak edilenler": "Wissenswertes",
@@ -1052,6 +1054,7 @@
       "Şebeke bağlantısı ve sürekli performans takibi.": "Подключение к сети и постоянный контроль производительности.",
       "Kullandığımız Markalar": "Используемые бренды", "Güvenilir ekipman": "Надёжное оборудование",
       "Projelerimizde tercih ettiğimiz panel, inverter, MPPT ve akü markaları.": "Бренды панелей, инверторов, MPPT-контроллеров и аккумуляторов, которые мы используем.",
+      "Şirket Bilgileri": "Реквизиты компании", "Ticaret Unvanı": "Юридическое наименование", "Merkez Adresi": "Юридический адрес", "MERSİS No": "Номер MERSIS", "Vergi Dairesi / No": "Налоговая инспекция / ИНН", "Ticaret Sicil No": "Номер торгового реестра", "Kayıtlı Oda": "Торговая палата", "Faaliyet Kodu": "Код деятельности (NACE)", "Kuruluş": "Основана", "Kayıtlı Sermaye": "Уставный капитал", "Mesafeli Satış Sözleşmesi": "Договор дистанционной продажи", "İade ve Teslimat": "Возврат и доставка",
       "Güneş Panelleri": "Солнечные панели", "İnverterler": "Инверторы", "MPPT & DC-DC Kontrol Cihazları": "MPPT и DC-DC контроллеры", "Aküler": "Аккумуляторы",
       "Sıkça Sorulan Sorular": "Частые вопросы", "Merak edilenler": "Полезно знать",
       "Güneş Enerjisi Tasarruf Hesaplayıcı": "Калькулятор экономии на солнце",

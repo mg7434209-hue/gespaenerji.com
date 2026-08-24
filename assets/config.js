@@ -7,20 +7,38 @@
 window.GESPA = window.GESPA || {};
 window.GESPA.config = {
   company: {
-    legalName: "Gespa Enerji Ltd. Şti.",
+    legalName: "Gespa Enerji Sanayi Ticaret Limited Şirketi",
     brandName: "GESPA Enerji",
     phone: {
       display: "0543 743 42 09",
       tel: "+905437434209",      // tel: linkleri
       wa: "905437434209"          // wa.me/ linkleri
     },
+    // Alan adına ait kurumsal posta kutusu (MX kaydı) açıldıktan SONRA
+    // "info@gespaenerji.com" ile değiştirin — çalışmayan adres yayına konmaz.
     email: "gesmarketim@gmail.com",
     address: {
-      line: "Örnek Mah. 1551 Sok. No:10/1",
+      // Ticaret sicili / vergi levhasındaki resmî adresle BİREBİR aynı olmalı
+      line: "Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01",
       district: "Manavgat",
       city: "Antalya",
       country: "TR",
-      full: "Örnek Mah. 1551 Sok. No:10/1, Manavgat / Antalya"
+      full: "Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01, Manavgat / Antalya"
+    },
+
+    // Resmî tescil bilgileri — MATSO oda kayıt sicil sureti (01.11.2022, No 00007385)
+    // ve Manavgat VD vergi levhası ile doğrulanmıştır. Footer + iletisim.html
+    // "Şirket Bilgileri" bloğuna ve LocalBusiness JSON-LD'ye buradan basılır.
+    // Reklam/ödeme platformlarının işletme doğrulaması bu alanlara bakar.
+    registry: {
+      taxOffice: "Manavgat Vergi Dairesi",
+      taxNo: "3941259669",                 // vergi kimlik no (VKN)
+      mersis: "0394125966900001",
+      tradeRegistryNo: "14369",            // ticaret sicil no
+      chamber: "Manavgat Ticaret ve Sanayi Odası",
+      chamberRegNo: "14361",               // oda sicil no
+      nace: "43.21.01",
+      capital: "2.000.000 TL"
     },
     web: "https://www.gespaenerji.com",
     hours: "Hafta içi 09:00 – 18:00",
@@ -29,7 +47,7 @@ window.GESPA.config = {
     priceRange: "₺₺",                     // tahmini fiyat aralığı (zorunlu değil ama önerilir)
     slogan: "Manavgat ve Antalya'da anahtar teslim güneş enerjisi santralleri",
     description: "Gespa Enerji; Manavgat/Antalya merkezli, çatı ve arazi tipi güneş enerjisi santralleri (GES) ile güneş enerjili tarımsal sulama için anahtar teslim mühendislik, kurulum, finansman ve bakım hizmeti sunar.",
-    foundingYear: 2005,                   // kuruluş yılı girilince schema'ya eklenir
+    foundingYear: 2022,                   // ticaret siciline tescil: 01.11.2022 (BELGELİ — değiştirmeyin)
     areaServed: ["Manavgat", "Side", "Antalya", "Alanya", "Serik", "Gazipaşa", "Akseki", "Gündoğmuş"],
     knowsAbout: ["Güneş enerjisi santrali (GES)", "Çatı GES", "Arazi tipi GES", "Güneş enerjili tarımsal sulama", "Güneş paneli", "İnverter", "Enerji depolama / batarya", "Lisanssız elektrik üretimi"],
     services: ["Çatı GES", "Arazi Tipi GES", "Güneş Enerjili Tarımsal Sulama", "Enerji Depolama (Batarya)", "Mühendislik & Projelendirme", "Finansman & Leasing", "Bakım (O&M)"],
