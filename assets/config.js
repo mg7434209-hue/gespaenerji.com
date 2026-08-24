@@ -14,9 +14,10 @@ window.GESPA.config = {
       tel: "+905437434209",      // tel: linkleri
       wa: "905437434209"          // wa.me/ linkleri
     },
-    // Alan adına ait kurumsal posta kutusu (MX kaydı) açıldıktan SONRA
-    // "info@gespaenerji.com" ile değiştirin — çalışmayan adres yayına konmaz.
-    email: "gesmarketim@gmail.com",
+    // Alan adına ait kurumsal adres (Turhost mail hosting; MX -> gespaenerji.com).
+    // Sitedeki TÜM mailto linkleri, yasal sayfalardaki satıcı künyesi ve
+    // JSON-LD bu tek alandan beslenir.
+    email: "info@gespaenerji.com",
     address: {
       // Ticaret sicili / vergi levhasındaki resmî adresle BİREBİR aynı olmalı
       line: "Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01",

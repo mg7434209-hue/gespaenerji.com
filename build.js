@@ -125,11 +125,11 @@ const META = {
   },
   "iletisim.html": {
     en: { t: "Contact — Free Site Survey & Quote | GESPA Energy (Manavgat/Antalya)",
-          d: "Get in touch with GESPA Energy: +90 543 743 42 09, gesmarketim@gmail.com, Manavgat/Antalya. Free site survey and quote." },
+          d: "Get in touch with GESPA Energy: +90 543 743 42 09, info@gespaenerji.com, Manavgat/Antalya. Free site survey and quote." },
     de: { t: "Kontakt — Kostenlose Vor-Ort-Analyse & Angebot | GESPA Energy",
-          d: "Kontaktieren Sie GESPA Energy: +90 543 743 42 09, gesmarketim@gmail.com, Manavgat/Antalya. Kostenlose Vor-Ort-Analyse und Angebot." },
+          d: "Kontaktieren Sie GESPA Energy: +90 543 743 42 09, info@gespaenerji.com, Manavgat/Antalya. Kostenlose Vor-Ort-Analyse und Angebot." },
     ru: { t: "Контакты — Бесплатный выезд и КП | GESPA Energy (Манавгат/Анталья)",
-          d: "Свяжитесь с GESPA Energy: +90 543 743 42 09, gesmarketim@gmail.com, Манавгат/Анталья. Бесплатный выезд и коммерческое предложение." }
+          d: "Свяжитесь с GESPA Energy: +90 543 743 42 09, info@gespaenerji.com, Манавгат/Анталья. Бесплатный выезд и коммерческое предложение." }
   },
   "sistem-kur.html": {
     en: { t: "System Builder — Size Your Own Solar Kit | GESPA Energy",
