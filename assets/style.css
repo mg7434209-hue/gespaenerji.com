@@ -1604,3 +1604,9 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
 .iban-copy{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:8px;padding:2px 8px;font-size:.78rem;cursor:pointer}
 .iban-copy:hover{border-color:var(--brand,#0a6e4f)}
 .ord-bank .pd-note{margin:2px 0 0}
+
+/* Sepet — kart ödemesi (iyzico) */
+.ord-tckn{margin:8px 0 2px}
+.ord-tckn label{display:block;font-size:.82rem;color:var(--muted);margin-bottom:4px}
+.ord-tckn input{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--ink)}
+.ord-pay label.pay-enabled{opacity:1}

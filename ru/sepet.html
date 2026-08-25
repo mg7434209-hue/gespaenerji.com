@@ -119,7 +119,8 @@
                   <p class="pd-note">⚠️ Мы никогда не просим оплату на личные счета. В назначении платежа укажите своё имя.</p>
                 </div>
                 <label><input type="radio" name="odeme" value="kapida" /><span><strong>🚚 Kapıda Ödeme</strong><small>30 % предоплата переводом, 70 % при доставке.</small></span></label>
-                <label class="ord-soon"><input type="radio" name="odeme" value="kart" disabled /><span><strong>💳 Kredi Kartı</strong><small>Скоро.</small></span></label>
+                <label class="ord-soon" id="payCardOpt"><input type="radio" name="odeme" value="kart" disabled /><span><strong>💳 Kredi Kartı</strong><small class="pay-card-soon">Скоро.</small><small class="pay-card-on" hidden>Карта и рассрочка через iyzico; действует цена по прайсу.</small></span></label>
+                <div class="ord-tckn" id="payTcknRow" hidden><label>Идентификационный номер (TCKN) *</label><input name="tckn" inputmode="numeric" maxlength="11" placeholder="Fatura için zorunludur" autocomplete="off" /></div>
               </fieldset>
               <div class="ord-grid">
                 <div><label>Имя и фамилия *</label><input required name="ad" placeholder="Имя и фамилия" /></div>
@@ -135,7 +136,7 @@
             </form>
           </aside>
         </div>
-        <div class="how-note reveal" style="margin-top:26px"><strong>📋 Условия продажи и доставки</strong><p>При оплате переводом действует скидка 10 %. При оплате при получении: 30 % предоплата переводом, 70 % при доставке. Оплата картой появится скоро. При отказе после исправной доставки возвратную пересылку оплачивает покупатель; при повреждённом или бракованном товаре все расходы несём мы. Цены с НДС. Товары доставляются во все провинции Турции.</p></div>
+        <div class="how-note reveal" style="margin-top:26px"><strong>📋 Условия продажи и доставки</strong><p>При оплате переводом действует скидка 10 %. При оплате при получении: 30 % предоплата переводом, 70 % при доставке. Оплата картой проходит через защищённую платформу iyzico; при оплате картой действует цена по прайсу. При отказе после исправной доставки возвратную пересылку оплачивает покупатель; при повреждённом или бракованном товаре все расходы несём мы. Цены с НДС. Товары доставляются во все провинции Турции.</p></div>
       </div>
     </section>
   </main>

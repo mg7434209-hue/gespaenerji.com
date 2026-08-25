@@ -119,7 +119,8 @@
                   <p class="pd-note">⚠️ We never ask for payment to personal accounts. Write your full name in the transfer description.</p>
                 </div>
                 <label><input type="radio" name="odeme" value="kapida" /><span><strong>🚚 Kapıda Ödeme</strong><small>30% deposit by transfer, remaining 70% on delivery.</small></span></label>
-                <label class="ord-soon"><input type="radio" name="odeme" value="kart" disabled /><span><strong>💳 Kredi Kartı</strong><small>Coming soon.</small></span></label>
+                <label class="ord-soon" id="payCardOpt"><input type="radio" name="odeme" value="kart" disabled /><span><strong>💳 Kredi Kartı</strong><small class="pay-card-soon">Coming soon.</small><small class="pay-card-on" hidden>Card & instalments secured by iyzico; list price applies.</small></span></label>
+                <div class="ord-tckn" id="payTcknRow" hidden><label>Turkish ID Number *</label><input name="tckn" inputmode="numeric" maxlength="11" placeholder="Fatura için zorunludur" autocomplete="off" /></div>
               </fieldset>
               <div class="ord-grid">
                 <div><label>Full Name *</label><input required name="ad" placeholder="Your full name" /></div>
@@ -135,7 +136,7 @@
             </form>
           </aside>
         </div>
-        <div class="how-note reveal" style="margin-top:26px"><strong>📋 Sales & delivery terms</strong><p>A 10% cart discount applies to bank-transfer payments. For pay-on-delivery, 30% is paid by transfer at confirmation and 70% on delivery. Credit card payment is coming soon. If you withdraw after a problem-free delivery, return shipping is paid by the buyer; for damaged or defective products all costs are ours. Prices include VAT. Products are shipped by contracted courier to every province of Türkiye.</p></div>
+        <div class="how-note reveal" style="margin-top:26px"><strong>📋 Sales & delivery terms</strong><p>A 10% cart discount applies to bank-transfer payments. For pay-on-delivery, 30% is paid by transfer at confirmation and 70% on delivery. Credit card payments are processed via the iyzico secure payment platform; list prices apply to card payments. If you withdraw after a problem-free delivery, return shipping is paid by the buyer; for damaged or defective products all costs are ours. Prices include VAT. Products are shipped by contracted courier to every province of Türkiye.</p></div>
       </div>
     </section>
   </main>
