@@ -746,8 +746,6 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .pool-step img{width:140px;height:auto;margin:0 auto 14px}
 .pool-step h3{font-size:1.05rem;margin:0 0 8px}
 .pool-step p{font-size:.92rem;color:var(--muted);text-align:left;margin:0}
-.pool-flow{border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
-.pool-flow img{display:block;width:100%;height:auto}
 .pool-who{background:linear-gradient(175deg,#0a2a43,#123b5c 90%);padding:72px 0}
 .pool-who h2{color:#fff}
 .pool-who .section-head p{color:#d9e6ef}
@@ -1331,12 +1329,14 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
 @media(max-width:980px){.hero-art{margin-bottom:26px}}
 
 /* ===== Ana sayfa: tam genişlik profesyonel hero slaytı (hero2) ===== */
-.hero2{position:relative;min-height:clamp(520px,72vh,680px);overflow:hidden;background:#07301f}
-.hero2-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .7s ease;display:flex;align-items:center}
-.hero2-slide.is-on{position:relative;opacity:1;visibility:visible;min-height:inherit}
+/* Slaytlar tek grid hücresinde üst üste durur: bölüm yüksekliği EN UZUN slayta
+   göre sabitlenir, döngü ilerlerken sayfa zıplamaz (dile göre metin uzunluğu
+   değiştiği için TR dışında görünür bir kaymaydı). */
+.hero2{position:relative;display:grid;min-height:clamp(520px,72vh,680px);overflow:hidden;background:#07301f}
+.hero2-slide{grid-area:1/1;position:relative;opacity:0;visibility:hidden;transition:opacity .7s ease;display:flex;align-items:center}
+.hero2-slide.is-on{opacity:1;visibility:visible}
 .hero2-bg,.hero2-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero2-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,26,18,.88) 0%,rgba(4,26,18,.62) 44%,rgba(4,26,18,.18) 100%)}
-.sim-svg{position:absolute;inset:0;width:100%;height:100%}
 .hero2-inner{position:relative;z-index:2;padding:72px 24px;max-width:1200px;color:#fff}
 .hero2-kicker{display:inline-block;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);
   backdrop-filter:blur(4px);border-radius:999px;padding:7px 16px;font-size:.8rem;font-weight:800;
@@ -1363,23 +1363,50 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
 .hero2 .hero-dots{position:absolute;left:0;right:0;bottom:16px;z-index:3}
 .hero2 .hero-dots button{background:rgba(255,255,255,.4)}
 .hero2 .hero-dots button.is-on{background:#ffd76a}
-/* Simülasyon animasyonları */
-.sim-label{fill:#cfe8dd;font-family:var(--font,sans-serif);font-size:19px;font-weight:700}
-.sim-sun{transform-origin:230px 130px;animation:simPulse 3.4s ease-in-out infinite}
-.sim-beam{animation:simDash 1.1s linear infinite}
-.sim-invled{animation:simBlink 1.4s steps(2) infinite}
-.sim-window{animation:simGlow 4s ease-in-out infinite}
-.sim-window.w2{animation-delay:1.2s}
-.sim-charge{transform-origin:center bottom;animation:simCharge 2.8s ease-in-out infinite}
-.sim-charge.c2{animation-delay:.5s}
-.sim-charge.c3{animation-delay:1s}
-@keyframes simPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
-@keyframes simDash{to{stroke-dashoffset:-18}}
-@keyframes simBlink{50%{opacity:1}}
-@keyframes simGlow{0%,100%{opacity:.9}50%{opacity:.45}}
-@keyframes simCharge{0%,100%{opacity:.35}50%{opacity:1}}
+.pv-scene{display:block;width:100%;height:auto;max-height:500px;margin:0 auto}
+.pv-ground{fill:var(--green);opacity:.13}
+.pv-hairline{stroke:var(--line)}
+.pv-frame{fill:#dfe7ea}
+.pv-leg{stroke:#9aa7ac}
+.pv-box{fill:var(--card);stroke:var(--line);stroke-width:2}
+.pv-roof{fill:#3f6373}
+.pv-roof2{fill:#5b8496}
+.pv-door{fill:#d6dee2}
+.pv-term{fill:#9aa7ac}
+.pv-knob{fill:var(--muted)}
+.pv-tag{font-family:var(--font,sans-serif);font-size:14px;font-weight:800}
+.pv-tag-dc{fill:#1d6285}
+.pv-tag-ac{fill:#0f6b4e}
+.pv-tag-sm{font-size:11px}
+[data-theme="dark"] .pv-frame{fill:#38474c}
+[data-theme="dark"] .pv-door{fill:#2a3d39}
+[data-theme="dark"] .pv-roof{fill:#2c4a57}
+[data-theme="dark"] .pv-roof2{fill:#41697a}
+[data-theme="dark"] .pv-tag-dc{fill:#6fc8ea}
+[data-theme="dark"] .pv-tag-ac{fill:#63d3ac}
+.pv-rays{transform-box:fill-box;transform-origin:center;animation:pvSpin 24s linear infinite}
+.pv-sun{transform-box:fill-box;transform-origin:center;animation:pvBreathe 4s ease-in-out infinite}
+.pv-flow{fill:none;stroke-linecap:round;stroke-dasharray:10 14;animation:pvFlow 1.6s linear infinite}
+.pv-sweep{animation:pvSweep 5.5s ease-in-out infinite}
+.pv-win{animation:pvGlow 3.6s ease-in-out infinite}
+.pv-led{animation:pvBlink 1.9s ease-in-out infinite}
+.pv-led.d2{animation-delay:.95s}
+.pv-chg{animation:pvCharge 2.6s ease-in-out infinite}
+@keyframes pvSpin{to{transform:rotate(360deg)}}
+@keyframes pvBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@keyframes pvFlow{to{stroke-dashoffset:-48}}
+@keyframes pvSweep{0%,38%{transform:translateX(0);opacity:0}45%{opacity:.32}62%{transform:translateX(196px);opacity:0}100%{transform:translateX(196px);opacity:0}}
+@keyframes pvGlow{0%,100%{opacity:.72}50%{opacity:1}}
+@keyframes pvBlink{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes pvCharge{0%,100%{opacity:.2}50%{opacity:.72}}
 @media(prefers-reduced-motion:reduce){
-  .sim-sun,.sim-beam,.sim-invled,.sim-window,.sim-charge{animation:none}
+  .hero2-pv .pv-scene *{animation:none !important}
+  .pv-sweep{opacity:0}
+}
+@media(max-width:900px){
+  .hero2-pv .hero2-inner{grid-template-columns:1fr;gap:22px}
+  .hero2-pv .hero2-title{max-width:none}
+  .pv-scene{max-height:300px}
 }
 @media(max-width:760px){
   .hero2-inner{padding:56px 18px 64px}
@@ -1388,4 +1415,192 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
   .hero2-shade{background:linear-gradient(180deg,rgba(4,26,18,.55),rgba(4,26,18,.82))}
   .hero2-shopbg{justify-content:center;padding-right:0;opacity:.5}
 }
-.sim-shade{background:linear-gradient(90deg,rgba(4,26,18,.72) 0%,rgba(4,26,18,.38) 40%,rgba(4,26,18,0) 62%)}
+
+/* Ana sayfa "Güneşten Bedava Sıcak Su" şeridi — açıklayıcı şema (index.html inline SVG) */
+.feature-svg{display:grid;place-items:center;padding:18px;
+  background:radial-gradient(520px 340px at 25% 12%,rgba(247,181,0,.16),transparent 62%),var(--bg-alt)}
+.feature-svg .hs{width:100%;height:100%;max-height:520px;display:block}
+.hs-tank{fill:var(--card);stroke:#9fb6c9;stroke-width:5}
+.hs-seam{fill:none;stroke:#c3d3dd;stroke-width:3}
+.hs-panelbox{fill:#1d2c27}
+.hs-brand{fill:#6d7f78;font-family:var(--font,sans-serif);font-size:24px;font-weight:800;letter-spacing:3px}
+.hs-metal{stroke:#9fb6c9}
+.hs-metal-f{fill:#9fb6c9}
+.hs-chip rect{fill:var(--card);stroke:var(--line);stroke-width:2}
+.hs-cloud{fill:#c9d8e2}
+.hs-chiptext{fill:var(--muted);font-family:var(--font,sans-serif);font-size:15px;font-weight:600}
+.hs-ac{stroke:#9fb6c9;opacity:.8}
+.hs-basin{stroke:#c3d3dd}
+.hs-badge circle{fill:var(--green)}
+.hs-badge text{fill:#fff;font-family:var(--font,sans-serif);font-size:16px;font-weight:800}
+.hs-label{fill:var(--ink);font-family:var(--font,sans-serif);font-size:20px;font-weight:700}
+[data-theme="dark"] .hs-brand{fill:#93a8a0}
+[data-theme="dark"] .hs-cloud{fill:#3a4d57}
+[data-theme="dark"] .hs-panelbox{fill:#0a1310}
+.hs-flow{animation:hsFlow 1.4s linear infinite}
+.hs-beam{animation:hsFlow 2.2s linear infinite}
+.hs-drop{animation:hsDrop 1.6s ease-in infinite}
+.hs-steam{animation:hsSteam 3s ease-in-out infinite}
+@keyframes hsFlow{to{stroke-dashoffset:-44}}
+@keyframes hsDrop{0%{opacity:0;transform:translateY(-10px)}40%{opacity:1}100%{opacity:0;transform:translateY(14px)}}
+@keyframes hsSteam{0%,100%{opacity:.25}50%{opacity:.6}}
+@media (prefers-reduced-motion:reduce){.hs-flow,.hs-beam,.hs-drop,.hs-steam{animation:none}}
+@media(max-width:820px){.feature-svg .hs{max-height:400px}}
+
+/* AI Cankurtaran — canlı simülasyon (ai-cankurtaran-destek-sistemi.html inline SVG).
+   10 sn'lik döngü: 0-42% izleniyor · 42-62% risk analizi · 62-100% alarm.
+   Tüm animasyonlar aynı süreyi paylaşır; azaltılmış harekette son (alarm) kare kalır. */
+.pool-sim{margin:0;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.pool-sim .ps{display:block;width:100%;height:auto}
+.pool-sim figcaption{background:#0a2a43;color:#8fb6cc;font-size:.82rem;padding:10px 16px;text-align:center}
+.ps-cap{fill:#7fd6e8;font-family:var(--font,sans-serif);font-size:15px;font-weight:700}
+.ps-ai{fill:#7fd6e8;font-family:var(--font,sans-serif);font-size:20px;font-weight:800}
+.ps-num{fill:#0a2a43;font-family:var(--font,sans-serif);font-size:16px;font-weight:800}
+.ps-lbl{fill:#d9e6ef;font-family:var(--font,sans-serif);font-size:16px;font-weight:700}
+.ps-risktag{fill:#fff;font-family:var(--font,sans-serif);font-size:15px;font-weight:800;
+  paint-order:stroke;stroke:#a3271a;stroke-width:4;stroke-linejoin:round}
+.ps-box{fill:none;stroke:#6ee7a8;stroke-width:2.5}
+.ps-screen{fill:#123b5c}
+.ps-step rect{fill:rgba(255,255,255,.06);stroke:rgba(127,214,232,.28);stroke-width:2}
+.ps-step .ps-num,.ps-step .ps-lbl{fill:#d9e6ef}
+.ps-step.st1 .ps-num,.ps-step.st1 .ps-lbl{animation:psTxt1 10s linear infinite}
+.ps-step.st2 .ps-num,.ps-step.st2 .ps-lbl{animation:psTxt2 10s linear infinite}
+.ps-step.st3 .ps-num,.ps-step.st3 .ps-lbl{animation:psTxt3 10s linear infinite}
+.ps-wave{animation:psWave 7s ease-in-out infinite}
+.ps-wave.w2{animation-duration:9s;animation-delay:-2s}
+.ps-wave.w3{animation-duration:8s;animation-delay:-4s}
+.ps-cone{transform-box:view-box;transform-origin:96px 36px;animation:psSweep 6s ease-in-out infinite alternate}
+.ps-lens{animation:psLens 2.2s ease-in-out infinite}
+.ps-sw.s1{animation:psSwimA 7s ease-in-out infinite alternate}
+.ps-sw.s2{animation:psSwimB 9s ease-in-out infinite alternate}
+.ps-sw.s3{animation:psSwimC 8s ease-in-out infinite alternate}
+.ps-sw.ps-risk{animation:psRiskMove 10s linear infinite}
+.ps-box-risk{animation:psRiskBox 10s linear infinite}
+.ps-ring{opacity:0;animation:psRing 10s linear infinite}
+.ps-risktag{opacity:0;animation:psFadeAlarm 10s linear infinite}
+.ps-sig{stroke-dasharray:9 13;opacity:0}
+.ps-sig.s-a{animation:psDash 1.1s linear infinite,psSigAnalyze 10s linear infinite}
+.ps-sig.s-b,.ps-sig.s-c{animation:psDash 1.1s linear infinite,psFadeAlarm 10s linear infinite}
+.ps-bar{opacity:.25;animation:psBar 10s linear infinite}
+.ps-bar.b2{animation-delay:.18s}
+.ps-bar.b3{animation-delay:.36s}
+.ps-screen{animation:psScreen 10s linear infinite}
+.ps-alarmicon,.ps-vib{opacity:0;animation:psFadeAlarm 10s linear infinite}
+.ps-siren{animation:psSiren 10s linear infinite}
+.ps-halo{opacity:0;animation:psHalo 10s linear infinite}
+.ps-step.st1 rect{animation:psStep1 10s linear infinite}
+.ps-step.st2 rect{animation:psStep2 10s linear infinite}
+.ps-step.st3 rect{animation:psStep3 10s linear infinite}
+@keyframes psWave{0%,100%{transform:translateX(0)}50%{transform:translateX(-68px)}}
+@keyframes psSweep{0%{transform:rotate(-9deg)}100%{transform:rotate(11deg)}}
+@keyframes psLens{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes psSwimA{0%{transform:translate(0,0)}100%{transform:translate(110px,20px)}}
+@keyframes psSwimB{0%{transform:translate(0,0)}100%{transform:translate(90px,52px)}}
+@keyframes psSwimC{0%{transform:translate(0,0)}100%{transform:translate(120px,-34px)}}
+@keyframes psRiskMove{0%{transform:translate(0,0)}30%{transform:translate(-44px,-16px)}42%,100%{transform:translate(-58px,-6px)}}
+@keyframes psRiskBox{0%,40%{stroke:#6ee7a8}46%,58%{stroke:#f7b500}62%,100%{stroke:#f4523b}}
+@keyframes psRing{0%,60%{opacity:0;transform:scale(.7)}70%{opacity:.85;transform:scale(1)}88%,100%{opacity:0;transform:scale(1.45)}}
+@keyframes psFadeAlarm{0%,60%{opacity:0}64%,96%{opacity:1}100%{opacity:0}}
+@keyframes psSigAnalyze{0%,40%{opacity:0}46%,60%{opacity:1}64%,100%{opacity:0}}
+@keyframes psDash{to{stroke-dashoffset:-44}}
+@keyframes psBar{0%,40%{opacity:.22}48%{opacity:1}56%{opacity:.35}64%{opacity:1}100%{opacity:.5}}
+@keyframes psScreen{0%,60%{fill:#123b5c}64%,100%{fill:#f4523b}}
+@keyframes psSiren{0%,60%{fill:#5c3038}66%{fill:#f4523b}72%{fill:#8d3a30}78%{fill:#f4523b}84%{fill:#8d3a30}90%,100%{fill:#f4523b}}
+@keyframes psHalo{0%,62%{opacity:0;transform:scale(.6)}70%{opacity:.7;transform:scale(1)}84%,100%{opacity:0;transform:scale(1.4)}}
+@keyframes psStep1{0%,40%{fill:rgba(127,214,232,.9)}46%,100%{fill:rgba(255,255,255,.06)}}
+@keyframes psStep2{0%,40%{fill:rgba(255,255,255,.06)}46%,60%{fill:rgba(247,181,0,.9)}64%,100%{fill:rgba(255,255,255,.06)}}
+@keyframes psStep3{0%,60%{fill:rgba(255,255,255,.06)}64%,100%{fill:rgba(244,82,59,.92)}}
+@keyframes psTxt1{0%,40%{fill:#0a2a43}46%,100%{fill:#d9e6ef}}
+@keyframes psTxt2{0%,40%{fill:#d9e6ef}46%,60%{fill:#0a2a43}64%,100%{fill:#d9e6ef}}
+@keyframes psTxt3{0%,60%{fill:#d9e6ef}64%,100%{fill:#2b0a05}}
+.ps-ring,.ps-halo{transform-box:fill-box;transform-origin:center}
+/* Azaltılmış harekette döngü durur ve tutarlı tek bir kare kalır: alarm anı.
+   !important şart — animasyonlu kurallar (ör. .ps-step.st1 rect) daha özgüldür. */
+@media(prefers-reduced-motion:reduce){
+  .pool-sim *{animation:none !important}
+  .ps-risktag,.ps-alarmicon,.ps-vib,.ps-sig.s-b,.ps-sig.s-c{opacity:1}
+  .ps-sig.s-a,.ps-ring{opacity:0}
+  .ps-box-risk{stroke:#f4523b}
+  .ps-screen{fill:#f4523b}
+  .ps-siren{fill:#f4523b}
+  .ps-bar{opacity:1}
+  .ps-step.st3 rect{fill:rgba(244,82,59,.92)}
+  .ps-step.st3 .ps-num,.ps-step.st3 .ps-lbl{fill:#2b0a05}
+}
+/* Dar ekranda SVG küçüldüğü için etiketleri büyüt; siren etiketi alt satıra
+   iner ki saat etiketiyle çakışmasın (metin uzunluğu dile göre değişiyor). */
+@media(max-width:760px){
+  .pool-sim figcaption{font-size:.76rem}
+  .ps-cap{font-size:20px}
+  .ps-cap-siren{font-size:18px;transform:translate(-20px,26px)}
+  .ps-lbl,.ps-num{font-size:26px}
+  .ps-risktag{font-size:24px}
+  .ps-ai{font-size:26px}
+}
+
+/* Hizmet kartları — emoji ikon yerine gerçek saha fotoğrafı */
+.svc-card{padding:0;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.svc-media{aspect-ratio:16/9;overflow:hidden;background:var(--bg-alt)}
+.svc-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.svc-card:hover .svc-media img{transform:scale(1.05)}
+.svc-body{padding:22px 24px 26px}
+@media (prefers-reduced-motion:reduce){.svc-card:hover .svc-media img{transform:none}}
+
+/* Araçlar bölümü — PV enerji sahnesi hesaplayıcının yanında */
+.calc-hero-pv{grid-template-columns:1.05fr .95fr}
+.calc-points-row{grid-template-columns:repeat(2,1fr);margin-top:24px}
+.calc-hero-scene{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.scene-title{font-family:var(--font);font-weight:800;font-size:1.1rem;color:var(--ink);margin:6px 0 4px}
+@media(max-width:820px){.calc-hero-pv{grid-template-columns:1fr}.calc-points-row{grid-template-columns:1fr}}
+
+/* E-mağaza şeridi — hazır paketler + GES Marketim */
+.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.shop-card{padding:0;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.shop-media{aspect-ratio:16/10;overflow:hidden;background:#fff;display:grid;place-items:center}
+.shop-media img{width:100%;height:100%;object-fit:contain;display:block;padding:14px}
+.shop-body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.shop-body h3{margin:0;font-size:1.08rem}
+.shop-body p{margin:0;color:var(--muted);font-size:.94rem;flex:1}
+.shop-link{font-weight:800;color:var(--green)}
+.shop-cta{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:9px;
+  text-decoration:none;color:#fff;border-radius:var(--radius);padding:28px;
+  background:linear-gradient(150deg,var(--green),var(--green-dark));box-shadow:var(--shadow);
+  transition:transform .2s,box-shadow .2s}
+.shop-cta:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.shop-cta-icon{font-size:2.4rem;line-height:1}
+.shop-cta h3{margin:0;color:#fff;font-size:1.35rem}
+.shop-cta p{margin:0;color:rgba(255,255,255,.84);font-size:.95rem}
+.shop-cta-btn{margin-top:8px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.34);
+  border-radius:999px;padding:10px 20px;font-weight:800;font-size:.95rem}
+@media(max-width:980px){.shop-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.shop-grid{grid-template-columns:1fr}}
+
+/* Alternatif ürünler — kompakt yatay kart (yeni ürün geldikçe grid büyür) */
+.alt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:22px}
+.alt-card{display:grid;grid-template-columns:1.05fr .95fr;border:1px solid var(--line);
+  border-radius:var(--radius-lg);overflow:hidden;background:var(--card);box-shadow:var(--shadow)}
+.alt-body{padding:clamp(20px,2.6vw,28px)}
+.alt-body h2{font-size:clamp(1.3rem,2.4vw,1.7rem);font-weight:800;margin:8px 0 10px}
+.alt-body p{color:var(--muted);margin:0}
+.alt-media{overflow:hidden;min-height:210px;background:var(--bg-alt)}
+.alt-media img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:820px){.alt-card{grid-template-columns:1fr}.alt-media{order:-1;min-height:200px}}
+
+/* Kurumsal kimlik bloğu — iletişim sayfası kartı + yasal sayfalardaki satıcı künyesi */
+.legal-id{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin:14px 0 18px;font-size:.95rem}
+.legal-id dt{color:var(--muted);white-space:nowrap}
+.legal-id dd{margin:0;color:var(--ink)}
+.legal-id-card{margin-top:22px;padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.legal-id-card h3{margin:0 0 6px;font-size:1.05rem}
+.legal-id-note{margin:0;color:var(--muted);font-size:.85rem}
+.footer-legal-id{color:var(--muted);font-size:.82rem;line-height:1.7}
+@media(max-width:560px){.legal-id{grid-template-columns:1fr;gap:2px 0}.legal-id dt{margin-top:8px;font-size:.82rem}}
+
+/* Sepet — şirket hesabı (havale) kutusu */
+.ord-bank{margin:10px 0 4px;padding:12px 14px;border:1px dashed var(--line);border-radius:10px;background:var(--card);font-size:.9rem;display:grid;gap:6px}
+.ord-bank>div{display:grid;gap:2px}
+.ord-bank span{color:var(--muted);font-size:.78rem}
+.ord-iban{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+.iban-copy{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:8px;padding:2px 8px;font-size:.78rem;cursor:pointer}
+.iban-copy:hover{border-color:var(--brand,#0a6e4f)}
+.ord-bank .pd-note{margin:2px 0 0}

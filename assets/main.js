@@ -48,6 +48,12 @@
     if (c) {
       var val = function (p) { return p.split(".").reduce(function (o, k) { return o == null ? o : o[k]; }, c); };
       $$("[data-c-text]").forEach(function (el) { var v = val(el.getAttribute("data-c-text")); if (v != null) el.textContent = v; });
+      // data-cfg-text: config KÖKÜNDEN noktalı yol (ör. "commerce.returnDays") —
+      // yasal sayfalardaki süre/koşul sayıları config ile tek kaynaktan gelsin diye
+      $$("[data-cfg-text]").forEach(function (el) {
+        var v = el.getAttribute("data-cfg-text").split(".").reduce(function (o, k) { return o == null ? o : o[k]; }, CFG);
+        if (v != null) el.textContent = v;
+      });
       if (c.phone) {
         $$("[data-c-tel]").forEach(function (el) { el.setAttribute("href", "tel:" + c.phone.tel); });
         $$("[data-c-wa]").forEach(function (el) { el.setAttribute("href", "https://wa.me/" + c.phone.wa); });
@@ -88,6 +94,10 @@
         if (c.areaServed && c.areaServed.length) d.areaServed = c.areaServed;
         if (c.knowsAbout && c.knowsAbout.length) d.knowsAbout = c.knowsAbout;
         if (c.foundingYear) d.foundingDate = String(c.foundingYear);
+        if (c.registry) {
+          if (c.registry.taxNo) { d.taxID = c.registry.taxNo; d.vatID = c.registry.taxNo; }
+          if (c.registry.mersis) d.identifier = { "@type": "PropertyValue", propertyID: "MERSIS", value: c.registry.mersis };
+        }
         if (c.services && c.services.length) {
           d.hasOfferCatalog = {
             "@type": "OfferCatalog", name: "Hizmetler",
@@ -109,6 +119,14 @@
       var fill = function (sel, arr) { var w = $(sel); if (!w || !arr || w.children.length) return; arr.forEach(function (n) { var sp = doc.createElement("span"); sp.textContent = n; w.appendChild(sp); }); };
       fill("#brandPanels", b.panel);
       fill("#brandInverters", b.inverter);
+      fill("#brandMppt", b.mppt);
+      fill("#brandBatteries", b.battery);
+      // Ana sayfa şeridi: tüm grupların tekrarsız birleşimi
+      var all = [];
+      ["panel", "inverter", "mppt", "battery"].forEach(function (g) {
+        (b[g] || []).forEach(function (n) { if (all.indexOf(n) < 0) all.push(n); });
+      });
+      fill("#brandAll", all);
     }
     var k = CFG.calc;
     if (k) {
@@ -343,6 +361,12 @@
       });
       if (form) {
         Array.prototype.forEach.call(form.querySelectorAll('input[name="odeme"]'), function (r) { r.addEventListener("change", totals); });
+        var ibanBtn = form.querySelector("[data-copy-iban]");
+        if (ibanBtn && CFG.company && CFG.company.bank) ibanBtn.addEventListener("click", function () {
+          var raw = CFG.company.bank.iban.replace(/\s+/g, "");
+          var done = function () { ibanBtn.textContent = "✓ " + L("Kopyalandı", "Copied", "Kopiert", "Скопировано"); setTimeout(function () { ibanBtn.textContent = "📋 " + L("Kopyala", "Copy", "Kopieren", "Копировать"); }, 2000); };
+          if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(raw).then(done, function () {});
+        });
         form.addEventListener("submit", function (e) {
           e.preventDefault();
           var t = totals();
@@ -357,6 +381,7 @@
           if (t.method === "havale") {
             msg.push("Ödeme: Havale/EFT (sepette %" + pct + " indirim)");
             msg.push("Ödenecek: ₺" + nf.format(t.cartT));
+            if (CFG.company && CFG.company.bank) msg.push("Hesap: " + CFG.company.bank.accountHolder + " · " + CFG.company.bank.iban);
           } else {
             msg.push("Ödeme: Kapıda ödeme (%30 peşin + %70 teslimatta)");
             msg.push("Peşin havale: ₺" + nf.format(t.downTL) + " · Teslimatta: ₺" + nf.format(t.restTL));
@@ -650,7 +675,7 @@
         var d = {
           "@context": "https://schema.org", "@type": "Product",
           name: (CFG.heater.name || "Solar Su Isıtma Sistemi") + " — Fotovoltaik Güneş Enerjili Su Isıtıcı",
-          image: web + "/assets/img/products/pv-su-isitici.jpg",
+          image: web + "/assets/img/products/pv-su-isitici-ana.webp",
           description: "Monokristal güneş panelleriyle suyu doğrudan güneş enerjisiyle ısıtan fotovoltaik su ısıtıcı. Akıllı GF-20 kontrol, bulutlu havada otomatik şebeke (AC) desteği, emaye iç tank. 60–200 L kapasite seçenekleri (yatay/dikey).",
           brand: { "@type": "Brand", name: (CFG.company && CFG.company.brandName) || "GESPA Enerji" },
           category: "Solar Water Heater"
@@ -1462,6 +1487,14 @@
     });
   }
 
+  /* ---- data-pkg-name: ürün adını config.packages'ten tazeler ----
+     HTML'deki metin SSR/JS'siz yedeğidir; tek doğru kaynak yine config. */
+  $$("[data-pkg-name]").forEach(function (el) {
+    var id = el.getAttribute("data-pkg-name"), hit = null;
+    (CFG.packages || []).forEach(function (x) { if (x.id === id) hit = x; });
+    if (hit && hit.name) el.textContent = hit.name;
+  });
+
   /* ---- Ana sayfa hero vitrini — tam genişlik dönen tanıtım (hero2) ---- */
   (function () {
     var show = $("#heroShow"); if (!show) return;
@@ -1486,6 +1519,8 @@
       dots.forEach(function (d, j) { d.classList.toggle("is-on", j === idx); });
     }
     var ms = (CFG.hero && CFG.hero.intervalMs) || 5000;
+    // 1. slayt yeniden tam ekran hero fotoğrafı (LCP adayı) olduğu için otomatik
+    // döngü açılışta başlayabilir; sonraki slaytlar ondan büyük boyama üretmiyor.
     function start() { if (!REDUCED && !timer) timer = setInterval(function () { go(idx + 1); }, ms); }
     function stop() { clearInterval(timer); timer = null; }
     function restart() { stop(); start(); }
