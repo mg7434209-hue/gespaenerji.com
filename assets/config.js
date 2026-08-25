@@ -48,7 +48,7 @@ window.GESPA.config = {
       chamber: "Manavgat Ticaret ve Sanayi Odası",
       chamberRegNo: "14361",               // oda sicil no
       nace: "43.21.01",
-      capital: "2.000.000 TL"
+      capital: "2.000.000 TL"       // sicil kaydı (sitede GÖSTERİLMİYOR — istek üzerine kaldırıldı)
     },
     web: "https://www.gespaenerji.com",
     hours: "Hafta içi 09:00 – 18:00",
