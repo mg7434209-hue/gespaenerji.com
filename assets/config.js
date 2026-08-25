@@ -27,6 +27,15 @@ window.GESPA.config = {
       full: "Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01, Manavgat / Antalya"
     },
 
+    // Havale/EFT ödemelerinin yapılacağı ŞİRKET hesabı. Hesap sahibi, ticaret
+    // unvanı ile birebir aynı olmalıdır — şahıs hesabına ödeme kabul edilmez.
+    // Sepet ödeme kutusu ve mesafeli satış sözleşmesi bu alandan beslenir.
+    bank: {
+      name: "VakıfBank",
+      accountHolder: "Gespa Enerji Sanayi Ticaret Limited Şirketi",
+      iban: "TR89 0001 5001 5800 7320 2443 78"
+    },
+
     // Resmî tescil bilgileri — MATSO oda kayıt sicil sureti (01.11.2022, No 00007385)
     // ve Manavgat VD vergi levhası ile doğrulanmıştır. Footer + iletisim.html
     // "Şirket Bilgileri" bloğuna ve LocalBusiness JSON-LD'ye buradan basılır.

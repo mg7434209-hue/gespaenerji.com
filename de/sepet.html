@@ -111,7 +111,13 @@
               </div>
               <fieldset class="ord-pay">
                 <legend>Zahlungsart</legend>
-                <label><input type="radio" name="odeme" value="havale" checked /><span><strong>🏦 Havale / EFT — %10 indirimli</strong><small>IBAN wird nach Bestellbestätigung per WhatsApp mitgeteilt.</small></span></label>
+                <label><input type="radio" name="odeme" value="havale" checked /><span><strong>🏦 Havale / EFT — %10 indirimli</strong><small>Zahlung nur auf das unten genannte Firmenkonto; Beleg bitte per WhatsApp senden.</small></span></label>
+                <div class="ord-bank">
+                  <div><span>Kontoinhaber</span><strong data-c-text="bank.accountHolder">Gespa Enerji Sanayi Ticaret Limited Şirketi</strong></div>
+                  <div><span>Bank</span><strong data-c-text="bank.name">VakıfBank</strong></div>
+                  <div><span>IBAN</span><strong class="ord-iban"><span data-c-text="bank.iban">TR89 0001 5001 5800 7320 2443 78</span> <button type="button" class="iban-copy" data-copy-iban aria-label="IBAN'ı kopyala">📋 Kopieren</button></strong></div>
+                  <p class="pd-note">⚠️ Wir verlangen niemals Zahlungen auf Privatkonten. Geben Sie im Verwendungszweck Ihren Namen an.</p>
+                </div>
                 <label><input type="radio" name="odeme" value="kapida" /><span><strong>🚚 Kapıda Ödeme</strong><small>30 % Anzahlung per Überweisung, 70 % bei Lieferung.</small></span></label>
                 <label class="ord-soon"><input type="radio" name="odeme" value="kart" disabled /><span><strong>💳 Kredi Kartı</strong><small>Bald verfügbar.</small></span></label>
               </fieldset>

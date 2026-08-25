@@ -1595,3 +1595,12 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
 .legal-id-note{margin:0;color:var(--muted);font-size:.85rem}
 .footer-legal-id{color:var(--muted);font-size:.82rem;line-height:1.7}
 @media(max-width:560px){.legal-id{grid-template-columns:1fr;gap:2px 0}.legal-id dt{margin-top:8px;font-size:.82rem}}
+
+/* Sepet — şirket hesabı (havale) kutusu */
+.ord-bank{margin:10px 0 4px;padding:12px 14px;border:1px dashed var(--line);border-radius:10px;background:var(--card);font-size:.9rem;display:grid;gap:6px}
+.ord-bank>div{display:grid;gap:2px}
+.ord-bank span{color:var(--muted);font-size:.78rem}
+.ord-iban{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+.iban-copy{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:8px;padding:2px 8px;font-size:.78rem;cursor:pointer}
+.iban-copy:hover{border-color:var(--brand,#0a6e4f)}
+.ord-bank .pd-note{margin:2px 0 0}

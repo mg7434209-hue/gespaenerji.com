@@ -111,7 +111,13 @@
               </div>
               <fieldset class="ord-pay">
                 <legend>Способ оплаты</legend>
-                <label><input type="radio" name="odeme" value="havale" checked /><span><strong>🏦 Havale / EFT — %10 indirimli</strong><small>IBAN отправляется в WhatsApp после подтверждения заказа.</small></span></label>
+                <label><input type="radio" name="odeme" value="havale" checked /><span><strong>🏦 Havale / EFT — %10 indirimli</strong><small>Оплата только на корпоративный счёт ниже; квитанцию отправьте в WhatsApp.</small></span></label>
+                <div class="ord-bank">
+                  <div><span>Владелец счёта</span><strong data-c-text="bank.accountHolder">Gespa Enerji Sanayi Ticaret Limited Şirketi</strong></div>
+                  <div><span>Банк</span><strong data-c-text="bank.name">VakıfBank</strong></div>
+                  <div><span>IBAN</span><strong class="ord-iban"><span data-c-text="bank.iban">TR89 0001 5001 5800 7320 2443 78</span> <button type="button" class="iban-copy" data-copy-iban aria-label="IBAN'ı kopyala">📋 Копировать</button></strong></div>
+                  <p class="pd-note">⚠️ Мы никогда не просим оплату на личные счета. В назначении платежа укажите своё имя.</p>
+                </div>
                 <label><input type="radio" name="odeme" value="kapida" /><span><strong>🚚 Kapıda Ödeme</strong><small>30 % предоплата переводом, 70 % при доставке.</small></span></label>
                 <label class="ord-soon"><input type="radio" name="odeme" value="kart" disabled /><span><strong>💳 Kredi Kartı</strong><small>Скоро.</small></span></label>
               </fieldset>

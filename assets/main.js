@@ -361,6 +361,12 @@
       });
       if (form) {
         Array.prototype.forEach.call(form.querySelectorAll('input[name="odeme"]'), function (r) { r.addEventListener("change", totals); });
+        var ibanBtn = form.querySelector("[data-copy-iban]");
+        if (ibanBtn && CFG.company && CFG.company.bank) ibanBtn.addEventListener("click", function () {
+          var raw = CFG.company.bank.iban.replace(/\s+/g, "");
+          var done = function () { ibanBtn.textContent = "✓ " + L("Kopyalandı", "Copied", "Kopiert", "Скопировано"); setTimeout(function () { ibanBtn.textContent = "📋 " + L("Kopyala", "Copy", "Kopieren", "Копировать"); }, 2000); };
+          if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(raw).then(done, function () {});
+        });
         form.addEventListener("submit", function (e) {
           e.preventDefault();
           var t = totals();
@@ -375,6 +381,7 @@
           if (t.method === "havale") {
             msg.push("Ödeme: Havale/EFT (sepette %" + pct + " indirim)");
             msg.push("Ödenecek: ₺" + nf.format(t.cartT));
+            if (CFG.company && CFG.company.bank) msg.push("Hesap: " + CFG.company.bank.accountHolder + " · " + CFG.company.bank.iban);
           } else {
             msg.push("Ödeme: Kapıda ödeme (%30 peşin + %70 teslimatta)");
             msg.push("Peşin havale: ₺" + nf.format(t.downTL) + " · Teslimatta: ₺" + nf.format(t.restTL));
