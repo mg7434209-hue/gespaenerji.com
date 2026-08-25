@@ -237,6 +237,61 @@ function handlePayRoutes(req, res, urlPath) {
     });
     return true;
   }
+  // GES Marketim / serbest tutar ödemesi (odeme.html) — tek kalemlik tahsilat.
+  // Tutar istemciden gelir (link ödemesi doğası gereği); sınırlar sunucuda
+  // uygulanır ve sipariş kaydına yazılır — kargo ÖNCESİ tutar mutlaka
+  // orders.json/iyzico panelinden doğrulanmalıdır.
+  if (urlPath === "/api/pay/custom" && req.method === "POST") {
+    if (!(IYZ.apiKey && IYZ.secret)) return sendJson(res, 503, { error: "Kart ödemesi şu anda kapalı." }), true;
+    readBody(req, 32 * 1024, (raw) => {
+      let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
+      const amount = Math.round(+b.amountTL || 0);
+      if (!(amount >= 50 && amount <= 250000)) return sendJson(res, 400, { error: "Tutar 50 ₺ ile 250.000 ₺ arasında olmalıdır." });
+      const desc = String(b.desc || "").trim().slice(0, 120) || "GES Marketim siparişi";
+      const ref = String(b.ref || "").trim().slice(0, 40);
+      const buyer = b.buyer || {};
+      const nm = String(buyer.ad || "").trim().split(/\s+/);
+      const surname = nm.length > 1 ? nm.pop() : "-";
+      const name = nm.join(" ") || "-";
+      const tel = String(buyer.tel || "").replace(/[^\d+]/g, "");
+      const email = String(buyer.eposta || "").trim();
+      const tckn = String(buyer.tckn || "").replace(/\D/g, "");
+      const adres = String(buyer.adres || "").trim();
+      const il = String(buyer.il || "").trim();
+      if (!name || !tel || !adres || !il) return sendJson(res, 400, { error: "Ad, telefon, il ve adres zorunludur." });
+      if (!/^\d{11}$/.test(tckn)) return sendJson(res, 400, { error: "Kart ödemesi için 11 haneli T.C. kimlik numarası gereklidir." });
+      const convId = "GMK" + Date.now().toString(36).toUpperCase();
+      const ip = String(req.headers["x-forwarded-for"] || req.socket.remoteAddress || "").split(",")[0].trim() || "85.34.78.112";
+      const addr = { contactName: (name + " " + surname).trim(), city: il.split("/")[0].trim() || "Antalya", country: "Turkey", address: adres + " " + il };
+      const payload = {
+        locale: "tr", conversationId: convId,
+        price: String(amount), paidPrice: String(amount), currency: "TRY",
+        basketId: convId, paymentGroup: "PRODUCT",
+        callbackUrl: siteOrigin(req) + "/api/pay/callback",
+        buyer: {
+          id: "B" + Date.now(), name: name, surname: surname,
+          gsmNumber: tel.startsWith("+") ? tel : "+9" + ("0" + tel).slice(-11),
+          email: email || "info@gespaenerji.com", identityNumber: tckn,
+          registrationAddress: addr.address, ip: ip, city: addr.city, country: "Turkey"
+        },
+        shippingAddress: addr, billingAddress: addr,
+        basketItems: [{ id: "gesmarketim", name: desc, category1: "E-Mağaza", itemType: "PHYSICAL", price: String(amount) }]
+      };
+      iyzRequest("/payment/iyzipos/checkoutform/initialize/auth/ecom", payload, (err, out) => {
+        if (err || !out || out.status !== "success" || !(out.paymentPageUrl || out.payWithIyzicoPageUrl)) {
+          console.warn("iyzico link ödeme hatası:", err ? err.message : (out && out.errorMessage));
+          return sendJson(res, 502, { error: (out && out.errorMessage) || "Ödeme başlatılamadı; lütfen tekrar deneyin." });
+        }
+        writeOrder(out.token, {
+          conversationId: convId, source: "gesmarketim", status: "pending",
+          createdAt: new Date().toISOString(), totalTL: amount, desc: desc, ref: ref || undefined,
+          buyer: { ad: buyer.ad, tel: tel, eposta: email, il: il, adres: adres }
+        });
+        sendJson(res, 200, { url: out.paymentPageUrl || out.payWithIyzicoPageUrl });
+      });
+    });
+    return true;
+  }
   if (urlPath === "/api/pay/callback" && req.method === "POST") {
     readBody(req, 16 * 1024, (raw) => {
       const m = /(?:^|&)token=([^&]+)/.exec(raw || "");

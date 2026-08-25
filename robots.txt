@@ -3,6 +3,7 @@ Allow: /
 Disallow: /admin.html
 Disallow: /sepet.html
 Disallow: /odeme-sonuc.html
+Disallow: /odeme.html
 Disallow: /en/sepet.html
 Disallow: /de/sepet.html
 Disallow: /ru/sepet.html
@@ -14,6 +15,7 @@ Allow: /
 Disallow: /admin.html
 Disallow: /sepet.html
 Disallow: /odeme-sonuc.html
+Disallow: /odeme.html
 Disallow: /en/sepet.html
 Disallow: /de/sepet.html
 Disallow: /ru/sepet.html
@@ -23,6 +25,7 @@ Allow: /
 Disallow: /admin.html
 Disallow: /sepet.html
 Disallow: /odeme-sonuc.html
+Disallow: /odeme.html
 Disallow: /en/sepet.html
 Disallow: /de/sepet.html
 Disallow: /ru/sepet.html
@@ -32,6 +35,7 @@ Allow: /
 Disallow: /admin.html
 Disallow: /sepet.html
 Disallow: /odeme-sonuc.html
+Disallow: /odeme.html
 Disallow: /en/sepet.html
 Disallow: /de/sepet.html
 Disallow: /ru/sepet.html
@@ -41,6 +45,7 @@ Allow: /
 Disallow: /admin.html
 Disallow: /sepet.html
 Disallow: /odeme-sonuc.html
+Disallow: /odeme.html
 Disallow: /en/sepet.html
 Disallow: /de/sepet.html
 Disallow: /ru/sepet.html
@@ -50,6 +55,7 @@ Allow: /
 Disallow: /admin.html
 Disallow: /sepet.html
 Disallow: /odeme-sonuc.html
+Disallow: /odeme.html
 Disallow: /en/sepet.html
 Disallow: /de/sepet.html
 Disallow: /ru/sepet.html
@@ -59,6 +65,7 @@ Allow: /
 Disallow: /admin.html
 Disallow: /sepet.html
 Disallow: /odeme-sonuc.html
+Disallow: /odeme.html
 Disallow: /en/sepet.html
 Disallow: /de/sepet.html
 Disallow: /ru/sepet.html
@@ -68,6 +75,7 @@ Allow: /
 Disallow: /admin.html
 Disallow: /sepet.html
 Disallow: /odeme-sonuc.html
+Disallow: /odeme.html
 Disallow: /en/sepet.html
 Disallow: /de/sepet.html
 Disallow: /ru/sepet.html
@@ -77,6 +85,7 @@ Allow: /
 Disallow: /admin.html
 Disallow: /sepet.html
 Disallow: /odeme-sonuc.html
+Disallow: /odeme.html
 Disallow: /en/sepet.html
 Disallow: /de/sepet.html
 Disallow: /ru/sepet.html
@@ -86,6 +95,7 @@ Allow: /
 Disallow: /admin.html
 Disallow: /sepet.html
 Disallow: /odeme-sonuc.html
+Disallow: /odeme.html
 Disallow: /en/sepet.html
 Disallow: /de/sepet.html
 Disallow: /ru/sepet.html
@@ -95,6 +105,7 @@ Allow: /
 Disallow: /admin.html
 Disallow: /sepet.html
 Disallow: /odeme-sonuc.html
+Disallow: /odeme.html
 Disallow: /en/sepet.html
 Disallow: /de/sepet.html
 Disallow: /ru/sepet.html
@@ -104,6 +115,7 @@ Allow: /
 Disallow: /admin.html
 Disallow: /sepet.html
 Disallow: /odeme-sonuc.html
+Disallow: /odeme.html
 Disallow: /en/sepet.html
 Disallow: /de/sepet.html
 Disallow: /ru/sepet.html
@@ -113,6 +125,7 @@ Allow: /
 Disallow: /admin.html
 Disallow: /sepet.html
 Disallow: /odeme-sonuc.html
+Disallow: /odeme.html
 Disallow: /en/sepet.html
 Disallow: /de/sepet.html
 Disallow: /ru/sepet.html
@@ -122,6 +135,7 @@ Allow: /
 Disallow: /admin.html
 Disallow: /sepet.html
 Disallow: /odeme-sonuc.html
+Disallow: /odeme.html
 Disallow: /en/sepet.html
 Disallow: /de/sepet.html
 Disallow: /ru/sepet.html
@@ -131,6 +145,7 @@ Allow: /
 Disallow: /admin.html
 Disallow: /sepet.html
 Disallow: /odeme-sonuc.html
+Disallow: /odeme.html
 Disallow: /en/sepet.html
 Disallow: /de/sepet.html
 Disallow: /ru/sepet.html
@@ -140,6 +155,7 @@ Allow: /
 Disallow: /admin.html
 Disallow: /sepet.html
 Disallow: /odeme-sonuc.html
+Disallow: /odeme.html
 Disallow: /en/sepet.html
 Disallow: /de/sepet.html
 Disallow: /ru/sepet.html
