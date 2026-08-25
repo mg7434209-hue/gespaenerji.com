@@ -48,6 +48,12 @@
     if (c) {
       var val = function (p) { return p.split(".").reduce(function (o, k) { return o == null ? o : o[k]; }, c); };
       $$("[data-c-text]").forEach(function (el) { var v = val(el.getAttribute("data-c-text")); if (v != null) el.textContent = v; });
+      // data-cfg-text: config KÖKÜNDEN noktalı yol (ör. "commerce.returnDays") —
+      // yasal sayfalardaki süre/koşul sayıları config ile tek kaynaktan gelsin diye
+      $$("[data-cfg-text]").forEach(function (el) {
+        var v = el.getAttribute("data-cfg-text").split(".").reduce(function (o, k) { return o == null ? o : o[k]; }, CFG);
+        if (v != null) el.textContent = v;
+      });
       if (c.phone) {
         $$("[data-c-tel]").forEach(function (el) { el.setAttribute("href", "tel:" + c.phone.tel); });
         $$("[data-c-wa]").forEach(function (el) { el.setAttribute("href", "https://wa.me/" + c.phone.wa); });
@@ -88,6 +94,10 @@
         if (c.areaServed && c.areaServed.length) d.areaServed = c.areaServed;
         if (c.knowsAbout && c.knowsAbout.length) d.knowsAbout = c.knowsAbout;
         if (c.foundingYear) d.foundingDate = String(c.foundingYear);
+        if (c.registry) {
+          if (c.registry.taxNo) { d.taxID = c.registry.taxNo; d.vatID = c.registry.taxNo; }
+          if (c.registry.mersis) d.identifier = { "@type": "PropertyValue", propertyID: "MERSIS", value: c.registry.mersis };
+        }
         if (c.services && c.services.length) {
           d.hasOfferCatalog = {
             "@type": "OfferCatalog", name: "Hizmetler",
@@ -109,6 +119,14 @@
       var fill = function (sel, arr) { var w = $(sel); if (!w || !arr || w.children.length) return; arr.forEach(function (n) { var sp = doc.createElement("span"); sp.textContent = n; w.appendChild(sp); }); };
       fill("#brandPanels", b.panel);
       fill("#brandInverters", b.inverter);
+      fill("#brandMppt", b.mppt);
+      fill("#brandBatteries", b.battery);
+      // Ana sayfa şeridi: tüm grupların tekrarsız birleşimi
+      var all = [];
+      ["panel", "inverter", "mppt", "battery"].forEach(function (g) {
+        (b[g] || []).forEach(function (n) { if (all.indexOf(n) < 0) all.push(n); });
+      });
+      fill("#brandAll", all);
     }
     var k = CFG.calc;
     if (k) {
@@ -294,6 +312,10 @@
           set("[data-ord-disc]", "−₺" + nf.format(listT - cartT) + " (%" + pct + ")");
           set("[data-ord-total]", "₺" + nf.format(cartT));
           if (planEl) planEl.hidden = true;
+        } else if (method === "kart") {
+          set("[data-ord-disc]", L("Kart ödemesinde uygulanmaz", "Not applied for card payments", "Bei Kartenzahlung nicht anwendbar", "При оплате картой не применяется"));
+          set("[data-ord-total]", "₺" + nf.format(listT));
+          if (planEl) planEl.hidden = true;
         } else {
           set("[data-ord-disc]", L("Kapıda ödemede uygulanmaz", "Not applied for pay-on-delivery", "Bei Nachnahme nicht anwendbar", "При оплате при получении не применяется"));
           set("[data-ord-total]", "₺" + nf.format(listT));
@@ -342,13 +364,59 @@
         if (n >= 1) { cart.setQty(row.getAttribute("data-id"), Math.min(99, n)); totals(); }
       });
       if (form) {
-        Array.prototype.forEach.call(form.querySelectorAll('input[name="odeme"]'), function (r) { r.addEventListener("change", totals); });
+        Array.prototype.forEach.call(form.querySelectorAll('input[name="odeme"]'), function (r) { r.addEventListener("change", function () { totals(); syncTckn(); }); });
+        // Kart ödemesi (iyzico): sunucuda anahtar tanımlıysa seçenek açılır.
+        // API yoksa (GitHub Pages) veya kapalıysa "çok yakında" olarak kalır.
+        var cardOpt = document.getElementById("payCardOpt");
+        var tcknRow = document.getElementById("payTcknRow");
+        function syncTckn() {
+          var isCard = form.odeme && form.odeme.value === "kart";
+          if (tcknRow) { tcknRow.hidden = !isCard; var inp = tcknRow.querySelector("input"); if (inp) inp.required = isCard; }
+        }
+        if (cardOpt) {
+          fetch("/api/pay/status").then(function (r) { return r.json(); }).then(function (st) {
+            if (!st || !st.enabled) return;
+            cardOpt.classList.remove("ord-soon"); cardOpt.classList.add("pay-enabled");
+            var radio = cardOpt.querySelector("input"); if (radio) radio.disabled = false;
+            var soon = cardOpt.querySelector(".pay-card-soon"), on = cardOpt.querySelector(".pay-card-on");
+            if (soon) soon.hidden = true;
+            if (on) on.hidden = false;
+          }).catch(function () {});
+        }
+        var ibanBtn = form.querySelector("[data-copy-iban]");
+        if (ibanBtn && CFG.company && CFG.company.bank) ibanBtn.addEventListener("click", function () {
+          var raw = CFG.company.bank.iban.replace(/\s+/g, "");
+          var done = function () { ibanBtn.textContent = "✓ " + L("Kopyalandı", "Copied", "Kopiert", "Скопировано"); setTimeout(function () { ibanBtn.textContent = "📋 " + L("Kopyala", "Copy", "Kopieren", "Копировать"); }, 2000); };
+          if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(raw).then(done, function () {});
+        });
         form.addEventListener("submit", function (e) {
           e.preventDefault();
           var t = totals();
           if (!t.ls.length) return;
           var v = function (n) { return (form[n] && form[n].value.trim()) || ""; };
           if (!v("ad") || !v("tel") || !v("il") || !v("adres")) return;
+          if (t.method === "kart") {
+            var btn = form.querySelector('button[type="submit"]');
+            var doneEl = $("#ordDone");
+            if (btn) { btn.disabled = true; btn.textContent = L("Ödeme sayfası açılıyor…", "Opening payment page…", "Zahlungsseite wird geöffnet…", "Открываем страницу оплаты…"); }
+            fetch("/api/pay/checkout", {
+              method: "POST", headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                items: t.ls.map(function (l) { return { id: l.p.id, qty: l.qty }; }),
+                buyer: { ad: v("ad"), tel: v("tel"), eposta: v("eposta"), il: v("il"), adres: v("adres"), tckn: v("tckn") }
+              })
+            }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+              .then(function (out) {
+                if (out.ok && out.j && out.j.url) { location.href = out.j.url; return; }
+                if (btn) { btn.disabled = false; btn.textContent = L("🛒 Siparişi tamamla", "🛒 Complete your order", "🛒 Bestellung abschließen", "🛒 Завершить заказ"); }
+                if (doneEl) { doneEl.hidden = false; doneEl.textContent = (out.j && out.j.error) || L("Ödeme başlatılamadı; lütfen tekrar deneyin.", "Payment could not be started; please try again.", "Zahlung konnte nicht gestartet werden; bitte erneut versuchen.", "Не удалось начать оплату; попробуйте ещё раз."); }
+              })
+              .catch(function () {
+                if (btn) { btn.disabled = false; btn.textContent = L("🛒 Siparişi tamamla", "🛒 Complete your order", "🛒 Bestellung abschließen", "🛒 Завершить заказ"); }
+                if (doneEl) { doneEl.hidden = false; doneEl.textContent = L("Bağlantı hatası; lütfen tekrar deneyin.", "Connection error; please try again.", "Verbindungsfehler; bitte erneut versuchen.", "Ошибка соединения; попробуйте ещё раз."); }
+              });
+            return;
+          }
           var msg = ["🛒 YENİ SİPARİŞ — Sepet (" + t.ls.length + " ürün)"];
           t.ls.forEach(function (l, i) {
             msg.push((i + 1) + ") " + l.p.name + (l.p.sku ? " [" + l.p.sku + "]" : "") + " × " + l.qty + " = ₺" + nf.format(l.sumList));
@@ -357,6 +425,7 @@
           if (t.method === "havale") {
             msg.push("Ödeme: Havale/EFT (sepette %" + pct + " indirim)");
             msg.push("Ödenecek: ₺" + nf.format(t.cartT));
+            if (CFG.company && CFG.company.bank) msg.push("Hesap: " + CFG.company.bank.accountHolder + " · " + CFG.company.bank.iban);
           } else {
             msg.push("Ödeme: Kapıda ödeme (%30 peşin + %70 teslimatta)");
             msg.push("Peşin havale: ₺" + nf.format(t.downTL) + " · Teslimatta: ₺" + nf.format(t.restTL));

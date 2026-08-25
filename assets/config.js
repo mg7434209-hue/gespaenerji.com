@@ -7,20 +7,48 @@
 window.GESPA = window.GESPA || {};
 window.GESPA.config = {
   company: {
-    legalName: "Gespa Enerji Ltd. Şti.",
+    legalName: "Gespa Enerji Sanayi Ticaret Limited Şirketi",
     brandName: "GESPA Enerji",
     phone: {
       display: "0543 743 42 09",
       tel: "+905437434209",      // tel: linkleri
       wa: "905437434209"          // wa.me/ linkleri
     },
-    email: "gesmarketim@gmail.com",
+    // Alan adına ait kurumsal adres (Turhost mail hosting; MX -> gespaenerji.com).
+    // Sitedeki TÜM mailto linkleri, yasal sayfalardaki satıcı künyesi ve
+    // JSON-LD bu tek alandan beslenir.
+    email: "info@gespaenerji.com",
     address: {
-      line: "Örnek Mah. 1551 Sok. No:10/1",
+      // Ticaret sicili / vergi levhasındaki resmî adresle BİREBİR aynı olmalı
+      line: "Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01",
       district: "Manavgat",
       city: "Antalya",
       country: "TR",
-      full: "Örnek Mah. 1551 Sok. No:10/1, Manavgat / Antalya"
+      full: "Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01, Manavgat / Antalya"
+    },
+
+    // Havale/EFT ödemelerinin yapılacağı ŞİRKET hesabı. Hesap sahibi, ticaret
+    // unvanı ile birebir aynı olmalıdır — şahıs hesabına ödeme kabul edilmez.
+    // Sepet ödeme kutusu ve mesafeli satış sözleşmesi bu alandan beslenir.
+    bank: {
+      name: "VakıfBank",
+      accountHolder: "Gespa Enerji Sanayi Ticaret Limited Şirketi",
+      iban: "TR89 0001 5001 5800 7320 2443 78"
+    },
+
+    // Resmî tescil bilgileri — MATSO oda kayıt sicil sureti (01.11.2022, No 00007385)
+    // ve Manavgat VD vergi levhası ile doğrulanmıştır. Footer + iletisim.html
+    // "Şirket Bilgileri" bloğuna ve LocalBusiness JSON-LD'ye buradan basılır.
+    // Reklam/ödeme platformlarının işletme doğrulaması bu alanlara bakar.
+    registry: {
+      taxOffice: "Manavgat Vergi Dairesi",
+      taxNo: "3941259669",                 // vergi kimlik no (VKN)
+      mersis: "0394125966900001",
+      tradeRegistryNo: "14369",            // ticaret sicil no
+      chamber: "Manavgat Ticaret ve Sanayi Odası",
+      chamberRegNo: "14361",               // oda sicil no
+      nace: "43.21.01",
+      capital: "2.000.000 TL"
     },
     web: "https://www.gespaenerji.com",
     hours: "Hafta içi 09:00 – 18:00",
@@ -29,7 +57,12 @@ window.GESPA.config = {
     priceRange: "₺₺",                     // tahmini fiyat aralığı (zorunlu değil ama önerilir)
     slogan: "Manavgat ve Antalya'da anahtar teslim güneş enerjisi santralleri",
     description: "Gespa Enerji; Manavgat/Antalya merkezli, çatı ve arazi tipi güneş enerjisi santralleri (GES) ile güneş enerjili tarımsal sulama için anahtar teslim mühendislik, kurulum, finansman ve bakım hizmeti sunar.",
-    foundingYear: 2005,                   // kuruluş yılı girilince schema'ya eklenir
+    foundingYear: 2022,                   // ticaret siciline tescil: 01.11.2022 (BELGELİ — değiştirmeyin)
+    // Faaliyetin fiilen başladığı yıl (ŞAHIS İŞLETMESİ dönemi). Şirket 2022'de
+    // limitede dönüştü; deneyim iddiası bu tarihe dayanır. Bu yıl, şahıs
+    // işletmesinin işe başlama/oda kayıt BELGESİ ile doğrulanabilir olmalıdır —
+    // aksi hâlde alanı boşaltın, "deneyim" rozeti otomatik olarak gizlenir.
+    experienceSince: 2005,
     areaServed: ["Manavgat", "Side", "Antalya", "Alanya", "Serik", "Gazipaşa", "Akseki", "Gündoğmuş"],
     knowsAbout: ["Güneş enerjisi santrali (GES)", "Çatı GES", "Arazi tipi GES", "Güneş enerjili tarımsal sulama", "Güneş paneli", "İnverter", "Enerji depolama / batarya", "Lisanssız elektrik üretimi"],
     services: ["Çatı GES", "Arazi Tipi GES", "Güneş Enerjili Tarımsal Sulama", "Enerji Depolama (Batarya)", "Mühendislik & Projelendirme", "Finansman & Leasing", "Bakım (O&M)"],
@@ -61,10 +94,13 @@ window.GESPA.config = {
     showOnline: true         // "şu an sitede" canlı sayısı (yalnız API varken)
   },
 
-  // Kullanılan markalar
+  // Kullanılan markalar — her grup kendi başlığıyla listelenir
+  // (hizmetler.html blokları + ana sayfa marka şeridi; boş dizi = gizli).
   brands: {
     panel: ["Arçelik", "Lexron", "Bakırlar"],
-    inverter: ["Tescom", "Mexxsun", "Lexron", "Arçelik"]
+    inverter: ["Tescom", "Mexxsun", "Lexron", "Arçelik", "Deye", "TitanX"],
+    mppt: ["Havensis"],
+    battery: ["Orbus", "TitanX"]
   },
 
   // ---- Paket ürünler (urunler.html) ----
@@ -360,3 +396,16 @@ window.GESPA.config = {
     shading: { declination: 23.45, defTilt: 30, defLat: 37 }
   }
 };
+
+/* Türetilen alanlar — elle yazılmaz.
+   Deneyim yılı, faaliyet başlangıcından (experienceSince) hesaplanır; böylece
+   yıl dönümünde eskimez ve tescil tarihiyle çelişmez. */
+(function (c) {
+  if (!c) return;
+  if (c.experienceSince) {
+    c.stats = c.stats || {};
+    c.stats.experienceYears = new Date().getFullYear() - c.experienceSince;
+  } else if (c.stats) {
+    delete c.stats.experienceYears;
+  }
+})(window.GESPA.config.company);

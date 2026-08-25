@@ -86,6 +86,234 @@ function countVisit(req, headers) {
   } catch (e) {}
 }
 
+// ---- iyzico ödeme (kredi kartı) ----
+// Anahtarlar YALNIZCA ortam değişkeninden okunur (Railway → Variables):
+//   IYZIPAY_API_KEY, IYZIPAY_SECRET_KEY, IYZIPAY_BASE_URL
+//   (sandbox: https://sandbox-api.iyzipay.com · canlı: https://api.iyzipay.com)
+// Anahtar tanımlı değilse /api/pay/status {enabled:false} döner ve sepetteki
+// kart seçeneği "çok yakında" olarak kalır — kod yayında ama pasiftir.
+// Tutarlar SUNUCUDA config'ten hesaplanır (istemciden fiyat kabul edilmez).
+// Bekleyen/tamamlanan siparişler DATA_DIR/orders.json dosyasında tutulur.
+const crypto = require("crypto");
+const vm = require("vm");
+const IYZ = {
+  apiKey: process.env.IYZIPAY_API_KEY || "",
+  secret: process.env.IYZIPAY_SECRET_KEY || "",
+  base: process.env.IYZIPAY_BASE_URL || "https://sandbox-api.iyzipay.com"
+};
+const ORDERS_FILE = path.join(DATA_DIR, "orders.json");
+function loadSiteConfig() {
+  const sandbox = { window: {} };
+  vm.runInNewContext(fs.readFileSync(path.join(ROOT, "assets/config.js"), "utf8"), sandbox);
+  return sandbox.window.GESPA.config;
+}
+let SITE_CFG = null;
+try { SITE_CFG = loadSiteConfig(); } catch (e) { console.warn("config yüklenemedi:", e && e.message); }
+
+function readOrders() { try { return JSON.parse(fs.readFileSync(ORDERS_FILE, "utf8")); } catch (e) { return {}; } }
+function writeOrder(token, data) {
+  try {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+    const all = readOrders();
+    all[token] = Object.assign(all[token] || {}, data);
+    fs.writeFileSync(ORDERS_FILE, JSON.stringify(all, null, 1));
+  } catch (e) { console.warn("sipariş yazılamadı:", e && e.message); }
+}
+
+// Birim TL fiyat — assets/main.js pkgUnit ile AYNI kural (liste fiyatı).
+// Kart ödemesinde havale indirimi uygulanmaz; liste fiyatı tahsil edilir.
+function pkgListTL(p, cfg) {
+  const RATE = cfg.usdTry || 0;
+  return p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
+}
+
+// iyzico REST — IYZWSv2 imzalı istek (resmî SDK'siz; bağımlılıksız sunucu korunur)
+function iyzRequest(uriPath, body, cb) {
+  const reqBody = JSON.stringify(body);
+  const rnd = Date.now() + "123456789";
+  const signature = crypto.createHmac("sha256", IYZ.secret)
+    .update(rnd + uriPath + reqBody).digest("hex");
+  const auth = "IYZWSv2 " + Buffer.from(
+    "apiKey:" + IYZ.apiKey + "&randomKey:" + rnd + "&signature:" + signature
+  ).toString("base64");
+  const u = new URL(IYZ.base + uriPath);
+  const opts = {
+    method: "POST", hostname: u.hostname, port: u.port || 443, path: u.pathname,
+    headers: {
+      "Authorization": auth, "x-iyzi-rnd": rnd,
+      "Content-Type": "application/json", "Content-Length": Buffer.byteLength(reqBody)
+    }
+  };
+  const rq = require("https").request(opts, (rs) => {
+    let d = "";
+    rs.on("data", (c) => { d += c; });
+    rs.on("end", () => { try { cb(null, JSON.parse(d)); } catch (e) { cb(new Error("iyzico yanıtı çözülemedi")); } });
+  });
+  rq.on("error", (e) => cb(e));
+  rq.setTimeout(20000, () => { rq.destroy(new Error("iyzico zaman aşımı")); });
+  rq.end(reqBody);
+}
+
+function readBody(req, limit, cb) {
+  let d = "", over = false;
+  req.on("data", (c) => { d += c; if (d.length > limit) { over = true; req.destroy(); } });
+  req.on("end", () => { if (!over) cb(d); });
+  req.on("error", () => {});
+}
+function sendJson(res, code, obj) {
+  res.writeHead(code, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" });
+  res.end(JSON.stringify(obj));
+}
+function siteOrigin(req) {
+  const host = (req.headers.host || "").toLowerCase();
+  const proto = req.headers["x-forwarded-proto"] || "http";
+  return proto + "://" + host;
+}
+
+function handlePayRoutes(req, res, urlPath) {
+  if (urlPath === "/api/pay/status") {
+    return sendJson(res, 200, { enabled: !!(IYZ.apiKey && IYZ.secret) }), true;
+  }
+  if (urlPath === "/api/pay/checkout" && req.method === "POST") {
+    if (!(IYZ.apiKey && IYZ.secret)) return sendJson(res, 503, { error: "Kart ödemesi şu anda kapalı." }), true;
+    readBody(req, 64 * 1024, (raw) => {
+      let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
+      let cfg; try { cfg = SITE_CFG || (SITE_CFG = loadSiteConfig()); } catch (e) { return sendJson(res, 500, { error: "Sunucu yapılandırması okunamadı." }); }
+      const items = Array.isArray(b.items) ? b.items : [];
+      const buyer = b.buyer || {};
+      const lines = [];
+      items.forEach((it) => {
+        const p = (cfg.packages || []).find((x) => x.id === it.id);
+        const qty = Math.max(1, Math.min(99, parseInt(it.qty, 10) || 0));
+        if (p && qty) lines.push({ p, qty, unit: pkgListTL(p, cfg) });
+      });
+      if (!lines.length) return sendJson(res, 400, { error: "Sepet boş veya ürünler tanınamadı." });
+      const nm = String(buyer.ad || "").trim().split(/\s+/);
+      const surname = nm.length > 1 ? nm.pop() : "-";
+      const name = nm.join(" ") || "-";
+      const tel = String(buyer.tel || "").replace(/[^\d+]/g, "");
+      const email = String(buyer.eposta || "").trim() || (cfg.company && cfg.company.email) || "";
+      const tckn = String(buyer.tckn || "").replace(/\D/g, "");
+      const adres = String(buyer.adres || "").trim();
+      const il = String(buyer.il || "").trim();
+      if (!name || !tel || !adres || !il) return sendJson(res, 400, { error: "Ad, telefon, il ve adres zorunludur." });
+      if (!/^\d{11}$/.test(tckn)) return sendJson(res, 400, { error: "Kart ödemesi için 11 haneli T.C. kimlik numarası gereklidir." });
+      const total = lines.reduce((a, l) => a + l.unit * l.qty, 0);
+      const convId = "GES" + Date.now().toString(36).toUpperCase();
+      const ip = String(req.headers["x-forwarded-for"] || req.socket.remoteAddress || "").split(",")[0].trim() || "85.34.78.112";
+      const addr = {
+        contactName: (name + " " + surname).trim(), city: il.split("/")[0].trim() || "Antalya",
+        country: "Turkey", address: adres + " " + il
+      };
+      const payload = {
+        locale: "tr", conversationId: convId,
+        price: String(total), paidPrice: String(total), currency: "TRY",
+        basketId: convId, paymentGroup: "PRODUCT",
+        callbackUrl: siteOrigin(req) + "/api/pay/callback",
+        buyer: {
+          id: "B" + Date.now(), name: name, surname: surname,
+          gsmNumber: tel.startsWith("+") ? tel : "+9" + ("0" + tel).slice(-11),
+          email: email || "info@gespaenerji.com", identityNumber: tckn,
+          registrationAddress: addr.address, ip: ip, city: addr.city, country: "Turkey"
+        },
+        shippingAddress: addr, billingAddress: addr,
+        basketItems: lines.map((l, i) => ({
+          id: l.p.id, name: l.p.name + (l.qty > 1 ? " x" + l.qty : ""),
+          category1: "Solar Enerji", itemType: "PHYSICAL", price: String(l.unit * l.qty)
+        }))
+      };
+      iyzRequest("/payment/iyzipos/checkoutform/initialize/auth/ecom", payload, (err, out) => {
+        if (err || !out || out.status !== "success" || !(out.paymentPageUrl || out.payWithIyzicoPageUrl)) {
+          console.warn("iyzico başlatma hatası:", err ? err.message : (out && out.errorMessage));
+          return sendJson(res, 502, { error: (out && out.errorMessage) || "Ödeme başlatılamadı; lütfen tekrar deneyin." });
+        }
+        writeOrder(out.token, {
+          conversationId: convId, status: "pending", createdAt: new Date().toISOString(),
+          totalTL: total, items: lines.map((l) => ({ id: l.p.id, qty: l.qty, unitTL: l.unit })),
+          buyer: { ad: buyer.ad, tel: tel, eposta: email, il: il, adres: adres }
+        });
+        sendJson(res, 200, { url: out.paymentPageUrl || out.payWithIyzicoPageUrl });
+      });
+    });
+    return true;
+  }
+  // GES Marketim / serbest tutar ödemesi (odeme.html) — tek kalemlik tahsilat.
+  // Tutar istemciden gelir (link ödemesi doğası gereği); sınırlar sunucuda
+  // uygulanır ve sipariş kaydına yazılır — kargo ÖNCESİ tutar mutlaka
+  // orders.json/iyzico panelinden doğrulanmalıdır.
+  if (urlPath === "/api/pay/custom" && req.method === "POST") {
+    if (!(IYZ.apiKey && IYZ.secret)) return sendJson(res, 503, { error: "Kart ödemesi şu anda kapalı." }), true;
+    readBody(req, 32 * 1024, (raw) => {
+      let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
+      const amount = Math.round(+b.amountTL || 0);
+      if (!(amount >= 50 && amount <= 250000)) return sendJson(res, 400, { error: "Tutar 50 ₺ ile 250.000 ₺ arasında olmalıdır." });
+      const desc = String(b.desc || "").trim().slice(0, 120) || "GES Marketim siparişi";
+      const ref = String(b.ref || "").trim().slice(0, 40);
+      const buyer = b.buyer || {};
+      const nm = String(buyer.ad || "").trim().split(/\s+/);
+      const surname = nm.length > 1 ? nm.pop() : "-";
+      const name = nm.join(" ") || "-";
+      const tel = String(buyer.tel || "").replace(/[^\d+]/g, "");
+      const email = String(buyer.eposta || "").trim();
+      const tckn = String(buyer.tckn || "").replace(/\D/g, "");
+      const adres = String(buyer.adres || "").trim();
+      const il = String(buyer.il || "").trim();
+      if (!name || !tel || !adres || !il) return sendJson(res, 400, { error: "Ad, telefon, il ve adres zorunludur." });
+      if (!/^\d{11}$/.test(tckn)) return sendJson(res, 400, { error: "Kart ödemesi için 11 haneli T.C. kimlik numarası gereklidir." });
+      const convId = "GMK" + Date.now().toString(36).toUpperCase();
+      const ip = String(req.headers["x-forwarded-for"] || req.socket.remoteAddress || "").split(",")[0].trim() || "85.34.78.112";
+      const addr = { contactName: (name + " " + surname).trim(), city: il.split("/")[0].trim() || "Antalya", country: "Turkey", address: adres + " " + il };
+      const payload = {
+        locale: "tr", conversationId: convId,
+        price: String(amount), paidPrice: String(amount), currency: "TRY",
+        basketId: convId, paymentGroup: "PRODUCT",
+        callbackUrl: siteOrigin(req) + "/api/pay/callback",
+        buyer: {
+          id: "B" + Date.now(), name: name, surname: surname,
+          gsmNumber: tel.startsWith("+") ? tel : "+9" + ("0" + tel).slice(-11),
+          email: email || "info@gespaenerji.com", identityNumber: tckn,
+          registrationAddress: addr.address, ip: ip, city: addr.city, country: "Turkey"
+        },
+        shippingAddress: addr, billingAddress: addr,
+        basketItems: [{ id: "gesmarketim", name: desc, category1: "E-Mağaza", itemType: "PHYSICAL", price: String(amount) }]
+      };
+      iyzRequest("/payment/iyzipos/checkoutform/initialize/auth/ecom", payload, (err, out) => {
+        if (err || !out || out.status !== "success" || !(out.paymentPageUrl || out.payWithIyzicoPageUrl)) {
+          console.warn("iyzico link ödeme hatası:", err ? err.message : (out && out.errorMessage));
+          return sendJson(res, 502, { error: (out && out.errorMessage) || "Ödeme başlatılamadı; lütfen tekrar deneyin." });
+        }
+        writeOrder(out.token, {
+          conversationId: convId, source: "gesmarketim", status: "pending",
+          createdAt: new Date().toISOString(), totalTL: amount, desc: desc, ref: ref || undefined,
+          buyer: { ad: buyer.ad, tel: tel, eposta: email, il: il, adres: adres }
+        });
+        sendJson(res, 200, { url: out.paymentPageUrl || out.payWithIyzicoPageUrl });
+      });
+    });
+    return true;
+  }
+  if (urlPath === "/api/pay/callback" && req.method === "POST") {
+    readBody(req, 16 * 1024, (raw) => {
+      const m = /(?:^|&)token=([^&]+)/.exec(raw || "");
+      const token = m ? decodeURIComponent(m[1].replace(/\+/g, " ")).trim() : "";
+      const fail = () => { res.writeHead(302, { Location: "/odeme-sonuc.html?d=hata" }); res.end(); };
+      if (!token || !(IYZ.apiKey && IYZ.secret)) return fail();
+      iyzRequest("/payment/iyzipos/checkoutform/auth/ecom/detail", { locale: "tr", token: token }, (err, out) => {
+        const ok = !err && out && out.status === "success" && out.paymentStatus === "SUCCESS";
+        writeOrder(token, {
+          status: ok ? "paid" : "failed", resolvedAt: new Date().toISOString(),
+          paymentId: out && out.paymentId, paidPrice: out && out.paidPrice,
+          errorMessage: (!ok && out && out.errorMessage) || undefined
+        });
+        res.writeHead(302, { Location: ok ? "/odeme-sonuc.html?d=ok" : "/odeme-sonuc.html?d=hata" });
+        res.end();
+      });
+    });
+    return true;
+  }
+  return false;
+}
+
 const server = http.createServer((req, res) => {
   try {
     // HTTP → HTTPS (yalnızca proxy açıkça http dediğinde; aynı host korunur).
@@ -107,6 +335,11 @@ const server = http.createServer((req, res) => {
     if (/^(\/havuz-teknolojileri\/ai-cankurtaran-destek-sistemi\/?|\/cankurtaran(\.html)?)$/.test(urlPath)) {
       res.writeHead(301, { Location: "/ai-cankurtaran-destek-sistemi.html" + qs });
       return res.end();
+    }
+    // Ödeme API (iyzico) — anahtar tanımlı değilse status {enabled:false} döner
+    if (urlPath.startsWith("/api/pay/")) {
+      if (handlePayRoutes(req, res, urlPath)) return;
+      res.writeHead(404); return res.end("Not found");
     }
     // Ziyaretçi API — footer sayacı (main.js) buradan okur; sayım HTML servisinde
     if (urlPath === "/api/visitors") {

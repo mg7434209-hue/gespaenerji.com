@@ -237,6 +237,20 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   `META` tablosundadır — yeni sayfada oraya da satır ekle. Dil değiştirici ilgili
   dil URL'sine yönlendirir; `hreflang` `i18n.js` tarafından enjekte edilir.
 
+## Ödeme (iyzico)
+Kart ödemesi server.js'te bağımlılıksız iyzico Ödeme Formu entegrasyonu:
+`/api/pay/status` (aktif mi) · `/api/pay/checkout` (sepet → iyzico sayfası;
+tutar SUNUCUDA config'ten hesaplanır, istemci fiyatı yok sayılır; TCKN zorunlu)
+· `/api/pay/callback` (iyzico dönüşü → odeme-sonuc.html). Anahtarlar YALNIZCA
+Railway ortam değişkeni: IYZIPAY_API_KEY / IYZIPAY_SECRET_KEY / IYZIPAY_BASE_URL
+(sandbox varsayılan; canlı = https://api.iyzipay.com). Anahtar yoksa sepetteki
+kart seçeneği "çok yakında" kalır (Pages aynasında da böyle). Siparişler
+DATA_DIR/orders.json. Kart ödemesinde havale indirimi YOK (liste fiyatı);
+`odeme-sonuc.html` noindex + robots engelli + build PAGES dışı (TR tek dil).
+`odeme.html`: GES Marketim/serbest tutar link ödemesi (`?t=tutar&a=aciklama&s=no`
+ön-doldurur) → `/api/pay/custom` (tutar istemciden; sınır 50–250.000 ₺ sunucuda,
+kargo öncesi orders.json/iyzico panelinden tutar DOĞRULANIR). O da noindex.
+
 ## Ağ Kısıtı (ÖNEMLİ)
 - Buluttaki Claude Code dış sitelere (ör. solaranaliz.tr, gespaenerji.com)
   ERİŞEMEZ — egress izin listesi kısıtı. "Git şu siteyi taklit et / kazı" çalışmaz.

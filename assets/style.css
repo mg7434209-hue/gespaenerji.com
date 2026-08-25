@@ -1585,3 +1585,28 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
 .alt-media{overflow:hidden;min-height:210px;background:var(--bg-alt)}
 .alt-media img{width:100%;height:100%;object-fit:cover;display:block}
 @media(max-width:820px){.alt-card{grid-template-columns:1fr}.alt-media{order:-1;min-height:200px}}
+
+/* Kurumsal kimlik bloğu — iletişim sayfası kartı + yasal sayfalardaki satıcı künyesi */
+.legal-id{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin:14px 0 18px;font-size:.95rem}
+.legal-id dt{color:var(--muted);white-space:nowrap}
+.legal-id dd{margin:0;color:var(--ink)}
+.legal-id-card{margin-top:22px;padding:20px 22px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.legal-id-card h3{margin:0 0 6px;font-size:1.05rem}
+.legal-id-note{margin:0;color:var(--muted);font-size:.85rem}
+.footer-legal-id{color:var(--muted);font-size:.82rem;line-height:1.7}
+@media(max-width:560px){.legal-id{grid-template-columns:1fr;gap:2px 0}.legal-id dt{margin-top:8px;font-size:.82rem}}
+
+/* Sepet — şirket hesabı (havale) kutusu */
+.ord-bank{margin:10px 0 4px;padding:12px 14px;border:1px dashed var(--line);border-radius:10px;background:var(--card);font-size:.9rem;display:grid;gap:6px}
+.ord-bank>div{display:grid;gap:2px}
+.ord-bank span{color:var(--muted);font-size:.78rem}
+.ord-iban{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+.iban-copy{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:8px;padding:2px 8px;font-size:.78rem;cursor:pointer}
+.iban-copy:hover{border-color:var(--brand,#0a6e4f)}
+.ord-bank .pd-note{margin:2px 0 0}
+
+/* Sepet — kart ödemesi (iyzico) */
+.ord-tckn{margin:8px 0 2px}
+.ord-tckn label{display:block;font-size:.82rem;color:var(--muted);margin-bottom:4px}
+.ord-tckn input{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--ink)}
+.ord-pay label.pay-enabled{opacity:1}
