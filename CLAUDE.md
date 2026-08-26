@@ -212,10 +212,10 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   `tools/foto-hazirla.py` bunları kırpar (kenar artefaktı/siyah şerit), OEM
   yazısını GESPA ile değiştirir ve yayın `.webp` türevini üretir — işler JOBS
   listesindedir (`--uygula` yazar). Kaynak dosyayı SİLME, yeniden üretilebilsin.
-- Ana sayfadaki "Güneşten Bedava Sıcak Su" şeridinin görseli foto değil, inline
-  SVG şemadır (`.feature-svg` + `.hs-*` stilleri): güneş → panel → tank → musluk,
-  altta "bulutluyken şebeke" rozeti. Etiketler `<text>` düğümüdür ve i18n DICT'ten
-  çevrilir — yeni etiket eklerken 4 dile birden ekle, kutuya sığdığını doğrula.
+- Ana sayfadaki "Güneşten Bedava Sıcak Su" şeridinin görseli montaj şemasıdır:
+  `baglanti-semasi-900.webp` (`.feature-diagram`, object-fit:contain, data-zoom
+  ile büyür). Görselin etiketleri TR gömülüdür (i18n çevirmez). Eski inline SVG
+  şema kaldırıldı; `.hs-*` stilleri ve DICT etiket çevirileri repoda duruyor.
 - Açık/koyu tema, mobil menü, scroll animasyonları `assets/main.js` ile yönetilir;
   yeni DOM'lar `.reveal` ve `data-count` desenlerini kullanabilir.
 - Ziyaretçi sayacı: footer'daki `.visit-counter` rozetini main.js enjekte eder
