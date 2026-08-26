@@ -127,6 +127,9 @@ function pkgListTL(p, cfg) {
   return p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
 }
 
+// Fiyat biçimi — resmî SDK ile aynı: tam sayıya ".0" eklenir ("50" -> "50.0")
+function iyzPrice(n) { const v = String(n); return v.indexOf(".") < 0 ? v + ".0" : v; }
+
 // iyzico REST — IYZWSv2 imzalı istek (resmî SDK'siz; bağımlılıksız sunucu korunur)
 function iyzRequest(uriPath, body, cb) {
   const reqBody = JSON.stringify(body);
@@ -207,7 +210,7 @@ function handlePayRoutes(req, res, urlPath) {
       };
       const payload = {
         locale: "tr", conversationId: convId,
-        price: String(total), paidPrice: String(total), currency: "TRY",
+        price: iyzPrice(total), paidPrice: iyzPrice(total), currency: "TRY",
         basketId: convId, paymentGroup: "PRODUCT",
         callbackUrl: siteOrigin(req) + "/api/pay/callback",
         buyer: {
@@ -219,7 +222,7 @@ function handlePayRoutes(req, res, urlPath) {
         shippingAddress: addr, billingAddress: addr,
         basketItems: lines.map((l, i) => ({
           id: l.p.id, name: l.p.name + (l.qty > 1 ? " x" + l.qty : ""),
-          category1: "Solar Enerji", itemType: "PHYSICAL", price: String(l.unit * l.qty)
+          category1: "Solar Enerji", itemType: "PHYSICAL", price: iyzPrice(l.unit * l.qty)
         }))
       };
       iyzRequest("/payment/iyzipos/checkoutform/initialize/auth/ecom", payload, (err, out) => {
@@ -265,7 +268,7 @@ function handlePayRoutes(req, res, urlPath) {
       const addr = { contactName: (name + " " + surname).trim(), city: il.split("/")[0].trim() || "Antalya", country: "Turkey", address: adres + " " + il };
       const payload = {
         locale: "tr", conversationId: convId,
-        price: String(amount), paidPrice: String(amount), currency: "TRY",
+        price: iyzPrice(amount), paidPrice: iyzPrice(amount), currency: "TRY",
         basketId: convId, paymentGroup: "PRODUCT",
         callbackUrl: siteOrigin(req) + "/api/pay/callback",
         buyer: {
@@ -275,7 +278,7 @@ function handlePayRoutes(req, res, urlPath) {
           registrationAddress: addr.address, ip: ip, city: addr.city, country: "Turkey"
         },
         shippingAddress: addr, billingAddress: addr,
-        basketItems: [{ id: "gesmarketim", name: desc, category1: "E-Mağaza", itemType: "PHYSICAL", price: String(amount) }]
+        basketItems: [{ id: "gesmarketim", name: desc, category1: "E-Mağaza", itemType: "PHYSICAL", price: iyzPrice(amount) }]
       };
       iyzRequest("/payment/iyzipos/checkoutform/initialize/auth/ecom", payload, (err, out) => {
         if (err || !out || out.status !== "success" || !(out.paymentPageUrl || out.payWithIyzicoPageUrl)) {
