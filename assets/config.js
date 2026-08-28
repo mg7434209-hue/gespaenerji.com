@@ -77,7 +77,7 @@ window.GESPA.config = {
 
   // Analitik — ID girilince yüklenir (boş = kapalı). KVKK için çerez onayı önerilir.
   analytics: {
-    ga4: ""   // örn. "G-XXXXXXXXXX" (Google Analytics 4 ölçüm kimliği)
+    ga4: "G-1BLPXB0V5S"   // örn. "G-XXXXXXXXXX" (Google Analytics 4 ölçüm kimliği)
   },
 
   // Ziyaretçi sayacı (footer rozeti) — main.js enjekte eder, sayfalara elle eklenmez.
