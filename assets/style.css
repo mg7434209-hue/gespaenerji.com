@@ -482,6 +482,23 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .t-year{display:block;color:var(--green);font-weight:800;font-family:var(--font);font-size:1.2rem;margin-bottom:2px}
 .timeline p{margin:0;color:var(--muted)}
 
+/* Pillar cards (kurumsal geçmiş vurgusu) */
+.mile-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:32px 0 48px}
+.mile-pillar{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px 18px;text-align:center;transition:box-shadow .3s,border-color .3s}
+.mile-pillar:hover{border-color:var(--green);box-shadow:var(--shadow)}
+.mp-ico{display:block;font-size:2.4rem;line-height:1;margin:0 0 12px}
+.mile-pillar strong{display:block;color:var(--green);font-size:1.05rem;font-weight:700;margin:8px 0 6px}
+.mile-pillar span{display:block;color:var(--muted);font-size:.92rem;line-height:1.5}
+@media (max-width:760px){.mile-pillars{grid-template-columns:1fr;gap:14px}}
+
+/* Enhanced timeline */
+.timeline-rich li{padding:0}
+.timeline-rich .t-head{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--line);background:var(--bg-alt);border-radius:12px 12px 0 0}
+.timeline-rich .t-year{margin-bottom:0}
+.t-tag{display:inline-block;background:var(--green);color:#fff;font-size:.7rem;font-weight:700;padding:4px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+.timeline-rich .t-title{display:block;color:var(--ink);font-weight:700;margin:0;padding:16px 20px 4px;font-size:1.05rem}
+.timeline-rich p{padding:4px 20px 16px;margin:0}
+
 /* CTA band */
 .cta-band{background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff}
 .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:54px 20px;flex-wrap:wrap}
