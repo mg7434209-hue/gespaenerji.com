@@ -755,10 +755,7 @@
 
     if (!id) return; // ID yoksa hiçbir analitik script yüklenmez, bildirim de gösterilmez
 
-    var gaLoaded = false;
     function loadGA() {
-      if (gaLoaded) return;
-      gaLoaded = true;
       var s = doc.createElement("script"); s.async = true;
       s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(id);
       doc.head.appendChild(s);
@@ -767,21 +764,6 @@
       window.gtag = gtag;
       gtag("js", new Date());
       gtag("config", id, { anonymize_ip: true });
-      // Attribution is an observed referrer, not proof of every AI citation.
-      var aiSources = {"chatgpt.com":"chatgpt", "chat.openai.com":"chatgpt", "perplexity.ai":"perplexity", "claude.ai":"claude", "copilot.microsoft.com":"copilot", "gemini.google.com":"gemini"};
-      try {
-        var refHost = new URL(doc.referrer).hostname.toLowerCase().replace(/^www\./, "");
-        var aiSource = aiSources[refHost];
-        if (aiSource) gtag("event", "ai_referral", { ai_source: aiSource, landing_path: location.pathname });
-      } catch (e) {}
-      doc.addEventListener("click", function (event) {
-        var a = event.target.closest && event.target.closest("a[href]");
-        if (!a) return;
-        var href = a.getAttribute("href") || "";
-        var method = /^tel:/i.test(href) ? "phone" : /^mailto:/i.test(href) ? "email" : /https:\/\/(?:wa\.me|api\.whatsapp\.com)\//i.test(href) ? "whatsapp" : null;
-        if (method) gtag("event", "contact_click", { contact_method: method, page_path: location.pathname });
-        else if (/iletisim\.html(?:[?#]|$)/.test(href)) gtag("event", "quote_cta_click", { page_path: location.pathname });
-      });
     }
 
     var choice = null;
