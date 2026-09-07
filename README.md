@@ -57,7 +57,7 @@ npm run build    # sadece /en /de /ru dil sayfalarını üret
 ## Yayın
 
 - **Railway (canlı)**: `claude/determined-albattani-ol20qb` dalına push → otomatik deploy.
-- **GitHub Pages (ayna)**: `main` dalına push → `.github/workflows/deploy-pages.yml`.
+- **GitHub Pages (ayna)**: `claude/determined-albattani-ol20qb` dalına push → `.github/workflows/deploy-pages.yml`.
 
 ## Özelleştirme
 
@@ -67,3 +67,12 @@ npm run build    # sadece /en /de /ru dil sayfalarını üret
   değerler `config.js`'e işlenir.
 - Admin şifresi: `config.js → admin.pass` (statik sitede yalnızca caydırıcıdır).
 - İletişim/bülten formları talebi WhatsApp'a yönlendirir; istenirse bir form servisine bağlanabilir.
+
+## SEO içerikleri ve doğrulama
+
+- Yeni hizmet ve proje detayları `content/seo-pages.js` içinde dört dilde tutulur.
+- `content/build-seo.js` TR kaynakları, build.js diğer dil sayfalarını üretir.
+- İlave ürün/araç çevirileri `content/translation-fixes.json` kaynağından browser sözlüğüne aktarılır.
+- `llms.txt` ve `llms-full.txt` otomatik üretilir; firma bilgisi ve fiyatları bu dosyalarda elle değiştirmeyin.
+- Kontrol: `npm run build && npm test`.
+- Ölçüm ve harici hesap işleri: `docs/seo-ai-measurement.md`.

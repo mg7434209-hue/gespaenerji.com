@@ -1,0 +1,572 @@
+[
+  [
+    "Aydınlatma",
+    "Lighting",
+    "Beleuchtung",
+    "Освещение"
+  ],
+  [
+    "Bulaşık makinesi",
+    "Dishwasher",
+    "Geschirrspüler",
+    "Посудомоечная машина"
+  ],
+  [
+    "Çamaşır makinesi",
+    "Washing machine",
+    "Waschmaschine",
+    "Стиральная машина"
+  ],
+  [
+    "Büyük boy buzdolabı",
+    "Full-size refrigerator",
+    "Großer Kühlschrank",
+    "Большой холодильник"
+  ],
+  [
+    "Telefon şarjı",
+    "Phone charging",
+    "Handy laden",
+    "Зарядка телефона"
+  ],
+  [
+    "Küçük cihazlar",
+    "Small appliances",
+    "Kleine Geräte",
+    "Небольшие приборы"
+  ],
+  [
+    "Ev konforu, şebekeden bağımsız",
+    "Home comfort, off the grid",
+    "Wohnkomfort ohne Netzanschluss",
+    "Домашний комфорт без сети"
+  ],
+  [
+    "Akşam haberleriniz ve maçlarınız kesintisiz.",
+    "Keep watching your evening news and matches.",
+    "Nachrichten und Spiele am Abend weitersehen.",
+    "Смотрите вечерние новости и матчи."
+  ],
+  [
+    "Bataryası sayesinde gece dahil kesintisiz.",
+    "Battery power through the night.",
+    "Batteriestrom auch nachts.",
+    "Питание от батареи также ночью."
+  ],
+  [
+    "Çamaşırlarınız güneş enerjisiyle.",
+    "Laundry powered by the sun.",
+    "Wäsche mit Sonnenenergie.",
+    "Стирка на солнечной энергии."
+  ],
+  [
+    "Mutfağınız şebekeye muhtaç değil.",
+    "Your kitchen can run off the grid.",
+    "Ihre Küche kann netzunabhängig laufen.",
+    "Кухня может работать без сети."
+  ],
+  [
+    "Günlük yaşamın tüm temel cihazları.",
+    "Essential everyday appliances.",
+    "Wichtige Alltagsgeräte.",
+    "Основные бытовые приборы."
+  ],
+  [
+    "LED lambalarla tüm mekânınız aydınlık.",
+    "Light your space with LED lamps.",
+    "Beleuchten Sie Ihre Räume mit LED-Lampen.",
+    "Освещайте помещение светодиодными лампами."
+  ],
+  [
+    "Telefon, tablet ve powerbank şarjı.",
+    "Charge phones, tablets and power banks.",
+    "Handys, Tablets und Powerbanks laden.",
+    "Зарядка телефонов, планшетов и пауэрбанков."
+  ],
+  [
+    "Radyo, modem gibi düşük tüketimli cihazlar.",
+    "Low-power devices such as radios and modems.",
+    "Sparsame Geräte wie Radios und Modems.",
+    "Приборы малого потребления: радио, модемы."
+  ],
+  [
+    "Süpürge & TV & ışık",
+    "Vacuum, TV and lights",
+    "Staubsauger, TV und Licht",
+    "Пылесос, ТВ и освещение"
+  ],
+  [
+    "Temel ihtiyaçlarınız güneşten",
+    "Solar power for your essentials",
+    "Solarstrom für Ihren Grundbedarf",
+    "Солнце для основных потребностей"
+  ],
+  [
+    "Gece çalışır mı?",
+    "Does it work at night?",
+    "Funktioniert es nachts?",
+    "Работает ли ночью?"
+  ],
+  [
+    "Hangi cihazları çalıştırır?",
+    "Which appliances can it power?",
+    "Welche Geräte kann es betreiben?",
+    "Какие приборы можно питать?"
+  ],
+  [
+    "Garanti ve servis nasıl?",
+    "What about warranty and service?",
+    "Wie sind Garantie und Service geregelt?",
+    "Каковы гарантия и обслуживание?"
+  ],
+  [
+    "Klima veya elektrikli ısıtıcı çalıştırır mı?",
+    "Can it power air conditioning or electric heating?",
+    "Kann es Klimaanlagen oder Elektroheizungen betreiben?",
+    "Питает ли кондиционер или электрообогреватель?"
+  ],
+  [
+    "Fiyat TL mi, kur değişirse ne olur?",
+    "Is the price in TRY and what if exchange rates change?",
+    "Ist der Preis in TRY und was passiert bei Kursänderungen?",
+    "Цена в лирах? Что при изменении курса?"
+  ],
+  [
+    "Bu paketin fiyatı TL'dir; kartta gösterilen USD karşılığı yalnızca bilgi amaçlıdır ve güncel kura göre değişir.",
+    "This package is priced in TRY. The displayed USD equivalent is indicative and varies with the exchange rate.",
+    "Dieses Paket wird in TRY berechnet. Der angezeigte USD-Gegenwert dient der Orientierung und schwankt mit dem Wechselkurs.",
+    "Цена комплекта указана в лирах. Эквивалент в долларах справочный и зависит от курса."
+  ],
+  [
+    "Bu sistemin fiyatı USD bazlıdır; TL karşılığı sipariş anındaki güncel kur üzerinden hesaplanır. Sayfadaki TL tutarı yaklaşık bilgidir.",
+    "This system is priced in USD; the TRY amount uses the exchange rate at the time of ordering. The displayed TRY amount is approximate.",
+    "Dieses System wird in USD berechnet; der TRY-Betrag richtet sich nach dem Kurs bei Bestellung. Die TRY-Angabe auf der Seite ist ungefähr.",
+    "Цена системы установлена в долларах; сумма в лирах рассчитывается по курсу при заказе. На странице указана приблизительная сумма."
+  ],
+  [
+    "Evet. LiFePO₄ lityum batarya gündüz üretilen enerjiyi depolar; buzdolabınız gece de kesintisiz çalışır.",
+    "Yes. The LiFePO₄ battery stores daytime generation to power your refrigerator at night.",
+    "Ja. Die LiFePO₄-Batterie speichert den Tagesertrag für den Kühlschrankbetrieb in der Nacht.",
+    "Да. Батарея LiFePO₄ сохраняет дневную энергию для питания холодильника ночью."
+  ],
+  [
+    "Yüksek tüketimli ısıtma/soğutma cihazları bu paketin kapsamı dışındadır; bu ihtiyaçlar için size özel sistem boyutlandırması yapıyoruz — Sistem Kurucu aracımızı deneyin veya bize ulaşın.",
+    "High-consumption heating and cooling appliances are outside this package's scope. We size a system for those needs; try the System Builder or contact us.",
+    "Verbrauchsstarke Heiz- und Kühlgeräte sind nicht Teil dieses Pakets. Dafür legen wir eine individuelle Anlage aus; nutzen Sie den Konfigurator oder kontaktieren Sie uns.",
+    "Мощные нагревательные и охлаждающие приборы не входят в назначение комплекта. Для них подбирается отдельная система; используйте конфигуратор или свяжитесь с нами."
+  ],
+  [
+    "Ürünler 15 yılı aşkın deneyime sahip üreticinin modern tesislerinde üretilir; Türkiye'de satış ve satış sonrası destek GESPA Enerji tarafından verilir.",
+    "Products are made in modern facilities by a manufacturer with over 15 years of experience. GESPA Enerji provides sales and after-sales support in Türkiye.",
+    "Die Produkte werden in modernen Anlagen eines Herstellers mit über 15 Jahren Erfahrung gefertigt. GESPA Enerji übernimmt Vertrieb und Kundendienst in der Türkei.",
+    "Продукция производится на современных мощностях производителя с опытом более 15 лет. Продажи и поддержку в Турции обеспечивает GESPA Enerji."
+  ],
+  [
+    "LiFePO₄ (lityum demir fosfat), bataryalar içinde en güvenli ve en uzun ömürlü kimyalardandır; binlerce şarj döngüsü boyunca kapasitesini korur.",
+    "LiFePO₄ (lithium iron phosphate) is among the safer, longer-life battery chemistries, retaining capacity over thousands of charge cycles.",
+    "LiFePO₄ (Lithium-Eisenphosphat) gehört zu den sichereren, langlebigen Batterietechnologien und erhält Kapazität über Tausende Ladezyklen.",
+    "LiFePO₄ (литий-железо-фосфат) относится к более безопасным и долговечным типам батарей, сохраняющим ёмкость в течение тысяч циклов."
+  ],
+  [
+    "TV, LED aydınlatma, telefon/tablet şarjı ve radyo-modem gibi küçük cihazlar için tasarlandı. Buzdolabı ve çamaşır makinesi gibi büyük cihazlar için Tam Kapsamlı 2×540W sistemimizi öneririz.",
+    "Designed for TV, LED lighting, phone/tablet charging and small devices such as radios and modems. For larger appliances, see the complete 2×540W system.",
+    "Für TV, LED-Licht, Handy-/Tablet-Laden und kleine Geräte wie Radio und Modem. Für größere Verbraucher siehe das komplette 2×540-W-System.",
+    "Для ТВ, LED-освещения, зарядки телефона/планшета, радио и модема. Для крупных приборов рассмотрите полную систему 2×540 Вт."
+  ],
+  [
+    "Hayır. Paneli güneşe yerleştirip renk kodlu kabloları takmanız yeterli; alet ve teknik bilgi gerektirmez. İsterseniz Antalya bölgesinde yerinde kurulum da yapıyoruz.",
+    "No. Place the panel in sunlight and connect the colour-coded cables. No tools or technical knowledge are required. On-site installation is also available in the Antalya region.",
+    "Nein. Modul in die Sonne stellen und farbcodierte Kabel anschließen. Werkzeug und Fachwissen sind nicht erforderlich. Vor-Ort-Montage ist in der Region Antalya verfügbar.",
+    "Нет. Разместите панель на солнце и подключите кабели с цветовой маркировкой. Инструменты и технические знания не требуются. В регионе Анталья доступен монтаж на месте."
+  ],
+  [
+    "Kamp, karavan ve bağ evi için elektrik özgürlüğü: panel, güç kutusu ve kablolar tek pakette. Kur, tak, kullan — şebeke yoksa bile TV'niz, ışığınız ve telefon şarjınız var.",
+    "Power for camping, caravans and cottages: panel, power box and cables in one kit. Set up, connect and power your TV, lights and phone charging off-grid.",
+    "Strom für Camping, Wohnmobile und Ferienhäuser: Modul, Power-Box und Kabel in einem Set. Aufstellen, anschließen und TV, Licht und Handy netzunabhängig nutzen.",
+    "Энергия для кемпинга, автодомов и дач: панель, блок питания и кабели в комплекте. Установите, подключите и пользуйтесь ТВ, светом и зарядкой без сети."
+  ],
+  [
+    "Bir evin temel yükünü güneşten karşılayın: 2×540 W panel ve LiFePO₄ bataryalı büyük güç kutusuyla buzdolabınız gece-gündüz çalışır, çamaşırınız güneş enerjisiyle yıkanır.",
+    "Supply essential household loads with two 540 W panels and a large LiFePO₄ power box for your refrigerator and laundry.",
+    "Versorgen Sie wichtige Haushaltsgeräte mit zwei 540-W-Modulen und einer großen LiFePO₄-Power-Box für Kühlschrank und Wäsche.",
+    "Питайте основные бытовые нагрузки двумя панелями по 540 Вт и блоком с LiFePO₄ для холодильника и стирки."
+  ],
+  [
+    "285W Güneş Paneli Paketi'ne göz atın →",
+    "See the 285W solar kit →",
+    "285-W-Solarset ansehen →",
+    "Посмотреть комплект 285 Вт →"
+  ],
+  [
+    "Tam Kapsamlı Güneş Enerjisi Sistemi'ne (2×540W) göz atın →",
+    "See the complete solar system (2×540W) →",
+    "Komplettes Solarsystem (2×540 W) ansehen →",
+    "Посмотреть полную систему (2×540 Вт) →"
+  ],
+  [
+    "Buzdolabı, çamaşır ve bulaşık makinesi de çalıştırmak istiyorsanız",
+    "To also power a fridge, washer and dishwasher,",
+    "Um auch Kühlschrank, Wasch- und Spülmaschine zu betreiben,",
+    "Чтобы питать также холодильник, стиральную и посудомоечную машины,"
+  ],
+  [
+    "Yalnızca TV, aydınlatma ve şarj ihtiyacınız varsa",
+    "If you only need TV, lights and charging,",
+    "Wenn Sie nur TV, Licht und Laden benötigen,",
+    "Если нужны только ТВ, свет и зарядка,"
+  ],
+  [
+    "🎒 Daha fazla güç mü gerekiyor?",
+    "🎒 Need more power?",
+    "🎒 Mehr Leistung nötig?",
+    "🎒 Нужно больше мощности?"
+  ],
+  [
+    "🧰 Daha küçük bir çözüm mü lazım?",
+    "🧰 Need a smaller solution?",
+    "🧰 Eine kleinere Lösung gesucht?",
+    "🧰 Нужна меньшая система?"
+  ],
+  [
+    "🎒 Mobil taşınabilir",
+    "🎒 Portable",
+    "🎒 Tragbar",
+    "🎒 Переносной"
+  ],
+  [
+    "🔌 Tak-çalıştır",
+    "🔌 Plug and play",
+    "🔌 Plug-and-Play",
+    "🔌 Подключи и используй"
+  ],
+  [
+    "⚖️ 23–25 kg — taşınabilir",
+    "⚖️ 23–25 kg — portable",
+    "⚖️ 23–25 kg — tragbar",
+    "⚖️ 23–25 кг — переносной"
+  ],
+  [
+    "☀️ Günlük ~1,7 kWh üretim",
+    "☀️ About 1.7 kWh daily generation",
+    "☀️ Etwa 1,7 kWh Tagesertrag",
+    "☀️ Около 1,7 кВт·ч в день"
+  ],
+  [
+    "☀️ Günlük ~6,5 kWh üretim",
+    "☀️ About 6.5 kWh daily generation",
+    "☀️ Etwa 6,5 kWh Tagesertrag",
+    "☀️ Около 6,5 кВт·ч в день"
+  ],
+  [
+    "Dalgıç (kuyu)",
+    "Submersible (well)",
+    "Tauchpumpe (Brunnen)",
+    "Погружной (скважина)"
+  ],
+  [
+    "Yüzey / santrifüj",
+    "Surface / centrifugal",
+    "Oberflächen- / Kreiselpumpe",
+    "Поверхностный / центробежный"
+  ],
+  [
+    "Henüz yok / yeni kuyu",
+    "None yet / new well",
+    "Noch keine / neuer Brunnen",
+    "Пока нет / новая скважина"
+  ],
+  [
+    "Günlük su ihtiyacı (m³)",
+    "Daily water demand (m³)",
+    "Täglicher Wasserbedarf (m³)",
+    "Суточная потребность в воде (м³)"
+  ],
+  [
+    "Kuyu / basma yüksekliği (m)",
+    "Well depth / delivery head (m)",
+    "Brunnentiefe / Förderhöhe (m)",
+    "Глубина / напор (м)"
+  ],
+  [
+    "Tarla büyüklüğü (dönüm)",
+    "Field area (decare)",
+    "Feldfläche (Dekar)",
+    "Площадь поля (декар)"
+  ],
+  [
+    "Tarla lokasyonu (il / ilçe)",
+    "Field location (province / district)",
+    "Feldstandort (Provinz / Bezirk)",
+    "Расположение поля (провинция / район)"
+  ],
+  [
+    "Şebeke elektriği",
+    "Grid electricity",
+    "Netzstrom",
+    "Сетевая электроэнергия"
+  ],
+  [
+    "Şu anki enerji kaynağı",
+    "Current energy source",
+    "Aktuelle Energiequelle",
+    "Текущий источник энергии"
+  ],
+  [
+    "Mazota değil güneşe akıt",
+    "Let sunshine power your irrigation",
+    "Bewässerung mit Sonne statt Diesel",
+    "Полив на солнце вместо дизеля"
+  ],
+  [
+    ", sonrası bedava sulama.",
+    ", then solar-powered irrigation.",
+    ", danach solarbetriebene Bewässerung.",
+    ", затем полив на солнечной энергии."
+  ],
+  [
+    "🌾 Sulama Sezonu Kampanyası",
+    "🌾 Irrigation Season Campaign",
+    "🌾 Bewässerungssaison-Aktion",
+    "🌾 Акция сезона полива"
+  ],
+  [
+    "Panel gücü:",
+    "Panel power:",
+    "Modulleistung:",
+    "Мощность панели:"
+  ],
+  [
+    "CO₂ faktörü:",
+    "CO₂ factor:",
+    "CO₂-Faktor:",
+    "Коэффициент CO₂:"
+  ],
+  [
+    "Öz tüketim oranı (%)",
+    "Self-consumption ratio (%)",
+    "Eigenverbrauchsanteil (%)",
+    "Доля собственного потребления (%)"
+  ],
+  [
+    "Gerilim düşümü = 2 × I × L × ρ ÷ S. Hedef: ≤",
+    "Voltage drop = 2 × I × L × ρ ÷ S. Target: ≤",
+    "Spannungsfall = 2 × I × L × ρ ÷ S. Ziel: ≤",
+    "Падение напряжения = 2 × I × L × ρ ÷ S. Цель: ≤"
+  ],
+  [
+    ". Gidiş-dönüş (2×) dikkate alınır.",
+    ". Includes both directions (2×).",
+    ". Hin- und Rückweg (2×) berücksichtigt.",
+    ". Учитываются оба направления (2×)."
+  ],
+  [
+    "Taşınabilir & Off-Grid Paketler",
+    "Portable & Off-Grid Kits",
+    "Tragbare Off-Grid-Sets",
+    "Переносные автономные комплекты"
+  ],
+  [
+    "Teklif alın",
+    "Request a quote",
+    "Angebot anfragen",
+    "Запросить предложение"
+  ],
+  [
+    "Emin olamadınız mı?",
+    "Not sure?",
+    "Noch unsicher?",
+    "Не уверены?"
+  ],
+  [
+    "Mühendisimiz cihaz listenize bakıp doğru sistemi birlikte belirlesin.",
+    "Our engineer can review your appliance list and help size the system.",
+    "Unser Ingenieur prüft Ihre Geräteliste und hilft bei der Auslegung.",
+    "Наш инженер проверит список приборов и поможет подобрать систему."
+  ],
+  [
+    "ücretsiz keşif",
+    "free site assessment",
+    "kostenlose Standortprüfung",
+    "бесплатное обследование"
+  ],
+  [
+    "talep edin, ihtiyacınızı birlikte hesaplayalım.",
+    "and we will assess your needs together.",
+    "anfragen und den Bedarf gemeinsam ermitteln.",
+    "и мы вместе оценим ваши потребности."
+  ],
+  [
+    "Paketleri görüntülemek için JavaScript'i etkinleştirin veya",
+    "Enable JavaScript to view interactive kits, or",
+    "JavaScript für interaktive Pakete aktivieren oder",
+    "Включите JavaScript для интерактивных комплектов или"
+  ],
+  [
+    "Sistem Kurucu için JavaScript gereklidir. Dilerseniz",
+    "The System Builder requires JavaScript. Alternatively,",
+    "Der Konfigurator benötigt JavaScript. Alternativ können Sie",
+    "Конфигуратор требует JavaScript. Также можно"
+  ],
+  [
+    "Stok listesi için",
+    "For the stock list,",
+    "Für die Lagerliste",
+    "Для списка наличия"
+  ],
+  [
+    "Cihaz cihaz hesaplayıp",
+    "Would you like to size each appliance and",
+    "Möchten Sie jedes Gerät berechnen und",
+    "Хотите рассчитать каждый прибор и"
+  ],
+  [
+    "ürün seçerek sipariş",
+    "select products for an order",
+    "Produkte für eine Bestellung auswählen",
+    "выбрать товары для заказа"
+  ],
+  [
+    "oluşturmak ister misiniz?",
+    "with selected products?",
+    "mit ausgewählten Produkten erstellen?",
+    "из выбранных товаров?"
+  ],
+  [
+    "Çalıştıracağınız cihazları seçin; gerekli",
+    "Select your appliances; we calculate the required",
+    "Wählen Sie Ihre Geräte; wir berechnen die nötige",
+    "Выберите приборы; мы рассчитаем требуемую"
+  ],
+  [
+    "Çalıştıracağınız cihazları seçin — buzdolabı, TV, lamba, pompa… — gerekli",
+    "Select appliances — fridge, TV, lights, pump — to calculate the required",
+    "Wählen Sie Geräte — Kühlschrank, TV, Licht, Pumpe — zur Berechnung der nötigen",
+    "Выберите приборы — холодильник, ТВ, свет, насос — для расчёта требуемой"
+  ],
+  [
+    "panel, akü ve inverter",
+    "panels, battery and inverter",
+    "Module, Batterie und Wechselrichter",
+    "панелей, батареи и инвертора"
+  ],
+  [
+    "gücünü hesaplayalım. Ardından marka ve modelleri seçip siparişinizi oluşturun.",
+    "capacity. Then choose brands and models and prepare your order.",
+    "Leistung. Danach Marken und Modelle wählen und Bestellung vorbereiten.",
+    "мощности. Затем выберите марки и модели и подготовьте заказ."
+  ],
+  [
+    "gücünü anında hesaplayalım. Ardından marka ve modelleri siz seçin, siparişiniz oluşsun.",
+    "capacity instantly. Then select brands and models to prepare your order.",
+    "Leistung sofort. Danach Marken und Modelle für die Bestellung auswählen.",
+    "мощности сразу. Затем выберите марки и модели для заказа."
+  ],
+  [
+    "Bağ evim için kaç panel ve kaç akü gerekir?",
+    "How many panels and batteries does my cottage need?",
+    "Wie viele Module und Batterien braucht mein Ferienhaus?",
+    "Сколько панелей и батарей нужно для дачи?"
+  ],
+  [
+    "Lityum (LiFePO₄) akü mü jel akü mü seçmeliyim?",
+    "Should I choose LiFePO₄ or gel batteries?",
+    "LiFePO₄- oder Gelbatterie wählen?",
+    "Выбрать LiFePO₄ или гелевую батарею?"
+  ],
+  [
+    "Off-grid sistemde inverter gücü nasıl seçilir?",
+    "How is off-grid inverter power selected?",
+    "Wie wählt man die Off-Grid-Wechselrichterleistung?",
+    "Как выбрать мощность автономного инвертора?"
+  ],
+  [
+    "Çalıştıracağınız cihazların gücü ve günlük çalışma süresi belirler. Sistem Kurucu'da buzdolabı, TV, lamba gibi cihazları adet ve saatiyle seçtiğinizde günlük kWh ihtiyacınız, gerekli panel gücü (kWp), akü kapasitesi (kWh) ve inverter gücü (kW) anında hesaplanır.",
+    "Appliance power and daily runtime determine the requirement. Enter device quantities and hours in the System Builder to estimate daily kWh, panel kWp, battery kWh and inverter kW.",
+    "Geräteleistung und tägliche Laufzeit bestimmen den Bedarf. Mengen und Stunden im Konfigurator eingeben, um Tagesbedarf, Modulleistung, Speicherkapazität und Wechselrichterleistung zu schätzen.",
+    "Потребность зависит от мощности и времени работы приборов. Укажите количество и часы в конфигураторе для оценки суточных кВт·ч, мощности панелей, ёмкости батареи и инвертора."
+  ],
+  [
+    "İnverter, aynı anda çalışacak cihazların toplam gücünü ve motorlu cihazların kalkış akımını karşılamalıdır. Sistem Kurucu, eşzamanlılık ve kalkış payını hesaba katarak minimum inverter gücünü önerir; ardından uygun hibrit/off-grid modeli seçebilirsiniz.",
+    "The inverter must cover simultaneous loads and motor starting demand. The System Builder includes simultaneity and startup allowance to suggest minimum power before you select a hybrid or off-grid model.",
+    "Der Wechselrichter muss gleichzeitige Lasten und Motoranlauf abdecken. Der Konfigurator berücksichtigt Gleichzeitigkeit und Anlaufreserve für die Mindestleistung vor der Modellwahl.",
+    "Инвертор должен покрывать одновременные нагрузки и пусковой ток двигателей. Конфигуратор учитывает одновременность и пусковой запас для рекомендации минимальной мощности."
+  ],
+  [
+    "LiFePO₄ aküler daha derin deşarj (yaklaşık %90) ve çok daha uzun çevrim ömrü sunar; ilk yatırımı yüksektir ancak kWh başına ömür maliyeti düşüktür. Jel aküler ilk yatırımı ucuzlatır, ömrü kısadır. Sistem Kurucu'da her iki seçeneği fiyatıyla karşılaştırabilirsiniz.",
+    "LiFePO₄ offers deeper discharge (about 90%) and longer cycle life, with higher upfront cost but lower lifetime cost per kWh. Gel batteries cost less initially but have shorter life. Compare both in the System Builder.",
+    "LiFePO₄ bietet tiefere Entladung (etwa 90 %) und längere Zyklenlebensdauer bei höheren Anschaffungs-, aber geringeren Lebenszykluskosten pro kWh. Gelbatterien sind zunächst günstiger, leben aber kürzer. Vergleichen Sie beide im Konfigurator.",
+    "LiFePO₄ допускает более глубокий разряд (около 90%) и больше циклов, но дороже при покупке. Гелевые батареи дешевле первоначально, однако служат меньше. Сравните оба варианта в конфигураторе."
+  ],
+  [
+    "Fiyatlar tahmini liste fiyatlarıdır (KDV dahil) ve stok, kur ile kampanyalara göre değişebilir. Siparişinizi oluşturduktan sonra ücretsiz keşif yapılır ve kesin teklif yazılı olarak verilir.",
+    "Prices are indicative list prices including VAT and may vary with stock, exchange rates and offers. After your request, a free assessment is followed by a written final quote.",
+    "Preise sind geschätzte Listenpreise inklusive MwSt. und können mit Lagerbestand, Kurs und Aktionen variieren. Nach Ihrer Anfrage folgen kostenlose Prüfung und schriftliches Endangebot.",
+    "Цены ориентировочные, с НДС, и могут меняться в зависимости от наличия, курса и акций. После запроса проводится бесплатное обследование и выдаётся письменное предложение."
+  ],
+  [
+    "KVKK Aydınlatma Metni",
+    "Personal Data Protection Notice (KVKK)",
+    "Datenschutzhinweis (KVKK)",
+    "Уведомление о защите данных (KVKK)"
+  ],
+  [
+    "'ni okudum; kişisel verilerimin teklif/iletişim amacıyla işlenmesine açık rıza veriyorum. *",
+    " and explicitly consent to my personal data being processed for quotation/contact purposes. *",
+    " gelesen und willige ausdrücklich in die Verarbeitung meiner Daten für Angebot/Kontakt ein. *",
+    " и явно соглашаюсь на обработку моих данных для предложения и связи. *"
+  ],
+  [
+    "Projenize benzer uygulamaları inceleyin",
+    "Explore installations similar to your project",
+    "Ähnliche Anlagen für Ihr Projekt ansehen",
+    "Посмотрите установки, похожие на ваш проект"
+  ],
+  [
+    "Konum ve kapasite bilgileriyle saha örneklerimizi inceleyin; ayrıntılı referans ve teknik kapsam için ekibimizle görüşün.",
+    "Explore field examples with location and capacity; contact our team for detailed references and technical scope.",
+    "Sehen Sie Praxisbeispiele mit Standort und Leistung; kontaktieren Sie unser Team für detaillierte Referenzen und technischen Umfang.",
+    "Посмотрите примеры с расположением и мощностью; свяжитесь с командой для подробных сведений и технического объёма."
+  ],
+  [
+    "Referans bilgisi isteyin",
+    "Request reference details",
+    "Referenzangaben anfragen",
+    "Запросить сведения о проекте"
+  ],
+  [
+    "Ücretsiz",
+    "Free",
+    "Kostenlos",
+    "Бесплатно"
+  ],
+  [
+    "Keşif",
+    "Site assessment",
+    "Standortprüfung",
+    "Обследование"
+  ],
+  [
+    "liste",
+    "list price",
+    "Listenpreis",
+    "цена по прайсу"
+  ],
+  [
+    "havale/EFT ile",
+    "by bank transfer",
+    "per Überweisung",
+    "банковским переводом"
+  ],
+  [
+    "indirimli, KDV dahil",
+    "discount, VAT included",
+    "Rabatt, inkl. MwSt.",
+    "скидка, с НДС"
+  ],
+  [
+    "yaklaşık",
+    "approximate",
+    "ungefähr",
+    "приблизительно"
+  ]
+]

@@ -1,89 +1,34 @@
-# GESPA Enerji (Gespa Enerji Ltd. Şti.)
+# GESPA Enerji
 
-> Manavgat / Antalya merkezli, anahtar teslim güneş enerjisi santrali (GES) firması.
-> Çatı ve arazi tipi GES, güneş enerjili tarımsal sulama ve enerji depolama çözümleri;
-> mühendislik, kurulum, finansman ve bakım (O&M) hizmetleri.
-
-## Ayrıntılı bilgi
-Ürünler, güncel fiyatlar, hesaplayıcı araçları ve SSS özeti için: https://www.gespaenerji.com/llms-full.txt
-
-## Hizmet bölgesi
-Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş ve çevresi; talebe göre tüm Türkiye.
+> Gespa Enerji; Manavgat/Antalya merkezli, çatı ve arazi tipi güneş enerjisi santralleri (GES) ile güneş enerjili tarımsal sulama için anahtar teslim mühendislik, kurulum, finansman ve bakım hizmeti sunar.
 
 ## İletişim
-- Telefon / WhatsApp: +90 543 743 42 09
+- Unvan: Gespa Enerji Sanayi Ticaret Limited Şirketi
+- Telefon: 0543 743 42 09
 - E-posta: info@gespaenerji.com
-- Adres: Örnek Mah. 1551 Sok. No:10/1, Manavgat / Antalya
+- Adres: Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01, Manavgat / Antalya
 - Web: https://www.gespaenerji.com
 
-## Hizmetler
-- Çatı GES (konut, ticari, sanayi)
-- Arazi tipi GES (lisanslı / lisanssız)
-- Güneş enerjili tarımsal sulama (mazotsuz, şebekeden bağımsız)
-- Enerji depolama (batarya)
-- Mühendislik & projelendirme, finansman & leasing, bakım (O&M)
+## Hizmet bölgesi
+Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş; talebe göre tüm Türkiye.
 
-## Öne çıkan özellikler
-- Anahtar teslim (uçtan uca) çözüm; ücretsiz keşif ve tasarruf analizi
-- 25 yıla varan panel garantisi
-- Çok dilli site (TR / EN / DE / RU)
-- Ücretsiz online araçlar: tasarruf hesaplayıcı + mühendislik alet çantası (panel yerleşim, inverter, kablo, batarya, sıra aralığı)
+## Hizmetler ve referanslar
+- [Manavgat ve Antalya Çatı GES Kurulumu](https://www.gespaenerji.com/cati-ges.html)
+- [Arazi Tipi GES: Fizibilite ve Kurulum](https://www.gespaenerji.com/arazi-ges.html)
+- [Güneş Enerjisi Depolama ve Batarya Sistemleri](https://www.gespaenerji.com/enerji-depolama.html)
+- [GES Bakım, İzleme ve Performans Kontrolü](https://www.gespaenerji.com/bakim-izleme.html)
+- [Kemer Villa: 12 kWp Çatı GES](https://www.gespaenerji.com/proje-kemer-villa.html)
+- [Manavgat Fabrika: 1,2 MWp Çatı GES](https://www.gespaenerji.com/proje-manavgat-fabrika.html)
+- [Manavgat Tarımsal GES: 30 kWp](https://www.gespaenerji.com/proje-manavgat-tarimsal.html)
 
-## Paket ürünler
-İki komple tak-çalıştır güneş kiti (gerçek ürün fotoğraflı, detay sayfalı, sepetle sipariş):
-- 285W Güneş Paneli Paketi — liste ₺25.000; havale/EFT ile ₺22.500 (%10 indirimli). TV, lambalar, telefon şarjı; ~1,7 kWh/gün; 23–25 kg. Detay: /paket-285w.html
-- Tam Kapsamlı Güneş Enerjisi Sistemi (2×540W) — liste ₺104.500 (≈ $2.200); havale/EFT ile ₺94.050 (%10 indirimli). LiFePO₄ bataryalı; buzdolabı, çamaşır-bulaşık makinesi, süpürge; ~6,5 kWh/gün. Detay: /paket-2x540w.html
-Fiyatlar KDV dahildir; TL/USD karşılığı yaklaşık kur ile gösterilir. GÜNCEL fiyatların tek doğru
-kaynağı /llms-full.txt dosyasıdır (config'ten otomatik üretilir; burada fark varsa oradaki geçerlidir).
-Daha büyük sistemler proje bazlıdır (Sistem Kurucu / ücretsiz keşif).
+## Ürünler ve araçlar
+- [Ürünler](https://www.gespaenerji.com/urunler.html)
+- [Tarımsal sulama](https://www.gespaenerji.com/tarimsal-sulama.html)
+- [Tasarruf hesaplayıcı](https://www.gespaenerji.com/hesaplayici.html)
+- [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html)
+- [AI Cankurtaran](https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html)
+- [PV su ısıtıcı](https://www.gespaenerji.com/su-isitici.html)
+- [Güncel ürün bilgileri ve fiyatlar](https://www.gespaenerji.com/llms-full.txt)
 
-## Satın alma, kargo ve iade
-- Sipariş: ürün sayfasından sepete eklenir, sipariş WhatsApp üzerinden tamamlanır (aynı gün onay).
-- Kargo: paketler TÜRKİYE'NİN HER İLİNE anlaşmalı kargo ile gönderilir; teslimat Antalya ile sınırlı değildir.
-  Tahmini teslim 2–5 iş günü; kargo ücreti alıcıya aittir.
-- Ödeme: havale/EFT'te %10 sepet indirimi; kapıda ödemede %30 peşin + %70 teslimatta. Kredi kartı yakında.
-- İade: mesafeli satışta 14 gün cayma hakkı (sorunsuz teslimde iade kargosu alıcıya aittir).
-- Kurulum: kitler tak-çalıştır; Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi verilir.
-
-## Toptan Satış / B2B
-Bayi, EPC/kurulumcu, toptancı, otel ve kooperatiflere kurumsal faturalı TOPTAN satış: https://www.gespaenerji.com/toptan.html
-Hazır stok: Arçelik 540 W güneş paneli (500 adet) · 51,2 V 100 Ah LiFePO₄ akü (50 adet, 5,12 kWh) · inverter (model/stok teklifle).
-Toptan fiyat yayımlanmaz; sipariş adedine göre kademeli fiyat aynı gün proforma teklifle bildirilir.
-Ödeme: proforma ile havale/EFT · Türkiye'nin her iline nakliye.
-
-## PV Güneş Su Isıtıcı (ısıtma ürünü)
-Monokristal güneş panelleriyle suyu güneş enerjisiyle ısıtan fotovoltaik (PV) su ısıtıcı.
-Akıllı GF-20 kontrol; bulutlu havada otomatik şebeke (AC) desteği; emaye iç tank; donma/aşırı ısınma/kuru çalışma korumaları.
-Modeller: Yatay 60/80/100 L · Dikey 120/150/200 L (PV gücü 550–1200 W). Emaye tank + magnezyum anot; Baosteel emaye katman teknolojisi.
-Sertifikalar: TÜV/CE/UL/UN38.3 + IEC 61000/62477/62619/63056.
-Sayfa: https://www.gespaenerji.com/su-isitici.html
-
-## Önemli sayfalar
-- Ana sayfa: https://www.gespaenerji.com/
-- Hizmetler: https://www.gespaenerji.com/hizmetler.html
-- Paket ürünler: https://www.gespaenerji.com/urunler.html
-- PV güneş su ısıtıcı (yeni ürün): https://www.gespaenerji.com/su-isitici.html
-- Güneş enerjili tarımsal sulama: https://www.gespaenerji.com/tarimsal-sulama.html
-- Tasarruf hesaplayıcı & araçlar: https://www.gespaenerji.com/hesaplayici.html
-- Referans projeler: https://www.gespaenerji.com/projeler.html
-- Hakkımızda: https://www.gespaenerji.com/hakkimizda.html
-- İletişim / teklif: https://www.gespaenerji.com/iletisim.html
-
-## Havuz Teknolojileri
-- AI Cankurtaran Destek Sistemi (`/ai-cankurtaran-destek-sistemi.html`): otel, aquapark,
-  belediye ve site havuzları için yapay zekâ destekli boğulma önleme/tespit sistemi.
-  7/24 kamera takibi, cankurtaran akıllı saatine saniyeler içinde konumlu alarm,
-  ISO 20380:2017 ile uyumlu teknoloji, KVKK uyumlu yerel veri işleme.
-  Cankurtaranın yerine geçmez; onu destekleyen ikincil gözetim katmanıdır.
-  Ücretsiz keşif ve pilot teklifi verilir.
-
-## About GESPA Enerji (English summary)
-GESPA Enerji (Gespa Enerji Ltd. Şti.) is a Manavgat/Antalya-based turnkey solar
-company: rooftop and ground-mounted solar power plants (PV), solar-powered
-agricultural irrigation, energy storage, engineering, financing and O&M.
-New technologies: AI Lifeguard Support System (pool drowning prevention,
-ISO 20380-aligned) and PV solar water heaters (60-200 L). Service area:
-Manavgat, Side, Antalya, Alanya, Serik, Gazipasa and all Türkiye on request.
-Languages: TR (root), EN (/en/), DE (/de/), RU (/ru/).
-Phone/WhatsApp: +90 543 743 42 09 · E-mail: info@gespaenerji.com
-Details & prices: https://www.gespaenerji.com/llms-full.txt
+## Languages
+Turkish: https://www.gespaenerji.com/ · English: https://www.gespaenerji.com/en/ · German: https://www.gespaenerji.com/de/ · Russian: https://www.gespaenerji.com/ru/

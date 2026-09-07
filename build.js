@@ -13,6 +13,7 @@
 const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
+const seo = require("./content/build-seo");
 
 const ROOT = __dirname;
 const ORIGIN = "https://www.gespaenerji.com";
@@ -32,6 +33,8 @@ const PAGES = [
   "kvkk.html", "gizlilik.html", "cerez-politikasi.html",
   "mesafeli-satis-sozlesmesi.html", "iade-teslimat.html"
 ];
+
+PAGES.push(...seo.pages.map(p => p.file));
 
 // Sayfa başına dil-özel <title> ve meta description (en kritik SEO sinyalleri)
 const META = {
@@ -53,11 +56,11 @@ const META = {
   },
   "urunler.html": {
     en: { t: "Solar Packages — Portable Off-Grid & Irrigation Kits | GESPA Energy",
-          d: "Portable off-grid (lithium battery) solar kits and agricultural irrigation packages. 1–20 kWp with clear power, panel count and price — off-grid turnkey solutions, GESPA Energy." },
+          d: "285 W and 2×540 W solar kits for camping, caravans and cottages. Compare panels, power boxes and cables; shipping across Türkiye — GESPA Enerji." },
     de: { t: "Solar-Pakete — Tragbare Off-Grid- & Bewässerungssets | GESPA Energy",
-          d: "Tragbare Off-Grid-Solarsets (Lithium-Batterie) und landwirtschaftliche Bewässerungspakete. 1–20 kWp mit klarer Leistung, Modulanzahl und Preis — netzunabhängige Lösungen." },
+          d: "285-W- und 2×540-W-Solarsets für Camping, Wohnmobile und Ferienhäuser. Module, Power-Box und Kabel vergleichen; Versand in die ganze Türkei." },
     ru: { t: "Солнечные пакеты — Портативные off-grid и для полива | GESPA Energy",
-          d: "Портативные автономные солнечные комплекты (литиевый аккумулятор) и пакеты для аграрного полива. 1–20 кВт с понятной мощностью и ценой — автономные решения." }
+          d: "Комплекты 285 Вт и 2×540 Вт для кемпинга, автодомов и дач. Панели, блок питания и кабели; доставка по всей Турции." }
   },
   "su-isitici.html": {
     en: { t: "PV Solar Water Heater — Photovoltaic Water Heating | GESPA Energy",
@@ -197,6 +200,10 @@ const META = {
   }
 };
 
+seo.pages.forEach(p => { META[p.file] = {}; LANGS.forEach((l,i) => {
+  META[p.file][l] = {t: p.title[i+1] + " | GESPA Enerji", d: p.intro[i+1]};
+}); });
+
 function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
 
 /* ============================================================
@@ -216,7 +223,7 @@ function loadConfig() {
 function localBusinessLd(c) {
   const d = {
     "@context": "https://schema.org", "@type": "LocalBusiness",
-    name: c.brandName, legalName: c.legalName, url: c.web,
+    "@id": c.web + "/#organization", name: c.brandName, legalName: c.legalName, url: c.web,
     telephone: c.phone && c.phone.tel, email: c.email,
     image: c.web + "/assets/img/gespa-icon.png",
     address: { "@type": "PostalAddress", streetAddress: c.address.line, addressLocality: c.address.district, addressRegion: c.address.city, addressCountry: c.address.country }
@@ -385,6 +392,7 @@ function webAppLd(cfg) {
 const LD_RE = /[ \t]*<!-- LD:STATIC[\s\S]*?\/LD:STATIC -->\n?/;
 function injectStaticLd(html, file, cfg) {
   const objs = [localBusinessLd(cfg.company)];
+  const service = seo.schema(file, cfg); if (service) objs.push(service);
   // WebSite varlığı — marka adı/sitelink sinyali (yalnız ana sayfada)
   if (file === "index.html") objs.push({
     "@context": "https://schema.org", "@type": "WebSite",
@@ -430,6 +438,7 @@ function loadI18n() {
   };
   sandbox.window = sandbox; // i18n.js 'GESPA' global adına bare erişir
   vm.runInNewContext(fs.readFileSync(path.join(ROOT, "assets/i18n.js"), "utf8"), sandbox);
+  seo.translations(sandbox.GESPA.i18nData);
   return sandbox.GESPA.i18nData; // { DICT, PH, HTMLMAP }
 }
 
@@ -459,6 +468,9 @@ function translateBody(out, lang, i18n) {
     return ">" + txt.slice(0, i) + tr + txt.slice(i + t.length) + "<";
   });
   body = body.replace(/\u0000G(\d+)\u0000/g, (m, i) => GUARDS[+i]);
+  const yearSuffix = {en: ' years', de: ' Jahre', ru: ' лет'}[lang];
+  body = body.replace(/data-suffix=" yıl"/g, 'data-suffix="' + yearSuffix + '"');
+  body = body.replace(/>([\d–-]+) yıl</g, (_, n) => '>' + n + yearSuffix + '<');
   // aria-label / title / alt öznitelikleri de DICT ile çevrilir
   body = body.replace(/((?:aria-label|title|alt)=")([^"]+)(")/g,
     (m, a, v, c) => (d[v] || d[decode(v)]) ? a + enc(d[v] || d[decode(v)]) + c : m);
@@ -648,10 +660,10 @@ function hydrateExtras(html, file, cfg) {
           const hav = Math.round(tl * (100 - PCT) / 100 / 50) * 50;
           const priceTxt = "₺" + nfTr(tl) + (usd ? " (≈ $" + nfTr(usd) + ")" : "") +
             (p.price != null
-              ? (PCT ? " liste · havale/EFT ile ₺" + nfTr(hav) + " (%" + PCT + " indirimli, KDV dahil)" : " (KDV dahil)")
+              ? (PCT ? " <span>liste</span> · <span>havale/EFT ile</span> ₺" + nfTr(hav) + " (%" + PCT + " <span>indirimli, KDV dahil</span>)" : " (<span>KDV dahil</span>)")
               : " (yaklaşık)");
-          return "<li><strong>" + esc(p.name) + "</strong> — " + p.kwp + " kWp · " + esc(p.for) + " · " +
-            priceTxt + ". " + esc(p.desc) + "</li>";
+          return "<li><strong>" + esc(p.name) + "</strong> — " + p.kwp + " kWp · <span>" + esc(p.for) + "</span> · " +
+            priceTxt + ". <span>" + esc(p.desc) + "</span></li>";
         }).join("") + "</ul></div>";
     }
     const marker = /<!-- PKG:STATIC -->[\s\S]*?<!-- \/PKG:STATIC -->/;
@@ -877,6 +889,37 @@ gerekli panel gücü (kWp), akü kapasitesi (kWh, model DoD'una göre) ve invert
 KVKK aydınlatma metni: ${c.web}/kvkk.html · Gizlilik: ${c.web}/gizlilik.html · Çerez: ${c.web}/cerez-politikasi.html
 `;
   fs.writeFileSync(path.join(ROOT, "llms-full.txt"), out);
+  const c0 = cfg.company;
+  const summary = `# ${c0.brandName}
+
+> ${c0.description}
+
+## İletişim
+- Unvan: ${c0.legalName}
+- Telefon: ${c0.phone.display}
+- E-posta: ${c0.email}
+- Adres: ${c0.address.full}
+- Web: ${c0.web}
+
+## Hizmet bölgesi
+${c0.areaServed.join(", ")}; talebe göre tüm Türkiye.
+
+## Hizmetler ve referanslar
+${seo.pages.map(p => "- [" + p.title[0] + "](" + c0.web + "/" + p.file + ")").join("\n")}
+
+## Ürünler ve araçlar
+- [Ürünler](${c0.web}/urunler.html)
+- [Tarımsal sulama](${c0.web}/tarimsal-sulama.html)
+- [Tasarruf hesaplayıcı](${c0.web}/hesaplayici.html)
+- [Sistem Kurucu](${c0.web}/sistem-kur.html)
+- [AI Cankurtaran](${c0.web}/ai-cankurtaran-destek-sistemi.html)
+- [PV su ısıtıcı](${c0.web}/su-isitici.html)
+- [Güncel ürün bilgileri ve fiyatlar](${c0.web}/llms-full.txt)
+
+## Languages
+Turkish: ${c0.web}/ · English: ${c0.web}/en/ · German: ${c0.web}/de/ · Russian: ${c0.web}/ru/
+`;
+  fs.writeFileSync(path.join(ROOT, "llms.txt"), summary);
 }
 
 function transform(html, lang, file, i18n) {
@@ -935,6 +978,29 @@ function transform(html, lang, file, i18n) {
   //    /en /de /ru sayfaların ham HTML'i de hedef dilde olmalı
   out = translateBody(out, lang, i18n);
 
+  out = out.replace(/href="(\/?)([a-z0-9-]+\.html)([?#][^"]*)?"/g, (match, slash, target, suffix) =>
+    PAGES.includes(target) ? 'href="/' + lang + '/' + (target === 'index.html' ? '' : target) + (suffix || '') + '"' : match);
+  // Translate structured text and page URLs, keeping the shared company identity stable.
+  out = out.replace(/(<script[^>]*type="application\/ld\+json"[^>]*>)([\s\S]*?)(<\/script>)/g, (match, open, json, close) => {
+    const d = i18n.DICT[lang] || {};
+    function localize(value, key) {
+      if (Array.isArray(value)) return value.map(v => localize(v, key));
+      if (value && typeof value === 'object') {
+        if (value['@type'] === 'LocalBusiness') return value;
+        return Object.fromEntries(Object.entries(value).map(([k,v]) => [k, localize(v,k)]));
+      }
+      if (typeof value !== 'string') return value;
+      if (key === 'inLanguage' && value === 'tr') return lang;
+      if (['name','description','text','serviceType'].includes(key)) return d[value] || value;
+      if (['url','item','@id'].includes(key) && value.startsWith(ORIGIN + '/')) {
+        const rel = value.slice(ORIGIN.length + 1); const f = rel.split(/[?#]/)[0];
+        if (PAGES.includes(f)) return ORIGIN + '/' + lang + '/' + rel;
+        if (rel === '') return ORIGIN + '/' + lang + '/';
+      }
+      return value;
+    }
+    try { return open + JSON.stringify(localize(JSON.parse(json))) + close; } catch(e) { throw new Error('Invalid JSON-LD in ' + file + ': ' + e.message); }
+  });
   return out;
 }
 
@@ -942,6 +1008,7 @@ function run() {
   // 0) TR kaynak sayfalara statik SEO/AEO çıktısını işle (JSON-LD + iletişim +
   //    ürün/marka/sayaç içerikleri + hreflang) ve llms-full.txt + sitemap üret
   //    — tek kaynak: assets/config.js
+  seo.generate(ROOT);
   const cfg = loadConfig();
   const i18n = loadI18n();
   for (const file of PAGES) {
