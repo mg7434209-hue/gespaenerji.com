@@ -25,6 +25,7 @@ const PAGES = [
   "index.html", "hizmetler.html", "urunler.html", "su-isitici.html", "hesaplayici.html",
   "projeler.html", "hakkimizda.html", "iletisim.html", "tarimsal-sulama.html",
   "ai-cankurtaran-destek-sistemi.html", "sistem-kur.html",
+  "elektrikli-arac-donusum.html",
   "paket-285w.html", "paket-2x540w.html", "toptan.html",
   "sepet.html",   // noindex; sitemap'e girmez (NOSITEMAP)
   // Yasal sayfalar da üretilir: dil değiştirici ve hreflang /en/kvkk.html gibi
@@ -61,6 +62,14 @@ const META = {
           d: "285-W- und 2×540-W-Solarsets für Camping, Wohnmobile und Ferienhäuser. Module, Power-Box und Kabel vergleichen; Versand in die ganze Türkei." },
     ru: { t: "Солнечные пакеты — Портативные off-grid и для полива | GESPA Energy",
           d: "Комплекты 285 Вт и 2×540 Вт для кемпинга, автодомов и дач. Панели, блок питания и кабели; доставка по всей Турции." }
+  },
+  "elektrikli-arac-donusum.html": {
+    en: { t: "Solar Conversion for Electric Vehicles — BOOST MPPT Charger | GESPA Energy",
+          d: "Solar panel conversion for golf carts, service vehicles and electric platforms. MS Technik BOOST MPPT Charger with lithium battery support, Bluetooth programming and 48V/60V/72V compatibility — GESPA Energy, Antalya/Manavgat." },
+    de: { t: "Solar-Umrüstung für Elektrofahrzeuge — BOOST MPPT Charger | GESPA Energy",
+          d: "Solarmodul-Umrüstung für Golfcarts, Servicefahrzeuge und Elektroplattformen. MS Technik BOOST MPPT Charger mit Lithium-Batterie-Unterstützung, Bluetooth-Programmierung und 48V/60V/72V-Kompatibilität — GESPA Energy." },
+    ru: { t: "Солнечное переоборудование электромобилей — BOOST MPPT Charger | GESPA Energy",
+          d: "Установка солнечных панелей на гольф-кары, служебные автомобили и электрические платформы. MS Technik BOOST MPPT Charger: поддержка литиевых аккумуляторов, настройка по Bluetooth, совместимость 48В/60В/72В — GESPA Energy." }
   },
   "su-isitici.html": {
     en: { t: "PV Solar Water Heater — Photovoltaic Water Heating | GESPA Energy",
@@ -702,6 +711,7 @@ const PRIORITY = {
   "ai-cankurtaran-destek-sistemi.html": "0.9", "su-isitici.html": "0.8",
   "tarimsal-sulama.html": "0.9", "hesaplayici.html": "0.8", "projeler.html": "0.7",
   "hakkimizda.html": "0.6", "iletisim.html": "0.8",
+  "elektrikli-arac-donusum.html": "0.8",
   "kvkk.html": "0.3", "gizlilik.html": "0.3", "cerez-politikasi.html": "0.3",
   "mesafeli-satis-sozlesmesi.html": "0.4", "iade-teslimat.html": "0.4"
 };
