@@ -90,16 +90,23 @@ function countVisit(req, headers) {
 // Anahtarlar YALNIZCA ortam değişkeninden okunur (Railway → Variables):
 //   IYZIPAY_API_KEY, IYZIPAY_SECRET_KEY, IYZIPAY_BASE_URL
 //   (sandbox: https://sandbox-api.iyzipay.com · canlı: https://api.iyzipay.com)
+// IYZICO_* adlandırması da kabul edilir: firma adı "iyzico", API alan adı
+// "iyzipay" olduğu için panelde ikisi karışabiliyor. Her iki ad da okunur;
+// IYZIPAY_* tanımlıysa o önceliklidir.
 // Anahtar tanımlı değilse /api/pay/status {enabled:false} döner ve sepetteki
 // kart seçeneği "çok yakında" olarak kalır — kod yayında ama pasiftir.
 // Tutarlar SUNUCUDA config'ten hesaplanır (istemciden fiyat kabul edilmez).
 // Bekleyen/tamamlanan siparişler DATA_DIR/orders.json dosyasında tutulur.
 const crypto = require("crypto");
 const vm = require("vm");
+const envKey = (...names) => {
+  for (const n of names) { const v = (process.env[n] || "").trim(); if (v) return v; }
+  return "";
+};
 const IYZ = {
-  apiKey: process.env.IYZIPAY_API_KEY || "",
-  secret: process.env.IYZIPAY_SECRET_KEY || "",
-  base: process.env.IYZIPAY_BASE_URL || "https://sandbox-api.iyzipay.com"
+  apiKey: envKey("IYZIPAY_API_KEY", "IYZICO_API_KEY"),
+  secret: envKey("IYZIPAY_SECRET_KEY", "IYZICO_SECRET_KEY"),
+  base: envKey("IYZIPAY_BASE_URL", "IYZICO_BASE_URL") || "https://sandbox-api.iyzipay.com"
 };
 const ORDERS_FILE = path.join(DATA_DIR, "orders.json");
 function loadSiteConfig() {

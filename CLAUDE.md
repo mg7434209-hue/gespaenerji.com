@@ -243,7 +243,9 @@ Kart ödemesi server.js'te bağımlılıksız iyzico Ödeme Formu entegrasyonu:
 tutar SUNUCUDA config'ten hesaplanır, istemci fiyatı yok sayılır; TCKN zorunlu)
 · `/api/pay/callback` (iyzico dönüşü → odeme-sonuc.html). Anahtarlar YALNIZCA
 Railway ortam değişkeni: IYZIPAY_API_KEY / IYZIPAY_SECRET_KEY / IYZIPAY_BASE_URL
-(sandbox varsayılan; canlı = https://api.iyzipay.com). Anahtar yoksa sepetteki
+(sandbox varsayılan; canlı = https://api.iyzipay.com). IYZICO_* adlandırması da
+kabul edilir (firma "iyzico", API alan adı "iyzipay" — panelde karışıyor);
+IYZIPAY_* tanımlıysa o önceliklidir. Anahtar yoksa sepetteki
 kart seçeneği "çok yakında" kalır (Pages aynasında da böyle). Siparişler
 DATA_DIR/orders.json. Kart ödemesinde havale indirimi YOK (liste fiyatı);
 `odeme-sonuc.html` noindex + robots engelli + build PAGES dışı (TR tek dil).
