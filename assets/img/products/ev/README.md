@@ -1,24 +1,32 @@
 # Elektrikli Araç Dönüşümü — Görseller
 
-`elektrikli-arac-donusum.html` sayfası bu klasördeki **5 dosyayı** bekler.
-Dosyalar eklenene kadar sayfada görsel yerleri boş görünür.
+`elektrikli-arac-donusum.html` sayfasının görselleri.
+
+## Mevcut
 
 | Dosya | İçerik | Kullanıldığı yer |
 |---|---|---|
-| `ev-solar-banner.webp` | "Elektrikli Araçlarda Güneş Enerjisi" tanıtım görseli (golf aracı + ürün) | Tanıtım bandı + Open Graph paylaşım görseli |
+| `ev-donusum-kurulum.webp` | Araca kurulum yapan teknisyen | Üst tanıtım bandı + Open Graph görseli |
 | `boost-mppt-on.webp` | BOOST MPPT Charger — ön görünüm | Ürün galerisi (ana görsel) |
 | `boost-mppt-acili.webp` | BOOST MPPT Charger — açılı görünüm | Ürün galerisi |
-| `boost-mppt-yan.webp` | BOOST MPPT Charger — yan görünüm | Ürün galerisi |
-| `ev-donusum-kurulum.webp` | Araca kurulum yapan teknisyen fotoğrafı | Kurulum bandı |
 
-## Nasıl eklenir
+Orijinal PNG'ler `kaynak/` altında; türevler Pillow ile üretildi
+(kurulum 1600 px / q82, ürünler 900 px / q86).
 
-1. Orijinal dosyaları (JPG/PNG fark etmez) `kaynak/` klasörüne koyun.
-2. Yukarıdaki adlarla `.webp` türevlerini üretin — ya da orijinalleri
-   koyup dönüşümü isteyin; `tools/foto-hazirla.py` desenine göre üretilir.
-3. `node build.js` çalıştırın ve çıktıyı commit'leyin.
+## Eksik — gelince eklenecek
 
-Önerilen ölçüler: banner ve kurulum fotoğrafı yatay (16:9, ~1600 px genişlik);
-ürün fotoğrafları kare (~900×900), beyaz zemin.
+| Dosya | İçerik | Gelince ne yapılacak |
+|---|---|---|
+| `ev-solar-banner.webp` | "Elektrikli Araçlarda Güneş Enerjisi" tanıtım görseli | Üst tanıtım bandına ve OG görseline geri alınır; kurulum fotoğrafı kendi bandına döner |
+| `boost-mppt-yan.webp` | Ürün — yan görünüm | Galeriye 3. küçük resim olarak eklenir |
+
+Bu iki görsel gelene kadar sayfada **kırık görsel yoktur**: üst bant kurulum
+fotoğrafını kullanır, galeri iki açıyla çalışır.
+
+## Ekleme adımları
+
+1. Orijinali `kaynak/` altına koyun.
+2. Yukarıdaki adla `.webp` türevini üretin.
+3. `node build.js` çalıştırıp çıktıyı commit'leyin.
 
 > Kaynak dosyaları SİLMEYİN — türevler yeniden üretilebilsin.
