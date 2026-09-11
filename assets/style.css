@@ -499,6 +499,10 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .timeline-rich .t-title{display:block;color:var(--ink);font-weight:700;margin:0;padding:16px 20px 4px;font-size:1.05rem}
 .timeline-rich p{padding:4px 20px 16px;margin:0}
 
+/* Elektrikli araç sayfası — tam genişlik tanıtım görseli */
+.ev-banner{margin:0;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);background:var(--bg-alt)}
+.ev-banner img{width:100%;height:auto;display:block;cursor:zoom-in}
+
 /* CTA band */
 .cta-band{background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff}
 .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:54px 20px;flex-wrap:wrap}
