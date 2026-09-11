@@ -310,9 +310,24 @@ function handlePayRoutes(req, res, urlPath) {
       if (!token || !(IYZ.apiKey && IYZ.secret)) return fail();
       iyzRequest("/payment/iyzipos/checkoutform/auth/ecom/detail", { locale: "tr", token: token }, (err, out) => {
         const ok = !err && out && out.status === "success" && out.paymentStatus === "SUCCESS";
+        // Başarısız ödemenin sebebini SUNUCU LOG'una yaz (Railway → Logs).
+        // orders.json Volume yoksa kalıcı değil; log olmadan sebep kaybolur.
+        // Kart/kişisel veri YAZILMAZ — yalnız iyzico'nun durum ve hata alanları.
+        if (!ok) {
+          console.warn("iyzico ödeme başarısız:", JSON.stringify({
+            conversationId: out && out.conversationId,
+            paymentStatus: out && out.paymentStatus,
+            mdStatus: out && out.mdStatus,          // 3D Secure sonucu (1 = doğrulama başarılı)
+            errorCode: out && out.errorCode,
+            errorGroup: out && out.errorGroup,
+            errorMessage: (out && out.errorMessage) || (err && err.message)
+          }));
+        }
         writeOrder(token, {
           status: ok ? "paid" : "failed", resolvedAt: new Date().toISOString(),
           paymentId: out && out.paymentId, paidPrice: out && out.paidPrice,
+          mdStatus: (!ok && out && out.mdStatus) || undefined,
+          errorCode: (!ok && out && out.errorCode) || undefined,
           errorMessage: (!ok && out && out.errorMessage) || undefined
         });
         res.writeHead(302, { Location: ok ? "/odeme-sonuc.html?d=ok" : "/odeme-sonuc.html?d=hata" });
