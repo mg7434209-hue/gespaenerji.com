@@ -503,6 +503,11 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .ev-banner{margin:0;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);background:var(--bg-alt)}
 .ev-banner img{width:100%;height:auto;display:block;cursor:zoom-in}
 
+/* Ödeme yöntemi logoları — iyzico başvuru şartı (footer'da tüm sayfalarda) */
+.pay-logos{flex:0 0 100%;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin:0 0 18px}
+.pay-logos img{height:28px;width:auto;display:block}
+@media(max-width:520px){.pay-logos img{height:22px}}
+
 /* CTA band */
 .cta-band{background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff}
 .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:54px 20px;flex-wrap:wrap}
