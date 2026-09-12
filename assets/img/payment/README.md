@@ -2,34 +2,37 @@
 
 iyzico canlı başvurusu, sitede **"iyzico ile Öde" + Visa + MasterCard**
 logolarının görünmesini şart koşuyor. Bu eksik olduğu için başvuru
-"Gerekli Kriterler Sağlanmadı" durumunda kaldı ve canlı işlemler
-`errorCode 10208 · INVALID_MERCHANT_OR_SP` ile reddedildi.
+"Gerekli Kriterler Sağlanmadı" durumunda kalmış ve canlı işlemler
+`errorCode 10208 · INVALID_MERCHANT_OR_SP` ile reddedilmişti.
 
-## Beklenen dosya
+## Yayındaki dosya
 
 | Dosya | İçerik |
 |---|---|
-| `iyzico-band.png` | iyzico + Visa + MasterCard logolarını içeren tek bant görseli |
+| `iyzico-band.webp` | iyzico ile Öde · mastercard · VISA · American Express · troy (912×64, kayıpsız WebP, 8.7 KB) |
 
-Bant, **30 sayfanın tamamında** footer'da (telif satırının üstünde,
-ortalı) görünür. Markup ve `.pay-logos` stili hazır — dosya bu klasöre
-konduğu anda çalışır.
+Bant **30 sayfanın tamamında** footer'da, telif satırının üstünde ortalı
+görünür (`.pay-logos`, yükseklik 28 px / mobilde 22 px).
 
-## Nereden alınır
+## Kaynak
 
-iyzico'nun resmî logo paketi:
-https://dev.iyzipay.com/tr/iyzico-logo-pack.zip
+iyzico resmî logo paketi → `footer_iyzico_ile_ode/White/`
+(`kaynak/` altında SVG ve @2x PNG olarak saklanıyor).
 
-> Logolar Visa / Mastercard / iyzico'nun **tescilli markalarıdır**;
-> yeniden çizilmez, yalnız resmî paketteki dosyalar kullanılır.
+Footer zemini `#0a1512` — tema bağımsız koyu — bu yüzden **White**
+sürüm kullanıldı. Renkli sürüm açık zeminli bir yerleşim için
+gerekirse pakette `Colored/` altında.
 
-Footer koyu zeminlidir — paketteki **koyu zemine uygun (beyaz/açık)**
-sürümü tercih edin.
+> Logolar Visa / Mastercard / iyzico / Amex / troy'un **tescilli
+> markalarıdır**; yeniden çizilmez, yalnız resmî paketteki dosyalar
+> kullanılır. Türev üretilecekse `kaynak/` altındaki dosyalardan üretin.
 
-## Ekleme adımları
+## Türevi yeniden üretmek
 
-1. Zip'i indirip bant görselini bu klasöre `iyzico-band.png` adıyla koyun.
-2. Yükseklik CSS'te 28 px'e sabitlenir, genişlik orantılı ölçeklenir.
-   Görselin en-boy oranı 340x28'den farklıysa sayfalardaki `width`/`height`
-   özniteliklerini gerçek orana göre güncelleyin (CLS için ikisi de dolu olmalı).
-3. `node build.js` çalıştırıp çıktıyı commit'leyin.
+```python
+from PIL import Image
+im = Image.open("kaynak/logo_band_white@2x.png").convert("RGBA")
+im.save("iyzico-band.webp", "WEBP", lossless=True, method=6)
+```
+
+Sonra `node build.js` çalıştırıp çıktıyı commit'leyin.
