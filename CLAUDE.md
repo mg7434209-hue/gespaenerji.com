@@ -57,7 +57,13 @@ elle eklenmez. Sipariş WhatsApp mesajına çok kalemli döküm yazılır) ·
 (elektrikli araç güneş dönüşümü + BOOST MPPT şarj kontrol cihazının SATIŞ
 sayfası: `<main data-pkg-detail="boost-mppt">`, `#urun` bölümünde `.prod-top`
 = solda galeri `#pgMain`/`.prod-thumbs.few`, sağda `.buy-box`; fiyat/kod/stok
-build'de statik basılır, main.js `data-pkg-*` ile tazeler) ·
+build'de statik basılır, main.js `data-pkg-*` ile tazeler.
+TEKNİK VERİ KAYNAĞI: üreticinin (MS Teknik) BOOST MPPT 24-72 V teknik bülteni —
+künye tablosu, `%`li güç/verim tablosu, `#aku-uyumlulugu` bölümü (AGM · GEL ·
+sulu kurşun-asit · lityum + koruma fonksiyonları + kurulum notları) oradan
+yazıldı. Cihaz 24/36/48/60/72 V destekler ve yalnız lityumla SINIRLI DEĞİLDİR —
+bu iki bilgiyi sayfa metni, SSS, JSON-LD ve config.js ürün kartında BİRLİKTE
+güncelle. Üreticinin telefon/iletişim bilgisi siteye YAZILMAZ) ·
 `ai-cankurtaran-destek-sistemi.html`
 (havuz güvenliği; lacivert/aqua `pool-*` stilleri, form → WhatsApp lead;
 "Nasıl çalışır?" bölümünün sonunda canlı simülasyon `.pool-sim` — inline SVG,
@@ -83,9 +89,16 @@ build PAGES listesine EKLENMEZ). Her sayfa: ortak header/footer, aktif menü
 vurgusu, breadcrumb, sayfaya özel SEO başlığı/canonical/Open Graph içerir.
 Nav menü (hizmet/satış ayrımı): Ana Sayfa · Solar Sistemler (açılır grup:
 Çatı & Arazi GES Kurulumu → hizmetler.html + Tarımsal Sulama) · Online Satış
-(açılır grup: Paket Ürünler → urunler.html + Solar Su Isıtıcı + Elektrikli Araç
-Dönüşümü + Toptan Satış (B2B) + GES Marketim (E-Mağaza) ↗ dış link + Sepetim →
-sepet.html, `rel="nofollow"` çünkü robots'ta engelli) · Yapay Zekâ Ürünleri
+(**MEGA MENÜ** — düz liste değil, `.submenu.mega` içinde resimli/açıklamalı
+`.mega-card` kartları: Paket Ürünler → urunler.html + Solar Su Isıtıcı +
+Elektrikli Araç Dönüşümü + Toptan Satış (B2B) + GES Marketim (E-Mağaza) ↗ dış
+link; altta `.mega-foot` şeridinde Sepetim → sepet.html, `rel="nofollow"` çünkü
+robots'ta engelli. Kart görselleri `assets/img/menu/*.webp` — 96×64 gösterilen
+KÜÇÜK türevlerdir, kaynak fotoğrafı menüye koyma. Yeni kart = türev görsel +
+kart açıklamasının DICT çevirisi. 1260px altında tek sütuna iner ve `.mega-d`
+açıklamaları gizlenir. DİKKAT: `.submenu a{white-space:nowrap}` kuralını ezmek
+için kart seçicisi `.submenu a.mega-card` olarak yazılır; ızgara hücrelerinde
+`minmax(0,1fr)` şart, yoksa panel taşar) · Yapay Zekâ Ürünleri
 (açılır grup: AI Cankurtaran Destek Sistemi) · Araçlar (açılır grup: Tasarruf
 Hesaplayıcı + Sistem Kurucu) · Projeler · Hakkımızda · Teklif Al.
 Paket detay sayfalarında "Paket Ürünler", sepet.html'de "Sepetim" aktif

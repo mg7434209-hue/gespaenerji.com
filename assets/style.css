@@ -768,6 +768,43 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .submenu a:hover{background:var(--bg-alt);color:var(--ink)}
 .submenu a.active{color:var(--green)}
 
+/* ===== Mega menü — resimli/açıklamalı kart paneli (Online Satış) =====
+   Düz bağlantı listesi yerine görsel kartlar. Panel .submenu'nun bir
+   varyantıdır; açma/kapama mantığı (main.js .open sınıfı) aynıdır.
+   YENİ KART EKLERKEN: 96x64 görsel türevini assets/img/menu/ altına koy
+   (kaynak fotoğrafın tamamını menüye koyma — panel ağırlaşır). */
+.submenu.mega{width:min(700px,calc(100vw - 28px));min-width:0;padding:12px;gap:4px;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.menu-group.open .submenu.mega,.menu-group:focus-within .submenu.mega{display:grid}
+/* .submenu a{white-space:nowrap} kuralını ezmek için özgüllük .submenu ile artırıldı */
+.submenu a.mega-card{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;
+  align-items:center;padding:9px;border-radius:12px;white-space:normal;min-width:0}
+.mega-card>span{min-width:0}
+.mega-card:hover{background:var(--bg-alt)}
+.mega-card img{width:96px;height:64px;object-fit:cover;border-radius:8px;display:block;
+  background:var(--bg-alt)}
+.mega-t{display:block;white-space:normal;font-weight:700;color:var(--ink);font-size:.89rem;line-height:1.3}
+.mega-card:hover .mega-t{color:var(--green)}
+.mega-card.active .mega-t{color:var(--green)}
+.mega-d{display:block;white-space:normal;font-weight:400;color:var(--muted);font-size:.76rem;line-height:1.45;
+  margin-top:3px}
+.mega-foot{grid-column:1/-1;display:flex;gap:8px;margin-top:6px;padding-top:10px;
+  border-top:1px solid var(--line)}
+.mega-foot a{flex:1;white-space:nowrap;display:flex;align-items:center;justify-content:center;gap:7px;
+  padding:9px 12px;border-radius:9px;background:var(--bg-alt);font-weight:700;
+  color:var(--muted);font-size:.84rem;white-space:nowrap}
+.mega-foot a:hover{color:var(--green)}
+.mega-foot a.active{color:var(--green)}
+
+/* Hamburger bandı: kartlar tek sütuna iner, açıklama gizlenir (çekmece uzamasın) */
+@media(max-width:1260px){
+  .submenu.mega{width:min(330px,calc(100vw - 44px));grid-template-columns:minmax(0,1fr);padding:10px}
+  .submenu a.mega-card{grid-template-columns:52px minmax(0,1fr);gap:10px;padding:7px;min-height:0}
+  .mega-card img{width:52px;height:38px}
+  .mega-d{display:none}
+  .mega-foot{margin-top:4px;padding-top:8px}
+}
+
 
 /* ==== Havuz Teknolojileri — AI Cankurtaran sayfası ==== */
 /* Marka paleti (briefe göre): lacivert #0a2a43 · aqua #17a8c4 · mercan #f4523b */
