@@ -132,6 +132,25 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .theme-icon-moon{display:none}
 [data-theme="dark"] .theme-icon-sun{display:none}
 [data-theme="dark"] .theme-icon-moon{display:inline}
+/* Dar masaüstü bandı: menü "Online Satış" ile birlikte 6 üst seviye öğe
+   taşıyor ve en uzun dil (RU) çubuğu doldurur. Bu bantta çubuk kademeli
+   sıkışır; geniş ekranda ferah görünüm korunur. Eşikler 4 dilde ölçüldü. */
+@media(min-width:1261px) and (max-width:1580px){
+  .nav{gap:6px}
+  .menu{gap:6px}
+  .menu a,.menu-parent{font-size:.84rem}
+  .menu .btn-sm{padding:7px 11px;font-size:.8rem}
+  .nav-actions{gap:6px}
+  .lang-switch button{padding:7px 4px;font-size:.67rem}
+  .brand-text{font-size:1.02rem}
+}
+@media(min-width:1261px) and (max-width:1380px){
+  .menu{gap:4px}
+  .menu a,.menu-parent{font-size:.79rem}
+  .menu .btn-sm{padding:6px 9px;font-size:.76rem}
+  .lang-switch button{padding:6px 3px;font-size:.64rem}
+  .brand-text{font-size:.96rem}
+}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
 .hamburger span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -575,7 +594,7 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
   .steps{grid-template-columns:repeat(2,1fr)}
   .footer-grid{grid-template-columns:1fr 1fr}
 }
-@media(max-width:1180px){
+@media(max-width:1260px){
   .menu{position:fixed;inset:70px 0 auto 0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line);padding:18px 20px;gap:14px;align-items:stretch;transform:translateY(-150%);transition:transform .3s;margin-left:0;box-shadow:var(--shadow)}
   .menu.open{transform:translateY(0)}
   .menu a:not(.btn)::after{display:none}

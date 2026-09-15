@@ -81,15 +81,24 @@ formu main.js toptan IIFE'sinde; stok değişince config.b2b.stock güncelle +
 Ayrıca `admin.html`: fiyat yönetim paneli (menüde yok, robots'ta engelli,
 build PAGES listesine EKLENMEZ). Her sayfa: ortak header/footer, aktif menü
 vurgusu, breadcrumb, sayfaya özel SEO başlığı/canonical/Open Graph içerir.
-Nav menü (teknoloji firması yapısı): Ana Sayfa · Solar Sistemler (açılır grup:
-Çatı & Arazi GES Kurulumu → hizmetler.html + Paket Ürünler → urunler.html +
-Tarımsal Sulama + Solar Su Isıtıcı + Toptan Satış (B2B) + GES Marketim
-(E-Mağaza) ↗ dış link) · Yapay Zekâ Ürünleri (açılır grup: AI Cankurtaran Destek
-Sistemi) · Araçlar (açılır grup: Tasarruf Hesaplayıcı + Sistem Kurucu) ·
-Projeler · Hakkımızda · Teklif Al. Paket detay/sepet sayfalarında "Paket
-Ürünler" aktif işaretlenir; alt sayfa aktifken üst `menu-parent` de ` active`
-alır. Yeni sayfa eklenince TÜM sayfalarda güncelle (toplu değişiklik için
-scratchpad `nav2.py` deseni; menü 1180px altında hamburger'a düşer).
+Nav menü (hizmet/satış ayrımı): Ana Sayfa · Solar Sistemler (açılır grup:
+Çatı & Arazi GES Kurulumu → hizmetler.html + Tarımsal Sulama) · Online Satış
+(açılır grup: Paket Ürünler → urunler.html + Solar Su Isıtıcı + Elektrikli Araç
+Dönüşümü + Toptan Satış (B2B) + GES Marketim (E-Mağaza) ↗ dış link + Sepetim →
+sepet.html, `rel="nofollow"` çünkü robots'ta engelli) · Yapay Zekâ Ürünleri
+(açılır grup: AI Cankurtaran Destek Sistemi) · Araçlar (açılır grup: Tasarruf
+Hesaplayıcı + Sistem Kurucu) · Projeler · Hakkımızda · Teklif Al.
+Paket detay sayfalarında "Paket Ürünler", sepet.html'de "Sepetim" aktif
+işaretlenir; alt sayfa aktifken üst `menu-parent` de ` active` alır.
+Yeni sayfa eklenince TÜM sayfalarda güncelle — nav bloğunu tek kaynaktan
+yeniden üreten scratchpad `nav3.py` deseni (sayfa→aktif grup/link tablosu
+içerir) kullanılır.
+GENİŞLİK KURALI: çubuk 6 üst seviye öğeyle dolu. Menü 1260px altında
+hamburger'a düşer; 1261–1580px bandında `.nav`/`.menu` gap'i, yazı boyu, dil
+düğmeleri ve marka yazısı kademeli küçülür (1261–1380px'te bir kademe daha).
+Eşikler 4 dilde ölçüldü — en uzun menü RUSÇA'dır. Üst seviyeye yeni öğe
+eklersen veya etiket uzatırsan 1280/1366/1440/1530px'te 4 dilde YENİDEN ölç;
+aksi hâlde dil değiştirici ve sepet simgesi ekran dışında kalır.
 
 ## Sistem Kurucu (`sistem-kur.html` · `assets/builder.js`)
 "İhtiyaçtan siparişe" 5 adımlı sihirbaz: kullanım senaryosu → cihaz listesi
