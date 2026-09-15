@@ -514,6 +514,7 @@
       function priceOf(p) { return p.price != null ? p.price : Math.round(p.kwp * COST + (p.battery ? p.battery * BAT_COST : 0)); }
       // Kompakt özellik çipleri — kart başına en fazla 3 (taranabilirlik)
       function chipsOf(p) {
+        if (p.chips && p.chips.length) return p.chips.slice(0, 3);   // kWp'siz ürünler (cihaz/aksesuar)
         var pw = p.panelW || PANEL_W;
         var panels = p.panelCount || Math.ceil((p.kwp * 1000) / pw);
         var panelChip = p.panelCount
@@ -581,20 +582,29 @@
         // priceOnRequest: fiyat girilmediyse "Teklif alın"; admin/config fiyat girerse gösterilir
         var price = (p.priceOnRequest && p.price == null) ? null : priceOf(p);
         var pw = p.panelW || PANEL_W;
-        var panels = p.panelCount || Math.ceil((p.kwp * 1000) / pw);
+        var panels = p.kwp ? (p.panelCount || Math.ceil((p.kwp * 1000) / pw)) : 0;
         var chips = chipsOf(p).map(function (s) { return "<span>" + s + "</span>"; }).join("");
         var feat = (p.features || []).map(function (f) { return "<li>" + f + "</li>"; }).join("");
         // Açık fiyat = net paket fiyatı; türetilen = yaklaşık başlangıç
-        var priceLbl = p.price != null
-          ? L("Paket fiyatı", "Package price", "Paketpreis", "Цена пакета")
-          : L("Yaklaşık başlangıç", "Approx. from", "Ca. ab", "Прибл. от");
+        var priceLbl = p.price == null
+          ? L("Yaklaşık başlangıç", "Approx. from", "Ca. ab", "Прибл. от")
+          : p.kwp
+            ? L("Paket fiyatı", "Package price", "Paketpreis", "Цена пакета")
+            : L("Ürün fiyatı", "Product price", "Produktpreis", "Цена товара");
         var href = "iletisim.html";
         if (WA) {
-          var msg = L(
-            "Merhaba, \"" + p.name + "\" (" + nf1.format(p.kwp) + " kWp) paketi için teklif almak istiyorum.",
-            "Hello, I'd like a quote for the \"" + p.name + "\" (" + nf1.format(p.kwp) + " kWp) package.",
-            "Hallo, ich möchte ein Angebot für das Paket \"" + p.name + "\" (" + nf1.format(p.kwp) + " kWp).",
-            "Здравствуйте, хочу получить КП на пакет «" + p.name + "» (" + nf1.format(p.kwp) + " кВт)."
+          // kWp'siz ürünlerde (cihaz/aksesuar) güç bilgisi ve "paket" sözcüğü yazılmaz
+          var kwpTxt = p.kwp ? " (" + nf1.format(p.kwp) + " kWp)" : "";
+          var msg = p.kwp ? L(
+            "Merhaba, \"" + p.name + "\"" + kwpTxt + " paketi için teklif almak istiyorum.",
+            "Hello, I'd like a quote for the \"" + p.name + "\"" + kwpTxt + " package.",
+            "Hallo, ich möchte ein Angebot für das Paket \"" + p.name + "\"" + kwpTxt + ".",
+            "Здравствуйте, хочу получить КП на пакет «" + p.name + "»" + kwpTxt + "."
+          ) : L(
+            "Merhaba, \"" + p.name + "\" ürünü hakkında bilgi almak istiyorum.",
+            "Hello, I'd like information about the \"" + p.name + "\" product.",
+            "Hallo, ich hätte gerne Informationen zum Produkt \"" + p.name + "\".",
+            "Здравствуйте, хочу узнать о товаре «" + p.name + "»."
           );
           href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
         }
@@ -645,7 +655,9 @@
             '<div class="pkg-buy">' +
               priceHtml +
               (p.url ? '<a class="btn btn-ghost btn-block" style="margin-bottom:8px" href="' + p.url + '">' + L("Detayları gör →", "View details →", "Details ansehen →", "Подробнее →") + "</a>" : "") +
-              '<a class="btn btn-block" href="' + href + '"' + (WA ? ' target="_blank" rel="noopener"' : "") + ">" + L("Bu paket için teklif al", "Get a quote", "Angebot anfordern", "Запросить КП") + "</a>" +
+              '<a class="btn btn-block" href="' + href + '"' + (WA ? ' target="_blank" rel="noopener"' : "") + ">" + (p.kwp
+                ? L("Bu paket için teklif al", "Get a quote", "Angebot anfordern", "Запросить КП")
+                : L("Bu ürün için bilgi al", "Ask about this product", "Zum Produkt anfragen", "Узнать о товаре")) + "</a>" +
               trust +
             "</div>" +
           "</div>" +
@@ -654,7 +666,8 @@
       var GROUPS = [
         { id: "ongrid", title: L("Çatı / On-Grid Paketler", "Rooftop / On-Grid Packages", "Aufdach- / On-Grid-Pakete", "Крышные / On-grid пакеты"), desc: L("Şebeke bağlantılı konut, villa ve ticari sistemler.", "Grid-tied residential, villa and commercial systems.", "Netzgekoppelte Wohn-, Villa- und Gewerbesysteme.", "Сетевые системы для домов, вилл и бизнеса.") },
         { id: "offgrid", title: L("Taşınabilir & Off-Grid Paketler", "Portable & Off-Grid Packages", "Tragbare & Off-Grid-Pakete", "Портативные и off-grid пакеты"), desc: L("Lityum bataryalı, şebekeden bağımsız; bağ evi, karavan ve kulübe için hazır kitler.", "Lithium-battery, off-grid ready kits for cabins, caravans and huts.", "Lithium-Batterie, netzunabhängige Fertigsets für Gartenhäuser, Wohnmobile und Hütten.", "Готовые автономные комплекты с литиевым аккумулятором для дач, караванов и хижин.") },
-        { id: "irrigation", title: L("Tarımsal Sulama Paketleri", "Agricultural Irrigation Packages", "Pakete für landwirtschaftliche Bewässerung", "Пакеты для аграрного полива"), desc: L("Mazotsuz, şebekesiz güneş enerjili sulama pompa sistemleri.", "Diesel-free, off-grid solar irrigation pump systems.", "Dieselfreie, netzunabhängige solare Bewässerungspumpensysteme.", "Солнечные насосные системы полива без дизеля и без сети.") }
+        { id: "irrigation", title: L("Tarımsal Sulama Paketleri", "Agricultural Irrigation Packages", "Pakete für landwirtschaftliche Bewässerung", "Пакеты для аграрного полива"), desc: L("Mazotsuz, şebekesiz güneş enerjili sulama pompa sistemleri.", "Diesel-free, off-grid solar irrigation pump systems.", "Dieselfreie, netzunabhängige solare Bewässerungspumpensysteme.", "Солнечные насосные системы полива без дизеля и без сети.") },
+        { id: "accessory", title: L("Elektrikli Araç Dönüşüm Ürünleri", "EV Solar Conversion Products", "Produkte für die E-Fahrzeug-Umrüstung", "Продукты для солнечной конверсии электромобилей"), desc: L("Güneş panelinden elektrikli araç aküsüne şarj için kontrol cihazları.", "Charge controllers that feed an EV battery pack straight from a solar panel.", "Laderegler, die den Akku eines E-Fahrzeugs direkt vom Solarmodul laden.", "Контроллеры заряда, питающие батарею электромобиля напрямую от солнечной панели.") }
       ];
       // "Hangisi size uygun?" rehberi — kullanım yeri çipi -> ilgili karta kaydır + vurgula
       var out = "";
@@ -669,7 +682,7 @@
         if (!items.length) return;
         out += '<div class="pkg-group" id="grp-' + g.id + '">' +
           '<div class="pkg-group-head reveal"><h2>' + g.title + "</h2><p>" + g.desc + "</p></div>" +
-          '<div class="pkg-grid">' + items.map(card).join("") + "</div></div>";
+          '<div class="pkg-grid' + (items.length === 1 ? " pkg-grid-solo" : "") + '">' + items.map(card).join("") + "</div></div>";
       });
       grid.innerHTML = out;
       // Rehber çipi: hedef kartı kısa süre vurgula (kaydırmayı genel smooth-scroll yapar)

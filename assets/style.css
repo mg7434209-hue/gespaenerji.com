@@ -305,6 +305,8 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .pkg-group-head h2::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:54px;height:3px;border-radius:2px;background:var(--green)}
 .pkg-group-head p{color:var(--muted);margin:12px auto 0;max-width:64ch}
 .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+/* Tek ürünlü grup: kart sola yapışmasın, ortalanmış tek sütun */
+.pkg-grid-solo{grid-template-columns:minmax(0,360px);justify-content:center}
 .hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 .hero-badges span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-weight:700;font-size:.88rem;color:var(--ink);box-shadow:0 4px 14px rgba(10,110,79,.07)}
 .pkg-first{padding-top:52px}
@@ -1063,11 +1065,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .prod-thumbs{display:grid;grid-template-columns:repeat(8,1fr);gap:10px}
 .prod-thumb{display:block;border:2px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;
   transition:border-color .18s,transform .18s,box-shadow .18s}
+.prod-thumbs.few{grid-template-columns:repeat(4,1fr)}
 .prod-thumb img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:contain}
 .prod-thumb:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 .prod-thumb.is-on{border-color:var(--green);box-shadow:0 0 0 3px color-mix(in srgb,var(--green) 20%,transparent)}
 .prod-thumb:focus-visible{outline:3px solid var(--green);outline-offset:3px}
-@media(max-width:720px){.prod-thumbs{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:720px){.prod-thumbs{grid-template-columns:repeat(4,1fr)}.prod-thumbs.few{grid-template-columns:repeat(2,1fr)}}
 
 .photo-row{margin-top:34px}
 .card-photo{padding:0;overflow:hidden;display:flex;flex-direction:column}
@@ -1171,7 +1174,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .prod-media{position:sticky;top:96px}
 .prod-kicker{display:inline-block;background:var(--sun);color:#3a2c00;font-weight:800;font-size:.76rem;
   letter-spacing:.04em;text-transform:uppercase;padding:5px 13px;border-radius:999px}
-.prod-buy h1{font-size:clamp(1.6rem,3.4vw,2.4rem);margin:12px 0 8px;line-height:1.18}
+.prod-buy h1,.prod-buy h2,.prod-buy h3{font-size:clamp(1.6rem,3.4vw,2.4rem);margin:12px 0 8px;line-height:1.18}
 .prod-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin:0 0 12px;font-size:.9rem;color:var(--muted)}
 .prod-sku b{color:var(--ink);font-weight:800;letter-spacing:.02em}
 .prod-stock{color:var(--green);font-weight:700}

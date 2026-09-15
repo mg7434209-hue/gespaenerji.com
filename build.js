@@ -413,7 +413,8 @@ function injectStaticLd(html, file, cfg) {
   if (file === "urunler.html") objs.push(packagesItemListLd(cfg));
   if (file === "ai-cankurtaran-destek-sistemi.html") objs.push(cankurtaranProductLd(cfg));
   if (file === "hesaplayici.html") objs.push(webAppLd(cfg));
-  if (/^paket-/.test(file) && cfg.packages) {
+  // Ürün detay sayfası — dosya adına değil, data-pkg-detail işaretine bakılır
+  if (cfg.packages && /data-pkg-detail="/.test(html)) {
     const id = (html.match(/data-pkg-detail="([^"]+)"/) || [])[1];
     const p = cfg.packages.filter(x => x.id === id)[0];
     if (p) objs.push(packageProductLd(cfg, p));
@@ -651,7 +652,8 @@ function hydrateExtras(html, file, cfg) {
     const GROUPS = [
       { id: "offgrid", title: "Taşınabilir & Off-Grid Paketler" },
       { id: "irrigation", title: "Tarımsal Sulama Paketleri" },
-      { id: "ongrid", title: "Çatı / On-Grid Paketler" }
+      { id: "ongrid", title: "Çatı / On-Grid Paketler" },
+      { id: "accessory", title: "Elektrikli Araç Dönüşüm Ürünleri" }
     ];
     const COST = cfg.calc.costPerKwp;
     const RATE = cfg.usdTry || 0;
@@ -671,7 +673,9 @@ function hydrateExtras(html, file, cfg) {
             (p.price != null
               ? (PCT ? " <span>liste</span> · <span>havale/EFT ile</span> ₺" + nfTr(hav) + " (%" + PCT + " <span>indirimli, KDV dahil</span>)" : " (<span>KDV dahil</span>)")
               : " (yaklaşık)");
-          return "<li><strong>" + esc(p.name) + "</strong> — " + p.kwp + " kWp · <span>" + esc(p.for) + "</span> · " +
+          const lead = p.kwp ? p.kwp + " kWp" : (p.sku || "");
+          return "<li><strong>" + esc(p.name) + "</strong> — " + (lead ? esc(lead) + " · " : "") +
+            "<span>" + esc(p.for) + "</span> · " +
             priceTxt + ". <span>" + esc(p.desc) + "</span></li>";
         }).join("") + "</ul></div>";
     }
@@ -797,7 +801,8 @@ function writeLlmsFull(cfg) {
     const tag = p.price != null
       ? (PCT ? ` liste (KDV dahil) · havale/EFT ile ₺${nf(hav)} (%${PCT} indirimli)` : " (KDV dahil)")
       : " (yaklaşık, keşifle netleşir)";
-    return `- ${p.name} — ${p.kwp} kWp · ${p.for} · ₺${nf(tl)}${usd ? ` (≈ $${nf(usd)})` : ""}${tag}`;
+    const lead = p.kwp ? `${p.kwp} kWp · ` : (p.sku ? `${p.sku} · ` : "");
+    return `- ${p.name} — ${lead}${p.for} · ₺${nf(tl)}${usd ? ` (≈ $${nf(usd)})` : ""}${tag}`;
   }).join("\n");
   const showHeaterPrice = cfg.heater.showPrices !== false;
   const heaterLines = cfg.heater.models.map(m =>
@@ -924,6 +929,7 @@ ${seo.pages.map(p => "- [" + p.title[0] + "](" + c0.web + "/" + p.file + ")").jo
 - [Sistem Kurucu](${c0.web}/sistem-kur.html)
 - [AI Cankurtaran](${c0.web}/ai-cankurtaran-destek-sistemi.html)
 - [PV su ısıtıcı](${c0.web}/su-isitici.html)
+- [Elektrikli araç güneş dönüşümü](${c0.web}/elektrikli-arac-donusum.html)
 - [Güncel ürün bilgileri ve fiyatlar](${c0.web}/llms-full.txt)
 
 ## Languages

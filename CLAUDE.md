@@ -37,7 +37,8 @@ animasyon, azaltılmış harekette durur). E-mağaza şeridi `.shop-grid`:
 kompakt yatay kart, AI Cankurtaran ilk kart — yeni ürün geldikçe grid büyür,
 lacivert/aqua palet kart İÇİNDE kalır, sayfaya taşmaz. E-mağaza linkleri:
 `config.company.shop`; hero slaytı, mağaza şeridi ve TÜM footer'lar) ·
-`hizmetler.html` · `urunler.html` (paket vitrini; yalnız 2 kit) ·
+`hizmetler.html` · `urunler.html` (ürün vitrini: 2 komple kit + BOOST MPPT
+şarj kontrol cihazı; gruplar `config.packages[].group` ile ayrılır) ·
 `paket-285w.html` `paket-2x540w.html` (e-ticaret ürün sayfası: solda galeri
 `#pgMain`+`.prod-thumbs`, sağda satın alma kutusu `.buy-box` — ürün kodu, stok,
 fiyat, havale tutarı, `.qbox` adet kutusu, CTA'lar, kargo/iade bilgi listesi;
@@ -52,7 +53,12 @@ Sepet verisi localStorage `gespa-cart` = {paketId: adet}; birim fiyat kuralı
 main.js `pkgUnit()` — TÜM fiyat noktaları bununla hesaplanır. Üst menüdeki 🛒
 rozeti main.js'in `.nav-actions`a enjekte ettiği istemci bileşenidir, sayfalara
 elle eklenmez. Sipariş WhatsApp mesajına çok kalemli döküm yazılır) ·
-`su-isitici.html` (PV su ısıtıcı) · `ai-cankurtaran-destek-sistemi.html`
+`su-isitici.html` (PV su ısıtıcı) · `elektrikli-arac-donusum.html`
+(elektrikli araç güneş dönüşümü + BOOST MPPT şarj kontrol cihazının SATIŞ
+sayfası: `<main data-pkg-detail="boost-mppt">`, `#urun` bölümünde `.prod-top`
+= solda galeri `#pgMain`/`.prod-thumbs.few`, sağda `.buy-box`; fiyat/kod/stok
+build'de statik basılır, main.js `data-pkg-*` ile tazeler) ·
+`ai-cankurtaran-destek-sistemi.html`
 (havuz güvenliği; lacivert/aqua `pool-*` stilleri, form → WhatsApp lead;
 "Nasıl çalışır?" bölümünün sonunda canlı simülasyon `.pool-sim` — inline SVG,
 10 sn'lik döngü: izleniyor (0-42%) → risk analizi (42-62%) → alarm (62-100%);
@@ -135,11 +141,19 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
 - İnverter: Tescom, Mexxsun, Lexron, Arçelik
 
 ### Ürünler & fiyatlar (config.packages · config.heater · config.admin)
-- `packages[]`: 2 komple kit (285W ₺ · 2x540W USD) — `url` detay sayfası,
-  `img` gerçek foto, `oldPrice` indirim rozeti, `currency:"USD"` dolar,
-  `dailyKwh` günlük üretim. `usdTry` kuru ile ikinci para "≈" gösterilir;
-  kur değişince SADECE config.usdTry güncellenir. Yeni ürün eklerken aynı
-  alanlar + detay sayfası (mevcut paket-*.html kopyala) + build META satırı.
+- `packages[]`: 2 komple kit (285W ₺ · 2x540W USD) + BOOST MPPT şarj kontrol
+  cihazı (₺7.300, `group:"accessory"`) — `url` detay sayfası, `img` gerçek foto,
+  `oldPrice` indirim rozeti, `currency:"USD"` dolar, `dailyKwh` günlük üretim.
+  `usdTry` kuru ile ikinci para "≈" gösterilir; kur değişince SADECE
+  config.usdTry güncellenir. Yeni ürün eklerken aynı alanlar + detay sayfası
+  (mevcut paket-*.html kopyala ya da mevcut bir sayfaya `data-pkg-detail` +
+  `.buy-box` ekle) + build META satırı.
+- kWp'si OLMAYAN ürünlerde (cihaz/aksesuar) `kwp`/`panelW`/`panelCount` YAZILMAZ;
+  kart çipleri `chips: [...]` ile elle verilir. main.js `card()`/`chipsOf()`,
+  build.js `PKG:STATIC` ve llms-full.txt bu durumda güç yerine ürün kodunu yazar,
+  "paket" sözcüğü yerine "ürün" der. Vitrin grubu `group` alanından gelir —
+  yeni grup eklerken main.js `GROUPS` ve build.js `GROUPS` listelerini BİRLİKTE
+  güncelle (tek ürünlü grup `.pkg-grid-solo` ile ortalanır).
 - Fiyat gösterimi HER YERDE aynı: liste fiyatı ₺ (+ "≈ $") · altında
   `💰 Havale/EFT ile: ₺X (%N indirimli)` · "KDV dahil · kargo hariç" notu.
   İndirimli tutar `config.cartDiscountPct` ile hesaplanır ve **en yakın 50 ₺'ye**

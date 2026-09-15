@@ -198,6 +198,20 @@ window.GESPA.config = {
       features: ["Büyük boy buzdolabı, TV, çamaşır-bulaşık makinesi ve süpürgeyi çalıştırır", "Günlük ~6,5 kWh güneş üretimi", "LiFePO₄ lityum batarya dahil", "Mobil taşınabilir, off-grid çalışma"]
     },
 
+    // —— Elektrikli araç dönüşümü —— tekil cihaz (panel ve akü ürüne dahil değildir)
+    // chips: kWp/panel üretmeyen ürünlerde kart çiplerini elle belirler
+    {
+      id: "boost-mppt", icon: "🔌", tag: "Elektrikli Araç", group: "accessory",
+      url: "elektrikli-arac-donusum.html", sku: "GES-EV-BOOST",
+      img: "assets/img/products/ev/boost-mppt-on.webp",
+      price: 7300,
+      chips: ["⚙️ 48 V / 60 V / 72 V", "🔋 Lityum akü desteği", "📶 Bluetooth ile ayar"],
+      for: "Golf aracı, hizmet aracı ve elektrikli platformlar",
+      name: "MS Technik BOOST MPPT Şarj Kontrol Cihazı",
+      desc: "Güneş panelinden elektrikli aracın lityum akü paketine doğrudan şarj sağlayan MPPT yükseltici şarj kontrol cihazı. Panel ve akü ürüne dahil değildir; aracınıza uygun panel gücünü birlikte belirliyoruz.",
+      features: ["48 V / 60 V / 72 V akü paketleriyle uyumlu", "Lityum akü paketleri için şarj yönetimi", "Bluetooth ile telefondan programlanır ve izlenir", "Alüminyum kanatlı pasif soğutma, braketli gövde"]
+    },
+
   ],
 
 

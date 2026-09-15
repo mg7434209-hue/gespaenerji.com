@@ -47,6 +47,7 @@ Modeller ve fiyatlar (KDV dahil, ₺):
 Markalar — panel: Arçelik, Lexron, Bakırlar · inverter: Tescom, Mexxsun, Lexron, Arçelik, Deye, TitanX · MPPT/DC-DC: Havensis · akü: Orbus, TitanX
 - 285W Güneş Paneli Paketi — 0.285 kWp · Kamp, karavan ve küçük ihtiyaçlar · ₺25.000 (≈ $526) liste (KDV dahil) · havale/EFT ile ₺22.500 (%10 indirimli)
 - Tam Kapsamlı Güneş Enerjisi Sistemi — 1.08 kWp · Karavan, kamp ve bağ evi · ₺104.500 (≈ $2.200) liste (KDV dahil) · havale/EFT ile ₺94.050 (%10 indirimli)
+- MS Technik BOOST MPPT Şarj Kontrol Cihazı — GES-EV-BOOST · Golf aracı, hizmet aracı ve elektrikli platformlar · ₺7.300 (≈ $154) liste (KDV dahil) · havale/EFT ile ₺6.550 (%10 indirimli)
 Kargo & iade: Paketler TÜRKİYE'NİN HER İLİNE anlaşmalı kargo ile gönderilir (teslimat
 Antalya ile sınırlı değildir). Sipariş onayından sonra tahmini teslim 2–5 iş günü;
 kargo ücreti alıcıya aittir, fiyatlara KDV dahildir. Mesafeli satışta 14 gün cayma
