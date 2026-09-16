@@ -549,6 +549,18 @@ function hydrateExtras(html, file, cfg) {
   const setSpan = (id, v) => {
     html = html.replace(new RegExp('(<[^>]*id="' + id + '"[^>]*>)[^<]*(</)'), (m, open, close) => open + v + close);
   };
+  // Nav satış paneli — [data-nav-price] alanlarına liste fiyatı statik basılır
+  // (AI botları JS çalıştırmaz; main.js aynı değeri istemcide tazeler).
+  if (cfg.packages) {
+    const RATE = cfg.usdTry || 0;
+    html = html.replace(/(<span class="scard-price" data-nav-price="([^"]+)"[^>]*>)[^<]*(<\/span>)/g,
+      (m, open, id, close) => {
+        const pk = cfg.packages.filter(x => x.id === id)[0];
+        if (!pk || pk.price == null) return m;
+        const tl = pk.currency === "USD" ? Math.round(pk.price * RATE / 100) * 100 : pk.price;
+        return open + "₺" + nfTr(tl) + close;
+      });
+  }
   // Paket detay sayfası (paket-*.html) — fiyat/ürün kodu/stok/kargo statik basılır.
   // AI botları JS çalıştırmaz; main.js aynı değerleri istemcide tazeler.
   const pkgId = (html.match(/data-pkg-detail="([^"]+)"/) || [])[1];

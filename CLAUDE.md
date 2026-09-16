@@ -56,7 +56,10 @@ elle eklenmez. Sipariş WhatsApp mesajına çok kalemli döküm yazılır) ·
 `su-isitici.html` (PV su ısıtıcı) · `elektrikli-arac-donusum.html`
 (elektrikli araç güneş dönüşümü + BOOST MPPT şarj kontrol cihazının SATIŞ
 sayfası: `<main data-pkg-detail="boost-mppt">`, `#urun` bölümünde `.prod-top`
-= solda galeri `#pgMain`/`.prod-thumbs.few`, sağda `.buy-box`; fiyat/kod/stok
+= solda galeri `#pgMain`/`.prod-thumbs.few`, sağda `.buy-box`. BÖLÜM SIRASI:
+hero → ÜRÜN+SATIN ALMA → TEKNİK KÜNYE → anlatım bölümleri → SSS → CTA;
+müşteri önce satın alabilsin, teknik dökümanı hemen altında bulsun diye
+böyle kuruldu, sırayı bozma. Fiyat/kod/stok
 build'de statik basılır, main.js `data-pkg-*` ile tazeler. TEKNİK DEĞERLER
 üreticinin bülteninden gelir — kaynak PDF ve ham görseller
 `assets/img/products/ev/kaynak/` altındadır; değer değiştirmeden önce oraya bak.
@@ -96,13 +99,23 @@ Hesaplayıcı + Sistem Kurucu) · Projeler · Hakkımızda · Teklif Al.
 Paket detay sayfalarında "Paket Ürünler", sepet.html'de "Sepetim" aktif
 işaretlenir; alt sayfa aktifken üst `menu-parent` de ` active` alır.
 Açılır paneller KART tipidir (`.submenu.submenu-cards` → `.mcard` = ikon +
-başlık + tek satır açıklama). 4+ kalemli grup iki sütun (`.two`), azı tek sütun
-— panel ekran kenarından taşmasın diye. Açıklamalar DICT'ten çevrilir; yeni
-menü kalemi eklerken ikon + TR açıklama + 3 dil karşılığı BİRLİKTE eklenir.
+başlık + tek satır açıklama); 4+ kalemli grup iki sütun (`.two`).
+"Online Satış" paneli FARKLIDIR — `.submenu.submenu-shop`: üstte satıştaki
+ürünler görselli fiyat kartı (`.scard`, 3 sütun), altında kategori/araç
+bağlantıları (`.slink` pill satırı). Ürün fiyatı HTML'e GÖMÜLMEZ:
+`data-nav-price="<paketId>"` yer tutucusunu build.js config'ten statik basar,
+main.js istemcide tazeler — kural vitrin/sepet ile aynı (USD ürünlerde kurla ₺).
+Ürün adı `data-pkg-name` ile config'ten gelir ve main.js aktif dile DICT'ten
+çevirir (`gespa:lang` olayında yeniden uygulanır). Satış kartına yeni ürün
+eklemek = `nav5.py` SHOP tablosuna satır + DICT'e 3 dil.
+KAPSAM KURALI: `.menu a.active` / `.menu a:hover` (0,2,1) özgüllüğü panel
+içi kuralları ezer — `.scard`/`.slink` kurallarını `.submenu-shop` ile
+kapsamlı yaz, yoksa aktif pill yeşil üstüne yeşil yazı olur ve kart metni
+`white-space:nowrap` kalıp taşar.
 Mobilde açıklamalar gizlenir, kartlar sade ikon+başlık satırına döner.
 Yeni sayfa eklenince TÜM sayfalarda güncelle — nav bloğunu tek kaynaktan
-yeniden üreten scratchpad `nav4.py` deseni (sayfa→aktif grup/link tablosu +
-ikon/açıklama tablosu içerir) kullanılır.
+yeniden üreten scratchpad `nav5.py` deseni (sayfa→aktif grup/link tablosu +
+ikon/açıklama + SHOP ürün tablosu içerir) kullanılır.
 CSS SIRA KURALI: mobil `@media(max-width:1260px)` nav bloğu, masaüstü
 `.menu-group`/`.submenu` kurallarından SONRA gelmek zorundadır — eşit
 özgüllükte sonraki kural kazanır. Blok yukarıdayken masaüstü kuralları onu

@@ -780,6 +780,35 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .mcard.active b{color:var(--green)}
 .mcard.active .mcard-ico{filter:none}
 
+/* Online Satış paneli — satıştaki ürünler görselli fiyat kartı olarak.
+   Fiyat build'de statik basılır (data-nav-price), main.js istemcide tazeler. */
+.submenu-shop{padding:14px;width:max-content;max-width:calc(100vw - 32px)}
+.menu-group.open .submenu-shop,.menu-group:focus-within .submenu-shop{display:block}
+.shopmenu-head{margin:0 0 10px;font-size:.72rem;font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted)}
+.shopmenu-grid{display:grid;grid-template-columns:repeat(3,268px);gap:8px}
+.submenu-shop .scard{display:flex;gap:11px;align-items:flex-start;padding:10px;border-radius:12px;
+  border:1px solid var(--line);background:var(--card);white-space:normal;
+  transition:border-color .15s,box-shadow .15s,transform .15s}
+.scard:hover{border-color:var(--green);box-shadow:var(--shadow);transform:translateY(-2px)}
+.scard::after{display:none!important}
+.scard-img{flex:0 0 auto;width:62px;height:62px;border-radius:8px;overflow:hidden;background:#fff;
+  border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.scard-img img{width:100%;height:100%;object-fit:contain}
+.scard-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
+.scard-txt b{font-size:.84rem;font-weight:700;color:var(--ink);line-height:1.25}
+.scard-txt em{font-style:normal;font-size:.73rem;color:var(--muted);line-height:1.35}
+.scard-price{font-weight:800;font-size:.95rem;color:var(--green);font-family:var(--font)}
+.scard.active b{color:var(--green)}
+.shopmenu-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;padding-top:12px;
+  border-top:1px solid var(--line)}
+.submenu-shop .slink{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:999px;
+  background:var(--bg-alt);font-size:.82rem;font-weight:600;color:var(--muted);white-space:nowrap}
+/* .menu a.active / .menu a:hover (0,2,1) bu kuralları ezmesin diye kapsamlı yazıldı */
+.submenu-shop .slink:hover{background:var(--green);color:#fff}
+.submenu-shop .slink::after{display:none!important}
+.submenu-shop .slink.active{background:var(--green);color:#fff}
+
 /* Mobil (hamburger) menü — masaüstü .menu-group/.submenu kurallarından SONRA
    gelmek ZORUNDA: eşit özgüllükte sonraki kural kazanır. Daha önce bu blok
    dosyanın üstündeydi ve masaüstü kuralları onu eziyordu; açılır menüler
@@ -802,6 +831,18 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
   .mcard-txt em{display:none}
   .mcard-txt b{font-size:.97rem;font-weight:600;color:var(--muted)}
   .mcard.active b{color:var(--green)}
+  .submenu-shop{padding:0;width:auto;max-width:none}
+  .menu-group.open .submenu-shop,.menu-group:focus-within .submenu-shop,.submenu-shop{display:flex!important;flex-direction:column}
+  .shopmenu-head{display:none}
+  .shopmenu-grid{display:flex!important;flex-direction:column;gap:0;grid-template-columns:none}
+  .scard{padding:0;border:0;background:none;gap:10px;align-items:center;min-height:52px;border-radius:0}
+  .scard:hover{border-color:transparent;box-shadow:none;transform:none}
+  .scard-img{width:38px;height:38px}
+  .scard-txt em{display:none}
+  .scard-txt b{font-size:.97rem;font-weight:600;color:var(--muted)}
+  .scard-price{font-size:.85rem}
+  .shopmenu-links{margin-top:6px;padding-top:10px;gap:6px}
+  .slink{padding:9px 13px}
 
 }
 

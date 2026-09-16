@@ -1544,13 +1544,40 @@
     });
   }
 
+  /* ---- Nav satış paneli: [data-nav-price] liste fiyatını config'ten tazeler ----
+     Kural vitrin/sepet ile AYNI (pkgUnit list): USD ürünlerde kurla ₺'ye çevrilir. */
+  $$("[data-nav-price]").forEach(function (el) {
+    var id = el.getAttribute("data-nav-price"), hit = null;
+    (CFG.packages || []).forEach(function (x) { if (x.id === id) hit = x; });
+    if (!hit || hit.price == null) return;
+    var rate = CFG.usdTry || 0;
+    var tl = hit.currency === "USD" ? Math.round(hit.price * rate / 100) * 100 : hit.price;
+    el.textContent = "₺" + new Intl.NumberFormat("tr-TR").format(tl);
+  });
+
   /* ---- data-pkg-name: ürün adını config.packages'ten tazeler ----
      HTML'deki metin SSR/JS'siz yedeğidir; tek doğru kaynak yine config. */
-  $$("[data-pkg-name]").forEach(function (el) {
-    var id = el.getAttribute("data-pkg-name"), hit = null;
-    (CFG.packages || []).forEach(function (x) { if (x.id === id) hit = x; });
-    if (hit && hit.name) el.textContent = hit.name;
-  });
+  (function () {
+    // config'teki ad TR kaynaktır; aktif dilde DICT karşılığı varsa o yazılır
+    // (yoksa zarifçe TR kalır). Dil değişince yeniden uygulanır.
+    function tr2lang(txt) {
+      var lang = (window.GESPA && GESPA.lang) || "tr";
+      if (lang === "tr") return txt;
+      try {
+        var d = GESPA.i18nData && GESPA.i18nData.DICT && GESPA.i18nData.DICT[lang];
+        return (d && d[txt]) || txt;
+      } catch (e) { return txt; }
+    }
+    function applyNames() {
+      $$("[data-pkg-name]").forEach(function (el) {
+        var id = el.getAttribute("data-pkg-name"), hit = null;
+        (CFG.packages || []).forEach(function (x) { if (x.id === id) hit = x; });
+        if (hit && hit.name) el.textContent = tr2lang(hit.name);
+      });
+    }
+    applyNames();
+    doc.addEventListener("gespa:lang", applyNames);
+  })();
 
   /* ---- Ana sayfa hero vitrini — tam genişlik dönen tanıtım (hero2) ---- */
   (function () {
