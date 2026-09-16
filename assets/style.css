@@ -594,17 +594,7 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
   .steps{grid-template-columns:repeat(2,1fr)}
   .footer-grid{grid-template-columns:1fr 1fr}
 }
-@media(max-width:1260px){
-  .menu{position:fixed;inset:70px 0 auto 0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line);padding:18px 20px;gap:14px;align-items:stretch;transform:translateY(-150%);transition:transform .3s;margin-left:0;box-shadow:var(--shadow)}
-  .menu.open{transform:translateY(0)}
-  .menu a:not(.btn)::after{display:none}
-  .menu a{min-height:46px;display:flex;align-items:center;font-size:.97rem}
-  .hamburger{display:flex}
-  .menu-group{display:contents}
-  .menu-parent{display:none}
-  .submenu{position:static;transform:none;display:flex;flex-direction:column;box-shadow:none;border:0;padding:0;background:none;min-width:0}
-  .submenu a{padding:0;border-radius:0;min-height:46px;display:flex;align-items:center}
-}
+
 @media(max-width:760px){
   .calc-results{grid-template-columns:1fr}
   .ticks.two-col{grid-template-columns:1fr}
@@ -765,9 +755,52 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .submenu{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);background:var(--bg);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-lg);padding:8px;min-width:250px;display:none;flex-direction:column;z-index:110}
 .menu-group.open .submenu,.menu-group:focus-within .submenu{display:flex}
 .submenu a{padding:10px 12px;border-radius:8px;white-space:nowrap;font-weight:600;color:var(--muted)}
+/* Kart tipi açılır panel: her satır ikon + başlık + kısa açıklama taşır.
+   4+ kalemli grup iki sütun (.two), azı tek sütun kalır ki panel ekran
+   kenarından taşmasın. Mobilde (hamburger) açıklamalar gizlenir. */
+.submenu-cards{padding:10px;gap:6px;width:max-content;max-width:calc(100vw - 32px)}
+.menu-group.open .submenu-cards,.menu-group:focus-within .submenu-cards{display:grid;grid-template-columns:310px}
+.menu-group.open .submenu-cards.two,.menu-group:focus-within .submenu-cards.two{grid-template-columns:repeat(2,300px)}
+/* düz menüden gelen alt çizgi vurgusu kartlarda kullanılmaz */
+.submenu-cards .mcard::after{display:none!important}
+.submenu-cards .mcard{display:flex;align-items:flex-start;gap:10px;padding:10px 11px;border-radius:10px;
+  border:1px solid transparent;white-space:normal;transition:background .15s,border-color .15s}
+.submenu-cards .mcard:hover{background:var(--bg-alt);border-color:var(--line)}
+.submenu-cards .mcard:focus-visible{outline:2px solid var(--green);outline-offset:1px}
+.mcard-ico{flex:0 0 auto;font-size:1.12rem;line-height:1.3}
+.mcard-txt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.mcard-txt b{font-weight:700;font-size:.87rem;color:var(--ink);line-height:1.25}
+.mcard-txt em{font-style:normal;font-size:.755rem;color:var(--muted);line-height:1.38}
+.mcard.active b{color:var(--green)}
+.mcard.active .mcard-ico{filter:none}
+
+/* Mobil (hamburger) menü — masaüstü .menu-group/.submenu kurallarından SONRA
+   gelmek ZORUNDA: eşit özgüllükte sonraki kural kazanır. Daha önce bu blok
+   dosyanın üstündeydi ve masaüstü kuralları onu eziyordu; açılır menüler
+   mobilde mutlak konumlanıp üst üste biniyordu. */
+@media(max-width:1260px){
+  .menu{position:fixed;inset:70px 0 auto 0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line);padding:18px 20px;gap:14px;align-items:stretch;transform:translateY(-150%);transition:transform .3s;margin-left:0;box-shadow:var(--shadow)}
+  .menu.open{transform:translateY(0)}
+  .menu a:not(.btn)::after{display:none}
+  .menu a{min-height:46px;display:flex;align-items:center;font-size:.97rem}
+  .hamburger{display:flex}
+  .menu-group{display:contents}
+  .menu-parent{display:none}
+  .submenu{position:static;transform:none;display:flex;flex-direction:column;box-shadow:none;border:0;padding:0;background:none;min-width:0}
+  .submenu a{padding:0;border-radius:0;min-height:46px;display:flex;align-items:center}
+  .submenu-cards{padding:0;gap:0}
+  .menu-group.open .submenu-cards,.menu-group:focus-within .submenu-cards,
+  .submenu-cards,.submenu-cards.two{display:flex!important;flex-direction:column;grid-template-columns:none}
+  .submenu-cards .mcard{padding:0;border:0;gap:10px;align-items:center;min-height:46px}
+  .submenu-cards .mcard:hover{background:none;border-color:transparent}
+  .mcard-txt em{display:none}
+  .mcard-txt b{font-size:.97rem;font-weight:600;color:var(--muted)}
+  .mcard.active b{color:var(--green)}
+
+}
+
 .submenu a:hover{background:var(--bg-alt);color:var(--ink)}
 .submenu a.active{color:var(--green)}
-
 
 /* ==== Havuz Teknolojileri — AI Cankurtaran sayfası ==== */
 /* Marka paleti (briefe göre): lacivert #0a2a43 · aqua #17a8c4 · mercan #f4523b */

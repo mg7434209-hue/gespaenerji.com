@@ -90,9 +90,18 @@ sepet.html, `rel="nofollow"` çünkü robots'ta engelli) · Yapay Zekâ Ürünle
 Hesaplayıcı + Sistem Kurucu) · Projeler · Hakkımızda · Teklif Al.
 Paket detay sayfalarında "Paket Ürünler", sepet.html'de "Sepetim" aktif
 işaretlenir; alt sayfa aktifken üst `menu-parent` de ` active` alır.
+Açılır paneller KART tipidir (`.submenu.submenu-cards` → `.mcard` = ikon +
+başlık + tek satır açıklama). 4+ kalemli grup iki sütun (`.two`), azı tek sütun
+— panel ekran kenarından taşmasın diye. Açıklamalar DICT'ten çevrilir; yeni
+menü kalemi eklerken ikon + TR açıklama + 3 dil karşılığı BİRLİKTE eklenir.
+Mobilde açıklamalar gizlenir, kartlar sade ikon+başlık satırına döner.
 Yeni sayfa eklenince TÜM sayfalarda güncelle — nav bloğunu tek kaynaktan
-yeniden üreten scratchpad `nav3.py` deseni (sayfa→aktif grup/link tablosu
-içerir) kullanılır.
+yeniden üreten scratchpad `nav4.py` deseni (sayfa→aktif grup/link tablosu +
+ikon/açıklama tablosu içerir) kullanılır.
+CSS SIRA KURALI: mobil `@media(max-width:1260px)` nav bloğu, masaüstü
+`.menu-group`/`.submenu` kurallarından SONRA gelmek zorundadır — eşit
+özgüllükte sonraki kural kazanır. Blok yukarıdayken masaüstü kuralları onu
+eziyor ve açılır paneller mobilde mutlak konumlanıp üst üste biniyordu.
 GENİŞLİK KURALI: çubuk 6 üst seviye öğeyle dolu. Menü 1260px altında
 hamburger'a düşer; 1261–1580px bandında `.nav`/`.menu` gap'i, yazı boyu, dil
 düğmeleri ve marka yazısı kademeli küçülür (1261–1380px'te bir kademe daha).
