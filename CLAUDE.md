@@ -57,7 +57,12 @@ elle eklenmez. Sipariş WhatsApp mesajına çok kalemli döküm yazılır) ·
 (elektrikli araç güneş dönüşümü + BOOST MPPT şarj kontrol cihazının SATIŞ
 sayfası: `<main data-pkg-detail="boost-mppt">`, `#urun` bölümünde `.prod-top`
 = solda galeri `#pgMain`/`.prod-thumbs.few`, sağda `.buy-box`; fiyat/kod/stok
-build'de statik basılır, main.js `data-pkg-*` ile tazeler) ·
+build'de statik basılır, main.js `data-pkg-*` ile tazeler. TEKNİK DEĞERLER
+üreticinin bülteninden gelir — kaynak PDF ve ham görseller
+`assets/img/products/ev/kaynak/` altındadır; değer değiştirmeden önce oraya bak.
+Cihaz 24/36/48/60/72 V ve AGM·jel·kurşun-asit·lityum akülerle uyumludur;
+"yalnız lityum" veya "48V+" yazma. Tedarikçi MS Teknik'in telefonu siteye
+KONMAZ — iletişim tek kaynağı config.company'dir) ·
 `ai-cankurtaran-destek-sistemi.html`
 (havuz güvenliği; lacivert/aqua `pool-*` stilleri, form → WhatsApp lead;
 "Nasıl çalışır?" bölümünün sonunda canlı simülasyon `.pool-sim` — inline SVG,

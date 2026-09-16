@@ -205,11 +205,11 @@ window.GESPA.config = {
       url: "elektrikli-arac-donusum.html", sku: "GES-EV-BOOST",
       img: "assets/img/products/ev/boost-mppt-on.webp",
       price: 7300,
-      chips: ["⚙️ 48 V / 60 V / 72 V", "🔋 Lityum akü desteği", "📶 Bluetooth ile ayar"],
+      chips: ["⚙️ 24 V – 72 V akü", "🔋 Tüm akü tipleri", "📶 Bluetooth ile ayar"],
       for: "Golf aracı, hizmet aracı ve elektrikli platformlar",
-      name: "MS Technik BOOST MPPT Şarj Kontrol Cihazı",
-      desc: "Güneş panelinden elektrikli aracın lityum akü paketine doğrudan şarj sağlayan MPPT yükseltici şarj kontrol cihazı. Panel ve akü ürüne dahil değildir; aracınıza uygun panel gücünü birlikte belirliyoruz.",
-      features: ["48 V / 60 V / 72 V akü paketleriyle uyumlu", "Lityum akü paketleri için şarj yönetimi", "Bluetooth ile telefondan programlanır ve izlenir", "Alüminyum kanatlı pasif soğutma, braketli gövde"]
+      name: "MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı",
+      desc: "Güneş panelinden 24-72 V akü grubuna doğrudan şarj sağlayan MPPT yükseltici (boost) şarj kontrol cihazı. AGM, jel, sulu kurşun-asit ve lityum akülerle uyumlu; Bluetooth ile programlanır. Panel ve akü ürüne dahil değildir.",
+      features: ["24 / 36 / 48 / 60 / 72 V akü sistemleriyle uyumlu", "AGM, jel, sulu kurşun-asit ve lityum akü desteği", "15 A sürekli çıkış · 15–60 V DC panel girişi", "Bluetooth ile programlanır · IP22 · 2 yıl garanti"]
     },
 
   ],
