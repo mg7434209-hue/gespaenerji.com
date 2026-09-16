@@ -282,6 +282,103 @@
       }
     })();
 
+    // ---- Online satış kataloğu (online-satis.html) — e-ticaret kart ızgarası ----
+    // TÜM veri config.packages'ten gelir; ürün sayısı arttıkça ızgara kendiliğinden
+    // büyür ve kategori süzgeci config'teki group alanlarından üretilir.
+    (function () {
+      var grid = $("#shopGrid");
+      if (!grid || !CFG.packages) return;
+      var nf = new Intl.NumberFormat("tr-TR");
+      var pct = CFG.cartDiscountPct || 0;
+      var items = (CFG.packages || []).filter(function (p) { return p.price != null; });
+      // L() aktif dili çağrı anında okur; dil değişince yeniden çağrılır
+      function groupLabel(g) {
+        return ({
+          offgrid: L("Taşınabilir & Off-Grid", "Portable & Off-Grid", "Tragbar & Off-Grid", "Портативные и off-grid"),
+          ongrid: L("Çatı / On-Grid", "Rooftop / On-Grid", "Aufdach / On-Grid", "Крышные / On-grid"),
+          irrigation: L("Tarımsal Sulama", "Agricultural Irrigation", "Bewässerung", "Аграрный полив"),
+          accessory: L("Elektrikli Araç", "Electric Vehicle", "E-Fahrzeug", "Электромобиль")
+        })[g] || g;
+      }
+      function tName(t) {
+        var lang = (window.GESPA && GESPA.lang) || "tr";
+        if (lang === "tr") return t;
+        try { var d = GESPA.i18nData && GESPA.i18nData.DICT && GESPA.i18nData.DICT[lang]; return (d && d[t]) || t; }
+        catch (e) { return t; }
+      }
+      function tile(p) {
+        var u = pkgUnit(p);
+        var usd = p.currency === "USD" ? p.price : (CFG.usdTry ? Math.round(p.price / CFG.usdTry) : 0);
+        // .reveal YOK: süzgeç her tıklamada ızgarayı yeniden çizer ve yeni düğümler
+        // IntersectionObserver'a kayıtlı olmadığından gizli kalırdı.
+        return '<article class="sh-card" data-group="' + (p.group || "ongrid") + '" id="sh-' + p.id + '">' +
+          '<a class="sh-media" href="' + (p.url || "#") + '">' +
+            '<span class="sh-tag">' + tName(p.tag || "") + "</span>" +
+            (p.img ? '<img src="/' + p.img + '" alt="" loading="lazy" decoding="async" />' : "") +
+          "</a>" +
+          '<div class="sh-body">' +
+            '<h3><a href="' + (p.url || "#") + '">' + tName(p.name) + "</a></h3>" +
+            (p.for ? '<p class="sh-for">' + tName(p.for) + "</p>" : "") +
+            '<div class="sh-price"><strong>₺' + nf.format(u.list) + "</strong>" +
+              (usd ? '<span class="sh-usd">≈ $' + nf.format(usd) + "</span>" : "") + "</div>" +
+            (pct ? '<p class="sh-hav">💰 ' + L("Havale/EFT ile:", "By bank transfer:", "Per Überweisung:", "Банковским переводом:") +
+              " <b>₺" + nf.format(u.cart) + "</b></p>" : "") +
+            '<p class="sh-vat">' + L("KDV dahil · kargo hariç", "VAT included · shipping excluded",
+              "Inkl. MwSt. · zzgl. Versand", "НДС включён · доставка отдельно") + "</p>" +
+            '<div class="sh-act">' +
+              '<a class="btn btn-ghost btn-sm" href="' + (p.url || "#") + '">' +
+                L("Detay", "Details", "Details", "Подробнее") + "</a>" +
+              '<button class="btn btn-sm" type="button" data-sh-add="' + p.id + '">🛒 ' +
+                L("Sepete ekle", "Add to cart", "In den Warenkorb", "В корзину") + "</button>" +
+            "</div>" +
+          "</div></article>";
+      }
+      function render(filter) {
+        var list = filter && filter !== "all"
+          ? items.filter(function (p) { return (p.group || "ongrid") === filter; })
+          : items;
+        grid.innerHTML = list.length
+          ? list.map(tile).join("")
+          : '<p class="sh-empty">' + L("Bu kategoride şu an ürün yok.", "No products in this category yet.",
+              "In dieser Kategorie gibt es derzeit keine Produkte.", "В этой категории пока нет товаров.") + "</p>";
+        var c = $("#shopCount");
+        if (c) c.textContent = list.length;
+      }
+      // kategori süzgeci — config'teki group değerlerinden üretilir
+      var bar = $("#shopFilters");
+      var active = "all";
+      var seen = [];
+      items.forEach(function (p) { var g = p.group || "ongrid"; if (seen.indexOf(g) < 0) seen.push(g); });
+      function buildFilters() {
+        if (!bar) return;
+        var html = '<button type="button" class="sh-chip' + (active === "all" ? " is-on" : "") + '" data-f="all">' +
+          L("Tümü", "All", "Alle", "Все") + ' (<span id="shopCount">' + items.length + "</span>)</button>";
+        seen.forEach(function (g) {
+          html += '<button type="button" class="sh-chip' + (active === g ? " is-on" : "") + '" data-f="' + g + '">' +
+            groupLabel(g) + "</button>";
+        });
+        bar.innerHTML = html;
+      }
+      if (bar) bar.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-f]"); if (!b) return;
+        active = b.getAttribute("data-f");
+        $$(".sh-chip", bar).forEach(function (x) { x.classList.toggle("is-on", x === b); });
+        render(active);
+      });
+      buildFilters();
+      render(active);
+      // sepete ekle — onay penceresi paket sayfalarıyla ortak
+      grid.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-sh-add]"); if (!b) return;
+        var id = b.getAttribute("data-sh-add");
+        var p = cart.pkgOf(id); if (!p) return;
+        cart.add(id, 1);
+        cartPop(p.name);
+      });
+      // Dil değişince çipler ve kartlar yeniden çizilir (seçili süzgeç korunur).
+      doc.addEventListener("gespa:lang", function () { buildFilters(); render(active); });
+    })();
+
     // ---- Sepet sayfası (sepet.html) — kalemler + sipariş özeti + WhatsApp siparişi ----
     (function () {
       var wrap = $("#cartItems");

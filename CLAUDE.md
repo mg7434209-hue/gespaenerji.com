@@ -37,8 +37,18 @@ animasyon, azaltılmış harekette durur). E-mağaza şeridi `.shop-grid`:
 kompakt yatay kart, AI Cankurtaran ilk kart — yeni ürün geldikçe grid büyür,
 lacivert/aqua palet kart İÇİNDE kalır, sayfaya taşmaz. E-mağaza linkleri:
 `config.company.shop`; hero slaytı, mağaza şeridi ve TÜM footer'lar) ·
-`hizmetler.html` · `urunler.html` (ürün vitrini: 2 komple kit + BOOST MPPT
-şarj kontrol cihazı; gruplar `config.packages[].group` ile ayrılır) ·
+`hizmetler.html` · `online-satis.html` (E-TİCARET KATALOĞU — satıştaki TÜM
+ürünler tek ızgarada: `#shopGrid` main.js'in shop IIFE'siyle config.packages'ten
+çizilir, `#shopFilters` kategori çipleri `group` alanlarından üretilir.
+Izgara `auto-fill` olduğundan ürün sayısı onlarca olunca kendiliğinden büyür —
+yeni ürün eklemek için SADECE config.packages'e satır eklenir, sayfaya
+dokunulmaz. Kartta foto/etiket/ad/fiyat/havale + "Sepete ekle" vardır.
+JS'siz ortam ve AI botları için `SHOP:STATIC` listesi build'de basılır;
+ItemList JSON-LD de bu sayfada üretilir. DİKKAT: kartlara `.reveal` KOYMA —
+süzgeç her tıklamada ızgarayı yeniden çizer, yeni düğümler
+IntersectionObserver'a kayıtlı olmadığı için gizli kalır) ·
+`urunler.html` (paket vitrini: gruplu kart listesi; gruplar
+`config.packages[].group` ile ayrılır) ·
 `paket-285w.html` `paket-2x540w.html` (e-ticaret ürün sayfası: solda galeri
 `#pgMain`+`.prod-thumbs`, sağda satın alma kutusu `.buy-box` — ürün kodu, stok,
 fiyat, havale tutarı, `.qbox` adet kutusu, CTA'lar, kargo/iade bilgi listesi;
@@ -56,10 +66,11 @@ elle eklenmez. Sipariş WhatsApp mesajına çok kalemli döküm yazılır) ·
 `su-isitici.html` (PV su ısıtıcı) · `elektrikli-arac-donusum.html`
 (elektrikli araç güneş dönüşümü + BOOST MPPT şarj kontrol cihazının SATIŞ
 sayfası: `<main data-pkg-detail="boost-mppt">`, `#urun` bölümünde `.prod-top`
-= solda galeri `#pgMain`/`.prod-thumbs.few`, sağda `.buy-box`. BÖLÜM SIRASI:
-hero → ÜRÜN+SATIN ALMA → TEKNİK KÜNYE → anlatım bölümleri → SSS → CTA;
-müşteri önce satın alabilsin, teknik dökümanı hemen altında bulsun diye
-böyle kuruldu, sırayı bozma. Fiyat/kod/stok
+= solda galeri `#pgMain`/`.prod-thumbs.few`, sağda `.buy-box`. BÖLÜM SIRASI
+paket-*.html ile AYNIDIR: `.prod-sec` (breadcrumb + SATIN ALMA, sayfanın TEK
+`<h1>`'i satın alma kutusundadır) → TEKNİK KÜNYE → `#tanitim` → anlatım →
+SSS → CTA. Büyük `page-hero` YOKTUR; satın alma kutusu ilk ekranda görünsün
+diye kaldırıldı, tanıtım metni teknik künyenin altına taşındı. Sırayı bozma. Fiyat/kod/stok
 build'de statik basılır, main.js `data-pkg-*` ile tazeler. TEKNİK DEĞERLER
 üreticinin bülteninden gelir — kaynak PDF ve ham görseller
 `assets/img/products/ev/kaynak/` altındadır; değer değiştirmeden önce oraya bak.
@@ -91,9 +102,10 @@ build PAGES listesine EKLENMEZ). Her sayfa: ortak header/footer, aktif menü
 vurgusu, breadcrumb, sayfaya özel SEO başlığı/canonical/Open Graph içerir.
 Nav menü (hizmet/satış ayrımı): Ana Sayfa · Solar Sistemler (açılır grup:
 Çatı & Arazi GES Kurulumu → hizmetler.html + Tarımsal Sulama) · Online Satış
-(açılır grup: Paket Ürünler → urunler.html + Solar Su Isıtıcı + Elektrikli Araç
-Dönüşümü + Toptan Satış (B2B) + GES Marketim (E-Mağaza) ↗ dış link + Sepetim →
-sepet.html, `rel="nofollow"` çünkü robots'ta engelli) · Yapay Zekâ Ürünleri
+(SATIŞ PANELİ — aşağıya bak: satıştaki ürün kartları + bağlantı satırı:
+Tüm ürünler (mağaza) → online-satis.html, Paket ürünler → urunler.html,
+Solar Su Isıtıcı, Toptan Satış (B2B), GES Marketim ↗, Sepetim → sepet.html
+`rel="nofollow"` çünkü robots'ta engelli) · Yapay Zekâ Ürünleri
 (açılır grup: AI Cankurtaran Destek Sistemi) · Araçlar (açılır grup: Tasarruf
 Hesaplayıcı + Sistem Kurucu) · Projeler · Hakkımızda · Teklif Al.
 Paket detay sayfalarında "Paket Ürünler", sepet.html'de "Sepetim" aktif

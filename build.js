@@ -22,7 +22,7 @@ const OG_LOCALE = { en: "en_US", de: "de_DE", ru: "ru_RU" };
 
 // Üretilecek sayfalar
 const PAGES = [
-  "index.html", "hizmetler.html", "urunler.html", "su-isitici.html", "hesaplayici.html",
+  "index.html", "hizmetler.html", "urunler.html", "online-satis.html", "su-isitici.html", "hesaplayici.html",
   "projeler.html", "hakkimizda.html", "iletisim.html", "tarimsal-sulama.html",
   "ai-cankurtaran-destek-sistemi.html", "sistem-kur.html",
   "elektrikli-arac-donusum.html",
@@ -54,6 +54,14 @@ const META = {
           d: "Aufdach-PV, Freiflächen-PV, Energiespeicher, Engineering, Finanzierung und Wartung (O&M). Schlüsselfertige Solarlösungen — GESPA Energy." },
     ru: { t: "Услуги — Солнечные станции, накопители, обслуживание | GESPA Energy",
           d: "Солнечные станции на крыше и на земле, накопители энергии, инжиниринг, финансирование и обслуживание (O&M). Решения под ключ — GESPA Energy." }
+  },
+  "online-satis.html": {
+    en: { t: "Online Store — Solar Products and Equipment | GESPA Energy",
+          d: "All products on sale in one place: ready-made solar kits, MPPT charge controllers and equipment. Transparent prices, VAT included, shipping across Türkiye." },
+    de: { t: "Onlineshop — Solarprodukte und Ausrüstung | GESPA Energy",
+          d: "Alle Verkaufsprodukte auf einer Seite: Solar-Fertigsets, MPPT-Laderegler und Zubehör. Transparente Preise inkl. MwSt., Versand in die ganze Türkei." },
+    ru: { t: "Интернет-магазин — солнечные товары и оборудование | GESPA Energy",
+          d: "Все товары в продаже на одной странице: готовые солнечные комплекты, MPPT-контроллеры и оборудование. Прозрачные цены с НДС, доставка по Турции." }
   },
   "urunler.html": {
     en: { t: "Solar Packages — Portable Off-Grid & Irrigation Kits | GESPA Energy",
@@ -410,7 +418,7 @@ function injectStaticLd(html, file, cfg) {
     publisher: { "@type": "Organization", name: cfg.company.brandName, url: cfg.company.web }
   });
   if (file === "su-isitici.html") objs.push(heaterProductLd(cfg));
-  if (file === "urunler.html") objs.push(packagesItemListLd(cfg));
+  if (file === "urunler.html" || file === "online-satis.html") objs.push(packagesItemListLd(cfg));
   if (file === "ai-cankurtaran-destek-sistemi.html") objs.push(cankurtaranProductLd(cfg));
   if (file === "hesaplayici.html") objs.push(webAppLd(cfg));
   // Ürün detay sayfası — dosya adına değil, data-pkg-detail işaretine bakılır
@@ -549,6 +557,25 @@ function hydrateExtras(html, file, cfg) {
   const setSpan = (id, v) => {
     html = html.replace(new RegExp('(<[^>]*id="' + id + '"[^>]*>)[^<]*(</)'), (m, open, close) => open + v + close);
   };
+  // Online satış kataloğu — JS'siz ortam/AI botları için statik ürün listesi
+  if (file === "online-satis.html" && cfg.packages) {
+    const RATE = cfg.usdTry || 0, PCT = cfg.cartDiscountPct || 0;
+    const rows = cfg.packages.filter(p => p.price != null).map(p => {
+      const tl = p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
+      const usd = p.currency === "USD" ? p.price : (RATE ? Math.round(p.price / RATE) : 0);
+      const hav = Math.round(tl * (100 - PCT) / 100 / 50) * 50;
+      return '<article class="sh-card"><div class="sh-body">' +
+        "<h3><a href=\"" + esc(p.url || "#") + "\">" + esc(p.name) + "</a></h3>" +
+        (p.for ? '<p class="sh-for">' + esc(p.for) + "</p>" : "") +
+        '<div class="sh-price"><strong>₺' + nfTr(tl) + "</strong>" +
+          (usd ? '<span class="sh-usd">≈ $' + nfTr(usd) + "</span>" : "") + "</div>" +
+        (PCT ? '<p class="sh-hav">💰 <span>Havale/EFT ile:</span> <b>₺' + nfTr(hav) + "</b></p>" : "") +
+        '<p class="sh-vat"><span>KDV dahil · kargo hariç</span></p>' +
+        "</div></article>";
+    }).join("");
+    html = html.replace(/<!-- SHOP:STATIC -->[\s\S]*?<!-- \/SHOP:STATIC -->/,
+      "<!-- SHOP:STATIC -->" + rows + "<!-- /SHOP:STATIC -->");
+  }
   // Nav satış paneli — [data-nav-price] alanlarına liste fiyatı statik basılır
   // (AI botları JS çalıştırmaz; main.js aynı değeri istemcide tazeler).
   if (cfg.packages) {
@@ -723,7 +750,7 @@ function hydrateExtras(html, file, cfg) {
 
 // ---- sitemap.xml üretimi: TR + tüm dil sayfaları ayrı <url> girdileriyle ----
 const PRIORITY = {
-  "index.html": "1.0", "hizmetler.html": "0.9", "urunler.html": "0.9",
+  "index.html": "1.0", "hizmetler.html": "0.9", "urunler.html": "0.9", "online-satis.html": "0.9",
   "ai-cankurtaran-destek-sistemi.html": "0.9", "su-isitici.html": "0.8",
   "tarimsal-sulama.html": "0.9", "hesaplayici.html": "0.8", "projeler.html": "0.7",
   "hakkimizda.html": "0.6", "iletisim.html": "0.8",
