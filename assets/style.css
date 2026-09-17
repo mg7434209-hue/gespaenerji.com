@@ -1355,6 +1355,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .sh-price{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-top:auto}
 .sh-price strong{font-family:var(--font);font-size:1.45rem;font-weight:800;color:var(--green)}
 .sh-usd{font-size:.86rem;font-weight:700;color:var(--muted)}
+/* Fiyati girilmemis urun (priceOnRequest): rakam yerine "Teklif alin" */
+.sh-price strong.sh-poa{font-size:1.15rem;color:var(--ink)}
 .sh-hav{margin:6px 0 0;font-size:.82rem;color:var(--ink);background:var(--bg-alt);
   border-radius:8px;padding:7px 10px}
 .sh-vat{margin:8px 0 0;font-size:.74rem;color:var(--muted)}

@@ -246,6 +246,26 @@ window.GESPA.config = {
       features: ["50 W monokristal hücre", "12 V akü şarjı için uygun", "Bahçe aydınlatması, kamera ve küçük yükler", "Akü ve şarj regülatörü dahil değildir"]
     },
 
+    // —— Taşınabilir güç istasyonu —— UNV (Uniview) marka, ithal ürün.
+    // priceOnRequest: SATIŞ FİYATI HENÜZ BELİRLENMEDİ. price null olduğu sürece
+    // her yerde "Teklif alın" yazar ve sepete eklenmez. Fiyat girmek için:
+    // price: <₺ tutar> yaz, priceOnRequest satırını sil, `node build.js` çalıştır.
+    // Teknik değerler üreticinin ürün künyesinden gelir — ham görsel
+    // assets/img/products/kaynak/unv-trek-pro-2500-kunye.png altındadır.
+    // DİKKAT: künye görselindeki cihaz AS/NZS (Avustralya) prizlidir; Türkiye'ye
+    // Schuko (Type F) sürüm tedarik edilmeden priz tipi hakkında iddia YAZILMAZ.
+    {
+      id: "unv-trek-pro-2500", icon: "🔋", tag: "Taşınabilir", group: "offgrid",
+      sku: "ES-E2500-A2",
+      img: "assets/img/products/unv-trek-pro-2500.webp",
+      price: null, priceOnRequest: true,
+      chips: ["⚡ 2500 W çıkış", "🔋 2496 Wh batarya", "🔌 4 × 230 V AC"],
+      for: "Kamp, karavan, saha çalışması ve ev tipi yedek güç",
+      name: "UNV Trek Pro 2500 W Taşınabilir Güç İstasyonu",
+      desc: "2496 Wh kapasiteli, 2500 W sürekli çıkış veren taşınabilir güç istasyonu. Dört adet 230 V saf sinüs AC prizi, USB ve Type-C çıkışlarıyla aynı anda 14 cihaza kadar besleme yapar; 30 ms tepki süresiyle kesintisiz güç kaynağı (UPS) olarak da çalışır. Güneş paneli ürüne dahil değildir.",
+      features: ["2500 W sürekli çıkış · 2496 Wh batarya kapasitesi", "4 × 230 V saf sinüs dalga AC çıkışı", "2 × USB Type-C (200 W ve 100 W) · 4 × USB-A 18 W", "12 V DC çıkışlar (maks. 15 A) · araç çakmak soketi", "30 ms tepki süreli UPS fonksiyonu", "Aynı anda 14 cihaza kadar güç verir"]
+    },
+
   ],
 
 

@@ -306,7 +306,7 @@ function packagesItemListLd(cfg, file) {
   const COST = (cfg.calc && cfg.calc.costPerKwp) || 28000;
   const shop = file === "online-satis.html";
   const src = shop
-    ? cfg.packages.filter(p => p.price != null)
+    ? cfg.packages.filter(p => p.price != null || p.priceOnRequest)
     : cfg.packages.filter(p => URUNLER_GROUPS.indexOf(p.group || "ongrid") >= 0);
   const items = src.map(p => {
     const item = {
@@ -579,21 +579,26 @@ function hydrateExtras(html, file, cfg) {
   // Online satış kataloğu — JS'siz ortam/AI botları için statik ürün listesi
   if (file === "online-satis.html" && cfg.packages) {
     const RATE = cfg.usdTry || 0, PCT = cfg.cartDiscountPct || 0;
-    const rows = cfg.packages.filter(p => p.price != null).map(p => {
+    const rows = cfg.packages.filter(p => p.price != null || p.priceOnRequest).map(p => {
       const tl = p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
       const usd = p.currency === "USD" ? p.price : (RATE ? Math.round(p.price / RATE) : 0);
       const hav = havaleTL(p, tl, PCT);
       const oldTL = p.oldPrice && (p.currency === "USD" ? Math.round(p.oldPrice * RATE / 100) * 100 : p.oldPrice);
       const camp = cfg.campaign || {};
       const onSale = oldTL && oldTL > tl && camp.endsAt && new Date(camp.endsAt) > new Date();
+      // priceOnRequest: fiyat girilmemis urun — rakam yerine "Teklif alin"
+      const poa = p.price == null;
       return '<article class="sh-card"><div class="sh-body">' +
         "<h3>" + (p.url ? '<a href="' + esc(p.url) + '">' + esc(p.name) + "</a>" : esc(p.name)) + "</h3>" +
         (p.for ? '<p class="sh-for">' + esc(p.for) + "</p>" : "") +
-        '<div class="sh-price"><strong>₺' + nfTr(tl) + "</strong>" +
-          (onSale ? '<s class="sh-old">₺' + nfTr(oldTL) + "</s>" : "") +
-          (usd ? '<span class="sh-usd">≈ $' + nfTr(usd) + "</span>" : "") + "</div>" +
-        (PCT && hav < tl ? '<p class="sh-hav">💰 <span>Havale/EFT ile:</span> <b>₺' + nfTr(hav) + "</b></p>" : "") +
-        '<p class="sh-vat"><span>KDV dahil · kargo hariç</span></p>' +
+        (poa
+          ? '<div class="sh-price"><strong class="sh-poa"><span>Teklif alın</span></strong></div>' +
+            '<p class="sh-vat"><span>Güncel fiyat için bize ulaşın</span></p>'
+          : '<div class="sh-price"><strong>₺' + nfTr(tl) + "</strong>" +
+            (onSale ? '<s class="sh-old">₺' + nfTr(oldTL) + "</s>" : "") +
+            (usd ? '<span class="sh-usd">≈ $' + nfTr(usd) + "</span>" : "") + "</div>" +
+          (PCT && hav < tl ? '<p class="sh-hav">💰 <span>Havale/EFT ile:</span> <b>₺' + nfTr(hav) + "</b></p>" : "") +
+          '<p class="sh-vat"><span>KDV dahil · kargo hariç</span></p>') +
         "</div></article>";
     }).join("");
     html = html.replace(/<!-- SHOP:STATIC -->[\s\S]*?<!-- \/SHOP:STATIC -->/,
@@ -726,15 +731,19 @@ function hydrateExtras(html, file, cfg) {
       if (!items.length) continue;
       staticList += '<div class="pkg-group"><div class="pkg-group-head"><h2>' + g.title + "</h2></div><ul class=\"ticks\">" +
         items.map(p => {
-          const price = p.price != null ? p.price : Math.round(p.kwp * COST);
+          // priceOnRequest (ya da kWp'siz fiyatsız ürün): rakam ÜRETİLMEZ
+          const poa = p.price == null && (p.priceOnRequest || !p.kwp);
+          const price = p.price != null ? p.price : (poa ? null : Math.round(p.kwp * COST));
           // Vitrin kartıyla AYNI gösterim: ana fiyat ₺, yanında ≈$, altında havale/EFT tutarı
-          const tl = p.currency === "USD" ? Math.round(price * RATE / 100) * 100 : price;
-          const usd = p.currency === "USD" ? price : (RATE ? Math.round(price / RATE) : 0);
-          const hav = havaleTL(p, tl, PCT);
-          const priceTxt = "₺" + nfTr(tl) + (usd ? " (≈ $" + nfTr(usd) + ")" : "") +
-            (p.price != null
-              ? (PCT && hav < tl ? " <span>liste</span> · <span>havale/EFT ile</span> ₺" + nfTr(hav) + " (%" + PCT + " <span>indirimli, KDV dahil</span>)" : " (<span>KDV dahil</span>)")
-              : " (yaklaşık)");
+          const tl = poa ? null : (p.currency === "USD" ? Math.round(price * RATE / 100) * 100 : price);
+          const usd = poa ? 0 : (p.currency === "USD" ? price : (RATE ? Math.round(price / RATE) : 0));
+          const hav = poa ? null : havaleTL(p, tl, PCT);
+          const priceTxt = poa
+            ? "<span>Teklif alın</span>"
+            : "₺" + nfTr(tl) + (usd ? " (≈ $" + nfTr(usd) + ")" : "") +
+              (p.price != null
+                ? (PCT && hav < tl ? " <span>liste</span> · <span>havale/EFT ile</span> ₺" + nfTr(hav) + " (%" + PCT + " <span>indirimli, KDV dahil</span>)" : " (<span>KDV dahil</span>)")
+                : " (yaklaşık)");
           const lead = p.kwp ? p.kwp + " kWp" : (p.sku || "");
           return "<li><strong>" + esc(p.name) + "</strong> — " + (lead ? esc(lead) + " · " : "") +
             "<span>" + esc(p.for) + "</span> · " +
@@ -856,6 +865,10 @@ function writeLlmsFull(cfg) {
   const RATE = cfg.usdTry || 0;
   const PCT = cfg.cartDiscountPct || 0;
   const pkgLines = cfg.packages.map(p => {
+    // priceOnRequest (ya da kWp'siz fiyatsız ürün): rakam ÜRETİLMEZ
+    const poa = p.price == null && (p.priceOnRequest || !p.kwp);
+    const lead = p.kwp ? `${p.kwp} kWp · ` : (p.sku ? `${p.sku} · ` : "");
+    if (poa) return `- ${p.name} — ${lead}${p.for} · fiyat için teklif alın`;
     const price = p.price != null ? p.price : Math.round(p.kwp * COST);
     const tl = p.currency === "USD" ? Math.round(price * RATE / 100) * 100 : price;
     const usd = p.currency === "USD" ? price : (RATE ? Math.round(price / RATE) : 0);
@@ -863,7 +876,6 @@ function writeLlmsFull(cfg) {
     const tag = p.price != null
       ? (PCT && hav < tl ? ` liste (KDV dahil) · havale/EFT ile ₺${nf(hav)} (%${PCT} indirimli)` : " (KDV dahil, net fiyat)")
       : " (yaklaşık, keşifle netleşir)";
-    const lead = p.kwp ? `${p.kwp} kWp · ` : (p.sku ? `${p.sku} · ` : "");
     return `- ${p.name} — ${lead}${p.for} · ₺${nf(tl)}${usd ? ` (≈ $${nf(usd)})` : ""}${tag}`;
   }).join("\n");
   const showHeaterPrice = cfg.heater.showPrices !== false;

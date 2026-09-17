@@ -159,6 +159,9 @@
     // Birim fiyatlar (₺): list = liste, cart = havale/EFT, usd = yaklaşık $
     function pkgUnit(p) {
       var RATE = CFG.usdTry || 0, pct = CFG.cartDiscountPct || 0;
+      // priceOnRequest: fiyat girilmemis urun — tutar URETILMEZ, cagiran
+      // "Teklif alin" gosterir ve urun sepete eklenmez.
+      if (p.price == null) return { list: null, cart: null, usd: 0, poa: true };
       var tl = p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
       return {
         list: tl,
@@ -292,7 +295,8 @@
       if (!grid || !CFG.packages) return;
       var nf = new Intl.NumberFormat("tr-TR");
       var pct = CFG.cartDiscountPct || 0;
-      var items = (CFG.packages || []).filter(function (p) { return p.price != null; });
+      var shopWa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
+      var items = (CFG.packages || []).filter(function (p) { return p.price != null || p.priceOnRequest; });
       // Kampanya: bitiş tarihi config.campaign.endsAt'ten okunur (tek kaynak).
       var camp = CFG.campaign || {};
       var campEnd = camp.endsAt ? new Date(camp.endsAt).getTime() : 0;
@@ -321,7 +325,8 @@
       }
       function tile(p) {
         var u = pkgUnit(p);
-        var usd = p.currency === "USD" ? p.price : (CFG.usdTry ? Math.round(p.price / CFG.usdTry) : 0);
+        var poa = !!u.poa;                                   // fiyat girilmemis: "Teklif alin"
+        var usd = poa ? 0 : (p.currency === "USD" ? p.price : (CFG.usdTry ? Math.round(p.price / CFG.usdTry) : 0));
         var off = saleOf(p);
         var oldTL = p.oldPrice && (p.currency === "USD" ? Math.round(p.oldPrice * (CFG.usdTry || 0) / 100) * 100 : p.oldPrice);
         var href = p.url || "";
@@ -337,18 +342,32 @@
           '<div class="sh-body">' +
             "<h3>" + (href ? '<a href="' + href + '">' + tName(p.name) + "</a>" : tName(p.name)) + "</h3>" +
             (p.for ? '<p class="sh-for">' + tName(p.for) + "</p>" : "") +
-            '<div class="sh-price"><strong>₺' + nf.format(u.list) + "</strong>" +
-              (off ? '<s class="sh-old">₺' + nf.format(oldTL) + "</s>" : "") +
-              (usd ? '<span class="sh-usd">≈ $' + nf.format(usd) + "</span>" : "") + "</div>" +
-            (pct && u.cart < u.list ? '<p class="sh-hav">💰 ' + L("Havale/EFT ile:", "By bank transfer:", "Per Überweisung:", "Банковским переводом:") +
-              " <b>₺" + nf.format(u.cart) + "</b></p>" : "") +
-            '<p class="sh-vat">' + L("KDV dahil · kargo hariç", "VAT included · shipping excluded",
-              "Inkl. MwSt. · zzgl. Versand", "НДС включён · доставка отдельно") + "</p>" +
+            (poa
+              ? '<div class="sh-price"><strong class="sh-poa">' +
+                  L("Teklif alın", "Request a quote", "Angebot anfragen", "Запросить предложение") + "</strong></div>" +
+                '<p class="sh-vat">' + L("Güncel fiyat için bize ulaşın", "Contact us for current pricing",
+                  "Aktuelle Preise auf Anfrage", "Актуальные цены — по запросу") + "</p>"
+              : '<div class="sh-price"><strong>₺' + nf.format(u.list) + "</strong>" +
+                (off ? '<s class="sh-old">₺' + nf.format(oldTL) + "</s>" : "") +
+                (usd ? '<span class="sh-usd">≈ $' + nf.format(usd) + "</span>" : "") + "</div>" +
+              (pct && u.cart < u.list ? '<p class="sh-hav">💰 ' + L("Havale/EFT ile:", "By bank transfer:", "Per Überweisung:", "Банковским переводом:") +
+                " <b>₺" + nf.format(u.cart) + "</b></p>" : "") +
+              '<p class="sh-vat">' + L("KDV dahil · kargo hariç", "VAT included · shipping excluded",
+                "Inkl. MwSt. · zzgl. Versand", "НДС включён · доставка отдельно") + "</p>") +
             '<div class="sh-act">' +
               (href ? '<a class="btn btn-ghost btn-sm" href="' + href + '">' +
                 L("Detay", "Details", "Details", "Подробнее") + "</a>" : "") +
-              '<button class="btn btn-sm" type="button" data-sh-add="' + p.id + '">🛒 ' +
-                L("Sepete ekle", "Add to cart", "In den Warenkorb", "В корзину") + "</button>" +
+              (poa
+                ? (shopWa ? '<a class="btn btn-sm" href="https://wa.me/' + shopWa + "?text=" +
+                    encodeURIComponent(L(
+                      "Merhaba, \"" + p.name + "\" ürünü için fiyat teklifi almak istiyorum.",
+                      "Hello, I'd like a price quote for the \"" + p.name + "\" product.",
+                      "Hallo, ich hätte gerne ein Preisangebot für \"" + p.name + "\".",
+                      "Здравствуйте, хочу получить цену на «" + p.name + "».")) +
+                    '" target="_blank" rel="noopener">💬 ' +
+                    L("Fiyat sor", "Ask for price", "Preis anfragen", "Узнать цену") + "</a>" : "")
+                : '<button class="btn btn-sm" type="button" data-sh-add="' + p.id + '">🛒 ' +
+                  L("Sepete ekle", "Add to cart", "In den Warenkorb", "В корзину") + "</button>") +
             "</div>" +
           "</div></article>";
       }
@@ -431,7 +450,7 @@
         root.addEventListener("click", function (e) {
           var b = e.target.closest("[data-sh-add]"); if (!b) return;
           var id = b.getAttribute("data-sh-add");
-          var p = cart.pkgOf(id); if (!p) return;
+          var p = cart.pkgOf(id); if (!p || p.price == null) return;   // fiyatsiz urun sepete girmez
           cart.add(id, 1);
           cartPop(p.name);
         });

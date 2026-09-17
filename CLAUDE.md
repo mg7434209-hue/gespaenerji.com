@@ -190,7 +190,9 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
 
 ### Ürünler & fiyatlar (config.packages · config.heater · config.admin)
 - `packages[]`: 2 komple kit (285W ₺ · 2x540W USD) + BOOST MPPT şarj kontrol
-  cihazı (₺7.300, `group:"accessory"`) — `url` detay sayfası, `img` gerçek foto,
+  cihazı (₺7.300, `group:"accessory"`) + 50W panel (kampanya, `group:"panel"`) +
+  UNV Trek Pro 2500 W taşınabilir güç istasyonu (`group:"offgrid"`, fiyatsız —
+  aşağıdaki `priceOnRequest`) — `url` detay sayfası, `img` gerçek foto,
   `oldPrice` indirim rozeti, `currency:"USD"` dolar, `dailyKwh` günlük üretim.
   `usdTry` kuru ile ikinci para "≈" gösterilir; kur değişince SADECE
   config.usdTry güncellenir. Yeni ürün eklerken aynı alanlar + detay sayfası
@@ -234,6 +236,13 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   urunler.html paket vitrininde ÇIKAR, `panel` gibi diğer gruplar yalnız
   online-satis.html kataloğunda listelenir. ItemList şeması da sayfaya göre
   süzülür (build.js `URUNLER_GROUPS`) — sayfada görünmeyen ürün şemaya girmez.
+- `price: null` + `priceOnRequest: true` → fiyatı HENÜZ BELİRLENMEMİŞ ürün:
+  rakam HİÇBİR YERDE üretilmez, her yerde "Teklif alın" yazar ve ürün sepete
+  EKLENMEZ (katalog kartında sepet düğmesi yerine WhatsApp "Fiyat sor" çıkar,
+  JSON-LD'ye `offers` girmez). Tek kural main.js `pkgUnit()` (`poa` döndürür) ve
+  build.js'teki `poa` dalları — SHOP:STATIC, PKG:STATIC, ItemList, llms-full.txt
+  hepsi buna bağlıdır. Fiyat gelince: `price:` yaz, `priceOnRequest` satırını
+  SİL, `node build.js` çalıştır — başka dosyaya dokunmaya gerek yok.
 - `noCartDiscount: true` → fiyat NETTİR, üstüne havale/EFT indirimi BİNMEZ ve
   havale satırı hiçbir yerde gösterilmez (kampanya fiyatlarında kullanılır).
   Tek kural main.js `pkgUnit()` ve build.js `havaleTL()`; vitrin kartı, paket
@@ -312,7 +321,12 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   eklerken 4 dili birlikte ekle. Footer sosyal linkleri `config.company.sameAs`'ten
   üretilir; boşken blok gizlenir.
 - Çok dil (TR/EN/DE/RU): `assets/i18n.js` metinleri TR kaynağına göre çevirir; yeni metin
-  eklerken DE/RU karşılığını `DICT`'e ekle, yoksa zarifçe TR kalır. Marka/iletişim
+  eklerken DE/RU karşılığını `DICT`'e ekle, yoksa zarifçe TR kalır.
+  DİKKAT: `content/translation-fixes.json` ek bir çeviri kaynağıdır ve
+  `content/build-seo.js` onu i18n.js'in SONUNDAKİ `Object.assign(DICT.xx, …)`
+  bloklarına YAZAR — yani oradaki bir anahtar, DICT'e elle eklediğinizi EZER.
+  Bir metin beklediğinizden farklı çevriliyorsa önce bu dosyaya bakın; aynı
+  anahtarı iki yere yazmayın. Marka/iletişim
   (`data-c-text`) ve dinamik sayılar çeviriden hariç tutulur.
 - SEO için diller **ayrı URL**lerde sunulur: kök=TR, `/en` `/de` `/ru`. `build.js`
   kök sayfalardan üretir (lang/title/description/canonical/og statik gömülür, gövde
