@@ -1767,17 +1767,6 @@
     });
   }
 
-  /* ---- Nav satış paneli: [data-nav-price] liste fiyatını config'ten tazeler ----
-     Kural vitrin/sepet ile AYNI (pkgUnit list): USD ürünlerde kurla ₺'ye çevrilir. */
-  $$("[data-nav-price]").forEach(function (el) {
-    var id = el.getAttribute("data-nav-price"), hit = null;
-    (CFG.packages || []).forEach(function (x) { if (x.id === id) hit = x; });
-    if (!hit || hit.price == null) return;
-    var rate = CFG.usdTry || 0;
-    var tl = hit.currency === "USD" ? Math.round(hit.price * rate / 100) * 100 : hit.price;
-    el.textContent = "₺" + new Intl.NumberFormat("tr-TR").format(tl);
-  });
-
   /* ---- data-pkg-name: ürün adını config.packages'ten tazeler ----
      HTML'deki metin SSR/JS'siz yedeğidir; tek doğru kaynak yine config. */
   (function () {

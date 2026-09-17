@@ -124,28 +124,26 @@ Paket detay sayfalarında "Paket Ürünler", sepet.html'de "Sepetim" aktif
 işaretlenir; alt sayfa aktifken üst `menu-parent` de ` active` alır.
 Açılır paneller KART tipidir (`.submenu.submenu-cards` → `.mcard` = ikon +
 başlık + tek satır açıklama); 4+ kalemli grup iki sütun (`.two`).
-"Online Satış" paneli FARKLIDIR — `.submenu.submenu-shop` İKİ SÜTUNDUR
-(`display:grid`, `206px 1fr`): SOLDA bölüm rayı `.shopmenu-nav`, SAĞDA ürün
-vitrini `.shopmenu-main` (`.scard`, 3 sütun). Sol ray mega menü standardıdır —
-LTR'de göz panelin sol üstüne düşer ve panel açılırken imleç de oradadır, bu
-yüzden panelin ANA girişi "Tüm ürünler" ilk satırdadır (`.slink-lead`, vurgulu
-+ tek satır açıklama). Altında Paket ürünler · Solar Su Isıtıcı · Toptan Satış,
-sonra `.shopmenu-sep` çizgisi ve EYLEMLER (Sepetim, GES Marketim ↗) —
-gezinme ile eylemi karıştırma, ayrı tut. Kaynak: `nav5.py` SHOP_NAV/SHOP_ACTIONS.
-PANEL GENİŞLİĞİ: `.submenu` ortalanmıştır (`left:50%` + translateX(-50%)), panel
-genişlerse İKİ YANA taşar. Şu an 974px; en dar durum TR/1261px'te soldan 3px.
-Ray veya kart genişliğini BÜYÜTÜRSEN 1261/1280/1366px'te 4 dilde YENİDEN ölç.
-Ürün fiyatı HTML'e GÖMÜLMEZ:
-`data-nav-price="<paketId>"` yer tutucusunu build.js config'ten statik basar,
-main.js istemcide tazeler — kural vitrin/sepet ile aynı (USD ürünlerde kurla ₺).
-Ürün adı `data-pkg-name` ile config'ten gelir ve main.js aktif dile DICT'ten
-çevirir (`gespa:lang` olayında yeniden uygulanır). Satış kartına yeni ürün
-eklemek = `nav5.py` SHOP tablosuna satır + DICT'e 3 dil.
-KAPSAM KURALI: `.menu a.active` / `.menu a:hover` (0,2,1) özgüllüğü panel
-içi kuralları ezer — `.scard`/`.slink` kurallarını `.submenu-shop` ile
-kapsamlı yaz, yoksa aktif pill yeşil üstüne yeşil yazı olur ve kart metni
-`white-space:nowrap` kalıp taşar.
-Mobilde açıklamalar gizlenir, kartlar sade ikon+başlık satırına döner.
+"Online Satış" AÇILIR PANEL DEĞİLDİR — düz bağlantıdır, tıklayınca doğrudan
+`online-satis.html` kataloğunu açar. Alt sayfalardayken (urunler, su-isitici,
+toptan, sepet, paket-*, unv-*) üst bağlantı yine ` active` alır. Bölüm
+bağlantıları KATALOG SAYFASININ SOL KENARINDADIR (`.shop-layout` =
+`212px minmax(0,1fr)` → `.shop-side` + `.shop-main`): "Mağaza" başlığı, ilk
+satır vurgulu `.slink-lead` "Tüm ürünler", altında Paket ürünler · Solar Su
+Isıtıcı · Toptan Satış, `.shopmenu-sep` çizgisi, sonra EYLEMLER (Sepetim,
+GES Marketim ↗). Gezinme ile eylemi karıştırma, ayrı tut.
+Sol kenar seçildi: LTR'de göz sol üste düşer, kategori rayı e-ticarette solda
+beklenir. Kenar çubuğu `position:sticky`. Filtre çipleri (`#shopFilters`) AYRI
+bir denetimdir, ızgaranın üstünde kalır — gezinme ile süzgeci karıştırma.
+900px altında kenar çubuğu yatay kaydırılan pill şeridine döner; "MAĞAZA"
+başlığı ve alt çizgi MOBİLDE DE KALIR, yoksa hemen altındaki filtre çipleriyle
+aynı görünüp ayırt edilemez.
+GRID TUZAĞI: `.shop-layout` sütunlarında `1fr` veya `none` KULLANMA —
+ikisinin de örtük minimumu min/max-content'tir ve `.sh-grid` sütunu konteynerden
+geniş yapıp mobilde kartları ekrandan taşırır. `minmax(0,1fr)` + `.shop-main`
+üzerinde `min-width:0` zorunludur (360–1920px'te ölçüldü).
+Kenar çubuğuna bağlantı eklemek = `online-satis.html` içindeki `.shop-side-nav`
++ DICT'e 3 dil. Üst menüye YENİ AÇILIR grup eklersen `nav5.py` GROUPS deseni.
 Yeni sayfa eklenince TÜM sayfalarda güncelle — nav bloğunu tek kaynaktan
 yeniden üreten scratchpad `nav5.py` deseni (sayfa→aktif grup/link tablosu +
 ikon/açıklama + SHOP ürün tablosu içerir) kullanılır.
