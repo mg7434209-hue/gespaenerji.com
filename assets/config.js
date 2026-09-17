@@ -234,6 +234,7 @@ window.GESPA.config = {
     {
       id: "panel-50w", icon: "🔆", tag: "Panel", group: "panel",
       sku: "GES-PNL-50",
+      img: "assets/img/products/panel-50w.webp",
       price: 1250, oldPrice: 2500,
       // Kampanya fiyatı NET: zaten %50 indirimli, üstüne havale/EFT indirimi
       // uygulanmaz. Müşterinin ödeyeceği son tutar ₺1.250'dir.
