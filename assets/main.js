@@ -156,9 +156,14 @@
     // Ürün verisi config.packages'ten okunur; birim fiyat kuralı vitrinle
     // AYNIDIR: havale fiyatı birim başına en yakın 50 ₺'ye yuvarlanır.
     // ============================================================
+    // İndirim oranı: ürüne `discountPct` yazıldıysa O, yoksa site geneli
+    // config.cartDiscountPct. TÜM fiyat noktaları bu yardımcıyı kullanır.
+    function pkgPct(p) {
+      return (p && p.discountPct != null ? p.discountPct : CFG.cartDiscountPct) || 0;
+    }
     // Birim fiyatlar (₺): list = liste, cart = havale/EFT, usd = yaklaşık $
     function pkgUnit(p) {
-      var RATE = CFG.usdTry || 0, pct = CFG.cartDiscountPct || 0;
+      var RATE = CFG.usdTry || 0, pct = pkgPct(p);
       // priceOnRequest: fiyat girilmemis urun — tutar URETILMEZ, cagiran
       // "Teklif alin" gosterir ve urun sepete eklenmez.
       if (p.price == null) return { list: null, cart: null, usd: 0, poa: true };
@@ -223,7 +228,7 @@
       if (!p || p.price == null) return;
       var nf = new Intl.NumberFormat("tr-TR");
       var RATE = CFG.usdTry || 0;
-      var pct = CFG.cartDiscountPct || 0;
+      var pct = p.noCartDiscount ? 0 : pkgPct(p);          // ürüne özel oran
       var tlOf = function (v) { return p.currency === "USD" ? Math.round(v * RATE / 100) * 100 : v; };
       var usdOf = function (v) { return p.currency === "USD" ? v : (RATE ? Math.round(v / RATE) : 0); };
       // Birim tutarlar (adet ile çarpılır) — kural sepet/vitrinle AYNI (pkgUnit)
@@ -313,7 +318,6 @@
       var grid = $("#shopGrid");
       if (!grid || !CFG.packages) return;
       var nf = new Intl.NumberFormat("tr-TR");
-      var pct = CFG.cartDiscountPct || 0;
       var shopWa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
       var items = (CFG.packages || []).filter(function (p) { return p.price != null || p.priceOnRequest; });
       // Kampanya: bitiş tarihi config.campaign.endsAt'ten okunur (tek kaynak).
@@ -344,6 +348,7 @@
       }
       function tile(p) {
         var u = pkgUnit(p);
+        var cardPct = p.noCartDiscount ? 0 : pkgPct(p);      // ürüne özel oran
         var poa = !!u.poa;                                   // fiyat girilmemis: "Teklif alin"
         var usd = poa ? 0 : (p.currency === "USD" ? p.price : (CFG.usdTry ? Math.round(p.price / CFG.usdTry) : 0));
         var off = saleOf(p);
@@ -369,7 +374,7 @@
               : '<div class="sh-price"><strong>₺' + nf.format(u.list) + "</strong>" +
                 (off ? '<s class="sh-old">₺' + nf.format(oldTL) + "</s>" : "") +
                 (usd ? '<span class="sh-usd">≈ $' + nf.format(usd) + "</span>" : "") + "</div>" +
-              (pct && u.cart < u.list ? '<p class="sh-hav">💰 ' + L("Havale/EFT ile:", "By bank transfer:", "Per Überweisung:", "Банковским переводом:") +
+              (cardPct && u.cart < u.list ? '<p class="sh-hav">💰 ' + L("Havale/EFT ile:", "By bank transfer:", "Per Überweisung:", "Банковским переводом:") +
                 " <b>₺" + nf.format(u.cart) + "</b></p>" : "") +
               '<p class="sh-vat">' + L("KDV dahil · kargo hariç", "VAT included · shipping excluded",
                 "Inkl. MwSt. · zzgl. Versand", "НДС включён · доставка отдельно") + "</p>") +
@@ -485,8 +490,20 @@
       var wrap = $("#cartItems");
       if (!wrap || !CFG.packages) return;
       var nf = new Intl.NumberFormat("tr-TR");
-      var pct = CFG.cartDiscountPct || 0;
       var side = $("#cartSide"), empty = $("#cartEmpty"), form = $("#cartForm");
+      // Kalemlerin oranı farklı olabilir (ürüne özel discountPct). Tek bir
+      // "%N" yazmak yanıltıcı olur; oran ancak indirime giren TÜM kalemlerde
+      // aynıysa yazılır, farklıysa yalnızca tutar gösterilir.
+      function pctOfLines(ls) {
+        var rates = [];
+        ls.forEach(function (l) {
+          if (l.sumCart < l.sumList) {
+            var r = pkgPct(l.p);
+            if (rates.indexOf(r) < 0) rates.push(r);
+          }
+        });
+        return rates.length === 1 ? rates[0] : null;
+      }
       var wa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
       var set = function (sel, txt) { $$(sel).forEach(function (el) { el.textContent = txt; }); };
       // Sepet kalemleri: {p, qty, unit, sumList, sumCart} — fiyat kuralı pkgUnit ile ortak
@@ -508,8 +525,9 @@
         set("[data-ord-list]", "₺" + nf.format(listT));
         if (method === "havale") {
           // Sepette indirime giren kalem yoksa (hepsi net fiyatlı) "−₺0 (%10)" yazma
+          var uniq = pctOfLines(ls);
           set("[data-ord-disc]", listT > cartT
-            ? "−₺" + nf.format(listT - cartT) + " (%" + pct + ")"
+            ? "−₺" + nf.format(listT - cartT) + (uniq != null ? " (%" + uniq + ")" : "")
             : L("Net fiyatlı üründe uygulanmaz", "Not applied to net-priced products",
                 "Bei Nettopreis-Produkten nicht anwendbar", "К товарам по нетто-цене не применяется"));
           set("[data-ord-total]", "₺" + nf.format(cartT));
@@ -625,7 +643,8 @@
           });
           msg.push("Liste toplamı: ₺" + nf.format(t.listT));
           if (t.method === "havale") {
-            msg.push("Ödeme: Havale/EFT (sepette %" + pct + " indirim)");
+            var uniqPct = pctOfLines(t.ls);
+            msg.push("Ödeme: Havale/EFT" + (uniqPct != null ? " (sepette %" + uniqPct + " indirim)" : " (indirimli)"));
             msg.push("Ödenecek: ₺" + nf.format(t.cartT));
             if (CFG.company && CFG.company.bank) msg.push("Hesap: " + CFG.company.bank.accountHolder + " · " + CFG.company.bank.iban);
           } else {
@@ -819,7 +838,7 @@
         var usdOf = function (v) { return p.currency === "USD" ? v : (RATE ? Math.round(v / RATE) : 0); };
         // vitrin LISTE fiyati gosterir; havale/EFT indirimli tutar altta yazar
         // (yuvarlama paket detay sayfasiyla AYNI: en yakin 50 TL)
-        var cartPct = CFG.cartDiscountPct || 0;
+        var cartPct = pkgPct(p);                                 // ürüne özel oran
         var priceHtml;
         if (price != null) {
           var listTL = tlOf(price);

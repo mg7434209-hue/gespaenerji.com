@@ -202,9 +202,9 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
 
 ### Ürünler & fiyatlar (config.packages · config.heater · config.admin)
 - `packages[]`: 2 komple kit (285W ₺ · 2x540W USD) + BOOST MPPT şarj kontrol
-  cihazı (₺7.300, `group:"accessory"`) + 50W panel (kampanya, `group:"panel"`) +
-  UNV Trek Pro 2500 W taşınabilir güç istasyonu (`group:"offgrid"`, fiyatsız —
-  aşağıdaki `priceOnRequest`) — `url` detay sayfası, `img` gerçek foto,
+  cihazı (liste ₺7.700, `discountPct:5` → havale ₺7.300, `group:"accessory"`) +
+  50W panel (kampanya, `group:"panel"`) + UNV Trek Pro 2500 W taşınabilir güç
+  istasyonu ($2.495, `group:"offgrid"`) — `url` detay sayfası, `img` gerçek foto,
   `oldPrice` indirim rozeti, `currency:"USD"` dolar, `dailyKwh` günlük üretim.
   `usdTry` kuru ile ikinci para "≈" gösterilir; kur değişince SADECE
   config.usdTry güncellenir. Yeni ürün eklerken aynı alanlar + detay sayfası
@@ -254,6 +254,16 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   sayı içeren metin DICT'te eşleşmediğinden main.js etiketi `gespa:lang`
   olayında YENİDEN yazar; N>3'te build çevrilebilir genel rozet basar.
   Stok değişince SADECE config'teki bu satır güncellenir + `node build.js`.
+- `discountPct: N` → SADECE o ürünün havale/EFT indirim oranı; yazılmazsa site
+  geneli `cartDiscountPct` (%10) geçerlidir. Tek kural main.js `pkgPct()` ve
+  build.js `pctOf()` — vitrin kartı, katalog, paket detayı, PKG/SHOP:STATIC,
+  sepet ve llms-full.txt bunlara bağlıdır. Belli bir SON FİYAT hedefliyorsan
+  listeyi ona göre kur: liste × (100−N)/100, en yakın 50 ₺'ye yuvarlanır
+  (ör. ₺7.700 + %5 → ₺7.300). Sepette oranları FARKLI kalemler varsa özet tek
+  "%N" YAZMAZ, yalnız tutarı gösterir (main.js `pctOfLines`).
+  UYARI: bu indirim yalnızca HAVALE/EFT'te geçerlidir — kart ve kapıda ödemede
+  liste fiyatı tahsil edilir (server.js `pkgListTL`). "Sepette %N indirim"
+  rozetinin yanında havale satırı hep dursun, yoksa kartla ödeyen yanılır.
 - `brand: "…"` → ÜRÜNÜN markası (satıcının değil). Başka üreticinin markalı
   ürününde yazılır; boşsa JSON-LD'ye GESPA Enerji girer.
 - `price: null` + `priceOnRequest: true` → fiyatı HENÜZ BELİRLENMEMİŞ ürün:

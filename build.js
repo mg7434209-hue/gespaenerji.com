@@ -305,6 +305,11 @@ function heaterProductLd(cfg) {
 // urunler.html'de yalnızca bu gruplar render edilir (main.js/build.js GROUPS ile aynı).
 // Şema, sayfada GÖRÜNMEYEN ürünü listelememelidir.
 const URUNLER_GROUPS = ["offgrid", "irrigation", "ongrid", "accessory"];
+// İndirim oranı — main.js pkgPct ile AYNI kural: ürüne `discountPct`
+// yazıldıysa o, yoksa site geneli cartDiscountPct.
+function pctOf(cfg, p) {
+  return ((p && p.discountPct != null ? p.discountPct : cfg.cartDiscountPct) || 0);
+}
 // Havale/EFT birim tutarı — main.js pkgUnit ile AYNI kural.
 // noCartDiscount'lu üründe fiyat zaten nettir, indirim BİNMEZ.
 function havaleTL(p, tl, pct) {
@@ -589,8 +594,9 @@ function hydrateExtras(html, file, cfg) {
   };
   // Online satış kataloğu — JS'siz ortam/AI botları için statik ürün listesi
   if (file === "online-satis.html" && cfg.packages) {
-    const RATE = cfg.usdTry || 0, PCT = cfg.cartDiscountPct || 0;
+    const RATE = cfg.usdTry || 0;
     const rows = cfg.packages.filter(p => p.price != null || p.priceOnRequest).map(p => {
+      const PCT = pctOf(cfg, p);                       // ürüne özel oran
       const tl = p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
       const usd = p.currency === "USD" ? p.price : (RATE ? Math.round(p.price / RATE) : 0);
       const hav = havaleTL(p, tl, PCT);
@@ -633,7 +639,7 @@ function hydrateExtras(html, file, cfg) {
   if (pkgId && cfg.packages) {
     const p = cfg.packages.filter(x => x.id === pkgId)[0];
     if (p && p.price != null) {
-      const RATE = cfg.usdTry || 0, PCT = cfg.cartDiscountPct || 0;
+      const RATE = cfg.usdTry || 0, PCT = pctOf(cfg, p);
       const tl = p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
       const usd = p.currency === "USD" ? p.price : (RATE ? Math.round(p.price / RATE) : 0);
       setSpan("pkgPrice", "₺" + nfTr(tl));
@@ -743,7 +749,6 @@ function hydrateExtras(html, file, cfg) {
     ];
     const COST = cfg.calc.costPerKwp;
     const RATE = cfg.usdTry || 0;
-    const PCT = cfg.cartDiscountPct || 0;
     let staticList = "";
     for (const g of GROUPS) {
       const items = cfg.packages.filter(p => (p.group || "ongrid") === g.id);
@@ -752,6 +757,7 @@ function hydrateExtras(html, file, cfg) {
         items.map(p => {
           // priceOnRequest (ya da kWp'siz fiyatsız ürün): rakam ÜRETİLMEZ
           const poa = p.price == null && (p.priceOnRequest || !p.kwp);
+          const PCT = pctOf(cfg, p);                   // ürüne özel oran
           const price = p.price != null ? p.price : (poa ? null : Math.round(p.kwp * COST));
           // Vitrin kartıyla AYNI gösterim: ana fiyat ₺, yanında ≈$, altında havale/EFT tutarı
           const tl = poa ? null : (p.currency === "USD" ? Math.round(price * RATE / 100) * 100 : price);
@@ -882,8 +888,8 @@ function writeLlmsFull(cfg) {
   const nf = n => new Intl.NumberFormat("tr-TR").format(Math.round(n));
   const COST = cfg.calc.costPerKwp;
   const RATE = cfg.usdTry || 0;
-  const PCT = cfg.cartDiscountPct || 0;
   const pkgLines = cfg.packages.map(p => {
+    const PCT = pctOf(cfg, p);                         // ürüne özel oran
     // priceOnRequest (ya da kWp'siz fiyatsız ürün): rakam ÜRETİLMEZ
     const poa = p.price == null && (p.priceOnRequest || !p.kwp);
     const lead = p.kwp ? `${p.kwp} kWp · ` : (p.sku ? `${p.sku} · ` : "");
@@ -945,7 +951,7 @@ Antalya ile sınırlı değildir). Sipariş onayından sonra tahmini teslim ${(c
 kargo ücreti alıcıya aittir, fiyatlara KDV dahildir. Mesafeli satışta ${(cfg.commerce || {}).returnDays || 14} gün cayma
 hakkı vardır (sorunsuz teslimde iade kargosu alıcıya ait; hasarlı/ayıplı üründe satıcıya).
 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi verilir.
-Ödeme: havale/EFT'te %${cfg.cartDiscountPct || 0} indirim; kapıda ödemede %30 peşin + %70 teslimatta.
+Ödeme: havale/EFT'te indirim uygulanır (oran ürüne göre değişir; her ürünün indirimli tutarı yukarıdaki listede yazılıdır). Kart ve kapıda ödemede indirim UYGULANMAZ, liste fiyatı geçerlidir. Kapıda ödeme: %30 peşin + %70 teslimatta.
 
 ## Toptan Satış / B2B (${c.web}/toptan.html)
 Bayi, EPC/kurulumcu, toptancı, otel ve kooperatiflere kurumsal faturalı toptan satış. Hazır stok:
