@@ -26,7 +26,7 @@ const PAGES = [
   "projeler.html", "hakkimizda.html", "iletisim.html", "tarimsal-sulama.html",
   "ai-cankurtaran-destek-sistemi.html", "sistem-kur.html",
   "elektrikli-arac-donusum.html",
-  "paket-285w.html", "paket-2x540w.html", "toptan.html",
+  "paket-285w.html", "paket-2x540w.html", "unv-trek-pro-2500.html", "toptan.html",
   "sepet.html",   // noindex; sitemap'e girmez (NOSITEMAP)
   // Yasal sayfalar da üretilir: dil değiştirici ve hreflang /en/kvkk.html gibi
   // URL'lere işaret eder; üretilmezse 404 olur. Gövde metni TR kalır (hukuken
@@ -86,6 +86,14 @@ const META = {
           d: "Photovoltaischer (PV) Warmwasserbereiter der neuen Generation: erwärmt Wasser direkt mit Monokristallin-Solarmodulen. Smarter GF-20-Regler, automatische Netz-Reserve bei Bewölkung, 60–200 L Emailtank." },
     ru: { t: "PV солнечный водонагреватель — Фотоэлектрический нагрев воды | GESPA Energy",
           d: "Фотоэлектрический (PV) водонагреватель нового поколения, нагревающий воду напрямую монокристаллическими панелями. Умный контроллер GF-20, авто-резерв от сети в пасмурную погоду, эмалевый бак 60–200 л." }
+  },
+  "unv-trek-pro-2500.html": {
+    en: { t: "UNV Trek Pro 2500 W Portable Power Station — 2496 Wh | GESPA Energy",
+          d: "2500 W continuous output, 2496 Wh battery, 4 × 230 V pure sine wave sockets and a 30 ms UPS function. Portable power station for camping, caravans, field work and home backup." },
+    de: { t: "UNV Trek Pro 2500 W tragbare Powerstation — 2496 Wh | GESPA Energy",
+          d: "2500 W Dauerleistung, 2496 Wh Akku, 4 × 230-V-Steckdosen mit reiner Sinuswelle und USV-Funktion mit 30 ms. Tragbare Powerstation für Camping, Wohnmobil, Außeneinsatz und Notstrom." },
+    ru: { t: "Портативная электростанция UNV Trek Pro 2500 Вт — 2496 Вт·ч | GESPA Energy",
+          d: "2500 Вт постоянной мощности, АКБ 2496 Вт·ч, 4 розетки 230 В с чистой синусоидой и функция ИБП 30 мс. Портативная электростанция для кемпинга, автодома, выездных работ и резервного питания." }
   },
   "paket-285w.html": {
     en: { t: "285W Solar Panel Package — Complete Plug-and-Play Kit | GESPA Energy",
@@ -338,7 +346,9 @@ function packageProductLd(cfg, p) {
   const ld = {
     "@context": "https://schema.org", "@type": "Product",
     name: p.name, description: p.desc, category: p.tag,
-    brand: { "@type": "Brand", name: cfg.company.brandName },
+    // brand = ÜRÜNÜN markası, satıcının değil. Başka bir üreticinin markalı
+    // ürününü satarken config'e `brand: "UNV (Uniview)"` yazılır; yoksa GESPA.
+    brand: { "@type": "Brand", name: p.brand || cfg.company.brandName },
     url: web + "/" + (p.url || "")
   };
   if (p.sku) ld.sku = p.sku;
@@ -346,7 +356,8 @@ function packageProductLd(cfg, p) {
   if (p.price != null) {
     ld.offers = {
       "@type": "Offer", price: p.price, priceCurrency: p.currency || "TRY",
-      availability: "https://schema.org/InStock", url: web + "/" + (p.url || ""),
+      availability: p.stock === 0 ? "https://schema.org/OutOfStock" : "https://schema.org/InStock",
+      url: web + "/" + (p.url || ""),
       seller: { "@type": "Organization", name: cfg.company.legalName },
       shippingDetails: {
         "@type": "OfferShippingDetails",
@@ -631,7 +642,15 @@ function hydrateExtras(html, file, cfg) {
       if (p.sku) setSpan("pkgSku", esc(p.sku));
     }
     const com = cfg.commerce || {};
-    if (com.stockLabel) setSpan("pkgStock", esc(com.stockLabel));
+    // Ürüne `stock` yazılmışsa GERÇEK adet gösterilir (az kalanda "Son N adet");
+    // yazılmamışsa commerce.stockLabel genel rozeti kullanılır.
+    const st = p && p.stock;
+    if (st === 0) setSpan("pkgStock", "Tükendi");
+    else if (st != null && st <= 3) setSpan("pkgStock", "Son " + st + " adet");
+    // 3'ten fazlada sayı yazmak yerine çevrilebilir genel rozet basılır
+    // (istemci tam adedi gösterir; DICT sayı içeren metni eşleyemez).
+    else if (st != null) setSpan("pkgStock", esc(com.stockLabel || "Stokta"));
+    else if (com.stockLabel) setSpan("pkgStock", esc(com.stockLabel));
     if (com.shipDays) setSpan("shipDays", esc(com.shipDays));
     if (com.returnDays) setSpan("returnDays", String(com.returnDays));
   }
@@ -786,7 +805,7 @@ const PRIORITY = {
   "ai-cankurtaran-destek-sistemi.html": "0.9", "su-isitici.html": "0.8",
   "tarimsal-sulama.html": "0.9", "hesaplayici.html": "0.8", "projeler.html": "0.7",
   "hakkimizda.html": "0.6", "iletisim.html": "0.8",
-  "elektrikli-arac-donusum.html": "0.8",
+  "elektrikli-arac-donusum.html": "0.8", "unv-trek-pro-2500.html": "0.8",
   "kvkk.html": "0.3", "gizlilik.html": "0.3", "cerez-politikasi.html": "0.3",
   "mesafeli-satis-sozlesmesi.html": "0.4", "iade-teslimat.html": "0.4"
 };

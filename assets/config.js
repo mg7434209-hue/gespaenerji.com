@@ -247,18 +247,21 @@ window.GESPA.config = {
     },
 
     // —— Taşınabilir güç istasyonu —— UNV (Uniview) marka, ithal ürün.
-    // priceOnRequest: SATIŞ FİYATI HENÜZ BELİRLENMEDİ. price null olduğu sürece
-    // her yerde "Teklif alın" yazar ve sepete eklenmez. Fiyat girmek için:
-    // price: <₺ tutar> yaz, priceOnRequest satırını sil, `node build.js` çalıştır.
+    // Fiyat USD'dir; ₺ karşılığı config.usdTry kuruyla hesaplanır.
+    // stock: GERÇEK stok adedi. Ürün sayfasında "Son N adet" yazar ve adet
+    // kutusu bu sayıyı AŞAMAZ. Stok değişince SADECE bu satır güncellenir;
+    // stock: 0 → "Tükendi" + sepete ekleme kapanır, stock: null → genel rozet.
     // Teknik değerler üreticinin ürün künyesinden gelir — ham görsel
     // assets/img/products/kaynak/unv-trek-pro-2500-kunye.png altındadır.
     // DİKKAT: künye görselindeki cihaz AS/NZS (Avustralya) prizlidir; Türkiye'ye
-    // Schuko (Type F) sürüm tedarik edilmeden priz tipi hakkında iddia YAZILMAZ.
+    // Schuko (Type F) sürüm tedarik edilmeden priz tipi hakkında iddia YAZILMAZ
+    // (ürün sayfasındaki SSS bunu "sipariş öncesi teyit edilir" diye karşılar).
     {
       id: "unv-trek-pro-2500", icon: "🔋", tag: "Taşınabilir", group: "offgrid",
-      sku: "ES-E2500-A2",
+      url: "unv-trek-pro-2500.html", sku: "ES-E2500-A2",
+      brand: "UNV (Uniview)",          // ÜRÜNÜN markası — GESPA değil (JSON-LD brand)
       img: "assets/img/products/unv-trek-pro-2500.webp",
-      price: null, priceOnRequest: true,
+      price: 2495, currency: "USD", stock: 1,
       chips: ["⚡ 2500 W çıkış", "🔋 2496 Wh batarya", "🔌 4 × 230 V AC"],
       for: "Kamp, karavan, saha çalışması ve ev tipi yedek güç",
       name: "UNV Trek Pro 2500 W Taşınabilir Güç İstasyonu",

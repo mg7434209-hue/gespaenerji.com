@@ -234,6 +234,24 @@
       set("[data-pkg-price]", "₺" + nf.format(unitList));
       if (usdOf(p.price)) set("[data-pkg-alt]", "≈ $" + nf.format(usdOf(p.price)));
       if (p.sku) set("[data-pkg-sku]", p.sku);
+      // Stok: config'teki `stock` GERÇEK adettir; az kalanda "Son N adet" yazar.
+      // Yazılmamışsa sayfadaki commerce.stockLabel rozeti olduğu gibi kalır.
+      var maxQty = 99;
+      if (p.stock != null) {
+        maxQty = Math.max(0, p.stock);
+        // Dil, main.js çalışırken henüz "tr" olabilir; i18n sayı içeren metni
+        // DICT'te bulamaz. Bu yüzden etiket gespa:lang olayında YENİDEN yazılır.
+        var stockText = function () {
+          return p.stock === 0
+            ? L("Tükendi", "Out of stock", "Ausverkauft", "Нет в наличии")
+            : p.stock <= 3
+              ? L("Son " + p.stock + " adet", "Only " + p.stock + " left", "Nur noch " + p.stock + " Stück", "Осталось " + p.stock + " шт.")
+              : L("Stokta: " + p.stock + " adet", p.stock + " in stock", p.stock + " auf Lager", "В наличии: " + p.stock + " шт.");
+        };
+        var applyStock = function () { set("[data-pkg-stock]", stockText()); };
+        applyStock();
+        document.addEventListener("gespa:lang", applyStock);
+      }
       if (!pct) document.querySelectorAll(".pd-havale").forEach(function (el) { el.hidden = true; });
       if (pct) {
         set("[data-pkg-cart]", "🛒 " + L("Sepette %" + pct + " indirim", pct + "% off in cart", pct + " % Rabatt im Warenkorb", "−" + pct + " % в корзине"));
@@ -254,7 +272,8 @@
       }
       // Adet kutusu (− n +) — seçilen adet "Sepete ekle" ile sepete geçer
       var qtyIn = document.querySelector("[data-qty-input]");
-      var setQty = function (n) { qty = Math.max(1, Math.min(99, Math.round(n) || 1)); if (qtyIn) qtyIn.value = qty; };
+      // Üst sınır stoktur: stokta 1 varsa müşteri 5 adet sipariş edemez.
+      var setQty = function (n) { qty = Math.max(1, Math.min(maxQty || 1, Math.round(n) || 1)); if (qtyIn) qtyIn.value = qty; };
       document.querySelectorAll(".buy-row [data-q]").forEach(function (b) {
         b.addEventListener("click", function () { setQty(qty + (+b.getAttribute("data-q"))); });
       });

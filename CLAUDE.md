@@ -57,6 +57,18 @@ kargo-iade. Fiyat/kod/stok hem build'de statik basılır hem main.js'te
 `data-pkg-*` ile tazelenir. Satın alma sepet üzerinden: `data-add-cart` =
 sepete ekle + onay penceresi (Sepete git / Alışverişe devam), `data-add-cart-go`
 = ekle ve sepete git) ·
+`unv-trek-pro-2500.html` (UNV Trek Pro 2500 W taşınabilir güç istasyonu —
+paket-*.html ile AYNI düzen: `.prod-sec` (satın alma ilk ekranda) → 4 sekme
+(Açıklama · Çıkış Portları · Teknik Özellikler · Kargo ve İade) → kullanım
+alanları → SSS → CTA. BAŞKA MARKANIN ürünüdür: `config.packages[].brand`
+"UNV (Uniview)" olarak verilir ve JSON-LD'ye böyle yazılır; ürün fotoğrafındaki
+UNV logosu GESPA ile DEĞİŞTİRİLMEZ — `tools/marka-logo.py` kuralı yalnızca
+markasız OEM ürünler içindir, gerçek bir üreticinin markasını silmek olmaz.
+Teknik değerler üreticinin künyesinden gelir — ham görseller
+`assets/img/products/kaynak/unv-trek-pro-2500-*.png`; künyede olmayan değer
+(batarya kimyası, şarj süresi, ağırlık, ölçü) sayfaya YAZILMAZ.
+Cihazın prizi AS/NZS olabildiğinden SSS'te "priz tipi sipariş öncesi teyit
+edilir" maddesi vardır — TR sürüm tedarik edilene kadar KALDIRMA) ·
 `sepet.html` (sepet + sipariş: kalem listesi JS ile çizilir, özet/form statik;
 noindex + robots engelli + sitemap dışı ama build dil kopyalarını üretir.
 Sepet verisi localStorage `gespa-cart` = {paketId: adet}; birim fiyat kuralı
@@ -236,6 +248,14 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   urunler.html paket vitrininde ÇIKAR, `panel` gibi diğer gruplar yalnız
   online-satis.html kataloğunda listelenir. ItemList şeması da sayfaya göre
   süzülür (build.js `URUNLER_GROUPS`) — sayfada görünmeyen ürün şemaya girmez.
+- `stock: N` → GERÇEK stok adedi. Ürün sayfasında rozet olarak yazar
+  (N≤3 "Son N adet", N=0 "Tükendi", yoksa genel `commerce.stockLabel`) ve adet
+  kutusu bu sayıyı AŞAMAZ. JSON-LD availability de buna bağlıdır. Statik çıktıda
+  sayı içeren metin DICT'te eşleşmediğinden main.js etiketi `gespa:lang`
+  olayında YENİDEN yazar; N>3'te build çevrilebilir genel rozet basar.
+  Stok değişince SADECE config'teki bu satır güncellenir + `node build.js`.
+- `brand: "…"` → ÜRÜNÜN markası (satıcının değil). Başka üreticinin markalı
+  ürününde yazılır; boşsa JSON-LD'ye GESPA Enerji girer.
 - `price: null` + `priceOnRequest: true` → fiyatı HENÜZ BELİRLENMEMİŞ ürün:
   rakam HİÇBİR YERDE üretilmez, her yerde "Teklif alın" yazar ve ürün sepete
   EKLENMEZ (katalog kartında sepet düğmesi yerine WhatsApp "Fiyat sor" çıkar,
@@ -322,11 +342,17 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   üretilir; boşken blok gizlenir.
 - Çok dil (TR/EN/DE/RU): `assets/i18n.js` metinleri TR kaynağına göre çevirir; yeni metin
   eklerken DE/RU karşılığını `DICT`'e ekle, yoksa zarifçe TR kalır.
-  DİKKAT: `content/translation-fixes.json` ek bir çeviri kaynağıdır ve
-  `content/build-seo.js` onu i18n.js'in SONUNDAKİ `Object.assign(DICT.xx, …)`
-  bloklarına YAZAR — yani oradaki bir anahtar, DICT'e elle eklediğinizi EZER.
-  Bir metin beklediğinizden farklı çevriliyorsa önce bu dosyaya bakın; aynı
-  anahtarı iki yere yazmayın. Marka/iletişim
+  DİKKAT: `content/translation-fixes.json` ikinci bir çeviri kaynağıdır.
+  `content/build-seo.js` → `translations()` onu build sırasında DICT'in ÜSTÜNE
+  yazar; yani oradaki bir anahtar, i18n.js'e elle eklediğinizi EZER. Bir metin
+  beklediğinizden farklı çevriliyorsa önce bu dosyaya bakın, aynı anahtarı iki
+  yere yazmayın. Sayfa GÖVDESİNDEKİ statik metinler için bu dosya yeterlidir.
+  BİLİNEN EKSİK: `build-seo.js` → `generate()` bu satırları i18n.js'e de
+  yazmak ister ama aradığı `// Additional static and runtime product/tool
+  translations.` işaretçisi i18n.js'te YOK; regex eşleşmeyince sessizce hiçbir
+  şey yapmıyor. Sonuç: translation-fixes satırları STATİK çıktıya geçer,
+  istemci sözlüğüne geçmez. JS ile ÇİZİLEN metnin (katalog kartı, ürün adı,
+  builder) çevirisi bu yüzden doğrudan `assets/i18n.js` DICT'ine yazılmalıdır. Marka/iletişim
   (`data-c-text`) ve dinamik sayılar çeviriden hariç tutulur.
 - SEO için diller **ayrı URL**lerde sunulur: kök=TR, `/en` `/de` `/ru`. `build.js`
   kök sayfalardan üretir (lang/title/description/canonical/og statik gömülür, gövde
