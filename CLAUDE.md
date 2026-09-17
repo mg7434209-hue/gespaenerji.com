@@ -124,9 +124,18 @@ Paket detay sayfalarında "Paket Ürünler", sepet.html'de "Sepetim" aktif
 işaretlenir; alt sayfa aktifken üst `menu-parent` de ` active` alır.
 Açılır paneller KART tipidir (`.submenu.submenu-cards` → `.mcard` = ikon +
 başlık + tek satır açıklama); 4+ kalemli grup iki sütun (`.two`).
-"Online Satış" paneli FARKLIDIR — `.submenu.submenu-shop`: üstte satıştaki
-ürünler görselli fiyat kartı (`.scard`, 3 sütun), altında kategori/araç
-bağlantıları (`.slink` pill satırı). Ürün fiyatı HTML'e GÖMÜLMEZ:
+"Online Satış" paneli FARKLIDIR — `.submenu.submenu-shop` İKİ SÜTUNDUR
+(`display:grid`, `206px 1fr`): SOLDA bölüm rayı `.shopmenu-nav`, SAĞDA ürün
+vitrini `.shopmenu-main` (`.scard`, 3 sütun). Sol ray mega menü standardıdır —
+LTR'de göz panelin sol üstüne düşer ve panel açılırken imleç de oradadır, bu
+yüzden panelin ANA girişi "Tüm ürünler" ilk satırdadır (`.slink-lead`, vurgulu
++ tek satır açıklama). Altında Paket ürünler · Solar Su Isıtıcı · Toptan Satış,
+sonra `.shopmenu-sep` çizgisi ve EYLEMLER (Sepetim, GES Marketim ↗) —
+gezinme ile eylemi karıştırma, ayrı tut. Kaynak: `nav5.py` SHOP_NAV/SHOP_ACTIONS.
+PANEL GENİŞLİĞİ: `.submenu` ortalanmıştır (`left:50%` + translateX(-50%)), panel
+genişlerse İKİ YANA taşar. Şu an 974px; en dar durum TR/1261px'te soldan 3px.
+Ray veya kart genişliğini BÜYÜTÜRSEN 1261/1280/1366px'te 4 dilde YENİDEN ölç.
+Ürün fiyatı HTML'e GÖMÜLMEZ:
 `data-nav-price="<paketId>"` yer tutucusunu build.js config'ten statik basar,
 main.js istemcide tazeler — kural vitrin/sepet ile aynı (USD ürünlerde kurla ₺).
 Ürün adı `data-pkg-name` ile config'ten gelir ve main.js aktif dile DICT'ten

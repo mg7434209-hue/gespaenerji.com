@@ -782,17 +782,26 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 
 /* Online Satış paneli — satıştaki ürünler görselli fiyat kartı olarak.
    Fiyat build'de statik basılır (data-nav-price), main.js istemcide tazeler. */
-.submenu-shop{padding:14px;width:max-content;max-width:calc(100vw - 32px)}
-.menu-group.open .submenu-shop,.menu-group:focus-within .submenu-shop{display:block}
+/* İKİ SÜTUN: solda bölüm rayı (gezinme omurgası), sağda ürün vitrini.
+   Mega menü standardı — LTR'de göz panelin sol üstüne düştüğü için "Tüm
+   ürünler" oraya konur; imleç de panel açılırken sol üstte olur (Fitts).
+   GENİŞLİK: .submenu ortalanmıştır (left:50%%), panel genişlerse İKİ YANA
+   taşar. Kart genişliğini büyütürsen 1280px'te 4 dilde yeniden ölç. */
+.submenu-shop{padding:14px;width:max-content;max-width:calc(100vw - 32px);
+  grid-template-columns:206px 1fr;gap:14px;align-items:start}
+.menu-group.open .submenu-shop,.menu-group:focus-within .submenu-shop{display:grid}
+.shopmenu-nav{display:flex;flex-direction:column;gap:2px;
+  border-right:1px solid var(--line);padding-right:12px}
+.shopmenu-sep{height:1px;background:var(--line);margin:6px 4px}
 .shopmenu-head{margin:0 0 10px;font-size:.72rem;font-weight:800;letter-spacing:.08em;
   text-transform:uppercase;color:var(--muted)}
-.shopmenu-grid{display:grid;grid-template-columns:repeat(3,268px);gap:8px}
-.submenu-shop .scard{display:flex;gap:11px;align-items:flex-start;padding:10px;border-radius:12px;
+.shopmenu-grid{display:grid;grid-template-columns:repeat(3,236px);gap:8px}
+.submenu-shop .scard{display:flex;gap:10px;align-items:flex-start;padding:9px;border-radius:12px;
   border:1px solid var(--line);background:var(--card);white-space:normal;
   transition:border-color .15s,box-shadow .15s,transform .15s}
 .scard:hover{border-color:var(--green);box-shadow:var(--shadow);transform:translateY(-2px)}
 .scard::after{display:none!important}
-.scard-img{flex:0 0 auto;width:62px;height:62px;border-radius:8px;overflow:hidden;background:#fff;
+.scard-img{flex:0 0 auto;width:54px;height:54px;border-radius:8px;overflow:hidden;background:#fff;
   border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
 .scard-img img{width:100%;height:100%;object-fit:contain}
 .scard-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
@@ -800,14 +809,20 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .scard-txt em{font-style:normal;font-size:.73rem;color:var(--muted);line-height:1.35}
 .scard-price{font-weight:800;font-size:.95rem;color:var(--green);font-family:var(--font)}
 .scard.active b{color:var(--green)}
-.shopmenu-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;padding-top:12px;
-  border-top:1px solid var(--line)}
-.submenu-shop .slink{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:999px;
-  background:var(--bg-alt);font-size:.82rem;font-weight:600;color:var(--muted);white-space:nowrap}
+.submenu-shop .slink{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:9px;
+  font-size:.85rem;font-weight:600;color:var(--muted);white-space:normal;line-height:1.25}
+.slink-ico{flex:0 0 auto;font-size:1rem;line-height:1}
+.slink-txt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.slink-txt em{font-style:normal;font-size:.72rem;font-weight:500;color:var(--muted);line-height:1.3}
+/* Panelin ana girişi: "Tüm ürünler" — ilk satır ve vurgulu */
+.submenu-shop .slink-lead{background:var(--bg-alt);color:var(--ink);font-weight:700}
+.submenu-shop .slink-lead .slink-txt b{color:var(--ink)}
 /* .menu a.active / .menu a:hover (0,2,1) bu kuralları ezmesin diye kapsamlı yazıldı */
 .submenu-shop .slink:hover{background:var(--green);color:#fff}
+.submenu-shop .slink:hover em,.submenu-shop .slink:hover b{color:#fff}
 .submenu-shop .slink::after{display:none!important}
 .submenu-shop .slink.active{background:var(--green);color:#fff}
+.submenu-shop .slink.active em,.submenu-shop .slink.active b{color:#fff}
 
 /* Mobil (hamburger) menü — masaüstü .menu-group/.submenu kurallarından SONRA
    gelmek ZORUNDA: eşit özgüllükte sonraki kural kazanır. Daha önce bu blok
@@ -831,8 +846,13 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
   .mcard-txt em{display:none}
   .mcard-txt b{font-size:.97rem;font-weight:600;color:var(--muted)}
   .mcard.active b{color:var(--green)}
-  .submenu-shop{padding:0;width:auto;max-width:none}
+  .submenu-shop{padding:0;width:auto;max-width:none;grid-template-columns:none;gap:0}
   .menu-group.open .submenu-shop,.menu-group:focus-within .submenu-shop,.submenu-shop{display:flex!important;flex-direction:column}
+  /* Mobilde iki sütun tek kolona iner; sol ray üstte kalır (Tüm ürünler ilk) */
+  .shopmenu-nav{border-right:0;padding-right:0;gap:0}
+  .shopmenu-sep{margin:6px 0}
+  .submenu-shop .slink-lead{background:none;font-weight:600}
+  .slink-txt em{display:none}
   .shopmenu-head{display:none}
   .shopmenu-grid{display:flex!important;flex-direction:column;gap:0;grid-template-columns:none}
   .scard{padding:0;border:0;background:none;gap:10px;align-items:center;min-height:52px;border-radius:0}
@@ -841,8 +861,7 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
   .scard-txt em{display:none}
   .scard-txt b{font-size:.97rem;font-weight:600;color:var(--muted)}
   .scard-price{font-size:.85rem}
-  .shopmenu-links{margin-top:6px;padding-top:10px;gap:6px}
-  .slink{padding:9px 13px}
+  .submenu-shop .slink{padding:9px 13px;font-size:.97rem}
 
 }
 
