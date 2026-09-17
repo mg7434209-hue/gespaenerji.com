@@ -294,15 +294,29 @@ function heaterProductLd(cfg) {
   return d;
 }
 
-function packagesItemListLd(cfg) {
+// urunler.html'de yalnızca bu gruplar render edilir (main.js/build.js GROUPS ile aynı).
+// Şema, sayfada GÖRÜNMEYEN ürünü listelememelidir.
+const URUNLER_GROUPS = ["offgrid", "irrigation", "ongrid", "accessory"];
+function packagesItemListLd(cfg, file) {
   const COST = (cfg.calc && cfg.calc.costPerKwp) || 28000;
-  const items = cfg.packages.map(p => {
+  const shop = file === "online-satis.html";
+  const src = shop
+    ? cfg.packages.filter(p => p.price != null)
+    : cfg.packages.filter(p => URUNLER_GROUPS.indexOf(p.group || "ongrid") >= 0);
+  const items = src.map(p => {
     const item = {
       "@type": "Product", name: p.name, category: p.tag, description: p.desc,
-      url: cfg.company.web + "/urunler.html#pkg-" + p.id
+      url: cfg.company.web + (shop ? "/online-satis.html#sh-" : "/urunler.html#pkg-") + p.id
     };
     const price = p.price != null ? p.price : (p.priceOnRequest ? null : Math.round(p.kwp * COST));
-    if (price != null) item.offers = { "@type": "Offer", price: price, priceCurrency: p.currency || "TRY", availability: "https://schema.org/InStock" };
+    if (price != null) {
+      item.offers = { "@type": "Offer", price: price, priceCurrency: p.currency || "TRY", availability: "https://schema.org/InStock" };
+      // Kampanyalı üründe indirimli fiyatın geçerlilik sonu
+      const camp = cfg.campaign || {};
+      if (p.oldPrice && p.oldPrice > price && camp.endsAt && new Date(camp.endsAt) > new Date()) {
+        item.offers.priceValidUntil = String(camp.endsAt).slice(0, 10);
+      }
+    }
     return item;
   });
   return {
@@ -418,7 +432,7 @@ function injectStaticLd(html, file, cfg) {
     publisher: { "@type": "Organization", name: cfg.company.brandName, url: cfg.company.web }
   });
   if (file === "su-isitici.html") objs.push(heaterProductLd(cfg));
-  if (file === "urunler.html" || file === "online-satis.html") objs.push(packagesItemListLd(cfg));
+  if (file === "urunler.html" || file === "online-satis.html") objs.push(packagesItemListLd(cfg, file));
   if (file === "ai-cankurtaran-destek-sistemi.html") objs.push(cankurtaranProductLd(cfg));
   if (file === "hesaplayici.html") objs.push(webAppLd(cfg));
   // Ürün detay sayfası — dosya adına değil, data-pkg-detail işaretine bakılır
@@ -564,10 +578,14 @@ function hydrateExtras(html, file, cfg) {
       const tl = p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
       const usd = p.currency === "USD" ? p.price : (RATE ? Math.round(p.price / RATE) : 0);
       const hav = Math.round(tl * (100 - PCT) / 100 / 50) * 50;
+      const oldTL = p.oldPrice && (p.currency === "USD" ? Math.round(p.oldPrice * RATE / 100) * 100 : p.oldPrice);
+      const camp = cfg.campaign || {};
+      const onSale = oldTL && oldTL > tl && camp.endsAt && new Date(camp.endsAt) > new Date();
       return '<article class="sh-card"><div class="sh-body">' +
-        "<h3><a href=\"" + esc(p.url || "#") + "\">" + esc(p.name) + "</a></h3>" +
+        "<h3>" + (p.url ? '<a href="' + esc(p.url) + '">' + esc(p.name) + "</a>" : esc(p.name)) + "</h3>" +
         (p.for ? '<p class="sh-for">' + esc(p.for) + "</p>" : "") +
         '<div class="sh-price"><strong>₺' + nfTr(tl) + "</strong>" +
+          (onSale ? '<s class="sh-old">₺' + nfTr(oldTL) + "</s>" : "") +
           (usd ? '<span class="sh-usd">≈ $' + nfTr(usd) + "</span>" : "") + "</div>" +
         (PCT ? '<p class="sh-hav">💰 <span>Havale/EFT ile:</span> <b>₺' + nfTr(hav) + "</b></p>" : "") +
         '<p class="sh-vat"><span>KDV dahil · kargo hariç</span></p>' +

@@ -170,6 +170,21 @@ window.GESPA.config = {
     returnDays: 14                      // cayma hakkı süresi (mesafeli satış)
   },
 
+  // ============================================================
+  // KAMPANYA — indirimli ürünler bölümü + geri sayım (online-satis.html)
+  // endsAt GEÇTİĞİNDE: geri sayım, indirim rozeti ve üstü çizili fiyat
+  // KENDİLİĞİNDEN gizlenir; ürün normal fiyatıyla katalogda kalmaya devam eder.
+  // Kampanyayı uzatmak/bitirmek için SADECE endsAt (ve gerekirse ürünün
+  // oldPrice alanı) düzenlenir. Tarih ISO-8601 + saat dilimi olmalıdır.
+  // NOT: "önceki fiyat" olarak gösterilen tutar, mevzuat gereği indirimden
+  // önceki 30 gün içinde uygulanan EN DÜŞÜK fiyat olmalıdır.
+  // ============================================================
+  campaign: {
+    endsAt: "2026-09-20T23:59:59+03:00",
+    title: "İndirimli Ürünler",
+    note: "Kampanya fiyatları stoklarla sınırlıdır."
+  },
+
   packages: [
     // —— Taşınabilir & Off-Grid (lityum bataryalı) paketler —— açık perakende fiyatı
     // img: "assets/img/products/x.webp" -> kartta çizim yerine gerçek ürün fotoğrafı
@@ -210,6 +225,21 @@ window.GESPA.config = {
       name: "MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı",
       desc: "Güneş panelinden 24-72 V akü grubuna doğrudan şarj sağlayan MPPT yükseltici (boost) şarj kontrol cihazı. AGM, jel, sulu kurşun-asit ve lityum akülerle uyumlu; Bluetooth ile programlanır. Panel ve akü ürüne dahil değildir.",
       features: ["24 / 36 / 48 / 60 / 72 V akü sistemleriyle uyumlu", "AGM, jel, sulu kurşun-asit ve lityum akü desteği", "15 A sürekli çıkış · 15–60 V DC panel girişi", "Bluetooth ile programlanır · IP22 · 2 yıl garanti"]
+    },
+
+    // —— Tekil panel —— kampanyalı ürün (oldPrice = indirim öncesi fiyat)
+    // group:"panel" olduğu için urunler.html paket vitrininde ÇIKMAZ,
+    // yalnızca online-satis.html kataloğunda listelenir.
+    // img: gerçek 50 W panel fotoğrafı gelince doldurulacak (şu an yer tutucu).
+    {
+      id: "panel-50w", icon: "🔆", tag: "Panel", group: "panel",
+      sku: "GES-PNL-50",
+      price: 1250, oldPrice: 2500,
+      chips: ["🔆 50 W monokristal", "🔋 12 V sistem", "📦 Tek panel"],
+      for: "Küçük aydınlatma, kamera ve akü şarjı",
+      name: "50W Güneş Paneli",
+      desc: "12 V sistemler için tekil 50 W monokristal güneş paneli. Bahçe aydınlatması, güvenlik kamerası ve akü şarjı gibi küçük yükler için uygundur; panel tek başına satılır, akü ve regülatör dahil değildir.",
+      features: ["50 W monokristal hücre", "12 V akü şarjı için uygun", "Bahçe aydınlatması, kamera ve küçük yükler", "Akü ve şarj regülatörü dahil değildir"]
     },
 
   ],

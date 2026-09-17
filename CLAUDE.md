@@ -221,6 +221,21 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
 - `pool`: AI Cankurtaran sayfasının aylık "çapa" rakamı ve lansman kontenjanı
   (build.js `poolMonthly`/`poolSlots`/`poolLaunchYear`/`poolNextSeason` span'lerine
   basar). TAM FİYAT LİSTESİ ve belge PDF'leri siteye KONMAZ — brief kuralı.
+- `campaign`: indirimli ürünler bölümü + geri sayım (yalnız online-satis.html).
+  `endsAt` ISO-8601 + saat dilimi; GEÇTİĞİNDE kampanya bölümü, geri sayım,
+  `−%N` rozeti ve üstü çizili fiyat KENDİLİĞİNDEN gizlenir, ürün normal
+  fiyatıyla katalogda kalır (JS'te `saleLive()`, build'de `priceValidUntil`).
+  Kampanyayı uzatmak = SADECE `endsAt`'i ileri almak.
+- İndirim, ürüne `oldPrice` yazılarak açılır (`oldPrice > price` olmalı); rozet
+  yüzdesi otomatik hesaplanır. UYARI: "önceki fiyat" olarak gösterilen tutar,
+  mevzuat gereği indirimden önceki 30 gün içinde uygulanan EN DÜŞÜK fiyattır —
+  rakamı buna göre doğrula.
+- `group` alanı sayfayı belirler: `ongrid/offgrid/irrigation/accessory`
+  urunler.html paket vitrininde ÇIKAR, `panel` gibi diğer gruplar yalnız
+  online-satis.html kataloğunda listelenir. ItemList şeması da sayfaya göre
+  süzülür (build.js `URUNLER_GROUPS`) — sayfada görünmeyen ürün şemaya girmez.
+- `img` boşsa kart nötr yer tutucu (`.sh-noimg`) gösterir; BAŞKA ürünün
+  fotoğrafı kullanılmaz. `url` boşsa "Detay" düğmesi ve bağlantılar basılmaz.
 - `admin.pass`: admin.html şifresi (statik sitede yalnızca caydırıcı).
 - Admin paneli fiyatları localStorage'da override eder (yalnız o cihaz);
   kalıcı/herkese yayın = değerleri bu dosyaya işleyip commit'lemek.

@@ -291,13 +291,18 @@
       var nf = new Intl.NumberFormat("tr-TR");
       var pct = CFG.cartDiscountPct || 0;
       var items = (CFG.packages || []).filter(function (p) { return p.price != null; });
+      // Kampanya: bitiş tarihi config.campaign.endsAt'ten okunur (tek kaynak).
+      var camp = CFG.campaign || {};
+      var campEnd = camp.endsAt ? new Date(camp.endsAt).getTime() : 0;
+      function saleLive() { return campEnd > 0 && Date.now() < campEnd; }
       // L() aktif dili çağrı anında okur; dil değişince yeniden çağrılır
       function groupLabel(g) {
         return ({
           offgrid: L("Taşınabilir & Off-Grid", "Portable & Off-Grid", "Tragbar & Off-Grid", "Портативные и off-grid"),
           ongrid: L("Çatı / On-Grid", "Rooftop / On-Grid", "Aufdach / On-Grid", "Крышные / On-grid"),
           irrigation: L("Tarımsal Sulama", "Agricultural Irrigation", "Bewässerung", "Аграрный полив"),
-          accessory: L("Elektrikli Araç", "Electric Vehicle", "E-Fahrzeug", "Электромобиль")
+          accessory: L("Elektrikli Araç", "Electric Vehicle", "E-Fahrzeug", "Электромобиль"),
+          panel: L("Panel & Ekipman", "Panels & Equipment", "Module & Zubehör", "Панели и оборудование")
         })[g] || g;
       }
       function tName(t) {
@@ -306,33 +311,83 @@
         try { var d = GESPA.i18nData && GESPA.i18nData.DICT && GESPA.i18nData.DICT[lang]; return (d && d[t]) || t; }
         catch (e) { return t; }
       }
+      // İndirim yalnızca kampanya SÜRERKEN iddia edilir; süre dolunca rozet ve
+      // üstü çizili fiyat kaybolur, ürün normal fiyatıyla katalogda kalır.
+      function saleOf(p) {
+        if (!saleLive() || !p.oldPrice || p.oldPrice <= p.price) return 0;
+        return Math.round((1 - p.price / p.oldPrice) * 100);
+      }
       function tile(p) {
         var u = pkgUnit(p);
         var usd = p.currency === "USD" ? p.price : (CFG.usdTry ? Math.round(p.price / CFG.usdTry) : 0);
+        var off = saleOf(p);
+        var oldTL = p.oldPrice && (p.currency === "USD" ? Math.round(p.oldPrice * (CFG.usdTry || 0) / 100) * 100 : p.oldPrice);
+        var href = p.url || "";
+        var media = '<span class="sh-tag">' + tName(p.tag || "") + "</span>" +
+          (off ? '<span class="sh-off">−%' + off + "</span>" : "") +
+          (p.img ? '<img src="/' + p.img + '" alt="" loading="lazy" decoding="async" />'
+                 : '<span class="sh-noimg" aria-hidden="true">🔆</span>');
         // .reveal YOK: süzgeç her tıklamada ızgarayı yeniden çizer ve yeni düğümler
         // IntersectionObserver'a kayıtlı olmadığından gizli kalırdı.
-        return '<article class="sh-card" data-group="' + (p.group || "ongrid") + '" id="sh-' + p.id + '">' +
-          '<a class="sh-media" href="' + (p.url || "#") + '">' +
-            '<span class="sh-tag">' + tName(p.tag || "") + "</span>" +
-            (p.img ? '<img src="/' + p.img + '" alt="" loading="lazy" decoding="async" />' : "") +
-          "</a>" +
+        return '<article class="sh-card' + (off ? " is-sale" : "") + '" data-group="' + (p.group || "ongrid") + '" id="sh-' + p.id + '">' +
+          (href ? '<a class="sh-media" href="' + href + '">' + media + "</a>"
+                : '<span class="sh-media">' + media + "</span>") +
           '<div class="sh-body">' +
-            '<h3><a href="' + (p.url || "#") + '">' + tName(p.name) + "</a></h3>" +
+            "<h3>" + (href ? '<a href="' + href + '">' + tName(p.name) + "</a>" : tName(p.name)) + "</h3>" +
             (p.for ? '<p class="sh-for">' + tName(p.for) + "</p>" : "") +
             '<div class="sh-price"><strong>₺' + nf.format(u.list) + "</strong>" +
+              (off ? '<s class="sh-old">₺' + nf.format(oldTL) + "</s>" : "") +
               (usd ? '<span class="sh-usd">≈ $' + nf.format(usd) + "</span>" : "") + "</div>" +
             (pct ? '<p class="sh-hav">💰 ' + L("Havale/EFT ile:", "By bank transfer:", "Per Überweisung:", "Банковским переводом:") +
               " <b>₺" + nf.format(u.cart) + "</b></p>" : "") +
             '<p class="sh-vat">' + L("KDV dahil · kargo hariç", "VAT included · shipping excluded",
               "Inkl. MwSt. · zzgl. Versand", "НДС включён · доставка отдельно") + "</p>" +
             '<div class="sh-act">' +
-              '<a class="btn btn-ghost btn-sm" href="' + (p.url || "#") + '">' +
-                L("Detay", "Details", "Details", "Подробнее") + "</a>" +
+              (href ? '<a class="btn btn-ghost btn-sm" href="' + href + '">' +
+                L("Detay", "Details", "Details", "Подробнее") + "</a>" : "") +
               '<button class="btn btn-sm" type="button" data-sh-add="' + p.id + '">🛒 ' +
                 L("Sepete ekle", "Add to cart", "In den Warenkorb", "В корзину") + "</button>" +
             "</div>" +
           "</div></article>";
       }
+      // İndirimli ürünler bölümü + geri sayım. Süre dolunca bölüm tamamen gizlenir.
+      var saleBox = $("#saleSection");
+      var tickTimer = null;
+      function two(n) { return (n < 10 ? "0" : "") + n; }
+      function renderSale() {
+        if (!saleBox) return;
+        var deals = saleLive() ? items.filter(function (p) { return saleOf(p) > 0; }) : [];
+        if (!deals.length) {
+          saleBox.hidden = true; saleBox.innerHTML = "";
+          if (tickTimer) { clearInterval(tickTimer); tickTimer = null; }
+          return;
+        }
+        saleBox.hidden = false;
+        saleBox.innerHTML =
+          '<div class="sale-head">' +
+            "<h2>🔥 " + (tName(camp.title) || L("İndirimli Ürünler", "Deals", "Angebote", "Скидки")) + "</h2>" +
+            '<div class="sale-count" role="timer" aria-live="off">' +
+              '<span class="sale-count-lbl">' + L("Kampanyanın bitmesine", "Campaign ends in",
+                "Aktion endet in", "До конца акции") + "</span>" +
+              '<span class="sale-clock" id="saleClock">—</span>' +
+            "</div>" +
+          "</div>" +
+          '<div class="sh-grid sale-grid">' + deals.map(tile).join("") + "</div>" +
+          (camp.note ? '<p class="sale-note">' + tName(camp.note) + "</p>" : "");
+        tick();
+        if (tickTimer) clearInterval(tickTimer);
+        tickTimer = setInterval(tick, 1000);
+      }
+      function tick() {
+        var el = $("#saleClock"); if (!el) return;
+        var ms = campEnd - Date.now();
+        if (ms <= 0) { renderSale(); render(active); return; }   // süre doldu: rozetler kalksın
+        var sec = Math.floor(ms / 1000);
+        var d = Math.floor(sec / 86400), h = Math.floor(sec % 86400 / 3600),
+            m = Math.floor(sec % 3600 / 60), s2 = sec % 60;
+        el.textContent = (d ? d + L("g ", "d ", "T ", "д ") : "") + two(h) + ":" + two(m) + ":" + two(s2);
+      }
+
       function render(filter) {
         var list = filter && filter !== "all"
           ? items.filter(function (p) { return (p.group || "ongrid") === filter; })
@@ -366,17 +421,23 @@
         render(active);
       });
       buildFilters();
+      renderSale();
       render(active);
       // sepete ekle — onay penceresi paket sayfalarıyla ortak
-      grid.addEventListener("click", function (e) {
-        var b = e.target.closest("[data-sh-add]"); if (!b) return;
-        var id = b.getAttribute("data-sh-add");
-        var p = cart.pkgOf(id); if (!p) return;
-        cart.add(id, 1);
-        cartPop(p.name);
-      });
+      function bindAdd(root) {
+        if (!root) return;
+        root.addEventListener("click", function (e) {
+          var b = e.target.closest("[data-sh-add]"); if (!b) return;
+          var id = b.getAttribute("data-sh-add");
+          var p = cart.pkgOf(id); if (!p) return;
+          cart.add(id, 1);
+          cartPop(p.name);
+        });
+      }
+      bindAdd(grid);
+      bindAdd(saleBox);
       // Dil değişince çipler ve kartlar yeniden çizilir (seçili süzgeç korunur).
-      doc.addEventListener("gespa:lang", function () { buildFilters(); render(active); });
+      doc.addEventListener("gespa:lang", function () { buildFilters(); renderSale(); render(active); });
     })();
 
     // ---- Sepet sayfası (sepet.html) — kalemler + sipariş özeti + WhatsApp siparişi ----
