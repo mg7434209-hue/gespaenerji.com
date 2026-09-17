@@ -50,6 +50,7 @@
 
   var DICT = {
     en: {
+      "Net fiyatlı üründe uygulanmaz": "Not applied to net-priced products",
       "Panel & Ekipman": "Panels & Equipment",
       "İndirimli Ürünler": "Deals",
       "Kampanya fiyatları stoklarla sınırlıdır.": "Campaign prices are limited to available stock.",
@@ -608,6 +609,7 @@
       "Aboneliğiniz alındı, teşekkürler!": "You're subscribed, thank you!"
     },
     de: {
+      "Net fiyatlı üründe uygulanmaz": "Bei Nettopreis-Produkten nicht anwendbar",
       "Panel & Ekipman": "Module & Zubehör",
       "İndirimli Ürünler": "Angebote",
       "Kampanya fiyatları stoklarla sınırlıdır.": "Aktionspreise gelten solange der Vorrat reicht.",
@@ -1195,6 +1197,7 @@
       "Aboneliğiniz alındı, teşekkürler!": "Anmeldung erhalten, danke!"
     },
     ru: {
+      "Net fiyatlı üründe uygulanmaz": "К товарам по нетто-цене не применяется",
       "Panel & Ekipman": "Панели и оборудование",
       "İndirimli Ürünler": "Скидки",
       "Kampanya fiyatları stoklarla sınırlıdır.": "Акционные цены — пока есть в наличии.",

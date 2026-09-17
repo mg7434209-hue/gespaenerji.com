@@ -234,6 +234,12 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   urunler.html paket vitrininde ÇIKAR, `panel` gibi diğer gruplar yalnız
   online-satis.html kataloğunda listelenir. ItemList şeması da sayfaya göre
   süzülür (build.js `URUNLER_GROUPS`) — sayfada görünmeyen ürün şemaya girmez.
+- `noCartDiscount: true` → fiyat NETTİR, üstüne havale/EFT indirimi BİNMEZ ve
+  havale satırı hiçbir yerde gösterilmez (kampanya fiyatlarında kullanılır).
+  Tek kural main.js `pkgUnit()` ve build.js `havaleTL()`; vitrin kartı, paket
+  detay statiği, PKG/SHOP:STATIC, llms-full.txt ve sepet özeti bunlara bağlıdır
+  — yeni bir fiyat noktası eklersen onu da bu iki yardımcıya bağla. Sepette
+  indirime giren kalem yoksa özet "−₺0" yerine "uygulanmaz" yazar.
 - `img` boşsa kart nötr yer tutucu (`.sh-noimg`) gösterir; BAŞKA ürünün
   fotoğrafı kullanılmaz. `url` boşsa "Detay" düğmesi ve bağlantılar basılmaz.
 - `admin.pass`: admin.html şifresi (statik sitede yalnızca caydırıcı).

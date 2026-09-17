@@ -297,6 +297,11 @@ function heaterProductLd(cfg) {
 // urunler.html'de yalnızca bu gruplar render edilir (main.js/build.js GROUPS ile aynı).
 // Şema, sayfada GÖRÜNMEYEN ürünü listelememelidir.
 const URUNLER_GROUPS = ["offgrid", "irrigation", "ongrid", "accessory"];
+// Havale/EFT birim tutarı — main.js pkgUnit ile AYNI kural.
+// noCartDiscount'lu üründe fiyat zaten nettir, indirim BİNMEZ.
+function havaleTL(p, tl, pct) {
+  return p.noCartDiscount ? tl : Math.round(tl * (100 - pct) / 100 / 50) * 50;
+}
 function packagesItemListLd(cfg, file) {
   const COST = (cfg.calc && cfg.calc.costPerKwp) || 28000;
   const shop = file === "online-satis.html";
@@ -577,7 +582,7 @@ function hydrateExtras(html, file, cfg) {
     const rows = cfg.packages.filter(p => p.price != null).map(p => {
       const tl = p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
       const usd = p.currency === "USD" ? p.price : (RATE ? Math.round(p.price / RATE) : 0);
-      const hav = Math.round(tl * (100 - PCT) / 100 / 50) * 50;
+      const hav = havaleTL(p, tl, PCT);
       const oldTL = p.oldPrice && (p.currency === "USD" ? Math.round(p.oldPrice * RATE / 100) * 100 : p.oldPrice);
       const camp = cfg.campaign || {};
       const onSale = oldTL && oldTL > tl && camp.endsAt && new Date(camp.endsAt) > new Date();
@@ -587,7 +592,7 @@ function hydrateExtras(html, file, cfg) {
         '<div class="sh-price"><strong>₺' + nfTr(tl) + "</strong>" +
           (onSale ? '<s class="sh-old">₺' + nfTr(oldTL) + "</s>" : "") +
           (usd ? '<span class="sh-usd">≈ $' + nfTr(usd) + "</span>" : "") + "</div>" +
-        (PCT ? '<p class="sh-hav">💰 <span>Havale/EFT ile:</span> <b>₺' + nfTr(hav) + "</b></p>" : "") +
+        (PCT && hav < tl ? '<p class="sh-hav">💰 <span>Havale/EFT ile:</span> <b>₺' + nfTr(hav) + "</b></p>" : "") +
         '<p class="sh-vat"><span>KDV dahil · kargo hariç</span></p>' +
         "</div></article>";
     }).join("");
@@ -617,7 +622,7 @@ function hydrateExtras(html, file, cfg) {
       const usd = p.currency === "USD" ? p.price : (RATE ? Math.round(p.price / RATE) : 0);
       setSpan("pkgPrice", "₺" + nfTr(tl));
       setSpan("pkgAlt", usd ? "≈ $" + nfTr(usd) : "");
-      setSpan("pkgHavale", "₺" + nfTr(Math.round(tl * (100 - PCT) / 100 / 50) * 50));
+      setSpan("pkgHavale", "₺" + nfTr(havaleTL(p, tl, PCT)));
       if (p.sku) setSpan("pkgSku", esc(p.sku));
     }
     const com = cfg.commerce || {};
@@ -725,10 +730,10 @@ function hydrateExtras(html, file, cfg) {
           // Vitrin kartıyla AYNI gösterim: ana fiyat ₺, yanında ≈$, altında havale/EFT tutarı
           const tl = p.currency === "USD" ? Math.round(price * RATE / 100) * 100 : price;
           const usd = p.currency === "USD" ? price : (RATE ? Math.round(price / RATE) : 0);
-          const hav = Math.round(tl * (100 - PCT) / 100 / 50) * 50;
+          const hav = havaleTL(p, tl, PCT);
           const priceTxt = "₺" + nfTr(tl) + (usd ? " (≈ $" + nfTr(usd) + ")" : "") +
             (p.price != null
-              ? (PCT ? " <span>liste</span> · <span>havale/EFT ile</span> ₺" + nfTr(hav) + " (%" + PCT + " <span>indirimli, KDV dahil</span>)" : " (<span>KDV dahil</span>)")
+              ? (PCT && hav < tl ? " <span>liste</span> · <span>havale/EFT ile</span> ₺" + nfTr(hav) + " (%" + PCT + " <span>indirimli, KDV dahil</span>)" : " (<span>KDV dahil</span>)")
               : " (yaklaşık)");
           const lead = p.kwp ? p.kwp + " kWp" : (p.sku || "");
           return "<li><strong>" + esc(p.name) + "</strong> — " + (lead ? esc(lead) + " · " : "") +
@@ -854,9 +859,9 @@ function writeLlmsFull(cfg) {
     const price = p.price != null ? p.price : Math.round(p.kwp * COST);
     const tl = p.currency === "USD" ? Math.round(price * RATE / 100) * 100 : price;
     const usd = p.currency === "USD" ? price : (RATE ? Math.round(price / RATE) : 0);
-    const hav = Math.round(tl * (100 - PCT) / 100 / 50) * 50;
+    const hav = havaleTL(p, tl, PCT);
     const tag = p.price != null
-      ? (PCT ? ` liste (KDV dahil) · havale/EFT ile ₺${nf(hav)} (%${PCT} indirimli)` : " (KDV dahil)")
+      ? (PCT && hav < tl ? ` liste (KDV dahil) · havale/EFT ile ₺${nf(hav)} (%${PCT} indirimli)` : " (KDV dahil, net fiyat)")
       : " (yaklaşık, keşifle netleşir)";
     const lead = p.kwp ? `${p.kwp} kWp · ` : (p.sku ? `${p.sku} · ` : "");
     return `- ${p.name} — ${lead}${p.for} · ₺${nf(tl)}${usd ? ` (≈ $${nf(usd)})` : ""}${tag}`;

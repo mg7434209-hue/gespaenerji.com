@@ -162,7 +162,9 @@
       var tl = p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
       return {
         list: tl,
-        cart: Math.round(tl * (100 - pct) / 100 / 50) * 50,
+        // noCartDiscount: fiyat zaten net (ör. kampanya fiyatı) — üstüne
+        // havale/EFT indirimi BİNMEZ. TÜM fiyat noktaları bu kuralı izler.
+        cart: p.noCartDiscount ? tl : Math.round(tl * (100 - pct) / 100 / 50) * 50,
         usd: p.currency === "USD" ? p.price : (RATE ? Math.round(p.price / RATE) : 0)
       };
     }
@@ -338,7 +340,7 @@
             '<div class="sh-price"><strong>₺' + nf.format(u.list) + "</strong>" +
               (off ? '<s class="sh-old">₺' + nf.format(oldTL) + "</s>" : "") +
               (usd ? '<span class="sh-usd">≈ $' + nf.format(usd) + "</span>" : "") + "</div>" +
-            (pct ? '<p class="sh-hav">💰 ' + L("Havale/EFT ile:", "By bank transfer:", "Per Überweisung:", "Банковским переводом:") +
+            (pct && u.cart < u.list ? '<p class="sh-hav">💰 ' + L("Havale/EFT ile:", "By bank transfer:", "Per Überweisung:", "Банковским переводом:") +
               " <b>₺" + nf.format(u.cart) + "</b></p>" : "") +
             '<p class="sh-vat">' + L("KDV dahil · kargo hariç", "VAT included · shipping excluded",
               "Inkl. MwSt. · zzgl. Versand", "НДС включён · доставка отдельно") + "</p>" +
@@ -467,7 +469,11 @@
         var downTL = Math.round(listT * 0.30 / 50) * 50, restTL = listT - downTL;   // kapıda: %30 peşin
         set("[data-ord-list]", "₺" + nf.format(listT));
         if (method === "havale") {
-          set("[data-ord-disc]", "−₺" + nf.format(listT - cartT) + " (%" + pct + ")");
+          // Sepette indirime giren kalem yoksa (hepsi net fiyatlı) "−₺0 (%10)" yazma
+          set("[data-ord-disc]", listT > cartT
+            ? "−₺" + nf.format(listT - cartT) + " (%" + pct + ")"
+            : L("Net fiyatlı üründe uygulanmaz", "Not applied to net-priced products",
+                "Bei Nettopreis-Produkten nicht anwendbar", "К товарам по нетто-цене не применяется"));
           set("[data-ord-total]", "₺" + nf.format(cartT));
           if (planEl) planEl.hidden = true;
         } else if (method === "kart") {
@@ -779,12 +785,14 @@
         var priceHtml;
         if (price != null) {
           var listTL = tlOf(price);
-          var havTL = Math.round(listTL * (100 - cartPct) / 100 / 50) * 50;
+          var netPrice = !!p.noCartDiscount;                       // fiyat zaten net
+          var havTL = netPrice ? listTL : Math.round(listTL * (100 - cartPct) / 100 / 50) * 50;
+          var showHav = cartPct && !netPrice;
           priceHtml = '<div class="pkg-price"><span class="pkg-price-lbl">' + priceLbl +
-            (cartPct ? ' <em class="pkg-disc">🛒 ' + L("Sepette %" + cartPct + " indirim", cartPct + "% off in cart", cartPct + " % Rabatt im Warenkorb", "−" + cartPct + " % в корзине") + "</em>" : "") + "</span>" +
+            (showHav ? ' <em class="pkg-disc">🛒 ' + L("Sepette %" + cartPct + " indirim", cartPct + "% off in cart", cartPct + " % Rabatt im Warenkorb", "−" + cartPct + " % в корзине") + "</em>" : "") + "</span>" +
             '<span class="pkg-price-row"><strong>₺' + nf.format(listTL) + "</strong>" +
             (usdOf(price) ? '<span class="pkg-alt">≈ $' + nf.format(usdOf(price)) + "</span>" : "") + "</span></div>" +
-            (cartPct ? '<p class="pkg-havale">💰 ' + L("Havale/EFT ile:", "By bank transfer:", "Per Überweisung:", "Банковским переводом:") +
+            (showHav ? '<p class="pkg-havale">💰 ' + L("Havale/EFT ile:", "By bank transfer:", "Per Überweisung:", "Банковским переводом:") +
               " <b>₺" + nf.format(havTL) + "</b> (" +
               L("%" + cartPct + " indirimli", cartPct + "% off", cartPct + " % Rabatt", "скидка " + cartPct + " %") + ")</p>" : "") +
             '<p class="pkg-price-note">' + L("KDV dahil · kargo hariç", "VAT included · shipping excluded", "Inkl. MwSt. · zzgl. Versand", "НДС включён · доставка отдельно") + "</p>";
