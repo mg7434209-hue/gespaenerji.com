@@ -135,6 +135,14 @@ GES Marketim ↗). Gezinme ile eylemi karıştırma, ayrı tut.
 Sol kenar seçildi: LTR'de göz sol üste düşer, kategori rayı e-ticarette solda
 beklenir. Kenar çubuğu `position:sticky`. Filtre çipleri (`#shopFilters`) AYRI
 bir denetimdir, ızgaranın üstünde kalır — gezinme ile süzgeci karıştırma.
+SAYFA ÜRÜNLE BAŞLAR: büyük `page-hero` YOKTUR (elektrikli-arac-donusum.html ile
+aynı gerekçe), yerine kompakt `.shop-head` = pill + H1 + tek cümle. Kampanya
+bölümü (`#saleSection`) ızgaranın ALTINDADIR; kenar çubuğundaki `#saleLink`
+(`.slink-deal`, turuncu) oraya çapalıdır. Bu bağlantı `hidden` başlar ve
+main.js `renderSale()` içinde bölümle BİRLİKTE açılır/kapanır — kampanya
+bitince kopuk çapa kalmasın. Güven satırları (`.shop-side-trust`) kenar
+çubuğunun altındadır; emojiler metnin İÇİNDE kalmalı, ayrı `<span>`e alınırsa
+DICT anahtarı eşleşmez ve çeviri düşer.
 900px altında kenar çubuğu yatay kaydırılan pill şeridine döner; "MAĞAZA"
 başlığı ve alt çizgi MOBİLDE DE KALIR, yoksa hemen altındaki filtre çipleriyle
 aynı görünüp ayırt edilemez.

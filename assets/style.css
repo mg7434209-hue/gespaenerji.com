@@ -790,6 +790,19 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
    içindeki auto-fill ızgaranın sütunu kolondan geniş yapmasına izin verir
    ve mobilde kartlar ekrandan taşar. */
 .shop-main{min-width:0}
+/* Kompakt katalog başlığı — büyük page-hero KALDIRILDI ki ürün ızgarası ilk
+   ekranda görünsün (elektrikli-arac-donusum.html ile aynı gerekçe). H1 ve
+   tanıtım cümlesi SEO/erişilebilirlik için KORUNUR, yalnızca sıkıştırıldı. */
+.shop-head{margin:0 0 20px;max-width:760px}
+.shop-head h1{margin:8px 0 0;font-size:clamp(1.7rem,3.4vw,2.3rem)}
+.shop-head .lead{margin:8px 0 0;font-size:.95rem}
+/* Kampanya satırı: süreli promosyon, bölüm değil — ayrı renkte okunur.
+   Bölüm gizliyken main.js bu satırı da gizler (kopuk çapa kalmasın). */
+.shop-side .slink-deal b{color:#c2410c}
+.shop-side .slink-deal:hover b{color:#fff}
+.shop-side-trust{list-style:none;margin:14px 0 0;padding:14px 0 0;
+  border-top:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.shop-side-trust li{font-size:.78rem;color:var(--muted);line-height:1.35}
 .shop-side{position:sticky;top:96px}
 .shop-side-head{margin:0 0 8px;font-size:.72rem;font-weight:800;letter-spacing:.08em;
   text-transform:uppercase;color:var(--muted)}
@@ -824,6 +837,8 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
     padding:8px 13px;white-space:nowrap}
   .slink-txt em{display:none}
   .shopmenu-sep{display:none}
+  .shop-side-trust{flex-direction:row;flex-wrap:wrap;gap:6px 14px;margin-top:10px;padding-top:10px}
+  .shop-head{margin-bottom:14px}
 }
 
 /* Mobil (hamburger) menü — masaüstü .menu-group/.submenu kurallarından SONRA
@@ -1310,10 +1325,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* ==== Online satış kataloğu (online-satis.html) — e-ticaret ızgarası ====
    Izgara auto-fill'dir: ürün sayısı onlarca olduğunda kendiliğinden büyür. */
 /* Katalog hero'su kompakt: ürün ızgarası ilk ekrana daha yakın başlasın */
-.page-hero-tight{padding:34px 0 30px}
-.page-hero-tight .lead{margin-top:10px}
-.page-hero-tight .hero-badges{margin-top:16px}
-.page-hero-tight .hero-badges span{padding:7px 13px;font-size:.82rem}
 .section-tight{padding-top:30px}
 /* İndirimli ürünler bölümü + geri sayım (online-satis.html).
    Bölüm yalnızca config.campaign.endsAt gelecekteyse çizilir. */

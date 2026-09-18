@@ -397,6 +397,10 @@
       }
       // İndirimli ürünler bölümü + geri sayım. Süre dolunca bölüm tamamen gizlenir.
       var saleBox = $("#saleSection");
+      // Kenar çubuğundaki "İndirimli Ürünler" bağlantısı kampanya bölümüne
+      // çapalıdır; bölüm gizliyken bağlantı da GİZLİ olmalı, yoksa kampanya
+      // bitince hiçbir yere götürmeyen bir menü satırı kalır.
+      var saleLink = $("#saleLink");
       var tickTimer = null;
       function two(n) { return (n < 10 ? "0" : "") + n; }
       function renderSale() {
@@ -404,10 +408,16 @@
         var deals = saleLive() ? items.filter(function (p) { return saleOf(p) > 0; }) : [];
         if (!deals.length) {
           saleBox.hidden = true; saleBox.innerHTML = "";
+          if (saleLink) saleLink.hidden = true;
           if (tickTimer) { clearInterval(tickTimer); tickTimer = null; }
           return;
         }
         saleBox.hidden = false;
+        if (saleLink) {
+          saleLink.hidden = false;
+          var lb = saleLink.querySelector("b");
+          if (lb) lb.textContent = tName(camp.title) || L("İndirimli Ürünler", "Deals", "Angebote", "Скидки");
+        }
         saleBox.innerHTML =
           '<div class="sale-head">' +
             "<h2>🔥 " + (tName(camp.title) || L("İndirimli Ürünler", "Deals", "Angebote", "Скидки")) + "</h2>" +
