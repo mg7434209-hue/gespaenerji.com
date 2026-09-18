@@ -397,10 +397,6 @@
       }
       // İndirimli ürünler bölümü + geri sayım. Süre dolunca bölüm tamamen gizlenir.
       var saleBox = $("#saleSection");
-      // Kenar çubuğundaki "İndirimli Ürünler" bağlantısı kampanya bölümüne
-      // çapalıdır; bölüm gizliyken bağlantı da GİZLİ olmalı, yoksa kampanya
-      // bitince hiçbir yere götürmeyen bir menü satırı kalır.
-      var saleLink = $("#saleLink");
       var tickTimer = null;
       function two(n) { return (n < 10 ? "0" : "") + n; }
       function renderSale() {
@@ -408,16 +404,12 @@
         var deals = saleLive() ? items.filter(function (p) { return saleOf(p) > 0; }) : [];
         if (!deals.length) {
           saleBox.hidden = true; saleBox.innerHTML = "";
-          if (saleLink) saleLink.hidden = true;
+          syncSaleLink();
           if (tickTimer) { clearInterval(tickTimer); tickTimer = null; }
           return;
         }
         saleBox.hidden = false;
-        if (saleLink) {
-          saleLink.hidden = false;
-          var lb = saleLink.querySelector("b");
-          if (lb) lb.textContent = tName(camp.title) || L("İndirimli Ürünler", "Deals", "Angebote", "Скидки");
-        }
+        syncSaleLink();
         saleBox.innerHTML =
           '<div class="sale-head">' +
             "<h2>🔥 " + (tName(camp.title) || L("İndirimli Ürünler", "Deals", "Angebote", "Скидки")) + "</h2>" +
@@ -1776,6 +1768,39 @@
       ptabPanels.forEach(function (p) { p.classList.toggle("active", p.getAttribute("data-ptabpanel") === t); });
     });
   }
+
+  // Kenar çubuğundaki "İndirimli Ürünler" bağlantısı HER sayfada bulunabilir
+  // (katalog + toptan). Katalogda kampanya bölümüne, diğerlerinde
+  // online-satis.html'e çapalıdır. Kampanya bitince ya da indirimli ürün
+  // kalmayınca GİZLENİR — yoksa hiçbir yere götürmeyen bir satır kalır.
+  function syncSaleLink() {
+    var link = document.querySelector("#saleLink");
+    if (!link) return;
+    var camp = CFG.campaign || {};
+    var end = camp.endsAt ? new Date(camp.endsAt).getTime() : 0;
+    var live = end > 0 && Date.now() < end;
+    var has = live && (CFG.packages || []).filter(function (p) {
+      return p.price != null && p.oldPrice && p.oldPrice > p.price;
+    }).length > 0;
+    link.hidden = !has;
+    if (!has) return;
+    var lang = (window.GESPA && GESPA.lang) || "tr", title = camp.title || "";
+    if (lang !== "tr" && title) {
+      try {
+        var d = GESPA.i18nData && GESPA.i18nData.DICT && GESPA.i18nData.DICT[lang];
+        if (d && d[title]) title = d[title];
+      } catch (e) { /* çeviri yoksa TR kalır */ }
+    }
+    var b = link.querySelector("b");
+    if (b) b.textContent = title || L("İndirimli Ürünler", "Deals", "Angebote", "Скидки");
+  }
+
+  /* ---- Mağaza kenar çubuğu: kampanya bağlantısı ----
+     Katalog dışındaki sayfalarda (ör. toptan.html) renderSale() hiç çalışmaz;
+     bağlantının görünürlüğünü bu çağrı üstlenir. Katalogda renderSale() aynı
+     yardımcıyı çağırır, iki yer de tek kuralı izler. */
+  syncSaleLink();
+  doc.addEventListener("gespa:lang", syncSaleLink);
 
   /* ---- data-pkg-name: ürün adını config.packages'ten tazeler ----
      HTML'deki metin SSR/JS'siz yedeğidir; tek doğru kaynak yine config. */

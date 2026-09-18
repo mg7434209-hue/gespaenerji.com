@@ -790,6 +790,9 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
    içindeki auto-fill ızgaranın sütunu kolondan geniş yapmasına izin verir
    ve mobilde kartlar ekrandan taşar. */
 .shop-main{min-width:0}
+/* İki sütunlu düzende sağ kolonun başlığı ORTALANMAZ — sol raya hizalanır,
+   yoksa kenar çubuğunun yanında ortada asılı kalır (toptan.html #stok). */
+.shop-main .section-head{text-align:left;margin:0 0 22px;max-width:none}
 /* Kompakt katalog başlığı — büyük page-hero KALDIRILDI ki ürün ızgarası ilk
    ekranda görünsün (elektrikli-arac-donusum.html ile aynı gerekçe). H1 ve
    tanıtım cümlesi SEO/erişilebilirlik için KORUNUR, yalnızca sıkıştırıldı. */

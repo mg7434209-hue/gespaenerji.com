@@ -150,8 +150,15 @@ GRID TUZAĞI: `.shop-layout` sütunlarında `1fr` veya `none` KULLANMA —
 ikisinin de örtük minimumu min/max-content'tir ve `.sh-grid` sütunu konteynerden
 geniş yapıp mobilde kartları ekrandan taşırır. `minmax(0,1fr)` + `.shop-main`
 üzerinde `min-width:0` zorunludur (360–1920px'te ölçüldü).
-Kenar çubuğuna bağlantı eklemek = `online-satis.html` içindeki `.shop-side-nav`
-+ DICT'e 3 dil. Üst menüye YENİ AÇILIR grup eklersen `nav5.py` GROUPS deseni.
+KENAR ÇUBUĞU İKİ SAYFADADIR (online-satis.html ve toptan.html `#stok`);
+elle kopyalanırsa sapar — tek kaynak scratchpad `shopside.py` (NAV/ACTIONS/
+TRUST + PAGES tablosu). Bağlantı eklemek = oraya satır + DICT'e 3 dil +
+çalıştır. Kampanya satırı katalogda `#saleSection`, diğer sayfalarda
+`online-satis.html#saleSection` çapası alır; görünürlüğünü main.js
+`syncSaleLink()` yönetir — DIŞ kapsamdadır (renderSale katalog dışında hiç
+çalışmaz), her sayfada bir kez ve `gespa:lang` olayında çağrılır.
+İki sütunlu düzende sağ kolonun `.section-head` başlığı ORTALANMAZ.
+Üst menüye YENİ AÇILIR grup eklersen `nav5.py` GROUPS deseni.
 Yeni sayfa eklenince TÜM sayfalarda güncelle — nav bloğunu tek kaynaktan
 yeniden üreten scratchpad `nav5.py` deseni (sayfa→aktif grup/link tablosu +
 ikon/açıklama + SHOP ürün tablosu içerir) kullanılır.
