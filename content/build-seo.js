@@ -13,7 +13,7 @@ function translations(i18n) {
   const add=t=>['en','de','ru'].forEach((l,i)=>{i18n.DICT[l][t[0]]=t[i+1];});
   Object.values(labels).forEach(add);
   require("./translation-fixes.json").forEach(add);
-  pages.forEach(p=>{add(p.title);add(p.intro);p.sections.forEach(s=>s.forEach(add));});
+  pages.forEach(p=>{add(p.title);add(p.intro);if(p.desc)add(p.desc);p.sections.forEach(s=>s.forEach(add));});
 }
 function generate(root) {
   // One editable source for extra translations; browser and static build stay in sync.
@@ -29,7 +29,9 @@ function generate(root) {
   Object.assign(names,{'tarimsal-sulama.html':'Tarımsal Sulama','projeler.html':'Referans Projeler','sistem-kur.html':'Sistem Kurucu','paket-2x540w.html':'Tam Kapsamlı Güneş Enerjisi Sistemi'});
   for(const p of pages){
     let html=template.replace(/<title>[\s\S]*?<\/title>/,'<title>'+esc(p.title[0])+' | GESPA Enerji</title>');
-    html=html.replace(/(<meta (?:name="description"|property="og:description") content=")[^"]*/g,(_,a)=>a+esc(p.intro[0]));
+    // Meta açıklaması: `desc` verilmişse O kullanılır (arama sonucunda kırpılmasın
+    // diye kısa tutulur); verilmemişse sayfanın giriş paragrafı kullanılır.
+    html=html.replace(/(<meta (?:name="description"|property="og:description") content=")[^"]*/g,(_,a)=>a+esc((p.desc||p.intro)[0]));
     html=html.replace(/(<meta property="og:title" content=")[^"]*/g,(_,a)=>a+esc(p.title[0]));
     html=html.replace(/https:\/\/www.gespaenerji.com\/hizmetler.html/g,'https://www.gespaenerji.com/'+p.file);
     html=html.replace(/\s*<link rel="alternate"[^>]*>/g,'');

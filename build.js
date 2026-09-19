@@ -42,17 +42,17 @@ const META = {
   "index.html": {
     en: { t: "GESPA Energy — Solar Power Plants (PV) | Turnkey Solutions",
           d: "GESPA Energy: turnkey installation, engineering, financing and maintenance for rooftop and ground-mounted solar power plants (PV). Manavgat / Antalya, Türkiye." },
-    de: { t: "GESPA Energy — Solarkraftwerke (PV) | Schlüsselfertige Lösungen",
+    de: { t: "GESPA Energy — Schlüsselfertige Solaranlagen (PV)",
           d: "GESPA Energy: schlüsselfertige Installation, Engineering, Finanzierung und Wartung für Aufdach- und Freiflächen-Solaranlagen. Manavgat / Antalya, Türkei." },
     ru: { t: "GESPA Energy — Солнечные электростанции | Решения под ключ",
           d: "GESPA Energy: монтаж под ключ, инжиниринг, финансирование и обслуживание солнечных электростанций на крыше и на земле. Манавгат / Анталья, Турция." }
   },
   "hizmetler.html": {
-    en: { t: "Our Services — Rooftop & Ground Solar, Storage, O&M | GESPA Energy",
+    en: { t: "Services — Rooftop & Ground Solar, Storage | GESPA",
           d: "Rooftop PV, ground-mounted PV, energy storage, engineering, financing and maintenance (O&M). Turnkey solar energy solutions — GESPA Energy." },
-    de: { t: "Leistungen — Aufdach- & Freiflächen-PV, Speicher, Wartung | GESPA Energy",
+    de: { t: "Leistungen — Aufdach- & Freiflächen-PV | GESPA Energy",
           d: "Aufdach-PV, Freiflächen-PV, Energiespeicher, Engineering, Finanzierung und Wartung (O&M). Schlüsselfertige Solarlösungen — GESPA Energy." },
-    ru: { t: "Услуги — Солнечные станции, накопители, обслуживание | GESPA Energy",
+    ru: { t: "Услуги — солнечные станции и накопители | GESPA",
           d: "Солнечные станции на крыше и на земле, накопители энергии, инжиниринг, финансирование и обслуживание (O&M). Решения под ключ — GESPA Energy." }
   },
   "online-satis.html": {
@@ -60,63 +60,63 @@ const META = {
           d: "All products on sale in one place: ready-made solar kits, MPPT charge controllers and equipment. Transparent prices, VAT included, shipping across Türkiye." },
     de: { t: "Onlineshop — Solarprodukte und Ausrüstung | GESPA Energy",
           d: "Alle Verkaufsprodukte auf einer Seite: Solar-Fertigsets, MPPT-Laderegler und Zubehör. Transparente Preise inkl. MwSt., Versand in die ganze Türkei." },
-    ru: { t: "Интернет-магазин — солнечные товары и оборудование | GESPA Energy",
+    ru: { t: "Интернет-магазин солнечного оборудования | GESPA",
           d: "Все товары в продаже на одной странице: готовые солнечные комплекты, MPPT-контроллеры и оборудование. Прозрачные цены с НДС, доставка по Турции." }
   },
   "urunler.html": {
-    en: { t: "Solar Packages — Portable Off-Grid & Irrigation Kits | GESPA Energy",
+    en: { t: "Solar Packages — Off-Grid & Irrigation | GESPA Energy",
           d: "285 W and 2×540 W solar kits for camping, caravans and cottages. Compare panels, power boxes and cables; shipping across Türkiye — GESPA Enerji." },
-    de: { t: "Solar-Pakete — Tragbare Off-Grid- & Bewässerungssets | GESPA Energy",
+    de: { t: "Solar-Pakete — Off-Grid & Bewässerung | GESPA Energy",
           d: "285-W- und 2×540-W-Solarsets für Camping, Wohnmobile und Ferienhäuser. Module, Power-Box und Kabel vergleichen; Versand in die ganze Türkei." },
-    ru: { t: "Солнечные пакеты — Портативные off-grid и для полива | GESPA Energy",
+    ru: { t: "Солнечные пакеты — off-grid и полив | GESPA",
           d: "Комплекты 285 Вт и 2×540 Вт для кемпинга, автодомов и дач. Панели, блок питания и кабели; доставка по всей Турции." }
   },
   "elektrikli-arac-donusum.html": {
-    en: { t: "Solar Conversion for Electric Vehicles — BOOST MPPT Charger | GESPA Energy",
-          d: "Solar panel conversion for golf carts, service vehicles and electric platforms. MS Technik BOOST MPPT Charger with lithium battery support, Bluetooth programming and 48V/60V/72V compatibility — GESPA Energy, Antalya/Manavgat." },
-    de: { t: "Solar-Umrüstung für Elektrofahrzeuge — BOOST MPPT Charger | GESPA Energy",
-          d: "Solarmodul-Umrüstung für Golfcarts, Servicefahrzeuge und Elektroplattformen. MS Technik BOOST MPPT Charger mit Lithium-Batterie-Unterstützung, Bluetooth-Programmierung und 48V/60V/72V-Kompatibilität — GESPA Energy." },
-    ru: { t: "Солнечное переоборудование электромобилей — BOOST MPPT Charger | GESPA Energy",
-          d: "Установка солнечных панелей на гольф-кары, служебные автомобили и электрические платформы. MS Technik BOOST MPPT Charger: поддержка литиевых аккумуляторов, настройка по Bluetooth, совместимость 48В/60В/72В — GESPA Energy." }
+    en: { t: "Solar Conversion for EVs — BOOST MPPT | GESPA Energy",
+          d: "Solar conversion for golf carts and service vehicles. MS Teknik BOOST MPPT 24–72 V: AGM, gel, lead-acid and lithium support, Bluetooth setup." },
+    de: { t: "Solar-Umrüstung für E-Fahrzeuge — BOOST MPPT | GESPA",
+          d: "Solar-Umrüstung für Golfcarts und Servicefahrzeuge. MS Teknik BOOST MPPT 24–72 V: AGM, Gel, Blei-Säure und Lithium, Einstellung per Bluetooth." },
+    ru: { t: "Солнечное переоборудование — BOOST MPPT | GESPA",
+          d: "Солнечные панели для гольф-каров и служебных машин. MS Teknik BOOST MPPT 24–72 В: AGM, гель, свинцово-кислотные и литий, настройка по Bluetooth." }
   },
   "su-isitici.html": {
-    en: { t: "PV Solar Water Heater — Photovoltaic Water Heating | GESPA Energy",
-          d: "New-generation photovoltaic (PV) water heater that heats water directly with monocrystalline solar panels. Smart GF-20 controller, automatic grid backup on cloudy days, 60–200 L enamel tank — GESPA Energy." },
-    de: { t: "PV-Solar-Warmwasserbereiter — Photovoltaische Warmwasserbereitung | GESPA Energy",
-          d: "Photovoltaischer (PV) Warmwasserbereiter der neuen Generation: erwärmt Wasser direkt mit Monokristallin-Solarmodulen. Smarter GF-20-Regler, automatische Netz-Reserve bei Bewölkung, 60–200 L Emailtank." },
-    ru: { t: "PV солнечный водонагреватель — Фотоэлектрический нагрев воды | GESPA Energy",
-          d: "Фотоэлектрический (PV) водонагреватель нового поколения, нагревающий воду напрямую монокристаллическими панелями. Умный контроллер GF-20, авто-резерв от сети в пасмурную погоду, эмалевый бак 60–200 л." }
+    en: { t: "PV Solar Water Heater — Photovoltaic | GESPA Energy",
+          d: "PV water heater that heats water directly with solar panels. Smart GF-20 controller, automatic grid backup on cloudy days, 60–200 L enamel tank." },
+    de: { t: "PV-Solar-Warmwasserbereiter | GESPA Energy",
+          d: "PV-Warmwasserbereiter: erwärmt Wasser direkt mit Solarmodulen. GF-20-Regler, automatische Netz-Reserve bei Bewölkung, 60–200 L Emailtank." },
+    ru: { t: "PV-водонагреватель на солнечных панелях | GESPA",
+          d: "PV-водонагреватель: нагревает воду напрямую солнечными панелями. Контроллер GF-20, авторезерв от сети в пасмурную погоду, бак 60–200 л." }
   },
   "unv-trek-pro-2500.html": {
-    en: { t: "UNV Trek Pro 2500 W Portable Power Station — 2496 Wh | GESPA Energy",
-          d: "2500 W continuous output, 2496 Wh battery, 4 × 230 V pure sine wave sockets and a 30 ms UPS function. Portable power station for camping, caravans, field work and home backup." },
-    de: { t: "UNV Trek Pro 2500 W tragbare Powerstation — 2496 Wh | GESPA Energy",
-          d: "2500 W Dauerleistung, 2496 Wh Akku, 4 × 230-V-Steckdosen mit reiner Sinuswelle und USV-Funktion mit 30 ms. Tragbare Powerstation für Camping, Wohnmobil, Außeneinsatz und Notstrom." },
-    ru: { t: "Портативная электростанция UNV Trek Pro 2500 Вт — 2496 Вт·ч | GESPA Energy",
-          d: "2500 Вт постоянной мощности, АКБ 2496 Вт·ч, 4 розетки 230 В с чистой синусоидой и функция ИБП 30 мс. Портативная электростанция для кемпинга, автодома, выездных работ и резервного питания." }
+    en: { t: "UNV Trek Pro 2500 W Portable Power Station | GESPA",
+          d: "2500 W continuous output, 2496 Wh battery, 4 × 230 V pure sine sockets, 30 ms UPS. Portable power station for camping, caravans and home backup." },
+    de: { t: "UNV Trek Pro 2500 W tragbare Powerstation | GESPA",
+          d: "2500 W Dauerleistung, 2496 Wh Akku, 4 × 230 V reine Sinuswelle, USV in 30 ms. Tragbare Powerstation für Camping, Wohnmobil und Notstrom." },
+    ru: { t: "UNV Trek Pro 2500 Вт — портативная станция | GESPA",
+          d: "2500 Вт, АКБ 2496 Вт·ч, 4 розетки 230 В чистый синус, ИБП 30 мс. Портативная электростанция для кемпинга, автодома и резервного питания." }
   },
   "paket-285w.html": {
-    en: { t: "285W Solar Panel Package — Complete Plug-and-Play Kit | GESPA Energy",
+    en: { t: "285W Solar Panel Package — Plug-and-Play | GESPA",
           d: "Complete 285W solar kit for camping, caravans and small needs: panel + power box + cables. Runs a TV, lights and phone charging; 23–25 kg, plug-and-play." },
-    de: { t: "285-W-Solarmodul-Paket — Komplettes Plug-and-Play-Set | GESPA Energy",
+    de: { t: "285-W-Solarmodul-Paket — Plug-and-Play | GESPA Energy",
           d: "Komplettes 285-W-Solarset für Camping, Wohnmobil und kleine Verbraucher: Modul + Power-Box + Kabel. Betreibt TV, Licht und Handy-Ladung; 23–25 kg, Plug-and-Play." },
-    ru: { t: "Пакет с панелью 285 Вт — комплект подключи-и-работай | GESPA Energy",
+    ru: { t: "Пакет с панелью 285 Вт — подключи и работай | GESPA",
           d: "Полный солнечный комплект 285 Вт для кемпинга и караванов: панель + блок питания + кабели. Питает ТВ, свет и зарядку телефона; 23–25 кг." }
   },
   "paket-2x540w.html": {
-    en: { t: "Complete Solar Energy System 2×540W — LiFePO₄ Battery | GESPA Energy",
-          d: "2×540W panels + large power box with LiFePO₄ battery + cables: complete mobile solar system that runs a fridge, TV, washer and dishwasher. ~6.5 kWh solar yield per day." },
-    de: { t: "Komplettes Solarenergiesystem 2×540 W — LiFePO₄-Batterie | GESPA Energy",
+    en: { t: "2×540W Solar System — LiFePO₄ Battery | GESPA Energy",
+          d: "2×540W panels + LiFePO₄ power box: a complete mobile solar system that runs a fridge, TV and washing machine. About 6.5 kWh per day." },
+    de: { t: "Solarsystem 2×540 W — LiFePO₄-Batterie | GESPA Energy",
           d: "2×540-W-Module + große Power-Box mit LiFePO₄-Batterie + Kabel: komplettes mobiles Solarsystem für Kühlschrank, TV, Wasch- und Spülmaschine. ~6,5 kWh Ertrag pro Tag." },
-    ru: { t: "Полная солнечная энергосистема 2×540 Вт — батарея LiFePO₄ | GESPA Energy",
-          d: "Панели 2×540 Вт + большой блок питания с батареей LiFePO₄ + кабели: полная мобильная система для холодильника, ТВ, стиральной и посудомоечной машин. ~6,5 кВт·ч в день." }
+    ru: { t: "Система 2×540 Вт — батарея LiFePO₄ | GESPA",
+          d: "Панели 2×540 Вт + блок питания LiFePO₄: полная мобильная система для холодильника, ТВ и стиральной машины. Около 6,5 кВт·ч в день." }
   },
   "toptan.html": {
-    en: { t: "Wholesale Solar Panels, Inverters & Batteries — B2B | GESPA Energy",
-          d: "B2B wholesale from ready stock: Arçelik 540 W panels (500 pcs), 51.2 V 100 Ah LiFePO₄ batteries (50 pcs), inverters. Corporate invoicing, nationwide delivery in Türkiye, tiered volume pricing." },
-    de: { t: "Solarmodule, Wechselrichter & Batterien im Großhandel — B2B | GESPA Energy",
-          d: "B2B-Großhandel ab Lager: Arçelik-540-W-Module (500 Stk.), 51,2-V-100-Ah-LiFePO₄-Batterien (50 Stk.), Wechselrichter. Firmenrechnung, Lieferung in die ganze Türkei, Staffelpreise." },
-    ru: { t: "Оптовая продажа панелей, инверторов и АКБ — B2B | GESPA Energy",
+    en: { t: "Wholesale Solar Panels, Inverters, Batteries | GESPA",
+          d: "B2B wholesale: solar panels, inverters and LiFePO₄ batteries. Corporate invoicing, nationwide delivery in Türkiye, tiered pricing by quantity." },
+    de: { t: "Solarmodule, Wechselrichter, Akkus — B2B | GESPA",
+          d: "B2B-Großhandel: Solarmodule, Wechselrichter und LiFePO₄-Batterien. Firmenrechnung, Lieferung in die ganze Türkei, Staffelpreise nach Menge." },
+    ru: { t: "Опт: панели, инверторы, АКБ — B2B | GESPA Energy",
           d: "Опт со склада: панели Arçelik 540 Вт (500 шт.), АКБ LiFePO₄ 51,2 В 100 Ач (50 шт.), инверторы. Счёт для юрлиц, доставка по всей Турции, цены по объёму." }
   },
   "sepet.html": {
@@ -129,22 +129,22 @@ const META = {
   },
   "hesaplayici.html": {
     en: { t: "Solar Savings Calculator (PV) | GESPA Energy",
-          d: "Free solar calculator: system size, number of panels, annual yield, savings, payback period, 25-year return and CO₂ reduction from your bill, consumption or roof area." },
+          d: "Free solar calculator: system size, annual yield, savings, payback period and CO₂ reduction from your bill, consumption or roof area." },
     de: { t: "Solar-Ersparnisrechner (PV) | GESPA Energy",
-          d: "Kostenloser Solarrechner: Anlagengröße, Modulanzahl, Jahresertrag, Ersparnis, Amortisation, 25-Jahres-Rendite und CO₂-Einsparung anhand Rechnung, Verbrauch oder Dachfläche." },
+          d: "Kostenloser Solarrechner: Anlagengröße, Jahresertrag, Ersparnis, Amortisation und CO₂-Einsparung anhand Rechnung, Verbrauch oder Dachfläche." },
     ru: { t: "Калькулятор экономии на солнечной энергии | GESPA Energy",
-          d: "Бесплатный калькулятор: мощность, число панелей, годовая выработка, экономия, срок окупаемости, доход за 25 лет и снижение CO₂ по счёту, потреблению или площади крыши." }
+          d: "Бесплатный калькулятор: мощность, годовая выработка, экономия, срок окупаемости и снижение CO₂ по счёту, потреблению или площади крыши." }
   },
   "projeler.html": {
     en: { t: "Reference Projects — Rooftop & Ground PV | GESPA Energy",
           d: "Solar power plant (PV) projects we delivered across sectors: industry, agriculture, cold storage, hotels and ground-mounted plants." },
-    de: { t: "Referenzprojekte — Aufdach- & Freiflächen-PV | GESPA Energy",
+    de: { t: "Referenzprojekte — Aufdach & Freifläche | GESPA",
           d: "Realisierte Solarkraftwerk-Projekte (PV) in verschiedenen Branchen: Industrie, Landwirtschaft, Kühlhäuser, Hotels und Freiflächenanlagen." },
     ru: { t: "Реализованные проекты — Солнечные станции | GESPA Energy",
           d: "Проекты солнечных электростанций в разных отраслях: промышленность, сельское хозяйство, холодные склады, отели и наземные станции." }
   },
   "hakkimizda.html": {
-    en: { t: "About Us — Gespa Enerji Ltd. (GESPA Energy) | Solar Solutions",
+    en: { t: "About Us — Gespa Enerji Ltd. | GESPA Energy",
           d: "Gespa Enerji Ltd.; a Manavgat/Antalya-based company providing engineering and EPC services for solar power plants (PV)." },
     de: { t: "Über uns — Gespa Enerji Ltd. (GESPA Energy) | Solarlösungen",
           d: "Gespa Enerji Ltd.; ein Unternehmen mit Sitz in Manavgat/Antalya, das Engineering- und EPC-Leistungen für Solarkraftwerke (PV) anbietet." },
@@ -152,51 +152,51 @@ const META = {
           d: "Gespa Enerji Ltd.; компания из Манавгата/Антальи, предоставляющая инжиниринговые и EPC-услуги для солнечных электростанций." }
   },
   "iletisim.html": {
-    en: { t: "Contact — Free Site Survey & Quote | GESPA Energy (Manavgat/Antalya)",
+    en: { t: "Contact — Free Site Survey & Quote | GESPA Energy",
           d: "Get in touch with GESPA Energy: +90 543 743 42 09, info@gespaenerji.com, Manavgat/Antalya. Free site survey and quote." },
-    de: { t: "Kontakt — Kostenlose Vor-Ort-Analyse & Angebot | GESPA Energy",
+    de: { t: "Kontakt — Vor-Ort-Analyse & Angebot | GESPA Energy",
           d: "Kontaktieren Sie GESPA Energy: +90 543 743 42 09, info@gespaenerji.com, Manavgat/Antalya. Kostenlose Vor-Ort-Analyse und Angebot." },
-    ru: { t: "Контакты — Бесплатный выезд и КП | GESPA Energy (Манавгат/Анталья)",
+    ru: { t: "Контакты — бесплатный выезд и КП | GESPA Energy",
           d: "Свяжитесь с GESPA Energy: +90 543 743 42 09, info@gespaenerji.com, Манавгат/Анталья. Бесплатный выезд и коммерческое предложение." }
   },
   "sistem-kur.html": {
     en: { t: "System Builder — Size Your Own Solar Kit | GESPA Energy",
           d: "Pick the appliances you'll run and instantly see the required PV power, battery capacity and inverter size. Choose brands and models, then create your order." },
-    de: { t: "Systemkonfigurator — Eigene Solaranlage auslegen | GESPA Energy",
+    de: { t: "Systemkonfigurator — Solaranlage auslegen | GESPA",
           d: "Wählen Sie Ihre Geräte und sehen Sie sofort benötigte PV-Leistung, Batteriekapazität und Wechselrichtergröße. Marken und Modelle wählen und Bestellung erstellen." },
-    ru: { t: "Конфигуратор системы — соберите свой солнечный комплект | GESPA Energy",
+    ru: { t: "Конфигуратор — свой солнечный комплект | GESPA",
           d: "Выберите приборы и сразу увидите нужную мощность панелей, ёмкость аккумулятора и мощность инвертора. Выберите бренды и модели и создайте заказ." }
   },
   "ai-cankurtaran-destek-sistemi.html": {
-    en: { t: "AI Lifeguard Support System — Hotel Pool Safety & Drowning Prevention | GESPA Energy",
-          d: "AI-powered drowning prevention for hotel, aquapark, municipal and residential pools: 24/7 monitoring, instant location alerts to the lifeguard's smartwatch, ISO 20380-aligned, GDPR/KVKK-compliant on-site processing. It supports lifeguards — never replaces them." },
-    de: { t: "KI-Rettungsschwimmer-Assistenzsystem — Hotelpool-Sicherheit & Ertrinkungsprävention | GESPA Energy",
-          d: "KI-gestützte Ertrinkungsprävention für Hotel-, Aquapark-, Kommunal- und Wohnanlagenpools: 24/7-Überwachung, sofortige Standort-Alarme auf die Smartwatch des Rettungsschwimmers, ISO-20380-konform, lokale KVKK/DSGVO-konforme Verarbeitung. Unterstützt Rettungsschwimmer — ersetzt sie nie." },
-    ru: { t: "ИИ-система поддержки спасателей — безопасность бассейнов отелей | GESPA Energy",
-          d: "ИИ-предотвращение утоплений для бассейнов отелей, аквапарков и ЖК: наблюдение 24/7, мгновенный сигнал с координатами на смарт-часы спасателя, соответствие ISO 20380, локальная обработка данных (KVKK). Поддерживает спасателей, а не заменяет их." }
+    en: { t: "AI Lifeguard Support System — Pool Safety | GESPA",
+          d: "AI drowning prevention for hotel, aquapark and residential pools: 24/7 monitoring, instant location alerts to the lifeguard's smartwatch, local processing." },
+    de: { t: "KI-Assistenz für Rettungsschwimmer — Poolsicherheit",
+          d: "KI-gestützte Ertrinkungsprävention für Hotel- und Anlagenpools: 24/7-Überwachung, Standort-Alarm auf die Smartwatch, lokale DSGVO-konforme Verarbeitung." },
+    ru: { t: "ИИ-поддержка спасателей — безопасность бассейнов",
+          d: "ИИ-предотвращение утоплений в бассейнах отелей и ЖК: наблюдение 24/7, мгновенный сигнал с координатами на смарт-часы спасателя, локальная обработка." }
   },
   "mesafeli-satis-sozlesmesi.html": {
     en: { t: "Distance Sales Agreement | GESPA Energy",
-          d: "Distance sales agreement under Turkish Consumer Protection Law No. 6502: parties, product and price, payment, delivery, 14-day right of withdrawal, warranty and dispute resolution. The authoritative text is in Turkish." },
+          d: "Distance sales agreement under Turkish Law No. 6502: parties, product and price, payment, delivery, 14-day right of withdrawal and warranty." },
     de: { t: "Fernabsatzvertrag | GESPA Energy",
-          d: "Fernabsatzvertrag nach dem türkischen Verbraucherschutzgesetz Nr. 6502: Parteien, Ware und Preis, Zahlung, Lieferung, 14-tägiges Widerrufsrecht, Garantie und Streitbeilegung. Verbindlich ist der türkische Text." },
+          d: "Fernabsatzvertrag nach türkischem Gesetz Nr. 6502: Parteien, Ware und Preis, Zahlung, Lieferung, 14-tägiges Widerrufsrecht und Garantie." },
     ru: { t: "Договор дистанционной купли-продажи | GESPA Energy",
-          d: "Договор дистанционной продажи согласно закону Турции № 6502: стороны, товар и цена, оплата, доставка, право отказа в течение 14 дней, гарантия и разрешение споров. Юридически действителен турецкий текст." }
+          d: "Договор дистанционной продажи по закону Турции № 6502: стороны, товар и цена, оплата, доставка, право отказа 14 дней и гарантия." }
   },
   "iade-teslimat.html": {
     en: { t: "Returns, Delivery & Shipping | GESPA Energy",
-          d: "Shipping across Turkey, delivery times, damaged-parcel procedure, 14-day right of withdrawal, return steps, refunds and warranty coverage. The authoritative text is in Turkish." },
+          d: "Shipping across Türkiye, delivery times, damaged parcels, 14-day right of withdrawal, returns and warranty. The Turkish text is authoritative." },
     de: { t: "Rückgabe, Lieferung & Versand | GESPA Energy",
-          d: "Versand in die ganze Türkei, Lieferzeiten, Vorgehen bei Transportschäden, 14-tägiges Widerrufsrecht, Rückgabeschritte, Erstattungen und Garantieumfang. Verbindlich ist der türkische Text." },
+          d: "Versand in die ganze Türkei, Lieferzeiten, Transportschäden, 14-tägiges Widerrufsrecht, Rückgabe und Garantie. Verbindlich: türkischer Text." },
     ru: { t: "Возврат, доставка и отправка | GESPA Energy",
-          d: "Доставка по всей Турции, сроки, порядок при повреждении посылки, право отказа в течение 14 дней, шаги возврата, возмещение и гарантия. Юридически действителен турецкий текст." }
+          d: "Доставка по всей Турции, сроки, повреждение посылки, право отказа 14 дней, возврат и гарантия. Юридически действителен турецкий текст." }
   },
   "kvkk.html": {
     en: { t: "Personal Data Protection (KVKK) Notice | GESPA Energy",
-          d: "Privacy notice under Turkish Data Protection Law No. 6698 (KVKK): data categories, purposes, legal bases, transfers and your rights. The authoritative text is in Turkish." },
+          d: "Privacy notice under Turkish Law No. 6698 (KVKK): data categories, purposes, legal bases and your rights. The Turkish text is authoritative." },
     de: { t: "Hinweis zum Datenschutz (KVKK) | GESPA Energy",
-          d: "Datenschutzhinweis nach dem türkischen Datenschutzgesetz Nr. 6698 (KVKK): Datenkategorien, Zwecke, Rechtsgrundlagen, Übermittlungen und Ihre Rechte. Verbindlich ist der türkische Text." },
-    ru: { t: "Уведомление о защите персональных данных (KVKK) | GESPA Energy",
+          d: "Datenschutzhinweis nach türkischem Gesetz Nr. 6698 (KVKK): Datenkategorien, Zwecke, Rechtsgrundlagen und Ihre Rechte. Verbindlich: türkischer Text." },
+    ru: { t: "Защита персональных данных (KVKK) | GESPA Energy",
           d: "Уведомление согласно турецкому закону № 6698 (KVKK): категории данных, цели, правовые основания, передача и ваши права. Юридически действителен турецкий текст." }
   },
   "gizlilik.html": {
@@ -211,22 +211,24 @@ const META = {
     en: { t: "Cookie Policy | GESPA Energy",
           d: "Cookies and similar technologies used on gespaenerji.com, consent-based analytics and how to manage your preferences. The authoritative text is in Turkish." },
     de: { t: "Cookie-Richtlinie | GESPA Energy",
-          d: "Auf gespaenerji.com verwendete Cookies und ähnliche Technologien, einwilligungsbasierte Analyse und Verwaltung Ihrer Einstellungen. Verbindlich ist der türkische Text." },
+          d: "Cookies und ähnliche Technologien auf gespaenerji.com, einwilligungsbasierte Analyse und Verwaltung Ihrer Einstellungen. Verbindlich: türkischer Text." },
     ru: { t: "Политика cookie | GESPA Energy",
           d: "Cookie и аналогичные технологии на gespaenerji.com, аналитика по согласию и управление настройками. Юридически действителен турецкий текст." }
   },
   "tarimsal-sulama.html": {
-    en: { t: "Agricultural Solar Irrigation — Solar Pumping Systems | GESPA Energy",
-          d: "Solar-powered agricultural irrigation: off-grid, diesel-free PV solutions for submersible/surface pumps. Manavgat/Antalya and all Türkiye. Free irrigation calculator." },
-    de: { t: "Solare Bewässerung — Solar-Pumpsysteme für Landwirtschaft | GESPA Energy",
+    en: { t: "Agricultural Solar Irrigation — Pumps | GESPA Energy",
+          d: "Solar agricultural irrigation: off-grid, diesel-free PV systems for submersible and surface pumps. Free site survey and diesel-saving analysis." },
+    de: { t: "Solare Bewässerung — Solar-Pumpsysteme | GESPA Energy",
           d: "Solarbetriebene landwirtschaftliche Bewässerung: netzunabhängige, dieselfreie PV-Lösungen für Tauch-/Oberflächenpumpen. Manavgat/Antalya und ganz Türkei." },
-    ru: { t: "Солнечное орошение — Насосные системы для сельского хозяйства | GESPA Energy",
+    ru: { t: "Солнечное орошение — насосные системы | GESPA",
           d: "Орошение на солнечной энергии: автономные решения без дизеля для погружных/поверхностных насосов. Манавгат/Анталья и вся Турция. Бесплатный калькулятор." }
   }
 };
 
 seo.pages.forEach(p => { META[p.file] = {}; LANGS.forEach((l,i) => {
-  META[p.file][l] = {t: p.title[i+1] + " | GESPA Enerji", d: p.intro[i+1]};
+  // Meta açıklaması: seo-pages.js'te `desc` varsa O (kısa, kırpılmayan sürüm),
+  // yoksa giriş paragrafı. TR kaynakla aynı kural — content/build-seo.js'e bak.
+  META[p.file][l] = {t: p.title[i+1] + " | GESPA Enerji", d: (p.desc || p.intro)[i+1]};
 }); });
 
 function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
@@ -251,6 +253,8 @@ function localBusinessLd(c) {
     "@id": c.web + "/#organization", name: c.brandName, legalName: c.legalName, url: c.web,
     telephone: c.phone && c.phone.tel, email: c.email,
     image: c.web + "/assets/img/gespa-icon.png",
+    // Google bilgi paneli logoyu `image`ten DEĞİL `logo`dan okur; ikisi ayrı alandır.
+    logo: { "@type": "ImageObject", url: c.web + "/assets/img/gespa-icon.png", width: 512, height: 512 },
     address: { "@type": "PostalAddress", streetAddress: c.address.line, addressLocality: c.address.district, addressRegion: c.address.city, addressCountry: c.address.country }
   };
   if (c.description) d.description = c.description;
@@ -461,9 +465,12 @@ function injectStaticLd(html, file, cfg) {
   // WebSite varlığı — marka adı/sitelink sinyali (yalnız ana sayfada)
   if (file === "index.html") objs.push({
     "@context": "https://schema.org", "@type": "WebSite",
+    // @id + publisher @id: arama ve AI motorları siteyi ve firmayı AYNI varlık
+    // olarak bağlar. Bağlanmazsa iki ayrı, zayıf düğüm olarak görülür.
+    "@id": cfg.company.web + "/#website",
     name: cfg.company.brandName, alternateName: cfg.company.legalName,
     url: cfg.company.web + "/", inLanguage: ["tr", "en", "de", "ru"],
-    publisher: { "@type": "Organization", name: cfg.company.brandName, url: cfg.company.web }
+    publisher: { "@id": cfg.company.web + "/#organization" }
   });
   if (file === "su-isitici.html") objs.push(heaterProductLd(cfg));
   if (file === "urunler.html" || file === "online-satis.html") objs.push(packagesItemListLd(cfg, file));

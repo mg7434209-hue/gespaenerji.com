@@ -23,6 +23,25 @@
       en: 'Energy that turns sunshine into <span class="hl">profit</span>.',
       de: 'Energie, die aus Sonne <span class="hl">Gewinn</span> macht.',
       ru: 'Энергия солнца, превращённая в <span class="hl">прибыль</span>.'
+    },
+    // Satır içi <strong>/<a> metni böldüğü için DICT eşleşmez — zengin çeviri şart.
+    "#calcLead": {
+      tr: 'Sadece faturanızı girin; <strong>sistem gücü, yıllık tasarruf, geri ödeme süresi ve 25 yıllık kazancınızı</strong> saniyeler içinde görün. Üstelik panel yerleşimi, inverter ve kablo gibi <strong>mühendislik araçları</strong> da burada.',
+      en: 'Just enter your bill and see <strong>system size, annual savings, payback period and your 25-year return</strong> in seconds. Plus <strong>engineering tools</strong> for panel layout, inverter and cable sizing.',
+      de: 'Geben Sie einfach Ihre Rechnung ein und sehen Sie <strong>Anlagengröße, jährliche Ersparnis, Amortisationszeit und Ihren 25-Jahres-Ertrag</strong> in Sekunden. Dazu <strong>Engineering-Tools</strong> für Modulbelegung, Wechselrichter und Kabel.',
+      ru: 'Просто введите свой счёт и за секунды увидите <strong>мощность системы, годовую экономию, срок окупаемости и доход за 25 лет</strong>. А также <strong>инженерные инструменты</strong> для раскладки модулей, инвертора и кабеля.'
+    },
+    "#shopNoJs": {
+      tr: 'Ürünleri görüntülemek için JavaScript\'i etkinleştirin veya <a href="iletisim.html">bizimle iletişime geçin</a>.',
+      en: 'Enable JavaScript to view the products, or <a href="iletisim.html">get in touch with us</a>.',
+      de: 'Aktivieren Sie JavaScript, um die Produkte zu sehen, oder <a href="iletisim.html">kontaktieren Sie uns</a>.',
+      ru: 'Включите JavaScript, чтобы увидеть товары, или <a href="iletisim.html">свяжитесь с нами</a>.'
+    },
+    "#ordConsent": {
+      tr: 'Siparişi göndererek <a href="/kvkk.html">KVKK Aydınlatma Metni</a>\'ni ve aşağıdaki satış şartlarını kabul etmiş olursunuz.',
+      en: 'By submitting the order you accept the <a href="/kvkk.html">Privacy Notice (KVKK)</a> and the sales terms below.',
+      de: 'Mit dem Absenden der Bestellung akzeptieren Sie die <a href="/kvkk.html">Datenschutzerklärung (KVKK)</a> und die unten stehenden Verkaufsbedingungen.',
+      ru: 'Отправляя заказ, вы принимаете <a href="/kvkk.html">Уведомление о персональных данных (KVKK)</a> и условия продажи ниже.'
     }
   };
 
@@ -278,7 +297,7 @@
       "Güvenli & doğa dostu": "Safe & eco-friendly", "Donma, aşırı ısınma ve kuru çalışma korumalarıyla güvenli; daha az karbon ayak izi.": "Safe with freeze, overheat and dry-run protection; and a smaller carbon footprint.",
       "Modeller & Fiyatlar": "Models & Prices", "Size uygun modeli seçin": "Choose your model", "Ailenizin sıcak su ihtiyacına göre 60 L'den 200 L'ye kadar emaye iç tanklı modeller. Fiyatlar bilgilendirme amaçlıdır; kesin teklif ücretsiz keşifle netleşir.": "Enamel inner-tank models from 60 L to 200 L for your family's hot water needs. Prices are for guidance; the exact quote is set during a free survey.",
       "Fiyat": "Price", "Bu ürün için teklif al": "Get a quote for this product", "Modeller yükleniyor…": "Loading models…",
-      "Ürünü İncele →": "View the Product →", "Tüm paketleri gör →": "See all packages →",
+      "Ürünü İncele →": "View the Product →", "Kamp, karavan ve küçük ihtiyaçlar için tak-çalıştır mobil kit.": "A plug-and-play mobile kit for camping, caravans and small loads.", "LiFePO₄ bataryalı komple sistem; bağ evi ve karavan için.": "Complete system with a LiFePO₄ battery — for cabins and caravans.", "Tüm paketleri gör →": "See all packages →",
       // Paket rehberi + kart alanları
       "Hangisi size uygun?": "Which one fits you?",
       "Kullanım yerinizi seçin, sizi doğru pakete götürelim:": "Pick where you'll use it and we'll take you to the right package:",
@@ -899,7 +918,7 @@
       "Güvenli & doğa dostu": "Sicher & umweltfreundlich", "Donma, aşırı ısınma ve kuru çalışma korumalarıyla güvenli; daha az karbon ayak izi.": "Sicher dank Frost-, Überhitzungs- und Trockenlaufschutz; und ein kleinerer CO₂-Fußabdruck.",
       "Modeller & Fiyatlar": "Modelle & Preise", "Size uygun modeli seçin": "Wählen Sie Ihr Modell", "Ailenizin sıcak su ihtiyacına göre 60 L'den 200 L'ye kadar emaye iç tanklı modeller. Fiyatlar bilgilendirme amaçlıdır; kesin teklif ücretsiz keşifle netleşir.": "Modelle mit Email-Innentank von 60 L bis 200 L für den Warmwasserbedarf Ihrer Familie. Preise dienen der Orientierung; das genaue Angebot folgt nach kostenloser Begehung.",
       "Fiyat": "Preis", "Bu ürün için teklif al": "Angebot für dieses Produkt anfordern", "Modeller yükleniyor…": "Modelle werden geladen…",
-      "Ürünü İncele →": "Produkt ansehen →", "Tüm paketleri gör →": "Alle Pakete →",
+      "Ürünü İncele →": "Produkt ansehen →", "Kamp, karavan ve küçük ihtiyaçlar için tak-çalıştır mobil kit.": "Plug-and-play-Mobilset für Camping, Wohnmobil und kleine Verbraucher.", "LiFePO₄ bataryalı komple sistem; bağ evi ve karavan için.": "Komplettsystem mit LiFePO₄-Akku — für Ferienhaus und Wohnmobil.", "Tüm paketleri gör →": "Alle Pakete →",
       // Paket rehberi + kart alanları
       "Hangisi size uygun?": "Welches passt zu Ihnen?",
       "Kullanım yerinizi seçin, sizi doğru pakete götürelim:": "Wählen Sie Ihren Einsatzort — wir führen Sie zum passenden Paket:",
@@ -1511,7 +1530,7 @@
       "Güvenli & doğa dostu": "Безопасно и экологично", "Donma, aşırı ısınma ve kuru çalışma korumalarıyla güvenli; daha az karbon ayak izi.": "Безопасность благодаря защите от замерзания, перегрева и сухого хода; и меньший углеродный след.",
       "Modeller & Fiyatlar": "Модели и цены", "Size uygun modeli seçin": "Выберите свою модель", "Ailenizin sıcak su ihtiyacına göre 60 L'den 200 L'ye kadar emaye iç tanklı modeller. Fiyatlar bilgilendirme amaçlıdır; kesin teklif ücretsiz keşifle netleşir.": "Модели с эмалевым баком от 60 до 200 л под потребности вашей семьи. Цены ориентировочные; точное предложение — после бесплатного выезда.",
       "Fiyat": "Цена", "Bu ürün için teklif al": "Запросить КП на этот продукт", "Modeller yükleniyor…": "Загрузка моделей…",
-      "Ürünü İncele →": "Смотреть продукт →", "Tüm paketleri gör →": "Все пакеты →",
+      "Ürünü İncele →": "Смотреть продукт →", "Kamp, karavan ve küçük ihtiyaçlar için tak-çalıştır mobil kit.": "Мобильный комплект plug-and-play для кемпинга, автодома и небольших нагрузок.", "LiFePO₄ bataryalı komple sistem; bağ evi ve karavan için.": "Комплектная система с аккумулятором LiFePO₄ — для дачи и автодома.", "Tüm paketleri gör →": "Все пакеты →",
       // Paket rehberi + kart alanları
       "Hangisi size uygun?": "Что подходит вам?",
       "Kullanım yerinizi seçin, sizi doğru pakete götürelim:": "Выберите место использования — мы покажем подходящий пакет:",
