@@ -47,16 +47,17 @@ Modeller ve fiyatlar (KDV dahil, ₺):
 Markalar — panel: Arçelik, Lexron, Bakırlar · inverter: Tescom, Mexxsun, Lexron, Arçelik, Deye, TitanX · MPPT/DC-DC: Havensis · akü: Orbus, TitanX
 - 285W Güneş Paneli Paketi — 0.285 kWp · Kamp, karavan ve küçük ihtiyaçlar · ₺25.000 (≈ $526) liste (KDV dahil) · havale/EFT ile ₺24.250 (%3 indirimli)
 - Tam Kapsamlı Güneş Enerjisi Sistemi — 1.08 kWp · Karavan, kamp ve bağ evi · ₺104.500 (≈ $2.200) liste (KDV dahil) · havale/EFT ile ₺101.350 (%3 indirimli)
-- MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı — GES-EV-BOOST · Golf aracı, hizmet aracı ve elektrikli platformlar · ₺7.700 (≈ $162) liste (KDV dahil) · havale/EFT ile ₺7.300 (%5 indirimli)
+- MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı — GES-EV-BOOST · Golf aracı, hizmet aracı ve elektrikli platformlar · ₺7.600 (≈ $160) liste (KDV dahil) · havale/EFT ile ₺7.200 (%5 indirimli) · kargo fiyata DAHİL
 - 50W Güneş Paneli — GES-PNL-50 · Küçük aydınlatma, kamera ve akü şarjı · ₺1.250 (≈ $26) (KDV dahil, net fiyat)
 - UNV Trek Pro 2500 W Taşınabilir Güç İstasyonu — ES-E2500-A2 · Kamp, karavan, saha çalışması ve ev tipi yedek güç · ₺118.500 (≈ $2.495) liste (KDV dahil) · havale/EFT ile ₺114.950 (%3 indirimli)
 - Lexron 285 W Güneş Paneli — GES-PNL-285 · Balkon, bağ evi ve küçük off-grid sistemler · ₺7.500 (≈ $158) liste (KDV dahil) · havale/EFT ile ₺7.300 (%3 indirimli)
 - Lexron 655 W TOPCon Güneş Paneli — GES-PNL-655 · Çatı ve arazi sistemleri, yüksek güç gerektiren kurulumlar · ₺10.000 (≈ $211) liste (KDV dahil) · havale/EFT ile ₺9.700 (%3 indirimli)
-- Arçelik 540 W Güneş Paneli — GES-PNL-540 · Çatı ve arazi kurulumları, yerli marka tercih edenler · ₺9.000 (≈ $189) liste (KDV dahil) · havale/EFT ile ₺8.750 (%3 indirimli)
+- Arçelik 540 W Güneş Paneli — GES-PNL-540 · Çatı ve arazi kurulumları, yerli marka tercih edenler · ₺10.000 (≈ $211) liste (KDV dahil) · havale/EFT ile ₺9.700 (%3 indirimli)
 - TitanX 51,2 V 102 Ah LiFePO₄ Akü — GES-AKU-102 · Ev ve işyeri enerji depolama, off-grid ve yedek güç · ₺73.372 (≈ $1.545) liste (KDV dahil) · havale/EFT ile ₺71.150 (%3 indirimli)
 Kargo & iade: Paketler TÜRKİYE'NİN HER İLİNE anlaşmalı kargo ile gönderilir (teslimat
 Antalya ile sınırlı değildir). Sipariş onayından sonra tahmini teslim 2–5 iş günü;
-kargo ücreti alıcıya aittir, fiyatlara KDV dahildir. Mesafeli satışta 14 gün cayma
+kargo ücreti alıcıya aittir (yukarıda "kargo fiyata DAHİL" yazan ürünler hariç),
+fiyatlara KDV dahildir. Mesafeli satışta 14 gün cayma
 hakkı vardır (sorunsuz teslimde iade kargosu alıcıya ait; hasarlı/ayıplı üründe satıcıya).
 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi verilir.
 Ödeme: havale/EFT'te indirim uygulanır (oran ürüne göre değişir; her ürünün indirimli tutarı yukarıdaki listede yazılıdır). Kart ve kapıda ödemede indirim UYGULANMAZ, liste fiyatı geçerlidir. Kapıda ödeme: %30 peşin + %70 teslimatta.

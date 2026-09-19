@@ -312,6 +312,16 @@ function pctOf(cfg, p) {
 }
 // Havale/EFT birim tutarı — main.js pkgUnit ile AYNI kural.
 // noCartDiscount'lu üründe fiyat zaten nettir, indirim BİNMEZ.
+// Fiyat notu: `freeShipping: true` üründe kargo fiyata dahildir.
+// TEK KURAL — main.js `vatNote()` ile birebir aynı metinleri üretir.
+function vatNote(p) {
+  return p && p.freeShipping ? "KDV ve kargo dahil" : "KDV dahil · kargo hariç";
+}
+function shipNote(p) {
+  return p && p.freeShipping
+    ? "Türkiye'nin her yerine ücretsiz kargo ile gönderilir; kargo ücreti fiyata dahildir."
+    : "Türkiye'nin her yerine kargo ile gönderilir.";
+}
 function havaleTL(p, tl, pct) {
   return p.noCartDiscount ? tl : Math.round(tl * (100 - pct) / 100 / 50) * 50;
 }
@@ -366,7 +376,10 @@ function packageProductLd(cfg, p) {
       seller: { "@type": "Organization", name: cfg.company.legalName },
       shippingDetails: {
         "@type": "OfferShippingDetails",
-        shippingDestination: { "@type": "DefinedRegion", addressCountry: "TR" }
+        shippingDestination: { "@type": "DefinedRegion", addressCountry: "TR" },
+        // Kargo ücreti yalnızca `freeShipping` ürünlerde BİLİNİYOR (sıfır).
+        // Diğerlerinde tutar mesafeye göre değiştiği için rakam UYDURULMAZ.
+        ...(p.freeShipping ? { shippingRate: { "@type": "MonetaryAmount", value: 0, currency: "TRY" } } : {})
       }
     };
     if (com.returnDays) {
@@ -592,6 +605,10 @@ function hydrateExtras(html, file, cfg) {
   const setSpan = (id, v) => {
     html = html.replace(new RegExp('(<[^>]*id="' + id + '"[^>]*>)[^<]*(</)'), (m, open, close) => open + v + close);
   };
+  // id'si olmayan alanlar için: data-* işaretini taşıyan etiketin metnini yaz
+  const setMark = (attr, v) => {
+    html = html.replace(new RegExp('(<[^>]*\\b' + attr + '\\b[^>]*>)[^<]*(</)'), (m, open, close) => open + v + close);
+  };
   // Online satış kataloğu — JS'siz ortam/AI botları için statik ürün listesi
   if (file === "online-satis.html" && cfg.packages) {
     const RATE = cfg.usdTry || 0;
@@ -615,7 +632,7 @@ function hydrateExtras(html, file, cfg) {
             (onSale ? '<s class="sh-old">₺' + nfTr(oldTL) + "</s>" : "") +
             (usd ? '<span class="sh-usd">≈ $' + nfTr(usd) + "</span>" : "") + "</div>" +
           (PCT && hav < tl ? '<p class="sh-hav">💰 <span>Havale/EFT ile:</span> <b>₺' + nfTr(hav) + "</b></p>" : "") +
-          '<p class="sh-vat"><span>KDV dahil · kargo hariç</span></p>') +
+          '<p class="sh-vat"><span>' + vatNote(p) + '</span></p>') +
         "</div></article>";
     }).join("");
     html = html.replace(/<!-- SHOP:STATIC -->[\s\S]*?<!-- \/SHOP:STATIC -->/,
@@ -647,6 +664,9 @@ function hydrateExtras(html, file, cfg) {
     else if (com.stockLabel) setSpan("pkgStock", esc(com.stockLabel));
     if (com.shipDays) setSpan("shipDays", esc(com.shipDays));
     if (com.returnDays) setSpan("returnDays", String(com.returnDays));
+    // Kargo alıcıya mı ait? config'teki freeShipping tek kaynaktır.
+    setMark("data-pkg-vat", p && p.freeShipping ? "KDV ve kargo dahil fiyattır." : "KDV dahil fiyattır.");
+    setMark("data-pkg-ship", shipNote(p));
   }
   if (cfg.calc) {
     const k = cfg.calc;
@@ -889,7 +909,8 @@ function writeLlmsFull(cfg) {
     const tag = p.price != null
       ? (PCT && hav < tl ? ` liste (KDV dahil) · havale/EFT ile ₺${nf(hav)} (%${PCT} indirimli)` : " (KDV dahil, net fiyat)")
       : " (yaklaşık, keşifle netleşir)";
-    return `- ${p.name} — ${lead}${p.for} · ₺${nf(tl)}${usd ? ` (≈ $${nf(usd)})` : ""}${tag}`;
+    const ship = p.freeShipping ? " · kargo fiyata DAHİL" : "";
+    return `- ${p.name} — ${lead}${p.for} · ₺${nf(tl)}${usd ? ` (≈ $${nf(usd)})` : ""}${tag}${ship}`;
   }).join("\n");
   const showHeaterPrice = cfg.heater.showPrices !== false;
   const heaterLines = cfg.heater.models.map(m =>
@@ -936,7 +957,8 @@ Markalar — panel: ${cfg.brands.panel.join(", ")} · inverter: ${cfg.brands.inv
 ${pkgLines}
 Kargo & iade: Paketler TÜRKİYE'NİN HER İLİNE anlaşmalı kargo ile gönderilir (teslimat
 Antalya ile sınırlı değildir). Sipariş onayından sonra tahmini teslim ${(cfg.commerce || {}).shipDays || "2–5"} iş günü;
-kargo ücreti alıcıya aittir, fiyatlara KDV dahildir. Mesafeli satışta ${(cfg.commerce || {}).returnDays || 14} gün cayma
+kargo ücreti alıcıya aittir (yukarıda "kargo fiyata DAHİL" yazan ürünler hariç),
+fiyatlara KDV dahildir. Mesafeli satışta ${(cfg.commerce || {}).returnDays || 14} gün cayma
 hakkı vardır (sorunsuz teslimde iade kargosu alıcıya ait; hasarlı/ayıplı üründe satıcıya).
 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi verilir.
 Ödeme: havale/EFT'te indirim uygulanır (oran ürüne göre değişir; her ürünün indirimli tutarı yukarıdaki listede yazılıdır). Kart ve kapıda ödemede indirim UYGULANMAZ, liste fiyatı geçerlidir. Kapıda ödeme: %30 peşin + %70 teslimatta.

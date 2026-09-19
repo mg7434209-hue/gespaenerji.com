@@ -221,9 +221,11 @@ window.GESPA.config = {
       id: "boost-mppt", icon: "🔌", tag: "Elektrikli Araç", group: "accessory",
       url: "elektrikli-arac-donusum.html", sku: "GES-EV-BOOST",
       img: "assets/img/products/ev/boost-mppt-on.webp",
-      // Liste ₺7.700 + %5 → havale/EFT ile ₺7.300 (en yakın 50 ₺'ye yuvarlanır).
+      // Liste ₺7.600 + %5 → havale/EFT ile ₺7.200 (en yakın 50 ₺'ye yuvarlanır).
       // discountPct SADECE bu ürüne uygulanır; site geneli %3 (cartDiscountPct).
-      price: 7700, discountPct: 5,
+      // freeShipping: kargo fiyata DAHİL — kart/kapıda ödemede de alıcıdan
+      // ayrıca kargo ücreti istenmez; "KDV ve kargo dahil" notu basılır.
+      price: 7600, discountPct: 5, freeShipping: true,
       chips: ["⚙️ 24 V – 72 V akü", "🔋 Tüm akü tipleri", "📶 Bluetooth ile ayar"],
       for: "Golf aracı, hizmet aracı ve elektrikli platformlar",
       name: "MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı",
@@ -305,7 +307,7 @@ window.GESPA.config = {
       id: "panel-arcelik-540w", icon: "🔆", tag: "Panel", group: "panel",
       sku: "GES-PNL-540", brand: "Arçelik",
       img: "assets/img/products/panel-arcelik-540w.webp",
-      price: 9000,
+      price: 10000,
       chips: ["🔆 540 W", "🏷️ A sınıf", "🇹🇷 Arçelik"],
       for: "Çatı ve arazi kurulumları, yerli marka tercih edenler",
       name: "Arçelik 540 W Güneş Paneli",

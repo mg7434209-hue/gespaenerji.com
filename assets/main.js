@@ -161,6 +161,15 @@
     function pkgPct(p) {
       return (p && p.discountPct != null ? p.discountPct : CFG.cartDiscountPct) || 0;
     }
+    // Fiyat notu: kargo ücreti alıcıya mı ait? Üründe `freeShipping: true`
+    // yazılıysa kargo fiyata DAHİLDİR (kart ve kapıda ödemede de ek ücret yok).
+    // TEK KURAL — vitrin kartı, katalog kartı ve ürün sayfası bunu kullanır;
+    // build.js `vatNote()` aynısını statik çıktıya basar.
+    function vatNote(p) {
+      return p && p.freeShipping
+        ? L("KDV ve kargo dahil", "VAT & shipping included", "Inkl. MwSt. & Versand", "НДС и доставка включены")
+        : L("KDV dahil · kargo hariç", "VAT included · shipping excluded", "Inkl. MwSt. · zzgl. Versand", "НДС включён · доставка отдельно");
+    }
     // Birim fiyatlar (₺): list = liste, cart = havale/EFT, usd = yaklaşık $
     function pkgUnit(p) {
       var RATE = CFG.usdTry || 0, pct = pkgPct(p);
@@ -257,6 +266,23 @@
         applyStock();
         document.addEventListener("gespa:lang", applyStock);
       }
+      // KDV/kargo notu ve kargo bilgi satırı — config'teki freeShipping'e göre.
+      // Build statik basar; burada dil değişiminde yeniden yazılır.
+      var applyShip = function () {
+        set("[data-pkg-vat]", p.freeShipping
+          ? L("KDV ve kargo dahil fiyattır.", "Price includes VAT and shipping.",
+              "Preis inkl. MwSt. und Versand.", "Цена включает НДС и доставку.")
+          : L("KDV dahil fiyattır.", "Price includes VAT.", "Preis inkl. MwSt.", "Цена включает НДС."));
+        set("[data-pkg-ship]", p.freeShipping
+          ? L("Türkiye'nin her yerine ücretsiz kargo ile gönderilir; kargo ücreti fiyata dahildir.",
+              "Free shipping to anywhere in Türkiye; shipping is included in the price.",
+              "Kostenloser Versand in die ganze Türkei; der Versand ist im Preis enthalten.",
+              "Бесплатная доставка по всей Турции; доставка включена в цену.")
+          : L("Türkiye'nin her yerine kargo ile gönderilir.", "Ships to anywhere in Türkiye.",
+              "Versand in die ganze Türkei.", "Доставка по всей Турции."));
+      };
+      applyShip();
+      document.addEventListener("gespa:lang", applyShip);
       if (!pct) document.querySelectorAll(".pd-havale").forEach(function (el) { el.hidden = true; });
       if (pct) {
         set("[data-pkg-cart]", "🛒 " + L("Sepette %" + pct + " indirim", pct + "% off in cart", pct + " % Rabatt im Warenkorb", "−" + pct + " % в корзине"));
@@ -377,8 +403,7 @@
                 (usd ? '<span class="sh-usd">≈ $' + nf.format(usd) + "</span>" : "") + "</div>" +
               (cardPct && u.cart < u.list ? '<p class="sh-hav">💰 ' + L("Havale/EFT ile:", "By bank transfer:", "Per Überweisung:", "Банковским переводом:") +
                 " <b>₺" + nf.format(u.cart) + "</b></p>" : "") +
-              '<p class="sh-vat">' + L("KDV dahil · kargo hariç", "VAT included · shipping excluded",
-                "Inkl. MwSt. · zzgl. Versand", "НДС включён · доставка отдельно") + "</p>") +
+              '<p class="sh-vat">' + vatNote(p) + "</p>") +
             '<div class="sh-act">' +
               (href ? '<a class="btn btn-ghost btn-sm" href="' + href + '">' +
                 L("Detay", "Details", "Details", "Подробнее") + "</a>" : "") +
@@ -855,7 +880,7 @@
             (showHav ? '<p class="pkg-havale">💰 ' + L("Havale/EFT ile:", "By bank transfer:", "Per Überweisung:", "Банковским переводом:") +
               " <b>₺" + nf.format(havTL) + "</b> (" +
               L("%" + cartPct + " indirimli", cartPct + "% off", cartPct + " % Rabatt", "скидка " + cartPct + " %") + ")</p>" : "") +
-            '<p class="pkg-price-note">' + L("KDV dahil · kargo hariç", "VAT included · shipping excluded", "Inkl. MwSt. · zzgl. Versand", "НДС включён · доставка отдельно") + "</p>";
+            '<p class="pkg-price-note">' + vatNote(p) + "</p>";
         } else {
           priceHtml = '<div class="pkg-price"><span class="pkg-price-lbl">' + L("Fiyat", "Price", "Preis", "Цена") + '</span><strong class="pkg-poa">' + L("Teklif alın", "Get a quote", "Angebot", "По запросу") + "</strong></div>";
         }

@@ -224,10 +224,11 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
 
 ### Ürünler & fiyatlar (config.packages · config.heater · config.admin)
 - `packages[]`: 2 komple kit (285W ₺ · 2x540W USD) + BOOST MPPT şarj kontrol
-  cihazı (liste ₺7.700, `discountPct:5` → havale ₺7.300, `group:"accessory"`) +
+  cihazı (liste ₺7.600, `discountPct:5` → havale ₺7.200, `freeShipping`,
+  `group:"accessory"`) +
   50W panel (kampanya, `group:"panel"`) + UNV Trek Pro 2500 W taşınabilir güç
   istasyonu ($2.495, `group:"offgrid"`) + tekil paneller Lexron 285 W ₺7.500 ·
-  Lexron 655 W TOPCon ₺10.000 · Arçelik 540 W ₺9.000 (`group:"panel"`) +
+  Lexron 655 W TOPCon ₺10.000 · Arçelik 540 W ₺10.000 (`group:"panel"`) +
   TitanX 51,2 V 102 Ah LiFePO₄ akü ₺73.372 (`group:"storage"`)
   — `url` detay sayfası, `img` gerçek foto,
   `oldPrice` indirim rozeti, `currency:"USD"` dolar, `dailyKwh` günlük üretim.
@@ -296,7 +297,7 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   build.js `pctOf()` — vitrin kartı, katalog, paket detayı, PKG/SHOP:STATIC,
   sepet ve llms-full.txt bunlara bağlıdır. Belli bir SON FİYAT hedefliyorsan
   listeyi ona göre kur: liste × (100−N)/100, en yakın 50 ₺'ye yuvarlanır
-  (ör. ₺7.700 + %5 → ₺7.300). Sepette oranları FARKLI kalemler varsa özet tek
+  (ör. ₺7.600 + %5 → ₺7.200). Sepette oranları FARKLI kalemler varsa özet tek
   "%N" YAZMAZ, yalnız tutarı gösterir (main.js `pctOfLines`).
   UYARI: bu indirim yalnızca HAVALE/EFT'te geçerlidir — kart ve kapıda ödemede
   liste fiyatı tahsil edilir (server.js `pkgListTL`). "Sepette %N indirim"
@@ -316,6 +317,12 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   detay statiği, PKG/SHOP:STATIC, llms-full.txt ve sepet özeti bunlara bağlıdır
   — yeni bir fiyat noktası eklersen onu da bu iki yardımcıya bağla. Sepette
   indirime giren kalem yoksa özet "−₺0" yerine "uygulanmaz" yazar.
+- `freeShipping: true` → KARGO FİYATA DAHİL. Kart notu "KDV dahil · kargo
+  hariç" yerine "KDV ve kargo dahil" olur, ürün sayfasında `data-pkg-vat` ve
+  `data-pkg-ship` işaretleri kargo dahil metnini alır, llms-full.txt satırına
+  "kargo fiyata DAHİL" eklenir. Liste fiyatı kargoyu İÇERDİĞİ için kart ve
+  kapıda ödemede de ek kargo alınmaz. Tek kural main.js `vatNote()` ve build.js
+  `vatNote()`/`shipNote()` — yeni bir kargo notu eklersen oraya bağla.
 - `img` boşsa kart nötr yer tutucu (`.sh-noimg`) gösterir; BAŞKA ürünün
   fotoğrafı kullanılmaz. `url` boşsa "Detay" düğmesi ve bağlantılar basılmaz.
 - `admin.pass`: admin.html şifresi (statik sitede yalnızca caydırıcı).
