@@ -271,6 +271,60 @@ window.GESPA.config = {
       features: ["2500 W sürekli çıkış · 2496 Wh batarya kapasitesi", "4 × 230 V saf sinüs dalga AC çıkışı", "2 × USB Type-C (200 W ve 100 W) · 4 × USB-A 18 W", "12 V DC çıkışlar (maks. 15 A) · araç çakmak soketi", "30 ms tepki süreli UPS fonksiyonu", "Aynı anda 14 cihaza kadar güç verir"]
     },
 
+    // —— Tekil paneller —— TEKNİK DEĞERLER üreticinin künyesinden gelir:
+    // assets/img/products/kaynak/lexron-*.pdf. Künyede OLMAYAN değer yazılmaz.
+    // DİKKAT: "285W Güneş Paneli Paketi" (kit-285w, ₺25.000) AYRI bir üründür —
+    // o komple sistem, bu tek panel. Adları karıştırma.
+    {
+      id: "panel-lexron-285w", icon: "🔆", tag: "Panel", group: "panel",
+      sku: "GES-PNL-285", brand: "Lexron",
+      img: "assets/img/products/panel-lexron-285w.webp",
+      price: 7500,
+      chips: ["🔆 285 W TOPCon", "⚡ 42,84 V Voc", "⚖️ 8,5 kg"],
+      for: "Balkon, bağ evi ve küçük off-grid sistemler",
+      name: "Lexron 285 W Güneş Paneli",
+      desc: "Lexron 210R PowerLite TOPCon serisi 285 W monokristal güneş paneli. Voc 42,84 V · Isc 8,19 A · Vmp 35,85 V · Imp 7,95 A. Ölçü 780 × 1536 × 30 mm, ağırlık 8,5 kg. IEC 61215 / 61730 / 61701 belgeli; 12 yıl ürün ve işçilik, 30 yıl güç garantisi.",
+      features: ["285 W · TOPCon monokristal hücre", "Voc 42,84 V · Isc 8,19 A · Vmp 35,85 V · Imp 7,95 A", "780 × 1536 × 30 mm · 8,5 kg", "12 yıl ürün · 30 yıl güç garantisi"]
+    },
+    {
+      id: "panel-lexron-655w", icon: "🔆", tag: "Panel", group: "panel",
+      sku: "GES-PNL-655", brand: "Lexron",
+      img: "assets/img/products/panel-lexron-655w.webp",
+      price: 10000,
+      chips: ["🔆 655 W N-type TOPCon", "📈 %24,25 verim", "🛡️ 30 yıl güç garantisi"],
+      for: "Çatı ve arazi sistemleri, yüksek güç gerektiren kurulumlar",
+      name: "Lexron 655 W TOPCon Güneş Paneli",
+      desc: "132 yarım kesim hücreli, N-type TOPCon teknolojili monokristal güneş paneli. 655 W güçte Voc 50,34 V · Vmp 42,32 V · Isc 16,53 A · Imp 15,48 A, modül verimi %24,25. Ölçü 2382 × 1134 × 35 mm, ağırlık 31 kg; 3,2 mm AR kaplamalı ısıl güçlendirilmiş cam, 35 mm anotlu alüminyum çerçeve, IP68 bağlantı kutusu. 1500 V sistem gerilimi, 2400 Pa rüzgâr ve 5400 Pa kar yükü dayanımı.",
+      features: ["655 W · N-type TOPCon · 132 yarım kesim hücre", "Modül verimi %24,25 · 16 busbar · 0~+5 W tolerans", "Voc 50,34 V · Vmp 42,32 V · Isc 16,53 A · Imp 15,48 A", "2382 × 1134 × 35 mm · 31 kg · IP68 · 1500 V", "2400 Pa rüzgâr · 5400 Pa kar yükü dayanımı", "12 yıl ürün · 30 yıl güç garantisi (yıllık %0,45 kayıp)"]
+    },
+    // Arçelik 540 W: elimizde ÜRETİCİ KÜNYESİ YOK — güç, sınıf ve marka dışında
+    // teknik değer YAZILMAZ. Künye gelirse buradan genişlet.
+    {
+      id: "panel-arcelik-540w", icon: "🔆", tag: "Panel", group: "panel",
+      sku: "GES-PNL-540", brand: "Arçelik",
+      img: "assets/img/products/panel-arcelik-540w.webp",
+      price: 9000,
+      chips: ["🔆 540 W", "🏷️ A sınıf", "🇹🇷 Arçelik"],
+      for: "Çatı ve arazi kurulumları, yerli marka tercih edenler",
+      name: "Arçelik 540 W Güneş Paneli",
+      desc: "Arçelik marka 540 W A sınıf monokristal güneş paneli. Yetkili tedarik, orijinal ürün; çatı ve arazi tipi kurulumlar için uygundur. Ayrıntılı teknik künye ve palet bazında toptan sevkiyat için bize ulaşın.",
+      features: ["540 W · A sınıf monokristal", "Arçelik — yetkili tedarik, orijinal ürün", "Çatı ve arazi tipi kurulumlara uygun", "Palet bazında toptan sevkiyat mümkün"]
+    },
+
+    // —— Enerji depolama —— group:"storage" yalnız online-satis.html kataloğunda
+    // listelenir (urunler.html GROUPS listesinde yoktur).
+    {
+      id: "aku-titanx-51v-102ah", icon: "🔋", tag: "Enerji Depolama", group: "storage",
+      sku: "GES-AKU-102", brand: "TitanX",
+      img: "assets/img/products/aku-titanx-51v-102ah.webp",
+      price: 73372,
+      chips: ["🔋 5,22 kWh", "⚡ 51,2 V · 102 Ah", "♻️ 6000+ çevrim"],
+      for: "Ev ve işyeri enerji depolama, off-grid ve yedek güç",
+      name: "TitanX 51,2 V 102 Ah LiFePO₄ Akü",
+      desc: "51,2 V 102 Ah (5,22 kWh) LiFePO₄ enerji depolama aküsü. 16S1P prizmatik hücre yapısı, dahili akıllı BMS ile aşırı şarj/deşarj, aşırı akım, kısa devre ve sıcaklık koruması. 100 A sürekli deşarj, 150 A tepe (5 sn); 6000+ çevrim ömrü (%80 DoD). CAN/RS485 ve Bluetooth veya WiFi haberleşme; 16 adede kadar paralel bağlanabilir. Ağırlık 37 kg, ölçü 560 × 150 × 380 mm, IP20, M8 terminal, 2 yıl garanti.",
+      features: ["51,2 V · 102 Ah · 5,22 kWh · LiFePO₄ (16S1P prizmatik)", "Dahili akıllı BMS — aşırı şarj/deşarj, kısa devre, sıcaklık koruması", "100 A sürekli deşarj · 150 A tepe (5 sn) · 100 A şarj", "6000+ çevrim ömrü (%80 DoD, 25 °C) · 2 yıl garanti", "CAN / RS485 · Bluetooth veya WiFi · 16 adede kadar paralel", "37 kg · 560 × 150 × 380 mm · IP20 · M8 terminal"]
+    },
+
   ],
 
 

@@ -331,7 +331,8 @@
           ongrid: L("Çatı / On-Grid", "Rooftop / On-Grid", "Aufdach / On-Grid", "Крышные / On-grid"),
           irrigation: L("Tarımsal Sulama", "Agricultural Irrigation", "Bewässerung", "Аграрный полив"),
           accessory: L("Elektrikli Araç", "Electric Vehicle", "E-Fahrzeug", "Электромобиль"),
-          panel: L("Panel & Ekipman", "Panels & Equipment", "Module & Zubehör", "Панели и оборудование")
+          panel: L("Panel & Ekipman", "Panels & Equipment", "Module & Zubehör", "Панели и оборудование"),
+          storage: L("Enerji Depolama", "Energy Storage", "Energiespeicher", "Накопители энергии")
         })[g] || g;
       }
       function tName(t) {

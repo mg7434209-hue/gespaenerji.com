@@ -226,12 +226,27 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
 - `packages[]`: 2 komple kit (285W ₺ · 2x540W USD) + BOOST MPPT şarj kontrol
   cihazı (liste ₺7.700, `discountPct:5` → havale ₺7.300, `group:"accessory"`) +
   50W panel (kampanya, `group:"panel"`) + UNV Trek Pro 2500 W taşınabilir güç
-  istasyonu ($2.495, `group:"offgrid"`) — `url` detay sayfası, `img` gerçek foto,
+  istasyonu ($2.495, `group:"offgrid"`) + tekil paneller Lexron 285 W ₺7.500 ·
+  Lexron 655 W TOPCon ₺10.000 · Arçelik 540 W ₺9.000 (`group:"panel"`) +
+  TitanX 51,2 V 102 Ah LiFePO₄ akü ₺73.372 (`group:"storage"`)
+  — `url` detay sayfası, `img` gerçek foto,
   `oldPrice` indirim rozeti, `currency:"USD"` dolar, `dailyKwh` günlük üretim.
   `usdTry` kuru ile ikinci para "≈" gösterilir; kur değişince SADECE
   config.usdTry güncellenir. Yeni ürün eklerken aynı alanlar + detay sayfası
   (mevcut paket-*.html kopyala ya da mevcut bir sayfaya `data-pkg-detail` +
   `.buy-box` ekle) + build META satırı.
+- PANEL/AKÜ teknik değerleri ÜRETİCİ KÜNYESİNDEN gelir — kaynak PDF'ler
+  `assets/img/products/kaynak/lexron-*.pdf`. Künyede OLMAYAN değer yazılmaz:
+  Arçelik 540 W'ın künyesi elimizde YOK, bu yüzden güç/sınıf/marka dışında
+  iddia taşımaz. Künyelerin alt bilgisindeki tedarikçi (ACS ENERJİ) adres ve
+  telefonu siteye KONMAZ — MS Teknik kuralının aynısı.
+  ADLANDIRMA TUZAĞI: `kit-285w` "285W Güneş Paneli Paketi" (komple sistem,
+  ₺25.000) ile `panel-lexron-285w` "Lexron 285 W Güneş Paneli" (tek panel,
+  ₺7.500) AYRI ürünlerdir; adları kısaltıp karıştırma.
+- `group:"storage"` (enerji depolama) `panel` gibi YALNIZ online-satis.html
+  kataloğunda listelenir — main.js/build.js GROUPS listelerinde YOKTUR, orada
+  olsaydı urunler.html paket vitrininde de çıkardı. Katalog süzgeç etiketi
+  main.js `groupLabel()` içindedir; yeni grup eklerken oraya satır ekle.
 - kWp'si OLMAYAN ürünlerde (cihaz/aksesuar) `kwp`/`panelW`/`panelCount` YAZILMAZ;
   kart çipleri `chips: [...]` ile elle verilir. main.js `card()`/`chipsOf()`,
   build.js `PKG:STATIC` ve llms-full.txt bu durumda güç yerine ürün kodunu yazar,
