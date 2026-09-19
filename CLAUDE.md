@@ -429,6 +429,13 @@ DATA_DIR/orders.json. Kart ödemesinde havale indirimi YOK (liste fiyatı);
 `odeme.html`: GES Marketim/serbest tutar link ödemesi (`?t=tutar&a=aciklama&s=no`
 ön-doldurur) → `/api/pay/custom` (tutar istemciden; sınır 50–250.000 ₺ sunucuda,
 kargo öncesi orders.json/iyzico panelinden tutar DOĞRULANIR). O da noindex.
+Bu bağlantıyı ÜRETEN araç `admin.html`'deki "🔗 Ödeme Bağlantısı Üret" kartıdır
+(tutar/açıklama/sipariş no → kopyala · WhatsApp · önizle; `payLink()`). Adres
+`config.company.web`'den kurulur — `/api/pay/*` yalnız Railway'de vardır, Pages
+aynasında yoktur; `location.origin` kullanılsa Pages'ten üretilen bağlantı ölür.
+Kart ödemesi kapalıysa kart bunu bağlantı gönderilmeden ÖNCE uyarır.
+Menüden erişilmez, robots'ta engellidir — site genelinde bağlantısı YOKTUR,
+adresi elle yazılır.
 
 ## Ağ Kısıtı (ÖNEMLİ)
 - Buluttaki Claude Code dış sitelere (ör. solaranaliz.tr, gespaenerji.com)

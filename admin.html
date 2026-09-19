@@ -62,6 +62,40 @@
       </div>
       <p style="margin-top:18px"><a href="su-isitici.html" target="_blank" style="color:var(--green);font-weight:700">Su ısıtıcı sayfasını önizle →</a> · <a href="urunler.html" target="_blank" style="color:var(--green);font-weight:700">Paketler sayfasını önizle →</a></p>
     </div>
+
+    <!-- Ödeme bağlantısı üretici — ürün seçmeden serbest tutar tahsilatı -->
+    <div id="paylink" class="adm-card" hidden>
+      <div class="adm-head">
+        <h2 style="font-size:1.35rem;margin:0">🔗 Ödeme Bağlantısı Üret</h2>
+        <a href="odeme.html" target="_blank" rel="noopener">Ödeme sayfasını aç →</a>
+      </div>
+      <p style="color:var(--muted);margin:0 0 14px;font-size:.92rem">
+        Katalogdaki bir ürüne bağlı olmadan, <strong>istediğiniz tutar için</strong> müşteriye özel kart ödeme
+        bağlantısı üretir. Müşteri bağlantıyı açar, tutar hazır gelir; yalnızca fatura bilgilerini girip
+        iyzico ile öder. Havale/EFT indirimi kart ödemesinde <strong>uygulanmaz</strong>.
+      </p>
+      <div id="payOff" class="adm-note" hidden style="background:#fdf1e7;color:#8a4b10;border:1px solid #f2d3b5"></div>
+      <div class="adm-row"><div class="lbl"><strong>Tutar (₺)</strong><small>50 – 250.000 ₺ arası</small></div>
+        <input type="number" id="plAmount" min="50" max="250000" step="50" placeholder="4500" /></div>
+      <div class="adm-row"><div class="lbl"><strong>Açıklama</strong><small>Müşterinin ödeme ekranında görür</small></div>
+        <input type="text" id="plDesc" maxlength="120" placeholder="GES Marketim — 2x540W paket" /></div>
+      <div class="adm-row"><div class="lbl"><strong>Sipariş no</strong><small>İsteğe bağlı</small></div>
+        <input type="text" id="plRef" maxlength="40" placeholder="GM-1042" /></div>
+      <div class="adm-note info" style="margin-top:16px">
+        <strong>Bağlantı:</strong>
+        <pre id="plUrl" style="margin:8px 0 0">Tutar girin…</pre>
+      </div>
+      <div class="adm-actions">
+        <button class="btn" id="plCopy" disabled>📋 Bağlantıyı kopyala</button>
+        <a class="btn btn-ghost" id="plWa" target="_blank" rel="noopener">💬 WhatsApp ile gönder</a>
+        <a class="btn btn-ghost" id="plOpen" target="_blank" rel="noopener">👁️ Müşterinin göreceği sayfa</a>
+      </div>
+      <div id="plMsg" class="adm-note ok" hidden></div>
+      <p style="color:var(--muted);margin:16px 0 0;font-size:.88rem">
+        ⚠️ Tutarı müşteri de değiştirebilir (bağlantı ödemesinin doğası). <strong>Kargodan önce</strong>
+        ödenen tutarı iyzico panelinden doğrulayın.
+      </p>
+    </div>
   </div>
 
   <script defer src="assets/config.js"></script>
@@ -85,7 +119,8 @@
     });
 
     function show() {
-      $("#login").hidden = true; $("#editor").hidden = false; render();
+      $("#login").hidden = true; $("#editor").hidden = false; $("#paylink").hidden = false;
+      render(); payLink();
     }
 
     function render() {
@@ -128,6 +163,70 @@
       if (!confirm("Tüm fiyat değişiklikleri bu cihazdan silinsin ve config varsayılanlarına dönülsün mü?")) return;
       localStorage.removeItem(KEY); render(); flash("↩️ Varsayılan config fiyatlarına dönüldü.");
     });
+    // ---- Ödeme bağlantısı üretici -------------------------------------
+    // Bağlantı ADRESİ config.company.web'den kurulur: /api/pay/custom yalnız
+    // canlı sunucuda (Railway) vardır, Pages aynasında yoktur. admin.html
+    // nereden açılırsa açılsın müşteri doğru adrese gitsin diye origin
+    // sabit kaynaktan okunur.
+    function payLink() {
+      var base = ((C.company && C.company.web) || location.origin).replace(/\/+$/, "");
+      var url = "", plMsg = $("#plMsg");
+      var amt = $("#plAmount"), desc = $("#plDesc"), ref = $("#plRef");
+      var out = $("#plUrl"), copy = $("#plCopy"), wa = $("#plWa"), open = $("#plOpen");
+      var waNo = (C.company && C.company.phone && C.company.phone.wa) || "";
+
+      // Kart ödemesi kapalıysa üretilen bağlantı "çok yakında" notuna düşer —
+      // bunu bağlantıyı göndermeden ÖNCE söyle.
+      fetch("/api/pay/status").then(function (r) { return r.json(); }).then(function (st) {
+        if (st && st.enabled) return;
+        var w = $("#payOff");
+        w.textContent = "⚠️ Kart ödemesi şu anda KAPALI (iyzico anahtarları tanımlı değil). "
+          + "Üretilen bağlantı müşteriye \u201cçok yakında\u201d notu gösterir. Anahtarlar Railway "
+          + "ortam değişkenlerine girilince bağlantı çalışır.";
+        w.hidden = false;
+      }).catch(function () {
+        var w = $("#payOff");
+        w.textContent = "ℹ️ Kart ödemesi durumu bu adresten okunamadı (muhtemelen Pages aynası). "
+          + "Üretilen bağlantı canlı siteye (" + base + ") işaret eder, orada çalışır.";
+        w.hidden = false;
+      });
+
+      function build() {
+        var v = Math.round(+amt.value || 0);
+        if (!(v >= 50 && v <= 250000)) {
+          url = "";
+          out.textContent = v ? "Tutar 50 ₺ ile 250.000 ₺ arasında olmalı." : "Tutar girin…";
+          copy.disabled = true; wa.removeAttribute("href"); open.removeAttribute("href");
+          return;
+        }
+        var q = "?t=" + v;
+        if (desc.value.trim()) q += "&a=" + encodeURIComponent(desc.value.trim().slice(0, 120));
+        if (ref.value.trim()) q += "&s=" + encodeURIComponent(ref.value.trim().slice(0, 40));
+        url = base + "/odeme.html" + q;
+        out.textContent = url;
+        copy.disabled = false;
+        open.href = url;
+        var msg = "Merhaba, " + (desc.value.trim() || "siparişiniz") + " için ödeme bağlantınız: "
+          + url + " — tutar: ₺" + nf.format(v) + ". Kart ile güvenle ödeyebilirsiniz.";
+        wa.href = "https://wa.me/" + (waNo || "") + "?text=" + encodeURIComponent(msg);
+      }
+      [amt, desc, ref].forEach(function (el) { el.addEventListener("input", build); });
+      build();
+
+      copy.addEventListener("click", function () {
+        if (!url) return;
+        var done = function () { plMsg.textContent = "✓ Bağlantı kopyalandı."; plMsg.hidden = false; setTimeout(function () { plMsg.hidden = true; }, 3000); };
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, fallback);
+        else fallback();
+        function fallback() {
+          var t = document.createElement("textarea");
+          t.value = url; document.body.appendChild(t); t.select();
+          try { document.execCommand("copy"); done(); } catch (e) { plMsg.textContent = "Kopyalanamadı — bağlantıyı elle seçin."; plMsg.hidden = false; }
+          document.body.removeChild(t);
+        }
+      });
+    }
+
     $("#exportBtn").addEventListener("click", function () {
       var ov = collect();
       localStorage.setItem(KEY, JSON.stringify(ov));
