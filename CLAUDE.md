@@ -292,7 +292,7 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   olayında YENİDEN yazar; N>3'te build çevrilebilir genel rozet basar.
   Stok değişince SADECE config'teki bu satır güncellenir + `node build.js`.
 - `discountPct: N` → SADECE o ürünün havale/EFT indirim oranı; yazılmazsa site
-  geneli `cartDiscountPct` (%10) geçerlidir. Tek kural main.js `pkgPct()` ve
+  geneli `cartDiscountPct` (%3) geçerlidir. Tek kural main.js `pkgPct()` ve
   build.js `pctOf()` — vitrin kartı, katalog, paket detayı, PKG/SHOP:STATIC,
   sepet ve llms-full.txt bunlara bağlıdır. Belli bir SON FİYAT hedefliyorsan
   listeyi ona göre kur: liste × (100−N)/100, en yakın 50 ₺'ye yuvarlanır

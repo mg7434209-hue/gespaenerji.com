@@ -527,7 +527,7 @@
         var downTL = Math.round(listT * 0.30 / 50) * 50, restTL = listT - downTL;   // kapıda: %30 peşin
         set("[data-ord-list]", "₺" + nf.format(listT));
         if (method === "havale") {
-          // Sepette indirime giren kalem yoksa (hepsi net fiyatlı) "−₺0 (%10)" yazma
+          // Sepette indirime giren kalem yoksa (hepsi net fiyatlı) "−₺0 (%N)" yazma
           var uniq = pctOfLines(ls);
           set("[data-ord-disc]", listT > cartT
             ? "−₺" + nf.format(listT - cartT) + (uniq != null ? " (%" + uniq + ")" : "")

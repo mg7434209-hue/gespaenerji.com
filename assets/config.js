@@ -121,8 +121,10 @@ window.GESPA.config = {
   hero: { intervalMs: 4000 },
 
   // Sepet indirimi (%) — vitrinde LİSTE fiyatı gösterilir, indirim sipariş
-  // adımında uygulanır ("Sepette %10 indirim" rozeti). 0 = kapalı.
-  cartDiscountPct: 10,
+  // adımında uygulanır ("Sepette %N indirim" rozeti). 0 = kapalı.
+  // ORAN SABİT YAZILMAZ: sayfalardaki metinler orandan bağımsızdır, rakamı
+  // yalnızca kart rozeti ve sipariş özeti config'ten okuyup yazar.
+  cartDiscountPct: 3,
 
   // ============================================================
   // TOPTAN SATIŞ / B2B (toptan.html) — hazır stok listesi
@@ -220,7 +222,7 @@ window.GESPA.config = {
       url: "elektrikli-arac-donusum.html", sku: "GES-EV-BOOST",
       img: "assets/img/products/ev/boost-mppt-on.webp",
       // Liste ₺7.700 + %5 → havale/EFT ile ₺7.300 (en yakın 50 ₺'ye yuvarlanır).
-      // discountPct SADECE bu ürüne uygulanır; site geneli %10 (cartDiscountPct).
+      // discountPct SADECE bu ürüne uygulanır; site geneli %3 (cartDiscountPct).
       price: 7700, discountPct: 5,
       chips: ["⚙️ 24 V – 72 V akü", "🔋 Tüm akü tipleri", "📶 Bluetooth ile ayar"],
       for: "Golf aracı, hizmet aracı ve elektrikli platformlar",
