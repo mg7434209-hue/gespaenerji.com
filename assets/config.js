@@ -23,6 +23,7 @@ window.GESPA.config = {
       line: "Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01",
       district: "Manavgat",
       city: "Antalya",
+      postalCode: "07600",
       country: "TR",
       full: "Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01, Manavgat / Antalya"
     },
@@ -67,8 +68,16 @@ window.GESPA.config = {
     knowsAbout: ["Güneş enerjisi santrali (GES)", "Çatı GES", "Arazi tipi GES", "Güneş enerjili tarımsal sulama", "Güneş paneli", "İnverter", "Enerji depolama / batarya", "Lisanssız elektrik üretimi"],
     services: ["Çatı GES", "Arazi Tipi GES", "Güneş Enerjili Tarımsal Sulama", "Enerji Depolama (Batarya)", "Mühendislik & Projelendirme", "Finansman & Leasing", "Bakım (O&M)"],
     rating: { value: null, count: null }, // GERÇEK Google yorum ortalaması/sayısı girilince aggregateRating eklenir (uydurma değer GİRMEYİN)
-    geo: { lat: null, lng: null },        // kesin koordinat girilince schema'ya eklenir
-    sameAs: [],                           // gerçek sosyal medya URL'leri (LinkedIn/Instagram/X) eklenince doldurun
+    // Google Haritalar'daki işletme kaydının koordinatı (sağ tık → ilk satır).
+    // LocalBusiness.geo alanına girer; yerel aramada harita eşleşmesini güçlendirir.
+    geo: { lat: 36.777346, lng: 31.458277 },
+    // Sosyal medya profilleri → JSON-LD `sameAs` + footer sosyal blok.
+    // Google ve AI asistanları bu bağlantılarla siteyi, sosyal hesapları ve
+    // Google İşletme kaydını TEK firma olarak eşleştirir. Uydurma URL GİRMEYİN.
+    sameAs: [
+      "https://www.facebook.com/gesmarketim/"
+      // Instagram ve YouTube adresleri geldiğinde buraya eklenir.
+    ],
     // Solar e-mağazamız (ayrı site; Google Ads trafiği alır) — vitrin/footer linkleri
     shop: { name: "GES Marketim", url: "https://www.gesmarketim.com" },
     // Vitrin istatistikleri — TEK KAYNAK (build data-stat öğelerine basar)

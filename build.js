@@ -263,7 +263,9 @@ function localBusinessLd(c) {
     image: c.web + "/assets/img/gespa-icon.png",
     // Google bilgi paneli logoyu `image`ten DEĞİL `logo`dan okur; ikisi ayrı alandır.
     logo: { "@type": "ImageObject", url: c.web + "/assets/img/gespa-icon.png", width: 512, height: 512 },
-    address: { "@type": "PostalAddress", streetAddress: c.address.line, addressLocality: c.address.district, addressRegion: c.address.city, addressCountry: c.address.country }
+    address: Object.assign(
+      { "@type": "PostalAddress", streetAddress: c.address.line, addressLocality: c.address.district, addressRegion: c.address.city, addressCountry: c.address.country },
+      c.address.postalCode ? { postalCode: c.address.postalCode } : {})
   };
   if (c.description) d.description = c.description;
   if (c.slogan) d.slogan = c.slogan;
