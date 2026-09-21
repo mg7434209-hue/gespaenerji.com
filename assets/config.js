@@ -75,8 +75,9 @@ window.GESPA.config = {
     // Google ve AI asistanları bu bağlantılarla siteyi, sosyal hesapları ve
     // Google İşletme kaydını TEK firma olarak eşleştirir. Uydurma URL GİRMEYİN.
     sameAs: [
-      "https://www.facebook.com/gesmarketim/"
-      // Instagram ve YouTube adresleri geldiğinde buraya eklenir.
+      "https://www.facebook.com/gesmarketim/",
+      "https://www.instagram.com/gespaenerji_07/"
+      // YouTube kanal adresi geldiğinde buraya eklenir.
     ],
     // Solar e-mağazamız (ayrı site; Google Ads trafiği alır) — vitrin/footer linkleri
     shop: { name: "GES Marketim", url: "https://www.gesmarketim.com" },
