@@ -106,8 +106,17 @@ const envKey = (...names) => {
 const IYZ = {
   apiKey: envKey("IYZIPAY_API_KEY", "IYZICO_API_KEY"),
   secret: envKey("IYZIPAY_SECRET_KEY", "IYZICO_SECRET_KEY"),
-  base: envKey("IYZIPAY_BASE_URL", "IYZICO_BASE_URL") || "https://sandbox-api.iyzipay.com"
+  // Sondaki "/" TEMİZLENİR: panelde adres "https://api.iyzipay.com/" olarak
+  // girilirse yol "//payment/..." olurdu; imza "/payment/..." üzerinden
+  // hesaplandığı için iyzico isteği reddeder ve yanıt JSON dönmez —
+  // hata "Ödeme başlatılamadı" genel mesajına düşer, sebep görünmez.
+  base: (envKey("IYZIPAY_BASE_URL", "IYZICO_BASE_URL") || "https://sandbox-api.iyzipay.com").replace(/\/+$/, "")
 };
+// Başlangıçta yapılandırmayı LOG'a yaz — anahtarın kendisi ASLA yazılmaz,
+// yalnızca tanımlı olup olmadığı ve hangi ortama bağlanıldığı.
+console.log("iyzico:", IYZ.apiKey && IYZ.secret
+  ? "anahtarlar tanımlı · base=" + IYZ.base + (/sandbox/.test(IYZ.base) ? " (TEST ORTAMI — para geçmez)" : " (CANLI)")
+  : "anahtar YOK — kart ödemesi kapalı");
 const ORDERS_FILE = path.join(DATA_DIR, "orders.json");
 function loadSiteConfig() {
   const sandbox = { window: {} };
@@ -157,11 +166,36 @@ function iyzRequest(uriPath, body, cb) {
   const rq = require("https").request(opts, (rs) => {
     let d = "";
     rs.on("data", (c) => { d += c; });
-    rs.on("end", () => { try { cb(null, JSON.parse(d)); } catch (e) { cb(new Error("iyzico yanıtı çözülemedi")); } });
+    rs.on("end", () => {
+      try { return cb(null, JSON.parse(d)); } catch (e) {}
+      // JSON değil: genelde 401 (imza/anahtar) ya da 404 (yanlış adres).
+      // Gövdenin başını logla — kart/kişisel veri içermez, iyzico'nun yanıtıdır.
+      console.warn("iyzico yanıtı JSON değil:", rs.statusCode, JSON.stringify(String(d).slice(0, 300)));
+      cb(new Error("iyzico yanıtı çözülemedi (HTTP " + rs.statusCode + ")"));
+    });
   });
   rq.on("error", (e) => cb(e));
   rq.setTimeout(20000, () => { rq.destroy(new Error("iyzico zaman aşımı")); });
   rq.end(reqBody);
+}
+
+// iyzico başlatma hatası — sebebi LOG'a tam yazar (Railway → Logs),
+// kullanıcıya iyzico'nun kendi mesajını, yoksa hata kodunu gösterir.
+// Kart/kişisel veri YAZILMAZ; yalnız iyzico'nun durum alanları.
+function iyzFail(res, tag, err, out) {
+  console.warn("iyzico " + tag + " hatası:", JSON.stringify({
+    transportError: err && err.message,
+    status: out && out.status,
+    errorCode: out && out.errorCode,
+    errorGroup: out && out.errorGroup,
+    errorMessage: out && out.errorMessage,
+    base: IYZ.base
+  }));
+  const code = out && out.errorCode ? " (kod: " + out.errorCode + ")" : "";
+  return sendJson(res, 502, {
+    error: (out && out.errorMessage) ? out.errorMessage + code
+      : "Ödeme başlatılamadı; lütfen tekrar deneyin." + code
+  });
 }
 
 function readBody(req, limit, cb) {
@@ -234,8 +268,7 @@ function handlePayRoutes(req, res, urlPath) {
       };
       iyzRequest("/payment/iyzipos/checkoutform/initialize/auth/ecom", payload, (err, out) => {
         if (err || !out || out.status !== "success" || !(out.paymentPageUrl || out.payWithIyzicoPageUrl)) {
-          console.warn("iyzico başlatma hatası:", err ? err.message : (out && out.errorMessage));
-          return sendJson(res, 502, { error: (out && out.errorMessage) || "Ödeme başlatılamadı; lütfen tekrar deneyin." });
+          return iyzFail(res, "sepet", err, out);
         }
         writeOrder(out.token, {
           conversationId: convId, status: "pending", createdAt: new Date().toISOString(),
@@ -289,8 +322,7 @@ function handlePayRoutes(req, res, urlPath) {
       };
       iyzRequest("/payment/iyzipos/checkoutform/initialize/auth/ecom", payload, (err, out) => {
         if (err || !out || out.status !== "success" || !(out.paymentPageUrl || out.payWithIyzicoPageUrl)) {
-          console.warn("iyzico link ödeme hatası:", err ? err.message : (out && out.errorMessage));
-          return sendJson(res, 502, { error: (out && out.errorMessage) || "Ödeme başlatılamadı; lütfen tekrar deneyin." });
+          return iyzFail(res, "link ödeme", err, out);
         }
         writeOrder(out.token, {
           conversationId: convId, source: "gesmarketim", status: "pending",
