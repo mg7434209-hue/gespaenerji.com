@@ -452,6 +452,18 @@ Kart ödemesi kapalıysa kart bunu bağlantı gönderilmeden ÖNCE uyarır.
 Menüden erişilmez, robots'ta engellidir — site genelinde bağlantısı YOKTUR,
 adresi elle yazılır.
 
+## Alan adı & NAP tutarlılığı
+- Canlı alan adı **www.gespaenerji.com** — canonical, sitemap, JSON-LD ve
+  `config.company.web` hepsi böyle. www'suz `gespaenerji.com` de açıldığı için
+  server.js apex'i www'ya **301** yönlendirir (sorgu dizesi korunur); aksi
+  hâlde aynı içerik iki host'tan servis edilip yinelenen içerik sayılırdı.
+- Adres/telefon Google İşletme Profili ile BİREBİR aynı olmalı (yerel SEO'da
+  "NAP tutarlılığı"). Doğru adres: **Örnek Mahallesi** 1551 Sok. No: 10/1,
+  Manavgat/Antalya — Google kaydında "Aşağı Pazarcı" yazıyorsa Google
+  düzeltilir, config DEĞİL (config resmî sicil adresidir).
+- `config.company.sameAs`: Facebook · Instagram · YouTube. Footer sosyal
+  bloğu ve JSON-LD buradan üretilir; boşken blok gizlenir.
+
 ## Ağ Kısıtı (ÖNEMLİ)
 - Buluttaki Claude Code dış sitelere (ör. solaranaliz.tr, gespaenerji.com)
   ERİŞEMEZ — egress izin listesi kısıtı. "Git şu siteyi taklit et / kazı" çalışmaz.

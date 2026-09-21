@@ -76,8 +76,11 @@ window.GESPA.config = {
     // Google İşletme kaydını TEK firma olarak eşleştirir. Uydurma URL GİRMEYİN.
     sameAs: [
       "https://www.facebook.com/gesmarketim/",
-      "https://www.instagram.com/gespaenerji_07/"
-      // YouTube kanal adresi geldiğinde buraya eklenir.
+      "https://www.instagram.com/gespaenerji_07/",
+      // NOT: kanal adı şu an "mustafa göksoy" — firma adı DEĞİL. Kanalı
+      // "GESPA Enerji" olarak yeniden adlandırmak varlık eşleşmesini
+      // belirgin şekilde güçlendirir (YouTube'dan tek tıkla değişir).
+      "https://www.youtube.com/@mustafagoksoy6557"
     ],
     // Solar e-mağazamız (ayrı site; Google Ads trafiği alır) — vitrin/footer linkleri
     shop: { name: "GES Marketim", url: "https://www.gesmarketim.com" },

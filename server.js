@@ -343,11 +343,18 @@ const server = http.createServer((req, res) => {
   try {
     // HTTP → HTTPS (yalnızca proxy açıkça http dediğinde; aynı host korunur).
     // x-forwarded-proto yoksa (Railway iç sağlık kontrolü) yönlendirme YAPMA.
-    // Not: www→apex yönlendirmesi yok — canlı alan adı www.gespaenerji.com.
     var host = (req.headers.host || "").toLowerCase();
     var xfp = req.headers["x-forwarded-proto"];
     if (xfp === "http" && host && !/^(localhost|127\.|0\.0\.0\.0)/.test(host)) {
       res.writeHead(301, { Location: "https://" + host + req.url });
+      return res.end();
+    }
+    // apex → www: canlı alan adı www.gespaenerji.com'dur (canonical, sitemap,
+    // JSON-LD hepsi böyle). www'suz adres de açıldığı için aynı içerik iki
+    // ayrı host'tan servis ediliyordu; arama motoru bunu yinelenen içerik
+    // sayar ve bağlantı değeri ikiye bölünür. Tek host'a sabitle.
+    if (/^gespaenerji\.com(:\d+)?$/.test(host)) {
+      res.writeHead(301, { Location: "https://www.gespaenerji.com" + req.url });
       return res.end();
     }
 
