@@ -84,6 +84,13 @@ window.GESPA.config = {
     ],
     // Solar e-mağazamız (ayrı site; Google Ads trafiği alır) — vitrin/footer linkleri
     shop: { name: "GES Marketim", url: "https://www.gesmarketim.com" },
+    // Aynı firmaya ait DİĞER siteler. Footer "Kurumsal" sütununa bağlantı
+    // basılır (build.js SISTER:STATIC) ve JSON-LD `sameAs`a girer — arama
+    // motorları iki siteyi aynı firmanın varlığı olarak eşleştirir.
+    // Sosyal ikon şeridine GİRMEZ (orası yalnız sameAs'tan beslenir).
+    sisterSites: [
+      { label: "Solar Analiz (Fatura Analizi)", url: "https://www.solaranaliz.tr" }
+    ],
     // Vitrin istatistikleri — TEK KAYNAK (build data-stat öğelerine basar)
     stats: { projects: 500, installedMw: 15, experienceYears: 20, warrantyYears: 25, satisfactionPct: 98 }
   },

@@ -463,6 +463,13 @@ adresi elle yazılır.
   düzeltilir, config DEĞİL (config resmî sicil adresidir).
 - `config.company.sameAs`: Facebook · Instagram · YouTube. Footer sosyal
   bloğu ve JSON-LD buradan üretilir; boşken blok gizlenir.
+- `config.company.sisterSites`: aynı firmaya ait DİĞER siteler (şu an
+  solaranaliz.tr). build.js `hydrateSisterSites()` footer "Kurumsal"
+  sütununda GES Marketim bağlantısının ardına `SISTER:STATIC` işaretleri
+  arasına basar (her build'de yeniden yazılır, çoğalmaz) ve adresleri
+  JSON-LD `sameAs`a KATAR. Sosyal ikon şeridine GİRMEZ — orası yalnız
+  `sameAs` okur, yoksa kardeş site "🌐" ikonuyla sosyal hesap gibi görünürdü.
+  Etiketin çevirisi `assets/i18n.js` DICT'indedir (marka adı çevrilmez).
 
 ## Ağ Kısıtı (ÖNEMLİ)
 - Buluttaki Claude Code dış sitelere (ör. solaranaliz.tr, gespaenerji.com)

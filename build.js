@@ -241,6 +241,22 @@ seo.pages.forEach(p => { META[p.file] = {}; LANGS.forEach((l,i) => {
 
 function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
 
+// Kardeş site bağlantıları (config.company.sisterSites) — footer "Kurumsal"
+// sütununda GES Marketim bağlantısının ardına basılır. İşaretçi arasında
+// tutulur, böylece her build'de yeniden yazılır ve çoğalmaz.
+function hydrateSisterSites(html, c) {
+  const sites = (c.sisterSites || []).filter(x => x && x.url && x.label);
+  const block = sites.map(x =>
+    '<a href="' + esc(x.url) + '" target="_blank" rel="noopener">' + esc(x.label) + ' \u2197</a>').join("");
+  const wrapped = "<!-- SISTER:STATIC -->" + block + "<!-- /SISTER:STATIC -->";
+  if (/<!-- SISTER:STATIC -->/.test(html)) {
+    return html.replace(/<!-- SISTER:STATIC -->[\s\S]*?<!-- \/SISTER:STATIC -->/g, wrapped);
+  }
+  if (!sites.length) return html;
+  // İlk kez: footer'daki GES Marketim bağlantısının HEMEN ardına ekle
+  return html.replace(/(<a href="https:\/\/www\.gesmarketim\.com"[^>]*>[^<]*<\/a>)/g, "$1" + wrapped);
+}
+
 /* ============================================================
    STATİK SEO/AEO ÜRETİMİ — tek kaynak assets/config.js
    AI botları (GPTBot, ClaudeBot, PerplexityBot...) JavaScript
@@ -285,7 +301,11 @@ function localBusinessLd(c) {
     };
   }
   if (c.rating && c.rating.value && c.rating.count) d.aggregateRating = { "@type": "AggregateRating", ratingValue: c.rating.value, reviewCount: c.rating.count };
-  if (c.sameAs && c.sameAs.length) d.sameAs = c.sameAs;
+  // sameAs = sosyal profiller + aynı firmaya ait diğer siteler. Kardeş site
+  // adresleri BURAYA girer ama footer sosyal ikon şeridine girmez (orası
+  // yalnız c.sameAs okur) — "🌐" ikonlu tuhaf bir sosyal bağlantı oluşmasın.
+  const sa = (c.sameAs || []).concat((c.sisterSites || []).map(x => x.url)).filter(Boolean);
+  if (sa.length) d.sameAs = sa;
   if (c.geo && c.geo.lat != null && c.geo.lng != null) d.geo = { "@type": "GeoCoordinates", latitude: c.geo.lat, longitude: c.geo.lng };
   return d;
 }
@@ -1166,6 +1186,7 @@ function run() {
     let html = fs.readFileSync(p, "utf8");
     const before = html;
     html = hydrateContact(html, cfg.company);
+    html = hydrateSisterSites(html, cfg.company);
     html = hydrateExtras(html, file, cfg);
     html = injectStaticLd(html, file, cfg);
     if (html !== before) fs.writeFileSync(p, html);
