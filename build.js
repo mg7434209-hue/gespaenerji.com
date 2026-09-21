@@ -27,10 +27,18 @@ const PAGES = [
   "ai-cankurtaran-destek-sistemi.html", "sistem-kur.html",
   "elektrikli-arac-donusum.html",
   "paket-285w.html", "paket-2x540w.html", "unv-trek-pro-2500.html", "toptan.html",
-  "sepet.html",   // noindex; sitemap'e girmez (NOSITEMAP)
-  // Yasal sayfalar da üretilir: dil değiştirici ve hreflang /en/kvkk.html gibi
-  // URL'lere işaret eder; üretilmezse 404 olur. Gövde metni TR kalır (hukuken
-  // geçerli metin Türkçedir), başlık/description dile göre yazılır.
+  "sepet.html"   // noindex; sitemap'e girmez (NOSITEMAP)
+];
+
+// YALNIZ TÜRKÇE yayınlanan sayfalar. Hukuken bağlayıcı metin Türkçedir;
+// /en /de /ru kopyası ÜRETİLMEZ (üretilse gövde Türkçe kalır ve arama motoru
+// "yanlış dilde içerik" sinyali alır). Sonuçları:
+//  · dil sayfalarındaki bağlantı kök TR adresinde kalır (PAGES'te olmadığı
+//    için link yerelleştirmesi bunlara DOKUNMAZ) — kırık link oluşmaz,
+//  · hreflang kümesi yalnız TR + x-default içerir (kendine işaret eder),
+//  · sitemap'e tek TR URL'siyle girer.
+// Yeni bir yasal sayfa eklersen buraya da yaz.
+const TR_ONLY = [
   "kvkk.html", "gizlilik.html", "cerez-politikasi.html",
   "mesafeli-satis-sozlesmesi.html", "iade-teslimat.html"
 ];
@@ -814,7 +822,10 @@ function hydrateExtras(html, file, cfg) {
   // Statik hreflang kümesi (canonical'ın hemen ardına; mevcut küme yenilenir)
   html = html.replace(/[ \t]*<link rel="alternate" hreflang=[^>]*\/>\n?/g, "");
   const urlFor = l => l === "tr" ? ORIGIN + "/" + (file === "index.html" ? "" : file) : ORIGIN + "/" + l + "/" + (file === "index.html" ? "" : file);
-  const cluster = ["tr", ...LANGS].map(l => '  <link rel="alternate" hreflang="' + l + '" href="' + urlFor(l) + '" />').join("\n")
+  // TR_ONLY sayfasının başka dilde sürümü YOKTUR — var gibi göstermek
+  // Search Console'da "hreflang karşılıklı değil" hatası üretir.
+  const hrefLangs = TR_ONLY.includes(file) ? ["tr"] : ["tr", ...LANGS];
+  const cluster = hrefLangs.map(l => '  <link rel="alternate" hreflang="' + l + '" href="' + urlFor(l) + '" />').join("\n")
     + '\n  <link rel="alternate" hreflang="x-default" href="' + urlFor("tr") + '" />';
   html = html.replace(/(<link rel="canonical"[^>]*\/>)/, "$1\n" + cluster);
   return html;
@@ -834,8 +845,9 @@ function writeSitemap() {
   const urlFor = (l, file) => l === "tr" ? ORIGIN + "/" + (file === "index.html" ? "" : file) : ORIGIN + "/" + l + "/" + (file === "index.html" ? "" : file);
   const entries = [];
   const NOSITEMAP = { "sepet.html": 1 };   // noindex sayfalar haritaya girmez
-  for (const file of PAGES) {
+  for (const file of PAGES.concat(TR_ONLY)) {
     if (NOSITEMAP[file]) continue;
+    const trOnly = TR_ONLY.includes(file);
     const p = path.join(ROOT, file);
     if (!fs.existsSync(p)) continue;
     let lastmod;
@@ -845,9 +857,10 @@ function writeSitemap() {
       ).toString().trim().slice(0, 10);
     } catch (e) { /* git yoksa mtime */ }
     if (!lastmod) lastmod = fs.statSync(p).mtime.toISOString().slice(0, 10);
-    const cluster = ["tr", ...LANGS].map(l => '    <xhtml:link rel="alternate" hreflang="' + l + '" href="' + urlFor(l, file) + '" />').join("\n")
+    const smLangs = trOnly ? ["tr"] : ["tr", ...LANGS];
+    const cluster = smLangs.map(l => '    <xhtml:link rel="alternate" hreflang="' + l + '" href="' + urlFor(l, file) + '" />').join("\n")
       + '\n    <xhtml:link rel="alternate" hreflang="x-default" href="' + urlFor("tr", file) + '" />';
-    for (const l of ["tr", ...LANGS]) {
+    for (const l of smLangs) {
       entries.push("  <url>\n    <loc>" + urlFor(l, file) + "</loc>\n    <lastmod>" + lastmod +
         "</lastmod><changefreq>" + (file === "index.html" ? "weekly" : "monthly") + "</changefreq><priority>" +
         (l === "tr" ? (PRIORITY[file] || "0.7") : "0.5") + "</priority>\n" + cluster + "\n  </url>");
@@ -1143,7 +1156,9 @@ function run() {
   seo.generate(ROOT);
   const cfg = loadConfig();
   const i18n = loadI18n();
-  for (const file of PAGES) {
+  // TR kaynak sayfaları: TR_ONLY olanlar da işlenir (iletişim alanları, JSON-LD
+  // ve hreflang kümesi burada basılır). Dil kopyası üretimi bunları KAPSAMAZ.
+  for (const file of PAGES.concat(TR_ONLY)) {
     const p = path.join(ROOT, file);
     if (!fs.existsSync(p)) continue;
     let html = fs.readFileSync(p, "utf8");

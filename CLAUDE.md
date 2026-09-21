@@ -353,6 +353,13 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   gitignore'da; server.js hazır dosyayı servis eder, ETag/304 destekler).
 - Görsel türevleri (hero-640/960, *-thumb, *-800, gespa-icon-72) elle üretilmiş
   optimize kopyalardır; kaynak görsel değişirse türevini de yenile.
+- AI GÖRÜNÜRLÜK ÖLÇÜMÜ: main.js analitik IIFE'si, ziyaretçi bir yapay zekâ
+  asistanından geldiğinde GA4'e `ai_referral` olayı yazar (chatgpt, perplexity,
+  claude, copilot, gemini, you, poe, grok, brave-ai, duckduckgo). Referrer'ın
+  yalnız ALAN ADI okunur — özel sohbet adresi analitiğe sızmaz, tests/seo.test.js
+  bunu doğrular. `contact_click` (tel/e-posta/WhatsApp) ve `quote_cta_click`
+  dönüşüm olayları da buradadır. Bu kod bir kez "restore" commit'inde silindi;
+  testin geçtiğini doğrulamadan main.js'i geri almayın.
 - `llms-full.txt` config'ten üretilir (ürünler+fiyatlar+araçlar; llms.txt özet
   kalır, elle bakılır — fiyat/indirim değişince llms.txt'teki paket satırlarını da
   elle güncelle; çelişkide llms-full.txt esastır ve dosyada böyle yazar).
@@ -408,6 +415,14 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   istemci sözlüğüne geçmez. JS ile ÇİZİLEN metnin (katalog kartı, ürün adı,
   builder) çevirisi bu yüzden doğrudan `assets/i18n.js` DICT'ine yazılmalıdır. Marka/iletişim
   (`data-c-text`) ve dinamik sayılar çeviriden hariç tutulur.
+- YASAL SAYFALAR YALNIZ TÜRKÇE yayınlanır (`kvkk` `gizlilik` `cerez-politikasi`
+  `mesafeli-satis-sozlesmesi` `iade-teslimat`): bağlayıcı metin Türkçedir, dil
+  kopyası ÜRETİLMEZ. Liste build.js `TR_ONLY` — PAGES'te DEĞİLDİR. Sonuçları:
+  hreflang kümesi yalnız `tr` + `x-default`, sitemap'e tek TR URL'siyle girer,
+  dil sayfalarındaki footer bağlantısı kök TR adresinde kalır (PAGES'te
+  olmadığı için link yerelleştirmesi dokunmaz). Eski `/en/kvkk.html` gibi
+  adresler server.js'te TR sürümüne **301** yönlendirilir — indekslenmiş
+  URL'ler 404 olmasın. Yeni yasal sayfa eklersen TR_ONLY'ye de yaz.
 - SEO için diller **ayrı URL**lerde sunulur: kök=TR, `/en` `/de` `/ru`. `build.js`
   kök sayfalardan üretir (lang/title/description/canonical/og statik gömülür, gövde
   istemci i18n ile çevrilir). Sayfa `<title>`/description çevirisi `build.js` içindeki

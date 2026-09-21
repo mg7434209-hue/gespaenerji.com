@@ -361,6 +361,15 @@ const server = http.createServer((req, res) => {
       res.writeHead(301, { Location: "/ai-cankurtaran-destek-sistemi.html" + qs });
       return res.end();
     }
+    // Yasal sayfalar artık YALNIZCA Türkçe yayınlanır (bağlayıcı metin Türkçedir;
+    // build.js TR_ONLY listesine bak). Eskiden /en /de /ru kopyaları vardı ve
+    // indekslenmiş olabilir — 404 yerine TR sürümüne kalıcı yönlendir ki
+    // bağlantı değeri ve ziyaretçi kaybolmasın.
+    var legalTr = /^\/(en|de|ru)\/(kvkk|gizlilik|cerez-politikasi|mesafeli-satis-sozlesmesi|iade-teslimat)\.html$/.exec(urlPath);
+    if (legalTr) {
+      res.writeHead(301, { Location: "/" + legalTr[2] + ".html" + qs });
+      return res.end();
+    }
     // Ödeme API (iyzico) — anahtar tanımlı değilse status {enabled:false} döner
     if (urlPath.startsWith("/api/pay/")) {
       if (handlePayRoutes(req, res, urlPath)) return;
