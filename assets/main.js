@@ -637,12 +637,54 @@
           var done = function () { ibanBtn.textContent = "✓ " + L("Kopyalandı", "Copied", "Kopiert", "Скопировано"); setTimeout(function () { ibanBtn.textContent = "📋 " + L("Kopyala", "Copy", "Kopieren", "Копировать"); }, 2000); };
           if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(raw).then(done, function () {});
         });
+        var ordSending = false;
+        // ÖNEMLİ: zorunlu alan boşsa tarayıcı "submit" olayını HİÇ tetiklemez;
+        // aşağıdaki kontrol çalışmaz bile. Geçersiz alan için "invalid" olayı
+        // gelir (kabarcıklanmaz → yakalama aşamasında dinlenir). Uyarı burada
+        // gösterilir; yoksa kullanıcı düğmeye basıp hiçbir şey olmadığını görür.
+        form.addEventListener("invalid", function (ev) {
+          var el = ev.target;
+          if (el && el.scrollIntoView) el.scrollIntoView({ block: "center", behavior: "smooth" });
+          var w = $("#ordWarn");
+          if (w) {
+            w.hidden = false;
+            w.textContent = L("Eksik veya hatalı alan var — işaretli alanı doldurup tekrar deneyin.",
+              "A required field is missing or invalid — fill the highlighted field and try again.",
+              "Ein Pflichtfeld fehlt oder ist ungültig — füllen Sie das markierte Feld aus und versuchen Sie es erneut.",
+              "Обязательное поле не заполнено или неверно — заполните выделенное поле и повторите.");
+          }
+        }, true);
         form.addEventListener("submit", function (e) {
           e.preventDefault();
+          if (ordSending) return;                    // çift gönderimi engelle
           var t = totals();
           if (!t.ls.length) return;
           var v = function (n) { return (form[n] && form[n].value.trim()) || ""; };
-          if (!v("ad") || !v("tel") || !v("il") || !v("adres")) return;
+          // Zorunlu alan eksikse eskiden sessizce return edilirdi: hiçbir uyarı
+          // çıkmaz, kullanıcı düğmeye defalarca basardı. Artık eksik alan
+          // ekrana kaydırılır, odaklanır ve sebebi yazılır.
+          if (!form.checkValidity() || !v("ad") || !v("tel") || !v("il") || !v("adres")) {
+            var bad = form.querySelector(":invalid") ||
+              ["ad", "tel", "il", "adres"].map(function (n) { return form[n]; })
+                .filter(function (el) { return el && !el.value.trim(); })[0];
+            if (bad) {
+              bad.scrollIntoView({ block: "center", behavior: "smooth" });
+              try { bad.focus({ preventScroll: true }); } catch (err) { bad.focus(); }
+            }
+            if (form.reportValidity) form.reportValidity();
+            var warn = $("#ordWarn");
+            if (warn) {
+              warn.hidden = false;
+              warn.textContent = L("Eksik alan var — işaretli alanı doldurup tekrar deneyin.",
+                "A required field is missing — fill the highlighted field and try again.",
+                "Ein Pflichtfeld fehlt — füllen Sie das markierte Feld aus und versuchen Sie es erneut.",
+                "Не заполнено обязательное поле — заполните выделенное поле и повторите.");
+            }
+            return;
+          }
+          var warnEl = $("#ordWarn");
+          if (warnEl) warnEl.hidden = true;
+          ordSending = true;
           if (t.method === "kart") {
             var btn = form.querySelector('button[type="submit"]');
             var doneEl = $("#ordDone");
@@ -656,15 +698,18 @@
             }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
               .then(function (out) {
                 if (out.ok && out.j && out.j.url) { location.href = out.j.url; return; }
+                ordSending = false;
                 if (btn) { btn.disabled = false; btn.textContent = L("🛒 Siparişi tamamla", "🛒 Complete your order", "🛒 Bestellung abschließen", "🛒 Завершить заказ"); }
                 if (doneEl) { doneEl.hidden = false; doneEl.textContent = (out.j && out.j.error) || L("Ödeme başlatılamadı; lütfen tekrar deneyin.", "Payment could not be started; please try again.", "Zahlung konnte nicht gestartet werden; bitte erneut versuchen.", "Не удалось начать оплату; попробуйте ещё раз."); }
               })
               .catch(function () {
+                ordSending = false;
                 if (btn) { btn.disabled = false; btn.textContent = L("🛒 Siparişi tamamla", "🛒 Complete your order", "🛒 Bestellung abschließen", "🛒 Завершить заказ"); }
                 if (doneEl) { doneEl.hidden = false; doneEl.textContent = L("Bağlantı hatası; lütfen tekrar deneyin.", "Connection error; please try again.", "Verbindungsfehler; bitte erneut versuchen.", "Ошибка соединения; попробуйте ещё раз."); }
               });
             return;
           }
+          ordSending = false;   // WhatsApp yolu sayfayı değiştirmez, kilidi aç
           var msg = ["🛒 YENİ SİPARİŞ — Sepet (" + t.ls.length + " ürün)"];
           t.ls.forEach(function (l, i) {
             msg.push((i + 1) + ") " + l.p.name + (l.p.sku ? " [" + l.p.sku + "]" : "") + " × " + l.qty + " = ₺" + nf.format(l.sumList));

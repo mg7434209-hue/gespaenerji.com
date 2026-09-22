@@ -118,11 +118,40 @@
       fetch("/api/pay/status").then(function (r) { return r.json(); }).then(function (st) {
         if (st && st.enabled) form.hidden = false; else closed.hidden = false;
       }).catch(function () { closed.hidden = false; });
+      var sending = false;
+      // ÖNEMLİ: zorunlu alan boşsa tarayıcı "submit" olayını HİÇ tetiklemez —
+      // submit içindeki kontrol çalışmaz. Geçersiz alan için ayrıca "invalid"
+      // olayı gelir (kabarcıklanmaz, bu yüzden yakalama aşamasında dinlenir).
+      // Uyarıyı burada gösteriyoruz; yoksa kullanıcı düğmeye basıp hiçbir şey
+      // olmadığını görüyor ve defalarca basıyordu.
+      form.addEventListener("invalid", function (ev) {
+        var el = ev.target;
+        if (el && el.scrollIntoView) el.scrollIntoView({ block: "center", behavior: "smooth" });
+        msg.hidden = false;
+        msg.textContent = "Eksik veya hatalı alan var — işaretli alanı doldurup tekrar deneyin.";
+      }, true);
       form.addEventListener("submit", function (e) {
         e.preventDefault();
+        if (sending) return;                       // çift gönderimi engelle
         var btn = form.querySelector("button[type=submit]");
+        var fail = function (t) { sending = false; btn.disabled = false; btn.textContent = "🔒 iyzico ile güvenli öde"; msg.hidden = false; msg.textContent = t; };
+        // Zorunlu alan eksikse tarayıcı gönderimi ENGELLER. Eskiden bu sessizce
+        // olurdu: istek gitmez, hiçbir uyarı çıkmazdı — kullanıcı düğmeye
+        // defalarca basardı. Artık eksik alan ekrana kaydırılır ve söylenir.
+        if (!form.checkValidity()) {
+          var bad = form.querySelector(":invalid");
+          if (bad) {
+            bad.scrollIntoView({ block: "center", behavior: "smooth" });
+            try { bad.focus({ preventScroll: true }); } catch (err) { bad.focus(); }
+          }
+          form.reportValidity();
+          msg.hidden = false;
+          msg.textContent = "Eksik alan var — işaretli alanı doldurup tekrar deneyin.";
+          return;
+        }
+        msg.hidden = true;
+        sending = true;
         btn.disabled = true; btn.textContent = "Ödeme sayfası açılıyor…";
-        var fail = function (t) { btn.disabled = false; btn.textContent = "🔒 iyzico ile güvenli öde"; msg.hidden = false; msg.textContent = t; };
         fetch("/api/pay/custom", {
           method: "POST", headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
