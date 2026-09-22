@@ -467,6 +467,14 @@ sayfasının HTML adresi DEĞİL.
 - Barkod (GTIN) yok; `sku` alanı `g:mpn` olur. Hiçbiri yoksa
   `g:identifier_exists=no` basılır — yoksa akış REDDEDİLİR.
 - Stok `0` ise `out of stock`. Ürün eklemek = SADECE config.packages + build.
+- `<g:shipping>` ülkeyi **TR** ile sınırlar (yalnız Türkiye'ye gönderiyoruz).
+  Ücret SADECE `freeShipping` üründe 0 TRY yazılır; diğerlerinde tutar
+  mesafeye göre değiştiğinden rakam UYDURULMAZ, Merchant Center hesap
+  ayarındaki kargo tablosu geçerli olur.
+- FİYAT PARA BİRİMİ KURALI: şema ve akış **TAHSİL EDİLEN** para birimini
+  yazar (TRY). USD ürünler `priceTRY()` ile çevrilir — yuvarlama main.js
+  `pkgUnit()` ve server.js `pkgListTL` ile AYNI. Şemaya `$` yazmak, kasada
+  ₺ çekildiği için Google'da "fiyat/para birimi eşleşmiyor" ihlali doğurur.
 
 ## Sipariş bildirim e-postası
 Ödeme BAŞARILI olunca (`/api/pay/callback`) işletmeye sipariş özeti gider:

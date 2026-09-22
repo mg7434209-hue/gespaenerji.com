@@ -16,6 +16,9 @@
       <g:condition>new</g:condition>
       <g:mpn>GES-KIT-285</g:mpn>
       <g:product_type>Taşınabilir</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
     </item>
     <item>
       <g:id>kit-2x540w</g:id>
@@ -29,6 +32,9 @@
       <g:condition>new</g:condition>
       <g:mpn>GES-KIT-2X540</g:mpn>
       <g:product_type>Taşınabilir</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
     </item>
     <item>
       <g:id>boost-mppt</g:id>
@@ -42,6 +48,10 @@
       <g:condition>new</g:condition>
       <g:mpn>GES-EV-BOOST</g:mpn>
       <g:product_type>Elektrikli Araç</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+        <g:price>0.00 TRY</g:price>
+      </g:shipping>
     </item>
     <item>
       <g:id>panel-50w</g:id>
@@ -55,6 +65,9 @@
       <g:condition>new</g:condition>
       <g:mpn>GES-PNL-50</g:mpn>
       <g:product_type>Panel</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
     </item>
     <item>
       <g:id>unv-trek-pro-2500</g:id>
@@ -68,6 +81,9 @@
       <g:condition>new</g:condition>
       <g:mpn>ES-E2500-A2</g:mpn>
       <g:product_type>Taşınabilir</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
     </item>
     <item>
       <g:id>panel-lexron-285w</g:id>
@@ -81,6 +97,9 @@
       <g:condition>new</g:condition>
       <g:mpn>GES-PNL-285</g:mpn>
       <g:product_type>Panel</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
     </item>
     <item>
       <g:id>panel-lexron-655w</g:id>
@@ -94,6 +113,9 @@
       <g:condition>new</g:condition>
       <g:mpn>GES-PNL-655</g:mpn>
       <g:product_type>Panel</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
     </item>
     <item>
       <g:id>panel-arcelik-540w</g:id>
@@ -107,6 +129,9 @@
       <g:condition>new</g:condition>
       <g:mpn>GES-PNL-540</g:mpn>
       <g:product_type>Panel</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
     </item>
     <item>
       <g:id>aku-titanx-51v-102ah</g:id>
@@ -120,6 +145,9 @@
       <g:condition>new</g:condition>
       <g:mpn>GES-AKU-102</g:mpn>
       <g:product_type>Enerji Depolama</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
     </item>
   </channel>
 </rss>

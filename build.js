@@ -341,6 +341,15 @@ function heaterProductLd(cfg) {
 const URUNLER_GROUPS = ["offgrid", "irrigation", "ongrid", "accessory"];
 // İndirim oranı — main.js pkgPct ile AYNI kural: ürüne `discountPct`
 // yazıldıysa o, yoksa site geneli cartDiscountPct.
+// Şema ve akış fiyatı TAHSİL EDİLEN para birimindedir. Kart ödemesi TRY
+// çeker (server.js `pkgListTL`), site de TL gösterir; USD ürünü şemaya $
+// olarak yazmak Google'da "fiyat/para birimi eşleşmiyor" ihlali doğurur.
+// Yuvarlama main.js `pkgUnit()` ve server.js `pkgListTL` ile AYNIDIR.
+function priceTRY(cfg, price, currency) {
+  const RATE = cfg.usdTry || 0;
+  return currency === "USD" ? Math.round(price * RATE / 100) * 100 : price;
+}
+
 function pctOf(cfg, p) {
   return ((p && p.discountPct != null ? p.discountPct : cfg.cartDiscountPct) || 0);
 }
@@ -372,7 +381,7 @@ function packagesItemListLd(cfg, file) {
     };
     const price = p.price != null ? p.price : (p.priceOnRequest ? null : Math.round(p.kwp * COST));
     if (price != null) {
-      item.offers = { "@type": "Offer", price: price, priceCurrency: p.currency || "TRY", availability: "https://schema.org/InStock" };
+      item.offers = { "@type": "Offer", price: priceTRY(cfg, price, p.currency), priceCurrency: "TRY", availability: "https://schema.org/InStock" };
       // Kampanyalı üründe indirimli fiyatın geçerlilik sonu
       const camp = cfg.campaign || {};
       if (p.oldPrice && p.oldPrice > price && camp.endsAt && new Date(camp.endsAt) > new Date()) {
@@ -404,7 +413,7 @@ function packageProductLd(cfg, p) {
   if (p.img) ld.image = web + "/" + p.img;
   if (p.price != null) {
     ld.offers = {
-      "@type": "Offer", price: p.price, priceCurrency: p.currency || "TRY",
+      "@type": "Offer", price: priceTRY(cfg, p.price, p.currency), priceCurrency: "TRY",
       availability: p.stock === 0 ? "https://schema.org/OutOfStock" : "https://schema.org/InStock",
       url: web + "/" + (p.url || ""),
       seller: { "@type": "Organization", name: cfg.company.legalName },
@@ -964,6 +973,15 @@ function writeProductFeed(cfg) {
     if (p.sku) L.push("      <g:mpn>" + esc(p.sku) + "</g:mpn>");
     else L.push("      <g:identifier_exists>no</g:identifier_exists>");
     if (p.tag) L.push("      <g:product_type>" + esc(p.tag) + "</g:product_type>");
+    // Kargo YALNIZ Türkiye'ye yapılır; ülke kısıtı akışta da belirtilir ki
+    // Merchant Center ürünü göndermediğimiz ülkelerde listelemesin.
+    // Ücret SADECE kargosu fiyata dahil üründe yazılır (0 TRY) — diğerlerinde
+    // tutar mesafeye göre değiştiği için rakam UYDURULMAZ, hesap düzeyindeki
+    // kargo ayarı geçerli olur.
+    L.push("      <g:shipping>");
+    L.push("        <g:country>TR</g:country>");
+    if (p.freeShipping) L.push("        <g:price>0.00 TRY</g:price>");
+    L.push("      </g:shipping>");
     L.push("    </item>");
     return L.join("\n");
   });
