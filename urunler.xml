@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+  <channel>
+    <title>GESPA Enerji — Ürün Listesi</title>
+    <link>https://www.gespaenerji.com</link>
+    <description>Gespa Enerji; Manavgat/Antalya merkezli, çatı ve arazi tipi güneş enerjisi santralleri (GES) ile güneş enerjili tarımsal sulama için anahtar teslim mühendislik, kurulum, finansman ve bakım hizmeti sunar.</description>
+    <item>
+      <g:id>kit-285w</g:id>
+      <g:title>285W Güneş Paneli Paketi</g:title>
+      <g:description>Komple sistem: 285 W panel, güç kutusu ve bağlantı kabloları dahil tak-çalıştır mobil kit. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg.</g:description>
+      <g:link>https://www.gespaenerji.com/paket-285w.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/kit-285w.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>25000.00 TRY</g:price>
+      <g:brand>GESPA Enerji</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>GES-KIT-285</g:mpn>
+      <g:product_type>Taşınabilir</g:product_type>
+    </item>
+    <item>
+      <g:id>kit-2x540w</g:id>
+      <g:title>Tam Kapsamlı Güneş Enerjisi Sistemi</g:title>
+      <g:description>2× 540 W güneş paneli dahil komple mobil sistem: LiFePO₄ lityum batarya ve büyük güç kutusuyla buzdolabı, TV, çamaşır ve bulaşık makinesini çalıştırır.</g:description>
+      <g:link>https://www.gespaenerji.com/paket-2x540w.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/kit-2x540w.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>104500.00 TRY</g:price>
+      <g:brand>GESPA Enerji</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>GES-KIT-2X540</g:mpn>
+      <g:product_type>Taşınabilir</g:product_type>
+    </item>
+    <item>
+      <g:id>boost-mppt</g:id>
+      <g:title>MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı</g:title>
+      <g:description>Güneş panelinden 24-72 V akü grubuna doğrudan şarj sağlayan MPPT yükseltici (boost) şarj kontrol cihazı. AGM, jel, sulu kurşun-asit ve lityum akülerle uyumlu; Bluetooth ile programlanır. Panel ve akü ürüne dahil değildir.</g:description>
+      <g:link>https://www.gespaenerji.com/elektrikli-arac-donusum.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>7600.00 TRY</g:price>
+      <g:brand>GESPA Enerji</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>GES-EV-BOOST</g:mpn>
+      <g:product_type>Elektrikli Araç</g:product_type>
+    </item>
+    <item>
+      <g:id>panel-50w</g:id>
+      <g:title>50W Güneş Paneli</g:title>
+      <g:description>12 V sistemler için tekil 50 W monokristal güneş paneli. Bahçe aydınlatması, güvenlik kamerası ve akü şarjı gibi küçük yükler için uygundur; panel tek başına satılır, akü ve regülatör dahil değildir.</g:description>
+      <g:link>https://www.gespaenerji.com/online-satis.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/panel-50w.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>1250.00 TRY</g:price>
+      <g:brand>GESPA Enerji</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>GES-PNL-50</g:mpn>
+      <g:product_type>Panel</g:product_type>
+    </item>
+    <item>
+      <g:id>unv-trek-pro-2500</g:id>
+      <g:title>UNV Trek Pro 2500 W Taşınabilir Güç İstasyonu</g:title>
+      <g:description>2496 Wh kapasiteli, 2500 W sürekli çıkış veren taşınabilir güç istasyonu. Dört adet 230 V saf sinüs AC prizi, USB ve Type-C çıkışlarıyla aynı anda 14 cihaza kadar besleme yapar; 30 ms tepki süresiyle kesintisiz güç kaynağı (UPS) olarak da çalışır. Güneş paneli ürüne dahil değildir.</g:description>
+      <g:link>https://www.gespaenerji.com/unv-trek-pro-2500.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/unv-trek-pro-2500.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>118500.00 TRY</g:price>
+      <g:brand>UNV (Uniview)</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>ES-E2500-A2</g:mpn>
+      <g:product_type>Taşınabilir</g:product_type>
+    </item>
+    <item>
+      <g:id>panel-lexron-285w</g:id>
+      <g:title>Lexron 285 W Güneş Paneli</g:title>
+      <g:description>Lexron 210R PowerLite TOPCon serisi 285 W monokristal güneş paneli. Voc 42,84 V · Isc 8,19 A · Vmp 35,85 V · Imp 7,95 A. Ölçü 780 × 1536 × 30 mm, ağırlık 8,5 kg. IEC 61215 / 61730 / 61701 belgeli; 12 yıl ürün ve işçilik, 30 yıl güç garantisi.</g:description>
+      <g:link>https://www.gespaenerji.com/online-satis.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>7500.00 TRY</g:price>
+      <g:brand>Lexron</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>GES-PNL-285</g:mpn>
+      <g:product_type>Panel</g:product_type>
+    </item>
+    <item>
+      <g:id>panel-lexron-655w</g:id>
+      <g:title>Lexron 655 W TOPCon Güneş Paneli</g:title>
+      <g:description>132 yarım kesim hücreli, N-type TOPCon teknolojili monokristal güneş paneli. 655 W güçte Voc 50,34 V · Vmp 42,32 V · Isc 16,53 A · Imp 15,48 A, modül verimi %24,25. Ölçü 2382 × 1134 × 35 mm, ağırlık 31 kg; 3,2 mm AR kaplamalı ısıl güçlendirilmiş cam, 35 mm anotlu alüminyum çerçeve, IP68 bağlantı kutusu. 1500 V sistem gerilimi, 2400 Pa rüzgâr ve 5400 Pa kar yükü dayanımı.</g:description>
+      <g:link>https://www.gespaenerji.com/online-satis.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>10000.00 TRY</g:price>
+      <g:brand>Lexron</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>GES-PNL-655</g:mpn>
+      <g:product_type>Panel</g:product_type>
+    </item>
+    <item>
+      <g:id>panel-arcelik-540w</g:id>
+      <g:title>Arçelik 540 W Güneş Paneli</g:title>
+      <g:description>Arçelik marka 540 W A sınıf monokristal güneş paneli. Yetkili tedarik, orijinal ürün; çatı ve arazi tipi kurulumlar için uygundur. Ayrıntılı teknik künye ve palet bazında toptan sevkiyat için bize ulaşın.</g:description>
+      <g:link>https://www.gespaenerji.com/online-satis.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/panel-arcelik-540w.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>10000.00 TRY</g:price>
+      <g:brand>Arçelik</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>GES-PNL-540</g:mpn>
+      <g:product_type>Panel</g:product_type>
+    </item>
+    <item>
+      <g:id>aku-titanx-51v-102ah</g:id>
+      <g:title>TitanX 51,2 V 102 Ah LiFePO₄ Akü</g:title>
+      <g:description>51,2 V 102 Ah (5,22 kWh) LiFePO₄ enerji depolama aküsü. 16S1P prizmatik hücre yapısı, dahili akıllı BMS ile aşırı şarj/deşarj, aşırı akım, kısa devre ve sıcaklık koruması. 100 A sürekli deşarj, 150 A tepe (5 sn); 6000+ çevrim ömrü (%80 DoD). CAN/RS485 ve Bluetooth veya WiFi haberleşme; 16 adede kadar paralel bağlanabilir. Ağırlık 37 kg, ölçü 560 × 150 × 380 mm, IP20, M8 terminal, 2 yıl garanti.</g:description>
+      <g:link>https://www.gespaenerji.com/online-satis.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>73372.00 TRY</g:price>
+      <g:brand>TitanX</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>GES-AKU-102</g:mpn>
+      <g:product_type>Enerji Depolama</g:product_type>
+    </item>
+  </channel>
+</rss>

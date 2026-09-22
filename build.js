@@ -934,6 +934,52 @@ function hydrateContact(html, c) {
 }
 
 // AI yanıt motorları için ayrıntılı bilgi dosyası (fiyatlar config'ten)
+// ---- Ürün akışı (urunler.xml) --------------------------------------------
+// Google Merchant Center biçiminde RSS 2.0 akışı. iyzico'nun "XML ile
+// Ürünlerinizi Yükleyin" alanı, Google Shopping ve Meta katalogları da
+// AYNI biçimi okur. Kaynak yine config.packages — elle liste tutulmaz.
+// Fiyat LİSTE fiyatıdır (KDV dahil); havale/EFT indirimi bir ÖDEME YÖNTEMİ
+// indirimi olduğu için akışa girmez, yoksa kartla ödeyen yanılır.
+function writeProductFeed(cfg) {
+  const c = cfg.company, web = c.web, RATE = cfg.usdTry || 0;
+  const items = (cfg.packages || []).filter(p => p.price != null && p.img).map(p => {
+    const tl = p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
+    // Kendi sayfası olmayan ürün katalogda satılır — iniş sayfası orası.
+    const link = web + "/" + (p.url || "online-satis.html");
+    const avail = p.stock === 0 ? "out of stock" : "in stock";
+    const desc = (p.desc || p.for || p.name || "").replace(/\s+/g, " ").trim().slice(0, 4900);
+    const L = [];
+    L.push("    <item>");
+    L.push("      <g:id>" + esc(p.id) + "</g:id>");
+    L.push("      <g:title>" + esc(String(p.name).slice(0, 150)) + "</g:title>");
+    L.push("      <g:description>" + esc(desc) + "</g:description>");
+    L.push("      <g:link>" + esc(link) + "</g:link>");
+    L.push("      <g:image_link>" + esc(web + "/" + p.img) + "</g:image_link>");
+    L.push("      <g:availability>" + avail + "</g:availability>");
+    L.push("      <g:price>" + tl.toFixed(2) + " TRY</g:price>");
+    L.push("      <g:brand>" + esc(p.brand || c.brandName) + "</g:brand>");
+    L.push("      <g:condition>new</g:condition>");
+    // Ürünlerde barkod (GTIN) yok; kendi stok kodumuz MPN olarak verilir.
+    // Hiçbiri yoksa identifier_exists=no ZORUNLUDUR, yoksa akış reddedilir.
+    if (p.sku) L.push("      <g:mpn>" + esc(p.sku) + "</g:mpn>");
+    else L.push("      <g:identifier_exists>no</g:identifier_exists>");
+    if (p.tag) L.push("      <g:product_type>" + esc(p.tag) + "</g:product_type>");
+    L.push("    </item>");
+    return L.join("\n");
+  });
+  const xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    + '<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">\n'
+    + "  <channel>\n"
+    + "    <title>" + esc(c.brandName) + " — Ürün Listesi</title>\n"
+    + "    <link>" + esc(web) + "</link>\n"
+    + "    <description>" + esc(c.description || c.slogan || "") + "</description>\n"
+    + items.join("\n") + "\n"
+    + "  </channel>\n</rss>\n";
+  fs.writeFileSync(path.join(ROOT, "urunler.xml"), xml);
+  console.log("urunler.xml: " + items.length + " ürün (Merchant Center biçimi)");
+  return items.length;
+}
+
 function writeLlmsFull(cfg) {
   const nf = n => new Intl.NumberFormat("tr-TR").format(Math.round(n));
   const COST = cfg.calc.costPerKwp;
@@ -1192,6 +1238,7 @@ function run() {
     if (html !== before) fs.writeFileSync(p, html);
   }
   writeLlmsFull(cfg);
+  writeProductFeed(cfg);
   writeSitemap();
 
   let count = 0;

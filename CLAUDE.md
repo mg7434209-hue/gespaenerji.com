@@ -452,6 +452,22 @@ Kart ödemesi kapalıysa kart bunu bağlantı gönderilmeden ÖNCE uyarır.
 Menüden erişilmez, robots'ta engellidir — site genelinde bağlantısı YOKTUR,
 adresi elle yazılır.
 
+## Ürün akışı — `urunler.xml`
+`build.js` `writeProductFeed()` config.packages'ten **Google Merchant Center
+biçiminde RSS 2.0** akışı üretir. Aynı biçimi iyzico "XML ile Ürünlerinizi
+Yükleyin", Google Shopping ve Meta katalogları okur. Adres:
+`https://www.gespaenerji.com/urunler.xml` — panellere BU yazılır, ürün
+sayfasının HTML adresi DEĞİL.
+- Fiyat **LİSTE** fiyatıdır (KDV dahil). Havale/EFT indirimi bir ÖDEME YÖNTEMİ
+  indirimi olduğu için akışa GİRMEZ; girseydi kartla ödeyen yanılırdı.
+- USD ürünler `usdTry` ile TL'ye çevrilir — site kartlarıyla AYNI yuvarlama.
+- `price: null` (teklif usulü) ve görseli olmayan ürün akışa GİRMEZ;
+  Merchant Center fiyat ve görseli zorunlu tutar.
+- Kendi sayfası olmayan ürünün iniş sayfası `online-satis.html`'dir.
+- Barkod (GTIN) yok; `sku` alanı `g:mpn` olur. Hiçbiri yoksa
+  `g:identifier_exists=no` basılır — yoksa akış REDDEDİLİR.
+- Stok `0` ise `out of stock`. Ürün eklemek = SADECE config.packages + build.
+
 ## Sipariş bildirim e-postası
 Ödeme BAŞARILI olunca (`/api/pay/callback`) işletmeye sipariş özeti gider:
 müşteri bilgileri, **fatura için T.C. kimlik no**, kalemler, tutar, iyzico
