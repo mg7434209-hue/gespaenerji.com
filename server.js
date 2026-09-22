@@ -198,6 +198,134 @@ function iyzFail(res, tag, err, out) {
   });
 }
 
+// ---- Sipariş bildirim e-postası (bağımlılıksız SMTP) ----------------------
+// Ödeme BAŞARILI olunca işletmeye sipariş özeti gönderir: müşteri bilgileri,
+// fatura için T.C. kimlik no, kalemler ve tutar. Ayarlar Railway ortam
+// değişkenlerinden okunur — parola KODA veya REPOYA ASLA yazılmaz:
+//   SMTP_HOST (ör. smtp.gmail.com) · SMTP_PORT (465) · SMTP_USER · SMTP_PASS
+//   ORDER_EMAIL_TO (alıcı; boşsa SMTP_USER'a gider)
+// Gmail'de normal hesap parolası ÇALIŞMAZ; "Uygulama Şifresi" üretilmelidir.
+// Eksik ayar = e-posta sessizce atlanır, ödeme akışı ETKİLENMEZ.
+const SMTP = {
+  host: (process.env.SMTP_HOST || "").trim(),
+  port: +(process.env.SMTP_PORT || 465),
+  user: (process.env.SMTP_USER || "").trim(),
+  pass: process.env.SMTP_PASS || "",
+  to: (process.env.ORDER_EMAIL_TO || "").trim()
+};
+const mailReady = () => !!(SMTP.host && SMTP.user && SMTP.pass);
+console.log("sipariş e-postası:", mailReady()
+  ? "açık · " + SMTP.host + ":" + SMTP.port + " → " + (SMTP.to || SMTP.user)
+  : "kapalı (SMTP_HOST/SMTP_USER/SMTP_PASS tanımlı değil)");
+
+// Başlıkta Türkçe karakter: MIME encoded-word (RFC 2047)
+function mimeWord(t) { return "=?UTF-8?B?" + Buffer.from(String(t), "utf8").toString("base64") + "?="; }
+
+// Küçük SMTP istemcisi. Örtük TLS (465) ya da STARTTLS (587) ile çalışır.
+function sendMail(subject, body, cb) {
+  cb = cb || function () {};
+  if (!mailReady()) return cb(new Error("SMTP ayarı yok"));
+  const tls = require("tls"), net = require("net");
+  const to = SMTP.to || SMTP.user;
+  const implicit = SMTP.port === 465;
+  // SNI (servername) yalnız ALAN ADI ile gönderilir. Host bir IP adresiyse
+  // SNI geçersizdir ve el sıkışması sessizce askıda kalır (zaman aşımına
+  // düşer, hata bile vermez) — IP durumunda alan belirtmeyiz.
+  const isIp = /^[\d.]+$/.test(SMTP.host) || SMTP.host.indexOf(":") >= 0;
+  const sni = isIp ? {} : { servername: SMTP.host };
+  let sock = implicit
+    ? tls.connect(Object.assign({ host: SMTP.host, port: SMTP.port }, sni))
+    : net.connect({ host: SMTP.host, port: SMTP.port });
+  let buf = "", step = 0, done = false, upgraded = implicit;
+
+  const finish = (err) => { if (done) return; done = true; try { sock.destroy(); } catch (e) {} cb(err || null); };
+  const say = (line) => { try { sock.write(line + "\r\n"); } catch (e) { finish(e); } };
+  const msg = [
+    "From: " + mimeWord("GESPA Enerji Sipariş") + " <" + SMTP.user + ">",
+    "To: " + to,
+    "Subject: " + mimeWord(subject),
+    "Date: " + new Date().toUTCString(),
+    "MIME-Version: 1.0",
+    "Content-Type: text/plain; charset=utf-8",
+    "Content-Transfer-Encoding: base64", "",
+    Buffer.from(body, "utf8").toString("base64").replace(/(.{76})/g, "$1\r\n")
+  ].join("\r\n");
+
+  const onReply = (code) => {
+    // 2xx/3xx dışı = hata. 334 = AUTH LOGIN'in kullanıcı/parola istemesi.
+    if (code >= 400) return finish(new Error("SMTP " + code + " (adım " + step + ")"));
+    switch (step++) {
+      case 0: return say("EHLO gespaenerji.com");
+      case 1:
+        if (!upgraded) return say("STARTTLS");
+        return say("AUTH LOGIN");
+      case 2:
+        if (!upgraded) {  // STARTTLS kabul edildi → şifreli kanala geç
+          upgraded = true; step = 0;
+          const plain = sock;
+          sock = tls.connect(Object.assign({ socket: plain }, sni), () => { step = 0; say("EHLO gespaenerji.com"); step = 1; });
+          wire(sock);
+          return;
+        }
+        return say(Buffer.from(SMTP.user, "utf8").toString("base64"));
+      case 3: return say(Buffer.from(SMTP.pass, "utf8").toString("base64"));
+      case 4: return say("MAIL FROM:<" + SMTP.user + ">");
+      case 5: return say("RCPT TO:<" + to + ">");
+      case 6: return say("DATA");
+      case 7: return say(msg + "\r\n.");
+      case 8: say("QUIT"); return finish(null);
+      default: return finish(null);
+    }
+  };
+  function wire(sk) {
+    sk.setEncoding("utf8");
+    sk.on("data", (d) => {
+      buf += d;
+      // Çok satırlı yanıt: "250-..." devam eder, "250 ..." biter.
+      let m;
+      while ((m = /^(\d{3})[ ](.*)\r?\n/m.exec(buf))) {
+        const idx = buf.indexOf(m[0]) + m[0].length;
+        buf = buf.slice(idx);
+        onReply(+m[1]);
+        if (done) return;
+      }
+    });
+    sk.on("error", finish);
+    sk.setTimeout(20000, () => finish(new Error("SMTP zaman aşımı")));
+  }
+  wire(sock);
+}
+
+// Sipariş özetini insan okunur metne çevirir (e-posta gövdesi).
+function orderMailBody(o, token) {
+  const b = (o && o.buyer) || {};
+  const L = [];
+  L.push("YENİ SİPARİŞ — ödeme alındı");
+  L.push("");
+  L.push("Tutar        : ₺" + (o.paidPrice || o.totalTL || "?"));
+  L.push("Sipariş no   : " + (o.conversationId || "-"));
+  L.push("iyzico ödeme : " + (o.paymentId || "-"));
+  L.push("Tarih        : " + new Date(o.resolvedAt || Date.now()).toLocaleString("tr-TR"));
+  if (o.desc) L.push("Açıklama     : " + o.desc);
+  if (o.ref) L.push("Referans     : " + o.ref);
+  L.push("");
+  L.push("--- FATURA BİLGİLERİ ---");
+  L.push("Ad Soyad     : " + (b.ad || "-"));
+  L.push("T.C. Kimlik  : " + (b.tckn || "(girilmemiş)"));
+  L.push("Telefon      : " + (b.tel || "-"));
+  L.push("E-posta      : " + (b.eposta || "-"));
+  L.push("İl / İlçe    : " + (b.il || "-"));
+  L.push("Adres        : " + (b.adres || "-"));
+  if (o.items && o.items.length) {
+    L.push("");
+    L.push("--- KALEMLER ---");
+    o.items.forEach((it) => L.push("  " + it.id + " × " + it.qty + "  (birim ₺" + it.unitTL + ")"));
+  }
+  L.push("");
+  L.push("Kargodan ÖNCE tutarı iyzico panelinden doğrulayın.");
+  return L.join("\n");
+}
+
 function readBody(req, limit, cb) {
   let d = "", over = false;
   req.on("data", (c) => { d += c; if (d.length > limit) { over = true; req.destroy(); } });
@@ -273,7 +401,9 @@ function handlePayRoutes(req, res, urlPath) {
         writeOrder(out.token, {
           conversationId: convId, status: "pending", createdAt: new Date().toISOString(),
           totalTL: total, items: lines.map((l) => ({ id: l.p.id, qty: l.qty, unitTL: l.unit })),
-          buyer: { ad: buyer.ad, tel: tel, eposta: email, il: il, adres: adres }
+          // tckn FATURA için saklanır (e-arşiv/e-fatura zorunlu alanı).
+          // KVKK: yalnız sunucuda tutulur, log'a ASLA yazılmaz.
+          buyer: { ad: buyer.ad, tel: tel, eposta: email, tckn: tckn, il: il, adres: adres }
         });
         sendJson(res, 200, { url: out.paymentPageUrl || out.payWithIyzicoPageUrl });
       });
@@ -327,7 +457,9 @@ function handlePayRoutes(req, res, urlPath) {
         writeOrder(out.token, {
           conversationId: convId, source: "gesmarketim", status: "pending",
           createdAt: new Date().toISOString(), totalTL: amount, desc: desc, ref: ref || undefined,
-          buyer: { ad: buyer.ad, tel: tel, eposta: email, il: il, adres: adres }
+          // tckn FATURA için saklanır (e-arşiv/e-fatura zorunlu alanı).
+          // KVKK: yalnız sunucuda tutulur, log'a ASLA yazılmaz.
+          buyer: { ad: buyer.ad, tel: tel, eposta: email, tckn: tckn, il: il, adres: adres }
         });
         sendJson(res, 200, { url: out.paymentPageUrl || out.payWithIyzicoPageUrl });
       });
@@ -362,6 +494,15 @@ function handlePayRoutes(req, res, urlPath) {
           errorCode: (!ok && out && out.errorCode) || undefined,
           errorMessage: (!ok && out && out.errorMessage) || undefined
         });
+        // Ödeme başarılıysa işletmeye sipariş e-postası gönder. Müşteriyi
+        // BEKLETMEZ: yönlendirme hemen yapılır, e-posta arka planda gider.
+        // E-posta başarısız olsa bile sipariş kaydı ve ödeme etkilenmez.
+        if (ok) {
+          const ord = readOrders()[token] || {};
+          sendMail("Yeni sipariş ₺" + (ord.paidPrice || ord.totalTL || "?") + " — " + ((ord.buyer && ord.buyer.ad) || "müşteri"),
+            orderMailBody(ord, token),
+            (e) => { if (e) console.warn("sipariş e-postası gönderilemedi:", e.message); else console.log("sipariş e-postası gönderildi:", ord.conversationId); });
+        }
         res.writeHead(302, { Location: ok ? "/odeme-sonuc.html?d=ok" : "/odeme-sonuc.html?d=hata" });
         res.end();
       });

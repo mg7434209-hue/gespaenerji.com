@@ -452,6 +452,22 @@ Kart ödemesi kapalıysa kart bunu bağlantı gönderilmeden ÖNCE uyarır.
 Menüden erişilmez, robots'ta engellidir — site genelinde bağlantısı YOKTUR,
 adresi elle yazılır.
 
+## Sipariş bildirim e-postası
+Ödeme BAŞARILI olunca (`/api/pay/callback`) işletmeye sipariş özeti gider:
+müşteri bilgileri, **fatura için T.C. kimlik no**, kalemler, tutar, iyzico
+ödeme numarası. Gönderici server.js içinde bağımlılıksız SMTP istemcisidir
+(`sendMail()` + `orderMailBody()`); 465 örtük TLS ve 587 STARTTLS yolları
+sahte SMTP sunucusuyla uçtan uca test edildi.
+- Ayarlar YALNIZCA Railway ortam değişkeni — parola repoya ASLA yazılmaz:
+  `SMTP_HOST` `SMTP_PORT` `SMTP_USER` `SMTP_PASS` `ORDER_EMAIL_TO`.
+  Gmail'de normal parola çalışmaz, **Uygulama Şifresi** gerekir.
+- Ayar eksikse e-posta sessizce atlanır; ödeme akışı ETKİLENMEZ. Müşteri
+  bekletilmez: yönlendirme hemen yapılır, e-posta arka planda gider.
+- SNI yalnız alan adıyla gönderilir; host IP ise `servername` verilmez —
+  verilirse TLS el sıkışması hata bile vermeden askıda kalır.
+- TCKN artık `orders.json`'a da yazılıyor (önceden yalnız iyzico'ya gidiyordu).
+  KVKK: TCKN log'a ASLA yazılmaz, yalnız sipariş kaydında ve e-postada durur.
+
 ## Alan adı & NAP tutarlılığı
 - Canlı alan adı **www.gespaenerji.com** — canonical, sitemap, JSON-LD ve
   `config.company.web` hepsi böyle. www'suz `gespaenerji.com` de açıldığı için
