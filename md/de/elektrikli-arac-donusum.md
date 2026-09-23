@@ -104,7 +104,34 @@ Die Werte stammen aus dem Datenblatt des Herstellers. Die passende Modulleistung
 | Moduleingangsspannung | 15–60 V DC |
 | Dauerausgangsstrom | 15 A (Kurzschluss-Ausgangsstrom 20 A) |
 | Ausgangsspannungstoleranz | ±0,2 V · Ausgangsrauschen 10 mV RMS |
-| Leerlauf-Eingangsstrom | ⚡ Neue Kategorie
+| Leerlauf-Eingangsstrom | < 80 mA |
+| Programmierung / Überwachung | Bluetooth (kein externes Display) |
+| Schutzfunktionen | Verpolung von Modul und Akku, Akku-Über-/Unterspannung, Nachtrückstrom |
+| Anschlüsse | Schraubklemmen — max. Leiterquerschnitt 10 mm² |
+| Kühlung | Passiv — Aluminiumgehäuse mit Kühlrippen |
+| Betriebstemperatur | −20 °C bis +55 °C · rel. Luftfeuchte max. 95 % (nicht kondensierend) |
+| Schutzart | IP22 |
+| Abmessungen | 16 × 15,5 × 6,5 cm (G × U × D) |
+| Garantie | 2 Jahre |
+
+### Dauerausgangsleistung und Wirkungsgrad
+
+| Nennsystem | Dauerausgangsleistung | Wirkungsgrad |
+| --- | --- | --- |
+| 36 V | 540 W | %95 |
+| 48 V | 720 W | %95,5 |
+| 60 V | 900 W | %95,5 |
+| 72 V | 1080 W | %98 |
+
+24-V-Akkusysteme werden ebenfalls unterstützt; das Herstellerdatenblatt nennt für 24 V keine gesonderte Dauerausgangsleistung.
+
+Was bedeuten BOOST MPPT, MPPT und LiFePO₄? [Solar-Glossar →](https://www.gespaenerji.com/de/sozluk.html#boost-mppt)
+
+![BOOST MPPT akü uyumluluğu: AGM, jel, kurşun asit, lityum (LiFePO4) ve derin döngü aküler; desteklenen sistem voltajları 24V, 36V, 48V, 60V, 72V](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-aku-uyumluluk.webp)
+
+Das Gerät arbeitet mit AGM-, Gel-, Nassblei-, Lithium- (LiFePO₄) und Deep-Cycle-Akkus. Zum Vergrößern auf das Bild klicken.
+
+⚡ Neue Kategorie
 
 ## Solarenergie für Elektrofahrzeuge
 

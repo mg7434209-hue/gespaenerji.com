@@ -53,6 +53,8 @@ Bağlantı için 5 metre siyah + 5 metre kırmızı solar kablo ve MC4 konnektö
 
 Paket içeriği birbiriyle uyumlu seçilmiş hâlde gönderilir; ayrıca parça almanız gerekmez.
 
+BOOST MPPT, TOPCon ve MC4 nedir? [GES Sözlüğü →](https://www.gespaenerji.com/sozluk.html#boost-mppt)
+
 - Ürünler Türkiye'nin her iline anlaşmalı kargo ile gönderilir; teslimat için Antalya şartı yoktur.
 - Sipariş onayından sonra tahmini teslim süresi 2–5 iş günüdür; kargo takip numarası WhatsApp'tan iletilir.
 - Kargo ücreti alıcıya aittir ve sipariş onayında net olarak bildirilir. Fiyatlara KDV dahildir.

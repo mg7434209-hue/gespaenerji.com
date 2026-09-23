@@ -60,6 +60,8 @@ The package ships in a single box, with all parts matched to work together.
 | Weight | 23–25 kg (complete set) |
 | Use cases | Camping, caravan, country house, cabin |
 
+What do monocrystalline panel, kWh and MC4 mean? [Solar Glossary →](https://www.gespaenerji.com/en/sozluk.html#monokristal)
+
 - Products are shipped by contracted courier to every province of Türkiye; delivery is not limited to Antalya.
 - Estimated delivery is 2–5 business days after order confirmation; the tracking number is sent via WhatsApp.
 - Shipping is paid by the buyer and is stated exactly at order confirmation. Prices include VAT.

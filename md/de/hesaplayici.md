@@ -43,6 +43,7 @@ Batterie / Speicher hinzufügen (erhöht Eigenverbrauch)
 - Tahmini kurulum maliyeti: ₺28.000/kWp
 - CO₂-Faktor: 0,45 kg/kWh
 - Ergebnisse sind Schätzungen; der genaue Wert wird vor Ort ermittelt.
+- Was bedeuten kWp, spezifischer Ertrag, Eigenverbrauch und Amortisationszeit? [Solar-Glossar →](https://www.gespaenerji.com/de/sozluk.html#kwp)
 
 ## Geschätzte Ergebnisse
 

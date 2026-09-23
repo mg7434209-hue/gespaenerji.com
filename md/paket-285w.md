@@ -60,6 +60,8 @@ Paket içeriği tek kutuda, birbiriyle uyumlu şekilde hazırlanmış olarak gö
 | Ağırlık | 23–25 kg (komple set) |
 | Kullanım alanı | Kamp, karavan, bağ evi, kulübe |
 
+Monokristal panel, kWh ve MC4 nedir? [GES Sözlüğü →](https://www.gespaenerji.com/sozluk.html#monokristal)
+
 - Ürünler Türkiye'nin her iline anlaşmalı kargo ile gönderilir; teslimat için Antalya şartı yoktur.
 - Sipariş onayından sonra tahmini teslim süresi 2–5 iş günüdür; kargo takip numarası WhatsApp'tan iletilir.
 - Kargo ücreti alıcıya aittir ve sipariş onayında net olarak bildirilir. Fiyatlara KDV dahildir.

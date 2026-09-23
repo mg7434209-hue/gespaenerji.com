@@ -62,6 +62,8 @@ Paket içeriği tek kutuda, birbiriyle uyumlu şekilde hazırlanmış olarak gö
 | Bağlantı | MC4 kablolar dahil, renk kodlu |
 | Kullanım alanı | Bağ evi, karavan, müstakil ev temel yükü |
 
+PERC, yarım hücre, MPPT ve LiFePO₄ nedir? [GES Sözlüğü →](https://www.gespaenerji.com/sozluk.html#perc)
+
 - Ürünler Türkiye'nin her iline anlaşmalı kargo ile gönderilir; teslimat için Antalya şartı yoktur.
 - Sipariş onayından sonra tahmini teslim süresi 2–5 iş günüdür; kargo takip numarası WhatsApp'tan iletilir.
 - Kargo ücreti alıcıya aittir ve sipariş onayında net olarak bildirilir. Fiyatlara KDV dahildir.

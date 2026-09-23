@@ -60,6 +60,8 @@ Der Lieferumfang kommt in einem Karton, alle Teile aufeinander abgestimmt.
 | Gewicht | 23–25 kg (komplettes Set) |
 | Einsatzbereich | Camping, Wohnmobil, Gartenhaus, Hütte |
 
+Was bedeuten monokristallines Modul, kWh und MC4? [Solar-Glossar →](https://www.gespaenerji.com/de/sozluk.html#monokristal)
+
 - Die Produkte werden per Vertragsspedition in alle Provinzen der Türkei geliefert; die Lieferung ist nicht auf Antalya beschränkt.
 - Die Lieferzeit beträgt ca. 2–5 Werktage nach Bestellbestätigung; die Sendungsnummer kommt per WhatsApp.
 - Die Versandkosten trägt der Käufer und werden bei der Bestellbestätigung genau genannt. Preise inkl. MwSt.

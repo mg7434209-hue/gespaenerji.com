@@ -104,7 +104,34 @@ Values are taken from the manufacturer's data sheet. We size the right panel pow
 | Solar panel input voltage | 15–60 V DC |
 | Continuous output current | 15 A (short-circuit output current 20 A) |
 | Output voltage tolerance | ±0.2 V · output noise 10 mV RMS |
-| No-load input current | ⚡ New Category
+| No-load input current | < 80 mA |
+| Programming / monitoring | Bluetooth (no external display) |
+| Protections | Panel and battery reverse polarity, battery over/under voltage, night reverse current |
+| Connections | Screw terminals — maximum cable cross-section 10 mm² |
+| Cooling | Passive — finned aluminium housing |
+| Operating temperature | −20 °C to +55 °C · relative humidity max. 95% (non-condensing) |
+| Protection rating | IP22 |
+| Dimensions | 16 × 15,5 × 6,5 cm (G × U × D) |
+| Warranty | 2 years |
+
+### Continuous output power and efficiency
+
+| Nominal system | Continuous output power | Efficiency |
+| --- | --- | --- |
+| 36 V | 540 W | %95 |
+| 48 V | 720 W | %95,5 |
+| 60 V | 900 W | %95,5 |
+| 72 V | 1080 W | %98 |
+
+24 V battery systems are supported as well; the manufacturer's data sheet does not state a separate continuous output power for 24 V.
+
+What do BOOST MPPT, MPPT and LiFePO₄ mean? [Solar Glossary →](https://www.gespaenerji.com/en/sozluk.html#boost-mppt)
+
+![BOOST MPPT akü uyumluluğu: AGM, jel, kurşun asit, lityum (LiFePO4) ve derin döngü aküler; desteklenen sistem voltajları 24V, 36V, 48V, 60V, 72V](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-aku-uyumluluk.webp)
+
+The unit works with AGM, gel, flooded lead-acid, lithium (LiFePO₄) and deep-cycle batteries. Click the image to enlarge.
+
+⚡ New Category
 
 ## Solar Power for Electric Vehicles
 

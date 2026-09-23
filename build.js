@@ -1387,6 +1387,8 @@ const PRIORITY = {
    yalnız AI botlarına açık, server.js canonical Link başlığı gönderir).
    ============================================================ */
 const LLMS_GROUPS = [
+  // Ana sayfa en üstte: okuyan model siteye önce giriş kapısından baksın
+  ["Ana sayfa", ["index.html"]],
   ["Hizmetler", ["hizmetler.html", "cati-ges.html", "arazi-ges.html", "enerji-depolama.html", "bakim-izleme.html", "tarimsal-sulama.html"]],
   ["Mağaza ve ürünler", ["online-satis.html", "urunler.html", "paket-285w.html", "paket-2x540w.html", "unv-trek-pro-2500.html",
     "elektrikli-arac-donusum.html", "paket-motor-yolcu.html", "paket-motor-kargo.html", "aku-lifepo4-72v-30ah.html", "su-isitici.html", "toptan.html"]],
@@ -1494,7 +1496,12 @@ function decodeEnt(t) {
 function htmlToMd(mainHtml, base) {
   let h = mainHtml;
   const abs = u => /^(https?:|mailto:|tel:|#|data:)/.test(u) ? u : (u.startsWith("/") ? ORIGIN + u : base + (u === "index.html" ? "" : u));
-  const text = x => decodeEnt(x.replace(/<[^>]+>/g, "")).replace(/\s+/g, " ").trim();
+  // Metindeki < ve > (ör. "&lt; 80 mA") erken çözülürse sonraki etiket silici onu
+  // etiket başı sanıp bir sonraki ">"a kadar HER ŞEYİ siler (BOOST künyesi tablonun
+  // ortasında kesiliyordu). Çözülen açılı ayraçlar sona kadar yer tutucuda bekler.
+  const LT = "\uE000", GT = "\uE001";
+  const dec = x => decodeEnt(x).replace(/</g, LT).replace(/>/g, GT);
+  const text = x => dec(x.replace(/<[^>]+>/g, "")).replace(/\s+/g, " ").trim();
   h = h.replace(/<!--[\s\S]*?-->/g, "");
   // SSS soruları önce başlığa çevrilir (ardından tüm düğmeler silinir)
   h = h.replace(/<button class="faq-q"[^>]*>([\s\S]*?)<\/button>/g, (m, q) => "<h3>" + text(q.replace(/<span class="faq-ico"[^>]*>[\s\S]*?<\/span>/, "")) + "</h3>");
@@ -1524,20 +1531,20 @@ function htmlToMd(mainHtml, base) {
   h = h.replace(/<code\b[^>]*>([\s\S]*?)<\/code>/gi, (m, x) => "`" + text(x) + "`");
   h = h.replace(/<img\b[^>]*>/gi, m => {
     const src = (m.match(/\bsrc="([^"]+)"/) || [])[1]; if (!src) return "";
-    const alt = decodeEnt((m.match(/\balt="([^"]*)"/) || [])[1] || "");
+    const alt = dec((m.match(/\balt="([^"]*)"/) || [])[1] || "");
     return "![" + alt.replace(/[\[\]]/g, "") + "](" + abs(src) + ")";
   });
   h = h.replace(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi, (m, href, inner) => {
     const t = inner.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
     if (!t) return "";
-    return "[" + decodeEnt(t) + "](" + abs(href) + ")";
+    return "[" + dec(t) + "](" + abs(href) + ")";
   });
   h = h.replace(/<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>/gi, (m, n, x) => "\n\n" + "#".repeat(+n) + " " + text(x) + "\n\n");
-  h = h.replace(/<li\b[^>]*>([\s\S]*?)<\/li>/gi, (m, x) => "\n- " + decodeEnt(x.replace(/<[^>]+>/g, "")).replace(/\s+/g, " ").trim());
-  h = h.replace(/<(p|figcaption|blockquote|dd|dt|summary)\b[^>]*>([\s\S]*?)<\/\1>/gi, (m, t, x) => "\n\n" + decodeEnt(x.replace(/<[^>]+>/g, "")).replace(/\s+/g, " ").trim() + "\n\n");
+  h = h.replace(/<li\b[^>]*>([\s\S]*?)<\/li>/gi, (m, x) => "\n- " + dec(x.replace(/<[^>]+>/g, "")).replace(/\s+/g, " ").trim());
+  h = h.replace(/<(p|figcaption|blockquote|dd|dt|summary)\b[^>]*>([\s\S]*?)<\/\1>/gi, (m, t, x) => "\n\n" + dec(x.replace(/<[^>]+>/g, "")).replace(/\s+/g, " ").trim() + "\n\n");
   h = h.replace(/<\/?(div|section|article|aside|figure|ul|ol|header|footer|main|table|thead|tbody|tr|details|dl|picture|label|fieldset)\b[^>]*>/gi, "\n");
   h = h.replace(/<[^>]+>/g, "");
-  h = decodeEnt(h);
+  h = decodeEnt(h).split(LT).join("<").split(GT).join(">");
   const lines = h.split("\n").map(l => l.replace(/[ \t]+/g, " ").trim());
   // Ardışık liste maddeleri arasındaki boş satırları kaldır (kaynak girintisinden gelir)
   const out = [];

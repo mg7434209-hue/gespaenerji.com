@@ -43,6 +43,7 @@ Batarya / depolama ekle (öz tüketimi artırır)
 - Tahmini kurulum maliyeti: ₺28.000/kWp
 - CO₂ faktörü: 0,45 kg/kWh
 - Sonuçlar tahminidir; kesin değer saha keşfiyle belirlenir.
+- kWp, özgül üretim, öz tüketim ve geri ödeme süresi nedir? [GES Sözlüğü →](https://www.gespaenerji.com/sozluk.html#kwp)
 
 ## Tahmini Sonuçlar
 

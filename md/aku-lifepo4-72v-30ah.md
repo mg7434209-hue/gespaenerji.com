@@ -63,6 +63,8 @@ LiFePO₄ (lityum demir fosfat) kimyası bu üç sorunu da çözer: aynı enerji
 
 Değerler üreticinin künyesinden alınmıştır.
 
+LiFePO₄, BMS ve çevrim ömrü nedir? [GES Sözlüğü →](https://www.gespaenerji.com/sozluk.html#lifepo4)
+
 - Ürünler Türkiye'nin her iline anlaşmalı kargo ile gönderilir; teslimat için Antalya şartı yoktur.
 - Sipariş onayından sonra tahmini teslim süresi 2–5 iş günüdür; kargo takip numarası WhatsApp'tan iletilir.
 - Kargo ücreti alıcıya aittir ve sipariş onayında net olarak bildirilir. Fiyatlara KDV dahildir.

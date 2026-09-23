@@ -53,6 +53,8 @@ Five metres of black and five metres of red solar cable plus an MC4 connector se
 
 The package ships with every part matched to work together; you need not buy anything extra.
 
+What do BOOST MPPT, TOPCon and MC4 mean? [Solar Glossary →](https://www.gespaenerji.com/en/sozluk.html#boost-mppt)
+
 - Products are shipped by contracted courier to every province of Türkiye; delivery is not limited to Antalya.
 - Estimated delivery is 2–5 business days after order confirmation; the tracking number is sent via WhatsApp.
 - Shipping is paid by the buyer and is stated exactly at order confirmation. Prices include VAT.

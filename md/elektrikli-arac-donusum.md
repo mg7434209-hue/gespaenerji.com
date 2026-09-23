@@ -104,7 +104,34 @@ Değerler üreticinin teknik bülteninden alınmıştır. Aracınıza uygun pane
 | Solar panel giriş gerilimi | 15–60 V DC |
 | Sürekli çıkış akımı | 15 A (kısa devre çıkış akımı 20 A) |
 | Çıkış voltaj toleransı | ±0,2 V · çıkış gürültüsü 10 mV RMS |
-| Yüksüz giriş akımı | ⚡ Yeni Kategori
+| Yüksüz giriş akımı | < 80 mA |
+| Programlama / izleme | Bluetooth (harici ekran yoktur) |
+| Korumalar | Panel ve akü ters bağlantı, akü yüksek/düşük voltaj, gece ters akım |
+| Bağlantılar | Vidalı terminaller — maksimum kablo kesiti 10 mm² |
+| Soğutma | Pasif — alüminyum kanatlı gövde |
+| Çalışma sıcaklığı | −20 °C ile +55 °C · bağıl nem maks. %95 (yoğuşmasız) |
+| Koruma sınıfı | IP22 |
+| Boyutlar | 16 × 15,5 × 6,5 cm (G × U × D) |
+| Garanti | 2 yıl |
+
+### Sürekli çıkış gücü ve verimlilik
+
+| Nominal sistem | Sürekli çıkış gücü | Verimlilik |
+| --- | --- | --- |
+| 36 V | 540 W | %95 |
+| 48 V | 720 W | %95,5 |
+| 60 V | 900 W | %95,5 |
+| 72 V | 1080 W | %98 |
+
+24 V akü sistemi de desteklenir; üretici bülteninde 24 V için sürekli çıkış gücü ayrıca belirtilmemiştir.
+
+BOOST MPPT, MPPT ve LiFePO₄ nedir? [GES Sözlüğü →](https://www.gespaenerji.com/sozluk.html#boost-mppt)
+
+![BOOST MPPT akü uyumluluğu: AGM, jel, kurşun asit, lityum (LiFePO4) ve derin döngü aküler; desteklenen sistem voltajları 24V, 36V, 48V, 60V, 72V](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-aku-uyumluluk.webp)
+
+Cihaz AGM, jel, sulu kurşun-asit, lityum (LiFePO₄) ve derin döngü akülerle çalışır. Büyütmek için görsele tıklayın.
+
+⚡ Yeni Kategori
 
 ## Elektrikli Araçlarda Güneş Enerjisi
 

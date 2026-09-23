@@ -84,6 +84,11 @@ const llms=fs.readFileSync(path.join(root,'llms.txt'),'utf8');
 for(const f of files.filter(f=>!/^(en|de|ru)\//.test(f)))assert.ok(llms.includes('('+origin+'/'+(f==='index.html'?'':f)+')'),'llms.txt: '+f);
 assert.ok(llms.includes(origin+'/md/online-satis.md')&&llms.includes(origin+'/llms-full.txt'),'llms.txt: mirrors + full');
 assert.ok(fs.readdirSync(root).some(f=>/^[a-f0-9]{32}\.txt$/.test(f)),'IndexNow key file');
+// Markdown converter: a literal "<" in text ("&lt; 80 mA") must not swallow the rest of the page.
+{const ev=fs.readFileSync(path.join(root,'md/elektrikli-arac-donusum.md'),'utf8');
+ assert.ok(ev.includes('| Yüksüz giriş akımı | < 80 mA |')&&ev.includes('| Garanti | 2 yıl |')&&ev.includes('| 72 V | 1080 W | %98 |'),'markdown: spec table survives "<" in a cell');
+ for(const d of ['md','md/en','md/de','md/ru'])for(const f of fs.readdirSync(path.join(root,d)).filter(f=>f.endsWith('.md')))
+  assert.ok(!/[]/.test(fs.readFileSync(path.join(root,d,f),'utf8')),d+'/'+f+': no placeholder left');}
 for(const lang of ['en','de','ru']){
  const html=fs.readFileSync(path.join(root,lang,'index.html'),'utf8');
  assert.ok(html.includes('<meta property="og:locale:alternate" content="tr_TR" />'),lang+': og:locale:alternate tr');
@@ -113,6 +118,13 @@ for(const f of fs.readdirSync(root).filter(f=>f.endsWith('.html'))){
  const h=fs.readFileSync(path.join(root,f),'utf8');
  if(h.includes('<!-- /SISTER:STATIC -->'))assert.ok(/<!-- HELP:STATIC --><a href="sss.html">[^<]+<\/a><a href="sozluk.html">[^<]+<\/a><!-- \/HELP:STATIC -->/.test(h),f+': footer help links');
 }
+// In-text glossary links (product pages, calculator) must point at an existing term anchor:
+// a renamed term id would silently break them. Checked in every language copy.
+const termIds=new Set(glossary.terms.map(t=>t.id));let glossLinks=0;
+for(const pre of ['','en/','de/','ru/'])for(const f of fs.readdirSync(path.join(root,pre||'.')).filter(f=>f.endsWith('.html'))){
+ for(const m of fs.readFileSync(path.join(root,pre,f),'utf8').matchAll(/href="[^"]*sozluk\.html#([^"]+)"/g)){glossLinks++;assert.ok(termIds.has(m[1]),pre+f+': glossary anchor #'+m[1]);}
+}
+assert.ok(glossLinks>=7*4,'in-text glossary links present in all languages');
 // About page tells one continuous story since 2005 (no company/sole-trader split).
 const aboutPage=fs.readFileSync(path.join(root,'hakkimizda.html'),'utf8'),contactPage=fs.readFileSync(path.join(root,'iletisim.html'),'utf8');
 assert.ok(!aboutPage.includes('01.11.2022')&&!aboutPage.includes('Kurumsallaşma')&&!contactPage.includes('kurumsal yapılanma'),'unified company story');

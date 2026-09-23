@@ -63,6 +63,8 @@ The charger is not included. A suitable one is a LiFePO₄-compatible CC/CV type
 
 The values come from the manufacturer's data sheet.
 
+What do LiFePO₄, BMS and cycle life mean? [Solar Glossary →](https://www.gespaenerji.com/en/sozluk.html#lifepo4)
+
 - Products are shipped by contracted courier to every province of Türkiye; delivery is not limited to Antalya.
 - Estimated delivery is 2–5 business days after order confirmation; the tracking number is sent via WhatsApp.
 - Shipping is paid by the buyer and is stated exactly at order confirmation. Prices include VAT.

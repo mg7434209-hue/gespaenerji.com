@@ -43,6 +43,7 @@ Add battery / storage (increases self-use)
 - Tahmini kurulum maliyeti: ₺28.000/kWp
 - CO₂ factor: 0,45 kg/kWh
 - Results are estimates; exact figures set during a site survey.
+- What do kWp, specific yield, self-consumption and payback period mean? [Solar Glossary →](https://www.gespaenerji.com/en/sozluk.html#kwp)
 
 ## Estimated Results
 

@@ -53,6 +53,8 @@ Fünf Meter schwarzes und fünf Meter rotes Solarkabel sowie ein MC4-Steckerset 
 
 Der Lieferumfang wird aufeinander abgestimmt versandt; Sie müssen nichts zusätzlich kaufen.
 
+Was bedeuten BOOST MPPT, TOPCon und MC4? [Solar-Glossar →](https://www.gespaenerji.com/de/sozluk.html#boost-mppt)
+
 - Die Produkte werden per Vertragsspedition in alle Provinzen der Türkei geliefert; die Lieferung ist nicht auf Antalya beschränkt.
 - Die Lieferzeit beträgt ca. 2–5 Werktage nach Bestellbestätigung; die Sendungsnummer kommt per WhatsApp.
 - Die Versandkosten trägt der Käufer und werden bei der Bestellbestätigung genau genannt. Preise inkl. MwSt.

@@ -63,6 +63,8 @@ Schema des 72-V-Antriebs: Akku → Motorcontroller → Radnabenmotoren. Das abge
 
 Die Werte stammen aus dem Datenblatt des Herstellers.
 
+Was bedeuten LiFePO₄, BMS und Zyklenlebensdauer? [Solar-Glossar →](https://www.gespaenerji.com/de/sozluk.html#lifepo4)
+
 - Die Produkte werden per Vertragsspedition in alle Provinzen der Türkei geliefert; die Lieferung ist nicht auf Antalya beschränkt.
 - Die Lieferzeit beträgt ca. 2–5 Werktage nach Bestellbestätigung; die Sendungsnummer kommt per WhatsApp.
 - Die Versandkosten trägt der Käufer und werden bei der Bestellbestätigung genau genannt. Preise inkl. MwSt.

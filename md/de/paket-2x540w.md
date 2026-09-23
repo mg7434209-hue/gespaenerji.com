@@ -62,6 +62,8 @@ Der Lieferumfang kommt in einem Karton, alle Teile aufeinander abgestimmt.
 | Anschluss | MC4-Kabel inklusive, farbcodiert |
 | Einsatzbereich | Gartenhaus, Wohnmobil, Grundlast eines Einfamilienhauses |
 
+Was bedeuten PERC, Halbzellen, MPPT und LiFePO₄? [Solar-Glossar →](https://www.gespaenerji.com/de/sozluk.html#perc)
+
 - Die Produkte werden per Vertragsspedition in alle Provinzen der Türkei geliefert; die Lieferung ist nicht auf Antalya beschränkt.
 - Die Lieferzeit beträgt ca. 2–5 Werktage nach Bestellbestätigung; die Sendungsnummer kommt per WhatsApp.
 - Die Versandkosten trägt der Käufer und werden bei der Bestellbestätigung genau genannt. Preise inkl. MwSt.

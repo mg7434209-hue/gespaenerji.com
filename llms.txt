@@ -16,6 +16,9 @@ Ayrıntılı ürün/fiyat/araç bilgisi: https://www.gespaenerji.com/llms-full.t
 Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş; talebe göre tüm Türkiye. Ürünler Türkiye'nin her iline kargo ile gönderilir.
 
 ## Sayfalar
+### Ana sayfa
+- [GESPA Enerji — Anahtar Teslim Güneş Enerjisi (GES)](https://www.gespaenerji.com/): GESPA Enerji: çatı ve arazi tipi güneş enerjisi santralleri (GES) için anahtar teslim kurulum, mühendislik, finansman ve bakım. Manavgat / Antalya. · Markdown: https://www.gespaenerji.com/md/index.md
+
 ### Hizmetler
 - [Hizmetler — Çatı & Arazi GES, Depolama](https://www.gespaenerji.com/hizmetler.html): Çatı GES, arazi tipi GES, enerji depolama, mühendislik, finansman ve bakım (O&M) hizmetleri. Anahtar teslim güneş enerjisi çözümleri — GESPA Enerji. · Markdown: https://www.gespaenerji.com/md/hizmetler.md
 - [Manavgat ve Antalya Çatı GES Kurulumu](https://www.gespaenerji.com/cati-ges.html): Çatı GES: konut, iş yeri ve sanayi çatılarında elektrik üretimi. Keşif, mühendislik, ekipman seçimi, kurulum ve bakım tek elden planlanır. · Markdown: https://www.gespaenerji.com/md/cati-ges.md
@@ -55,9 +58,6 @@ Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş; talebe 
 - [İletişim — Ücretsiz Keşif ve Teklif](https://www.gespaenerji.com/iletisim.html): GESPA Enerji ile iletişime geçin: 0543 743 42 09, info@gespaenerji.com, Örnek Mah. 1551 Sok. No:10 Manavgat/Antalya. Ücretsiz keşif ve teklif. · Markdown: https://www.gespaenerji.com/md/iletisim.md
 - [Sıkça Sorulan Sorular — Güneş Enerjisi, Sipariş ve Kurulum](https://www.gespaenerji.com/sss.html): Güneş enerjisi santrali, akü, elektrikli araç güneş dönüşümü, sipariş, kargo, ödeme ve kurulum hakkında sık sorulan soruların cevapları tek sayfada. GESPA Enerji, Manavgat / Antalya. · Markdown: https://www.gespaenerji.com/md/sss.md
 - [GES Sözlüğü — Güneş Enerjisi, Akü ve İnverter Terimleri](https://www.gespaenerji.com/sozluk.html): kWp, MPPT, TOPCon, LiFePO₄, DoD, mahsuplaşma ve daha fazlası: güneş enerjisi, akü ve elektrikli araç dönüşümü terimlerinin kısa ve anlaşılır açıklamaları. · Markdown: https://www.gespaenerji.com/md/sozluk.md
-
-### Diğer
-- [GESPA Enerji — Anahtar Teslim Güneş Enerjisi (GES)](https://www.gespaenerji.com/): GESPA Enerji: çatı ve arazi tipi güneş enerjisi santralleri (GES) için anahtar teslim kurulum, mühendislik, finansman ve bakım. Manavgat / Antalya. · Markdown: https://www.gespaenerji.com/md/index.md
 
 ### Yasal (yalnız Türkçe)
 - [KVKK Aydınlatma Metni](https://www.gespaenerji.com/kvkk.html): 6698 sayılı KVKK kapsamında GESPA Enerji aydınlatma metni: kişisel verilerin işlenme amaçları, hukuki sebepleri ve ilgili kişinin hakları. · Markdown: https://www.gespaenerji.com/md/kvkk.md

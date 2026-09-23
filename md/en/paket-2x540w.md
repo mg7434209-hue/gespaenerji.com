@@ -62,6 +62,8 @@ The package ships in a single box, with all parts matched to work together.
 | Connection | MC4 cables included, colour-coded |
 | Use cases | Country house, caravan, essential load of a detached home |
 
+What do PERC, half-cut cells, MPPT and LiFePO₄ mean? [Solar Glossary →](https://www.gespaenerji.com/en/sozluk.html#perc)
+
 - Products are shipped by contracted courier to every province of Türkiye; delivery is not limited to Antalya.
 - Estimated delivery is 2–5 business days after order confirmation; the tracking number is sent via WhatsApp.
 - Shipping is paid by the buyer and is stated exactly at order confirmation. Prices include VAT.
