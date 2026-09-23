@@ -617,9 +617,20 @@
         // API yoksa (GitHub Pages) veya kapalıysa "çok yakında" olarak kalır.
         var cardOpt = document.getElementById("payCardOpt");
         var tcknRow = document.getElementById("payTcknRow");
+        var epostaHint = document.getElementById("epostaHint");
+        // Kart ödemesinde TCKN (fatura) ve E-POSTA zorunludur: ödeme onayı ve
+        // yazdırılabilir dekont müşteriye e-postayla gider, adres yoksa
+        // gönderilemez. Havale/kapıda siparişte ikisi de isteğe bağlı kalır.
         function syncTckn() {
           var isCard = form.odeme && form.odeme.value === "kart";
           if (tcknRow) { tcknRow.hidden = !isCard; var inp = tcknRow.querySelector("input"); if (inp) inp.required = isCard; }
+          if (form.eposta) form.eposta.required = isCard;
+          if (epostaHint) {
+            epostaHint.hidden = !isCard;
+            epostaHint.textContent = "* " + L("dekontunuz bu adrese gönderilir",
+              "your receipt is sent to this address", "Ihr Beleg wird an diese Adresse gesendet",
+              "квитанция придёт на этот адрес");
+          }
         }
         if (cardOpt) {
           fetch("/api/pay/status").then(function (r) { return r.json(); }).then(function (st) {
