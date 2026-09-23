@@ -49,7 +49,13 @@ jobs:
 
       # Yayından sonra değişen sayfaları Bing/Yandex/Naver'a anında bildir
       # (api.indexnow.org). Bing indeksi Copilot/ChatGPT aramasını besler.
+      # Push'un TÜM commit'leri kapsansın diye push öncesi commit (before) de
+      # sığ olarak çekilir; iki ağaç arasındaki fark için geçmiş gerekmez.
       # Hata yayını düşürmez.
       - name: IndexNow — değişen sayfaları bildir
-        run: node tools/indexnow.js
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          if [ -n "$BEFORE" ]; then git fetch --no-tags --depth=1 origin "$BEFORE" || true; fi
+          node tools/indexnow.js --base="$BEFORE"
         continue-on-error: true

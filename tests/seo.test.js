@@ -29,6 +29,10 @@ for(let i=0;i<files.length;i++){
  const page=lds.find(x=>/^(WebPage|CollectionPage|ItemPage|AboutPage|ContactPage)$/.test(x['@type']));
  assert.ok(page,file+': WebPage schema');
  assert.ok(/^\d{4}-\d{2}-\d{2}$/.test(page.dateModified)&&/^\d{4}-\d{2}-\d{2}$/.test(page.datePublished),file+': WebPage dates');
+ assert.ok(page.datePublished<=page.dateModified,file+': datePublished <= dateModified');
+ // Sitemap lastmod and the page's dateModified come from one source.
+ {const lm=(sitemap.split('<loc>'+urls[i]+'</loc>')[1]||'').match(/<lastmod>([^<]+)<\/lastmod>/);
+  assert.ok(lm&&lm[1]===page.dateModified,file+': sitemap lastmod = WebPage dateModified');}
  assert.equal(page.isPartOf['@id'],origin+'/#website',file+': WebPage isPartOf');
  assert.ok(page.speakable&&page.speakable.cssSelector.includes('h1'),file+': speakable');
  assert.ok(lds.some(x=>x['@type']==='WebSite'&&x['@id']===origin+'/#website'),file+': WebSite entity');

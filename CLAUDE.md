@@ -116,7 +116,10 @@ gerçek tespit videosu `assets/video/cankurtaran-ai-tespit.mp4` + poster —
 `#canli` bölümü, VideoObject JSON-LD sayfada statik; server.js mp4'e Range/206
 verir; video/poster yolları build'de mutlaklaştırılır: href|src|poster) ·
 `hesaplayici.html` · `sistem-kur.html` (Sistem Kurucu sihirbazı) ·
-`projeler.html` · `hakkimizda.html` · `iletisim.html` ·
+`projeler.html` · `hakkimizda.html` (TEK SÜREGELEN HİKÂYE, 2005'ten beri;
+şirket/şahıs ayrımı ve 2022 sicil satırı kullanıcı kararıyla KALDIRILDI, kurucu/
+Person şeması YOK — kurumsal kalır) · `iletisim.html` · `sss.html` (SSS merkezi) ·
+`sozluk.html` (GES sözlüğü; ikisini build doldurur — `content/sss.js`, `content/sozluk.js`) ·
 `tarimsal-sulama.html` · `toptan.html` (B2B toptan satış: stok kartları ve
 koşullar `config.b2b`'den build ile STATİK basılır — B2B:STATIC işareti;
 fiyat YAZILMAZ, adede göre teklif; adet kutusu + WhatsApp mesajı ve teklif
@@ -402,9 +405,10 @@ işe yaramıyordu.
   olan metin çevrilmez. AYNI TUZAK ürün sayfalarında da geçerlidir: cümlenin
   ortasındaki `<a>` metin düğümünü ikiye böler ve çeviri DÜŞER — bağlantıyı
   kendi cümlesine al (SSS yanıtları ve çapraz satış notu böyle kuruldu).
-- ÜRÜN SAYFASI ÜRETİRKEN: `paket-285w.html` kopyalanır ama FAQPage JSON-LD'si
-  de kopyalanır — sayfada görünmeyen soruyu şemada bırakmak yapısal veri
-  ihlalidir; SSS'i sayfanın gerçek sorularıyla DEĞİŞTİR.
+- ÜRÜN SAYFASI ÜRETİRKEN: `paket-285w.html` kopyalanır; SSS maddelerini
+  (`.faq-item`) sayfanın gerçek sorularıyla DEĞİŞTİR. FAQPage JSON-LD'yi ELLE
+  YAZMA: build görünen `.faq-item`'lardan üretir ve elle yazılmış FAQPage
+  bloğunu siler (kopyalanan sayfa başka ürünün SSS şemasını taşıyordu).
 - Paket kutusunun SOL görseli seçicinin kendi `proof` alanıdır — kart değişince
   o araca ait kurulum fotoğrafı gelir. İki `proof` de 4:3 kadrajdır
   (`tools/motor-foto.py`); farklı oranda olsalar kart seçildikçe kutunun
@@ -437,11 +441,22 @@ işe yaramıyordu.
 - KURAL: Hesaplayıcı bileşenine hiçbir sayı (fiyat, katsayı, güç) hardcode ETME.
 
 ## SEO / AEO — statik üretim (AI botları JS çalıştırmaz!)
-`node build.js` dil sayfalarına ek olarak TR kaynak sayfalara da yazar:
-- `<!-- LD:STATIC -->` blokları: LocalBusiness (her sayfa), Product
-  (su-isitici + cankurtaran), ItemList (urunler), BreadcrumbList — hepsi
-  config'ten üretilir, `data-gld` işaretlidir; main.js `data-gld` görünce
-  aynı şemayı yeniden enjekte etmez. Bu blokları ELLE DÜZENLEME.
+Dosya/işlev haritası, şema alanları ve yeni sayfa kontrol listesi: @docs/seo-aeo.md
+ÜRETİLEN — ELLE DÜZENLENMEZ: `robots.txt` · `sitemap.xml` (görsel + video
+uzantılı) · `llms.txt` · `llms-full.txt` · `urunler.xml` · `md/**` (sayfaların
+Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD ve
+`*:STATIC` işaretli bölgeler. Kaynağı değiştir → `node build.js` → `npm test` →
+çıktıyı da commit'le. `node build.js` dil sayfalarına ek olarak TR kaynak sayfalara da yazar:
+- JSON-LD blokları `data-gld` işaretlidir; main.js `data-gld` görünce aynı
+  şemayı yeniden enjekte etmez. Her sayfada LocalBusiness + WebSite + WebPage
+  ailesi (yayın ve değişiklik tarihli); ürün sayfasında zengin Product, listede
+  ItemList, BreadcrumbList. `aggregateRating`/yorum şeması EKLENMEZ —
+  doğrulanmış yorum yok, uydurma yasak.
+- FAQPage ELLE YAZILMAZ: görünen `.faq-item`'lardan üretilir (dil kopyasında
+  çevrilmiş gövdeden). SSS değiştirmek = sayfadaki `.faq-item` işaretlemesi.
+- Sayfa tarihleri (lastmod/dateModified/datePublished) tek kaynaktan gelir ve
+  ELLE DÜZELTİLMEZ. Railway'de `.git` yok, bulut oturumu sığ klondur: orada
+  sayfada commit'lenmiş tarih korunur (kurallar belgede).
 - `data-c-text/tel/mailto/wa` iletişim alanları statik doldurulur
   (kaynak yine config; değişince build çalıştır, çıktıyı commit'le).
 - Ürün içerikleri de statik basılır: su ısıtıcı tablosu (`#heaterRows`), paket
@@ -461,13 +476,13 @@ işe yaramıyordu.
   yalnız ALAN ADI okunur — özel sohbet adresi analitiğe sızmaz, tests/seo.test.js
   bunu doğrular. `contact_click` (tel/e-posta/WhatsApp) ve `quote_cta_click`
   dönüşüm olayları da buradadır. Bu kod bir kez "restore" commit'inde silindi;
-  testin geçtiğini doğrulamadan main.js'i geri almayın.
-- `llms-full.txt` config'ten üretilir (ürünler+fiyatlar+araçlar; llms.txt özet
-  kalır, elle bakılır — fiyat/indirim değişince llms.txt'teki paket satırlarını da
-  elle güncelle; çelişkide llms-full.txt esastır ve dosyada böyle yazar).
-  robots.txt AI botlarına açıktır ve llms dosyalarına işaret eder.
-- Ana sayfada WebSite JSON-LD (build üretir); statik `<img>`lerde width/height
-  zorunludur (CLS) — JS kartları için yer `.pkg-media img{aspect-ratio}` ile ayrılır.
+  testin geçtiğini doğrulamadan main.js'i geri almayın. BOTLARI ise sunucu
+  sayar (server.js AI tarayıcı sayacı → admin "🤖 AI tarayıcı ziyaretleri").
+- `llms.txt` da build'de üretilir (eski "elle güncelle" kuralı KALKTI); yeni
+  sayfa build.js `LLMS_GROUPS`'a yazılır. Çelişkide llms-full.txt esastır.
+- Statik `<img>`lerde width/height zorunludur (CLS) — JS kartları için yer
+  `.pkg-media img{aspect-ratio}` ile ayrılır. `alt` metni görsel sitemap'e
+  başlık olarak girer; anlamlı yaz.
 
 ## Konvansiyonlar
 - Sayfa linkleri `.html` uzantılı (GitHub Pages uyumu için).
@@ -505,6 +520,9 @@ işe yaramıyordu.
   üretilir; boşken blok gizlenir.
 - Çok dil (TR/EN/DE/RU): `assets/i18n.js` metinleri TR kaynağına göre çevirir; yeni metin
   eklerken DE/RU karşılığını `DICT`'e ekle, yoksa zarifçe TR kalır.
+  DEMETLER: sayfalar build'in ürettiği `assets/i18n.<dil>.js`'i yükler (TR =
+  sözlüksüz); DICT yine i18n.js'e yazılır, demet elle düzenlenmez. i18n.js'te
+  `var LS` … `var SKIP` arası YALNIZ veri — fonksiyon yazılırsa demete girmez.
   DİKKAT: `content/translation-fixes.json` ikinci bir çeviri kaynağıdır.
   `content/build-seo.js` → `translations()` onu build sırasında DICT'in ÜSTÜNE
   yazar; yani oradaki bir anahtar, i18n.js'e elle eklediğinizi EZER. Bir metin
@@ -514,7 +532,7 @@ işe yaramıyordu.
   yazmak ister ama aradığı `// Additional static and runtime product/tool
   translations.` işaretçisi i18n.js'te YOK; regex eşleşmeyince sessizce hiçbir
   şey yapmıyor. Sonuç: translation-fixes satırları STATİK çıktıya geçer,
-  istemci sözlüğüne geçmez. JS ile ÇİZİLEN metnin (katalog kartı, ürün adı,
+  istemci sözlüğüne (ve dil demetlerine) geçmez. JS ile ÇİZİLEN metnin (katalog kartı, ürün adı,
   builder) çevirisi bu yüzden doğrudan `assets/i18n.js` DICT'ine yazılmalıdır. Marka/iletişim
   (`data-c-text`) ve dinamik sayılar çeviriden hariç tutulur.
 - YASAL SAYFALAR YALNIZ TÜRKÇE yayınlanır (`kvkk` `gizlilik` `cerez-politikasi`
@@ -654,5 +672,9 @@ Gönderici server.js içinde bağımlılıksız SMTP istemcisidir (`sendMail(to,
 - GitHub Pages: `.github/workflows/deploy-pages.yml` upload'tan önce `node build.js` çalıştırır.
 
 ## Test (commit öncesi)
-- `node -c assets/main.js && node -c server.js` (söz dizimi).
-- Sunucuyu başlatıp ana sayfaların 200 döndüğünü doğrula.
+- `node -c assets/main.js && node -c server.js && node -c build.js` (söz dizimi).
+- `node build.js` → `npm test` (`tests/seo.test.js`: statik SEO/şema/bağlantı/
+  çeviri denetimleri, analitik gizlilik testleri ve sunucuyu açıp 200/404, md
+  müzakeresi ve AI bot sayacı). Kapsam listesi `docs/seo-aeo.md` sonunda.
+- Görsel değişiklikte tarayıcıyla (Playwright, yerel Chromium) 390 px ve
+  masaüstünde bak; sunucu açılışta build çalıştırdığı için hazır olmasını bekle.

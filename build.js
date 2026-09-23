@@ -467,19 +467,85 @@ function writeRobots() {
   fs.writeFileSync(path.join(ROOT, "robots.txt"), out);
 }
 
-// Dosyanın son git değişiklik tarihi — sitemap lastmod ve WebPage.dateModified
-// AYNI kaynağı okur (tutarsız iki tarih AI/arama için tazelik sinyalini bozar).
-const _lastMod = {};
+// ---- Sayfa tarihleri: sitemap lastmod, WebPage dateModified/datePublished ----
+// Hepsi AYNI kaynağı okur (tutarsız iki tarih tazelik sinyalini bozar).
+// Öncelik: git (tam geçmiş) > sayfada commit'lenmiş WebPage tarihi > dosya zamanı.
+// Git'e her yerde güvenilmez:
+//  · Railway imajında .git YOKTUR (sunucu açılışta build çalıştırır);
+//  · GitHub Actions ve bulut oturumu SIĞ klondur: sınır commit'i geçmişi kesik
+//    olduğu için HER dosyayı "ekler" görünür (datePublished'lar sınır tarihine
+//    düşüyordu).
+// Bu durumlarda yerelde tam geçmişle üretilip commit'lenmiş tarih korunur.
+// Yoksa her dağıtımda bütün sayfalar "bugün değişti/yayımlandı" görünür ve
+// arama motorları lastmod'a güvenmeyi bırakır. Commit'lenmemiş ya da bu
+// build'de içeriği değişen sayfa = bugün (commit'lendiğinde tarih bu olacak).
+const _lastMod = {}, _firstMod = {}, _preDates = {};
+const todayIso = () => new Date().toISOString().slice(0, 10);
+// Tarih alanları hariç karşılaştırma: "bu build sayfayı değiştirdi mi?"
+const maskDates = h => String(h).replace(/"(dateModified|datePublished)":"\d{4}-\d{2}-\d{2}"/g, '"$1":""');
+let _git = null;
+function gitInfo() {
+  if (_git) return _git;
+  const cp = require("child_process");
+  const raw = cmd => cp.execSync(cmd, { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString();
+  _git = { ok: false, q: cmd => raw(cmd).trim(), shallow: new Set(), dirty: new Set() };
+  try {
+    if (raw("git rev-parse --is-inside-work-tree").trim() !== "true") return _git;
+    const sf = raw("git rev-parse --git-path shallow").trim();
+    const sp = path.isAbsolute(sf) ? sf : path.join(ROOT, sf);
+    if (fs.existsSync(sp)) fs.readFileSync(sp, "utf8").split("\n").map(s => s.trim()).filter(Boolean).forEach(s => _git.shallow.add(s));
+    // Build başında bir kez: elle değiştirilmiş / yeni dosyalar ("XY yol", satır başı boşluğu anlamlı)
+    raw("git status --porcelain --untracked-files=all").split("\n").forEach(l => {
+      if (l.length > 3) _git.dirty.add(l.slice(3).split(" -> ").pop().replace(/^"|"$/g, "").trim());
+    });
+    _git.ok = true;
+  } catch (e) { /* git yok */ }
+  return _git;
+}
+// Build BAŞINDA (seo.generate hizmet/proje sayfalarını şemasız yeniden
+// yazmadan ÖNCE) git durumu ve sayfalardaki tarihler dondurulur.
+function snapshotDates(pre) {
+  gitInfo();
+  Object.keys(pre).forEach(f => {
+    const m1 = /"dateModified":"(\d{4}-\d{2}-\d{2})"/.exec(pre[f]), m2 = /"datePublished":"(\d{4}-\d{2}-\d{2})"/.exec(pre[f]);
+    _preDates[f] = { dateModified: m1 ? m1[1] : null, datePublished: m2 ? m2[1] : null };
+  });
+}
+// Sayfada commit'lenmiş WebPage tarihi (Railway / sığ klon yedeği)
+function committedLdDate(file, key) {
+  if (_preDates[file]) return _preDates[file][key] || null;
+  try {
+    const m = new RegExp('"' + key + '":"(\\d{4}-\\d{2}-\\d{2})"').exec(fs.readFileSync(path.join(ROOT, file), "utf8"));
+    return m ? m[1] : null;
+  } catch (e) { return null; }
+}
+// git log satırı "<sha> <tarih>" → sığ sınır commit'i değilse tarih
+function gitDate(line, g) {
+  const [sha, date] = String(line || "").trim().split(" ");
+  return sha && date && !g.shallow.has(sha) ? date.slice(0, 10) : null;
+}
 function lastModOf(file) {
   if (_lastMod[file]) return _lastMod[file];
-  let d;
-  try {
-    d = require("child_process").execSync('git log -1 --format=%cI -- "' + file + '"',
-      { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString().trim().slice(0, 10);
-  } catch (e) { /* git yoksa mtime */ }
+  const g = gitInfo();
+  let d = null;
+  if (g.ok && g.dirty.has(file)) d = todayIso();
+  else if (g.ok) { try { d = gitDate(g.q('git log -1 --format="%H %cI" -- "' + file + '"'), g); } catch (e) {} }
+  if (!d) d = committedLdDate(file, "dateModified");
   const p = path.join(ROOT, file);
   if (!d && fs.existsSync(p)) d = fs.statSync(p).mtime.toISOString().slice(0, 10);
-  return (_lastMod[file] = d || new Date().toISOString().slice(0, 10));
+  return (_lastMod[file] = d || todayIso());
+}
+// Dosyanın git'e İLK girdiği tarih (datePublished); bilinmiyorsa commit'lenmiş
+// değer, o da yoksa (yeni sayfa) lastModOf.
+function firstModOf(file) {
+  if (_firstMod[file]) return _firstMod[file];
+  const g = gitInfo();
+  let d = null;
+  if (g.ok) {
+    try { d = gitDate(g.q('git log --diff-filter=A --format="%H %cI" -- "' + file + '"').split("\n").pop(), g); } catch (e) {}
+  }
+  if (!d) d = committedLdDate(file, "datePublished");
+  return (_firstMod[file] = d || lastModOf(file));
 }
 
 // Sitemap'e girecek sayfa görselleri: <main> içindeki <img src="assets/…">
@@ -615,17 +681,6 @@ function pageLd(file, html, cfg, hasCrumbs) {
   if (/class="prod-lead"/.test(html)) sel.push(".prod-lead");
   d.speakable = { "@type": "SpeakableSpecification", cssSelector: sel };
   return d;
-}
-// Dosyanın git'e ilk girdiği tarih (datePublished); git yoksa lastMod
-const _firstMod = {};
-function firstModOf(file) {
-  if (_firstMod[file]) return _firstMod[file];
-  let d;
-  try {
-    d = require("child_process").execSync('git log --diff-filter=A --format=%cI -- "' + file + '"',
-      { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString().trim().split("\n").pop().slice(0, 10);
-  } catch (e) {}
-  return (_firstMod[file] = d || lastModOf(file));
 }
 // Ürün sayfasındaki teknik künye tablosu → PropertyValue listesi
 // (.spec-table; parts-table DEĞİL; fiyat içeren satır alınmaz)
@@ -1963,6 +2018,14 @@ function run() {
   // 0) TR kaynak sayfalara statik SEO/AEO çıktısını işle (JSON-LD + iletişim +
   //    ürün/marka/sayaç içerikleri + hreflang) ve llms-full.txt + sitemap üret
   //    — tek kaynak: assets/config.js
+  // Sayfaların build öncesi hâli: tarih kaynağı ve "değişti mi" karşılaştırması
+  // için. seo.generate() aşağıda hizmet/proje sayfalarını şemasız yeniden yazar.
+  const pre = {};
+  for (const file of PAGES.concat(TR_ONLY)) {
+    const p = path.join(ROOT, file);
+    if (fs.existsSync(p)) pre[file] = fs.readFileSync(p, "utf8");
+  }
+  snapshotDates(pre);
   seo.generate(ROOT);
   const cfg = loadConfig();
   const i18n = loadI18n();
@@ -1979,6 +2042,12 @@ function run() {
     html = hydrateSisterSites(html, cfg.company);
     html = hydrateExtras(html, file, cfg);
     html = injectStaticLd(html, file, cfg);
+    // Sayfa BU build'de değiştiyse (config'ten gelen fiyat, stok, hizmet metni…)
+    // bugün değişmiştir. Karşılaştırma build öncesi hâle göre, tarih alanları hariç.
+    if (pre[file] != null && maskDates(html) !== maskDates(pre[file]) && lastModOf(file) !== todayIso()) {
+      _lastMod[file] = todayIso();
+      html = html.replace(/"dateModified":"\d{4}-\d{2}-\d{2}"/, '"dateModified":"' + todayIso() + '"');
+    }
     if (html !== before) fs.writeFileSync(p, html);
     writeMarkdownFile(html, "tr", file, cfg);
   }

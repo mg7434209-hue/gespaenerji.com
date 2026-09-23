@@ -6,6 +6,7 @@
  * görünürlüğü demektir; Google IndexNow kullanmaz (sitemap + Search Console).
  *
  *   node tools/indexnow.js            # son commit'te değişen HTML sayfaları
+ *   node tools/indexnow.js --base=SHA # SHA..HEAD aralığında değişenler (tüm push)
  *   node tools/indexnow.js --all      # sitemap'in tamamı (ilk kurulum / büyük değişiklik)
  *   node tools/indexnow.js --dry-run  # gönderilecek payload'ı bas, ağ kullanma
  *
@@ -41,10 +42,21 @@ function urlsOf(file) {
   const rel = file === "index.html" ? "" : file;
   return [ORIGIN + "/" + rel].concat(LANGS.map(l => ORIGIN + "/" + l + "/" + rel));
 }
+// --base=<sha>: push'tan önceki commit (Actions: github.event.before). Tek push'ta
+// birden çok commit gelince yalnız HEAD~1'e bakmak öncekilerin sayfalarını
+// kaçırıyordu. Base çözülemezse (yeni dal, zorla push, elle çalıştırma) HEAD~1.
+function baseRef() {
+  const a = args.find(x => x.startsWith("--base="));
+  const sha = a ? a.slice(7).trim() : "";
+  if (/^[0-9a-f]{7,40}$/.test(sha) && !/^0+$/.test(sha)) {
+    try { execSync("git cat-file -e " + sha + "^{commit}", { cwd: ROOT, stdio: "ignore" }); return sha; } catch (e) {}
+  }
+  return "HEAD~1";
+}
 function changedUrls() {
   let files = [];
   try {
-    files = execSync("git diff --name-only HEAD~1 HEAD", { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] })
+    files = execSync("git diff --name-only " + baseRef() + " HEAD", { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] })
       .toString().split("\n").map(x => x.trim()).filter(Boolean);
   } catch (e) { return null; }   // sığ klon (HEAD~1 yok) → tamamı
   const all = new Set(sitemapUrls());
