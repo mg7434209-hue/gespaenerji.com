@@ -351,22 +351,36 @@ window.GESPA.config = {
       features: ["51,2 V · 102 Ah · 5,22 kWh · LiFePO₄ (16S1P prizmatik)", "Dahili akıllı BMS — aşırı şarj/deşarj, kısa devre, sıcaklık koruması", "100 A sürekli deşarj · 150 A tepe (5 sn) · 100 A şarj", "6000+ çevrim ömrü (%80 DoD, 25 °C) · 2 yıl garanti", "CAN / RS485 · Bluetooth veya WiFi · 16 adede kadar paralel", "37 kg · 560 × 150 × 380 mm · IP20 · M8 terminal"]
     },
 
-    // —— Bağlantı kablosu —— elektrikli motor paketlerinin üçüncü kalemi
-    // (evSets). group:"cable" YALNIZ online-satis.html kataloğunda listelenir;
-    // urunler.html paket vitrininde ÇIKMAZ (build.js/main.js GROUPS'ta yok).
-    // KESİT (mm²) ve marka tedarikçi künyesinde verilmedi — UYDURULMAZ.
-    // Fotoğrafı yok: `img` boş bırakılır, kart nötr yer tutucu gösterir ve
-    // ürün Merchant Center akışına GİRMEZ (akış görsel zorunlu tutar).
+    // —— Bağlantı malzemeleri —— elektrikli motor paketlerinin (evSets)
+    // tamamlayıcı kalemleri. group:"cable" YALNIZ online-satis.html
+    // kataloğunda listelenir; urunler.html paket vitrininde ÇIKMAZ.
+    // Fotoğrafları yok: `img` boş bırakılır, kart nötr yer tutucu gösterir
+    // ve ürün Merchant Center akışına GİRMEZ (akış görsel zorunlu tutar).
     {
+      // KESİT (mm2) ürün ADINDA ve çiplerde YAZILMAZ: stok durumuna göre
+      // 4 mm2 ya da 6 mm2 geliyor, ikisi de bu sistemler için uygun.
+      // Belirli bir kesit yazmak teslimatla çelişirdi; durum açıklamada
+      // olduğu gibi söylenir.
       id: "kablo-solar-5m", icon: "🔌", tag: "Kablo", group: "cable",
       sku: "GES-KBL-5M",
       img: "",
       price: 1000,
-      chips: ["📏 5 metre", "⚫🔴 Siyah + kırmızı", "☀️ Solar kablo"],
+      chips: ["📏 5 m + 5 m", "⚫🔴 Siyah + kırmızı", "☀️ Solar kablo"],
       for: "Panel ile şarj kontrol cihazı arası bağlantı",
-      name: "5 m Solar Kablo (Siyah + Kırmızı)",
-      desc: "Güneş paneli ile şarj kontrol cihazı arasındaki bağlantı için 5 metre siyah ve kırmızı solar kablo takımı. Elektrikli araç güneş paketlerinin standart kalemidir.",
-      features: ["5 metre siyah + kırmızı solar kablo", "Panel – şarj kontrol cihazı bağlantısı", "Elektrikli motor güneş paketlerine dahildir"]
+      name: "Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)",
+      desc: "Güneş paneli ile şarj kontrol cihazı arasındaki bağlantı için 5 metre siyah + 5 metre kırmızı solar kablo takımı. Kesit stok durumuna göre 4 mm2 veya 6 mm2 gelir; bu sistemlerde ikisi de uygundur. Elektrikli motor güneş paketlerinin standart kalemidir.",
+      features: ["5 m siyah + 5 m kırmızı solar kablo", "Panel – şarj kontrol cihazı bağlantısı", "Elektrikli motor güneş paketlerine dahildir"]
+    },
+    {
+      id: "mc4-set", icon: "🔗", tag: "Konnektör", group: "cable",
+      sku: "GES-MC4-1",
+      img: "",
+      price: 100,
+      chips: ["🔗 1 takım", "⚡ Erkek + dişi", "☀️ Panel bağlantısı"],
+      for: "Panel kablosu ile solar kablonun birleştirilmesi",
+      name: "MC4 Konnektör Takımı",
+      desc: "Güneş paneli çıkış kablosu ile solar kabloyu birleştiren erkek-dişi MC4 konnektör takımı. Elektrikli motor güneş paketlerine 1 takım dahildir.",
+      features: ["1 takım erkek + dişi MC4 konnektör", "Panel kablosu – solar kablo bağlantısı", "Elektrikli motor güneş paketlerine dahildir"]
     },
 
   ],
@@ -388,14 +402,14 @@ window.GESPA.config = {
       img: "assets/img/products/ev/motor-yolcu.webp",
       title: "Yolcu kabinli triportör",
       hint: "Kabinli, 2–4 kişilik yolcu araçları — çatı alanı dar",
-      items: ["panel-lexron-285w", "boost-mppt", "kablo-solar-5m"]
+      items: ["panel-lexron-285w", "boost-mppt", "kablo-solar-5m", "mc4-set"]
     },
     {
       id: "kargo",
       img: "assets/img/products/ev/motor-kargo.webp",
       title: "Kargo kasalı triportör",
       hint: "Açık kasa veya tenteli yük araçları — çatı alanı geniş",
-      items: ["panel-lexron-655w", "boost-mppt", "kablo-solar-5m"]
+      items: ["panel-lexron-655w", "boost-mppt", "kablo-solar-5m", "mc4-set"]
     }
   ],
   // Seçilen pakette gösterilen kurulum kanıtı (gerçek iş fotoğrafı).

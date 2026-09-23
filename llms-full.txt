@@ -54,7 +54,8 @@ Markalar — panel: Arçelik, Lexron, Bakırlar · inverter: Tescom, Mexxsun, Le
 - Lexron 655 W TOPCon Güneş Paneli — GES-PNL-655 · Çatı ve arazi sistemleri, yüksek güç gerektiren kurulumlar · ₺10.000 (≈ $211) liste (KDV dahil) · havale/EFT ile ₺9.700 (%3 indirimli)
 - Arçelik 540 W Güneş Paneli — GES-PNL-540 · Çatı ve arazi kurulumları, yerli marka tercih edenler · ₺10.000 (≈ $211) liste (KDV dahil) · havale/EFT ile ₺9.700 (%3 indirimli)
 - TitanX 51,2 V 102 Ah LiFePO₄ Akü — GES-AKU-102 · Ev ve işyeri enerji depolama, off-grid ve yedek güç · ₺73.372 (≈ $1.545) liste (KDV dahil) · havale/EFT ile ₺71.150 (%3 indirimli)
-- 5 m Solar Kablo (Siyah + Kırmızı) — GES-KBL-5M · Panel ile şarj kontrol cihazı arası bağlantı · ₺1.000 (≈ $21) liste (KDV dahil) · havale/EFT ile ₺950 (%3 indirimli)
+- Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) — GES-KBL-5M · Panel ile şarj kontrol cihazı arası bağlantı · ₺1.000 (≈ $21) liste (KDV dahil) · havale/EFT ile ₺950 (%3 indirimli)
+- MC4 Konnektör Takımı — GES-MC4-1 · Panel kablosu ile solar kablonun birleştirilmesi · ₺100 (≈ $2) (KDV dahil, net fiyat)
 Kargo & iade: Paketler TÜRKİYE'NİN HER İLİNE anlaşmalı kargo ile gönderilir (teslimat
 Antalya ile sınırlı değildir). Sipariş onayından sonra tahmini teslim 2–5 iş günü;
 kargo ücreti alıcıya aittir (yukarıda "kargo fiyata DAHİL" yazan ürünler hariç),
@@ -65,11 +66,11 @@ Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi verili
 
 ## Elektrikli Motor (Triportör) Güneş Paketleri (https://www.gespaenerji.com/elektrikli-arac-donusum.html#paketler)
 Müşteri aracına hangi panelin uyduğunu bilmiyorsa araç tipini seçer, paket hazır çıkar.
-- Yolcu kabinli triportör (Kabinli, 2–4 kişilik yolcu araçları — çatı alanı dar): Lexron 285 W Güneş Paneli ₺7.500 + MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı ₺7.200 + 5 m Solar Kablo (Siyah + Kırmızı) ₺1.000 = SET TOPLAMI ₺15.700
-- Kargo kasalı triportör (Açık kasa veya tenteli yük araçları — çatı alanı geniş): Lexron 655 W TOPCon Güneş Paneli ₺10.000 + MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı ₺7.200 + 5 m Solar Kablo (Siyah + Kırmızı) ₺1.000 = SET TOPLAMI ₺18.200
+- Yolcu kabinli triportör (Kabinli, 2–4 kişilik yolcu araçları — çatı alanı dar): Lexron 285 W Güneş Paneli ₺7.500 + MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı ₺7.200 + Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) ₺1.000 + MC4 Konnektör Takımı ₺100 = SET TOPLAMI ₺15.800
+- Kargo kasalı triportör (Açık kasa veya tenteli yük araçları — çatı alanı geniş): Lexron 655 W TOPCon Güneş Paneli ₺10.000 + MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı ₺7.200 + Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) ₺1.000 + MC4 Konnektör Takımı ₺100 = SET TOPLAMI ₺18.300
 Paketin kendi fiyatı yoktur; toplam içindeki ürünlerin liste fiyatlarından gelir.
 Sayfadaki araç fotoğrafları yalnızca TİP ÖRNEĞİDİR (başka üreticilerin araçları);
-satışa konu olan panel, şarj kontrol cihazı ve kablodur — araç satılmaz.
+satışa konu olan yukarıda listelenen ürünlerdir — ARAÇ SATILMAZ.
 
 ## Toptan Satış / B2B (https://www.gespaenerji.com/toptan.html)
 Bayi, EPC/kurulumcu, toptancı, otel ve kooperatiflere kurumsal faturalı toptan satış. Hazır stok:

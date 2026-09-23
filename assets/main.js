@@ -425,10 +425,10 @@
           + '<a class="btn btn-ghost" data-c-wa href="#" target="_blank" rel="noopener">💬 '
           + L("Aracıma uyar mı?", "Will it fit my vehicle?", "Passt es zu meinem Fahrzeug?", "Подойдёт ли моему транспорту?") + "</a></div>";
         h += '<p class="mset-fine">' + L(
-          "Fotoğraftaki araçlar yalnızca tip örneğidir; satışa konu olan panel, şarj kontrol cihazı ve kablodur.",
-          "The vehicles shown are type examples only; what is sold is the panel, charge controller and cable.",
-          "Die gezeigten Fahrzeuge sind nur Typbeispiele; verkauft werden Modul, Laderegler und Kabel.",
-          "Показанные транспортные средства — только примеры типа; продаются панель, контроллер заряда и кабель.") + "</p>";
+          "Fotoğraftaki araçlar yalnızca tip örneğidir — araç satışa dahil değildir; satışa konu olan yukarıda listelenen ürünlerdir.",
+          "The vehicles shown are type examples only — the vehicle is not included; what is sold is the products listed above.",
+          "Die gezeigten Fahrzeuge sind nur Typbeispiele — das Fahrzeug ist nicht enthalten; verkauft werden die oben aufgeführten Produkte.",
+          "Показанные транспортные средства — только примеры типа; сам транспорт не продаётся, продаются перечисленные выше товары.") + "</p>";
         h += "</div></div>";
         host.innerHTML = h;
 

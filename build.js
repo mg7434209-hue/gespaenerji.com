@@ -1112,7 +1112,7 @@ Müşteri aracına hangi panelin uyduğunu bilmiyorsa araç tipini seçer, paket
 ${evSetLines}
 Paketin kendi fiyatı yoktur; toplam içindeki ürünlerin liste fiyatlarından gelir.
 Sayfadaki araç fotoğrafları yalnızca TİP ÖRNEĞİDİR (başka üreticilerin araçları);
-satışa konu olan panel, şarj kontrol cihazı ve kablodur — araç satılmaz.
+satışa konu olan yukarıda listelenen ürünlerdir — ARAÇ SATILMAZ.
 
 ## Toptan Satış / B2B (${c.web}/toptan.html)
 Bayi, EPC/kurulumcu, toptancı, otel ve kooperatiflere kurumsal faturalı toptan satış. Hazır stok:

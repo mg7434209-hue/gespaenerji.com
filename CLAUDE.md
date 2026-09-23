@@ -231,7 +231,9 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   istasyonu ($2.495, `group:"offgrid"`) + tekil paneller Lexron 285 W ₺7.500 ·
   Lexron 655 W TOPCon ₺10.000 · Arçelik 540 W ₺10.000 (`group:"panel"`) +
   TitanX 51,2 V 102 Ah LiFePO₄ akü ₺73.372 (`group:"storage"`) +
-  5 m solar kablo ₺1.000 (`group:"cable"`, fotoğrafsız — akışa girmez)
+  solar kablo takımı 5 m siyah + 5 m kırmızı ₺1.000 · MC4 konnektör takımı
+  ₺100 (ikisi de `group:"cable"`, fotoğrafsız — akışa girmez). KABLO KESİTİ
+  (mm2) YAZILMAZ: stoğa göre 4 ya da 6 mm2 geliyor, ikisi de uygun.
   — `url` detay sayfası, `img` gerçek foto,
   `oldPrice` indirim rozeti, `currency:"USD"` dolar, `dailyKwh` günlük üretim.
   `usdTry` kuru ile ikinci para "≈" gösterilir; kur değişince SADECE
@@ -338,9 +340,10 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
 ## Motor seçici & hazır paket (`config.evSets`)
 `elektrikli-arac-donusum.html#paketler` — müşteri aracına hangi panelin
 uyduğunu bilmediği için satış burada takılıyordu. Araç tipini seçer, uygun
-panel + şarj kontrol cihazı + kablo hazır paket olarak çıkar, tek düğmeyle
-sepete girer (3 kalem ayrı ayrı eklenir — fiyat, iyzico, dekont ve e-posta
-akışları olduğu gibi çalışır).
+panel + şarj kontrol cihazı + kablo + MC4 hazır paket olarak çıkar, tek
+düğmeyle sepete girer (kalemler AYRI AYRI eklenir — fiyat, iyzico, dekont ve
+e-posta akışları olduğu gibi çalışır). Paket içeriği değişince sayfadaki
+dipnot kalem SAYMAZ ("yukarıda listelenen ürünler") — güncelleme unutulmasın.
 - PAKETİN KENDİ FİYATI YOKTUR: toplam `items` içindeki ürünlerin
   `pkgUnit()` değerlerinden hesaplanır. Ürün fiyatı değişince paket
   kendiliğinden güncellenir — İKİNCİ BİR FİYAT KAYNAĞI AÇMA.
