@@ -29,6 +29,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2   # IndexNow "son commit'te değişen sayfalar" için HEAD~1 gerekir
 
       - name: Build multilingual pages (/en, /de, /ru)
         run: node build.js
@@ -44,3 +46,10 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Yayından sonra değişen sayfaları Bing/Yandex/Naver'a anında bildir
+      # (api.indexnow.org). Bing indeksi Copilot/ChatGPT aramasını besler.
+      # Hata yayını düşürmez.
+      - name: IndexNow — değişen sayfaları bildir
+        run: node tools/indexnow.js
+        continue-on-error: true

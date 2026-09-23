@@ -2,34 +2,84 @@
 
 > Gespa Enerji; Manavgat/Antalya merkezli, çatı ve arazi tipi güneş enerjisi santralleri (GES) ile güneş enerjili tarımsal sulama için anahtar teslim mühendislik, kurulum, finansman ve bakım hizmeti sunar.
 
+Bu dosya build.js tarafından üretilir (kaynak: sayfa başlıkları + assets/config.js); elle düzenlenmez.
+Ayrıntılı ürün/fiyat/araç bilgisi: https://www.gespaenerji.com/llms-full.txt · Sayfaların Markdown kopyaları: https://www.gespaenerji.com/md/
+
 ## İletişim
-- Unvan: Gespa Enerji Sanayi Ticaret Limited Şirketi
-- Telefon: 0543 743 42 09
+- Unvan: Gespa Enerji Sanayi Ticaret Limited Şirketi · Marka: GESPA Enerji
+- Telefon / WhatsApp: 0543 743 42 09 (+905437434209)
 - E-posta: info@gespaenerji.com
 - Adres: Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01, Manavgat / Antalya
-- Web: https://www.gespaenerji.com
+- Web: https://www.gespaenerji.com · Çalışma saatleri: Hafta içi 09:00 – 18:00
 
 ## Hizmet bölgesi
-Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş; talebe göre tüm Türkiye.
+Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş; talebe göre tüm Türkiye. Ürünler Türkiye'nin her iline kargo ile gönderilir.
 
-## Hizmetler ve referanslar
-- [Manavgat ve Antalya Çatı GES Kurulumu](https://www.gespaenerji.com/cati-ges.html)
-- [Arazi Tipi GES: Fizibilite ve Kurulum](https://www.gespaenerji.com/arazi-ges.html)
-- [Güneş Enerjisi Depolama ve Batarya Sistemleri](https://www.gespaenerji.com/enerji-depolama.html)
-- [GES Bakım, İzleme ve Performans Kontrolü](https://www.gespaenerji.com/bakim-izleme.html)
-- [Kemer Villa: 12 kWp Çatı GES](https://www.gespaenerji.com/proje-kemer-villa.html)
-- [Manavgat Fabrika: 1,2 MWp Çatı GES](https://www.gespaenerji.com/proje-manavgat-fabrika.html)
-- [Manavgat Tarımsal GES: 30 kWp](https://www.gespaenerji.com/proje-manavgat-tarimsal.html)
+## Sayfalar
+### Hizmetler
+- [Hizmetler — Çatı & Arazi GES, Depolama](https://www.gespaenerji.com/hizmetler.html): Çatı GES, arazi tipi GES, enerji depolama, mühendislik, finansman ve bakım (O&M) hizmetleri. Anahtar teslim güneş enerjisi çözümleri — GESPA Enerji. · Markdown: https://www.gespaenerji.com/md/hizmetler.md
+- [Manavgat ve Antalya Çatı GES Kurulumu](https://www.gespaenerji.com/cati-ges.html): Çatı GES: konut, iş yeri ve sanayi çatılarında elektrik üretimi. Keşif, mühendislik, ekipman seçimi, kurulum ve bakım tek elden planlanır. · Markdown: https://www.gespaenerji.com/md/cati-ges.md
+- [Arazi Tipi GES: Fizibilite ve Kurulum](https://www.gespaenerji.com/arazi-ges.html): Arazi tipi GES: fizibilite, arazi değerlendirmesi, mühendislik ve kurulum. Eğim, gölgelenme, zemin ve bağlantı kapasitesi birlikte incelenir. · Markdown: https://www.gespaenerji.com/md/arazi-ges.md
+- [Güneş Enerjisi Depolama ve Batarya Sistemleri](https://www.gespaenerji.com/enerji-depolama.html): Güneş enerjisi depolama: batarya seçimi günlük tüketim, kritik yükler, inverter uyumu ve hedef yedekleme süresine göre yapılır. · Markdown: https://www.gespaenerji.com/md/enerji-depolama.md
+- [GES Bakım, İzleme ve Performans Kontrolü](https://www.gespaenerji.com/bakim-izleme.html): GES bakımı ve izleme: planlı kontroller, üretim kaybı analizi ve arıza müdahale. Kapsam tesise ve işletme ihtiyacına göre belirlenir. · Markdown: https://www.gespaenerji.com/md/bakim-izleme.md
+- [Tarımsal Sulama GES — Güneşli Sulama](https://www.gespaenerji.com/tarimsal-sulama.html): Güneş enerjili tarımsal sulama: mazotsuz, şebekeden bağımsız dalgıç ve yüzey pompa sistemleri. Ücretsiz keşif ve mazot tasarruf analizi. · Markdown: https://www.gespaenerji.com/md/tarimsal-sulama.md
 
-## Ürünler ve araçlar
-- [Ürünler](https://www.gespaenerji.com/urunler.html)
-- [Tarımsal sulama](https://www.gespaenerji.com/tarimsal-sulama.html)
-- [Tasarruf hesaplayıcı](https://www.gespaenerji.com/hesaplayici.html)
-- [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html)
-- [AI Cankurtaran](https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html)
-- [PV su ısıtıcı](https://www.gespaenerji.com/su-isitici.html)
-- [Elektrikli araç güneş dönüşümü](https://www.gespaenerji.com/elektrikli-arac-donusum.html)
-- [Güncel ürün bilgileri ve fiyatlar](https://www.gespaenerji.com/llms-full.txt)
+### Mağaza ve ürünler
+- [Online Satış — Güneş Enerjisi Ürünleri](https://www.gespaenerji.com/online-satis.html): GESPA Enerji online satış: hazır güneş enerjisi paketleri, şarj kontrol cihazları ve solar ekipman. Şeffaf fiyat, KDV dahil, Türkiye'nin her yerine kargo. · Markdown: https://www.gespaenerji.com/md/online-satis.md
+- [Hazır Solar Paketler — Off-Grid & Sulama](https://www.gespaenerji.com/urunler.html): 285 W ve 2×540 W hazır güneş enerjisi paketleri: kamp, karavan ve bağ evi için panel, güç kutusu ve kablo içeriği. Türkiye geneli gönderim — GESPA Enerji. · Markdown: https://www.gespaenerji.com/md/urunler.md
+- [285W Güneş Paneli Paketi — Tak-Çalıştır](https://www.gespaenerji.com/paket-285w.html): Kamp ve karavan için 285W komple güneş paketi: panel, güç kutusu ve kablolar. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg, tak-çalıştır. · Markdown: https://www.gespaenerji.com/md/paket-285w.md
+- [2×540W Güneş Sistemi — LiFePO₄ Bataryalı](https://www.gespaenerji.com/paket-2x540w.html): 2×540W panel + LiFePO₄ bataryalı güç kutusu: buzdolabı, TV ve çamaşır makinesi çalıştıran komple mobil güneş sistemi. Günlük ~6,5 kWh üretim. · Markdown: https://www.gespaenerji.com/md/paket-2x540w.md
+- [UNV Trek Pro 2500 W Taşınabilir Güç İstasyonu | GESPA](https://www.gespaenerji.com/unv-trek-pro-2500.html): 2500 W sürekli çıkış, 2496 Wh batarya, 4 × 230 V saf sinüs priz, 30 ms UPS. Kamp, karavan ve ev tipi yedek güç için taşınabilir güç istasyonu. · Markdown: https://www.gespaenerji.com/md/unv-trek-pro-2500.md
+- [Elektrikli Araç Güneş Dönüşümü — BOOST MPPT | GESPA](https://www.gespaenerji.com/elektrikli-arac-donusum.html): Golf ve hizmet araçlarına güneş paneli dönüşümü. MS Teknik BOOST MPPT 24-72 V: AGM, jel, kurşun-asit ve lityum akü desteği, Bluetooth ile ayar. · Markdown: https://www.gespaenerji.com/md/elektrikli-arac-donusum.md
+- [Yolcu Kabinli Motor Güneş Paketi — 285 W](https://www.gespaenerji.com/paket-motor-yolcu.html): Kabinli elektrikli yolcu triportörü için komple güneş paketi: 285 W TOPCon panel, BOOST MPPT 24–72 V şarj kontrol cihazı, solar kablo ve MC4. Hangi parçanın uyduğunu araştırmanıza gerek yok. · Markdown: https://www.gespaenerji.com/md/paket-motor-yolcu.md
+- [Kargo Kasalı Motor Güneş Paketi — 655 W](https://www.gespaenerji.com/paket-motor-kargo.html): Kargo kasalı elektrikli triportör için komple güneş paketi: 655 W N-type TOPCon panel, BOOST MPPT 24–72 V şarj kontrol cihazı, solar kablo ve MC4. Geniş çatı için en verimli güç. · Markdown: https://www.gespaenerji.com/md/paket-motor-kargo.md
+- [europlus 72 V 30 Ah LiFePO₄ Akü — 72V Lityum Akü](https://www.gespaenerji.com/aku-lifepo4-72v-30ah.html): Elektrikli triportör ve 72 V motorlu araçlar için LiFePO₄ çekiş aküsü: 24S dizilim, ~2.160 Wh, dahili balanslı BMS, 3.000–6.000 döngü ömür. Jel akünün yerine takılır, motor gücü düşmeden yol biter. · Markdown: https://www.gespaenerji.com/md/aku-lifepo4-72v-30ah.md
+- [PV Güneş Enerjili Su Isıtıcı 60–200 L](https://www.gespaenerji.com/su-isitici.html): Elektrikli termosifon konforu, güneş ekonomisi. 60–200 L emaye tanklı PV su ısıtıcı; bulutlu havada otomatik şebeke desteği, TÜV/CE/UL sertifikalı. · Markdown: https://www.gespaenerji.com/md/su-isitici.md
+- [Toptan Güneş Paneli, İnverter, Akü](https://www.gespaenerji.com/toptan.html): Bayi, EPC ve kurulumculara toptan güneş paneli, inverter ve LiFePO₄ akü. Kurumsal fatura, Türkiye geneli nakliye, adede göre toptan fiyat teklifi. · Markdown: https://www.gespaenerji.com/md/toptan.md
 
-## Languages
-Turkish: https://www.gespaenerji.com/ · English: https://www.gespaenerji.com/en/ · German: https://www.gespaenerji.com/de/ · Russian: https://www.gespaenerji.com/ru/
+### Yapay zekâ ürünleri
+- [AI Cankurtaran Destek Sistemi — Havuz Güvenliği | GESPA](https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html): Otel, aquapark ve site havuzları için yapay zekâ destekli boğulma önleme: 7/24 izleme, cankurtaran saatine konumlu anında alarm, KVKK uyumlu yerel işleme. · Markdown: https://www.gespaenerji.com/md/ai-cankurtaran-destek-sistemi.md
+
+### Ücretsiz araçlar
+- [Güneş Enerjisi Tasarruf Hesaplayıcı (GES)](https://www.gespaenerji.com/hesaplayici.html): Ücretsiz güneş enerjisi hesaplayıcı: faturaya, tüketime veya çatı alanına göre sistem gücü, yıllık üretim, tasarruf, geri ödeme ve CO₂ azaltımı. · Markdown: https://www.gespaenerji.com/md/hesaplayici.md
+- [Sistem Kurucu — Kendi Solar Paketinizi Kurun | GESPA](https://www.gespaenerji.com/sistem-kur.html): Çalıştıracağınız cihazları seçin; panel, akü ve inverter gücünü anında hesaplayalım. Marka-model seçip kendi solar sisteminizi kurun. · Markdown: https://www.gespaenerji.com/md/sistem-kur.md
+
+### Referans projeler
+- [Referans Projeler — Çatı ve Arazi GES](https://www.gespaenerji.com/projeler.html): Farklı sektörlerde devreye aldığımız güneş enerjisi santrali (GES) projeleri: sanayi, tarım, soğuk hava deposu, otel ve arazi santralleri. · Markdown: https://www.gespaenerji.com/md/projeler.md
+- [Kemer Villa: 12 kWp Çatı GES](https://www.gespaenerji.com/proje-kemer-villa.html): Kemer’de çift eğimli kiremit çatılı villaya kurulan güneş enerjisi sistemi. · Markdown: https://www.gespaenerji.com/md/proje-kemer-villa.md
+- [Manavgat Fabrika: 1,2 MWp Çatı GES](https://www.gespaenerji.com/proje-manavgat-fabrika.html): Manavgat’ta fabrika çatısına kurulan güneş enerjisi santrali, sanayi çatılarına yönelik uygulamalarımızdandır. · Markdown: https://www.gespaenerji.com/md/proje-manavgat-fabrika.md
+- [Manavgat Tarımsal GES: 30 kWp](https://www.gespaenerji.com/proje-manavgat-tarimsal.html): Sera ve tarla sulaması için sera çatısına kurulan güneş enerjisi santrali. · Markdown: https://www.gespaenerji.com/md/proje-manavgat-tarimsal.md
+
+### Kurumsal ve yardım
+- [Hakkımızda — Gespa Enerji Ltd. Şti.](https://www.gespaenerji.com/hakkimizda.html): Gespa Enerji Ltd. Şti.; Manavgat/Antalya merkezli, güneş enerjisi santralleri (GES) alanında mühendislik ve EPC hizmetleri sunan bir firmadır. · Markdown: https://www.gespaenerji.com/md/hakkimizda.md
+- [İletişim — Ücretsiz Keşif ve Teklif](https://www.gespaenerji.com/iletisim.html): GESPA Enerji ile iletişime geçin: 0543 743 42 09, info@gespaenerji.com, Örnek Mah. 1551 Sok. No:10 Manavgat/Antalya. Ücretsiz keşif ve teklif. · Markdown: https://www.gespaenerji.com/md/iletisim.md
+
+### Diğer
+- [GESPA Enerji — Anahtar Teslim Güneş Enerjisi (GES)](https://www.gespaenerji.com/): GESPA Enerji: çatı ve arazi tipi güneş enerjisi santralleri (GES) için anahtar teslim kurulum, mühendislik, finansman ve bakım. Manavgat / Antalya. · Markdown: https://www.gespaenerji.com/md/index.md
+
+### Yasal (yalnız Türkçe)
+- [KVKK Aydınlatma Metni](https://www.gespaenerji.com/kvkk.html): 6698 sayılı KVKK kapsamında GESPA Enerji aydınlatma metni: kişisel verilerin işlenme amaçları, hukuki sebepleri ve ilgili kişinin hakları. · Markdown: https://www.gespaenerji.com/md/kvkk.md
+- [Gizlilik Politikası](https://www.gespaenerji.com/gizlilik.html): GESPA Enerji gizlilik politikası: web sitemizde kişisel verilerinizin nasıl toplandığı, işlendiği ve korunduğu hakkında bilgi. · Markdown: https://www.gespaenerji.com/md/gizlilik.md
+- [Çerez Politikası](https://www.gespaenerji.com/cerez-politikasi.html): GESPA Enerji çerez politikası: web sitemizde kullanılan çerez türleri, amaçları ve çerez tercihlerinizi nasıl yönetebileceğiniz. · Markdown: https://www.gespaenerji.com/md/cerez-politikasi.md
+- [Mesafeli Satış Sözleşmesi](https://www.gespaenerji.com/mesafeli-satis-sozlesmesi.html): GESPA Enerji mesafeli satış sözleşmesi: taraflar, ürün ve bedel, ödeme, teslimat, 14 gün cayma hakkı, garanti ve uyuşmazlık çözümü. · Markdown: https://www.gespaenerji.com/md/mesafeli-satis-sozlesmesi.md
+- [İade, Teslimat ve Kargo Koşulları](https://www.gespaenerji.com/iade-teslimat.html): GESPA Enerji teslimat ve iade koşulları: Türkiye geneli kargo, teslim süresi, hasarlı teslimat, 14 gün cayma hakkı, iade adımları, bedel iadesi ve garanti kapsamı. · Markdown: https://www.gespaenerji.com/md/iade-teslimat.md
+
+## Satıştaki ürünler (liste fiyatı; havale/EFT indirimi ve ayrıntı için llms-full.txt)
+- 285W Güneş Paneli Paketi — Kamp, karavan ve küçük ihtiyaçlar · ₺25.000 (KDV dahil) · https://www.gespaenerji.com/paket-285w.html
+- Tam Kapsamlı Güneş Enerjisi Sistemi — Karavan, kamp ve bağ evi · ₺104.500 (KDV dahil) · https://www.gespaenerji.com/paket-2x540w.html
+- MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı — Golf aracı, hizmet aracı ve elektrikli platformlar · ₺7.200 (KDV dahil) · https://www.gespaenerji.com/elektrikli-arac-donusum.html
+- europlus 72 V 30 Ah LiFePO₄ Akü — Elektrikli triportör, motosiklet ve 72 V hizmet araçları · ₺28.000 (KDV dahil) · https://www.gespaenerji.com/aku-lifepo4-72v-30ah.html
+- 50W Güneş Paneli — Küçük aydınlatma, kamera ve akü şarjı · ₺1.250 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
+- UNV Trek Pro 2500 W Taşınabilir Güç İstasyonu — Kamp, karavan, saha çalışması ve ev tipi yedek güç · ₺118.500 (KDV dahil) · https://www.gespaenerji.com/unv-trek-pro-2500.html
+- Lexron 285 W Güneş Paneli — Balkon, bağ evi ve küçük off-grid sistemler · ₺7.500 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
+- Lexron 655 W TOPCon Güneş Paneli — Çatı ve arazi sistemleri, yüksek güç gerektiren kurulumlar · ₺10.000 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
+- Arçelik 540 W Güneş Paneli — Çatı ve arazi kurulumları, yerli marka tercih edenler · ₺10.000 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
+- TitanX 51,2 V 102 Ah LiFePO₄ Akü — Ev ve işyeri enerji depolama, off-grid ve yedek güç · ₺73.372 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
+- Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) — Panel ile şarj kontrol cihazı arası bağlantı · ₺1.000 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
+- Yolcu Kabinli Motor Güneş Paketi — 285 W — Kabinli, 2–4 kişilik yolcu triportörleri — çatı alanı dar · ₺15.800 (KDV dahil) · https://www.gespaenerji.com/paket-motor-yolcu.html
+- Kargo Kasalı Motor Güneş Paketi — 655 W — Açık kasa veya tenteli yük triportörleri — çatı alanı geniş · ₺18.300 (KDV dahil) · https://www.gespaenerji.com/paket-motor-kargo.html
+- MC4 Konnektör Takımı — Panel kablosu ile solar kablonun birleştirilmesi · ₺100 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
+
+## Diller
+Türkçe (kanonik): https://www.gespaenerji.com/ · English: https://www.gespaenerji.com/en/ · Deutsch: https://www.gespaenerji.com/de/ · Русский: https://www.gespaenerji.com/ru/
+Markdown kopyalar da dile göre: https://www.gespaenerji.com/md/<sayfa>.md (TR), https://www.gespaenerji.com/md/en/…, https://www.gespaenerji.com/md/de/…, https://www.gespaenerji.com/md/ru/…

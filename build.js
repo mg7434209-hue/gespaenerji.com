@@ -295,6 +295,13 @@ function hydrateHead(html, file) {
     html = html.replace(/(<meta name="description" content="[^"]*"\s*\/>)/,
       '$1\n  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />');
   }
+  // Makine-okur kopya: AI ajanları HTML yerine /md/<sayfa>.md okuyabilir
+  // (transform() dil kopyasında /md/<dil>/… yapar). noindex sayfada yok.
+  html = html.replace(/[ \t]*<link rel="alternate" type="text\/markdown" href="[^"]*"\s*\/>\n?/g, "");
+  if (!NOINDEX_FILES.includes(file)) {
+    html = html.replace(/(<link rel="canonical" href="[^"]*"\s*\/>)/,
+      '$1\n  <link rel="alternate" type="text/markdown" href="/md/' + file.replace(/\.html$/, ".md") + '" />');
+  }
   html = html.replace(/[ \t]*<meta property="og:locale:alternate" content="[^"]*"\s*\/>\n?/g, "");
   if (!TR_ONLY.includes(file)) {
     const alts = LANGS.map(l => '  <meta property="og:locale:alternate" content="' + OG_ALL[l] + '" />').join("\n");
@@ -1199,6 +1206,195 @@ const PRIORITY = {
   "kvkk.html": "0.3", "gizlilik.html": "0.3", "cerez-politikasi.html": "0.3",
   "mesafeli-satis-sozlesmesi.html": "0.4", "iade-teslimat.html": "0.4"
 };
+/* ============================================================
+   AI DOSYALARI — llms.txt (özet, build üretir) ve /md/ Markdown kopyalar.
+   AI ajanları (ChatGPT, Claude, Perplexity…) JS çalıştırmaz ve HTML'i
+   gürültülü bulur; her sayfanın <main> içeriği temiz Markdown olarak da
+   yayımlanır (head'de <link rel="alternate" type="text/markdown">, robots.txt'te
+   yalnız AI botlarına açık, server.js canonical Link başlığı gönderir).
+   ============================================================ */
+const LLMS_GROUPS = [
+  ["Hizmetler", ["hizmetler.html", "cati-ges.html", "arazi-ges.html", "enerji-depolama.html", "bakim-izleme.html", "tarimsal-sulama.html"]],
+  ["Mağaza ve ürünler", ["online-satis.html", "urunler.html", "paket-285w.html", "paket-2x540w.html", "unv-trek-pro-2500.html",
+    "elektrikli-arac-donusum.html", "paket-motor-yolcu.html", "paket-motor-kargo.html", "aku-lifepo4-72v-30ah.html", "su-isitici.html", "toptan.html"]],
+  ["Yapay zekâ ürünleri", ["ai-cankurtaran-destek-sistemi.html"]],
+  ["Ücretsiz araçlar", ["hesaplayici.html", "sistem-kur.html"]],
+  ["Referans projeler", ["projeler.html", "proje-kemer-villa.html", "proje-manavgat-fabrika.html", "proje-manavgat-tarimsal.html"]],
+  ["Kurumsal ve yardım", ["hakkimizda.html", "iletisim.html", "sss.html", "sozluk.html"]]
+];
+function pageMeta(file) {
+  const p = path.join(ROOT, file);
+  if (!fs.existsSync(p)) return null;
+  const h = fs.readFileSync(p, "utf8");
+  const t = unesc((h.match(/<title>([\s\S]*?)<\/title>/) || [])[1]).replace(/\s*\|\s*GESPA Enerji\s*$/, "").trim();
+  const d = unesc((h.match(/<meta name="description" content="([^"]*)"/) || [])[1]).trim();
+  return { title: t, desc: d };
+}
+function writeLlms(cfg) {
+  const c = cfg.company;
+  const web = c.web;
+  const urlOf = f => web + "/" + (f === "index.html" ? "" : f);
+  const listed = new Set();
+  const line = f => {
+    const m = pageMeta(f); if (!m) return "";
+    listed.add(f);
+    return "- [" + m.title + "](" + urlOf(f) + ")" + (m.desc ? ": " + m.desc : "") + " · Markdown: " + web + "/md/" + f.replace(/\.html$/, ".md");
+  };
+  const groups = LLMS_GROUPS.map(([name, files]) => {
+    const rows = files.map(line).filter(Boolean);
+    return rows.length ? "### " + name + "\n" + rows.join("\n") : "";
+  }).filter(Boolean).join("\n\n");
+  // Listeye girmemiş sayfalar (yeni eklenen) kendiliğinden "Diğer" altına düşer
+  const other = PAGES.filter(f => !listed.has(f) && !NOINDEX_FILES.includes(f)).map(line).filter(Boolean);
+  const legal = TR_ONLY.map(line).filter(Boolean);
+  const nf = n => new Intl.NumberFormat("tr-TR").format(Math.round(n));
+  const RATE = cfg.usdTry || 0;
+  const products = (cfg.packages || []).filter(p => p.price != null || p.priceOnRequest).map(p => {
+    const poa = p.price == null;
+    const tl = poa ? null : (p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price);
+    return "- " + p.name + (p.for ? " — " + p.for : "") + (poa ? " · fiyat için teklif alın" : " · ₺" + nf(tl) + " (KDV dahil)")
+      + (p.url ? " · " + web + "/" + p.url : " · " + web + "/online-satis.html");
+  }).join("\n");
+  const out = `# ${c.brandName}
+
+> ${c.description}
+
+Bu dosya build.js tarafından üretilir (kaynak: sayfa başlıkları + assets/config.js); elle düzenlenmez.
+Ayrıntılı ürün/fiyat/araç bilgisi: ${web}/llms-full.txt · Sayfaların Markdown kopyaları: ${web}/md/
+
+## İletişim
+- Unvan: ${c.legalName} · Marka: ${c.brandName}
+- Telefon / WhatsApp: ${c.phone.display} (+${c.phone.wa})
+- E-posta: ${c.email}
+- Adres: ${c.address.full}
+- Web: ${web} · Çalışma saatleri: ${c.hours}
+
+## Hizmet bölgesi
+${c.areaServed.join(", ")}; talebe göre tüm Türkiye. Ürünler Türkiye'nin her iline kargo ile gönderilir.
+
+## Sayfalar
+${groups}${other.length ? "\n\n### Diğer\n" + other.join("\n") : ""}
+
+### Yasal (yalnız Türkçe)
+${legal.join("\n")}
+
+## Satıştaki ürünler (liste fiyatı; havale/EFT indirimi ve ayrıntı için llms-full.txt)
+${products}
+
+## Diller
+Türkçe (kanonik): ${web}/ · English: ${web}/en/ · Deutsch: ${web}/de/ · Русский: ${web}/ru/
+Markdown kopyalar da dile göre: ${web}/md/<sayfa>.md (TR), ${web}/md/en/…, ${web}/md/de/…, ${web}/md/ru/…
+`;
+  fs.writeFileSync(path.join(ROOT, "llms.txt"), out);
+}
+
+// Dengeli etiket silme: openRe ile eşleşen açılış etiketini ALT AĞACIYLA
+// birlikte kaldırır (aynı addaki iç içe etiketleri sayarak).
+function stripBalanced(h, openRe) {
+  let out = "", i = 0;
+  const re = new RegExp(openRe.source, "gi");
+  while (i < h.length) {
+    re.lastIndex = i;
+    const m = re.exec(h);
+    if (!m) { out += h.slice(i); break; }
+    out += h.slice(i, m.index);
+    const tag = m[1].toLowerCase();
+    if (/\/>$/.test(m[0])) { i = m.index + m[0].length; continue; }
+    const tr = new RegExp("<(/?)" + tag + "\\b[^>]*>", "gi");
+    tr.lastIndex = m.index + m[0].length;
+    let depth = 1, mm, end = h.length;
+    while ((mm = tr.exec(h)) !== null) {
+      if (mm[1] === "/") depth--; else if (!/\/>$/.test(mm[0])) depth++;
+      if (depth === 0) { end = mm.index + mm[0].length; break; }
+    }
+    i = end;
+  }
+  return out;
+}
+const HTML_ENT = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ", hellip: "…", ndash: "–", mdash: "—", copy: "©", rarr: "→", larr: "←", times: "×", deg: "°" };
+function decodeEnt(t) {
+  return t.replace(/&#(\d+);/g, (m, n) => String.fromCodePoint(+n))
+    .replace(/&#x([0-9a-f]+);/gi, (m, n) => String.fromCodePoint(parseInt(n, 16)))
+    .replace(/&([a-z]+);/gi, (m, n) => HTML_ENT[n.toLowerCase()] != null ? HTML_ENT[n.toLowerCase()] : m);
+}
+// <main> HTML → Markdown (bu sitenin işaretlemesi için yeterli, genel amaçlı değil)
+function htmlToMd(mainHtml, base) {
+  let h = mainHtml;
+  const abs = u => /^(https?:|mailto:|tel:|#|data:)/.test(u) ? u : (u.startsWith("/") ? ORIGIN + u : base + (u === "index.html" ? "" : u));
+  const text = x => decodeEnt(x.replace(/<[^>]+>/g, "")).replace(/\s+/g, " ").trim();
+  h = h.replace(/<!--[\s\S]*?-->/g, "");
+  // SSS soruları önce başlığa çevrilir (ardından tüm düğmeler silinir)
+  h = h.replace(/<button class="faq-q"[^>]*>([\s\S]*?)<\/button>/g, (m, q) => "<h3>" + text(q.replace(/<span class="faq-ico"[^>]*>[\s\S]*?<\/span>/, "")) + "</h3>");
+  h = h.replace(/<\/span>/gi, "</span> ");   // yan yana çipler/etiketler yapışmasın
+  h = h.replace(/<(script|style|svg|form|select|noscript|template|video|audio|iframe|textarea)\b[\s\S]*?<\/\1>/gi, "");
+  h = h.replace(/<(input|meta|link|source|track)\b[^>]*>/gi, "");
+  h = stripBalanced(h, /<(div|section|p|span|a|ul|ol|li|aside|article|figure|nav|details|button)\b[^>]*?(?:\shidden(?:=|\s|>)|display:\s*none)[^>]*>/);
+  h = stripBalanced(h, /<(button|nav)\b[^>]*>/);
+  h = stripBalanced(h, /<(div|span|a|ul)\b[^>]*\bclass="[^"]*\b(?:prod-thumbs|faq-ico|qbox|lang-switch|share-row|mset-share|sh-noimg)\b[^"]*"[^>]*>/);
+  // Tablolar
+  h = h.replace(/<table\b[^>]*>([\s\S]*?)<\/table>/gi, (m, body) => {
+    const rows = [];
+    const rr = /<tr\b[^>]*>([\s\S]*?)<\/tr>/gi; let r;
+    while ((r = rr.exec(body)) !== null) {
+      const cells = []; const cr = /<t[dh]\b[^>]*>([\s\S]*?)<\/t[dh]>/gi; let c;
+      while ((c = cr.exec(r[1])) !== null) cells.push(text(c[1]).replace(/\|/g, "\\|"));
+      if (cells.length) rows.push(cells);
+    }
+    if (!rows.length) return "\n";
+    const w = Math.max.apply(null, rows.map(x => x.length));
+    const line = cells => "| " + cells.concat(Array(w - cells.length).fill("")).join(" | ") + " |";
+    return "\n\n" + line(rows[0]) + "\n|" + Array(w).fill(" --- ").join("|") + "|\n" + rows.slice(1).map(line).join("\n") + "\n\n";
+  });
+  h = h.replace(/<br\s*\/?>/gi, "\n");
+  h = h.replace(/<(strong|b)\b[^>]*>([\s\S]*?)<\/\1>/gi, (m, t, x) => { const v = text(x); return v ? "**" + v + "**" : ""; });
+  h = h.replace(/<(em|i)\b[^>]*>([\s\S]*?)<\/\1>/gi, (m, t, x) => { const v = text(x); return v ? "*" + v + "*" : ""; });
+  h = h.replace(/<code\b[^>]*>([\s\S]*?)<\/code>/gi, (m, x) => "`" + text(x) + "`");
+  h = h.replace(/<img\b[^>]*>/gi, m => {
+    const src = (m.match(/\bsrc="([^"]+)"/) || [])[1]; if (!src) return "";
+    const alt = decodeEnt((m.match(/\balt="([^"]*)"/) || [])[1] || "");
+    return "![" + alt.replace(/[\[\]]/g, "") + "](" + abs(src) + ")";
+  });
+  h = h.replace(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi, (m, href, inner) => {
+    const t = inner.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+    if (!t) return "";
+    return "[" + decodeEnt(t) + "](" + abs(href) + ")";
+  });
+  h = h.replace(/<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>/gi, (m, n, x) => "\n\n" + "#".repeat(+n) + " " + text(x) + "\n\n");
+  h = h.replace(/<li\b[^>]*>([\s\S]*?)<\/li>/gi, (m, x) => "\n- " + decodeEnt(x.replace(/<[^>]+>/g, "")).replace(/\s+/g, " ").trim());
+  h = h.replace(/<(p|figcaption|blockquote|dd|dt|summary)\b[^>]*>([\s\S]*?)<\/\1>/gi, (m, t, x) => "\n\n" + decodeEnt(x.replace(/<[^>]+>/g, "")).replace(/\s+/g, " ").trim() + "\n\n");
+  h = h.replace(/<\/?(div|section|article|aside|figure|ul|ol|header|footer|main|table|thead|tbody|tr|details|dl|picture|label|fieldset)\b[^>]*>/gi, "\n");
+  h = h.replace(/<[^>]+>/g, "");
+  h = decodeEnt(h);
+  const lines = h.split("\n").map(l => l.replace(/[ \t]+/g, " ").trim());
+  // Ardışık liste maddeleri arasındaki boş satırları kaldır (kaynak girintisinden gelir)
+  const out = [];
+  for (let i = 0; i < lines.length; i++) {
+    if (lines[i] === "" && /^- /.test(out[out.length - 1] || "") && /^- /.test((lines.slice(i + 1).find(x => x !== "") || ""))) continue;
+    out.push(lines[i]);
+  }
+  return out.join("\n").replace(/\n{3,}/g, "\n\n").trim();
+}
+// Bir sayfanın (TR ya da çevrili dil kopyası) Markdown kopyasını yazar
+function writeMarkdownFile(html, lang, file, cfg) {
+  if (NOINDEX_FILES.includes(file)) return;
+  const c = cfg.company;
+  const main = (html.match(/<main\b[\s\S]*?<\/main>/) || [])[0];
+  if (!main) return;
+  const url = lang === "tr" ? c.web + "/" + (file === "index.html" ? "" : file) : c.web + "/" + lang + "/" + (file === "index.html" ? "" : file);
+  const base = lang === "tr" ? c.web + "/" : c.web + "/" + lang + "/";
+  const title = unesc((html.match(/<title>([\s\S]*?)<\/title>/) || [])[1]).trim();
+  const desc = unesc((html.match(/<meta name="description" content="([^"]*)"/) || [])[1]).trim();
+  const q = x => JSON.stringify(String(x));
+  const md = "---\n" + "title: " + q(title) + "\n" + "description: " + q(desc) + "\n" + "canonical: " + url + "\n"
+    + "lang: " + lang + "\n" + "dateModified: " + lastModOf(file) + "\n" + "publisher: " + q(c.brandName) + "\n" + "---\n\n"
+    + htmlToMd(main, base) + "\n\n---\n"
+    + "Kaynak sayfa: " + url + " · " + c.brandName + " · " + c.phone.display + " · " + c.email + " · " + c.address.full + "\n"
+    + "Tüm sayfalar ve ürünler: " + c.web + "/llms.txt · Ayrıntı: " + c.web + "/llms-full.txt\n";
+  const dir = lang === "tr" ? path.join(ROOT, "md") : path.join(ROOT, "md", lang);
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, file.replace(/\.html$/, ".md")), md);
+}
+
 function writeSitemap(i18n) {
   const urlFor = (l, file) => l === "tr" ? ORIGIN + "/" + (file === "index.html" ? "" : file) : ORIGIN + "/" + l + "/" + (file === "index.html" ? "" : file);
   const entries = [];
@@ -1256,6 +1452,8 @@ function precompress() {
   addDir(ROOT, /\.(html|xml|txt)$/);
   addDir(path.join(ROOT, "assets"), /\.(js|css)$/);
   for (const l of LANGS) { const d = path.join(ROOT, l); if (fs.existsSync(d)) addDir(d, /\.html$/); }
+  const md = path.join(ROOT, "md");
+  if (fs.existsSync(md)) { addDir(md, /\.md$/); for (const l of LANGS) { const d = path.join(md, l); if (fs.existsSync(d)) addDir(d, /\.md$/); } }
   let n = 0;
   for (const p of targets) {
     const buf = fs.readFileSync(p);
@@ -1479,38 +1677,7 @@ gerekli panel gücü (kWp), akü kapasitesi (kWh, model DoD'una göre) ve invert
 KVKK aydınlatma metni: ${c.web}/kvkk.html · Gizlilik: ${c.web}/gizlilik.html · Çerez: ${c.web}/cerez-politikasi.html
 `;
   fs.writeFileSync(path.join(ROOT, "llms-full.txt"), out);
-  const c0 = cfg.company;
-  const summary = `# ${c0.brandName}
-
-> ${c0.description}
-
-## İletişim
-- Unvan: ${c0.legalName}
-- Telefon: ${c0.phone.display}
-- E-posta: ${c0.email}
-- Adres: ${c0.address.full}
-- Web: ${c0.web}
-
-## Hizmet bölgesi
-${c0.areaServed.join(", ")}; talebe göre tüm Türkiye.
-
-## Hizmetler ve referanslar
-${seo.pages.map(p => "- [" + p.title[0] + "](" + c0.web + "/" + p.file + ")").join("\n")}
-
-## Ürünler ve araçlar
-- [Ürünler](${c0.web}/urunler.html)
-- [Tarımsal sulama](${c0.web}/tarimsal-sulama.html)
-- [Tasarruf hesaplayıcı](${c0.web}/hesaplayici.html)
-- [Sistem Kurucu](${c0.web}/sistem-kur.html)
-- [AI Cankurtaran](${c0.web}/ai-cankurtaran-destek-sistemi.html)
-- [PV su ısıtıcı](${c0.web}/su-isitici.html)
-- [Elektrikli araç güneş dönüşümü](${c0.web}/elektrikli-arac-donusum.html)
-- [Güncel ürün bilgileri ve fiyatlar](${c0.web}/llms-full.txt)
-
-## Languages
-Turkish: ${c0.web}/ · English: ${c0.web}/en/ · German: ${c0.web}/de/ · Russian: ${c0.web}/ru/
-`;
-  fs.writeFileSync(path.join(ROOT, "llms.txt"), summary);
+  // llms.txt artık writeLlms() üretir (sayfa başlıkları + config'ten, tam kapsam).
 }
 
 function transform(html, lang, file, i18n) {
@@ -1546,6 +1713,9 @@ function transform(html, lang, file, i18n) {
   }
   //    TR anahtar kelimeler dil sayfalarında yanıltıcı — kaldır
   out = out.replace(/[ \t]*<meta name="keywords" content="[^"]*"\s*\/>\n?/, "");
+
+  // 3b) Markdown kopya bağlantısı → /md/<dil>/<sayfa>.md
+  out = out.replace(/href="\/md\/([a-z0-9-]+\.md)"/, 'href="/md/' + lang + '/$1"');
 
   // 4) og:locale + og:locale:alternate (geçerli dil hariç diğer üç yerel)
   out = out.replace(/[ \t]*<meta property="og:locale:alternate" content="[^"]*"\s*\/>\n?/g, "");
@@ -1624,9 +1794,11 @@ function run() {
     html = hydrateExtras(html, file, cfg);
     html = injectStaticLd(html, file, cfg);
     if (html !== before) fs.writeFileSync(p, html);
+    writeMarkdownFile(html, "tr", file, cfg);
   }
   checkParts(cfg);
   writeLlmsFull(cfg);
+  writeLlms(cfg);   // llms.txt — writeLlmsFull'den SONRA (tek yazar bu olsun)
   writeProductFeed(cfg);
   writeSitemap(i18n);
   writeRobots();
@@ -1639,7 +1811,9 @@ function run() {
       const src = path.join(ROOT, file);
       if (!fs.existsSync(src)) continue;
       const html = fs.readFileSync(src, "utf8");
-      fs.writeFileSync(path.join(dir, file), transform(html, lang, file, i18n));
+      const out = transform(html, lang, file, i18n);
+      fs.writeFileSync(path.join(dir, file), out);
+      writeMarkdownFile(out, lang, file, cfg);
       count++;
     }
   }

@@ -154,6 +154,20 @@
       </div>
       <div id="mtOut" class="adm-note" hidden></div>
     </div>
+
+    <!-- AI görünürlüğü: yanıt motoru botlarının sayfa çekimleri (server.js sayar) -->
+    <div id="aibots" class="adm-card" hidden>
+      <div class="adm-head">
+        <h2 style="font-size:1.35rem;margin:0">🤖 AI tarayıcı ziyaretleri</h2>
+      </div>
+      <p style="color:var(--muted);margin:0 0 14px;font-size:.92rem">
+        ChatGPT, Claude, Perplexity, Gemini gibi yanıt motorlarının botları siteyi ne sıklıkla
+        okuyor? Sunucu her başarılı sayfa/metin isteğinde bot adını ve yolu sayar. Klasik arama
+        botları (Googlebot, bingbot) karşılaştırma için ayrı türde listelenir. İnsan ziyaretçilerin
+        AI asistanından gelişi ise GA4 <code>ai_referral</code> olayında ölçülür.
+      </p>
+      <div id="abOut" class="adm-note info">Okunuyor…</div>
+    </div>
   </div>
 
   <script defer src="assets/config.js"></script>
@@ -178,8 +192,41 @@
 
     function show() {
       $("#login").hidden = true; $("#editor").hidden = false; $("#paylink").hidden = false;
-      $("#taksit").hidden = false; $("#mailtest").hidden = false;
-      render(); payLink(); taksitAraci(); mailTest();
+      $("#taksit").hidden = false; $("#mailtest").hidden = false; $("#aibots").hidden = false;
+      render(); payLink(); taksitAraci(); mailTest(); aiBots();
+    }
+
+    // AI tarayıcı sayacı — /api/aibots (yalnız canlı sunucuda; Pages aynasında yok)
+    function aiBots() {
+      var out = $("#abOut"); if (!out) return;
+      var esc = function (x) { return String(x).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+      fetch("/api/aibots", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pass: PASS }) })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function (j) {
+          var bots = j.bots || [];
+          if (!bots.length) {
+            out.className = "adm-note info";
+            out.innerHTML = "Henüz bot ziyareti kaydedilmedi (sayım " + esc(new Date(j.since).toLocaleDateString("tr-TR")) + " tarihinden beri). "
+              + "İlk kayıtlar genelde robots.txt ve llms.txt çekimleriyle gelir.";
+            return;
+          }
+          var ai = bots.filter(function (b) { return b.kind === "ai"; }).reduce(function (a, b) { return a + b.count; }, 0);
+          var rows = bots.map(function (b) {
+            var top = (b.top || []).map(function (t) { return esc(t.path) + " (" + t.n + ")"; }).join(", ");
+            return "<tr><td><strong>" + esc(b.name) + "</strong></td><td>" + (b.kind === "ai" ? "🤖 AI" : "🔍 arama") + "</td>"
+              + "<td style=\"text-align:right\">" + nf.format(b.count) + "</td>"
+              + "<td>" + (b.last ? esc(new Date(b.last).toLocaleString("tr-TR")) + "" : "—") + "</td>"
+              + "<td style=\"font-size:.85rem;color:var(--muted)\">" + top + "</td></tr>";
+          }).join("");
+          out.className = "adm-note ok";
+          out.innerHTML = "<p style=\"margin:0 0 10px\">Sayım başlangıcı: <strong>" + esc(new Date(j.since).toLocaleDateString("tr-TR"))
+            + "</strong> · AI botu isteği: <strong>" + nf.format(ai) + "</strong> · bot sayısı: <strong>" + bots.length + "</strong></p>"
+            + "<div style=\"overflow:auto\"><table class=\"spec-table\" style=\"min-width:0;font-size:.9rem\"><thead><tr><th>Bot</th><th>Tür</th><th>İstek</th><th>Son görülme</th><th>En çok çekilen yollar</th></tr></thead><tbody>"
+            + rows + "</tbody></table></div>";
+        }).catch(function () {
+          out.className = "adm-note info";
+          out.textContent = "ℹ️ Sayaç bu adresten okunamadı (muhtemelen Pages aynası). Canlı sitede admin.html'i açın.";
+        });
     }
 
     function render() {

@@ -86,6 +86,50 @@ function countVisit(req, headers) {
   } catch (e) {}
 }
 
+// ---- AI tarayıcı sayacı ----
+// AI görünürlüğünün ölçüsü: GPTBot, ClaudeBot, PerplexityBot… gibi yanıt
+// motoru botlarının hangi sayfaları ne sıklıkla çektiği. Klasik arama botları
+// (Googlebot, bingbot…) karşılaştırma için ayrı türde sayılır. Kalıcı veri
+// DATA_DIR/aibots.json (Volume yoksa dağıtımda sıfırlanır — sayaç bilgi
+// amaçlıdır). Admin panelindeki "🤖 AI tarayıcı ziyaretleri" kartı okur.
+const AIBOT_FILE = path.join(DATA_DIR, "aibots.json");
+const AI_BOT_NAMES = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User",
+  "anthropic-ai", "PerplexityBot", "Perplexity-User", "Applebot-Extended", "Applebot", "Amazonbot", "CCBot",
+  "meta-externalagent", "Meta-ExternalFetcher", "DuckAssistBot", "YouBot", "Bytespider", "PetalBot",
+  "MistralAI-User", "cohere-ai", "AI2Bot", "Diffbot"];
+const SEARCH_BOT_NAMES = ["Googlebot", "bingbot", "YandexBot", "DuckDuckBot", "Baiduspider", "Slurp", "SeznamBot"];
+let aiBots = { bots: {}, since: new Date().toISOString() };
+try { aiBots = JSON.parse(fs.readFileSync(AIBOT_FILE, "utf8")); if (!aiBots.bots) aiBots.bots = {}; } catch (e) {}
+let aiBotSaveTimer = null;
+function saveAiBots() {
+  if (aiBotSaveTimer) return;
+  aiBotSaveTimer = setTimeout(() => {
+    aiBotSaveTimer = null;
+    try { fs.mkdirSync(DATA_DIR, { recursive: true }); fs.writeFileSync(AIBOT_FILE, JSON.stringify(aiBots)); } catch (e) {}
+  }, 2000);
+}
+function botOf(ua) {
+  const u = String(ua || "").toLowerCase();
+  for (const n of AI_BOT_NAMES) if (u.indexOf(n.toLowerCase()) >= 0) return { name: n, kind: "ai" };
+  for (const n of SEARCH_BOT_NAMES) if (u.indexOf(n.toLowerCase()) >= 0) return { name: n, kind: "search" };
+  return null;
+}
+function countBot(req, urlPath) {
+  try {
+    const b = botOf(req.headers["user-agent"]);
+    if (!b) return;
+    const rec = aiBots.bots[b.name] || (aiBots.bots[b.name] = { kind: b.kind, count: 0, last: null, paths: {} });
+    rec.count++; rec.last = new Date().toISOString();
+    rec.paths[urlPath] = (rec.paths[urlPath] || 0) + 1;
+    // yol listesi şişmesin: en çok çekilen 30 yol kalır
+    const keys = Object.keys(rec.paths);
+    if (keys.length > 40) {
+      keys.sort((a, c) => rec.paths[c] - rec.paths[a]).slice(30).forEach(k => { delete rec.paths[k]; });
+    }
+    saveAiBots();
+  } catch (e) {}
+}
+
 // ---- iyzico ödeme (kredi kartı) ----
 // Anahtarlar YALNIZCA ortam değişkeninden okunur (Railway → Variables):
 //   IYZIPAY_API_KEY, IYZIPAY_SECRET_KEY, IYZIPAY_BASE_URL
@@ -783,6 +827,30 @@ const server = http.createServer((req, res) => {
       res.writeHead(200, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" });
       return res.end(JSON.stringify({ total: visitTotal, online: onlineCount() }));
     }
+    // AI tarayıcı sayacı — admin paneli okur (config.admin.pass ile)
+    if (urlPath === "/api/aibots" && req.method === "POST") {
+      return readBody(req, 4 * 1024, (raw) => {
+        let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
+        let cfg = null; try { cfg = SITE_CFG || (SITE_CFG = loadSiteConfig()); } catch (e) {}
+        const pass = (cfg && cfg.admin && cfg.admin.pass) || "";
+        if (!pass || String(b.pass || "") !== pass) return sendJson(res, 403, { error: "Parola hatalı." });
+        const bots = Object.keys(aiBots.bots).map(n => {
+          const r = aiBots.bots[n];
+          const top = Object.keys(r.paths).sort((a, c) => r.paths[c] - r.paths[a]).slice(0, 5).map(k => ({ path: k, n: r.paths[k] }));
+          return { name: n, kind: r.kind, count: r.count, last: r.last, top: top };
+        }).sort((a, c) => c.count - a.count);
+        sendJson(res, 200, { since: aiBots.since, bots: bots });
+      });
+    }
+    // AI ajanları için içerik müzakeresi: `Accept: text/markdown` ile istenen
+    // HTML sayfanın /md/ kopyası varsa onu döndür (Vary: Accept). Adres
+    // değişmez; Content-Location gerçek dosyayı söyler.
+    let mdNegotiated = false;
+    if (/\.html$/.test(urlPath) && /text\/markdown/i.test(req.headers.accept || "")) {
+      const mm = /^\/(?:(en|de|ru)\/)?([a-z0-9-]+)\.html$/.exec(urlPath);
+      const alt = mm ? "/md/" + (mm[1] ? mm[1] + "/" : "") + mm[2] + ".md" : null;
+      if (alt && fs.existsSync(path.join(ROOT, alt))) { urlPath = alt; mdNegotiated = true; }
+    }
     // Dizin kökü (/, /en/, /de/, /ru/) → index.html
     if (urlPath.endsWith("/")) urlPath += "index.html";
 
@@ -815,6 +883,15 @@ const server = http.createServer((req, res) => {
       };
       // HTTPS üzerinden gelen isteklerde HSTS (proxy x-forwarded-proto bildirir)
       if (xfp === "https") headers["Strict-Transport-Security"] = "max-age=31536000";
+      // Markdown kopyalar: kanonik HTML'e Link başlığı (arama motoru yinelenen
+      // içerik saymasın); müzakere ile geldiyse Vary: Accept + Content-Location
+      if (ext === ".md" && /^\/md\//.test(urlPath)) {
+        const mm = /^\/md\/(?:(en|de|ru)\/)?([a-z0-9-]+)\.md$/.exec(urlPath);
+        if (mm) headers["Link"] = "<" + siteBase() + "/" + (mm[1] ? mm[1] + "/" : "") + (mm[2] === "index" ? "" : mm[2] + ".html") + ">; rel=\"canonical\"";
+        if (mdNegotiated) { headers["Vary"] = "Accept"; headers["Content-Location"] = urlPath; }
+      }
+      // AI/arama botu sayımı — başarıyla servis edilen içerik istekleri
+      if (status === 200 && req.method === "GET" && /^\.(html|txt|md|xml)$/.test(ext)) countBot(req, urlPath);
       // Ziyaret sayımı: başarıyla servis edilen sayfa görüntülemeleri (admin hariç)
       if (ext === ".html" && status === 200 && req.method === "GET" && !/(^|\/)admin\.html$/.test(urlPath)) {
         countVisit(req, headers);
@@ -884,7 +961,7 @@ const server = http.createServer((req, res) => {
         // (ETag/Last-Modified kaynağa göre üretiliyor; eski gövde taze etiketle önbelleğe girerdi)
         if (stat && pre.mtimeMs < stat.mtimeMs) return false;
         headers["Content-Encoding"] = enc;
-        headers["Vary"] = "Accept-Encoding";
+        headers["Vary"] = headers["Vary"] ? headers["Vary"] + ", Accept-Encoding" : "Accept-Encoding";
         res.writeHead(status, headers);
         fs.createReadStream(p).pipe(res);
         return true;
@@ -897,7 +974,7 @@ const server = http.createServer((req, res) => {
       stream.on("error", function () { try { res.writeHead(500); res.end("Server error"); } catch (e) {} });
       if (/\bgzip\b/.test(ae) && COMPRESSIBLE.test(type)) {
         headers["Content-Encoding"] = "gzip";
-        headers["Vary"] = "Accept-Encoding";
+        headers["Vary"] = headers["Vary"] ? headers["Vary"] + ", Accept-Encoding" : "Accept-Encoding";
         res.writeHead(status, headers);
         stream.pipe(zlib.createGzip()).pipe(res);
       } else {

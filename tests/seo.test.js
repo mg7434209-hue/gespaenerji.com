@@ -16,6 +16,14 @@ for(let i=0;i<files.length;i++){
  assert.ok(html.includes('rel="canonical" href="'+urls[i]+'"'),file+': canonical');
  assert.ok(!/name="robots" content="[^"]*noindex/.test(html),file+': noindex in sitemap');
  assert.ok(html.includes('<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />'),file+': robots meta (max-image-preview)');
+ // Machine-readable mirror: every indexable page links its Markdown copy and the file exists.
+ {const mdHref=(html.match(/<link rel="alternate" type="text\/markdown" href="([^"]+)"/)||[])[1];
+  assert.ok(mdHref,file+': markdown alternate link');
+  const expect='/md/'+file.replace(/\.html$/,'.md');
+  assert.equal(mdHref,expect,file+': markdown link path');
+  assert.ok(fs.existsSync(path.join(root,mdHref)),file+': markdown mirror exists');
+  const md=fs.readFileSync(path.join(root,mdHref),'utf8');
+  assert.ok(md.startsWith('---\ntitle: ')&&md.includes('canonical: '+urls[i])&&/^# /m.test(md),file+': markdown front matter + h1');}
  const lds=[...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1]));schemas+=lds.length;
  // Every page is an entity: WebPage family with freshness + site/organization links.
  const page=lds.find(x=>/^(WebPage|CollectionPage|ItemPage|AboutPage|ContactPage)$/.test(x['@type']));
@@ -64,6 +72,11 @@ for(const bot of ['GPTBot','ClaudeBot','PerplexityBot','Google-Extended','Bytesp
 assert.ok(/^Content-Signal: search=yes, ai-input=yes, ai-train=yes$/m.test(robots),'robots.txt: Content-Signal');
 assert.ok(/^Disallow: \/admin\.html$/m.test(robots)&&/^Disallow: \/en\/sepet\.html$/m.test(robots),'robots.txt: noindex pages');
 assert.ok(robots.includes('Sitemap: '+origin+'/sitemap.xml'),'robots.txt: sitemap');
+// llms.txt is generated: every indexable page and product page is listed, plus the markdown mirrors.
+const llms=fs.readFileSync(path.join(root,'llms.txt'),'utf8');
+for(const f of files.filter(f=>!/^(en|de|ru)\//.test(f)))assert.ok(llms.includes('('+origin+'/'+(f==='index.html'?'':f)+')'),'llms.txt: '+f);
+assert.ok(llms.includes(origin+'/md/online-satis.md')&&llms.includes(origin+'/llms-full.txt'),'llms.txt: mirrors + full');
+assert.ok(fs.readdirSync(root).some(f=>/^[a-f0-9]{32}\.txt$/.test(f)),'IndexNow key file');
 for(const lang of ['en','de','ru']){
  const html=fs.readFileSync(path.join(root,lang,'index.html'),'utf8');
  assert.ok(html.includes('<meta property="og:locale:alternate" content="tr_TR" />'),lang+': og:locale:alternate tr');
@@ -101,7 +114,23 @@ server.stdout.on('data',async d=>{
    const res=await fetch('http://127.0.0.1:'+port+u);assert.equal(res.status,200,u);await res.text();
   }
   const missing=await fetch('http://127.0.0.1:'+port+'/missing-seo-test.html');assert.equal(missing.status,404);
-  console.log('HTTP: key pages and bot files return 200; missing page returns 404.');
+  // Markdown mirrors: served as text/markdown with a canonical Link; Accept negotiation returns the mirror.
+  const md=await fetch('http://127.0.0.1:'+port+'/md/en/paket-285w.md');assert.equal(md.status,200);
+  assert.ok(/text\/markdown/.test(md.headers.get('content-type')),'md content-type');
+  assert.equal(md.headers.get('link'),'<'+origin+'/en/paket-285w.html>; rel="canonical"','md canonical link');
+  assert.ok((await md.text()).includes('canonical: '+origin+'/en/paket-285w.html'),'md body');
+  const neg=await fetch('http://127.0.0.1:'+port+'/paket-285w.html',{headers:{Accept:'text/markdown'}});
+  assert.ok(/text\/markdown/.test(neg.headers.get('content-type'))&&/Accept/.test(neg.headers.get('vary')||''),'Accept: text/markdown negotiation');
+  assert.equal(neg.headers.get('content-location'),'/md/paket-285w.md');await neg.text();
+  const plain=await fetch('http://127.0.0.1:'+port+'/paket-285w.html');assert.ok(/text\/html/.test(plain.headers.get('content-type')),'html default');await plain.text();
+  // AI crawler counter: a GPTBot request is counted and readable with the admin password only.
+  const ua=await fetch('http://127.0.0.1:'+port+'/llms.txt',{headers:{'User-Agent':'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.2; +https://openai.com/gptbot)'}});assert.equal(ua.status,200);await ua.text();
+  const bad=await fetch('http://127.0.0.1:'+port+'/api/aibots',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({pass:'yanlis'})});assert.equal(bad.status,403);await bad.text();
+  const cfgSrc=fs.readFileSync(path.join(root,'assets/config.js'),'utf8');const sb={window:{}};vm.runInNewContext(cfgSrc,sb);
+  const ok=await fetch('http://127.0.0.1:'+port+'/api/aibots',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({pass:sb.window.GESPA.config.admin.pass})});
+  assert.equal(ok.status,200);const bots=(await ok.json()).bots;const gpt=bots.find(b=>b.name==='GPTBot');
+  assert.ok(gpt&&gpt.kind==='ai'&&gpt.count>=1&&gpt.top.some(t=>t.path==='/llms.txt'),'GPTBot counted');
+  console.log('HTTP: key pages and bot files return 200; missing page returns 404; markdown mirrors, Accept negotiation and AI crawler counter work.');
  }catch(e){console.error(e);process.exitCode=1;}finally{clearTimeout(timeout);server.kill();}
 });
 server.on('error',e=>{clearTimeout(timeout);console.error(e);process.exitCode=1;});
