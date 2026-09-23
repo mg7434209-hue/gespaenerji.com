@@ -255,6 +255,27 @@ window.GESPA.config = {
       features: ["24 / 36 / 48 / 60 / 72 V akü sistemleriyle uyumlu", "AGM, jel, sulu kurşun-asit ve lityum akü desteği", "15 A sürekli çıkış · 15–60 V DC panel girişi", "Bluetooth ile programlanır · IP22 · 2 yıl garanti"]
     },
 
+    // —— Elektrikli motor çekiş aküsü —— BAŞKA ÜRETİCİNİN markalı ürünü:
+    // `brand: "europlus"` JSON-LD'ye ve ürün akışına böyle girer; foto'daki
+    // etiket SİLİNMEZ (UNV / SFM kuralı). Teknik değerler üreticinin
+    // künyesinden gelir — kaynak belge ve ham görseller
+    // assets/img/products/ev/kaynak/lifepo4-72v-30ah-aku.docx + aku-72v-30ah*.png.
+    // Künyede OLMAYAN değer (ağırlık, dış ölçü, garanti süresi, IP sınıfı)
+    // YAZILMAZ. Şarj cihazı ürüne DAHİL DEĞİLDİR — künye onu "önerilen şarj
+    // aleti" olarak verir, "dahildir" demez.
+    {
+      id: "aku-lifepo4-72v", icon: "🔋", tag: "Elektrikli Araç", group: "accessory",
+      url: "aku-lifepo4-72v-30ah.html", sku: "GES-EV-AKU-72V",
+      brand: "europlus",
+      img: "assets/img/products/ev/aku-72v-30ah.webp",
+      price: 28000,
+      chips: ["⚡ 72 V · 30 Ah · ~2.160 Wh", "🔁 3.000–6.000 döngü", "🛡️ Dahili balanslı BMS"],
+      for: "Elektrikli triportör, motosiklet ve 72 V hizmet araçları",
+      name: "europlus 72 V 30 Ah LiFePO₄ Akü",
+      desc: "Elektrikli triportör ve 72 V motorlu araçlar için LiFePO₄ (lityum demir fosfat) çekiş aküsü. 24S hücre dizilimi, ~2.160 Wh enerji, dahili balanslı BMS. Jel ve kurşun-asit akülere göre daha hafif, çok daha uzun ömürlü ve deşarj boyunca kararlı voltaj verir — motor gücü düşmeden yol biter. Şarj cihazı ürüne dahil değildir.",
+      features: ["Nominal 72,0 V · 30 Ah · yaklaşık 2.160 Wh", "24S hücre dizilimi · LiFePO₄ (lityum demir fosfat)", "Tam dolu ~83,95 V · deşarj kesme ~54 V", "Dahili balanslı koruma sistemi (BMS)", "3.000 – 6.000 şarj döngüsü ömrü", "Uygun şarj cihazı: LiFePO₄ CC/CV, ~83,95 V, 6–10 A"]
+    },
+
     // —— Tekil panel —— kampanyalı ürün (oldPrice = indirim öncesi fiyat)
     // group:"panel" olduğu için urunler.html paket vitrininde ÇIKMAZ,
     // yalnızca online-satis.html kataloğunda listelenir.

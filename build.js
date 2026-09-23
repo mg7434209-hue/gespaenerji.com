@@ -28,6 +28,7 @@ const PAGES = [
   "elektrikli-arac-donusum.html",
   "paket-285w.html", "paket-2x540w.html", "unv-trek-pro-2500.html", "toptan.html",
   "paket-motor-yolcu.html", "paket-motor-kargo.html",
+  "aku-lifepo4-72v-30ah.html",
   "sepet.html"   // noindex; sitemap'e girmez (NOSITEMAP)
 ];
 
@@ -127,6 +128,14 @@ const META = {
           d: "Komplettset für Lasten-Dreiräder: 655-W-N-Type-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Maximaler Ertrag für große Dachflächen." },
     ru: { t: "Солнечный комплект для грузового трицикла — 655 Вт | GESPA",
           d: "Готовый комплект для грузовых трициклов: панель 655 Вт N-type TOPCon, контроллер BOOST MPPT 24–72 В, кабель и MC4." }
+  },
+  "aku-lifepo4-72v-30ah.html": {
+    en: { t: "europlus 72 V 30 Ah LiFePO₄ Battery — 72V Lithium | GESPA Energy",
+          d: "LiFePO₄ traction battery for e-trikes and 72 V vehicles: 24S, ~2,160 Wh, built-in balanced BMS, 3,000–6,000 cycles. Drops in where the gel pack was; no power sag as it drains." },
+    de: { t: "europlus 72-V-30-Ah-LiFePO₄-Akku — 72V Lithium | GESPA Energy",
+          d: "LiFePO₄-Traktionsakku für Elektro-Dreiräder und 72-V-Fahrzeuge: 24S, ~2.160 Wh, integriertes Balancer-BMS, 3.000–6.000 Zyklen. Ersetzt den Gel-Akkusatz, ohne Leistungsabfall beim Entladen." },
+    ru: { t: "Аккумулятор europlus 72 В 30 А·ч LiFePO₄ — 72В литий | GESPA",
+          d: "Тяговый аккумулятор LiFePO₄ для электротрициклов и машин на 72 В: 24S, ~2160 Вт·ч, встроенная BMS с балансировкой, 3000–6000 циклов. Ставится вместо гелевого блока." }
   },
   "paket-2x540w.html": {
     en: { t: "2×540W Solar System — LiFePO₄ Battery | GESPA Energy",

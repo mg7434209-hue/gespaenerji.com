@@ -54,6 +54,22 @@
       </g:shipping>
     </item>
     <item>
+      <g:id>aku-lifepo4-72v</g:id>
+      <g:title>europlus 72 V 30 Ah LiFePO₄ Akü</g:title>
+      <g:description>Elektrikli triportör ve 72 V motorlu araçlar için LiFePO₄ (lityum demir fosfat) çekiş aküsü. 24S hücre dizilimi, ~2.160 Wh enerji, dahili balanslı BMS. Jel ve kurşun-asit akülere göre daha hafif, çok daha uzun ömürlü ve deşarj boyunca kararlı voltaj verir — motor gücü düşmeden yol biter. Şarj cihazı ürüne dahil değildir.</g:description>
+      <g:link>https://www.gespaenerji.com/aku-lifepo4-72v-30ah.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>28000.00 TRY</g:price>
+      <g:brand>europlus</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>GES-EV-AKU-72V</g:mpn>
+      <g:product_type>Elektrikli Araç</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
+    </item>
+    <item>
       <g:id>panel-50w</g:id>
       <g:title>50W Güneş Paneli</g:title>
       <g:description>12 V sistemler için tekil 50 W monokristal güneş paneli. Bahçe aydınlatması, güvenlik kamerası ve akü şarjı gibi küçük yükler için uygundur; panel tek başına satılır, akü ve regülatör dahil değildir.</g:description>

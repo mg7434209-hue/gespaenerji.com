@@ -66,6 +66,9 @@ sepete ekle + onay penceresi (Sepete git / Alışverişe devam), `data-add-cart-
 `paket-motor-yolcu.html` `paket-motor-kargo.html` (elektrikli motor güneş
 paketlerinin ürün sayfaları — paket-*.html düzeni + `data-add-cart-go`
 "⚡ Hemen satın al"; ayrıntı "Motor güneş paketleri" bölümünde) ·
+`aku-lifepo4-72v-30ah.html` (europlus 72 V 30 Ah LiFePO₄ çekiş aküsü —
+paket-*.html düzeni, 3 sekme = Açıklama · Teknik Özellikler · Kargo ve İade;
+ayrıntı "Motor güneş paketleri" bölümünün sonunda) ·
 `unv-trek-pro-2500.html` (UNV Trek Pro 2500 W taşınabilir güç istasyonu —
 paket-*.html ile AYNI düzen: `.prod-sec` (satın alma ilk ekranda) → 4 sekme
 (Açıklama · Çıkış Portları · Teknik Özellikler · Kargo ve İade) → kullanım
@@ -245,7 +248,10 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   (mm2) YAZILMAZ: stoğa göre 4 ya da 6 mm2 geliyor, ikisi de uygun. +
   2 elektrikli motor güneş paketi: `set-yolcu` ₺15.800 (285 W) ·
   `set-kargo` ₺18.300 (655 W), ikisi de `group:"evset"` ve `parts` listeli
-  — ayrıntısı "Motor güneş paketleri" bölümünde.
+  — ayrıntısı "Motor güneş paketleri" bölümünde. +
+  europlus 72 V 30 Ah LiFePO₄ çekiş aküsü ₺28.000 (`aku-lifepo4-72v`,
+  `group:"accessory"` — BOOST MPPT ile AYNI grupta, "Elektrikli Araç" çipi
+  böylece tek ürünlü doğrudan bağlantı olmaktan çıkıp gerçek süzgece döndü).
   — `url` detay sayfası, `img` gerçek foto,
   `oldPrice` indirim rozeti, `currency:"USD"` dolar, `dailyKwh` günlük üretim.
   `usdTry` kuru ile ikinci para "≈" gösterilir; kur değişince SADECE
@@ -405,6 +411,20 @@ işe yaramıyordu.
   yüksekliği zıplardı. `<img>` üzerindeki width/height ÖZNİTELİKLERİ CSS'e
   sunum ipucu olarak geçip height'ı sabitler — `height:auto` yazılmazsa
   `aspect-ratio` etkisiz kalır.
+- ÇEKİŞ AKÜSÜ (`aku-lifepo4-72v` · `aku-lifepo4-72v-30ah.html`): aracın
+  jel akü grubunun yerine takılan 72 V 30 Ah LiFePO₄ akü. BAŞKA ÜRETİCİNİN
+  markalı ürünüdür — `brand: "europlus"` JSON-LD'ye ve akışa böyle girer,
+  foto'daki etiket SİLİNMEZ (UNV / SFM kuralı). TEKNİK DEĞERLER üreticinin
+  künyesinden gelir: kaynak belge ve ham görseller
+  `assets/img/products/ev/kaynak/lifepo4-72v-30ah-aku.docx` +
+  `aku-72v-30ah*.png`, yayın türevleri `tools/aku-foto.py` ile üretilir
+  (dikey foto 880×660 BEYAZ TUVALE ortalanır — kırpılsa gövde kesilirdi).
+  Künyede OLMAYAN değer YAZILMAZ: ağırlık, dış ölçü, garanti süresi ve IP
+  sınıfı elimizde YOK. Menzil de yazılmaz (araca göre değişir) — SSS'te
+  yalnızca enerji verilir: 72 V × 30 Ah ≈ 2.160 Wh. ŞARJ CİHAZI ÜRÜNE
+  DAHİL DEĞİLDİR; künye onu "önerilen şarj aleti" olarak verir (LiFePO₄
+  CC/CV, ~83,95 V, 6–10 A). Künyenin alındığı satıcı bağlantısı siteye
+  KONMAZ — MS Teknik / ACS ENERJİ kuralının aynısı.
 - GÖRSELLER: `assets/img/products/ev/motor-*.webp`, kaynakları
   `.../ev/kaynak/` altında + `tools/motor-foto.py` (DRY-RUN / `--uygula`).
   Araçlar BAŞKA ÜRETİCİLERE aittir (CSN, SFM) — marka yazıları SİLİNMEZ
