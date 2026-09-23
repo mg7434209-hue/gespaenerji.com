@@ -1059,7 +1059,9 @@ function writeLlmsFull(cfg) {
     const tlOf = (p) => p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
     const total = items.reduce((a, p) => a + tlOf(p), 0);
     return `- ${st.title} (${st.hint}): ` + items.map(p => `${p.name} ₺${nf(tlOf(p))}`).join(" + ")
-      + ` = SET TOPLAMI ₺${nf(total)} · doğrudan sipariş bağlantısı: ${(cfg.company && cfg.company.web) || ""}/elektrikli-arac-donusum.html?set=${st.id}`;
+      + ` = SET TOPLAMI ₺${nf(total)}`
+      + ` · paket sayfası: ${(cfg.company && cfg.company.web) || ""}/elektrikli-arac-donusum.html?set=${st.id}`
+      + ` · tek tıkla sepete: ${(cfg.company && cfg.company.web) || ""}/sepet.html?ekle=${st.id}`;
   }).filter(Boolean).join("\n");
   const regions = cfg.calc.regions.map(r => `${r.label}: ${r.yield} kWh/kWp/yıl`).join(" · ");
   const c = cfg.company;

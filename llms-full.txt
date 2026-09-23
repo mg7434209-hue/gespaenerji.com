@@ -66,8 +66,8 @@ Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi verili
 
 ## Elektrikli Motor (Triportör) Güneş Paketleri (https://www.gespaenerji.com/elektrikli-arac-donusum.html#paketler)
 Müşteri aracına hangi panelin uyduğunu bilmiyorsa araç tipini seçer, paket hazır çıkar.
-- Yolcu kabinli triportör (Kabinli, 2–4 kişilik yolcu araçları — çatı alanı dar): Lexron 285 W Güneş Paneli ₺7.500 + MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı ₺7.200 + Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) ₺1.000 + MC4 Konnektör Takımı ₺100 = SET TOPLAMI ₺15.800 · doğrudan sipariş bağlantısı: https://www.gespaenerji.com/elektrikli-arac-donusum.html?set=yolcu
-- Kargo kasalı triportör (Açık kasa veya tenteli yük araçları — çatı alanı geniş): Lexron 655 W TOPCon Güneş Paneli ₺10.000 + MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı ₺7.200 + Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) ₺1.000 + MC4 Konnektör Takımı ₺100 = SET TOPLAMI ₺18.300 · doğrudan sipariş bağlantısı: https://www.gespaenerji.com/elektrikli-arac-donusum.html?set=kargo
+- Yolcu kabinli triportör (Kabinli, 2–4 kişilik yolcu araçları — çatı alanı dar): Lexron 285 W Güneş Paneli ₺7.500 + MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı ₺7.200 + Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) ₺1.000 + MC4 Konnektör Takımı ₺100 = SET TOPLAMI ₺15.800 · paket sayfası: https://www.gespaenerji.com/elektrikli-arac-donusum.html?set=yolcu · tek tıkla sepete: https://www.gespaenerji.com/sepet.html?ekle=yolcu
+- Kargo kasalı triportör (Açık kasa veya tenteli yük araçları — çatı alanı geniş): Lexron 655 W TOPCon Güneş Paneli ₺10.000 + MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı ₺7.200 + Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) ₺1.000 + MC4 Konnektör Takımı ₺100 = SET TOPLAMI ₺18.300 · paket sayfası: https://www.gespaenerji.com/elektrikli-arac-donusum.html?set=kargo · tek tıkla sepete: https://www.gespaenerji.com/sepet.html?ekle=kargo
 Paketin kendi fiyatı yoktur; toplam içindeki ürünlerin liste fiyatlarından gelir.
 Sayfadaki araç fotoğrafları yalnızca TİP ÖRNEĞİDİR (başka üreticilerin araçları);
 satışa konu olan yukarıda listelenen ürünlerdir — ARAÇ SATILMAZ.

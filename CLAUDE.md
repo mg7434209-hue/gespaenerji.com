@@ -360,10 +360,18 @@ dipnot kalem SAYMAZ ("yukarıda listelenen ürünler") — güncelleme unutulmas
   yalnız AD olarak listelenir, kalem fiyatı gösterilmez. `pctOfLines()`
   sette tek "%N" yazmaz. Eski sepetlerdeki tekil ürün anahtarları aynen
   çalışmaya devam eder.
-- MÜŞTERİYE GÖNDERİLEN BAĞLANTI: `?set=<id>` o paketi seçili açar ve
-  `#paketler`e kaydırır; kart değiştikçe adres çubuğu `replaceState` ile
-  güncellenir, "🔗 Paket bağlantısını kopyala" düğmesi mutlak adresi verir.
-  Adres `llms-full.txt` ve statik blokta da yazılıdır.
+- MÜŞTERİYE GÖNDERİLEN İKİ BAĞLANTI (paket kutusundaki kopyala düğmeleri):
+  1) `elektrikli-arac-donusum.html?set=<id>` — paketi ANLATAN sayfa; o kart
+     seçili açılır, `#paketler`e kaydırır, kart değiştikçe adres çubuğu
+     `replaceState` ile güncellenir.
+  2) `sepet.html?ekle=<id>` — HIZLI SİPARİŞ: paketi sepete atıp doğrudan
+     sepette açar. `ekle=yolcu` önce `set:yolcu`, bulunamazsa TEKİL ÜRÜN
+     kimliği olarak denenir (ör. `?ekle=boost-mppt` de çalışır). Sepette
+     zaten varsa adet ARTIRILMAZ ve adres `replaceState` ile temizlenir —
+     yenileyen ya da bağlantıya ikinci kez giren müşteri çift eklemesin.
+     Tanınmayan kimlik sessizce yok sayılır. sepet.html robots'ta engelli
+     olduğu için bu adres aramaya düşmez; elden gönderilen bağlantıdır.
+  Her iki adres `llms-full.txt` ve statik blokta da yazılıdır.
 - SUNUCU: `/api/pay/checkout` `set:<id>`i KALEMLERİNE AÇAR (iyzico sepeti
   kalem kalem ister, toplam = kalemler toplamı) ama sipariş kaydına paketi
   TEK SATIR yazar (`{id, set, qty, unitTL, members}`). `orderLines()` bunu

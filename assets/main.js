@@ -473,8 +473,14 @@
           + L("Paketi sepete ekle", "Add set to cart", "Set in den Warenkorb", "Добавить комплект в корзину") + "</button>"
           + '<a class="btn btn-ghost" data-c-wa href="#" target="_blank" rel="noopener">💬 '
           + L("Aracıma uyar mı?", "Will it fit my vehicle?", "Passt es zu meinem Fahrzeug?", "Подойдёт ли моему транспорту?") + "</a>"
-          + '<button type="button" class="mset-share" data-mset-link>🔗 '
-          + L("Paket bağlantısını kopyala", "Copy set link", "Set-Link kopieren", "Скопировать ссылку на комплект") + "</button></div>";
+          + "</div>";
+        // Satıcı bağlantıları: biri paketi ANLATAN sayfa, diğeri müşteriyi
+        // doğrudan sepete götüren hızlı sipariş adresi.
+        h += '<p class="mset-links">'
+          + '<button type="button" class="mset-share" data-mset-link="sayfa">🔗 '
+          + L("Sayfa bağlantısı", "Page link", "Seiten-Link", "Ссылка на страницу") + "</button>"
+          + '<button type="button" class="mset-share" data-mset-link="sepet">🛒 '
+          + L("Hızlı sipariş bağlantısı", "Quick-order link", "Schnellbestell-Link", "Ссылка для быстрого заказа") + "</button></p>";
         h += '<p class="mset-fine">' + L(
           "Fotoğraftaki araçlar yalnızca tip örneğidir — araç satışa dahil değildir; satışa konu olan yukarıda listelenen ürünlerdir.",
           "The vehicles shown are type examples only — the vehicle is not included; what is sold is the products listed above.",
@@ -499,23 +505,28 @@
           var sp = cart.pkgOf(sid);
           cartPop(sp ? sp.name : T(sets[secili].st.title));
         });
-        // Paket bağlantısı: mutlak adres, müşteriye doğrudan gönderilebilir.
-        var lnk = $("[data-mset-link]", host);
-        if (lnk) lnk.addEventListener("click", function () {
-          var url = location.origin + adres(secili);
-          var ok = function () {
-            var esk = lnk.innerHTML;
-            lnk.innerHTML = "✓ " + L("Kopyalandı", "Copied", "Kopiert", "Скопировано");
-            setTimeout(function () { lnk.innerHTML = esk; }, 2200);
-          };
-          if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(ok, yedek);
-          else yedek();
-          function yedek() {
-            var t = doc.createElement("textarea");
-            t.value = url; doc.body.appendChild(t); t.select();
-            try { doc.execCommand("copy"); ok(); } catch (e) {}
-            doc.body.removeChild(t);
-          }
+        // Paket bağlantıları: mutlak adres, müşteriye doğrudan gönderilebilir.
+        // "sayfa" paketi anlatır, "sepet" tek tıkla sepete atıp sepete götürür.
+        var kok = location.pathname.replace(/[^/]*$/, "");
+        $$("[data-mset-link]", host).forEach(function (lnk) {
+          lnk.addEventListener("click", function () {
+            var url = lnk.getAttribute("data-mset-link") === "sepet"
+              ? location.origin + kok + "sepet.html?ekle=" + sets[secili].st.id
+              : location.origin + adres(secili);
+            var ok = function () {
+              var esk = lnk.innerHTML;
+              lnk.innerHTML = "✓ " + L("Kopyalandı", "Copied", "Kopiert", "Скопировано");
+              setTimeout(function () { lnk.innerHTML = esk; }, 2200);
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(ok, yedek);
+            else yedek();
+            function yedek() {
+              var t = doc.createElement("textarea");
+              t.value = url; doc.body.appendChild(t); t.select();
+              try { doc.execCommand("copy"); ok(); } catch (e) {}
+              doc.body.removeChild(t);
+            }
+          });
         });
         // WhatsApp bağlantısını seçili pakete göre doldur (numara config'ten).
         var wa = $(".mset-cta [data-c-wa]", host);
@@ -734,6 +745,20 @@
     (function () {
       var wrap = $("#cartItems");
       if (!wrap || !CFG.packages) return;
+      // HIZLI SİPARİŞ BAĞLANTISI — sepet.html?ekle=<id>
+      // Müşteriye gönderilen "bunu al" bağlantısı: ürünü/paketi sepete atar
+      // ve doğrudan bu sayfada açar. `ekle=yolcu` önce hazır paket
+      // ("set:yolcu"), bulunamazsa tekil ürün kimliği olarak denenir.
+      // Sepette ZATEN VARSA adet artırılmaz ve adres temizlenir — sayfayı
+      // yenileyen müşteri ikinci kez eklemiş olmasın.
+      (function () {
+        var m = /[?&]ekle=([A-Za-z0-9:_-]+)/.exec(location.search);
+        if (!m) return;
+        var raw = decodeURIComponent(m[1]);
+        var id = cart.pkgOf("set:" + raw) ? "set:" + raw : raw;
+        if (cart.pkgOf(id) && !cart.read()[id]) cart.add(id, 1);
+        try { history.replaceState(null, "", location.pathname); } catch (e) {}
+      })();
       var nf = new Intl.NumberFormat("tr-TR");
       var side = $("#cartSide"), empty = $("#cartEmpty"), form = $("#cartForm");
       // Kalemlerin oranı farklı olabilir (ürüne özel discountPct). Tek bir
