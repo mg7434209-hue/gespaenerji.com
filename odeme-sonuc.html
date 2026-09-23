@@ -159,7 +159,11 @@
           if (d.items && d.items.length) {
             var ul = document.getElementById("rcItems");
             ul.innerHTML = d.items.map(function (it) {
-              return "<li><span>" + esc(it.name) + " × " + (+it.qty || 1)
+              // Hazır paket tek satır + içerik listesi (kalem fiyatı yok).
+              var ic = (it.members && it.members.length)
+                ? '<small class="receipt-sub">' + it.members.map(esc).join(" · ") + "</small>"
+                : "";
+              return "<li><span>" + esc(it.name) + " × " + (+it.qty || 1) + ic
                 + "</span><b>" + money((+it.unitTL || 0) * (+it.qty || 1)) + "</b></li>";
             }).join("");
             ul.hidden = false;

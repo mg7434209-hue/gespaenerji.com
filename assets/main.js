@@ -170,9 +170,48 @@
         ? L("KDV ve kargo dahil", "VAT & shipping included", "Inkl. MwSt. & Versand", "НДС и доставка включены")
         : L("KDV dahil · kargo hariç", "VAT included · shipping excluded", "Inkl. MwSt. · zzgl. Versand", "НДС включён · доставка отдельно");
     }
+    // JS ile çizilen ürün/paket adını DICT'ten çevirir (yoksa zarifçe TR kalır).
+    function TD(t) {
+      var lang = (window.GESPA && GESPA.lang) || "tr";
+      if (lang === "tr") return t;
+      try { var d = GESPA.i18nData && GESPA.i18nData.DICT && GESPA.i18nData.DICT[lang]; return (d && d[t]) || t; }
+      catch (e) { return t; }
+    }
+    // ---- Hazır paket (set) sanal ürünü --------------------------------------
+    // Sepette paket TEK SATIR olarak durur: tek ad, tek fiyat, altında içerik
+    // listesi. Kalemleri ayrı ayrı eklemek müşterinin seti bozmasına ve
+    // "bunu al" bağlantısının anlamsızlaşmasına yol açıyordu.
+    // Sepet anahtarı "set:<id>"dir; fiyatı YOK — içindeki ürünlerin config
+    // fiyatlarından toplanır, yani hâlâ tek fiyat kaynağı vardır.
+    function rawPkgOf(id) { var f = null; (CFG.packages || []).forEach(function (x) { if (x.id === id) f = x; }); return f; }
+    function setPkgOf(id) {
+      var sid = String(id || "").slice(4);
+      var st = null;
+      (CFG.evSets || []).forEach(function (x) { if (x.id === sid) st = x; });
+      if (!st) return null;
+      var members = [], listT = 0, cartT = 0, allFree = true, ok = true;
+      (st.items || []).forEach(function (mid) {
+        var m = rawPkgOf(mid);
+        if (!m || m.price == null) { ok = false; return; }
+        var u = pkgUnit(m);
+        members.push(m); listT += u.list; cartT += u.cart;
+        if (!m.freeShipping) allFree = false;
+      });
+      if (!ok || !members.length) return null;      // eksik set SATILMAZ
+      return {
+        id: id, isSet: true, setId: sid, members: members,
+        name: TD(st.title) + " — " + L("hazır paket", "ready-made set", "Fertigset", "готовый комплект"),
+        img: st.img || "", url: "elektrikli-arac-donusum.html?set=" + sid,
+        sku: "GES-SET-" + sid.toUpperCase(),
+        price: listT, setCart: cartT, freeShipping: allFree
+      };
+    }
     // Birim fiyatlar (₺): list = liste, cart = havale/EFT, usd = yaklaşık $
     function pkgUnit(p) {
       var RATE = CFG.usdTry || 0, pct = pkgPct(p);
+      // Hazır paket: toplamlar kalemlerden GELİR, yüzde yeniden hesaplanmaz
+      // (kalemlerin oranı farklı olabilir — BOOST net, panel %3).
+      if (p.isSet) return { list: p.price, cart: p.setCart, usd: RATE ? Math.round(p.price / RATE) : 0 };
       // priceOnRequest: fiyat girilmemis urun — tutar URETILMEZ, cagiran
       // "Teklif alin" gosterir ve urun sepete eklenmez.
       if (p.price == null) return { list: null, cart: null, usd: 0, poa: true };
@@ -191,7 +230,8 @@
       function write(c) { try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {} badge(); }
       function count() { var c = read(), n = 0; Object.keys(c).forEach(function (k) { n += c[k]; }); return n; }
       function badge() { var n = count(); $$(".cart-count").forEach(function (b) { b.textContent = n; b.hidden = !n; }); }
-      function pkgOf(id) { var f = null; (CFG.packages || []).forEach(function (x) { if (x.id === id) f = x; }); return f; }
+      // "set:<id>" hazır paketi, diğerleri config.packages ürünüdür.
+      function pkgOf(id) { return String(id || "").indexOf("set:") === 0 ? setPkgOf(id) : rawPkgOf(id); }
       return {
         read: read, count: count, badge: badge, pkgOf: pkgOf,
         add: function (id, qty) { if (!pkgOf(id)) return; var c = read(); c[id] = Math.max(1, Math.min(99, (c[id] || 0) + (qty || 1))); write(c); },
@@ -379,6 +419,12 @@
       if (!sets.length) return;
 
       var secili = 0;
+      // MÜŞTERİYE GÖNDERİLEN BAĞLANTI: ?set=<id> o paketi seçili açar.
+      // Kart değiştikçe adres çubuğu da güncellenir (replaceState), böylece
+      // adresi kopyalamak "bu paketi al" bağlantısını verir.
+      var qs = /[?&]set=([a-z0-9_-]+)/i.exec(location.search);
+      if (qs) sets.forEach(function (d, i) { if (d.st.id === qs[1].toLowerCase()) secili = i; });
+      function adres(i) { return location.pathname + "?set=" + sets[i].st.id + "#paketler"; }
       function ciz() {
         var h = '<div class="mset-pick" role="tablist">';
         sets.forEach(function (d, i) {
@@ -426,7 +472,9 @@
         h += '<div class="mset-cta"><button type="button" class="btn" data-mset-add>🛒 '
           + L("Paketi sepete ekle", "Add set to cart", "Set in den Warenkorb", "Добавить комплект в корзину") + "</button>"
           + '<a class="btn btn-ghost" data-c-wa href="#" target="_blank" rel="noopener">💬 '
-          + L("Aracıma uyar mı?", "Will it fit my vehicle?", "Passt es zu meinem Fahrzeug?", "Подойдёт ли моему транспорту?") + "</a></div>";
+          + L("Aracıma uyar mı?", "Will it fit my vehicle?", "Passt es zu meinem Fahrzeug?", "Подойдёт ли моему транспорту?") + "</a>"
+          + '<button type="button" class="mset-share" data-mset-link>🔗 '
+          + L("Paket bağlantısını kopyala", "Copy set link", "Set-Link kopieren", "Скопировать ссылку на комплект") + "</button></div>";
         h += '<p class="mset-fine">' + L(
           "Fotoğraftaki araçlar yalnızca tip örneğidir — araç satışa dahil değildir; satışa konu olan yukarıda listelenen ürünlerdir.",
           "The vehicles shown are type examples only — the vehicle is not included; what is sold is the products listed above.",
@@ -436,12 +484,38 @@
         host.innerHTML = h;
 
         $$(".mset-card", host).forEach(function (b) {
-          b.addEventListener("click", function () { secili = +b.getAttribute("data-set") || 0; ciz(); });
+          b.addEventListener("click", function () {
+            secili = +b.getAttribute("data-set") || 0;
+            try { history.replaceState(null, "", adres(secili)); } catch (e) {}
+            ciz();
+          });
         });
         var add = $("[data-mset-add]", host);
         if (add) add.addEventListener("click", function () {
-          sets[secili].lines.forEach(function (l) { cart.add(l.p.id, 1); });
-          cartPop(T(sets[secili].st.title) + " " + L("paketi", "set", "Set", "комплект"));
+          // Kalemler TEK TEK değil, tek "set:<id>" satırı olarak eklenir —
+          // sepette tek ad, tek fiyat, altında içerik listesi görünsün.
+          var sid = "set:" + sets[secili].st.id;
+          cart.add(sid, 1);
+          var sp = cart.pkgOf(sid);
+          cartPop(sp ? sp.name : T(sets[secili].st.title));
+        });
+        // Paket bağlantısı: mutlak adres, müşteriye doğrudan gönderilebilir.
+        var lnk = $("[data-mset-link]", host);
+        if (lnk) lnk.addEventListener("click", function () {
+          var url = location.origin + adres(secili);
+          var ok = function () {
+            var esk = lnk.innerHTML;
+            lnk.innerHTML = "✓ " + L("Kopyalandı", "Copied", "Kopiert", "Скопировано");
+            setTimeout(function () { lnk.innerHTML = esk; }, 2200);
+          };
+          if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(ok, yedek);
+          else yedek();
+          function yedek() {
+            var t = doc.createElement("textarea");
+            t.value = url; doc.body.appendChild(t); t.select();
+            try { doc.execCommand("copy"); ok(); } catch (e) {}
+            doc.body.removeChild(t);
+          }
         });
         // WhatsApp bağlantısını seçili pakete göre doldur (numara config'ten).
         var wa = $(".mset-cta [data-c-wa]", host);
@@ -454,6 +528,12 @@
         }
       }
       ciz();
+      // ?set= ile gelindiyse bölüme kaydır: bölüm JS ile çizildiği için
+      // tarayıcının kendi #paketler çapası yükleme anında tutmaz.
+      if (qs) setTimeout(function () {
+        var sec = $("#paketler");
+        if (sec && sec.scrollIntoView) sec.scrollIntoView({ block: "start", behavior: "smooth" });
+      }, 120);
       // Dil değişince yeniden çiz — metinler JS ile üretiliyor. Olay
       // `document` üzerinde gönderiliyor (bubbles:false) — window'da dinlenmez.
       doc.addEventListener("gespa:lang", function () { ciz(); });
@@ -660,24 +740,30 @@
       // "%N" yazmak yanıltıcı olur; oran ancak indirime giren TÜM kalemlerde
       // aynıysa yazılır, farklıysa yalnızca tutar gösterilir.
       function pctOfLines(ls) {
-        var rates = [];
+        var rates = [], karisik = false;
         ls.forEach(function (l) {
           if (l.sumCart < l.sumList) {
+            // Hazır paketin içindeki kalemlerin oranı farklı olabilir
+            // (BOOST net, panel %3) — tek bir "%N" yazmak yanıltıcı olur.
+            if (l.p.isSet) { karisik = true; return; }
             var r = pkgPct(l.p);
             if (rates.indexOf(r) < 0) rates.push(r);
           }
         });
-        return rates.length === 1 ? rates[0] : null;
+        return (!karisik && rates.length === 1) ? rates[0] : null;
       }
       var wa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
       var set = function (sel, txt) { $$(sel).forEach(function (el) { el.textContent = txt; }); };
       // Sepet kalemleri: {p, qty, unit, sumList, sumCart} — fiyat kuralı pkgUnit ile ortak
       function lines() {
+        // Sepet anahtarları üzerinden dönülür: hazır paketler ("set:<id>")
+        // config.packages içinde YOKTUR, cart.pkgOf onları üretir.
         var c = cart.read(), out = [];
-        (CFG.packages || []).forEach(function (p) {
-          if (!c[p.id] || p.price == null) return;
+        Object.keys(c).forEach(function (id) {
+          var p = cart.pkgOf(id);
+          if (!p || p.price == null || !c[id]) return;
           var u = pkgUnit(p);
-          out.push({ p: p, qty: c[p.id], unit: u, sumList: u.list * c[p.id], sumCart: u.cart * c[p.id] });
+          out.push({ p: p, qty: c[id], unit: u, sumList: u.list * c[id], sumCart: u.cart * c[id] });
         });
         return out;
       }
@@ -713,10 +799,18 @@
         wrap.innerHTML = ls.map(function (l) {
           // Görsel yolu mutlaktır ki /en /de /ru altındaki sepette de çözülsün
           var img = l.p.img ? '<img src="/' + l.p.img + '" alt="' + l.p.name + '" loading="lazy" decoding="async" />' : "";
-          return '<div class="cart-item" data-id="' + l.p.id + '">' +
+          // Hazır paket TEK SATIRDIR: içindekiler ad olarak listelenir,
+          // kalem kalem FİYAT GÖSTERİLMEZ — set tek fiyatla satılıyor.
+          var icerik = l.p.isSet
+            ? '<ul class="cart-set-list">' + l.p.members.map(function (m) {
+                return "<li>" + TD(m.name) + "</li>";
+              }).join("") + "</ul>"
+            : "";
+          return '<div class="cart-item' + (l.p.isSet ? " cart-item-set" : "") + '" data-id="' + l.p.id + '">' +
             '<a class="cart-item-media" href="' + (l.p.url || "urunler.html") + '">' + img + "</a>" +
             '<div class="cart-item-body">' +
               '<p class="cart-item-name"><a href="' + (l.p.url || "urunler.html") + '">' + l.p.name + "</a></p>" +
+              icerik +
               '<p class="cart-item-unit">₺' + nf.format(l.unit.list) + (l.unit.usd ? " (≈ $" + nf.format(l.unit.usd) + ")" : "") + " × " + l.qty + " " + L("adet", "pcs", "Stk.", "шт.") + "</p>" +
               '<div class="qbox"><button type="button" data-q="-1" aria-label="' + L("Adet azalt", "Decrease quantity", "Menge verringern", "Уменьшить количество") + '">−</button>' +
               '<input type="text" inputmode="numeric" value="' + l.qty + '" aria-label="' + L("Adet", "Quantity", "Menge", "Количество") + '" />' +
@@ -855,6 +949,8 @@
           var msg = ["🛒 YENİ SİPARİŞ — Sepet (" + t.ls.length + " ürün)"];
           t.ls.forEach(function (l, i) {
             msg.push((i + 1) + ") " + l.p.name + (l.p.sku ? " [" + l.p.sku + "]" : "") + " × " + l.qty + " = ₺" + nf.format(l.sumList));
+            // Hazır pakette ne sevk edileceği belli olsun diye içerik de yazılır.
+            if (l.p.isSet) l.p.members.forEach(function (m) { msg.push("     · " + m.name); });
           });
           msg.push("Liste toplamı: ₺" + nf.format(t.listT));
           // Buraya yalnız havale/EFT düşer: kart ödemesi yukarıda iyzico'ya

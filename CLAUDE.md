@@ -353,6 +353,22 @@ dipnot kalem SAYMAZ ("yukarıda listelenen ürünler") — güncelleme unutulmas
 - PAKETİN KENDİ FİYATI YOKTUR: toplam `items` içindeki ürünlerin
   `pkgUnit()` değerlerinden hesaplanır. Ürün fiyatı değişince paket
   kendiliğinden güncellenir — İKİNCİ BİR FİYAT KAYNAĞI AÇMA.
+- SEPETTE TEK SATIR: paket `set:<id>` anahtarıyla eklenir, kalemler ayrı
+  ayrı DEĞİL. main.js `setPkgOf()` sanal ürünü üretir (ad, görsel, toplam,
+  `members`); `pkgUnit()` `isSet` dalında toplamları kalemlerden alır —
+  yüzde YENİDEN HESAPLANMAZ (BOOST net, panel %3). Sepet satırında içerik
+  yalnız AD olarak listelenir, kalem fiyatı gösterilmez. `pctOfLines()`
+  sette tek "%N" yazmaz. Eski sepetlerdeki tekil ürün anahtarları aynen
+  çalışmaya devam eder.
+- MÜŞTERİYE GÖNDERİLEN BAĞLANTI: `?set=<id>` o paketi seçili açar ve
+  `#paketler`e kaydırır; kart değiştikçe adres çubuğu `replaceState` ile
+  güncellenir, "🔗 Paket bağlantısını kopyala" düğmesi mutlak adresi verir.
+  Adres `llms-full.txt` ve statik blokta da yazılıdır.
+- SUNUCU: `/api/pay/checkout` `set:<id>`i KALEMLERİNE AÇAR (iyzico sepeti
+  kalem kalem ister, toplam = kalemler toplamı) ama sipariş kaydına paketi
+  TEK SATIR yazar (`{id, set, qty, unitTL, members}`). `orderLines()` bunu
+  set adı + içerik olarak çözer; e-postalar ve dekont böyle gösterir.
+  Kalemlerden biri config'te yoksa/fiyatsızsa paket SATILMAZ.
 - Kalemlerden biri config'te yoksa ya da fiyatsızsa o paket HİÇ
   gösterilmez (eksik set satılmasın); build de basmaz.
 - main.js motor seçici IIFE'si çizer; `gespa:lang` olayında yeniden çizer.

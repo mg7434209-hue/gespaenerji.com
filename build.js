@@ -706,7 +706,8 @@ function hydrateExtras(html, file, cfg) {
           (p.url ? '<a href="' + esc(p.url) + '">' + esc(p.name) + "</a>" : esc(p.name)) +
           "</span> — ₺" + nfTr(tlOf(p)) + "</li>").join("") + "</ul>" +
         "<p><span>Set toplamı</span>: <strong>₺" + nfTr(total) + "</strong> · <span>" +
-        (allFree ? "KDV ve kargo dahil" : "KDV dahil · kargo hariç") + "</span></p></article>";
+        (allFree ? "KDV ve kargo dahil" : "KDV dahil · kargo hariç") + "</span></p>" +
+        '<p><a href="elektrikli-arac-donusum.html?set=' + esc(st.id) + '"><span>Bu paketi aç</span></a></p></article>';
     }).join("");
     html = html.replace(/<!-- MOTORSET:STATIC -->[\s\S]*?<!-- \/MOTORSET:STATIC -->/,
       "<!-- MOTORSET:STATIC -->" + sets + "<!-- /MOTORSET:STATIC -->");
@@ -1058,7 +1059,7 @@ function writeLlmsFull(cfg) {
     const tlOf = (p) => p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
     const total = items.reduce((a, p) => a + tlOf(p), 0);
     return `- ${st.title} (${st.hint}): ` + items.map(p => `${p.name} ₺${nf(tlOf(p))}`).join(" + ")
-      + ` = SET TOPLAMI ₺${nf(total)}`;
+      + ` = SET TOPLAMI ₺${nf(total)} · doğrudan sipariş bağlantısı: ${(cfg.company && cfg.company.web) || ""}/elektrikli-arac-donusum.html?set=${st.id}`;
   }).filter(Boolean).join("\n");
   const regions = cfg.calc.regions.map(r => `${r.label}: ${r.yield} kWh/kWp/yıl`).join(" · ");
   const c = cfg.company;

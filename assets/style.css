@@ -1920,3 +1920,15 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
 .mset-static ul{margin:0;padding-left:18px}
 .mset-static li{padding:3px 0;font-size:.95rem}
 .mset-static strong{color:var(--green)}
+
+/* Sepette hazır paket: tek satır, altında içerik listesi (kalem fiyatı YOK) */
+.cart-set-list{list-style:none;margin:4px 0 6px;padding:0;display:flex;flex-wrap:wrap;gap:4px 10px}
+.cart-set-list li{position:relative;padding-left:12px;font-size:.84rem;color:var(--muted)}
+.cart-set-list li::before{content:"·";position:absolute;left:3px}
+.cart-item-set{border-left:3px solid var(--green)}
+/* Dekontta paket içeriği */
+.receipt-sub{display:block;margin-top:2px;font-size:.76rem;color:var(--muted);line-height:1.4}
+/* Paket bağlantısını kopyala — müşteriye "bunu al" linki göndermek için */
+.mset-share{background:none;border:0;padding:6px 2px;font:inherit;font-size:.85rem;font-weight:600;
+  color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.mset-share:hover{color:var(--green)}
