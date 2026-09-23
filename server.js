@@ -243,7 +243,14 @@ const SMTP = {
   host: (process.env.SMTP_HOST || "").trim(),
   port: +(process.env.SMTP_PORT || 465),
   user: (process.env.SMTP_USER || "").trim(),
-  pass: process.env.SMTP_PASS || "",
+  // Google, Uygulama Şifresini "abcd efgh ijkl mnop" diye BOŞLUKLU gösterir;
+  // panele olduğu gibi yapıştırılınca kimlik doğrulaması sebepsiz yere
+  // başarısız olur. Yalnız bu biçimdeki (4×4 harf) şifrenin boşlukları
+  // silinir — gerçekten boşluk içeren bir parola bozulmasın.
+  pass: (function (v) {
+    v = String(v || "").trim();
+    return /^([a-z]{4} ){3}[a-z]{4}$/i.test(v) ? v.replace(/ /g, "") : v;
+  })(process.env.SMTP_PASS),
   to: (process.env.ORDER_EMAIL_TO || "").trim()
 };
 const mailReady = () => !!(SMTP.host && SMTP.user && SMTP.pass);
