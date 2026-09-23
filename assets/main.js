@@ -592,8 +592,11 @@
           ? list.map(tile).join("")
           : '<p class="sh-empty">' + L("Bu kategoride şu an ürün yok.", "No products in this category yet.",
               "In dieser Kategorie gibt es derzeit keine Produkte.", "В этой категории пока нет товаров.") + "</p>";
+        // #shopCount "Tümü" çipinin üzerindedir: süzülmüş sayı DEĞİL, toplam
+        // ürün sayısını gösterir. Süzülmüş sayıyı yazmak "Tümü (1)" gibi
+        // kendisiyle çelişen bir etiket üretiyordu.
         var c = $("#shopCount");
-        if (c) c.textContent = list.length;
+        if (c) c.textContent = items.length;
       }
       // kategori süzgeci — config'teki group değerlerinden üretilir
       var bar = $("#shopFilters");
@@ -605,8 +608,19 @@
         var html = '<button type="button" class="sh-chip' + (active === "all" ? " is-on" : "") + '" data-f="all">' +
           L("Tümü", "All", "Alle", "Все") + ' (<span id="shopCount">' + items.length + "</span>)</button>";
         seen.forEach(function (g) {
-          html += '<button type="button" class="sh-chip' + (active === g ? " is-on" : "") + '" data-f="' + g + '">' +
-            groupLabel(g) + "</button>";
+          // Kategoride TEK ürün varsa ve onun kendi sayfası varsa çip bir
+          // BAĞLANTIDIR: tek kartlık ara ızgarayı atlar, doğrudan ürün
+          // sayfasına götürür (orada galeri, künye ve paketler var).
+          // Kategoriye ikinci ürün girdiğinde kendiliğinden süzgece döner.
+          var inG = items.filter(function (p) { return (p.group || "ongrid") === g; });
+          var solo = inG.length === 1 && inG[0].url ? inG[0] : null;
+          if (solo) {
+            html += '<a class="sh-chip sh-chip-go" href="' + String(solo.url).replace(/"/g, "&quot;") + '">' +
+              groupLabel(g) + '<span aria-hidden="true">→</span></a>';
+          } else {
+            html += '<button type="button" class="sh-chip' + (active === g ? " is-on" : "") + '" data-f="' + g + '">' +
+              groupLabel(g) + "</button>";
+          }
         });
         bar.innerHTML = html;
       }

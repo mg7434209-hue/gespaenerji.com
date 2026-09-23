@@ -43,6 +43,12 @@ lacivert/aqua palet kart İÇİNDE kalır, sayfaya taşmaz. E-mağaza linkleri:
 Izgara `auto-fill` olduğundan ürün sayısı onlarca olunca kendiliğinden büyür —
 yeni ürün eklemek için SADECE config.packages'e satır eklenir, sayfaya
 dokunulmaz. Kartta foto/etiket/ad/fiyat/havale + "Sepete ekle" vardır.
+SÜZGEÇ ÇİPİ TUZAĞI: kategoride TEK ürün varsa ve o ürünün `url`'si varsa
+çip süzgeç DEĞİL, doğrudan ürün sayfasına giden bir `<a class="sh-chip-go">`
+olur — tek kartlık ara ızgara boşuna bir tıklamaydı. Gruba ikinci ürün
+girince kendiliğinden süzgece döner. "Tümü" çipindeki `#shopCount` HER
+ZAMAN toplam ürün sayısıdır; süzülmüş sayıyı yazmak "Tümü (1)" gibi
+kendisiyle çelişen etiket üretiyordu.
 JS'siz ortam ve AI botları için `SHOP:STATIC` listesi build'de basılır;
 ItemList JSON-LD de bu sayfada üretilir. DİKKAT: kartlara `.reveal` KOYMA —
 süzgeç her tıklamada ızgarayı yeniden çizer, yeni düğümler

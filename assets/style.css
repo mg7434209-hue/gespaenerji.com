@@ -1357,6 +1357,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   font:inherit;font-size:.85rem;font-weight:700;color:var(--muted);cursor:pointer;transition:.15s}
 .sh-chip:hover{color:var(--ink);border-color:var(--green)}
 .sh-chip.is-on{background:var(--green);border-color:var(--green);color:#fff}
+/* Tek ürünlü kategori çipi: süzgeç değil, ürün sayfasına BAĞLANTIDIR.
+   Oktan anlaşılsın diye ayrı işaretlenir (<a> olduğu için orta tık /
+   yeni sekmede aç da çalışır). */
+.sh-chip-go{display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.sh-chip-go span{transition:transform .15s}
+.sh-chip-go:hover{color:var(--green);border-color:var(--green)}
+.sh-chip-go:hover span{transform:translateX(3px)}
 .sh-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:20px}
 .sh-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);
   border-radius:var(--radius);overflow:hidden;transition:transform .18s,box-shadow .18s,border-color .18s}
