@@ -162,7 +162,7 @@
       return (p && p.discountPct != null ? p.discountPct : CFG.cartDiscountPct) || 0;
     }
     // Fiyat notu: kargo ücreti alıcıya mı ait? Üründe `freeShipping: true`
-    // yazılıysa kargo fiyata DAHİLDİR (kart ve kapıda ödemede de ek ücret yok).
+    // yazılıysa kargo fiyata DAHİLDİR (kart ödemesinde de ek ücret yok).
     // TEK KURAL — vitrin kartı, katalog kartı ve ürün sayfası bunu kullanır;
     // build.js `vatNote()` aynısını statik çıktıya basar.
     function vatNote(p) {
@@ -548,8 +548,6 @@
         var ls = lines(), listT = 0, cartT = 0;
         ls.forEach(function (l) { listT += l.sumList; cartT += l.sumCart; });
         var method = (form && form.odeme && form.odeme.value) || "havale";
-        var planEl = form && form.querySelector("[data-ord-plan]");
-        var downTL = Math.round(listT * 0.30 / 50) * 50, restTL = listT - downTL;   // kapıda: %30 peşin
         set("[data-ord-list]", "₺" + nf.format(listT));
         if (method === "havale") {
           // Sepette indirime giren kalem yoksa (hepsi net fiyatlı) "−₺0 (%N)" yazma
@@ -559,21 +557,12 @@
             : L("Net fiyatlı üründe uygulanmaz", "Not applied to net-priced products",
                 "Bei Nettopreis-Produkten nicht anwendbar", "К товарам по нетто-цене не применяется"));
           set("[data-ord-total]", "₺" + nf.format(cartT));
-          if (planEl) planEl.hidden = true;
-        } else if (method === "kart") {
+        } else {
+          // Kart: havale indirimi uygulanmaz, liste fiyatı tahsil edilir.
           set("[data-ord-disc]", L("Kart ödemesinde uygulanmaz", "Not applied for card payments", "Bei Kartenzahlung nicht anwendbar", "При оплате картой не применяется"));
           set("[data-ord-total]", "₺" + nf.format(listT));
-          if (planEl) planEl.hidden = true;
-        } else {
-          set("[data-ord-disc]", L("Kapıda ödemede uygulanmaz", "Not applied for pay-on-delivery", "Bei Nachnahme nicht anwendbar", "При оплате при получении не применяется"));
-          set("[data-ord-total]", "₺" + nf.format(listT));
-          if (planEl) {
-            planEl.hidden = false;
-            planEl.textContent = L("Peşin (%30 havale): ", "Deposit (30% transfer): ", "Anzahlung (30 %): ", "Аванс (30 %): ") + "₺" + nf.format(downTL) +
-              L(" · Teslimatta: ", " · On delivery: ", " · Bei Lieferung: ", " · При доставке: ") + "₺" + nf.format(restTL);
-          }
         }
-        return { ls: ls, listT: listT, cartT: cartT, downTL: downTL, restTL: restTL, method: method };
+        return { ls: ls, listT: listT, cartT: cartT, method: method };
       }
       function render() {
         var ls = lines();
@@ -620,7 +609,7 @@
         var epostaHint = document.getElementById("epostaHint");
         // Kart ödemesinde TCKN (fatura) ve E-POSTA zorunludur: ödeme onayı ve
         // yazdırılabilir dekont müşteriye e-postayla gider, adres yoksa
-        // gönderilemez. Havale/kapıda siparişte ikisi de isteğe bağlı kalır.
+        // gönderilemez. Havale/EFT siparişinde ikisi de isteğe bağlı kalır.
         function syncTckn() {
           var isCard = form.odeme && form.odeme.value === "kart";
           if (tcknRow) { tcknRow.hidden = !isCard; var inp = tcknRow.querySelector("input"); if (inp) inp.required = isCard; }
@@ -726,15 +715,12 @@
             msg.push((i + 1) + ") " + l.p.name + (l.p.sku ? " [" + l.p.sku + "]" : "") + " × " + l.qty + " = ₺" + nf.format(l.sumList));
           });
           msg.push("Liste toplamı: ₺" + nf.format(t.listT));
-          if (t.method === "havale") {
-            var uniqPct = pctOfLines(t.ls);
-            msg.push("Ödeme: Havale/EFT" + (uniqPct != null ? " (sepette %" + uniqPct + " indirim)" : " (indirimli)"));
-            msg.push("Ödenecek: ₺" + nf.format(t.cartT));
-            if (CFG.company && CFG.company.bank) msg.push("Hesap: " + CFG.company.bank.accountHolder + " · " + CFG.company.bank.iban);
-          } else {
-            msg.push("Ödeme: Kapıda ödeme (%30 peşin + %70 teslimatta)");
-            msg.push("Peşin havale: ₺" + nf.format(t.downTL) + " · Teslimatta: ₺" + nf.format(t.restTL));
-          }
+          // Buraya yalnız havale/EFT düşer: kart ödemesi yukarıda iyzico'ya
+          // yönlendirip erken döner.
+          var uniqPct = pctOfLines(t.ls);
+          msg.push("Ödeme: Havale/EFT" + (uniqPct != null ? " (sepette %" + uniqPct + " indirim)" : " (indirimli)"));
+          msg.push("Ödenecek: ₺" + nf.format(t.cartT));
+          if (CFG.company && CFG.company.bank) msg.push("Hesap: " + CFG.company.bank.accountHolder + " · " + CFG.company.bank.iban);
           msg.push("— Teslimat —", "Ad: " + v("ad"), "Tel: " + v("tel"));
           if (v("eposta")) msg.push("E-posta: " + v("eposta"));
           msg.push("İl/İlçe: " + v("il"), "Adres: " + v("adres"));

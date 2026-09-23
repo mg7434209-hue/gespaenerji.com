@@ -1067,7 +1067,7 @@ kargo ücreti alıcıya aittir (yukarıda "kargo fiyata DAHİL" yazan ürünler 
 fiyatlara KDV dahildir. Mesafeli satışta ${(cfg.commerce || {}).returnDays || 14} gün cayma
 hakkı vardır (sorunsuz teslimde iade kargosu alıcıya ait; hasarlı/ayıplı üründe satıcıya).
 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi verilir.
-Ödeme: havale/EFT'te indirim uygulanır (oran ürüne göre değişir; her ürünün indirimli tutarı yukarıdaki listede yazılıdır). Kart ve kapıda ödemede indirim UYGULANMAZ, liste fiyatı geçerlidir. Kapıda ödeme: %30 peşin + %70 teslimatta.
+Ödeme: havale/EFT'te indirim uygulanır (oran ürüne göre değişir; her ürünün indirimli tutarı yukarıdaki listede yazılıdır). Kart ödemesinde indirim UYGULANMAZ, liste fiyatı geçerlidir.
 
 ## Toptan Satış / B2B (${c.web}/toptan.html)
 Bayi, EPC/kurulumcu, toptancı, otel ve kooperatiflere kurumsal faturalı toptan satış. Hazır stok:

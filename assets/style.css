@@ -396,7 +396,6 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .ord-summary em{font-style:normal;color:var(--green);font-weight:700}
 .ord-total{border-top:1px solid var(--line);margin-top:6px;padding-top:10px!important}
 .ord-total strong{font-family:var(--font);font-size:1.5rem;color:var(--green)}
-.ord-plan{color:var(--muted);font-size:.92rem;font-weight:600}
 .ord-pay{border:0;padding:0;margin:0 0 18px}
 .ord-pay legend{font-weight:800;font-family:var(--font);margin-bottom:10px}
 .ord-pay label{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:10px;cursor:pointer}

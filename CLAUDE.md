@@ -299,7 +299,7 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   listeyi ona göre kur: liste × (100−N)/100, en yakın 50 ₺'ye yuvarlanır
   (ör. ₺7.600 + %5 → ₺7.200). Sepette oranları FARKLI kalemler varsa özet tek
   "%N" YAZMAZ, yalnız tutarı gösterir (main.js `pctOfLines`).
-  UYARI: bu indirim yalnızca HAVALE/EFT'te geçerlidir — kart ve kapıda ödemede
+  UYARI: bu indirim yalnızca HAVALE/EFT'te geçerlidir — kart ödemesinde
   liste fiyatı tahsil edilir (server.js `pkgListTL`). "Sepette %N indirim"
   rozetinin yanında havale satırı hep dursun, yoksa kartla ödeyen yanılır.
 - `brand: "…"` → ÜRÜNÜN markası (satıcının değil). Başka üreticinin markalı
@@ -320,8 +320,8 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
 - `freeShipping: true` → KARGO FİYATA DAHİL. Kart notu "KDV dahil · kargo
   hariç" yerine "KDV ve kargo dahil" olur, ürün sayfasında `data-pkg-vat` ve
   `data-pkg-ship` işaretleri kargo dahil metnini alır, llms-full.txt satırına
-  "kargo fiyata DAHİL" eklenir. Liste fiyatı kargoyu İÇERDİĞİ için kart ve
-  kapıda ödemede de ek kargo alınmaz. Tek kural main.js `vatNote()` ve build.js
+  "kargo fiyata DAHİL" eklenir. Liste fiyatı kargoyu İÇERDİĞİ için kart
+  ödemesinde de ek kargo alınmaz. Tek kural main.js `vatNote()` ve build.js
   `vatNote()`/`shipNote()` — yeni bir kargo notu eklersen oraya bağla.
 - `img` boşsa kart nötr yer tutucu (`.sh-noimg`) gösterir; BAŞKA ürünün
   fotoğrafı kullanılmaz. `url` boşsa "Detay" düğmesi ve bağlantılar basılmaz.

@@ -243,7 +243,7 @@ window.GESPA.config = {
       img: "assets/img/products/ev/boost-mppt-on.webp",
       // Liste ₺7.600 + %5 → havale/EFT ile ₺7.200 (en yakın 50 ₺'ye yuvarlanır).
       // discountPct SADECE bu ürüne uygulanır; site geneli %3 (cartDiscountPct).
-      // freeShipping: kargo fiyata DAHİL — kart/kapıda ödemede de alıcıdan
+      // freeShipping: kargo fiyata DAHİL — kart ödemesinde de alıcıdan
       // ayrıca kargo ücreti istenmez; "KDV ve kargo dahil" notu basılır.
       price: 7600, discountPct: 5, freeShipping: true,
       chips: ["⚙️ 24 V – 72 V akü", "🔋 Tüm akü tipleri", "📶 Bluetooth ile ayar"],
