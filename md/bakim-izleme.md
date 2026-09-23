@@ -25,6 +25,24 @@ Panel yüzeyleri, bağlantılar, kablolar, koruma ekipmanı ve inverter uyarıla
 
 Konum, kurulu güç, inverter modeli ve varsa hata kodunu iletin. Müdahale kapsamı ve takvimi inceleme sonrası netleştirilir; garanti koşulları dikkate alınır.
 
+## Sıkça Sorulan Sorular
+
+### GES bakımı ne sıklıkla yapılmalıdır?
+
+Sıklık tozlanmaya, çevre koşullarına ve tesis büyüklüğüne göre planlanır. İzleme verisi beklenmedik bir üretim düşüşü gösterdiğinde plan dışı kontrol yapılır.
+
+### Paneller nasıl temizlenmelidir?
+
+Üretici talimatına uygun yöntemle, aşındırıcı olmayan malzeme ve uygun suyla temizlenir; yüksek basınçlı su ve sert fırça yüzeye zarar verebilir. Çatıda çalışmak güvenlik önlemi gerektirir.
+
+### Uzaktan izleme ne sağlar?
+
+İnverter ve izleme platformu üzerinden anlık ve geçmiş üretim takip edilir; arıza ve uyarılar erken fark edilir, üretim kayıpları uzun süre gözden kaçmaz.
+
+### Bakım yapılmazsa ne olur?
+
+Kirlenme, gevşeyen bağlantılar ve fark edilmeyen inverter arızaları üretimi düşürür; bazı durumlarda güvenlik riski de doğar. Düzenli kontrol ve izleme bu kayıpları erken yakalar.
+
 ## İlgili hizmetler ve projeler
 
 - [Manavgat ve Antalya Çatı GES Kurulumu](https://www.gespaenerji.com/cati-ges.html)

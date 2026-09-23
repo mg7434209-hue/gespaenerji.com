@@ -59,9 +59,23 @@ Faaliyet Başlangıcı
 
 2005 · sektörde kesintisiz faaliyet
 
-Şirket Tescili
+Sıkça Sorulan Sorular
 
-2005 · 01.11.2022, kurumsal yapılanma
+## İletişim ve keşif
+
+### Keşif ve teklif için hangi bilgileri hazırlamalıyım?
+
+Son 12 ayın elektrik faturaları ya da aylık tüketiminiz, kurulum yerinin konumu, varsa çatı veya arazi fotoğrafları ve sistemden beklentiniz (tasarruf, yedek güç, sulama) teklifin doğruluğunu artırır. Keşif ve tasarruf analizi ücretsizdir.
+
+### Siparişim veya ödemem hakkında nereden bilgi alabilirim?
+
+Online kart ödemesinden sonra e-posta adresinize ödeme onayı ve yazdırılabilir dekont bağlantısı gönderilir. Sorularınız için sipariş numaranızla telefon ya da WhatsApp üzerinden bize ulaşabilirsiniz.
+
+### Şirket bilgilerinize nereden ulaşabilirim?
+
+Ticaret unvanı, MERSİS, vergi ve ticaret sicil bilgilerimiz bu sayfadaki Şirket Bilgileri bölümünde yer alır; kurumsal alımlarda ve fatura işlemlerinde bu bilgileri kullanabilirsiniz.
+
+[Tüm sorular →](https://www.gespaenerji.com/sss.html)
 
 ---
 Kaynak sayfa: https://www.gespaenerji.com/iletisim.html · GESPA Enerji · 0543 743 42 09 · info@gespaenerji.com · Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01, Manavgat / Antalya

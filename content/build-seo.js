@@ -6,14 +6,26 @@ const labels = {
   related:['İlgili hizmetler ve projeler','Related services and projects','Weitere Leistungen und Projekte','Связанные услуги и проекты'],
   quote:['Projeniz için keşif isteyin','Request a site assessment','Standortprüfung anfragen','Запросить обследование'],
   calculate:['Tasarrufunuzu hesaplayın','Estimate your savings','Einsparung schätzen','Оценить экономию'],
-  scope:['Keşif ve teklif','Assessment and quotation','Prüfung und Angebot','Обследование и предложение']
+  scope:['Keşif ve teklif','Assessment and quotation','Prüfung und Angebot','Обследование и предложение'],
+  // Sözlükteki mevcut çeviriyle AYNI (başka sayfalarda kicker olarak geçiyor)
+  faq:['Sıkça Sorulan Sorular','Frequently Asked Questions','Häufige Fragen','Частые вопросы']
 };
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 function translations(i18n) {
   const add=t=>['en','de','ru'].forEach((l,i)=>{i18n.DICT[l][t[0]]=t[i+1];});
   Object.values(labels).forEach(add);
   require("./translation-fixes.json").forEach(add);
-  pages.forEach(p=>{add(p.title);add(p.intro);if(p.desc)add(p.desc);p.sections.forEach(s=>s.forEach(add));});
+  pages.forEach(p=>{add(p.title);add(p.intro);if(p.desc)add(p.desc);p.sections.forEach(s=>s.forEach(add));if(p.faq)p.faq.forEach(f=>f.forEach(add));});
+  // SSS merkezi + GES sözlüğü (content/sss.js, content/sozluk.js). Bu metinler
+  // build'de statik basılır; sözlükte ZATEN olan anahtar EZİLMEZ — site
+  // genelinde kullanılan çeviri kazanır, yeni sayfa onunla tutarlı kalır.
+  const addMissing=t=>['en','de','ru'].forEach((l,i)=>{if(!(t[0] in i18n.DICT[l]))i18n.DICT[l][t[0]]=t[i+1];});
+  const help=require('./sss'),glossary=require('./sozluk');
+  Object.values(help.labels).forEach(addMissing);
+  help.general.forEach(g=>{addMissing(g[0]);addMissing(g[1]);if(g[2])addMissing(g[2].text);});
+  help.groups.forEach(g=>addMissing(g.title));
+  Object.values(glossary.labels).forEach(addMissing);
+  glossary.terms.forEach(t=>{addMissing(t.term);addMissing(t.def);if(t.link)addMissing(t.link.text);});
 }
 function generate(root) {
   // One editable source for extra translations; browser and static build stay in sync.
@@ -43,6 +55,9 @@ function generate(root) {
     const imageHeight = photoTag && (photoTag[0].match(/height="(\d+)"/)||[])[1] || '600';
     if(p.image)body+='<img class="seo-project-photo" src="'+p.image+'" alt="'+esc(p.title[0])+'" width="'+imageWidth+'" height="'+imageHeight+'" fetchpriority="high" />';
     body+=p.sections.map(s=>'<section class="seo-section"><h2>'+esc(s[0][0])+'</h2><p>'+esc(s[1][0])+'</p></section>').join('');
+    // SSS: sitenin .faq-item deseni (main.js akordeonu). FAQPage şemasını
+    // build.js görünen sorulardan üretir — burada ayrıca şema YAZILMAZ.
+    if(p.faq&&p.faq.length)body+='<section class="seo-section seo-faq"><h2>'+labels.faq[0]+'</h2><div class="faq">'+p.faq.map(f=>'<div class="faq-item reveal"><button class="faq-q"><span>'+esc(f[0][0])+'</span><span class="faq-ico">+</span></button><div class="faq-a"><p>'+esc(f[1][0])+'</p></div></div>').join('')+'</div></section>';
     body+='<aside class="seo-related"><h2>'+labels.related[0]+'</h2><ul>'+p.related.map(f=>'<li><a href="'+f+'">'+esc(names[f])+'</a></li>').join('')+'</ul></aside><section class="seo-section"><h2>'+labels.scope[0]+'</h2><div class="seo-actions"><a class="btn" href="iletisim.html">'+labels.quote[0]+'</a><a class="btn btn-ghost" href="hesaplayici.html">'+labels.calculate[0]+'</a></div></section></div></section></main>';
     html=html.replace(/<main\b[^>]*>[\s\S]*?<\/main>/,body);
     fs.writeFileSync(path.join(root,p.file),html);

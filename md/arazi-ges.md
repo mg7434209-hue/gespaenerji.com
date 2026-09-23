@@ -25,6 +25,24 @@ Alanla birlikte sıra aralıkları, bakım yolları, gölgelenme ve bağlantı k
 
 Konum, yaklaşık kullanılabilir alan, mevcut elektrik bağlantısı ve tüketim bilgilerini paylaşın. Sulama için pompa gücü, günlük çalışma saati ve sezon bilgisi de gereklidir.
 
+## Sıkça Sorulan Sorular
+
+### Arazi GES için ne kadar alan gerekir?
+
+Alan ihtiyacı hedeflenen güce, sıra aralıklarına ve arazinin eğimine göre değişir. Hesaplayıcıdaki panel yerleşim ve sıra aralığı araçları ön tahmin verir; kesin yerleşim keşif ve projelendirmeyle belirlenir.
+
+### Tarım arazisine GES kurulabilir mi?
+
+Arazinin niteliği ve kullanım durumu ilgili kurumların mevzuatına tabidir; bu nedenle uygunluk her proje için ayrıca doğrulanır. Tarımsal sulama amaçlı sistemlerde pompa ihtiyacı ve üretim birlikte planlanır.
+
+### Sıra aralığı neden önemlidir?
+
+Kışın güneş alçakta olduğu için öndeki sıra arkadakini gölgeleyebilir. Sıra aralığı bu gölgelenmeyi sınırlayacak şekilde enleme ve panel eğimine göre hesaplanır; hesaplayıcıdaki sıra aralığı aracı ön değer verir.
+
+### Bağlantı kapasitesi neden projenin başında incelenir?
+
+Üretilen elektriğin şebekeye aktarılabilmesi için bağlantı noktasında yeterli kapasite olması gerekir. Kapasite ve bağlantı koşulları dağıtım şirketi süreçleriyle netleştiğinden kurulu güç buna göre planlanır.
+
 ## İlgili hizmetler ve projeler
 
 - [Tarımsal Sulama](https://www.gespaenerji.com/tarimsal-sulama.html)

@@ -59,9 +59,23 @@ Business Since
 
 2005 · uninterrupted activity in the sector
 
-Company Registration
+Frequently Asked Questions
 
-2005 · 01.11.2022, corporate restructuring
+## Contact and site survey
+
+### What should I prepare for a site survey and quote?
+
+Your electricity bills for the last 12 months or your monthly consumption, the location of the site, any photos of the roof or land, and what you expect from the system (savings, backup power, irrigation) make the quote more accurate. The site survey and savings analysis are free.
+
+### Where can I get information about my order or payment?
+
+After an online card payment, a payment confirmation and a link to a printable receipt are sent to your email address. For questions, contact us by phone or WhatsApp with your order number.
+
+### Where can I find your company details?
+
+Our trade name, MERSIS, tax and trade registry details are in the Company Details section on this page; you can use them for corporate purchases and invoicing.
+
+[All questions →](https://www.gespaenerji.com/en/sss.html)
 
 ---
 Kaynak sayfa: https://www.gespaenerji.com/en/iletisim.html · GESPA Enerji · 0543 743 42 09 · info@gespaenerji.com · Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01, Manavgat / Antalya

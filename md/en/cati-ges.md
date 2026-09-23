@@ -25,6 +25,24 @@ A quote should specify panel and inverter models, DC capacity, mounting, electri
 
 Cost depends on equipment, roof conditions and scope. Savings depend on generation, daytime use and tariffs. The calculator gives an estimate; the final quote follows site assessment and design.
 
+## Frequently Asked Questions
+
+### Can panels be installed on tile, sandwich-panel and concrete roofs?
+
+Yes. The mounting system is chosen for the roof type: hooks on tile roofs, rails and clamps on trapezoidal and sandwich panels, and tilted frames on flat concrete roofs. Whether the roof structure is suitable is checked during the site survey.
+
+### Can panels go on a north-facing or shaded roof?
+
+They can, but output is lower; south, east and west orientations are more productive. Because shade can also reduce the output of the whole string, a shading analysis is done during the site survey and the layout is adjusted if needed.
+
+### How long does a rooftop installation take?
+
+On-site installation depends on the system size; for homes it usually takes a few days. The overall timeline is mostly set by the distribution company's application and approval steps and becomes clear after the site survey.
+
+### Will the weight of the panels harm the roof?
+
+Panels and the mounting system add load to the roof. Whether the structure can carry this load together with wind and snow effects is assessed during the site survey; if needed, a structural review is requested.
+
 ## Related services and projects
 
 - [Kemer Villa: 12 kWp Rooftop PV](https://www.gespaenerji.com/en/proje-kemer-villa.html)

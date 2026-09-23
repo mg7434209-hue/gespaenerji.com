@@ -25,6 +25,24 @@ Not every battery system automatically powers the whole building. Backup output,
 
 Share appliances, operating hours, existing inverter model and backup time. The System Builder provides an initial requirements list; final selection follows technical review.
 
+## Frequently Asked Questions
+
+### Can I add a battery to my existing solar system?
+
+It depends on whether the existing inverter supports a battery. With a hybrid inverter the battery can be added directly; otherwise a separate AC-coupled battery inverter is used. Compatibility is confirmed by a technical review.
+
+### How is battery capacity calculated?
+
+Daily consumption (kWh) is multiplied by the desired days of autonomy and then divided by the battery's usable depth of discharge and the system efficiency. The battery sizing tool in the calculator does this with your own figures.
+
+### How is battery life expressed?
+
+Battery life is given as a number of cycles (charge–discharge rounds) rather than years and depends on the chemistry, depth of discharge and temperature. Each product's cycle life is stated in the manufacturer's data sheet.
+
+### Where should the battery be installed?
+
+In a ventilated place out of direct sunlight, protected from moisture and within the temperature range stated by the manufacturer. High temperatures shorten battery life.
+
 ## Related services and projects
 
 - [Rooftop Solar in Manavgat and Antalya](https://www.gespaenerji.com/en/cati-ges.html)

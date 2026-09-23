@@ -155,6 +155,34 @@ Joining the panel lead to the solar cable
 
 VAT included · shipping excluded
 
+Frequently Asked Questions
+
+## Orders, shipping and payment
+
+### What are the shipping cost and delivery time?
+
+Products are shipped by contracted courier to every province of Türkiye. For items whose card says “VAT & shipping included”, shipping is included in the price; for the others it is paid by the buyer and stated exactly at order confirmation.
+
+Estimated delivery after order confirmation: **2–5** business days.
+
+### Which payment methods can I use?
+
+You can pay by credit card (secure payment via iyzico) or by bank transfer/EFT. For products with a bank-transfer discount, the discounted amount shown on the card applies; card payments are charged at the list price.
+
+### How do returns and the right of withdrawal work?
+
+Right of withdrawal (distance sales): **14** days — return shipping is paid by the buyer.
+
+For damaged or defective goods all costs are ours — please inspect the parcel in front of the courier on delivery.
+
+[Returns and delivery terms →](https://www.gespaenerji.com/iade-teslimat.html)
+
+### Do I get an invoice for my order?
+
+Yes, an invoice is issued for every order; that is why your Turkish ID number is requested at checkout. For an invoice in a company's name, contact us before ordering.
+
+[All questions →](https://www.gespaenerji.com/en/sss.html)
+
 ## Let's find the right product together
 
 Contact us for a free survey and a transparent quote.

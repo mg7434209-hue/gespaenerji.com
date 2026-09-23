@@ -25,6 +25,24 @@ Monitoring und Fehlermeldungen werden mit Wetter, Jahreszeit, Verschattung und Z
 
 Nennen Sie Standort, Leistung, Wechselrichtermodell und Fehlercode. Umfang und Termin werden nach Prüfung unter Berücksichtigung der Garantie vereinbart.
 
+## Häufige Fragen
+
+### Wie oft sollte eine Solaranlage gewartet werden?
+
+Die Häufigkeit richtet sich nach Verschmutzung, Umgebungsbedingungen und Anlagengröße. Zeigen die Monitoringdaten einen unerwarteten Ertragsrückgang, wird zusätzlich geprüft.
+
+### Wie sollten die Module gereinigt werden?
+
+Gemäß Herstellerangaben mit nicht scheuernden Mitteln und geeignetem Wasser; Hochdruckreiniger und harte Bürsten können die Oberfläche beschädigen. Arbeiten auf dem Dach erfordern Sicherheitsvorkehrungen.
+
+### Was bringt Fernüberwachung?
+
+Aktueller und vergangener Ertrag werden über Wechselrichter und Monitoringplattform verfolgt; Störungen und Warnungen fallen früh auf, Ertragsverluste bleiben nicht lange unbemerkt.
+
+### Was passiert ohne Wartung?
+
+Verschmutzung, gelockerte Verbindungen und unbemerkte Wechselrichterfehler mindern den Ertrag und können in manchen Fällen ein Sicherheitsrisiko darstellen. Regelmäßige Prüfung und Überwachung erkennen diese Verluste früh.
+
 ## Weitere Leistungen und Projekte
 
 - [Aufdach-PV in Manavgat und Antalya](https://www.gespaenerji.com/de/cati-ges.html)

@@ -25,6 +25,24 @@ Nicht jeder Speicher versorgt automatisch das ganze Gebäude. Ersatzstromausgang
 
 Nennen Sie Geräte, Laufzeiten, Wechselrichtermodell und Überbrückungszeit. Der Konfigurator liefert eine erste Bedarfsliste; die endgültige Auswahl folgt nach technischer Prüfung.
 
+## Häufige Fragen
+
+### Kann ich meine bestehende Solaranlage um einen Akku erweitern?
+
+Das hängt davon ab, ob der vorhandene Wechselrichter einen Akku unterstützt. Bei einem Hybridwechselrichter lässt sich der Akku direkt ergänzen; andernfalls wird ein zusätzlicher AC-gekoppelter Batteriewechselrichter eingesetzt. Die Kompatibilität wird technisch geprüft.
+
+### Wie wird die Akkukapazität berechnet?
+
+Der Tagesverbrauch (kWh) wird mit der gewünschten Autonomiedauer multipliziert und dann durch die nutzbare Entladetiefe des Akkus und den Systemwirkungsgrad geteilt. Das Werkzeug zur Akkudimensionierung im Rechner macht das mit Ihren eigenen Werten.
+
+### Wie wird die Lebensdauer eines Akkus angegeben?
+
+Die Lebensdauer wird statt in Jahren in Zyklen (Lade-Entlade-Durchgängen) angegeben und hängt von Chemie, Entladetiefe und Temperatur ab. Die Zyklenzahl jedes Produkts steht im Datenblatt des Herstellers.
+
+### Wo sollte der Akku aufgestellt werden?
+
+An einem belüfteten Ort ohne direkte Sonneneinstrahlung, geschützt vor Feuchtigkeit und innerhalb des vom Hersteller angegebenen Temperaturbereichs. Hohe Temperaturen verkürzen die Lebensdauer des Akkus.
+
 ## Weitere Leistungen und Projekte
 
 - [Aufdach-PV in Manavgat und Antalya](https://www.gespaenerji.com/de/cati-ges.html)

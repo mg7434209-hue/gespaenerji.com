@@ -85,11 +85,10 @@ GESPA startete in einer Zeit, als Solarenergie in der Türkei erst von wenigen U
 - 2012 Forschung **Pionierarbeit bei neuen Produktgruppen**Produktgruppen, die damals neu auf den türkischen Markt kamen — etwa Solar-Warmwasserbereiter und solarbetriebene Bewässerungspumpen —, brachten wir in die Praxis; auf Basis der Nutzungsdaten starteten wir unsere Produktentwicklung.
 - 2015 Skalierung **Übergang zum industriellen Maßstab**Von Wohngebäuden gingen wir zu Industrie- und Tourismusanlagen über; durchgängige EPC-Kompetenz (Engineering, Beschaffung, Bau) bei industriellen Aufdach- und Freiflächenprojekten samt Steuerung der Genehmigungsverfahren beim Netzbetreiber wurde Teil unseres Leistungsumfangs.
 - 2019 Export **Grenzüberschreitende Belieferung**Mit der Lieferung von Modulen, Wechselrichtern und Komplettsystemen für Projekte im Ausland wurden wir auch im Export aktiv; unser internationales Hersteller- und Lieferantennetz wuchs.
-- 2022 Verselbstständigung **Gespa Enerji Sanayi Ticaret Ltd. Şti.**Angesichts des wachsenden Projektvolumens und unserer Unternehmenspartnerschaften haben wir unsere Tätigkeit unter dem Dach einer GmbH strukturiert; die Eintragung ins Handelsregister erfolgte am 01.11.2022.
 - 2023 Wachstum **15 MW installierte Leistung**Wir erreichten in der Region über 15 MW installierte Leistung; Fernüberwachung und Wartung (O&M) wurden fester Bestandteil jedes Projekts.
 - 2026 Innovation **500+ Projekte und wachsende Produktfamilie**Über 500 abgeschlossene Projekte in ganz Antalya; mit dem Online-Shop GES Marketim, dem B2B-Großhandel und dem KI-gestützten AI-Rettungsschwimmer-Assistenzsystem haben wir unsere Produktfamilie erweitert.
 
-Unsere Tätigkeit unter der Marke GESPA besteht seit 2005 ununterbrochen in Manavgat; am 01.11.2022 wurde die Verselbstständigung abgeschlossen und die Gespa Enerji Sanayi Ticaret Limited Şirketi ins Handelsregister eingetragen. Unser Registereintrag datiert daher auf 2022, unsere Branchenerfahrung auf 2005. [Unser Firmenimpressum →](https://www.gespaenerji.com/de/iletisim.html#main)
+GESPA ist seit 2005 ohne Unterbrechung in Manavgat im Bereich Solarenergie tätig. [Unser Firmenimpressum →](https://www.gespaenerji.com/de/iletisim.html#main)
 
 ## Starten Sie mit uns
 

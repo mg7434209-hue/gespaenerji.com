@@ -1933,3 +1933,25 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
 .mset-share{background:none;border:0;padding:4px 0;font:inherit;font-size:.85rem;font-weight:600;
   color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .mset-share:hover{color:var(--green)}
+
+/* ===== SSS merkezi (sss.html) + GES sözlüğü (sozluk.html) =====
+   İçerik build'de content/sss.js ve content/sozluk.js'ten basılır.
+   Konu/terim çipleri çapalara gider; sticky header altında kalmasın diye
+   scroll-margin-top verilir. */
+.faqhub-toc,.gl-index{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 30px}
+.faqhub-toc a,.gl-index a{display:inline-block;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);font-size:.86rem;font-weight:600;line-height:1.3;text-decoration:none}
+.faqhub-toc a:hover,.gl-index a:hover,.faqhub-toc a:focus-visible,.gl-index a:focus-visible{border-color:var(--green);color:var(--green)}
+.faqhub-group{scroll-margin-top:96px}
+.faqhub-group+.faqhub-group{margin-top:44px}
+.faqhub-group>h2{font-size:1.3rem;margin:0 0 14px}
+.faqhub-src,.faqhub-more{margin:14px 0 0;font-size:.92rem}
+.faqhub-more{text-align:center;margin-top:20px}
+.faqhub-src a,.faqhub-more a,.gl-more a,.faq-a p a{color:var(--green);font-weight:700}
+.gl-term{padding:20px 0;border-bottom:1px solid var(--line);scroll-margin-top:96px}
+.gl-term:last-child{border-bottom:0}
+.gl-term h2{font-size:1.15rem;margin:0 0 6px}
+.gl-term p{margin:0;color:var(--muted);line-height:1.65}
+.gl-term p+p{margin-top:8px}
+.gl-term:target{background:color-mix(in srgb,var(--green) 6%,transparent);border-radius:12px;padding-left:14px;padding-right:14px}
+.seo-faq{margin-top:36px}
+.seo-faq h2{margin-bottom:14px}

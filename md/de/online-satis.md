@@ -155,6 +155,34 @@ Verbindung von Modulleitung und Solarkabel
 
 Inkl. MwSt. · zzgl. Versand
 
+Häufige Fragen
+
+## Bestellung, Versand und Zahlung
+
+### Wie hoch sind Versandkosten und Lieferzeit?
+
+Die Produkte werden per Vertragsspedition in alle Provinzen der Türkei geliefert. Bei Artikeln mit dem Hinweis „Inkl. MwSt. & Versand“ ist der Versand im Preis enthalten; bei den übrigen trägt der Käufer die Versandkosten, die bei der Bestellbestätigung genau genannt werden.
+
+Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
+
+### Welche Zahlungsarten gibt es?
+
+Sie können per Kreditkarte (sichere Zahlung über iyzico) oder per Überweisung/EFT bezahlen. Bei Produkten mit Überweisungsrabatt gilt der auf der Karte angegebene reduzierte Betrag; bei Kartenzahlung wird der Listenpreis berechnet.
+
+### Wie funktionieren Rückgabe und Widerruf?
+
+Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendekosten trägt der Käufer.
+
+Bei beschädigter oder mangelhafter Ware tragen wir alle Kosten — bitte prüfen Sie das Paket bei der Übergabe vor dem Zusteller.
+
+[Rückgabe- und Lieferbedingungen →](https://www.gespaenerji.com/iade-teslimat.html)
+
+### Erhalte ich eine Rechnung für meine Bestellung?
+
+Ja, für jede Bestellung wird eine Rechnung ausgestellt; deshalb wird beim Bezahlen die türkische Identitätsnummer abgefragt. Für eine Rechnung auf ein Unternehmen kontaktieren Sie uns bitte vor der Bestellung.
+
+[Alle Fragen →](https://www.gespaenerji.com/de/sss.html)
+
 ## Finden wir gemeinsam das passende Produkt
 
 Kontaktieren Sie uns für eine kostenlose Begehung und ein transparentes Angebot.

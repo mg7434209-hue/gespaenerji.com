@@ -59,9 +59,23 @@ Tätig seit
 
 2005 · ununterbrochen in der Branche tätig
 
-Handelsregistereintrag
+Häufige Fragen
 
-2005 · 01.11.2022, Verselbstständigung
+## Kontakt und Vor-Ort-Termin
+
+### Was sollte ich für Vor-Ort-Termin und Angebot vorbereiten?
+
+Ihre Stromrechnungen der letzten 12 Monate oder Ihr Monatsverbrauch, der Standort, vorhandene Fotos von Dach oder Fläche und Ihre Erwartungen an die Anlage (Ersparnis, Notstrom, Bewässerung) machen das Angebot genauer. Vor-Ort-Termin und Einsparanalyse sind kostenlos.
+
+### Wo erhalte ich Informationen zu meiner Bestellung oder Zahlung?
+
+Nach einer Online-Kartenzahlung erhalten Sie per E-Mail eine Zahlungsbestätigung und einen Link zu einer druckbaren Quittung. Bei Fragen erreichen Sie uns telefonisch oder per WhatsApp mit Ihrer Bestellnummer.
+
+### Wo finde ich Ihre Firmenangaben?
+
+Firmenname, MERSIS-, Steuer- und Handelsregisterdaten finden Sie im Abschnitt Firmenangaben auf dieser Seite; Sie können sie für Firmeneinkäufe und die Rechnungsstellung verwenden.
+
+[Alle Fragen →](https://www.gespaenerji.com/de/sss.html)
 
 ---
 Kaynak sayfa: https://www.gespaenerji.com/de/iletisim.html · GESPA Enerji · 0543 743 42 09 · info@gespaenerji.com · Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01, Manavgat / Antalya

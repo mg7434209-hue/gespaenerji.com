@@ -25,6 +25,24 @@ Neben der Fläche zählen Reihenabstände, Wartungswege, Verschattung und Anschl
 
 Teilen Sie Standort, Nutzfläche, Anschluss und Verbrauch mit. Für Bewässerung werden Pumpenleistung, tägliche Betriebsstunden und Saison benötigt.
 
+## Häufige Fragen
+
+### Wie viel Fläche braucht eine Freiflächenanlage?
+
+Der Flächenbedarf hängt von der Zielleistung, dem Reihenabstand und der Hangneigung ab. Die Werkzeuge für Modulbelegung und Reihenabstand im Rechner liefern eine erste Schätzung; die endgültige Belegung wird bei Vor-Ort-Termin und Planung festgelegt.
+
+### Darf auf landwirtschaftlicher Fläche eine Solaranlage gebaut werden?
+
+Einstufung und zulässige Nutzung der Fläche unterliegen den Vorschriften der zuständigen Behörden; die Eignung wird daher für jedes Projekt einzeln geprüft. Bei Bewässerungsanlagen werden Pumpenbedarf und Erzeugung gemeinsam geplant.
+
+### Warum ist der Reihenabstand wichtig?
+
+Im Winter steht die Sonne tief, sodass eine vordere Reihe die dahinterliegende verschatten kann. Der Reihenabstand wird aus Breitengrad und Modulneigung berechnet, um diese Verschattung zu begrenzen; das Reihenabstand-Werkzeug im Rechner liefert einen ersten Wert.
+
+### Warum wird die Netzanschlusskapazität zu Beginn geprüft?
+
+Damit der erzeugte Strom ins Netz eingespeist werden kann, braucht der Anschlusspunkt ausreichend Kapazität. Kapazität und Anschlussbedingungen werden im Verfahren des Verteilnetzbetreibers bestätigt; die installierte Leistung wird entsprechend geplant.
+
 ## Weitere Leistungen und Projekte
 
 - [Solar-Bewässerung](https://www.gespaenerji.com/de/tarimsal-sulama.html)

@@ -14,6 +14,8 @@ const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
 const seo = require("./content/build-seo");
+const HELP = require("./content/sss");          // SSS merkezi (sss.html)
+const GLOSSARY = require("./content/sozluk");   // GES sözlüğü (sozluk.html)
 
 const ROOT = __dirname;
 const ORIGIN = "https://www.gespaenerji.com";
@@ -47,6 +49,9 @@ const TR_ONLY = [
 ];
 
 PAGES.push(...seo.pages.map(p => p.file));
+// Yardım sayfaları EN SONDA: sss.html diğer sayfaların güncel SSS'lerini
+// diskten toplar; o sayfalar bu döngüde önce işlenmiş olmalı.
+PAGES.push("sozluk.html", "sss.html");
 
 // Sayfa başına dil-özel <title> ve meta description (en kritik SEO sinyalleri)
 const META = {
@@ -129,6 +134,22 @@ const META = {
           d: "Komplettset für Lasten-Dreiräder: 655-W-N-Type-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Maximaler Ertrag für große Dachflächen." },
     ru: { t: "Солнечный комплект для грузового трицикла — 655 Вт | GESPA",
           d: "Готовый комплект для грузовых трициклов: панель 655 Вт N-type TOPCon, контроллер BOOST MPPT 24–72 В, кабель и MC4." }
+  },
+  "sss.html": {
+    en: { t: "Frequently Asked Questions — Solar Power, Orders and Installation | GESPA Energy",
+          d: "Answers about solar power plants, batteries, EV solar conversion, ordering, shipping, payment and installation in one place. GESPA Energy, Manavgat / Antalya." },
+    de: { t: "Häufige Fragen — Solarenergie, Bestellung und Montage | GESPA Energy",
+          d: "Antworten zu Solaranlagen, Akkus, Solarumrüstung von E-Fahrzeugen, Bestellung, Versand, Zahlung und Montage an einem Ort. GESPA Energy, Manavgat / Antalya." },
+    ru: { t: "Частые вопросы — солнечная энергия, заказ и монтаж | GESPA",
+          d: "Ответы о солнечных станциях, аккумуляторах, солнечном переоснащении электротранспорта, заказе, доставке, оплате и монтаже в одном месте." }
+  },
+  "sozluk.html": {
+    en: { t: "Solar Glossary — PV, Battery and Inverter Terms Explained | GESPA Energy",
+          d: "kWp, MPPT, TOPCon, LiFePO₄, DoD, net metering and more: short, plain-language explanations of solar, battery and EV conversion terms." },
+    de: { t: "Solar-Glossar — Begriffe zu PV, Akku und Wechselrichter | GESPA Energy",
+          d: "kWp, MPPT, TOPCon, LiFePO₄, DoD, Saldierung und mehr: kurze, verständliche Erklärungen zu Solar-, Akku- und E-Fahrzeug-Begriffen." },
+    ru: { t: "Словарь солнечной энергетики — термины PV, аккумуляторов и инверторов | GESPA",
+          d: "kWp, MPPT, TOPCon, LiFePO₄, DoD, взаимозачёт и другое: краткие и понятные объяснения терминов солнечной энергетики и аккумуляторов." }
   },
   "aku-lifepo4-72v-30ah.html": {
     en: { t: "europlus 72 V 30 Ah LiFePO₄ Battery — 72V Lithium | GESPA Energy",
@@ -282,6 +303,101 @@ function hydrateSisterSites(html, c) {
   if (!sites.length) return html;
   // İlk kez: footer'daki GES Marketim bağlantısının HEMEN ardına ekle
   return html.replace(/(<a href="https:\/\/www\.gesmarketim\.com"[^>]*>[^<]*<\/a>)/g, "$1" + wrapped);
+}
+
+// ---- SSS şeması: HER ZAMAN görünen sorulardan üretilir ----
+// Elle yazılan FAQPage blokları sayfadaki metinden kopup kayıyordu (index.html
+// şeması sayfada olmayan bir soru taşıyordu; paket sayfasından kopyalanan
+// sayfalar başka ürünün SSS'ini taşıyordu). Artık tek kaynak görünen
+// .faq-item'lardır: TR'de injectStaticLd, dil kopyasında transform() çevrilmiş
+// gövdeden yeniden üretir → şema her dilde sayfayla birebir aynıdır.
+// sss.html'de diğer sayfalardan toplanan sorular (FAQHUB) şemaya GİRMEZ:
+// kaynak sayfada zaten işaretlidirler (Google aynı soru-cevabı tek yerde ister).
+const FAQ_ITEM_RE = /<div class="faq-item[^"]*"><button class="faq-q"[^>]*>([\s\S]*?)<\/button><div class="faq-a"[^>]*>([\s\S]*?)<\/div><\/div>/g;
+const FAQHUB_RE = /<!-- FAQHUB:STATIC -->[\s\S]*?<!-- \/FAQHUB:STATIC -->/;
+function faqText(x) {
+  return decodeEnt(String(x)
+    .replace(/<span class="faq-ico"[^>]*>[\s\S]*?<\/span>/g, "")
+    .replace(/<p[^>]*>\s*<a\b[^>]*>[\s\S]*?<\/a>\s*<\/p>/g, " ")   // yalnız bağlantı olan paragraf (ör. "… göz atın →")
+    .replace(/<\/(p|li|div)>/g, " ").replace(/<br\s*\/?>/g, " ")
+    .replace(/<[^>]+>/g, "")).replace(/\s+/g, " ").trim();
+}
+function faqItems(html) {
+  const out = [], re = new RegExp(FAQ_ITEM_RE.source, "g"), body = html.replace(FAQHUB_RE, "");
+  let m;
+  while ((m = re.exec(body)) !== null) {
+    const q = faqText(m[1]), a = faqText(m[2]);
+    if (q && a) out.push({ q: q, a: a });
+  }
+  return out;
+}
+function faqLdFromHtml(html) {
+  const items = faqItems(html);
+  if (!items.length) return null;
+  return {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    mainEntity: items.map(x => ({ "@type": "Question", name: x.q, acceptedAnswer: { "@type": "Answer", text: x.a } }))
+  };
+}
+
+// ---- Yardım: footer bağlantıları + SSS merkezi + GES sözlüğü ----
+// Footer "Kurumsal" sütununa (SISTER:STATIC'in ardına) SSS ve Sözlük
+// bağlantıları — üst menüye EKLENMEZ (menü genişlik kuralı). Metinler
+// content/sss.js + content/sozluk.js'ten; dil kopyaları gövde çevirisiyle.
+function faqItemHtml(q, a, link) {
+  return '<div class="faq-item reveal"><button class="faq-q"><span>' + esc(q) + '</span><span class="faq-ico">+</span></button>'
+    + '<div class="faq-a"><p>' + esc(a) + '</p>'
+    + (link ? '<p><a href="' + esc(link.href) + '">' + esc(link.text[0]) + '</a></p>' : "") + '</div></div>';
+}
+function hydrateHelp(html, file) {
+  const help = '<!-- HELP:STATIC --><a href="sss.html">' + esc(HELP.labels.title[0]) + '</a><a href="sozluk.html">'
+    + esc(GLOSSARY.labels.title[0]) + '</a><!-- /HELP:STATIC -->';
+  if (/<!-- HELP:STATIC -->/.test(html)) html = html.replace(/<!-- HELP:STATIC -->[\s\S]*?<!-- \/HELP:STATIC -->/g, () => help);
+  else html = html.replace(/(<!-- \/SISTER:STATIC -->)/, m => m + help);
+
+  if (file === "sss.html") {
+    const gen = HELP.general.map(g => faqItemHtml(g[0][0], g[1][0], g[2])).join("");
+    html = html.replace(/<!-- FAQGEN:STATIC -->[\s\S]*?<!-- \/FAQGEN:STATIC -->/, () => "<!-- FAQGEN:STATIC -->" + gen + "<!-- /FAQGEN:STATIC -->");
+    // Diğer sayfaların görünen SSS'leri — kaynak sayfanın HTML'inden, aynen
+    const groups = [];
+    HELP.groups.forEach(g => {
+      const src = path.join(ROOT, g.file);
+      if (!fs.existsSync(src)) return;
+      const h = fs.readFileSync(src, "utf8").replace(FAQHUB_RE, "");
+      const items = [...h.matchAll(new RegExp(FAQ_ITEM_RE.source, "g"))].map(m => m[0]);
+      if (!items.length) return;
+      groups.push({ id: "sss-" + g.file.replace(/\.html$/, ""), g: g, items: items });
+    });
+    const hub = groups.map(x => '<section class="faqhub-group" id="' + x.id + '"><h2>' + esc(x.g.title[0]) + "</h2>"
+      + '<div class="faq">' + x.items.join("") + "</div>"
+      + '<p class="faqhub-src"><a href="' + esc(x.g.file) + '">' + esc(HELP.labels.source[0]) + "</a></p></section>").join("");
+    html = html.replace(FAQHUB_RE, () => "<!-- FAQHUB:STATIC -->" + hub + "<!-- /FAQHUB:STATIC -->");
+    const toc = '<nav class="faqhub-toc" aria-label="' + esc(HELP.labels.toc[0]) + '">'
+      + '<a href="#sss-genel">' + esc(HELP.labels.generalKicker[0]) + "</a>"
+      + groups.map(x => '<a href="#' + x.id + '">' + esc(x.g.title[0]) + "</a>").join("") + "</nav>";
+    html = html.replace(/<!-- FAQTOC:STATIC -->[\s\S]*?<!-- \/FAQTOC:STATIC -->/, () => "<!-- FAQTOC:STATIC -->" + toc + "<!-- /FAQTOC:STATIC -->");
+  }
+  if (file === "sozluk.html") {
+    const idx = '<nav class="gl-index" aria-label="' + esc(GLOSSARY.labels.index[0]) + '">'
+      + GLOSSARY.terms.map(t => '<a href="#' + t.id + '">' + esc(t.term[0]) + "</a>").join("") + "</nav>";
+    const body = GLOSSARY.terms.map(t => '<section class="gl-term" id="' + t.id + '"><h2>' + esc(t.term[0]) + "</h2>"
+      + "<p>" + esc(t.def[0]) + "</p>"
+      + (t.link ? '<p class="gl-more"><a href="' + esc(t.link.href) + '">' + esc(t.link.text[0]) + "</a></p>" : "") + "</section>").join("");
+    html = html.replace(/<!-- GLOSSARY:STATIC -->[\s\S]*?<!-- \/GLOSSARY:STATIC -->/, () => "<!-- GLOSSARY:STATIC -->" + idx + body + "<!-- /GLOSSARY:STATIC -->");
+  }
+  return html;
+}
+// Sözlük şeması: DefinedTermSet + terim başına DefinedTerm (çapa URL'li)
+function glossaryLd(cfg) {
+  const base = cfg.company.web + "/sozluk.html";
+  return {
+    "@context": "https://schema.org", "@type": "DefinedTermSet", "@id": base + "#set",
+    name: GLOSSARY.labels.title[0], description: GLOSSARY.labels.lead[0], url: base, inLanguage: "tr",
+    hasDefinedTerm: GLOSSARY.terms.map(t => ({
+      "@type": "DefinedTerm", "@id": base + "#" + t.id, name: t.term[0], description: t.def[0],
+      url: base + "#" + t.id, inDefinedTermSet: { "@id": base + "#set" }
+    }))
+  };
 }
 
 // ---- Head hijyeni: robots meta + og:locale:alternate ----
@@ -790,6 +906,10 @@ function webAppLd(cfg) {
 const LD_RE = /[ \t]*<!-- LD:STATIC[\s\S]*?\/LD:STATIC -->\n?/;
 function injectStaticLd(html, file, cfg) {
   const web = cfg.company.web;
+  // Elle yazılmış FAQPage blokları (data-gld'siz) kaldırılır — şema artık
+  // görünen .faq-item'lardan üretilir (faqLdFromHtml).
+  html = html.replace(/[ \t]*<script type="application\/ld\+json">[\s\S]*?<\/script>\n?/g,
+    m => /"@type"\s*:\s*"FAQPage"/.test(m) ? "" : m);
   const objs = [localBusinessLd(cfg.company, cfg)];
   // WebSite varlığı HER sayfada (küçük): WebPage.isPartOf @id'si aynı sayfada
   // çözülsün. @id + publisher @id: arama ve AI motorları siteyi ve firmayı
@@ -820,6 +940,9 @@ function injectStaticLd(html, file, cfg) {
     if (p) objs.push(packageProductLd(cfg, p, html));
   }
   if (file === "projeler.html") { const pl = projectsItemListLd(html, cfg); if (pl) objs.push(pl); }
+  if (file === "sozluk.html") objs.push(glossaryLd(cfg));
+  const faq = faqLdFromHtml(html);
+  if (faq) objs.push(faq);
   if (bc) objs.push(bc);
   const block = "  <!-- LD:STATIC — build.js config'ten üretir; elle düzenlemeyin -->\n"
     + objs.map(o => '  <script type="application/ld+json" data-gld="' + String(o["@type"] || "x").toLowerCase() + '">' + JSON.stringify(o) + "</script>").join("\n")
@@ -1204,7 +1327,8 @@ const PRIORITY = {
   "hakkimizda.html": "0.6", "iletisim.html": "0.8",
   "elektrikli-arac-donusum.html": "0.8", "unv-trek-pro-2500.html": "0.8",
   "kvkk.html": "0.3", "gizlilik.html": "0.3", "cerez-politikasi.html": "0.3",
-  "mesafeli-satis-sozlesmesi.html": "0.4", "iade-teslimat.html": "0.4"
+  "mesafeli-satis-sozlesmesi.html": "0.4", "iade-teslimat.html": "0.4",
+  "sss.html": "0.7", "sozluk.html": "0.6"
 };
 /* ============================================================
    AI DOSYALARI — llms.txt (özet, build üretir) ve /md/ Markdown kopyalar.
@@ -1745,6 +1869,9 @@ function transform(html, lang, file, i18n) {
   // 8) Gövdeyi DICT ile statik çevir — AI botları JS çalıştırmadığı için
   //    /en /de /ru sayfaların ham HTML'i de hedef dilde olmalı
   out = translateBody(out, lang, i18n);
+  // 8b) SSS şeması çevrilmiş GÖRÜNEN sorulardan yeniden üretilir (şema = sayfa)
+  out = out.replace(/(<script type="application\/ld\+json" data-gld="faqpage">)[\s\S]*?(<\/script>)/,
+    (mm, a, b) => { const ld = faqLdFromHtml(out); return ld ? a + JSON.stringify(ld) + b : mm; });
 
   out = out.replace(/href="(\/?)([a-z0-9-]+\.html)([?#][^"]*)?"/g, (match, slash, target, suffix) =>
     PAGES.includes(target) ? 'href="/' + lang + '/' + (target === 'index.html' ? '' : target) + (suffix || '') + '"' : match);
@@ -1789,6 +1916,7 @@ function run() {
     let html = fs.readFileSync(p, "utf8");
     const before = html;
     html = hydrateHead(html, file);
+    html = hydrateHelp(html, file);
     html = hydrateContact(html, cfg.company);
     html = hydrateSisterSites(html, cfg.company);
     html = hydrateExtras(html, file, cfg);

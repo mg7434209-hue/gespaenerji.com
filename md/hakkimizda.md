@@ -85,11 +85,10 @@ GESPA, güneş enerjisinin Türkiye'de henüz sayılı firma tarafından uygulan
 - 2012 Ar-Ge **Yeni ürün gruplarında öncülük**Solar su ısıtıcı ve güneş enerjili sulama pompası gibi o yıllarda Türkiye pazarına yeni giren ürün gruplarını sahaya taşıdık; kullanım verisiyle ürün geliştirme çalışmalarımızı başlattık.
 - 2015 Ölçek **Endüstriyel ölçeğe geçiş**Konut uygulamalarından sanayi ve turizm tesislerine geçtik; endüstriyel çatı ve arazi tipi projelerde uçtan uca mühendislik–tedarik–yapım (EPC) yetkinliği ile dağıtım şirketi onay süreçlerinin yönetimi hizmetimizin parçası oldu.
 - 2019 İhracat **Sınır ötesi tedarik**Yurt dışı projelere panel, inverter ve komple sistem tedarikiyle ihracat tarafında da faaliyet göstermeye başladık; uluslararası üretici ve tedarikçi ağımız genişledi.
-- 2022 Kurumsallaşma **Gespa Enerji Sanayi Ticaret Ltd. Şti.**Artan proje hacmi ve kurumsal iş ortaklıkları doğrultusunda faaliyetlerimizi limited şirket çatısı altında yapılandırdık; ticaret sicili tescilimiz 01.11.2022 tarihinde tamamlandı.
 - 2023 Büyüme **15 MW kurulu güç**Bölgede 15 MW'ı aşan kurulu güce ulaştık; uzaktan izleme ve bakım (O&M) hizmetini her projenin standart parçası hâline getirdik.
 - 2026 İnovasyon **500+ proje ve genişleyen ürün ailesi**Antalya genelinde 500'ü aşkın tamamlanmış proje; GES Marketim e-mağazası, B2B toptan tedarik ve yapay zekâ tabanlı AI Cankurtaran Destek Sistemi ile ürün ailemizi genişlettik.
 
-GESPA markası altındaki faaliyetimiz 2005 yılından bu yana Manavgat'ta kesintisiz sürmektedir; 01.11.2022 tarihinde kurumsal yapılanma tamamlanarak Gespa Enerji Sanayi Ticaret Limited Şirketi ticaret siciline tescil edilmiştir. Sicil tescil tarihimiz 2022, sektör deneyimimiz 2005 başlangıçlıdır. [Şirket künyemiz →](https://www.gespaenerji.com/iletisim.html#main)
+GESPA, 2005 yılından bu yana Manavgat'ta güneş enerjisi alanında kesintisiz faaliyet göstermektedir. [Şirket künyemiz →](https://www.gespaenerji.com/iletisim.html#main)
 
 ## Bizimle çalışmaya başlayın
 

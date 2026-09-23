@@ -25,6 +25,24 @@ Modul- und Wechselrichtermodell, DC-Leistung, Montage, Schutztechnik, Arbeit und
 
 Kosten hängen von Komponenten, Dach und Umfang ab. Einsparungen richten sich nach Ertrag, Tagesverbrauch und Tarif. Der Rechner schätzt; das endgültige Angebot folgt nach Prüfung und Planung.
 
+## Häufige Fragen
+
+### Ist die Montage auf Ziegel-, Sandwichpaneel- und Betondächern möglich?
+
+Ja. Das Montagesystem wird nach Dachtyp gewählt: Dachhaken bei Ziegeln, Schienen und Klemmen bei Trapez- und Sandwichpaneelen, aufgeständerte Gestelle bei flachen Betondächern. Ob die Dachkonstruktion geeignet ist, wird beim Vor-Ort-Termin geprüft.
+
+### Können Module auf ein Norddach oder ein verschattetes Dach?
+
+Ja, aber der Ertrag ist geringer; Süd-, Ost- und Westausrichtung sind ertragreicher. Da Schatten auch den Ertrag des ganzen Strings mindern kann, wird beim Vor-Ort-Termin eine Verschattungsanalyse gemacht und die Belegung bei Bedarf angepasst.
+
+### Wie lange dauert die Montage einer Aufdachanlage?
+
+Die Montage vor Ort hängt von der Anlagengröße ab; bei Wohnhäusern dauert sie meist einige Tage. Die Gesamtdauer bestimmen vor allem Antrag und Genehmigung beim Verteilnetzbetreiber; der Zeitplan steht nach dem Vor-Ort-Termin fest.
+
+### Schadet das Gewicht der Module dem Dach?
+
+Module und Montagesystem bedeuten zusätzliche Last für das Dach. Ob die Konstruktion diese Last samt Wind- und Schneeeinwirkung trägt, wird beim Vor-Ort-Termin beurteilt; bei Bedarf wird eine statische Prüfung verlangt.
+
 ## Weitere Leistungen und Projekte
 
 - [Villa in Kemer: 12 kWp Aufdach-PV](https://www.gespaenerji.com/de/proje-kemer-villa.html)

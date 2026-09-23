@@ -155,6 +155,34 @@ Panel kablosu ile solar kablonun birleştirilmesi
 
 KDV dahil · kargo hariç
 
+Sıkça Sorulan Sorular
+
+## Sipariş, kargo ve ödeme
+
+### Kargo ücreti ve teslim süresi nedir?
+
+Ürünler Türkiye'nin her iline anlaşmalı kargo ile gönderilir. Kartında “KDV ve kargo dahil” yazan ürünlerde kargo fiyata dahildir; diğerlerinde kargo ücreti alıcıya aittir ve sipariş onayında net olarak bildirilir.
+
+Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
+
+### Hangi ödeme yöntemleriyle ödeyebilirim?
+
+Kredi kartıyla (iyzico güvenli ödeme) ya da havale/EFT ile ödeyebilirsiniz. Havale/EFT indirimi olan ürünlerde kartta yazan indirimli tutar geçerlidir; kart ödemesinde liste fiyatı tahsil edilir.
+
+### İade ve cayma hakkı nasıl işler?
+
+Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
+
+Hasarlı veya ayıplı üründe tüm masraflar bize aittir — kargoyu teslim alırken paketi görevli önünde kontrol edin.
+
+[İade ve teslimat koşulları →](https://www.gespaenerji.com/iade-teslimat.html)
+
+### Siparişime fatura kesiliyor mu?
+
+Evet, her siparişe fatura düzenlenir; bu nedenle ödeme sırasında T.C. kimlik numarası istenir. Firma adına fatura için sipariş öncesinde bize ulaşın.
+
+[Tüm sorular →](https://www.gespaenerji.com/sss.html)
+
 ## Hangi ürün size uygun, birlikte bakalım
 
 Ücretsiz keşif ve şeffaf teklif için bize ulaşın.

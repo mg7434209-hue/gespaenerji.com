@@ -40,6 +40,13 @@ for(let i=0;i<files.length;i++){
   assert.equal(page['@type'],'ItemPage',file+': product page is ItemPage');
  }
  if(page['@type']==='ItemPage')assert.ok(lds.some(x=>x['@type']==='Product'&&x['@id']===page.mainEntity['@id']),file+': ItemPage.mainEntity resolves');
+ // FAQ schema is generated from the visible questions: same count, same text, in every language.
+ {const body=html.replace(/<!-- FAQHUB:STATIC -->[\s\S]*?<!-- \/FAQHUB:STATIC -->/,'');
+  const vis=[...body.matchAll(/<div class="faq-item[^"]*"><button class="faq-q"[^>]*>([\s\S]*?)<\/button>/g)].map(m=>m[1].replace(/<span class="faq-ico"[^>]*>[\s\S]*?<\/span>/,'').replace(/<[^>]+>/g,'').replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/\s+/g,' ').trim());
+  const faqs=lds.filter(x=>x['@type']==='FAQPage');
+  if(vis.length){assert.equal(faqs.length,1,file+': one FAQPage');assert.deepEqual(faqs[0].mainEntity.map(q=>q.name),vis,file+': FAQPage = visible questions');}
+  else assert.equal(faqs.length,0,file+': FAQPage without visible questions');
+  assert.ok(![...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].some(m=>/"FAQPage"/.test(m[1])),file+': no hand-written FAQPage block');}
  for(const m of html.matchAll(/<link rel="alternate" hreflang="[^"]+" href="([^"]+)"/g))assert.ok(urls.includes(m[1]),file+': missing alternate '+m[1]);
  // Local assets and content links; query strings and fragments are intentionally excluded.
  for(const m of html.matchAll(/(?:href|src|poster)="([^"]+)"/g)){
@@ -82,6 +89,33 @@ for(const lang of ['en','de','ru']){
  assert.ok(html.includes('<meta property="og:locale:alternate" content="tr_TR" />'),lang+': og:locale:alternate tr');
  assert.ok(!html.includes('<meta property="og:locale:alternate" content="'+{en:'en_US',de:'de_DE',ru:'ru_RU'}[lang]+'" />'),lang+': own locale is not an alternate');
 }
+// Help pages: FAQ hub (own questions marked up, collected ones not) and the glossary.
+const help=require(path.join(root,'content/sss.js')),glossary=require(path.join(root,'content/sozluk.js'));
+for(const pre of ['','en/','de/','ru/']){
+ const hub=fs.readFileSync(path.join(root,pre+'sss.html'),'utf8');
+ const hubLd=[...hub.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1]));
+ assert.equal(hubLd.find(x=>x['@type']==='FAQPage').mainEntity.length,help.general.length,pre+'sss.html: only hub-own questions in FAQPage');
+ const collected=(hub.match(/<!-- FAQHUB:STATIC -->([\s\S]*?)<!-- \/FAQHUB:STATIC -->/)||[])[1]||'';
+ assert.ok((collected.match(/class="faq-q"/g)||[]).length>=80,pre+'sss.html: collected questions');
+ const ids=new Set([...hub.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]));
+ for(const m of hub.matchAll(/<nav class="faqhub-toc"[^>]*>([\s\S]*?)<\/nav>/g))for(const a of m[1].matchAll(/href="#([^"]+)"/g))assert.ok(ids.has(a[1]),pre+'sss.html: toc anchor #'+a[1]);
+ const gl=fs.readFileSync(path.join(root,pre+'sozluk.html'),'utf8');
+ const set=[...gl.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1])).find(x=>x['@type']==='DefinedTermSet');
+ assert.equal(set.hasDefinedTerm.length,glossary.terms.length,pre+'sozluk.html: DefinedTermSet');
+ for(const t of glossary.terms){assert.ok(gl.includes('<section class="gl-term" id="'+t.id+'">'),pre+'sozluk.html: #'+t.id);}
+ assert.ok(set.hasDefinedTerm.every(t=>t.url===origin+'/'+pre+'sozluk.html#'+t.url.split('#')[1]),pre+'sozluk.html: localized term urls');
+ if(pre){assert.notEqual(set.name,glossary.labels.title[0],pre+'sozluk.html: translated set name');}
+ // Footer help links on every page that has the corporate column.
+ const home=fs.readFileSync(path.join(root,pre+'index.html'),'utf8');
+ assert.ok(home.includes('<!-- HELP:STATIC --><a href="'+(pre?'/'+pre:'')+'sss.html">')&&home.includes('sozluk.html">'),pre+'index.html: footer help links');
+}
+for(const f of fs.readdirSync(root).filter(f=>f.endsWith('.html'))){
+ const h=fs.readFileSync(path.join(root,f),'utf8');
+ if(h.includes('<!-- /SISTER:STATIC -->'))assert.ok(/<!-- HELP:STATIC --><a href="sss.html">[^<]+<\/a><a href="sozluk.html">[^<]+<\/a><!-- \/HELP:STATIC -->/.test(h),f+': footer help links');
+}
+// About page tells one continuous story since 2005 (no company/sole-trader split).
+const aboutPage=fs.readFileSync(path.join(root,'hakkimizda.html'),'utf8'),contactPage=fs.readFileSync(path.join(root,'iletisim.html'),'utf8');
+assert.ok(!aboutPage.includes('01.11.2022')&&!aboutPage.includes('Kurumsallaşma')&&!contactPage.includes('kurumsal yapılanma'),'unified company story');
 console.log('Static SEO: '+urls.length+' sitemap pages, '+schemas+' JSON-LD blocks; links and translations passed.');
 // Exercise the actual consent branch without loading analytics or contacting third parties.
 const main=fs.readFileSync(path.join(root,'assets/main.js'),'utf8');

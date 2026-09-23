@@ -25,6 +25,24 @@ Panel ve inverter modeli, DC güç, montaj sistemi, elektrik korumaları, işçi
 
 Maliyet ekipmana, çatı koşullarına ve iş kapsamına göre değişir. Tasarruf üretime, gündüz tüketimine ve tarifeye bağlıdır. Hesaplayıcı ön tahmin sağlar; kesin teklif keşif ve projelendirme sonrasında hazırlanır.
 
+## Sıkça Sorulan Sorular
+
+### Kiremit, sandviç panel ve beton çatıya kurulum yapılır mı?
+
+Evet. Montaj sistemi çatı tipine göre seçilir: kiremitte kanca, trapez ve sandviç panelde ray ve kelepçe, düz beton çatıda eğimli taşıyıcı kullanılır. Taşıyıcı yapının uygunluğu keşifte kontrol edilir.
+
+### Kuzey cepheli ya da gölge alan çatıya panel kurulur mu?
+
+Kurulabilir, ancak üretim düşer; güney, doğu ve batı yönleri daha verimlidir. Gölge bağlı olduğu dizinin üretimini de etkileyebildiği için keşifte gölge analizi yapılır ve gerekirse panel yerleşimi buna göre değiştirilir.
+
+### Çatı GES kurulumu ne kadar sürer?
+
+Sahadaki montaj sistem büyüklüğüne göre değişir; konut ölçeğindeki sistemlerde genellikle birkaç gün sürer. Toplam süreyi çoğunlukla dağıtım şirketi başvuru ve onay adımları belirler; takvim keşif sonrasında netleşir.
+
+### Panellerin ağırlığı çatıya zarar verir mi?
+
+Paneller ve taşıyıcı sistem çatıya ek yük getirir. Taşıyıcı yapının bu yükü rüzgâr ve kar etkileriyle birlikte karşılayıp karşılamadığı keşifte değerlendirilir; gerekli görülürse statik inceleme istenir.
+
 ## İlgili hizmetler ve projeler
 
 - [Kemer Villa: 12 kWp Çatı GES](https://www.gespaenerji.com/proje-kemer-villa.html)

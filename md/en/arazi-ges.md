@@ -25,6 +25,24 @@ Row spacing, maintenance access, shading and connection capacity are considered 
 
 Share location, usable area, existing connection and consumption. For irrigation, include pump power, daily operating hours and season.
 
+## Frequently Asked Questions
+
+### How much land does a ground-mounted plant need?
+
+The area needed depends on the target capacity, the row spacing and the slope of the land. The layout and row-spacing tools in the calculator give a first estimate; the final layout is set during the site survey and design.
+
+### Can a solar plant be built on agricultural land?
+
+The land's classification and permitted use are subject to the rules of the relevant authorities, so suitability is verified separately for each project. For irrigation systems, pump demand and generation are planned together.
+
+### Why does row spacing matter?
+
+In winter the sun is low, so a front row can shade the one behind it. Row spacing is calculated from the latitude and panel tilt to limit this shading; the row-spacing tool in the calculator gives a first value.
+
+### Why is grid connection capacity checked at the start?
+
+For the electricity to be fed into the grid, the connection point needs enough capacity. Capacity and connection conditions are confirmed through the distribution company's process, so the installed capacity is planned around them.
+
 ## Related services and projects
 
 - [Solar Irrigation](https://www.gespaenerji.com/en/tarimsal-sulama.html)

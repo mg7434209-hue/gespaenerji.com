@@ -25,6 +25,24 @@ Her bataryalı sistem tüm binayı otomatik beslemez. Yedekleme çıkışı, uyg
 
 Cihaz listenizi, kullanım saatlerini, mevcut inverter modelini ve hedef yedekleme süresini paylaşın. Sistem Kurucu ön ihtiyaç listesi sağlar; nihai seçim teknik incelemeyle yapılır.
 
+## Sıkça Sorulan Sorular
+
+### Mevcut GES sistemime batarya eklenebilir mi?
+
+Mevcut inverterin batarya desteğine bağlıdır. Hibrit inverter varsa batarya doğrudan eklenebilir; yoksa AC tarafına bağlanan ek bir batarya inverteriyle çözüm kurulur. Uyumluluk teknik incelemeyle doğrulanır.
+
+### Batarya kapasitesi nasıl hesaplanır?
+
+Günlük tüketim (kWh) istenen özerklik süresiyle çarpılır, sonra akünün kullanılabilir deşarj derinliğine ve sistem verimine bölünür. Hesaplayıcıdaki batarya boyutlandırma aracı bu hesabı sizin değerlerinizle yapar.
+
+### Batarya ömrü nasıl ifade edilir?
+
+Batarya ömrü yıl yerine çevrim (şarj-deşarj döngüsü) sayısıyla ifade edilir; kimyaya, deşarj derinliğine ve sıcaklığa bağlıdır. Her ürünün çevrim ömrü üretici künyesinde yazılır.
+
+### Batarya nereye kurulmalıdır?
+
+Üreticinin belirttiği sıcaklık aralığında, havalandırılan, doğrudan güneş almayan ve nemden korunan bir yere kurulmalıdır. Yüksek sıcaklık akü ömrünü kısaltır.
+
 ## İlgili hizmetler ve projeler
 
 - [Manavgat ve Antalya Çatı GES Kurulumu](https://www.gespaenerji.com/cati-ges.html)
