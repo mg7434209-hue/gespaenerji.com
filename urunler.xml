@@ -149,5 +149,37 @@
         <g:country>TR</g:country>
       </g:shipping>
     </item>
+    <item>
+      <g:id>set-yolcu</g:id>
+      <g:title>Yolcu Kabinli Motor Güneş Paketi — 285 W</g:title>
+      <g:description>Kabinli elektrikli yolcu triportörünü güneşle şarj etmek için hazırlanmış komple paket: 285 W TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Dar çatı alanına sığan panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.</g:description>
+      <g:link>https://www.gespaenerji.com/paket-motor-yolcu.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/ev/motor-yolcu.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>15800.00 TRY</g:price>
+      <g:brand>GESPA Enerji</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>GES-SET-YOLCU</g:mpn>
+      <g:product_type>Hazır Paket</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>set-kargo</g:id>
+      <g:title>Kargo Kasalı Motor Güneş Paketi — 655 W</g:title>
+      <g:description>Kargo kasalı elektrikli triportörü güneşle şarj etmek için hazırlanmış komple paket: 655 W N-type TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Geniş kasa/tente çatısının kaldırabileceği en verimli panel gücü seçilmiştir.</g:description>
+      <g:link>https://www.gespaenerji.com/paket-motor-kargo.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/ev/motor-kargo.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>18300.00 TRY</g:price>
+      <g:brand>GESPA Enerji</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>GES-SET-KARGO</g:mpn>
+      <g:product_type>Hazır Paket</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
+    </item>
   </channel>
 </rss>

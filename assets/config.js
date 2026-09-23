@@ -371,6 +371,40 @@ window.GESPA.config = {
       desc: "Güneş paneli ile şarj kontrol cihazı arasındaki bağlantı için 5 metre siyah + 5 metre kırmızı solar kablo takımı. Kesit stok durumuna göre 4 mm2 veya 6 mm2 gelir; bu sistemlerde ikisi de uygundur. Elektrikli motor güneş paketlerinin standart kalemidir.",
       features: ["5 m siyah + 5 m kırmızı solar kablo", "Panel – şarj kontrol cihazı bağlantısı", "Elektrikli motor güneş paketlerine dahildir"]
     },
+    // —— Elektrikli motor hazır paketleri —— katalogda AYRI ÜRÜN olarak
+    // listelenir ve kendi detay sayfaları vardır; müşteriye tek başına bir
+    // adres gönderilebilsin diye. `parts` paketin içeriğidir (sayfadaki
+    // "Pakete dahil olanlar" ve katalog kartı bundan çizilir).
+    // FİYAT TUTARLILIĞI: build.js `parts` toplamını `price` ile karşılaştırır
+    // ve tutmazsa UYARIR — bir kalemin fiyatı değişip paket fiyatı
+    // güncellenmeden kalmasın.
+    {
+      id: "set-yolcu", icon: "🛺", tag: "Hazır Paket", group: "evset",
+      url: "paket-motor-yolcu.html",
+      sku: "GES-SET-YOLCU",
+      img: "assets/img/products/ev/motor-yolcu.webp",
+      price: 15800,
+      parts: ["panel-lexron-285w", "boost-mppt", "kablo-solar-5m", "mc4-set"],
+      chips: ["🔆 285 W TOPCon panel", "🔌 BOOST MPPT 24–72 V", "🧰 Kablo + MC4 dahil"],
+      for: "Kabinli, 2–4 kişilik yolcu triportörleri — çatı alanı dar",
+      name: "Yolcu Kabinli Motor Güneş Paketi — 285 W",
+      desc: "Kabinli elektrikli yolcu triportörünü güneşle şarj etmek için hazırlanmış komple paket: 285 W TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Dar çatı alanına sığan panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.",
+      features: ["285 W TOPCon güneş paneli (dar çatıya uygun ölçü)", "BOOST MPPT 24–72 V şarj kontrol cihazı — tüm akü tipleriyle", "5 m siyah + 5 m kırmızı solar kablo", "MC4 konnektör takımı (erkek + dişi)", "Panel, cihaz ve kablolama birbiriyle uyumlu seçilmiştir"]
+    },
+    {
+      id: "set-kargo", icon: "🚚", tag: "Hazır Paket", group: "evset",
+      url: "paket-motor-kargo.html",
+      sku: "GES-SET-KARGO",
+      img: "assets/img/products/ev/motor-kargo.webp",
+      price: 18300,
+      parts: ["panel-lexron-655w", "boost-mppt", "kablo-solar-5m", "mc4-set"],
+      chips: ["🔆 655 W TOPCon panel", "🔌 BOOST MPPT 24–72 V", "🧰 Kablo + MC4 dahil"],
+      for: "Açık kasa veya tenteli yük triportörleri — çatı alanı geniş",
+      name: "Kargo Kasalı Motor Güneş Paketi — 655 W",
+      desc: "Kargo kasalı elektrikli triportörü güneşle şarj etmek için hazırlanmış komple paket: 655 W N-type TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Geniş kasa/tente çatısının kaldırabileceği en verimli panel gücü seçilmiştir.",
+      features: ["655 W N-type TOPCon güneş paneli (geniş çatı için)", "BOOST MPPT 24–72 V şarj kontrol cihazı — tüm akü tipleriyle", "5 m siyah + 5 m kırmızı solar kablo", "MC4 konnektör takımı (erkek + dişi)", "Panel, cihaz ve kablolama birbiriyle uyumlu seçilmiştir"]
+    },
+
     {
       id: "mc4-set", icon: "🔗", tag: "Konnektör", group: "cable",
       sku: "GES-MC4-1",
@@ -389,10 +423,10 @@ window.GESPA.config = {
   // ELEKTRİKLİ MOTOR PAKETLERİ — elektrikli-arac-donusum.html
   // "Motorunu seç → paketini gör → sepete at". Müşteri hangi panelin
   // aracına uyduğunu bilmediği için satış burada takılıyordu.
-  // PAKETİN KENDİ FİYATI YOKTUR: toplam, `items` içindeki ürünlerin
-  // config fiyatlarından hesaplanır (main.js pkgUnit). Ürün fiyatı
-  // değişince paket toplamı KENDİLİĞİNDEN güncellenir — ikinci bir
-  // fiyat kaynağı doğmaz.
+  // Seçici yalnızca ARAÇ TİPİNİ sorar; paketin kendisi `pkg` ile
+  // config.packages'teki GERÇEK ÜRÜNE bağlanır (fiyat, içerik ve detay
+  // sayfası oradan gelir). Böylece paketin kendi kartı, kendi adresi ve
+  // sepette kendi satırı olur.
   // GÖRSELLER: araçlar BAŞKA ÜRETİCİLERE aittir (CSN, SFM). Marka
   // yazıları SİLİNMEZ (UNV kuralının aynısı) ve sayfada "araç tipi
   // örneği" diye etiketlenir — o araçları biz satmıyoruz.
@@ -406,7 +440,7 @@ window.GESPA.config = {
       proof: "assets/img/products/ev/motor-yolcu-kurulum.webp",
       title: "Yolcu kabinli triportör",
       hint: "Kabinli, 2–4 kişilik yolcu araçları — çatı alanı dar",
-      items: ["panel-lexron-285w", "boost-mppt", "kablo-solar-5m", "mc4-set"]
+      pkg: "set-yolcu"
     },
     {
       id: "kargo",
@@ -414,7 +448,7 @@ window.GESPA.config = {
       proof: "assets/img/products/ev/motor-kargo-kurulum.webp",
       title: "Kargo kasalı triportör",
       hint: "Açık kasa veya tenteli yük araçları — çatı alanı geniş",
-      items: ["panel-lexron-655w", "boost-mppt", "kablo-solar-5m", "mc4-set"]
+      pkg: "set-kargo"
     }
   ],
   // Sette `proof` yoksa kullanılacak yedek görsel.

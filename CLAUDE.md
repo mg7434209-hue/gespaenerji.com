@@ -63,6 +63,9 @@ kargo-iade. Fiyat/kod/stok hem build'de statik basılır hem main.js'te
 `data-pkg-*` ile tazelenir. Satın alma sepet üzerinden: `data-add-cart` =
 sepete ekle + onay penceresi (Sepete git / Alışverişe devam), `data-add-cart-go`
 = ekle ve sepete git) ·
+`paket-motor-yolcu.html` `paket-motor-kargo.html` (elektrikli motor güneş
+paketlerinin ürün sayfaları — paket-*.html düzeni + `data-add-cart-go`
+"⚡ Hemen satın al"; ayrıntı "Motor güneş paketleri" bölümünde) ·
 `unv-trek-pro-2500.html` (UNV Trek Pro 2500 W taşınabilir güç istasyonu —
 paket-*.html ile AYNI düzen: `.prod-sec` (satın alma ilk ekranda) → 4 sekme
 (Açıklama · Çıkış Portları · Teknik Özellikler · Kargo ve İade) → kullanım
@@ -239,7 +242,10 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   TitanX 51,2 V 102 Ah LiFePO₄ akü ₺73.372 (`group:"storage"`) +
   solar kablo takımı 5 m siyah + 5 m kırmızı ₺1.000 · MC4 konnektör takımı
   ₺100 (ikisi de `group:"cable"`, fotoğrafsız — akışa girmez). KABLO KESİTİ
-  (mm2) YAZILMAZ: stoğa göre 4 ya da 6 mm2 geliyor, ikisi de uygun.
+  (mm2) YAZILMAZ: stoğa göre 4 ya da 6 mm2 geliyor, ikisi de uygun. +
+  2 elektrikli motor güneş paketi: `set-yolcu` ₺15.800 (285 W) ·
+  `set-kargo` ₺18.300 (655 W), ikisi de `group:"evset"` ve `parts` listeli
+  — ayrıntısı "Motor güneş paketleri" bölümünde.
   — `url` detay sayfası, `img` gerçek foto,
   `oldPrice` indirim rozeti, `currency:"USD"` dolar, `dailyKwh` günlük üretim.
   `usdTry` kuru ile ikinci para "≈" gösterilir; kur değişince SADECE
@@ -343,42 +349,42 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
 - Admin paneli fiyatları localStorage'da override eder (yalnız o cihaz);
   kalıcı/herkese yayın = değerleri bu dosyaya işleyip commit'lemek.
 
-## Motor seçici & hazır paket (`config.evSets`)
-`elektrikli-arac-donusum.html#paketler` — müşteri aracına hangi panelin
-uyduğunu bilmediği için satış burada takılıyordu. Araç tipini seçer, uygun
-panel + şarj kontrol cihazı + kablo + MC4 hazır paket olarak çıkar, tek
-düğmeyle sepete girer (kalemler AYRI AYRI eklenir — fiyat, iyzico, dekont ve
-e-posta akışları olduğu gibi çalışır). Paket içeriği değişince sayfadaki
-dipnot kalem SAYMAZ ("yukarıda listelenen ürünler") — güncelleme unutulmasın.
-- PAKETİN KENDİ FİYATI YOKTUR: toplam `items` içindeki ürünlerin
-  `pkgUnit()` değerlerinden hesaplanır. Ürün fiyatı değişince paket
-  kendiliğinden güncellenir — İKİNCİ BİR FİYAT KAYNAĞI AÇMA.
-- SEPETTE TEK SATIR: paket `set:<id>` anahtarıyla eklenir, kalemler ayrı
-  ayrı DEĞİL. main.js `setPkgOf()` sanal ürünü üretir (ad, görsel, toplam,
-  `members`); `pkgUnit()` `isSet` dalında toplamları kalemlerden alır —
-  yüzde YENİDEN HESAPLANMAZ (BOOST net, panel %3). Sepet satırında içerik
-  yalnız AD olarak listelenir, kalem fiyatı gösterilmez. `pctOfLines()`
-  sette tek "%N" yazmaz. Eski sepetlerdeki tekil ürün anahtarları aynen
-  çalışmaya devam eder.
-- MÜŞTERİYE GÖNDERİLEN İKİ BAĞLANTI (paket kutusundaki kopyala düğmeleri):
-  1) `elektrikli-arac-donusum.html?set=<id>` — paketi ANLATAN sayfa; o kart
-     seçili açılır, `#paketler`e kaydırır, kart değiştikçe adres çubuğu
-     `replaceState` ile güncellenir.
-  2) `sepet.html?ekle=<id>` — HIZLI SİPARİŞ: paketi sepete atıp doğrudan
-     sepette açar. `ekle=yolcu` önce `set:yolcu`, bulunamazsa TEKİL ÜRÜN
-     kimliği olarak denenir (ör. `?ekle=boost-mppt` de çalışır). Sepette
+## Motor güneş paketleri (`set-yolcu` · `set-kargo` + `config.evSets`)
+Müşteri aracına hangi panelin uyduğunu bilmediği için satış burada takılıyordu.
+İki hazır paket **GERÇEK ÜRÜNDÜR** (`config.packages`, `group:"evset"`): katalogda
+kendi kartları, kendi detay sayfaları (`paket-motor-yolcu.html` ·
+`paket-motor-kargo.html`) ve kendi fiyatları vardır. Sanal `set:<id>` katmanı
+KALDIRILDI — müşteriye gönderilecek tek başına bir ürün bağlantısı olmadığı için
+işe yaramıyordu.
+- `parts: [...]` pakete dahil ürünlerin KİMLİKLERİDİR; fiyat DEĞİL içerik
+  listesidir. Kart çipleri, ürün sayfasının "Pakete Dahil Olanlar" tablosu
+  (build `PARTS:STATIC`), sepet satırındaki alt liste ve dekont/e-postadaki
+  içerik dökümü (`server.js` `orderLines()` → `members`) hep buradan gelir.
+- FİYAT AÇIK YAZILIR (`price`), kalemlerden hesaplanmaz: sepet, iyzico, ürün
+  akışı ve JSON-LD tek bir `price` okur. Bedeli: bir kalemin fiyatı değişince
+  set fiyatı sessizce kayabilir — bu yüzden `build.js` `checkParts()` her
+  build'de toplamı denetler ve kaymayı UYARI olarak yazar (kendiliğinden
+  düzeltmez; indirimli set kurmak meşru bir karardır). Uyarıyı görünce
+  config'te ya set fiyatını ya kalemleri güncelle.
+- SEPETTE TEK SATIR: normal ürün gibi `{"set-yolcu":1}` anahtarıyla durur.
+  main.js `partsOf()` içerik adlarını `.cart-set-list` olarak yazar; kalem
+  fiyatı GÖSTERİLMEZ, tek set tek fiyattır. `pctOfLines()` karışık oranlı
+  sepette tek "%N" yazmaz.
+- MÜŞTERİYE GÖNDERİLEN İKİ BAĞLANTI (motor seçicideki kopyala düğmeleri):
+  1) `paket-motor-yolcu.html` / `paket-motor-kargo.html` — ürünün KENDİ
+     sayfası. Satın alma kutusunda "🛒 Sepete ekle" ve "⚡ Hemen satın al"
+     (`data-add-cart-go` = ekle + sepete git) birlikte durur.
+  2) `sepet.html?ekle=<ürün kimliği>` — HIZLI SİPARİŞ: ürünü sepete atıp
+     doğrudan sepette açar (`?ekle=set-kargo`, `?ekle=boost-mppt`…). Sepette
      zaten varsa adet ARTIRILMAZ ve adres `replaceState` ile temizlenir —
-     yenileyen ya da bağlantıya ikinci kez giren müşteri çift eklemesin.
-     Tanınmayan kimlik sessizce yok sayılır. sepet.html robots'ta engelli
-     olduğu için bu adres aramaya düşmez; elden gönderilen bağlantıdır.
-  Her iki adres `llms-full.txt` ve statik blokta da yazılıdır.
-- SUNUCU: `/api/pay/checkout` `set:<id>`i KALEMLERİNE AÇAR (iyzico sepeti
-  kalem kalem ister, toplam = kalemler toplamı) ama sipariş kaydına paketi
-  TEK SATIR yazar (`{id, set, qty, unitTL, members}`). `orderLines()` bunu
-  set adı + içerik olarak çözer; e-postalar ve dekont böyle gösterir.
-  Kalemlerden biri config'te yoksa/fiyatsızsa paket SATILMAZ.
-- Kalemlerden biri config'te yoksa ya da fiyatsızsa o paket HİÇ
-  gösterilmez (eksik set satılmasın); build de basmaz.
+     yenileyen müşteri çift eklemesin. Tanınmayan kimlik sessizce yok sayılır.
+     sepet.html robots'ta engelli olduğu için bu adres aramaya düşmez.
+  Adresler `llms-full.txt` ve statik blokta da yazılıdır.
+- SEÇİCİ (`config.evSets` → `elektrikli-arac-donusum.html#paketler`): araç
+  tipini gösteren KILAVUZDUR, ayrı bir ürün değil. Her kayıt `pkg` alanıyla
+  gerçek ürüne bağlanır; ürün config'te yoksa ya da fiyatsızsa o kart HİÇ
+  gösterilmez (eksik set satılmasın), build de basmaz. `?set=<id>` kartı
+  seçili açar, kart değiştikçe adres `replaceState` ile güncellenir.
 - main.js motor seçici IIFE'si çizer; `gespa:lang` olayında yeniden çizer.
   Olay `document` üzerinde ve `bubbles:false` — window'da dinlenmez. IIFE
   içinden `GESPA.applyLang` ÇAĞIRMA: olayı applyLang gönderiyor, sonsuz
@@ -387,8 +393,13 @@ dipnot kalem SAYMAZ ("yukarıda listelenen ürünler") — güncelleme unutulmas
   arasına aynı listeyi basar; llms-full.txt'e de ayrı bölüm yazılır.
   Statik blokta çevrilecek her ifade KENDİ `<span>`'inde durur — gövde
   çevirisi metin düğümünün TAMAMINI DICT'te arar, fiyatla aynı düğümde
-  olan metin çevrilmez.
-- Paket kutusunun SOL görseli setin kendi `proof` alanıdır — kart değişince
+  olan metin çevrilmez. AYNI TUZAK ürün sayfalarında da geçerlidir: cümlenin
+  ortasındaki `<a>` metin düğümünü ikiye böler ve çeviri DÜŞER — bağlantıyı
+  kendi cümlesine al (SSS yanıtları ve çapraz satış notu böyle kuruldu).
+- ÜRÜN SAYFASI ÜRETİRKEN: `paket-285w.html` kopyalanır ama FAQPage JSON-LD'si
+  de kopyalanır — sayfada görünmeyen soruyu şemada bırakmak yapısal veri
+  ihlalidir; SSS'i sayfanın gerçek sorularıyla DEĞİŞTİR.
+- Paket kutusunun SOL görseli seçicinin kendi `proof` alanıdır — kart değişince
   o araca ait kurulum fotoğrafı gelir. İki `proof` de 4:3 kadrajdır
   (`tools/motor-foto.py`); farklı oranda olsalar kart seçildikçe kutunun
   yüksekliği zıplardı. `<img>` üzerindeki width/height ÖZNİTELİKLERİ CSS'e

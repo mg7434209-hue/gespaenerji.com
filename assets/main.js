@@ -177,41 +177,16 @@
       try { var d = GESPA.i18nData && GESPA.i18nData.DICT && GESPA.i18nData.DICT[lang]; return (d && d[t]) || t; }
       catch (e) { return t; }
     }
-    // ---- Hazır paket (set) sanal ürünü --------------------------------------
-    // Sepette paket TEK SATIR olarak durur: tek ad, tek fiyat, altında içerik
-    // listesi. Kalemleri ayrı ayrı eklemek müşterinin seti bozmasına ve
-    // "bunu al" bağlantısının anlamsızlaşmasına yol açıyordu.
-    // Sepet anahtarı "set:<id>"dir; fiyatı YOK — içindeki ürünlerin config
-    // fiyatlarından toplanır, yani hâlâ tek fiyat kaynağı vardır.
+    // Ürünü kimliğinden bulur. Hazır paketler (set-yolcu / set-kargo) de
+    // config.packages içinde GERÇEK ÜRÜNDÜR — ayrı bir sanal katman yoktur.
     function rawPkgOf(id) { var f = null; (CFG.packages || []).forEach(function (x) { if (x.id === id) f = x; }); return f; }
-    function setPkgOf(id) {
-      var sid = String(id || "").slice(4);
-      var st = null;
-      (CFG.evSets || []).forEach(function (x) { if (x.id === sid) st = x; });
-      if (!st) return null;
-      var members = [], listT = 0, cartT = 0, allFree = true, ok = true;
-      (st.items || []).forEach(function (mid) {
-        var m = rawPkgOf(mid);
-        if (!m || m.price == null) { ok = false; return; }
-        var u = pkgUnit(m);
-        members.push(m); listT += u.list; cartT += u.cart;
-        if (!m.freeShipping) allFree = false;
-      });
-      if (!ok || !members.length) return null;      // eksik set SATILMAZ
-      return {
-        id: id, isSet: true, setId: sid, members: members,
-        name: TD(st.title) + " — " + L("hazır paket", "ready-made set", "Fertigset", "готовый комплект"),
-        img: st.img || "", url: "elektrikli-arac-donusum.html?set=" + sid,
-        sku: "GES-SET-" + sid.toUpperCase(),
-        price: listT, setCart: cartT, freeShipping: allFree
-      };
+    // Paketin içindekiler (`parts`) — ürün nesneleri olarak.
+    function partsOf(p) {
+      return ((p && p.parts) || []).map(rawPkgOf).filter(Boolean);
     }
     // Birim fiyatlar (₺): list = liste, cart = havale/EFT, usd = yaklaşık $
     function pkgUnit(p) {
       var RATE = CFG.usdTry || 0, pct = pkgPct(p);
-      // Hazır paket: toplamlar kalemlerden GELİR, yüzde yeniden hesaplanmaz
-      // (kalemlerin oranı farklı olabilir — BOOST net, panel %3).
-      if (p.isSet) return { list: p.price, cart: p.setCart, usd: RATE ? Math.round(p.price / RATE) : 0 };
       // priceOnRequest: fiyat girilmemis urun — tutar URETILMEZ, cagiran
       // "Teklif alin" gosterir ve urun sepete eklenmez.
       if (p.price == null) return { list: null, cart: null, usd: 0, poa: true };
@@ -230,8 +205,7 @@
       function write(c) { try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {} badge(); }
       function count() { var c = read(), n = 0; Object.keys(c).forEach(function (k) { n += c[k]; }); return n; }
       function badge() { var n = count(); $$(".cart-count").forEach(function (b) { b.textContent = n; b.hidden = !n; }); }
-      // "set:<id>" hazır paketi, diğerleri config.packages ürünüdür.
-      function pkgOf(id) { return String(id || "").indexOf("set:") === 0 ? setPkgOf(id) : rawPkgOf(id); }
+      function pkgOf(id) { return rawPkgOf(id); }
       return {
         read: read, count: count, badge: badge, pkgOf: pkgOf,
         add: function (id, qty) { if (!pkgOf(id)) return; var c = read(); c[id] = Math.max(1, Math.min(99, (c[id] || 0) + (qty || 1))); write(c); },
@@ -400,19 +374,19 @@
           return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
         });
       }
-      // Paketin kalemleri + toplamları. Fiyatı olmayan ya da tanınmayan ürün
-      // sessizce atlanmaz — paket eksik satılmasın diye set gizlenir.
+      // Seçici yalnızca araç tipini sorar; FİYAT VE İÇERİK bağlı olduğu
+      // gerçek üründen (`st.pkg`) gelir. Ürün yoksa/fiyatsızsa o kart hiç
+      // gösterilmez — eksik paket satılmasın.
       function setOf(st) {
-        var lines = [], listT = 0, cartT = 0, allFree = true, ok = true;
-        (st.items || []).forEach(function (id) {
-          var p = cart.pkgOf(id);
-          if (!p || p.price == null) { ok = false; return; }
-          var u = pkgUnit(p);
-          lines.push({ p: p, list: u.list, cart: u.cart });
-          listT += u.list; cartT += u.cart;
-          if (!p.freeShipping) allFree = false;
+        var pk = cart.pkgOf(st.pkg);
+        if (!pk || pk.price == null) return null;
+        var u = pkgUnit(pk);
+        var lines = partsOf(pk).map(function (m) {
+          var mu = pkgUnit(m);
+          return { p: m, list: mu.list, cart: mu.cart };
         });
-        return ok && lines.length ? { st: st, lines: lines, listT: listT, cartT: cartT, allFree: allFree } : null;
+        if (!lines.length) return null;
+        return { st: st, pk: pk, lines: lines, listT: u.list, cartT: u.cart, allFree: !!pk.freeShipping };
       }
       var sets = [];
       CFG.evSets.forEach(function (st) { var d = setOf(st); if (d) sets.push(d); });
@@ -450,8 +424,7 @@
             + '" width="408" height="306" loading="lazy" data-zoom /><span>'
             + L("Panel montaj örneği", "Panel mounting example", "Beispiel für die Modulmontage", "Пример монтажа панели") + "</span></div>";
         }
-        h += '<div class="mset-body"><h3>' + esc(T(d.st.title)) + " — "
-          + L("hazır paket", "ready-made set", "Fertigset", "готовый комплект") + "</h3>";
+        h += '<div class="mset-body"><h3>' + esc(TD(d.pk.name)) + "</h3>";
         h += '<ul class="mset-items">';
         d.lines.forEach(function (l) {
           var ad = esc(T(l.p.name));
@@ -471,6 +444,8 @@
           : L("KDV dahil · kargo hariç", "VAT included · shipping excluded", "Inkl. MwSt. · zzgl. Versand", "НДС включён · доставка отдельно")) + "</p>";
         h += '<div class="mset-cta"><button type="button" class="btn" data-mset-add>🛒 '
           + L("Paketi sepete ekle", "Add set to cart", "Set in den Warenkorb", "Добавить комплект в корзину") + "</button>"
+          + (d.pk.url ? '<a class="btn btn-ghost" href="' + esc(d.pk.url) + '">📄 '
+              + L("Ürün sayfası", "Product page", "Produktseite", "Страница товара") + "</a>" : "")
           + '<a class="btn btn-ghost" data-c-wa href="#" target="_blank" rel="noopener">💬 '
           + L("Aracıma uyar mı?", "Will it fit my vehicle?", "Passt es zu meinem Fahrzeug?", "Подойдёт ли моему транспорту?") + "</a>"
           + "</div>";
@@ -498,21 +473,23 @@
         });
         var add = $("[data-mset-add]", host);
         if (add) add.addEventListener("click", function () {
-          // Kalemler TEK TEK değil, tek "set:<id>" satırı olarak eklenir —
-          // sepette tek ad, tek fiyat, altında içerik listesi görünsün.
-          var sid = "set:" + sets[secili].st.id;
-          cart.add(sid, 1);
-          var sp = cart.pkgOf(sid);
-          cartPop(sp ? sp.name : T(sets[secili].st.title));
+          // Paket GERÇEK ÜRÜNDÜR: sepete tek satır olarak kendi kimliğiyle
+          // girer (fiyat, iyzico, dekont ve akış hep bu kimliği görür).
+          var pk = sets[secili].pk;
+          cart.add(pk.id, 1);
+          cartPop(TD(pk.name));
         });
         // Paket bağlantıları: mutlak adres, müşteriye doğrudan gönderilebilir.
         // "sayfa" paketi anlatır, "sepet" tek tıkla sepete atıp sepete götürür.
         var kok = location.pathname.replace(/[^/]*$/, "");
         $$("[data-mset-link]", host).forEach(function (lnk) {
           lnk.addEventListener("click", function () {
+            // "sayfa" = paketin KENDİ ürün sayfası (müşteriye gönderilen
+            // bağımsız adres), "sepet" = tek tıkla sepete atan hızlı sipariş.
+            var pk = sets[secili].pk;
             var url = lnk.getAttribute("data-mset-link") === "sepet"
-              ? location.origin + kok + "sepet.html?ekle=" + sets[secili].st.id
-              : location.origin + adres(secili);
+              ? location.origin + kok + "sepet.html?ekle=" + pk.id
+              : location.origin + kok + (pk.url || "");
             var ok = function () {
               var esk = lnk.innerHTML;
               lnk.innerHTML = "✓ " + L("Kopyalandı", "Copied", "Kopiert", "Скопировано");
@@ -572,6 +549,7 @@
           accessory: L("Elektrikli Araç", "Electric Vehicle", "E-Fahrzeug", "Электромобиль"),
           panel: L("Panel & Ekipman", "Panels & Equipment", "Module & Zubehör", "Панели и оборудование"),
           cable: L("Kablo & Bağlantı", "Cable & Wiring", "Kabel & Anschluss", "Кабели и подключение"),
+          evset: L("Elektrikli Motor Paketleri", "E-Vehicle Solar Sets", "Solar-Sets für E-Fahrzeuge", "Комплекты для электротранспорта"),
           storage: L("Enerji Depolama", "Energy Storage", "Energiespeicher", "Накопители энергии")
         })[g] || g;
       }
@@ -748,14 +726,14 @@
       // HIZLI SİPARİŞ BAĞLANTISI — sepet.html?ekle=<id>
       // Müşteriye gönderilen "bunu al" bağlantısı: ürünü/paketi sepete atar
       // ve doğrudan bu sayfada açar. `ekle=yolcu` önce hazır paket
-      // ("set:yolcu"), bulunamazsa tekil ürün kimliği olarak denenir.
+      // ("set-yolcu"), bulunamazsa ürün kimliğinin kendisi olarak denenir.
       // Sepette ZATEN VARSA adet artırılmaz ve adres temizlenir — sayfayı
       // yenileyen müşteri ikinci kez eklemiş olmasın.
       (function () {
         var m = /[?&]ekle=([A-Za-z0-9:_-]+)/.exec(location.search);
         if (!m) return;
         var raw = decodeURIComponent(m[1]);
-        var id = cart.pkgOf("set:" + raw) ? "set:" + raw : raw;
+        var id = cart.pkgOf("set-" + raw) ? "set-" + raw : raw;
         if (cart.pkgOf(id) && !cart.read()[id]) cart.add(id, 1);
         try { history.replaceState(null, "", location.pathname); } catch (e) {}
       })();
@@ -770,7 +748,7 @@
           if (l.sumCart < l.sumList) {
             // Hazır paketin içindeki kalemlerin oranı farklı olabilir
             // (BOOST net, panel %3) — tek bir "%N" yazmak yanıltıcı olur.
-            if (l.p.isSet) { karisik = true; return; }
+            if (l.p.parts) { karisik = true; return; }
             var r = pkgPct(l.p);
             if (rates.indexOf(r) < 0) rates.push(r);
           }
@@ -781,8 +759,8 @@
       var set = function (sel, txt) { $$(sel).forEach(function (el) { el.textContent = txt; }); };
       // Sepet kalemleri: {p, qty, unit, sumList, sumCart} — fiyat kuralı pkgUnit ile ortak
       function lines() {
-        // Sepet anahtarları üzerinden dönülür: hazır paketler ("set:<id>")
-        // config.packages içinde YOKTUR, cart.pkgOf onları üretir.
+        // Sepet anahtarları üzerinden dönülür (config.packages sırası değil):
+        // müşterinin eklediği sırayı korur.
         var c = cart.read(), out = [];
         Object.keys(c).forEach(function (id) {
           var p = cart.pkgOf(id);
@@ -824,14 +802,15 @@
         wrap.innerHTML = ls.map(function (l) {
           // Görsel yolu mutlaktır ki /en /de /ru altındaki sepette de çözülsün
           var img = l.p.img ? '<img src="/' + l.p.img + '" alt="' + l.p.name + '" loading="lazy" decoding="async" />' : "";
-          // Hazır paket TEK SATIRDIR: içindekiler ad olarak listelenir,
-          // kalem kalem FİYAT GÖSTERİLMEZ — set tek fiyatla satılıyor.
-          var icerik = l.p.isSet
-            ? '<ul class="cart-set-list">' + l.p.members.map(function (m) {
+          // Hazır paket TEK SATIRDIR: içindekiler (`parts`) ad olarak
+          // listelenir, kalem kalem FİYAT GÖSTERİLMEZ — set tek fiyatlıdır.
+          var par = partsOf(l.p);
+          var icerik = par.length
+            ? '<ul class="cart-set-list">' + par.map(function (m) {
                 return "<li>" + TD(m.name) + "</li>";
               }).join("") + "</ul>"
             : "";
-          return '<div class="cart-item' + (l.p.isSet ? " cart-item-set" : "") + '" data-id="' + l.p.id + '">' +
+          return '<div class="cart-item' + (par.length ? " cart-item-set" : "") + '" data-id="' + l.p.id + '">' +
             '<a class="cart-item-media" href="' + (l.p.url || "urunler.html") + '">' + img + "</a>" +
             '<div class="cart-item-body">' +
               '<p class="cart-item-name"><a href="' + (l.p.url || "urunler.html") + '">' + l.p.name + "</a></p>" +
@@ -975,7 +954,7 @@
           t.ls.forEach(function (l, i) {
             msg.push((i + 1) + ") " + l.p.name + (l.p.sku ? " [" + l.p.sku + "]" : "") + " × " + l.qty + " = ₺" + nf.format(l.sumList));
             // Hazır pakette ne sevk edileceği belli olsun diye içerik de yazılır.
-            if (l.p.isSet) l.p.members.forEach(function (m) { msg.push("     · " + m.name); });
+            partsOf(l.p).forEach(function (m) { msg.push("     · " + m.name); });
           });
           msg.push("Liste toplamı: ₺" + nf.format(t.listT));
           // Buraya yalnız havale/EFT düşer: kart ödemesi yukarıda iyzico'ya
@@ -1223,7 +1202,8 @@
         { id: "ongrid", title: L("Çatı / On-Grid Paketler", "Rooftop / On-Grid Packages", "Aufdach- / On-Grid-Pakete", "Крышные / On-grid пакеты"), desc: L("Şebeke bağlantılı konut, villa ve ticari sistemler.", "Grid-tied residential, villa and commercial systems.", "Netzgekoppelte Wohn-, Villa- und Gewerbesysteme.", "Сетевые системы для домов, вилл и бизнеса.") },
         { id: "offgrid", title: L("Taşınabilir & Off-Grid Paketler", "Portable & Off-Grid Packages", "Tragbare & Off-Grid-Pakete", "Портативные и off-grid пакеты"), desc: L("Lityum bataryalı, şebekeden bağımsız; bağ evi, karavan ve kulübe için hazır kitler.", "Lithium-battery, off-grid ready kits for cabins, caravans and huts.", "Lithium-Batterie, netzunabhängige Fertigsets für Gartenhäuser, Wohnmobile und Hütten.", "Готовые автономные комплекты с литиевым аккумулятором для дач, караванов и хижин.") },
         { id: "irrigation", title: L("Tarımsal Sulama Paketleri", "Agricultural Irrigation Packages", "Pakete für landwirtschaftliche Bewässerung", "Пакеты для аграрного полива"), desc: L("Mazotsuz, şebekesiz güneş enerjili sulama pompa sistemleri.", "Diesel-free, off-grid solar irrigation pump systems.", "Dieselfreie, netzunabhängige solare Bewässerungspumpensysteme.", "Солнечные насосные системы полива без дизеля и без сети.") },
-        { id: "accessory", title: L("Elektrikli Araç Dönüşüm Ürünleri", "EV Solar Conversion Products", "Produkte für die E-Fahrzeug-Umrüstung", "Продукты для солнечной конверсии электромобилей"), desc: L("Güneş panelinden elektrikli araç aküsüne şarj için kontrol cihazları.", "Charge controllers that feed an EV battery pack straight from a solar panel.", "Laderegler, die den Akku eines E-Fahrzeugs direkt vom Solarmodul laden.", "Контроллеры заряда, питающие батарею электромобиля напрямую от солнечной панели.") }
+        { id: "accessory", title: L("Elektrikli Araç Dönüşüm Ürünleri", "EV Solar Conversion Products", "Produkte für die E-Fahrzeug-Umrüstung", "Продукты для солнечной конверсии электромобилей"), desc: L("Güneş panelinden elektrikli araç aküsüne şarj için kontrol cihazları.", "Charge controllers that feed an EV battery pack straight from a solar panel.", "Laderegler, die den Akku eines E-Fahrzeugs direkt vom Solarmodul laden.", "Контроллеры заряда, питающие батарею электромобиля напрямую от солнечной панели.") },
+        { id: "evset", title: L("Elektrikli Motor Güneş Paketleri", "E-Vehicle Solar Sets", "Solar-Sets für E-Fahrzeuge", "Солнечные комплекты для электротранспорта"), desc: L("Araç tipine göre hazırlanmış komple paketler: panel + şarj kontrol cihazı + kablo ve MC4.", "Complete sets matched to the vehicle type: panel + charge controller + cable and MC4.", "Komplettsets passend zum Fahrzeugtyp: Modul + Laderegler + Kabel und MC4.", "Готовые комплекты по типу транспорта: панель + контроллер заряда + кабель и MC4.") }
       ];
       // "Hangisi size uygun?" rehberi — kullanım yeri çipi -> ilgili karta kaydır + vurgula
       var out = "";

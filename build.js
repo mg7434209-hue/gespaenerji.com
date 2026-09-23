@@ -27,6 +27,7 @@ const PAGES = [
   "ai-cankurtaran-destek-sistemi.html", "sistem-kur.html",
   "elektrikli-arac-donusum.html",
   "paket-285w.html", "paket-2x540w.html", "unv-trek-pro-2500.html", "toptan.html",
+  "paket-motor-yolcu.html", "paket-motor-kargo.html",
   "sepet.html"   // noindex; sitemap'e girmez (NOSITEMAP)
 ];
 
@@ -110,6 +111,22 @@ const META = {
           d: "Komplettes 285-W-Solarset für Camping, Wohnmobil und kleine Verbraucher: Modul + Power-Box + Kabel. Betreibt TV, Licht und Handy-Ladung; 23–25 kg, Plug-and-Play." },
     ru: { t: "Пакет с панелью 285 Вт — подключи и работай | GESPA",
           d: "Полный солнечный комплект 285 Вт для кемпинга и караванов: панель + блок питания + кабели. Питает ТВ, свет и зарядку телефона; 23–25 кг." }
+  },
+  "paket-motor-yolcu.html": {
+    en: { t: "Passenger E-Trike Solar Set — 285 W | GESPA Energy",
+          d: "Complete solar set for enclosed passenger e-trikes: 285 W TOPCon panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. No guessing which part fits." },
+    de: { t: "Solar-Set für Fahrgast-Dreirad — 285 W | GESPA Energy",
+          d: "Komplettset für geschlossene Fahrgast-Dreiräder: 285-W-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt." },
+    ru: { t: "Солнечный комплект для пассажирского трицикла — 285 Вт | GESPA",
+          d: "Готовый комплект для закрытых пассажирских трициклов: панель 285 Вт TOPCon, контроллер BOOST MPPT 24–72 В, кабель и MC4." }
+  },
+  "paket-motor-kargo.html": {
+    en: { t: "Cargo E-Trike Solar Set — 655 W | GESPA Energy",
+          d: "Complete solar set for cargo-bed e-trikes: 655 W N-type TOPCon panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. The most output a wide roof can carry." },
+    de: { t: "Solar-Set für Lasten-Dreirad — 655 W | GESPA Energy",
+          d: "Komplettset für Lasten-Dreiräder: 655-W-N-Type-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Maximaler Ertrag für große Dachflächen." },
+    ru: { t: "Солнечный комплект для грузового трицикла — 655 Вт | GESPA",
+          d: "Готовый комплект для грузовых трициклов: панель 655 Вт N-type TOPCon, контроллер BOOST MPPT 24–72 В, кабель и MC4." }
   },
   "paket-2x540w.html": {
     en: { t: "2×540W Solar System — LiFePO₄ Battery | GESPA Energy",
@@ -338,7 +355,7 @@ function heaterProductLd(cfg) {
 
 // urunler.html'de yalnızca bu gruplar render edilir (main.js/build.js GROUPS ile aynı).
 // Şema, sayfada GÖRÜNMEYEN ürünü listelememelidir.
-const URUNLER_GROUPS = ["offgrid", "irrigation", "ongrid", "accessory"];
+const URUNLER_GROUPS = ["evset", "offgrid", "irrigation", "ongrid", "accessory"];
 // İndirim oranı — main.js pkgPct ile AYNI kural: ürüne `discountPct`
 // yazıldıysa o, yoksa site geneli cartDiscountPct.
 // Şema ve akış fiyatı TAHSİL EDİLEN para birimindedir. Kart ödemesi TRY
@@ -367,6 +384,39 @@ function shipNote(p) {
 }
 function havaleTL(p, tl, pct) {
   return p.noCartDiscount ? tl : Math.round(tl * (100 - pct) / 100 / 50) * 50;
+}
+
+// `parts` listesi olan paket ürünlerin (hazır set) fiyatını DENETLER.
+// Set fiyatı config'te AÇIK yazılır — kalemlerden hesaplanmaz — çünkü sepet,
+// iyzico, ürün akışı ve şema tek bir `price` okur. Bunun bedeli: bir kalemin
+// fiyatı değişince set fiyatı sessizce kayabilir. Bu denetim kaymayı build'de
+// yüksek sesle söyler; toplamı KENDİLİĞİNDEN düzeltmez (indirimli set kurmak
+// meşru bir karar olabilir, kazara kayma değil).
+function checkParts(cfg) {
+  const sorun = [];
+  (cfg.packages || []).forEach(p => {
+    if (!p.parts || !p.parts.length) return;
+    let toplam = 0;
+    p.parts.forEach(id => {
+      const m = (cfg.packages || []).filter(x => x.id === id)[0];
+      if (!m) { sorun.push("  ! " + p.id + ": '" + id + "' config.packages'te YOK"); return; }
+      if (m.price == null) { sorun.push("  ! " + p.id + ": '" + id + "' fiyatsız (teklif usulü)"); return; }
+      toplam += priceTRY(cfg, m.price, m.currency);
+    });
+    if (p.price == null) return;
+    const kendi = priceTRY(cfg, p.price, p.currency);
+    if (toplam && kendi !== toplam) {
+      const fark = kendi - toplam;
+      sorun.push("  ! " + p.id + ": set ₺" + kendi.toLocaleString("tr-TR") +
+        " · kalemler toplamı ₺" + toplam.toLocaleString("tr-TR") +
+        " (fark " + (fark > 0 ? "+" : "") + fark.toLocaleString("tr-TR") + " ₺)");
+    }
+  });
+  if (sorun.length) {
+    console.warn("UYARI — hazır paket fiyatı kalemlerle uyuşmuyor:\n" + sorun.join("\n") +
+      "\n  → config.packages içinde set fiyatını ya da kalemleri güncelleyin.");
+  }
+  return sorun.length;
 }
 function packagesItemListLd(cfg, file) {
   const COST = (cfg.calc && cfg.calc.costPerKwp) || 28000;
@@ -684,30 +734,40 @@ function hydrateExtras(html, file, cfg) {
     html = html.replace(/<!-- SHOP:STATIC -->[\s\S]*?<!-- \/SHOP:STATIC -->/,
       "<!-- SHOP:STATIC -->" + rows + "<!-- /SHOP:STATIC -->");
   }
+  // "Pakete Dahil Olanlar" tablosu — paketin `parts` listesinden basılır.
+  // Kalem kalem FİYAT YAZILMAZ: paket tek fiyatla satılır.
+  if (/<!-- PARTS:STATIC -->/.test(html) && cfg.packages) {
+    const id = (html.match(/data-pkg-detail="([^"]+)"/) || [])[1];
+    const pk = id && cfg.packages.filter(x => x.id === id)[0];
+    const ps = (pk && pk.parts || []).map(m => cfg.packages.filter(x => x.id === m)[0]).filter(Boolean);
+    const tablo = ps.length
+      ? '<table class="spec-table parts-table"><thead><tr><th>Adet</th><th>Bileşen</th></tr></thead><tbody>' +
+        ps.map(m => "<tr><td>1 ×</td><td>" + esc(m.name) + "</td></tr>").join("") +
+        "<tr><td>—</td><td>Sipariş öncesi ücretsiz danışmanlık</td></tr></tbody></table>"
+      : "";
+    html = html.replace(/<!-- PARTS:STATIC -->[\s\S]*?<!-- \/PARTS:STATIC -->/,
+      "<!-- PARTS:STATIC -->" + tablo + "<!-- /PARTS:STATIC -->");
+  }
   // Motor seçici paketleri — JS'siz ortam ve AI botları için statik liste.
   // Tarayıcıda main.js aynı bölümü config'ten yeniden çizer (seçilebilir
   // kartlar). Paketin fiyatı YOK: toplam kalemlerden hesaplanır.
   if (/<!-- MOTORSET:STATIC -->/.test(html) && cfg.evSets && cfg.packages) {
     const sets = cfg.evSets.map((st) => {
-      const lines = (st.items || []).map(id => cfg.packages.filter(x => x.id === id)[0])
-        .filter(p => p && p.price != null);
-      if (lines.length !== (st.items || []).length) return "";   // eksik paketi YAYIMLAMA
+      const pk = cfg.packages.filter(x => x.id === st.pkg)[0];
+      if (!pk || pk.price == null) return "";                    // eksik paketi YAYIMLAMA
+      const ps = (pk.parts || []).map(m => cfg.packages.filter(x => x.id === m)[0]).filter(Boolean);
       const RATE = cfg.usdTry || 0;
-      const tlOf = (p) => p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
-      const total = lines.reduce((a, p) => a + tlOf(p), 0);
-      const allFree = lines.every(p => p.freeShipping);
+      const total = pk.currency === "USD" ? Math.round(pk.price * RATE / 100) * 100 : pk.price;
       // ÇEVİRİ NOTU: dil kopyalarında gövde METİN DÜĞÜMÜ bazında çevrilir —
       // düğümün TAMAMI bir DICT anahtarına eşleşmeli. Bu yüzden çevrilecek
       // her ifade kendi <span>'inde durur; fiyat rakamı dışarıda kalır.
       return '<article class="mset-static">' +
-        "<h3><span>" + esc(st.title) + "</span> — <span>hazır paket</span></h3>" +
+        "<h3><span>" + esc(pk.name) + "</span></h3>" +
         (st.hint ? "<p><span>" + esc(st.hint) + "</span></p>" : "") +
-        "<ul>" + lines.map(p => "<li><span>" +
-          (p.url ? '<a href="' + esc(p.url) + '">' + esc(p.name) + "</a>" : esc(p.name)) +
-          "</span> — ₺" + nfTr(tlOf(p)) + "</li>").join("") + "</ul>" +
+        "<ul>" + ps.map(m => "<li><span>" + esc(m.name) + "</span></li>").join("") + "</ul>" +
         "<p><span>Set toplamı</span>: <strong>₺" + nfTr(total) + "</strong> · <span>" +
-        (allFree ? "KDV ve kargo dahil" : "KDV dahil · kargo hariç") + "</span></p>" +
-        '<p><a href="elektrikli-arac-donusum.html?set=' + esc(st.id) + '"><span>Bu paketi aç</span></a></p></article>';
+        (pk.freeShipping ? "KDV ve kargo dahil" : "KDV dahil · kargo hariç") + "</span></p>" +
+        (pk.url ? '<p><a href="' + esc(pk.url) + '"><span>Ürün sayfası</span></a></p>' : "") + "</article>";
     }).join("");
     html = html.replace(/<!-- MOTORSET:STATIC -->[\s\S]*?<!-- \/MOTORSET:STATIC -->/,
       "<!-- MOTORSET:STATIC -->" + sets + "<!-- /MOTORSET:STATIC -->");
@@ -824,6 +884,7 @@ function hydrateExtras(html, file, cfg) {
   // Paket kataloğu — kompakt statik liste (main.js istemcide tam kartlarla değiştirir)
   if (file === "urunler.html" && cfg.packages) {
     const GROUPS = [
+      { id: "evset", title: "Elektrikli Motor Güneş Paketleri" },
       { id: "offgrid", title: "Taşınabilir & Off-Grid Paketler" },
       { id: "irrigation", title: "Tarımsal Sulama Paketleri" },
       { id: "ongrid", title: "Çatı / On-Grid Paketler" },
@@ -1053,15 +1114,14 @@ function writeLlmsFull(cfg) {
   // Elektrikli motor paketleri — kalem listesi + set toplamı. Paketin kendi
   // fiyatı yok; rakamlar içindeki ürünlerin config fiyatlarından gelir.
   const evSetLines = (cfg.evSets || []).map(st => {
-    const items = (st.items || []).map(id => (cfg.packages || []).filter(x => x.id === id)[0]);
-    if (items.some(p => !p || p.price == null)) return "";
-    const RATE = cfg.usdTry || 0;
-    const tlOf = (p) => p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
-    const total = items.reduce((a, p) => a + tlOf(p), 0);
-    return `- ${st.title} (${st.hint}): ` + items.map(p => `${p.name} ₺${nf(tlOf(p))}`).join(" + ")
-      + ` = SET TOPLAMI ₺${nf(total)}`
-      + ` · paket sayfası: ${(cfg.company && cfg.company.web) || ""}/elektrikli-arac-donusum.html?set=${st.id}`
-      + ` · tek tıkla sepete: ${(cfg.company && cfg.company.web) || ""}/sepet.html?ekle=${st.id}`;
+    const pk = (cfg.packages || []).filter(x => x.id === st.pkg)[0];
+    if (!pk || pk.price == null) return "";
+    const ps = (pk.parts || []).map(m => (cfg.packages || []).filter(x => x.id === m)[0]).filter(Boolean);
+    const web = (cfg.company && cfg.company.web) || "";
+    return `- ${pk.name} — ${st.hint}. İçindekiler: ` + ps.map(m => m.name).join(" + ")
+      + ` = ₺${nf(pk.price)} (ürün kodu ${pk.sku})`
+      + ` · ürün sayfası: ${web}/${pk.url}`
+      + ` · tek tıkla sepete: ${web}/sepet.html?ekle=${pk.id}`;
   }).filter(Boolean).join("\n");
   const regions = cfg.calc.regions.map(r => `${r.label}: ${r.yield} kWh/kWp/yıl`).join(" · ");
   const c = cfg.company;
@@ -1303,6 +1363,7 @@ function run() {
     html = injectStaticLd(html, file, cfg);
     if (html !== before) fs.writeFileSync(p, html);
   }
+  checkParts(cfg);
   writeLlmsFull(cfg);
   writeProductFeed(cfg);
   writeSitemap();

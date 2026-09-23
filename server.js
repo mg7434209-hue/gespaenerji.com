@@ -178,15 +178,11 @@ function orderLines(o) {
     return (p && p.name) || id;
   };
   return ((o && o.items) || []).map((it) => {
-    // Hazır paket: set adı + içindekiler. Kalemler ayrı ayrı fiyatlanmaz,
-    // sepette de e-postada da tek tutarla görünür.
-    if (it.set) {
-      return {
-        id: it.id, name: it.set + " — hazır paket", qty: it.qty, unitTL: it.unitTL,
-        members: (it.members || []).map(adOf)
-      };
-    }
-    return { id: it.id, name: adOf(it.id), qty: it.qty, unitTL: it.unitTL };
+    const p = cfg && (cfg.packages || []).find((x) => x.id === it.id);
+    // Hazır pakette içindekiler de yazılır ki ne sevk edileceği belli olsun;
+    // kalemler ayrı ayrı FİYATLANMAZ, paket tek tutarla görünür.
+    const members = (p && p.parts) ? p.parts.map(adOf) : undefined;
+    return { id: it.id, name: adOf(it.id), qty: it.qty, unitTL: it.unitTL, members: members };
   });
 }
 
@@ -545,26 +541,11 @@ function handlePayRoutes(req, res, urlPath) {
       let cfg; try { cfg = SITE_CFG || (SITE_CFG = loadSiteConfig()); } catch (e) { return sendJson(res, 500, { error: "Sunucu yapılandırması okunamadı." }); }
       const items = Array.isArray(b.items) ? b.items : [];
       const buyer = b.buyer || {};
-      const lines = [];        // iyzico sepeti — kalem kalem
-      const ordItems = [];     // sipariş kaydı — hazır paket TEK SATIR
+      const lines = [];
       items.forEach((it) => {
+        const p = (cfg.packages || []).find((x) => x.id === it.id);
         const qty = Math.max(1, Math.min(99, parseInt(it.qty, 10) || 0));
-        if (!qty) return;
-        const key = String(it.id || "");
-        if (key.indexOf("set:") === 0) {
-          // Hazır paket: fiyatı YOK, içindeki ürünlerin config fiyatlarından
-          // toplanır. Kalemlerden biri eksikse paket SATILMAZ.
-          const st = (cfg.evSets || []).find((x) => x.id === key.slice(4));
-          if (!st) return;
-          const ms = (st.items || []).map((m) => (cfg.packages || []).find((x) => x.id === m));
-          if (!ms.length || ms.some((m) => !m || m.price == null)) return;
-          let setTL = 0;
-          ms.forEach((m) => { const u = pkgListTL(m, cfg); setTL += u; lines.push({ p: m, qty, unit: u }); });
-          ordItems.push({ id: key, set: st.title, qty: qty, unitTL: setTL, members: st.items.slice() });
-          return;
-        }
-        const p = (cfg.packages || []).find((x) => x.id === key);
-        if (p) { lines.push({ p, qty, unit: pkgListTL(p, cfg) }); ordItems.push({ id: p.id, qty: qty, unitTL: pkgListTL(p, cfg) }); }
+        if (p && p.price != null && qty) lines.push({ p, qty, unit: pkgListTL(p, cfg) });
       });
       if (!lines.length) return sendJson(res, 400, { error: "Sepet boş veya ürünler tanınamadı." });
       const nm = String(buyer.ad || "").trim().split(/\s+/);
@@ -607,7 +588,7 @@ function handlePayRoutes(req, res, urlPath) {
         }
         writeOrder(out.token, {
           conversationId: convId, status: "pending", createdAt: new Date().toISOString(),
-          totalTL: total, items: ordItems,
+          totalTL: total, items: lines.map((l) => ({ id: l.p.id, qty: l.qty, unitTL: l.unit })),
           // tckn FATURA için saklanır (e-arşiv/e-fatura zorunlu alanı).
           // KVKK: yalnız sunucuda tutulur, log'a ASLA yazılmaz.
           buyer: { ad: buyer.ad, tel: tel, eposta: email, tckn: tckn, il: il, adres: adres }
