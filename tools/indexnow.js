@@ -9,11 +9,13 @@
  *   node tools/indexnow.js --base=SHA # SHA..HEAD aralığında değişenler (tüm push)
  *   node tools/indexnow.js --all      # sitemap'in tamamı (ilk kurulum / büyük değişiklik)
  *   node tools/indexnow.js --dry-run  # gönderilecek payload'ı bas, ağ kullanma
+ *   node tools/indexnow.js --wait-live  # canlı site bu commit'i yayına alana dek bekle
+ *                                      # (en çok --wait-min=N dk, varsayılan 10)
  *
  * Anahtar: kök dizindeki <32 hex>.txt dosyası (IndexNow bu dosyayı sitede
- * doğrular; anahtar tasarım gereği HERKESE AÇIKTIR, sır değildir). Deploy
- * akışında (.github/workflows/deploy-pages.yml) yayından sonra çalışır;
- * hata deploy'u DÜŞÜRMEZ (continue-on-error).
+ * doğrular; anahtar tasarım gereği HERKESE AÇIKTIR, sır değildir). Kendi iş
+ * akışında (.github/workflows/indexnow.yml) --wait-live ile çalışır; Pages
+ * yayınını etkilemez. Elle tam gönderim: Actions → IndexNow → Run workflow (all).
  */
 "use strict";
 const fs = require("fs");
@@ -28,6 +30,8 @@ const LANGS = ["en", "de", "ru"];
 const args = process.argv.slice(2);
 const ALL = args.includes("--all");
 const DRY = args.includes("--dry-run");
+const WAIT = args.includes("--wait-live");
+const WAIT_MIN = +((args.find(x => x.startsWith("--wait-min=")) || "").slice(11)) || 10;
 
 function keyFile() {
   const f = fs.readdirSync(ROOT).find(x => /^[a-f0-9]{32}\.txt$/.test(x));
@@ -81,6 +85,56 @@ function submit(urls, key) {
     req.end(body);
   });
 }
+function get(url) {
+  return new Promise(resolve => {
+    const req = https.get(url, { timeout: 20000, headers: { "User-Agent": "gespa-indexnow-check", "Cache-Control": "no-cache" } }, res => {
+      let d = ""; res.setEncoding("utf8");
+      res.on("data", c => d += c);
+      res.on("end", () => resolve({ status: res.statusCode, body: d, location: res.headers.location }));
+    });
+    req.on("timeout", () => { req.destroy(new Error("zaman aşımı")); });
+    req.on("error", e => resolve({ status: 0, body: e.message }));
+  });
+}
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+function localFileOf(url) {
+  let p = url.slice(ORIGIN.length + 1);
+  if (p === "" || p.endsWith("/")) p += "index.html";
+  return path.join(ROOT, p);
+}
+// Canlı site (Railway) Pages'ten AYRI dağıtılır. Bildirim canlıdan önce giderse
+// Bing eski sayfayı tarar; anahtar dosyası canlıda yokken giderse IndexNow
+// doğrulamayı başarısız sayar ve sonraki bildirimler de 403 döner (ilk kurulumda
+// böyle oldu). Bu yüzden: anahtar dosyası canlıda VE değişen ilk sayfanın canlı
+// içeriği repodakiyle BİREBİR aynı olana dek beklenir (build her ortamda aynı
+// çıktıyı üretir, sunucu dosyayı değiştirmeden servis eder).
+async function waitLive(urls, key) {
+  const keyUrl = ORIGIN + "/" + key + ".txt";
+  const probe = urls.find(u => !/\/(en|de|ru)\//.test(u.slice(ORIGIN.length))) || urls[0];
+  const lf = localFileOf(probe);
+  const local = fs.existsSync(lf) ? fs.readFileSync(lf, "utf8") : null;
+  const deadline = Date.now() + WAIT_MIN * 60000;
+  let k, pg;
+  for (;;) {
+    [k, pg] = await Promise.all([get(keyUrl), get(probe)]);
+    const keyOk = k.status === 200 && k.body.trim() === key;
+    const pageOk = pg.status === 200 && (local === null || pg.body === local);
+    if (keyOk && pageOk) { console.log("Canlı sürüm hazır (" + probe + ")."); return true; }
+    if (Date.now() > deadline) break;
+    await sleep(20000);
+  }
+  const keyOk = k.status === 200 && k.body.trim() === key;
+  console.log("Anahtar dosyası: " + keyUrl + " → HTTP " + k.status
+    + (k.status === 200 ? (keyOk ? " (doğru)" : " (içerik anahtarla eşleşmiyor)") : "") + (k.location ? " → " + k.location : ""));
+  console.log("Yoklama sayfası: " + probe + " → HTTP " + pg.status
+    + (pg.status === 200 ? (pg.body === local ? " (bu commit)" : " (canlı içerik bu commit'ten farklı)") : "") + (pg.location ? " → " + pg.location : ""));
+  if (!keyOk) {
+    console.warn("UYARI: anahtar dosyası canlıda yok — bildirim GÖNDERİLMEDİ. Canlı site (Railway) bu dalı mı yayınlıyor?");
+    return false;
+  }
+  console.warn("UYARI: canlı sürüm " + WAIT_MIN + " dk içinde bu commit'le eşleşmedi; yine de gönderiliyor.");
+  return true;
+}
 (async () => {
   const { key, file } = keyFile();
   let urls = ALL ? sitemapUrls() : changedUrls();
@@ -89,6 +143,7 @@ function submit(urls, key) {
   if (!urls.length) { console.log("IndexNow: değişen sayfa yok, gönderim atlandı."); return; }
   console.log("IndexNow: " + urls.length + " URL (" + (ALL ? "tamamı" : "değişenler") + "), anahtar dosyası " + file);
   if (DRY) { console.log(JSON.stringify({ host: HOST, keyLocation: ORIGIN + "/" + file, urlList: urls }, null, 1)); return; }
+  if (WAIT && !(await waitLive(urls, key))) return;
   const r = await submit(urls, key);
   // 200/202 = kabul edildi; 4xx = anahtar/istek sorunu; deploy DÜŞÜRÜLMEZ
   console.log("IndexNow yanıtı: HTTP " + r.status + (r.body ? " " + String(r.body).slice(0, 200) : ""));

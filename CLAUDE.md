@@ -670,6 +670,8 @@ Gönderici server.js içinde bağımlılıksız SMTP istemcisidir (`sendMail(to,
 - Geliştirme: `npm start` → `node server.js` (http://localhost:3000); başlangıçta build çalışır.
 - Railway: `package.json` + `railway.json`; `npm start` ile yayınlanır (canlı site).
 - GitHub Pages: `.github/workflows/deploy-pages.yml` upload'tan önce `node build.js` çalıştırır.
+- IndexNow: ayrı iş akışı `.github/workflows/indexnow.yml`; canlı sitenin (Railway)
+  push'u yayına almasını bekleyip değişen sayfaları bildirir (`docs/seo-aeo.md`).
 
 ## Test (commit öncesi)
 - `node -c assets/main.js && node -c server.js && node -c build.js` (söz dizimi).

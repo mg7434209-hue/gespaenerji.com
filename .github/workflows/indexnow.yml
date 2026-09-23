@@ -1,0 +1,48 @@
+name: IndexNow
+
+# Değişen sayfaları Bing / Yandex / Naver / Seznam / Yep'e bildirir
+# (api.indexnow.org). Bing indeksi Copilot ve ChatGPT aramasını besler.
+#
+# Canlı site (www.gespaenerji.com) Railway'dedir ve Pages'ten AYRI dağıtılır.
+# Betik, anahtar dosyası ve değişen ilk sayfa canlıda bu commit'le aynı olana
+# dek bekler (en çok 10 dk). Anahtar dosyası canlıda yoksa HİÇ göndermez:
+# IndexNow başarısız doğrulamayı önbelleğe alır, sonraki bildirimler 403 döner.
+#
+# Pages yayınından ayrı iş akışıdır: onun concurrency iptali bildirimleri
+# düşürmesin. Push'un TÜM commit'leri kapsansın diye push öncesi commit
+# (before) sığ olarak çekilir; iki ağaç arasındaki fark için geçmiş gerekmez.
+on:
+  push:
+    branches:
+      - claude/determined-albattani-ol20qb
+  workflow_dispatch:
+    inputs:
+      all:
+        description: "Sitemap'teki TÜM adresleri gönder (ilk kurulum / büyük değişiklik)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Canlıya çıkınca değişen sayfaları bildir
+        env:
+          BEFORE: ${{ github.event.before }}
+          ALL: ${{ inputs.all }}
+        run: |
+          if [ "$ALL" = "true" ]; then
+            node tools/indexnow.js --all --wait-live
+          else
+            if [ -n "$BEFORE" ]; then git fetch --no-tags --depth=1 origin "$BEFORE" || true; fi
+            node tools/indexnow.js --base="$BEFORE" --wait-live
+          fi

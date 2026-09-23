@@ -29,8 +29,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 2   # IndexNow "son commit'te değişen sayfalar" için HEAD~1 gerekir
 
       - name: Build multilingual pages (/en, /de, /ru)
         run: node build.js
@@ -47,15 +45,5 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      # Yayından sonra değişen sayfaları Bing/Yandex/Naver'a anında bildir
-      # (api.indexnow.org). Bing indeksi Copilot/ChatGPT aramasını besler.
-      # Push'un TÜM commit'leri kapsansın diye push öncesi commit (before) de
-      # sığ olarak çekilir; iki ağaç arasındaki fark için geçmiş gerekmez.
-      # Hata yayını düşürmez.
-      - name: IndexNow — değişen sayfaları bildir
-        env:
-          BEFORE: ${{ github.event.before }}
-        run: |
-          if [ -n "$BEFORE" ]; then git fetch --no-tags --depth=1 origin "$BEFORE" || true; fi
-          node tools/indexnow.js --base="$BEFORE"
-        continue-on-error: true
+      # IndexNow bildirimi ayrı iş akışındadır (indexnow.yml): canlı site
+      # Railway'dedir, bildirim onun yayına almasını beklemelidir.

@@ -156,13 +156,20 @@ birlikte commit'le.
   api.indexnow.org'a bildirir; o da Bing, Yandex, Seznam, Naver ve Yep'e dağıtır.
   Bing indeksi Copilot ve ChatGPT aramasını besler. `--all` tüm sitemap'i,
   `--dry-run` ağsız önizlemeyi verir. Komut: `npm run indexnow`.
-- `deploy-pages.yml` yayından sonra çalıştırır (`continue-on-error` — hata
-  yayını düşürmez). Push öncesi commit `--base=<github.event.before>` ile
-  verilir; tek push'taki TÜM commit'lerin sayfaları bildirilir. Base yoksa
-  (yeni dal, elle çalıştırma) `HEAD~1`'e düşer (`fetch-depth: 2`).
-- Art arda iki push'ta ilk çalışma `cancel-in-progress` ile iptal edilirse onun
-  sayfaları bildirilmez; Bing onları sitemap'ten yine bulur. Google IndexNow
-  kullanmaz; onun için sitemap + Search Console.
+- Kendi iş akışında çalışır (`.github/workflows/indexnow.yml`), Pages
+  yayınından ayrıdır; onun `cancel-in-progress` iptali bildirimi düşürmez.
+  Push öncesi commit `--base=<github.event.before>` ile verilir, tek push'taki
+  TÜM commit'lerin sayfaları bildirilir. Base yoksa `HEAD~1`'e düşer.
+- `--wait-live`: canlı site Railway'dedir ve Pages'ten ayrı dağıtılır. Betik,
+  anahtar dosyası canlıda VE değişen ilk sayfanın canlı içeriği repodakiyle
+  BİREBİR aynı olana dek bekler (en çok 10 dk; build her ortamda aynı çıktıyı
+  üretir, sunucu dosyayı değiştirmeden servis eder). Anahtar dosyası canlıda
+  yoksa bildirim GÖNDERİLMEZ ve günlüğe HTTP durumu yazılır.
+- NEDEN: ilk kurulumda bildirim, Railway anahtar dosyasını yayına almadan
+  gitti ve IndexNow 403 "UserForbiddedToAccessSite" döndü. IndexNow başarısız
+  doğrulamayı bir süre önbellekte tutar.
+- Elle tam gönderim: GitHub → Actions → IndexNow → Run workflow → "all".
+- Google IndexNow kullanmaz; onun için sitemap + Search Console.
 
 ## AI tarayıcı sayacı (sunucu)
 - server.js `botOf()`/`countBot()`: `AI_BOT_NAMES` (AI) ve `SEARCH_BOT_NAMES`

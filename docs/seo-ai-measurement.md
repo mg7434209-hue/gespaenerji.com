@@ -27,7 +27,7 @@ GA4 yalnız insan ziyaretçiyi ve çerez onayı vereni görür. AI botları (GPT
 - User-Agent taklit edilebilir. Sayaç bilgi amaçlıdır, güvenlik kararı için kullanılmaz.
 
 ## Hesap erişimiyle tamamlanacak işler
-- Bing Webmaster Tools'a siteyi ekleyin ve sitemap'i gönderin. Bing indeksi Copilot ve ChatGPT aramasını besler. Yayından sonra IndexNow bildirimleri (deploy iş akışındaki adım) Bing panelinde "IndexNow" altında görünmelidir.
+- Bing Webmaster Tools'a siteyi ekleyin ve sitemap'i gönderin. Bing indeksi Copilot ve ChatGPT aramasını besler. IndexNow bildirimleri (GitHub → Actions → "IndexNow" iş akışı) Bing panelinde "IndexNow" altında görünmelidir. İş akışı günlüğü anahtar dosyasının canlıdaki HTTP durumunu yazar; "anahtar dosyası canlıda yok" uyarısı, canlı sitenin (Railway) bu dalı yayınlamadığını gösterir.
 - Railway'de `DATA_DIR`'i bir Volume'a bağlayın. Sipariş kayıtları, ziyaretçi sayacı ve AI tarayıcı sayacı ancak böyle kalıcı olur.
 - GA4 DebugView/Gerçek Zamanlı ile izinli test oturumunun olaylarını kontrol edin. `ai_source` ve `contact_method` için olay kapsamlı özel boyutlar oluşturun.
 - Search Console'da https://www.gespaenerji.com/sitemap.xml gönderimini/son okunmasını ve yeni URL'lerin indeks/canonical durumunu kontrol edin.
