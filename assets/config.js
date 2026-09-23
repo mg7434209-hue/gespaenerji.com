@@ -400,6 +400,10 @@ window.GESPA.config = {
     {
       id: "yolcu",
       img: "assets/img/products/ev/motor-yolcu.webp",
+      // proof: paket kutusunun SOL görseli — seçilen araca göre değişir.
+      // İkisi de 4:3 kadrajdır (tools/motor-foto.py); farklı oranda olsalar
+      // kart değiştikçe kutunun yüksekliği zıplardı.
+      proof: "assets/img/products/ev/motor-yolcu-kurulum.webp",
       title: "Yolcu kabinli triportör",
       hint: "Kabinli, 2–4 kişilik yolcu araçları — çatı alanı dar",
       items: ["panel-lexron-285w", "boost-mppt", "kablo-solar-5m", "mc4-set"]
@@ -407,12 +411,13 @@ window.GESPA.config = {
     {
       id: "kargo",
       img: "assets/img/products/ev/motor-kargo.webp",
+      proof: "assets/img/products/ev/motor-kargo-kurulum.webp",
       title: "Kargo kasalı triportör",
       hint: "Açık kasa veya tenteli yük araçları — çatı alanı geniş",
       items: ["panel-lexron-655w", "boost-mppt", "kablo-solar-5m", "mc4-set"]
     }
   ],
-  // Seçilen pakette gösterilen kurulum kanıtı (gerçek iş fotoğrafı).
+  // Sette `proof` yoksa kullanılacak yedek görsel.
   evSetProof: "assets/img/products/ev/motor-panel-takili.webp",
 
 

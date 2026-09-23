@@ -394,12 +394,15 @@
 
         var d = sets[secili];
         h += '<div class="mset-detail">';
-        if (CFG.evSetProof) {
-          h += '<div class="mset-proof"><img src="' + esc(CFG.evSetProof) + '" alt="'
-            + esc(L("Aracın çatısına monte edilmiş güneş paneli", "Solar panel mounted on the vehicle roof",
-                    "Auf dem Fahrzeugdach montiertes Solarmodul", "Солнечная панель на крыше автомобиля"))
-            + '" width="408" height="709" loading="lazy" data-zoom /><span>'
-            + L("Kurulum örneği", "Installation example", "Montagebeispiel", "Пример монтажа") + "</span></div>";
+        // Sol görsel SEÇİLEN ARACIN kurulum kadrajıdır; sette yoksa yedeğe düşer.
+        var proof = d.st.proof || CFG.evSetProof;
+        if (proof) {
+          h += '<div class="mset-proof"><img src="' + esc(proof) + '" alt="'
+            + esc(T(d.st.title)) + " — "
+            + esc(L("çatıya monte güneş paneli", "solar panel mounted on the roof",
+                    "auf dem Dach montiertes Solarmodul", "солнечная панель на крыше"))
+            + '" width="408" height="306" loading="lazy" data-zoom /><span>'
+            + L("Panel montaj örneği", "Panel mounting example", "Beispiel für die Modulmontage", "Пример монтажа панели") + "</span></div>";
         }
         h += '<div class="mset-body"><h3>' + esc(T(d.st.title)) + " — "
           + L("hazır paket", "ready-made set", "Fertigset", "готовый комплект") + "</h3>";

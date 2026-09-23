@@ -358,6 +358,12 @@ dipnot kalem SAYMAZ ("yukarıda listelenen ürünler") — güncelleme unutulmas
   Statik blokta çevrilecek her ifade KENDİ `<span>`'inde durur — gövde
   çevirisi metin düğümünün TAMAMINI DICT'te arar, fiyatla aynı düğümde
   olan metin çevrilmez.
+- Paket kutusunun SOL görseli setin kendi `proof` alanıdır — kart değişince
+  o araca ait kurulum fotoğrafı gelir. İki `proof` de 4:3 kadrajdır
+  (`tools/motor-foto.py`); farklı oranda olsalar kart seçildikçe kutunun
+  yüksekliği zıplardı. `<img>` üzerindeki width/height ÖZNİTELİKLERİ CSS'e
+  sunum ipucu olarak geçip height'ı sabitler — `height:auto` yazılmazsa
+  `aspect-ratio` etkisiz kalır.
 - GÖRSELLER: `assets/img/products/ev/motor-*.webp`, kaynakları
   `.../ev/kaynak/` altında + `tools/motor-foto.py` (DRY-RUN / `--uygula`).
   Araçlar BAŞKA ÜRETİCİLERE aittir (CSN, SFM) — marka yazıları SİLİNMEZ

@@ -49,6 +49,23 @@ JOBS = [
         "crop": (0, 6, 408, 715),
         "quality": 84,
     },
+    # —— Paket kutusunun SOL gorseli —— secilen araca gore degisir, bu yuzden
+    # ikisi de AYNI 4:3 orandadir; farkli oranda olsalar kart secildikce
+    # kutunun yuksekligi ziplardi.
+    {
+        # Yolcu kabinli: catisinda panel takili gercek arac, ust kadraj.
+        "src": "motor-panel-takili.png",
+        "out": "motor-yolcu-kurulum.webp",
+        "crop": (0, 8, 408, 314),
+        "quality": 84,
+    },
+    {
+        # Kargo kasali: catidaki panel + kasa birlikte gorunsun.
+        "src": "motor-kargo-kasali.png",
+        "out": "motor-kargo-kurulum.webp",
+        "crop": (180, 0, 1032, 639),
+        "quality": 84,
+    },
 ]
 
 
