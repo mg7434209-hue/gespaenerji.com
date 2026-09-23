@@ -224,8 +224,8 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
 
 ### Ürünler & fiyatlar (config.packages · config.heater · config.admin)
 - `packages[]`: 2 komple kit (285W ₺ · 2x540W USD) + BOOST MPPT şarj kontrol
-  cihazı (liste ₺7.600, `discountPct:5` → havale ₺7.200, `freeShipping`,
-  `group:"accessory"`) +
+  cihazı (**₺7.200 NET** — `noCartDiscount`, kartta da havalede de aynı tutar;
+  `freeShipping`, `group:"accessory"`) +
   50W panel (kampanya, `group:"panel"`) + UNV Trek Pro 2500 W taşınabilir güç
   istasyonu ($2.495, `group:"offgrid"`) + tekil paneller Lexron 285 W ₺7.500 ·
   Lexron 655 W TOPCon ₺10.000 · Arçelik 540 W ₺10.000 (`group:"panel"`) +
@@ -296,8 +296,12 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   geneli `cartDiscountPct` (%3) geçerlidir. Tek kural main.js `pkgPct()` ve
   build.js `pctOf()` — vitrin kartı, katalog, paket detayı, PKG/SHOP:STATIC,
   sepet ve llms-full.txt bunlara bağlıdır. Belli bir SON FİYAT hedefliyorsan
-  listeyi ona göre kur: liste × (100−N)/100, en yakın 50 ₺'ye yuvarlanır
-  (ör. ₺7.600 + %5 → ₺7.200). Sepette oranları FARKLI kalemler varsa özet tek
+  listeyi ona göre kur: liste × (100−N)/100, en yakın 50 ₺'ye yuvarlanır.
+  AMA hedef fiyat KARTTA DA geçerli olacaksa `discountPct` DEĞİL
+  `noCartDiscount` + net fiyat kullan: `discountPct` yalnız havaleyi indirir,
+  kasada liste fiyatı çekilir ve müşteri sepette gördüğünden fazla öder
+  (BOOST'ta bu yaşandı, ₺7.200 net fiyata geçildi).
+  Sepette oranları FARKLI kalemler varsa özet tek
   "%N" YAZMAZ, yalnız tutarı gösterir (main.js `pctOfLines`).
   UYARI: bu indirim yalnızca HAVALE/EFT'te geçerlidir — kart ödemesinde
   liste fiyatı tahsil edilir (server.js `pkgListTL`). "Sepette %N indirim"

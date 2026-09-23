@@ -241,11 +241,13 @@ window.GESPA.config = {
       id: "boost-mppt", icon: "🔌", tag: "Elektrikli Araç", group: "accessory",
       url: "elektrikli-arac-donusum.html", sku: "GES-EV-BOOST",
       img: "assets/img/products/ev/boost-mppt-on.webp",
-      // Liste ₺7.600 + %5 → havale/EFT ile ₺7.200 (en yakın 50 ₺'ye yuvarlanır).
-      // discountPct SADECE bu ürüne uygulanır; site geneli %3 (cartDiscountPct).
-      // freeShipping: kargo fiyata DAHİL — kart ödemesinde de alıcıdan
-      // ayrıca kargo ücreti istenmez; "KDV ve kargo dahil" notu basılır.
-      price: 7600, discountPct: 5, freeShipping: true,
+      // ₺7.200 NET: noCartDiscount ile havale/EFT indirimi BİNMEZ — kartla da
+      // havaleyle de aynı tutar tahsil edilir, havale satırı hiçbir yerde
+      // gösterilmez. Önceden liste ₺7.600 + %5 havale indirimi idi; sepette
+      // ₺7.200 yazıp kasada ₺7.600 çekildiği için net fiyata geçildi.
+      // freeShipping: kargo fiyata DAHİL — alıcıdan ayrıca kargo ücreti
+      // istenmez; "KDV ve kargo dahil" notu basılır.
+      price: 7200, noCartDiscount: true, freeShipping: true,
       chips: ["⚙️ 24 V – 72 V akü", "🔋 Tüm akü tipleri", "📶 Bluetooth ile ayar"],
       for: "Golf aracı, hizmet aracı ve elektrikli platformlar",
       name: "MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı",

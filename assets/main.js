@@ -559,7 +559,12 @@
           set("[data-ord-total]", "₺" + nf.format(cartT));
         } else {
           // Kart: havale indirimi uygulanmaz, liste fiyatı tahsil edilir.
-          set("[data-ord-disc]", L("Kart ödemesinde uygulanmaz", "Not applied for card payments", "Bei Kartenzahlung nicht anwendbar", "При оплате картой не применяется"));
+          // Sepetteki kalemlerin hiçbiri indirime girmiyorsa (hepsi net
+          // fiyatlı) "kartta uygulanmaz" demek yanıltıcı olur — ortada
+          // kaybedilen bir indirim yok.
+          set("[data-ord-disc]", listT > cartT
+            ? L("Kart ödemesinde uygulanmaz", "Not applied for card payments", "Bei Kartenzahlung nicht anwendbar", "При оплате картой не применяется")
+            : L("Net fiyatlı üründe uygulanmaz", "Not applied to net-priced products", "Bei Nettopreis-Produkten nicht anwendbar", "К товарам по нетто-цене не применяется"));
           set("[data-ord-total]", "₺" + nf.format(listT));
         }
         return { ls: ls, listT: listT, cartT: cartT, method: method };
