@@ -16,7 +16,22 @@ for(let i=0;i<files.length;i++){
  assert.ok(html.includes('rel="canonical" href="'+urls[i]+'"'),file+': canonical');
  assert.ok(!/name="robots" content="[^"]*noindex/.test(html),file+': noindex in sitemap');
  assert.ok(html.includes('<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />'),file+': robots meta (max-image-preview)');
- for(const m of html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)){JSON.parse(m[1]);schemas++;}
+ const lds=[...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1]));schemas+=lds.length;
+ // Every page is an entity: WebPage family with freshness + site/organization links.
+ const page=lds.find(x=>/^(WebPage|CollectionPage|ItemPage|AboutPage|ContactPage)$/.test(x['@type']));
+ assert.ok(page,file+': WebPage schema');
+ assert.ok(/^\d{4}-\d{2}-\d{2}$/.test(page.dateModified)&&/^\d{4}-\d{2}-\d{2}$/.test(page.datePublished),file+': WebPage dates');
+ assert.equal(page.isPartOf['@id'],origin+'/#website',file+': WebPage isPartOf');
+ assert.ok(page.speakable&&page.speakable.cssSelector.includes('h1'),file+': speakable');
+ assert.ok(lds.some(x=>x['@type']==='WebSite'&&x['@id']===origin+'/#website'),file+': WebSite entity');
+ const lb=lds.find(x=>x['@type']==='LocalBusiness');
+ assert.ok(lb&&lb.contactPoint&&lb.hasMap&&lb.paymentAccepted&&lb.foundingDate==='2005',file+': LocalBusiness enrichment');
+ if(html.includes('data-pkg-detail="')){
+  const pr=lds.find(x=>x['@type']==='Product');
+  assert.ok(pr&&pr.itemCondition&&pr.image&&pr.offers&&/^\d{4}-\d{2}-\d{2}$/.test(pr.offers.priceValidUntil),file+': Product enrichment');
+  assert.equal(page['@type'],'ItemPage',file+': product page is ItemPage');
+ }
+ if(page['@type']==='ItemPage')assert.ok(lds.some(x=>x['@type']==='Product'&&x['@id']===page.mainEntity['@id']),file+': ItemPage.mainEntity resolves');
  for(const m of html.matchAll(/<link rel="alternate" hreflang="[^"]+" href="([^"]+)"/g))assert.ok(urls.includes(m[1]),file+': missing alternate '+m[1]);
  // Local assets and content links; query strings and fragments are intentionally excluded.
  for(const m of html.matchAll(/(?:href|src|poster)="([^"]+)"/g)){
@@ -36,6 +51,10 @@ for(const lang of ['en','de','ru']){
  const service=schemas.find(x=>x['@type']==='Service');
  assert.equal(service.url,origin+'/'+lang+'/cati-ges.html');
  assert.equal(service.provider['@id'],origin+'/#organization');
+ assert.ok(service.serviceType&&service.serviceType!=='Manavgat ve Antalya Çatı GES Kurulumu',lang+': serviceType translated');
+ assert.ok(Array.isArray(service.areaServed)&&service.areaServed[0]['@type'],lang+': areaServed as City objects');
+ const enPage=schemas.find(x=>x['@type']==='WebPage');
+ assert.ok(enPage&&enPage.inLanguage===lang&&enPage.url===origin+'/'+lang+'/cati-ges.html',lang+': WebPage localized');
 }
 // Image/video sitemap extensions and the generated robots.txt (AI crawlers explicitly invited).
 assert.ok((sitemap.match(/<image:image>/g)||[]).length>50,'image sitemap entries');

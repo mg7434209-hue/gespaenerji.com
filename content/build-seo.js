@@ -50,6 +50,14 @@ function generate(root) {
 }
 function schema(file,cfg){
   const p=pages.find(p=>p.file===file);if(!p)return null;
-  return {'@context':'https://schema.org','@type':p.kind,'@id':cfg.company.web+'/'+file+'#'+(p.kind==='Service'?'service':'page'),name:p.title[0],description:p.intro[0],url:cfg.company.web+'/'+file,...(p.kind==='Service'?{provider:{'@id':cfg.company.web+'/#organization'},areaServed:cfg.company.areaServed}:{inLanguage:'tr',...(p.image?{image:cfg.company.web+'/'+p.image}:{})})};
+  const web=cfg.company.web;
+  const base={'@context':'https://schema.org','@type':p.kind,'@id':web+'/'+file+'#'+(p.kind==='Service'?'service':'page'),name:p.title[0],description:p.intro[0],url:web+'/'+file};
+  if(p.kind!=='Service')return Object.assign(base,{inLanguage:'tr'},p.image?{image:web+'/'+p.image}:{});
+  // Hizmet: serviceType + il/ilçe NESNELERİ (düz dize yerine City → yerel arama
+  // ve AI motorlarında "Manavgat'ta çatı GES" eşleşmesi güçlenir)
+  const area=(cfg.company.areaServed||[]).map(n=>n==='Antalya'
+    ?{'@type':'AdministrativeArea',name:'Antalya'}
+    :{'@type':'City',name:n,containedInPlace:{'@type':'AdministrativeArea',name:'Antalya'}});
+  return Object.assign(base,{serviceType:p.title[0],provider:{'@id':web+'/#organization'},areaServed:area});
 }
 module.exports={pages,translations,generate,schema};

@@ -400,7 +400,7 @@ function loadConfig() {
   return sandbox.window.GESPA.config;
 }
 
-function localBusinessLd(c) {
+function localBusinessLd(c, cfg) {
   const d = {
     "@context": "https://schema.org", "@type": "LocalBusiness",
     "@id": c.web + "/#organization", name: c.brandName, legalName: c.legalName, url: c.web,
@@ -435,14 +435,109 @@ function localBusinessLd(c) {
   // yalnız c.sameAs okur) — "🌐" ikonlu tuhaf bir sosyal bağlantı oluşmasın.
   const sa = (c.sameAs || []).concat((c.sisterSites || []).map(x => x.url)).filter(Boolean);
   if (sa.length) d.sameAs = sa;
-  if (c.geo && c.geo.lat != null && c.geo.lng != null) d.geo = { "@type": "GeoCoordinates", latitude: c.geo.lat, longitude: c.geo.lng };
+  if (c.geo && c.geo.lat != null && c.geo.lng != null) {
+    d.geo = { "@type": "GeoCoordinates", latitude: c.geo.lat, longitude: c.geo.lng };
+    d.hasMap = "https://www.google.com/maps?q=" + c.geo.lat + "," + c.geo.lng;
+  }
+  // Müşteri hizmetleri irtibat noktası — AI asistanlarına "hangi dilde, nasıl
+  // ulaşılır" sinyali. Telefon/e-posta yine config'ten.
+  if (c.phone && c.phone.tel) {
+    d.contactPoint = {
+      "@type": "ContactPoint", contactType: "customer service",
+      telephone: c.phone.tel, email: c.email,
+      availableLanguage: ["tr", "en", "de", "ru"], areaServed: "TR"
+    };
+  }
+  d.knowsLanguage = ["tr", "en", "de", "ru"];
+  if (c.address && c.address.district) d.foundingLocation = { "@type": "Place", name: c.address.district + ", " + c.address.city };
+  // Ödeme yolları — sepetteki seçeneklerle AYNI kaynak (config.commerce.payment)
+  const com = (cfg && cfg.commerce) || {};
+  if (com.payment && com.payment.length) d.paymentAccepted = com.payment.join(", ");
+  d.currenciesAccepted = "TRY";
   return d;
+}
+
+// ---- Sayfa varlığı: her sayfada WebPage ailesi ----
+// dateModified/datePublished git'ten (sitemap lastmod ile AYNI kaynak),
+// isPartOf → #website, about/mainEntity → firma ya da ürün, speakable →
+// sesli asistan ve AI özetleri için "önce bunu oku" seçicileri.
+const PAGE_TYPE = {
+  "urunler.html": "CollectionPage", "online-satis.html": "CollectionPage", "projeler.html": "CollectionPage",
+  "hakkimizda.html": "AboutPage", "iletisim.html": "ContactPage",
+  "su-isitici.html": "ItemPage", "ai-cankurtaran-destek-sistemi.html": "ItemPage"
+};
+const unesc = x => String(x || "").replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#39;/g, "'");
+function pageLd(file, html, cfg, hasCrumbs) {
+  const web = cfg.company.web;
+  const url = web + "/" + (file === "index.html" ? "" : file);
+  const title = unesc((html.match(/<title>([\s\S]*?)<\/title>/) || [])[1]).trim();
+  const desc = unesc((html.match(/<meta name="description" content="([^"]*)"/) || [])[1]).trim();
+  const og = (html.match(/<meta property="og:image" content="([^"]*)"/) || [])[1];
+  const type = PAGE_TYPE[file] || (/data-pkg-detail="/.test(html) ? "ItemPage" : "WebPage");
+  const d = {
+    "@context": "https://schema.org", "@type": type, "@id": url + "#page",
+    url: url, name: title, description: desc, inLanguage: "tr",
+    isPartOf: { "@id": web + "/#website" },
+    datePublished: firstModOf(file), dateModified: lastModOf(file)
+  };
+  if (type === "ItemPage") d.mainEntity = { "@id": url + "#product" };
+  else d.about = { "@id": web + "/#organization" };
+  if (og) d.primaryImageOfPage = { "@type": "ImageObject", url: og };
+  if (hasCrumbs) d.breadcrumb = { "@id": url + "#breadcrumb" };
+  const sel = ["h1"];
+  if (/class="lead"/.test(html)) sel.push(".lead");
+  if (/class="prod-lead"/.test(html)) sel.push(".prod-lead");
+  d.speakable = { "@type": "SpeakableSpecification", cssSelector: sel };
+  return d;
+}
+// Dosyanın git'e ilk girdiği tarih (datePublished); git yoksa lastMod
+const _firstMod = {};
+function firstModOf(file) {
+  if (_firstMod[file]) return _firstMod[file];
+  let d;
+  try {
+    d = require("child_process").execSync('git log --diff-filter=A --format=%cI -- "' + file + '"',
+      { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString().trim().split("\n").pop().slice(0, 10);
+  } catch (e) {}
+  return (_firstMod[file] = d || lastModOf(file));
+}
+// Ürün sayfasındaki teknik künye tablosu → PropertyValue listesi
+// (.spec-table; parts-table DEĞİL; fiyat içeren satır alınmaz)
+function specProps(html) {
+  const out = [];
+  if (!html) return out;
+  const re = /<table class="(spec-table[^"]*)"[^>]*>([\s\S]*?)<\/table>/g; let t;
+  while ((t = re.exec(html)) !== null) {
+    if (/parts-table/.test(t[1])) continue;
+    const clean = x => x.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
+    const rr = /<tr>\s*<t[dh][^>]*>([\s\S]*?)<\/t[dh]>\s*<td[^>]*>([\s\S]*?)<\/td>/g; let m;
+    while ((m = rr.exec(t[2])) !== null) {
+      const k = clean(m[1]), v = clean(m[2]);
+      if (k && v && !/₺|\$/.test(v)) out.push({ "@type": "PropertyValue", name: k, value: v });
+      if (out.length >= 24) break;
+    }
+    break;
+  }
+  return out;
+}
+// commerce.shipDays "2–5" → taşıma süresi (elleçleme süresi UYDURULMAZ)
+function transitTime(com) {
+  const m = /^(\d+)\s*[–-]\s*(\d+)$/.exec(String((com && com.shipDays) || "").trim());
+  return m ? { "@type": "QuantitativeValue", minValue: +m[1], maxValue: +m[2], unitCode: "DAY" } : null;
+}
+// Fiyat geçerlilik sonu: canlı kampanyada endsAt, değilse yıl sonu (her build yeniler)
+function priceValidUntil(cfg, p) {
+  const camp = cfg.campaign || {};
+  if (p.oldPrice && p.price != null && p.oldPrice > p.price && camp.endsAt && new Date(camp.endsAt) > new Date()) return String(camp.endsAt).slice(0, 10);
+  return new Date().getFullYear() + "-12-31";
 }
 
 function heaterProductLd(cfg) {
   const prices = cfg.heater.showPrices === false ? [] : cfg.heater.models.map(m => m.price).filter(Boolean);
   const d = {
     "@context": "https://schema.org", "@type": "Product",
+    "@id": cfg.company.web + "/su-isitici.html#product",
+    itemCondition: "https://schema.org/NewCondition",
     name: (cfg.heater.name || "Solar Su Isıtma Sistemi") + " — Fotovoltaik Güneş Enerjili Su Isıtıcı",
     image: [
       cfg.company.web + "/assets/img/products/heater/og-su-isitici.jpg",
@@ -554,13 +649,13 @@ function packagesItemListLd(cfg, file) {
   });
   return {
     "@context": "https://schema.org", "@type": "ItemList",
-    name: "GESPA Enerji Paket Ürünler",
+    name: "GESPA Enerji Paket Ürünler", numberOfItems: items.length, itemListOrder: "https://schema.org/ItemListUnordered",
     itemListElement: items.map((o, i) => ({ "@type": "ListItem", position: i + 1, item: o }))
   };
 }
 
 // Paket detay sayfası için Product şeması (statik; main.js data-gld görünce tekrar enjekte etmez)
-function packageProductLd(cfg, p) {
+function packageProductLd(cfg, p, html) {
   const web = cfg.company.web;
   const com = cfg.commerce || {};
   const ld = {
@@ -572,7 +667,20 @@ function packageProductLd(cfg, p) {
     url: web + "/" + (p.url || "")
   };
   if (p.sku) ld.sku = p.sku;
-  if (p.img) ld.image = web + "/" + p.img;
+  if (p.url) ld["@id"] = web + "/" + p.url + "#product";
+  ld.itemCondition = "https://schema.org/NewCondition";
+  // Görseller: ana foto + sayfa galerisindeki küçük resimlerin hedefleri
+  // (.prod-thumb href). Ürün sonuçları birden çok görsel ister.
+  const imgs = [];
+  if (p.img) imgs.push(web + "/" + p.img);
+  if (html) {
+    const re = /<a class="prod-thumb[^"]*" href="(assets\/[^"]+)"/g; let m;
+    while ((m = re.exec(html)) !== null) { const u = web + "/" + m[1]; if (!imgs.includes(u)) imgs.push(u); }
+  }
+  if (imgs.length) ld.image = imgs.length === 1 ? imgs[0] : imgs;
+  // Teknik künye → additionalProperty (AI motoru "voltajı kaç" sorusunu şemadan okur)
+  const props = specProps(html);
+  if (props.length) ld.additionalProperty = props;
   if (p.price != null) {
     ld.offers = {
       "@type": "Offer", price: priceTRY(cfg, p.price, p.currency), priceCurrency: "TRY",
@@ -584,9 +692,12 @@ function packageProductLd(cfg, p) {
         shippingDestination: { "@type": "DefinedRegion", addressCountry: "TR" },
         // Kargo ücreti yalnızca `freeShipping` ürünlerde BİLİNİYOR (sıfır).
         // Diğerlerinde tutar mesafeye göre değiştiği için rakam UYDURULMAZ.
-        ...(p.freeShipping ? { shippingRate: { "@type": "MonetaryAmount", value: 0, currency: "TRY" } } : {})
+        ...(p.freeShipping ? { shippingRate: { "@type": "MonetaryAmount", value: 0, currency: "TRY" } } : {}),
+        // Teslim süresi: commerce.shipDays "2–5" iş günü → yalnız taşıma süresi
+        ...(transitTime(com) ? { deliveryTime: { "@type": "ShippingDeliveryTime", transitTime: transitTime(com) } } : {})
       }
     };
+    ld.offers.priceValidUntil = priceValidUntil(cfg, p);
     if (com.returnDays) {
       ld.offers.hasMerchantReturnPolicy = {
         "@type": "MerchantReturnPolicy",
@@ -598,12 +709,21 @@ function packageProductLd(cfg, p) {
       };
     }
   }
+  // İlişkili ürünler: hazır set → kalemleri; kalem → içinde bulunduğu setler
+  // ("bu akü/cihaz hangi pakete uyar" sorusu şemadan da okunsun)
+  const rel = [];
+  const refOf = x => Object.assign({ "@type": "Product", name: x.name },
+    x.url ? { "@id": web + "/" + x.url + "#product", url: web + "/" + x.url } : {});
+  (p.parts || []).forEach(id => { const m = cfg.packages.filter(x => x.id === id)[0]; if (m) rel.push(refOf(m)); });
+  cfg.packages.forEach(x => { if (x.parts && x.parts.includes(p.id) && x.id !== p.id) rel.push(refOf(x)); });
+  if (rel.length) ld.isRelatedTo = rel;
   return ld;
 }
 
 function cankurtaranProductLd(cfg) {
   return {
     "@context": "https://schema.org", "@type": "Product",
+    "@id": cfg.company.web + "/ai-cankurtaran-destek-sistemi.html#product",
     name: "AI Cankurtaran Destek Sistemi",
     alternateName: "AI Lifeguard Support System",
     image: cfg.company.web + "/assets/img/products/cankurtaran/hero-havuz-guvenlik.png",
@@ -630,7 +750,8 @@ function breadcrumbLd(html, file, cfg) {
   const tail = inner.replace(/<a[\s\S]*?<\/a>/g, "").replace(/<[^>]+>/g, " ").split("/").map(s => s.trim()).filter(Boolean).pop();
   if (tail) items.push({ "@type": "ListItem", position: items.length + 1, name: tail, item: cfg.company.web + "/" + file });
   if (items.length < 2) return null;
-  return { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: items };
+  return { "@context": "https://schema.org", "@type": "BreadcrumbList",
+    "@id": cfg.company.web + "/" + (file === "index.html" ? "" : file) + "#breadcrumb", itemListElement: items };
 }
 
 // Projeler sayfasındaki statik kartlardan ItemList üret
@@ -645,7 +766,7 @@ function projectsItemListLd(html, cfg) {
     });
   }
   if (!items.length) return null;
-  return { "@context": "https://schema.org", "@type": "ItemList", name: "GESPA Enerji Referans Projeler", itemListElement: items };
+  return { "@context": "https://schema.org", "@type": "ItemList", name: "GESPA Enerji Referans Projeler", numberOfItems: items.length, itemListElement: items };
 }
 
 function webAppLd(cfg) {
@@ -661,18 +782,26 @@ function webAppLd(cfg) {
 
 const LD_RE = /[ \t]*<!-- LD:STATIC[\s\S]*?\/LD:STATIC -->\n?/;
 function injectStaticLd(html, file, cfg) {
-  const objs = [localBusinessLd(cfg.company)];
-  const service = seo.schema(file, cfg); if (service) objs.push(service);
-  // WebSite varlığı — marka adı/sitelink sinyali (yalnız ana sayfada)
-  if (file === "index.html") objs.push({
+  const web = cfg.company.web;
+  const objs = [localBusinessLd(cfg.company, cfg)];
+  // WebSite varlığı HER sayfada (küçük): WebPage.isPartOf @id'si aynı sayfada
+  // çözülsün. @id + publisher @id: arama ve AI motorları siteyi ve firmayı
+  // AYNI varlık olarak bağlar; bağlanmazsa iki ayrı zayıf düğüm olur.
+  objs.push({
     "@context": "https://schema.org", "@type": "WebSite",
-    // @id + publisher @id: arama ve AI motorları siteyi ve firmayı AYNI varlık
-    // olarak bağlar. Bağlanmazsa iki ayrı, zayıf düğüm olarak görülür.
-    "@id": cfg.company.web + "/#website",
+    "@id": web + "/#website",
     name: cfg.company.brandName, alternateName: cfg.company.legalName,
-    url: cfg.company.web + "/", inLanguage: ["tr", "en", "de", "ru"],
-    publisher: { "@id": cfg.company.web + "/#organization" }
+    url: web + "/", inLanguage: ["tr", "en", "de", "ru"],
+    publisher: { "@id": web + "/#organization" }
   });
+  const bc = breadcrumbLd(html.replace(LD_RE, ""), file, cfg);
+  const svc = seo.schema(file, cfg);
+  // Sayfa varlığı — her sayfada; proje sayfalarında seo.schema()'nın
+  // WebPage'i (ad/açıklama/görsel) üstüne yazılır, tek WebPage kalır.
+  let page = pageLd(file, html, cfg, !!bc);
+  if (svc && svc["@type"] === "WebPage") page = Object.assign(page, svc);
+  else if (svc) objs.push(svc);
+  objs.push(page);
   if (file === "su-isitici.html") objs.push(heaterProductLd(cfg));
   if (file === "urunler.html" || file === "online-satis.html") objs.push(packagesItemListLd(cfg, file));
   if (file === "ai-cankurtaran-destek-sistemi.html") objs.push(cankurtaranProductLd(cfg));
@@ -681,12 +810,9 @@ function injectStaticLd(html, file, cfg) {
   if (cfg.packages && /data-pkg-detail="/.test(html)) {
     const id = (html.match(/data-pkg-detail="([^"]+)"/) || [])[1];
     const p = cfg.packages.filter(x => x.id === id)[0];
-    if (p) objs.push(packageProductLd(cfg, p));
+    if (p) objs.push(packageProductLd(cfg, p, html));
   }
-  if (file === "hakkimizda.html") objs.push({ "@context": "https://schema.org", "@type": "AboutPage", name: "Hakkımızda — " + cfg.company.brandName, url: cfg.company.web + "/hakkimizda.html", about: { "@type": "Organization", name: cfg.company.brandName, url: cfg.company.web } });
-  if (file === "iletisim.html") objs.push({ "@context": "https://schema.org", "@type": "ContactPage", name: "İletişim — " + cfg.company.brandName, url: cfg.company.web + "/iletisim.html" });
   if (file === "projeler.html") { const pl = projectsItemListLd(html, cfg); if (pl) objs.push(pl); }
-  const bc = breadcrumbLd(html.replace(LD_RE, ""), file, cfg);
   if (bc) objs.push(bc);
   const block = "  <!-- LD:STATIC — build.js config'ten üretir; elle düzenlemeyin -->\n"
     + objs.map(o => '  <script type="application/ld+json" data-gld="' + String(o["@type"] || "x").toLowerCase() + '">' + JSON.stringify(o) + "</script>").join("\n")
@@ -1391,6 +1517,10 @@ function transform(html, lang, file, i18n) {
   const m = META[file] && META[file][lang];
   const canonical = ORIGIN + "/" + lang + "/" + (file === "index.html" ? "" : file);
   let out = html;
+  // WebPage şemasındaki ad/açıklama TR <title>/description ile aynı metindir;
+  // dil kopyasında META tablosundaki çeviriye eşlenir (aşağıdaki localize).
+  const trTitle = unesc((html.match(/<title>([\s\S]*?)<\/title>/) || [])[1]).trim();
+  const trDesc = unesc((html.match(/<meta name="description" content="([^"]*)"/) || [])[1]).trim();
 
   // 1) <html lang="tr"> -> hedef dil
   out = out.replace(/<html lang="tr"/, '<html lang="' + lang + '"');
@@ -1459,7 +1589,9 @@ function transform(html, lang, file, i18n) {
       }
       if (typeof value !== 'string') return value;
       if (key === 'inLanguage' && value === 'tr') return lang;
-      if (['name','description','text','serviceType'].includes(key)) return d[value] || value;
+      if (m && key === 'name' && value === trTitle) return m.t;
+      if (m && key === 'description' && value === trDesc) return m.d;
+      if (['name','description','text','serviceType','value','alternateName'].includes(key)) return d[value] || value;
       if (['url','item','@id'].includes(key) && value.startsWith(ORIGIN + '/')) {
         const rel = value.slice(ORIGIN.length + 1); const f = rel.split(/[?#]/)[0];
         if (PAGES.includes(f)) return ORIGIN + '/' + lang + '/' + rel;

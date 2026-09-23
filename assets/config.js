@@ -58,11 +58,12 @@ window.GESPA.config = {
     priceRange: "₺₺",                     // tahmini fiyat aralığı (zorunlu değil ama önerilir)
     slogan: "Manavgat ve Antalya'da anahtar teslim güneş enerjisi santralleri",
     description: "Gespa Enerji; Manavgat/Antalya merkezli, çatı ve arazi tipi güneş enerjisi santralleri (GES) ile güneş enerjili tarımsal sulama için anahtar teslim mühendislik, kurulum, finansman ve bakım hizmeti sunar.",
-    foundingYear: 2022,                   // ticaret siciline tescil: 01.11.2022 (BELGELİ — değiştirmeyin)
-    // Faaliyetin fiilen başladığı yıl (ŞAHIS İŞLETMESİ dönemi). Şirket 2022'de
-    // limitede dönüştü; deneyim iddiası bu tarihe dayanır. Bu yıl, şahıs
-    // işletmesinin işe başlama/oda kayıt BELGESİ ile doğrulanabilir olmalıdır —
-    // aksi hâlde alanı boşaltın, "deneyim" rozeti otomatik olarak gizlenir.
+    // JSON-LD foundingDate: GESPA markasının Manavgat'ta faaliyete başladığı
+    // yıl. KARAR (Eyl 2026): şirket/şahıs ayrımı anlatılmaz, 2005'ten bu yana
+    // TEK süregelen hikâye; hakkimizda.html de böyle yazar. Ticaret siciline
+    // tescil (01.11.2022) yasal künyede (registry) durur, foundingDate'e girmez.
+    foundingYear: 2005,
+    // Deneyim rozeti de aynı başlangıç yılından hesaplanır.
     experienceSince: 2005,
     areaServed: ["Manavgat", "Side", "Antalya", "Alanya", "Serik", "Gazipaşa", "Akseki", "Gündoğmuş"],
     knowsAbout: ["Güneş enerjisi santrali (GES)", "Çatı GES", "Arazi tipi GES", "Güneş enerjili tarımsal sulama", "Güneş paneli", "İnverter", "Enerji depolama / batarya", "Lisanssız elektrik üretimi"],
@@ -189,7 +190,10 @@ window.GESPA.config = {
     stockLabel: "Stokta / tedarikte",   // ürün sayfasındaki durum rozeti
     shipCountry: "Türkiye",             // gönderim yapılan ülke (tüm iller)
     shipDays: "2–5",                    // teslim süresi (gün sayısı; birim metinde yazılı)
-    returnDays: 14                      // cayma hakkı süresi (mesafeli satış)
+    returnDays: 14,                     // cayma hakkı süresi (mesafeli satış)
+    // Kabul edilen ödeme yolları — LocalBusiness.paymentAccepted buradan basılır;
+    // sepetteki seçeneklerle AYNI tutulur (kart = iyzico, havale/EFT).
+    payment: ["Kredi kartı (iyzico)", "Havale/EFT"]
   },
 
   // ============================================================
