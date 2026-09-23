@@ -102,6 +102,16 @@ function localFileOf(url) {
   if (p === "" || p.endsWith("/")) p += "index.html";
   return path.join(ROOT, p);
 }
+// Canlı durum satırları (günlükte teşhis için); anahtar doğruysa true
+function report(key, k, probe, pg, local) {
+  const keyOk = k.status === 200 && k.body.trim() === key;
+  console.log("Anahtar dosyası: " + ORIGIN + "/" + key + ".txt → HTTP " + k.status
+    + (k.status === 200 ? (keyOk ? " (doğru)" : " (içerik anahtarla eşleşmiyor)") : "") + (k.location ? " → " + k.location : ""));
+  console.log("Yoklama sayfası: " + probe + " → HTTP " + pg.status
+    + (pg.status === 200 ? (local === null || pg.body === local ? " (bu commit)" : " (canlı içerik bu commit'ten farklı)") : "")
+    + (pg.location ? " → " + pg.location : ""));
+  return keyOk;
+}
 // Canlı site (Railway) Pages'ten AYRI dağıtılır. Bildirim canlıdan önce giderse
 // Bing eski sayfayı tarar; anahtar dosyası canlıda yokken giderse IndexNow
 // doğrulamayı başarısız sayar ve sonraki bildirimler de 403 döner (ilk kurulumda
@@ -123,11 +133,7 @@ async function waitLive(urls, key) {
     if (Date.now() > deadline) break;
     await sleep(20000);
   }
-  const keyOk = k.status === 200 && k.body.trim() === key;
-  console.log("Anahtar dosyası: " + keyUrl + " → HTTP " + k.status
-    + (k.status === 200 ? (keyOk ? " (doğru)" : " (içerik anahtarla eşleşmiyor)") : "") + (k.location ? " → " + k.location : ""));
-  console.log("Yoklama sayfası: " + probe + " → HTTP " + pg.status
-    + (pg.status === 200 ? (pg.body === local ? " (bu commit)" : " (canlı içerik bu commit'ten farklı)") : "") + (pg.location ? " → " + pg.location : ""));
+  const keyOk = report(key, k, probe, pg, local);
   if (!keyOk) {
     console.warn("UYARI: anahtar dosyası canlıda yok — bildirim GÖNDERİLMEDİ. Canlı site (Railway) bu dalı mı yayınlıyor?");
     return false;
@@ -140,7 +146,15 @@ async function waitLive(urls, key) {
   let urls = ALL ? sitemapUrls() : changedUrls();
   if (urls === null) { console.log("IndexNow: git geçmişi yok, sitemap'in tamamı gönderiliyor."); urls = sitemapUrls(); }
   urls = urls.slice(0, 10000);
-  if (!urls.length) { console.log("IndexNow: değişen sayfa yok, gönderim atlandı."); return; }
+  if (!urls.length) {
+    console.log("IndexNow: değişen sayfa yok, gönderim atlandı.");
+    if (WAIT) {
+      const home = ORIGIN + "/", lf = localFileOf(home);
+      const [k, pg] = await Promise.all([get(ORIGIN + "/" + key + ".txt"), get(home)]);
+      report(key, k, home, pg, fs.existsSync(lf) ? fs.readFileSync(lf, "utf8") : null);
+    }
+    return;
+  }
   console.log("IndexNow: " + urls.length + " URL (" + (ALL ? "tamamı" : "değişenler") + "), anahtar dosyası " + file);
   if (DRY) { console.log(JSON.stringify({ host: HOST, keyLocation: ORIGIN + "/" + file, urlList: urls }, null, 1)); return; }
   if (WAIT && !(await waitLive(urls, key))) return;
