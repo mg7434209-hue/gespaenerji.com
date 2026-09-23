@@ -407,6 +407,9 @@ function glossaryLd(cfg) {
 // og:locale:alternate yalnız dil kopyası olan sayfalara yazılır (TR_ONLY hariç);
 // transform() dil kopyasında kümeyi "geçerli dil hariç diğerleri" yapar.
 function hydrateHead(html, file) {
+  // Dil demeti: TR kaynak sayfa sözlüksüz i18n.tr.js yükler; transform() dil
+  // kopyasında /assets/i18n.<dil>.js yapar (kaynak i18n.js'i sayfalar YÜKLEMEZ).
+  html = html.replace(/(<script defer src=")assets\/i18n(?:\.[a-z]{2})?\.js(">)/, "$1assets/i18n.tr.js$2");
   if (!/<meta name="robots"/.test(html)) {
     html = html.replace(/(<meta name="description" content="[^"]*"\s*\/>)/,
       '$1\n  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />');
@@ -951,8 +954,11 @@ function injectStaticLd(html, file, cfg) {
   return html.replace(/\n?<\/head>/, "\n" + block + "</head>");
 }
 
-// i18n sözlüğünü Node tarafında yükle (i18n.js window.GESPA.i18nData'ya koyar)
-function loadI18n() {
+// i18n sözlüğünü Node tarafında yükle (i18n.js window.GESPA.i18nData'ya koyar).
+// loadI18nRaw: yalnız assets/i18n.js'teki veri (istemci demetleri bununla
+// üretilir — tarayıcıdaki davranış DEĞİŞMEZ). loadI18n: + content/ çevirileri
+// (statik gövde çevirisi için; translation-fixes, hizmet/SSS/sözlük metinleri).
+function loadI18nRaw() {
   const noop = function () {};
   const sandbox = {
     document: {
@@ -968,8 +974,51 @@ function loadI18n() {
   };
   sandbox.window = sandbox; // i18n.js 'GESPA' global adına bare erişir
   vm.runInNewContext(fs.readFileSync(path.join(ROOT, "assets/i18n.js"), "utf8"), sandbox);
-  seo.translations(sandbox.GESPA.i18nData);
-  return sandbox.GESPA.i18nData; // { DICT, PH, HTMLMAP }
+  const d = sandbox.GESPA.i18nData;
+  return { DICT: d.DICT, PH: d.PH, HTMLMAP: d.HTMLMAP, units: sandbox.GESPA.units };
+}
+function loadI18n() {
+  const raw = loadI18nRaw();
+  const d = { DICT: raw.DICT, PH: raw.PH, HTMLMAP: raw.HTMLMAP };
+  seo.translations(d);
+  return d; // { DICT, PH, HTMLMAP }
+}
+
+// ---- i18n demetleri: sayfa yalnız KENDİ dilinin sözlüğünü yükler ----
+// assets/i18n.js KAYNAKTIR — DICT/PH/HTMLMAP/UNITS orada düzenlenmeye devam
+// eder. Eskiden her sayfa 4 dilin tamamını (730 KB, 139 KB br) indiriyordu;
+// TR sayfası hiç sözlük kullanmadığı hâlde. Build, i18n.js'i değerlendirir,
+// çalışma zamanı kodunu (var SKIP'ten sonrası) AYNEN kopyalar ve önüne yalnız
+// o dilin verisini JSON olarak koyar → assets/i18n.<dil>.js. GESPA.i18nData.
+// DICT[dil] şekli korunduğu için main.js ve builder.js DEĞİŞMEZ. Veri
+// bölgesi (var LS … var SKIP arası) yalnız veri tanımı ve Object.assign
+// eklemeleri içermelidir; oraya fonksiyon yazılırsa demete girmez.
+const I18N_LANGS = ["tr"].concat(LANGS);
+function writeI18nBundles() {
+  const src = fs.readFileSync(path.join(ROOT, "assets/i18n.js"), "utf8");
+  const LS_LINE = '  var LS = "gespa-lang";\n';
+  const head = src.indexOf(LS_LINE), tail = src.indexOf("  var SKIP = ");
+  if (head < 0 || tail < 0 || src.indexOf(LS_LINE, head + 1) >= 0) {
+    throw new Error("assets/i18n.js yapısı değişmiş: 'var LS' / 'var SKIP' çapaları bulunamadı — demet üretilemez.");
+  }
+  const prefix = src.slice(0, head + LS_LINE.length), runtime = src.slice(tail);
+  const raw = loadI18nRaw();
+  for (const l of I18N_LANGS) {
+    const own = o => (l !== "tr" && o && o[l]) ? { [l]: o[l] } : {};
+    const units = Object.assign({ tr: raw.units.tr }, own(raw.units));
+    const htmlmap = {};
+    Object.keys(raw.HTMLMAP).forEach(sel => {
+      const m = raw.HTMLMAP[sel];
+      htmlmap[sel] = Object.assign({ tr: m.tr }, (l !== "tr" && m[l] != null) ? { [l]: m[l] } : {});
+    });
+    const data = "\n  // Veri: yalnız '" + l + "' (+ TR yedek) — build.js üretir\n"
+      + "  var UNITS = " + JSON.stringify(units) + ";\n"
+      + "  var HTMLMAP = " + JSON.stringify(htmlmap) + ";\n"
+      + "  var PH = " + JSON.stringify(own(raw.PH)) + ";\n"
+      + "  var DICT = " + JSON.stringify(own(raw.DICT)) + ";\n\n";
+    const banner = "/* build.js üretir — kaynak: assets/i18n.js. BU DOSYAYI ELLE DÜZENLEMEYİN. Dil: " + l + " */\n";
+    fs.writeFileSync(path.join(ROOT, "assets", "i18n." + l + ".js"), banner + prefix + data + runtime);
+  }
 }
 
 function nfTr(n) { return new Intl.NumberFormat("tr-TR").format(Math.round(n)); }
@@ -1824,6 +1873,8 @@ function transform(html, lang, file, i18n) {
     (m, attr, v) => attr + '="' + v.replace(/(^|,\s*)assets\//g, "$1/assets/") + '"');
   //    inline stil arka planları: url('assets/...') -> url('/assets/...')
   out = out.replace(/url\((['"]?)assets\//g, 'url($1/assets/');
+  //    dil demeti: yalnız bu dilin sözlüğü (bkz. writeI18nBundles)
+  out = out.replace(/src="\/assets\/i18n\.tr\.js"/, 'src="/assets/i18n.' + lang + '.js"');
 
   // 3) <title>, meta description ve og:title/og:description (dil-özel)
   if (m) {
@@ -1926,7 +1977,8 @@ function run() {
   }
   checkParts(cfg);
   writeLlmsFull(cfg);
-  writeLlms(cfg);   // llms.txt — writeLlmsFull'den SONRA (tek yazar bu olsun)
+  writeLlms(cfg);
+  writeI18nBundles();   // llms.txt — writeLlmsFull'den SONRA (tek yazar bu olsun)
   writeProductFeed(cfg);
   writeSitemap(i18n);
   writeRobots();

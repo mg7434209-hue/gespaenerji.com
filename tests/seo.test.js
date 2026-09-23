@@ -116,6 +116,28 @@ for(const f of fs.readdirSync(root).filter(f=>f.endsWith('.html'))){
 // About page tells one continuous story since 2005 (no company/sole-trader split).
 const aboutPage=fs.readFileSync(path.join(root,'hakkimizda.html'),'utf8'),contactPage=fs.readFileSync(path.join(root,'iletisim.html'),'utf8');
 assert.ok(!aboutPage.includes('01.11.2022')&&!aboutPage.includes('Kurumsallaşma')&&!contactPage.includes('kurumsal yapılanma'),'unified company story');
+// Per-language i18n bundles: a page loads only its own language's dictionary; the runtime and the
+// data for that language are identical to the source assets/i18n.js.
+{const vm=require('node:vm');
+ const loadI18n=file=>{const noop=()=>{};const sb={document:{readyState:'loading',addEventListener:noop,dispatchEvent:noop,querySelectorAll:()=>[],querySelector:()=>null,head:{appendChild:noop,querySelectorAll:()=>[]},documentElement:{setAttribute:noop},createElement:()=>({setAttribute:noop})},localStorage:{getItem:()=>null,setItem:noop},location:{pathname:'/',origin},CustomEvent:function(){}};sb.window=sb;
+  vm.runInNewContext(fs.readFileSync(path.join(root,file),'utf8'),sb);return {data:sb.GESPA.i18nData,units:sb.GESPA.units,api:typeof sb.GESPA.applyLang};};
+ const srcSize=fs.statSync(path.join(root,'assets/i18n.js')).size,full=loadI18n('assets/i18n.js');
+ for(const l of ['tr','en','de','ru']){
+  const f='assets/i18n.'+l+'.js',b=loadI18n(f);
+  assert.equal(b.api,'function',f+': runtime present');
+  assert.deepEqual(Object.keys(b.data.DICT),l==='tr'?[]:[l],f+': only its own dictionary');
+  if(l!=='tr'){assert.equal(JSON.stringify(b.data.DICT[l]),JSON.stringify(full.data.DICT[l]),f+': dictionary identical to source');
+   assert.equal(JSON.stringify(b.data.PH[l]),JSON.stringify(full.data.PH[l]),f+': placeholders identical');}
+  assert.deepEqual(Object.keys(b.data.HTMLMAP),Object.keys(full.data.HTMLMAP),f+': rich-text selectors');
+  assert.equal(b.units[l].yil,full.units[l].yil,f+': units');
+  assert.ok(fs.statSync(path.join(root,f)).size<(l==='tr'?20000:srcSize*0.45),f+': bundle size');
+ }
+ for(const file of files){
+  const html=fs.readFileSync(path.join(root,file),'utf8'),lang=(file.match(/^(en|de|ru)\//)||[])[1]||'tr';
+  if(!html.includes('i18n'))continue;
+  assert.ok(html.includes(lang==='tr'?'<script defer src="assets/i18n.tr.js">':'<script defer src="/assets/i18n.'+lang+'.js">'),file+': loads its language bundle');
+  assert.ok(!/src="\/?assets\/i18n\.js"/.test(html),file+': does not load the full dictionary');
+ }}
 console.log('Static SEO: '+urls.length+' sitemap pages, '+schemas+' JSON-LD blocks; links and translations passed.');
 // Exercise the actual consent branch without loading analytics or contacting third parties.
 const main=fs.readFileSync(path.join(root,'assets/main.js'),'utf8');
