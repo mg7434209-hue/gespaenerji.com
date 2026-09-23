@@ -15,6 +15,7 @@ for(let i=0;i<files.length;i++){
  assert.equal([...html.matchAll(/<h1\b/g)].length,1,file+': exactly one h1');
  assert.ok(html.includes('rel="canonical" href="'+urls[i]+'"'),file+': canonical');
  assert.ok(!/name="robots" content="[^"]*noindex/.test(html),file+': noindex in sitemap');
+ assert.ok(html.includes('<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />'),file+': robots meta (max-image-preview)');
  for(const m of html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)){JSON.parse(m[1]);schemas++;}
  for(const m of html.matchAll(/<link rel="alternate" hreflang="[^"]+" href="([^"]+)"/g))assert.ok(urls.includes(m[1]),file+': missing alternate '+m[1]);
  // Local assets and content links; query strings and fragments are intentionally excluded.
@@ -35,6 +36,19 @@ for(const lang of ['en','de','ru']){
  const service=schemas.find(x=>x['@type']==='Service');
  assert.equal(service.url,origin+'/'+lang+'/cati-ges.html');
  assert.equal(service.provider['@id'],origin+'/#organization');
+}
+// Image/video sitemap extensions and the generated robots.txt (AI crawlers explicitly invited).
+assert.ok((sitemap.match(/<image:image>/g)||[]).length>50,'image sitemap entries');
+assert.equal((sitemap.match(/<video:video>/g)||[]).length,4,'video sitemap entries (tr+en+de+ru)');
+const robots=fs.readFileSync(path.join(root,'robots.txt'),'utf8');
+for(const bot of ['GPTBot','ClaudeBot','PerplexityBot','Google-Extended','Bytespider'])assert.ok(new RegExp('^User-agent: '+bot+'$','m').test(robots),'robots.txt: '+bot);
+assert.ok(/^Content-Signal: search=yes, ai-input=yes, ai-train=yes$/m.test(robots),'robots.txt: Content-Signal');
+assert.ok(/^Disallow: \/admin\.html$/m.test(robots)&&/^Disallow: \/en\/sepet\.html$/m.test(robots),'robots.txt: noindex pages');
+assert.ok(robots.includes('Sitemap: '+origin+'/sitemap.xml'),'robots.txt: sitemap');
+for(const lang of ['en','de','ru']){
+ const html=fs.readFileSync(path.join(root,lang,'index.html'),'utf8');
+ assert.ok(html.includes('<meta property="og:locale:alternate" content="tr_TR" />'),lang+': og:locale:alternate tr');
+ assert.ok(!html.includes('<meta property="og:locale:alternate" content="'+{en:'en_US',de:'de_DE',ru:'ru_RU'}[lang]+'" />'),lang+': own locale is not an alternate');
 }
 console.log('Static SEO: '+urls.length+' sitemap pages, '+schemas+' JSON-LD blocks; links and translations passed.');
 // Exercise the actual consent branch without loading analytics or contacting third parties.

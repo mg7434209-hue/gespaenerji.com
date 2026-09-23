@@ -1,163 +1,52 @@
+# build.js üretir — elle düzenlemeyin (kaynak: NOINDEX_FILES + AI_BOTS)
 User-agent: *
 Allow: /
 Disallow: /admin.html
 Disallow: /sepet.html
-Disallow: /odeme-sonuc.html
-Disallow: /odeme.html
 Disallow: /en/sepet.html
 Disallow: /de/sepet.html
 Disallow: /ru/sepet.html
+Disallow: /odeme.html
+Disallow: /odeme-sonuc.html
+Disallow: /md/
+# İçerik sinyali: arama, AI yanıtı ve AI eğitimi için kullanıma AÇIK —
+# içeriğimizin AI aramalarında görünmesini istiyoruz.
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
-# AI / yanıt motorları — içeriğimizin AI aramalarında görünmesini istiyoruz.
-# LLM bilgi dosyaları: /llms.txt (özet) ve /llms-full.txt (ürün/fiyat ayrıntısı)
+# AI / yanıt motorları — açıkça davetli. LLM bilgi dosyaları: /llms.txt (özet),
+# /llms-full.txt (ürün/fiyat ayrıntısı), /md/ (sayfaların Markdown kopyaları).
 User-agent: GPTBot
-Allow: /
-Disallow: /admin.html
-Disallow: /sepet.html
-Disallow: /odeme-sonuc.html
-Disallow: /odeme.html
-Disallow: /en/sepet.html
-Disallow: /de/sepet.html
-Disallow: /ru/sepet.html
-
 User-agent: OAI-SearchBot
-Allow: /
-Disallow: /admin.html
-Disallow: /sepet.html
-Disallow: /odeme-sonuc.html
-Disallow: /odeme.html
-Disallow: /en/sepet.html
-Disallow: /de/sepet.html
-Disallow: /ru/sepet.html
-
 User-agent: ChatGPT-User
-Allow: /
-Disallow: /admin.html
-Disallow: /sepet.html
-Disallow: /odeme-sonuc.html
-Disallow: /odeme.html
-Disallow: /en/sepet.html
-Disallow: /de/sepet.html
-Disallow: /ru/sepet.html
-
-User-agent: PerplexityBot
-Allow: /
-Disallow: /admin.html
-Disallow: /sepet.html
-Disallow: /odeme-sonuc.html
-Disallow: /odeme.html
-Disallow: /en/sepet.html
-Disallow: /de/sepet.html
-Disallow: /ru/sepet.html
-
-User-agent: Perplexity-User
-Allow: /
-Disallow: /admin.html
-Disallow: /sepet.html
-Disallow: /odeme-sonuc.html
-Disallow: /odeme.html
-Disallow: /en/sepet.html
-Disallow: /de/sepet.html
-Disallow: /ru/sepet.html
-
-User-agent: Google-Extended
-Allow: /
-Disallow: /admin.html
-Disallow: /sepet.html
-Disallow: /odeme-sonuc.html
-Disallow: /odeme.html
-Disallow: /en/sepet.html
-Disallow: /de/sepet.html
-Disallow: /ru/sepet.html
-
 User-agent: ClaudeBot
-Allow: /
-Disallow: /admin.html
-Disallow: /sepet.html
-Disallow: /odeme-sonuc.html
-Disallow: /odeme.html
-Disallow: /en/sepet.html
-Disallow: /de/sepet.html
-Disallow: /ru/sepet.html
-
 User-agent: Claude-SearchBot
-Allow: /
-Disallow: /admin.html
-Disallow: /sepet.html
-Disallow: /odeme-sonuc.html
-Disallow: /odeme.html
-Disallow: /en/sepet.html
-Disallow: /de/sepet.html
-Disallow: /ru/sepet.html
-
 User-agent: Claude-User
-Allow: /
-Disallow: /admin.html
-Disallow: /sepet.html
-Disallow: /odeme-sonuc.html
-Disallow: /odeme.html
-Disallow: /en/sepet.html
-Disallow: /de/sepet.html
-Disallow: /ru/sepet.html
-
+User-agent: anthropic-ai
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot
 User-agent: Applebot-Extended
-Allow: /
-Disallow: /admin.html
-Disallow: /sepet.html
-Disallow: /odeme-sonuc.html
-Disallow: /odeme.html
-Disallow: /en/sepet.html
-Disallow: /de/sepet.html
-Disallow: /ru/sepet.html
-
 User-agent: Amazonbot
-Allow: /
-Disallow: /admin.html
-Disallow: /sepet.html
-Disallow: /odeme-sonuc.html
-Disallow: /odeme.html
-Disallow: /en/sepet.html
-Disallow: /de/sepet.html
-Disallow: /ru/sepet.html
-
 User-agent: CCBot
-Allow: /
-Disallow: /admin.html
-Disallow: /sepet.html
-Disallow: /odeme-sonuc.html
-Disallow: /odeme.html
-Disallow: /en/sepet.html
-Disallow: /de/sepet.html
-Disallow: /ru/sepet.html
-
 User-agent: meta-externalagent
-Allow: /
-Disallow: /admin.html
-Disallow: /sepet.html
-Disallow: /odeme-sonuc.html
-Disallow: /odeme.html
-Disallow: /en/sepet.html
-Disallow: /de/sepet.html
-Disallow: /ru/sepet.html
-
+User-agent: Meta-ExternalFetcher
 User-agent: DuckAssistBot
-Allow: /
-Disallow: /admin.html
-Disallow: /sepet.html
-Disallow: /odeme-sonuc.html
-Disallow: /odeme.html
-Disallow: /en/sepet.html
-Disallow: /de/sepet.html
-Disallow: /ru/sepet.html
-
 User-agent: YouBot
+User-agent: Bytespider
+User-agent: PetalBot
+User-agent: MistralAI-User
+User-agent: cohere-ai
+User-agent: AI2Bot
+User-agent: Diffbot
+Allow: /md/
 Allow: /
 Disallow: /admin.html
 Disallow: /sepet.html
-Disallow: /odeme-sonuc.html
-Disallow: /odeme.html
 Disallow: /en/sepet.html
 Disallow: /de/sepet.html
 Disallow: /ru/sepet.html
+Disallow: /odeme.html
+Disallow: /odeme-sonuc.html
 
 Sitemap: https://www.gespaenerji.com/sitemap.xml

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://www.gespaenerji.com/</loc>
     <lastmod>2026-09-21</lastmod><changefreq>weekly</changefreq><priority>1.0</priority>
@@ -9,6 +11,17 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gespa-villa.webp</image:loc><image:title>GESPA Enerji çatı güneş enerjisi sistemi kurulmuş modern villa ve saha ekibi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gespa-ekip.webp</image:loc><image:title>GESPA Enerji mühendislik ekibi güneş enerjisi santralinde saha incelemesi yapıyor</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/hero-ai-cankurtaran.webp</image:loc><image:title>AI kamera havuzdaki yüzücüleri tarıyor, risk algılandığında ışıklı alarm ve cankurtaran saatine bildirim gönderiyor</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gesmarketim.webp</image:loc><image:title>GES Marketim solar e-ticaret: güneş paneli, inverter ve akü ürünleri</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp</image:loc><image:title>Kiremit çatıya kurulu güneş enerjisi santrali — Kemer</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-sanayi-800.webp</image:loc><image:title>Fabrika çatısına kurulu güneş enerjisi santralinin havadan görünümü</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp</image:loc><image:title>Villa teras çatısına kurulu güneş enerjisi santrali</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-fabrika-800.webp</image:loc><image:title>Manavgat Fabrika — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w.webp</image:loc><image:title>285 W güneş paneli paketi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w.webp</image:loc><image:title>2x540 W lityum bataryalı güneş enerjisi sistemi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/baglanti-semasi-900.webp</image:loc><image:title>Solar su ısıtıcı montaj şeması: çatıdaki güneş paneli, panel kablosu ve banyodaki termosifonun PV girişi bağlantısı</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/</loc>
@@ -18,6 +31,17 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gespa-villa.webp</image:loc><image:title>GESPA Enerji çatı güneş enerjisi sistemi kurulmuş modern villa ve saha ekibi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gespa-ekip.webp</image:loc><image:title>GESPA Enerji mühendislik ekibi güneş enerjisi santralinde saha incelemesi yapıyor</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/hero-ai-cankurtaran.webp</image:loc><image:title>AI kamera havuzdaki yüzücüleri tarıyor, risk algılandığında ışıklı alarm ve cankurtaran saatine bildirim gönderiyor</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gesmarketim.webp</image:loc><image:title>GES Marketim solar e-ticaret: güneş paneli, inverter ve akü ürünleri</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp</image:loc><image:title>Solar power system on a tiled roof — Kemer</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-sanayi-800.webp</image:loc><image:title>Aerial view of a solar power plant on a factory roof</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp</image:loc><image:title>Solar power system installed on a villa terrace roof</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-fabrika-800.webp</image:loc><image:title>Manavgat Fabrika — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w.webp</image:loc><image:title>285 W güneş paneli paketi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w.webp</image:loc><image:title>2x540 W lityum bataryalı güneş enerjisi sistemi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/baglanti-semasi-900.webp</image:loc><image:title>Solar su ısıtıcı montaj şeması: çatıdaki güneş paneli, panel kablosu ve banyodaki termosifonun PV girişi bağlantısı</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/</loc>
@@ -27,6 +51,17 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gespa-villa.webp</image:loc><image:title>GESPA Enerji çatı güneş enerjisi sistemi kurulmuş modern villa ve saha ekibi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gespa-ekip.webp</image:loc><image:title>GESPA Enerji mühendislik ekibi güneş enerjisi santralinde saha incelemesi yapıyor</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/hero-ai-cankurtaran.webp</image:loc><image:title>AI kamera havuzdaki yüzücüleri tarıyor, risk algılandığında ışıklı alarm ve cankurtaran saatine bildirim gönderiyor</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gesmarketim.webp</image:loc><image:title>GES Marketim solar e-ticaret: güneş paneli, inverter ve akü ürünleri</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp</image:loc><image:title>Solaranlage auf einem Ziegeldach — Kemer</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-sanayi-800.webp</image:loc><image:title>Luftaufnahme einer Solaranlage auf einem Fabrikdach</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp</image:loc><image:title>Solaranlage auf einem Villen-Flachdach</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-fabrika-800.webp</image:loc><image:title>Manavgat Fabrika — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w.webp</image:loc><image:title>285 W güneş paneli paketi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w.webp</image:loc><image:title>2x540 W lityum bataryalı güneş enerjisi sistemi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/baglanti-semasi-900.webp</image:loc><image:title>Solar su ısıtıcı montaj şeması: çatıdaki güneş paneli, panel kablosu ve banyodaki termosifonun PV girişi bağlantısı</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/</loc>
@@ -36,6 +71,17 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gespa-villa.webp</image:loc><image:title>GESPA Enerji çatı güneş enerjisi sistemi kurulmuş modern villa ve saha ekibi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gespa-ekip.webp</image:loc><image:title>GESPA Enerji mühendislik ekibi güneş enerjisi santralinde saha incelemesi yapıyor</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/hero-ai-cankurtaran.webp</image:loc><image:title>AI kamera havuzdaki yüzücüleri tarıyor, risk algılandığında ışıklı alarm ve cankurtaran saatine bildirim gönderiyor</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gesmarketim.webp</image:loc><image:title>GES Marketim solar e-ticaret: güneş paneli, inverter ve akü ürünleri</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp</image:loc><image:title>Солнечная электростанция на черепичной крыше — Кемер</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-sanayi-800.webp</image:loc><image:title>Вид с воздуха на солнечную электростанцию на крыше завода</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp</image:loc><image:title>Солнечная электростанция на террасной крыше виллы</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-fabrika-800.webp</image:loc><image:title>Manavgat Fabrika — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w.webp</image:loc><image:title>285 W güneş paneli paketi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w.webp</image:loc><image:title>2x540 W lityum bataryalı güneş enerjisi sistemi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/baglanti-semasi-900.webp</image:loc><image:title>Solar su ısıtıcı montaj şeması: çatıdaki güneş paneli, panel kablosu ve banyodaki termosifonun PV girişi bağlantısı</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/hizmetler.html</loc>
@@ -153,6 +199,25 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/su-isitici.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/su-isitici.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/su-isitici.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-1.webp</image:loc><image:title>Yatay PV su ısıtıcı — ön görünüm, bağlantı portları ve kontrol paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-1-thumb.webp</image:loc><image:title>Ön görünüm</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-8-thumb.webp</image:loc><image:title>Açılı görünüm</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-3-thumb.webp</image:loc><image:title>Servis kapağı tarafı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-5-thumb.webp</image:loc><image:title>Su bağlantı portları</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-4-thumb.webp</image:loc><image:title>Kontrol paneli yakın plan</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-6-thumb.webp</image:loc><image:title>Rezistans servis kapağı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-7-thumb.webp</image:loc><image:title>Uç kapak görünümü</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-2-thumb.webp</image:loc><image:title>Üstten açılı görünüm</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/detay-kontrol.webp</image:loc><image:title>Dokunmatik kontrol paneli yakın plan</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/detay-portlar.webp</image:loc><image:title>Sıcak su çıkışı, soğuk su girişi ve tahliye portu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/detay-flans.webp</image:loc><image:title>Rezistans ve anot servis kapağı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/baglanti-semasi.webp</image:loc><image:title>Bağlantı şeması: çatıdaki güneş paneli iki damarlı DC kabloyla banyodaki termosifonun klemensine bağlanır; klemenste PV artı, PV eksi, AC faz ve nötr uçları, tankta sıcak su çıkışı ve soğuk su girişi bulunur.</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-urun.webp</image:loc><image:title>GESPA PV güneş su ısıtıcı tankı ve fotovoltaik panel</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-ev.webp</image:loc><image:title>Modern evde PV su ısıtıcı uygulaması</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-banyo.webp</image:loc><image:title>Banyoda duvara monte GESPA PV güneş su ısıtıcı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-uretim.webp</image:loc><image:title>Robotik üretim hattı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-fabrika.webp</image:loc><image:title>Su ısıtıcı üretim hattı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-cati.webp</image:loc><image:title>Çatıya kurulu fotovoltaik paneller</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/su-isitici.html</loc>
@@ -162,6 +227,25 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/su-isitici.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/su-isitici.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/su-isitici.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-1.webp</image:loc><image:title>Horizontal PV water heater — front view, connection ports and control panel</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-1-thumb.webp</image:loc><image:title>Front view</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-8-thumb.webp</image:loc><image:title>Angled view</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-3-thumb.webp</image:loc><image:title>Service cover side</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-5-thumb.webp</image:loc><image:title>Water connection ports</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-4-thumb.webp</image:loc><image:title>Control panel close-up</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-6-thumb.webp</image:loc><image:title>Heating element service cover</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-7-thumb.webp</image:loc><image:title>End cap view</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-2-thumb.webp</image:loc><image:title>Top angled view</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/detay-kontrol.webp</image:loc><image:title>Touch control panel close-up</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/detay-portlar.webp</image:loc><image:title>Hot water outlet, cold water inlet and drain port</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/detay-flans.webp</image:loc><image:title>Heating element and anode service cover</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/baglanti-semasi.webp</image:loc><image:title>Wiring diagram: the solar panel on the roof connects to the terminal of the water heater in the bathroom with a two-core DC cable; the terminal carries PV plus, PV minus, AC live and neutral, and the tank has a hot water outlet and a cold water inlet.</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-urun.webp</image:loc><image:title>GESPA PV güneş su ısıtıcı tankı ve fotovoltaik panel</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-ev.webp</image:loc><image:title>Modern evde PV su ısıtıcı uygulaması</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-banyo.webp</image:loc><image:title>Banyoda duvara monte GESPA PV güneş su ısıtıcı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-uretim.webp</image:loc><image:title>Robotik üretim hattı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-fabrika.webp</image:loc><image:title>Su ısıtıcı üretim hattı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-cati.webp</image:loc><image:title>Çatıya kurulu fotovoltaik paneller</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/su-isitici.html</loc>
@@ -171,6 +255,25 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/su-isitici.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/su-isitici.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/su-isitici.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-1.webp</image:loc><image:title>Liegender PV-Warmwasserspeicher — Vorderansicht, Anschlüsse und Bedienfeld</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-1-thumb.webp</image:loc><image:title>Vorderansicht</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-8-thumb.webp</image:loc><image:title>Schrägansicht</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-3-thumb.webp</image:loc><image:title>Seite mit Serviceklappe</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-5-thumb.webp</image:loc><image:title>Wasseranschlüsse</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-4-thumb.webp</image:loc><image:title>Bedienfeld in Nahaufnahme</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-6-thumb.webp</image:loc><image:title>Serviceklappe Heizstab</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-7-thumb.webp</image:loc><image:title>Ansicht Endkappe</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-2-thumb.webp</image:loc><image:title>Schrägansicht von oben</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/detay-kontrol.webp</image:loc><image:title>Touch-Bedienfeld in Nahaufnahme</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/detay-portlar.webp</image:loc><image:title>Warmwasseraustritt, Kaltwassereintritt und Ablauf</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/detay-flans.webp</image:loc><image:title>Serviceklappe für Heizstab und Anode</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/baglanti-semasi.webp</image:loc><image:title>Anschlussschema: Das Solarmodul auf dem Dach wird mit einem zweiadrigen DC-Kabel an die Klemme des Warmwasserspeichers im Bad angeschlossen; die Klemme führt PV plus, PV minus, AC-Außenleiter und Neutralleiter, der Speicher hat Warmwasseraustritt und Kaltwassereintritt.</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-urun.webp</image:loc><image:title>GESPA PV güneş su ısıtıcı tankı ve fotovoltaik panel</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-ev.webp</image:loc><image:title>Modern evde PV su ısıtıcı uygulaması</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-banyo.webp</image:loc><image:title>Banyoda duvara monte GESPA PV güneş su ısıtıcı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-uretim.webp</image:loc><image:title>Robotik üretim hattı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-fabrika.webp</image:loc><image:title>Su ısıtıcı üretim hattı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-cati.webp</image:loc><image:title>Çatıya kurulu fotovoltaik paneller</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/su-isitici.html</loc>
@@ -180,6 +283,25 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/su-isitici.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/su-isitici.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/su-isitici.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-1.webp</image:loc><image:title>Горизонтальный PV-водонагреватель — вид спереди, подключения и панель управления</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-1-thumb.webp</image:loc><image:title>Вид спереди</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-8-thumb.webp</image:loc><image:title>Вид под углом</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-3-thumb.webp</image:loc><image:title>Сторона сервисной крышки</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-5-thumb.webp</image:loc><image:title>Водяные подключения</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-4-thumb.webp</image:loc><image:title>Панель управления крупным планом</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-6-thumb.webp</image:loc><image:title>Сервисная крышка ТЭНа</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-7-thumb.webp</image:loc><image:title>Вид торцевой крышки</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/tank-2-thumb.webp</image:loc><image:title>Вид сверху под углом</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/detay-kontrol.webp</image:loc><image:title>Сенсорная панель управления крупным планом</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/detay-portlar.webp</image:loc><image:title>Выход горячей воды, вход холодной воды и слив</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/detay-flans.webp</image:loc><image:title>Сервисная крышка ТЭНа и анода</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/baglanti-semasi.webp</image:loc><image:title>Схема подключения: солнечная панель на крыше соединяется двухжильным DC-кабелем с клеммной колодкой водонагревателя в ванной; на колодке — PV плюс, PV минус, фаза AC и ноль, у бака есть выход горячей и вход холодной воды.</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-urun.webp</image:loc><image:title>GESPA PV güneş su ısıtıcı tankı ve fotovoltaik panel</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-ev.webp</image:loc><image:title>Modern evde PV su ısıtıcı uygulaması</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-banyo.webp</image:loc><image:title>Banyoda duvara monte GESPA PV güneş su ısıtıcı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-uretim.webp</image:loc><image:title>Robotik üretim hattı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-fabrika.webp</image:loc><image:title>Su ısıtıcı üretim hattı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/pv-su-isitici-cati.webp</image:loc><image:title>Çatıya kurulu fotovoltaik paneller</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/hesaplayici.html</loc>
@@ -225,6 +347,23 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/projeler.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/projeler.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/projeler.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp</image:loc><image:title>Kemer Villa Projesi — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp</image:loc><image:title>Manavgat Tarımsal GES — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-sanayi-800.webp</image:loc><image:title>Manavgat Sanayi Tesisi — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-fabrika-800.webp</image:loc><image:title>Manavgat Fabrika — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/serik-kemer-800.webp</image:loc><image:title>Serik / Kemer Kurulum — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-ticari-800.webp</image:loc><image:title>Manavgat Ticari Çatı — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/alanya-buyuk-tesis-800.webp</image:loc><image:title>Alanya Büyük Tesis — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/alanya-endustriyel-800.webp</image:loc><image:title>Alanya Endüstriyel GES — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kirsehir-tarimsal.webp</image:loc><image:title>Kırşehir Tarımsal Sulama — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g1.jpg</image:loc><image:title>Villa çatısı güneş enerjisi kurulumu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g2.jpg</image:loc><image:title>Sera çatısı güneş paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g3.jpg</image:loc><image:title>Ticari çatı panel uygulaması</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g4.jpg</image:loc><image:title>Vinçle panel taşıma</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g5.jpg</image:loc><image:title>Saha montaj uygulaması</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g6.jpg</image:loc><image:title>İnverter kurulumu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g7.jpg</image:loc><image:title>Montaj konstrüksiyonu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g8.jpg</image:loc><image:title>Kiremit çatı montaj aparatı</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/projeler.html</loc>
@@ -234,6 +373,23 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/projeler.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/projeler.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/projeler.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp</image:loc><image:title>Kemer Villa Projesi — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp</image:loc><image:title>Manavgat Tarımsal GES — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-sanayi-800.webp</image:loc><image:title>Manavgat Sanayi Tesisi — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-fabrika-800.webp</image:loc><image:title>Manavgat Fabrika — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/serik-kemer-800.webp</image:loc><image:title>Serik / Kemer Kurulum — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-ticari-800.webp</image:loc><image:title>Manavgat Ticari Çatı — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/alanya-buyuk-tesis-800.webp</image:loc><image:title>Alanya Büyük Tesis — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/alanya-endustriyel-800.webp</image:loc><image:title>Alanya Endüstriyel GES — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kirsehir-tarimsal.webp</image:loc><image:title>Kırşehir Tarımsal Sulama — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g1.jpg</image:loc><image:title>Villa çatısı güneş enerjisi kurulumu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g2.jpg</image:loc><image:title>Sera çatısı güneş paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g3.jpg</image:loc><image:title>Ticari çatı panel uygulaması</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g4.jpg</image:loc><image:title>Vinçle panel taşıma</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g5.jpg</image:loc><image:title>On-site installation</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g6.jpg</image:loc><image:title>İnverter kurulumu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g7.jpg</image:loc><image:title>Montaj konstrüksiyonu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g8.jpg</image:loc><image:title>Kiremit çatı montaj aparatı</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/projeler.html</loc>
@@ -243,6 +399,23 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/projeler.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/projeler.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/projeler.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp</image:loc><image:title>Kemer Villa Projesi — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp</image:loc><image:title>Manavgat Tarımsal GES — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-sanayi-800.webp</image:loc><image:title>Manavgat Sanayi Tesisi — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-fabrika-800.webp</image:loc><image:title>Manavgat Fabrika — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/serik-kemer-800.webp</image:loc><image:title>Serik / Kemer Kurulum — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-ticari-800.webp</image:loc><image:title>Manavgat Ticari Çatı — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/alanya-buyuk-tesis-800.webp</image:loc><image:title>Alanya Büyük Tesis — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/alanya-endustriyel-800.webp</image:loc><image:title>Alanya Endüstriyel GES — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kirsehir-tarimsal.webp</image:loc><image:title>Kırşehir Tarımsal Sulama — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g1.jpg</image:loc><image:title>Villa çatısı güneş enerjisi kurulumu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g2.jpg</image:loc><image:title>Sera çatısı güneş paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g3.jpg</image:loc><image:title>Ticari çatı panel uygulaması</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g4.jpg</image:loc><image:title>Vinçle panel taşıma</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g5.jpg</image:loc><image:title>Montage vor Ort</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g6.jpg</image:loc><image:title>İnverter kurulumu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g7.jpg</image:loc><image:title>Montaj konstrüksiyonu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g8.jpg</image:loc><image:title>Kiremit çatı montaj aparatı</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/projeler.html</loc>
@@ -252,6 +425,23 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/projeler.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/projeler.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/projeler.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp</image:loc><image:title>Kemer Villa Projesi — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp</image:loc><image:title>Manavgat Tarımsal GES — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-sanayi-800.webp</image:loc><image:title>Manavgat Sanayi Tesisi — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-fabrika-800.webp</image:loc><image:title>Manavgat Fabrika — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/serik-kemer-800.webp</image:loc><image:title>Serik / Kemer Kurulum — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-ticari-800.webp</image:loc><image:title>Manavgat Ticari Çatı — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/alanya-buyuk-tesis-800.webp</image:loc><image:title>Alanya Büyük Tesis — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/alanya-endustriyel-800.webp</image:loc><image:title>Alanya Endüstriyel GES — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kirsehir-tarimsal.webp</image:loc><image:title>Kırşehir Tarımsal Sulama — GESPA Enerji GES projesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g1.jpg</image:loc><image:title>Villa çatısı güneş enerjisi kurulumu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g2.jpg</image:loc><image:title>Sera çatısı güneş paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g3.jpg</image:loc><image:title>Ticari çatı panel uygulaması</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g4.jpg</image:loc><image:title>Vinçle panel taşıma</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g5.jpg</image:loc><image:title>Монтаж на объекте</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g6.jpg</image:loc><image:title>İnverter kurulumu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g7.jpg</image:loc><image:title>Montaj konstrüksiyonu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/gallery/g8.jpg</image:loc><image:title>Kiremit çatı montaj aparatı</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/hakkimizda.html</loc>
@@ -261,6 +451,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hakkimizda.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/hakkimizda.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/hakkimizda.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/about-team.webp</image:loc><image:title>GESPA Enerji uzman mühendislik ekibi güneş enerjisi santralinde saha incelemesi yapıyor</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/hakkimizda.html</loc>
@@ -270,6 +461,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hakkimizda.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/hakkimizda.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/hakkimizda.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/about-team.webp</image:loc><image:title>GESPA Enerji uzman mühendislik ekibi güneş enerjisi santralinde saha incelemesi yapıyor</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/hakkimizda.html</loc>
@@ -279,6 +471,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hakkimizda.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/hakkimizda.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/hakkimizda.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/about-team.webp</image:loc><image:title>GESPA Enerji uzman mühendislik ekibi güneş enerjisi santralinde saha incelemesi yapıyor</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/hakkimizda.html</loc>
@@ -288,6 +481,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hakkimizda.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/hakkimizda.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/hakkimizda.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/about-team.webp</image:loc><image:title>GESPA Enerji uzman mühendislik ekibi güneş enerjisi santralinde saha incelemesi yapıyor</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/iletisim.html</loc>
@@ -369,6 +563,11 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/ai-cankurtaran-destek-sistemi.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/ai-cankurtaran-destek-sistemi.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/hero-ai-cankurtaran.webp</image:loc><image:title>AI kamera havuzdaki yüzücüleri tarıyor, risk algılandığında ışıklı alarm ve cankurtaran saatine bildirim gönderiyor</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/gece-gorus.webp</image:loc><image:title>Gece yarısı havuzda yapay zekâ kameranın yüzücüyü tespit etmesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/resort-kapsama.webp</image:loc><image:title>Çok havuzlu resortta kameraların kapsama alanlarını gösteren yerleşim planı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/saat-alarm.webp</image:loc><image:title>Cankurtaran akıllı saatinde konum bilgili boğulma alarmı</image:title></image:image>
+    <video:video><video:thumbnail_loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/video-poster.jpg</video:thumbnail_loc><video:title>AI Cankurtaran Destek Sistemi — canlı tespit görüntüsü</video:title><video:description>Kalabalık bir havuzda yapay zekâ destekli boğulma önleme sisteminin gerçek zamanlı tespit kaydı: her yüzücü ayrı takip edilir, risk algılanınca cankurtarana anında alarm gider.</video:description><video:content_loc>https://www.gespaenerji.com/assets/video/cankurtaran-ai-tespit.mp4</video:content_loc><video:duration>19</video:duration><video:publication_date>2026-08-05</video:publication_date></video:video>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/ai-cankurtaran-destek-sistemi.html</loc>
@@ -378,6 +577,11 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/ai-cankurtaran-destek-sistemi.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/ai-cankurtaran-destek-sistemi.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/hero-ai-cankurtaran.webp</image:loc><image:title>AI kamera havuzdaki yüzücüleri tarıyor, risk algılandığında ışıklı alarm ve cankurtaran saatine bildirim gönderiyor</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/gece-gorus.webp</image:loc><image:title>Gece yarısı havuzda yapay zekâ kameranın yüzücüyü tespit etmesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/resort-kapsama.webp</image:loc><image:title>Çok havuzlu resortta kameraların kapsama alanlarını gösteren yerleşim planı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/saat-alarm.webp</image:loc><image:title>Cankurtaran akıllı saatinde konum bilgili boğulma alarmı</image:title></image:image>
+    <video:video><video:thumbnail_loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/video-poster.jpg</video:thumbnail_loc><video:title>AI Cankurtaran Destek Sistemi — canlı tespit görüntüsü</video:title><video:description>Kalabalık bir havuzda yapay zekâ destekli boğulma önleme sisteminin gerçek zamanlı tespit kaydı: her yüzücü ayrı takip edilir, risk algılanınca cankurtarana anında alarm gider.</video:description><video:content_loc>https://www.gespaenerji.com/assets/video/cankurtaran-ai-tespit.mp4</video:content_loc><video:duration>19</video:duration><video:publication_date>2026-08-05</video:publication_date></video:video>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/ai-cankurtaran-destek-sistemi.html</loc>
@@ -387,6 +591,11 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/ai-cankurtaran-destek-sistemi.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/ai-cankurtaran-destek-sistemi.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/hero-ai-cankurtaran.webp</image:loc><image:title>AI kamera havuzdaki yüzücüleri tarıyor, risk algılandığında ışıklı alarm ve cankurtaran saatine bildirim gönderiyor</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/gece-gorus.webp</image:loc><image:title>Gece yarısı havuzda yapay zekâ kameranın yüzücüyü tespit etmesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/resort-kapsama.webp</image:loc><image:title>Çok havuzlu resortta kameraların kapsama alanlarını gösteren yerleşim planı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/saat-alarm.webp</image:loc><image:title>Cankurtaran akıllı saatinde konum bilgili boğulma alarmı</image:title></image:image>
+    <video:video><video:thumbnail_loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/video-poster.jpg</video:thumbnail_loc><video:title>AI Cankurtaran Destek Sistemi — canlı tespit görüntüsü</video:title><video:description>Kalabalık bir havuzda yapay zekâ destekli boğulma önleme sisteminin gerçek zamanlı tespit kaydı: her yüzücü ayrı takip edilir, risk algılanınca cankurtarana anında alarm gider.</video:description><video:content_loc>https://www.gespaenerji.com/assets/video/cankurtaran-ai-tespit.mp4</video:content_loc><video:duration>19</video:duration><video:publication_date>2026-08-05</video:publication_date></video:video>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/ai-cankurtaran-destek-sistemi.html</loc>
@@ -396,6 +605,11 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/ai-cankurtaran-destek-sistemi.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/ai-cankurtaran-destek-sistemi.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/hero-ai-cankurtaran.webp</image:loc><image:title>AI kamera havuzdaki yüzücüleri tarıyor, risk algılandığında ışıklı alarm ve cankurtaran saatine bildirim gönderiyor</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/gece-gorus.webp</image:loc><image:title>Gece yarısı havuzda yapay zekâ kameranın yüzücüyü tespit etmesi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/resort-kapsama.webp</image:loc><image:title>Çok havuzlu resortta kameraların kapsama alanlarını gösteren yerleşim planı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/saat-alarm.webp</image:loc><image:title>Cankurtaran akıllı saatinde konum bilgili boğulma alarmı</image:title></image:image>
+    <video:video><video:thumbnail_loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/video-poster.jpg</video:thumbnail_loc><video:title>AI Cankurtaran Destek Sistemi — canlı tespit görüntüsü</video:title><video:description>Kalabalık bir havuzda yapay zekâ destekli boğulma önleme sisteminin gerçek zamanlı tespit kaydı: her yüzücü ayrı takip edilir, risk algılanınca cankurtarana anında alarm gider.</video:description><video:content_loc>https://www.gespaenerji.com/assets/video/cankurtaran-ai-tespit.mp4</video:content_loc><video:duration>19</video:duration><video:publication_date>2026-08-05</video:publication_date></video:video>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/sistem-kur.html</loc>
@@ -441,6 +655,12 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/elektrikli-arac-donusum.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/elektrikli-arac-donusum.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp</image:loc><image:title>BOOST MPPT Charger — ön görünüm, panel ve akü klemensleri</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-acili.webp</image:loc><image:title>Açılı görünüm</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-yan.webp</image:loc><image:title>Yan görünüm</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-arka.webp</image:loc><image:title>Arka görünüm</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-aku-uyumluluk.webp</image:loc><image:title>BOOST MPPT akü uyumluluğu: AGM, jel, kurşun asit, lityum (LiFePO4) ve derin döngü aküler; desteklenen sistem voltajları 24V, 36V, 48V, 60V, 72V</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/ev-solar-banner.webp</image:loc><image:title>Güneş panelli elektrikli golf aracı ve BOOST MPPT Charger</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/elektrikli-arac-donusum.html</loc>
@@ -450,6 +670,12 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/elektrikli-arac-donusum.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/elektrikli-arac-donusum.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp</image:loc><image:title>BOOST MPPT Charger — front view, panel and battery terminals</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-acili.webp</image:loc><image:title>Angled view</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-yan.webp</image:loc><image:title>Side view</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-arka.webp</image:loc><image:title>Rear view</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-aku-uyumluluk.webp</image:loc><image:title>BOOST MPPT akü uyumluluğu: AGM, jel, kurşun asit, lityum (LiFePO4) ve derin döngü aküler; desteklenen sistem voltajları 24V, 36V, 48V, 60V, 72V</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/ev-solar-banner.webp</image:loc><image:title>Solar-panelled electric golf cart and BOOST MPPT Charger</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/elektrikli-arac-donusum.html</loc>
@@ -459,6 +685,12 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/elektrikli-arac-donusum.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/elektrikli-arac-donusum.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp</image:loc><image:title>BOOST MPPT Charger — Vorderansicht, Modul- und Batterieklemmen</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-acili.webp</image:loc><image:title>Schrägansicht</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-yan.webp</image:loc><image:title>Seitenansicht</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-arka.webp</image:loc><image:title>Rückansicht</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-aku-uyumluluk.webp</image:loc><image:title>BOOST MPPT akü uyumluluğu: AGM, jel, kurşun asit, lityum (LiFePO4) ve derin döngü aküler; desteklenen sistem voltajları 24V, 36V, 48V, 60V, 72V</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/ev-solar-banner.webp</image:loc><image:title>Elektro-Golfcart mit Solarmodul und BOOST MPPT Charger</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html</loc>
@@ -468,6 +700,12 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/elektrikli-arac-donusum.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/elektrikli-arac-donusum.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp</image:loc><image:title>BOOST MPPT Charger — вид спереди, клеммы панели и АКБ</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-acili.webp</image:loc><image:title>Вид под углом</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-yan.webp</image:loc><image:title>Вид сбоку</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-arka.webp</image:loc><image:title>Вид сзади</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-aku-uyumluluk.webp</image:loc><image:title>BOOST MPPT akü uyumluluğu: AGM, jel, kurşun asit, lityum (LiFePO4) ve derin döngü aküler; desteklenen sistem voltajları 24V, 36V, 48V, 60V, 72V</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/ev-solar-banner.webp</image:loc><image:title>Электрический гольф-кар с солнечной панелью и BOOST MPPT Charger</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/paket-285w.html</loc>
@@ -477,6 +715,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/paket-285w.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/paket-285w.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/paket-285w.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w.webp</image:loc><image:title>285W komple güneş paneli paketi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w-panel.webp</image:loc><image:title>285W monokristal güneş paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w-kutu.webp</image:loc><image:title>Priz çıkışlı güç kutusu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w-kablo.webp</image:loc><image:title>MC4 bağlantı kabloları</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/paket-285w.html</loc>
@@ -486,6 +728,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/paket-285w.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/paket-285w.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/paket-285w.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w.webp</image:loc><image:title>285W komple güneş paneli paketi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w-panel.webp</image:loc><image:title>285W monokristal güneş paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w-kutu.webp</image:loc><image:title>Priz çıkışlı güç kutusu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w-kablo.webp</image:loc><image:title>MC4 bağlantı kabloları</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/paket-285w.html</loc>
@@ -495,6 +741,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/paket-285w.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/paket-285w.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/paket-285w.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w.webp</image:loc><image:title>285W komple güneş paneli paketi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w-panel.webp</image:loc><image:title>285W monokristal güneş paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w-kutu.webp</image:loc><image:title>Priz çıkışlı güç kutusu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w-kablo.webp</image:loc><image:title>MC4 bağlantı kabloları</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/paket-285w.html</loc>
@@ -504,6 +754,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/paket-285w.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/paket-285w.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/paket-285w.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w.webp</image:loc><image:title>285W komple güneş paneli paketi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w-panel.webp</image:loc><image:title>285W monokristal güneş paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w-kutu.webp</image:loc><image:title>Priz çıkışlı güç kutusu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w-kablo.webp</image:loc><image:title>MC4 bağlantı kabloları</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/paket-2x540w.html</loc>
@@ -513,6 +767,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/paket-2x540w.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/paket-2x540w.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/paket-2x540w.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w.webp</image:loc><image:title>Tam kapsamlı güneş enerjisi sistemi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w-panel.webp</image:loc><image:title>2× 540 W monokristal güneş panelleri</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w-kutu.webp</image:loc><image:title>LiFePO₄ bataryalı büyük güç kutusu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w-kablo.webp</image:loc><image:title>Bağlantı kabloları ve güç kutusu</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/paket-2x540w.html</loc>
@@ -522,6 +780,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/paket-2x540w.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/paket-2x540w.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/paket-2x540w.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w.webp</image:loc><image:title>Tam kapsamlı güneş enerjisi sistemi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w-panel.webp</image:loc><image:title>2× 540 W monokristal güneş panelleri</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w-kutu.webp</image:loc><image:title>LiFePO₄ bataryalı büyük güç kutusu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w-kablo.webp</image:loc><image:title>Bağlantı kabloları ve güç kutusu</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/paket-2x540w.html</loc>
@@ -531,6 +793,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/paket-2x540w.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/paket-2x540w.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/paket-2x540w.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w.webp</image:loc><image:title>Tam kapsamlı güneş enerjisi sistemi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w-panel.webp</image:loc><image:title>2× 540 W monokristal güneş panelleri</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w-kutu.webp</image:loc><image:title>LiFePO₄ bataryalı büyük güç kutusu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w-kablo.webp</image:loc><image:title>Bağlantı kabloları ve güç kutusu</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/paket-2x540w.html</loc>
@@ -540,6 +806,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/paket-2x540w.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/paket-2x540w.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/paket-2x540w.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w.webp</image:loc><image:title>Tam kapsamlı güneş enerjisi sistemi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w-panel.webp</image:loc><image:title>2× 540 W monokristal güneş panelleri</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w-kutu.webp</image:loc><image:title>LiFePO₄ bataryalı büyük güç kutusu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w-kablo.webp</image:loc><image:title>Bağlantı kabloları ve güç kutusu</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/unv-trek-pro-2500.html</loc>
@@ -549,6 +819,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/unv-trek-pro-2500.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/unv-trek-pro-2500.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/unv-trek-pro-2500.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/unv-trek-pro-2500.webp</image:loc><image:title>UNV Trek Pro 2500 W taşınabilir güç istasyonu — 4 AC prizi, USB ve Type-C çıkışları</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/unv-trek-pro-2500.html</loc>
@@ -558,6 +829,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/unv-trek-pro-2500.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/unv-trek-pro-2500.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/unv-trek-pro-2500.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/unv-trek-pro-2500.webp</image:loc><image:title>UNV Trek Pro 2500 W taşınabilir güç istasyonu — 4 AC prizi, USB ve Type-C çıkışları</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/unv-trek-pro-2500.html</loc>
@@ -567,6 +839,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/unv-trek-pro-2500.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/unv-trek-pro-2500.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/unv-trek-pro-2500.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/unv-trek-pro-2500.webp</image:loc><image:title>UNV Trek Pro 2500 W taşınabilir güç istasyonu — 4 AC prizi, USB ve Type-C çıkışları</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/unv-trek-pro-2500.html</loc>
@@ -576,6 +849,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/unv-trek-pro-2500.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/unv-trek-pro-2500.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/unv-trek-pro-2500.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/unv-trek-pro-2500.webp</image:loc><image:title>UNV Trek Pro 2500 W taşınabilir güç istasyonu — 4 AC prizi, USB ve Type-C çıkışları</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/toptan.html</loc>
@@ -621,6 +895,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/paket-motor-yolcu.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/paket-motor-yolcu.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/paket-motor-yolcu.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-yolcu.webp</image:loc><image:title>Yolcu kabinli elektrikli triportör</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-yolcu-kurulum.webp</image:loc><image:title>Çatısına güneş paneli monte edilmiş yolcu triportörü</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp</image:loc><image:title>Lexron 285 W TOPCon güneş paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp</image:loc><image:title>MS Teknik BOOST MPPT şarj kontrol cihazı</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/paket-motor-yolcu.html</loc>
@@ -630,6 +908,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/paket-motor-yolcu.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/paket-motor-yolcu.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/paket-motor-yolcu.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-yolcu.webp</image:loc><image:title>Yolcu kabinli elektrikli triportör</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-yolcu-kurulum.webp</image:loc><image:title>Çatısına güneş paneli monte edilmiş yolcu triportörü</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp</image:loc><image:title>Lexron 285 W TOPCon güneş paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp</image:loc><image:title>MS Teknik BOOST MPPT şarj kontrol cihazı</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/paket-motor-yolcu.html</loc>
@@ -639,6 +921,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/paket-motor-yolcu.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/paket-motor-yolcu.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/paket-motor-yolcu.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-yolcu.webp</image:loc><image:title>Yolcu kabinli elektrikli triportör</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-yolcu-kurulum.webp</image:loc><image:title>Çatısına güneş paneli monte edilmiş yolcu triportörü</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp</image:loc><image:title>Lexron 285 W TOPCon güneş paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp</image:loc><image:title>MS Teknik BOOST MPPT şarj kontrol cihazı</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/paket-motor-yolcu.html</loc>
@@ -648,6 +934,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/paket-motor-yolcu.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/paket-motor-yolcu.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/paket-motor-yolcu.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-yolcu.webp</image:loc><image:title>Yolcu kabinli elektrikli triportör</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-yolcu-kurulum.webp</image:loc><image:title>Çatısına güneş paneli monte edilmiş yolcu triportörü</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp</image:loc><image:title>Lexron 285 W TOPCon güneş paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp</image:loc><image:title>MS Teknik BOOST MPPT şarj kontrol cihazı</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/paket-motor-kargo.html</loc>
@@ -657,6 +947,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/paket-motor-kargo.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/paket-motor-kargo.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/paket-motor-kargo.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-kargo.webp</image:loc><image:title>Kargo kasalı elektrikli triportör</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-kargo-kurulum.webp</image:loc><image:title>Kargo kasasının çatısına monte edilmiş güneş paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp</image:loc><image:title>Lexron 655 W N-type TOPCon güneş paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp</image:loc><image:title>MS Teknik BOOST MPPT şarj kontrol cihazı</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/paket-motor-kargo.html</loc>
@@ -666,6 +960,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/paket-motor-kargo.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/paket-motor-kargo.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/paket-motor-kargo.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-kargo.webp</image:loc><image:title>Kargo kasalı elektrikli triportör</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-kargo-kurulum.webp</image:loc><image:title>Kargo kasasının çatısına monte edilmiş güneş paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp</image:loc><image:title>Lexron 655 W N-type TOPCon güneş paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp</image:loc><image:title>MS Teknik BOOST MPPT şarj kontrol cihazı</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/paket-motor-kargo.html</loc>
@@ -675,6 +973,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/paket-motor-kargo.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/paket-motor-kargo.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/paket-motor-kargo.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-kargo.webp</image:loc><image:title>Kargo kasalı elektrikli triportör</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-kargo-kurulum.webp</image:loc><image:title>Kargo kasasının çatısına monte edilmiş güneş paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp</image:loc><image:title>Lexron 655 W N-type TOPCon güneş paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp</image:loc><image:title>MS Teknik BOOST MPPT şarj kontrol cihazı</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/paket-motor-kargo.html</loc>
@@ -684,6 +986,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/paket-motor-kargo.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/paket-motor-kargo.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/paket-motor-kargo.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-kargo.webp</image:loc><image:title>Kargo kasalı elektrikli triportör</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-kargo-kurulum.webp</image:loc><image:title>Kargo kasasının çatısına monte edilmiş güneş paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp</image:loc><image:title>Lexron 655 W N-type TOPCon güneş paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp</image:loc><image:title>MS Teknik BOOST MPPT şarj kontrol cihazı</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/aku-lifepo4-72v-30ah.html</loc>
@@ -693,6 +999,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/aku-lifepo4-72v-30ah.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/aku-lifepo4-72v-30ah.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/aku-lifepo4-72v-30ah.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah.webp</image:loc><image:title>europlus 72 V 30 Ah LiFePO4 akü</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah-thumb.webp</image:loc><image:title>europlus 72 V 30 Ah LiFePO4 akü</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah-uyumluluk-thumb.webp</image:loc><image:title>72 V güç sistemi uyumluluk şeması</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah-uyumluluk.webp</image:loc><image:title>72 V güç sistemi: akü, motor kontrolörü ve hub motorlar</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/aku-lifepo4-72v-30ah.html</loc>
@@ -702,6 +1012,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/aku-lifepo4-72v-30ah.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/aku-lifepo4-72v-30ah.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/aku-lifepo4-72v-30ah.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah.webp</image:loc><image:title>europlus 72 V 30 Ah LiFePO4 akü</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah-thumb.webp</image:loc><image:title>europlus 72 V 30 Ah LiFePO4 akü</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah-uyumluluk-thumb.webp</image:loc><image:title>72 V güç sistemi uyumluluk şeması</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah-uyumluluk.webp</image:loc><image:title>72 V güç sistemi: akü, motor kontrolörü ve hub motorlar</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/aku-lifepo4-72v-30ah.html</loc>
@@ -711,6 +1025,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/aku-lifepo4-72v-30ah.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/aku-lifepo4-72v-30ah.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/aku-lifepo4-72v-30ah.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah.webp</image:loc><image:title>europlus 72 V 30 Ah LiFePO4 akü</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah-thumb.webp</image:loc><image:title>europlus 72 V 30 Ah LiFePO4 akü</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah-uyumluluk-thumb.webp</image:loc><image:title>72 V güç sistemi uyumluluk şeması</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah-uyumluluk.webp</image:loc><image:title>72 V güç sistemi: akü, motor kontrolörü ve hub motorlar</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/aku-lifepo4-72v-30ah.html</loc>
@@ -720,6 +1038,10 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/aku-lifepo4-72v-30ah.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/aku-lifepo4-72v-30ah.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/aku-lifepo4-72v-30ah.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah.webp</image:loc><image:title>europlus 72 V 30 Ah LiFePO4 akü</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah-thumb.webp</image:loc><image:title>europlus 72 V 30 Ah LiFePO4 akü</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah-uyumluluk-thumb.webp</image:loc><image:title>72 V güç sistemi uyumluluk şeması</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah-uyumluluk.webp</image:loc><image:title>72 V güç sistemi: akü, motor kontrolörü ve hub motorlar</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/cati-ges.html</loc>
@@ -873,6 +1195,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-kemer-villa.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/proje-kemer-villa.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/proje-kemer-villa.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp</image:loc><image:title>Kemer Villa: 12 kWp Çatı GES</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/proje-kemer-villa.html</loc>
@@ -882,6 +1205,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-kemer-villa.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/proje-kemer-villa.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/proje-kemer-villa.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp</image:loc><image:title>Kemer Villa: 12 kWp Rooftop PV</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/proje-kemer-villa.html</loc>
@@ -891,6 +1215,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-kemer-villa.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/proje-kemer-villa.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/proje-kemer-villa.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp</image:loc><image:title>Villa in Kemer: 12 kWp Aufdach-PV</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/proje-kemer-villa.html</loc>
@@ -900,6 +1225,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-kemer-villa.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/proje-kemer-villa.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/proje-kemer-villa.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp</image:loc><image:title>Вилла в Кемере: крышная станция 12 кВтп</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/proje-manavgat-fabrika.html</loc>
@@ -909,6 +1235,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-manavgat-fabrika.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/proje-manavgat-fabrika.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/proje-manavgat-fabrika.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-fabrika-800.webp</image:loc><image:title>Manavgat Fabrika: 1,2 MWp Çatı GES</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/proje-manavgat-fabrika.html</loc>
@@ -918,6 +1245,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-manavgat-fabrika.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/proje-manavgat-fabrika.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/proje-manavgat-fabrika.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-fabrika-800.webp</image:loc><image:title>Manavgat Factory: 1.2 MWp Rooftop PV</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/proje-manavgat-fabrika.html</loc>
@@ -927,6 +1255,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-manavgat-fabrika.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/proje-manavgat-fabrika.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/proje-manavgat-fabrika.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-fabrika-800.webp</image:loc><image:title>Fabrik in Manavgat: 1,2 MWp Aufdach-PV</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/proje-manavgat-fabrika.html</loc>
@@ -936,6 +1265,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-manavgat-fabrika.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/proje-manavgat-fabrika.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/proje-manavgat-fabrika.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-fabrika-800.webp</image:loc><image:title>Завод в Манавгате: крышная станция 1,2 МВтп</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/proje-manavgat-tarimsal.html</loc>
@@ -945,6 +1275,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-manavgat-tarimsal.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/proje-manavgat-tarimsal.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/proje-manavgat-tarimsal.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp</image:loc><image:title>Manavgat Tarımsal GES: 30 kWp</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/proje-manavgat-tarimsal.html</loc>
@@ -954,6 +1285,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-manavgat-tarimsal.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/proje-manavgat-tarimsal.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/proje-manavgat-tarimsal.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp</image:loc><image:title>Manavgat Agricultural Solar: 30 kWp</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/proje-manavgat-tarimsal.html</loc>
@@ -963,6 +1295,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-manavgat-tarimsal.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/proje-manavgat-tarimsal.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/proje-manavgat-tarimsal.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp</image:loc><image:title>Landwirtschaftliche PV in Manavgat: 30 kWp</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/proje-manavgat-tarimsal.html</loc>
@@ -972,6 +1305,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-manavgat-tarimsal.html" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/proje-manavgat-tarimsal.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/proje-manavgat-tarimsal.html" />
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp</image:loc><image:title>Агро-станция в Манавгате: 30 кВтп</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/kvkk.html</loc>

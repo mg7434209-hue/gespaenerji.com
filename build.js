@@ -19,6 +19,7 @@ const ROOT = __dirname;
 const ORIGIN = "https://www.gespaenerji.com";
 const LANGS = ["en", "de", "ru"];
 const OG_LOCALE = { en: "en_US", de: "de_DE", ru: "ru_RU" };
+const OG_ALL = { tr: "tr_TR", en: "en_US", de: "de_DE", ru: "ru_RU" };
 
 // Üretilecek sayfalar
 const PAGES = [
@@ -282,6 +283,108 @@ function hydrateSisterSites(html, c) {
   // İlk kez: footer'daki GES Marketim bağlantısının HEMEN ardına ekle
   return html.replace(/(<a href="https:\/\/www\.gesmarketim\.com"[^>]*>[^<]*<\/a>)/g, "$1" + wrapped);
 }
+
+// ---- Head hijyeni: robots meta + og:locale:alternate ----
+// Arama ve AI motorlarına "büyük görsel önizleme, sınırsız snippet" izni.
+// Etiket yoksa Google (ve AI Overviews) kısa snippet varsayar, ürün görselleri
+// küçük çıkar. noindex sayfalara DOKUNULMAZ (kendi robots etiketleri var).
+// og:locale:alternate yalnız dil kopyası olan sayfalara yazılır (TR_ONLY hariç);
+// transform() dil kopyasında kümeyi "geçerli dil hariç diğerleri" yapar.
+function hydrateHead(html, file) {
+  if (!/<meta name="robots"/.test(html)) {
+    html = html.replace(/(<meta name="description" content="[^"]*"\s*\/>)/,
+      '$1\n  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />');
+  }
+  html = html.replace(/[ \t]*<meta property="og:locale:alternate" content="[^"]*"\s*\/>\n?/g, "");
+  if (!TR_ONLY.includes(file)) {
+    const alts = LANGS.map(l => '  <meta property="og:locale:alternate" content="' + OG_ALL[l] + '" />').join("\n");
+    html = html.replace(/(<meta property="og:locale" content="tr_TR"\s*\/>)/, "$1\n" + alts);
+  }
+  return html;
+}
+
+// ---- robots.txt (build üretir; elle düzenlenmez) ----
+// Tek kaynak: NOINDEX_FILES + AI_BOTS. AI/yanıt motorları AÇIKÇA davet edilir —
+// `User-agent: *` zaten izinli ama açık grup, bot işleticilerine niyet
+// sinyalidir. /md/ Markdown kopyaları (C3) YALNIZ AI botlarına açıktır:
+// arama motorunda yinelenen içerik sayılmasın (server.js ayrıca canonical
+// Link başlığı gönderir). Content-Signal satırı Cloudflare "Content Signals"
+// sözleşmesidir; tanımayan bot yok sayar.
+const NOINDEX_FILES = ["admin.html", "sepet.html", "odeme.html", "odeme-sonuc.html"];
+const AI_BOTS = [
+  "GPTBot", "OAI-SearchBot", "ChatGPT-User",                        // OpenAI
+  "ClaudeBot", "Claude-SearchBot", "Claude-User", "anthropic-ai",   // Anthropic
+  "PerplexityBot", "Perplexity-User",                               // Perplexity
+  "Google-Extended",                                                // Gemini
+  "Applebot", "Applebot-Extended",                                  // Apple
+  "Amazonbot", "CCBot", "meta-externalagent", "Meta-ExternalFetcher",
+  "DuckAssistBot", "YouBot", "Bytespider", "PetalBot",
+  "MistralAI-User", "cohere-ai", "AI2Bot", "Diffbot"
+];
+function writeRobots() {
+  const dis = [];
+  NOINDEX_FILES.forEach(f => {
+    dis.push("/" + f);
+    if (PAGES.includes(f)) LANGS.forEach(l => dis.push("/" + l + "/" + f));
+  });
+  const rules = dis.map(d => "Disallow: " + d).join("\n");
+  // Tek grup, çok User-agent satırı (RFC 9309): 24 bot × 11 satır tekrarı yerine.
+  const groups = AI_BOTS.map(b => "User-agent: " + b).join("\n") + "\nAllow: /md/\nAllow: /\n" + rules;
+  const out = "# build.js üretir — elle düzenlemeyin (kaynak: NOINDEX_FILES + AI_BOTS)\n"
+    + "User-agent: *\nAllow: /\n" + rules + "\nDisallow: /md/\n"
+    + "# İçerik sinyali: arama, AI yanıtı ve AI eğitimi için kullanıma AÇIK —\n"
+    + "# içeriğimizin AI aramalarında görünmesini istiyoruz.\n"
+    + "Content-Signal: search=yes, ai-input=yes, ai-train=yes\n\n"
+    + "# AI / yanıt motorları — açıkça davetli. LLM bilgi dosyaları: /llms.txt (özet),\n"
+    + "# /llms-full.txt (ürün/fiyat ayrıntısı), /md/ (sayfaların Markdown kopyaları).\n"
+    + groups + "\n\nSitemap: " + ORIGIN + "/sitemap.xml\n";
+  fs.writeFileSync(path.join(ROOT, "robots.txt"), out);
+}
+
+// Dosyanın son git değişiklik tarihi — sitemap lastmod ve WebPage.dateModified
+// AYNI kaynağı okur (tutarsız iki tarih AI/arama için tazelik sinyalini bozar).
+const _lastMod = {};
+function lastModOf(file) {
+  if (_lastMod[file]) return _lastMod[file];
+  let d;
+  try {
+    d = require("child_process").execSync('git log -1 --format=%cI -- "' + file + '"',
+      { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString().trim().slice(0, 10);
+  } catch (e) { /* git yoksa mtime */ }
+  const p = path.join(ROOT, file);
+  if (!d && fs.existsSync(p)) d = fs.statSync(p).mtime.toISOString().slice(0, 10);
+  return (_lastMod[file] = d || new Date().toISOString().slice(0, 10));
+}
+
+// Sitemap'e girecek sayfa görselleri: <main> içindeki <img src="assets/…">
+// (svg/ikon hariç, tekrarsız, en çok 30). Başlık = alt metni.
+function pageImages(html) {
+  const main = (html.match(/<main\b[\s\S]*?<\/main>/) || [html])[0];
+  const seen = new Set(), out = [];
+  const re = /<img\b([^>]*)>/g; let m;
+  while ((m = re.exec(main)) !== null) {
+    const src = (m[1].match(/\bsrc="([^"]+)"/) || [])[1];
+    if (!src || !/^assets\//.test(src) || /\.svg$/i.test(src) || /favicon|gespa-icon/.test(src)) continue;
+    if (seen.has(src)) continue;
+    seen.add(src);
+    out.push({ loc: ORIGIN + "/" + src, title: (m[1].match(/\balt="([^"]*)"/) || [])[1] || "" });
+    if (out.length >= 30) break;
+  }
+  return out;
+}
+// Sayfadaki statik VideoObject JSON-LD'den video sitemap girdisi
+function pageVideo(html) {
+  const re = /<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g; let m;
+  while ((m = re.exec(html)) !== null) {
+    try {
+      const o = JSON.parse(m[1]);
+      const v = (Array.isArray(o) ? o : [o]).filter(x => x && x["@type"] === "VideoObject")[0];
+      if (v && v.contentUrl && v.thumbnailUrl) return v;
+    } catch (e) {}
+  }
+  return null;
+}
+function isoDurSec(x) { const m = /^PT(?:(\d+)M)?(?:(\d+)S)?$/.exec(x || ""); return m ? (+m[1] || 0) * 60 + (+m[2] || 0) : 0; }
 
 /* ============================================================
    STATİK SEO/AEO ÜRETİMİ — tek kaynak assets/config.js
@@ -970,7 +1073,7 @@ const PRIORITY = {
   "kvkk.html": "0.3", "gizlilik.html": "0.3", "cerez-politikasi.html": "0.3",
   "mesafeli-satis-sozlesmesi.html": "0.4", "iade-teslimat.html": "0.4"
 };
-function writeSitemap() {
+function writeSitemap(i18n) {
   const urlFor = (l, file) => l === "tr" ? ORIGIN + "/" + (file === "index.html" ? "" : file) : ORIGIN + "/" + l + "/" + (file === "index.html" ? "" : file);
   const entries = [];
   const NOSITEMAP = { "sepet.html": 1 };   // noindex sayfalar haritaya girmez
@@ -979,23 +1082,37 @@ function writeSitemap() {
     const trOnly = TR_ONLY.includes(file);
     const p = path.join(ROOT, file);
     if (!fs.existsSync(p)) continue;
-    let lastmod;
-    try {
-      lastmod = require("child_process").execSync(
-        'git log -1 --format=%cI -- "' + file + '"', { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }
-      ).toString().trim().slice(0, 10);
-    } catch (e) { /* git yoksa mtime */ }
-    if (!lastmod) lastmod = fs.statSync(p).mtime.toISOString().slice(0, 10);
+    const html = fs.readFileSync(p, "utf8");
+    const lastmod = lastModOf(file);
+    // Görsel/video uzantıları: Google Görseller ve video sonuçları için.
+    // Dil kopyaları aynı dosyaları paylaşır; başlık DICT'ten çevrilir.
+    const imgs = pageImages(html);
+    const vid = pageVideo(html);
     const smLangs = trOnly ? ["tr"] : ["tr", ...LANGS];
     const cluster = smLangs.map(l => '    <xhtml:link rel="alternate" hreflang="' + l + '" href="' + urlFor(l, file) + '" />').join("\n")
       + '\n    <xhtml:link rel="alternate" hreflang="x-default" href="' + urlFor("tr", file) + '" />';
     for (const l of smLangs) {
+      const d = (i18n && i18n.DICT && i18n.DICT[l]) || {};
+      const tr = t => (l === "tr" ? t : (d[t] || t));
+      const imgXml = imgs.map(im => "    <image:image><image:loc>" + esc(im.loc) + "</image:loc>"
+        + (im.title ? "<image:title>" + esc(tr(im.title)) + "</image:title>" : "") + "</image:image>").join("\n");
+      const vidXml = vid ? "    <video:video><video:thumbnail_loc>" + esc(vid.thumbnailUrl) + "</video:thumbnail_loc>"
+        + "<video:title>" + esc(tr(vid.name)) + "</video:title>"
+        + "<video:description>" + esc(tr(vid.description)) + "</video:description>"
+        + "<video:content_loc>" + esc(vid.contentUrl) + "</video:content_loc>"
+        + (isoDurSec(vid.duration) ? "<video:duration>" + isoDurSec(vid.duration) + "</video:duration>" : "")
+        + (vid.uploadDate ? "<video:publication_date>" + esc(vid.uploadDate) + "</video:publication_date>" : "")
+        + "</video:video>" : "";
       entries.push("  <url>\n    <loc>" + urlFor(l, file) + "</loc>\n    <lastmod>" + lastmod +
         "</lastmod><changefreq>" + (file === "index.html" ? "weekly" : "monthly") + "</changefreq><priority>" +
-        (l === "tr" ? (PRIORITY[file] || "0.7") : "0.5") + "</priority>\n" + cluster + "\n  </url>");
+        (l === "tr" ? (PRIORITY[file] || "0.7") : "0.5") + "</priority>\n" + cluster +
+        (imgXml ? "\n" + imgXml : "") + (vidXml ? "\n" + vidXml : "") + "\n  </url>");
     }
   }
-  const xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' +
+  const xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
+    + '        xmlns:xhtml="http://www.w3.org/1999/xhtml"\n'
+    + '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"\n'
+    + '        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">\n' +
     entries.join("\n") + "\n</urlset>\n";
   fs.writeFileSync(path.join(ROOT, "sitemap.xml"), xml);
 }
@@ -1300,8 +1417,11 @@ function transform(html, lang, file, i18n) {
   //    TR anahtar kelimeler dil sayfalarında yanıltıcı — kaldır
   out = out.replace(/[ \t]*<meta name="keywords" content="[^"]*"\s*\/>\n?/, "");
 
-  // 4) og:locale
+  // 4) og:locale + og:locale:alternate (geçerli dil hariç diğer üç yerel)
+  out = out.replace(/[ \t]*<meta property="og:locale:alternate" content="[^"]*"\s*\/>\n?/g, "");
   out = out.replace(/content="tr_TR"/, 'content="' + OG_LOCALE[lang] + '"');
+  out = out.replace(/(<meta property="og:locale" content="[^"]*"\s*\/>)/, m => m + "\n" +
+    ["tr"].concat(LANGS).filter(l => l !== lang).map(l => '  <meta property="og:locale:alternate" content="' + OG_ALL[l] + '" />').join("\n"));
 
   // 5) canonical + og:url -> dile özel mutlak URL
   out = out.replace(/<link rel="canonical" href="[^"]*"\s*\/>/,
@@ -1366,6 +1486,7 @@ function run() {
     if (!fs.existsSync(p)) continue;
     let html = fs.readFileSync(p, "utf8");
     const before = html;
+    html = hydrateHead(html, file);
     html = hydrateContact(html, cfg.company);
     html = hydrateSisterSites(html, cfg.company);
     html = hydrateExtras(html, file, cfg);
@@ -1375,7 +1496,8 @@ function run() {
   checkParts(cfg);
   writeLlmsFull(cfg);
   writeProductFeed(cfg);
-  writeSitemap();
+  writeSitemap(i18n);
+  writeRobots();
 
   let count = 0;
   for (const lang of LANGS) {
