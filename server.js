@@ -143,8 +143,41 @@ function pkgListTL(p, cfg) {
   return p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
 }
 
-// Fiyat biçimi — resmî SDK ile aynı: tam sayıya ".0" eklenir ("50" -> "50.0")
-function iyzPrice(n) { const v = String(n); return v.indexOf(".") < 0 ? v + ".0" : v; }
+// Fiyat biçimi — resmî SDK ile aynı: tam sayıya ".0" eklenir ("50" -> "50.0").
+// Kuruşlu tutar iki hane basılır ("19906.62"): taksit farkı geri hesaplandığında
+// gönderilecek tutar tam sayı olmayabilir.
+function iyzPrice(n) {
+  const v = Math.round((+n || 0) * 100) / 100;
+  return Number.isInteger(v) ? v + ".0" : v.toFixed(2);
+}
+
+// Tutarı insan okunur yazar (₺ işareti ÇAĞIRAN tarafta eklenir).
+function money(n) {
+  const v = Math.round((+n || 0) * 100) / 100;
+  try { return v.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+  catch (e) { return v.toFixed(2); }
+}
+
+// Sitenin canlı adresi — e-postadaki dekont bağlantısı buradan kurulur.
+// İstek host'u değil config esas alınır: bağlantı her yerden aynı olsun.
+function siteBase() {
+  try {
+    const c = (SITE_CFG || (SITE_CFG = loadSiteConfig())).company;
+    if (c && c.web) return String(c.web).replace(/\/+$/, "");
+  } catch (e) {}
+  return "https://www.gespaenerji.com";
+}
+
+// Sipariş kalemlerini okunur satıra çevirir — ürün ADI config'ten gelir,
+// kayıtta yalnız id tutuluyor (e-postada ve dekontta "kit-285w" yazmasın).
+function orderLines(o) {
+  let cfg = null;
+  try { cfg = SITE_CFG || (SITE_CFG = loadSiteConfig()); } catch (e) {}
+  return ((o && o.items) || []).map((it) => {
+    const p = cfg && (cfg.packages || []).find((x) => x.id === it.id);
+    return { id: it.id, name: (p && p.name) || it.id, qty: it.qty, unitTL: it.unitTL };
+  });
+}
 
 // iyzico REST — IYZWSv2 imzalı istek (resmî SDK'siz; bağımlılıksız sunucu korunur)
 function iyzRequest(uriPath, body, cb) {
@@ -214,6 +247,7 @@ const SMTP = {
   to: (process.env.ORDER_EMAIL_TO || "").trim()
 };
 const mailReady = () => !!(SMTP.host && SMTP.user && SMTP.pass);
+let mailTestAt = 0;   // /api/pay/mailtest için basit hız sınırı (dakikada 1)
 console.log("sipariş e-postası:", mailReady()
   ? "açık · " + SMTP.host + ":" + SMTP.port + " → " + (SMTP.to || SMTP.user)
   : "kapalı (SMTP_HOST/SMTP_USER/SMTP_PASS tanımlı değil)");
@@ -222,11 +256,12 @@ console.log("sipariş e-postası:", mailReady()
 function mimeWord(t) { return "=?UTF-8?B?" + Buffer.from(String(t), "utf8").toString("base64") + "?="; }
 
 // Küçük SMTP istemcisi. Örtük TLS (465) ya da STARTTLS (587) ile çalışır.
-function sendMail(subject, body, cb) {
+function sendMail(to, subject, body, cb) {
   cb = cb || function () {};
-  if (!mailReady()) return cb(new Error("SMTP ayarı yok"));
+  if (!mailReady()) return cb(new Error("SMTP ayarı yok (SMTP_HOST / SMTP_USER / SMTP_PASS)"));
+  to = String(to || "").trim() || SMTP.to || SMTP.user;
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(to)) return cb(new Error("geçersiz alıcı adresi"));
   const tls = require("tls"), net = require("net");
-  const to = SMTP.to || SMTP.user;
   const implicit = SMTP.port === 465;
   // SNI (servername) yalnız ALAN ADI ile gönderilir. Host bir IP adresiyse
   // SNI geçersizdir ve el sıkışması sessizce askıda kalır (zaman aşımına
@@ -296,33 +331,82 @@ function sendMail(subject, body, cb) {
   wire(sock);
 }
 
-// Sipariş özetini insan okunur metne çevirir (e-posta gövdesi).
-function orderMailBody(o, token) {
+// Dekont (ödeme makbuzu) adresi — sipariş kaydındaki rastgele rid ile açılır.
+function receiptUrl(rid) { return rid ? siteBase() + "/odeme-sonuc.html?d=ok&r=" + rid : ""; }
+
+// İŞLETMEYE giden sipariş özeti — fatura için gereken TÜM alanlar burada.
+function orderMailBody(o, rid) {
   const b = (o && o.buyer) || {};
   const L = [];
   L.push("YENİ SİPARİŞ — ödeme alındı");
   L.push("");
-  L.push("Tutar        : ₺" + (o.paidPrice || o.totalTL || "?"));
-  L.push("Sipariş no   : " + (o.conversationId || "-"));
-  L.push("iyzico ödeme : " + (o.paymentId || "-"));
-  L.push("Tarih        : " + new Date(o.resolvedAt || Date.now()).toLocaleString("tr-TR"));
-  if (o.desc) L.push("Açıklama     : " + o.desc);
-  if (o.ref) L.push("Referans     : " + o.ref);
+  L.push("Tahsil edilen : ₺" + money(o.paidPrice || o.totalTL));
+  if (o.totalTL && o.paidPrice && Math.abs(+o.paidPrice - +o.totalTL) >= 0.01) {
+    // Taksitte iyzico vade farkını müşteriye yansıtıyorsa tahsil edilen tutar
+    // gönderdiğimizden büyük olur. İkisini de yaz ki faturada şaşırılmasın.
+    L.push("Gönderilen    : ₺" + money(o.totalTL) + "  (fark: ₺" + money(+o.paidPrice - +o.totalTL) + " — taksit vade farkı)");
+  }
+  L.push("Sipariş no    : " + (o.conversationId || "-"));
+  L.push("iyzico ödeme  : " + (o.paymentId || "-"));
+  L.push("Tarih         : " + new Date(o.resolvedAt || Date.now()).toLocaleString("tr-TR"));
+  if (o.desc) L.push("Açıklama      : " + o.desc);
+  if (o.ref) L.push("Referans      : " + o.ref);
   L.push("");
   L.push("--- FATURA BİLGİLERİ ---");
-  L.push("Ad Soyad     : " + (b.ad || "-"));
-  L.push("T.C. Kimlik  : " + (b.tckn || "(girilmemiş)"));
-  L.push("Telefon      : " + (b.tel || "-"));
-  L.push("E-posta      : " + (b.eposta || "-"));
-  L.push("İl / İlçe    : " + (b.il || "-"));
-  L.push("Adres        : " + (b.adres || "-"));
-  if (o.items && o.items.length) {
+  L.push("Ad Soyad      : " + (b.ad || "-"));
+  L.push("T.C. Kimlik   : " + (b.tckn || "(girilmemiş)"));
+  L.push("Telefon       : " + (b.tel || "-"));
+  L.push("E-posta       : " + (b.eposta || "-"));
+  L.push("İl / İlçe     : " + (b.il || "-"));
+  L.push("Adres         : " + (b.adres || "-"));
+  const lines = orderLines(o);
+  if (lines.length) {
     L.push("");
     L.push("--- KALEMLER ---");
-    o.items.forEach((it) => L.push("  " + it.id + " × " + it.qty + "  (birim ₺" + it.unitTL + ")"));
+    lines.forEach((it) => L.push("  " + it.name + " × " + it.qty + "  (birim ₺" + money(it.unitTL) + ")"));
   }
+  if (rid) { L.push(""); L.push("Dekont (yazdırılabilir): " + receiptUrl(rid)); }
   L.push("");
   L.push("Kargodan ÖNCE tutarı iyzico panelinden doğrulayın.");
+  return L.join("\n");
+}
+
+// MÜŞTERİYE giden ödeme onayı. KVKK: T.C. kimlik no ve adres YAZILMAZ —
+// e-posta kutusu üçüncü kişilere iletilebilir; müşterinin ihtiyacı olan
+// tutar, sipariş no ve dekont bağlantısıdır.
+function customerMailBody(o, rid) {
+  const b = (o && o.buyer) || {};
+  let c = {};
+  try { c = (SITE_CFG || (SITE_CFG = loadSiteConfig())).company || {}; } catch (e) {}
+  const L = [];
+  L.push("Sayın " + (b.ad || "müşterimiz") + ",");
+  L.push("");
+  L.push("Ödemeniz iyzico güvencesiyle başarıyla alındı. Teşekkür ederiz.");
+  L.push("");
+  L.push("Tahsil edilen : ₺" + money(o.paidPrice || o.totalTL));
+  L.push("Sipariş no    : " + (o.conversationId || "-"));
+  L.push("Ödeme no      : " + (o.paymentId || "-"));
+  L.push("Tarih         : " + new Date(o.resolvedAt || Date.now()).toLocaleString("tr-TR"));
+  if (o.desc) L.push("Açıklama      : " + o.desc);
+  const lines = orderLines(o);
+  if (lines.length) {
+    L.push("");
+    L.push("--- SİPARİŞİNİZ ---");
+    lines.forEach((it) => L.push("  " + it.name + " × " + it.qty));
+  }
+  if (rid) {
+    L.push("");
+    L.push("Ödeme dekontunuzu şu adresten görüntüleyip yazdırabilirsiniz:");
+    L.push(receiptUrl(rid));
+  }
+  L.push("");
+  L.push("Faturanız yasal süresi içinde düzenlenip tarafınıza iletilecektir.");
+  L.push("Sipariş onayı ve kargo bilgisi için aynı gün içinde sizinle iletişime geçeceğiz.");
+  L.push("");
+  L.push("GESPA Enerji");
+  if (c.phone && c.phone.display) L.push("Telefon: " + c.phone.display);
+  if (c.email) L.push("E-posta: " + c.email);
+  L.push(siteBase());
   return L.join("\n");
 }
 
@@ -344,7 +428,91 @@ function siteOrigin(req) {
 
 function handlePayRoutes(req, res, urlPath) {
   if (urlPath === "/api/pay/status") {
-    return sendJson(res, 200, { enabled: !!(IYZ.apiKey && IYZ.secret) }), true;
+    // mail: sipariş bildirim e-postasının AÇIK olup olmadığı. Yalnız boolean —
+    // SMTP sunucusu, kullanıcı ve parola DIŞARI VERİLMEZ. Sipariş e-postası
+    // gelmediğinde ilk bakılacak yer burasıdır (false = Railway değişkenleri yok).
+    return sendJson(res, 200, { enabled: !!(IYZ.apiKey && IYZ.secret), mail: mailReady() }), true;
+  }
+  // Dekont (ödeme makbuzu) — müşteri ve işletme yazdırabilsin diye.
+  // Anahtar sipariş kaydındaki RASTGELE rid'dir; iyzico token'ı dışarı ÇIKMAZ.
+  // KVKK: T.C. kimlik no, açık adres, telefon ve e-posta BU UÇTAN DÖNMEZ;
+  // onlar yalnız sipariş kaydında ve işletmeye giden e-postada durur.
+  if (urlPath === "/api/order/receipt") {
+    const m = /[?&]r=([a-f0-9]{8,32})(?:&|$)/i.exec(req.url || "");
+    if (!m) return sendJson(res, 400, { error: "Geçersiz istek." }), true;
+    const rid = m[1].toLowerCase();
+    const all = readOrders();
+    let ord = null;
+    for (const k in all) if (all[k] && all[k].rid === rid) { ord = all[k]; break; }
+    if (!ord || ord.status !== "paid") return sendJson(res, 404, { error: "Kayıt bulunamadı." }), true;
+    return sendJson(res, 200, {
+      no: ord.conversationId || "",
+      date: ord.resolvedAt || ord.createdAt || "",
+      amount: +(ord.paidPrice || ord.totalTL || 0),
+      sentTL: +(ord.totalTL || 0) || undefined,
+      paymentId: ord.paymentId || "",
+      desc: ord.desc || "",
+      ref: ord.ref || "",
+      buyer: { ad: (ord.buyer && ord.buyer.ad) || "", il: (ord.buyer && ord.buyer.il) || "" },
+      items: orderLines(ord).map((l) => ({ name: l.name, qty: l.qty, unitTL: l.unitTL }))
+    }), true;
+  }
+  // E-posta testi — admin panelindeki düğme çağırır. Canlı sipariş beklemeden
+  // SMTP ayarının çalıştığını doğrular ve HATANIN KENDİSİNİ döndürür.
+  // Parola config.admin.pass'tir (statik sitede caydırıcı); kötüye kullanımı
+  // sınırlamak için dakikada bir istek kabul edilir ve posta YALNIZ
+  // işletmenin kendi adresine gider — serbest alıcı kabul edilmez.
+  if (urlPath === "/api/pay/mailtest" && req.method === "POST") {
+    readBody(req, 4 * 1024, (raw) => {
+      let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
+      let cfg = null; try { cfg = SITE_CFG || (SITE_CFG = loadSiteConfig()); } catch (e) {}
+      const pass = (cfg && cfg.admin && cfg.admin.pass) || "";
+      if (!pass || String(b.pass || "") !== pass) return sendJson(res, 403, { error: "Parola hatalı." });
+      const now = Date.now();
+      if (now - mailTestAt < 60000) return sendJson(res, 429, { error: "Çok sık denendi — 1 dakika bekleyip tekrar deneyin." });
+      mailTestAt = now;
+      if (!mailReady()) return sendJson(res, 200, { ok: false, error: "SMTP ayarları tanımlı değil. Railway → Variables: SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, ORDER_EMAIL_TO" });
+      sendMail(SMTP.to || SMTP.user, "GESPA — sipariş e-postası testi",
+        "Bu bir testtir: sipariş bildirim e-postası ÇALIŞIYOR.\n\n"
+        + "Gönderen : " + SMTP.host + ":" + SMTP.port + "\n"
+        + "Alıcı    : " + (SMTP.to || SMTP.user) + "\n"
+        + "Tarih    : " + new Date().toLocaleString("tr-TR") + "\n\n"
+        + "Bundan sonra her başarılı ödemede sipariş özeti bu adrese düşecek.",
+        (e) => sendJson(res, 200, e ? { ok: false, error: e.message } : { ok: true, to: SMTP.to || SMTP.user }));
+    });
+    return true;
+  }
+  // Taksit tablosu — iyzico'nun KENDİ oranları (hesabınızda tanımlı olanlar).
+  // "Müşteri 3 taksitte kaç öder / tam ₺20.000 tahsil etmek için ne
+  // göndermeliyim" sorusunu cevaplar. Salt okunurdur, ödeme akışına DOKUNMAZ.
+  if (urlPath === "/api/pay/installments" && req.method === "POST") {
+    if (!(IYZ.apiKey && IYZ.secret)) return sendJson(res, 503, { error: "Kart ödemesi şu anda kapalı." }), true;
+    readBody(req, 4 * 1024, (raw) => {
+      let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
+      const price = Math.round((+b.price || 0) * 100) / 100;
+      if (!(price >= 1 && price <= 250000)) return sendJson(res, 400, { error: "Tutar 1 ₺ ile 250.000 ₺ arasında olmalıdır." });
+      const bin = String(b.bin || "").replace(/\D/g, "").slice(0, 6);
+      const payload = { locale: "tr", conversationId: "INS" + Date.now(), price: iyzPrice(price) };
+      if (bin.length === 6) payload.binNumber = bin;   // kart verilirse o bankanın oranı
+      iyzRequest("/payment/iyzipos/installment", payload, (err, out) => {
+        if (err || !out || out.status !== "success") return iyzFail(res, "taksit tablosu", err, out);
+        // Kart aileleri (Bonus, Axess, World…) farklı oran uygulayabilir;
+        // taksit sayısı başına en düşük–en yüksek toplamı birlikte veririz.
+        const rows = {};
+        (out.installmentDetails || []).forEach((d) => {
+          (d.installmentPrices || []).forEach((ip) => {
+            const n = +ip.installmentNumber || 1;
+            const tot = Math.round((+ip.totalPrice || price) * 100) / 100;
+            (rows[n] = rows[n] || []).push(tot);
+          });
+        });
+        const list = Object.keys(rows).map(Number).sort((a, c) => a - c).map((n) => ({
+          n: n, min: Math.min.apply(null, rows[n]), max: Math.max.apply(null, rows[n])
+        }));
+        sendJson(res, 200, { price: price, rows: list });
+      });
+    });
+    return true;
   }
   if (urlPath === "/api/pay/checkout" && req.method === "POST") {
     if (!(IYZ.apiKey && IYZ.secret)) return sendJson(res, 503, { error: "Kart ödemesi şu anda kapalı." }), true;
@@ -418,8 +586,19 @@ function handlePayRoutes(req, res, urlPath) {
     if (!(IYZ.apiKey && IYZ.secret)) return sendJson(res, 503, { error: "Kart ödemesi şu anda kapalı." }), true;
     readBody(req, 32 * 1024, (raw) => {
       let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
-      const amount = Math.round(+b.amountTL || 0);
+      // Kuruş kabul edilir: taksit vade farkı geri hesaplanınca gönderilecek
+      // tutar tam sayı olmayabilir (ör. 3 taksitte tam ₺20.000 tahsil etmek
+      // için ₺19.906,62 gönderilir).
+      const amount = Math.round((+b.amountTL || 0) * 100) / 100;
       if (!(amount >= 50 && amount <= 250000)) return sendJson(res, 400, { error: "Tutar 50 ₺ ile 250.000 ₺ arasında olmalıdır." });
+      // tek=1 → yalnız TEK ÇEKİM sunulur. Taksitte iyzico vade farkını
+      // müşteriye yansıttığı için tahsil edilen tutar gönderdiğimizden büyük
+      // çıkıyor; tam yuvarlak tahsilat gereken işlerde taksit kapatılır.
+      const tekCekim = b.tek === true || b.tek === 1 || b.tek === "1";
+      // taksit=N → SADECE N taksit sunulur. Yuvarlak tahsilat için tutar geri
+      // hesaplandığında taksit sayısı sabitlenmezse müşteri başka taksit seçer
+      // ve hesap tutmaz.
+      const taksitN = Math.round(+b.taksit || 0);
       const desc = String(b.desc || "").trim().slice(0, 120) || "GES Marketim siparişi";
       const ref = String(b.ref || "").trim().slice(0, 40);
       const buyer = b.buyer || {};
@@ -450,6 +629,8 @@ function handlePayRoutes(req, res, urlPath) {
         shippingAddress: addr, billingAddress: addr,
         basketItems: [{ id: "gesmarketim", name: desc, category1: "E-Mağaza", itemType: "PHYSICAL", price: iyzPrice(amount) }]
       };
+      if (tekCekim) payload.enabledInstallments = [1];
+      else if (taksitN >= 2 && taksitN <= 12) payload.enabledInstallments = [taksitN];
       iyzRequest("/payment/iyzipos/checkoutform/initialize/auth/ecom", payload, (err, out) => {
         if (err || !out || out.status !== "success" || !(out.paymentPageUrl || out.payWithIyzicoPageUrl)) {
           return iyzFail(res, "link ödeme", err, out);
@@ -457,6 +638,7 @@ function handlePayRoutes(req, res, urlPath) {
         writeOrder(out.token, {
           conversationId: convId, source: "gesmarketim", status: "pending",
           createdAt: new Date().toISOString(), totalTL: amount, desc: desc, ref: ref || undefined,
+          tek: tekCekim || undefined, taksit: (!tekCekim && taksitN >= 2 && taksitN <= 12) ? taksitN : undefined,
           // tckn FATURA için saklanır (e-arşiv/e-fatura zorunlu alanı).
           // KVKK: yalnız sunucuda tutulur, log'a ASLA yazılmaz.
           buyer: { ad: buyer.ad, tel: tel, eposta: email, tckn: tckn, il: il, adres: adres }
@@ -487,24 +669,44 @@ function handlePayRoutes(req, res, urlPath) {
             errorMessage: (out && out.errorMessage) || (err && err.message)
           }));
         }
+        // Dekont kimliği: iyzico token'ı yerine RASTGELE bir anahtar üretilir.
+        // Token adres çubuğuna ve tarayıcı geçmişine düşmesin diye.
+        const rid = ok ? crypto.randomBytes(12).toString("hex") : undefined;
         writeOrder(token, {
           status: ok ? "paid" : "failed", resolvedAt: new Date().toISOString(),
+          rid: rid,
           paymentId: out && out.paymentId, paidPrice: out && out.paidPrice,
           mdStatus: (!ok && out && out.mdStatus) || undefined,
           errorCode: (!ok && out && out.errorCode) || undefined,
           errorMessage: (!ok && out && out.errorMessage) || undefined
         });
-        // Ödeme başarılıysa işletmeye sipariş e-postası gönder. Müşteriyi
-        // BEKLETMEZ: yönlendirme hemen yapılır, e-posta arka planda gider.
-        // E-posta başarısız olsa bile sipariş kaydı ve ödeme etkilenmez.
-        if (ok) {
-          const ord = readOrders()[token] || {};
-          sendMail("Yeni sipariş ₺" + (ord.paidPrice || ord.totalTL || "?") + " — " + ((ord.buyer && ord.buyer.ad) || "müşteri"),
-            orderMailBody(ord, token),
-            (e) => { if (e) console.warn("sipariş e-postası gönderilemedi:", e.message); else console.log("sipariş e-postası gönderildi:", ord.conversationId); });
-        }
-        res.writeHead(302, { Location: ok ? "/odeme-sonuc.html?d=ok" : "/odeme-sonuc.html?d=hata" });
+        // ÖNCE yönlendir, e-postalar arkadan gitsin: müşteri SMTP'yi beklemez
+        // ve e-posta kodundaki bir istisna ödemeyi etkilemez. (Burası
+        // iyzRequest geri çağrısıdır — ana try/catch'in DIŞINDADIR; korumasız
+        // bir istisna sunucu sürecini düşürürdü.)
+        res.writeHead(302, { Location: ok ? "/odeme-sonuc.html?d=ok" + (rid ? "&r=" + rid : "") : "/odeme-sonuc.html?d=hata" });
         res.end();
+        try {
+          if (ok) {
+            const ord = readOrders()[token] || {};
+            const who = (ord.buyer && ord.buyer.ad) || "müşteri";
+            // 1) İşletmeye tam döküm (fatura için TCKN dahil).
+            sendMail(SMTP.to || SMTP.user,
+              "Yeni sipariş ₺" + money(ord.paidPrice || ord.totalTL) + " — " + who,
+              orderMailBody(ord, rid), (e) => {
+                if (e) { console.warn("sipariş e-postası gönderilemedi:", e.message); writeOrder(token, { mailErr: e.message }); }
+                else console.log("sipariş e-postası gönderildi:", ord.conversationId);
+                // 2) Müşteriye ödeme onayı + dekont bağlantısı. Aynı geri
+                // çağrıda ARDIŞIK gönderilir — iki eşzamanlı SMTP oturumu
+                // açılmasın. Adres yoksa ya da yedek adrese düşmüşse atlanır.
+                const cmail = String((ord.buyer && ord.buyer.eposta) || "").trim();
+                if (!cmail || cmail.toLowerCase() === "info@gespaenerji.com") return;
+                sendMail(cmail, "Ödemeniz alındı — sipariş " + (ord.conversationId || ""),
+                  customerMailBody(ord, rid),
+                  (e2) => { if (e2) console.warn("müşteri e-postası gönderilemedi:", e2.message); else console.log("müşteri e-postası gönderildi"); });
+              });
+          }
+        } catch (e) { console.warn("sipariş e-postası kurulamadı:", e && e.message); }
       });
     });
     return true;
@@ -550,8 +752,9 @@ const server = http.createServer((req, res) => {
       res.writeHead(301, { Location: "/" + legalTr[2] + ".html" + qs });
       return res.end();
     }
-    // Ödeme API (iyzico) — anahtar tanımlı değilse status {enabled:false} döner
-    if (urlPath.startsWith("/api/pay/")) {
+    // Ödeme API (iyzico) — anahtar tanımlı değilse status {enabled:false} döner.
+    // /api/order/receipt de aynı işleyicidedir (ödeme sonrası dekont).
+    if (urlPath.startsWith("/api/pay/") || urlPath === "/api/order/receipt") {
       if (handlePayRoutes(req, res, urlPath)) return;
       res.writeHead(404); return res.end("Not found");
     }

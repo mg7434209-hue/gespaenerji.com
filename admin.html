@@ -23,6 +23,16 @@
     .adm-note.ok{background:#e8f7ef;color:#0a6e4f;border:1px solid #bfe6d2}
     .adm-note.info{background:var(--bg-alt);color:var(--ink);border:1px solid var(--line)}
     .adm-suffix{position:relative}
+    .adm-wrap>.adm-card+.adm-card{margin-top:24px}
+    .adm-check{display:flex;align-items:flex-start;gap:10px;padding:12px 0;cursor:pointer;line-height:1.45}
+    .adm-check input{width:18px;height:18px;margin-top:2px;accent-color:var(--green);cursor:pointer;flex:none}
+    .adm-note.warn{background:#fdf1e7;color:#8a4b10;border:1px solid #f2d3b5}
+    .adm-note.err{background:#fdecea;color:#a12d21;border:1px solid #f3c3bd}
+    table.tk{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:6px}
+    table.tk th,table.tk td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:right}
+    table.tk th:first-child,table.tk td:first-child{text-align:left}
+    table.tk th{color:var(--muted);font-weight:600;font-size:.82rem}
+    table.tk .btn{padding:5px 12px;font-size:.8rem}
     .adm-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
     .adm-head a{color:var(--green);font-weight:700;font-size:.9rem}
     pre{white-space:pre-wrap;word-break:break-word;background:var(--bg-alt);border:1px solid var(--line);border-radius:10px;padding:12px;font-size:.82rem;max-height:240px;overflow:auto}
@@ -81,6 +91,13 @@
         <input type="text" id="plDesc" maxlength="120" placeholder="GES Marketim — 2x540W paket" /></div>
       <div class="adm-row"><div class="lbl"><strong>Sipariş no</strong><small>İsteğe bağlı</small></div>
         <input type="text" id="plRef" maxlength="40" placeholder="GM-1042" /></div>
+      <div class="adm-row"><div class="lbl"><strong>Taksit sayısını sabitle</strong><small>Boş = müşteri ödeme ekranında kendi seçer</small></div>
+        <input type="number" id="plTks" min="2" max="12" step="1" placeholder="örn. 3" /></div>
+      <label class="adm-check"><input type="checkbox" id="plTek" />
+        <span><strong>Tek çekim</strong> — müşteriye taksit sunulmaz, kartından <strong>tam olarak bu tutar</strong> çekilir.
+        <br /><small style="color:var(--muted)">Taksitte iyzico vade farkını müşteriye yansıttığı için tahsil edilen
+        tutar gönderdiğinizden büyük çıkar (₺20.000 → ₺20.093,81). Yuvarlak tahsilat şartsa bunu işaretleyin;
+        taksit gerekiyorsa aşağıdaki araçla geri hesaplayın.</small></span></label>
       <div class="adm-note info" style="margin-top:16px">
         <strong>Bağlantı:</strong>
         <pre id="plUrl" style="margin:8px 0 0">Tutar girin…</pre>
@@ -95,6 +112,47 @@
         ⚠️ Tutarı müşteri de değiştirebilir (bağlantı ödemesinin doğası). <strong>Kargodan önce</strong>
         ödenen tutarı iyzico panelinden doğrulayın.
       </p>
+    </div>
+
+    <!-- Taksit vade farkı: "müşteri kaç öder" ve "tam ₺X tahsil etmek için ne göndermeliyim" -->
+    <div id="taksit" class="adm-card" hidden>
+      <div class="adm-head">
+        <h2 style="font-size:1.35rem;margin:0">💳 Taksit farkı ve yuvarlama</h2>
+      </div>
+      <p style="color:var(--muted);margin:0 0 14px;font-size:.92rem">
+        Taksitli ödemede iyzico <strong>vade farkını müşteriye yansıtıyor</strong>; bu yüzden
+        ₺20.000 gönderdiğinizde kartından ₺20.093,81 çekiliyor. Aşağıya <strong>tahsil etmek
+        istediğiniz yuvarlak tutarı</strong> yazın: hesabınızda tanımlı gerçek taksit oranlarını
+        iyzico'dan okuyup, her taksit için <strong>bağlantıya yazılacak tutarı</strong> hesaplayalım.
+      </p>
+      <div class="adm-row"><div class="lbl"><strong>Tahsil edilecek tutar (₺)</strong><small>Müşterinin kartından çıkması gereken toplam</small></div>
+        <input type="number" id="tkTarget" min="50" max="250000" step="1" placeholder="20000" /></div>
+      <div class="adm-actions">
+        <button class="btn" id="tkGo">Taksit tablosunu getir</button>
+      </div>
+      <div id="tkOut" class="adm-note info" hidden></div>
+      <p style="color:var(--muted);margin:16px 0 0;font-size:.88rem">
+        💡 Kalıcı çözüm: iyzico panelinde <strong>vade farkının müşteriye yansıtılmasını kapatırsanız</strong>
+        müşteri her taksitte tam gönderdiğiniz tutarı öder, farkı siz karşılarsınız — o zaman bu araca
+        gerek kalmaz.
+      </p>
+    </div>
+
+    <!-- Sipariş bildirim e-postası: canlı sipariş beklemeden ayarı doğrula -->
+    <div id="mailtest" class="adm-card" hidden>
+      <div class="adm-head">
+        <h2 style="font-size:1.35rem;margin:0">✉️ Sipariş e-postası</h2>
+      </div>
+      <p style="color:var(--muted);margin:0 0 6px;font-size:.92rem">
+        Ödeme başarılı olduğunda sipariş özeti (fatura için T.C. kimlik no dâhil) işletme adresine,
+        ödeme onayı ve dekont bağlantısı da müşteriye gider. Aşağıdaki düğme, canlı sipariş beklemeden
+        SMTP ayarının çalıştığını doğrular.
+      </p>
+      <div id="mtState" class="adm-note info">Durum okunuyor…</div>
+      <div class="adm-actions">
+        <button class="btn" id="mtGo">Test e-postası gönder</button>
+      </div>
+      <div id="mtOut" class="adm-note" hidden></div>
     </div>
   </div>
 
@@ -120,7 +178,8 @@
 
     function show() {
       $("#login").hidden = true; $("#editor").hidden = false; $("#paylink").hidden = false;
-      render(); payLink();
+      $("#taksit").hidden = false; $("#mailtest").hidden = false;
+      render(); payLink(); taksitAraci(); mailTest();
     }
 
     function render() {
@@ -172,6 +231,7 @@
       var base = ((C.company && C.company.web) || location.origin).replace(/\/+$/, "");
       var url = "", plMsg = $("#plMsg");
       var amt = $("#plAmount"), desc = $("#plDesc"), ref = $("#plRef");
+      var tek = $("#plTek"), tks = $("#plTks");
       var out = $("#plUrl"), copy = $("#plCopy"), wa = $("#plWa"), open = $("#plOpen");
       var waNo = (C.company && C.company.phone && C.company.phone.wa) || "";
 
@@ -192,7 +252,9 @@
       });
 
       function build() {
-        var v = Math.round(+amt.value || 0);
+        // Kuruş kabul edilir: taksit farkı geri hesaplanınca tutar tam sayı olmaz.
+        var v = Math.round((+String(amt.value).replace(",", ".") || 0) * 100) / 100;
+        tks.disabled = tek.checked;              // tek çekim varken taksit sayısı anlamsız
         if (!(v >= 50 && v <= 250000)) {
           url = "";
           out.textContent = v ? "Tutar 50 ₺ ile 250.000 ₺ arasında olmalı." : "Tutar girin…";
@@ -202,15 +264,23 @@
         var q = "?t=" + v;
         if (desc.value.trim()) q += "&a=" + encodeURIComponent(desc.value.trim().slice(0, 120));
         if (ref.value.trim()) q += "&s=" + encodeURIComponent(ref.value.trim().slice(0, 40));
+        // tek=1 → yalnız tek çekim · tks=N → yalnız N taksit. Taksit sayısı
+        // SABİTLENMEZSE müşteri başka taksit seçebilir ve geri hesapladığımız
+        // yuvarlak tutar tutmaz.
+        if (tek.checked) q += "&tek=1";
+        else { var n = Math.round(+tks.value || 0); if (n >= 2 && n <= 12) q += "&tks=" + n; }
         url = base + "/odeme.html" + q;
         out.textContent = url;
         copy.disabled = false;
         open.href = url;
+        var nf2 = new Intl.NumberFormat("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         var msg = "Merhaba, " + (desc.value.trim() || "siparişiniz") + " için ödeme bağlantınız: "
-          + url + " — tutar: ₺" + nf.format(v) + ". Kart ile güvenle ödeyebilirsiniz.";
+          + url + " — tutar: ₺" + (Number.isInteger(v) ? nf.format(v) : nf2.format(v))
+          + ". Kart ile güvenle ödeyebilirsiniz.";
         wa.href = "https://wa.me/" + (waNo || "") + "?text=" + encodeURIComponent(msg);
       }
-      [amt, desc, ref].forEach(function (el) { el.addEventListener("input", build); });
+      [amt, desc, ref, tks].forEach(function (el) { el.addEventListener("input", build); });
+      tek.addEventListener("change", build);
       build();
 
       copy.addEventListener("click", function () {
@@ -224,6 +294,137 @@
           try { document.execCommand("copy"); done(); } catch (e) { plMsg.textContent = "Kopyalanamadı — bağlantıyı elle seçin."; plMsg.hidden = false; }
           document.body.removeChild(t);
         }
+      });
+    }
+
+    // ---- Taksit farkı / yuvarlama --------------------------------------
+    // iyzico'nun KENDİ taksit oranlarını okur (/api/pay/installments) ve
+    // "müşterinin kartından tam ₺20.000 çıksın" hedefi için bağlantıya
+    // yazılacak tutarı geri hesaplar. Salt okunurdur; ödeme akışına dokunmaz.
+    function taksitAraci() {
+      var t = $("#tkTarget"), go = $("#tkGo"), out = $("#tkOut");
+      var nf2 = new Intl.NumberFormat("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      var tl = function (n) { return "₺" + nf2.format(Math.round((+n || 0) * 100) / 100); };
+      if (!t.value && $("#plAmount").value) t.value = Math.round(+$("#plAmount").value || 0) || "";
+
+      go.addEventListener("click", function () {
+        var hedef = Math.round((+String(t.value).replace(",", ".") || 0) * 100) / 100;
+        if (!(hedef >= 50 && hedef <= 250000)) {
+          out.className = "adm-note err"; out.hidden = false;
+          out.textContent = "Tutar 50 ₺ ile 250.000 ₺ arasında olmalı.";
+          return;
+        }
+        var eski = go.textContent;
+        go.disabled = true; go.textContent = "iyzico'ya soruluyor…";
+        out.className = "adm-note info"; out.hidden = false;
+        out.textContent = "Hesabınızda tanımlı taksit oranları okunuyor…";
+        fetch("/api/pay/installments", {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ price: hedef })
+        }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+          .then(function (res) {
+            go.disabled = false; go.textContent = eski;
+            if (!res.ok || !res.j || !res.j.rows || !res.j.rows.length) {
+              out.className = "adm-note err";
+              out.textContent = (res.j && res.j.error) || "Taksit tablosu alınamadı.";
+              return;
+            }
+            ciz(res.j, hedef);
+          }).catch(function () {
+            go.disabled = false; go.textContent = eski;
+            out.className = "adm-note err";
+            out.textContent = "Bağlantı kurulamadı — bu araç yalnız canlı sitede (Railway) çalışır, "
+              + "GitHub Pages aynasında /api/ adresleri yoktur.";
+          });
+      });
+
+      function ciz(d, hedef) {
+        var base = d.price;
+        var h = '<p style="margin:0 0 10px">Hedef: <strong>' + tl(hedef) + '</strong> — müşterinin kartından çıkacak toplam.</p>';
+        h += '<div style="overflow:auto"><table class="tk"><thead><tr><th>Taksit</th><th>Vade farkı</th>'
+          + '<th>Bağlantıya yazılacak</th><th>Müşteri öder</th><th></th></tr></thead><tbody>';
+        d.rows.forEach(function (r) {
+          // Oran kart ailesine göre değişebiliyor. EN YÜKSEK orana göre geri
+          // hesaplarız: böylece müşteri hedeften FAZLA ödemez, en fazla birkaç
+          // lira eksik öder (fark bizde kalır, müşteriye sürpriz olmaz).
+          var oranMax = r.max / base, oranMin = r.min / base;
+          var gonder = Math.round(hedef / oranMax * 100) / 100;
+          var oderMin = Math.round(gonder * oranMin * 100) / 100;
+          var oderMax = Math.round(gonder * oranMax * 100) / 100;
+          var fark = (oranMax - 1) * 100;
+          var oder = Math.abs(oderMax - oderMin) < 0.01 ? tl(oderMax) : tl(oderMin) + " – " + tl(oderMax);
+          h += '<tr><td>' + (r.n === 1 ? "Tek çekim" : r.n + " taksit") + '</td>'
+            + '<td>' + (fark < 0.005 ? "yok" : "%" + fark.toFixed(2).replace(".", ",")) + '</td>'
+            + '<td><strong>' + tl(gonder) + '</strong></td>'
+            + '<td>' + oder + '</td>'
+            + '<td><button class="btn btn-ghost" type="button" data-tk="' + gonder + '" data-n="' + r.n + '">Uygula</button></td></tr>';
+        });
+        h += '</tbody></table></div>';
+        h += '<p style="margin:12px 0 0;font-size:.85rem;color:var(--muted)">'
+          + '<strong>Uygula</strong>, tutarı ve taksit sayısını yukarıdaki bağlantı üreticisine yazar. '
+          + 'Taksit sayısı <strong>sabitlenir</strong> — müşteri ödeme ekranında başka taksit seçemez, '
+          + 'yoksa tahsil edilen tutar yine yuvarlak çıkmazdı.</p>';
+        out.className = "adm-note info";
+        out.innerHTML = h;
+        Array.prototype.forEach.call(out.querySelectorAll("[data-tk]"), function (b) {
+          b.addEventListener("click", function () {
+            var n = +b.getAttribute("data-n") || 1;
+            $("#plAmount").value = b.getAttribute("data-tk");
+            $("#plTek").checked = (n === 1);
+            $("#plTks").value = n > 1 ? n : "";
+            $("#plTek").dispatchEvent(new Event("change", { bubbles: true }));
+            $("#plAmount").dispatchEvent(new Event("input", { bubbles: true }));
+            $("#paylink").scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        });
+      }
+    }
+
+    // ---- Sipariş e-postası testi ----------------------------------------
+    // Canlı sipariş beklemeden SMTP ayarının çalıştığını doğrular; hata
+    // varsa sunucunun döndürdüğü GERÇEK sebebi gösterir.
+    function mailTest() {
+      var st = $("#mtState"), go = $("#mtGo"), out = $("#mtOut");
+      fetch("/api/pay/status").then(function (r) { return r.json(); }).then(function (d) {
+        if (d && d.mail) {
+          st.className = "adm-note ok";
+          st.textContent = "✓ Sipariş e-postası AÇIK. Başarılı her ödemede özet işletmeye, onay müşteriye gider.";
+        } else {
+          st.className = "adm-note warn";
+          st.innerHTML = "⚠️ Sipariş e-postası <strong>KAPALI</strong> — bu yüzden ödeme bildirimi gelmiyor. "
+            + "Railway → Variables'a şunlar girilmeli: <code>SMTP_HOST</code> (smtp.gmail.com), "
+            + "<code>SMTP_PORT</code> (465), <code>SMTP_USER</code> (gönderen Gmail adresi), "
+            + "<code>SMTP_PASS</code> (Google <strong>Uygulama Şifresi</strong> — normal parola çalışmaz), "
+            + "<code>ORDER_EMAIL_TO</code> (bildirimin düşeceği adres).";
+        }
+      }).catch(function () {
+        st.className = "adm-note info";
+        st.textContent = "ℹ️ Durum bu adresten okunamadı (muhtemelen Pages aynası). Test yalnız canlı sitede çalışır.";
+      });
+
+      go.addEventListener("click", function () {
+        var eski = go.textContent;
+        go.disabled = true; go.textContent = "Gönderiliyor…";
+        out.className = "adm-note info"; out.hidden = false; out.textContent = "SMTP sunucusuna bağlanılıyor…";
+        fetch("/api/pay/mailtest", {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ pass: PASS })
+        }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+          .then(function (res) {
+            go.disabled = false; go.textContent = eski;
+            var j = res.j || {};
+            if (j.ok) {
+              out.className = "adm-note ok";
+              out.textContent = "✓ Test e-postası gönderildi → " + j.to + " — gelen kutusunu (ve spam'i) kontrol edin.";
+            } else {
+              out.className = "adm-note err";
+              out.textContent = "✕ Gönderilemedi: " + (j.error || "bilinmeyen hata");
+            }
+          }).catch(function () {
+            go.disabled = false; go.textContent = eski;
+            out.className = "adm-note err";
+            out.textContent = "Bağlantı kurulamadı — bu test yalnız canlı sitede (Railway) çalışır.";
+          });
       });
     }
 

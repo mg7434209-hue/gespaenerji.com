@@ -86,7 +86,7 @@
 
         <form id="linkPayForm" class="ord-form" style="max-width:560px" hidden>
           <div class="ord-grid">
-            <div class="full"><label>Ödenecek tutar (₺) *</label><input required name="tutar" inputmode="numeric" placeholder="örn. 4500" /></div>
+            <div class="full"><label>Ödenecek tutar (₺) *</label><input required name="tutar" inputmode="decimal" placeholder="örn. 4500" /></div>
             <div class="full"><label>Sipariş açıklaması</label><input name="aciklama" maxlength="120" placeholder="örn. GES Marketim — 2x540W paket" /></div>
             <div class="full"><label>Sipariş no (varsa)</label><input name="siparisno" maxlength="40" placeholder="GES Marketim sipariş numaranız" /></div>
             <div><label>Ad Soyad *</label><input required name="ad" placeholder="Adınız Soyadınız" autocomplete="name" /></div>
@@ -111,12 +111,32 @@
       var form = document.getElementById("linkPayForm");
       var closed = document.getElementById("payClosed");
       var msg = document.getElementById("linkPayMsg");
-      // Bağlantı parametreleri: ?t=tutar&a=aciklama&s=siparisno
-      if (q.get("t")) form.tutar.value = String(q.get("t")).replace(/[^\d]/g, "");
+      // Bağlantı parametreleri: ?t=tutar&a=aciklama&s=siparisno&tek=1|&tks=N
+      // Tutar KURUŞLU olabilir: taksit vade farkı geri hesaplanınca tam sayı
+      // çıkmaz (ör. 3 taksitte tam ₺20.000 tahsil için ₺19.906,62 gönderilir).
+      var amt = function (v) { return String(v == null ? "" : v).replace(",", ".").replace(/[^\d.]/g, ""); };
+      if (q.get("t")) form.tutar.value = amt(q.get("t"));
       if (q.get("a")) form.aciklama.value = q.get("a").slice(0, 120);
       if (q.get("s")) form.siparisno.value = q.get("s").slice(0, 40);
+      // tek=1 → taksit kapalı. Müşteriye söylenir; aksi hâlde taksit
+      // seçeneğini göremeyince nedenini bilmez.
+      var tekCekim = q.get("tek") === "1";
+      var taksitN = Math.round(+q.get("tks") || 0);
+      if (taksitN < 2 || taksitN > 12) taksitN = 0;
+      var not = null;
+      if (tekCekim || taksitN) {
+        not = document.createElement("p");
+        not.className = "ord-consent";
+        not.style.margin = "0 0 14px";
+        not.hidden = true;                       // formla BİRLİKTE açılır
+        not.textContent = tekCekim
+          ? "ℹ️ Bu ödeme tek çekim olarak düzenlenmiştir; tutarın tamamı tek seferde tahsil edilir."
+          : "ℹ️ Bu ödeme " + taksitN + " taksit olarak düzenlenmiştir; kartınızdan " + taksitN + " eşit taksitte tahsil edilir.";
+        form.parentNode.insertBefore(not, form);
+      }
       fetch("/api/pay/status").then(function (r) { return r.json(); }).then(function (st) {
-        if (st && st.enabled) form.hidden = false; else closed.hidden = false;
+        if (st && st.enabled) { form.hidden = false; if (not) not.hidden = false; }
+        else closed.hidden = false;
       }).catch(function () { closed.hidden = false; });
       var sending = false;
       // ÖNEMLİ: zorunlu alan boşsa tarayıcı "submit" olayını HİÇ tetiklemez —
@@ -155,7 +175,7 @@
         fetch("/api/pay/custom", {
           method: "POST", headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            amountTL: +form.tutar.value.replace(/[^\d]/g, ""),
+            amountTL: +amt(form.tutar.value), tek: tekCekim, taksit: taksitN,
             desc: form.aciklama.value.trim(), ref: form.siparisno.value.trim(),
             buyer: { ad: form.ad.value, tel: form.tel.value, eposta: form.eposta.value, tckn: form.tckn.value, il: form.il.value, adres: form.adres.value }
           })

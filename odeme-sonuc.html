@@ -77,6 +77,29 @@
           <h1>Ödemeniz alındı</h1>
           <p class="lead">Siparişiniz için teşekkürler! Ödemeniz iyzico güvencesiyle başarıyla tamamlandı.
           Sipariş onayı ve kargo bilgisi için aynı gün içinde sizinle iletişime geçeceğiz.</p>
+
+          <!-- Ödeme dekontu — /api/order/receipt'ten doldurulur. Sunucu yoksa
+               (Pages aynası) ya da kayıt bulunamazsa blok GİZLİ kalır; sayfa
+               yine teşekkür mesajıyla çalışır. -->
+          <div id="receipt" class="receipt" hidden>
+            <div class="receipt-head">
+              <div class="receipt-seller">
+                <strong>GESPA Enerji</strong>
+                <span data-c-text="legalName">Gespa Enerji Sanayi Ticaret Limited Şirketi</span>
+                <span data-c-text="address.full">Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01, Manavgat / Antalya</span>
+                <span>Vergi D./No: <span data-c-text="registry.taxOffice">Manavgat Vergi Dairesi</span> / <span data-c-text="registry.taxNo">3941259669</span> · MERSİS <span data-c-text="registry.mersis">0394125966900001</span></span>
+              </div>
+              <span class="receipt-badge">ÖDEME DEKONTU</span>
+            </div>
+            <dl class="receipt-rows" id="rcRows"></dl>
+            <ul class="receipt-items" id="rcItems" hidden></ul>
+            <p class="receipt-total"><span>Tahsil edilen tutar</span><strong id="rcTotal">—</strong></p>
+            <p class="receipt-note">Ödeme iyzico altyapısı üzerinden alınmıştır. Bu belge ödemenin
+            alındığını gösterir, <strong>fatura yerine geçmez</strong>; faturanız yasal süresi içinde
+            düzenlenerek tarafınıza iletilir.</p>
+          </div>
+
+          <p><button class="btn btn-ghost" type="button" id="rcPrint" hidden>🖨️ Dekontu yazdır / PDF kaydet</button></p>
           <p><a class="btn" data-c-wa href="https://wa.me/905437434209" target="_blank" rel="noopener">💬 WhatsApp ile bize ulaşın</a>
           <a class="btn btn-ghost" href="/urunler.html">Alışverişe devam et</a></p>
         </div>
@@ -95,7 +118,59 @@
     (function () {
       var ok = /[?&]d=ok\b/.test(location.search);
       document.getElementById(ok ? "payOk" : "payFail").hidden = false;
-      if (ok) { try { localStorage.removeItem("gespa-cart"); } catch (e) {} }
+      if (!ok) return;
+      try { localStorage.removeItem("gespa-cart"); } catch (e) {}
+
+      // Dekont: adresteki r= sipariş kaydındaki rastgele anahtardır.
+      var m = /[?&]r=([a-f0-9]{8,32})/i.exec(location.search);
+      if (!m) return;
+      var nf = new Intl.NumberFormat("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      var money = function (n) { return "₺" + nf.format(+n || 0); };
+      // Sunucudan gelen metin sayfaya HTML olarak basılıyor — kaçır.
+      var esc = function (t) {
+        return String(t == null ? "" : t).replace(/[&<>"]/g, function (c) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+        });
+      };
+
+      fetch("/api/order/receipt?r=" + m[1], { headers: { "Accept": "application/json" } })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) {
+          if (!d || !d.no) return;
+          var rows = [];
+          rows.push(["Sipariş no", d.no]);
+          if (d.date) {
+            var dt = new Date(d.date);
+            rows.push(["Ödeme tarihi", isNaN(dt) ? d.date : dt.toLocaleString("tr-TR")]);
+          }
+          if (d.paymentId) rows.push(["Ödeme no (iyzico)", d.paymentId]);
+          if (d.buyer && d.buyer.ad) rows.push(["Ödeyen", d.buyer.ad + (d.buyer.il ? " · " + d.buyer.il : "")]);
+          if (d.desc) rows.push(["Açıklama", d.desc]);
+          if (d.ref) rows.push(["Referans", d.ref]);
+          // Taksitte iyzico vade farkını müşteriye yansıtır; gönderilen ile
+          // tahsil edilen tutar farklıysa ikisini de göster — dekont şaşırtmasın.
+          if (d.sentTL && Math.abs(d.amount - d.sentTL) >= 0.01) {
+            rows.push(["Sipariş tutarı", money(d.sentTL)]);
+            rows.push(["Taksit vade farkı", money(d.amount - d.sentTL)]);
+          }
+          document.getElementById("rcRows").innerHTML = rows.map(function (r) {
+            return "<dt>" + esc(r[0]) + "</dt><dd>" + esc(r[1]) + "</dd>";
+          }).join("");
+          if (d.items && d.items.length) {
+            var ul = document.getElementById("rcItems");
+            ul.innerHTML = d.items.map(function (it) {
+              return "<li><span>" + esc(it.name) + " × " + (+it.qty || 1)
+                + "</span><b>" + money((+it.unitTL || 0) * (+it.qty || 1)) + "</b></li>";
+            }).join("");
+            ul.hidden = false;
+          }
+          document.getElementById("rcTotal").textContent = money(d.amount);
+          document.getElementById("receipt").hidden = false;
+          var btn = document.getElementById("rcPrint");
+          btn.hidden = false;
+          btn.addEventListener("click", function () { window.print(); });
+        })
+        .catch(function () {});
     })();
   </script>
 
