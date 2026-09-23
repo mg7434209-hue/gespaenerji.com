@@ -351,7 +351,55 @@ window.GESPA.config = {
       features: ["51,2 V · 102 Ah · 5,22 kWh · LiFePO₄ (16S1P prizmatik)", "Dahili akıllı BMS — aşırı şarj/deşarj, kısa devre, sıcaklık koruması", "100 A sürekli deşarj · 150 A tepe (5 sn) · 100 A şarj", "6000+ çevrim ömrü (%80 DoD, 25 °C) · 2 yıl garanti", "CAN / RS485 · Bluetooth veya WiFi · 16 adede kadar paralel", "37 kg · 560 × 150 × 380 mm · IP20 · M8 terminal"]
     },
 
+    // —— Bağlantı kablosu —— elektrikli motor paketlerinin üçüncü kalemi
+    // (evSets). group:"cable" YALNIZ online-satis.html kataloğunda listelenir;
+    // urunler.html paket vitrininde ÇIKMAZ (build.js/main.js GROUPS'ta yok).
+    // KESİT (mm²) ve marka tedarikçi künyesinde verilmedi — UYDURULMAZ.
+    // Fotoğrafı yok: `img` boş bırakılır, kart nötr yer tutucu gösterir ve
+    // ürün Merchant Center akışına GİRMEZ (akış görsel zorunlu tutar).
+    {
+      id: "kablo-solar-5m", icon: "🔌", tag: "Kablo", group: "cable",
+      sku: "GES-KBL-5M",
+      img: "",
+      price: 1000,
+      chips: ["📏 5 metre", "⚫🔴 Siyah + kırmızı", "☀️ Solar kablo"],
+      for: "Panel ile şarj kontrol cihazı arası bağlantı",
+      name: "5 m Solar Kablo (Siyah + Kırmızı)",
+      desc: "Güneş paneli ile şarj kontrol cihazı arasındaki bağlantı için 5 metre siyah ve kırmızı solar kablo takımı. Elektrikli araç güneş paketlerinin standart kalemidir.",
+      features: ["5 metre siyah + kırmızı solar kablo", "Panel – şarj kontrol cihazı bağlantısı", "Elektrikli motor güneş paketlerine dahildir"]
+    },
+
   ],
+
+  // ============================================================
+  // ELEKTRİKLİ MOTOR PAKETLERİ — elektrikli-arac-donusum.html
+  // "Motorunu seç → paketini gör → sepete at". Müşteri hangi panelin
+  // aracına uyduğunu bilmediği için satış burada takılıyordu.
+  // PAKETİN KENDİ FİYATI YOKTUR: toplam, `items` içindeki ürünlerin
+  // config fiyatlarından hesaplanır (main.js pkgUnit). Ürün fiyatı
+  // değişince paket toplamı KENDİLİĞİNDEN güncellenir — ikinci bir
+  // fiyat kaynağı doğmaz.
+  // GÖRSELLER: araçlar BAŞKA ÜRETİCİLERE aittir (CSN, SFM). Marka
+  // yazıları SİLİNMEZ (UNV kuralının aynısı) ve sayfada "araç tipi
+  // örneği" diye etiketlenir — o araçları biz satmıyoruz.
+  evSets: [
+    {
+      id: "yolcu",
+      img: "assets/img/products/ev/motor-yolcu.webp",
+      title: "Yolcu kabinli triportör",
+      hint: "Kabinli, 2–4 kişilik yolcu araçları — çatı alanı dar",
+      items: ["panel-lexron-285w", "boost-mppt", "kablo-solar-5m"]
+    },
+    {
+      id: "kargo",
+      img: "assets/img/products/ev/motor-kargo.webp",
+      title: "Kargo kasalı triportör",
+      hint: "Açık kasa veya tenteli yük araçları — çatı alanı geniş",
+      items: ["panel-lexron-655w", "boost-mppt", "kablo-solar-5m"]
+    }
+  ],
+  // Seçilen pakette gösterilen kurulum kanıtı (gerçek iş fotoğrafı).
+  evSetProof: "assets/img/products/ev/motor-panel-takili.webp",
 
 
   // ============================================================

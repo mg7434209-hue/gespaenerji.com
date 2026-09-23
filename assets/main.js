@@ -337,6 +337,125 @@
       }
     })();
 
+    // ---- Motor seçici + hazır paket (elektrikli-arac-donusum.html) ----------
+    // Müşteri hangi panelin aracına uyduğunu bilmediği için satış burada
+    // takılıyordu: araç tipini seçiyor, uygun panel + şarj kontrol cihazı +
+    // kablo hazır paket olarak çıkıyor ve tek düğmeyle sepete giriyor.
+    // PAKETİN KENDİ FİYATI YOK — toplam, config.evSets[].items ürünlerinin
+    // pkgUnit() değerlerinden toplanır. İkinci bir fiyat kaynağı doğmaz.
+    (function () {
+      var host = $("#motorSets");
+      if (!host || !CFG.evSets || !CFG.evSets.length || !CFG.packages) return;
+      var nf = new Intl.NumberFormat("tr-TR");
+      var tl = function (n) { return "₺" + nf.format(n); };
+      // JS ile çizilen ürün adı/metni DICT'ten çevrilir (yoksa TR kalır).
+      function T(t) {
+        var lang = (window.GESPA && GESPA.lang) || "tr";
+        if (lang === "tr") return t;
+        try { var d = GESPA.i18nData && GESPA.i18nData.DICT && GESPA.i18nData.DICT[lang]; return (d && d[t]) || t; }
+        catch (e) { return t; }
+      }
+      function esc(t) {
+        return String(t == null ? "" : t).replace(/[&<>"]/g, function (c) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+        });
+      }
+      // Paketin kalemleri + toplamları. Fiyatı olmayan ya da tanınmayan ürün
+      // sessizce atlanmaz — paket eksik satılmasın diye set gizlenir.
+      function setOf(st) {
+        var lines = [], listT = 0, cartT = 0, allFree = true, ok = true;
+        (st.items || []).forEach(function (id) {
+          var p = cart.pkgOf(id);
+          if (!p || p.price == null) { ok = false; return; }
+          var u = pkgUnit(p);
+          lines.push({ p: p, list: u.list, cart: u.cart });
+          listT += u.list; cartT += u.cart;
+          if (!p.freeShipping) allFree = false;
+        });
+        return ok && lines.length ? { st: st, lines: lines, listT: listT, cartT: cartT, allFree: allFree } : null;
+      }
+      var sets = [];
+      CFG.evSets.forEach(function (st) { var d = setOf(st); if (d) sets.push(d); });
+      if (!sets.length) return;
+
+      var secili = 0;
+      function ciz() {
+        var h = '<div class="mset-pick" role="tablist">';
+        sets.forEach(function (d, i) {
+          h += '<button type="button" class="mset-card' + (i === secili ? " on" : "") + '"'
+            + ' role="tab" aria-selected="' + (i === secili) + '" data-set="' + i + '">'
+            + (d.st.img ? '<span class="mset-media"><img src="' + esc(d.st.img) + '" alt="' + esc(T(d.st.title)) + '" width="424" height="341" loading="lazy" /></span>' : "")
+            + '<span class="mset-txt"><b>' + esc(T(d.st.title)) + "</b>"
+            + '<em>' + esc(T(d.st.hint)) + "</em>"
+            + '<span class="mset-sum">' + tl(d.listT) + " <small>"
+            + L("set fiyatı", "set price", "Set-Preis", "цена комплекта") + "</small></span></span></button>";
+        });
+        h += "</div>";
+
+        var d = sets[secili];
+        h += '<div class="mset-detail">';
+        if (CFG.evSetProof) {
+          h += '<div class="mset-proof"><img src="' + esc(CFG.evSetProof) + '" alt="'
+            + esc(L("Aracın çatısına monte edilmiş güneş paneli", "Solar panel mounted on the vehicle roof",
+                    "Auf dem Fahrzeugdach montiertes Solarmodul", "Солнечная панель на крыше автомобиля"))
+            + '" width="408" height="709" loading="lazy" data-zoom /><span>'
+            + L("Kurulum örneği", "Installation example", "Montagebeispiel", "Пример монтажа") + "</span></div>";
+        }
+        h += '<div class="mset-body"><h3>' + esc(T(d.st.title)) + " — "
+          + L("hazır paket", "ready-made set", "Fertigset", "готовый комплект") + "</h3>";
+        h += '<ul class="mset-items">';
+        d.lines.forEach(function (l) {
+          var ad = esc(T(l.p.name));
+          h += "<li><span>" + (l.p.url ? '<a href="' + esc(l.p.url) + '">' + ad + "</a>" : ad)
+            + "</span><b>" + tl(l.list) + "</b></li>";
+        });
+        h += "</ul>";
+        h += '<p class="mset-total"><span>' + L("Set toplamı", "Set total", "Set-Summe", "Итого за комплект")
+          + "</span><strong>" + tl(d.listT) + "</strong></p>";
+        // Havale satırı yalnız GERÇEKTEN indirim varsa yazılır (BOOST net fiyatlı).
+        if (d.cartT < d.listT) {
+          h += '<p class="mset-havale">💰 ' + L("Havale/EFT ile: ", "By bank transfer: ", "Per Überweisung: ", "Банковским переводом: ")
+            + "<b>" + tl(d.cartT) + "</b></p>";
+        }
+        h += '<p class="mset-note">' + (d.allFree
+          ? L("KDV ve kargo dahil", "VAT and shipping included", "Inkl. MwSt. und Versand", "НДС и доставка включены")
+          : L("KDV dahil · kargo hariç", "VAT included · shipping excluded", "Inkl. MwSt. · zzgl. Versand", "НДС включён · доставка отдельно")) + "</p>";
+        h += '<div class="mset-cta"><button type="button" class="btn" data-mset-add>🛒 '
+          + L("Paketi sepete ekle", "Add set to cart", "Set in den Warenkorb", "Добавить комплект в корзину") + "</button>"
+          + '<a class="btn btn-ghost" data-c-wa href="#" target="_blank" rel="noopener">💬 '
+          + L("Aracıma uyar mı?", "Will it fit my vehicle?", "Passt es zu meinem Fahrzeug?", "Подойдёт ли моему транспорту?") + "</a></div>";
+        h += '<p class="mset-fine">' + L(
+          "Fotoğraftaki araçlar yalnızca tip örneğidir; satışa konu olan panel, şarj kontrol cihazı ve kablodur.",
+          "The vehicles shown are type examples only; what is sold is the panel, charge controller and cable.",
+          "Die gezeigten Fahrzeuge sind nur Typbeispiele; verkauft werden Modul, Laderegler und Kabel.",
+          "Показанные транспортные средства — только примеры типа; продаются панель, контроллер заряда и кабель.") + "</p>";
+        h += "</div></div>";
+        host.innerHTML = h;
+
+        $$(".mset-card", host).forEach(function (b) {
+          b.addEventListener("click", function () { secili = +b.getAttribute("data-set") || 0; ciz(); });
+        });
+        var add = $("[data-mset-add]", host);
+        if (add) add.addEventListener("click", function () {
+          sets[secili].lines.forEach(function (l) { cart.add(l.p.id, 1); });
+          cartPop(T(sets[secili].st.title) + " " + L("paketi", "set", "Set", "комплект"));
+        });
+        // WhatsApp bağlantısını seçili pakete göre doldur (numara config'ten).
+        var wa = $(".mset-cta [data-c-wa]", host);
+        var no = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
+        if (wa && no) {
+          wa.href = "https://wa.me/" + no + "?text=" + encodeURIComponent(
+            L("Merhaba, ", "Hello, ", "Hallo, ", "Здравствуйте, ") + T(d.st.title)
+            + L(" için güneş paketi hakkında bilgi almak istiyorum.", " — I would like information about the solar set.",
+                " — ich hätte gerne Informationen zum Solar-Set.", " — хочу узнать о солнечном комплекте."));
+        }
+      }
+      ciz();
+      // Dil değişince yeniden çiz — metinler JS ile üretiliyor. Olay
+      // `document` üzerinde gönderiliyor (bubbles:false) — window'da dinlenmez.
+      doc.addEventListener("gespa:lang", function () { ciz(); });
+    })();
+
     // ---- Online satış kataloğu (online-satis.html) — e-ticaret kart ızgarası ----
     // TÜM veri config.packages'ten gelir; ürün sayısı arttıkça ızgara kendiliğinden
     // büyür ve kategori süzgeci config'teki group alanlarından üretilir.
@@ -358,6 +477,7 @@
           irrigation: L("Tarımsal Sulama", "Agricultural Irrigation", "Bewässerung", "Аграрный полив"),
           accessory: L("Elektrikli Araç", "Electric Vehicle", "E-Fahrzeug", "Электромобиль"),
           panel: L("Panel & Ekipman", "Panels & Equipment", "Module & Zubehör", "Панели и оборудование"),
+          cable: L("Kablo & Bağlantı", "Cable & Wiring", "Kabel & Anschluss", "Кабели и подключение"),
           storage: L("Enerji Depolama", "Energy Storage", "Energiespeicher", "Накопители энергии")
         })[g] || g;
       }

@@ -80,8 +80,9 @@ elle eklenmez. Sipariş WhatsApp mesajına çok kalemli döküm yazılır) ·
 sayfası: `<main data-pkg-detail="boost-mppt">`, `#urun` bölümünde `.prod-top`
 = solda galeri `#pgMain`/`.prod-thumbs.few`, sağda `.buy-box`. BÖLÜM SIRASI
 paket-*.html ile AYNIDIR: `.prod-sec` (breadcrumb + SATIN ALMA, sayfanın TEK
-`<h1>`'i satın alma kutusundadır) → TEKNİK KÜNYE → `#tanitim` → anlatım →
-SSS → CTA. Büyük `page-hero` YOKTUR; satın alma kutusu ilk ekranda görünsün
+`<h1>`'i satın alma kutusundadır) → `#paketler` MOTOR SEÇİCİ → TEKNİK KÜNYE →
+`#tanitim` → anlatım → SSS → CTA. Motor seçici satın almanın HEMEN ALTINDADIR
+(ticari eylemler bir arada); aşağıya alırsan paket görülmeden sayfa terk edilir. Büyük `page-hero` YOKTUR; satın alma kutusu ilk ekranda görünsün
 diye kaldırıldı, tanıtım metni teknik künyenin altına taşındı. Sırayı bozma. Fiyat/kod/stok
 build'de statik basılır, main.js `data-pkg-*` ile tazeler. TEKNİK DEĞERLER
 üreticinin bülteninden gelir — kaynak PDF ve ham görseller
@@ -229,7 +230,8 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   50W panel (kampanya, `group:"panel"`) + UNV Trek Pro 2500 W taşınabilir güç
   istasyonu ($2.495, `group:"offgrid"`) + tekil paneller Lexron 285 W ₺7.500 ·
   Lexron 655 W TOPCon ₺10.000 · Arçelik 540 W ₺10.000 (`group:"panel"`) +
-  TitanX 51,2 V 102 Ah LiFePO₄ akü ₺73.372 (`group:"storage"`)
+  TitanX 51,2 V 102 Ah LiFePO₄ akü ₺73.372 (`group:"storage"`) +
+  5 m solar kablo ₺1.000 (`group:"cable"`, fotoğrafsız — akışa girmez)
   — `url` detay sayfası, `img` gerçek foto,
   `oldPrice` indirim rozeti, `currency:"USD"` dolar, `dailyKwh` günlük üretim.
   `usdTry` kuru ile ikinci para "≈" gösterilir; kur değişince SADECE
@@ -332,6 +334,32 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
 - `admin.pass`: admin.html şifresi (statik sitede yalnızca caydırıcı).
 - Admin paneli fiyatları localStorage'da override eder (yalnız o cihaz);
   kalıcı/herkese yayın = değerleri bu dosyaya işleyip commit'lemek.
+
+## Motor seçici & hazır paket (`config.evSets`)
+`elektrikli-arac-donusum.html#paketler` — müşteri aracına hangi panelin
+uyduğunu bilmediği için satış burada takılıyordu. Araç tipini seçer, uygun
+panel + şarj kontrol cihazı + kablo hazır paket olarak çıkar, tek düğmeyle
+sepete girer (3 kalem ayrı ayrı eklenir — fiyat, iyzico, dekont ve e-posta
+akışları olduğu gibi çalışır).
+- PAKETİN KENDİ FİYATI YOKTUR: toplam `items` içindeki ürünlerin
+  `pkgUnit()` değerlerinden hesaplanır. Ürün fiyatı değişince paket
+  kendiliğinden güncellenir — İKİNCİ BİR FİYAT KAYNAĞI AÇMA.
+- Kalemlerden biri config'te yoksa ya da fiyatsızsa o paket HİÇ
+  gösterilmez (eksik set satılmasın); build de basmaz.
+- main.js motor seçici IIFE'si çizer; `gespa:lang` olayında yeniden çizer.
+  Olay `document` üzerinde ve `bubbles:false` — window'da dinlenmez. IIFE
+  içinden `GESPA.applyLang` ÇAĞIRMA: olayı applyLang gönderiyor, sonsuz
+  döngü olur.
+- JS'siz ortam ve AI botları için build.js `MOTORSET:STATIC` işaretleri
+  arasına aynı listeyi basar; llms-full.txt'e de ayrı bölüm yazılır.
+  Statik blokta çevrilecek her ifade KENDİ `<span>`'inde durur — gövde
+  çevirisi metin düğümünün TAMAMINI DICT'te arar, fiyatla aynı düğümde
+  olan metin çevrilmez.
+- GÖRSELLER: `assets/img/products/ev/motor-*.webp`, kaynakları
+  `.../ev/kaynak/` altında + `tools/motor-foto.py` (DRY-RUN / `--uygula`).
+  Araçlar BAŞKA ÜRETİCİLERE aittir (CSN, SFM) — marka yazıları SİLİNMEZ
+  (UNV kuralı) ve sayfada "yalnızca tip örneğidir, araç satılmaz" notu
+  KALIR. Kaynak belge de repoda: `.../ev/kaynak/elektrikli-motor-paketleri.docx`.
 
 ## Hesaplayıcı (`hesaplayici.html`)
 - Tüm formüller ve katsayılar: @docs/hesaplayici-spec.md

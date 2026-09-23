@@ -684,6 +684,33 @@ function hydrateExtras(html, file, cfg) {
     html = html.replace(/<!-- SHOP:STATIC -->[\s\S]*?<!-- \/SHOP:STATIC -->/,
       "<!-- SHOP:STATIC -->" + rows + "<!-- /SHOP:STATIC -->");
   }
+  // Motor seçici paketleri — JS'siz ortam ve AI botları için statik liste.
+  // Tarayıcıda main.js aynı bölümü config'ten yeniden çizer (seçilebilir
+  // kartlar). Paketin fiyatı YOK: toplam kalemlerden hesaplanır.
+  if (/<!-- MOTORSET:STATIC -->/.test(html) && cfg.evSets && cfg.packages) {
+    const sets = cfg.evSets.map((st) => {
+      const lines = (st.items || []).map(id => cfg.packages.filter(x => x.id === id)[0])
+        .filter(p => p && p.price != null);
+      if (lines.length !== (st.items || []).length) return "";   // eksik paketi YAYIMLAMA
+      const RATE = cfg.usdTry || 0;
+      const tlOf = (p) => p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
+      const total = lines.reduce((a, p) => a + tlOf(p), 0);
+      const allFree = lines.every(p => p.freeShipping);
+      // ÇEVİRİ NOTU: dil kopyalarında gövde METİN DÜĞÜMÜ bazında çevrilir —
+      // düğümün TAMAMI bir DICT anahtarına eşleşmeli. Bu yüzden çevrilecek
+      // her ifade kendi <span>'inde durur; fiyat rakamı dışarıda kalır.
+      return '<article class="mset-static">' +
+        "<h3><span>" + esc(st.title) + "</span> — <span>hazır paket</span></h3>" +
+        (st.hint ? "<p><span>" + esc(st.hint) + "</span></p>" : "") +
+        "<ul>" + lines.map(p => "<li><span>" +
+          (p.url ? '<a href="' + esc(p.url) + '">' + esc(p.name) + "</a>" : esc(p.name)) +
+          "</span> — ₺" + nfTr(tlOf(p)) + "</li>").join("") + "</ul>" +
+        "<p><span>Set toplamı</span>: <strong>₺" + nfTr(total) + "</strong> · <span>" +
+        (allFree ? "KDV ve kargo dahil" : "KDV dahil · kargo hariç") + "</span></p></article>";
+    }).join("");
+    html = html.replace(/<!-- MOTORSET:STATIC -->[\s\S]*?<!-- \/MOTORSET:STATIC -->/,
+      "<!-- MOTORSET:STATIC -->" + sets + "<!-- /MOTORSET:STATIC -->");
+  }
   // Paket detay sayfası (paket-*.html) — fiyat/ürün kodu/stok/kargo statik basılır.
   // AI botları JS çalıştırmaz; main.js aynı değerleri istemcide tazeler.
   const pkgId = (html.match(/data-pkg-detail="([^"]+)"/) || [])[1];
@@ -1022,6 +1049,17 @@ function writeLlmsFull(cfg) {
   const heaterLines = cfg.heater.models.map(m =>
     `- ${m.cap} L (${m.mount}${m.pv ? ", " + m.pv + " W panel" : ""}): ${showHeaterPrice && m.price ? "₺" + nf(m.price) : "fiyat için teklif alın"}`
   ).join("\n");
+  // Elektrikli motor paketleri — kalem listesi + set toplamı. Paketin kendi
+  // fiyatı yok; rakamlar içindeki ürünlerin config fiyatlarından gelir.
+  const evSetLines = (cfg.evSets || []).map(st => {
+    const items = (st.items || []).map(id => (cfg.packages || []).filter(x => x.id === id)[0]);
+    if (items.some(p => !p || p.price == null)) return "";
+    const RATE = cfg.usdTry || 0;
+    const tlOf = (p) => p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
+    const total = items.reduce((a, p) => a + tlOf(p), 0);
+    return `- ${st.title} (${st.hint}): ` + items.map(p => `${p.name} ₺${nf(tlOf(p))}`).join(" + ")
+      + ` = SET TOPLAMI ₺${nf(total)}`;
+  }).filter(Boolean).join("\n");
   const regions = cfg.calc.regions.map(r => `${r.label}: ${r.yield} kWh/kWp/yıl`).join(" · ");
   const c = cfg.company;
   const out = `# GESPA Enerji — Ayrıntılı Bilgi (AI yanıt motorları için)
@@ -1068,6 +1106,13 @@ fiyatlara KDV dahildir. Mesafeli satışta ${(cfg.commerce || {}).returnDays || 
 hakkı vardır (sorunsuz teslimde iade kargosu alıcıya ait; hasarlı/ayıplı üründe satıcıya).
 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi verilir.
 Ödeme: havale/EFT'te indirim uygulanır (oran ürüne göre değişir; her ürünün indirimli tutarı yukarıdaki listede yazılıdır). Kart ödemesinde indirim UYGULANMAZ, liste fiyatı geçerlidir.
+
+## Elektrikli Motor (Triportör) Güneş Paketleri (${c.web}/elektrikli-arac-donusum.html#paketler)
+Müşteri aracına hangi panelin uyduğunu bilmiyorsa araç tipini seçer, paket hazır çıkar.
+${evSetLines}
+Paketin kendi fiyatı yoktur; toplam içindeki ürünlerin liste fiyatlarından gelir.
+Sayfadaki araç fotoğrafları yalnızca TİP ÖRNEĞİDİR (başka üreticilerin araçları);
+satışa konu olan panel, şarj kontrol cihazı ve kablodur — araç satılmaz.
 
 ## Toptan Satış / B2B (${c.web}/toptan.html)
 Bayi, EPC/kurulumcu, toptancı, otel ve kooperatiflere kurumsal faturalı toptan satış. Hazır stok:
