@@ -31,7 +31,7 @@ Hazır güneş enerjisi paketleri — net içerik, şeffaf fiyat, Türkiye'nin h
 ## Elektrikli Araç Dönüşüm Ürünleri
 
 - **MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı** — GES-EV-BOOST · Golf aracı, hizmet aracı ve elektrikli platformlar · ₺7.200 (≈ $152) (KDV dahil ). Güneş panelinden 24-72 V akü grubuna doğrudan şarj sağlayan MPPT yükseltici (boost) şarj kontrol cihazı. AGM, jel, sulu kurşun-asit ve lityum akülerle uyumlu; Bluetooth ile programlanır. Panel ve akü ürüne dahil değildir.
-- **europlus 72 V 30 Ah LiFePO₄ Akü** — GES-EV-AKU-72V · Elektrikli triportör, motosiklet ve 72 V hizmet araçları · ₺28.000 (≈ $589) liste · havale/EFT ile ₺27.150 (%3 indirimli, KDV dahil ). Elektrikli triportör ve 72 V motorlu araçlar için LiFePO₄ (lityum demir fosfat) çekiş aküsü. 24S hücre dizilimi, ~2.160 Wh enerji, dahili balanslı BMS. Jel ve kurşun-asit akülere göre daha hafif, çok daha uzun ömürlü ve deşarj boyunca kararlı voltaj verir — motor gücü düşmeden yol biter. Şarj cihazı ürüne dahil değildir.
+- **europlus 72 V 30 Ah LiFePO₄ Akü** — GES-EV-AKU-72V · Elektrikli triportör, motosiklet ve 72 V hizmet araçları · ₺28.000 (≈ $589) liste · havale/EFT ile ₺27.150 (%3 indirimli, KDV dahil ). Elektrikli triportör ve 72 V motorlu araçlar için LiFePO₄ (lityum demir fosfat) çekiş aküsü. 24S hücre dizilimi, ~2.160 Wh enerji, dahili balanslı BMS. Dış ölçü yaklaşık 41 × 16 × 17 cm. Jel ve kurşun-asit akülere göre daha hafif, çok daha uzun ömürlü ve deşarj boyunca kararlı voltaj verir — motor gücü düşmeden yol biter. Şarj cihazı ürüne dahil değildir.
 
 🚚 Paketler Türkiye'nin her iline anlaşmalı kargo ile gönderilir; fiyatlara KDV dahildir, kargo hariçtir. Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi sunulur.
 

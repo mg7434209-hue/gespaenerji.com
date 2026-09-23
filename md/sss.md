@@ -471,6 +471,10 @@ Kabinli yolcu araçlarında çatı dardır; onlar için 285 W'lık paket daha uy
 
 Evet, 72 V sistemlerde jel veya kurşun-asit akü grubunun yerine takılır. Şarj cihazının LiFePO₄ uyumlu (CC/CV, ~83,95 V) olması gerekir; eski jel şarj cihazı bu aküyü doğru doldurmaz.
 
+### Akü aracımın akü yuvasına sığar mı?
+
+Paketin dış ölçüsü yaklaşık 41 × 16 × 17 cm'dir. Siparişten önce aracınızdaki akü yuvasının iç ölçüsüyle karşılaştırın. Emin olamazsanız yuvanın ölçülerini WhatsApp'tan gönderin, birlikte kontrol edelim.
+
 ### Bir şarjla ne kadar yol gider?
 
 Menzil aracın motor gücüne, yüküne, lastik basıncına ve yol eğimine göre değişir; bu yüzden kesin bir kilometre yazmıyoruz. Elimizdeki kesin değer enerjidir: 72 V × 30 Ah ≈ 2.160 Wh. Aracınızın tüketimini biliyorsanız birlikte hesaplayabiliriz.

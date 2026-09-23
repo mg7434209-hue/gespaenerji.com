@@ -59,9 +59,10 @@ Schema des 72-V-Antriebs: Akku → Motorcontroller → Radnabenmotoren. Das abge
 | Entladeschlussspannung | Ca. 54 V |
 | Schutz | Integriertes Balancer-BMS |
 | Zyklenlebensdauer | 3.000 – 6.000 Zyklen |
+| Außenmaße | Ca. 41 × 16 × 17 cm |
 | Ladegerät (nicht enthalten) | LiFePO₄-taugliches CC/CV · ~83,95 V · 6–10 A |
 
-Die Werte stammen aus dem Datenblatt des Herstellers.
+Die Werte stammen aus dem Datenblatt des Herstellers; die Außenmaße wurden am Akkupack gemessen.
 
 Was bedeuten LiFePO₄, BMS und Zyklenlebensdauer? [Solar-Glossar →](https://www.gespaenerji.com/de/sozluk.html#lifepo4)
 
@@ -111,6 +112,10 @@ Häufige Fragen
 ### Mein Fahrzeug hat einen Gel-Akku — kann ich ihn dagegen tauschen?
 
 Ja — in 72-V-Systemen wird er anstelle des Gel- oder Bleiakkusatzes eingebaut. Das Ladegerät muss LiFePO₄-tauglich sein (CC/CV, ~83,95 V); ein altes Gel-Ladegerät lädt dieses Paket nicht korrekt.
+
+### Passt der Akku in das Batteriefach meines Fahrzeugs?
+
+Der Akkupack misst ca. 41 × 16 × 17 cm. Vergleichen Sie diese Maße vor der Bestellung mit den Innenmaßen des Batteriefachs Ihres Fahrzeugs. Wenn Sie unsicher sind, senden Sie uns die Maße des Fachs per WhatsApp, wir prüfen sie gemeinsam.
 
 ### Wie weit komme ich mit einer Ladung?
 

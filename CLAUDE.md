@@ -423,9 +423,16 @@ işe yaramıyordu.
   `assets/img/products/ev/kaynak/lifepo4-72v-30ah-aku.docx` +
   `aku-72v-30ah*.png`, yayın türevleri `tools/aku-foto.py` ile üretilir
   (dikey foto 880×660 BEYAZ TUVALE ortalanır — kırpılsa gövde kesilirdi).
-  Künyede OLMAYAN değer YAZILMAZ: ağırlık, dış ölçü, garanti süresi ve IP
-  sınıfı elimizde YOK. Menzil de yazılmaz (araca göre değişir) — SSS'te
-  yalnızca enerji verilir: 72 V × 30 Ah ≈ 2.160 Wh. ŞARJ CİHAZI ÜRÜNE
+  Künyede OLMAYAN değer YAZILMAZ: ağırlık, garanti süresi ve IP sınıfı
+  elimizde YOK; internette bu modelin kaydı da yok (Eyl 2026 araması —
+  benzer 24S 30 Ah paketler 16–19 kg, ama BU ürün için yazılmaz). DIŞ ÖLÇÜ
+  paket üzerinden ölçüldü: yaklaşık 41 × 16 × 17 cm (kaynak notu
+  "41x16x16x17"; 32700 hücreli 24S5P = 12×5×2 yerleşimle tutarlı). Menzil
+  de yazılmaz (araca göre değişir) — SSS'te yalnız enerji: 72 V × 30 Ah ≈ 2.160 Wh.
+  ÇELİŞKİ, tedarikçiden teyit bekliyor: künye 24S der ama ~83,95 V tam dolu
+  verir. 24S LiFePO₄ normalde 87,6 V'ta (3,65 V/hücre) dolar; 83,95 V =
+  23S × 3,65 V. 83,95 V şarj önerisi iki durumda da GÜVENLİDİR; teyitsiz
+  87,6 V YAZILMAZ. ŞARJ CİHAZI ÜRÜNE
   DAHİL DEĞİLDİR; künye onu "önerilen şarj aleti" olarak verir (LiFePO₄
   CC/CV, ~83,95 V, 6–10 A). Künyenin alındığı satıcı bağlantısı siteye
   KONMAZ — MS Teknik / ACS ENERJİ kuralının aynısı.

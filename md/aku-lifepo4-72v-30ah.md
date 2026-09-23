@@ -59,9 +59,10 @@ LiFePO₄ (lityum demir fosfat) kimyası bu üç sorunu da çözer: aynı enerji
 | Deşarj kesme voltajı | Yaklaşık 54 V |
 | Koruma | Dahili balanslı BMS |
 | Çevrim ömrü | 3.000 – 6.000 döngü |
+| Dış ölçü | Yaklaşık 41 × 16 × 17 cm |
 | Şarj cihazı (dahil değil) | LiFePO₄ uyumlu CC/CV · ~83,95 V · 6–10 A |
 
-Değerler üreticinin künyesinden alınmıştır.
+Değerler üreticinin künyesinden alınmıştır; dış ölçü paket üzerinden ölçülmüştür.
 
 LiFePO₄, BMS ve çevrim ömrü nedir? [GES Sözlüğü →](https://www.gespaenerji.com/sozluk.html#lifepo4)
 
@@ -111,6 +112,10 @@ Sıkça Sorulan Sorular
 ### Aracımın aküsü jel, bununla değiştirebilir miyim?
 
 Evet, 72 V sistemlerde jel veya kurşun-asit akü grubunun yerine takılır. Şarj cihazının LiFePO₄ uyumlu (CC/CV, ~83,95 V) olması gerekir; eski jel şarj cihazı bu aküyü doğru doldurmaz.
+
+### Akü aracımın akü yuvasına sığar mı?
+
+Paketin dış ölçüsü yaklaşık 41 × 16 × 17 cm'dir. Siparişten önce aracınızdaki akü yuvasının iç ölçüsüyle karşılaştırın. Emin olamazsanız yuvanın ölçülerini WhatsApp'tan gönderin, birlikte kontrol edelim.
 
 ### Bir şarjla ne kadar yol gider?
 

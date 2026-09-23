@@ -471,6 +471,10 @@ Geschlossene Fahrgastfahrzeuge haben ein schmales Dach; für sie passt das 285-W
 
 Ja — in 72-V-Systemen wird er anstelle des Gel- oder Bleiakkusatzes eingebaut. Das Ladegerät muss LiFePO₄-tauglich sein (CC/CV, ~83,95 V); ein altes Gel-Ladegerät lädt dieses Paket nicht korrekt.
 
+### Passt der Akku in das Batteriefach meines Fahrzeugs?
+
+Der Akkupack misst ca. 41 × 16 × 17 cm. Vergleichen Sie diese Maße vor der Bestellung mit den Innenmaßen des Batteriefachs Ihres Fahrzeugs. Wenn Sie unsicher sind, senden Sie uns die Maße des Fachs per WhatsApp, wir prüfen sie gemeinsam.
+
 ### Wie weit komme ich mit einer Ladung?
 
 Die Reichweite hängt von Motorleistung, Zuladung, Reifendruck und Steigung ab — deshalb nennen wir keine Kilometerzahl. Sicher ist nur die Energie: 72 V × 30 Ah ≈ 2.160 Wh. Wenn Sie den Verbrauch Ihres Fahrzeugs kennen, rechnen wir es gemeinsam aus.

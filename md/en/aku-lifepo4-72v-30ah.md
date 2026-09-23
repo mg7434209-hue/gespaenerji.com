@@ -59,9 +59,10 @@ The charger is not included. A suitable one is a LiFePO₄-compatible CC/CV type
 | Discharge cut-off voltage | About 54 V |
 | Protection | Built-in balancing BMS |
 | Cycle life | 3,000 – 6,000 cycles |
+| Outer dimensions | About 41 × 16 × 17 cm |
 | Charger (not included) | LiFePO₄-compatible CC/CV · ~83.95 V · 6–10 A |
 
-The values come from the manufacturer's data sheet.
+The values come from the manufacturer's data sheet; the outer dimensions were measured on the pack.
 
 What do LiFePO₄, BMS and cycle life mean? [Solar Glossary →](https://www.gespaenerji.com/en/sozluk.html#lifepo4)
 
@@ -111,6 +112,10 @@ Frequently Asked Questions
 ### My vehicle has a gel battery — can I swap it for this?
 
 Yes — on 72 V systems it goes in where the gel or lead-acid pack was. The charger must be LiFePO₄-compatible (CC/CV, ~83.95 V); an old gel charger will not charge this pack correctly.
+
+### Will the battery fit my vehicle's battery compartment?
+
+The pack measures about 41 × 16 × 17 cm. Before ordering, compare this with the inside dimensions of your vehicle's battery compartment. If you are unsure, send us the compartment measurements via WhatsApp and we will check them together.
 
 ### How far does one charge take me?
 

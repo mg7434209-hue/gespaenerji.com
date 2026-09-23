@@ -471,6 +471,10 @@ Enclosed passenger vehicles have a narrow roof; the 285 W package suits them bet
 
 Yes — on 72 V systems it goes in where the gel or lead-acid pack was. The charger must be LiFePO₄-compatible (CC/CV, ~83.95 V); an old gel charger will not charge this pack correctly.
 
+### Will the battery fit my vehicle's battery compartment?
+
+The pack measures about 41 × 16 × 17 cm. Before ordering, compare this with the inside dimensions of your vehicle's battery compartment. If you are unsure, send us the compartment measurements via WhatsApp and we will check them together.
+
 ### How far does one charge take me?
 
 Range depends on the vehicle's motor power, load, tyre pressure and road gradient, so we do not quote a figure in kilometres. The one certain number is the energy: 72 V × 30 Ah ≈ 2,160 Wh. If you know your vehicle's consumption we can work it out together.
