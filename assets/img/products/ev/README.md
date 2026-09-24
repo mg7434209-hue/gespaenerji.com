@@ -9,6 +9,7 @@ Orijinaller `kaynak/` altında; `.webp` türevleri Pillow ile üretildi.
 |---|---|---|
 | `ev-solar-banner.webp` | "Elektrikli Güneş Enerjisi" tanıtım görseli (GESPA markalı) | Üst tanıtım bandı + Open Graph görseli |
 | `ev-donusum-kurulum.webp` | Araca kurulum yapan teknisyen | Kurulum bandı |
+| `hero-ev-donusum.webp` | Aynı kurulum fotoğrafı, 1672×941 (diğer hero slaytlarıyla aynı ölçü), q80 | Ana sayfa hero slaytı |
 | `boost-mppt-on.webp` | BOOST MPPT Charger — ön görünüm | Ürün galerisi (ana görsel) |
 | `boost-mppt-acili.webp` | BOOST MPPT Charger — açılı görünüm | Ürün galerisi |
 

@@ -22,6 +22,16 @@ publisher: "GESPA Enerji"
 - **15 MW**Установленная мощность
 - **21 лет**Опыт в отрасли
 
+![Техник устанавливает в гольф-кар контроллер заряда BOOST MPPT и проводку аккумулятора; на заднем плане навес с солнечными панелями](https://www.gespaenerji.com/assets/img/products/ev/hero-ev-donusum.webp)
+
+🛺 Переоборудование электромобилей
+
+Заряжайте электромобиль от солнца
+
+Солнечные панели и контроллер заряда BOOST MPPT для гольф-каров, электротрициклов и служебного транспорта. 24–72 В, совместим со всеми типами аккумуляторов; есть готовые комплекты.
+
+[Подробнее о переоборудовании](https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html)
+
 ![GESPA Enerji mühendislik ekibi güneş enerjisi santralinde saha incelemesi yapıyor](https://www.gespaenerji.com/assets/img/hero-gespa-ekip.webp)
 
 🔥 Новинка

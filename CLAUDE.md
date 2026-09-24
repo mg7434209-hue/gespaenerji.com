@@ -20,8 +20,10 @@ su ısıtıcı → yapay zekâ ürünleri → yorumlar → SSS → CTA. KURAL: y
 (su ısıtıcı + yapay zekâ ürünleri) toplam dikey alanı, GES + araç bölümlerinin
 toplamının %40'ını AŞMASIN ve ikisi de sayfanın ikinci yarısında kalsın —
 şu an %33, ilk yan ürün %63 derinlikte. Yeni yan ürün eklerken yeniden ölç.
-Tam genişlik hero slider `.hero2`, 4 slayt: GES fotoğrafı → su ısıtıcı →
-AI cankurtaran → GES Marketim. 1. slayt LCP'dir (fetchpriority + preload
+Tam genişlik hero slider `.hero2`, 5 slayt: GES fotoğrafı → elektrikli araç
+dönüşümü (→ elektrikli-arac-donusum.html; görsel `products/ev/hero-ev-donusum.webp`,
+kaynak `ev/kaynak/ev-donusum-kurulum.png`) → su ısıtıcı → AI cankurtaran →
+GES Marketim. Slayt görselleri 1672×941 webp. 1. slayt LCP'dir (fetchpriority + preload
 KORUNUR) ve sayfanın TEK `<h1>`'ini taşır; diğer slaytlar `<p class="hero2-title">`.
 Birincil hero düğmesi "Ücretsiz Keşif" (ticari eylem), ikincil hesaplayıcı.
 Döngü main.js hero IIFE'sinde, süre `config.hero.intervalMs`, ok/nokta

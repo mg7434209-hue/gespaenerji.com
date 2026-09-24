@@ -22,6 +22,16 @@ For rooftop and ground-mount solar projects: engineering, installation, financin
 - **15 MW**Installed Capacity
 - **21 years**Industry Experience
 
+![A technician installs a BOOST MPPT charge controller and battery wiring in a golf cart, with a solar carport behind](https://www.gespaenerji.com/assets/img/products/ev/hero-ev-donusum.webp)
+
+🛺 EV Solar Conversion
+
+Charge your electric vehicle with the sun
+
+Solar panels and a BOOST MPPT charge controller for golf carts, e-trikes and utility vehicles. 24–72 V, compatible with all battery types; ready-made sets available.
+
+[Explore the Conversion](https://www.gespaenerji.com/en/elektrikli-arac-donusum.html)
+
 ![GESPA Enerji mühendislik ekibi güneş enerjisi santralinde saha incelemesi yapıyor](https://www.gespaenerji.com/assets/img/hero-gespa-ekip.webp)
 
 🔥 New Product

@@ -22,6 +22,16 @@ Anahtar Teslim Güneş Enerjisi Santralleri
 - **15 MW**Bölgede Kurulu Güç
 - **21 yıl**Sektör Deneyimi
 
+![Teknisyen golf arabasına BOOST MPPT şarj kontrol cihazı ve akü bağlantısını kuruyor, arkada güneş panelli sundurma](https://www.gespaenerji.com/assets/img/products/ev/hero-ev-donusum.webp)
+
+🛺 Elektrikli Araç Dönüşümü
+
+Elektrikli aracınız güneşle şarj olsun
+
+Golf arabası, triportör ve hizmet araçlarına güneş paneli ile BOOST MPPT şarj kontrol cihazı. 24–72 V, tüm akü tipleriyle uyumlu; hazır paketlerle.
+
+[Dönüşümü İncele](https://www.gespaenerji.com/elektrikli-arac-donusum.html)
+
 ![GESPA Enerji mühendislik ekibi güneş enerjisi santralinde saha incelemesi yapıyor](https://www.gespaenerji.com/assets/img/hero-gespa-ekip.webp)
 
 🔥 Yeni Ürün

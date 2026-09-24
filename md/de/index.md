@@ -22,6 +22,16 @@ Für Aufdach- und Freiflächen-PV: Engineering, Installation, Finanzierung und W
 - **15 MW**Installierte Leistung
 - **21 Jahre**Branchenerfahrung
 
+![Ein Techniker baut einen BOOST-MPPT-Laderegler und die Akkuverkabelung in ein Golfcart ein, dahinter ein Solarcarport](https://www.gespaenerji.com/assets/img/products/ev/hero-ev-donusum.webp)
+
+🛺 E-Fahrzeug-Umbau
+
+Laden Sie Ihr Elektrofahrzeug mit Sonnenstrom
+
+Solarmodule und ein BOOST-MPPT-Laderegler für Golfcarts, Elektro-Dreiräder und Nutzfahrzeuge. 24–72 V, mit allen Akkutypen kompatibel; als fertige Sets erhältlich.
+
+[Umbau ansehen](https://www.gespaenerji.com/de/elektrikli-arac-donusum.html)
+
 ![GESPA Enerji mühendislik ekibi güneş enerjisi santralinde saha incelemesi yapıyor](https://www.gespaenerji.com/assets/img/hero-gespa-ekip.webp)
 
 🔥 Neues Produkt
