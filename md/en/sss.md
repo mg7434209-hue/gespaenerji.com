@@ -469,7 +469,7 @@ Enclosed passenger vehicles have a narrow roof; the 285 W package suits them bet
 
 ### My vehicle has a gel battery — can I swap it for this?
 
-Yes — on 72 V systems it goes in where the gel or lead-acid pack was. The charger must be LiFePO₄-compatible (CC/CV, ~83.95 V); an old gel charger will not charge this pack correctly.
+Yes — on 72 V systems it goes in where the gel or lead-acid pack was. The charger must be LiFePO₄-compatible (CC/CV, 87.6 V); an old gel charger will not charge this pack correctly.
 
 ### Will the battery fit my vehicle's battery compartment?
 
@@ -477,15 +477,27 @@ The pack measures about 41 × 16 × 17 cm. Before ordering, compare this with th
 
 ### How far does one charge take me?
 
-Range depends on the vehicle's motor power, load, tyre pressure and road gradient, so we do not quote a figure in kilometres. The one certain number is the energy: 72 V × 30 Ah ≈ 2,160 Wh. If you know your vehicle's consumption we can work it out together.
+Range depends on the vehicle's motor power, load, tyre pressure and road gradient, so we do not quote a figure in kilometres. The one certain number is the energy: 76.8 V × 30 Ah ≈ 2,300 Wh. If you know your vehicle's consumption we can work it out together.
 
 ### Is a charger included?
 
-No — the battery is sold on its own. A suitable charger is a LiFePO₄-compatible CC/CV type: charge voltage ~83.95 V, recommended charge current 6–10 A. We can check your existing charger together before you order.
+No — the battery is sold on its own. A suitable charger is a LiFePO₄-compatible CC/CV type: charge voltage 87.6 V, recommended charge current 6–10 A, and the highest charge current the battery accepts is 30 A. We can check your existing charger together before you order.
+
+### How long does charging take?
+
+With a 10 A fast charger it is fully charged in 3–4 hours. Charge at an ambient temperature between 0 °C and 45 °C; a LiFePO₄ battery must not be charged below 0 °C.
+
+### Does charging it before it is empty harm the battery?
+
+No. LiFePO₄ batteries have no memory effect; charging before the battery is empty, or unplugging before it is full, does not shorten its life.
 
 ### How many years will it last?
 
-The manufacturer's data sheet gives 3,000 – 6,000 charge cycles. At one full cycle a day that is many times the typical life of a gel battery; the exact figure depends on how hard you use it.
+With proper use it is rated for 2,000 cycles. Depending on how often you use it, that means up to 10 years of service — many times the typical life of a gel battery.
+
+### Is a LiFePO₄ battery safe? Is there a fire risk?
+
+LiFePO₄ is far more thermally stable than other lithium-ion chemistries such as NMC; the risk of fire and explosion is markedly lower. The built-in BMS protects against overcharge, over-discharge and short circuit. Even so, use only a LiFePO₄-compatible charger, and do not puncture or crush the battery or bring it near an open flame.
 
 ### Can I charge it from a solar panel?
 

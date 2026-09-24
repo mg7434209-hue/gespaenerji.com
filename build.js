@@ -161,11 +161,11 @@ const META = {
   },
   "aku-lifepo4-72v-30ah.html": {
     en: { t: "europlus 72 V 30 Ah LiFePO₄ Battery — 72V Lithium | GESPA Energy",
-          d: "LiFePO₄ traction battery for e-trikes and 72 V vehicles: 24S, ~2,160 Wh, built-in balanced BMS, 3,000–6,000 cycles. Drops in where the gel pack was; no power sag as it drains." },
+          d: "LiFePO₄ traction battery for e-trikes and 72 V vehicles: 24S, ~2,300 Wh, 87.6 V max charge, built-in balanced BMS, 2,000 cycles. Drops in where the gel pack was; no power sag as it drains." },
     de: { t: "europlus 72-V-30-Ah-LiFePO₄-Akku — 72V Lithium | GESPA Energy",
-          d: "LiFePO₄-Traktionsakku für Elektro-Dreiräder und 72-V-Fahrzeuge: 24S, ~2.160 Wh, integriertes Balancer-BMS, 3.000–6.000 Zyklen. Ersetzt den Gel-Akkusatz, ohne Leistungsabfall beim Entladen." },
+          d: "LiFePO₄-Traktionsakku für Elektro-Dreiräder und 72-V-Fahrzeuge: 24S, ~2.300 Wh, max. Ladespannung 87,6 V, integriertes Balancer-BMS, 2.000 Zyklen. Ersetzt den Gel-Akkusatz, ohne Leistungsabfall beim Entladen." },
     ru: { t: "Аккумулятор europlus 72 В 30 А·ч LiFePO₄ — 72В литий | GESPA",
-          d: "Тяговый аккумулятор LiFePO₄ для электротрициклов и машин на 72 В: 24S, ~2160 Вт·ч, встроенная BMS с балансировкой, 3000–6000 циклов. Ставится вместо гелевого блока." }
+          d: "Тяговый аккумулятор LiFePO₄ для электротрициклов и машин на 72 В: 24S, ~2300 Вт·ч, макс. заряд 87,6 В, встроенная BMS с балансировкой, 2000 циклов. Ставится вместо гелевого блока." }
   },
   "paket-2x540w.html": {
     en: { t: "2×540W Solar System — LiFePO₄ Battery | GESPA Energy",

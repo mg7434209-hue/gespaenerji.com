@@ -469,7 +469,7 @@ Geschlossene Fahrgastfahrzeuge haben ein schmales Dach; für sie passt das 285-W
 
 ### Mein Fahrzeug hat einen Gel-Akku — kann ich ihn dagegen tauschen?
 
-Ja — in 72-V-Systemen wird er anstelle des Gel- oder Bleiakkusatzes eingebaut. Das Ladegerät muss LiFePO₄-tauglich sein (CC/CV, ~83,95 V); ein altes Gel-Ladegerät lädt dieses Paket nicht korrekt.
+Ja — in 72-V-Systemen wird er anstelle des Gel- oder Bleiakkusatzes eingebaut. Das Ladegerät muss LiFePO₄-tauglich sein (CC/CV, 87,6 V); ein altes Gel-Ladegerät lädt dieses Paket nicht korrekt.
 
 ### Passt der Akku in das Batteriefach meines Fahrzeugs?
 
@@ -477,15 +477,27 @@ Der Akkupack misst ca. 41 × 16 × 17 cm. Vergleichen Sie diese Maße vor der Be
 
 ### Wie weit komme ich mit einer Ladung?
 
-Die Reichweite hängt von Motorleistung, Zuladung, Reifendruck und Steigung ab — deshalb nennen wir keine Kilometerzahl. Sicher ist nur die Energie: 72 V × 30 Ah ≈ 2.160 Wh. Wenn Sie den Verbrauch Ihres Fahrzeugs kennen, rechnen wir es gemeinsam aus.
+Die Reichweite hängt von Motorleistung, Zuladung, Reifendruck und Steigung ab — deshalb nennen wir keine Kilometerzahl. Sicher ist nur die Energie: 76,8 V × 30 Ah ≈ 2.300 Wh. Wenn Sie den Verbrauch Ihres Fahrzeugs kennen, rechnen wir es gemeinsam aus.
 
 ### Ist ein Ladegerät dabei?
 
-Nein — der Akku wird einzeln verkauft. Geeignet ist ein LiFePO₄-taugliches CC/CV-Ladegerät: Ladespannung ~83,95 V, empfohlener Ladestrom 6–10 A. Ihr vorhandenes Gerät prüfen wir vor der Bestellung gemeinsam.
+Nein — der Akku wird einzeln verkauft. Geeignet ist ein LiFePO₄-taugliches CC/CV-Ladegerät: Ladespannung 87,6 V, empfohlener Ladestrom 6–10 A, höchster zulässiger Ladestrom 30 A. Ihr vorhandenes Gerät prüfen wir vor der Bestellung gemeinsam.
+
+### Wie lange dauert das Laden?
+
+Mit einem 10-A-Schnellladegerät ist er in 3–4 Stunden voll geladen. Laden Sie bei einer Umgebungstemperatur zwischen 0 °C und 45 °C; ein LiFePO₄-Akku wird unter 0 °C nicht geladen.
+
+### Schadet es dem Akku, ihn vor dem Leerwerden zu laden?
+
+Nein. LiFePO₄-Akkus haben keinen Memory-Effekt; Laden vor dem Leerwerden oder Abstecken vor dem Vollladen verkürzt die Lebensdauer nicht.
 
 ### Wie viele Jahre hält er?
 
-Das Herstellerdatenblatt nennt 3.000 – 6.000 Ladezyklen. Bei einem vollen Zyklus pro Tag ist das ein Vielfaches der üblichen Lebensdauer eines Gel-Akkus; der genaue Wert hängt von der Nutzungsintensität ab.
+Bei richtiger Nutzung ist er für 2.000 Zyklen ausgelegt. Je nach Nutzungshäufigkeit sind das bis zu 10 Jahre Einsatz — ein Vielfaches der üblichen Lebensdauer eines Gel-Akkus.
+
+### Ist ein LiFePO₄-Akku sicher? Besteht Brandgefahr?
+
+LiFePO₄ ist thermisch wesentlich stabiler als andere Lithium-Ionen-Chemien wie NMC; das Brand- und Explosionsrisiko ist deutlich geringer. Das integrierte BMS schützt vor Überladung, Tiefentladung und Kurzschluss. Verwenden Sie trotzdem nur ein LiFePO₄-taugliches Ladegerät; den Akku nicht durchstechen, nicht quetschen und von offenem Feuer fernhalten.
 
 ### Kann ich ihn mit einem Solarmodul laden?
 

@@ -428,24 +428,26 @@ işe yaramıyordu.
 - ÇEKİŞ AKÜSÜ (`aku-lifepo4-72v` · `aku-lifepo4-72v-30ah.html`): aracın
   jel akü grubunun yerine takılan 72 V 30 Ah LiFePO₄ akü. BAŞKA ÜRETİCİNİN
   markalı ürünüdür — `brand: "europlus"` JSON-LD'ye ve akışa böyle girer,
-  foto'daki etiket SİLİNMEZ (UNV / SFM kuralı). TEKNİK DEĞERLER üreticinin
-  künyesinden gelir: kaynak belge ve ham görseller
+  foto'daki etiket SİLİNMEZ (UNV / SFM kuralı). TEKNİK DEĞERLER iki
+  kaynaktan gelir: künye (kaynak belge ve ham görseller
   `assets/img/products/ev/kaynak/lifepo4-72v-30ah-aku.docx` +
-  `aku-72v-30ah*.png`, yayın türevleri `tools/aku-foto.py` ile üretilir
-  (dikey foto 880×660 BEYAZ TUVALE ortalanır — kırpılsa gövde kesilirdi).
-  Künyede OLMAYAN değer YAZILMAZ: ağırlık, garanti süresi ve IP sınıfı
-  elimizde YOK; internette bu modelin kaydı da yok (Eyl 2026 araması —
-  benzer 24S 30 Ah paketler 16–19 kg, ama BU ürün için yazılmaz). DIŞ ÖLÇÜ
-  paket üzerinden ölçüldü: yaklaşık 41 × 16 × 17 cm (kaynak notu
-  "41x16x16x17"; 32700 hücreli 24S5P = 12×5×2 yerleşimle tutarlı). Menzil
-  de yazılmaz (araca göre değişir) — SSS'te yalnız enerji: 72 V × 30 Ah ≈ 2.160 Wh.
-  ÇELİŞKİ, tedarikçiden teyit bekliyor: künye 24S der ama ~83,95 V tam dolu
-  verir. 24S LiFePO₄ normalde 87,6 V'ta (3,65 V/hücre) dolar; 83,95 V =
-  23S × 3,65 V. 83,95 V şarj önerisi iki durumda da GÜVENLİDİR; teyitsiz
-  87,6 V YAZILMAZ. ŞARJ CİHAZI ÜRÜNE
-  DAHİL DEĞİLDİR; künye onu "önerilen şarj aleti" olarak verir (LiFePO₄
-  CC/CV, ~83,95 V, 6–10 A). Künyenin alındığı satıcı bağlantısı siteye
-  KONMAZ — MS Teknik / ACS ENERJİ kuralının aynısı.
+  `aku-72v-30ah*.png`; künye BAŞKA bir satıcının ilanından kopyadır) ve
+  İŞLETMENİN VERDİĞİ değerler (24 Eyl 2026): nominal 76,8 V (24 × 3,2 V),
+  maks. şarj 87,6 V (24 × 3,65 V), maks. şarj akımı 30 A, şarj sıcaklığı
+  0–45 °C, doğru kullanımda 2.000 çevrim, 10 A cihazla 3–4 saat şarj.
+  ÇELİŞKİDE İŞLETME ESASTIR: künyedeki ~83,95 V ve 3.000–6.000 döngü
+  KALDIRILDI; enerji 76,8 × 30 ≈ 2.300 Wh. Yayın türevleri `tools/aku-foto.py`
+  ile üretilir (dikey foto 880×660 BEYAZ TUVALE ortalanır — kırpılsa gövde
+  kesilirdi). İki kaynakta da OLMAYAN değer YAZILMAZ: ağırlık, garanti süresi
+  ve IP sınıfı elimizde YOK (benzer 24S 30 Ah paketler 16–19 kg, ama BU ürün
+  için yazılmaz). DIŞ ÖLÇÜ paket üzerinden ölçüldü: yaklaşık 41 × 16 × 17 cm.
+  Menzil de yazılmaz (araca göre değişir) — SSS'te yalnız enerji.
+  MUTLAK İDDİA YAZILMAZ: "yanma/patlama riski yok" değil "NMC'ye göre
+  belirgin biçimde düşük" (LiFePO₄ de lityum iyondur, etiket "ateşe
+  yaklaştırmayın" der); "10 yıl" garanti gibi değil "10 yıla varan kullanım".
+  ŞARJ CİHAZI ÜRÜNE DAHİL DEĞİLDİR (LiFePO₄ CC/CV, 87,6 V, 6–10 A önerilir).
+  Künyenin alındığı satıcı bağlantısı siteye KONMAZ — MS Teknik / ACS
+  ENERJİ kuralının aynısı.
 - GÖRSELLER: `assets/img/products/ev/motor-*.webp`, kaynakları
   `.../ev/kaynak/` altında + `tools/motor-foto.py` (DRY-RUN / `--uygula`).
   Araçlar BAŞKA ÜRETİCİLERE aittir (CSN, SFM) — marka yazıları SİLİNMEZ

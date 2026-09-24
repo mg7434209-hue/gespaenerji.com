@@ -261,23 +261,24 @@ window.GESPA.config = {
 
     // —— Elektrikli motor çekiş aküsü —— BAŞKA ÜRETİCİNİN markalı ürünü:
     // `brand: "europlus"` JSON-LD'ye ve ürün akışına böyle girer; foto'daki
-    // etiket SİLİNMEZ (UNV / SFM kuralı). Teknik değerler üreticinin
-    // künyesinden gelir — kaynak belge ve ham görseller
-    // assets/img/products/ev/kaynak/lifepo4-72v-30ah-aku.docx + aku-72v-30ah*.png.
-    // Künyede OLMAYAN değer (ağırlık, dış ölçü, garanti süresi, IP sınıfı)
-    // YAZILMAZ. Şarj cihazı ürüne DAHİL DEĞİLDİR — künye onu "önerilen şarj
-    // aleti" olarak verir, "dahildir" demez.
+    // etiket SİLİNMEZ (UNV / SFM kuralı). Teknik değerler: künye (kaynak belge
+    // ve ham görseller assets/img/products/ev/kaynak/lifepo4-72v-30ah-aku.docx
+    // + aku-72v-30ah*.png) + İŞLETMENİN verdiği değerler (Eyl 2026: nominal
+    // 76,8 V, maks. şarj 87,6 V / 30 A, şarj 0–45 °C, 2.000 çevrim). İkisi
+    // çelişirse işletme esastır. OLMAYAN değer (ağırlık, garanti süresi, IP
+    // sınıfı) YAZILMAZ; dış ölçü paket üzerinden ölçüldü. Şarj cihazı ürüne
+    // DAHİL DEĞİLDİR — künye onu "önerilen şarj aleti" olarak verir.
     {
       id: "aku-lifepo4-72v", icon: "🔋", tag: "Elektrikli Araç", group: "accessory",
       url: "aku-lifepo4-72v-30ah.html", sku: "GES-EV-AKU-72V",
       brand: "europlus",
       img: "assets/img/products/ev/aku-72v-30ah.webp",
       price: 28000,
-      chips: ["⚡ 72 V · 30 Ah · ~2.160 Wh", "🔁 3.000–6.000 döngü", "🛡️ Dahili balanslı BMS"],
+      chips: ["⚡ 72 V · 30 Ah · ~2.300 Wh", "🔁 2.000 çevrim ömrü", "🛡️ Dahili balanslı BMS"],
       for: "Elektrikli triportör, motosiklet ve 72 V hizmet araçları",
       name: "europlus 72 V 30 Ah LiFePO₄ Akü",
-      desc: "Elektrikli triportör ve 72 V motorlu araçlar için LiFePO₄ (lityum demir fosfat) çekiş aküsü. 24S hücre dizilimi, ~2.160 Wh enerji, dahili balanslı BMS. Dış ölçü yaklaşık 41 × 16 × 17 cm. Jel ve kurşun-asit akülere göre daha hafif, çok daha uzun ömürlü ve deşarj boyunca kararlı voltaj verir — motor gücü düşmeden yol biter. Şarj cihazı ürüne dahil değildir.",
-      features: ["Nominal 72,0 V · 30 Ah · yaklaşık 2.160 Wh", "24S hücre dizilimi · LiFePO₄ (lityum demir fosfat)", "Tam dolu ~83,95 V · deşarj kesme ~54 V", "Dahili balanslı koruma sistemi (BMS)", "3.000 – 6.000 şarj döngüsü ömrü", "Dış ölçü yaklaşık 41 × 16 × 17 cm", "Uygun şarj cihazı: LiFePO₄ CC/CV, ~83,95 V, 6–10 A"]
+      desc: "Elektrikli triportör ve 72 V motorlu araçlar için LiFePO₄ (lityum demir fosfat) çekiş aküsü. 24S hücre dizilimi, 76,8 V nominal gerilim, ~2.300 Wh enerji, dahili balanslı BMS. Maksimum şarj voltajı 87,6 V, maksimum şarj akımı 30 A; doğru kullanımda 2.000 çevrim ömür. Dış ölçü yaklaşık 41 × 16 × 17 cm. Jel ve kurşun-asit akülere göre 3 kata kadar daha hafiftir ve deşarj boyunca kararlı voltaj verir — motor gücü düşmeden yol biter. Şarj cihazı ürüne dahil değildir.",
+      features: ["Nominal 76,8 V (72 V sınıfı) · 30 Ah · yaklaşık 2.300 Wh", "24S hücre dizilimi · LiFePO₄ (lityum demir fosfat)", "Maks. şarj voltajı 87,6 V · deşarj kesme ~54 V", "Maks. şarj akımı 30 A · şarj sıcaklığı 0–45 °C", "Dahili balanslı koruma sistemi (BMS)", "Doğru kullanımda 2.000 çevrim ömrü", "Dış ölçü yaklaşık 41 × 16 × 17 cm", "Uygun şarj cihazı: LiFePO₄ CC/CV, 87,6 V, 6–10 A"]
     },
 
     // —— Tekil panel —— kampanyalı ürün (oldPrice = indirim öncesi fiyat)

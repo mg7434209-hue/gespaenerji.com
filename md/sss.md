@@ -507,7 +507,7 @@ Kabinli yolcu araçlarında çatı dardır; onlar için 285 W'lık paket daha uy
 
 ### Aracımın aküsü jel, bununla değiştirebilir miyim?
 
-Evet, 72 V sistemlerde jel veya kurşun-asit akü grubunun yerine takılır. Şarj cihazının LiFePO₄ uyumlu (CC/CV, ~83,95 V) olması gerekir; eski jel şarj cihazı bu aküyü doğru doldurmaz.
+Evet, 72 V sistemlerde jel veya kurşun-asit akü grubunun yerine takılır. Şarj cihazının LiFePO₄ uyumlu (CC/CV, 87,6 V) olması gerekir; eski jel şarj cihazı bu aküyü doğru doldurmaz.
 
 ### Akü aracımın akü yuvasına sığar mı?
 
@@ -515,15 +515,27 @@ Paketin dış ölçüsü yaklaşık 41 × 16 × 17 cm'dir. Siparişten önce ara
 
 ### Bir şarjla ne kadar yol gider?
 
-Menzil aracın motor gücüne, yüküne, lastik basıncına ve yol eğimine göre değişir; bu yüzden kesin bir kilometre yazmıyoruz. Elimizdeki kesin değer enerjidir: 72 V × 30 Ah ≈ 2.160 Wh. Aracınızın tüketimini biliyorsanız birlikte hesaplayabiliriz.
+Menzil aracın motor gücüne, yüküne, lastik basıncına ve yol eğimine göre değişir; bu yüzden kesin bir kilometre yazmıyoruz. Elimizdeki kesin değer enerjidir: 76,8 V × 30 Ah ≈ 2.300 Wh. Aracınızın tüketimini biliyorsanız birlikte hesaplayabiliriz.
 
 ### Şarj cihazı ürüne dahil mi?
 
-Hayır, akü tek başına satılır. Uygun şarj cihazı LiFePO₄ uyumlu CC/CV tiptedir: şarj voltajı ~83,95 V, önerilen şarj akımı 6–10 A. Mevcut cihazınızın uygun olup olmadığını sipariş öncesi birlikte kontrol edebiliriz.
+Hayır, akü tek başına satılır. Uygun şarj cihazı LiFePO₄ uyumlu CC/CV tiptedir: şarj voltajı 87,6 V, önerilen şarj akımı 6–10 A, akünün kabul ettiği en yüksek şarj akımı 30 A. Mevcut cihazınızın uygun olup olmadığını sipariş öncesi birlikte kontrol edebiliriz.
+
+### Şarj ne kadar sürer?
+
+10 A'lik hızlı şarj cihazıyla 3–4 saatte tamamen dolar. Şarjı 0 °C ile 45 °C arasındaki ortamda yapın; LiFePO₄ akü 0 °C'nin altında şarj edilmez.
+
+### Tam bitmeden şarj etmek aküye zarar verir mi?
+
+Hayır. LiFePO₄ akülerde hafıza etkisi yoktur; tam bitmeden şarj etmek ya da tam dolmadan şarjdan çıkarmak ömrünü kısaltmaz.
 
 ### Kaç yıl dayanır?
 
-Üreticinin künyesinde 3.000 – 6.000 şarj döngüsü verilir. Günde bir tam döngüyle bu, jel akülerin tipik ömrünün kat kat üzerindedir; kullanım yoğunluğuna göre değişir.
+Doğru kullanımda 2.000 çevrim ömrü verilir. Kullanım sıklığına göre bu, 10 yıla varan kullanım demektir ve jel akülerin tipik ömrünün kat kat üzerindedir.
+
+### LiFePO₄ akü güvenli mi, yanma riski var mı?
+
+LiFePO₄, NMC gibi diğer lityum iyon kimyalarına göre ısıl olarak çok daha kararlıdır; yanma ve patlama riski belirgin biçimde düşüktür. Dahili BMS aşırı şarj, aşırı deşarj ve kısa devreye karşı korur. Yine de yalnız LiFePO₄ uyumlu şarj cihazı kullanın; aküyü delmeyin, ezmeyin, açık ateşe yaklaştırmayın.
 
 ### Güneş paneliyle şarj edebilir miyim?
 

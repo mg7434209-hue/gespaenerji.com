@@ -1,6 +1,6 @@
 ---
 title: "europlus 72 V 30 Ah LiFePO₄ Akü — 72V Lityum Akü | GESPA Enerji"
-description: "Elektrikli triportör ve 72 V motorlu araçlar için LiFePO₄ çekiş aküsü: 24S dizilim, ~2.160 Wh, dahili balanslı BMS, 3.000–6.000 döngü ömür. Jel akünün yerine takılır, motor gücü düşmeden yol biter."
+description: "Elektrikli triportör ve 72 V motorlu araçlar için LiFePO₄ çekiş aküsü: 24S dizilim, ~2.300 Wh, 87,6 V maks. şarj, dahili balanslı BMS, 2.000 çevrim ömür. Jel akünün yerine takılır, motor gücü düşmeden yol biter."
 canonical: https://www.gespaenerji.com/aku-lifepo4-72v-30ah.html
 lang: tr
 dateModified: 2026-09-24
@@ -35,34 +35,36 @@ KDV dahil fiyattır.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
 - 🔌 Şarj cihazı ürüne dahil değildir.
 
-⚡ 72 V · 30 Ah · ~2.160 Wh 🔁 3.000–6.000 döngü 🛡️ Dahili balanslı BMS 🪶 Jel aküye göre hafif
+⚡ 72 V · 30 Ah · ~2.300 Wh 🔁 2.000 çevrim ömrü 🛡️ Dahili balanslı BMS 🪶 Jel aküye göre hafif
 
 Elektrikli triportörlerin çoğu jel ya da sulu kurşun-asit akü grubuyla gelir. Bu akü tipleri ucuzdur ama ağırdır, birkaç yüz döngüde kapasitesini kaybeder ve yarıdan sonra voltajı düştüğü için aracın gücü gözle görülür biçimde azalır.
 
-LiFePO₄ (lityum demir fosfat) kimyası bu üç sorunu da çözer: aynı enerjiyi çok daha hafif bir gövdede taşır, üreticinin künyesine göre 3.000 – 6.000 şarj döngüsü dayanır ve deşarj boyunca voltajı kararlı kalır — akü boşalırken motor gücü düşmez.
+LiFePO₄ (lityum demir fosfat) kimyası bu üç sorunu da çözer: aynı enerjiyi jel akülere göre 3 kata kadar daha hafif bir gövdede taşır, doğru kullanımda 2.000 çevrim dayanır ve deşarj boyunca voltajı kararlı kalır — akü boşalırken motor gücü düşmez.
 
-24S dizilimli bu paket 72,0 V nominal gerilimde 30 Ah kapasite, yani yaklaşık 2.160 Wh enerji verir. İçinde balanslı bir BMS (akü yönetim sistemi) vardır: hücreleri dengeler, aşırı şarj, aşırı deşarj ve kısa devreye karşı korur.
+24S dizilimli bu paket, 24 hücre × 3,2 V = 76,8 V nominal gerilimde 30 Ah kapasite, yani yaklaşık 2.300 Wh enerji verir. İçinde balanslı bir BMS (akü yönetim sistemi) vardır: hücreleri dengeler, aşırı şarj, aşırı deşarj ve kısa devreye karşı korur.
 
-Şarj cihazı ürüne dahil değildir. Uygun cihaz LiFePO₄ uyumlu CC/CV tiptedir; şarj voltajı yaklaşık 83,95 V, önerilen şarj akımı 6–10 A'dir. Jel akü için kullandığınız eski şarj cihazı bu aküyü doğru doldurmaz.
+Şarj cihazı ürüne dahil değildir. Uygun cihaz LiFePO₄ uyumlu CC/CV tiptedir. Maksimum şarj voltajı 87,6 V'tur: LiFePO₄ hücrenin güvenli şarj sınırı 3,65 V, 24 hücrede 24 × 3,65 V = 87,6 V eder. Önerilen şarj akımı 6–10 A, akünün kabul ettiği en yüksek şarj akımı 30 A'dir. Şarj 0 °C ile 45 °C arasında yapılmalıdır. Jel akü için kullandığınız eski şarj cihazı bu aküyü doğru doldurmaz.
 
 ![72 V güç sistemi: akü, motor kontrolörü ve hub motorlar](https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah-uyumluluk.webp)
 
 72 V güç sistemi şeması: akü → motor kontrolörü → hub motorlar. Görseldeki araç yalnızca tip örneğidir, araç satılmaz.
 
-| Nominal voltaj | 72,0 V |
+| Nominal voltaj | 76,8 V (72 V sınıfı · 24 × 3,2 V) |
 | --- | --- |
 | Kapasite | 30 Ah |
-| Enerji | Yaklaşık 2.160 Wh |
+| Enerji | Yaklaşık 2.300 Wh |
 | Hücre dizilimi | 24S |
 | Kimya | LiFePO₄ (lityum demir fosfat) |
-| Tam dolu voltaj | Yaklaşık 83,95 V |
+| Maksimum şarj voltajı | 87,6 V (24 × 3,65 V) |
+| Maksimum şarj akımı | 30 A |
+| Şarj sıcaklığı | 0 °C ile 45 °C arası |
 | Deşarj kesme voltajı | Yaklaşık 54 V |
 | Koruma | Dahili balanslı BMS |
-| Çevrim ömrü | 3.000 – 6.000 döngü |
+| Çevrim ömrü | Doğru kullanımda 2.000 çevrim |
 | Dış ölçü | Yaklaşık 41 × 16 × 17 cm |
-| Şarj cihazı (dahil değil) | LiFePO₄ uyumlu CC/CV · ~83,95 V · 6–10 A |
+| Şarj cihazı (dahil değil) | LiFePO₄ uyumlu CC/CV · 87,6 V · 6–10 A |
 
-Değerler üreticinin künyesinden alınmıştır; dış ölçü paket üzerinden ölçülmüştür.
+Değerler üretici ve tedarikçi bilgilerinden alınmıştır; dış ölçü paket üzerinden ölçülmüştür.
 
 LiFePO₄, BMS ve çevrim ömrü nedir? [GES Sözlüğü →](https://www.gespaenerji.com/sozluk.html#lifepo4)
 
@@ -81,21 +83,45 @@ Aynı 72 V sistemde jel akünün yerine takılır; fark ömürde, ağırlıkta v
 
 🔁
 
-### 3.000 – 6.000 döngü
+### Uzun ömürlü
 
-Üreticinin künyesindeki çevrim ömrü. Jel akülerin tipik ömrünün kat kat üzerindedir; akü değiştirme sıklığı düşer.
+Doğru kullanımda 2.000 çevrim ömrü sunar; kullanım sıklığına göre 10 yıla varan kullanım demektir.
 
 🪶
 
-### Hafif ve kompakt
+### Hafif tasarım
 
-Aynı enerjiyi taşıyan jel akü grubuna göre belirgin biçimde hafiftir — araçta taşınan ölü ağırlık azalır.
+Jel akülere göre 3 kata kadar daha hafiftir ve daha az yer kaplar; araçta taşınan ölü ağırlık azalır.
+
+⚡
+
+### Hızlı şarj
+
+10 A'lik hızlı şarj cihazıyla 3–4 saatte tamamen dolar.
 
 📈
 
-### Kararlı voltaj
+### Tam performans
 
-LiFePO₄ deşarj boyunca voltajını korur. Akü yarılandığında motor gücü düşmez, yokuşta zorlanmazsınız.
+Kapasitenin tamamını güç kaybı yaşamadan kullanırsınız; voltaj deşarj boyunca kararlı kalır, yokuşlarda yüksek performans sunar.
+
+🛡️
+
+### Üst düzey güvenlik
+
+LiFePO₄, NMC gibi diğer lityum iyon kimyalarına göre ısıl olarak çok daha kararlıdır; yanma ve patlama riski belirgin biçimde düşüktür.
+
+🔄
+
+### Hafıza etkisi yok
+
+Tam bitmeden şarj etmek ya da tam dolmadan şarjdan çıkarmak ömrünü kısaltmaz.
+
+💰
+
+### Ekonomik
+
+Uzun ömrü sayesinde uzun vadede jel akülerden daha hesaplıdır.
 
 Güneşle Şarj
 
@@ -111,7 +137,7 @@ Sıkça Sorulan Sorular
 
 ### Aracımın aküsü jel, bununla değiştirebilir miyim?
 
-Evet, 72 V sistemlerde jel veya kurşun-asit akü grubunun yerine takılır. Şarj cihazının LiFePO₄ uyumlu (CC/CV, ~83,95 V) olması gerekir; eski jel şarj cihazı bu aküyü doğru doldurmaz.
+Evet, 72 V sistemlerde jel veya kurşun-asit akü grubunun yerine takılır. Şarj cihazının LiFePO₄ uyumlu (CC/CV, 87,6 V) olması gerekir; eski jel şarj cihazı bu aküyü doğru doldurmaz.
 
 ### Akü aracımın akü yuvasına sığar mı?
 
@@ -119,15 +145,27 @@ Paketin dış ölçüsü yaklaşık 41 × 16 × 17 cm'dir. Siparişten önce ara
 
 ### Bir şarjla ne kadar yol gider?
 
-Menzil aracın motor gücüne, yüküne, lastik basıncına ve yol eğimine göre değişir; bu yüzden kesin bir kilometre yazmıyoruz. Elimizdeki kesin değer enerjidir: 72 V × 30 Ah ≈ 2.160 Wh. Aracınızın tüketimini biliyorsanız birlikte hesaplayabiliriz.
+Menzil aracın motor gücüne, yüküne, lastik basıncına ve yol eğimine göre değişir; bu yüzden kesin bir kilometre yazmıyoruz. Elimizdeki kesin değer enerjidir: 76,8 V × 30 Ah ≈ 2.300 Wh. Aracınızın tüketimini biliyorsanız birlikte hesaplayabiliriz.
 
 ### Şarj cihazı ürüne dahil mi?
 
-Hayır, akü tek başına satılır. Uygun şarj cihazı LiFePO₄ uyumlu CC/CV tiptedir: şarj voltajı ~83,95 V, önerilen şarj akımı 6–10 A. Mevcut cihazınızın uygun olup olmadığını sipariş öncesi birlikte kontrol edebiliriz.
+Hayır, akü tek başına satılır. Uygun şarj cihazı LiFePO₄ uyumlu CC/CV tiptedir: şarj voltajı 87,6 V, önerilen şarj akımı 6–10 A, akünün kabul ettiği en yüksek şarj akımı 30 A. Mevcut cihazınızın uygun olup olmadığını sipariş öncesi birlikte kontrol edebiliriz.
+
+### Şarj ne kadar sürer?
+
+10 A'lik hızlı şarj cihazıyla 3–4 saatte tamamen dolar. Şarjı 0 °C ile 45 °C arasındaki ortamda yapın; LiFePO₄ akü 0 °C'nin altında şarj edilmez.
+
+### Tam bitmeden şarj etmek aküye zarar verir mi?
+
+Hayır. LiFePO₄ akülerde hafıza etkisi yoktur; tam bitmeden şarj etmek ya da tam dolmadan şarjdan çıkarmak ömrünü kısaltmaz.
 
 ### Kaç yıl dayanır?
 
-Üreticinin künyesinde 3.000 – 6.000 şarj döngüsü verilir. Günde bir tam döngüyle bu, jel akülerin tipik ömrünün kat kat üzerindedir; kullanım yoğunluğuna göre değişir.
+Doğru kullanımda 2.000 çevrim ömrü verilir. Kullanım sıklığına göre bu, 10 yıla varan kullanım demektir ve jel akülerin tipik ömrünün kat kat üzerindedir.
+
+### LiFePO₄ akü güvenli mi, yanma riski var mı?
+
+LiFePO₄, NMC gibi diğer lityum iyon kimyalarına göre ısıl olarak çok daha kararlıdır; yanma ve patlama riski belirgin biçimde düşüktür. Dahili BMS aşırı şarj, aşırı deşarj ve kısa devreye karşı korur. Yine de yalnız LiFePO₄ uyumlu şarj cihazı kullanın; aküyü delmeyin, ezmeyin, açık ateşe yaklaştırmayın.
 
 ### Güneş paneliyle şarj edebilir miyim?
 
