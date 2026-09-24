@@ -166,6 +166,22 @@
       </g:shipping>
     </item>
     <item>
+      <g:id>kablo-solar-5m</g:id>
+      <g:title>Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)</g:title>
+      <g:description>Güneş paneli ile şarj kontrol cihazı arasındaki bağlantı için 5 metre siyah + 5 metre kırmızı solar kablo takımı. Kesit stok durumuna göre 4 mm2 veya 6 mm2 gelir; bu sistemlerde ikisi de uygundur. Elektrikli motor güneş paketlerinin standart kalemidir.</g:description>
+      <g:link>https://www.gespaenerji.com/online-satis.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>1000.00 TRY</g:price>
+      <g:brand>GESPA Enerji</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>GES-KBL-5M</g:mpn>
+      <g:product_type>Kablo</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
+    </item>
+    <item>
       <g:id>set-yolcu</g:id>
       <g:title>Yolcu Kabinli Motor Güneş Paketi — 285 W</g:title>
       <g:description>Kabinli elektrikli yolcu triportörünü güneşle şarj etmek için hazırlanmış komple paket: 285 W TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Dar çatı alanına sığan panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.</g:description>
@@ -193,6 +209,22 @@
       <g:condition>new</g:condition>
       <g:mpn>GES-SET-KARGO</g:mpn>
       <g:product_type>Hazır Paket</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>mc4-set</g:id>
+      <g:title>MC4 Konnektör Takımı</g:title>
+      <g:description>Güneş paneli çıkış kablosu ile solar kabloyu birleştiren erkek-dişi MC4 konnektör takımı. Elektrikli motor güneş paketlerine 1 takım dahildir.</g:description>
+      <g:link>https://www.gespaenerji.com/online-satis.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/mc4-set.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>100.00 TRY</g:price>
+      <g:brand>GESPA Enerji</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>GES-MC4-1</g:mpn>
+      <g:product_type>Konnektör</g:product_type>
       <g:shipping>
         <g:country>TR</g:country>
       </g:shipping>

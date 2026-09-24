@@ -257,7 +257,9 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
   Lexron 655 W TOPCon ₺10.000 · Arçelik 540 W ₺10.000 (`group:"panel"`) +
   TitanX 51,2 V 102 Ah LiFePO₄ akü ₺73.372 (`group:"storage"`) +
   solar kablo takımı 5 m siyah + 5 m kırmızı ₺1.000 · MC4 konnektör takımı
-  ₺100 (ikisi de `group:"cable"`, fotoğrafsız — akışa girmez). KABLO KESİTİ
+  ₺100 (ikisi de `group:"cable"`; fotoğrafları `kaynak/<id>.png` →
+  `tools/foto-hazirla.py`, görselli oldukları için akışa GİRER, iniş sayfası
+  online-satis.html). KABLO KESİTİ
   (mm2) YAZILMAZ: stoğa göre 4 ya da 6 mm2 geliyor, ikisi de uygun. +
   2 elektrikli motor güneş paketi: `set-yolcu` ₺15.800 (285 W) ·
   `set-kargo` ₺18.300 (655 W), ikisi de `group:"evset"` ve `parts` listeli
@@ -520,7 +522,10 @@ Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD v
 - Tedarikçiden gelen HAM fotoğraflar `assets/img/products/kaynak/` altında durur;
   `tools/foto-hazirla.py` bunları kırpar (kenar artefaktı/siyah şerit), OEM
   yazısını GESPA ile değiştirir ve yayın `.webp` türevini üretir — işler JOBS
-  listesindedir (`--uygula` yazar). Kaynak dosyayı SİLME, yeniden üretilebilsin.
+  listesindedir (`--uygula` yazar). `canvas` işi katalog kartının 880×660
+  beyaz tuvaline ortalar; `--uygula <çıktı.webp>` YALNIZ o çıktıyı yazar,
+  diğer webp'ler boşuna yeniden sıkıştırılmaz (araç numpy ister).
+  Kaynak dosyayı SİLME, yeniden üretilebilsin.
 - Ana sayfadaki "Güneşten Bedava Sıcak Su" şeridinin görseli montaj şemasıdır:
   `baglanti-semasi-900.webp` (`.feature-diagram`, object-fit:contain, data-zoom
   ile büyür). Görselin etiketleri TR gömülüdür (i18n çevirmez). Eski inline SVG

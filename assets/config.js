@@ -380,8 +380,10 @@ window.GESPA.config = {
     // —— Bağlantı malzemeleri —— elektrikli motor paketlerinin (evSets)
     // tamamlayıcı kalemleri. group:"cable" YALNIZ online-satis.html
     // kataloğunda listelenir; urunler.html paket vitrininde ÇIKMAZ.
-    // Fotoğrafları yok: `img` boş bırakılır, kart nötr yer tutucu gösterir
-    // ve ürün Merchant Center akışına GİRMEZ (akış görsel zorunlu tutar).
+    // Fotoğraflar: ham kaynak assets/img/products/kaynak/<id>.png →
+    // `tools/foto-hazirla.py` (880×660 beyaz tuval). Görselli oldukları için
+    // Merchant Center akışına GİRERLER; kendi sayfaları olmadığından iniş
+    // sayfası online-satis.html'dir.
     {
       // KESİT (mm2) ürün ADINDA ve çiplerde YAZILMAZ: stok durumuna göre
       // 4 mm2 ya da 6 mm2 geliyor, ikisi de bu sistemler için uygun.
@@ -389,7 +391,7 @@ window.GESPA.config = {
       // olduğu gibi söylenir.
       id: "kablo-solar-5m", icon: "🔌", tag: "Kablo", group: "cable",
       sku: "GES-KBL-5M",
-      img: "",
+      img: "assets/img/products/kablo-solar-5m.webp",
       price: 1000,
       chips: ["📏 5 m + 5 m", "⚫🔴 Siyah + kırmızı", "☀️ Solar kablo"],
       for: "Panel ile şarj kontrol cihazı arası bağlantı",
@@ -434,7 +436,7 @@ window.GESPA.config = {
     {
       id: "mc4-set", icon: "🔗", tag: "Konnektör", group: "cable",
       sku: "GES-MC4-1",
-      img: "",
+      img: "assets/img/products/mc4-set.webp",
       price: 100,
       chips: ["🔗 1 takım", "⚡ Erkek + dişi", "☀️ Panel bağlantısı"],
       for: "Panel kablosu ile solar kablonun birleştirilmesi",

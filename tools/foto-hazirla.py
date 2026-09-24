@@ -1,13 +1,19 @@
 #!/usr/bin/env python3
-"""Tedarikciden gelen yeni su isitici fotograflarini siteye hazirlar.
+"""Tedarikciden gelen urun fotograflarini siteye hazirlar.
 
 Kaynak fotograflar `assets/img/products/kaynak/` altinda tutulur (repoda).
 Betik: kenar artefaktlarini kirpar, govde uzerindeki OEM marka yazisini
-(ornegin EcoSunHome) silip ayni konum/aci/renkte GESPA yazar, .webp
+(ornegin EcoSunHome) silip ayni konum/aci/renkte GESPA yazar, istenirse
+sitenin 4:3 kart oranina BEYAZ TUVALE ortalar (`canvas`) ve .webp
 turevlerini uretir.
 
-    python3 tools/foto-hazirla.py            # yalniz rapor (DRY-RUN)
-    python3 tools/foto-hazirla.py --uygula   # dosyalari yazar
+    python3 tools/foto-hazirla.py                          # yalniz rapor (DRY-RUN)
+    python3 tools/foto-hazirla.py --uygula                 # tum dosyalari yazar
+    python3 tools/foto-hazirla.py --uygula mc4-set.webp    # yalniz verilen ciktilari yazar
+
+Cikti adi verilirse diger isler yine bellekte calisir (`from` zinciri
+bozulmaz) ama diske yalniz verilenler yazilir; mevcut webp'ler bosuna
+yeniden sikistirilmaz.
 
 Gereksinim: pillow, numpy
 """
@@ -54,6 +60,29 @@ JOBS = [
         "crop": (0, 9, 853, 878),
         "swap": {"box": (385, 351, 556, 404), "k": 0.15, "ratio": 0.85, "h": 0.175, "q": 0.2},
         "quality": 84,
+    },
+    {
+        # MC4 konnektor takimi (erkek + disi + pinler), beyaz zemin. Urun
+        # sinir kutusu (61,145)-(494,562); 12 px payla kirpilip katalogun
+        # 880x660 kart tuvaline ortalanir. Govdedeki kabartma yazi okunmaz,
+        # OEM marka yok: swap/mark GEREKMEZ.
+        "src": "mc4-set.png",
+        "out": "mc4-set.webp",
+        "crop": (49, 133, 506, 574),
+        "canvas": (880, 660),
+        "pad": 36,
+        "quality": 86,
+    },
+    {
+        # Solar kablo takimi: siyah + kirmizi kablo, uclari MC4'lu. Sinir
+        # kutusu (129,151)-(729,603). Kilif baskisi (kesit dahil) bu
+        # cozunurlukte okunmaz — KESIT YAZILMAZ kurali fotografla celismez.
+        "src": "kablo-solar-5m.png",
+        "out": "kablo-solar-5m.webp",
+        "crop": (117, 139, 741, 615),
+        "canvas": (880, 660),
+        "pad": 30,
+        "quality": 86,
     },
 ]
 
@@ -104,11 +133,26 @@ def run(job, write):
         arr, info = swap(arr, s)
         print(f"  OEM yazi degistirildi: {info}")
     res = Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8))
+    if "canvas" in job:
+        res = fit(res, job["canvas"], job.get("pad", 0))
     DONE[job["out"]] = res
     print(f"{label} -> {job['out']}  {res.size}")
     if write:
         res.save(OUT + job["out"], "WEBP", quality=job["quality"], method=6)
     return res
+
+
+def fit(im, canvas, pad):
+    """Fotoyu oranini bozmadan beyaz tuvale ortalar (kirpmaz)."""
+    cw, ch = canvas
+    h = ch - 2 * pad
+    w = max(1, round(im.width * h / im.height))
+    if w > cw - 2 * pad:                      # genis foto: genislige sigdir
+        w = cw - 2 * pad
+        h = max(1, round(im.height * w / im.width))
+    tuval = Image.new("RGB", (cw, ch), (255, 255, 255))
+    tuval.paste(im.resize((w, h), Image.LANCZOS), ((cw - w) // 2, (ch - h) // 2))
+    return tuval
 
 
 def swap(arr, s):
@@ -148,6 +192,10 @@ def swap(arr, s):
 
 if __name__ == "__main__":
     write = "--uygula" in sys.argv
+    only = [a for a in sys.argv[1:] if not a.startswith("--")]
+    bilinmeyen = [o for o in only if o not in [j["out"] for j in JOBS]]
+    if bilinmeyen:
+        sys.exit("JOBS'ta olmayan cikti: " + ", ".join(bilinmeyen))
     for j in JOBS:
-        run(j, write)
+        run(j, write and (not only or j["out"] in only))
     print("YAZILDI" if write else "DRY-RUN (yazmak icin: --uygula)")
