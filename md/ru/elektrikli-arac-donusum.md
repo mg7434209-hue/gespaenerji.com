@@ -7,7 +7,7 @@ dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 
-[Главная](https://www.gespaenerji.com/ru/) / [Интернет-магазин](https://www.gespaenerji.com/ru/online-satis.html) / Переоборудование электромобилей
+[Главная](https://www.gespaenerji.com/ru/) / Переоборудование электромобилей
 
 ![BOOST MPPT Charger — вид спереди, клеммы панели и АКБ](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)
 

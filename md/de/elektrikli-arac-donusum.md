@@ -7,7 +7,7 @@ dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 
-[Startseite](https://www.gespaenerji.com/de/) / [Onlineshop](https://www.gespaenerji.com/de/online-satis.html) / Elektrofahrzeug-Umrüstung
+[Startseite](https://www.gespaenerji.com/de/) / Elektrofahrzeug-Umrüstung
 
 ![BOOST MPPT Charger — Vorderansicht, Modul- und Batterieklemmen](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)
 

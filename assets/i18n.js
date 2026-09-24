@@ -18,6 +18,14 @@
 
   // Zengin (iç HTML) çeviriler — yalnızca [data-i18n-html] elemanları
   var HTMLMAP = {
+    // Üst menü: aynı TR metnin footer'daki uzun çevirisi (ör. RU 31 harf)
+    // menü çubuğuna sığmaz; menüde kısa etiket kullanılır.
+    "#menuEv": {
+      tr: "Elektrikli Araç Dönüşümü",
+      en: "EV Conversion",
+      de: "E-Fahrzeug-Umbau",
+      ru: "Электромобили"
+    },
     "#heroTitle": {
       tr: 'Güneşten <span class="hl">kazanca</span> dönüşen enerji.',
       en: 'Energy that turns sunshine into <span class="hl">profit</span>.',

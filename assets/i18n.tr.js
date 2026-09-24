@@ -11,7 +11,7 @@
 
   // Veri: yalnız 'tr' (+ TR yedek) — build.js üretir
   var UNITS = {"tr":{"yil":"yıl","yilPlus":"25+ yıl","ay":"ay","adet":"adet","agac":"ağaç","ton":"ton","km":"km","year":"yıl","added":"Eklenmedi"}};
-  var HTMLMAP = {"#heroTitle":{"tr":"Güneşten <span class=\"hl\">kazanca</span> dönüşen enerji."},"#calcLead":{"tr":"Sadece faturanızı girin; <strong>sistem gücü, yıllık tasarruf, geri ödeme süresi ve 25 yıllık kazancınızı</strong> saniyeler içinde görün. Üstelik panel yerleşimi, inverter ve kablo gibi <strong>mühendislik araçları</strong> da burada."},"#shopNoJs":{"tr":"Ürünleri görüntülemek için JavaScript'i etkinleştirin veya <a href=\"iletisim.html\">bizimle iletişime geçin</a>."},"#ordConsent":{"tr":"Siparişi göndererek <a href=\"/kvkk.html\">KVKK Aydınlatma Metni</a>'ni ve aşağıdaki satış şartlarını kabul etmiş olursunuz."}};
+  var HTMLMAP = {"#menuEv":{"tr":"Elektrikli Araç Dönüşümü"},"#heroTitle":{"tr":"Güneşten <span class=\"hl\">kazanca</span> dönüşen enerji."},"#calcLead":{"tr":"Sadece faturanızı girin; <strong>sistem gücü, yıllık tasarruf, geri ödeme süresi ve 25 yıllık kazancınızı</strong> saniyeler içinde görün. Üstelik panel yerleşimi, inverter ve kablo gibi <strong>mühendislik araçları</strong> da burada."},"#shopNoJs":{"tr":"Ürünleri görüntülemek için JavaScript'i etkinleştirin veya <a href=\"iletisim.html\">bizimle iletişime geçin</a>."},"#ordConsent":{"tr":"Siparişi göndererek <a href=\"/kvkk.html\">KVKK Aydınlatma Metni</a>'ni ve aşağıdaki satış şartlarını kabul etmiş olursunuz."}};
   var PH = {};
   var DICT = {};
 

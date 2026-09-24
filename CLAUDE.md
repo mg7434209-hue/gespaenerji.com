@@ -139,7 +139,11 @@ Ayrıca `admin.html`: fiyat yönetim paneli (menüde yok, robots'ta engelli,
 build PAGES listesine EKLENMEZ). Her sayfa: ortak header/footer, aktif menü
 vurgusu, breadcrumb, sayfaya özel SEO başlığı/canonical/Open Graph içerir.
 Nav menü (hizmet/satış ayrımı): Ana Sayfa · Solar Sistemler (açılır grup:
-Çatı & Arazi GES Kurulumu → hizmetler.html + Tarımsal Sulama) · Online Satış
+Çatı & Arazi GES Kurulumu → hizmetler.html + Tarımsal Sulama) ·
+Elektrikli Araç Dönüşümü (DÜZ bağlantı → elektrikli-arac-donusum.html, o
+sayfada aktif; `id="menuEv" data-i18n-html` — EN/DE/RU kısa etiketi i18n.js
+HTMLMAP'tendir: EV Conversion · E-Fahrzeug-Umbau · Электромобили; aynı TR
+metnin footer'daki uzun çevirisi çubuğa SIĞMAZ) · Online Satış
 (SATIŞ PANELİ — aşağıya bak: satıştaki ürün kartları + bağlantı satırı:
 Tüm ürünler (mağaza) → online-satis.html, Paket ürünler → urunler.html,
 Solar Su Isıtıcı, Toptan Satış (B2B), GES Marketim ↗, Sepetim → sepet.html
@@ -192,12 +196,19 @@ CSS SIRA KURALI: mobil `@media(max-width:1260px)` nav bloğu, masaüstü
 `.menu-group`/`.submenu` kurallarından SONRA gelmek zorundadır — eşit
 özgüllükte sonraki kural kazanır. Blok yukarıdayken masaüstü kuralları onu
 eziyor ve açılır paneller mobilde mutlak konumlanıp üst üste biniyordu.
-GENİŞLİK KURALI: çubuk 6 üst seviye öğeyle dolu. Menü 1260px altında
-hamburger'a düşer; 1261–1580px bandında `.nav`/`.menu` gap'i, yazı boyu, dil
-düğmeleri ve marka yazısı kademeli küçülür (1261–1380px'te bir kademe daha).
-Eşikler 4 dilde ölçüldü — en uzun menü RUSÇA'dır. Üst seviyeye yeni öğe
-eklersen veya etiket uzatırsan 1280/1366/1440/1530px'te 4 dilde YENİDEN ölç;
-aksi hâlde dil değiştirici ve sepet simgesi ekran dışında kalır.
+GENİŞLİK KURALI: çubuk 7 üst seviye öğeyle dolu. Menü 1260px altında
+hamburger'a düşer. Başlık kapsayıcısı sayfa gövdesinden geniştir
+(`.site-header .nav.container{max-width:1560px}`, gövde 1160). 1261–1580px
+bandında `.nav`/`.menu` gap'i, yazı boyu, dil düğmeleri ve marka yazısı
+kademeli küçülür; 1261–1410px'te bir kademe daha ve "Ana Sayfa" metni
+(`.menu-home`) GİZLENİR — logo ana sayfaya gider. Bant yazı kuralı
+`.menu .menu-parent` özgüllüğüyle yazılır: yalın `.menu-parent` dosyada
+sonra gelen temel kuralca eziliyor, açılır grup başlıkları hiç küçülmüyordu.
+Eşikler 4 dilde, Windows kaydırma çubuğu (17px) payıyla ölçüldü — en dar
+diller TR ve RU. Üst seviyeye yeni öğe eklersen veya etiket uzatırsan
+1261/1280/1411/1440/1581px'te 4 dilde YENİDEN ölç; bant alt sınırlarında
+içerik ile kapsayıcı arasında ≥17px boşluk kalmalı, yoksa dil değiştirici
+ve sepet simgesi ekran dışında kalır.
 
 ## Sistem Kurucu (`sistem-kur.html` · `assets/builder.js`)
 "İhtiyaçtan siparişe" 5 adımlı sihirbaz: kullanım senaryosu → cihaz listesi

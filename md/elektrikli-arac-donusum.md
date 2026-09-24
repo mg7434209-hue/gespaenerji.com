@@ -7,7 +7,7 @@ dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 
-[Ana Sayfa](https://www.gespaenerji.com/) / [Online Satış](https://www.gespaenerji.com/online-satis.html) / Elektrikli Araç Dönüşümü
+[Ana Sayfa](https://www.gespaenerji.com/) / Elektrikli Araç Dönüşümü
 
 ![BOOST MPPT Charger — ön görünüm, panel ve akü klemensleri](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)
 
