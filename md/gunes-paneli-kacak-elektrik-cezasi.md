@@ -15,7 +15,39 @@ Antalya'dan Yozgat'a birçok ilde güneş enerjisi kullanan çiftçilere ve işl
 
 Yayın: 24 Eylül 2026 · Mevzuat durumu Eylül 2026 itibarıyladır · GESPA Enerji
 
-**Önce en yaygın yanlışı düzeltelim:** "Artık güneş enerjisi ile şebeke elektriği aynı anda kullanılamıyor" diye bir kural yoktur. Şebekeye bağlı (on-grid) bir sistemde panelleriniz üretim yaparken şebekeden de elektrik çekersiniz; sistemin çalışma prensibi zaten budur. Ceza bu yüzden yazılmıyor.
+## Kısaca: sisteminiz hangi durumda?
+
+Ceza riskini belirleyen şey panelin kendisi değil, güneş sisteminin şebekeyle ilişkisidir. Üç temel durum var:
+
+### 1. Şebeke elektriği hiç kullanılmıyor: off-grid sistem ve şebekesiz sulama
+
+✅ Şebeke başvurusu gerekmez
+
+Panel, invertör ya da pompa sürücüsü ve akü şebekeye hiçbir noktada bağlı değilse sistem genel kural olarak şebeke bağlantı ve kabul sürecinin konusu değildir. Kurulum bir yapıya ya da araziye yapılıyorsa yalnızca imar kuralları ayrıca geçerli olabilir. Tarımsal sulamadaki 125 m² muafiyeti [off-grid bölümünde](#off-grid) anlatılıyor.
+
+### 2. Şebekeye bağlı, başvurusu ve kabulü tamamlanmış sistem
+
+✅ Yasal, sorun yok
+
+Dağıtım şirketine başvurusu yapılmış, bağlantı anlaşması imzalanmış ve kabul işlemleri tamamlanmış sistem yasaldır. Panelleriniz üretirken şebekeden de elektrik çekersiniz; şebekeye bağlı sistem zaten böyle çalışır. Halk arasında "TEDAŞ onayı" denen süreç budur; Antalya bölgesinde muhatap dağıtım şirketi AEDAŞ'tır.
+
+### 3. Aynı yerde hem şebeke hem güneş kullanılıyor
+
+⚠️ Ya başvuru ve kabul ya da tam ayrım
+
+- **Başvuru ve kabul:** Güneş sistemi şebekeye bağlı çalışacaksa 2. durumdaki süreç zorunludur. Kabul tamamlanmadan sistem çalıştırılmamalıdır.
+- **Tam ayrım:** Panel, invertör, akü ve bunların beslediği hat ve cihazlar şebeke elektriğine hiçbir noktada temas etmez. Güneş tarafı kendi başına, off-grid çalışır. Örnek: evin tesisatı şebekeden beslenir, bahçedeki ayrı bir pompa yalnızca kendi paneli ve sürücüsüyle çalışır; iki tesisat arasında hiçbir kablo bağlantısı yoktur.
+
+**Şunlardan biri varsa ayrım bozulur, sistem şebekeyle ilişkilendirilmiş olur ve başvuru gerekir:**
+
+- Aynı pano ya da sayaç üzerinden besleme
+- Aynı pompayı ya da hattı sırayla güneşten ve şebekeden besleyen komütatör (transfer anahtarı); "gündüz güneş, gece şebeke" kurgusu budur
+- Aküyü şebekeden şarj eden hibrit invertör
+- İnvertör çıkışının binanın şebeke tesisatına bağlanması
+
+Emin değilseniz kurulumdan önce dağıtım şirketine yazılı olarak sorun.
+
+**En yaygın yanlışı düzeltelim:** "Artık güneş enerjisi ile şebeke elektriği aynı anda kullanılamıyor" diye bir kural yoktur. Şebekeye bağlı (on-grid) bir sistemde panelleriniz üretim yaparken şebekeden de elektrik çekersiniz; sistemin çalışma prensibi zaten budur. Ceza bu yüzden yazılmıyor.
 
 ## O zaman ceza neden yazılıyor?
 
@@ -113,6 +145,10 @@ Kritik kural tek cümle: **kabul tamamlanmadan sistemi çalıştırmayın.**
 ### Güneş paneli ile şebeke elektriğini aynı anda kullanmak yasak mı?
 
 Hayır, böyle bir yasak yoktur. Şebekeye bağlı (on-grid) sistemlerin çalışma prensibi zaten budur. Cezalar, üretim tesisinin kabulü yapılmadan işletmeye alınmasından kaynaklanıyor.
+
+### Güneş sistemini şebekeden tamamen ayırırsam başvuru gerekir mi?
+
+Panel, invertör, akü ve bunların beslediği hat ve cihazlar şebeke elektriğine hiçbir noktada temas etmiyorsa güneş tarafı off-grid çalışır ve genel kural olarak şebeke bağlantı ve kabul sürecinin konusu olmaz. Aynı pano ya da sayaç üzerinden besleme, aynı pompayı sırayla güneşten ve şebekeden besleyen komütatör ya da aküyü şebekeden şarj eden hibrit invertör bu ayrımı bozar; bu durumda başvuru ve kabul gerekir. Emin değilseniz kurulumdan önce dağıtım şirketine yazılı olarak sorun.
 
 ### Şebekeye hiç enerji vermiyorum, yine de ceza alır mıyım?
 

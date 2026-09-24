@@ -212,8 +212,15 @@ birlikte commit'le.
   (ör. "EPDK uyumlu invertör listesi") çıkarılır ya da doğrulanabilir
   biçimde yeniden yazılır. Sonda sorumluluk reddi (`p.art-disc`) KALIR.
   Görünen yayın tarihi (`<time>`) ve `article:published_time` yayın günüdür.
-- Stiller: `.art`, `.art-meta`, `.art-note` (+ `.crit`), `.art-fig`,
-  `.art-src`, `.art-disc` — hepsi tema değişkeniyle, koyu temada da doğru.
+- ÖZET ÖNCE: makale `article.art`'ın ilk öğesi olan `.art-cases` ile başlar
+  (`h2#ozet` + üç `.art-case`; `.ok` yeşil, `.warn` sarı kenar; her kartta
+  `h3` → `p.art-case-tag` hüküm → açıklama). Kart içinde `<li>` yerine `<div>`
+  kullanılır: `htmlToMd()` `<li>` içeriğini tek satıra ezer, h3 kaybolurdu.
+  Yanıt motorları ilk ekrandaki bu özeti alıntılar; ayrıntı bölümleri ve SSS
+  özetle aynı hükmü verir.
+- Stiller: `.art`, `.art-meta`, `.art-note` (+ `.crit`), `.art-cases`/
+  `.art-case` (+ `.ok`/`.warn`, `.art-case-tag`), `.art-fig`, `.art-src`,
+  `.art-disc` — hepsi tema değişkeniyle, koyu temada da doğru.
 - `TR:ONLY` bağlantıları: footer `HELP:STATIC` (`GUIDE` sabiti), SSS merkezi
   grubu (`content/sss.js` → `trOnly: true`), sözlük terimi (`content/sozluk.js`
   → `trLink`), tarımsal sulama duyurusu ve SSS cevabı. `transform()` bu blokları

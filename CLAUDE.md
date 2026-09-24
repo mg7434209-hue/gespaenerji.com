@@ -124,7 +124,10 @@ Person şeması YOK — kurumsal kalır) · `iletisim.html` · `sss.html` (SSS m
 `<main data-article>` → build Article şeması üretir. HER İDDİA KAYNAKLI: kaynaklar
 `ul.art-src` listesinde ve şemanın `citation`'ıdır; doğrulanamayan iddia
 YAZILMAZ. Mevzuat değişince metin + görünen yayın/güncelleme tarihi birlikte
-güncellenir. Ona verilen bağlantılar `<!-- TR:ONLY -->` içinde durur) ·
+güncellenir. Ona verilen bağlantılar `<!-- TR:ONLY -->` içinde durur.
+Makale 3 DURUMLU ÖZETLE başlar (`.art-cases`: off-grid · kabulü tamam ·
+şebeke + güneş birlikte → başvuru ya da TAM AYRIM); ayrıntı bölümleri ve SSS
+bu özetle ÇELİŞMEZ, birini değiştirirsen ötekini de güncelle) ·
 `tarimsal-sulama.html` (KURAL: gece şebekeden beslenen hibrit sulama kurgusu
 başvuru + kabul şartı yazılmadan ÖNERİLMEZ — 2026 yaptırımları; sayfa başında
 yalnız TR görünen rehber duyurusu var) · `toptan.html` (B2B toptan satış: stok kartları ve

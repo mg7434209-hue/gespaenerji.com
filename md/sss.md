@@ -207,6 +207,10 @@ Tarımsal güneş yatırımları için kırsal kalkınma destekleri ve banka kre
 
 Hayır, böyle bir yasak yoktur. Şebekeye bağlı (on-grid) sistemlerin çalışma prensibi zaten budur. Cezalar, üretim tesisinin kabulü yapılmadan işletmeye alınmasından kaynaklanıyor.
 
+### Güneş sistemini şebekeden tamamen ayırırsam başvuru gerekir mi?
+
+Panel, invertör, akü ve bunların beslediği hat ve cihazlar şebeke elektriğine hiçbir noktada temas etmiyorsa güneş tarafı off-grid çalışır ve genel kural olarak şebeke bağlantı ve kabul sürecinin konusu olmaz. Aynı pano ya da sayaç üzerinden besleme, aynı pompayı sırayla güneşten ve şebekeden besleyen komütatör ya da aküyü şebekeden şarj eden hibrit invertör bu ayrımı bozar; bu durumda başvuru ve kabul gerekir. Emin değilseniz kurulumdan önce dağıtım şirketine yazılı olarak sorun.
+
 ### Şebekeye hiç enerji vermiyorum, yine de ceza alır mıyım?
 
 Alabilirsiniz. Denetimde belirleyici olan, kabulü yapılmamış bir üretim tesisinin işletmeye alınmış olmasıdır. "Şebekeye basmıyorum" beyanı tek başına koruma sağlamaz.
