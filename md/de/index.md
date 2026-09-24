@@ -3,7 +3,7 @@ title: "GESPA Energy — Schlüsselfertige Solaranlagen (PV)"
 description: "GESPA Energy: schlüsselfertige Installation, Engineering, Finanzierung und Wartung für Aufdach- und Freiflächen-Solaranlagen. Manavgat / Antalya, Türkei."
 canonical: https://www.gespaenerji.com/de/
 lang: de
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

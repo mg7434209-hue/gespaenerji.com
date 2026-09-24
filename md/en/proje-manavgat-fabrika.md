@@ -3,7 +3,7 @@ title: "Manavgat Factory: 1.2 MWp Rooftop PV | GESPA Enerji"
 description: "This solar power plant on a factory roof in Manavgat is one of our industrial rooftop applications."
 canonical: https://www.gespaenerji.com/en/proje-manavgat-fabrika.html
 lang: en
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

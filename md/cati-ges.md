@@ -3,7 +3,7 @@ title: "Manavgat ve Antalya Çatı GES Kurulumu | GESPA Enerji"
 description: "Çatı GES: konut, iş yeri ve sanayi çatılarında elektrik üretimi. Keşif, mühendislik, ekipman seçimi, kurulum ve bakım tek elden planlanır."
 canonical: https://www.gespaenerji.com/cati-ges.html
 lang: tr
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

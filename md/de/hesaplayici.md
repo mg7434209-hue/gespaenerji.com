@@ -3,7 +3,7 @@ title: "Solar-Ersparnisrechner (PV) | GESPA Energy"
 description: "Kostenloser Solarrechner: Anlagengröße, Jahresertrag, Ersparnis, Amortisation und CO₂-Einsparung anhand Rechnung, Verbrauch oder Dachfläche."
 canonical: https://www.gespaenerji.com/de/hesaplayici.html
 lang: de
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

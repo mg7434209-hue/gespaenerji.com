@@ -3,7 +3,7 @@ title: "Solarmodule, Wechselrichter, Akkus — B2B | GESPA"
 description: "B2B-Großhandel: Solarmodule, Wechselrichter und LiFePO₄-Batterien. Firmenrechnung, Lieferung in die ganze Türkei, Staffelpreise nach Menge."
 canonical: https://www.gespaenerji.com/de/toptan.html
 lang: de
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

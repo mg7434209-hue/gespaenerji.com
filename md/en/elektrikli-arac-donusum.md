@@ -3,7 +3,7 @@ title: "Solar Conversion for EVs — BOOST MPPT | GESPA Energy"
 description: "Solar conversion for golf carts and service vehicles. MS Teknik BOOST MPPT 24–72 V: AGM, gel, lead-acid and lithium support, Bluetooth setup."
 canonical: https://www.gespaenerji.com/en/elektrikli-arac-donusum.html
 lang: en
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

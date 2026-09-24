@@ -3,7 +3,7 @@ title: "PV Güneş Enerjili Su Isıtıcı 60–200 L | GESPA Enerji"
 description: "Elektrikli termosifon konforu, güneş ekonomisi. 60–200 L emaye tanklı PV su ısıtıcı; bulutlu havada otomatik şebeke desteği, TÜV/CE/UL sertifikalı."
 canonical: https://www.gespaenerji.com/su-isitici.html
 lang: tr
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

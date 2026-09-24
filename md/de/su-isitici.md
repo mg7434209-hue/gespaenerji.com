@@ -3,7 +3,7 @@ title: "PV-Solar-Warmwasserbereiter | GESPA Energy"
 description: "PV-Warmwasserbereiter: erwärmt Wasser direkt mit Solarmodulen. GF-20-Regler, automatische Netz-Reserve bei Bewölkung, 60–200 L Emailtank."
 canonical: https://www.gespaenerji.com/de/su-isitici.html
 lang: de
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

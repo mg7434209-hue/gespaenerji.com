@@ -3,7 +3,7 @@ title: "UNV Trek Pro 2500 W Portable Power Station | GESPA"
 description: "2500 W continuous output, 2496 Wh battery, 4 × 230 V pure sine sockets, 30 ms UPS. Portable power station for camping, caravans and home backup."
 canonical: https://www.gespaenerji.com/en/unv-trek-pro-2500.html
 lang: en
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

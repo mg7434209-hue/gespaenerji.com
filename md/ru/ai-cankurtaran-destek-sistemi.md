@@ -3,7 +3,7 @@ title: "ИИ-поддержка спасателей — безопасност�
 description: "ИИ-предотвращение утоплений в бассейнах отелей и ЖК: наблюдение 24/7, мгновенный сигнал с координатами на смарт-часы спасателя, локальная обработка."
 canonical: https://www.gespaenerji.com/ru/ai-cankurtaran-destek-sistemi.html
 lang: ru
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

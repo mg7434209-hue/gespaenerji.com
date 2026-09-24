@@ -3,7 +3,7 @@ title: "GES Bakım, İzleme ve Performans Kontrolü | GESPA Enerji"
 description: "GES bakımı ve izleme: planlı kontroller, üretim kaybı analizi ve arıza müdahale. Kapsam tesise ve işletme ihtiyacına göre belirlenir."
 canonical: https://www.gespaenerji.com/bakim-izleme.html
 lang: tr
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

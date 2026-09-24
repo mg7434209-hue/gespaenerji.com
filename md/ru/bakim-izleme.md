@@ -3,7 +3,7 @@ title: "Обслуживание и мониторинг солнечных ст
 description: "Обслуживание и мониторинг: плановые проверки, анализ потерь выработки и устранение неисправностей. Объём зависит от станции."
 canonical: https://www.gespaenerji.com/ru/bakim-izleme.html
 lang: ru
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

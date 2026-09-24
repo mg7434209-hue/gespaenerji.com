@@ -3,7 +3,7 @@ title: "Sistem Kurucu — Kendi Solar Paketinizi Kurun | GESPA"
 description: "Çalıştıracağınız cihazları seçin; panel, akü ve inverter gücünü anında hesaplayalım. Marka-model seçip kendi solar sisteminizi kurun."
 canonical: https://www.gespaenerji.com/sistem-kur.html
 lang: tr
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

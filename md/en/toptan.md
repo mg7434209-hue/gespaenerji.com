@@ -3,7 +3,7 @@ title: "Wholesale Solar Panels, Inverters, Batteries | GESPA"
 description: "B2B wholesale: solar panels, inverters and LiFePO₄ batteries. Corporate invoicing, nationwide delivery in Türkiye, tiered pricing by quantity."
 canonical: https://www.gespaenerji.com/en/toptan.html
 lang: en
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

@@ -3,7 +3,7 @@ title: "Solar Savings Calculator (PV) | GESPA Energy"
 description: "Free solar calculator: system size, annual yield, savings, payback period and CO₂ reduction from your bill, consumption or roof area."
 canonical: https://www.gespaenerji.com/en/hesaplayici.html
 lang: en
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

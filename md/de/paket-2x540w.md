@@ -3,7 +3,7 @@ title: "Solarsystem 2×540 W — LiFePO₄-Batterie | GESPA Energy"
 description: "2×540-W-Module + große Power-Box mit LiFePO₄-Batterie + Kabel: komplettes mobiles Solarsystem für Kühlschrank, TV, Wasch- und Spülmaschine. ~6,5 kWh Ertrag pro Tag."
 canonical: https://www.gespaenerji.com/de/paket-2x540w.html
 lang: de
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

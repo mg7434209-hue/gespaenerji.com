@@ -3,7 +3,7 @@ title: "PV Solar Water Heater — Photovoltaic | GESPA Energy"
 description: "PV water heater that heats water directly with solar panels. Smart GF-20 controller, automatic grid backup on cloudy days, 60–200 L enamel tank."
 canonical: https://www.gespaenerji.com/en/su-isitici.html
 lang: en
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

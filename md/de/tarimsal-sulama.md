@@ -3,7 +3,7 @@ title: "Solare Bewässerung — Solar-Pumpsysteme | GESPA Energy"
 description: "Solarbetriebene landwirtschaftliche Bewässerung: netzunabhängige, dieselfreie PV-Lösungen für Tauch-/Oberflächenpumpen. Manavgat/Antalya und ganz Türkei."
 canonical: https://www.gespaenerji.com/de/tarimsal-sulama.html
 lang: de
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 
@@ -143,7 +143,7 @@ Je nach Kraftstoff-/Stromkosten, Pumpenleistung und Bewässerungsdauer meist 2�
 
 ### Brauche ich eine Batterie für nächtliche Bewässerung?
 
-Tagsüber reicht es meist; bei Bedarf wird eine Batterie oder ein Netz-Hybrid ergänzt.
+Tagsüber reicht die Bewässerung meist aus. Wird nachts bewässert, kommt eine Batterie hinzu. Ein Hybridaufbau, der dieselbe Pumpe nachts aus dem Netz versorgt, erfordert dagegen einen Antrag und ein Abnahmeverfahren beim Verteilnetzbetreiber; vor der Abnahme darf die Anlage nicht betrieben werden. Den Antrag übernehmen wir.
 
 ### Wie lange dauert die Installation — rechtzeitig zur Saison?
 

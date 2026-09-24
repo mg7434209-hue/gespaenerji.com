@@ -3,7 +3,7 @@ title: "Toptan Güneş Paneli, İnverter, Akü | GESPA Enerji"
 description: "Bayi, EPC ve kurulumculara toptan güneş paneli, inverter ve LiFePO₄ akü. Kurumsal fatura, Türkiye geneli nakliye, adede göre toptan fiyat teklifi."
 canonical: https://www.gespaenerji.com/toptan.html
 lang: tr
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

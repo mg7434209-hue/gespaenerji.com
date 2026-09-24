@@ -3,7 +3,7 @@ title: "Kemer Villa: 12 kWp Rooftop PV | GESPA Enerji"
 description: "A solar installation on a villa with a pitched tile roof in Kemer."
 canonical: https://www.gespaenerji.com/en/proje-kemer-villa.html
 lang: en
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

@@ -120,8 +120,24 @@ for(const pre of ['','en/','de/','ru/']){
 }
 for(const f of fs.readdirSync(root).filter(f=>f.endsWith('.html'))){
  const h=fs.readFileSync(path.join(root,f),'utf8');
- if(h.includes('<!-- /SISTER:STATIC -->'))assert.ok(/<!-- HELP:STATIC --><a href="sss.html">[^<]+<\/a><a href="sozluk.html">[^<]+<\/a><!-- \/HELP:STATIC -->/.test(h),f+': footer help links');
+ if(h.includes('<!-- /SISTER:STATIC -->'))assert.ok(/<!-- HELP:STATIC --><a href="sss.html">[^<]+<\/a><a href="sozluk.html">[^<]+<\/a><!-- TR:ONLY --><a href="gunes-paneli-kacak-elektrik-cezasi.html">[^<]+<\/a><!-- \/TR:ONLY --><!-- \/HELP:STATIC -->/.test(h),f+': footer help links');
 }
+// TR-only blocks (links to the Turkish-only regulation guide) never reach a language copy or its Markdown mirror.
+for(const d of ['en','de','ru','md/en','md/de','md/ru'])for(const f of fs.readdirSync(path.join(root,d)).filter(f=>/\.(html|md)$/.test(f))){
+ const t=fs.readFileSync(path.join(root,d,f),'utf8');
+ assert.ok(!t.includes('TR:ONLY')&&!t.includes('gunes-paneli-kacak-elektrik-cezasi'),d+'/'+f+': TR-only content leaked');
+}
+// Guide page: Article schema mirrors the visible page (headline = h1, same dates as WebPage, citations = sources list).
+{const g=fs.readFileSync(path.join(root,'gunes-paneli-kacak-elektrik-cezasi.html'),'utf8');
+ const lds=[...g.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1]));
+ const art=lds.find(x=>x['@type']==='Article'),wp=lds.find(x=>x['@type']==='WebPage');
+ const h1=(g.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)||[])[1].replace(/<[^>]+>/g,'').trim();
+ assert.ok(art&&art.headline===h1,'guide: Article headline = h1');
+ assert.ok(art.datePublished===wp.datePublished&&art.dateModified===wp.dateModified,'guide: Article dates = WebPage dates');
+ assert.equal(wp.mainEntity['@id'],art['@id'],'guide: WebPage.mainEntity -> Article');
+ const src=((g.match(/<ul class="art-src">([\s\S]*?)<\/ul>/)||[])[1]||'').match(/<a\b/g)||[];
+ assert.ok(src.length>0&&art.citation.length===src.length,'guide: citations = visible sources');
+ assert.ok(/<link rel="alternate" hreflang="tr"/.test(g)&&!/hreflang="en"/.test(g),'guide: Turkish only');}
 // In-text glossary links (product pages, calculator) must point at an existing term anchor:
 // a renamed term id would silently break them. Checked in every language copy.
 const termIds=new Set(glossary.terms.map(t=>t.id));let glossLinks=0;

@@ -1955,3 +1955,27 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
 .gl-term:target{background:color-mix(in srgb,var(--green) 6%,transparent);border-radius:12px;padding-left:14px;padding-right:14px}
 .seo-faq{margin-top:36px}
 .seo-faq h2{margin-bottom:14px}
+
+/* Rehber / makale sayfaları (<main data-article> → article.art) — okunur
+   satır uzunluğu, tema değişkenleriyle uyarı kutuları (koyu temada da). */
+.art-meta{color:var(--muted);font-size:.92rem;margin-top:12px}
+.art{line-height:1.75;font-size:1.03rem}
+.art p{margin:0 0 14px}
+.art h2{font-size:1.32rem;margin:34px 0 10px;padding-top:16px;border-top:1px solid var(--line)}
+.art h3{font-size:1.08rem;margin:22px 0 6px}
+.art ul,.art ol{padding-left:1.35em;margin:0 0 16px}
+.art li{margin:6px 0}
+.art a{color:var(--green-light);text-decoration:underline;text-underline-offset:2px}
+.section.guide-notice{padding:28px 0 0}
+.guide-notice .art-note{margin:0}
+.art-note{background:var(--bg-alt);border-left:4px solid var(--sun);border-radius:0 12px 12px 0;padding:14px 18px;margin:22px 0}
+.art-note.crit{border-left-color:#d9534f}
+.art-note p:last-child{margin-bottom:0}
+.art-fig{margin:24px 0}
+.art-fig img{width:100%;height:auto;border-radius:12px}
+.art-fig figcaption{color:var(--muted);font-size:.88rem;margin-top:8px}
+.art .faq{margin:8px 0 12px}
+.art-src{font-size:.92rem}
+.art-src li{overflow-wrap:anywhere}
+.art-disc{color:var(--muted);font-size:.88rem;margin-top:28px!important;padding-top:14px;border-top:1px solid var(--line)}
+@media(max-width:600px){.art{font-size:1rem}.art h2{font-size:1.2rem}}

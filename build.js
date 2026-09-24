@@ -43,10 +43,18 @@ const PAGES = [
 //  · hreflang kümesi yalnız TR + x-default içerir (kendine işaret eder),
 //  · sitemap'e tek TR URL'siyle girer.
 // Yeni bir yasal sayfa eklersen buraya da yaz.
+// Türk mevzuatını anlatan REHBER sayfaları da yalnız Türkçedir (<main
+// data-article>): içerik Türkiye'deki aboneye yöneliktir, çevirisi yayımlanmaz.
+// Bu sayfalara diğer sayfalardan verilen bağlantılar <!-- TR:ONLY --> …
+// <!-- /TR:ONLY --> arasına yazılır; transform() dil kopyasında o bloğu siler.
 const TR_ONLY = [
   "kvkk.html", "gizlilik.html", "cerez-politikasi.html",
-  "mesafeli-satis-sozlesmesi.html", "iade-teslimat.html"
+  "mesafeli-satis-sozlesmesi.html", "iade-teslimat.html",
+  "gunes-paneli-kacak-elektrik-cezasi.html"
 ];
+// Mevzuat rehberi — footer "Kurumsal" sütununda yalnız TR sayfalarda görünür
+const GUIDE = { file: "gunes-paneli-kacak-elektrik-cezasi.html", label: "Güneş Paneli Cezası Rehberi" };
+const TR_ONLY_RE = /<!-- TR:ONLY -->[\s\S]*?<!-- \/TR:ONLY -->/g;
 
 PAGES.push(...seo.pages.map(p => p.file));
 // Yardım sayfaları EN SONDA: sss.html diğer sayfaların güncel SSS'lerini
@@ -351,7 +359,8 @@ function faqItemHtml(q, a, link) {
 }
 function hydrateHelp(html, file) {
   const help = '<!-- HELP:STATIC --><a href="sss.html">' + esc(HELP.labels.title[0]) + '</a><a href="sozluk.html">'
-    + esc(GLOSSARY.labels.title[0]) + '</a><!-- /HELP:STATIC -->';
+    + esc(GLOSSARY.labels.title[0]) + '</a><!-- TR:ONLY --><a href="' + GUIDE.file + '">' + esc(GUIDE.label)
+    + '</a><!-- /TR:ONLY --><!-- /HELP:STATIC -->';
   if (/<!-- HELP:STATIC -->/.test(html)) html = html.replace(/<!-- HELP:STATIC -->[\s\S]*?<!-- \/HELP:STATIC -->/g, () => help);
   else html = html.replace(/(<!-- \/SISTER:STATIC -->)/, m => m + help);
 
@@ -368,13 +377,14 @@ function hydrateHelp(html, file) {
       if (!items.length) return;
       groups.push({ id: "sss-" + g.file.replace(/\.html$/, ""), g: g, items: items });
     });
-    const hub = groups.map(x => '<section class="faqhub-group" id="' + x.id + '"><h2>' + esc(x.g.title[0]) + "</h2>"
+    const trOnly = (x, s) => x.g.trOnly ? "<!-- TR:ONLY -->" + s + "<!-- /TR:ONLY -->" : s;
+    const hub = groups.map(x => trOnly(x, '<section class="faqhub-group" id="' + x.id + '"><h2>' + esc(x.g.title[0]) + "</h2>"
       + '<div class="faq">' + x.items.join("") + "</div>"
-      + '<p class="faqhub-src"><a href="' + esc(x.g.file) + '">' + esc(HELP.labels.source[0]) + "</a></p></section>").join("");
+      + '<p class="faqhub-src"><a href="' + esc(x.g.file) + '">' + esc(HELP.labels.source[0]) + "</a></p></section>")).join("");
     html = html.replace(FAQHUB_RE, () => "<!-- FAQHUB:STATIC -->" + hub + "<!-- /FAQHUB:STATIC -->");
     const toc = '<nav class="faqhub-toc" aria-label="' + esc(HELP.labels.toc[0]) + '">'
       + '<a href="#sss-genel">' + esc(HELP.labels.generalKicker[0]) + "</a>"
-      + groups.map(x => '<a href="#' + x.id + '">' + esc(x.g.title[0]) + "</a>").join("") + "</nav>";
+      + groups.map(x => trOnly(x, '<a href="#' + x.id + '">' + esc(x.g.title[0]) + "</a>")).join("") + "</nav>";
     html = html.replace(/<!-- FAQTOC:STATIC -->[\s\S]*?<!-- \/FAQTOC:STATIC -->/, () => "<!-- FAQTOC:STATIC -->" + toc + "<!-- /FAQTOC:STATIC -->");
   }
   if (file === "sozluk.html") {
@@ -382,7 +392,9 @@ function hydrateHelp(html, file) {
       + GLOSSARY.terms.map(t => '<a href="#' + t.id + '">' + esc(t.term[0]) + "</a>").join("") + "</nav>";
     const body = GLOSSARY.terms.map(t => '<section class="gl-term" id="' + t.id + '"><h2>' + esc(t.term[0]) + "</h2>"
       + "<p>" + esc(t.def[0]) + "</p>"
-      + (t.link ? '<p class="gl-more"><a href="' + esc(t.link.href) + '">' + esc(t.link.text[0]) + "</a></p>" : "") + "</section>").join("");
+      + (t.link ? '<p class="gl-more"><a href="' + esc(t.link.href) + '">' + esc(t.link.text[0]) + "</a></p>" : "")
+      + (t.trLink ? '<!-- TR:ONLY --><p class="gl-more"><a href="' + esc(t.trLink.href) + '">' + esc(t.trLink.text) + "</a></p><!-- /TR:ONLY -->" : "")
+      + "</section>").join("");
     html = html.replace(/<!-- GLOSSARY:STATIC -->[\s\S]*?<!-- \/GLOSSARY:STATIC -->/, () => "<!-- GLOSSARY:STATIC -->" + idx + body + "<!-- /GLOSSARY:STATIC -->");
   }
   return html;
@@ -674,6 +686,7 @@ function pageLd(file, html, cfg, hasCrumbs) {
   };
   if (type === "ItemPage") d.mainEntity = { "@id": url + "#product" };
   else d.about = { "@id": web + "/#organization" };
+  if (/<main\b[^>]*\bdata-article\b/.test(html)) d.mainEntity = { "@id": url + "#article" };
   if (og) d.primaryImageOfPage = { "@type": "ImageObject", url: og };
   if (hasCrumbs) d.breadcrumb = { "@id": url + "#breadcrumb" };
   const sel = ["h1"];
@@ -682,6 +695,30 @@ function pageLd(file, html, cfg, hasCrumbs) {
   d.speakable = { "@type": "SpeakableSpecification", cssSelector: sel };
   return d;
 }
+// Rehber/makale sayfası (<main data-article>): Article şeması. Başlık h1'den,
+// açıklama meta'dan, tarihler WebPage ile AYNI kaynaktan (firstModOf/lastModOf),
+// kaynakça görünen "Kaynaklar" listesinden (ul.art-src) — şema sayfayla birebir
+// kalır, elle yazılmaz. Yazar ve yayıncı firmadır (kişi/Person şeması YOK).
+function articleLd(file, html, cfg) {
+  const web = cfg.company.web, url = web + "/" + file;
+  const text = x => decodeEnt(String(x || "").replace(/<[^>]+>/g, "")).replace(/\s+/g, " ").trim();
+  const src = (html.match(/<ul class="art-src">([\s\S]*?)<\/ul>/) || [])[1] || "";
+  const citation = [...src.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g)]
+    .map(m => ({ "@type": "CreativeWork", name: text(m[2]), url: unesc(m[1]) }));
+  const d = {
+    "@context": "https://schema.org", "@type": "Article", "@id": url + "#article",
+    headline: text((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1]),
+    description: unesc((html.match(/<meta name="description" content="([^"]*)"/) || [])[1]).trim(),
+    inLanguage: "tr", datePublished: firstModOf(file), dateModified: lastModOf(file),
+    author: { "@id": web + "/#organization" }, publisher: { "@id": web + "/#organization" },
+    mainEntityOfPage: { "@id": url + "#page" }, isAccessibleForFree: true
+  };
+  const og = (html.match(/<meta property="og:image" content="([^"]+)"/) || [])[1];
+  if (og) d.image = og;
+  if (citation.length) d.citation = citation;
+  return d;
+}
+
 // Ürün sayfasındaki teknik künye tablosu → PropertyValue listesi
 // (.spec-table; parts-table DEĞİL; fiyat içeren satır alınmaz)
 function specProps(html) {
@@ -999,6 +1036,7 @@ function injectStaticLd(html, file, cfg) {
   }
   if (file === "projeler.html") { const pl = projectsItemListLd(html, cfg); if (pl) objs.push(pl); }
   if (file === "sozluk.html") objs.push(glossaryLd(cfg));
+  if (/<main\b[^>]*\bdata-article\b/.test(html)) objs.push(articleLd(file, html, cfg));
   const faq = faqLdFromHtml(html);
   if (faq) objs.push(faq);
   if (bc) objs.push(bc);
@@ -1432,7 +1470,7 @@ const PRIORITY = {
   "elektrikli-arac-donusum.html": "0.8", "unv-trek-pro-2500.html": "0.8",
   "kvkk.html": "0.3", "gizlilik.html": "0.3", "cerez-politikasi.html": "0.3",
   "mesafeli-satis-sozlesmesi.html": "0.4", "iade-teslimat.html": "0.4",
-  "sss.html": "0.7", "sozluk.html": "0.6"
+  "sss.html": "0.7", "sozluk.html": "0.6", "gunes-paneli-kacak-elektrik-cezasi.html": "0.7"
 };
 /* ============================================================
    AI DOSYALARI — llms.txt (özet, build üretir) ve /md/ Markdown kopyalar.
@@ -1450,6 +1488,7 @@ const LLMS_GROUPS = [
   ["Yapay zekâ ürünleri", ["ai-cankurtaran-destek-sistemi.html"]],
   ["Ücretsiz araçlar", ["hesaplayici.html", "sistem-kur.html"]],
   ["Referans projeler", ["projeler.html", "proje-kemer-villa.html", "proje-manavgat-fabrika.html", "proje-manavgat-tarimsal.html"]],
+  ["Rehberler ve güncel mevzuat (yalnız Türkçe)", ["gunes-paneli-kacak-elektrik-cezasi.html"]],
   ["Kurumsal ve yardım", ["hakkimizda.html", "iletisim.html", "sss.html", "sozluk.html"]]
 ];
 function pageMeta(file) {
@@ -1476,7 +1515,8 @@ function writeLlms(cfg) {
   }).filter(Boolean).join("\n\n");
   // Listeye girmemiş sayfalar (yeni eklenen) kendiliğinden "Diğer" altına düşer
   const other = PAGES.filter(f => !listed.has(f) && !NOINDEX_FILES.includes(f)).map(line).filter(Boolean);
-  const legal = TR_ONLY.map(line).filter(Boolean);
+  // Yalnız TR olup bir gruba yazılmış sayfa (rehber) "Yasal" başlığına düşmez
+  const legal = TR_ONLY.filter(f => !listed.has(f)).map(line).filter(Boolean);
   const nf = n => new Intl.NumberFormat("tr-TR").format(Math.round(n));
   const RATE = cfg.usdTry || 0;
   const products = (cfg.packages || []).filter(p => p.price != null || p.priceOnRequest).map(p => {
@@ -1924,6 +1964,10 @@ function transform(html, lang, file, i18n) {
   const trTitle = unesc((html.match(/<title>([\s\S]*?)<\/title>/) || [])[1]).trim();
   const trDesc = unesc((html.match(/<meta name="description" content="([^"]*)"/) || [])[1]).trim();
 
+  // 0) Yalnız TR sayfada kalacak bloklar (Türkçe rehbere bağlantılar) dil
+  //    kopyasına girmez — çevirisiz Türkçe metin ve TR-only sayfaya bağlantı olmasın.
+  out = out.replace(TR_ONLY_RE, "");
+
   // 1) <html lang="tr"> -> hedef dil
   out = out.replace(/<html lang="tr"/, '<html lang="' + lang + '"');
 
@@ -2046,7 +2090,8 @@ function run() {
     // bugün değişmiştir. Karşılaştırma build öncesi hâle göre, tarih alanları hariç.
     if (pre[file] != null && maskDates(html) !== maskDates(pre[file]) && lastModOf(file) !== todayIso()) {
       _lastMod[file] = todayIso();
-      html = html.replace(/"dateModified":"\d{4}-\d{2}-\d{2}"/, '"dateModified":"' + todayIso() + '"');
+      // global: WebPage ile Article (rehber sayfası) aynı tarihi taşır
+      html = html.replace(/"dateModified":"\d{4}-\d{2}-\d{2}"/g, '"dateModified":"' + todayIso() + '"');
     }
     if (html !== before) fs.writeFileSync(p, html);
     writeMarkdownFile(html, "tr", file, cfg);

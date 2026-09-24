@@ -3,7 +3,7 @@ title: "Tarımsal Sulama GES — Güneşli Sulama | GESPA Enerji"
 description: "Güneş enerjili tarımsal sulama: mazotsuz, şebekeden bağımsız dalgıç ve yüzey pompa sistemleri. Ücretsiz keşif ve mazot tasarruf analizi."
 canonical: https://www.gespaenerji.com/tarimsal-sulama.html
 lang: tr
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 
@@ -19,6 +19,10 @@ Sulama sezonu başladı. Güneş enerjili pompa sistemleriyle **mazot ve elektri
 
 [Ücretsiz Sulama Teklifi Al](#sulama-teklif)
 [Sulama hesaplaması yap](https://www.gespaenerji.com/hesaplayici.html#tarim)
+
+**Güncel uyarı:** Sulamada kullanılan güneş panellerine, kabul işlemleri yapılmadan çalıştırıldıkları için yüz binlerce liralık cezalar yazılıyor. Yasal kurulum adımlarını ve ceza aldıysanız yapılacakları rehberimizde anlattık.
+
+[Rehberi okuyun →](https://www.gespaenerji.com/gunes-paneli-kacak-elektrik-cezasi.html)
 
 🌾 Öne Çıkan Çözüm
 
@@ -143,7 +147,9 @@ Mevcut yakıt/elektrik maliyetinize, pompa gücüne ve sulama süresine göre ge
 
 ### Gece sulama için batarya şart mı?
 
-Çoğu durumda gündüz sulama yeterlidir; gerekirse batarya veya şebeke destekli hibrit kurgu eklenir.
+Çoğu durumda gündüz sulama yeterlidir. Gece sulama gerekiyorsa batarya eklenir. Aynı pompayı gece şebekeden besleyen hibrit kurguda ise dağıtım şirketine başvuru ve kabul işlemleri gerekir; kabul tamamlanmadan sistem çalıştırılmamalıdır. Başvuru sürecini biz yürütürüz.
+
+[Güneş paneli cezası rehberi →](https://www.gespaenerji.com/gunes-paneli-kacak-elektrik-cezasi.html)
 
 ### Kurulum ne kadar sürer, sezona yetişir mi?
 

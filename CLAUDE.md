@@ -120,7 +120,14 @@ verir; video/poster yolları build'de mutlaklaştırılır: href|src|poster) ·
 şirket/şahıs ayrımı ve 2022 sicil satırı kullanıcı kararıyla KALDIRILDI, kurucu/
 Person şeması YOK — kurumsal kalır) · `iletisim.html` · `sss.html` (SSS merkezi) ·
 `sozluk.html` (GES sözlüğü; ikisini build doldurur — `content/sss.js`, `content/sozluk.js`) ·
-`tarimsal-sulama.html` · `toptan.html` (B2B toptan satış: stok kartları ve
+`gunes-paneli-kacak-elektrik-cezasi.html` (MEVZUAT REHBERİ, yalnız TR — TR_ONLY;
+`<main data-article>` → build Article şeması üretir. HER İDDİA KAYNAKLI: kaynaklar
+`ul.art-src` listesinde ve şemanın `citation`'ıdır; doğrulanamayan iddia
+YAZILMAZ. Mevzuat değişince metin + görünen yayın/güncelleme tarihi birlikte
+güncellenir. Ona verilen bağlantılar `<!-- TR:ONLY -->` içinde durur) ·
+`tarimsal-sulama.html` (KURAL: gece şebekeden beslenen hibrit sulama kurgusu
+başvuru + kabul şartı yazılmadan ÖNERİLMEZ — 2026 yaptırımları; sayfa başında
+yalnız TR görünen rehber duyurusu var) · `toptan.html` (B2B toptan satış: stok kartları ve
 koşullar `config.b2b`'den build ile STATİK basılır — B2B:STATIC işareti;
 fiyat YAZILMAZ, adede göre teklif; adet kutusu + WhatsApp mesajı ve teklif
 formu main.js toptan IIFE'sinde; stok değişince config.b2b.stock güncelle +
@@ -550,6 +557,10 @@ Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD v
   olmadığı için link yerelleştirmesi dokunmaz). Eski `/en/kvkk.html` gibi
   adresler server.js'te TR sürümüne **301** yönlendirilir — indekslenmiş
   URL'ler 404 olmasın. Yeni yasal sayfa eklersen TR_ONLY'ye de yaz.
+  Türkçe MEVZUAT REHBERLERİ de TR_ONLY'dedir. Onlara çevrilen sayfalardan
+  verilen bağlantı `<!-- TR:ONLY -->…<!-- /TR:ONLY -->` arasına yazılır;
+  transform() bu bloğu dil kopyasından SİLER (test denetler). İşaretsiz
+  bırakılan bağlantı EN/DE/RU sayfaya çevirisiz Türkçe metin taşır.
 - SEO için diller **ayrı URL**lerde sunulur: kök=TR, `/en` `/de` `/ru`. `build.js`
   kök sayfalardan üretir (lang/title/description/canonical/og statik gömülür, gövde
   istemci i18n ile çevrilir). Sayfa `<title>`/description çevirisi `build.js` içindeki

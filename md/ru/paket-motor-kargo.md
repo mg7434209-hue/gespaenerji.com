@@ -3,7 +3,7 @@ title: "Солнечный комплект для грузового трици
 description: "Готовый комплект для грузовых трициклов: панель 655 Вт N-type TOPCon, контроллер BOOST MPPT 24–72 В, кабель и MC4."
 canonical: https://www.gespaenerji.com/ru/paket-motor-kargo.html
 lang: ru
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

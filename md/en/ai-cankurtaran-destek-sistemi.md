@@ -3,7 +3,7 @@ title: "AI Lifeguard Support System — Pool Safety | GESPA"
 description: "AI drowning prevention for hotel, aquapark and residential pools: 24/7 monitoring, instant location alerts to the lifeguard's smartwatch, local processing."
 canonical: https://www.gespaenerji.com/en/ai-cankurtaran-destek-sistemi.html
 lang: en
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

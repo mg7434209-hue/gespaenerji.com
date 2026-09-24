@@ -3,7 +3,7 @@ title: "Солнечный комплект для пассажирского т
 description: "Готовый комплект для закрытых пассажирских трициклов: панель 285 Вт TOPCon, контроллер BOOST MPPT 24–72 В, кабель и MC4."
 canonical: https://www.gespaenerji.com/ru/paket-motor-yolcu.html
 lang: ru
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

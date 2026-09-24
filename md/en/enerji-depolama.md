@@ -3,7 +3,7 @@ title: "Solar Energy Storage and Battery Systems | GESPA Enerji"
 description: "Solar energy storage: battery choice follows daily consumption, critical loads, inverter compatibility and target backup time."
 canonical: https://www.gespaenerji.com/en/enerji-depolama.html
 lang: en
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

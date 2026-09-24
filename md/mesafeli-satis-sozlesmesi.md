@@ -3,7 +3,7 @@ title: "Mesafeli Satış Sözleşmesi | GESPA Enerji"
 description: "GESPA Enerji mesafeli satış sözleşmesi: taraflar, ürün ve bedel, ödeme, teslimat, 14 gün cayma hakkı, garanti ve uyuşmazlık çözümü."
 canonical: https://www.gespaenerji.com/mesafeli-satis-sozlesmesi.html
 lang: tr
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

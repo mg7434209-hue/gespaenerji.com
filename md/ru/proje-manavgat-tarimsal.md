@@ -3,7 +3,7 @@ title: "Агро-станция в Манавгате: 30 кВтп | GESPA Enerj
 description: "Станция на крыше теплицы для полива теплицы и поля."
 canonical: https://www.gespaenerji.com/ru/proje-manavgat-tarimsal.html
 lang: ru
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

@@ -3,7 +3,7 @@ title: "Landwirtschaftliche PV in Manavgat: 30 kWp | GESPA Enerji"
 description: "Solarkraftwerk auf einem Gewächshausdach für Gewächshaus- und Feldbewässerung."
 canonical: https://www.gespaenerji.com/de/proje-manavgat-tarimsal.html
 lang: de
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

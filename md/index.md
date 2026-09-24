@@ -3,7 +3,7 @@ title: "GESPA Enerji — Anahtar Teslim Güneş Enerjisi (GES)"
 description: "GESPA Enerji: çatı ve arazi tipi güneş enerjisi santralleri (GES) için anahtar teslim kurulum, mühendislik, finansman ve bakım. Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/
 lang: tr
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

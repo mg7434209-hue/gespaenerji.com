@@ -3,7 +3,7 @@ title: "Ground-Mounted Solar: Assessment & Install | GESPA Enerji"
 description: "Ground-mounted solar: feasibility, land assessment, engineering and installation. Slope, shading, soil and grid capacity are assessed together."
 canonical: https://www.gespaenerji.com/en/arazi-ges.html
 lang: en
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

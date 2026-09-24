@@ -3,7 +3,7 @@ title: "Online Satış — Güneş Enerjisi Ürünleri | GESPA Enerji"
 description: "GESPA Enerji online satış: hazır güneş enerjisi paketleri, şarj kontrol cihazları ve solar ekipman. Şeffaf fiyat, KDV dahil, Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/online-satis.html
 lang: tr
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

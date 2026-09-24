@@ -3,7 +3,7 @@ title: "Manavgat Tarımsal GES: 30 kWp | GESPA Enerji"
 description: "Sera ve tarla sulaması için sera çatısına kurulan güneş enerjisi santrali."
 canonical: https://www.gespaenerji.com/proje-manavgat-tarimsal.html
 lang: tr
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

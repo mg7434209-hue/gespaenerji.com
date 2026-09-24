@@ -3,7 +3,7 @@ title: "Накопители солнечной энергии и аккумул
 description: "Накопители солнечной энергии: выбор батареи зависит от потребления, важных нагрузок, инвертора и времени резерва."
 canonical: https://www.gespaenerji.com/ru/enerji-depolama.html
 lang: ru
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

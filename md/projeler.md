@@ -3,7 +3,7 @@ title: "Referans Projeler — Çatı ve Arazi GES | GESPA Enerji"
 description: "Farklı sektörlerde devreye aldığımız güneş enerjisi santrali (GES) projeleri: sanayi, tarım, soğuk hava deposu, otel ve arazi santralleri."
 canonical: https://www.gespaenerji.com/projeler.html
 lang: tr
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

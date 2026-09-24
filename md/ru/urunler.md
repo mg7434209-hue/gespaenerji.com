@@ -3,7 +3,7 @@ title: "Солнечные пакеты — off-grid и полив | GESPA"
 description: "Комплекты 285 Вт и 2×540 Вт для кемпинга, автодомов и дач. Панели, блок питания и кабели; доставка по всей Турции."
 canonical: https://www.gespaenerji.com/ru/urunler.html
 lang: ru
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

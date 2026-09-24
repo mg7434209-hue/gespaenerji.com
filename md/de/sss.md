@@ -3,7 +3,7 @@ title: "Häufige Fragen — Solarenergie, Bestellung und Montage | GESPA Energy"
 description: "Antworten zu Solaranlagen, Akkus, Solarumrüstung von E-Fahrzeugen, Bestellung, Versand, Zahlung und Montage an einem Ort. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/de/sss.html
 lang: de
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 
@@ -187,7 +187,7 @@ Je nach Kraftstoff-/Stromkosten, Pumpenleistung und Bewässerungsdauer meist 2�
 
 ### Brauche ich eine Batterie für nächtliche Bewässerung?
 
-Tagsüber reicht es meist; bei Bedarf wird eine Batterie oder ein Netz-Hybrid ergänzt.
+Tagsüber reicht die Bewässerung meist aus. Wird nachts bewässert, kommt eine Batterie hinzu. Ein Hybridaufbau, der dieselbe Pumpe nachts aus dem Netz versorgt, erfordert dagegen einen Antrag und ein Abnahmeverfahren beim Verteilnetzbetreiber; vor der Abnahme darf die Anlage nicht betrieben werden. Den Antrag übernehmen wir.
 
 ### Wie lange dauert die Installation — rechtzeitig zur Saison?
 

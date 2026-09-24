@@ -3,7 +3,7 @@ title: "Kemer Villa: 12 kWp Çatı GES | GESPA Enerji"
 description: "Kemer’de çift eğimli kiremit çatılı villaya kurulan güneş enerjisi sistemi."
 canonical: https://www.gespaenerji.com/proje-kemer-villa.html
 lang: tr
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

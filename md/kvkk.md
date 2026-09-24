@@ -3,7 +3,7 @@ title: "KVKK Aydınlatma Metni | GESPA Enerji"
 description: "6698 sayılı KVKK kapsamında GESPA Enerji aydınlatma metni: kişisel verilerin işlenme amaçları, hukuki sebepleri ve ilgili kişinin hakları."
 canonical: https://www.gespaenerji.com/kvkk.html
 lang: tr
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

@@ -3,7 +3,7 @@ title: "Sıkça Sorulan Sorular — Güneş Enerjisi, Sipariş ve Kurulum | GESP
 description: "Güneş enerjisi santrali, akü, elektrikli araç güneş dönüşümü, sipariş, kargo, ödeme ve kurulum hakkında sık sorulan soruların cevapları tek sayfada. GESPA Enerji, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/sss.html
 lang: tr
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 
@@ -187,7 +187,9 @@ Mevcut yakıt/elektrik maliyetinize, pompa gücüne ve sulama süresine göre ge
 
 ### Gece sulama için batarya şart mı?
 
-Çoğu durumda gündüz sulama yeterlidir; gerekirse batarya veya şebeke destekli hibrit kurgu eklenir.
+Çoğu durumda gündüz sulama yeterlidir. Gece sulama gerekiyorsa batarya eklenir. Aynı pompayı gece şebekeden besleyen hibrit kurguda ise dağıtım şirketine başvuru ve kabul işlemleri gerekir; kabul tamamlanmadan sistem çalıştırılmamalıdır. Başvuru sürecini biz yürütürüz.
+
+[Güneş paneli cezası rehberi →](https://www.gespaenerji.com/gunes-paneli-kacak-elektrik-cezasi.html)
 
 ### Kurulum ne kadar sürer, sezona yetişir mi?
 
@@ -198,6 +200,38 @@ Keşiften sonra tipik kurulum birkaç gün sürer. Sulama sezonuna yetişmek iç
 Tarımsal güneş yatırımları için kırsal kalkınma destekleri ve banka kredileri kullanılabilir. Güncel teşvik ve finansman seçeneklerini birlikte değerlendiririz.
 
 [Sayfaya git →](https://www.gespaenerji.com/tarimsal-sulama.html)
+
+## Güneş paneli cezası ve mevzuat
+
+### Güneş paneli ile şebeke elektriğini aynı anda kullanmak yasak mı?
+
+Hayır, böyle bir yasak yoktur. Şebekeye bağlı (on-grid) sistemlerin çalışma prensibi zaten budur. Cezalar, üretim tesisinin kabulü yapılmadan işletmeye alınmasından kaynaklanıyor.
+
+### Şebekeye hiç enerji vermiyorum, yine de ceza alır mıyım?
+
+Alabilirsiniz. Denetimde belirleyici olan, kabulü yapılmamış bir üretim tesisinin işletmeye alınmış olmasıdır. "Şebekeye basmıyorum" beyanı tek başına koruma sağlamaz.
+
+### Kabulü yapılmadan işletmeye alınan güneş enerjisi sisteminin yaptırımı nedir?
+
+2 Nisan 2026 tarihli yönetmelik değişikliğine göre tesis bildirime gerek kalmaksızın şebekeden ayrılır, varsa çağrı mektubu ve bağlantı anlaşması iptal edilir, tesisi kuran kişi 3 yıl başvuru yapamaz ve ekipman 60 gün içinde sökülür. Şebeke işletmecisi bedel tahakkuk ettirir; aykırılık sürdükçe tutar her 60 günde bir iki katına çıkar.
+
+### Mesken (ev) abonesiyim, ben de risk altında mıyım?
+
+Evet. İzin ve kabul yükümlülüğü mesken için de geçerlidir; Alanya'da yapılan açıklamalarda denetimlerin konutları da kapsadığı belirtildi. Mahsuplaşma tarafında ise mesken abonelerinde aylık mahsuplaşma sürüyor, saatlik mahsuplaşma mesken dışı abonelerde uygulanıyor.
+
+### Cezayı ödersem sistemi kullanmaya devam edebilir miyim?
+
+Ödeme tek başına yeterli değildir. Aykırılık giderilmezse tutarın her 60 günde bir katlanabildiği ve ekipmanın sökülmesinin istenebildiği düzenlenmiştir. Sistemin yasal hâle getirilmesi veya itiraz süreci ayrıca yürütülmelidir.
+
+### Antalya'da güneş paneli cezasına kime itiraz edilir, TEDAŞ'a mı?
+
+Antalya, Burdur ve Isparta bölgesinde dağıtım faaliyetini AEDAŞ (Akdeniz Elektrik Dağıtım A.Ş.) yürütür. İtiraz muhatabınız TEDAŞ değil, ilgili dağıtım şirketidir. Gerekirse EPDK'ya başvuru yolu da değerlendirilebilir.
+
+### Şebekeye hiç bağlı olmayan (off-grid) sistem için izin gerekir mi?
+
+Şebekeyle hiçbir elektriksel bağlantısı olmayan sistemler genel kural olarak şebeke bağlantı ve kabul sürecinin konusu değildir. Aynı pompa ya da tesisat şebekeden de besleniyorsa başvuru gerekir. Kurulum bir yapıya ya da araziye yapılıyorsa imar kuralları ayrıca geçerli olabilir.
+
+[Sayfaya git →](https://www.gespaenerji.com/gunes-paneli-kacak-elektrik-cezasi.html)
 
 ## Maliyet ve hesaplayıcı
 

@@ -3,7 +3,7 @@ title: "GES Sözlüğü — Güneş Enerjisi, Akü ve İnverter Terimleri | GESP
 description: "kWp, MPPT, TOPCon, LiFePO₄, DoD, mahsuplaşma ve daha fazlası: güneş enerjisi, akü ve elektrikli araç dönüşümü terimlerinin kısa ve anlaşılır açıklamaları."
 canonical: https://www.gespaenerji.com/sozluk.html
 lang: tr
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 
@@ -109,9 +109,13 @@ Akünün tam şarj-deşarj döngüsünü kaç kez tekrarlayabileceği; genellikl
 
 Şebekeye verilen ve şebekeden çekilen elektriğin, mevzuatta belirlenen dönem içinde birbirinden düşülerek faturalandırılması. Hangi dönemin (örneğin aylık ya da saatlik) uygulandığı bağlantı tipine ve güncel yönetmeliğe göre değişir.
 
+[2026'da saatlik mahsuplaşmaya geçiş →](https://www.gespaenerji.com/gunes-paneli-kacak-elektrik-cezasi.html#mahsuplasma)
+
 ## Lisanssız elektrik üretimi
 
 Üretim lisansı almadan, öncelikle kendi tüketimini karşılamak amacıyla kurulan elektrik üretim tesisi. Kapasite sınırları, başvuru ve bağlantı süreçleri ilgili yönetmelik ve dağıtım şirketi tarafından belirlenir.
+
+[Kabulsüz kurulumun yaptırımları →](https://www.gespaenerji.com/gunes-paneli-kacak-elektrik-cezasi.html#yaptirimlar)
 
 ## Öz tüketim
 

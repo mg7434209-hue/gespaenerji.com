@@ -3,7 +3,7 @@ title: "Конфигуратор — свой солнечный комплек�
 description: "Выберите приборы и сразу увидите нужную мощность панелей, ёмкость аккумулятора и мощность инвертора. Выберите бренды и модели и создайте заказ."
 canonical: https://www.gespaenerji.com/ru/sistem-kur.html
 lang: ru
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

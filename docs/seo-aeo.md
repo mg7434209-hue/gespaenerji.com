@@ -196,6 +196,31 @@ birlikte commit'le.
   için `writeI18nBundles` `loadI18n()` kullanabilir; bu çalışma zamanı
   çevirisini değiştirir, ayrı iş olarak test edilmelidir.
 
+## Mevzuat rehberleri (yalnız Türkçe)
+- İlk rehber: `gunes-paneli-kacak-elektrik-cezasi.html` (Eyl 2026; 2 Nisan 2026
+  yönetmelik değişikliği, 7584 sayılı Kanun, saatlik mahsuplaşma, off-grid
+  ayrımı). `build.js` `TR_ONLY`'dedir: dil kopyası yok, hreflang yalnız
+  `tr` + `x-default`, sitemap'e tek URL.
+- İşaretleme: `<main id="main" data-article>` → `article.art`. Build bu
+  işareti görünce `articleLd()` ile **Article** şeması basar: headline = h1,
+  açıklama = meta description, tarihler WebPage ile aynı kaynaktan,
+  `citation` = görünen `ul.art-src` bağlantıları, yazar/yayıncı = firma
+  (Person YOK). WebPage'in `mainEntity`'si Article'dır. Test başlığın, tarihlerin
+  ve kaynak sayısının sayfayla eşit olduğunu denetler.
+- İÇERİK KURALI: hukuki/mevzuat iddiası yalnız doğrulanmış kaynakla yazılır
+  (Resmî Gazete, bakanlık, EPDK, hukuk bürosu, haber). Doğrulanamayan ifade
+  (ör. "EPDK uyumlu invertör listesi") çıkarılır ya da doğrulanabilir
+  biçimde yeniden yazılır. Sonda sorumluluk reddi (`p.art-disc`) KALIR.
+  Görünen yayın tarihi (`<time>`) ve `article:published_time` yayın günüdür.
+- Stiller: `.art`, `.art-meta`, `.art-note` (+ `.crit`), `.art-fig`,
+  `.art-src`, `.art-disc` — hepsi tema değişkeniyle, koyu temada da doğru.
+- `TR:ONLY` bağlantıları: footer `HELP:STATIC` (`GUIDE` sabiti), SSS merkezi
+  grubu (`content/sss.js` → `trOnly: true`), sözlük terimi (`content/sozluk.js`
+  → `trLink`), tarımsal sulama duyurusu ve SSS cevabı. `transform()` bu blokları
+  dil kopyasından siler; `llms.txt`'te "Rehberler ve güncel mevzuat" grubu.
+- Yeni rehber: `TR_ONLY` + `LLMS_GROUPS` + `PRIORITY` + gerekirse `GUIDE`
+  benzeri bağlantı; sayfa şablonu mevcut rehberden kopyalanır.
+
 ## Kurumsal hikâye
 - Hakkımızda TEK SÜREGELEN HİKÂYE anlatır: 2005'ten bu yana Manavgat'ta
   kesintisiz faaliyet. Şirket/şahıs ayrımı ve 2022 "kurumsallaşma"/sicil tarihi

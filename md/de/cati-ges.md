@@ -3,7 +3,7 @@ title: "Aufdach-PV in Manavgat und Antalya | GESPA Enerji"
 description: "Aufdach-PV für Wohnen, Gewerbe und Industrie. Standortprüfung, Planung, Komponentenauswahl, Montage und Wartung aus einer Hand."
 canonical: https://www.gespaenerji.com/de/cati-ges.html
 lang: de
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

@@ -3,7 +3,7 @@ title: "Вилла в Кемере: крышная станция 12 кВтп | 
 description: "Солнечная система на вилле с двускатной черепичной крышей в Кемере."
 canonical: https://www.gespaenerji.com/ru/proje-kemer-villa.html
 lang: ru
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

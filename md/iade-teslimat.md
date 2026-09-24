@@ -3,7 +3,7 @@ title: "İade, Teslimat ve Kargo Koşulları | GESPA Enerji"
 description: "GESPA Enerji teslimat ve iade koşulları: Türkiye geneli kargo, teslim süresi, hasarlı teslimat, 14 gün cayma hakkı, iade adımları, bedel iadesi ve garanti kapsamı."
 canonical: https://www.gespaenerji.com/iade-teslimat.html
 lang: tr
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

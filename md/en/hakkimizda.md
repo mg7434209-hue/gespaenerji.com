@@ -3,7 +3,7 @@ title: "About Us — Gespa Enerji Ltd. | GESPA Energy"
 description: "Gespa Enerji Ltd.; a Manavgat/Antalya-based company providing engineering and EPC services for solar power plants (PV)."
 canonical: https://www.gespaenerji.com/en/hakkimizda.html
 lang: en
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

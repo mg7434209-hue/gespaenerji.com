@@ -3,7 +3,7 @@ title: "UNV Trek Pro 2500 Вт — портативная станция | GESPA
 description: "2500 Вт, АКБ 2496 Вт·ч, 4 розетки 230 В чистый синус, ИБП 30 мс. Портативная электростанция для кемпинга, автодома и резервного питания."
 canonical: https://www.gespaenerji.com/ru/unv-trek-pro-2500.html
 lang: ru
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

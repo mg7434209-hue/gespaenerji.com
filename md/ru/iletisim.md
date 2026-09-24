@@ -3,7 +3,7 @@ title: "Контакты — бесплатный выезд и КП | GESPA Ene
 description: "Свяжитесь с GESPA Energy: +90 543 743 42 09, info@gespaenerji.com, Манавгат/Анталья. Бесплатный выезд и коммерческое предложение."
 canonical: https://www.gespaenerji.com/ru/iletisim.html
 lang: ru
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

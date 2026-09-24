@@ -3,7 +3,7 @@ title: "Аккумулятор europlus 72 В 30 А·ч LiFePO₄ — 72В ли�
 description: "Тяговый аккумулятор LiFePO₄ для электротрициклов и машин на 72 В: 24S, ~2160 Вт·ч, встроенная BMS с балансировкой, 3000–6000 циклов. Ставится вместо гелевого блока."
 canonical: https://www.gespaenerji.com/ru/aku-lifepo4-72v-30ah.html
 lang: ru
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

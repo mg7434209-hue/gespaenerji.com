@@ -3,7 +3,7 @@ title: "Rooftop Solar in Manavgat and Antalya | GESPA Enerji"
 description: "Rooftop solar for homes, businesses and industry. Site survey, engineering, equipment selection, installation and maintenance from one team."
 canonical: https://www.gespaenerji.com/en/cati-ges.html
 lang: en
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

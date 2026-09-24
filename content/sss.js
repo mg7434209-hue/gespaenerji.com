@@ -119,6 +119,8 @@ module.exports = {
     { file: "enerji-depolama.html", title: ["Enerji depolama ve batarya", "Energy storage and batteries", "Energiespeicher und Batterien", "Накопители энергии и аккумуляторы"] },
     { file: "bakim-izleme.html", title: ["Bakım ve izleme", "Maintenance and monitoring", "Wartung und Monitoring", "Обслуживание и мониторинг"] },
     { file: "tarimsal-sulama.html", title: ["Tarımsal sulama", "Agricultural irrigation", "Landwirtschaftliche Bewässerung", "Аграрный полив"] },
+    // Yalnız TR: rehber Türkçe yayımlanır; grup ve içindekiler bağlantısı dil kopyasına girmez
+    { file: "gunes-paneli-kacak-elektrik-cezasi.html", trOnly: true, title: ["Güneş paneli cezası ve mevzuat", "Solar panel fines and regulations", "Bußgelder und Vorschriften für Solaranlagen", "Штрафы и правила для солнечных панелей"] },
     { file: "hesaplayici.html", title: ["Maliyet ve hesaplayıcı", "Cost and calculator", "Kosten und Rechner", "Стоимость и калькулятор"] },
     { file: "sistem-kur.html", title: ["Off-grid sistem kurma", "Building an off-grid system", "Inselanlage zusammenstellen", "Сборка автономной системы"] },
     { file: "online-satis.html", title: ["Sipariş, kargo ve ödeme", "Orders, shipping and payment", "Bestellung, Versand und Zahlung", "Заказ, доставка и оплата"] },

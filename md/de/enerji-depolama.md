@@ -3,7 +3,7 @@ title: "Solarspeicher und Batteriesysteme | GESPA Enerji"
 description: "Solarspeicher: Die Batteriewahl richtet sich nach Verbrauch, kritischen Lasten, Wechselrichter und gewünschter Überbrückungszeit."
 canonical: https://www.gespaenerji.com/de/enerji-depolama.html
 lang: de
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

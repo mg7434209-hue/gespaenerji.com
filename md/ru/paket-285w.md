@@ -3,7 +3,7 @@ title: "Пакет с панелью 285 Вт — подключи и работ
 description: "Полный солнечный комплект 285 Вт для кемпинга и караванов: панель + блок питания + кабели. Питает ТВ, свет и зарядку телефона; 23–25 кг."
 canonical: https://www.gespaenerji.com/ru/paket-285w.html
 lang: ru
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

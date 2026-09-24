@@ -3,7 +3,7 @@ title: "Solar Packages — Off-Grid & Irrigation | GESPA Energy"
 description: "285 W and 2×540 W solar kits for camping, caravans and cottages. Compare panels, power boxes and cables; shipping across Türkiye — GESPA Enerji."
 canonical: https://www.gespaenerji.com/en/urunler.html
 lang: en
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

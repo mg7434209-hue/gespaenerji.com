@@ -3,7 +3,7 @@ title: "Fabrik in Manavgat: 1,2 MWp Aufdach-PV | GESPA Enerji"
 description: "Dieses Solarkraftwerk auf einem Fabrikdach in Manavgat ist eine unserer industriellen Dachanlagen."
 canonical: https://www.gespaenerji.com/de/proje-manavgat-fabrika.html
 lang: de
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

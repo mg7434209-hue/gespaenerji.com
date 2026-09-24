@@ -3,7 +3,7 @@ title: "Agricultural Solar Irrigation — Pumps | GESPA Energy"
 description: "Solar agricultural irrigation: off-grid, diesel-free PV systems for submersible and surface pumps. Free site survey and diesel-saving analysis."
 canonical: https://www.gespaenerji.com/en/tarimsal-sulama.html
 lang: en
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 
@@ -143,7 +143,7 @@ Usually 2–5 years depending on your current fuel/electricity cost, pump power 
 
 ### Do I need a battery for night irrigation?
 
-Daytime irrigation is usually enough; a battery or grid-hybrid setup is added if needed.
+Daytime irrigation is usually enough. If you need to irrigate at night, a battery is added. A hybrid setup that runs the same pump from the grid at night requires an application and acceptance procedure with the distribution company; the system must not be operated before acceptance is complete. We handle the application process.
 
 ### How long does installation take — will it be ready for the season?
 

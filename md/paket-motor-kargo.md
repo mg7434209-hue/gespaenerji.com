@@ -3,7 +3,7 @@ title: "Kargo Kasalı Motor Güneş Paketi — 655 W | GESPA Enerji"
 description: "Kargo kasalı elektrikli triportör için komple güneş paketi: 655 W N-type TOPCon panel, BOOST MPPT 24–72 V şarj kontrol cihazı, solar kablo ve MC4. Geniş çatı için en verimli güç."
 canonical: https://www.gespaenerji.com/paket-motor-kargo.html
 lang: tr
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

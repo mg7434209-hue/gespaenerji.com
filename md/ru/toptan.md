@@ -3,7 +3,7 @@ title: "Опт: панели, инверторы, АКБ — B2B | GESPA Energy"
 description: "Опт со склада: панели Arçelik 540 Вт (500 шт.), АКБ LiFePO₄ 51,2 В 100 Ач (50 шт.), инверторы. Счёт для юрлиц, доставка по всей Турции, цены по объёму."
 canonical: https://www.gespaenerji.com/ru/toptan.html
 lang: ru
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

@@ -3,7 +3,7 @@ title: "Manavgat Fabrika: 1,2 MWp Çatı GES | GESPA Enerji"
 description: "Manavgat’ta fabrika çatısına kurulan güneş enerjisi santrali, sanayi çatılarına yönelik uygulamalarımızdandır."
 canonical: https://www.gespaenerji.com/proje-manavgat-fabrika.html
 lang: tr
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

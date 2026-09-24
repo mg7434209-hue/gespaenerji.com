@@ -3,7 +3,7 @@ title: "Villa in Kemer: 12 kWp Aufdach-PV | GESPA Enerji"
 description: "Solaranlage auf einer Villa mit geneigtem Ziegeldach in Kemer."
 canonical: https://www.gespaenerji.com/de/proje-kemer-villa.html
 lang: de
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

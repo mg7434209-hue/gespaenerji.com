@@ -3,7 +3,7 @@ title: "Интернет-магазин солнечного оборудова�
 description: "Все товары в продаже на одной странице: готовые солнечные комплекты, MPPT-контроллеры и оборудование. Прозрачные цены с НДС, доставка по Турции."
 canonical: https://www.gespaenerji.com/ru/online-satis.html
 lang: ru
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

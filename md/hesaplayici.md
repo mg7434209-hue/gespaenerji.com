@@ -3,7 +3,7 @@ title: "Güneş Enerjisi Tasarruf Hesaplayıcı (GES) | GESPA Enerji"
 description: "Ücretsiz güneş enerjisi hesaplayıcı: faturaya, tüketime veya çatı alanına göre sistem gücü, yıllık üretim, tasarruf, geri ödeme ve CO₂ azaltımı."
 canonical: https://www.gespaenerji.com/hesaplayici.html
 lang: tr
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

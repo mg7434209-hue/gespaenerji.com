@@ -3,7 +3,7 @@ title: "Завод в Манавгате: крышная станция 1,2 МВ
 description: "Станция на крыше завода в Манавгате — пример нашей установки на промышленной крыше."
 canonical: https://www.gespaenerji.com/ru/proje-manavgat-fabrika.html
 lang: ru
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

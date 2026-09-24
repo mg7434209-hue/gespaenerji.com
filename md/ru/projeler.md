@@ -3,7 +3,7 @@ title: "Реализованные проекты — Солнечные ста�
 description: "Проекты солнечных электростанций в разных отраслях: промышленность, сельское хозяйство, холодные склады, отели и наземные станции."
 canonical: https://www.gespaenerji.com/ru/projeler.html
 lang: ru
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

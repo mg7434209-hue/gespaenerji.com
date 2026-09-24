@@ -3,7 +3,7 @@ title: "Hakkımızda — Gespa Enerji Ltd. Şti. | GESPA Enerji"
 description: "Gespa Enerji Ltd. Şti.; Manavgat/Antalya merkezli, güneş enerjisi santralleri (GES) alanında mühendislik ve EPC hizmetleri sunan bir firmadır."
 canonical: https://www.gespaenerji.com/hakkimizda.html
 lang: tr
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

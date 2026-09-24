@@ -3,7 +3,7 @@ title: "Reference Projects — Rooftop & Ground PV | GESPA Energy"
 description: "Solar power plant (PV) projects we delivered across sectors: industry, agriculture, cold storage, hotels and ground-mounted plants."
 canonical: https://www.gespaenerji.com/en/projeler.html
 lang: en
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

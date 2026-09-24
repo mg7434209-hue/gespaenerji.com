@@ -3,7 +3,7 @@ title: "Online Store — Solar Products and Equipment | GESPA Energy"
 description: "All products on sale in one place: ready-made solar kits, MPPT charge controllers and equipment. Transparent prices, VAT included, shipping across Türkiye."
 canonical: https://www.gespaenerji.com/en/online-satis.html
 lang: en
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

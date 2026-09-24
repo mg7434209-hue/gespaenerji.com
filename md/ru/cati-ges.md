@@ -3,7 +3,7 @@ title: "Солнечные станции на крыше — Манавгат |
 description: "Крышные станции для домов, бизнеса и промышленности. Обследование, проектирование, подбор оборудования, монтаж и обслуживание."
 canonical: https://www.gespaenerji.com/ru/cati-ges.html
 lang: ru
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

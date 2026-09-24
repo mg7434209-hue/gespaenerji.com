@@ -3,7 +3,7 @@ title: "Система 2×540 Вт — батарея LiFePO₄ | GESPA"
 description: "Панели 2×540 Вт + блок питания LiFePO₄: полная мобильная система для холодильника, ТВ и стиральной машины. Около 6,5 кВт·ч в день."
 canonical: https://www.gespaenerji.com/ru/paket-2x540w.html
 lang: ru
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

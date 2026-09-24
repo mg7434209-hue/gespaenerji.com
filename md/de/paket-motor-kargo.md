@@ -3,7 +3,7 @@ title: "Solar-Set für Lasten-Dreirad — 655 W | GESPA Energy"
 description: "Komplettset für Lasten-Dreiräder: 655-W-N-Type-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Maximaler Ertrag für große Dachflächen."
 canonical: https://www.gespaenerji.com/de/paket-motor-kargo.html
 lang: de
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

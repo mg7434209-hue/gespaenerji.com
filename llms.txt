@@ -53,6 +53,9 @@ Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş; talebe 
 - [Manavgat Fabrika: 1,2 MWp Çatı GES](https://www.gespaenerji.com/proje-manavgat-fabrika.html): Manavgat’ta fabrika çatısına kurulan güneş enerjisi santrali, sanayi çatılarına yönelik uygulamalarımızdandır. · Markdown: https://www.gespaenerji.com/md/proje-manavgat-fabrika.md
 - [Manavgat Tarımsal GES: 30 kWp](https://www.gespaenerji.com/proje-manavgat-tarimsal.html): Sera ve tarla sulaması için sera çatısına kurulan güneş enerjisi santrali. · Markdown: https://www.gespaenerji.com/md/proje-manavgat-tarimsal.md
 
+### Rehberler ve güncel mevzuat (yalnız Türkçe)
+- [Güneş Paneli Kaçak Elektrik Cezası: Nedeni ve Ne Yapmalı?](https://www.gespaenerji.com/gunes-paneli-kacak-elektrik-cezasi.html): Güneş paneline neden ceza yazılıyor? 2 Nisan 2026 yönetmeliğindeki yaptırımlar, kabul süreci, Antalya'da AEDAŞ'a itiraz ve yasal kurulum adımları. · Markdown: https://www.gespaenerji.com/md/gunes-paneli-kacak-elektrik-cezasi.md
+
 ### Kurumsal ve yardım
 - [Hakkımızda — Gespa Enerji Ltd. Şti.](https://www.gespaenerji.com/hakkimizda.html): Gespa Enerji Ltd. Şti.; Manavgat/Antalya merkezli, güneş enerjisi santralleri (GES) alanında mühendislik ve EPC hizmetleri sunan bir firmadır. · Markdown: https://www.gespaenerji.com/md/hakkimizda.md
 - [İletişim — Ücretsiz Keşif ve Teklif](https://www.gespaenerji.com/iletisim.html): GESPA Enerji ile iletişime geçin: 0543 743 42 09, info@gespaenerji.com, Örnek Mah. 1551 Sok. No:10 Manavgat/Antalya. Ücretsiz keşif ve teklif. · Markdown: https://www.gespaenerji.com/md/iletisim.md

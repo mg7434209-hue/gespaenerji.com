@@ -3,7 +3,7 @@ title: "Freiflächen-PV: Prüfung und Installation | GESPA Enerji"
 description: "Freiflächen-PV: Machbarkeit, Flächenbewertung, Planung und Montage. Neigung, Verschattung, Boden und Anschlusskapazität werden geprüft."
 canonical: https://www.gespaenerji.com/de/arazi-ges.html
 lang: de
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

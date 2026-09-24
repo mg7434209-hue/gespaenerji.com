@@ -3,7 +3,7 @@ title: "System Builder — Size Your Own Solar Kit | GESPA Energy"
 description: "Pick the appliances you'll run and instantly see the required PV power, battery capacity and inverter size. Choose brands and models, then create your order."
 canonical: https://www.gespaenerji.com/en/sistem-kur.html
 lang: en
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

@@ -3,7 +3,7 @@ title: "PV-водонагреватель на солнечных панелях
 description: "PV-водонагреватель: нагревает воду напрямую солнечными панелями. Контроллер GF-20, авторезерв от сети в пасмурную погоду, бак 60–200 л."
 canonical: https://www.gespaenerji.com/ru/su-isitici.html
 lang: ru
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

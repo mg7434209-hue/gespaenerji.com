@@ -3,7 +3,7 @@ title: "Калькулятор экономии на солнечной энер
 description: "Бесплатный калькулятор: мощность, годовая выработка, экономия, срок окупаемости и снижение CO₂ по счёту, потреблению или площади крыши."
 canonical: https://www.gespaenerji.com/ru/hesaplayici.html
 lang: ru
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 

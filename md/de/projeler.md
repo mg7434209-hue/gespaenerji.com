@@ -3,7 +3,7 @@ title: "Referenzprojekte — Aufdach & Freifläche | GESPA"
 description: "Realisierte Solarkraftwerk-Projekte (PV) in verschiedenen Branchen: Industrie, Landwirtschaft, Kühlhäuser, Hotels und Freiflächenanlagen."
 canonical: https://www.gespaenerji.com/de/projeler.html
 lang: de
-dateModified: 2026-09-23
+dateModified: 2026-09-24
 publisher: "GESPA Enerji"
 ---
 
