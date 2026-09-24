@@ -193,7 +193,14 @@ window.GESPA.config = {
     returnDays: 14,                     // cayma hakkı süresi (mesafeli satış)
     // Kabul edilen ödeme yolları — LocalBusiness.paymentAccepted buradan basılır;
     // sepetteki seçeneklerle AYNI tutulur (kart = iyzico, havale/EFT).
-    payment: ["Kredi kartı (iyzico)", "Havale/EFT"]
+    payment: ["Kredi kartı (iyzico)", "Havale/EFT"],
+    // Serbest tutarlı link ödemesi (odeme.html → /api/pay/custom) ve admin
+    // taksit aracının tutar sınırları (₺). Sunucu bu değerlerle doğrular,
+    // admin "Ödeme Bağlantısı Üret" kartı da buradan okur. UYARI: iyzico
+    // hesabının kendi tek işlem limiti ve müşterinin kart limiti AYRICA
+    // geçerlidir; buradaki üst sınırı yükseltmek onları yükseltmez.
+    payLinkMinTL: 50,
+    payLinkMaxTL: 500000
   },
 
   // ============================================================

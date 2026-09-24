@@ -169,6 +169,13 @@ function loadSiteConfig() {
 }
 let SITE_CFG = null;
 try { SITE_CFG = loadSiteConfig(); } catch (e) { console.warn("config yüklenemedi:", e && e.message); }
+// Serbest tutar / link ödemesi sınırları (₺) — tek kaynak config.commerce.
+// iyzico hesabının kendi tek işlem limiti ve kart limiti AYRICA geçerlidir.
+function payLimits() {
+  const c = (SITE_CFG && SITE_CFG.commerce) || {};
+  return { min: +c.payLinkMinTL || 50, max: +c.payLinkMaxTL || 500000 };
+}
+const trNum = (n) => Number(n).toLocaleString("tr-TR");
 
 function readOrders() { try { return JSON.parse(fs.readFileSync(ORDERS_FILE, "utf8")); } catch (e) { return {}; } }
 function writeOrder(token, data) {
@@ -554,7 +561,8 @@ function handlePayRoutes(req, res, urlPath) {
     readBody(req, 4 * 1024, (raw) => {
       let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
       const price = Math.round((+b.price || 0) * 100) / 100;
-      if (!(price >= 1 && price <= 250000)) return sendJson(res, 400, { error: "Tutar 1 ₺ ile 250.000 ₺ arasında olmalıdır." });
+      const maxTL = payLimits().max;
+      if (!(price >= 1 && price <= maxTL)) return sendJson(res, 400, { error: "Tutar 1 ₺ ile " + trNum(maxTL) + " ₺ arasında olmalıdır." });
       const bin = String(b.bin || "").replace(/\D/g, "").slice(0, 6);
       const payload = { locale: "tr", conversationId: "INS" + Date.now(), price: iyzPrice(price) };
       if (bin.length === 6) payload.binNumber = bin;   // kart verilirse o bankanın oranı
@@ -654,7 +662,8 @@ function handlePayRoutes(req, res, urlPath) {
       // tutar tam sayı olmayabilir (ör. 3 taksitte tam ₺20.000 tahsil etmek
       // için ₺19.906,62 gönderilir).
       const amount = Math.round((+b.amountTL || 0) * 100) / 100;
-      if (!(amount >= 50 && amount <= 250000)) return sendJson(res, 400, { error: "Tutar 50 ₺ ile 250.000 ₺ arasında olmalıdır." });
+      const L = payLimits();
+      if (!(amount >= L.min && amount <= L.max)) return sendJson(res, 400, { error: "Tutar " + trNum(L.min) + " ₺ ile " + trNum(L.max) + " ₺ arasında olmalıdır." });
       // tek=1 → yalnız TEK ÇEKİM sunulur. Taksitte iyzico vade farkını
       // müşteriye yansıttığı için tahsil edilen tutar gönderdiğimizden büyük
       // çıkıyor; tam yuvarlak tahsilat gereken işlerde taksit kapatılır.

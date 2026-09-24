@@ -604,8 +604,14 @@ DATA_DIR/orders.json. Kart ödemesinde havale indirimi YOK (liste fiyatı);
 `odeme-sonuc.html` noindex + robots engelli + build PAGES dışı (TR tek dil).
 `odeme.html`: GES Marketim/serbest tutar link ödemesi
 (`?t=tutar&a=aciklama&s=no&tek=1|&tks=N` ön-doldurur) → `/api/pay/custom`
-(tutar istemciden; sınır 50–250.000 ₺ sunucuda, **kuruş kabul edilir**,
+(tutar istemciden; sınır 50–500.000 ₺ sunucuda, **kuruş kabul edilir**,
 kargo öncesi orders.json/iyzico panelinden tutar DOĞRULANIR). O da noindex.
+SINIR TEK KAYNAK: `config.commerce.payLinkMinTL/payLinkMaxTL` — server.js
+`payLimits()` (custom + installments) ve admin kartları buradan okur; elle
+rakam gömme. iyzico hesabının KENDİ tek işlem limiti ayrıca geçerlidir:
+bizim üst sınırın altında iyzico reddederse hata mesajı iyzico'dan gelir
+(`iyzFail` → errorMessage + kod) ve limit iyzico panelinden/desteğinden
+yükseltilir, koddan DEĞİL.
 TAKSİT: iyzico hesabı vade farkını MÜŞTERİYE yansıtıyor — ₺20.000 gönderince
 kartından ₺20.093,81 çekiliyor. `tek=1` → `enabledInstallments:[1]` (tek çekim,
 tutar tam tahsil edilir) · `tks=N` → `enabledInstallments:[N]` (yalnız N taksit;

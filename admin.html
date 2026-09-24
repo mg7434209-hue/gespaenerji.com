@@ -85,8 +85,8 @@
         iyzico ile öder. Havale/EFT indirimi kart ödemesinde <strong>uygulanmaz</strong>.
       </p>
       <div id="payOff" class="adm-note" hidden style="background:#fdf1e7;color:#8a4b10;border:1px solid #f2d3b5"></div>
-      <div class="adm-row"><div class="lbl"><strong>Tutar (₺)</strong><small>50 – 250.000 ₺ arası</small></div>
-        <input type="number" id="plAmount" min="50" max="250000" step="50" placeholder="4500" /></div>
+      <div class="adm-row"><div class="lbl"><strong>Tutar (₺)</strong><small id="plRange">50 – 500.000 ₺ arası</small></div>
+        <input type="number" id="plAmount" min="50" max="500000" step="50" placeholder="4500" /></div>
       <div class="adm-row"><div class="lbl"><strong>Açıklama</strong><small>Müşterinin ödeme ekranında görür</small></div>
         <input type="text" id="plDesc" maxlength="120" placeholder="GES Marketim — 2x540W paket" /></div>
       <div class="adm-row"><div class="lbl"><strong>Sipariş no</strong><small>İsteğe bağlı</small></div>
@@ -126,7 +126,7 @@
         iyzico'dan okuyup, her taksit için <strong>bağlantıya yazılacak tutarı</strong> hesaplayalım.
       </p>
       <div class="adm-row"><div class="lbl"><strong>Tahsil edilecek tutar (₺)</strong><small>Müşterinin kartından çıkması gereken toplam</small></div>
-        <input type="number" id="tkTarget" min="50" max="250000" step="1" placeholder="20000" /></div>
+        <input type="number" id="tkTarget" min="50" max="500000" step="1" placeholder="20000" /></div>
       <div class="adm-actions">
         <button class="btn" id="tkGo">Taksit tablosunu getir</button>
       </div>
@@ -178,6 +178,13 @@
     var PASS = (C.admin && C.admin.pass) || "admin";
     var $ = function (s) { return document.querySelector(s); };
     var nf = new Intl.NumberFormat("tr-TR");
+    // Link ödemesi tutar sınırları — tek kaynak config.commerce (sunucu da
+    // aynı değerlerle doğrular).
+    var PAY_MIN = +((C.commerce || {}).payLinkMinTL) || 50;
+    var PAY_MAX = +((C.commerce || {}).payLinkMaxTL) || 500000;
+    var PAY_ERR = "Tutar " + nf.format(PAY_MIN) + " ₺ ile " + nf.format(PAY_MAX) + " ₺ arasında olmalı.";
+    ["#plAmount", "#tkTarget"].forEach(function (s) { var i = $(s); if (i) { i.min = PAY_MIN; i.max = PAY_MAX; } });
+    if ($("#plRange")) $("#plRange").textContent = nf.format(PAY_MIN) + " – " + nf.format(PAY_MAX) + " ₺ arası";
 
     function loadOv() { try { return JSON.parse(localStorage.getItem(KEY) || "null") || { packages: {}, heater: {} }; } catch (e) { return { packages: {}, heater: {} }; } }
     function derivedPkg(p) { var k = C.calc || {}; return Math.round((p.kwp || 0) * (k.costPerKwp || 0) + (p.battery ? p.battery * (k.batteryCostPerKwh || 0) : 0)); }
@@ -302,9 +309,9 @@
         // Kuruş kabul edilir: taksit farkı geri hesaplanınca tutar tam sayı olmaz.
         var v = Math.round((+String(amt.value).replace(",", ".") || 0) * 100) / 100;
         tks.disabled = tek.checked;              // tek çekim varken taksit sayısı anlamsız
-        if (!(v >= 50 && v <= 250000)) {
+        if (!(v >= PAY_MIN && v <= PAY_MAX)) {
           url = "";
-          out.textContent = v ? "Tutar 50 ₺ ile 250.000 ₺ arasında olmalı." : "Tutar girin…";
+          out.textContent = v ? PAY_ERR : "Tutar girin…";
           copy.disabled = true; wa.removeAttribute("href"); open.removeAttribute("href");
           return;
         }
@@ -356,9 +363,9 @@
 
       go.addEventListener("click", function () {
         var hedef = Math.round((+String(t.value).replace(",", ".") || 0) * 100) / 100;
-        if (!(hedef >= 50 && hedef <= 250000)) {
+        if (!(hedef >= PAY_MIN && hedef <= PAY_MAX)) {
           out.className = "adm-note err"; out.hidden = false;
-          out.textContent = "Tutar 50 ₺ ile 250.000 ₺ arasında olmalı.";
+          out.textContent = PAY_ERR;
           return;
         }
         var eski = go.textContent;
