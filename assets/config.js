@@ -120,8 +120,13 @@ window.GESPA.config = {
   brands: {
     panel: ["Arçelik", "Lexron", "Bakırlar"],
     inverter: ["Tescom", "Mexxsun", "Lexron", "Arçelik", "Deye", "TitanX"],
-    mppt: ["Havensis"],
-    battery: ["Orbus", "TitanX"]
+    // MS Teknik: BOOST MPPT şarj kontrol cihazının üreticisi. Yalnız marka ADI
+    // yazılır — tedarikçinin telefonu/iletişimi siteye KONMAZ.
+    mppt: ["Havensis", "MS Teknik"],
+    battery: ["Orbus", "TitanX"],
+    // Kendi markamız (GESPA gövde yazılı ürünler). Kategori vitrini yoktur,
+    // yalnız ana sayfa "Çalıştığımız ekipman markaları" şeridine girer.
+    own: ["GESPA"]
   },
 
   // ---- Paket ürünler (urunler.html) ----

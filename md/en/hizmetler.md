@@ -3,7 +3,7 @@ title: "Services — Rooftop & Ground Solar, Storage | GESPA"
 description: "Rooftop PV, ground-mounted PV, energy storage, engineering, financing and maintenance (O&M). Turnkey solar energy solutions — GESPA Energy."
 canonical: https://www.gespaenerji.com/en/hizmetler.html
 lang: en
-dateModified: 2026-09-24
+dateModified: 2026-09-25
 publisher: "GESPA Enerji"
 ---
 
@@ -77,7 +77,7 @@ Tescom Mexxsun Lexron Arçelik Deye TitanX
 
 #### MPPT & DC-DC Controllers
 
-Havensis
+Havensis MS Teknik
 
 #### Batteries
 

@@ -259,7 +259,12 @@ seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sip
 
 ### Markalar (config.brands)
 - Panel: Arçelik, Lexron, Bakırlar
-- İnverter: Tescom, Mexxsun, Lexron, Arçelik
+- İnverter: Tescom, Mexxsun, Lexron, Arçelik, Deye, TitanX
+- MPPT/DC-DC: Havensis, MS Teknik (yalnız ad; iletişimi KONMAZ) · Akü: Orbus, TitanX
+- `own`: GESPA (kendi markamız; kategori vitrini yok, yalnız şerit)
+- Ana sayfa şeridi `#brandAll` = grupların tekrarsız birleşimi, sıra
+  panel → inverter → mppt → battery → own; build.js ve main.js AYNI listeyi
+  kullanır — yeni grup eklersen İKİSİNE de yaz.
 
 ### Ürünler & fiyatlar (config.packages · config.heater · config.admin)
 - `packages[]`: 2 komple kit (285W ₺ · 2x540W USD) + BOOST MPPT şarj kontrol

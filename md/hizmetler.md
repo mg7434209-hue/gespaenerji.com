@@ -3,7 +3,7 @@ title: "Hizmetler — Çatı & Arazi GES, Depolama | GESPA Enerji"
 description: "Çatı GES, arazi tipi GES, enerji depolama, mühendislik, finansman ve bakım (O&M) hizmetleri. Anahtar teslim güneş enerjisi çözümleri — GESPA Enerji."
 canonical: https://www.gespaenerji.com/hizmetler.html
 lang: tr
-dateModified: 2026-09-24
+dateModified: 2026-09-25
 publisher: "GESPA Enerji"
 ---
 
@@ -77,7 +77,7 @@ Tescom Mexxsun Lexron Arçelik Deye TitanX
 
 #### MPPT & DC-DC Kontrol Cihazları
 
-Havensis
+Havensis MS Teknik
 
 #### Aküler
 

@@ -3,7 +3,7 @@ title: "Leistungen — Aufdach- & Freiflächen-PV | GESPA Energy"
 description: "Aufdach-PV, Freiflächen-PV, Energiespeicher, Engineering, Finanzierung und Wartung (O&M). Schlüsselfertige Solarlösungen — GESPA Energy."
 canonical: https://www.gespaenerji.com/de/hizmetler.html
 lang: de
-dateModified: 2026-09-24
+dateModified: 2026-09-25
 publisher: "GESPA Enerji"
 ---
 
@@ -77,7 +77,7 @@ Tescom Mexxsun Lexron Arçelik Deye TitanX
 
 #### MPPT- & DC-DC-Regler
 
-Havensis
+Havensis MS Teknik
 
 #### Batterien
 

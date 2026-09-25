@@ -1196,7 +1196,8 @@ function hydrateExtras(html, file, cfg) {
   // Marka vitrinleri
   const brandSpans = arr => arr.map(n => "<span>" + esc(n) + "</span>").join("");
   const brandAll = [];
-  ["panel", "inverter", "mppt", "battery"].forEach(g => (cfg.brands[g] || []).forEach(n => { if (!brandAll.includes(n)) brandAll.push(n); }));
+  // Şerit sırası main.js ile AYNI olmalı (JS yeniden çizmez ama JS'siz görünüm bu)
+  ["panel", "inverter", "mppt", "battery", "own"].forEach(g => (cfg.brands[g] || []).forEach(n => { if (!brandAll.includes(n)) brandAll.push(n); }));
   const fillBrands = (id, arr) => {
     html = html.replace(new RegExp('(<div class="trust-logos" id="' + id + '">)[\\s\\S]*?(</div>)'), "$1" + brandSpans(arr || []) + "$2");
   };
@@ -1885,7 +1886,7 @@ Modeller ve fiyatlar (KDV dahil, ₺):
 ${heaterLines}
 
 ## Paket Ürünler (${c.web}/urunler.html)
-Markalar — panel: ${cfg.brands.panel.join(", ")} · inverter: ${cfg.brands.inverter.join(", ")} · MPPT/DC-DC: ${(cfg.brands.mppt || []).join(", ")} · akü: ${(cfg.brands.battery || []).join(", ")}
+Markalar — panel: ${cfg.brands.panel.join(", ")} · inverter: ${cfg.brands.inverter.join(", ")} · MPPT/DC-DC: ${(cfg.brands.mppt || []).join(", ")} · akü: ${(cfg.brands.battery || []).join(", ")}${(cfg.brands.own || []).length ? " · kendi markamız: " + cfg.brands.own.join(", ") : ""}
 ${pkgLines}
 Kargo & iade: Paketler TÜRKİYE'NİN HER İLİNE anlaşmalı kargo ile gönderilir (teslimat
 Antalya ile sınırlı değildir). Sipariş onayından sonra tahmini teslim ${(cfg.commerce || {}).shipDays || "2–5"} iş günü;

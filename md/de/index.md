@@ -3,7 +3,7 @@ title: "GESPA Energy — Schlüsselfertige Solaranlagen (PV)"
 description: "GESPA Energy: schlüsselfertige Installation, Engineering, Finanzierung und Wartung für Aufdach- und Freiflächen-Solaranlagen. Manavgat / Antalya, Türkei."
 canonical: https://www.gespaenerji.com/de/
 lang: de
-dateModified: 2026-09-24
+dateModified: 2026-09-25
 publisher: "GESPA Enerji"
 ---
 
@@ -63,7 +63,7 @@ Solar panel, inverter, akü ve bağlantı ekipmanlarını güvenilir markalarla 
 [Solar Mağazaya Git ↗](https://www.gesmarketim.com/)
 
 Von uns verbaute Marken:
-Arçelik Lexron Bakırlar Tescom Mexxsun Deye TitanX Havensis Orbus
+Arçelik Lexron Bakırlar Tescom Mexxsun Deye TitanX Havensis MS Teknik Orbus GESPA
 
 Unsere Leistungen
 

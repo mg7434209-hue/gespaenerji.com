@@ -123,7 +123,7 @@
       fill("#brandBatteries", b.battery);
       // Ana sayfa şeridi: tüm grupların tekrarsız birleşimi
       var all = [];
-      ["panel", "inverter", "mppt", "battery"].forEach(function (g) {
+      ["panel", "inverter", "mppt", "battery", "own"].forEach(function (g) {
         (b[g] || []).forEach(function (n) { if (all.indexOf(n) < 0) all.push(n); });
       });
       fill("#brandAll", all);

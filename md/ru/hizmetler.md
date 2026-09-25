@@ -3,7 +3,7 @@ title: "Услуги — солнечные станции и накопител
 description: "Солнечные станции на крыше и на земле, накопители энергии, инжиниринг, финансирование и обслуживание (O&M). Решения под ключ — GESPA Energy."
 canonical: https://www.gespaenerji.com/ru/hizmetler.html
 lang: ru
-dateModified: 2026-09-24
+dateModified: 2026-09-25
 publisher: "GESPA Enerji"
 ---
 
@@ -77,7 +77,7 @@ Tescom Mexxsun Lexron Arçelik Deye TitanX
 
 #### MPPT и DC-DC контроллеры
 
-Havensis
+Havensis MS Teknik
 
 #### Аккумуляторы
 

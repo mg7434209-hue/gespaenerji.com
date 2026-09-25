@@ -3,7 +3,7 @@ title: "GESPA Energy — Солнечные электростанции | Ре�
 description: "GESPA Energy: монтаж под ключ, инжиниринг, финансирование и обслуживание солнечных электростанций на крыше и на земле. Манавгат / Анталья, Турция."
 canonical: https://www.gespaenerji.com/ru/
 lang: ru
-dateModified: 2026-09-24
+dateModified: 2026-09-25
 publisher: "GESPA Enerji"
 ---
 
@@ -63,7 +63,7 @@ Solar panel, inverter, akü ve bağlantı ekipmanlarını güvenilir markalarla 
 [Solar Mağazaya Git ↗](https://www.gesmarketim.com/)
 
 Бренды оборудования, с которыми работаем:
-Arçelik Lexron Bakırlar Tescom Mexxsun Deye TitanX Havensis Orbus
+Arçelik Lexron Bakırlar Tescom Mexxsun Deye TitanX Havensis MS Teknik Orbus GESPA
 
 Наши услуги
 

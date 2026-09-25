@@ -3,7 +3,7 @@ title: "GESPA Energy — Solar Power Plants (PV) | Turnkey Solutions"
 description: "GESPA Energy: turnkey installation, engineering, financing and maintenance for rooftop and ground-mounted solar power plants (PV). Manavgat / Antalya, Türkiye."
 canonical: https://www.gespaenerji.com/en/
 lang: en
-dateModified: 2026-09-24
+dateModified: 2026-09-25
 publisher: "GESPA Enerji"
 ---
 
@@ -63,7 +63,7 @@ Solar panel, inverter, akü ve bağlantı ekipmanlarını güvenilir markalarla 
 [Solar Mağazaya Git ↗](https://www.gesmarketim.com/)
 
 Equipment brands we work with:
-Arçelik Lexron Bakırlar Tescom Mexxsun Deye TitanX Havensis Orbus
+Arçelik Lexron Bakırlar Tescom Mexxsun Deye TitanX Havensis MS Teknik Orbus GESPA
 
 Our Services
 

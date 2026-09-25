@@ -3,7 +3,7 @@ title: "GESPA Enerji — Anahtar Teslim Güneş Enerjisi (GES)"
 description: "GESPA Enerji: çatı ve arazi tipi güneş enerjisi santralleri (GES) için anahtar teslim kurulum, mühendislik, finansman ve bakım. Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/
 lang: tr
-dateModified: 2026-09-24
+dateModified: 2026-09-25
 publisher: "GESPA Enerji"
 ---
 
@@ -63,7 +63,7 @@ Solar panel, inverter, akü ve bağlantı ekipmanlarını güvenilir markalarla 
 [Solar Mağazaya Git ↗](https://www.gesmarketim.com/)
 
 Çalıştığımız ekipman markaları:
-Arçelik Lexron Bakırlar Tescom Mexxsun Deye TitanX Havensis Orbus
+Arçelik Lexron Bakırlar Tescom Mexxsun Deye TitanX Havensis MS Teknik Orbus GESPA
 
 Hizmetlerimiz
 
