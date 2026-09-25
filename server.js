@@ -44,11 +44,23 @@ function safeJoin(base, target) {
 // ---- Ziyaretçi sayacı ----
 // Gerçek ziyaretleri sayar: HTML sayfası isteyen ve çerezi olmayan her tarayıcı
 // günde 1 kez sayılır (çerez 24 saat yaşar); bilinen botlar sayılmaz.
-// Toplam DATA_DIR/visitors.json dosyasında kalıcıdır (Railway'de Volume bağlanıp
-// DATA_DIR verilirse dağıtımlar arası korunur; yoksa dağıtımda sıfırlanabilir —
-// gösterilen toplamın tabanı config.visitors.base olduğundan site sayacı geriye
-// düşmez, base güncellenerek taşınır). Footer rozeti /api/visitors'tan okur.
-const DATA_DIR = process.env.DATA_DIR || path.join(ROOT, "data");
+// Toplam DATA_DIR/visitors.json dosyasındadır. Footer rozeti /api/visitors'tan
+// okur; gösterilen toplam = config.visitors.base + bu sayaç.
+//
+// KALICI VERİ KLASÖRÜ: Railway her dağıtımda YENİ kapsayıcı açar. Klasör bir
+// Volume üzerinde değilse buraya yazılan her şey — ziyaretçi sayacı,
+// orders.json (siparişler, dekont bağlantıları), aibots.json — her güncellemede
+// SİLİNİR (sayaç base'e döner). Volume bağlanınca Railway
+// RAILWAY_VOLUME_MOUNT_PATH'i kendisi verir; ayrıca DATA_DIR girmek gerekmez.
+// DATA_DIR verilirse o önceliklidir.
+const DATA_DIR = process.env.DATA_DIR || process.env.RAILWAY_VOLUME_MOUNT_PATH || path.join(ROOT, "data");
+const ON_RAILWAY = !!(process.env.RAILWAY_DEPLOYMENT_ID || process.env.RAILWAY_ENVIRONMENT_NAME || process.env.RAILWAY_SERVICE_NAME);
+const VOLUME_PATH = process.env.RAILWAY_VOLUME_MOUNT_PATH || "";
+// Yerel/başka sunucuda disk kalıcıdır; Railway'de yalnız klasör Volume içindeyse.
+const DATA_PERSISTENT = !ON_RAILWAY ||
+  !!(VOLUME_PATH && (path.resolve(DATA_DIR) + path.sep).startsWith(path.resolve(VOLUME_PATH) + path.sep));
+console.log("kalıcı veri: " + DATA_DIR + (DATA_PERSISTENT ? "" :
+  " — UYARI: Railway'de Volume bağlı DEĞİL; ziyaretçi sayacı, siparişler ve dekontlar her dağıtımda SİLİNİR"));
 const VISIT_FILE = path.join(DATA_DIR, "visitors.json");
 const VISIT_COOKIE = "gespa_v";
 const ONLINE_WINDOW_MS = 5 * 60 * 1000; // son 5 dk içinde istek atan = "şu an sitede"
@@ -502,7 +514,8 @@ function handlePayRoutes(req, res, urlPath) {
     // mail: sipariş bildirim e-postasının AÇIK olup olmadığı. Yalnız boolean —
     // SMTP sunucusu, kullanıcı ve parola DIŞARI VERİLMEZ. Sipariş e-postası
     // gelmediğinde ilk bakılacak yer burasıdır (false = Railway değişkenleri yok).
-    return sendJson(res, 200, { enabled: !!(IYZ.apiKey && IYZ.secret), mail: mailReady() }), true;
+    // store: veri klasörü kalıcı mı (Railway Volume). Yalnız boolean — yol dışarı verilmez.
+    return sendJson(res, 200, { enabled: !!(IYZ.apiKey && IYZ.secret), mail: mailReady(), store: DATA_PERSISTENT }), true;
   }
   // Dekont (ödeme makbuzu) — müşteri ve işletme yazdırabilsin diye.
   // Anahtar sipariş kaydındaki RASTGELE rid'dir; iyzico token'ı dışarı ÇIKMAZ.

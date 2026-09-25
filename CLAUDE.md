@@ -553,9 +553,16 @@ Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD v
 - Ziyaretçi sayacı: footer'daki `.visit-counter` rozetini main.js enjekte eder
   (sayfalara elle eklenmez; ayarlar `config.visitors`). Canlıda server.js
   `/api/visitors` ile gerçek sayar (çerezle günde 1, bot filtreli; kalıcı veri
-  `data/visitors.json` — gitignore'da, Railway'de DATA_DIR/Volume ile korunur).
-  Gösterilen toplam = `visitors.base` + sunucu sayacı; API yoksa (Pages)
-  base + günlük tahminle gösterilir.
+  `DATA_DIR/visitors.json` — gitignore'da). Gösterilen toplam = `visitors.base`
+  + sunucu sayacı; API yoksa (Pages) base + günlük tahminle gösterilir.
+  VERİ KLASÖRÜ: `DATA_DIR` env > `RAILWAY_VOLUME_MOUNT_PATH` (Railway, Volume
+  bağlanınca KENDİSİ verir) > `./data`. Volume yoksa Railway her dağıtımda yeni
+  kapsayıcı açar: sayaç base'e döner, orders.json ve aibots.json silinir.
+  server.js `DATA_PERSISTENT` bunu hesaplar, açılışta log'a yazar,
+  `/api/pay/status` → `store` (yalnız boolean) ve admin "💾 Kalıcı veri"
+  kartı gösterir. Kalıcı çözüm Railway'de servise Volume eklemektir (kod
+  hazır); o zamana kadar sıfırlanmada kaybolan sayı `visitors.base`'e
+  eklenerek taşınır (start da o güne alınır).
 - Sohbet botu `assets/chatbot.js` (main.js dinamik yükler): metinleri kendi içinde
   `[tr,en,de,ru]` dizileriyle çok dillidir (i18n DICT'e bağlı değildir); yeni yanıt
   eklerken 4 dili birlikte ekle. Footer sosyal linkleri `config.company.sameAs`'ten
@@ -690,8 +697,10 @@ Gönderici server.js içinde bağımlılıksız SMTP istemcisidir (`sendMail(to,
   verilirse TLS el sıkışması hata bile vermeden askıda kalır.
 - TCKN artık `orders.json`'a da yazılıyor (önceden yalnız iyzico'ya gidiyordu).
   KVKK: TCKN log'a ASLA yazılmaz, yalnız sipariş kaydında ve e-postada durur.
-- UYARI: `DATA_DIR` bir Railway **Volume**'a bağlı değilse orders.json her
+- UYARI: veri klasörü bir Railway **Volume** üzerinde değilse orders.json her
   dağıtımda SİLİNİR — sipariş kayıtları ve dekont bağlantıları kaybolur.
+  Volume bağlanınca `RAILWAY_VOLUME_MOUNT_PATH` otomatik kullanılır; durum
+  admin "💾 Kalıcı veri" kartında (bkz. Ziyaretçi sayacı).
 
 ## Alan adı & NAP tutarlılığı
 - Canlı alan adı **www.gespaenerji.com** — canonical, sitemap, JSON-LD ve

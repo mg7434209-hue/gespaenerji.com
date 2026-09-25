@@ -109,8 +109,12 @@ window.GESPA.config = {
   // base + geçen gün × perDayEstimate ile TAHMİNİ değer gösterilir.
   visitors: {
     enabled: true,
-    base: 1000,              // taban: start tarihine kadarki toplam ziyaret
-    start: "2026-08-08",     // base'in geçerli olduğu tarih (YYYY-AA-GG)
+    // taban: start tarihine kadarki toplam ziyaret. Railway'de Volume YOKKEN
+    // sunucu sayacı her dağıtımda sıfırlanır ve rozet bu tabana döner (admin
+    // "💾 Kalıcı veri" kartı durumu gösterir). 25 Eyl 2026: 1000'den 1088'e
+    // taşındı — sıfırlanmadan önce görülen 1.080 + sonraki 8 ziyaret.
+    base: 1088,
+    start: "2026-09-25",     // base'in geçerli olduğu tarih (YYYY-AA-GG)
     perDayEstimate: 30,      // API yokken günlük tahmini ziyaret artışı
     showOnline: true         // "şu an sitede" canlı sayısı (yalnız API varken)
   },

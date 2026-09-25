@@ -138,6 +138,18 @@
       </p>
     </div>
 
+    <!-- Kalıcı veri: Railway Volume bağlı mı (ziyaretçi sayacı, siparişler, dekontlar) -->
+    <div id="storecard" class="adm-card" hidden>
+      <div class="adm-head">
+        <h2 style="font-size:1.35rem;margin:0">💾 Kalıcı veri</h2>
+      </div>
+      <p style="color:var(--muted);margin:0 0 6px;font-size:.92rem">
+        Ziyaretçi sayacı, sipariş kayıtları, dekont bağlantıları ve AI bot sayacı sunucudaki veri
+        klasöründe tutulur. Klasör kalıcı diskte değilse siteyi her güncellediğimizde silinir.
+      </p>
+      <div id="stState" class="adm-note info">Durum okunuyor…</div>
+    </div>
+
     <!-- Sipariş bildirim e-postası: canlı sipariş beklemeden ayarı doğrula -->
     <div id="mailtest" class="adm-card" hidden>
       <div class="adm-head">
@@ -200,7 +212,31 @@
     function show() {
       $("#login").hidden = true; $("#editor").hidden = false; $("#paylink").hidden = false;
       $("#taksit").hidden = false; $("#mailtest").hidden = false; $("#aibots").hidden = false;
-      render(); payLink(); taksitAraci(); mailTest(); aiBots();
+      $("#storecard").hidden = false;
+      render(); payLink(); taksitAraci(); mailTest(); aiBots(); storeState();
+    }
+
+    // Kalıcı veri durumu — /api/pay/status `store` (server.js DATA_PERSISTENT)
+    function storeState() {
+      var st = $("#stState");
+      fetch("/api/pay/status").then(function (r) { return r.json(); }).then(function (d) {
+        if (d && d.store === true) {
+          st.className = "adm-note ok";
+          st.textContent = "✓ Kalıcı disk bağlı: ziyaretçi sayacı, siparişler ve dekontlar güncellemelerde korunur.";
+        } else if (d && d.store === false) {
+          st.className = "adm-note warn";
+          st.innerHTML = "⚠️ Kalıcı disk <strong>YOK</strong> — site her güncellendiğinde ziyaretçi sayacı taban "
+            + "değere döner, sipariş kayıtları ve dekont bağlantıları silinir. Çözüm: Railway'de bu servise "
+            + "bir <strong>Volume</strong> ekleyin (bağlama yolu örn. <code>/data</code>). Başka ayar gerekmez; "
+            + "sunucu yolu kendisi bulur.";
+        } else {
+          st.className = "adm-note info";
+          st.textContent = "ℹ️ Durum okunamadı (sunucu eski sürüm olabilir).";
+        }
+      }).catch(function () {
+        st.className = "adm-note info";
+        st.textContent = "ℹ️ Durum bu adresten okunamadı (muhtemelen Pages aynası). Bilgi yalnız canlı sitede görünür.";
+      });
     }
 
     // AI tarayıcı sayacı — /api/aibots (yalnız canlı sunucuda; Pages aynasında yok)
