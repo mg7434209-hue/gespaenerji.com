@@ -225,10 +225,10 @@
           st.textContent = "✓ Kalıcı disk bağlı: ziyaretçi sayacı, siparişler ve dekontlar güncellemelerde korunur.";
         } else if (d && d.store === false) {
           st.className = "adm-note warn";
-          st.innerHTML = "⚠️ Kalıcı disk <strong>YOK</strong> — site her güncellendiğinde ziyaretçi sayacı taban "
-            + "değere döner, sipariş kayıtları ve dekont bağlantıları silinir. Çözüm: Railway'de bu servise "
-            + "bir <strong>Volume</strong> ekleyin (bağlama yolu örn. <code>/data</code>). Başka ayar gerekmez; "
-            + "sunucu yolu kendisi bulur.";
+          st.innerHTML = "⚠️ Kalıcı disk <strong>YOK</strong> — ziyaretçi sayacı güncellemede önceki sunucudan "
+            + "devralınır, ama <strong>sipariş kayıtları, dekont bağlantıları ve AI bot sayıları</strong> site her "
+            + "güncellendiğinde silinir. Çözüm: Railway'de bu servise bir <strong>Volume</strong> ekleyin "
+            + "(bağlama yolu örn. <code>/data</code>). Başka ayar gerekmez; sunucu yolu kendisi bulur.";
         } else {
           st.className = "adm-note info";
           st.textContent = "ℹ️ Durum okunamadı (sunucu eski sürüm olabilir).";

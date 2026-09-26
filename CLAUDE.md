@@ -542,8 +542,19 @@ Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD v
   server.js `DATA_PERSISTENT` bunu hesaplar, açılışta log'a yazar,
   `/api/pay/status` → `store` (yalnız boolean) ve admin "💾 Kalıcı veri"
   kartı gösterir. Kalıcı çözüm Railway'de servise Volume eklemektir (kod
-  hazır); o zamana kadar sıfırlanmada kaybolan sayı `visitors.base`'e
-  eklenerek taşınır (start da o güne alınır).
+  hazır). SAYAÇ DEVRİ (Volume olmadan da çalışır): yeni sunucu dinlemeye
+  başlamadan ÖNCE canlı adresteki eski sunucudan sayacı alır
+  (`seedVisitsFromLive`: parolalı `/api/visitors/export` = toplam + saatlik
+  kovalar, eski sürümde yalnız `/api/visitors` toplamı). Bunu mümkün kılan
+  `railway.json` healthcheck'idir (`/api/health`): Railway trafiği yeni
+  sunucu hazır olana dek eskisinde tutar. HEALTHCHECK'İ KALDIRMA — kalkarsa
+  devir isteği yeni (henüz dinlemeyen) sunucuya düşer ve sayaç yine sıfırlanır.
+  Açılış sırası: devir → build → listen. SIGTERM'de bekleyen yazımlar diske
+  atılır. Siparişler ve AI bot sayıları devredilmez, onlar için Volume şart.
+  SON 24 SAAT: sayılan ziyaretler saatlik kovalarda; `/api/visitors` → `day`.
+  24 saatlik kesintisiz veri (`hoursSince`) birikmeden `day: null` döner ve
+  rozet o parçayı göstermez (eksik veriyle küçük sayı yayınlanmaz).
+  Taban (`visitors.base`) artık elle taşınmaz; geçmiş taşımalar config'te.
 - Sohbet botu `assets/chatbot.js` (main.js dinamik yükler): metinleri kendi içinde
   `[tr,en,de,ru]` dizileriyle çok dillidir (i18n DICT'e bağlı değildir); yeni yanıt
   eklerken 4 dili birlikte ekle. Footer sosyal linkleri `config.company.sameAs`'ten

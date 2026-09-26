@@ -64,9 +64,36 @@ console.log("kalıcı veri: " + DATA_DIR + (DATA_PERSISTENT ? "" :
 const VISIT_FILE = path.join(DATA_DIR, "visitors.json");
 const VISIT_COOKIE = "gespa_v";
 const ONLINE_WINDOW_MS = 5 * 60 * 1000; // son 5 dk içinde istek atan = "şu an sitede"
+const HOUR_MS = 60 * 60 * 1000;
 const BOT_RE = /bot|crawl|spider|slurp|preview|scan|monitor|probe|fetch|curl|wget|python|node-fetch|axios|headless|lighthouse|pingdom|facebookexternal|whatsapp|telegram/i;
 let visitTotal = 0;
-try { visitTotal = +JSON.parse(fs.readFileSync(VISIT_FILE, "utf8")).total || 0; } catch (e) {}
+// SON 24 SAAT: sayılan ziyaretler saatlik kovalarda tutulur ({epoch saati: adet}).
+// visitHoursSince = kovaların tutulmaya başladığı an. Kesintisiz 24 saatlik
+// veri birikmeden "son 24 saat" YAYINLANMAZ (eksik veriyle küçük sayı gösterip
+// yanıltmasın); dağıtımda kovalar önceki sunucudan devralındığı için süre
+// kesilmez (bkz. seedVisitsFromLive).
+let visitHours = {};
+let visitHoursSince = 0;
+let visitFileFound = false;
+try {
+  const vf = JSON.parse(fs.readFileSync(VISIT_FILE, "utf8"));
+  visitFileFound = true;
+  visitTotal = +vf.total || 0;
+  if (vf.hours && typeof vf.hours === "object") visitHours = vf.hours;
+  visitHoursSince = +vf.hoursSince || 0;
+} catch (e) {}
+if (!visitHoursSince) visitHoursSince = Date.now();
+function hourKey(t) { return Math.floor(t / HOUR_MS); }
+function visitsLast24h() {
+  const oldest = hourKey(Date.now()) - 23; // şimdiki saat + önceki 23 saat
+  let n = 0;
+  Object.keys(visitHours).forEach(k => { if (+k < oldest) delete visitHours[k]; else n += +visitHours[k] || 0; });
+  return n;
+}
+function visitsJson() {
+  visitsLast24h(); // eski kovaları at
+  return JSON.stringify({ total: visitTotal, hours: visitHours, hoursSince: visitHoursSince, saved: new Date().toISOString() });
+}
 let visitSaveTimer = null;
 function saveVisits() {
   if (visitSaveTimer) return; // yazımlar 2 sn'de bire toplanır
@@ -74,7 +101,7 @@ function saveVisits() {
     visitSaveTimer = null;
     try {
       fs.mkdirSync(DATA_DIR, { recursive: true });
-      fs.writeFileSync(VISIT_FILE, JSON.stringify({ total: visitTotal, saved: new Date().toISOString() }));
+      fs.writeFileSync(VISIT_FILE, visitsJson());
     } catch (e) {}
   }, 2000);
 }
@@ -93,9 +120,75 @@ function countVisit(req, headers) {
     onlineMap.set(ip, Date.now());
     if (new RegExp("(^|;\\s*)" + VISIT_COOKIE + "=1").test(req.headers.cookie || "")) return; // son 24 saatte sayıldı
     visitTotal++;
+    const hk = hourKey(Date.now());
+    visitHours[hk] = (+visitHours[hk] || 0) + 1;
     saveVisits();
     headers["Set-Cookie"] = VISIT_COOKIE + "=1; Max-Age=86400; Path=/; SameSite=Lax";
   } catch (e) {}
+}
+
+// ---- Dağıtımda sayaç devri ----
+// Volume YOKKEN Railway her dağıtımda yeni kapsayıcı açar, visitors.json
+// kaybolur ve rozet tabana döner (26 Eyl 2026'da iki güncellemede 1.269 →
+// 1.113 düştü). Çözüm: yeni sunucu DİNLEMEYE BAŞLAMADAN önce canlı adresteki
+// ESKİ sunucudan sayacı alır. railway.json healthcheck'i yeni sunucu hazır
+// olana dek trafiği eskisinde tutar; bu yüzden istek eskisine gider.
+// Önce parolalı /api/visitors/export (toplam + saatlik kovalar), eski sürümde o
+// yoksa herkese açık /api/visitors (yalnız toplam). Dosya varsa (Volume) veya
+// Railway dışındaysak (yerel, test) hiç denenmez. Başarısızsa sayaç 0'dan başlar.
+function fetchJson(url, body, cb) {
+  let called = false;
+  const done = (e, d) => { if (!called) { called = true; cb(e, d); } };
+  try {
+    const u = new URL(url);
+    const data = body ? JSON.stringify(body) : null;
+    const rq = require(u.protocol === "http:" ? "http" : "https").request({
+      hostname: u.hostname, port: u.port || (u.protocol === "http:" ? 80 : 443), path: u.pathname, method: data ? "POST" : "GET", timeout: 4000,
+      headers: Object.assign({ "Accept": "application/json", "User-Agent": "gespa-sayac-devri/1" },
+        data ? { "Content-Type": "application/json", "Content-Length": Buffer.byteLength(data) } : {})
+    }, (rs) => {
+      let s = "";
+      rs.setEncoding("utf8");
+      rs.on("data", (c) => { s += c; if (s.length > 64 * 1024) rq.destroy(new Error("çok büyük")); });
+      rs.on("end", () => {
+        if (rs.statusCode !== 200) return done(new Error("HTTP " + rs.statusCode));
+        try { done(null, JSON.parse(s)); } catch (e) { done(e); }
+      });
+    });
+    rq.on("timeout", () => rq.destroy(new Error("zaman aşımı")));
+    rq.on("error", (e) => done(e));
+    if (data) rq.write(data);
+    rq.end();
+  } catch (e) { done(e); }
+}
+function seedVisitsFromLive(done) {
+  // VISITS_SEED_URL: devrin okunacağı adres (test ve olağan dışı kurulum için);
+  // verilmezse canlı adres (config.company.web)
+  const base = (process.env.VISITS_SEED_URL || "").replace(/\/+$/, "") || siteBase();
+  if (!(ON_RAILWAY || process.env.VISITS_SEED_URL) || visitFileFound) return done("devir gerekmedi");
+  const pass = (SITE_CFG && SITE_CFG.admin && SITE_CFG.admin.pass) || "";
+  const take = (d) => {
+    const t = Math.floor(+(d && d.total));
+    if (!(t > 0 && t < 1e9)) return false;
+    visitTotal += t; // devir sırasında bu sunucuda sayılan (olmamalı) korunur
+    if (d.hours && typeof d.hours === "object") {
+      Object.keys(d.hours).forEach((k) => {
+        const n = Math.floor(+d.hours[k]);
+        if (/^\d+$/.test(k) && n > 0 && n < 1e7) visitHours[k] = (+visitHours[k] || 0) + n;
+      });
+      const since = +d.hoursSince;
+      if (since > 0 && since <= Date.now()) visitHoursSince = Math.min(visitHoursSince, since);
+    }
+    saveVisits();
+    return true;
+  };
+  fetchJson(base + "/api/visitors/export", { pass }, (e1, d1) => {
+    if (!e1 && take(d1)) return done("önceki sunucudan devralındı: " + visitTotal + " (saatlik kovalarla)");
+    fetchJson(base + "/api/visitors", null, (e2, d2) => {
+      if (!e2 && take(d2)) return done("önceki sunucudan devralındı: " + visitTotal + " (yalnız toplam)");
+      done("devralınamadı (" + ((e2 || e1) && (e2 || e1).message) + "); sayaç 0'dan başlıyor");
+    });
+  });
 }
 
 // ---- AI tarayıcı sayacı ----
@@ -802,6 +895,14 @@ function handlePayRoutes(req, res, urlPath) {
 
 const server = http.createServer((req, res) => {
   try {
+    // Railway sağlık kontrolü (railway.json healthcheckPath). Sunucu yalnız
+    // build'i bitirip sayacı devraldıktan SONRA dinlemeye başladığı için 200
+    // dönmesi "hazırım" demektir; Railway trafiği o ana dek eski sunucuda tutar.
+    // Host healthcheck.railway.app gelir: yönlendirmelerden ÖNCE yanıtlanır.
+    if (req.url === "/api/health") {
+      res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" });
+      return res.end("ok");
+    }
     // HTTP → HTTPS (yalnızca proxy açıkça http dediğinde; aynı host korunur).
     // x-forwarded-proto yoksa (Railway iç sağlık kontrolü) yönlendirme YAPMA.
     var host = (req.headers.host || "").toLowerCase();
@@ -847,7 +948,21 @@ const server = http.createServer((req, res) => {
     // Ziyaretçi API — footer sayacı (main.js) buradan okur; sayım HTML servisinde
     if (urlPath === "/api/visitors") {
       res.writeHead(200, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" });
-      return res.end(JSON.stringify({ total: visitTotal, online: onlineCount() }));
+      // day: son 24 saatte sayılan tekil ziyaretçi; 24 saatlik kesintisiz veri
+      // yoksa null (rozet o parçayı göstermez)
+      const day = Date.now() - visitHoursSince >= 24 * HOUR_MS ? visitsLast24h() : null;
+      return res.end(JSON.stringify({ total: visitTotal, online: onlineCount(), day: day }));
+    }
+    // Sayaç devri: yeni sunucu açılırken bunu çağırır (seedVisitsFromLive).
+    // Yalnız toplam sayılar döner; parola config.admin.pass (/api/aibots gibi).
+    if (urlPath === "/api/visitors/export" && req.method === "POST") {
+      return readBody(req, 4 * 1024, (raw) => {
+        let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
+        const pass = (SITE_CFG && SITE_CFG.admin && SITE_CFG.admin.pass) || "";
+        if (!pass || String(b.pass || "") !== pass) return sendJson(res, 403, { error: "Parola hatalı." });
+        visitsLast24h();
+        return sendJson(res, 200, { total: visitTotal, hours: visitHours, hoursSince: visitHoursSince });
+      });
     }
     // AI tarayıcı sayacı — admin paneli okur (config.admin.pass ile)
     if (urlPath === "/api/aibots" && req.method === "POST") {
@@ -1010,14 +1125,33 @@ const server = http.createServer((req, res) => {
   }
 });
 
-// Çok dilli statik sayfaları (/en, /de, /ru) başlangıçta üret
-try {
-  const built = require("./build").run();
-  console.log(`GESPA build: ${built} dil sayfası hazır.`);
-} catch (e) {
-  console.warn("GESPA build atlandı:", e && e.message);
-}
+// Açılış sırası: 1) sayacı önceki sunucudan devral (yalnız Railway'de ve
+// dosya yoksa; en çok ~8 sn) 2) çok dilli sayfaları üret 3) dinlemeye başla.
+// Dinleme en sonda: healthcheck 200 döndüğünde her şey hazırdır.
+seedVisitsFromLive((msg) => {
+  console.log("ziyaretçi sayacı: " + msg);
+  // Çok dilli statik sayfaları (/en, /de, /ru) başlangıçta üret
+  try {
+    const built = require("./build").run();
+    console.log(`GESPA build: ${built} dil sayfası hazır.`);
+  } catch (e) {
+    console.warn("GESPA build atlandı:", e && e.message);
+  }
+  server.listen(PORT, () => {
+    console.log(`GESPA Enerji sitesi http://localhost:${PORT} adresinde yayında`);
+  });
+});
 
-server.listen(PORT, () => {
-  console.log(`GESPA Enerji sitesi http://localhost:${PORT} adresinde yayında`);
+// Railway eski kapsayıcıyı SIGTERM ile kapatır: bekleyen (2 sn gecikmeli)
+// sayaç yazımlarını hemen diske at. Volume varken son saniyelerin ziyaretleri
+// ve bot sayıları kaybolmasın. Açık bağlantılar biter bitmez, en geç 3 sn'de çık.
+function flushData() {
+  try { fs.mkdirSync(DATA_DIR, { recursive: true }); fs.writeFileSync(VISIT_FILE, visitsJson()); } catch (e) {}
+  try { fs.writeFileSync(AIBOT_FILE, JSON.stringify(aiBots)); } catch (e) {}
+}
+process.on("SIGTERM", () => {
+  flushData();
+  server.close(() => process.exit(0));
+  if (server.closeIdleConnections) server.closeIdleConnections();
+  setTimeout(() => process.exit(0), 3000).unref();
 });

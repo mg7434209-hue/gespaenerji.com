@@ -110,11 +110,14 @@ window.GESPA.config = {
   visitors: {
     enabled: true,
     // taban: start tarihine kadarki toplam ziyaret. Railway'de Volume YOKKEN
-    // sunucu sayacı her dağıtımda sıfırlanır ve rozet bu tabana döner (admin
-    // "💾 Kalıcı veri" kartı durumu gösterir). 25 Eyl 2026: 1000'den 1088'e
-    // taşındı — sıfırlanmadan önce görülen 1.080 + sonraki 8 ziyaret.
-    base: 1088,
-    start: "2026-09-25",     // base'in geçerli olduğu tarih (YYYY-AA-GG)
+    // sunucu sayacı her dağıtımda sıfırlanıyordu. 26 Eyl 2026'dan beri yeni
+    // sunucu açılışta sayacı ESKİ sunucudan devralır (server.js
+    // seedVisitsFromLive + railway.json healthcheck), taban artık elle
+    // taşınmaz. Taşıma geçmişi: 25 Eyl 1000 → 1088 (sıfırlanmadan önce görülen
+    // 1.080 + 8); 26 Eyl 1088 → 1269 (o gün iki güncellemede kaybolan en az
+    // 181 ziyaret: sabah rozeti 1.269 gösteriyordu).
+    base: 1269,
+    start: "2026-09-26",     // base'in geçerli olduğu tarih (YYYY-AA-GG)
     perDayEstimate: 30,      // API yokken günlük tahmini ziyaret artışı
     showOnline: true         // "şu an sitede" canlı sayısı (yalnız API varken)
   },

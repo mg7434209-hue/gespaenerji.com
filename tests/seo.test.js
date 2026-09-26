@@ -233,7 +233,16 @@ server.stdout.on('data',async d=>{
   const ok=await fetch('http://127.0.0.1:'+port+'/api/aibots',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({pass:sb.window.GESPA.config.admin.pass})});
   assert.equal(ok.status,200);const bots=(await ok.json()).bots;const gpt=bots.find(b=>b.name==='GPTBot');
   assert.ok(gpt&&gpt.kind==='ai'&&gpt.count>=1&&gpt.top.some(t=>t.path==='/llms.txt'),'GPTBot counted');
-  console.log('HTTP: key pages and bot files return 200; missing page returns 404; markdown mirrors, Accept negotiation and AI crawler counter work.');
+  // Visitor counter: Railway healthcheck, 24 h figure key, and the password-protected handoff export
+  // a new deployment reads from the old one (so a redeploy does not reset the badge).
+  const hc=await fetch('http://127.0.0.1:'+port+'/api/health');assert.equal(hc.status,200,'healthcheck');await hc.text();
+  const rj=JSON.parse(fs.readFileSync(path.join(root,'railway.json'),'utf8'));assert.equal(rj.deploy.healthcheckPath,'/api/health','railway healthcheck path');
+  const vis=await (await fetch('http://127.0.0.1:'+port+'/api/visitors')).json();
+  assert.ok(Number.isFinite(vis.total)&&'day' in vis&&(vis.day===null||Number.isFinite(vis.day)),'visitors api: total + day');
+  const ex403=await fetch('http://127.0.0.1:'+port+'/api/visitors/export',{method:'POST',body:JSON.stringify({pass:'yanlis'})});assert.equal(ex403.status,403);await ex403.text();
+  const ex=await fetch('http://127.0.0.1:'+port+'/api/visitors/export',{method:'POST',body:JSON.stringify({pass:sb.window.GESPA.config.admin.pass})});
+  assert.equal(ex.status,200);const exj=await ex.json();assert.ok(exj.total===vis.total&&exj.hours&&exj.hoursSince>0,'visitors export for redeploy handoff');
+  console.log('HTTP: key pages and bot files return 200; missing page returns 404; markdown mirrors, Accept negotiation, AI crawler counter and visitor handoff work.');
  }catch(e){console.error(e);process.exitCode=1;}finally{clearTimeout(timeout);server.kill();}
 });
 server.on('error',e=>{clearTimeout(timeout);console.error(e);process.exitCode=1;});

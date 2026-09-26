@@ -1534,9 +1534,15 @@
     var p = doc.createElement("p");
     p.className = "visit-counter";
     host.appendChild(p);
-    function render(total, online) {
-      var html = '<span aria-hidden="true">👥</span> <b>' + nf.format(total) + "</b> " +
-        L("ziyaretçi", "visitors", "Besucher", "посетителей");
+    // day: son 24 saatteki tekil ziyaretçi — sunucu 24 saatlik kesintisiz veri
+    // biriktirmeden göndermez (null), o zamana kadar parça görünmez
+    function render(total, online, day) {
+      var html = '<span class="visit-total"><span aria-hidden="true">👥</span> <b>' + nf.format(total) + "</b> " +
+        L("ziyaretçi", "visitors", "Besucher", "посетителей") + "</span>";
+      if (day > 0) {
+        var d = "<b>" + nf.format(day) + "</b>";
+        html += ' <span class="visit-day">· ' + L("son 24 saatte " + d, d + " in the last 24 h", d + " in den letzten 24 Std.", d + " за последние 24 ч") + "</span>";
+      }
       if (v.showOnline && online > 0) {
         html += ' <span class="visit-online">· <span class="visit-dot" aria-hidden="true"></span> ' + nf.format(online) + " " +
           L("kişi şu an sitede", "online now", "gerade online", "сейчас на сайте") + "</span>";
@@ -1552,7 +1558,7 @@
     try {
       fetch("/api/visitors", { cache: "no-store" })
         .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-        .then(function (d) { render((v.base || 0) + (+d.total || 0), +d.online || 0); })
+        .then(function (d) { render((v.base || 0) + (+d.total || 0), +d.online || 0, +d.day || 0); })
         .catch(function () {});
     } catch (e) {}
   })();
