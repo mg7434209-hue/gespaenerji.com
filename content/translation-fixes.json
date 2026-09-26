@@ -486,22 +486,22 @@
     "Потребность зависит от мощности и времени работы приборов. Укажите количество и часы в конфигураторе для оценки суточных кВт·ч, мощности панелей, ёмкости батареи и инвертора."
   ],
   [
-    "İnverter, aynı anda çalışacak cihazların toplam gücünü ve motorlu cihazların kalkış akımını karşılamalıdır. Sistem Kurucu, eşzamanlılık ve kalkış payını hesaba katarak minimum inverter gücünü önerir; ardından uygun hibrit/off-grid modeli seçebilirsiniz.",
-    "The inverter must cover simultaneous loads and motor starting demand. The System Builder includes simultaneity and startup allowance to suggest minimum power before you select a hybrid or off-grid model.",
-    "Der Wechselrichter muss gleichzeitige Lasten und Motoranlauf abdecken. Der Konfigurator berücksichtigt Gleichzeitigkeit und Anlaufreserve für die Mindestleistung vor der Modellwahl.",
-    "Инвертор должен покрывать одновременные нагрузки и пусковой ток двигателей. Конфигуратор учитывает одновременность и пусковой запас для рекомендации минимальной мощности."
+    "İnverter, aynı anda çalışacak cihazların toplam gücünü ve motorlu cihazların kalkış akımını karşılamalı, akü ile de aynı sistem geriliminde (ör. 48 V) olmalıdır. Sistem Kurucu, eşzamanlılık ve kalkış payını hesaba katarak gereken gücü bulur ve yalnız akünüzle uyumlu modeli önerir.",
+    "The inverter must cover simultaneous loads and motor starting demand, and it must match the battery's system voltage (e.g. 48 V). The System Builder includes simultaneity and startup allowance to find the required power and only suggests models compatible with your battery.",
+    "Der Wechselrichter muss gleichzeitige Lasten und den Motoranlauf abdecken und zur Systemspannung der Batterie passen (z. B. 48 V). Der Konfigurator berücksichtigt Gleichzeitigkeit und Anlaufreserve und schlägt nur Modelle vor, die zu Ihrer Batterie passen.",
+    "Инвертор должен покрывать одновременные нагрузки и пусковой ток двигателей и совпадать с напряжением аккумуляторной системы (например, 48 В). Конфигуратор учитывает одновременность и пусковой запас и предлагает только модели, совместимые с вашим аккумулятором."
   ],
   [
-    "LiFePO₄ aküler daha derin deşarj (yaklaşık %90) ve çok daha uzun çevrim ömrü sunar; ilk yatırımı yüksektir ancak kWh başına ömür maliyeti düşüktür. Jel aküler ilk yatırımı ucuzlatır, ömrü kısadır. Sistem Kurucu'da her iki seçeneği fiyatıyla karşılaştırabilirsiniz.",
-    "LiFePO₄ offers deeper discharge (about 90%) and longer cycle life, with higher upfront cost but lower lifetime cost per kWh. Gel batteries cost less initially but have shorter life. Compare both in the System Builder.",
-    "LiFePO₄ bietet tiefere Entladung (etwa 90 %) und längere Zyklenlebensdauer bei höheren Anschaffungs-, aber geringeren Lebenszykluskosten pro kWh. Gelbatterien sind zunächst günstiger, leben aber kürzer. Vergleichen Sie beide im Konfigurator.",
-    "LiFePO₄ допускает более глубокий разряд (около 90%) и больше циклов, но дороже при покупке. Гелевые батареи дешевле первоначально, однако служат меньше. Сравните оба варианта в конфигураторе."
+    "LiFePO₄ aküler daha derin deşarj (yaklaşık %90) ve çok daha uzun çevrim ömrü sunar; ilk yatırımı yüksektir ancak kWh başına ömür maliyeti düşüktür. Jel aküler ilk yatırımı ucuzlatır, ömrü kısadır. Sistem Kurucu mağazamızdaki LiFePO₄ aküyle hesaplar; jel akü tercih ederseniz keşifte fiyatlandırılır.",
+    "LiFePO₄ offers deeper discharge (about 90%) and longer cycle life, with higher upfront cost but lower lifetime cost per kWh. Gel batteries cost less initially but have shorter life. The System Builder calculates with the LiFePO₄ battery from our shop; if you prefer gel, it is priced during the site survey.",
+    "LiFePO₄ bietet tiefere Entladung (etwa 90 %) und längere Zyklenlebensdauer bei höheren Anschaffungs-, aber geringeren Lebenszykluskosten pro kWh. Gelbatterien sind zunächst günstiger, leben aber kürzer. Der Konfigurator rechnet mit der LiFePO₄-Batterie aus unserem Shop; eine Gelbatterie wird auf Wunsch bei der Vor-Ort-Prüfung kalkuliert.",
+    "LiFePO₄ допускает более глубокий разряд (около 90%) и больше циклов, но дороже при покупке. Гелевые батареи дешевле первоначально, однако служат меньше. Конфигуратор считает с аккумулятором LiFePO₄ из нашего магазина; гелевый вариант рассчитаем при выезде."
   ],
   [
-    "Fiyatlar tahmini liste fiyatlarıdır (KDV dahil) ve stok, kur ile kampanyalara göre değişebilir. Siparişinizi oluşturduktan sonra ücretsiz keşif yapılır ve kesin teklif yazılı olarak verilir.",
-    "Prices are indicative list prices including VAT and may vary with stock, exchange rates and offers. After your request, a free assessment is followed by a written final quote.",
-    "Preise sind geschätzte Listenpreise inklusive MwSt. und können mit Lagerbestand, Kurs und Aktionen variieren. Nach Ihrer Anfrage folgen kostenlose Prüfung und schriftliches Endangebot.",
-    "Цены ориентировочные, с НДС, и могут меняться в зависимости от наличия, курса и акций. После запроса проводится бесплатное обследование и выдаётся письменное предложение."
+    "Panel, akü, kablo ve MC4 gibi mağazada satılan ürünlerin fiyatı mağazayla aynıdır; bu ürünleri kurucudan doğrudan sepete ekleyebilirsiniz. İnverter, bağlantı panosu, montaj konstrüksiyonu ve işçilik tahminidir; kesin tutar ücretsiz keşiften sonra yazılı teklifle verilir.",
+    "Products sold in our shop, such as panels, batteries, cables and MC4 connectors, carry the same price as the shop, and you can add them to the cart straight from the builder. The inverter, panel box, mounting structure and labour are estimates; the final amount follows in a written quote after a free site survey.",
+    "Shop-Produkte wie Module, Batterien, Kabel und MC4-Stecker kosten dasselbe wie im Shop und lassen sich direkt aus dem Konfigurator in den Warenkorb legen. Wechselrichter, Verteiler, Montagegestell und Montage sind Schätzungen; den endgültigen Betrag erhalten Sie nach der kostenlosen Vor-Ort-Prüfung als schriftliches Angebot.",
+    "Товары из нашего магазина, такие как панели, аккумуляторы, кабели и коннекторы MC4, стоят столько же, сколько в магазине, и их можно сразу добавить в корзину из конфигуратора. Инвертор, щит, монтажная конструкция и работы оцениваются ориентировочно; точная сумма указывается в письменном предложении после бесплатного выезда."
   ],
   [
     "KVKK Aydınlatma Metni",

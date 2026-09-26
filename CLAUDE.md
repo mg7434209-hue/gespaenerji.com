@@ -213,35 +213,15 @@ içerik ile kapsayıcı arasında ≥17px boşluk kalmalı, yoksa dil değiştir
 ve sepet simgesi ekran dışında kalır.
 
 ## Sistem Kurucu (`sistem-kur.html` · `assets/builder.js`)
-"İhtiyaçtan siparişe" 5 adımlı sihirbaz: kullanım senaryosu → cihaz listesi
-(adet + günlük saat) → ihtiyaç (kWp / kWh akü / kW inverter) → marka-model
-seçimi (panel, akü, inverter, MC4/kablo/pano/konstrüksiyon/işçilik) → sipariş
-özeti (BOM + toplam) → WhatsApp.
-- TÜM veri `config.builder`: `sizing` (katsayılar), `presets` (senaryolar),
-  `appliances` (W/saat/kalkış), `groups`, `catalog` (panel/battery/inverter/extras).
-  Koda hiçbir sayı/fiyat gömülmez. Fiyatlar tahmini liste fiyatıdır.
-- Akü adedi model DoD'una göre hesaplanır (LiFePO₄ 0.9, jel 0.5).
-- 4. adımda DÖRT kategori de aynı düzendedir: başlığa dokununca kayarak açılan
-  akordeon + `.bld-list` satırları (panel/akü/inverter tek seçim = radyo;
-  kablo/pano/işçilik çoklu seçim = kutucuk). Yeni kategori eklerken deseni koru.
-- Her seçili satırda kendi adet kutusu (− n +) vardır; elle girilen adet
-  `state.qty[type]` / `state.exQty[ekId]`'de saklanır, "↺ otomatik" bağlantısı
-  hesaplanan adede döndürür (öneri: `autoQtyFor` / `extraAutoQty`).
-- YAPI KURALI: adet kutusu ve "↺ otomatik" düğmesi satırın `<label>`'ının
-  DIŞINDA durur (`.bld-row-hit` = `display:contents`); label'ın içinde olsalar
-  tıklama seçimi değiştirir. Ayrıca `softSelect()` yeniden çizmeden günceller —
-  tıklanan düğümü DEĞİŞTİRME, yoksa click olayı düşer.
-- 4. adımın altında canlı sepet (`.bld-cart` → `cartInner()`): seçilen her kalem
-  adet × birim = tutar ve genel toplam. 5. adımdaki BOM ile aynı `bom()` verisi.
-- Sepet ve sipariş özetinde ortak fiyat kutusu (`priceBox()`): toplam, KDV notu,
-  havale/EFT indirimi, kurulu güç, WhatsApp siparişi ve güven satırları. İndirim
-  oranı site geneli `config.cartDiscountPct` (paket ürünlerle AYNI oran);
-  gerekirse `config.builder.commerce.havaleDiscountPct` ile ezilir, 0 = gizli.
-  5. adımda `{total:false}` ile çağrılır (toplam tabloda zaten var).
-- Durum localStorage `gespa-builder`'da (`state.open` = açık akordeonlar);
-  `?tip=<presetId>` ile ön seçim yapılır.
-- Cihaz/ürün adları `T()` ile i18n DICT'ten çevrilir — yeni ürün eklerken
-  adını DICT'e de ekle (yoksa zarifçe TR kalır).
+5 adım: kullanım yeri → cihazlar → ÖNERİLEN SİSTEM → ürünleri düzenle
+(isteğe bağlı) → sipariş (mağaza ürünleri sepete, sistemin tamamı WhatsApp'a).
+- TEK FİYAT KAYNAĞI: mağazada satılan kalem `catalog[].pkg` ile
+  config.packages'e bağlanır; fiyat main.js `pkgUnit()` ile gelir
+  (`GESPA.shop`). `pkg`'li kaleme `price` YAZILMAZ (test düşer). `pkg`'siz
+  kalem "teklifle · tahmini"dir (inverter, pano, işçilik), sepete girmez.
+- Akü ve inverter `v` (sistem gerilimi) taşır; yalnız uyumlu inverter önerilir.
+- Adet kutusu açık satırın sınıfı `.has-qty` (`.qbox` ürün sayfasınındır).
+- Ayrıntı, öneri mantığı ve yapı kuralları: @docs/sistem-kurucu.md
 
 ## TEK DOĞRU KAYNAK — `assets/config.js`
 İletişim bilgileri, markalar ve hesaplayıcı katsayıları **yalnızca** burada tutulur.

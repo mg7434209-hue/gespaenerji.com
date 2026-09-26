@@ -3,7 +3,7 @@ title: "Systemkonfigurator — Solaranlage auslegen | GESPA"
 description: "Wählen Sie Ihre Geräte und sehen Sie sofort benötigte PV-Leistung, Batteriekapazität und Wechselrichtergröße. Marken und Modelle wählen und Bestellung erstellen."
 canonical: https://www.gespaenerji.com/de/sistem-kur.html
 lang: de
-dateModified: 2026-09-24
+dateModified: 2026-09-26
 publisher: "GESPA Enerji"
 ---
 
@@ -23,15 +23,15 @@ Geräteleistung und tägliche Laufzeit bestimmen den Bedarf. Mengen und Stunden 
 
 ### Wie wählt man die Off-Grid-Wechselrichterleistung?
 
-Der Wechselrichter muss gleichzeitige Lasten und Motoranlauf abdecken. Der Konfigurator berücksichtigt Gleichzeitigkeit und Anlaufreserve für die Mindestleistung vor der Modellwahl.
+Der Wechselrichter muss gleichzeitige Lasten und den Motoranlauf abdecken und zur Systemspannung der Batterie passen (z. B. 48 V). Der Konfigurator berücksichtigt Gleichzeitigkeit und Anlaufreserve und schlägt nur Modelle vor, die zu Ihrer Batterie passen.
 
 ### LiFePO₄- oder Gelbatterie wählen?
 
-LiFePO₄ bietet tiefere Entladung (etwa 90 %) und längere Zyklenlebensdauer bei höheren Anschaffungs-, aber geringeren Lebenszykluskosten pro kWh. Gelbatterien sind zunächst günstiger, leben aber kürzer. Vergleichen Sie beide im Konfigurator.
+LiFePO₄ bietet tiefere Entladung (etwa 90 %) und längere Zyklenlebensdauer bei höheren Anschaffungs-, aber geringeren Lebenszykluskosten pro kWh. Gelbatterien sind zunächst günstiger, leben aber kürzer. Der Konfigurator rechnet mit der LiFePO₄-Batterie aus unserem Shop; eine Gelbatterie wird auf Wunsch bei der Vor-Ort-Prüfung kalkuliert.
 
 ### Sistem Kurucu'daki fiyatlar kesin mi?
 
-Preise sind geschätzte Listenpreise inklusive MwSt. und können mit Lagerbestand, Kurs und Aktionen variieren. Nach Ihrer Anfrage folgen kostenlose Prüfung und schriftliches Endangebot.
+Shop-Produkte wie Module, Batterien, Kabel und MC4-Stecker kosten dasselbe wie im Shop und lassen sich direkt aus dem Konfigurator in den Warenkorb legen. Wechselrichter, Verteiler, Montagegestell und Montage sind Schätzungen; den endgültigen Betrag erhalten Sie nach der kostenlosen Vor-Ort-Prüfung als schriftliches Angebot.
 
 ## Noch unsicher?
 

@@ -170,6 +170,19 @@ assert.ok(!aboutPage.includes('01.11.2022')&&!aboutPage.includes('Kurumsallaşma
   assert.ok(html.includes(lang==='tr'?'<script defer src="assets/i18n.tr.js">':'<script defer src="/assets/i18n.'+lang+'.js">'),file+': loads its language bundle');
   assert.ok(!/src="\/?assets\/i18n\.js"/.test(html),file+': does not load the full dictionary');
  }}
+// System Builder prices come from the shop: a catalog item linked to a package (`pkg`)
+// must not carry its own price, and battery/inverter voltages must be able to pair up.
+{const vm=require('node:vm');const sb={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/config.js'),'utf8'),sb);
+ const C=sb.window.GESPA.config,cat=C.builder.catalog,pk=id=>C.packages.find(p=>p.id===id);
+ for(const type of Object.keys(cat))for(const it of cat[type]){
+  if(it.pkg){assert.ok(pk(it.pkg),'builder '+it.id+': package '+it.pkg+' exists');
+   assert.ok(pk(it.pkg).price!=null,'builder '+it.id+': linked package has a price');
+   assert.equal(it.price,undefined,'builder '+it.id+': no second price next to pkg');}
+  else assert.ok(it.price>0&&it.name,'builder '+it.id+': quote item has name and estimated price');}
+ const volts=new Set(cat.battery.map(b=>b.v));
+ assert.ok(cat.battery.every(b=>b.v)&&cat.inverter.every(i=>i.v),'builder: battery/inverter voltage (v) set');
+ assert.ok(cat.inverter.every(i=>volts.has(i.v)),'builder: every inverter matches a battery voltage');
+ for(const p of C.builder.presets)for(const t of Object.keys(p.prefer||{}))assert.ok(cat[t].some(x=>x.id===p.prefer[t]),'builder preset '+p.id+': prefer '+p.prefer[t]+' exists');}
 console.log('Static SEO: '+urls.length+' sitemap pages, '+schemas+' JSON-LD blocks; links and translations passed.');
 // Exercise the actual consent branch without loading analytics or contacting third parties.
 const main=fs.readFileSync(path.join(root,'assets/main.js'),'utf8');

@@ -502,10 +502,17 @@ window.GESPA.config = {
   // ============================================================
   // SİSTEM KURUCU (sistem-kur.html) — "ihtiyaçtan siparişe" sihirbazı
   // Kullanıcı cihazlarını seçer → ihtiyaç (panel/akü/inverter) hesaplanır →
-  // marka/model seçer → sipariş özeti WhatsApp'a gider.
+  // önerilen sistem gösterilir → isterse ürünleri değiştirir → sipariş özeti
+  // (mağaza ürünleri sepete, sistemin tamamı WhatsApp'a).
   // KURAL: builder.js'e hiçbir sayı/fiyat gömülmez; tümü buradan okunur.
-  // Fiyatlar TAHMİNİ LİSTE fiyatlarıdır (KDV dahil); kesin fiyat keşifle netleşir.
-  // Admin paneli bu fiyatları localStorage'da geçici override edebilir.
+  // TEK FİYAT KAYNAĞI: mağazada satılan kalem `pkg` ile config.packages'e
+  // bağlanır; ad, marka, fiyat, havale tutarı ve stok ORADAN gelir (main.js
+  // pkgUnit kuralı). Admin panelinin paket fiyatı değişikliği de böylece
+  // kurucuya yansır. Mağazada karşılığı olan ürüne burada İKİNCİ BİR FİYAT
+  // YAZILMAZ; eskiden yazılıyordu ve kurucu mağazadan farklı fiyat gösteriyordu.
+  // `pkg`'siz kalem mağazada satılmayan, TEKLİFLE fiyatlanan kalemdir:
+  // `price` tahmini liste fiyatıdır (KDV dahil), arayüzde "tahmini" diye
+  // ayrı gösterilir, sepete eklenmez ve havale indirimi almaz.
   // ============================================================
   builder: {
     // Boyutlandırma katsayıları
@@ -522,17 +529,26 @@ window.GESPA.config = {
     },
 
     // Kullanım senaryoları — seçilince cihaz listesi ön-doldurulur ({cihazId: adet})
+    // prefer: { tür: katalog kimliği } → öneri bu modelle başlar (karavan
+    //   tavanına 2,4 m'lik panel sığmaz, kompakt panel önerilir).
+    // tip: senaryoya özel yönlendirme; 3. adımda bilgi kutusu olarak çıkar.
+    //   Metin ve bağlantı etiketi i18n DICT'ten çevrilir (3 dil ekle).
     presets: [
       { id: "bagevi", icon: "🏡", label: "Bağ Evi", desc: "Hafta sonu kullanımı, temel konfor",
         items: { buzdolabi: 1, tv: 1, led: 6, telefon: 2, wifi: 1, su_pompasi: 1 } },
       { id: "karavan", icon: "🚐", label: "Karavan / Kamp", desc: "Mobil kullanım, düşük tüketim",
-        items: { buzdolabi_mini: 1, led: 4, telefon: 2, laptop: 1 } },
+        items: { buzdolabi_mini: 1, led: 4, telefon: 2, laptop: 1 },
+        prefer: { panel: "pnl-lexron-285" } },
       { id: "mustakil", icon: "🏠", label: "Müstakil Ev", desc: "Tam zamanlı yaşam",
         items: { buzdolabi: 1, tv: 2, led: 12, telefon: 4, wifi: 1, camasir: 1, bulasik: 1, su_pompasi: 1, klima: 1 } },
       { id: "tarla", icon: "🌾", label: "Tarla / Sulama", desc: "Pompa ağırlıklı sezonluk",
-        items: { dalgic_pompa: 1, led: 2, kamera: 2 } },
+        items: { dalgic_pompa: 1, led: 2, kamera: 2 },
+        tip: { text: "Sulama pompası gündüz doğrudan güneşten çalışabilir; aküsüz güneşli pompa sistemi çoğu zaman çok daha ekonomiktir.",
+               link: "Sulama pompası hesabı →", href: "tarimsal-sulama.html" } },
       { id: "isyeri", icon: "🏪", label: "Dükkân / Ofis", desc: "Gündüz ağırlıklı işletme",
-        items: { led: 15, bilgisayar: 3, klima: 2, buzdolabi: 1, wifi: 1, yazarkasa: 1 } }
+        items: { led: 15, bilgisayar: 3, klima: 2, buzdolabi: 1, wifi: 1, yazarkasa: 1 },
+        tip: { text: "Şebekeye bağlı bir işyerinde faturayı düşüren şebeke bağlantılı çatı GES'i çoğu zaman daha ekonomiktir.",
+               link: "Faturaya göre hesapla →", href: "hesaplayici.html" } }
     ],
 
     // Cihaz kataloğu — w: çalışma gücü (W), h: varsayılan günlük çalışma (saat),
@@ -568,34 +584,38 @@ window.GESPA.config = {
       { id: "pompa", label: "Pompa & Bahçe" }
     ],
 
-    // Ürün kataloğu — sipariş adımında seçilir (fiyatlar tahmini liste, ₺ KDV dahil)
-    // battery.dod: kullanılabilir kapasite oranı (LiFePO₄ ~0.9, jel ~0.5) —
-    // akü adedi bu değere göre hesaplanır, jel akü daha fazla adet gerektirir.
+    // Ürün kataloğu — `pkg` = config.packages kimliği (ad/marka/fiyat/stok
+    // mağazadan gelir); burada yalnız boyutlandırma verisi durur.
+    //   panel.w: panel gücü (W) · battery.kwh: nominal enerji (kWh)
+    //   battery.dod: kullanılabilir kapasite oranı — akü adedi buna göre hesaplanır
+    //   v: sistem gerilimi (V). Akü ile inverter AYNI gerilimde olmalıdır;
+    //      kurucu yalnız uyumlu modeli önerir, uyumsuz seçimde uyarır.
+    // Mağazada satılmayan model buraya YAZILMAZ; kaldırılan uydurma modeller:
+    // Lexron 550 W, Arçelik 560 W, Bakırlar 450 W, 12/24 V aküler ve inverterler
+    // (48 V aküyle çalışmayan 12/24 V inverter öneriliyordu).
     catalog: {
       panel: [
-        { id: "pnl-lexron-550", brand: "Lexron", name: "550 W Monokristal Half-Cut", w: 550, price: 5900 },
-        { id: "pnl-arcelik-560", brand: "Arçelik", name: "560 W Monokristal N-Type", w: 560, price: 6800 },
-        { id: "pnl-bakirlar-450", brand: "Bakırlar", name: "450 W Monokristal", w: 450, price: 4900 },
-        { id: "pnl-lexron-285", brand: "Lexron", name: "285 W Kompakt (karavan/mobil)", w: 285, price: 3400 }
+        { id: "pnl-lexron-655", pkg: "panel-lexron-655w", w: 655 },
+        { id: "pnl-arcelik-540", pkg: "panel-arcelik-540w", w: 540 },
+        { id: "pnl-lexron-285", pkg: "panel-lexron-285w", w: 285 }
       ],
       battery: [
-        { id: "bat-titanx-51-5", brand: "TitanX", name: "LiFePO₄ 51.2V 100Ah Rack", kwh: 5.12, chem: "LiFePO₄", dod: 0.9, cycles: 6000, price: 62000 },
-        { id: "bat-titanx-25-6", brand: "TitanX", name: "LiFePO₄ 25.6V 100Ah", kwh: 2.56, chem: "LiFePO₄", dod: 0.9, cycles: 6000, price: 34000 },
-        { id: "bat-lexron-24-100", brand: "Lexron", name: "LiFePO₄ 24V 100Ah", kwh: 2.4, chem: "LiFePO₄", dod: 0.9, cycles: 4000, price: 29500 },
-        { id: "bat-jel-12-150", brand: "Jel Akü", name: "12V 150Ah Jel (bakımsız)", kwh: 1.8, chem: "Jel", dod: 0.5, cycles: 800, price: 12500 }
+        { id: "bat-titanx-51-102", pkg: "aku-titanx-51v-102ah", kwh: 5.22, dod: 0.9, v: 48 }
       ],
+      // İnverter mağazada satılmıyor → TEKLİFLE (fiyat tahmini, keşifte netleşir).
+      // Gerekli güç tek cihazı aşarsa kurucu paralel adet önerir.
       inverter: [
-        { id: "inv-tescom-3", brand: "Tescom", name: "3 kW Hibrit MPPT 24V", kw: 3, type: "Hibrit", price: 24500 },
-        { id: "inv-tescom-5", brand: "Tescom", name: "5 kW Hibrit MPPT 48V", kw: 5, type: "Hibrit", price: 38500 },
-        { id: "inv-mexxsun-8", brand: "Mexxsun", name: "8 kW Hibrit MPPT 48V", kw: 8, type: "Hibrit", price: 62000 },
-        { id: "inv-lexron-1-5", brand: "Lexron", name: "1.5 kW Off-Grid MPPT 12V", kw: 1.5, type: "Off-Grid", price: 13500 }
+        { id: "inv-tescom-5", brand: "Tescom", name: "5 kW Hibrit MPPT 48V", kw: 5, v: 48, price: 38500 },
+        { id: "inv-mexxsun-8", brand: "Mexxsun", name: "8 kW Hibrit MPPT 48V", kw: 8, v: 48, price: 62000 }
       ],
-      // Yardımcı ürünler — qty: hesaplanan miktar kuralı
-      //   perPanel  : panel adedi kadar · perPanelPair: her panel için çift (MC4)
-      //   perSystem : 1 adet · perCableMeter: kablo metresi · perKwp: kurulu güç
+      // Yardımcı kalemler — qty: hesaplanan miktar kuralı
+      //   perPanel  : panel adedi kadar · perSystem: 1 adet · perKwp: kurulu güç
+      //   perCableSet: toplam DC kablo (panel × sizing.cableMetersPerPanel)
+      //                ÷ takımdaki kablo metresi (`meters`), yukarı yuvarlanır
+      // `pkg` olan kalem mağaza ürünüdür (adet tam sayı, sepete eklenebilir).
       extras: [
-        { id: "ext-mc4", name: "MC4 Konnektör Çifti", unit: "çift", qty: "perPanel", price: 120, on: true },
-        { id: "ext-dckablo", name: "Solar DC Kablo 6 mm²", unit: "m", qty: "perCableMeter", price: 95, on: true },
+        { id: "ext-mc4", pkg: "mc4-set", unit: "takım", qty: "perPanel", on: true },
+        { id: "ext-dckablo", pkg: "kablo-solar-5m", unit: "takım", qty: "perCableSet", meters: 10, on: true },
         { id: "ext-box", name: "Hazır Bağlantı Panosu (DC/AC koruma)", unit: "adet", qty: "perSystem", price: 8500, on: true },
         { id: "ext-konstruksiyon", name: "Montaj Konstrüksiyonu (alüminyum)", unit: "panel", qty: "perPanel", price: 1450, on: true },
         { id: "ext-iscilik", name: "Kurulum İşçiliği ve Devreye Alma", unit: "kWp", qty: "perKwp", price: 6500, on: true },

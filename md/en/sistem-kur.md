@@ -3,7 +3,7 @@ title: "System Builder — Size Your Own Solar Kit | GESPA Energy"
 description: "Pick the appliances you'll run and instantly see the required PV power, battery capacity and inverter size. Choose brands and models, then create your order."
 canonical: https://www.gespaenerji.com/en/sistem-kur.html
 lang: en
-dateModified: 2026-09-24
+dateModified: 2026-09-26
 publisher: "GESPA Enerji"
 ---
 
@@ -23,15 +23,15 @@ Appliance power and daily runtime determine the requirement. Enter device quanti
 
 ### How is off-grid inverter power selected?
 
-The inverter must cover simultaneous loads and motor starting demand. The System Builder includes simultaneity and startup allowance to suggest minimum power before you select a hybrid or off-grid model.
+The inverter must cover simultaneous loads and motor starting demand, and it must match the battery's system voltage (e.g. 48 V). The System Builder includes simultaneity and startup allowance to find the required power and only suggests models compatible with your battery.
 
 ### Should I choose LiFePO₄ or gel batteries?
 
-LiFePO₄ offers deeper discharge (about 90%) and longer cycle life, with higher upfront cost but lower lifetime cost per kWh. Gel batteries cost less initially but have shorter life. Compare both in the System Builder.
+LiFePO₄ offers deeper discharge (about 90%) and longer cycle life, with higher upfront cost but lower lifetime cost per kWh. Gel batteries cost less initially but have shorter life. The System Builder calculates with the LiFePO₄ battery from our shop; if you prefer gel, it is priced during the site survey.
 
 ### Sistem Kurucu'daki fiyatlar kesin mi?
 
-Prices are indicative list prices including VAT and may vary with stock, exchange rates and offers. After your request, a free assessment is followed by a written final quote.
+Products sold in our shop, such as panels, batteries, cables and MC4 connectors, carry the same price as the shop, and you can add them to the cart straight from the builder. The inverter, panel box, mounting structure and labour are estimates; the final amount follows in a written quote after a free site survey.
 
 ## Not sure?
 

@@ -225,6 +225,11 @@
       cart.badge();
       window.addEventListener("storage", function (e) { if (e.key === "gespa-cart") cart.badge(); });
     })();
+    // Sistem Kurucu (builder.js) fiyatı KENDİSİ hesaplamaz: mağaza ürününün
+    // birim fiyatı (pkgUnit), havale oranı ve sepet buradan okunur. Kurucu
+    // eskiden ayrı fiyat listesi tutuyordu ve mağazayla çelişiyordu.
+    window.GESPA = window.GESPA || {};
+    window.GESPA.shop = { pkg: rawPkgOf, unit: pkgUnit, pct: pkgPct, cart: cart };
     // "Sepete eklendi" onayı: Sepete git / Alışverişe devam et
     function cartPop(name) {
       var old = $(".cart-pop"); if (old) old.parentNode.removeChild(old);

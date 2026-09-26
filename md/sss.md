@@ -3,7 +3,7 @@ title: "Sıkça Sorulan Sorular — Güneş Enerjisi, Sipariş ve Kurulum | GESP
 description: "Güneş enerjisi santrali, akü, elektrikli araç güneş dönüşümü, sipariş, kargo, ödeme ve kurulum hakkında sık sorulan soruların cevapları tek sayfada. GESPA Enerji, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/sss.html
 lang: tr
-dateModified: 2026-09-24
+dateModified: 2026-09-26
 publisher: "GESPA Enerji"
 ---
 
@@ -265,15 +265,15 @@ Yıllık üretimin sağladığı tasarruf, panel verim kaybı ve elektrik zam se
 
 ### Off-grid sistemde inverter gücü nasıl seçilir?
 
-İnverter, aynı anda çalışacak cihazların toplam gücünü ve motorlu cihazların kalkış akımını karşılamalıdır. Sistem Kurucu, eşzamanlılık ve kalkış payını hesaba katarak minimum inverter gücünü önerir; ardından uygun hibrit/off-grid modeli seçebilirsiniz.
+İnverter, aynı anda çalışacak cihazların toplam gücünü ve motorlu cihazların kalkış akımını karşılamalı, akü ile de aynı sistem geriliminde (ör. 48 V) olmalıdır. Sistem Kurucu, eşzamanlılık ve kalkış payını hesaba katarak gereken gücü bulur ve yalnız akünüzle uyumlu modeli önerir.
 
 ### Lityum (LiFePO₄) akü mü jel akü mü seçmeliyim?
 
-LiFePO₄ aküler daha derin deşarj (yaklaşık %90) ve çok daha uzun çevrim ömrü sunar; ilk yatırımı yüksektir ancak kWh başına ömür maliyeti düşüktür. Jel aküler ilk yatırımı ucuzlatır, ömrü kısadır. Sistem Kurucu'da her iki seçeneği fiyatıyla karşılaştırabilirsiniz.
+LiFePO₄ aküler daha derin deşarj (yaklaşık %90) ve çok daha uzun çevrim ömrü sunar; ilk yatırımı yüksektir ancak kWh başına ömür maliyeti düşüktür. Jel aküler ilk yatırımı ucuzlatır, ömrü kısadır. Sistem Kurucu mağazamızdaki LiFePO₄ aküyle hesaplar; jel akü tercih ederseniz keşifte fiyatlandırılır.
 
 ### Sistem Kurucu'daki fiyatlar kesin mi?
 
-Fiyatlar tahmini liste fiyatlarıdır (KDV dahil) ve stok, kur ile kampanyalara göre değişebilir. Siparişinizi oluşturduktan sonra ücretsiz keşif yapılır ve kesin teklif yazılı olarak verilir.
+Panel, akü, kablo ve MC4 gibi mağazada satılan ürünlerin fiyatı mağazayla aynıdır; bu ürünleri kurucudan doğrudan sepete ekleyebilirsiniz. İnverter, bağlantı panosu, montaj konstrüksiyonu ve işçilik tahminidir; kesin tutar ücretsiz keşiften sonra yazılı teklifle verilir.
 
 [Sayfaya git →](https://www.gespaenerji.com/sistem-kur.html)
 
