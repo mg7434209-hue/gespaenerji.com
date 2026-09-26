@@ -273,7 +273,7 @@ LiFePO₄ aküler daha derin deşarj (yaklaşık %90) ve çok daha uzun çevrim 
 
 ### Sistem Kurucu'daki fiyatlar kesin mi?
 
-Panel, akü, kablo ve MC4 gibi mağazada satılan ürünlerin fiyatı mağazayla aynıdır; bu ürünleri kurucudan doğrudan sepete ekleyebilirsiniz. İnverter, bağlantı panosu, montaj konstrüksiyonu ve işçilik tahminidir; kesin tutar ücretsiz keşiften sonra yazılı teklifle verilir.
+Panel, akü, kablo ve MC4 gibi mağazada satılan ürünlerin fiyatı mağazayla aynıdır; bu ürünleri kurucudan doğrudan sepete ekleyebilirsiniz. İnverter liste fiyatıyla teklifle satılır. Bağlantı panosu, montaj konstrüksiyonu ve işçilik tahminidir; kesin tutar ücretsiz keşiften sonra yazılı teklifle verilir.
 
 [Sayfaya git →](https://www.gespaenerji.com/sistem-kur.html)
 

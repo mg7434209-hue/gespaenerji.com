@@ -602,11 +602,16 @@ window.GESPA.config = {
       battery: [
         { id: "bat-titanx-51-102", pkg: "aku-titanx-51v-102ah", kwh: 5.22, dod: 0.9, v: 48 }
       ],
-      // İnverter mağazada satılmıyor → TEKLİFLE (fiyat tahmini, keşifte netleşir).
-      // Gerekli güç tek cihazı aşarsa kurucu paralel adet önerir.
+      // İnverter mağazada satılmıyor → TEKLİFLE satılır, sepete girmez.
+      // Fiyatlar İŞLETMENİN liste fiyatıdır (26 Eyl 2026): `firm: true` =
+      // tahmini DEĞİL, arayüz yanına "tahmini" yazmaz. `firm`'süz teklifle
+      // kalem (pano, konstrüksiyon, işçilik) tahmindir.
+      // Gerilim: 6,2 ve 11 kW sınıfı tek faz inverterler 48 V akü sistemidir
+      // (işletmeden teyit bekleniyor). Gereken güç tek cihazı aşarsa kurucu
+      // paralel adet önerir; en ucuz birleşim seçilir (8 kW → 1 × 11 kW).
       inverter: [
-        { id: "inv-tescom-5", brand: "Tescom", name: "5 kW Hibrit MPPT 48V", kw: 5, v: 48, price: 38500 },
-        { id: "inv-mexxsun-8", brand: "Mexxsun", name: "8 kW Hibrit MPPT 48V", kw: 8, v: 48, price: 62000 }
+        { id: "inv-lexron-6-2", brand: "Lexron", name: "6,2 kW İnverter", kw: 6.2, v: 48, price: 28000, firm: true },
+        { id: "inv-lexron-11", brand: "Lexron", name: "11 kW İnverter", kw: 11, v: 48, price: 50000, firm: true }
       ],
       // Yardımcı kalemler — qty: hesaplanan miktar kuralı
       //   perPanel  : panel adedi kadar · perSystem: 1 adet · perKwp: kurulu güç

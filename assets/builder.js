@@ -68,12 +68,13 @@
       if (!p || p.stock === 0) return null;
       var u = unitOf(p);
       if (u.poa || u.list == null) return null;
-      o.pkg = p.id; o.shop = true; o.name = T(p.name);
+      o.pkg = p.id; o.shop = true; o.est = false; o.name = T(p.name);
       o.price = u.list; o.cart = u.cart; o.pct = pctOf(p);
       o.url = p.url || "online-satis.html";
       return o;
     }
     o.shop = false;
+    o.est = !c.firm; // firm: işletmenin liste fiyatı, tahmini değil (inverter)
     o.name = (c.brand ? c.brand + " " : "") + T(c.name);
     o.price = +c.price || 0; o.cart = o.price; o.pct = 0;
     return o;
@@ -252,7 +253,7 @@
   /* ---- Malzeme listesi (BOM) — 3., 4. ve 5. adım AYNI veriyi kullanır ----
      opts.rec: müşterinin seçimlerini yok say, önerilen sistemi hesapla */
   function lineOf(type, it, q, unit) {
-    return { type: type, id: it.id, pkg: it.pkg || "", shop: !!it.shop, url: it.url || "", name: it.name,
+    return { type: type, id: it.id, pkg: it.pkg || "", shop: !!it.shop, est: !!it.est, url: it.url || "", name: it.name,
       qty: q, unit: unit, price: it.price, cart: it.cart, pct: it.pct, sum: it.price * q, sumCart: it.cart * q };
   }
   function bom(opts) {
@@ -276,13 +277,16 @@
       if (!q) return;
       lines.push(lineOf("extra", x, q, T(x.unitName)));
     });
-    var r = { need: need, sel: sel, lines: lines, panelQty: panelQty, instKwp: instKwp, shopList: 0, shopCart: 0, est: 0, total: 0, pct: null };
+    // shop: mağaza (sepete girer) · firm: teklifle, liste fiyatı · est: teklifle, tahmini
+    var r = { need: need, sel: sel, lines: lines, panelQty: panelQty, instKwp: instKwp, shopList: 0, shopCart: 0, firm: 0, est: 0, quote: 0, total: 0, pct: null };
     var pcts = {};
     lines.forEach(function (l) {
       if (l.shop) { r.shopList += l.sum; r.shopCart += l.sumCart; if (l.cart < l.price) pcts[l.pct] = 1; }
-      else r.est += l.sum;
+      else if (l.est) r.est += l.sum;
+      else r.firm += l.sum;
     });
-    r.total = r.shopList + r.est;
+    r.quote = r.firm + r.est;
+    r.total = r.shopList + r.quote;
     var pk = Object.keys(pcts);
     r.pct = pk.length === 1 ? +pk[0] : null; // oranları farklı kalemlerde tek "%N" yazılmaz
     return r;
@@ -345,9 +349,14 @@
           " <b>" + money(r.shopCart) + "</b>" + (r.pct ? " (" + L("%" + nf1(r.pct) + " indirimli", nf1(r.pct) + "% off", nf1(r.pct) + " % Rabatt", "скидка " + nf1(r.pct) + " %") + ")" : "") + "</p>";
       }
     }
+    if (r.firm) {
+      h += '<div class="bld-prow"><span>📋 ' + L("Teklifle satılan ürünler", "Products sold on quote", "Produkte auf Angebot", "Товары по запросу") +
+        "<small>" + L("Liste fiyatı; sepete eklenmez, WhatsApp'tan sipariş edilir", "List price; not in the cart, ordered via WhatsApp", "Listenpreis; nicht im Warenkorb, Bestellung per WhatsApp", "Прайсовая цена; не в корзине, заказ через WhatsApp") +
+        "</small></span><b>" + money(r.firm) + "</b></div>";
+    }
     if (r.est) {
-      h += '<div class="bld-prow"><span>📋 ' + L("Teklifle netleşecek", "Confirmed on quote", "Per Angebot bestätigt", "Уточняется в предложении") +
-        "<small>" + L("İnverter, pano, konstrüksiyon ve işçilik: tahmini", "Inverter, panel box, mounting and labour: estimate", "Wechselrichter, Verteiler, Gestell und Montage: Schätzung", "Инвертор, щит, конструкция и монтаж: оценка") +
+      h += '<div class="bld-prow"><span>🔧 ' + L("Keşifle netleşecek", "Confirmed after survey", "Nach Prüfung bestätigt", "Уточняется после выезда") +
+        "<small>" + L("Pano, konstrüksiyon ve işçilik: tahmini", "Panel box, mounting and labour: estimate", "Verteiler, Gestell und Montage: Schätzung", "Щит, конструкция и монтаж: оценка") +
         "</small></span><b>" + money(r.est) + "</b></div>";
     }
     h += '<div class="bld-prow total"><span>' + (r.est ? L("Tahmini toplam", "Estimated total", "Geschätzte Summe", "Итого (оценка)") : L("Toplam", "Total", "Summe", "Итого")) +
@@ -488,7 +497,7 @@
         '<strong class="bld-rc-pick">' + nf1(l.qty) + " × " + l.name + "</strong>" +
         covHtml(cover(type, r)) +
         '<small class="bld-rc-why">' + why[type] + "</small>" +
-        '<span class="bld-rc-price">' + money(l.sum) + (l.shop ? "" : " <small>" + L("tahmini", "estimate", "Schätzung", "оценка") + "</small>") + "</span></div>";
+        '<span class="bld-rc-price">' + money(l.sum) + (l.est ? " <small>" + L("tahmini", "estimate", "Schätzung", "оценка") + "</small>" : "") + "</span></div>";
     }).join("");
     var ex = r.lines.filter(function (l) { return l.type === "extra"; });
     var exSum = ex.reduce(function (s, l) { return s + l.sum; }, 0);
@@ -543,7 +552,7 @@
   }
   function unitCell(it, unit) {
     return '<span class="bld-row-unit"><b>' + money(it.price) + "</b><small>/ " + unit +
-      (it.shop ? "" : " · " + L("tahmini", "estimate", "Schätzung", "оценка")) + "</small></span>";
+      (it.est ? " · " + L("tahmini", "estimate", "Schätzung", "оценка") : "") + "</small></span>";
   }
 
   function listRows(type, need) {
@@ -571,7 +580,7 @@
   function accSum(type, r) {
     var l = null; r.lines.forEach(function (x) { if (x.type === type) l = x; });
     if (!l) return { b: "", s: "" };
-    return { b: nf1(l.qty) + " × " + l.name, s: money(l.sum) + (l.shop ? "" : " (" + L("tahmini", "estimate", "Schätzung", "оценка") + ")") + " " + covHtml(cover(type, r)) };
+    return { b: nf1(l.qty) + " × " + l.name, s: money(l.sum) + (l.est ? " (" + L("tahmini", "estimate", "Schätzung", "оценка") + ")" : "") + " " + covHtml(cover(type, r)) };
   }
   function exSum(r) {
     var on = 0, sum = 0;
@@ -581,7 +590,7 @@
   // 4. adımın altındaki sabit toplam çubuğu
   function totalBar(r) {
     return (r.shopList ? '<div class="bld-tb-shop"><span>🛒 ' + L("Mağaza", "Shop", "Shop", "Магазин") + "</span><strong>" + money(r.shopList) + "</strong></div>" : "") +
-      (r.est ? '<div class="bld-tb-est"><span>📋 ' + L("Teklifle", "On quote", "Auf Angebot", "По запросу") + "</span><strong>" + money(r.est) + "</strong></div>" : "") +
+      (r.quote ? '<div class="bld-tb-est"><span>📋 ' + L("Teklifle", "On quote", "Auf Angebot", "По запросу") + "</span><strong>" + money(r.quote) + "</strong></div>" : "") +
       '<div class="bld-tb-total"><span>' + L("Tahmini toplam", "Estimated total", "Geschätzte Summe", "Итого (оценка)") + "</span><strong>" + money(r.total) + "</strong></div>";
   }
 
@@ -614,7 +623,7 @@
         "Empfohlene Produkte sind vorausgewählt. Tippen Sie auf eine Überschrift, um Marke oder Modell zu ändern; Mengen werden aus Ihrem Bedarf berechnet.",
         "Рекомендуемые товары уже выбраны. Нажмите на заголовок, чтобы сменить бренд или модель; количество считается по вашей потребности.") + "</p>" +
       '<p class="bld-legend"><span>' + srcBadge({ shop: true }) + " " + L("fiyat mağazayla aynı, sepete eklenebilir", "same price as the shop, can go to cart", "gleicher Preis wie im Shop, in den Warenkorb", "цена как в магазине, можно в корзину") +
-        "</span><span>" + srcBadge({ shop: false }) + " " + L("tahmini fiyat, ücretsiz keşifle netleşir", "estimated price, confirmed after a free survey", "geschätzter Preis, nach kostenloser Prüfung bestätigt", "ориентировочная цена, уточняется после выезда") + "</span></p>";
+        "</span><span>" + srcBadge({ shop: false }) + " " + L("WhatsApp'tan sipariş edilir; \"tahmini\" yazan fiyat keşifle netleşir", "ordered via WhatsApp; prices marked \"estimate\" are confirmed after a survey", "per WhatsApp bestellt; Preise mit \"Schätzung\" werden nach der Prüfung bestätigt", "заказ через WhatsApp; цены с пометкой \"оценка\" уточняются после выезда") + "</span></p>";
 
     TYPES.forEach(function (type) {
       var body = '<div class="bld-list">' + listHead(L("Marka / model", "Brand / model", "Marke / Modell", "Бренд / модель")) + listRows(type, need) + "</div>";
@@ -691,7 +700,9 @@
       return '<tr class="bld-bom-sec"><th colspan="4" scope="colgroup">' + title + "</th></tr>" + lines.map(row).join("") +
         '<tr class="bld-bom-sub"><td colspan="3">' + L("Ara toplam", "Subtotal", "Zwischensumme", "Подытог") + "</td><td><b>" + money(sub) + "</b></td></tr>";
     };
-    var shopL = r.lines.filter(function (l) { return l.shop; }), estL = r.lines.filter(function (l) { return !l.shop; });
+    var shopL = r.lines.filter(function (l) { return l.shop; }),
+      firmL = r.lines.filter(function (l) { return !l.shop && !l.est; }),
+      estL = r.lines.filter(function (l) { return l.est; });
     return '<div class="bld-card"><h2>' + L("Sipariş özeti", "Order summary", "Bestellübersicht", "Итог заказа") + "</h2>" +
       '<div class="bld-sum-top"><div><span>' + L("Kurulu güç", "Installed power", "Installierte Leistung", "Установленная мощность") + "</span><strong>" + nf2(r.instKwp) + " kWp</strong></div>" +
       "<div><span>" + L("Günlük üretim (kış, tahmini)", "Daily yield (winter, est.)", "Tagesertrag (Winter, ca.)", "Суточная выработка (зима, оценка)") + "</span><strong>" + nf1(prod) + " kWh</strong></div>" +
@@ -703,14 +714,15 @@
         L("Miktar", "Qty", "Menge", "Кол-во") + "</th><th>" + L("Birim", "Unit price", "Einzelpreis", "Цена") + "</th><th>" + L("Tutar", "Total", "Summe", "Сумма") + "</th></tr></thead>" +
       "<tbody>" +
         section("🛒 " + L("Mağazada satışta · fiyat kesin", "Sold in our shop · firm price", "Im Shop erhältlich · fester Preis", "В продаже в магазине · цена точная"), shopL, r.shopList) +
-        section("📋 " + L("Keşifle netleşecek · tahmini", "Confirmed after survey · estimate", "Nach Prüfung bestätigt · Schätzung", "Уточняется после выезда · оценка"), estL, r.est) +
+        section("📋 " + L("Teklifle satılan · liste fiyatı", "Sold on quote · list price", "Auf Angebot · Listenpreis", "По запросу · прайсовая цена"), firmL, r.firm) +
+        section("🔧 " + L("Keşifle netleşecek · tahmini", "Confirmed after survey · estimate", "Nach Prüfung bestätigt · Schätzung", "Уточняется после выезда · оценка"), estL, r.est) +
       "</tbody><tfoot><tr><td colspan=\"3\">" + (r.est ? L("Tahmini toplam", "Estimated total", "Geschätzte Summe", "Итого (оценка)") : L("Toplam", "Total", "Summe", "Итого")) +
         "</td><td><b>" + money(r.total) + "</b></td></tr></tfoot></table></div>" +
       priceBox(r) +
-      '<p class="bld-note">' + L("Mağaza ürünlerinin fiyatı mağazayla aynıdır (KDV dahil, kargo hariç). İnverter, pano, konstrüksiyon ve işçilik tahminidir; kesin teklif ücretsiz keşif sonrası verilir.",
-        "Shop products carry the same price as the shop (VAT included, shipping excluded). Inverter, panel box, mounting and labour are estimates; a binding quote follows the free site survey.",
-        "Shop-Produkte kosten dasselbe wie im Shop (inkl. MwSt., zzgl. Versand). Wechselrichter, Verteiler, Gestell und Montage sind Schätzungen; ein verbindliches Angebot folgt nach der kostenlosen Vor-Ort-Analyse.",
-        "Товары магазина по той же цене, что и в магазине (с НДС, без доставки). Инвертор, щит, конструкция и монтаж — оценка; точное предложение после бесплатного выезда.") + "</p>" +
+      '<p class="bld-note">' + L("Mağaza ürünlerinin fiyatı mağazayla aynıdır (KDV dahil, kargo hariç). İnverter liste fiyatıyla teklifle satılır. Pano, konstrüksiyon ve işçilik tahminidir; kesin teklif ücretsiz keşif sonrası verilir.",
+        "Shop products carry the same price as the shop (VAT included, shipping excluded). The inverter is sold on quote at its list price. Panel box, mounting and labour are estimates; a binding quote follows the free site survey.",
+        "Shop-Produkte kosten dasselbe wie im Shop (inkl. MwSt., zzgl. Versand). Der Wechselrichter wird zum Listenpreis auf Angebot verkauft. Verteiler, Gestell und Montage sind Schätzungen; ein verbindliches Angebot folgt nach der kostenlosen Vor-Ort-Analyse.",
+        "Товары магазина по той же цене, что и в магазине (с НДС, без доставки). Инвертор продаётся по запросу по прайсовой цене. Щит, конструкция и монтаж — оценка; точное предложение после бесплатного выезда.") + "</p>" +
       '<div class="bld-actions">' +
       '<button class="btn btn-ghost btn-lg" type="button" id="bldPrint">🖨️ ' + L("Yazdır / PDF", "Print / PDF", "Drucken / PDF", "Печать / PDF") + "</button>" +
       '<button class="btn btn-ghost btn-lg" type="button" id="bldReset">' + L("Baştan başla", "Start over", "Neu beginnen", "Начать заново") + "</button></div></div>";
@@ -719,21 +731,27 @@
   function waText(r) {
     r = r || bom();
     var lines = [];
-    var item = function (l) { return "• " + l.name + " × " + nf1(l.qty) + " " + l.unit + (l.shop ? " = " : " ≈ ") + money(l.sum); };
+    var item = function (l) { return "• " + l.name + " × " + nf1(l.qty) + " " + l.unit + (l.est ? " ≈ " : " = ") + money(l.sum); };
     lines.push(L("Sistem Kurucu siparişi", "System Builder order", "Systemkonfigurator-Bestellung", "Заказ из конфигуратора") + ":");
     lines.push(L("Kullanım", "Use case", "Einsatz", "Сценарий") + ": " + (presetLabel() || "-"));
     lines.push(L("Günlük ihtiyaç", "Daily need", "Tagesbedarf", "Суточная потребность") + ": " + nf2(r.need.dailyWh / 1000) + " kWh · " +
       L("tepe", "peak", "Spitze", "пик") + " " + nf(r.need.peakW) + " W");
     lines.push(L("Kurulu güç", "Installed power", "Installierte Leistung", "Мощность") + ": " + nf2(r.instKwp) + " kWp");
-    var shopL = r.lines.filter(function (l) { return l.shop; }), estL = r.lines.filter(function (l) { return !l.shop; });
+    var shopL = r.lines.filter(function (l) { return l.shop; }),
+      firmL = r.lines.filter(function (l) { return !l.shop && !l.est; }),
+      estL = r.lines.filter(function (l) { return l.est; });
     if (shopL.length) {
       lines.push(""); lines.push(L("Mağaza ürünleri", "Shop products", "Shop-Produkte", "Товары магазина") + ":");
       shopL.forEach(function (l) { lines.push(item(l)); });
       lines.push(L("Ara toplam", "Subtotal", "Zwischensumme", "Подытог") + ": " + money(r.shopList) +
         (r.shopCart < r.shopList ? " (" + L("havale/EFT ile", "by bank transfer", "per Überweisung", "переводом") + " " + money(r.shopCart) + ")" : ""));
     }
+    if (firmL.length) {
+      lines.push(""); lines.push(L("Teklifle satılan (liste fiyatı)", "Sold on quote (list price)", "Auf Angebot (Listenpreis)", "По запросу (прайсовая цена)") + ":");
+      firmL.forEach(function (l) { lines.push(item(l)); });
+    }
     if (estL.length) {
-      lines.push(""); lines.push(L("Teklifle (tahmini)", "On quote (estimate)", "Auf Angebot (Schätzung)", "По запросу (оценка)") + ":");
+      lines.push(""); lines.push(L("Keşifle netleşecek (tahmini)", "Confirmed after survey (estimate)", "Nach Prüfung bestätigt (Schätzung)", "Уточняется после выезда (оценка)") + ":");
       estL.forEach(function (l) { lines.push(item(l)); });
     }
     lines.push("");

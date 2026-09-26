@@ -218,7 +218,8 @@ ve sepet simgesi ekran dışında kalır.
 - TEK FİYAT KAYNAĞI: mağazada satılan kalem `catalog[].pkg` ile
   config.packages'e bağlanır; fiyat main.js `pkgUnit()` ile gelir
   (`GESPA.shop`). `pkg`'li kaleme `price` YAZILMAZ (test düşer). `pkg`'siz
-  kalem "teklifle · tahmini"dir (inverter, pano, işçilik), sepete girmez.
+  kalem teklifle satılır, sepete girmez: `firm: true` işletmenin liste
+  fiyatıdır (Lexron inverterler), `firm`'süz olan tahmindir (pano, işçilik).
 - Akü ve inverter `v` (sistem gerilimi) taşır; yalnız uyumlu inverter önerilir.
 - Adet kutusu açık satırın sınıfı `.has-qty` (`.qbox` ürün sayfasınındır).
 - Ayrıntı, öneri mantığı ve yapı kuralları: @docs/sistem-kurucu.md

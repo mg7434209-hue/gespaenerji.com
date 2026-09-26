@@ -235,7 +235,7 @@ LiFePO₄ bietet tiefere Entladung (etwa 90 %) und längere Zyklenlebensdauer be
 
 ### Sistem Kurucu'daki fiyatlar kesin mi?
 
-Shop-Produkte wie Module, Batterien, Kabel und MC4-Stecker kosten dasselbe wie im Shop und lassen sich direkt aus dem Konfigurator in den Warenkorb legen. Wechselrichter, Verteiler, Montagegestell und Montage sind Schätzungen; den endgültigen Betrag erhalten Sie nach der kostenlosen Vor-Ort-Prüfung als schriftliches Angebot.
+Shop-Produkte wie Module, Batterien, Kabel und MC4-Stecker kosten dasselbe wie im Shop und lassen sich direkt aus dem Konfigurator in den Warenkorb legen. Der Wechselrichter wird zum Listenpreis auf Angebot verkauft. Verteiler, Montagegestell und Montage sind Schätzungen; den endgültigen Betrag erhalten Sie nach der kostenlosen Vor-Ort-Prüfung als schriftliches Angebot.
 
 [Zur Seite →](https://www.gespaenerji.com/de/sistem-kur.html)
 

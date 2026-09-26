@@ -178,7 +178,9 @@ assert.ok(!aboutPage.includes('01.11.2022')&&!aboutPage.includes('Kurumsallaşma
   if(it.pkg){assert.ok(pk(it.pkg),'builder '+it.id+': package '+it.pkg+' exists');
    assert.ok(pk(it.pkg).price!=null,'builder '+it.id+': linked package has a price');
    assert.equal(it.price,undefined,'builder '+it.id+': no second price next to pkg');}
-  else assert.ok(it.price>0&&it.name,'builder '+it.id+': quote item has name and estimated price');}
+  else assert.ok(it.price>0&&it.name,'builder '+it.id+': quote item has name and price');
+  // firm: the business's own list price for a quote item (not an estimate); never on shop items
+  if(it.firm)assert.ok(!it.pkg,'builder '+it.id+': firm only on quote items');}
  const volts=new Set(cat.battery.map(b=>b.v));
  assert.ok(cat.battery.every(b=>b.v)&&cat.inverter.every(i=>i.v),'builder: battery/inverter voltage (v) set');
  assert.ok(cat.inverter.every(i=>volts.has(i.v)),'builder: every inverter matches a battery voltage');

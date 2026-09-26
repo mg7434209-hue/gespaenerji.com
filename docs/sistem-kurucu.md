@@ -38,10 +38,14 @@
 - Admin panelinin paket fiyatı değişikliği böylece kurucuya da yansır.
 - Ürün mağazadan kaldırılırsa, fiyatı `null` olursa ya da `stock: 0` ise kalem
   kurucudan da düşer (eksik ürün önerilmez).
-- `pkg`'siz kalem mağazada satılmayan, TEKLİFLE fiyatlanan kalemdir
-  (inverter, pano, konstrüksiyon, işçilik, nakliye, izleme): `name` + `price`
-  tahmini liste fiyatıdır (KDV dahil). Arayüzde "📋 Teklifle · tahmini" diye
-  ayrı gösterilir, sepete eklenmez, havale indirimi almaz.
+- `pkg`'siz kalem mağazada satılmayan, TEKLİFLE satılan kalemdir: `name` +
+  `price` (KDV dahil). Sepete eklenmez, havale indirimi almaz, "📋 Teklifle"
+  rozeti taşır. İki türü vardır:
+  - `firm: true` → İŞLETMENİN liste fiyatı, tahmin değil. Yanına "tahmini"
+    yazılmaz. Şu an inverterler: Lexron 6,2 kW ₺28.000 ve 11 kW ₺50.000
+    (işletme, 26 Eyl 2026). Tescom 5 kW / Mexxsun 8 kW uydurma satırları kalktı.
+  - `firm` yok → tahmini fiyat (pano, konstrüksiyon, işçilik, nakliye,
+    izleme); "tahmini" yazılır, kesin tutar keşifle netleşir.
 - Mağazada satılmayan bir panel/akü modeli kataloğa UYDURULMAZ. Yeni model
   satılacaksa önce `config.packages`'e ürün olarak girer, sonra kataloğa `pkg`
   satırı eklenir.
@@ -49,8 +53,11 @@
 ## Fiyat gösterimi
 
 - `priceRows()`: "🛒 Mağaza ürünleri" (liste toplamı) + havale/EFT tutarı +
-  "📋 Teklifle netleşecek" (tahmini toplam) + "Tahmini toplam". 3. adım, 5. adım
-  ve WhatsApp mesajı aynı `bom()` verisini kullanır.
+  "📋 Teklifle satılan ürünler" (`r.firm`, liste fiyatı) + "🔧 Keşifle
+  netleşecek" (`r.est`, tahmini) + toplam. Tahmini kalem varsa toplamın adı
+  "Tahmini toplam"dır. 5. adımın malzeme listesi ve WhatsApp mesajı aynı üç
+  bölümle yazılır; 4. adımın çubuğu teklifle olanları tek "Teklifle"
+  (`r.quote`) altında toplar. Hepsi aynı `bom()` verisini kullanır.
 - Havale/EFT indirimi YALNIZ mağaza ürünlerine uygulanır ve sepetle birebir
   aynıdır: her kalemin `pkgUnit().cart` birim tutarı × adet (birim başına 50 ₺
   yuvarlama, `discountPct`, `noCartDiscount` dahil). Oranları farklı kalemler
@@ -66,11 +73,14 @@
 - `recommend()`: ihtiyacı EN DÜŞÜK toplam tutarla karşılayan model;
   eşitlikte daha çok kapasite, sonra daha az adet. Senaryonun `prefer`'i
   önce gelir (karavan → 285 W kompakt panel; 2,4 m'lik panel tavana sığmaz).
-- GERİLİM UYUMU: akü ve inverter `v` (sistem gerilimi) taşır. İnverter yalnız
+- GERİLİM UYUMU: akü ve inverter `v` (sistem gerilimi) taşır. Lexron 6,2 ve
+  11 kW için 48 V yazıldı (bu güç sınıfı 48 V'tur, işletmeden teyit
+  bekleniyor). İnverter yalnız
   seçili akünün gerilimindeki modellerden önerilir; uyumsuz seçimde akordeon
   başlığı "⚠ Akü X V, inverter Y V: birlikte çalışmaz" der. Eskiden 48 V
   aküyle 24 V veya 12 V inverter öneriliyordu.
-- İnverter gücü tek cihazı aşarsa paralel adet önerilir (`autoQtyFor`).
+- İnverter gücü tek cihazı aşarsa paralel adet önerilir (`autoQtyFor`);
+  en ucuz birleşim seçilir (8 kW ihtiyaçta 2 × 6,2 kW yerine 1 × 11 kW).
 - `state.pinned[tür]`: müşteri modeli 4. adımda KENDİSİ seçtiyse o model
   korunur. Seçmediyse model her değişiklikte ihtiyaca göre yeniden önerilir;
   aksi hâlde 3. adımdaki öneri ile 5. adımdaki liste çelişirdi.

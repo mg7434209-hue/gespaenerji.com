@@ -31,7 +31,7 @@ LiFePO₄ offers deeper discharge (about 90%) and longer cycle life, with higher
 
 ### Sistem Kurucu'daki fiyatlar kesin mi?
 
-Products sold in our shop, such as panels, batteries, cables and MC4 connectors, carry the same price as the shop, and you can add them to the cart straight from the builder. The inverter, panel box, mounting structure and labour are estimates; the final amount follows in a written quote after a free site survey.
+Products sold in our shop, such as panels, batteries, cables and MC4 connectors, carry the same price as the shop, and you can add them to the cart straight from the builder. The inverter is sold on quote at its list price. The panel box, mounting structure and labour are estimates; the final amount follows in a written quote after a free site survey.
 
 ## Not sure?
 
