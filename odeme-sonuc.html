@@ -100,7 +100,7 @@
             düzenlenerek tarafınıza iletilir.</p>
           </div>
 
-          <p class="pd-note" id="rcMissing" hidden>Dekont bilgisi şu anda yüklenemedi. Ödemeniz alınmıştır; dekontunuzu e-postanızdaki bağlantıdan açabilir ya da WhatsApp'tan isteyebilirsiniz.</p>
+          <p class="pd-note" id="rcMissing" hidden>Bu bağlantının dekont kaydına ulaşılamadı. Ödemeniz alınmıştır: size gönderilen ödeme onayı e-postası tutar, sipariş no ve ödeme no ile ödemenizin kaydıdır. Yazdırılabilir dekont için WhatsApp'tan bize yazabilirsiniz.</p>
           <p><button class="btn btn-ghost" type="button" id="rcPrint" hidden>🖨️ Dekontu yazdır / PDF kaydet</button></p>
           <p><a class="btn" data-c-wa href="https://wa.me/905437434209" target="_blank" rel="noopener">💬 WhatsApp ile bize ulaşın</a>
           <a class="btn btn-ghost" href="/urunler.html">Alışverişe devam et</a></p>
@@ -123,9 +123,15 @@
       if (!ok) return;
       try { localStorage.removeItem("gespa-cart"); } catch (e) {}
 
-      // Dekont: adresteki r= sipariş kaydındaki rastgele anahtardır.
+      // Dekont: r= sipariş kaydının rastgele anahtarı (Volume varsa kayıt
+      // diskte durur), #k= ise dekont bilgisini ŞİFRELİ taşıyan belirteçtir —
+      // kayıt dağıtımda silinse de sunucu onu açıp dekontu verir. Belirteç
+      // adresin # parçasındadır: sunucuya yalnız aşağıdaki isteğin gövdesinde
+      // gider, log'lara ve Referer başlığına düşmez.
       var m = /[?&]r=([a-f0-9]{8,32})/i.exec(location.search);
-      if (!m) return;
+      var hk = /(?:^#|&)k=([A-Za-z0-9_-]{40,12000})/.exec(location.hash || "");
+      var rid = m ? m[1].toLowerCase() : "", rk = hk ? hk[1] : "";
+      if (!rid && !rk) return;
       var nf = new Intl.NumberFormat("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
       var money = function (n) { return "₺" + nf.format(+n || 0); };
       // Sunucudan gelen metin sayfaya HTML olarak basılıyor — kaçır.
@@ -138,10 +144,13 @@
       // Dekont bu cihazda da saklanır: sunucu kaydı sonradan kaybolsa bile
       // (Railway'de Volume yokken yeniden başlatmada siliniyor) aynı tarayıcıda
       // sayfa yenilenip yeniden yazdırılabilsin.
-      var CK = "gespa-dekont-" + m[1].toLowerCase();
+      var CK = "gespa-dekont-" + (rid || rk.slice(-24));
       var cached = function () { try { return JSON.parse(localStorage.getItem(CK) || "null"); } catch (e) { return null; } };
       var missing = function () { var el = document.getElementById("rcMissing"); if (el) el.hidden = false; };
-      fetch("/api/order/receipt?r=" + m[1], { headers: { "Accept": "application/json" } })
+      fetch("/api/order/receipt", {
+        method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({ r: rid, k: rk })
+      })
         .then(function (r) { return r.ok ? r.json() : null; })
         .catch(function () { return null; })
         .then(function (d) {
@@ -151,8 +160,13 @@
           var rows = [];
           rows.push(["Sipariş no", d.no]);
           if (d.date) {
-            var dt = new Date(d.date);
-            rows.push(["Ödeme tarihi", isNaN(dt) ? d.date : dt.toLocaleString("tr-TR")]);
+            // Türkiye saati: e-postadaki saatle aynı görünsün, müşteri nerede olursa olsun.
+            var dt = new Date(d.date), when = d.date;
+            if (!isNaN(dt)) {
+              try { when = dt.toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" }); }
+              catch (e) { when = dt.toLocaleString("tr-TR"); }
+            }
+            rows.push(["Ödeme tarihi", when]);
           }
           if (d.paymentId) rows.push(["Ödeme no (iyzico)", d.paymentId]);
           // Şirket ödemesinde firma unvanı önce yazılır (kimlik/vergi no DÖNMEZ).

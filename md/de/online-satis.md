@@ -3,7 +3,7 @@ title: "Onlineshop — Solarprodukte und Ausrüstung | GESPA Energy"
 description: "Alle Verkaufsprodukte auf einer Seite: Solar-Fertigsets, MPPT-Laderegler und Zubehör. Transparente Preise inkl. MwSt., Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/online-satis.html
 lang: de
-dateModified: 2026-09-24
+dateModified: 2026-09-28
 publisher: "GESPA Enerji"
 ---
 
@@ -179,7 +179,7 @@ Bei beschädigter oder mangelhafter Ware tragen wir alle Kosten — bitte prüfe
 
 ### Erhalte ich eine Rechnung für meine Bestellung?
 
-Ja, für jede Bestellung wird eine Rechnung ausgestellt; deshalb wird beim Bezahlen die türkische Identitätsnummer abgefragt. Für eine Rechnung auf ein Unternehmen kontaktieren Sie uns bitte vor der Bestellung.
+Ja, für jede Bestellung wird eine Rechnung ausgestellt. Bei Kartenzahlung geben Privatpersonen ihre türkische Identitätsnummer an, Unternehmen ihre Steuernummer, den Firmennamen und das Finanzamt.
 
 [Alle Fragen →](https://www.gespaenerji.com/de/sss.html)
 

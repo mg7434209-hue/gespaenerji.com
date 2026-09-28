@@ -3,7 +3,7 @@ title: "Häufige Fragen — Solarenergie, Bestellung und Montage | GESPA Energy"
 description: "Antworten zu Solaranlagen, Akkus, Solarumrüstung von E-Fahrzeugen, Bestellung, Versand, Zahlung und Montage an einem Ort. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/de/sss.html
 lang: de
-dateModified: 2026-09-26
+dateModified: 2026-09-28
 publisher: "GESPA Enerji"
 ---
 
@@ -261,7 +261,7 @@ Bei beschädigter oder mangelhafter Ware tragen wir alle Kosten — bitte prüfe
 
 ### Erhalte ich eine Rechnung für meine Bestellung?
 
-Ja, für jede Bestellung wird eine Rechnung ausgestellt; deshalb wird beim Bezahlen die türkische Identitätsnummer abgefragt. Für eine Rechnung auf ein Unternehmen kontaktieren Sie uns bitte vor der Bestellung.
+Ja, für jede Bestellung wird eine Rechnung ausgestellt. Bei Kartenzahlung geben Privatpersonen ihre türkische Identitätsnummer an, Unternehmen ihre Steuernummer, den Firmennamen und das Finanzamt.
 
 [Zur Seite →](https://www.gespaenerji.com/de/online-satis.html)
 

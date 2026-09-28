@@ -23,6 +23,14 @@ Kart ödemesi server.js'te bağımlılıksız iyzico Ödeme Formu entegrasyonudu
   noindex + robots engelli + build PAGES dışı (TR tek dil).
 
 ## Fatura kimliği: TCKN ya da VKN
+YALNIZ SEPET ÖDEMESİNDE sorulur (`/api/pay/checkout`, zorunlu). Link ödemesi
+(`odeme.html` → `/api/pay/custom`) kimlik İSTEMEZ: işletme kararı, 28 Eyl
+2026. Tutar elle girilen GES Marketim siparişidir, fatura bilgisi orada.
+Sunucu iyzico'nun zorunlu `identityNumber` alanına `IYZ_ID_FALLBACK` yazar;
+eski bir sayfadan geçerli TCKN/VKN gelirse onu kullanır, geçersizini yok
+sayar. İşletme e-postasında satır "(link ödemesi, istenmedi)" olur.
+`odeme.html`'e kimlik alanı GERİ EKLENMEZ (test denetler).
+
 Kimlik alanı iki türü alır. Tek kural server.js `invoiceId(buyer)`:
 - **11 hane** → şahıs, T.C. kimlik no. iyzico `identityNumber` = TCKN.
 - **10 hane** → şirket, vergi kimlik no (VKN). **Firma unvanı ve vergi
@@ -34,9 +42,9 @@ Kimlik alanı iki türü alır. Tek kural server.js `invoiceId(buyer)`:
 - Başka uzunluk → 400 ve açıklayıcı hata.
 - Eskiden yalnız 11 hane kabul ediliyordu; şirketler vergi numarasıyla
   ödeyemiyordu (28 Eyl 2026).
-- İstemci: sepette `#payTcknRow` + `#payCorpRow` (main.js `syncCorp()`),
-  `odeme.html`'de `.corp-f` alanları. 10 hane girilince firma/vergi dairesi
-  alanları açılır ve zorunlu olur, 11 hanede gizlenir.
+- İstemci: sepette `#payTcknRow` + `#payCorpRow` (main.js `syncCorp()`).
+  10 hane girilince firma/vergi dairesi alanları açılır ve zorunlu olur,
+  11 hanede gizlenir.
 - `orders.json` buyer: `tckn` YA DA `vkn` + `vd` + `firma`. İşletme e-postası
   şirkette "Fatura tipi: Kurumsal", unvan, vergi dairesi, vergi no ve yetkili
   adını yazar. Dekont uç noktası firma unvanını döndürür, kimlik/vergi
@@ -70,7 +78,8 @@ Kimlik alanı iki türü alır. Tek kural server.js `invoiceId(buyer)`:
 GES Marketim / serbest tutar: `?t=tutar&a=aciklama&s=no&tek=1|&tks=N`
 ön-doldurur → `/api/pay/custom`. Tutar istemciden gelir; sınır sunucuda,
 **kuruş kabul edilir**, kargo öncesi orders.json/iyzico panelinden tutar
-DOĞRULANIR.
+DOĞRULANIR. Form ad, telefon, e-posta, il ve adres ister; T.C. kimlik/vergi
+no İSTEMEZ (yukarıda "Fatura kimliği").
 
 TAKSİT: iyzico hesabı vade farkını MÜŞTERİYE yansıtıyor: ₺20.000 gönderince
 kartından ₺20.093,81 çekiliyor.
@@ -120,17 +129,36 @@ YOKTUR, adresi elle yazılır.
   verilirse TLS el sıkışması hata bile vermeden askıda kalır.
 
 ## Dekont (`odeme-sonuc.html`)
-- Callback rastgele bir `rid` üretip sipariş kaydına yazar ve
-  `odeme-sonuc.html?d=ok&r=<rid>` adresine yönlendirir; sayfa
-  `/api/order/receipt` ile kayıt bilgilerini çekip yazdırılabilir makbuz
-  gösterir (`window.print()`). iyzico token'ı adres çubuğuna DÜŞMEZ.
-  Uç nokta TCKN/VKN, açık adres, telefon ve e-posta DÖNDÜRMEZ; şirket
+- Adres: `odeme-sonuc.html?d=ok&r=<rid>#k=<belirteç>`. Callback yönlendirmesi,
+  işletme e-postası ve müşteri e-postası AYNI adresi yazar (`receiptUrl()`).
+  iyzico token'ı adres çubuğuna DÜŞMEZ.
+- DEKONT BELİRTECİ (`#k=`): dekont bilgisi bağlantının İÇİNDE, şifreli taşınır;
+  sunucu kaydı GEREKMEZ. Neden: Volume yokken orders.json her dağıtımda
+  siliniyordu; 28 Eyl 2026'da öğlen alınan bir ödemenin dekontu, birkaç saat
+  sonraki dağıtımdan sonra "yüklenemedi" dedi (o bağlantıda yalnız `r` vardı,
+  kurtarılamadı).
+  - Biçim (server.js `receiptSeal()`/`receiptOpen()`): `0x01` + iv(12) +
+    GCM etiketi(16) + AES-256-GCM(deflateRaw(JSON)), base64url. Anahtar =
+    HMAC-SHA256(iyzico gizli anahtarı, "gespa-dekont-v1"): dağıtımlar arasında
+    sabit, repoda YOK. iyzico anahtarı değişirse eski belirteçler açılmaz.
+  - İçerik `receiptData()`: sipariş no, tarih, tutarlar, ödeme no, açıklama,
+    referans, ödeyen adı/il/firma, kalemler. TCKN/VKN, açık adres, telefon,
+    e-posta GİRMEZ. Şifreli olduğu için ad adres çubuğunda ve analitikte açık
+    görünmez; GCM etiketi sahte dekontu engeller (test bozuk belirteci dener).
+  - Fragment'tadır: sunucuya yalnız `POST /api/order/receipt {r, k}` gövdesinde
+    gider, log'lara ve Referer'a düşmez. Uç nokta önce `r` ile kaydı arar
+    (Volume varsa esas odur), bulamazsa belirteci açar. `GET ?r=` belirteçsiz
+    eski bağlantılar için durur.
+  - Uzunluk: link ödemesinde ~330, hazır paketli sepette ~600 karakter.
+- Uç nokta TCKN/VKN, açık adres, telefon ve e-posta DÖNDÜRMEZ; şirket
   ödemesinde "Ödeyen" satırına firma unvanı önce yazılır.
+- SAAT: e-posta (`trTime()`) ve dekont sayfası Türkiye saatini yazar
+  (`Europe/Istanbul`). Railway UTC çalışır; saat dilimi verilmeyince 3 saat
+  geri görünüyordu.
 - ÖNBELLEK: çekilen dekont tarayıcıda `localStorage` `gespa-dekont-<rid>`
-  anahtarına yazılır. Sunucu kaydı sonradan kaybolsa (Volume yokken yeniden
-  başlatma) aynı tarayıcıda sayfa yenilenip yine yazdırılabilir. Kayıt da
-  önbellek de yoksa `#rcMissing` notu görünür (ödeme alındı, dekont e-postada
-  / WhatsApp'tan istenir); sayfa yine çalışır.
+  anahtarına da yazılır. Kayıt, belirteç ve önbellek yoksa `#rcMissing` notu
+  görünür (ödeme alındı, onay e-postası kayıttır, dekont WhatsApp'tan
+  istenir); sayfa yine çalışır.
 - YAZDIRMA: sayfa `<body class="print-receipt">` taşır; `@media print`
   kuralları bu sınıfla sınırlıdır. Kâğıda YALNIZ `.receipt` kartı basılır,
   sayfanın en üstünden başlar: `body`nin `main` dışındaki çocukları,
@@ -142,6 +170,8 @@ YOKTUR, adresi elle yazılır.
   ve açıklama da basılıyordu; kart "bölünmesin" diye 2. sayfaya itilince 1.
   sayfa yalnız başlıkla boş çıkıyordu (28 Eyl 2026 şikâyeti).
 - UYARI: veri klasörü bir Railway **Volume** üzerinde değilse orders.json her
-  dağıtımda SİLİNİR: sipariş kayıtları ve dekont bağlantıları kaybolur.
+  dağıtımda SİLİNİR: sipariş kayıtları kaybolur. Dekontlar belirteç sayesinde
+  açılmaya devam eder, ama sipariş kaydının tek kalıcı kopyası işletme
+  e-postasıdır.
   Volume bağlanınca `RAILWAY_VOLUME_MOUNT_PATH` otomatik kullanılır; durum
   admin "💾 Kalıcı veri" kartında (CLAUDE.md "Ziyaretçi sayacı").

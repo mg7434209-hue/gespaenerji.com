@@ -3,7 +3,7 @@ title: "Online Store — Solar Products and Equipment | GESPA Energy"
 description: "All products on sale in one place: ready-made solar kits, MPPT charge controllers and equipment. Transparent prices, VAT included, shipping across Türkiye."
 canonical: https://www.gespaenerji.com/en/online-satis.html
 lang: en
-dateModified: 2026-09-24
+dateModified: 2026-09-28
 publisher: "GESPA Enerji"
 ---
 
@@ -179,7 +179,7 @@ For damaged or defective goods all costs are ours — please inspect the parcel 
 
 ### Do I get an invoice for my order?
 
-Yes, an invoice is issued for every order; that is why your Turkish ID number is requested at checkout. For an invoice in a company's name, contact us before ordering.
+Yes, an invoice is issued for every order. When paying by card, individuals enter their Turkish ID number; companies enter their tax number, company name and tax office.
 
 [All questions →](https://www.gespaenerji.com/en/sss.html)
 

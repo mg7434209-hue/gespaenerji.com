@@ -92,10 +92,7 @@
             <div class="full"><label>Sipariş no (varsa)</label><input name="siparisno" maxlength="40" placeholder="GES Marketim sipariş numaranız" /></div>
             <div><label>Ad Soyad *</label><input required name="ad" placeholder="Adınız Soyadınız" autocomplete="name" /></div>
             <div><label>Telefon *</label><input required name="tel" type="tel" placeholder="+90 5__ ___ __ __" autocomplete="tel" /></div>
-            <div><label>E-posta *</label><input required name="eposta" type="email" placeholder="ornek@eposta.com" autocomplete="email" /><small style="color:var(--muted);font-size:.82rem">Ödeme onayınız ve dekontunuz bu adrese gönderilir.</small></div>
-            <div><label>T.C. Kimlik No veya Vergi No *</label><input required name="tckn" inputmode="numeric" maxlength="11" pattern="\d{10,11}" placeholder="11 hane TCKN · 10 hane VKN" autocomplete="off" /></div>
-            <div class="corp-f" hidden><label>Firma unvanı *</label><input name="firma" maxlength="160" placeholder="Şirketin resmî unvanı" autocomplete="organization" /></div>
-            <div class="corp-f" hidden><label>Vergi dairesi *</label><input name="vd" maxlength="80" placeholder="Vergi dairesinin adı" autocomplete="off" /></div>
+            <div class="full"><label>E-posta *</label><input required name="eposta" type="email" placeholder="ornek@eposta.com" autocomplete="email" /><small style="color:var(--muted);font-size:.82rem">Ödeme onayınız ve dekontunuz bu adrese gönderilir.</small></div>
             <div class="full"><label>İl / İlçe *</label><input required name="il" placeholder="Antalya / Manavgat" /></div>
             <div class="full"><label>Teslimat adresi *</label><textarea required name="adres" rows="3" placeholder="Mahalle, sokak, no, daire..."></textarea></div>
           </div>
@@ -141,14 +138,9 @@
         if (st && st.enabled) { form.hidden = false; if (not) not.hidden = false; }
         else closed.hidden = false;
       }).catch(function () { closed.hidden = false; });
-      // Kimlik: 11 hane TCKN (şahıs) ya da 10 hane VKN (şirket). 10 hanede firma
-      // unvanı ve vergi dairesi açılır ve zorunlu olur (fatura alanları).
-      var corpF = Array.prototype.slice.call(form.querySelectorAll(".corp-f"));
-      function syncCorp() {
-        var corp = String(form.tckn.value).replace(/\D/g, "").length === 10;
-        corpF.forEach(function (d) { d.hidden = !corp; var i = d.querySelector("input"); if (i) i.required = corp; });
-      }
-      form.tckn.addEventListener("input", syncCorp);
+      // Kimlik (TCKN/VKN) bu sayfada İSTENMEZ (işletme kararı, 28 Eyl 2026):
+      // tutar elle girilen GES Marketim siparişidir, fatura bilgisi orada.
+      // Sunucu iyzico'nun zorunlu kimlik alanına yedek değeri yazar.
       // iyzico hesabının tek işlem limiti (config.commerce.cardMaxTL) — config
       // "defer" yüklenir, bu yüzden DOMContentLoaded'da okunur.
       var cardMax = 0;
@@ -202,7 +194,7 @@
           body: JSON.stringify({
             amountTL: +amt(form.tutar.value), tek: tekCekim, taksit: taksitN,
             desc: form.aciklama.value.trim(), ref: form.siparisno.value.trim(),
-            buyer: { ad: form.ad.value, tel: form.tel.value, eposta: form.eposta.value, tckn: form.tckn.value, firma: form.firma.value, vd: form.vd.value, il: form.il.value, adres: form.adres.value }
+            buyer: { ad: form.ad.value, tel: form.tel.value, eposta: form.eposta.value, il: form.il.value, adres: form.adres.value }
           })
         }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
           .then(function (out) {

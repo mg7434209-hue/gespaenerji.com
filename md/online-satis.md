@@ -3,7 +3,7 @@ title: "Online Satış — Güneş Enerjisi Ürünleri | GESPA Enerji"
 description: "GESPA Enerji online satış: hazır güneş enerjisi paketleri, şarj kontrol cihazları ve solar ekipman. Şeffaf fiyat, KDV dahil, Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/online-satis.html
 lang: tr
-dateModified: 2026-09-24
+dateModified: 2026-09-28
 publisher: "GESPA Enerji"
 ---
 
@@ -179,7 +179,7 @@ Hasarlı veya ayıplı üründe tüm masraflar bize aittir — kargoyu teslim al
 
 ### Siparişime fatura kesiliyor mu?
 
-Evet, her siparişe fatura düzenlenir; bu nedenle ödeme sırasında T.C. kimlik numarası istenir. Firma adına fatura için sipariş öncesinde bize ulaşın.
+Evet, her siparişe fatura düzenlenir. Kartla ödemede şahıslar T.C. kimlik numarasını, şirketler vergi numarasını, firma unvanını ve vergi dairesini girer.
 
 [Tüm sorular →](https://www.gespaenerji.com/sss.html)
 

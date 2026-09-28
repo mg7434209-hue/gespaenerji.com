@@ -601,17 +601,24 @@ Tüm kurallar: @docs/odeme.md
   `SMTP_USER` `SMTP_PASS` `ORDER_EMAIL_TO`. Parola/anahtar repoya ASLA yazılmaz.
 - Tutar SUNUCUDA config'ten hesaplanır, istemci fiyatı yok sayılır. Kart
   ödemesinde havale indirimi YOK (liste fiyatı).
-- Fatura kimliği: 11 hane TCKN (şahıs) ya da 10 hane VKN (şirket; firma unvanı
-  + vergi dairesi ZORUNLU). Tek kural server.js `invoiceId()`. KVKK: TCKN/VKN
-  log'a ASLA yazılmaz, müşteri e-postasına ve dekonta girmez.
+- Fatura kimliği YALNIZ SEPET ödemesinde: 11 hane TCKN (şahıs) ya da 10 hane
+  VKN (şirket; firma unvanı + vergi dairesi ZORUNLU). Tek kural server.js
+  `invoiceId()`. Link ödemesi (`odeme.html`) kimlik İSTEMEZ (işletme kararı);
+  alanı geri ekleme. KVKK: TCKN/VKN log'a ASLA yazılmaz, müşteri e-postasına
+  ve dekonta girmez.
+- Dekont bağlantısı `?d=ok&r=<rid>#k=<belirteç>`: dekont bilgisi bağlantının
+  içinde ŞİFRELİ taşınır (AES-256-GCM, anahtar iyzico gizli anahtarından
+  türetilir), sunucu kaydı silinse de açılır. E-posta ve dekont saati
+  Türkiye saatidir (`trTime()`).
 - Sınırlar `config.commerce`: `payLinkMinTL`/`payLinkMaxTL` bizim link ödemesi
   sınırımız; `cardMaxTL` iyzico HESABININ tek işlem limitidir (şu an ₺100.000).
   Aşan kart tutarı iyzico'ya gönderilmeden reddedilir, havale/EFT önerilir.
   iyzico limiti yükselince SADECE `cardMaxTL` güncellenir.
 - Dekont yazdırma kuralları `body.print-receipt` ile sınırlıdır; dekont
   kartına `break-inside:avoid` KONMAZ (1. sayfayı boş bırakıyordu).
-- Railway Volume yoksa orders.json her dağıtımda SİLİNİR (siparişler, dekont
-  bağlantıları).
+- Railway Volume yoksa orders.json her dağıtımda SİLİNİR: sipariş kayıtları
+  gider, tek kalıcı kopya işletme e-postasıdır. Belirteçsiz eski dekont
+  bağlantıları (yalnız `r=`) bu yüzden açılmaz.
 
 ## Ürün akışı — `urunler.xml`
 `build.js` `writeProductFeed()` config.packages'ten **Google Merchant Center

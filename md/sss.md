@@ -3,7 +3,7 @@ title: "Sıkça Sorulan Sorular — Güneş Enerjisi, Sipariş ve Kurulum | GESP
 description: "Güneş enerjisi santrali, akü, elektrikli araç güneş dönüşümü, sipariş, kargo, ödeme ve kurulum hakkında sık sorulan soruların cevapları tek sayfada. GESPA Enerji, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/sss.html
 lang: tr
-dateModified: 2026-09-26
+dateModified: 2026-09-28
 publisher: "GESPA Enerji"
 ---
 
@@ -299,7 +299,7 @@ Hasarlı veya ayıplı üründe tüm masraflar bize aittir — kargoyu teslim al
 
 ### Siparişime fatura kesiliyor mu?
 
-Evet, her siparişe fatura düzenlenir; bu nedenle ödeme sırasında T.C. kimlik numarası istenir. Firma adına fatura için sipariş öncesinde bize ulaşın.
+Evet, her siparişe fatura düzenlenir. Kartla ödemede şahıslar T.C. kimlik numarasını, şirketler vergi numarasını, firma unvanını ve vergi dairesini girer.
 
 [Sayfaya git →](https://www.gespaenerji.com/online-satis.html)
 

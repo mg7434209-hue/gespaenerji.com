@@ -185,6 +185,11 @@ assert.ok(!aboutPage.includes('01.11.2022')&&!aboutPage.includes('Kurumsallaşma
  assert.ok(cat.battery.every(b=>b.v)&&cat.inverter.every(i=>i.v),'builder: battery/inverter voltage (v) set');
  assert.ok(cat.inverter.every(i=>volts.has(i.v)),'builder: every inverter matches a battery voltage');
  for(const p of C.builder.presets)for(const t of Object.keys(p.prefer||{}))assert.ok(cat[t].some(x=>x.id===p.prefer[t]),'builder preset '+p.id+': prefer '+p.prefer[t]+' exists');}
+// Link payment (odeme.html) does not ask for a Turkish ID or tax number (business decision,
+// 28 Sep 2026); the receipt page reads its encrypted token from the #k= fragment.
+const linkPay=fs.readFileSync(path.join(root,'odeme.html'),'utf8');
+assert.ok(!/name="(tckn|vd|firma)"/.test(linkPay),'odeme.html must not ask for TCKN/VKN');
+assert.ok(/location\.hash/.test(fs.readFileSync(path.join(root,'odeme-sonuc.html'),'utf8')),'receipt page reads #k= token');
 console.log('Static SEO: '+urls.length+' sitemap pages, '+schemas+' JSON-LD blocks; links and translations passed.');
 // Exercise the actual consent branch without loading analytics or contacting third parties.
 const main=fs.readFileSync(path.join(root,'assets/main.js'),'utf8');
@@ -206,7 +211,8 @@ assert.ok(!JSON.stringify(granted.events).includes('private'));
 const unrelated=consentRun('granted','https://notchatgpt.com/');assert.ok(!unrelated.events.some(e=>e[1]==='ai_referral'));
 console.log('Analytics: consent gate, exact AI source attribution and contact payload checks passed.');
 // The production server runs in this process tree so HTTP tests share its network context.
-const port=4317,server=spawn(process.execPath,['server.js'],{cwd:root,env:{...process.env,PORT:String(port)}});
+const RECEIPT_TEST_SECRET='test-dekont-anahtari';
+const port=4317,server=spawn(process.execPath,['server.js'],{cwd:root,env:{...process.env,PORT:String(port),IYZIPAY_API_KEY:'',IYZICO_API_KEY:'',IYZIPAY_SECRET_KEY:RECEIPT_TEST_SECRET}});
 let logs='',started=false;
 const timeout=setTimeout(()=>{server.kill();console.error(logs);process.exitCode=1;},25000);
 server.stderr.on('data',d=>logs+=d);
@@ -242,7 +248,21 @@ server.stdout.on('data',async d=>{
   const ex403=await fetch('http://127.0.0.1:'+port+'/api/visitors/export',{method:'POST',body:JSON.stringify({pass:'yanlis'})});assert.equal(ex403.status,403);await ex403.text();
   const ex=await fetch('http://127.0.0.1:'+port+'/api/visitors/export',{method:'POST',body:JSON.stringify({pass:sb.window.GESPA.config.admin.pass})});
   assert.equal(ex.status,200);const exj=await ex.json();assert.ok(exj.total===vis.total&&exj.hours&&exj.hoursSince>0,'visitors export for redeploy handoff');
-  console.log('HTTP: key pages and bot files return 200; missing page returns 404; markdown mirrors, Accept negotiation, AI crawler counter and visitor handoff work.');
+  // Payment receipt token: the receipt opens WITHOUT a server-side order record (Railway without a
+  // Volume wipes orders.json on every deploy). Format must match server.js receiptSeal():
+  // 0x01 + iv(12) + GCM tag(16) + AES-256-GCM(deflateRaw(JSON)), key = HMAC(iyzico secret, label).
+  const crypto=require('node:crypto'),zlib=require('node:zlib');
+  const rkKey=crypto.createHmac('sha256',RECEIPT_TEST_SECRET).update('gespa-dekont-v1').digest();
+  const seal=o=>{const iv=crypto.randomBytes(12),c=crypto.createCipheriv('aes-256-gcm',rkKey,iv);const b=Buffer.concat([c.update(zlib.deflateRawSync(Buffer.from(JSON.stringify(o)))),c.final()]);return Buffer.concat([Buffer.from([1]),iv,c.getAuthTag(),b]).toString('base64url');};
+  const rcPost=body=>fetch('http://127.0.0.1:'+port+'/api/order/receipt',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  const tok=seal({no:'GMKTEST1',date:'2026-09-28T09:47:09.000Z',amount:20000,paymentId:'P1',desc:'GES Marketim siparişi',buyer:{ad:'Ad',il:'Il',firma:''},items:[]});
+  const rc=await rcPost({r:'00112233445566778899aabb',k:tok});assert.equal(rc.status,200,'receipt from token');
+  const rcj=await rc.json();assert.equal(rcj.no,'GMKTEST1');assert.equal(rcj.amount,20000);
+  const forged=tok.slice(0,40)+(tok[40]==='A'?'B':'A')+tok.slice(41);
+  const rf=await rcPost({k:forged});assert.equal(rf.status,404,'tampered receipt token rejected');await rf.text();
+  const r0=await rcPost({});assert.equal(r0.status,400);await r0.text();
+  const rg=await fetch('http://127.0.0.1:'+port+'/api/order/receipt?r=00112233445566778899aabb');assert.equal(rg.status,404,'old rid-only link without record');await rg.text();
+  console.log('HTTP: key pages and bot files return 200; missing page returns 404; markdown mirrors, Accept negotiation, AI crawler counter, visitor handoff and receipt tokens work.');
  }catch(e){console.error(e);process.exitCode=1;}finally{clearTimeout(timeout);server.kill();}
 });
 server.on('error',e=>{clearTimeout(timeout);console.error(e);process.exitCode=1;});
