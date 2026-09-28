@@ -56,10 +56,10 @@ Kimlik alanı iki türü alır. Tek kural server.js `invoiceId(buyer)`:
 - `payLinkMinTL` / `payLinkMaxTL` (50 – 500.000 ₺): bizim link ödemesi
   sınırımız. server.js `payLimits()` (custom + installments) ve admin
   kartları buradan okur; elle rakam gömme.
-- `cardMaxTL` (şu an 100.000 ₺): **iyzico HESABININ tek işlem limiti**.
-  Bizim sınırımız değildir; aşan tutarı iyzico reddeder (28 Eyl 2026:
-  ₺120.000'lik ödeme geçmedi, iki çekime bölündü). Kartla ödenen HER tutar
-  buna tabidir:
+- `cardMaxTL` (şu an 350.000 ₺): **iyzico HESABININ tek işlem limiti**.
+  Bizim sınırımız değildir; aşan tutarı iyzico reddeder (28 Eyl 2026: limit
+  100.000 ₺ iken ₺120.000'lik ödeme geçmedi, iki çekime bölündü; aynı gün
+  iyzico limiti 350.000 ₺'ye yükseltti). Kartla ödenen HER tutar buna tabidir:
   - server.js `cardLimitError()`: checkout (sepet toplamı) ve custom (tutar)
     aşan tutarı iyzico'ya GÖNDERMEDEN 400 ile reddeder, havale/EFT önerir.
   - Sepet: kart seçiliyken liste toplamı sınırı aşarsa `#payCardMax` uyarısı

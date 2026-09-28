@@ -611,7 +611,7 @@ Tüm kurallar: @docs/odeme.md
   türetilir), sunucu kaydı silinse de açılır. E-posta ve dekont saati
   Türkiye saatidir (`trTime()`).
 - Sınırlar `config.commerce`: `payLinkMinTL`/`payLinkMaxTL` bizim link ödemesi
-  sınırımız; `cardMaxTL` iyzico HESABININ tek işlem limitidir (şu an ₺100.000).
+  sınırımız; `cardMaxTL` iyzico HESABININ tek işlem limitidir (şu an ₺350.000).
   Aşan kart tutarı iyzico'ya gönderilmeden reddedilir, havale/EFT önerilir.
   iyzico limiti yükselince SADECE `cardMaxTL` güncellenir.
 - Dekont yazdırma kuralları `body.print-receipt` ile sınırlıdır; dekont

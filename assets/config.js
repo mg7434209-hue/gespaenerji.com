@@ -214,12 +214,13 @@ window.GESPA.config = {
     payLinkMinTL: 50,
     payLinkMaxTL: 500000,
     // iyzico HESABININ tek işlem üst sınırı (₺). Bizim sınırımız değil, iyzico
-    // panelindeki limittir: aşan tutarı iyzico reddeder (28 Eyl 2026: ₺120.000
-    // geçmedi, iki çekime bölündü). Sunucu kartla ödenen her tutarı (sepet +
+    // panelindeki limittir: aşan tutarı iyzico reddeder (28 Eyl 2026: limit
+    // ₺100.000 iken ₺120.000 geçmedi, iki çekime bölündü; aynı gün iyzico
+    // limiti ₺350.000'e yükseltti). Sunucu kartla ödenen her tutarı (sepet +
     // link) buna göre ÖNCEDEN reddedip havale/EFT'yi önerir; admin bağlantı
-    // aracı da bunu üst sınır alır. iyzico limitinizi yükseltince SADECE
+    // aracı da bunu üst sınır alır. iyzico limitinizi değiştirince SADECE
     // bunu güncelleyin. 0 = sınır yok.
-    cardMaxTL: 100000
+    cardMaxTL: 350000
   },
 
   // ============================================================
