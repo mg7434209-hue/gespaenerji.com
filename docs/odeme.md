@@ -134,7 +134,7 @@ YOKTUR, adresi elle yazılır.
   iyzico token'ı adres çubuğuna DÜŞMEZ.
 - DEKONT BELİRTECİ (`#k=`): dekont bilgisi bağlantının İÇİNDE, şifreli taşınır;
   sunucu kaydı GEREKMEZ. Neden: Volume yokken orders.json her dağıtımda
-  siliniyordu; 28 Eyl 2026'da öğlen alınan bir ödemenin dekontu, birkaç saat
+  siliniyordu; 28 Eyl 2026'da öğlen alınan bir ödemenin dekontu, yarım saat
   sonraki dağıtımdan sonra "yüklenemedi" dedi (o bağlantıda yalnız `r` vardı,
   kurtarılamadı).
   - Biçim (server.js `receiptSeal()`/`receiptOpen()`): `0x01` + iv(12) +

@@ -543,7 +543,7 @@ function trTime(d) {
 // ---- Dekont belirteci: dekont sunucu kaydına BAĞLI DEĞİL -------------------
 // Railway'de Volume yokken orders.json her dağıtımda siliniyor, rid ile açılan
 // dekont "yüklenemedi" diyordu (28 Eyl 2026: öğlen alınan bir ödemenin kaydı
-// birkaç saat sonraki dağıtımda silindi). Dekont bilgisi artık bağlantının İÇİNDE taşınır:
+// yarım saat sonraki dağıtımda silindi). Dekont bilgisi artık bağlantının İÇİNDE taşınır:
 // AES-256-GCM ile şifreli ve etiketli. Şifreli olduğu için ad/il adres
 // çubuğunda, tarayıcı geçmişinde ve analitikte açık görünmez; GCM etiketi
 // sahte dekont üretilmesini engeller. Anahtar iyzico gizli anahtarından
