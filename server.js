@@ -278,9 +278,40 @@ try { SITE_CFG = loadSiteConfig(); } catch (e) { console.warn("config yükleneme
 // iyzico hesabının kendi tek işlem limiti ve kart limiti AYRICA geçerlidir.
 function payLimits() {
   const c = (SITE_CFG && SITE_CFG.commerce) || {};
-  return { min: +c.payLinkMinTL || 50, max: +c.payLinkMaxTL || 500000 };
+  return { min: +c.payLinkMinTL || 50, max: +c.payLinkMaxTL || 500000, card: +c.cardMaxTL || 0 };
 }
 const trNum = (n) => Number(n).toLocaleString("tr-TR");
+// iyzico HESABININ tek işlem üst sınırı (config.commerce.cardMaxTL). Bizim
+// payLinkMaxTL sınırımızdan AYRIDIR: aşan tutarı iyzico reddeder (28 Eyl 2026:
+// ₺120.000'lik ödeme geçmedi, iki çekime bölündü). Kartla ödenen HER tutar —
+// sepet ve link ödemesi — buna tabidir; müşteri iyzico sayfasında başarısız
+// denemeye düşmeden burada açık bir mesaj alır. 0/boş = sınır yok.
+function cardLimitError(amount) {
+  const card = payLimits().card;
+  if (!card || amount <= card) return "";
+  return "Kartla tek işlemde en fazla " + trNum(card) + " ₺ ödenebilir (iyzico hesap limiti). "
+    + "Bu tutar için havale/EFT ile ödeyebilir ya da bizimle iletişime geçebilirsiniz.";
+}
+// Fatura kimliği: şahıs 11 haneli T.C. kimlik no, şirket 10 haneli vergi
+// kimlik no (VKN). Eskiden yalnız 11 hane kabul ediliyordu; şirketler vergi
+// numarasıyla ödeyemiyordu. VKN'de firma unvanı ve vergi dairesi zorunludur
+// (e-fatura alanları). iyzico'nun identityNumber alanı KİŞİNİN TCKN'sini
+// bekler; şirket ödemesinde iyzico'nun kabul ettiği yedek değer gönderilir,
+// VKN yalnız bizim sipariş kaydında ve işletme e-postasında durur.
+// KVKK: TCKN/VKN log'a ASLA yazılmaz.
+const IYZ_ID_FALLBACK = "11111111111";
+function invoiceId(buyer) {
+  const b = buyer || {};
+  const no = String(b.tckn || "").replace(/\D/g, "");
+  if (no.length === 11) return { tckn: no, identity: no };
+  if (no.length === 10) {
+    const vd = String(b.vd || "").trim().slice(0, 80);
+    const firma = String(b.firma || "").trim().slice(0, 160);
+    if (!vd || !firma) return { error: "Vergi numarasıyla ödemede firma unvanı ve vergi dairesi zorunludur." };
+    return { vkn: no, vd: vd, firma: firma, identity: IYZ_ID_FALLBACK };
+  }
+  return { error: "Fatura için 11 haneli T.C. kimlik numarası ya da 10 haneli vergi numarası gereklidir." };
+}
 
 function readOrders() { try { return JSON.parse(fs.readFileSync(ORDERS_FILE, "utf8")); } catch (e) { return {}; } }
 function writeOrder(token, data) {
@@ -523,8 +554,16 @@ function orderMailBody(o, rid) {
   if (o.ref) L.push("Referans      : " + o.ref);
   L.push("");
   L.push("--- FATURA BİLGİLERİ ---");
-  L.push("Ad Soyad      : " + (b.ad || "-"));
-  L.push("T.C. Kimlik   : " + (b.tckn || "(girilmemiş)"));
+  if (b.vkn) {
+    L.push("Fatura tipi   : Kurumsal (şirket)");
+    L.push("Firma unvanı  : " + (b.firma || "-"));
+    L.push("Vergi dairesi : " + (b.vd || "-"));
+    L.push("Vergi no      : " + b.vkn);
+    L.push("Yetkili       : " + (b.ad || "-"));
+  } else {
+    L.push("Ad Soyad      : " + (b.ad || "-"));
+    L.push("T.C. Kimlik   : " + (b.tckn || "(girilmemiş)"));
+  }
   L.push("Telefon       : " + (b.tel || "-"));
   L.push("E-posta       : " + (b.eposta || "-"));
   L.push("İl / İlçe     : " + (b.il || "-"));
@@ -630,7 +669,7 @@ function handlePayRoutes(req, res, urlPath) {
       paymentId: ord.paymentId || "",
       desc: ord.desc || "",
       ref: ord.ref || "",
-      buyer: { ad: (ord.buyer && ord.buyer.ad) || "", il: (ord.buyer && ord.buyer.il) || "" },
+      buyer: { ad: (ord.buyer && ord.buyer.ad) || "", il: (ord.buyer && ord.buyer.il) || "", firma: (ord.buyer && ord.buyer.firma) || "" },
       items: orderLines(ord).map((l) => ({ name: l.name, qty: l.qty, unitTL: l.unitTL, members: l.members }))
     }), true;
   }
@@ -711,12 +750,14 @@ function handlePayRoutes(req, res, urlPath) {
       const name = nm.join(" ") || "-";
       const tel = String(buyer.tel || "").replace(/[^\d+]/g, "");
       const email = String(buyer.eposta || "").trim() || (cfg.company && cfg.company.email) || "";
-      const tckn = String(buyer.tckn || "").replace(/\D/g, "");
       const adres = String(buyer.adres || "").trim();
       const il = String(buyer.il || "").trim();
       if (!name || !tel || !adres || !il) return sendJson(res, 400, { error: "Ad, telefon, il ve adres zorunludur." });
-      if (!/^\d{11}$/.test(tckn)) return sendJson(res, 400, { error: "Kart ödemesi için 11 haneli T.C. kimlik numarası gereklidir." });
+      const inv = invoiceId(buyer);
+      if (inv.error) return sendJson(res, 400, { error: inv.error });
       const total = lines.reduce((a, l) => a + l.unit * l.qty, 0);
+      const cardErr = cardLimitError(total);
+      if (cardErr) return sendJson(res, 400, { error: cardErr });
       const convId = "GES" + Date.now().toString(36).toUpperCase();
       const ip = String(req.headers["x-forwarded-for"] || req.socket.remoteAddress || "").split(",")[0].trim() || "85.34.78.112";
       const addr = {
@@ -731,10 +772,10 @@ function handlePayRoutes(req, res, urlPath) {
         buyer: {
           id: "B" + Date.now(), name: name, surname: surname,
           gsmNumber: tel.startsWith("+") ? tel : "+9" + ("0" + tel).slice(-11),
-          email: email || "info@gespaenerji.com", identityNumber: tckn,
+          email: email || "info@gespaenerji.com", identityNumber: inv.identity,
           registrationAddress: addr.address, ip: ip, city: addr.city, country: "Turkey"
         },
-        shippingAddress: addr, billingAddress: addr,
+        shippingAddress: addr, billingAddress: inv.firma ? Object.assign({}, addr, { contactName: inv.firma }) : addr,
         basketItems: lines.map((l, i) => ({
           id: l.p.id, name: l.p.name + (l.qty > 1 ? " x" + l.qty : ""),
           category1: "Solar Enerji", itemType: "PHYSICAL", price: iyzPrice(l.unit * l.qty)
@@ -747,9 +788,9 @@ function handlePayRoutes(req, res, urlPath) {
         writeOrder(out.token, {
           conversationId: convId, status: "pending", createdAt: new Date().toISOString(),
           totalTL: total, items: lines.map((l) => ({ id: l.p.id, qty: l.qty, unitTL: l.unit })),
-          // tckn FATURA için saklanır (e-arşiv/e-fatura zorunlu alanı).
+          // tckn / vkn + vd + firma FATURA için saklanır (e-arşiv/e-fatura alanları).
           // KVKK: yalnız sunucuda tutulur, log'a ASLA yazılmaz.
-          buyer: { ad: buyer.ad, tel: tel, eposta: email, tckn: tckn, il: il, adres: adres }
+          buyer: { ad: buyer.ad, tel: tel, eposta: email, tckn: inv.tckn, vkn: inv.vkn, vd: inv.vd, firma: inv.firma, il: il, adres: adres }
         });
         sendJson(res, 200, { url: out.paymentPageUrl || out.payWithIyzicoPageUrl });
       });
@@ -786,11 +827,13 @@ function handlePayRoutes(req, res, urlPath) {
       const name = nm.join(" ") || "-";
       const tel = String(buyer.tel || "").replace(/[^\d+]/g, "");
       const email = String(buyer.eposta || "").trim();
-      const tckn = String(buyer.tckn || "").replace(/\D/g, "");
       const adres = String(buyer.adres || "").trim();
       const il = String(buyer.il || "").trim();
       if (!name || !tel || !adres || !il) return sendJson(res, 400, { error: "Ad, telefon, il ve adres zorunludur." });
-      if (!/^\d{11}$/.test(tckn)) return sendJson(res, 400, { error: "Kart ödemesi için 11 haneli T.C. kimlik numarası gereklidir." });
+      const inv = invoiceId(buyer);
+      if (inv.error) return sendJson(res, 400, { error: inv.error });
+      const cardErr = cardLimitError(amount);
+      if (cardErr) return sendJson(res, 400, { error: cardErr });
       const convId = "GMK" + Date.now().toString(36).toUpperCase();
       const ip = String(req.headers["x-forwarded-for"] || req.socket.remoteAddress || "").split(",")[0].trim() || "85.34.78.112";
       const addr = { contactName: (name + " " + surname).trim(), city: il.split("/")[0].trim() || "Antalya", country: "Turkey", address: adres + " " + il };
@@ -802,10 +845,10 @@ function handlePayRoutes(req, res, urlPath) {
         buyer: {
           id: "B" + Date.now(), name: name, surname: surname,
           gsmNumber: tel.startsWith("+") ? tel : "+9" + ("0" + tel).slice(-11),
-          email: email || "info@gespaenerji.com", identityNumber: tckn,
+          email: email || "info@gespaenerji.com", identityNumber: inv.identity,
           registrationAddress: addr.address, ip: ip, city: addr.city, country: "Turkey"
         },
-        shippingAddress: addr, billingAddress: addr,
+        shippingAddress: addr, billingAddress: inv.firma ? Object.assign({}, addr, { contactName: inv.firma }) : addr,
         basketItems: [{ id: "gesmarketim", name: desc, category1: "E-Mağaza", itemType: "PHYSICAL", price: iyzPrice(amount) }]
       };
       if (tekCekim) payload.enabledInstallments = [1];
@@ -818,9 +861,9 @@ function handlePayRoutes(req, res, urlPath) {
           conversationId: convId, source: "gesmarketim", status: "pending",
           createdAt: new Date().toISOString(), totalTL: amount, desc: desc, ref: ref || undefined,
           tek: tekCekim || undefined, taksit: (!tekCekim && taksitN >= 2 && taksitN <= 12) ? taksitN : undefined,
-          // tckn FATURA için saklanır (e-arşiv/e-fatura zorunlu alanı).
+          // tckn / vkn + vd + firma FATURA için saklanır (e-arşiv/e-fatura alanları).
           // KVKK: yalnız sunucuda tutulur, log'a ASLA yazılmaz.
-          buyer: { ad: buyer.ad, tel: tel, eposta: email, tckn: tckn, il: il, adres: adres }
+          buyer: { ad: buyer.ad, tel: tel, eposta: email, tckn: inv.tckn, vkn: inv.vkn, vd: inv.vd, firma: inv.firma, il: il, adres: adres }
         });
         sendJson(res, 200, { url: out.paymentPageUrl || out.payWithIyzicoPageUrl });
       });

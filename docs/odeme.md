@@ -1,0 +1,147 @@
+# Ödeme (iyzico), sipariş e-postaları ve dekont
+
+> CLAUDE.md "Ödeme" bölümünden `@` ile içe aktarılır.
+> Sunucu `server.js` · sepet `sepet.html` + main.js sepet IIFE'si ·
+> link ödemesi `odeme.html` · sonuç/dekont `odeme-sonuc.html` · araçlar `admin.html`.
+
+## iyzico entegrasyonu
+Kart ödemesi server.js'te bağımlılıksız iyzico Ödeme Formu entegrasyonudur:
+- `/api/pay/status`: `{enabled, mail, store}` (kart açık mı, SMTP var mı,
+  veri kalıcı mı; yalnız boolean).
+- `/api/pay/checkout`: sepet → iyzico sayfası. Tutar SUNUCUDA config'ten
+  hesaplanır, istemci fiyatı yok sayılır. Kart ödemesinde havale indirimi YOK
+  (liste fiyatı, `pkgListTL`).
+- `/api/pay/custom`: `odeme.html` serbest tutar (aşağıda).
+- `/api/pay/callback`: iyzico dönüşü → `odeme-sonuc.html`.
+- Anahtarlar YALNIZCA Railway ortam değişkeni: `IYZIPAY_API_KEY` /
+  `IYZIPAY_SECRET_KEY` / `IYZIPAY_BASE_URL` (sandbox varsayılan; canlı =
+  https://api.iyzipay.com). `IYZICO_*` adlandırması da kabul edilir (firma
+  "iyzico", API alan adı "iyzipay", panelde karışıyor); `IYZIPAY_*` tanımlıysa
+  o önceliklidir. Anahtar yoksa sepetteki kart seçeneği "çok yakında" kalır
+  (Pages aynasında da böyle).
+- Siparişler `DATA_DIR/orders.json`. `odeme-sonuc.html` ve `odeme.html`
+  noindex + robots engelli + build PAGES dışı (TR tek dil).
+
+## Fatura kimliği: TCKN ya da VKN
+Kimlik alanı iki türü alır. Tek kural server.js `invoiceId(buyer)`:
+- **11 hane** → şahıs, T.C. kimlik no. iyzico `identityNumber` = TCKN.
+- **10 hane** → şirket, vergi kimlik no (VKN). **Firma unvanı ve vergi
+  dairesi ZORUNLU** (`firma`, `vd`; e-fatura alanları). iyzico'nun
+  `identityNumber` alanı KİŞİNİN TCKN'sini beklediği için şirket ödemesinde
+  iyzico'nun kabul ettiği yedek değer `IYZ_ID_FALLBACK` ("11111111111")
+  gönderilir; fatura adresinin `contactName`'i firma unvanı olur. VKN yalnız
+  bizim sipariş kaydımızda ve işletme e-postasında durur.
+- Başka uzunluk → 400 ve açıklayıcı hata.
+- Eskiden yalnız 11 hane kabul ediliyordu; şirketler vergi numarasıyla
+  ödeyemiyordu (28 Eyl 2026).
+- İstemci: sepette `#payTcknRow` + `#payCorpRow` (main.js `syncCorp()`),
+  `odeme.html`'de `.corp-f` alanları. 10 hane girilince firma/vergi dairesi
+  alanları açılır ve zorunlu olur, 11 hanede gizlenir.
+- `orders.json` buyer: `tckn` YA DA `vkn` + `vd` + `firma`. İşletme e-postası
+  şirkette "Fatura tipi: Kurumsal", unvan, vergi dairesi, vergi no ve yetkili
+  adını yazar. Dekont uç noktası firma unvanını döndürür, kimlik/vergi
+  numarasını DÖNDÜRMEZ.
+- KVKK: TCKN/VKN log'a ASLA yazılmaz; yalnız sipariş kaydında ve işletme
+  e-postasında durur. Müşteri e-postasına yazılmaz.
+
+## Tutar sınırları (tek kaynak `config.commerce`)
+- `payLinkMinTL` / `payLinkMaxTL` (50 – 500.000 ₺): bizim link ödemesi
+  sınırımız. server.js `payLimits()` (custom + installments) ve admin
+  kartları buradan okur; elle rakam gömme.
+- `cardMaxTL` (şu an 100.000 ₺): **iyzico HESABININ tek işlem limiti**.
+  Bizim sınırımız değildir; aşan tutarı iyzico reddeder (28 Eyl 2026:
+  ₺120.000'lik ödeme geçmedi, iki çekime bölündü). Kartla ödenen HER tutar
+  buna tabidir:
+  - server.js `cardLimitError()`: checkout (sepet toplamı) ve custom (tutar)
+    aşan tutarı iyzico'ya GÖNDERMEDEN 400 ile reddeder, havale/EFT önerir.
+  - Sepet: kart seçiliyken liste toplamı sınırı aşarsa `#payCardMax` uyarısı
+    4 dilde görünür ve gönderim durur (main.js `totals()` → `overCard`).
+  - `odeme.html`: tutar alanının altında `#payMaxHint` sınırı yazar, aşan
+    tutar gönderilmeden uyarılır.
+  - admin "🔗 Ödeme Bağlantısı Üret": üst sınır `min(payLinkMaxTL, cardMaxTL)`.
+  - Sınır TAKSİTSİZ tutara uygulanır. Müşteri iyzico sayfasında taksit seçer
+    ve vade farkı toplamı sınırın üstüne taşırsa ret yine iyzico'dan gelir
+    (`iyzFail` → errorMessage + kod).
+  - iyzico limiti yükseltilince SADECE `cardMaxTL` güncellenir (0 = sınır
+    yok) + `node build.js`. Limit iyzico panelinden/desteğinden yükseltilir,
+    koddan DEĞİL.
+
+## Link ödemesi (`odeme.html`)
+GES Marketim / serbest tutar: `?t=tutar&a=aciklama&s=no&tek=1|&tks=N`
+ön-doldurur → `/api/pay/custom`. Tutar istemciden gelir; sınır sunucuda,
+**kuruş kabul edilir**, kargo öncesi orders.json/iyzico panelinden tutar
+DOĞRULANIR.
+
+TAKSİT: iyzico hesabı vade farkını MÜŞTERİYE yansıtıyor: ₺20.000 gönderince
+kartından ₺20.093,81 çekiliyor.
+- `tek=1` → `enabledInstallments:[1]` (tek çekim, tutar tam tahsil edilir).
+- `tks=N` → `enabledInstallments:[N]` (yalnız N taksit; sabitlenmezse müşteri
+  başka taksit seçer ve geri hesaplanan tutar tutmaz).
+- `/api/pay/installments` iyzico'nun KENDİ oranlarını okur (salt okunur, ödeme
+  akışına dokunmaz); admin'deki "💳 Taksit farkı ve yuvarlama" kartı bununla
+  "tam ₺X tahsil etmek için ne göndermeli"yi hesaplar (en YÜKSEK orana göre,
+  müşteri hedeften fazla ödemez). Kalıcı çözüm iyzico panelinde vade farkını
+  müşteriye yansıtmayı KAPATMAKTIR; o zaman bu araç gereksizdir.
+
+Bağlantıyı ÜRETEN araç `admin.html`'deki "🔗 Ödeme Bağlantısı Üret" kartıdır
+(tutar/açıklama/sipariş no/taksit → kopyala · WhatsApp · önizle; `payLink()`).
+Adres `config.company.web`'den kurulur: `/api/pay/*` yalnız Railway'de vardır,
+Pages aynasında yoktur; `location.origin` kullanılsa Pages'ten üretilen
+bağlantı ölür. Kart ödemesi kapalıysa kart bunu bağlantı gönderilmeden ÖNCE
+uyarır. Menüden erişilmez, robots'ta engellidir; site genelinde bağlantısı
+YOKTUR, adresi elle yazılır.
+
+## Sipariş e-postaları
+Ödeme BAŞARILI olunca (`/api/pay/callback`) **iki** e-posta gider, ARDIŞIK
+(tek SMTP oturumu):
+1. İşletmeye tam döküm (`orderMailBody()`): müşteri bilgileri, **fatura
+   kimliği** (TCKN ya da şirket unvanı + vergi dairesi + VKN), kalemler,
+   tutar, iyzico ödeme numarası.
+2. Müşteriye ödeme onayı + dekont bağlantısı (`customerMailBody()`). KVKK
+   gereği TCKN/VKN ve açık adres YAZILMAZ, e-posta iletilebilir. Müşteri
+   adresi yoksa ya da `info@gespaenerji.com` yedeğine düşmüşse atlanır.
+
+- Gönderici server.js içinde bağımlılıksız SMTP istemcisidir (`sendMail(to, …)`);
+  465 örtük TLS ve 587 STARTTLS yolları sahte SMTP sunucusuyla uçtan uca test edildi.
+- Callback ÖNCE yönlendirir, postaları SONRA gönderir ve hepsi try/catch
+  içindedir: burası iyzRequest geri çağrısıdır, ana try/catch'in DIŞINDA;
+  korumasız bir istisna sunucu sürecini düşürürdü.
+- TEŞHİS: `/api/pay/status` → `mail:false` = Railway değişkenleri yok. Admin'deki
+  "✉️ Sipariş e-postası" kartı bunu gösterir ve `/api/pay/mailtest` ile canlı
+  sipariş beklemeden test postası gönderir (config.admin.pass + dakikada 1
+  istek; alıcı YALNIZ ORDER_EMAIL_TO, serbest alıcı kabul edilmez). Gönderim
+  hatası orders.json'a `mailErr` yazılır.
+- Ayarlar YALNIZCA Railway ortam değişkeni, parola repoya ASLA yazılmaz:
+  `SMTP_HOST` `SMTP_PORT` `SMTP_USER` `SMTP_PASS` `ORDER_EMAIL_TO`.
+  Gmail'de normal parola çalışmaz, **Uygulama Şifresi** gerekir.
+- Ayar eksikse e-posta sessizce atlanır; ödeme akışı ETKİLENMEZ. Müşteri
+  bekletilmez: yönlendirme hemen yapılır, e-posta arka planda gider.
+- SNI yalnız alan adıyla gönderilir; host IP ise `servername` verilmez,
+  verilirse TLS el sıkışması hata bile vermeden askıda kalır.
+
+## Dekont (`odeme-sonuc.html`)
+- Callback rastgele bir `rid` üretip sipariş kaydına yazar ve
+  `odeme-sonuc.html?d=ok&r=<rid>` adresine yönlendirir; sayfa
+  `/api/order/receipt` ile kayıt bilgilerini çekip yazdırılabilir makbuz
+  gösterir (`window.print()`). iyzico token'ı adres çubuğuna DÜŞMEZ.
+  Uç nokta TCKN/VKN, açık adres, telefon ve e-posta DÖNDÜRMEZ; şirket
+  ödemesinde "Ödeyen" satırına firma unvanı önce yazılır.
+- ÖNBELLEK: çekilen dekont tarayıcıda `localStorage` `gespa-dekont-<rid>`
+  anahtarına yazılır. Sunucu kaydı sonradan kaybolsa (Volume yokken yeniden
+  başlatma) aynı tarayıcıda sayfa yenilenip yine yazdırılabilir. Kayıt da
+  önbellek de yoksa `#rcMissing` notu görünür (ödeme alındı, dekont e-postada
+  / WhatsApp'tan istenir); sayfa yine çalışır.
+- YAZDIRMA: sayfa `<body class="print-receipt">` taşır; `@media print`
+  kuralları bu sınıfla sınırlıdır. Kâğıda YALNIZ `.receipt` kartı basılır,
+  sayfanın en üstünden başlar: `body`nin `main` dışındaki çocukları,
+  `#payOk` içinde dekont dışındaki her şey ve `#payFail` gizlenir. Renkler
+  siyah/gri sabittir, arka plan beyazdır: tarayıcı arka plan grafiklerini
+  varsayılan olarak basmaz, koyu temanın açık yazıları beyaz kâğıtta
+  kayboluyordu. `@page{margin:12mm}`.
+- YAZDIRMA TUZAĞI: dekont kartına `break-inside:avoid` KOYMA. Eskiden başlık
+  ve açıklama da basılıyordu; kart "bölünmesin" diye 2. sayfaya itilince 1.
+  sayfa yalnız başlıkla boş çıkıyordu (28 Eyl 2026 şikâyeti).
+- UYARI: veri klasörü bir Railway **Volume** üzerinde değilse orders.json her
+  dağıtımda SİLİNİR: sipariş kayıtları ve dekont bağlantıları kaybolur.
+  Volume bağlanınca `RAILWAY_VOLUME_MOUNT_PATH` otomatik kullanılır; durum
+  admin "💾 Kalıcı veri" kartında (CLAUDE.md "Ziyaretçi sayacı").

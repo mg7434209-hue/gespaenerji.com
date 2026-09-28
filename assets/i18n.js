@@ -2739,6 +2739,9 @@
     "Uzaktan İzleme Modülü (Wi-Fi)": "Remote Monitoring Module (Wi-Fi)",
     "çift": "pair",
     "takım": "set",
+    "T.C. Kimlik No veya Vergi No *": "Turkish ID or tax number *",
+    "Firma unvanı *": "Company name *",
+    "Vergi dairesi *": "Tax office *",
     "6,2 kW İnverter": "6.2 kW Inverter",
     "11 kW İnverter": "11 kW Inverter",
     "Sulama pompası gündüz doğrudan güneşten çalışabilir; aküsüz güneşli pompa sistemi çoğu zaman çok daha ekonomiktir.": "An irrigation pump can run directly on solar power during the day; a battery-free solar pump system is usually far more economical.",
@@ -2881,6 +2884,9 @@
     "Uzaktan İzleme Modülü (Wi-Fi)": "Fernüberwachungsmodul (WLAN)",
     "çift": "Paar",
     "takım": "Set",
+    "T.C. Kimlik No veya Vergi No *": "Türkische ID- oder Steuernummer *",
+    "Firma unvanı *": "Firmenname *",
+    "Vergi dairesi *": "Finanzamt *",
     "6,2 kW İnverter": "6,2-kW-Wechselrichter",
     "11 kW İnverter": "11-kW-Wechselrichter",
     "Sulama pompası gündüz doğrudan güneşten çalışabilir; aküsüz güneşli pompa sistemi çoğu zaman çok daha ekonomiktir.": "Eine Bewässerungspumpe kann tagsüber direkt mit Solarstrom laufen; ein Solarpumpensystem ohne Batterie ist meist deutlich wirtschaftlicher.",
@@ -3023,6 +3029,9 @@
     "Uzaktan İzleme Modülü (Wi-Fi)": "Модуль удалённого мониторинга (Wi-Fi)",
     "çift": "пара",
     "takım": "компл.",
+    "T.C. Kimlik No veya Vergi No *": "TCKN или налоговый номер *",
+    "Firma unvanı *": "Название компании *",
+    "Vergi dairesi *": "Налоговая инспекция *",
     "6,2 kW İnverter": "Инвертор 6,2 кВт",
     "11 kW İnverter": "Инвертор 11 кВт",
     "Sulama pompası gündüz doğrudan güneşten çalışabilir; aküsüz güneşli pompa sistemi çoğu zaman çok daha ekonomiktir.": "Насос для полива может работать днём напрямую от солнца; солнечная насосная система без аккумуляторов обычно намного выгоднее.",
@@ -3634,6 +3643,23 @@
     "Otel / site / tesis adı": "Название отеля / ЖК / объекта",
     "Genel müdür, teknik müdür...": "Генеральный директор, технический директор...",
     "Tesisiniz ve ihtiyacınız hakkında kısa bilgi": "Кратко о вашем объекте и потребностях"
+  });
+
+  // Kart ödemesi fatura kimliği: TCKN ya da şirket vergi no (sepet.html)
+  Object.assign(PH.en, {
+    "11 hane TCKN · 10 hane VKN": "11-digit TCKN · 10-digit tax no.",
+    "Şirketin resmî unvanı": "Registered company name",
+    "Vergi dairesinin adı": "Name of the tax office"
+  });
+  Object.assign(PH.de, {
+    "11 hane TCKN · 10 hane VKN": "11-stellige TCKN · 10-stellige StNr.",
+    "Şirketin resmî unvanı": "Offizieller Firmenname",
+    "Vergi dairesinin adı": "Name des Finanzamts"
+  });
+  Object.assign(PH.ru, {
+    "11 hane TCKN · 10 hane VKN": "TCKN 11 цифр · VKN 10 цифр",
+    "Şirketin resmî unvanı": "Официальное название компании",
+    "Vergi dairesinin adı": "Название налоговой инспекции"
   });
 
   var SKIP = "[data-c-text],[data-count],.r-value,#yil,.brand,.footer-brand,.logo,.lang-switch,[data-i18n-html]";

@@ -798,7 +798,23 @@
             : L("Net fiyatlı üründe uygulanmaz", "Not applied to net-priced products", "Bei Nettopreis-Produkten nicht anwendbar", "К товарам по нетто-цене не применяется"));
           set("[data-ord-total]", "₺" + nf.format(listT));
         }
-        return { ls: ls, listT: listT, cartT: cartT, method: method };
+        // iyzico hesabının tek işlem limiti (commerce.cardMaxTL): kartla
+        // liste fiyatı çekilir, toplam limiti aşarsa iyzico reddeder. Müşteri
+        // formu doldurmadan önce burada uyarılır; sunucu da aynı sınırı uygular.
+        var cardMax = +((CFG.commerce || {}).cardMaxTL) || 0;
+        var overCard = method === "kart" && cardMax > 0 && listT > cardMax;
+        var cmEl = $("#payCardMax");
+        if (cmEl) {
+          cmEl.hidden = !overCard;
+          if (overCard) {
+            var lim = "₺" + nf.format(cardMax);
+            cmEl.textContent = "⚠️ " + L("Kartla tek işlemde en fazla " + lim + " ödenebilir. Bu sepet için Havale/EFT'yi seçin ya da bizimle iletişime geçin.",
+              "Card payments are limited to " + lim + " per transaction. Please choose bank transfer for this cart or contact us.",
+              "Kartenzahlungen sind auf " + lim + " pro Transaktion begrenzt. Bitte wählen Sie für diesen Warenkorb die Überweisung oder kontaktieren Sie uns.",
+              "Оплата картой ограничена суммой " + lim + " за одну операцию. Для этой корзины выберите банковский перевод или свяжитесь с нами.");
+          }
+        }
+        return { ls: ls, listT: listT, cartT: cartT, method: method, overCard: overCard };
       }
       function render() {
         var ls = lines();
@@ -855,9 +871,21 @@
         // Kart ödemesinde TCKN (fatura) ve E-POSTA zorunludur: ödeme onayı ve
         // yazdırılabilir dekont müşteriye e-postayla gider, adres yoksa
         // gönderilemez. Havale/EFT siparişinde ikisi de isteğe bağlı kalır.
+        // Kimlik alanı 11 hane TCKN (şahıs) ya da 10 hane VKN (şirket) alır;
+        // 10 hanede firma unvanı ve vergi dairesi alanları açılıp zorunlu olur.
+        var corpRow = document.getElementById("payCorpRow");
+        function syncCorp() {
+          var isCard = form.odeme && form.odeme.value === "kart";
+          var no = form.tckn ? String(form.tckn.value).replace(/\D/g, "") : "";
+          var corp = isCard && no.length === 10;
+          if (corpRow) corpRow.hidden = !corp;
+          ["firma", "vd"].forEach(function (n) { if (form[n]) form[n].required = corp; });
+        }
+        if (form.tckn) form.tckn.addEventListener("input", syncCorp);
         function syncTckn() {
           var isCard = form.odeme && form.odeme.value === "kart";
           if (tcknRow) { tcknRow.hidden = !isCard; var inp = tcknRow.querySelector("input"); if (inp) inp.required = isCard; }
+          syncCorp();
           if (form.eposta) form.eposta.required = isCard;
           if (epostaHint) {
             epostaHint.hidden = !isCard;
@@ -904,6 +932,11 @@
           if (ordSending) return;                    // çift gönderimi engelle
           var t = totals();
           if (!t.ls.length) return;
+          if (t.overCard) {
+            var cm = $("#payCardMax");
+            if (cm && cm.scrollIntoView) cm.scrollIntoView({ block: "center", behavior: "smooth" });
+            return;
+          }
           var v = function (n) { return (form[n] && form[n].value.trim()) || ""; };
           // Zorunlu alan eksikse eskiden sessizce return edilirdi: hiçbir uyarı
           // çıkmaz, kullanıcı düğmeye defalarca basardı. Artık eksik alan
@@ -938,7 +971,7 @@
               method: "POST", headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
                 items: t.ls.map(function (l) { return { id: l.p.id, qty: l.qty }; }),
-                buyer: { ad: v("ad"), tel: v("tel"), eposta: v("eposta"), il: v("il"), adres: v("adres"), tckn: v("tckn") }
+                buyer: { ad: v("ad"), tel: v("tel"), eposta: v("eposta"), il: v("il"), adres: v("adres"), tckn: v("tckn"), firma: v("firma"), vd: v("vd") }
               })
             }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
               .then(function (out) {

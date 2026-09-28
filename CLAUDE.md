@@ -594,44 +594,24 @@ Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD v
   `META` tablosundadır — yeni sayfada oraya da satır ekle. Dil değiştirici ilgili
   dil URL'sine yönlendirir; `hreflang` `i18n.js` tarafından enjekte edilir.
 
-## Ödeme (iyzico)
-Kart ödemesi server.js'te bağımlılıksız iyzico Ödeme Formu entegrasyonu:
-`/api/pay/status` (aktif mi) · `/api/pay/checkout` (sepet → iyzico sayfası;
-tutar SUNUCUDA config'ten hesaplanır, istemci fiyatı yok sayılır; TCKN zorunlu)
-· `/api/pay/callback` (iyzico dönüşü → odeme-sonuc.html). Anahtarlar YALNIZCA
-Railway ortam değişkeni: IYZIPAY_API_KEY / IYZIPAY_SECRET_KEY / IYZIPAY_BASE_URL
-(sandbox varsayılan; canlı = https://api.iyzipay.com). IYZICO_* adlandırması da
-kabul edilir (firma "iyzico", API alan adı "iyzipay" — panelde karışıyor);
-IYZIPAY_* tanımlıysa o önceliklidir. Anahtar yoksa sepetteki
-kart seçeneği "çok yakında" kalır (Pages aynasında da böyle). Siparişler
-DATA_DIR/orders.json. Kart ödemesinde havale indirimi YOK (liste fiyatı);
-`odeme-sonuc.html` noindex + robots engelli + build PAGES dışı (TR tek dil).
-`odeme.html`: GES Marketim/serbest tutar link ödemesi
-(`?t=tutar&a=aciklama&s=no&tek=1|&tks=N` ön-doldurur) → `/api/pay/custom`
-(tutar istemciden; sınır 50–500.000 ₺ sunucuda, **kuruş kabul edilir**,
-kargo öncesi orders.json/iyzico panelinden tutar DOĞRULANIR). O da noindex.
-SINIR TEK KAYNAK: `config.commerce.payLinkMinTL/payLinkMaxTL` — server.js
-`payLimits()` (custom + installments) ve admin kartları buradan okur; elle
-rakam gömme. iyzico hesabının KENDİ tek işlem limiti ayrıca geçerlidir:
-bizim üst sınırın altında iyzico reddederse hata mesajı iyzico'dan gelir
-(`iyzFail` → errorMessage + kod) ve limit iyzico panelinden/desteğinden
-yükseltilir, koddan DEĞİL.
-TAKSİT: iyzico hesabı vade farkını MÜŞTERİYE yansıtıyor — ₺20.000 gönderince
-kartından ₺20.093,81 çekiliyor. `tek=1` → `enabledInstallments:[1]` (tek çekim,
-tutar tam tahsil edilir) · `tks=N` → `enabledInstallments:[N]` (yalnız N taksit;
-sabitlenmezse müşteri başka taksit seçer ve geri hesaplanan tutar tutmaz).
-`/api/pay/installments` iyzico'nun KENDİ oranlarını okur (salt okunur, ödeme
-akışına dokunmaz); admin'deki "💳 Taksit farkı ve yuvarlama" kartı bununla
-"tam ₺X tahsil etmek için ne göndermeli"yi hesaplar (en YÜKSEK orana göre —
-müşteri hedeften fazla ödemez). Kalıcı çözüm iyzico panelinde vade farkını
-müşteriye yansıtmayı KAPATMAKTIR; o zaman bu araç gereksizdir.
-Bu bağlantıyı ÜRETEN araç `admin.html`'deki "🔗 Ödeme Bağlantısı Üret" kartıdır
-(tutar/açıklama/sipariş no/taksit → kopyala · WhatsApp · önizle; `payLink()`). Adres
-`config.company.web`'den kurulur — `/api/pay/*` yalnız Railway'de vardır, Pages
-aynasında yoktur; `location.origin` kullanılsa Pages'ten üretilen bağlantı ölür.
-Kart ödemesi kapalıysa kart bunu bağlantı gönderilmeden ÖNCE uyarır.
-Menüden erişilmez, robots'ta engellidir — site genelinde bağlantısı YOKTUR,
-adresi elle yazılır.
+## Ödeme (iyzico), sipariş e-postaları ve dekont
+Tüm kurallar: @docs/odeme.md
+- Anahtarlar YALNIZCA Railway ortam değişkeni: IYZIPAY_API_KEY /
+  IYZIPAY_SECRET_KEY / IYZIPAY_BASE_URL. SMTP de öyle: `SMTP_HOST` `SMTP_PORT`
+  `SMTP_USER` `SMTP_PASS` `ORDER_EMAIL_TO`. Parola/anahtar repoya ASLA yazılmaz.
+- Tutar SUNUCUDA config'ten hesaplanır, istemci fiyatı yok sayılır. Kart
+  ödemesinde havale indirimi YOK (liste fiyatı).
+- Fatura kimliği: 11 hane TCKN (şahıs) ya da 10 hane VKN (şirket; firma unvanı
+  + vergi dairesi ZORUNLU). Tek kural server.js `invoiceId()`. KVKK: TCKN/VKN
+  log'a ASLA yazılmaz, müşteri e-postasına ve dekonta girmez.
+- Sınırlar `config.commerce`: `payLinkMinTL`/`payLinkMaxTL` bizim link ödemesi
+  sınırımız; `cardMaxTL` iyzico HESABININ tek işlem limitidir (şu an ₺100.000).
+  Aşan kart tutarı iyzico'ya gönderilmeden reddedilir, havale/EFT önerilir.
+  iyzico limiti yükselince SADECE `cardMaxTL` güncellenir.
+- Dekont yazdırma kuralları `body.print-receipt` ile sınırlıdır; dekont
+  kartına `break-inside:avoid` KONMAZ (1. sayfayı boş bırakıyordu).
+- Railway Volume yoksa orders.json her dağıtımda SİLİNİR (siparişler, dekont
+  bağlantıları).
 
 ## Ürün akışı — `urunler.xml`
 `build.js` `writeProductFeed()` config.packages'ten **Google Merchant Center
@@ -656,43 +636,6 @@ sayfasının HTML adresi DEĞİL.
   yazar (TRY). USD ürünler `priceTRY()` ile çevrilir — yuvarlama main.js
   `pkgUnit()` ve server.js `pkgListTL` ile AYNI. Şemaya `$` yazmak, kasada
   ₺ çekildiği için Google'da "fiyat/para birimi eşleşmiyor" ihlali doğurur.
-
-## Sipariş e-postaları ve dekont
-Ödeme BAŞARILI olunca (`/api/pay/callback`) **iki** e-posta gider, ARDIŞIK
-(tek SMTP oturumu): 1) işletmeye tam döküm — müşteri bilgileri, **fatura için
-T.C. kimlik no**, kalemler, tutar, iyzico ödeme numarası (`orderMailBody()`);
-2) müşteriye ödeme onayı + dekont bağlantısı (`customerMailBody()`) — KVKK
-gereği TCKN ve açık adres YAZILMAZ, e-posta iletilebilir. Müşteri adresi yoksa
-ya da `info@gespaenerji.com` yedeğine düşmüşse ikinci posta atlanır.
-Gönderici server.js içinde bağımlılıksız SMTP istemcisidir (`sendMail(to, …)`);
-465 örtük TLS ve 587 STARTTLS yolları sahte SMTP sunucusuyla uçtan uca test edildi.
-- DEKONT: callback rastgele bir `rid` üretip sipariş kaydına yazar ve
-  `odeme-sonuc.html?d=ok&r=<rid>` adresine yönlendirir; sayfa `/api/order/receipt`
-  ile kayıt bilgilerini çekip yazdırılabilir makbuz gösterir (`window.print()`,
-  `@media print` sayfa süslerini gizler). iyzico token'ı adres çubuğuna DÜŞMEZ.
-  Uç nokta TCKN, açık adres, telefon ve e-posta DÖNDÜRMEZ. Kayıt yoksa
-  (Volume bağlı değilse dağıtımda silinir) blok gizli kalır, sayfa yine çalışır.
-- Callback ÖNCE yönlendirir, postaları SONRA gönderir ve hepsi try/catch
-  içindedir: burası iyzRequest geri çağrısıdır, ana try/catch'in DIŞINDA —
-  korumasız bir istisna sunucu sürecini düşürürdü.
-- TEŞHİS: `/api/pay/status` artık `{enabled, mail}` döner (`mail:false` =
-  Railway değişkenleri yok). Admin'deki "✉️ Sipariş e-postası" kartı bunu
-  gösterir ve `/api/pay/mailtest` ile canlı sipariş beklemeden test postası
-  gönderir (config.admin.pass + dakikada 1 istek; alıcı YALNIZ ORDER_EMAIL_TO,
-  serbest alıcı kabul edilmez). Gönderim hatası orders.json'a `mailErr` yazılır.
-- Ayarlar YALNIZCA Railway ortam değişkeni — parola repoya ASLA yazılmaz:
-  `SMTP_HOST` `SMTP_PORT` `SMTP_USER` `SMTP_PASS` `ORDER_EMAIL_TO`.
-  Gmail'de normal parola çalışmaz, **Uygulama Şifresi** gerekir.
-- Ayar eksikse e-posta sessizce atlanır; ödeme akışı ETKİLENMEZ. Müşteri
-  bekletilmez: yönlendirme hemen yapılır, e-posta arka planda gider.
-- SNI yalnız alan adıyla gönderilir; host IP ise `servername` verilmez —
-  verilirse TLS el sıkışması hata bile vermeden askıda kalır.
-- TCKN artık `orders.json`'a da yazılıyor (önceden yalnız iyzico'ya gidiyordu).
-  KVKK: TCKN log'a ASLA yazılmaz, yalnız sipariş kaydında ve e-postada durur.
-- UYARI: veri klasörü bir Railway **Volume** üzerinde değilse orders.json her
-  dağıtımda SİLİNİR — sipariş kayıtları ve dekont bağlantıları kaybolur.
-  Volume bağlanınca `RAILWAY_VOLUME_MOUNT_PATH` otomatik kullanılır; durum
-  admin "💾 Kalıcı veri" kartında (bkz. Ziyaretçi sayacı).
 
 ## Alan adı & NAP tutarlılığı
 - Canlı alan adı **www.gespaenerji.com** — canonical, sitemap, JSON-LD ve

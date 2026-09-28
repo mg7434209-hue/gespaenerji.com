@@ -194,9 +194,15 @@
     // aynı değerlerle doğrular).
     var PAY_MIN = +((C.commerce || {}).payLinkMinTL) || 50;
     var PAY_MAX = +((C.commerce || {}).payLinkMaxTL) || 500000;
-    var PAY_ERR = "Tutar " + nf.format(PAY_MIN) + " ₺ ile " + nf.format(PAY_MAX) + " ₺ arasında olmalı.";
+    // iyzico hesabının tek işlem limiti (commerce.cardMaxTL) daha düşükse o
+    // geçerlidir: sunucu aşan kart ödemesini reddeder, bağlantı boşa gider.
+    var CARD_MAX = +((C.commerce || {}).cardMaxTL) || 0;
+    if (CARD_MAX && CARD_MAX < PAY_MAX) PAY_MAX = CARD_MAX;
+    var PAY_ERR = "Tutar " + nf.format(PAY_MIN) + " ₺ ile " + nf.format(PAY_MAX) + " ₺ arasında olmalı."
+      + (CARD_MAX && PAY_MAX === CARD_MAX ? " Üst sınır iyzico hesabınızın tek işlem limitidir; yükseltmek için iyzico'ya başvurun, sonra config'te commerce.cardMaxTL'yi güncelleyin." : "");
     ["#plAmount", "#tkTarget"].forEach(function (s) { var i = $(s); if (i) { i.min = PAY_MIN; i.max = PAY_MAX; } });
-    if ($("#plRange")) $("#plRange").textContent = nf.format(PAY_MIN) + " – " + nf.format(PAY_MAX) + " ₺ arası";
+    if ($("#plRange")) $("#plRange").textContent = nf.format(PAY_MIN) + " – " + nf.format(PAY_MAX) + " ₺ arası"
+      + (CARD_MAX && PAY_MAX === CARD_MAX ? " (iyzico tek işlem limiti)" : "");
 
     function loadOv() { try { return JSON.parse(localStorage.getItem(KEY) || "null") || { packages: {}, heater: {} }; } catch (e) { return { packages: {}, heater: {} }; } }
     function derivedPkg(p) { var k = C.calc || {}; return Math.round((p.kwp || 0) * (k.costPerKwp || 0) + (p.battery ? p.battery * (k.batteryCostPerKwh || 0) : 0)); }

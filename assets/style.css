@@ -1956,8 +1956,13 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
 
 /* Sepet — kart ödemesi (iyzico) */
 .ord-tckn{margin:8px 0 2px}
-.ord-tckn label{display:block;font-size:.82rem;color:var(--muted);margin-bottom:4px}
+/* Alan etiketi: .ord-pay içindeki ödeme seçeneği kutusu stilini (çerçeve,
+   dolgu) SIFIRLA — yoksa etiket de bir giriş kutusu gibi görünüyordu. */
+.ord-tckn label{display:block;font-size:.82rem;color:var(--muted);margin:0 0 4px;border:0;border-radius:0;padding:0;cursor:default}
 .ord-tckn input{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--ink)}
+/* Vergi no (10 hane) girilince açılan şirket alanları */
+.ord-corp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+@media(max-width:560px){.ord-corp{grid-template-columns:1fr}}
 .ord-pay label.pay-enabled{opacity:1}
 
 /* Ana sayfa su ısıtıcı şeridi — montaj şeması görseli (SVG yerine gerçek çizim) */
@@ -1996,11 +2001,23 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
   .cookie-bar,.chat-fab,.chat-panel,.mobile-cta,.visit-counter{display:none !important}
   body{background:#fff;color:#000}
   .section{padding:0}
-  #payOk>p:first-of-type{display:none}   /* ✅ ikonu */
-  .receipt{box-shadow:none;border:1px solid #999;max-width:none;margin:0;break-inside:avoid}
-  .receipt-badge{border-color:#999;color:#000;background:none}
-  .receipt-total strong{color:#000}
+  /* Dekont sayfası (odeme-sonuc.html, body.print-receipt): kâğıda YALNIZ dekont
+     kartı basılır ve sayfanın en üstünden başlar. Eskiden başlık ve açıklama
+     da basılıyor, dekont "bölünmesin" (break-inside) diye 2. sayfaya itilince
+     1. sayfa boş dekontsuz görünüyordu. Renkler sabit: arka plan grafikleri
+     kapalı yazdırılır, koyu temanın açık yazıları beyaz kâğıtta kaybolurdu. */
+  .print-receipt > :not(main){display:none !important}
+  .print-receipt main .container{padding:0 !important;max-width:none !important}
+  .print-receipt #payOk > :not(.receipt),.print-receipt #payFail{display:none !important}
+  .print-receipt .receipt{background:#fff !important;box-shadow:none;border:1px solid #999;border-radius:8px;
+    max-width:none;margin:0;padding:18px 22px}
+  .print-receipt .receipt *{color:#000 !important;background:transparent !important}
+  .print-receipt .receipt-seller span,.print-receipt .receipt-rows dt,.print-receipt .receipt-note,
+  .print-receipt .receipt-sub{color:#444 !important}
+  .print-receipt .receipt-badge{border:1px solid #999 !important}
+  .print-receipt .receipt-head,.print-receipt .receipt-items,.print-receipt .receipt-total{border-color:#bbb !important}
 }
+@page{margin:12mm}
 
 /* Motor seçici + hazır paket (elektrikli-arac-donusum.html · #paketler) */
 .mset{display:grid;gap:26px}

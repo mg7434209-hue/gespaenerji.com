@@ -31,7 +31,7 @@
   <script type="application/ld+json" data-gld="breadcrumblist">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://www.gespaenerji.com/"},{"@type":"ListItem","position":2,"name":"KVKK Aydınlatma Metni","item":"https://www.gespaenerji.com/odeme-sonuc.html"}]}</script>
   <!-- /LD:STATIC -->
 </head>
-<body>
+<body class="print-receipt">
   <a class="skip-link" href="#main">İçeriğe geç</a>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
   <div class="topbar"><div class="container topbar-inner"><span>☀️ Hafta içi 09:00–18:00 · Hızlı dönüş için WhatsApp</span><a data-c-wa href="https://wa.me/905437434209" target="_blank" rel="noopener">WhatsApp →</a></div></div>
@@ -100,6 +100,7 @@
             düzenlenerek tarafınıza iletilir.</p>
           </div>
 
+          <p class="pd-note" id="rcMissing" hidden>Dekont bilgisi şu anda yüklenemedi. Ödemeniz alınmıştır; dekontunuzu e-postanızdaki bağlantıdan açabilir ya da WhatsApp'tan isteyebilirsiniz.</p>
           <p><button class="btn btn-ghost" type="button" id="rcPrint" hidden>🖨️ Dekontu yazdır / PDF kaydet</button></p>
           <p><a class="btn" data-c-wa href="https://wa.me/905437434209" target="_blank" rel="noopener">💬 WhatsApp ile bize ulaşın</a>
           <a class="btn btn-ghost" href="/urunler.html">Alışverişe devam et</a></p>
@@ -134,10 +135,19 @@
         });
       };
 
+      // Dekont bu cihazda da saklanır: sunucu kaydı sonradan kaybolsa bile
+      // (Railway'de Volume yokken yeniden başlatmada siliniyor) aynı tarayıcıda
+      // sayfa yenilenip yeniden yazdırılabilsin.
+      var CK = "gespa-dekont-" + m[1].toLowerCase();
+      var cached = function () { try { return JSON.parse(localStorage.getItem(CK) || "null"); } catch (e) { return null; } };
+      var missing = function () { var el = document.getElementById("rcMissing"); if (el) el.hidden = false; };
       fetch("/api/order/receipt?r=" + m[1], { headers: { "Accept": "application/json" } })
         .then(function (r) { return r.ok ? r.json() : null; })
+        .catch(function () { return null; })
         .then(function (d) {
-          if (!d || !d.no) return;
+          if (d && d.no) { try { localStorage.setItem(CK, JSON.stringify(d)); } catch (e) {} }
+          else d = cached();
+          if (!d || !d.no) return missing();
           var rows = [];
           rows.push(["Sipariş no", d.no]);
           if (d.date) {
@@ -145,7 +155,8 @@
             rows.push(["Ödeme tarihi", isNaN(dt) ? d.date : dt.toLocaleString("tr-TR")]);
           }
           if (d.paymentId) rows.push(["Ödeme no (iyzico)", d.paymentId]);
-          if (d.buyer && d.buyer.ad) rows.push(["Ödeyen", d.buyer.ad + (d.buyer.il ? " · " + d.buyer.il : "")]);
+          // Şirket ödemesinde firma unvanı önce yazılır (kimlik/vergi no DÖNMEZ).
+          if (d.buyer && (d.buyer.ad || d.buyer.firma)) rows.push(["Ödeyen", [d.buyer.firma, d.buyer.ad, d.buyer.il].filter(Boolean).join(" · ")]);
           if (d.desc) rows.push(["Açıklama", d.desc]);
           if (d.ref) rows.push(["Referans", d.ref]);
           // Taksitte iyzico vade farkını müşteriye yansıtır; gönderilen ile
@@ -174,8 +185,7 @@
           var btn = document.getElementById("rcPrint");
           btn.hidden = false;
           btn.addEventListener("click", function () { window.print(); });
-        })
-        .catch(function () {});
+        });
     })();
   </script>
 
