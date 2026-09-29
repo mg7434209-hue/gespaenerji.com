@@ -3,7 +3,7 @@ title: "Yolcu Kabinli Motor Güneş Paketi — 285 W | GESPA Enerji"
 description: "Kabinli elektrikli yolcu triportörü için komple güneş paketi: 285 W TOPCon panel, BOOST MPPT 24–72 V şarj kontrol cihazı, solar kablo ve MC4. Hangi parçanın uyduğunu araştırmanıza gerek yok."
 canonical: https://www.gespaenerji.com/paket-motor-yolcu.html
 lang: tr
-dateModified: 2026-09-24
+dateModified: 2026-09-29
 publisher: "GESPA Enerji"
 ---
 
@@ -19,7 +19,7 @@ publisher: "GESPA Enerji"
 
 Kabinli elektrikli yolcu triportörünüzü güneşle şarj edin. Panel, şarj kontrol cihazı, kablo ve MC4 birbiriyle uyumlu seçilmiş hâlde tek pakette gelir — hangi panelin aracınıza sığacağını araştırmanıza gerek yok.
 
-**₺15.800** ≈ $333
+**₺15.800** ≈ $321
 
 KDV dahil fiyattır.
 

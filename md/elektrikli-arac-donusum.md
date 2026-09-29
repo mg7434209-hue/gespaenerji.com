@@ -3,7 +3,7 @@ title: "Elektrikli Araç Güneş Dönüşümü — BOOST MPPT | GESPA"
 description: "Golf ve hizmet araçlarına güneş paneli dönüşümü. MS Teknik BOOST MPPT 24-72 V: AGM, jel, kurşun-asit ve lityum akü desteği, Bluetooth ile ayar."
 canonical: https://www.gespaenerji.com/elektrikli-arac-donusum.html
 lang: tr
-dateModified: 2026-09-24
+dateModified: 2026-09-29
 publisher: "GESPA Enerji"
 ---
 
@@ -21,7 +21,7 @@ publisher: "GESPA Enerji"
 
 Güneş panelinden aracınızın akü grubuna doğrudan şarj — 24 V'tan 72 V'a kadar, AGM'den lityuma tüm akü tipleriyle. Cihazı tek başına da satın alabilirsiniz; panel ve akü ürüne dahil değildir, aracınıza uygun panel gücünü ücretsiz keşifte birlikte belirliyoruz.
 
-**₺7.200** ≈ $152
+**₺7.200** ≈ $146
 
 KDV ve kargo dahil fiyattır.
 

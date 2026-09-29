@@ -3,7 +3,7 @@ title: "Cargo E-Trike Solar Set — 655 W | GESPA Energy"
 description: "Complete solar set for cargo-bed e-trikes: 655 W N-type TOPCon panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. The most output a wide roof can carry."
 canonical: https://www.gespaenerji.com/en/paket-motor-kargo.html
 lang: en
-dateModified: 2026-09-24
+dateModified: 2026-09-29
 publisher: "GESPA Enerji"
 ---
 
@@ -19,7 +19,7 @@ Product code: **GES-SET-KARGO** In stock / available to order
 
 Charge your cargo-bed electric three-wheeler from the sun. We picked the most productive panel size the wide bed roof can carry; the charge controller, cable and MC4 connectors are included.
 
-**₺18.300** ≈ $385
+**₺18.300** ≈ $372
 
 Price includes VAT.
 

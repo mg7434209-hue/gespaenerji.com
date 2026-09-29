@@ -25,7 +25,7 @@ Mağaza
 
 Kamp, karavan ve küçük ihtiyaçlar
 
-**₺25.000**≈ $526
+**₺25.000**≈ $508
 
 💰 Havale/EFT ile: **₺24.250**
 
@@ -35,9 +35,9 @@ KDV dahil · kargo hariç
 
 Karavan, kamp ve bağ evi
 
-**₺104.500**≈ $2.200
+**₺108.200**≈ $2.200
 
-💰 Havale/EFT ile: **₺101.350**
+💰 Havale/EFT ile: **₺104.950**
 
 KDV dahil · kargo hariç
 
@@ -45,7 +45,7 @@ KDV dahil · kargo hariç
 
 Golf aracı, hizmet aracı ve elektrikli platformlar
 
-**₺7.200**≈ $152
+**₺7.200**≈ $146
 
 KDV ve kargo dahil
 
@@ -53,7 +53,7 @@ KDV ve kargo dahil
 
 Elektrikli triportör, motosiklet ve 72 V hizmet araçları
 
-**₺28.000**≈ $589
+**₺28.000**≈ $569
 
 💰 Havale/EFT ile: **₺27.150**
 
@@ -63,7 +63,7 @@ KDV dahil · kargo hariç
 
 Küçük aydınlatma, kamera ve akü şarjı
 
-**₺1.250**≈ $26
+**₺1.250**≈ $25
 
 KDV dahil · kargo hariç
 
@@ -71,9 +71,9 @@ KDV dahil · kargo hariç
 
 Kamp, karavan, saha çalışması ve ev tipi yedek güç
 
-**₺118.500**≈ $2.495
+**₺122.800**≈ $2.495
 
-💰 Havale/EFT ile: **₺114.950**
+💰 Havale/EFT ile: **₺119.100**
 
 KDV dahil · kargo hariç
 
@@ -81,7 +81,7 @@ KDV dahil · kargo hariç
 
 Balkon, bağ evi ve küçük off-grid sistemler
 
-**₺7.500**≈ $158
+**₺7.500**≈ $152
 
 💰 Havale/EFT ile: **₺7.300**
 
@@ -91,7 +91,7 @@ KDV dahil · kargo hariç
 
 Çatı ve arazi sistemleri, yüksek güç gerektiren kurulumlar
 
-**₺10.000**≈ $211
+**₺10.000**≈ $203
 
 💰 Havale/EFT ile: **₺9.700**
 
@@ -101,7 +101,7 @@ KDV dahil · kargo hariç
 
 Çatı ve arazi kurulumları, yerli marka tercih edenler
 
-**₺10.000**≈ $211
+**₺10.000**≈ $203
 
 💰 Havale/EFT ile: **₺9.700**
 
@@ -111,7 +111,7 @@ KDV dahil · kargo hariç
 
 Ev ve işyeri enerji depolama, off-grid ve yedek güç
 
-**₺73.372**≈ $1.545
+**₺73.372**≈ $1.491
 
 💰 Havale/EFT ile: **₺71.150**
 
@@ -121,9 +121,9 @@ KDV dahil · kargo hariç
 
 12/24 V akülü güneş sistemleri · 1200 W panele kadar
 
-**₺6.200**≈ $130
+**₺6.400**≈ $130
 
-💰 Havale/EFT ile: **₺6.000**
+💰 Havale/EFT ile: **₺6.200**
 
 KDV dahil · kargo hariç
 
@@ -131,9 +131,9 @@ KDV dahil · kargo hariç
 
 12/24 V akülü güneş sistemleri · 2500 W panele kadar
 
-**₺11.400**≈ $240
+**₺11.800**≈ $240
 
-💰 Havale/EFT ile: **₺11.050**
+💰 Havale/EFT ile: **₺11.450**
 
 KDV dahil · kargo hariç
 
@@ -141,9 +141,9 @@ KDV dahil · kargo hariç
 
 12/24/36/48 V akülü güneş sistemleri · 5000 W panele kadar
 
-**₺15.700**≈ $330
+**₺16.200**≈ $330
 
-💰 Havale/EFT ile: **₺15.250**
+💰 Havale/EFT ile: **₺15.700**
 
 KDV dahil · kargo hariç
 
@@ -151,9 +151,9 @@ KDV dahil · kargo hariç
 
 Karavan: alternatörden yaşam aküsüne şarj · 12/24 V
 
-**₺9.400**≈ $198
+**₺9.700**≈ $198
 
-💰 Havale/EFT ile: **₺9.100**
+💰 Havale/EFT ile: **₺9.400**
 
 KDV dahil · kargo hariç
 
@@ -161,9 +161,9 @@ KDV dahil · kargo hariç
 
 Karavan: alternatörden yaşam aküsüne şarj · 12/24 V
 
-**₺11.400**≈ $240
+**₺11.800**≈ $240
 
-💰 Havale/EFT ile: **₺11.050**
+💰 Havale/EFT ile: **₺11.450**
 
 KDV dahil · kargo hariç
 
@@ -171,9 +171,9 @@ KDV dahil · kargo hariç
 
 Karavan: çift yönlü akü şarjı (takviye modu) · 12/24 V
 
-**₺13.100**≈ $276
+**₺13.600**≈ $276
 
-💰 Havale/EFT ile: **₺12.700**
+💰 Havale/EFT ile: **₺13.200**
 
 KDV dahil · kargo hariç
 
@@ -181,9 +181,9 @@ KDV dahil · kargo hariç
 
 12/24 V girişten 36–72 V aküye şarj · karavan ve tekne
 
-**₺8.000**≈ $168
+**₺8.300**≈ $168
 
-💰 Havale/EFT ile: **₺7.750**
+💰 Havale/EFT ile: **₺8.050**
 
 KDV dahil · kargo hariç
 
@@ -191,7 +191,7 @@ KDV dahil · kargo hariç
 
 Panel ile şarj kontrol cihazı arası bağlantı
 
-**₺1.000**≈ $21
+**₺1.000**≈ $20
 
 💰 Havale/EFT ile: **₺950**
 
@@ -201,7 +201,7 @@ KDV dahil · kargo hariç
 
 Kabinli, 2–4 kişilik yolcu triportörleri — çatı alanı dar
 
-**₺15.800**≈ $333
+**₺15.800**≈ $321
 
 💰 Havale/EFT ile: **₺15.350**
 
@@ -211,7 +211,7 @@ KDV dahil · kargo hariç
 
 Açık kasa veya tenteli yük triportörleri — çatı alanı geniş
 
-**₺18.300**≈ $385
+**₺18.300**≈ $372
 
 💰 Havale/EFT ile: **₺17.750**
 

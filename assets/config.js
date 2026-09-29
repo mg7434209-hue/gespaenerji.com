@@ -149,7 +149,9 @@ window.GESPA.config = {
   // (eşleşmeyen metin zarifçe TR kalır).
   // USD/TRY kuru — kitlerde ikinci para birimi karşılığı için (₺/$).
   // Kur değişince SADECE burayı güncelleyin; "≈" ile yaklaşık gösterilir.
-  usdTry: 47.5,
+  // USD fiyatlı ürünlerin ₺ fiyatı (kart ödemesinde tahsil edilen tutar
+  // dahil) bu kurla hesaplanır. Son güncelleme: 29 Eyl 2026.
+  usdTry: 49.2,
   // Ana sayfa hero slaytı — dönüş süresi (ms). Kısaltmak = daha hızlı döngü.
   hero: { intervalMs: 4000 },
 

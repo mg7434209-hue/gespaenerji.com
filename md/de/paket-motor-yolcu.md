@@ -3,7 +3,7 @@ title: "Solar-Set für Fahrgast-Dreirad — 285 W | GESPA Energy"
 description: "Komplettset für geschlossene Fahrgast-Dreiräder: 285-W-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt."
 canonical: https://www.gespaenerji.com/de/paket-motor-yolcu.html
 lang: de
-dateModified: 2026-09-24
+dateModified: 2026-09-29
 publisher: "GESPA Enerji"
 ---
 
@@ -19,7 +19,7 @@ Artikelnummer: **GES-SET-YOLCU** Auf Lager / bestellbar
 
 Laden Sie Ihr geschlossenes Elektro-Fahrgastdreirad mit Sonnenstrom. Modul, Laderegler, Kabel und MC4-Stecker kommen aufeinander abgestimmt in einem Paket — Sie müssen nicht recherchieren, welches Modul zu Ihrem Fahrzeug passt.
 
-**₺15.800** ≈ $333
+**₺15.800** ≈ $321
 
 Preis inkl. MwSt.
 

@@ -25,7 +25,7 @@ Store
 
 Camping, caravans and small needs
 
-**₺25.000**≈ $526
+**₺25.000**≈ $508
 
 💰 By bank transfer: **₺24.250**
 
@@ -35,9 +35,9 @@ VAT included · shipping excluded
 
 Caravans, camping and cabins
 
-**₺104.500**≈ $2.200
+**₺108.200**≈ $2.200
 
-💰 By bank transfer: **₺101.350**
+💰 By bank transfer: **₺104.950**
 
 VAT included · shipping excluded
 
@@ -45,7 +45,7 @@ VAT included · shipping excluded
 
 Golf carts, service vehicles and electric platforms
 
-**₺7.200**≈ $152
+**₺7.200**≈ $146
 
 VAT & shipping included
 
@@ -53,7 +53,7 @@ VAT & shipping included
 
 E-trikes, motorcycles and 72 V utility vehicles
 
-**₺28.000**≈ $589
+**₺28.000**≈ $569
 
 💰 By bank transfer: **₺27.150**
 
@@ -63,7 +63,7 @@ VAT included · shipping excluded
 
 Small lighting, cameras and battery charging
 
-**₺1.250**≈ $26
+**₺1.250**≈ $25
 
 VAT included · shipping excluded
 
@@ -71,9 +71,9 @@ VAT included · shipping excluded
 
 Camping, caravans, field work and home backup power
 
-**₺118.500**≈ $2.495
+**₺122.800**≈ $2.495
 
-💰 By bank transfer: **₺114.950**
+💰 By bank transfer: **₺119.100**
 
 VAT included · shipping excluded
 
@@ -81,7 +81,7 @@ VAT included · shipping excluded
 
 Balconies, cabins and small off-grid systems
 
-**₺7.500**≈ $158
+**₺7.500**≈ $152
 
 💰 By bank transfer: **₺7.300**
 
@@ -91,7 +91,7 @@ VAT included · shipping excluded
 
 Rooftop and ground-mount systems, high-power installations
 
-**₺10.000**≈ $211
+**₺10.000**≈ $203
 
 💰 By bank transfer: **₺9.700**
 
@@ -101,7 +101,7 @@ VAT included · shipping excluded
 
 Rooftop and ground installations, for those who prefer a Turkish brand
 
-**₺10.000**≈ $211
+**₺10.000**≈ $203
 
 💰 By bank transfer: **₺9.700**
 
@@ -111,7 +111,7 @@ VAT included · shipping excluded
 
 Home and business energy storage, off-grid and backup power
 
-**₺73.372**≈ $1.545
+**₺73.372**≈ $1.491
 
 💰 By bank transfer: **₺71.150**
 
@@ -121,9 +121,9 @@ VAT included · shipping excluded
 
 12/24 V battery solar systems · up to 1200 W of panels
 
-**₺6.200**≈ $130
+**₺6.400**≈ $130
 
-💰 By bank transfer: **₺6.000**
+💰 By bank transfer: **₺6.200**
 
 VAT included · shipping excluded
 
@@ -131,9 +131,9 @@ VAT included · shipping excluded
 
 12/24 V battery solar systems · up to 2500 W of panels
 
-**₺11.400**≈ $240
+**₺11.800**≈ $240
 
-💰 By bank transfer: **₺11.050**
+💰 By bank transfer: **₺11.450**
 
 VAT included · shipping excluded
 
@@ -141,9 +141,9 @@ VAT included · shipping excluded
 
 12/24/36/48 V battery solar systems · up to 5000 W of panels
 
-**₺15.700**≈ $330
+**₺16.200**≈ $330
 
-💰 By bank transfer: **₺15.250**
+💰 By bank transfer: **₺15.700**
 
 VAT included · shipping excluded
 
@@ -151,9 +151,9 @@ VAT included · shipping excluded
 
 Caravans: charging the house battery from the alternator · 12/24 V
 
-**₺9.400**≈ $198
+**₺9.700**≈ $198
 
-💰 By bank transfer: **₺9.100**
+💰 By bank transfer: **₺9.400**
 
 VAT included · shipping excluded
 
@@ -161,9 +161,9 @@ VAT included · shipping excluded
 
 Caravans: charging the house battery from the alternator · 12/24 V
 
-**₺11.400**≈ $240
+**₺11.800**≈ $240
 
-💰 By bank transfer: **₺11.050**
+💰 By bank transfer: **₺11.450**
 
 VAT included · shipping excluded
 
@@ -171,9 +171,9 @@ VAT included · shipping excluded
 
 Caravans: bidirectional battery charging (boost mode) · 12/24 V
 
-**₺13.100**≈ $276
+**₺13.600**≈ $276
 
-💰 By bank transfer: **₺12.700**
+💰 By bank transfer: **₺13.200**
 
 VAT included · shipping excluded
 
@@ -181,9 +181,9 @@ VAT included · shipping excluded
 
 Charges 36–72 V batteries from a 12/24 V input · caravans and boats
 
-**₺8.000**≈ $168
+**₺8.300**≈ $168
 
-💰 By bank transfer: **₺7.750**
+💰 By bank transfer: **₺8.050**
 
 VAT included · shipping excluded
 
@@ -191,7 +191,7 @@ VAT included · shipping excluded
 
 Connection between panel and charge controller
 
-**₺1.000**≈ $21
+**₺1.000**≈ $20
 
 💰 By bank transfer: **₺950**
 
@@ -201,7 +201,7 @@ VAT included · shipping excluded
 
 Enclosed 2–4 seater passenger three-wheelers — narrow roof area
 
-**₺15.800**≈ $333
+**₺15.800**≈ $321
 
 💰 By bank transfer: **₺15.350**
 
@@ -211,7 +211,7 @@ VAT included · shipping excluded
 
 Open-bed or canopied cargo three-wheelers — wide roof area
 
-**₺18.300**≈ $385
+**₺18.300**≈ $372
 
 💰 By bank transfer: **₺17.750**
 

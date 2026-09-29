@@ -3,7 +3,7 @@ title: "Solar-Set für Lasten-Dreirad — 655 W | GESPA Energy"
 description: "Komplettset für Lasten-Dreiräder: 655-W-N-Type-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Maximaler Ertrag für große Dachflächen."
 canonical: https://www.gespaenerji.com/de/paket-motor-kargo.html
 lang: de
-dateModified: 2026-09-24
+dateModified: 2026-09-29
 publisher: "GESPA Enerji"
 ---
 
@@ -19,7 +19,7 @@ Artikelnummer: **GES-SET-KARGO** Auf Lager / bestellbar
 
 Laden Sie Ihr Elektro-Lastendreirad mit Sonnenstrom. Wir haben die ertragreichste Modulgröße gewählt, die das breite Dach der Ladefläche tragen kann; Laderegler, Kabel und MC4-Stecker sind enthalten.
 
-**₺18.300** ≈ $385
+**₺18.300** ≈ $372
 
 Preis inkl. MwSt.
 

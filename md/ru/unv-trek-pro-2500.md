@@ -3,7 +3,7 @@ title: "UNV Trek Pro 2500 Вт — портативная станция | GESPA
 description: "2500 Вт, АКБ 2496 Вт·ч, 4 розетки 230 В чистый синус, ИБП 30 мс. Портативная электростанция для кемпинга, автодома и резервного питания."
 canonical: https://www.gespaenerji.com/ru/unv-trek-pro-2500.html
 lang: ru
-dateModified: 2026-09-24
+dateModified: 2026-09-29
 publisher: "GESPA Enerji"
 ---
 
@@ -19,11 +19,11 @@ publisher: "GESPA Enerji"
 
 2496 Wh batarya ve 2500 W sürekli çıkış: buzdolabınızı, bilgisayarınızı ve aydınlatmanızı şebeke olmadan çalıştırır. Dört adet 230 V saf sinüs prizi, USB ve Type-C çıkışlarıyla aynı anda 14 cihaza güç verir; elektrik kesildiğinde 30 ms'de devreye girerek kesintisiz güç kaynağı gibi davranır.
 
-**₺118.500** ≈ $2.495
+**₺122.800** ≈ $2.495
 
 Цена с НДС.
 
-💰 Банковским переводом: **₺114.950**
+💰 Банковским переводом: **₺119.100**
 
 [🛒 В корзину](https://www.gespaenerji.com/ru/sepet.html)
 

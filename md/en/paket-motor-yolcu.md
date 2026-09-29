@@ -3,7 +3,7 @@ title: "Passenger E-Trike Solar Set — 285 W | GESPA Energy"
 description: "Complete solar set for enclosed passenger e-trikes: 285 W TOPCon panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. No guessing which part fits."
 canonical: https://www.gespaenerji.com/en/paket-motor-yolcu.html
 lang: en
-dateModified: 2026-09-24
+dateModified: 2026-09-29
 publisher: "GESPA Enerji"
 ---
 
@@ -19,7 +19,7 @@ Product code: **GES-SET-YOLCU** In stock / available to order
 
 Charge your enclosed electric passenger three-wheeler from the sun. The panel, charge controller, cable and MC4 connectors arrive in one package, matched to work together — no need to research which panel fits your vehicle.
 
-**₺15.800** ≈ $333
+**₺15.800** ≈ $321
 
 Price includes VAT.
 

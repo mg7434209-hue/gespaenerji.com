@@ -3,7 +3,7 @@ title: "UNV Trek Pro 2500 W Portable Power Station | GESPA"
 description: "2500 W continuous output, 2496 Wh battery, 4 × 230 V pure sine sockets, 30 ms UPS. Portable power station for camping, caravans and home backup."
 canonical: https://www.gespaenerji.com/en/unv-trek-pro-2500.html
 lang: en
-dateModified: 2026-09-24
+dateModified: 2026-09-29
 publisher: "GESPA Enerji"
 ---
 
@@ -19,11 +19,11 @@ Product code: **ES-E2500-A2** Only 1 left
 
 2496 Wh batarya ve 2500 W sürekli çıkış: buzdolabınızı, bilgisayarınızı ve aydınlatmanızı şebeke olmadan çalıştırır. Dört adet 230 V saf sinüs prizi, USB ve Type-C çıkışlarıyla aynı anda 14 cihaza güç verir; elektrik kesildiğinde 30 ms'de devreye girerek kesintisiz güç kaynağı gibi davranır.
 
-**₺118.500** ≈ $2.495
+**₺122.800** ≈ $2.495
 
 Price includes VAT.
 
-💰 By bank transfer: **₺114.950**
+💰 By bank transfer: **₺119.100**
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 

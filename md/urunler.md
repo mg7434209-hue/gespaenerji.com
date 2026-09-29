@@ -3,7 +3,7 @@ title: "Hazır Solar Paketler — Off-Grid & Sulama | GESPA Enerji"
 description: "285 W ve 2×540 W hazır güneş enerjisi paketleri: kamp, karavan ve bağ evi için panel, güç kutusu ve kablo içeriği. Türkiye geneli gönderim — GESPA Enerji."
 canonical: https://www.gespaenerji.com/urunler.html
 lang: tr
-dateModified: 2026-09-24
+dateModified: 2026-09-29
 publisher: "GESPA Enerji"
 ---
 
@@ -19,19 +19,19 @@ Hazır güneş enerjisi paketleri — net içerik, şeffaf fiyat, Türkiye'nin h
 
 ## Elektrikli Motor Güneş Paketleri
 
-- **Yolcu Kabinli Motor Güneş Paketi — 285 W** — GES-SET-YOLCU · Kabinli, 2–4 kişilik yolcu triportörleri — çatı alanı dar · ₺15.800 (≈ $333) liste · havale/EFT ile ₺15.350 (%3 indirimli, KDV dahil ). Kabinli elektrikli yolcu triportörünü güneşle şarj etmek için hazırlanmış komple paket: 285 W TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Dar çatı alanına sığan panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.
-- **Kargo Kasalı Motor Güneş Paketi — 655 W** — GES-SET-KARGO · Açık kasa veya tenteli yük triportörleri — çatı alanı geniş · ₺18.300 (≈ $385) liste · havale/EFT ile ₺17.750 (%3 indirimli, KDV dahil ). Kargo kasalı elektrikli triportörü güneşle şarj etmek için hazırlanmış komple paket: 655 W N-type TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Geniş kasa/tente çatısının kaldırabileceği en verimli panel gücü seçilmiştir.
+- **Yolcu Kabinli Motor Güneş Paketi — 285 W** — GES-SET-YOLCU · Kabinli, 2–4 kişilik yolcu triportörleri — çatı alanı dar · ₺15.800 (≈ $321) liste · havale/EFT ile ₺15.350 (%3 indirimli, KDV dahil ). Kabinli elektrikli yolcu triportörünü güneşle şarj etmek için hazırlanmış komple paket: 285 W TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Dar çatı alanına sığan panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.
+- **Kargo Kasalı Motor Güneş Paketi — 655 W** — GES-SET-KARGO · Açık kasa veya tenteli yük triportörleri — çatı alanı geniş · ₺18.300 (≈ $372) liste · havale/EFT ile ₺17.750 (%3 indirimli, KDV dahil ). Kargo kasalı elektrikli triportörü güneşle şarj etmek için hazırlanmış komple paket: 655 W N-type TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Geniş kasa/tente çatısının kaldırabileceği en verimli panel gücü seçilmiştir.
 
 ## Taşınabilir & Off-Grid Paketler
 
-- **285W Güneş Paneli Paketi** — 0.285 kWp · Kamp, karavan ve küçük ihtiyaçlar · ₺25.000 (≈ $526) liste · havale/EFT ile ₺24.250 (%3 indirimli, KDV dahil ). Komple sistem: 285 W panel, güç kutusu ve bağlantı kabloları dahil tak-çalıştır mobil kit. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg.
-- **Tam Kapsamlı Güneş Enerjisi Sistemi** — 1.08 kWp · Karavan, kamp ve bağ evi · ₺104.500 (≈ $2.200) liste · havale/EFT ile ₺101.350 (%3 indirimli, KDV dahil ). 2× 540 W güneş paneli dahil komple mobil sistem: LiFePO₄ lityum batarya ve büyük güç kutusuyla buzdolabı, TV, çamaşır ve bulaşık makinesini çalıştırır.
-- **UNV Trek Pro 2500 W Taşınabilir Güç İstasyonu** — ES-E2500-A2 · Kamp, karavan, saha çalışması ve ev tipi yedek güç · ₺118.500 (≈ $2.495) liste · havale/EFT ile ₺114.950 (%3 indirimli, KDV dahil ). 2496 Wh kapasiteli, 2500 W sürekli çıkış veren taşınabilir güç istasyonu. Dört adet 230 V saf sinüs AC prizi, USB ve Type-C çıkışlarıyla aynı anda 14 cihaza kadar besleme yapar; 30 ms tepki süresiyle kesintisiz güç kaynağı (UPS) olarak da çalışır. Güneş paneli ürüne dahil değildir.
+- **285W Güneş Paneli Paketi** — 0.285 kWp · Kamp, karavan ve küçük ihtiyaçlar · ₺25.000 (≈ $508) liste · havale/EFT ile ₺24.250 (%3 indirimli, KDV dahil ). Komple sistem: 285 W panel, güç kutusu ve bağlantı kabloları dahil tak-çalıştır mobil kit. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg.
+- **Tam Kapsamlı Güneş Enerjisi Sistemi** — 1.08 kWp · Karavan, kamp ve bağ evi · ₺108.200 (≈ $2.200) liste · havale/EFT ile ₺104.950 (%3 indirimli, KDV dahil ). 2× 540 W güneş paneli dahil komple mobil sistem: LiFePO₄ lityum batarya ve büyük güç kutusuyla buzdolabı, TV, çamaşır ve bulaşık makinesini çalıştırır.
+- **UNV Trek Pro 2500 W Taşınabilir Güç İstasyonu** — ES-E2500-A2 · Kamp, karavan, saha çalışması ve ev tipi yedek güç · ₺122.800 (≈ $2.495) liste · havale/EFT ile ₺119.100 (%3 indirimli, KDV dahil ). 2496 Wh kapasiteli, 2500 W sürekli çıkış veren taşınabilir güç istasyonu. Dört adet 230 V saf sinüs AC prizi, USB ve Type-C çıkışlarıyla aynı anda 14 cihaza kadar besleme yapar; 30 ms tepki süresiyle kesintisiz güç kaynağı (UPS) olarak da çalışır. Güneş paneli ürüne dahil değildir.
 
 ## Elektrikli Araç Dönüşüm Ürünleri
 
-- **MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı** — GES-EV-BOOST · Golf aracı, hizmet aracı ve elektrikli platformlar · ₺7.200 (≈ $152) (KDV dahil ). Güneş panelinden 24-72 V akü grubuna doğrudan şarj sağlayan MPPT yükseltici (boost) şarj kontrol cihazı. AGM, jel, sulu kurşun-asit ve lityum akülerle uyumlu; Bluetooth ile programlanır. Panel ve akü ürüne dahil değildir.
-- **europlus 72 V 30 Ah LiFePO₄ Akü** — GES-EV-AKU-72V · Elektrikli triportör, motosiklet ve 72 V hizmet araçları · ₺28.000 (≈ $589) liste · havale/EFT ile ₺27.150 (%3 indirimli, KDV dahil ). Elektrikli triportör ve 72 V motorlu araçlar için LiFePO₄ (lityum demir fosfat) çekiş aküsü. 24S hücre dizilimi, 76,8 V nominal gerilim, ~2.300 Wh enerji, dahili balanslı BMS. Maksimum şarj voltajı 87,6 V, maksimum şarj akımı 30 A; doğru kullanımda 2.000 çevrim ömür. Dış ölçü yaklaşık 41 × 16 × 17 cm. Jel ve kurşun-asit akülere göre 3 kata kadar daha hafiftir ve deşarj boyunca kararlı voltaj verir — motor gücü düşmeden yol biter. Şarj cihazı ürüne dahil değildir.
+- **MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı** — GES-EV-BOOST · Golf aracı, hizmet aracı ve elektrikli platformlar · ₺7.200 (≈ $146) (KDV dahil ). Güneş panelinden 24-72 V akü grubuna doğrudan şarj sağlayan MPPT yükseltici (boost) şarj kontrol cihazı. AGM, jel, sulu kurşun-asit ve lityum akülerle uyumlu; Bluetooth ile programlanır. Panel ve akü ürüne dahil değildir.
+- **europlus 72 V 30 Ah LiFePO₄ Akü** — GES-EV-AKU-72V · Elektrikli triportör, motosiklet ve 72 V hizmet araçları · ₺28.000 (≈ $569) liste · havale/EFT ile ₺27.150 (%3 indirimli, KDV dahil ). Elektrikli triportör ve 72 V motorlu araçlar için LiFePO₄ (lityum demir fosfat) çekiş aküsü. 24S hücre dizilimi, 76,8 V nominal gerilim, ~2.300 Wh enerji, dahili balanslı BMS. Maksimum şarj voltajı 87,6 V, maksimum şarj akımı 30 A; doğru kullanımda 2.000 çevrim ömür. Dış ölçü yaklaşık 41 × 16 × 17 cm. Jel ve kurşun-asit akülere göre 3 kata kadar daha hafiftir ve deşarj boyunca kararlı voltaj verir — motor gücü düşmeden yol biter. Şarj cihazı ürüne dahil değildir.
 
 🚚 Paketler Türkiye'nin her iline anlaşmalı kargo ile gönderilir; fiyatlara KDV dahildir, kargo hariçtir. Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi sunulur.
 

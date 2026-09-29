@@ -25,7 +25,7 @@ Shop
 
 Camping, Wohnmobil und kleine Verbraucher
 
-**₺25.000**≈ $526
+**₺25.000**≈ $508
 
 💰 Per Überweisung: **₺24.250**
 
@@ -35,9 +35,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Wohnmobil, Camping und Gartenhaus
 
-**₺104.500**≈ $2.200
+**₺108.200**≈ $2.200
 
-💰 Per Überweisung: **₺101.350**
+💰 Per Überweisung: **₺104.950**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -45,7 +45,7 @@ Inkl. MwSt. · zzgl. Versand
 
 Golfwagen, Servicefahrzeuge und elektrische Plattformen
 
-**₺7.200**≈ $152
+**₺7.200**≈ $146
 
 Inkl. MwSt. & Versand
 
@@ -53,7 +53,7 @@ Inkl. MwSt. & Versand
 
 Elektro-Dreiräder, Motorräder und 72-V-Nutzfahrzeuge
 
-**₺28.000**≈ $589
+**₺28.000**≈ $569
 
 💰 Per Überweisung: **₺27.150**
 
@@ -63,7 +63,7 @@ Inkl. MwSt. · zzgl. Versand
 
 Kleine Beleuchtung, Kameras und Akkuladung
 
-**₺1.250**≈ $26
+**₺1.250**≈ $25
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -71,9 +71,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Camping, Wohnmobil, Außeneinsatz und Notstrom zu Hause
 
-**₺118.500**≈ $2.495
+**₺122.800**≈ $2.495
 
-💰 Per Überweisung: **₺114.950**
+💰 Per Überweisung: **₺119.100**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -81,7 +81,7 @@ Inkl. MwSt. · zzgl. Versand
 
 Balkon, Gartenhaus und kleine Off-Grid-Systeme
 
-**₺7.500**≈ $158
+**₺7.500**≈ $152
 
 💰 Per Überweisung: **₺7.300**
 
@@ -91,7 +91,7 @@ Inkl. MwSt. · zzgl. Versand
 
 Aufdach- und Freiflächenanlagen, Installationen mit hoher Leistung
 
-**₺10.000**≈ $211
+**₺10.000**≈ $203
 
 💰 Per Überweisung: **₺9.700**
 
@@ -101,7 +101,7 @@ Inkl. MwSt. · zzgl. Versand
 
 Aufdach- und Freiflächenmontage, für Freunde einer türkischen Marke
 
-**₺10.000**≈ $211
+**₺10.000**≈ $203
 
 💰 Per Überweisung: **₺9.700**
 
@@ -111,7 +111,7 @@ Inkl. MwSt. · zzgl. Versand
 
 Energiespeicher für Haus und Betrieb, Off-Grid und Notstrom
 
-**₺73.372**≈ $1.545
+**₺73.372**≈ $1.491
 
 💰 Per Überweisung: **₺71.150**
 
@@ -121,9 +121,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Solaranlagen mit 12/24-V-Batterie · bis 1200 W Modulleistung
 
-**₺6.200**≈ $130
+**₺6.400**≈ $130
 
-💰 Per Überweisung: **₺6.000**
+💰 Per Überweisung: **₺6.200**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -131,9 +131,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Solaranlagen mit 12/24-V-Batterie · bis 2500 W Modulleistung
 
-**₺11.400**≈ $240
+**₺11.800**≈ $240
 
-💰 Per Überweisung: **₺11.050**
+💰 Per Überweisung: **₺11.450**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -141,9 +141,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Solaranlagen mit 12/24/36/48-V-Batterie · bis 5000 W Modulleistung
 
-**₺15.700**≈ $330
+**₺16.200**≈ $330
 
-💰 Per Überweisung: **₺15.250**
+💰 Per Überweisung: **₺15.700**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -151,9 +151,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Wohnmobil: Aufbaubatterie über die Lichtmaschine laden · 12/24 V
 
-**₺9.400**≈ $198
+**₺9.700**≈ $198
 
-💰 Per Überweisung: **₺9.100**
+💰 Per Überweisung: **₺9.400**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -161,9 +161,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Wohnmobil: Aufbaubatterie über die Lichtmaschine laden · 12/24 V
 
-**₺11.400**≈ $240
+**₺11.800**≈ $240
 
-💰 Per Überweisung: **₺11.050**
+💰 Per Überweisung: **₺11.450**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -171,9 +171,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Wohnmobil: bidirektionales Batterieladen (Boost-Modus) · 12/24 V
 
-**₺13.100**≈ $276
+**₺13.600**≈ $276
 
-💰 Per Überweisung: **₺12.700**
+💰 Per Überweisung: **₺13.200**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -181,9 +181,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Lädt 36–72-V-Batterien über einen 12/24-V-Eingang · Wohnmobil und Boot
 
-**₺8.000**≈ $168
+**₺8.300**≈ $168
 
-💰 Per Überweisung: **₺7.750**
+💰 Per Überweisung: **₺8.050**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -191,7 +191,7 @@ Inkl. MwSt. · zzgl. Versand
 
 Verbindung zwischen Modul und Laderegler
 
-**₺1.000**≈ $21
+**₺1.000**≈ $20
 
 💰 Per Überweisung: **₺950**
 
@@ -201,7 +201,7 @@ Inkl. MwSt. · zzgl. Versand
 
 Geschlossene Fahrgast-Dreiräder für 2–4 Personen — schmale Dachfläche
 
-**₺15.800**≈ $333
+**₺15.800**≈ $321
 
 💰 Per Überweisung: **₺15.350**
 
@@ -211,7 +211,7 @@ Inkl. MwSt. · zzgl. Versand
 
 Dreiräder mit offener Ladefläche oder Plane — breite Dachfläche
 
-**₺18.300**≈ $385
+**₺18.300**≈ $372
 
 💰 Per Überweisung: **₺17.750**
 
