@@ -404,6 +404,97 @@ window.GESPA.config = {
       features: ["51,2 V · 102 Ah · 5,22 kWh · LiFePO₄ (16S1P prizmatik)", "Dahili akıllı BMS — aşırı şarj/deşarj, kısa devre, sıcaklık koruması", "100 A sürekli deşarj · 150 A tepe (5 sn) · 100 A şarj", "6000+ çevrim ömrü (%80 DoD, 25 °C) · 2 yıl garanti", "CAN / RS485 · Bluetooth veya WiFi · 16 adede kadar paralel", "37 kg · 560 × 150 × 380 mm · IP20 · M8 terminal"]
     },
 
+    // —— Şarj kontrol ve DC-DC cihazları (Havensis) —— group:"charge" YALNIZ
+    // online-satis.html kataloğunda listelenir (urunler.html GROUPS'ta yok).
+    // KAYNAK: Havensis 02/2026 GENEL FİYAT LİSTESİ (PDF; teklif 01.02.2026,
+    // geçerlilik 30.05.2026), sıra no 12 · 15 · 17 · 24 · 26 · 27 · 31.
+    // Teknik değerler YALNIZ listedeki maddelerdir; listede olmayan değer
+    // (garanti, ağırlık, IP sınıfı…) YAZILMAZ.
+    // FİYAT: liste USD ve "Fiyatlarımıza KDV dahil değildir" der. İşletme
+    // kararı (29 Eyl 2026): liste + %10, üstüne %20 KDV; sitede KDV DAHİL
+    // gösterilir → `price` = liste × 1,10 × 1,20 = liste × 1,32. ₺ karşılığı
+    // config.usdTry ile hesaplanır. Liste değişince yalnız bu satırlar
+    // güncellenir (her satırın yanında liste fiyatı yazılı).
+    // MARKA: Havensis gerçek üreticidir — fotoğraftaki logo SİLİNMEZ (UNV
+    // kuralı). Görseller: kaynak/havensis-*.png → tools/foto-hazirla.py.
+    {
+      id: "havensis-s30amps", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      sku: "S30AMPS", brand: "Havensis",
+      img: "assets/img/products/havensis-s30amps.webp",
+      price: 142.56, currency: "USD",       // liste 108 USD + %10 + %20 KDV (sıra 12)
+      chips: ["⚡ 12/24 V · 30 A", "☀️ 100 V · 1200 W panel", "📟 LCD ekran"],
+      for: "12/24 V akülü güneş sistemleri · 1200 W panele kadar",
+      name: "Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 A",
+      desc: "Havensis Solar-MPS serisi MPPT şarj kontrol cihazı (Solar-30AMPS – 100|30). 12/24 V akü şarjı, 30 A şarj akımı ve 20 A yük çıkışı. Gelişmiş MPPT algoritmasıyla %98 dönüştürücü ve %99,6 MPP izleme verimi; 100 V'a kadar panel girişi, 1200 W'a kadar panel bağlantısı. LCD ekran ve LED durum göstergesi, tüm parametreler ayarlanabilir, gece-gündüz ve zaman ayarı fonksiyonu; panelden beslenerek aküsüz de çalışabilir. Cihaz boyutu 159 × 210 × 70 mm. Yerli üretim.",
+      features: ["12/24 V akü şarjı · 30 A şarj · 20 A yük çıkışı", "Gelişmiş MPPT · %98 dönüştürücü, %99,6 MPP izleme verimi", "Maks. 100 V panel girişi · 1200 W'a kadar panel", "LCD ekran ve LED durum göstergesi · tüm parametreler ayarlanabilir", "Gece-gündüz ve zaman ayarı · aküsüz çalışabilir", "159 × 210 × 70 mm · yerli üretim"]
+    },
+    {
+      id: "havensis-s60amps100", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      sku: "S60AMPS100", brand: "Havensis",
+      img: "assets/img/products/havensis-s60amps100.webp",
+      price: 264, currency: "USD",          // liste 200 USD + %10 + %20 KDV (sıra 15)
+      chips: ["⚡ 12/24 V · 60 A", "☀️ 100 V · 2500 W panel", "📟 LCD ekran"],
+      for: "12/24 V akülü güneş sistemleri · 2500 W panele kadar",
+      name: "Havensis Solar-60AMPS-100 MPPT Şarj Kontrol Cihazı 12/24 V 60 A",
+      desc: "Havensis Solar-MPS serisi MPPT şarj kontrol cihazı (Solar-60AMPS-100 – 100|60). 12/24 V akü şarjı, 60 A şarj akımı ve 20 A yük çıkışı. Gelişmiş MPPT algoritmasıyla %98 dönüştürücü ve %99,6 MPP izleme verimi; 100 V'a kadar panel girişi, 2500 W'a kadar panel bağlantısı. LCD ekran ve LED durum göstergesi, tüm parametreler ayarlanabilir, gece-gündüz ve zaman ayarı fonksiyonu; panelden beslenerek aküsüz de çalışabilir. Cihaz boyutu 197,2 × 224 × 80 mm. Yerli üretim.",
+      features: ["12/24 V akü şarjı · 60 A şarj · 20 A yük çıkışı", "Gelişmiş MPPT · %98 dönüştürücü, %99,6 MPP izleme verimi", "Maks. 100 V panel girişi · 2500 W'a kadar panel", "LCD ekran ve LED durum göstergesi · tüm parametreler ayarlanabilir", "Gece-gündüz ve zaman ayarı · aküsüz çalışabilir", "197,2 × 224 × 80 mm · yerli üretim"]
+    },
+    {
+      id: "havensis-s60amps150", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      sku: "S60AMPS", brand: "Havensis",
+      img: "assets/img/products/havensis-s60amps150.webp",
+      price: 363, currency: "USD",          // liste 275 USD + %10 + %20 KDV (sıra 17)
+      chips: ["⚡ 12–48 V · 60 A", "☀️ 150 V · 5000 W panel", "📟 LCD ekran"],
+      for: "12/24/36/48 V akülü güneş sistemleri · 5000 W panele kadar",
+      name: "Havensis Solar-60AMPS 150|60 MPPT Şarj Kontrol Cihazı 12/24/36/48 V 60 A",
+      desc: "Havensis Solar-MPS serisi MPPT şarj kontrol cihazı (Solar-60AMPS – 150|60). 12/24/36/48 V akü şarjı ve 60 A şarj akımı. Gelişmiş MPPT algoritmasıyla %97,5 dönüştürücü ve %99,6 MPP izleme verimi; 150 V'a kadar panel girişi, 5000 W'a kadar panel bağlantısı. LCD ekran ve LED durum göstergesi, tüm parametreler ayarlanabilir; panelden beslenerek aküsüz de çalışabilir. Cihaz boyutu 280 × 235 × 100 mm. Yerli üretim.",
+      features: ["12/24/36/48 V akü şarjı · 60 A şarj akımı", "Gelişmiş MPPT · %97,5 dönüştürücü, %99,6 MPP izleme verimi", "Maks. 150 V panel girişi · 5000 W'a kadar panel", "LCD ekran ve LED durum göstergesi · tüm parametreler ayarlanabilir", "Panelden beslenir, aküsüz çalışabilir", "280 × 235 × 100 mm · yerli üretim"]
+    },
+    {
+      id: "havensis-dcdc-1224-30", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
+      sku: "DCDC-1224-30", brand: "Havensis",
+      img: "assets/img/products/havensis-dcdc-1224.webp",
+      price: 217.8, currency: "USD",        // liste 165 USD + %10 + %20 KDV (sıra 24)
+      chips: ["🔋 12/24 V · 30 A", "🚐 Alternatörden şarj", "⚙️ %96,4 verim"],
+      for: "Karavan: alternatörden yaşam aküsüne şarj · 12/24 V",
+      name: "Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 30 A",
+      desc: "Havensis tek yönlü DC-DC akü şarj cihazı (DCDC-1224, 30 A). Alternatörden akü şarj cihazıdır; 12-12, 12-24, 24-12 ve 24-24 V şarj yapabilir. Karavanlar için özel tasarlanmıştır. 30 A şarj akımı, %96,4 dönüştürücü verimi, 10–35 V giriş ve 12–32 V çıkış gerilimi. Tüm parametreler ekranla programlanabilir; LED durum göstergesi, dijital ekran bağlantısı ve 5 m uzatma kablosu, ters akım koruması (motor kapalı tanıma). Cihaz boyutu 158 × 210 × 60 mm. Yerli üretim.",
+      features: ["12/24 V akü şarjı · 30 A şarj akımı", "Alternatörden akü şarjı · 12-12, 12-24, 24-12, 24-24 V", "%96,4 dönüştürücü verimi · 10–35 V giriş, 12–32 V çıkış", "Tüm parametreler ekranla programlanabilir · LED durum göstergesi", "Dijital ekran bağlantısı ve 5 m uzatma kablosu", "Ters akım koruması (motor kapalı tanıma) · 158 × 210 × 60 mm"]
+    },
+    {
+      id: "havensis-dcdc-1224-40", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
+      sku: "DCDC-1224-40", brand: "Havensis",
+      img: "assets/img/products/havensis-dcdc-1224.webp",
+      price: 264, currency: "USD",          // liste 200 USD + %10 + %20 KDV (sıra 26)
+      chips: ["🔋 12/24 V · 40 A", "🚐 Alternatörden şarj", "⚙️ %96,4 verim"],
+      for: "Karavan: alternatörden yaşam aküsüne şarj · 12/24 V",
+      name: "Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A",
+      desc: "Havensis tek yönlü DC-DC akü şarj cihazı (DCDC-1224, 40 A). Alternatörden akü şarj cihazıdır; 12-12, 12-24, 24-12 ve 24-24 V şarj yapabilir. Karavanlar için özel tasarlanmıştır. 40 A şarj akımı, %96,4 dönüştürücü verimi, 10–35 V giriş ve 12–32 V çıkış gerilimi. Tüm parametreler ekranla programlanabilir; LED durum göstergesi, dijital ekran bağlantısı ve 5 m uzatma kablosu, ters akım koruması (motor kapalı tanıma). Cihaz boyutu 162 × 210 × 70 mm. Yerli üretim.",
+      features: ["12/24 V akü şarjı · 40 A şarj akımı", "Alternatörden akü şarjı · 12-12, 12-24, 24-12, 24-24 V", "%96,4 dönüştürücü verimi · 10–35 V giriş, 12–32 V çıkış", "Tüm parametreler ekranla programlanabilir · LED durum göstergesi", "Dijital ekran bağlantısı ve 5 m uzatma kablosu", "Ters akım koruması (motor kapalı tanıma) · 162 × 210 × 70 mm"]
+    },
+    {
+      id: "havensis-dcdc-1224b-40", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
+      sku: "DCDC-1224B-40", brand: "Havensis",
+      img: "assets/img/products/havensis-dcdc-1224b.webp",
+      price: 303.6, currency: "USD",        // liste 230 USD + %10 + %20 KDV (sıra 27)
+      chips: ["🔋 12/24 V · 40 A", "🔁 Çift yönlü · 10 A takviye", "⚙️ %96,4 verim"],
+      for: "Karavan: çift yönlü akü şarjı (takviye modu) · 12/24 V",
+      name: "Havensis DCDC-1224B Çift Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A",
+      desc: "Havensis çift yönlü DC-DC akü şarj cihazı (DCDC-1224B, 40 A). Çift yönlü akü şarjı yapabilir (takviye modu): 40 A şarj akımı ve 10 A takviye şarj akımı. 12-12, 12-24, 24-12 ve 24-24 V şarj yapabilir; karavanlar için özel tasarlanmıştır. %96,4 dönüştürücü verimi, 10–35 V giriş ve 12–32 V çıkış gerilimi. Tüm parametreler ekranla programlanabilir; dijital ekran bağlantısı ve 5 m uzatma kablosu, ters akım koruması (motor kapalı tanıma). Cihaz boyutu 162 × 210 × 70 mm. Yerli üretim.",
+      features: ["12/24 V akü şarjı · 40 A şarj · 10 A takviye şarj akımı", "Çift yönlü akü şarjı (takviye modu) · 12-12, 12-24, 24-12, 24-24 V", "%96,4 dönüştürücü verimi · 10–35 V giriş, 12–32 V çıkış", "Tüm parametreler ekranla programlanabilir", "Dijital ekran bağlantısı ve 5 m uzatma kablosu", "Ters akım koruması (motor kapalı tanıma) · 162 × 210 × 70 mm"]
+    },
+    {
+      id: "havensis-dcdc-2448", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
+      sku: "DCDC-2472-20", brand: "Havensis",
+      img: "assets/img/products/havensis-dcdc-2448.webp",
+      price: 184.8, currency: "USD",        // liste 140 USD + %10 + %20 KDV (sıra 31)
+      chips: ["🔋 36/48/60/72 V akü", "⚡ 12/24 V giriş · 15 A şarj", "⚙️ %95 verim"],
+      for: "12/24 V girişten 36–72 V aküye şarj · karavan ve tekne",
+      name: "Havensis BOOST DCDC-2448 DC-DC Akü Şarj Cihazı 36/48/60/72 V",
+      desc: "Havensis BOOST DCDC-2448 yükseltici DC-DC akü şarj cihazı. 12/24 V girişle 36/48/60/72 V akü şarjı yapar: 12–32 V giriş gerilimi, en fazla 20 A giriş ve 15 A şarj akımı, %95 dönüştürücü verimi. Karavan ve tekneler için özel tasarlanmıştır. Dijital ekran bağlantısı ve 5 m uzatma kablosu, gelişmiş koruma devreleri; dahili Bluetooth desteği isteğe bağlıdır (siparişte belirtin). Cihaz boyutu 162 × 210 × 70 mm. Yerli üretim.",
+      features: ["12/24 V girişle 36/48/60/72 V akü şarjı", "12–32 V giriş · maks. 20 A giriş, 15 A şarj akımı", "%95 dönüştürücü verimi · gelişmiş koruma devreleri", "Dijital ekran bağlantısı ve 5 m uzatma kablosu", "İsteğe bağlı dahili Bluetooth (siparişte belirtin)", "162 × 210 × 70 mm · yerli üretim"]
+    },
+
     // —— Bağlantı malzemeleri —— elektrikli motor paketlerinin (evSets)
     // tamamlayıcı kalemleri. group:"cable" YALNIZ online-satis.html
     // kataloğunda listelenir; urunler.html paket vitrininde ÇIKMAZ.

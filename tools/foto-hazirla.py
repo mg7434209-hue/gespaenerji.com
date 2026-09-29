@@ -84,6 +84,26 @@ JOBS = [
         "pad": 30,
         "quality": 86,
     },
+    # —— Havensis şarj kontrol ve DC-DC cihazları ——
+    # Kaynak: Havensis 02/2026 genel fiyat listesindeki (PDF) ürün görselleri;
+    # saydamlık maskesiyle beyaz zemine oturtulup kaynak/havensis-*.png
+    # olarak saklandı. HAVENSIS logosu GERÇEK ÜRETİCİ markasıdır: swap/mark
+    # YAPILMAZ (UNV kuralı). Kırpma = ürün sınır kutusu + 12 px pay.
+    # s60amps150 kaynağında gövde dışındaki 4 px'lik leke beyazla silindi.
+    {"src": "havensis-s30amps.png", "out": "havensis-s30amps.webp",
+     "crop": (147, 2, 513, 466), "canvas": (880, 660), "pad": 30, "quality": 86},
+    {"src": "havensis-s60amps100.png", "out": "havensis-s60amps100.webp",
+     "crop": (36, 23, 469, 511), "canvas": (880, 660), "pad": 30, "quality": 86},
+    {"src": "havensis-s60amps150.png", "out": "havensis-s60amps150.webp",
+     "crop": (142, 112, 582, 511), "canvas": (880, 660), "pad": 30, "quality": 86},
+    # DCDC-1224 30 A ve 40 A aynı gövdedir; listede de aynı fotoğraf kullanılır.
+    {"src": "havensis-dcdc-1224.png", "out": "havensis-dcdc-1224.webp",
+     "crop": (49, 11, 376, 433), "canvas": (880, 660), "pad": 30, "quality": 86},
+    {"src": "havensis-dcdc-1224b.png", "out": "havensis-dcdc-1224b.webp",
+     "crop": (48, 11, 370, 427), "canvas": (880, 660), "pad": 30, "quality": 86},
+    # BOOST DCDC-2448: listedeki görselde cihaz ve dijital ekran yan yana.
+    {"src": "havensis-dcdc-2448.png", "out": "havensis-dcdc-2448.webp",
+     "crop": (39, 69, 479, 427), "canvas": (880, 660), "pad": 30, "quality": 86},
 ]
 
 

@@ -196,7 +196,8 @@
         // noCartDiscount: fiyat zaten net (ör. kampanya fiyatı) — üstüne
         // havale/EFT indirimi BİNMEZ. TÜM fiyat noktaları bu kuralı izler.
         cart: p.noCartDiscount ? tl : Math.round(tl * (100 - pct) / 100 / 50) * 50,
-        usd: p.currency === "USD" ? p.price : (RATE ? Math.round(p.price / RATE) : 0)
+        // yalnız "≈ $" gösterimi için; kuruşlu USD fiyat (KDV'li) yuvarlanır
+        usd: p.currency === "USD" ? Math.round(p.price) : (RATE ? Math.round(p.price / RATE) : 0)
       };
     }
     var cart = (function () {
@@ -555,7 +556,8 @@
           panel: L("Panel & Ekipman", "Panels & Equipment", "Module & Zubehör", "Панели и оборудование"),
           cable: L("Kablo & Bağlantı", "Cable & Wiring", "Kabel & Anschluss", "Кабели и подключение"),
           evset: L("Elektrikli Motor Paketleri", "E-Vehicle Solar Sets", "Solar-Sets für E-Fahrzeuge", "Комплекты для электротранспорта"),
-          storage: L("Enerji Depolama", "Energy Storage", "Energiespeicher", "Накопители энергии")
+          storage: L("Enerji Depolama", "Energy Storage", "Energiespeicher", "Накопители энергии"),
+          charge: L("Şarj Kontrol & DC-DC", "Charge Controllers & DC-DC", "Laderegler & DC-DC", "Контроллеры заряда и DC-DC")
         })[g] || g;
       }
       function tName(t) {
@@ -574,7 +576,9 @@
         var u = pkgUnit(p);
         var cardPct = p.noCartDiscount ? 0 : pkgPct(p);      // ürüne özel oran
         var poa = !!u.poa;                                   // fiyat girilmemis: "Teklif alin"
-        var usd = poa ? 0 : (p.currency === "USD" ? p.price : (CFG.usdTry ? Math.round(p.price / CFG.usdTry) : 0));
+        // "≈ $" yaklaşık gösterimdir: KDV'li USD fiyat kuruşlu olabilir
+        // (Havensis 108 × 1,32 = 142,56); statik liste ve llms-full gibi yuvarlanır.
+        var usd = poa ? 0 : (p.currency === "USD" ? Math.round(p.price) : (CFG.usdTry ? Math.round(p.price / CFG.usdTry) : 0));
         var off = saleOf(p);
         var oldTL = p.oldPrice && (p.currency === "USD" ? Math.round(p.oldPrice * (CFG.usdTry || 0) / 100) * 100 : p.oldPrice);
         var href = p.url || "";

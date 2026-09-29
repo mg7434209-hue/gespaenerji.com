@@ -265,7 +265,12 @@ ve sepet simgesi ekran dışında kalır.
   — ayrıntısı "Motor güneş paketleri" bölümünde. +
   europlus 72 V 30 Ah LiFePO₄ çekiş aküsü ₺28.000 (`aku-lifepo4-72v`,
   `group:"accessory"` — BOOST MPPT ile AYNI grupta, "Elektrikli Araç" çipi
-  böylece tek ürünlü doğrudan bağlantı olmaktan çıkıp gerçek süzgece döndü).
+  böylece tek ürünlü doğrudan bağlantı olmaktan çıkıp gerçek süzgece döndü). +
+  7 Havensis cihazı (`group:"charge"` = "Şarj Kontrol & DC-DC", YALNIZ
+  katalog, detay sayfası yok): 3 MPPT + 3 DC-DC + 1 BOOST DC-DC. Kaynak
+  Havensis 02/2026 fiyat listesi (USD, KDV HARİÇ); FİYAT KURALI işletme
+  kararı: `price` = liste × 1,10 × 1,20 (%10 + %20 KDV), satır yanında liste
+  fiyatı yazılı. Havensis gerçek üreticidir, foto logosu SİLİNMEZ.
   — `url` detay sayfası, `img` gerçek foto,
   `oldPrice` indirim rozeti, `currency:"USD"` dolar, `dailyKwh` günlük üretim.
   `usdTry` kuru ile ikinci para "≈" gösterilir; kur değişince SADECE

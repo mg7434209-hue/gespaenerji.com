@@ -3,7 +3,7 @@ title: "Online Store — Solar Products and Equipment | GESPA Energy"
 description: "All products on sale in one place: ready-made solar kits, MPPT charge controllers and equipment. Transparent prices, VAT included, shipping across Türkiye."
 canonical: https://www.gespaenerji.com/en/online-satis.html
 lang: en
-dateModified: 2026-09-28
+dateModified: 2026-09-29
 publisher: "GESPA Enerji"
 ---
 
@@ -114,6 +114,76 @@ Home and business energy storage, off-grid and backup power
 **₺73.372**≈ $1.545
 
 💰 By bank transfer: **₺71.150**
+
+VAT included · shipping excluded
+
+### Havensis Solar-30AMPS MPPT Charge Controller 12/24 V 30 A
+
+12/24 V battery solar systems · up to 1200 W of panels
+
+**₺6.800**≈ $143
+
+💰 By bank transfer: **₺6.600**
+
+VAT included · shipping excluded
+
+### Havensis Solar-60AMPS-100 MPPT Charge Controller 12/24 V 60 A
+
+12/24 V battery solar systems · up to 2500 W of panels
+
+**₺12.500**≈ $264
+
+💰 By bank transfer: **₺12.150**
+
+VAT included · shipping excluded
+
+### Havensis Solar-60AMPS 150|60 MPPT Charge Controller 12/24/36/48 V 60 A
+
+12/24/36/48 V battery solar systems · up to 5000 W of panels
+
+**₺17.200**≈ $363
+
+💰 By bank transfer: **₺16.700**
+
+VAT included · shipping excluded
+
+### Havensis DCDC-1224 One-Way DC-DC Battery Charger 12/24 V 30 A
+
+Caravans: charging the house battery from the alternator · 12/24 V
+
+**₺10.300**≈ $218
+
+💰 By bank transfer: **₺10.000**
+
+VAT included · shipping excluded
+
+### Havensis DCDC-1224 One-Way DC-DC Battery Charger 12/24 V 40 A
+
+Caravans: charging the house battery from the alternator · 12/24 V
+
+**₺12.500**≈ $264
+
+💰 By bank transfer: **₺12.150**
+
+VAT included · shipping excluded
+
+### Havensis DCDC-1224B Bidirectional DC-DC Battery Charger 12/24 V 40 A
+
+Caravans: bidirectional battery charging (boost mode) · 12/24 V
+
+**₺14.400**≈ $304
+
+💰 By bank transfer: **₺13.950**
+
+VAT included · shipping excluded
+
+### Havensis BOOST DCDC-2448 DC-DC Battery Charger 36/48/60/72 V
+
+Charges 36–72 V batteries from a 12/24 V input · caravans and boats
+
+**₺8.800**≈ $185
+
+💰 By bank transfer: **₺8.550**
 
 VAT included · shipping excluded
 

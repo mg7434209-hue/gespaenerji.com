@@ -3,7 +3,7 @@ title: "Online Satış — Güneş Enerjisi Ürünleri | GESPA Enerji"
 description: "GESPA Enerji online satış: hazır güneş enerjisi paketleri, şarj kontrol cihazları ve solar ekipman. Şeffaf fiyat, KDV dahil, Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/online-satis.html
 lang: tr
-dateModified: 2026-09-28
+dateModified: 2026-09-29
 publisher: "GESPA Enerji"
 ---
 
@@ -114,6 +114,76 @@ Ev ve işyeri enerji depolama, off-grid ve yedek güç
 **₺73.372**≈ $1.545
 
 💰 Havale/EFT ile: **₺71.150**
+
+KDV dahil · kargo hariç
+
+### Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 A
+
+12/24 V akülü güneş sistemleri · 1200 W panele kadar
+
+**₺6.800**≈ $143
+
+💰 Havale/EFT ile: **₺6.600**
+
+KDV dahil · kargo hariç
+
+### Havensis Solar-60AMPS-100 MPPT Şarj Kontrol Cihazı 12/24 V 60 A
+
+12/24 V akülü güneş sistemleri · 2500 W panele kadar
+
+**₺12.500**≈ $264
+
+💰 Havale/EFT ile: **₺12.150**
+
+KDV dahil · kargo hariç
+
+### Havensis Solar-60AMPS 150|60 MPPT Şarj Kontrol Cihazı 12/24/36/48 V 60 A
+
+12/24/36/48 V akülü güneş sistemleri · 5000 W panele kadar
+
+**₺17.200**≈ $363
+
+💰 Havale/EFT ile: **₺16.700**
+
+KDV dahil · kargo hariç
+
+### Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 30 A
+
+Karavan: alternatörden yaşam aküsüne şarj · 12/24 V
+
+**₺10.300**≈ $218
+
+💰 Havale/EFT ile: **₺10.000**
+
+KDV dahil · kargo hariç
+
+### Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A
+
+Karavan: alternatörden yaşam aküsüne şarj · 12/24 V
+
+**₺12.500**≈ $264
+
+💰 Havale/EFT ile: **₺12.150**
+
+KDV dahil · kargo hariç
+
+### Havensis DCDC-1224B Çift Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A
+
+Karavan: çift yönlü akü şarjı (takviye modu) · 12/24 V
+
+**₺14.400**≈ $304
+
+💰 Havale/EFT ile: **₺13.950**
+
+KDV dahil · kargo hariç
+
+### Havensis BOOST DCDC-2448 DC-DC Akü Şarj Cihazı 36/48/60/72 V
+
+12/24 V girişten 36–72 V aküye şarj · karavan ve tekne
+
+**₺8.800**≈ $185
+
+💰 Havale/EFT ile: **₺8.550**
 
 KDV dahil · kargo hariç
 

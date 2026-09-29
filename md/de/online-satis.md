@@ -3,7 +3,7 @@ title: "Onlineshop — Solarprodukte und Ausrüstung | GESPA Energy"
 description: "Alle Verkaufsprodukte auf einer Seite: Solar-Fertigsets, MPPT-Laderegler und Zubehör. Transparente Preise inkl. MwSt., Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/online-satis.html
 lang: de
-dateModified: 2026-09-28
+dateModified: 2026-09-29
 publisher: "GESPA Enerji"
 ---
 
@@ -114,6 +114,76 @@ Energiespeicher für Haus und Betrieb, Off-Grid und Notstrom
 **₺73.372**≈ $1.545
 
 💰 Per Überweisung: **₺71.150**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Havensis Solar-30AMPS MPPT-Laderegler 12/24 V 30 A
+
+Solaranlagen mit 12/24-V-Batterie · bis 1200 W Modulleistung
+
+**₺6.800**≈ $143
+
+💰 Per Überweisung: **₺6.600**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Havensis Solar-60AMPS-100 MPPT-Laderegler 12/24 V 60 A
+
+Solaranlagen mit 12/24-V-Batterie · bis 2500 W Modulleistung
+
+**₺12.500**≈ $264
+
+💰 Per Überweisung: **₺12.150**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Havensis Solar-60AMPS 150|60 MPPT-Laderegler 12/24/36/48 V 60 A
+
+Solaranlagen mit 12/24/36/48-V-Batterie · bis 5000 W Modulleistung
+
+**₺17.200**≈ $363
+
+💰 Per Überweisung: **₺16.700**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Havensis DCDC-1224 unidirektionales DC-DC-Batterieladegerät 12/24 V 30 A
+
+Wohnmobil: Aufbaubatterie über die Lichtmaschine laden · 12/24 V
+
+**₺10.300**≈ $218
+
+💰 Per Überweisung: **₺10.000**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Havensis DCDC-1224 unidirektionales DC-DC-Batterieladegerät 12/24 V 40 A
+
+Wohnmobil: Aufbaubatterie über die Lichtmaschine laden · 12/24 V
+
+**₺12.500**≈ $264
+
+💰 Per Überweisung: **₺12.150**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Havensis DCDC-1224B bidirektionales DC-DC-Batterieladegerät 12/24 V 40 A
+
+Wohnmobil: bidirektionales Batterieladen (Boost-Modus) · 12/24 V
+
+**₺14.400**≈ $304
+
+💰 Per Überweisung: **₺13.950**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Havensis BOOST DCDC-2448 DC-DC-Batterieladegerät 36/48/60/72 V
+
+Lädt 36–72-V-Batterien über einen 12/24-V-Eingang · Wohnmobil und Boot
+
+**₺8.800**≈ $185
+
+💰 Per Überweisung: **₺8.550**
 
 Inkl. MwSt. · zzgl. Versand
 
