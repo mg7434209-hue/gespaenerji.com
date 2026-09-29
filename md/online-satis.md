@@ -121,9 +121,9 @@ KDV dahil · kargo hariç
 
 12/24 V akülü güneş sistemleri · 1200 W panele kadar
 
-**₺6.800**≈ $143
+**₺6.200**≈ $130
 
-💰 Havale/EFT ile: **₺6.600**
+💰 Havale/EFT ile: **₺6.000**
 
 KDV dahil · kargo hariç
 
@@ -131,9 +131,9 @@ KDV dahil · kargo hariç
 
 12/24 V akülü güneş sistemleri · 2500 W panele kadar
 
-**₺12.500**≈ $264
+**₺11.400**≈ $240
 
-💰 Havale/EFT ile: **₺12.150**
+💰 Havale/EFT ile: **₺11.050**
 
 KDV dahil · kargo hariç
 
@@ -141,9 +141,9 @@ KDV dahil · kargo hariç
 
 12/24/36/48 V akülü güneş sistemleri · 5000 W panele kadar
 
-**₺17.200**≈ $363
+**₺15.700**≈ $330
 
-💰 Havale/EFT ile: **₺16.700**
+💰 Havale/EFT ile: **₺15.250**
 
 KDV dahil · kargo hariç
 
@@ -151,9 +151,9 @@ KDV dahil · kargo hariç
 
 Karavan: alternatörden yaşam aküsüne şarj · 12/24 V
 
-**₺10.300**≈ $218
+**₺9.400**≈ $198
 
-💰 Havale/EFT ile: **₺10.000**
+💰 Havale/EFT ile: **₺9.100**
 
 KDV dahil · kargo hariç
 
@@ -161,9 +161,9 @@ KDV dahil · kargo hariç
 
 Karavan: alternatörden yaşam aküsüne şarj · 12/24 V
 
-**₺12.500**≈ $264
+**₺11.400**≈ $240
 
-💰 Havale/EFT ile: **₺12.150**
+💰 Havale/EFT ile: **₺11.050**
 
 KDV dahil · kargo hariç
 
@@ -171,9 +171,9 @@ KDV dahil · kargo hariç
 
 Karavan: çift yönlü akü şarjı (takviye modu) · 12/24 V
 
-**₺14.400**≈ $304
+**₺13.100**≈ $276
 
-💰 Havale/EFT ile: **₺13.950**
+💰 Havale/EFT ile: **₺12.700**
 
 KDV dahil · kargo hariç
 
@@ -181,9 +181,9 @@ KDV dahil · kargo hariç
 
 12/24 V girişten 36–72 V aküye şarj · karavan ve tekne
 
-**₺8.800**≈ $185
+**₺8.000**≈ $168
 
-💰 Havale/EFT ile: **₺8.550**
+💰 Havale/EFT ile: **₺7.750**
 
 KDV dahil · kargo hariç
 

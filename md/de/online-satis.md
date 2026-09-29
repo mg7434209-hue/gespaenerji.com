@@ -121,9 +121,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Solaranlagen mit 12/24-V-Batterie · bis 1200 W Modulleistung
 
-**₺6.800**≈ $143
+**₺6.200**≈ $130
 
-💰 Per Überweisung: **₺6.600**
+💰 Per Überweisung: **₺6.000**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -131,9 +131,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Solaranlagen mit 12/24-V-Batterie · bis 2500 W Modulleistung
 
-**₺12.500**≈ $264
+**₺11.400**≈ $240
 
-💰 Per Überweisung: **₺12.150**
+💰 Per Überweisung: **₺11.050**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -141,9 +141,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Solaranlagen mit 12/24/36/48-V-Batterie · bis 5000 W Modulleistung
 
-**₺17.200**≈ $363
+**₺15.700**≈ $330
 
-💰 Per Überweisung: **₺16.700**
+💰 Per Überweisung: **₺15.250**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -151,9 +151,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Wohnmobil: Aufbaubatterie über die Lichtmaschine laden · 12/24 V
 
-**₺10.300**≈ $218
+**₺9.400**≈ $198
 
-💰 Per Überweisung: **₺10.000**
+💰 Per Überweisung: **₺9.100**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -161,9 +161,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Wohnmobil: Aufbaubatterie über die Lichtmaschine laden · 12/24 V
 
-**₺12.500**≈ $264
+**₺11.400**≈ $240
 
-💰 Per Überweisung: **₺12.150**
+💰 Per Überweisung: **₺11.050**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -171,9 +171,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Wohnmobil: bidirektionales Batterieladen (Boost-Modus) · 12/24 V
 
-**₺14.400**≈ $304
+**₺13.100**≈ $276
 
-💰 Per Überweisung: **₺13.950**
+💰 Per Überweisung: **₺12.700**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -181,9 +181,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Lädt 36–72-V-Batterien über einen 12/24-V-Eingang · Wohnmobil und Boot
 
-**₺8.800**≈ $185
+**₺8.000**≈ $168
 
-💰 Per Überweisung: **₺8.550**
+💰 Per Überweisung: **₺7.750**
 
 Inkl. MwSt. · zzgl. Versand
 

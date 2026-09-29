@@ -411,17 +411,17 @@ window.GESPA.config = {
     // Teknik değerler YALNIZ listedeki maddelerdir; listede olmayan değer
     // (garanti, ağırlık, IP sınıfı…) YAZILMAZ.
     // FİYAT: liste USD ve "Fiyatlarımıza KDV dahil değildir" der. İşletme
-    // kararı (29 Eyl 2026): liste + %10, üstüne %20 KDV; sitede KDV DAHİL
-    // gösterilir → `price` = liste × 1,10 × 1,20 = liste × 1,32. ₺ karşılığı
-    // config.usdTry ile hesaplanır. Liste değişince yalnız bu satırlar
-    // güncellenir (her satırın yanında liste fiyatı yazılı).
+    // kararı (29 Eyl 2026): liste AYNEN uygulanır, yalnız %20 KDV eklenir
+    // (100 USD → 120 USD); sitede KDV DAHİL gösterilir → `price` = liste ×
+    // 1,20. Kâr payı EKLENMEZ. ₺ karşılığı config.usdTry ile hesaplanır.
+    // Liste değişince yalnız bu satırlar güncellenir (yanında liste fiyatı).
     // MARKA: Havensis gerçek üreticidir — fotoğraftaki logo SİLİNMEZ (UNV
     // kuralı). Görseller: kaynak/havensis-*.png → tools/foto-hazirla.py.
     {
       id: "havensis-s30amps", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       sku: "S30AMPS", brand: "Havensis",
       img: "assets/img/products/havensis-s30amps.webp",
-      price: 142.56, currency: "USD",       // liste 108 USD + %10 + %20 KDV (sıra 12)
+      price: 129.6, currency: "USD",        // liste 108 USD + %20 KDV (sıra 12)
       chips: ["⚡ 12/24 V · 30 A", "☀️ 100 V · 1200 W panel", "📟 LCD ekran"],
       for: "12/24 V akülü güneş sistemleri · 1200 W panele kadar",
       name: "Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 A",
@@ -432,7 +432,7 @@ window.GESPA.config = {
       id: "havensis-s60amps100", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       sku: "S60AMPS100", brand: "Havensis",
       img: "assets/img/products/havensis-s60amps100.webp",
-      price: 264, currency: "USD",          // liste 200 USD + %10 + %20 KDV (sıra 15)
+      price: 240, currency: "USD",          // liste 200 USD + %20 KDV (sıra 15)
       chips: ["⚡ 12/24 V · 60 A", "☀️ 100 V · 2500 W panel", "📟 LCD ekran"],
       for: "12/24 V akülü güneş sistemleri · 2500 W panele kadar",
       name: "Havensis Solar-60AMPS-100 MPPT Şarj Kontrol Cihazı 12/24 V 60 A",
@@ -443,7 +443,7 @@ window.GESPA.config = {
       id: "havensis-s60amps150", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       sku: "S60AMPS", brand: "Havensis",
       img: "assets/img/products/havensis-s60amps150.webp",
-      price: 363, currency: "USD",          // liste 275 USD + %10 + %20 KDV (sıra 17)
+      price: 330, currency: "USD",          // liste 275 USD + %20 KDV (sıra 17)
       chips: ["⚡ 12–48 V · 60 A", "☀️ 150 V · 5000 W panel", "📟 LCD ekran"],
       for: "12/24/36/48 V akülü güneş sistemleri · 5000 W panele kadar",
       name: "Havensis Solar-60AMPS 150|60 MPPT Şarj Kontrol Cihazı 12/24/36/48 V 60 A",
@@ -454,7 +454,7 @@ window.GESPA.config = {
       id: "havensis-dcdc-1224-30", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
       sku: "DCDC-1224-30", brand: "Havensis",
       img: "assets/img/products/havensis-dcdc-1224.webp",
-      price: 217.8, currency: "USD",        // liste 165 USD + %10 + %20 KDV (sıra 24)
+      price: 198, currency: "USD",          // liste 165 USD + %20 KDV (sıra 24)
       chips: ["🔋 12/24 V · 30 A", "🚐 Alternatörden şarj", "⚙️ %96,4 verim"],
       for: "Karavan: alternatörden yaşam aküsüne şarj · 12/24 V",
       name: "Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 30 A",
@@ -465,7 +465,7 @@ window.GESPA.config = {
       id: "havensis-dcdc-1224-40", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
       sku: "DCDC-1224-40", brand: "Havensis",
       img: "assets/img/products/havensis-dcdc-1224.webp",
-      price: 264, currency: "USD",          // liste 200 USD + %10 + %20 KDV (sıra 26)
+      price: 240, currency: "USD",          // liste 200 USD + %20 KDV (sıra 26)
       chips: ["🔋 12/24 V · 40 A", "🚐 Alternatörden şarj", "⚙️ %96,4 verim"],
       for: "Karavan: alternatörden yaşam aküsüne şarj · 12/24 V",
       name: "Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A",
@@ -476,7 +476,7 @@ window.GESPA.config = {
       id: "havensis-dcdc-1224b-40", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
       sku: "DCDC-1224B-40", brand: "Havensis",
       img: "assets/img/products/havensis-dcdc-1224b.webp",
-      price: 303.6, currency: "USD",        // liste 230 USD + %10 + %20 KDV (sıra 27)
+      price: 276, currency: "USD",          // liste 230 USD + %20 KDV (sıra 27)
       chips: ["🔋 12/24 V · 40 A", "🔁 Çift yönlü · 10 A takviye", "⚙️ %96,4 verim"],
       for: "Karavan: çift yönlü akü şarjı (takviye modu) · 12/24 V",
       name: "Havensis DCDC-1224B Çift Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A",
@@ -487,7 +487,7 @@ window.GESPA.config = {
       id: "havensis-dcdc-2448", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
       sku: "DCDC-2472-20", brand: "Havensis",
       img: "assets/img/products/havensis-dcdc-2448.webp",
-      price: 184.8, currency: "USD",        // liste 140 USD + %10 + %20 KDV (sıra 31)
+      price: 168, currency: "USD",          // liste 140 USD + %20 KDV (sıra 31)
       chips: ["🔋 36/48/60/72 V akü", "⚡ 12/24 V giriş · 15 A şarj", "⚙️ %95 verim"],
       for: "12/24 V girişten 36–72 V aküye şarj · karavan ve tekne",
       name: "Havensis BOOST DCDC-2448 DC-DC Akü Şarj Cihazı 36/48/60/72 V",

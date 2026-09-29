@@ -577,7 +577,7 @@
         var cardPct = p.noCartDiscount ? 0 : pkgPct(p);      // ürüne özel oran
         var poa = !!u.poa;                                   // fiyat girilmemis: "Teklif alin"
         // "≈ $" yaklaşık gösterimdir: KDV'li USD fiyat kuruşlu olabilir
-        // (Havensis 108 × 1,32 = 142,56); statik liste ve llms-full gibi yuvarlanır.
+        // (Havensis 108 × 1,20 = 129,6); statik liste ve llms-full gibi yuvarlanır.
         var usd = poa ? 0 : (p.currency === "USD" ? Math.round(p.price) : (CFG.usdTry ? Math.round(p.price / CFG.usdTry) : 0));
         var off = saleOf(p);
         var oldTL = p.oldPrice && (p.currency === "USD" ? Math.round(p.oldPrice * (CFG.usdTry || 0) / 100) * 100 : p.oldPrice);

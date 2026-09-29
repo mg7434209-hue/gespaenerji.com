@@ -121,9 +121,9 @@ VAT included · shipping excluded
 
 12/24 V battery solar systems · up to 1200 W of panels
 
-**₺6.800**≈ $143
+**₺6.200**≈ $130
 
-💰 By bank transfer: **₺6.600**
+💰 By bank transfer: **₺6.000**
 
 VAT included · shipping excluded
 
@@ -131,9 +131,9 @@ VAT included · shipping excluded
 
 12/24 V battery solar systems · up to 2500 W of panels
 
-**₺12.500**≈ $264
+**₺11.400**≈ $240
 
-💰 By bank transfer: **₺12.150**
+💰 By bank transfer: **₺11.050**
 
 VAT included · shipping excluded
 
@@ -141,9 +141,9 @@ VAT included · shipping excluded
 
 12/24/36/48 V battery solar systems · up to 5000 W of panels
 
-**₺17.200**≈ $363
+**₺15.700**≈ $330
 
-💰 By bank transfer: **₺16.700**
+💰 By bank transfer: **₺15.250**
 
 VAT included · shipping excluded
 
@@ -151,9 +151,9 @@ VAT included · shipping excluded
 
 Caravans: charging the house battery from the alternator · 12/24 V
 
-**₺10.300**≈ $218
+**₺9.400**≈ $198
 
-💰 By bank transfer: **₺10.000**
+💰 By bank transfer: **₺9.100**
 
 VAT included · shipping excluded
 
@@ -161,9 +161,9 @@ VAT included · shipping excluded
 
 Caravans: charging the house battery from the alternator · 12/24 V
 
-**₺12.500**≈ $264
+**₺11.400**≈ $240
 
-💰 By bank transfer: **₺12.150**
+💰 By bank transfer: **₺11.050**
 
 VAT included · shipping excluded
 
@@ -171,9 +171,9 @@ VAT included · shipping excluded
 
 Caravans: bidirectional battery charging (boost mode) · 12/24 V
 
-**₺14.400**≈ $304
+**₺13.100**≈ $276
 
-💰 By bank transfer: **₺13.950**
+💰 By bank transfer: **₺12.700**
 
 VAT included · shipping excluded
 
@@ -181,9 +181,9 @@ VAT included · shipping excluded
 
 Charges 36–72 V batteries from a 12/24 V input · caravans and boats
 
-**₺8.800**≈ $185
+**₺8.000**≈ $168
 
-💰 By bank transfer: **₺8.550**
+💰 By bank transfer: **₺7.750**
 
 VAT included · shipping excluded
 

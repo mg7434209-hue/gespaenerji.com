@@ -269,8 +269,9 @@ ve sepet simgesi ekran dışında kalır.
   7 Havensis cihazı (`group:"charge"` = "Şarj Kontrol & DC-DC", YALNIZ
   katalog, detay sayfası yok): 3 MPPT + 3 DC-DC + 1 BOOST DC-DC. Kaynak
   Havensis 02/2026 fiyat listesi (USD, KDV HARİÇ); FİYAT KURALI işletme
-  kararı: `price` = liste × 1,10 × 1,20 (%10 + %20 KDV), satır yanında liste
-  fiyatı yazılı. Havensis gerçek üreticidir, foto logosu SİLİNMEZ.
+  kararı: liste AYNEN + %20 KDV, `price` = liste × 1,20 (100 USD → 120 USD),
+  kâr payı EKLENMEZ; satır yanında liste fiyatı yazılı. Havensis gerçek
+  üreticidir, foto logosu SİLİNMEZ.
   — `url` detay sayfası, `img` gerçek foto,
   `oldPrice` indirim rozeti, `currency:"USD"` dolar, `dailyKwh` günlük üretim.
   `usdTry` kuru ile ikinci para "≈" gösterilir; kur değişince SADECE
