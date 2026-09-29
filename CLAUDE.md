@@ -625,6 +625,12 @@ Tüm kurallar: @docs/odeme.md
 - Railway Volume yoksa orders.json her dağıtımda SİLİNİR: sipariş kayıtları
   gider, tek kalıcı kopya işletme e-postasıdır. Belirteçsiz eski dekont
   bağlantıları (yalnız `r=`) bu yüzden açılmaz.
+- SUNUCU YALNIZ YAYIN DOSYALARINI VERİR (server.js `isPublicPath` izin
+  listesi: kök html/txt/xml, assets/, en/ de/ ru/, md/). data/ (Volume yokken
+  orders.json: TCKN, adres!), sunucu kodu, docs/, tools/, content/, tests/,
+  …/kaynak/ ve gizli dosyalar 404 döner (test denetler). 29 Eyl 2026'ya dek
+  data/orders.json adresle okunabiliyordu. Yeni yayın klasörü eklersen
+  izin listesine yaz.
 
 ## Ürün akışı — `urunler.xml`
 `build.js` `writeProductFeed()` config.packages'ten **Google Merchant Center

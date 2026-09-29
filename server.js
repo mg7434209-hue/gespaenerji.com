@@ -41,6 +41,22 @@ function safeJoin(base, target) {
   return targetPath;
 }
 
+// YALNIZ YAYIN DOSYALARI servis edilir (izin listesi). Kök dizinde sunucu
+// kodu, belgeler, testler ve — Volume yokken — data/orders.json da durur:
+// siparişlerde T.C. kimlik/vergi no, adres, telefon var. Eskiden hepsi
+// adresle okunabiliyordu (29 Eyl 2026'da kapatıldı). İzinli: kökteki
+// sayfa/metin/XML dosyaları (robots, llms, sitemap, ürün akışı, IndexNow
+// anahtarı), assets/, dil klasörleri ve md/. Tedarikçi ham belgeleri
+// (…/kaynak/: künye PDF'leri, tedarikçi iletişimi) ve gizli dosyalar
+// (.git, .env, .github) izinli DEĞİLDİR. Yeni bir yayın klasörü eklenirse
+// buraya yazılır; yoksa 404 döner (test denetler).
+function isPublicPath(p) {
+  if (/\/\.|\/kaynak\//i.test(p)) return false;
+  return /^\/[^/]+\.(?:html|txt|xml)$/.test(p)
+    || /^\/(?:assets|en|de|ru|md)\//.test(p)
+    || /^\/(?:en|de|ru)$/.test(p);              // dizin → eğik çizgili adrese 301
+}
+
 // ---- Ziyaretçi sayacı ----
 // Gerçek ziyaretleri sayar: HTML sayfası isteyen ve çerezi olmayan her tarayıcı
 // günde 1 kez sayılır (çerez 24 saat yaşar); bilinen botlar sayılmaz.
@@ -1121,7 +1137,9 @@ const server = http.createServer((req, res) => {
     // Dizin kökü (/, /en/, /de/, /ru/) → index.html
     if (urlPath.endsWith("/")) urlPath += "index.html";
 
-    let filePath = safeJoin(ROOT, urlPath);
+    // İzin listesi dışındaki yol hiç diske gitmeden 404 sayfasına düşer
+    // (varlığı da belli edilmez) — bkz. isPublicPath.
+    let filePath = isPublicPath(urlPath) ? safeJoin(ROOT, urlPath) : path.join(ROOT, "__yayin-disi__");
     if (!filePath) {
       res.writeHead(400);
       return res.end("Bad request");

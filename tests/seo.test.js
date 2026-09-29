@@ -262,7 +262,16 @@ server.stdout.on('data',async d=>{
   const rf=await rcPost({k:forged});assert.equal(rf.status,404,'tampered receipt token rejected');await rf.text();
   const r0=await rcPost({});assert.equal(r0.status,400);await r0.text();
   const rg=await fetch('http://127.0.0.1:'+port+'/api/order/receipt?r=00112233445566778899aabb');assert.equal(rg.status,404,'old rid-only link without record');await rg.text();
-  console.log('HTTP: key pages and bot files return 200; missing page returns 404; markdown mirrors, Accept negotiation, AI crawler counter, visitor handoff and receipt tokens work.');
+  // Only published files are served: server code, docs, tests, supplier source documents and the
+  // runtime data folder (orders with Turkish ID numbers when no Volume is attached) must 404.
+  for(const u of ['/data/visitors.json','/data/orders.json','/server.js','/build.js','/package.json','/railway.json','/CLAUDE.md','/docs/odeme.md','/tools/foto-hazirla.py','/content/sss.js','/tests/seo.test.js','/.gitignore','/.github/workflows/indexnow.yml','/assets/img/products/kaynak/mc4-set.png','/assets/../data/visitors.json']){
+   const r=await fetch('http://127.0.0.1:'+port+u);assert.equal(r.status,404,'private path must not be served: '+u);await r.text();
+  }
+  for(const u of ['/b725d1a9c07cf60e8cb21fed369d7db3.txt','/urunler.xml','/md/index.md','/assets/config.js']){
+   const r=await fetch('http://127.0.0.1:'+port+u);assert.equal(r.status,200,'public path: '+u);await r.text();
+  }
+  const langDir=await fetch('http://127.0.0.1:'+port+'/en',{redirect:'manual'});assert.equal(langDir.status,301,'/en redirects to /en/');await langDir.text();
+  console.log('HTTP: key pages and bot files return 200; missing page returns 404; markdown mirrors, Accept negotiation, AI crawler counter, visitor handoff, receipt tokens and the public-file allowlist work.');
  }catch(e){console.error(e);process.exitCode=1;}finally{clearTimeout(timeout);server.kill();}
 });
 server.on('error',e=>{clearTimeout(timeout);console.error(e);process.exitCode=1;});
