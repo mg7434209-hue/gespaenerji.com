@@ -133,6 +133,9 @@ module.exports = {
     { file: "paket-motor-yolcu.html", title: ["Yolcu kabinli motor paketi (285 W)", "Passenger-cab e-trike set (285 W)", "Solar-Set für Fahrgast-Dreirad (285 W)", "Комплект для пассажирского трицикла (285 Вт)"] },
     { file: "paket-motor-kargo.html", title: ["Kargo kasalı motor paketi (655 W)", "Cargo-bed e-trike set (655 W)", "Solar-Set für Lasten-Dreirad (655 W)", "Комплект для грузового трицикла (655 Вт)"] },
     { file: "aku-lifepo4-72v-30ah.html", title: ["72 V LiFePO₄ çekiş aküsü", "72 V LiFePO₄ traction battery", "72-V-LiFePO₄-Traktionsakku", "Тяговый аккумулятор LiFePO₄ 72 В"] },
+    { file: "havensis-mppt-30a.html", title: ["MPPT şarj kontrol cihazları (Havensis)", "MPPT charge controllers (Havensis)", "MPPT-Laderegler (Havensis)", "MPPT-контроллеры заряда (Havensis)"] },
+    { file: "havensis-dcdc-40a-cift-yonlu.html", title: ["Karavan DC-DC akü şarj cihazları", "Caravan DC-DC battery chargers", "DC-DC-Ladegeräte für Wohnmobile", "Зарядные устройства DC-DC для автодомов"] },
+    { file: "havensis-boost-dcdc-2448.html", title: ["BOOST DC-DC şarj (36–72 V akü)", "BOOST DC-DC charging (36–72 V batteries)", "BOOST-DC-DC-Laden (36–72-V-Batterien)", "Зарядка BOOST DC-DC (АКБ 36–72 В)"] },
     { file: "ai-cankurtaran-destek-sistemi.html", title: ["Havuz güvenliği — AI Cankurtaran", "Pool safety — AI Lifeguard", "Poolsicherheit — KI-Rettungsschwimmer-Assistenz", "Безопасность бассейна — ИИ-поддержка спасателей"] },
     { file: "toptan.html", title: ["Toptan satış (B2B)", "Wholesale (B2B)", "Großhandel (B2B)", "Оптовые продажи (B2B)"] },
     { file: "iletisim.html", title: ["İletişim ve keşif", "Contact and site survey", "Kontakt und Vor-Ort-Termin", "Контакты и выезд на объект"] }

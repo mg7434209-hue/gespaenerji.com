@@ -2235,6 +2235,19 @@
     doc.addEventListener("gespa:lang", applyNames);
   })();
 
+  /* ---- data-pkg-list: çapraz satış kartında ürünün LİSTE fiyatı ----
+     build.js aynı değeri statik basar; burada config'ten (canlı kur, admin
+     önizlemesi) tazelenir. Kural sepetle aynı: GESPA.shop.unit = pkgUnit. */
+  (function () {
+    var shop = window.GESPA && GESPA.shop; if (!shop) return;
+    var nf = new Intl.NumberFormat("tr-TR");
+    $$("[data-pkg-list]").forEach(function (el) {
+      var p = shop.pkg(el.getAttribute("data-pkg-list")); if (!p) return;
+      var u = shop.unit(p);
+      if (u && u.list != null) el.textContent = "₺" + nf.format(u.list);
+    });
+  })();
+
   /* ---- Ana sayfa hero vitrini — tam genişlik dönen tanıtım (hero2) ---- */
   (function () {
     var show = $("#heroShow"); if (!show) return;

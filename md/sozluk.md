@@ -3,7 +3,7 @@ title: "GES Sözlüğü — Güneş Enerjisi, Akü ve İnverter Terimleri | GESP
 description: "kWp, MPPT, TOPCon, LiFePO₄, DoD, mahsuplaşma ve daha fazlası: güneş enerjisi, akü ve elektrikli araç dönüşümü terimlerinin kısa ve anlaşılır açıklamaları."
 canonical: https://www.gespaenerji.com/sozluk.html
 lang: tr
-dateModified: 2026-09-24
+dateModified: 2026-09-29
 publisher: "GESPA Enerji"
 ---
 
@@ -82,6 +82,12 @@ Panelin o anki ışık ve sıcaklıkta en fazla güç verdiği gerilim-akım nok
 Panel gerilimini akü grubunun geriliminin üzerine yükselterek şarj eden MPPT şarj kontrol cihazı. Daha düşük gerilimli panellerle 24–72 V akü gruplarını, örneğin elektrikli araç akülerini şarj etmeyi sağlar.
 
 [BOOST MPPT ürün sayfası →](https://www.gespaenerji.com/elektrikli-arac-donusum.html)
+
+## DC-DC akü şarj cihazı
+
+Araçta alternatörün doldurduğu marş aküsünden ikinci bir aküyü, örneğin karavanın yaşam aküsünü, kontrollü biçimde şarj eden cihaz. İki aküyü birbirinden ayırır, uzun kablolardaki gerilim kaybını telafi eder ve motor dururken marş aküsünün boşalmasını önler.
+
+[DC-DC akü şarj cihazları →](https://www.gespaenerji.com/havensis-dcdc-30a.html)
 
 ## LiFePO₄ (lityum demir fosfat) akü
 

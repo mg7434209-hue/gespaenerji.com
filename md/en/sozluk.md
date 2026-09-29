@@ -3,7 +3,7 @@ title: "Solar Glossary — PV, Battery and Inverter Terms Explained | GESPA Ener
 description: "kWp, MPPT, TOPCon, LiFePO₄, DoD, net metering and more: short, plain-language explanations of solar, battery and EV conversion terms."
 canonical: https://www.gespaenerji.com/en/sozluk.html
 lang: en
-dateModified: 2026-09-24
+dateModified: 2026-09-29
 publisher: "GESPA Enerji"
 ---
 
@@ -82,6 +82,12 @@ A control method that continuously finds the voltage–current point at which th
 An MPPT charge controller that boosts the panel voltage above the battery-pack voltage to charge it. It lets lower-voltage panels charge 24–72 V battery packs, such as electric-vehicle batteries.
 
 [BOOST MPPT product page →](https://www.gespaenerji.com/en/elektrikli-arac-donusum.html)
+
+## DC-DC battery charger
+
+A device that charges a second battery, such as a caravan's house battery, in a controlled way from a vehicle's alternator-charged starter battery. It separates the two batteries, makes up for voltage drop on long cables and keeps the starter battery from draining while the engine is off.
+
+[DC-DC battery chargers →](https://www.gespaenerji.com/en/havensis-dcdc-30a.html)
 
 ## LiFePO₄ (lithium iron phosphate) battery
 

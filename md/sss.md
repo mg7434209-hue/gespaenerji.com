@@ -3,7 +3,7 @@ title: "Sıkça Sorulan Sorular — Güneş Enerjisi, Sipariş ve Kurulum | GESP
 description: "Güneş enerjisi santrali, akü, elektrikli araç güneş dönüşümü, sipariş, kargo, ödeme ve kurulum hakkında sık sorulan soruların cevapları tek sayfada. GESPA Enerji, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/sss.html
 lang: tr
-dateModified: 2026-09-28
+dateModified: 2026-09-29
 publisher: "GESPA Enerji"
 ---
 
@@ -542,6 +542,116 @@ LiFePO₄, NMC gibi diğer lityum iyon kimyalarına göre ısıl olarak çok dah
 Evet. Panelden 72 V akü grubuna doğrudan şarj için BOOST MPPT 24–72 V şarj kontrol cihazını kullanıyoruz; hazır motor güneş paketlerimizde de bu cihaz var.
 
 [Sayfaya git →](https://www.gespaenerji.com/aku-lifepo4-72v-30ah.html)
+
+## MPPT şarj kontrol cihazları (Havensis)
+
+### 1200 W panel bağlarsam cihaz 1200 W şarj eder mi?
+
+Hayır, şarj gücünü akü gerilimi ve 30 A şarj akımı belirler. 12 V akü sisteminde yaklaşık 30 A × 14 V ≈ 420 W, 24 V sistemde yaklaşık 840 W şarj gücü elde edilir. 1200 W'a kadar panel bağlanabilir; panel gücü bunu aştığında cihaz akımı 30 A'de sınırlar, fazla panel ise sabah, akşam ve bulutlu havada şarjı artırır.
+
+### Hangi akülerle çalışır?
+
+12 V ve 24 V akülerle. Tüm parametreler ayarlanabildiği için şarj değerleri akünüzün üreticisinin verdiği değerlere göre girilir. Lityum akü kullanıyorsanız akünüzün şarj değerlerini bize yazın; sipariş öncesi birlikte kontrol edelim.
+
+### Kaç panel seri bağlayabilirim?
+
+Seri bağlı panellerin açık devre gerilimi (Voc) toplamı 100 V'u aşmamalıdır. Mağazamızdaki Lexron 285 W panelden (Voc 42,84 V) en fazla 2 tanesi seri bağlanır; Lexron 655 W panel (Voc 50,34 V) bu cihaza seri bağlanmaz, tek ya da paralel bağlanır. Voc soğukta yükseldiği için kışın −10 °C'nin altına düşen bölgelerde dizilimi bizimle kontrol edin.
+
+### Gece-gündüz fonksiyonu ne işe yarar?
+
+Yük çıkışına bağlı aydınlatmayı hava kararınca açar; zaman ayarıyla ne kadar açık kalacağını belirlersiniz. Bahçe, depo, tabela ve sokak aydınlatmasında ayrıca sensör ya da zaman saati gerekmez.
+
+### İnverteri yük çıkışına bağlayabilir miyim?
+
+Hayır. İnverter yüksek akım çektiği için doğrudan aküye bağlanır. Yük çıkışı 20 A'e kadar DC aydınlatma ve küçük cihazlar içindir.
+
+### Akü olmadan çalışır mı?
+
+Cihaz panelden beslenebilir ve akü bağlı değilken de çalışabilir. Güneş enerjisini depolayıp akşam ve gece kullanmak için ise akü gerekir.
+
+### Telefondan izleyebilir miyim?
+
+Havensis'in Bluetooth ve Wi-Fi izleme modülleri bu cihaza takılabilir; cihazdaki tüm değerleri telefonunuzdan izlersiniz. Modül ürüne dahil değildir; fiyat için bize yazın.
+
+### Kurulumu kim yapar, Antalya dışına gönderiyor musunuz?
+
+Türkiye'nin her yerine kargo ile gönderiyoruz; cihazı bir elektrikçi bağlayabilir. Antalya bölgesinde isteğe bağlı yerinde kurulum yapıyoruz.
+
+[Sayfaya git →](https://www.gespaenerji.com/havensis-mppt-30a.html)
+
+## Karavan DC-DC akü şarj cihazları
+
+### DC-DC şarj cihazı neden gerekli, aküleri doğrudan bağlasam olmaz mı?
+
+Doğrudan bağlantı park hâlinde marş aküsünü de boşaltır; basit röleler ise yaşam aküsünü çoğu zaman tam dolduramaz ve uzun kablolarda gerilim kaybı yaşanır. DC-DC şarj cihazı iki aküyü ayırır ve yaşam aküsünü kontrollü biçimde doldurur.
+
+### Hangi araçlarda kullanılır?
+
+12 V ve 24 V sistemli araçlarda. Cihaz 12-12, 12-24, 24-12 ve 24-24 V şarj yapabilir: örneğin 24 V bir kamyonda 12 V yaşam aküsünü şarj edebilir.
+
+### Motor durunca marş aküsü boşalır mı?
+
+Hayır. Motor kapalı tanıma özelliği aracın durduğunu algılar ve ters akımı engeller. Takviye modunda ise cihaz bilinçli olarak ters yönde çalışır ve marş aküsünü yaşam aküsünden besler.
+
+### Yaşam akümü ne kadar sürede doldurur?
+
+Kabaca akü kapasitesi ÷ şarj akımı: 100 Ah'lik boş bir akü 40 A ile yaklaşık 2,5–3 saatlik sürüşte büyük ölçüde dolar. Son kısım akü tipine göre daha yavaş dolar.
+
+### Hangi akü tipleriyle çalışır?
+
+Tüm parametreler ekrandan programlandığı için şarj değerleri yaşam akünüze göre girilir. Akünüzün tipini ve şarj değerlerini bize yazın; sipariş öncesi uygunluğunu birlikte kontrol edelim.
+
+### Ekran nereye takılır?
+
+Dijital ekran cihaza 5 m uzatma kablosuyla bağlanır. Cihaz akülerin yanında dururken ekranı karavanın içinde, görebileceğiniz bir yere alırsınız; şarjı buradan izler ve programlarsınız.
+
+### Takviye modu ne işe yarar?
+
+Uzun süre park eden araçta marş aküsü zayıflayabilir. Takviye modunda cihaz ters yönde çalışır ve yaşam aküsünden marş aküsüne 10 A'e kadar şarj yapar; yaşam aküsü güneş paneliyle doluyorsa marş aküsü de desteklenmiş olur.
+
+### Tek yönlü mü çift yönlü mü almalıyım?
+
+Yalnız yaşam aküsünü yolda doldurmak istiyorsanız tek yönlü DCDC-1224 yeterlidir. Aracınız uzun süre park ediyorsa ya da güneşle dolan yaşam aküsünün marş aküsünü de desteklemesini istiyorsanız çift yönlü DCDC-1224B'yi seçin.
+
+### Telefondan izleyebilir miyim?
+
+Havensis'in Bluetooth ve Wi-Fi izleme modülleri bu cihaza takılabilir; cihazdaki tüm değerleri telefonunuzdan izlersiniz. Modül ürüne dahil değildir; fiyat için bize yazın.
+
+### Kurulumu kim yapar, Antalya dışına gönderiyor musunuz?
+
+Türkiye'nin her yerine kargo ile gönderiyoruz; kurulumu bir oto elektrikçisi yapabilir. Antalya bölgesinde isteğe bağlı yerinde kurulum yapıyoruz.
+
+[Sayfaya git →](https://www.gespaenerji.com/havensis-dcdc-40a-cift-yonlu.html)
+
+## BOOST DC-DC şarj (36–72 V akü)
+
+### 15 A şarj akımı her durumda alınır mı?
+
+Hayır. Cihaz girişten en fazla 20 A çeker; aküye giden akım giriş gerilimine ve akü gerilimine bağlıdır. Örnek: 24 V girişte 24 V × 20 A = 480 W çekilir; %95 verimle 48 V aküye yaklaşık 8–9 A gider. 12 V girişte aynı akü için yaklaşık 4–5 A'dir. En yüksek akım 24 V girişte ve 36 V akü grubunda elde edilir.
+
+### Hangi akülerle kullanılır?
+
+36, 48, 60 ve 72 V akü gruplarıyla. Akü grubunuzun gerilimini, tipini ve şarj değerlerini siparişte bize yazın; uygunluğunu birlikte kontrol edelim.
+
+### Hangi araçlarda kullanılır?
+
+12 ya da 24 V elektrik sistemi olan karavan, motokaravan ve teknelerde; cihazın girişi 12–32 V'u kabul eder.
+
+### Güneş panelini doğrudan bağlayabilir miyim?
+
+Bu cihaz akü ve alternatör girişi için tasarlanmıştır. Panelden 24–72 V akü grubunu şarj etmek için MPPT'li bir cihaz gerekir: BOOST MPPT şarj kontrol cihazımıza bakın.
+
+[BOOST MPPT şarj kontrol cihazı →](https://www.gespaenerji.com/elektrikli-arac-donusum.html)
+
+### Bluetooth var mı?
+
+Dahili Bluetooth isteğe bağlıdır ve siparişte belirtilir. Bu seçenek için siparişten önce bize yazın.
+
+### Kurulumu kim yapar, Antalya dışına gönderiyor musunuz?
+
+Türkiye'nin her yerine kargo ile gönderiyoruz; kurulumu bir oto elektrikçisi yapabilir. Antalya bölgesinde isteğe bağlı yerinde kurulum yapıyoruz.
+
+[Sayfaya git →](https://www.gespaenerji.com/havensis-boost-dcdc-2448.html)
 
 ## Havuz güvenliği — AI Cankurtaran
 

@@ -117,7 +117,7 @@ Ev ve işyeri enerji depolama, off-grid ve yedek güç
 
 KDV dahil · kargo hariç
 
-### Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 A
+### [Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 A](https://www.gespaenerji.com/havensis-mppt-30a.html)
 
 12/24 V akülü güneş sistemleri · 1200 W panele kadar
 
@@ -127,7 +127,7 @@ KDV dahil · kargo hariç
 
 KDV dahil · kargo hariç
 
-### Havensis Solar-60AMPS-100 MPPT Şarj Kontrol Cihazı 12/24 V 60 A
+### [Havensis Solar-60AMPS-100 MPPT Şarj Kontrol Cihazı 12/24 V 60 A](https://www.gespaenerji.com/havensis-mppt-60a.html)
 
 12/24 V akülü güneş sistemleri · 2500 W panele kadar
 
@@ -137,7 +137,7 @@ KDV dahil · kargo hariç
 
 KDV dahil · kargo hariç
 
-### Havensis Solar-60AMPS 150|60 MPPT Şarj Kontrol Cihazı 12/24/36/48 V 60 A
+### [Havensis Solar-60AMPS 150|60 MPPT Şarj Kontrol Cihazı 12/24/36/48 V 60 A](https://www.gespaenerji.com/havensis-mppt-60a-150v.html)
 
 12/24/36/48 V akülü güneş sistemleri · 5000 W panele kadar
 
@@ -147,7 +147,7 @@ KDV dahil · kargo hariç
 
 KDV dahil · kargo hariç
 
-### Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 30 A
+### [Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 30 A](https://www.gespaenerji.com/havensis-dcdc-30a.html)
 
 Karavan: alternatörden yaşam aküsüne şarj · 12/24 V
 
@@ -157,7 +157,7 @@ Karavan: alternatörden yaşam aküsüne şarj · 12/24 V
 
 KDV dahil · kargo hariç
 
-### Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A
+### [Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A](https://www.gespaenerji.com/havensis-dcdc-40a.html)
 
 Karavan: alternatörden yaşam aküsüne şarj · 12/24 V
 
@@ -167,7 +167,7 @@ Karavan: alternatörden yaşam aküsüne şarj · 12/24 V
 
 KDV dahil · kargo hariç
 
-### Havensis DCDC-1224B Çift Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A
+### [Havensis DCDC-1224B Çift Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A](https://www.gespaenerji.com/havensis-dcdc-40a-cift-yonlu.html)
 
 Karavan: çift yönlü akü şarjı (takviye modu) · 12/24 V
 
@@ -177,7 +177,7 @@ Karavan: çift yönlü akü şarjı (takviye modu) · 12/24 V
 
 KDV dahil · kargo hariç
 
-### Havensis BOOST DCDC-2448 DC-DC Akü Şarj Cihazı 36/48/60/72 V
+### [Havensis BOOST DCDC-2448 DC-DC Akü Şarj Cihazı 36/48/60/72 V](https://www.gespaenerji.com/havensis-boost-dcdc-2448.html)
 
 12/24 V girişten 36–72 V aküye şarj · karavan ve tekne
 

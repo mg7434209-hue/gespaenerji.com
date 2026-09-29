@@ -118,10 +118,10 @@ Values are taken from the manufacturer's data sheet. We size the right panel pow
 
 | Nominal system | Continuous output power | Efficiency |
 | --- | --- | --- |
-| 36 V | 540 W | %95 |
+| 36 V | 540 W | 95% |
 | 48 V | 720 W | %95,5 |
 | 60 V | 900 W | %95,5 |
-| 72 V | 1080 W | %98 |
+| 72 V | 1080 W | 98% |
 
 24 V battery systems are supported as well; the manufacturer's data sheet does not state a separate continuous output power for 24 V.
 

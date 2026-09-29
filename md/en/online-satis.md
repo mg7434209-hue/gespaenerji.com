@@ -117,7 +117,7 @@ Home and business energy storage, off-grid and backup power
 
 VAT included · shipping excluded
 
-### Havensis Solar-30AMPS MPPT Charge Controller 12/24 V 30 A
+### [Havensis Solar-30AMPS MPPT Charge Controller 12/24 V 30 A](https://www.gespaenerji.com/en/havensis-mppt-30a.html)
 
 12/24 V battery solar systems · up to 1200 W of panels
 
@@ -127,7 +127,7 @@ VAT included · shipping excluded
 
 VAT included · shipping excluded
 
-### Havensis Solar-60AMPS-100 MPPT Charge Controller 12/24 V 60 A
+### [Havensis Solar-60AMPS-100 MPPT Charge Controller 12/24 V 60 A](https://www.gespaenerji.com/en/havensis-mppt-60a.html)
 
 12/24 V battery solar systems · up to 2500 W of panels
 
@@ -137,7 +137,7 @@ VAT included · shipping excluded
 
 VAT included · shipping excluded
 
-### Havensis Solar-60AMPS 150|60 MPPT Charge Controller 12/24/36/48 V 60 A
+### [Havensis Solar-60AMPS 150|60 MPPT Charge Controller 12/24/36/48 V 60 A](https://www.gespaenerji.com/en/havensis-mppt-60a-150v.html)
 
 12/24/36/48 V battery solar systems · up to 5000 W of panels
 
@@ -147,7 +147,7 @@ VAT included · shipping excluded
 
 VAT included · shipping excluded
 
-### Havensis DCDC-1224 One-Way DC-DC Battery Charger 12/24 V 30 A
+### [Havensis DCDC-1224 One-Way DC-DC Battery Charger 12/24 V 30 A](https://www.gespaenerji.com/en/havensis-dcdc-30a.html)
 
 Caravans: charging the house battery from the alternator · 12/24 V
 
@@ -157,7 +157,7 @@ Caravans: charging the house battery from the alternator · 12/24 V
 
 VAT included · shipping excluded
 
-### Havensis DCDC-1224 One-Way DC-DC Battery Charger 12/24 V 40 A
+### [Havensis DCDC-1224 One-Way DC-DC Battery Charger 12/24 V 40 A](https://www.gespaenerji.com/en/havensis-dcdc-40a.html)
 
 Caravans: charging the house battery from the alternator · 12/24 V
 
@@ -167,7 +167,7 @@ Caravans: charging the house battery from the alternator · 12/24 V
 
 VAT included · shipping excluded
 
-### Havensis DCDC-1224B Bidirectional DC-DC Battery Charger 12/24 V 40 A
+### [Havensis DCDC-1224B Bidirectional DC-DC Battery Charger 12/24 V 40 A](https://www.gespaenerji.com/en/havensis-dcdc-40a-cift-yonlu.html)
 
 Caravans: bidirectional battery charging (boost mode) · 12/24 V
 
@@ -177,7 +177,7 @@ Caravans: bidirectional battery charging (boost mode) · 12/24 V
 
 VAT included · shipping excluded
 
-### Havensis BOOST DCDC-2448 DC-DC Battery Charger 36/48/60/72 V
+### [Havensis BOOST DCDC-2448 DC-DC Battery Charger 36/48/60/72 V](https://www.gespaenerji.com/en/havensis-boost-dcdc-2448.html)
 
 Charges 36–72 V batteries from a 12/24 V input · caravans and boats
 

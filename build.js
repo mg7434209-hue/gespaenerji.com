@@ -33,6 +33,10 @@ const PAGES = [
   "paket-285w.html", "paket-2x540w.html", "unv-trek-pro-2500.html", "toptan.html",
   "paket-motor-yolcu.html", "paket-motor-kargo.html",
   "aku-lifepo4-72v-30ah.html",
+  // Havensis ürün sayfaları — tools/havensis-sayfalar.py üretir
+  "havensis-mppt-30a.html", "havensis-mppt-60a.html", "havensis-mppt-60a-150v.html",
+  "havensis-dcdc-30a.html", "havensis-dcdc-40a.html", "havensis-dcdc-40a-cift-yonlu.html",
+  "havensis-boost-dcdc-2448.html",
   "sepet.html"   // noindex; sitemap'e girmez (NOSITEMAP)
 ];
 
@@ -167,6 +171,63 @@ const META = {
           d: "LiFePO₄-Traktionsakku für Elektro-Dreiräder und 72-V-Fahrzeuge: 24S, ~2.300 Wh, max. Ladespannung 87,6 V, integriertes Balancer-BMS, 2.000 Zyklen. Ersetzt den Gel-Akkusatz, ohne Leistungsabfall beim Entladen." },
     ru: { t: "Аккумулятор europlus 72 В 30 А·ч LiFePO₄ — 72В литий | GESPA",
           d: "Тяговый аккумулятор LiFePO₄ для электротрициклов и машин на 72 В: 24S, ~2300 Вт·ч, макс. заряд 87,6 В, встроенная BMS с балансировкой, 2000 циклов. Ставится вместо гелевого блока." }
+  },
+  // Havensis ürün sayfaları (tools/havensis-sayfalar.py) — TR başlık sayfadadır
+  "havensis-mppt-30a.html": {
+    en: { t: "Havensis 30A MPPT Charge Controller 12/24V — 1200W Panels | GESPA Energy",
+          d: "Havensis Solar-30AMPS MPPT charge controller for 12/24 V battery solar systems: 30 A charging, 20 A load output, 100 V panel input, up to 1200 W of panels, LCD display. Made in Türkiye." },
+    de: { t: "Havensis 30A MPPT-Laderegler 12/24V — 1200W Module | GESPA Energy",
+          d: "Havensis Solar-30AMPS MPPT-Laderegler für Solaranlagen mit 12/24-V-Batterie: 30 A Ladestrom, 20-A-Lastausgang, 100 V Moduleingang, bis 1200 W Module, LCD-Display. Hergestellt in der Türkei." },
+    ru: { t: "MPPT-контроллер Havensis 30А 12/24В — до 1200Вт | GESPA",
+          d: "MPPT-контроллер заряда Havensis Solar-30AMPS для солнечных систем с АКБ 12/24 В: заряд 30 А, выход нагрузки 20 А, вход панелей 100 В, до 1200 Вт панелей, ЖК-дисплей. Сделано в Турции." }
+  },
+  "havensis-mppt-60a.html": {
+    en: { t: "Havensis 60A MPPT Charge Controller 12/24V — 2500W Panels | GESPA Energy",
+          d: "Havensis Solar-60AMPS-100 MPPT charge controller: 12/24 V battery, 60 A charging, 20 A load output, 100 V panel input, up to 2500 W of panels, LCD display. For cabins and caravans." },
+    de: { t: "Havensis 60A MPPT-Laderegler 12/24V — 2500W Module | GESPA Energy",
+          d: "Havensis Solar-60AMPS-100 MPPT-Laderegler: 12/24-V-Batterie, 60 A Ladestrom, 20-A-Lastausgang, 100 V Moduleingang, bis 2500 W Module, LCD-Display. Für Ferienhäuser und Wohnmobile." },
+    ru: { t: "MPPT-контроллер Havensis 60А 12/24В — до 2500Вт | GESPA",
+          d: "MPPT-контроллер заряда Havensis Solar-60AMPS-100: АКБ 12/24 В, заряд 60 А, выход нагрузки 20 А, вход панелей 100 В, до 2500 Вт панелей, ЖК-дисплей. Для дач и автодомов." }
+  },
+  "havensis-mppt-60a-150v.html": {
+    en: { t: "Havensis 60A MPPT Controller 12–48V, 150V — 5000W Panels | GESPA Energy",
+          d: "Havensis Solar-60AMPS 150|60 MPPT charge controller: 12/24/36/48 V battery, 60 A charging, 150 V panel input, up to 5000 W of panels. Made in Türkiye, for 48 V off-grid systems." },
+    de: { t: "Havensis 60A MPPT-Regler 12–48V, 150V — 5000W | GESPA Energy",
+          d: "Havensis Solar-60AMPS 150|60 MPPT-Laderegler: 12/24/36/48-V-Batterie, 60 A Ladestrom, 150 V Moduleingang, bis 5000 W Module. Hergestellt in der Türkei, für 48-V-Inselanlagen." },
+    ru: { t: "MPPT-контроллер Havensis 60А 12–48В, 150В — 5000Вт | GESPA",
+          d: "MPPT-контроллер заряда Havensis Solar-60AMPS 150|60: АКБ 12/24/36/48 В, заряд 60 А, вход панелей 150 В, до 5000 Вт панелей. Сделано в Турции, для автономных систем 48 В." }
+  },
+  "havensis-dcdc-30a.html": {
+    en: { t: "Havensis 30A DC-DC Battery Charger — Caravan Alternator Charging | GESPA Energy",
+          d: "Havensis DCDC-1224 DC-DC battery charger that charges the caravan house battery from the alternator on the road: 30 A, 12/24 V, 96.4% efficiency, engine-off detection, display on a 5 m cable." },
+    de: { t: "Havensis 30A DC-DC-Ladegerät — Laden über die Lichtmaschine | GESPA Energy",
+          d: "Havensis DCDC-1224 DC-DC-Ladegerät, das die Aufbaubatterie unterwegs über die Lichtmaschine lädt: 30 A, 12/24 V, 96,4 % Wirkungsgrad, Motor-aus-Erkennung, Display am 5-m-Kabel." },
+    ru: { t: "Зарядное DC-DC Havensis 30А — зарядка автодома от генератора | GESPA",
+          d: "Зарядное устройство DC-DC Havensis DCDC-1224 заряжает бытовой аккумулятор автодома от генератора в пути: 30 А, 12/24 В, КПД 96,4 %, распознавание выключенного двигателя, дисплей на кабеле 5 м." }
+  },
+  "havensis-dcdc-40a.html": {
+    en: { t: "Havensis 40A DC-DC Battery Charger — Caravan Alternator Charging | GESPA Energy",
+          d: "Havensis DCDC-1224 40 A DC-DC battery charger: fast charging of the caravan house battery from the alternator. 12-12, 12-24, 24-12, 24-24 V, 96.4% efficiency, engine-off detection." },
+    de: { t: "Havensis 40A DC-DC-Ladegerät — Laden über die Lichtmaschine | GESPA Energy",
+          d: "Havensis DCDC-1224 40-A-DC-DC-Ladegerät: schnelles Laden der Aufbaubatterie über die Lichtmaschine. 12-12, 12-24, 24-12, 24-24 V, 96,4 % Wirkungsgrad, Motor-aus-Erkennung." },
+    ru: { t: "Зарядное DC-DC Havensis 40А — зарядка автодома от генератора | GESPA",
+          d: "Зарядное устройство DC-DC Havensis DCDC-1224 на 40 А: быстрая зарядка бытового аккумулятора автодома от генератора. 12-12, 12-24, 24-12, 24-24 В, КПД 96,4 %, распознавание выключенного двигателя." }
+  },
+  "havensis-dcdc-40a-cift-yonlu.html": {
+    en: { t: "Havensis Bidirectional 40A DC-DC Battery Charger — Boost Mode | GESPA Energy",
+          d: "Havensis DCDC-1224B bidirectional DC-DC battery charger: 40 A to the house battery, 10 A to the starter battery in boost mode. 12/24 V for caravans, 96.4% efficiency, made in Türkiye." },
+    de: { t: "Havensis bidirektionales 40A DC-DC-Ladegerät — Boost-Modus | GESPA Energy",
+          d: "Havensis DCDC-1224B bidirektionales DC-DC-Ladegerät: 40 A in die Aufbaubatterie, 10 A im Boost-Modus in die Starterbatterie. 12/24 V für Wohnmobile, 96,4 % Wirkungsgrad, hergestellt in der Türkei." },
+    ru: { t: "Двунаправленное зарядное DC-DC Havensis 40А — режим подпитки | GESPA",
+          d: "Двунаправленное зарядное DC-DC Havensis DCDC-1224B: 40 А в бытовой аккумулятор, 10 А в стартерный в режиме подпитки. 12/24 В для автодомов, КПД 96,4 %, сделано в Турции." }
+  },
+  "havensis-boost-dcdc-2448.html": {
+    en: { t: "Havensis BOOST DC-DC Charger — 12/24V to 36–72V Batteries | GESPA Energy",
+          d: "Havensis BOOST DCDC-2448: a DC-DC charger that charges 36, 48, 60 and 72 V battery banks from a 12/24 V vehicle battery. 20 A input, 15 A charging, 95% efficiency. For caravans and boats." },
+    de: { t: "Havensis BOOST DC-DC-Ladegerät — 12/24V auf 36–72V | GESPA Energy",
+          d: "Havensis BOOST DCDC-2448: DC-DC-Ladegerät, das 36-, 48-, 60- und 72-V-Batteriebänke aus einer 12/24-V-Fahrzeugbatterie lädt. 20 A Eingang, 15 A Laden, 95 % Wirkungsgrad. Für Wohnmobile und Boote." },
+    ru: { t: "Зарядное BOOST DC-DC Havensis — с 12/24В на АКБ 36–72В | GESPA",
+          d: "Havensis BOOST DCDC-2448: зарядное устройство DC-DC, заряжающее блоки 36, 48, 60 и 72 В от автомобильного аккумулятора 12/24 В. Вход 20 А, заряд 15 А, КПД 95 %. Для автодомов и лодок." }
   },
   "paket-2x540w.html": {
     en: { t: "2×540W Solar System — LiFePO₄ Battery | GESPA Energy",
@@ -977,7 +1038,9 @@ function breadcrumbLd(html, file, cfg) {
     items.push({ "@type": "ListItem", position: items.length + 1, name: lm[2].replace(/<[^>]+>/g, "").trim(), item: href });
   }
   // son kırıntı: etiketler ayıklanınca kalan metnin son parçası
-  const tail = inner.replace(/<a[\s\S]*?<\/a>/g, "").replace(/<[^>]+>/g, " ").split("/").map(s => s.trim()).filter(Boolean).pop();
+  // Ayırıcı <span>/</span>'dir; ad içindeki "/" (12/24 V) kırıntıyı bölmesin.
+  const rest = inner.replace(/<a[\s\S]*?<\/a>/g, "").replace(/<span>\s*\/\s*<\/span>/g, "\u0001").replace(/<[^>]+>/g, " ");
+  const tail = (rest.includes("\u0001") ? rest.split("\u0001") : rest.split("/")).map(s => s.trim()).filter(Boolean).pop();
   if (tail) items.push({ "@type": "ListItem", position: items.length + 1, name: tail, item: cfg.company.web + "/" + file });
   if (items.length < 2) return null;
   return { "@context": "https://schema.org", "@type": "BreadcrumbList",
@@ -1324,6 +1387,16 @@ function hydrateExtras(html, file, cfg) {
     setMark("data-pkg-vat", p && p.freeShipping ? "KDV ve kargo dahil fiyattır." : "KDV dahil fiyattır.");
     setMark("data-pkg-ship", shipNote(p));
   }
+  // Çapraz satış kartları: data-pkg-list="<id>" → o ürünün LİSTE fiyatı
+  // (ürün sayfalarındaki "Sistemi tamamlayın" şeridi). main.js istemcide
+  // aynı değeri tazeler; canlı kur değişince ikisi de yeni kurla yazar.
+  if (cfg.packages && /data-pkg-list="/.test(html)) {
+    html = html.replace(/(<([a-z]+)\b[^>]*\bdata-pkg-list="([^"]+)"[^>]*>)[^<]*(<\/\2>)/g, (m, open, tag, id, close) => {
+      const x = cfg.packages.filter(q => q.id === id)[0];
+      if (!x || x.price == null) return m;
+      return open + "₺" + nfTr(priceTRY(cfg, x.price, x.currency)) + close;
+    });
+  }
   if (cfg.calc) {
     const k = cfg.calc;
     setSpan("aPanelW", k.panelW + " Wp");
@@ -1482,7 +1555,10 @@ const PRIORITY = {
   "elektrikli-arac-donusum.html": "0.8", "unv-trek-pro-2500.html": "0.8",
   "kvkk.html": "0.3", "gizlilik.html": "0.3", "cerez-politikasi.html": "0.3",
   "mesafeli-satis-sozlesmesi.html": "0.4", "iade-teslimat.html": "0.4",
-  "sss.html": "0.7", "sozluk.html": "0.6", "gunes-paneli-kacak-elektrik-cezasi.html": "0.7"
+  "sss.html": "0.7", "sozluk.html": "0.6", "gunes-paneli-kacak-elektrik-cezasi.html": "0.7",
+  "havensis-mppt-30a.html": "0.7", "havensis-mppt-60a.html": "0.7", "havensis-mppt-60a-150v.html": "0.7",
+  "havensis-dcdc-30a.html": "0.7", "havensis-dcdc-40a.html": "0.7", "havensis-dcdc-40a-cift-yonlu.html": "0.7",
+  "havensis-boost-dcdc-2448.html": "0.7"
 };
 /* ============================================================
    AI DOSYALARI — llms.txt (özet, build üretir) ve /md/ Markdown kopyalar.
@@ -1496,7 +1572,10 @@ const LLMS_GROUPS = [
   ["Ana sayfa", ["index.html"]],
   ["Hizmetler", ["hizmetler.html", "cati-ges.html", "arazi-ges.html", "enerji-depolama.html", "bakim-izleme.html", "tarimsal-sulama.html"]],
   ["Mağaza ve ürünler", ["online-satis.html", "urunler.html", "paket-285w.html", "paket-2x540w.html", "unv-trek-pro-2500.html",
-    "elektrikli-arac-donusum.html", "paket-motor-yolcu.html", "paket-motor-kargo.html", "aku-lifepo4-72v-30ah.html", "su-isitici.html", "toptan.html"]],
+    "elektrikli-arac-donusum.html", "paket-motor-yolcu.html", "paket-motor-kargo.html", "aku-lifepo4-72v-30ah.html",
+    "havensis-mppt-30a.html", "havensis-mppt-60a.html", "havensis-mppt-60a-150v.html",
+    "havensis-dcdc-30a.html", "havensis-dcdc-40a.html", "havensis-dcdc-40a-cift-yonlu.html", "havensis-boost-dcdc-2448.html",
+    "su-isitici.html", "toptan.html"]],
   ["Yapay zekâ ürünleri", ["ai-cankurtaran-destek-sistemi.html"]],
   ["Ücretsiz araçlar", ["hesaplayici.html", "sistem-kur.html"]],
   ["Referans projeler", ["projeler.html", "proje-kemer-villa.html", "proje-manavgat-fabrika.html", "proje-manavgat-tarimsal.html"]],

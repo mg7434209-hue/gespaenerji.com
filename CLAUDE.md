@@ -68,6 +68,10 @@ sepete ekle + onay penceresi (Sepete git / Alışverişe devam), `data-add-cart-
 `paket-motor-yolcu.html` `paket-motor-kargo.html` (elektrikli motor güneş
 paketlerinin ürün sayfaları — paket-*.html düzeni + `data-add-cart-go`
 "⚡ Hemen satın al"; ayrıntı "Motor güneş paketleri" bölümünde) ·
+`havensis-*.html` (7 Havensis ürün sayfası: `havensis-mppt-30a` ·
+`-mppt-60a` · `-mppt-60a-150v` · `-dcdc-30a` · `-dcdc-40a` ·
+`-dcdc-40a-cift-yonlu` · `-boost-dcdc-2448`. ELLE DÜZENLENMEZ:
+`tools/havensis-sayfalar.py` üretir; ayrıntı "Havensis ürün sayfaları") ·
 `aku-lifepo4-72v-30ah.html` (europlus 72 V 30 Ah LiFePO₄ çekiş aküsü —
 paket-*.html düzeni, 3 sekme = Açıklama · Teknik Özellikler · Kargo ve İade;
 ayrıntı "Motor güneş paketleri" bölümünün sonunda) ·
@@ -267,7 +271,8 @@ ve sepet simgesi ekran dışında kalır.
   `group:"accessory"` — BOOST MPPT ile AYNI grupta, "Elektrikli Araç" çipi
   böylece tek ürünlü doğrudan bağlantı olmaktan çıkıp gerçek süzgece döndü). +
   7 Havensis cihazı (`group:"charge"` = "Şarj Kontrol & DC-DC", YALNIZ
-  katalog, detay sayfası yok): 3 MPPT + 3 DC-DC + 1 BOOST DC-DC. Kaynak
+  online-satis kataloğunda; her birinin detay sayfası var, aşağıda
+  "Havensis ürün sayfaları"): 3 MPPT + 3 DC-DC + 1 BOOST DC-DC. Kaynak
   Havensis 02/2026 fiyat listesi (USD, KDV HARİÇ); FİYAT KURALI işletme
   kararı: liste AYNEN + %20 KDV, `price` = liste × 1,20 (100 USD → 120 USD),
   kâr payı EKLENMEZ; satır yanında liste fiyatı yazılı. Havensis gerçek
@@ -382,6 +387,34 @@ ve sepet simgesi ekran dışında kalır.
   Anahtar `gespa-prices-usd` (değerler USD): eski `gespa-prices` TL idi,
   USD diye okunsa fiyatı ~50 kat şişirirdi. Önizleme açık tarayıcı ödemede
   `expectTL: 0` gönderir; kur denetimine takılmaz, sunucu kendi fiyatını alır.
+
+## Havensis ürün sayfaları (`havensis-*.html` · `tools/havensis-sayfalar.py`)
+- 7 sayfa TEK betikten üretilir: `python3 tools/havensis-sayfalar.py` (DRY-RUN,
+  eksik çeviri ve config uyumsuzluğunu raporlar) → `--uygula` (sayfalar +
+  `assets/i18n.js` `HAVENSIS:DICT` bloğu) → `node build.js` → `npm test`.
+  Head/nav/footer şablonu `aku-lifepo4-72v-30ah.html`; `<main>` betikte.
+  Sayfayı ya da DICT bloğunu elle düzeltme, bir sonraki çalıştırma ezer.
+- Metin `t(tr, en, de, ru)` ile 4 dilde yazılır; sayı/birim `u()` ile (EN
+  98% ve ondalık nokta, DE/RU 98 %, RU В/А/Вт/мм). Sözlükte zaten olan
+  anahtar yeniden yazılmaz. config `desc` değişirse betik DURUR: `DESC`
+  listesini birlikte güncelle (Product şemasının dil çevirisi oradan).
+- İÇERİK KURALI: teknik değer YALNIZ Havensis 02/2026 listesindendir; listede
+  olmayan (garanti, ağırlık, IP, kutu içeriği, akü kimyası uyumu) yazılmaz,
+  "bize yazın, üreticiden teyit edelim" denir. Panel dizilimi yalnız
+  künyesi olan Lexron 285 W (Voc 42,84 V) ve 655 W (Voc 50,34 V) ile
+  verilir; Arçelik 540 W'ın künyesi yok, önerilmez. Havensis adres/telefon/
+  IBAN siteye KONMAZ.
+- Sayfa düzeni: satın alma → sekmeler (Açıklama · Teknik · Kargo) →
+  kullanım alanları → bağlantı akışı `.flow` + adımlar + ipuçları → model
+  karşılaştırma (`.cmp-table`, bulunulan satır `is-cur`) → (MPPT) panel
+  uyumu → "Sistemi tamamlayın" çapraz satış (`.shop-grid.xsell`) → SSS →
+  aile arası geçiş notu → CTA. Çapraz satış kartının fiyatı
+  `data-pkg-list="<id>"`: build statik basar, main.js tazeler. Sayfası
+  olmayan ürün `sepet.html?ekle=<id>` (rel=nofollow) ile sepete gider.
+- Karşılaştırma tablosu `.spec-table` sınıfını taşır ama sekmedeki teknik
+  tablodan SONRA gelir; `specProps()` yalnız İLK tabloyu şemaya alır.
+- SSS merkezinde aile başına bir temsilci sayfa var (`content/sss.js`);
+  DC-DC sözlük terimi `sozluk.html#dc-dc-sarj`.
 
 ## Motor güneş paketleri (`set-yolcu` · `set-kargo` + `config.evSets`)
 Müşteri aracına hangi panelin uyduğunu bilmediği için satış burada takılıyordu.

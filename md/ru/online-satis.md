@@ -117,7 +117,7 @@ publisher: "GESPA Enerji"
 
 НДС включён · доставка отдельно
 
-### Контроллер заряда MPPT Havensis Solar-30AMPS 12/24 В 30 А
+### [Контроллер заряда MPPT Havensis Solar-30AMPS 12/24 В 30 А](https://www.gespaenerji.com/ru/havensis-mppt-30a.html)
 
 Солнечные системы с АКБ 12/24 В · до 1200 Вт панелей
 
@@ -127,7 +127,7 @@ publisher: "GESPA Enerji"
 
 НДС включён · доставка отдельно
 
-### Контроллер заряда MPPT Havensis Solar-60AMPS-100 12/24 В 60 А
+### [Контроллер заряда MPPT Havensis Solar-60AMPS-100 12/24 В 60 А](https://www.gespaenerji.com/ru/havensis-mppt-60a.html)
 
 Солнечные системы с АКБ 12/24 В · до 2500 Вт панелей
 
@@ -137,7 +137,7 @@ publisher: "GESPA Enerji"
 
 НДС включён · доставка отдельно
 
-### Контроллер заряда MPPT Havensis Solar-60AMPS 150|60 12/24/36/48 В 60 А
+### [Контроллер заряда MPPT Havensis Solar-60AMPS 150|60 12/24/36/48 В 60 А](https://www.gespaenerji.com/ru/havensis-mppt-60a-150v.html)
 
 Солнечные системы с АКБ 12/24/36/48 В · до 5000 Вт панелей
 
@@ -147,7 +147,7 @@ publisher: "GESPA Enerji"
 
 НДС включён · доставка отдельно
 
-### Однонаправленное зарядное DC-DC Havensis DCDC-1224 12/24 В 30 А
+### [Однонаправленное зарядное DC-DC Havensis DCDC-1224 12/24 В 30 А](https://www.gespaenerji.com/ru/havensis-dcdc-30a.html)
 
 Автодом: зарядка бытовой АКБ от генератора · 12/24 В
 
@@ -157,7 +157,7 @@ publisher: "GESPA Enerji"
 
 НДС включён · доставка отдельно
 
-### Однонаправленное зарядное DC-DC Havensis DCDC-1224 12/24 В 40 А
+### [Однонаправленное зарядное DC-DC Havensis DCDC-1224 12/24 В 40 А](https://www.gespaenerji.com/ru/havensis-dcdc-40a.html)
 
 Автодом: зарядка бытовой АКБ от генератора · 12/24 В
 
@@ -167,7 +167,7 @@ publisher: "GESPA Enerji"
 
 НДС включён · доставка отдельно
 
-### Двунаправленное зарядное DC-DC Havensis DCDC-1224B 12/24 В 40 А
+### [Двунаправленное зарядное DC-DC Havensis DCDC-1224B 12/24 В 40 А](https://www.gespaenerji.com/ru/havensis-dcdc-40a-cift-yonlu.html)
 
 Автодом: двунаправленная зарядка АКБ (режим подпитки) · 12/24 В
 
@@ -177,7 +177,7 @@ publisher: "GESPA Enerji"
 
 НДС включён · доставка отдельно
 
-### Зарядное устройство DC-DC Havensis BOOST DCDC-2448 36/48/60/72 В
+### [Зарядное устройство DC-DC Havensis BOOST DCDC-2448 36/48/60/72 В](https://www.gespaenerji.com/ru/havensis-boost-dcdc-2448.html)
 
 Зарядка АКБ 36–72 В от входа 12/24 В · автодома и лодки
 

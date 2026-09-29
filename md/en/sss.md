@@ -3,7 +3,7 @@ title: "Frequently Asked Questions — Solar Power, Orders and Installation | GE
 description: "Answers about solar power plants, batteries, EV solar conversion, ordering, shipping, payment and installation in one place. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/en/sss.html
 lang: en
-dateModified: 2026-09-28
+dateModified: 2026-09-29
 publisher: "GESPA Enerji"
 ---
 
@@ -504,6 +504,116 @@ LiFePO₄ is far more thermally stable than other lithium-ion chemistries such a
 Yes. For charging a 72 V pack straight from a panel we use the BOOST MPPT 24–72 V charge controller; it is also in our ready-made e-trike solar sets.
 
 [Go to page →](https://www.gespaenerji.com/en/aku-lifepo4-72v-30ah.html)
+
+## MPPT charge controllers (Havensis)
+
+### If I connect 1200 W of panels, will it charge at 1200 W?
+
+No, the charging power is set by the battery voltage and the 30 A charging current. A 12 V battery system gets about 30 A × 14 V ≈ 420 W, a 24 V system about 840 W. You can connect up to 1200 W of panels; when the panel power exceeds this, the controller limits the current to 30 A, and the extra panels raise charging in the morning, in the evening and on cloudy days.
+
+### Which batteries does it work with?
+
+With 12 V and 24 V batteries. Since all parameters are adjustable, you enter the charging values given by your battery's manufacturer. If you use a lithium battery, send us its charging values and we'll check them together before you order.
+
+### How many panels can I wire in series?
+
+The sum of the open-circuit voltages (Voc) of panels in series must not exceed 100 V. Of our Lexron 285 W panels (Voc 42.84 V) up to 2 can go in series; the Lexron 655 W panel (Voc 50.34 V) is not wired in series on this controller but connected singly or in parallel. Because Voc rises in the cold, check the layout with us if your area drops below −10 °C in winter.
+
+### What does the dusk-to-dawn function do?
+
+It switches on the lighting connected to the load output when it gets dark; with the timer you decide how long it stays on. For garden, storage, sign and street lighting you need no separate sensor or time switch.
+
+### Can I connect an inverter to the load output?
+
+No. An inverter draws a high current, so it is connected directly to the battery. The load output is for DC lighting and small devices up to 20 A.
+
+### Does it work without a battery?
+
+The controller can be powered from the panel and can run without a battery connected. To store solar energy and use it in the evening and at night, you need a battery.
+
+### Can I monitor it from my phone?
+
+Havensis Bluetooth and Wi-Fi monitoring modules can be fitted to this unit, letting you follow all its values on your phone. The module is not included; ask us for the price.
+
+### Who installs it, and do you ship outside Antalya?
+
+We ship anywhere in Türkiye; any electrician can connect the unit. In the Antalya region we offer optional on-site installation.
+
+[Go to page →](https://www.gespaenerji.com/en/havensis-mppt-30a.html)
+
+## Caravan DC-DC battery chargers
+
+### Why do I need a DC-DC charger; can't I just link the batteries directly?
+
+A direct link also drains the starter battery when parked; simple relays often cannot charge the house battery fully, and long cables lose voltage. A DC-DC charger separates the two batteries and charges the house battery in a controlled way.
+
+### Which vehicles is it for?
+
+Vehicles with 12 V and 24 V systems. The unit can charge 12-12, 12-24, 24-12 and 24-24 V: for example, it can charge a 12 V house battery in a 24 V truck.
+
+### Does the starter battery drain when the engine stops?
+
+No. Engine-off detection recognises that the vehicle has stopped and blocks reverse current. In boost mode, on the other hand, the unit deliberately works in reverse and feeds the starter battery from the house battery.
+
+### How long does it take to charge my house battery?
+
+Roughly battery capacity ÷ charging current: an empty 100 Ah battery is largely charged after about 2.5–3 hours of driving at 40 A. The last part charges more slowly depending on the battery type.
+
+### Which battery types does it work with?
+
+Since all parameters are programmed from the display, the charging values are set for your house battery. Send us your battery type and charging values and we'll check compatibility together before you order.
+
+### Where does the display go?
+
+The digital display connects to the unit with a 5 m extension cable. While the unit sits next to the batteries, you place the display inside the caravan where you can see it, and monitor and program the charging from there.
+
+### What is boost mode for?
+
+A vehicle parked for a long time can end up with a weak starter battery. In boost mode the unit works in reverse and charges the starter battery from the house battery at up to 10 A; if the house battery is charged by a solar panel, the starter battery is supported too.
+
+### Should I get the one-way or the bidirectional model?
+
+If you only want to charge the house battery on the road, the one-way DCDC-1224 is enough. If your vehicle is often parked for long periods, or you want a solar-charged house battery to support the starter battery too, choose the bidirectional DCDC-1224B.
+
+### Can I monitor it from my phone?
+
+Havensis Bluetooth and Wi-Fi monitoring modules can be fitted to this unit, letting you follow all its values on your phone. The module is not included; ask us for the price.
+
+### Who installs it, and do you ship outside Antalya?
+
+We ship anywhere in Türkiye; an auto electrician can do the installation. In the Antalya region we offer optional on-site installation.
+
+[Go to page →](https://www.gespaenerji.com/en/havensis-dcdc-40a-cift-yonlu.html)
+
+## BOOST DC-DC charging (36–72 V batteries)
+
+### Do I always get 15 A of charging current?
+
+No. The unit draws at most 20 A from the input; the current going into the battery depends on the input voltage and the battery voltage. Example: at a 24 V input it draws 24 V × 20 A = 480 W; at 95% efficiency about 8–9 A goes into a 48 V battery. At a 12 V input it is about 4–5 A for the same battery. The highest current is reached with a 24 V input and a 36 V battery bank.
+
+### Which batteries is it used with?
+
+With 36, 48, 60 and 72 V battery banks. Send us your battery bank's voltage, type and charging values with your order and we'll check compatibility together.
+
+### Which vehicles is it for?
+
+Caravans, motorhomes and boats with a 12 or 24 V electrical system; the unit's input accepts 12–32 V.
+
+### Can I connect a solar panel directly?
+
+This unit is designed for a battery and alternator input. To charge a 24–72 V battery bank from panels you need an MPPT device: see our BOOST MPPT charge controller.
+
+[BOOST MPPT charge controller →](https://www.gespaenerji.com/en/elektrikli-arac-donusum.html)
+
+### Does it have Bluetooth?
+
+Built-in Bluetooth is optional and specified when ordering. Write to us before ordering if you want this option.
+
+### Who installs it, and do you ship outside Antalya?
+
+We ship anywhere in Türkiye; an auto electrician can do the installation. In the Antalya region we offer optional on-site installation.
+
+[Go to page →](https://www.gespaenerji.com/en/havensis-boost-dcdc-2448.html)
 
 ## Pool safety — AI Lifeguard
 

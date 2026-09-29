@@ -3,7 +3,7 @@ title: "Solar-Glossar — Begriffe zu PV, Akku und Wechselrichter | GESPA Energy
 description: "kWp, MPPT, TOPCon, LiFePO₄, DoD, Saldierung und mehr: kurze, verständliche Erklärungen zu Solar-, Akku- und E-Fahrzeug-Begriffen."
 canonical: https://www.gespaenerji.com/de/sozluk.html
 lang: de
-dateModified: 2026-09-24
+dateModified: 2026-09-29
 publisher: "GESPA Enerji"
 ---
 
@@ -82,6 +82,12 @@ Ein Regelverfahren, das laufend den Spannungs-Strom-Punkt sucht, an dem das Modu
 Ein MPPT-Laderegler, der die Modulspannung über die Akkuspannung anhebt, um zu laden. So können Module mit niedrigerer Spannung Akkupacks von 24–72 V laden, etwa die Akkus von Elektrofahrzeugen.
 
 [BOOST-MPPT-Produktseite →](https://www.gespaenerji.com/de/elektrikli-arac-donusum.html)
+
+## DC-DC-Ladegerät
+
+Ein Gerät, das eine Zweitbatterie, etwa die Aufbaubatterie eines Wohnmobils, kontrolliert aus der von der Lichtmaschine geladenen Starterbatterie lädt. Es trennt die beiden Batterien, gleicht Spannungsverluste auf langen Kabeln aus und verhindert, dass sich die Starterbatterie bei stehendem Motor entlädt.
+
+[DC-DC-Batterieladegeräte →](https://www.gespaenerji.com/de/havensis-dcdc-30a.html)
 
 ## LiFePO₄-Akku (Lithium-Eisenphosphat)
 

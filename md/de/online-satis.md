@@ -117,7 +117,7 @@ Energiespeicher für Haus und Betrieb, Off-Grid und Notstrom
 
 Inkl. MwSt. · zzgl. Versand
 
-### Havensis Solar-30AMPS MPPT-Laderegler 12/24 V 30 A
+### [Havensis Solar-30AMPS MPPT-Laderegler 12/24 V 30 A](https://www.gespaenerji.com/de/havensis-mppt-30a.html)
 
 Solaranlagen mit 12/24-V-Batterie · bis 1200 W Modulleistung
 
@@ -127,7 +127,7 @@ Solaranlagen mit 12/24-V-Batterie · bis 1200 W Modulleistung
 
 Inkl. MwSt. · zzgl. Versand
 
-### Havensis Solar-60AMPS-100 MPPT-Laderegler 12/24 V 60 A
+### [Havensis Solar-60AMPS-100 MPPT-Laderegler 12/24 V 60 A](https://www.gespaenerji.com/de/havensis-mppt-60a.html)
 
 Solaranlagen mit 12/24-V-Batterie · bis 2500 W Modulleistung
 
@@ -137,7 +137,7 @@ Solaranlagen mit 12/24-V-Batterie · bis 2500 W Modulleistung
 
 Inkl. MwSt. · zzgl. Versand
 
-### Havensis Solar-60AMPS 150|60 MPPT-Laderegler 12/24/36/48 V 60 A
+### [Havensis Solar-60AMPS 150|60 MPPT-Laderegler 12/24/36/48 V 60 A](https://www.gespaenerji.com/de/havensis-mppt-60a-150v.html)
 
 Solaranlagen mit 12/24/36/48-V-Batterie · bis 5000 W Modulleistung
 
@@ -147,7 +147,7 @@ Solaranlagen mit 12/24/36/48-V-Batterie · bis 5000 W Modulleistung
 
 Inkl. MwSt. · zzgl. Versand
 
-### Havensis DCDC-1224 unidirektionales DC-DC-Batterieladegerät 12/24 V 30 A
+### [Havensis DCDC-1224 unidirektionales DC-DC-Batterieladegerät 12/24 V 30 A](https://www.gespaenerji.com/de/havensis-dcdc-30a.html)
 
 Wohnmobil: Aufbaubatterie über die Lichtmaschine laden · 12/24 V
 
@@ -157,7 +157,7 @@ Wohnmobil: Aufbaubatterie über die Lichtmaschine laden · 12/24 V
 
 Inkl. MwSt. · zzgl. Versand
 
-### Havensis DCDC-1224 unidirektionales DC-DC-Batterieladegerät 12/24 V 40 A
+### [Havensis DCDC-1224 unidirektionales DC-DC-Batterieladegerät 12/24 V 40 A](https://www.gespaenerji.com/de/havensis-dcdc-40a.html)
 
 Wohnmobil: Aufbaubatterie über die Lichtmaschine laden · 12/24 V
 
@@ -167,7 +167,7 @@ Wohnmobil: Aufbaubatterie über die Lichtmaschine laden · 12/24 V
 
 Inkl. MwSt. · zzgl. Versand
 
-### Havensis DCDC-1224B bidirektionales DC-DC-Batterieladegerät 12/24 V 40 A
+### [Havensis DCDC-1224B bidirektionales DC-DC-Batterieladegerät 12/24 V 40 A](https://www.gespaenerji.com/de/havensis-dcdc-40a-cift-yonlu.html)
 
 Wohnmobil: bidirektionales Batterieladen (Boost-Modus) · 12/24 V
 
@@ -177,7 +177,7 @@ Wohnmobil: bidirektionales Batterieladen (Boost-Modus) · 12/24 V
 
 Inkl. MwSt. · zzgl. Versand
 
-### Havensis BOOST DCDC-2448 DC-DC-Batterieladegerät 36/48/60/72 V
+### [Havensis BOOST DCDC-2448 DC-DC-Batterieladegerät 36/48/60/72 V](https://www.gespaenerji.com/de/havensis-boost-dcdc-2448.html)
 
 Lädt 36–72-V-Batterien über einen 12/24-V-Eingang · Wohnmobil und Boot
 

@@ -169,7 +169,7 @@
       <g:id>havensis-s30amps</g:id>
       <g:title>Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 A</g:title>
       <g:description>Havensis Solar-MPS serisi MPPT şarj kontrol cihazı (Solar-30AMPS – 100|30). 12/24 V akü şarjı, 30 A şarj akımı ve 20 A yük çıkışı. Gelişmiş MPPT algoritmasıyla %98 dönüştürücü ve %99,6 MPP izleme verimi; 100 V'a kadar panel girişi, 1200 W'a kadar panel bağlantısı. LCD ekran ve LED durum göstergesi, tüm parametreler ayarlanabilir, gece-gündüz ve zaman ayarı fonksiyonu; panelden beslenerek aküsüz de çalışabilir. Cihaz boyutu 159 × 210 × 70 mm. Yerli üretim.</g:description>
-      <g:link>https://www.gespaenerji.com/online-satis.html</g:link>
+      <g:link>https://www.gespaenerji.com/havensis-mppt-30a.html</g:link>
       <g:image_link>https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp</g:image_link>
       <g:availability>in stock</g:availability>
       <g:price>6400.00 TRY</g:price>
@@ -185,7 +185,7 @@
       <g:id>havensis-s60amps100</g:id>
       <g:title>Havensis Solar-60AMPS-100 MPPT Şarj Kontrol Cihazı 12/24 V 60 A</g:title>
       <g:description>Havensis Solar-MPS serisi MPPT şarj kontrol cihazı (Solar-60AMPS-100 – 100|60). 12/24 V akü şarjı, 60 A şarj akımı ve 20 A yük çıkışı. Gelişmiş MPPT algoritmasıyla %98 dönüştürücü ve %99,6 MPP izleme verimi; 100 V'a kadar panel girişi, 2500 W'a kadar panel bağlantısı. LCD ekran ve LED durum göstergesi, tüm parametreler ayarlanabilir, gece-gündüz ve zaman ayarı fonksiyonu; panelden beslenerek aküsüz de çalışabilir. Cihaz boyutu 197,2 × 224 × 80 mm. Yerli üretim.</g:description>
-      <g:link>https://www.gespaenerji.com/online-satis.html</g:link>
+      <g:link>https://www.gespaenerji.com/havensis-mppt-60a.html</g:link>
       <g:image_link>https://www.gespaenerji.com/assets/img/products/havensis-s60amps100.webp</g:image_link>
       <g:availability>in stock</g:availability>
       <g:price>11800.00 TRY</g:price>
@@ -201,7 +201,7 @@
       <g:id>havensis-s60amps150</g:id>
       <g:title>Havensis Solar-60AMPS 150|60 MPPT Şarj Kontrol Cihazı 12/24/36/48 V 60 A</g:title>
       <g:description>Havensis Solar-MPS serisi MPPT şarj kontrol cihazı (Solar-60AMPS – 150|60). 12/24/36/48 V akü şarjı ve 60 A şarj akımı. Gelişmiş MPPT algoritmasıyla %97,5 dönüştürücü ve %99,6 MPP izleme verimi; 150 V'a kadar panel girişi, 5000 W'a kadar panel bağlantısı. LCD ekran ve LED durum göstergesi, tüm parametreler ayarlanabilir; panelden beslenerek aküsüz de çalışabilir. Cihaz boyutu 280 × 235 × 100 mm. Yerli üretim.</g:description>
-      <g:link>https://www.gespaenerji.com/online-satis.html</g:link>
+      <g:link>https://www.gespaenerji.com/havensis-mppt-60a-150v.html</g:link>
       <g:image_link>https://www.gespaenerji.com/assets/img/products/havensis-s60amps150.webp</g:image_link>
       <g:availability>in stock</g:availability>
       <g:price>16200.00 TRY</g:price>
@@ -217,7 +217,7 @@
       <g:id>havensis-dcdc-1224-30</g:id>
       <g:title>Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 30 A</g:title>
       <g:description>Havensis tek yönlü DC-DC akü şarj cihazı (DCDC-1224, 30 A). Alternatörden akü şarj cihazıdır; 12-12, 12-24, 24-12 ve 24-24 V şarj yapabilir. Karavanlar için özel tasarlanmıştır. 30 A şarj akımı, %96,4 dönüştürücü verimi, 10–35 V giriş ve 12–32 V çıkış gerilimi. Tüm parametreler ekranla programlanabilir; LED durum göstergesi, dijital ekran bağlantısı ve 5 m uzatma kablosu, ters akım koruması (motor kapalı tanıma). Cihaz boyutu 158 × 210 × 60 mm. Yerli üretim.</g:description>
-      <g:link>https://www.gespaenerji.com/online-satis.html</g:link>
+      <g:link>https://www.gespaenerji.com/havensis-dcdc-30a.html</g:link>
       <g:image_link>https://www.gespaenerji.com/assets/img/products/havensis-dcdc-1224.webp</g:image_link>
       <g:availability>in stock</g:availability>
       <g:price>9750.00 TRY</g:price>
@@ -233,7 +233,7 @@
       <g:id>havensis-dcdc-1224-40</g:id>
       <g:title>Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A</g:title>
       <g:description>Havensis tek yönlü DC-DC akü şarj cihazı (DCDC-1224, 40 A). Alternatörden akü şarj cihazıdır; 12-12, 12-24, 24-12 ve 24-24 V şarj yapabilir. Karavanlar için özel tasarlanmıştır. 40 A şarj akımı, %96,4 dönüştürücü verimi, 10–35 V giriş ve 12–32 V çıkış gerilimi. Tüm parametreler ekranla programlanabilir; LED durum göstergesi, dijital ekran bağlantısı ve 5 m uzatma kablosu, ters akım koruması (motor kapalı tanıma). Cihaz boyutu 162 × 210 × 70 mm. Yerli üretim.</g:description>
-      <g:link>https://www.gespaenerji.com/online-satis.html</g:link>
+      <g:link>https://www.gespaenerji.com/havensis-dcdc-40a.html</g:link>
       <g:image_link>https://www.gespaenerji.com/assets/img/products/havensis-dcdc-1224.webp</g:image_link>
       <g:availability>in stock</g:availability>
       <g:price>11800.00 TRY</g:price>
@@ -249,7 +249,7 @@
       <g:id>havensis-dcdc-1224b-40</g:id>
       <g:title>Havensis DCDC-1224B Çift Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A</g:title>
       <g:description>Havensis çift yönlü DC-DC akü şarj cihazı (DCDC-1224B, 40 A). Çift yönlü akü şarjı yapabilir (takviye modu): 40 A şarj akımı ve 10 A takviye şarj akımı. 12-12, 12-24, 24-12 ve 24-24 V şarj yapabilir; karavanlar için özel tasarlanmıştır. %96,4 dönüştürücü verimi, 10–35 V giriş ve 12–32 V çıkış gerilimi. Tüm parametreler ekranla programlanabilir; dijital ekran bağlantısı ve 5 m uzatma kablosu, ters akım koruması (motor kapalı tanıma). Cihaz boyutu 162 × 210 × 70 mm. Yerli üretim.</g:description>
-      <g:link>https://www.gespaenerji.com/online-satis.html</g:link>
+      <g:link>https://www.gespaenerji.com/havensis-dcdc-40a-cift-yonlu.html</g:link>
       <g:image_link>https://www.gespaenerji.com/assets/img/products/havensis-dcdc-1224b.webp</g:image_link>
       <g:availability>in stock</g:availability>
       <g:price>13600.00 TRY</g:price>
@@ -265,7 +265,7 @@
       <g:id>havensis-dcdc-2448</g:id>
       <g:title>Havensis BOOST DCDC-2448 DC-DC Akü Şarj Cihazı 36/48/60/72 V</g:title>
       <g:description>Havensis BOOST DCDC-2448 yükseltici DC-DC akü şarj cihazı. 12/24 V girişle 36/48/60/72 V akü şarjı yapar: 12–32 V giriş gerilimi, en fazla 20 A giriş ve 15 A şarj akımı, %95 dönüştürücü verimi. Karavan ve tekneler için özel tasarlanmıştır. Dijital ekran bağlantısı ve 5 m uzatma kablosu, gelişmiş koruma devreleri; dahili Bluetooth desteği isteğe bağlıdır (siparişte belirtin). Cihaz boyutu 162 × 210 × 70 mm. Yerli üretim.</g:description>
-      <g:link>https://www.gespaenerji.com/online-satis.html</g:link>
+      <g:link>https://www.gespaenerji.com/havensis-boost-dcdc-2448.html</g:link>
       <g:image_link>https://www.gespaenerji.com/assets/img/products/havensis-dcdc-2448.webp</g:image_link>
       <g:availability>in stock</g:availability>
       <g:price>8250.00 TRY</g:price>

@@ -118,10 +118,10 @@ Die Werte stammen aus dem Datenblatt des Herstellers. Die passende Modulleistung
 
 | Nennsystem | Dauerausgangsleistung | Wirkungsgrad |
 | --- | --- | --- |
-| 36 V | 540 W | %95 |
+| 36 V | 540 W | 95 % |
 | 48 V | 720 W | %95,5 |
 | 60 V | 900 W | %95,5 |
-| 72 V | 1080 W | %98 |
+| 72 V | 1080 W | 98 % |
 
 24-V-Akkusysteme werden ebenfalls unterstützt; das Herstellerdatenblatt nennt für 24 V keine gesonderte Dauerausgangsleistung.
 

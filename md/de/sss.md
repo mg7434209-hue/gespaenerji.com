@@ -3,7 +3,7 @@ title: "Häufige Fragen — Solarenergie, Bestellung und Montage | GESPA Energy"
 description: "Antworten zu Solaranlagen, Akkus, Solarumrüstung von E-Fahrzeugen, Bestellung, Versand, Zahlung und Montage an einem Ort. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/de/sss.html
 lang: de
-dateModified: 2026-09-28
+dateModified: 2026-09-29
 publisher: "GESPA Enerji"
 ---
 
@@ -504,6 +504,116 @@ LiFePO₄ ist thermisch wesentlich stabiler als andere Lithium-Ionen-Chemien wie
 Ja. Zum Laden eines 72-V-Akkusatzes direkt vom Modul setzen wir den BOOST-MPPT-Laderegler 24–72 V ein; er steckt auch in unseren Solar-Komplettsets für Dreiräder.
 
 [Zur Seite →](https://www.gespaenerji.com/de/aku-lifepo4-72v-30ah.html)
+
+## MPPT-Laderegler (Havensis)
+
+### Lädt der Regler mit 1200 W, wenn ich 1200 W Module anschließe?
+
+Nein, die Ladeleistung ergibt sich aus Batteriespannung und 30 A Ladestrom. Ein 12-V-System erreicht etwa 30 A × 14 V ≈ 420 W, ein 24-V-System etwa 840 W. Sie können bis zu 1200 W Module anschließen; liegt die Modulleistung darüber, begrenzt der Regler den Strom auf 30 A, und die zusätzlichen Module steigern die Ladung morgens, abends und bei Bewölkung.
+
+### Mit welchen Batterien arbeitet es?
+
+Mit 12-V- und 24-V-Batterien. Da alle Parameter einstellbar sind, geben Sie die Ladewerte des Batterieherstellers ein. Bei einer Lithiumbatterie schicken Sie uns deren Ladewerte; wir prüfen sie vor der Bestellung gemeinsam.
+
+### Wie viele Module kann ich in Reihe schalten?
+
+Die Summe der Leerlaufspannungen (Voc) der Module in Reihe darf 100 V nicht überschreiten. Von unseren Lexron-285-W-Modulen (Voc 42,84 V) passen bis zu 2 in Reihe; das Lexron-655-W-Modul (Voc 50,34 V) wird an diesem Regler nicht in Reihe, sondern einzeln oder parallel angeschlossen. Da Voc bei Kälte steigt, prüfen Sie den Aufbau mit uns, wenn es bei Ihnen im Winter unter −10 °C geht.
+
+### Was macht die Dämmerungsfunktion?
+
+Sie schaltet die Beleuchtung am Lastausgang bei Dunkelheit ein; mit der Zeitfunktion legen Sie fest, wie lange sie brennt. Für Garten-, Lager-, Schilder- und Straßenbeleuchtung brauchen Sie keinen separaten Sensor und keine Zeitschaltuhr.
+
+### Kann ich einen Wechselrichter an den Lastausgang anschließen?
+
+Nein. Ein Wechselrichter zieht hohe Ströme und wird deshalb direkt an die Batterie angeschlossen. Der Lastausgang ist für DC-Beleuchtung und kleine Geräte bis 20 A gedacht.
+
+### Funktioniert es ohne Batterie?
+
+Der Regler kann aus dem Modul versorgt werden und läuft auch ohne angeschlossene Batterie. Um Solarenergie zu speichern und abends und nachts zu nutzen, brauchen Sie eine Batterie.
+
+### Kann ich es per Smartphone überwachen?
+
+An dieses Gerät lassen sich die Bluetooth- und WLAN-Überwachungsmodule von Havensis anschließen; so verfolgen Sie alle Werte auf dem Smartphone. Das Modul ist nicht im Lieferumfang; fragen Sie uns nach dem Preis.
+
+### Wer installiert es, und liefern Sie auch außerhalb von Antalya?
+
+Wir versenden in die ganze Türkei; jeder Elektriker kann das Gerät anschließen. In der Region Antalya bieten wir optional die Montage vor Ort an.
+
+[Zur Seite →](https://www.gespaenerji.com/de/havensis-mppt-30a.html)
+
+## DC-DC-Ladegeräte für Wohnmobile
+
+### Wozu ein DC-DC-Ladegerät, kann ich die Batterien nicht direkt verbinden?
+
+Eine direkte Verbindung entlädt im Stand auch die Starterbatterie; einfache Relais laden die Aufbaubatterie oft nicht voll, und lange Kabel verlieren Spannung. Ein DC-DC-Ladegerät trennt die Batterien und lädt die Aufbaubatterie kontrolliert.
+
+### Für welche Fahrzeuge ist es geeignet?
+
+Fahrzeuge mit 12-V- und 24-V-Bordnetz. Das Gerät lädt 12-12, 12-24, 24-12 und 24-24 V: zum Beispiel eine 12-V-Aufbaubatterie in einem 24-V-Lkw.
+
+### Entlädt sich die Starterbatterie, wenn der Motor steht?
+
+Nein. Die Motor-aus-Erkennung merkt, dass das Fahrzeug steht, und sperrt den Rückstrom. Im Boost-Modus arbeitet das Gerät dagegen bewusst in Gegenrichtung und versorgt die Starterbatterie aus der Aufbaubatterie.
+
+### Wie lange dauert das Laden meiner Aufbaubatterie?
+
+Grob Batteriekapazität ÷ Ladestrom: Eine leere 100-Ah-Batterie ist mit 40 A nach etwa 2,5–3 Stunden Fahrt weitgehend geladen. Der letzte Teil lädt je nach Batterietyp langsamer.
+
+### Mit welchen Batterietypen arbeitet es?
+
+Da alle Parameter über das Display programmiert werden, stellen Sie die Ladewerte passend zu Ihrer Aufbaubatterie ein. Schicken Sie uns Batterietyp und Ladewerte; wir prüfen die Eignung vor der Bestellung gemeinsam.
+
+### Wo wird das Display angebracht?
+
+Das Digitaldisplay wird mit einem 5-m-Verlängerungskabel am Gerät angeschlossen. Während das Gerät bei den Batterien sitzt, bringen Sie das Display gut sichtbar im Wohnraum an und überwachen und programmieren das Laden von dort.
+
+### Wozu dient der Boost-Modus?
+
+Bei langen Standzeiten kann die Starterbatterie schwach werden. Im Boost-Modus arbeitet das Gerät in Gegenrichtung und lädt die Starterbatterie aus der Aufbaubatterie mit bis zu 10 A; wird die Aufbaubatterie per Solarmodul geladen, ist so auch die Starterbatterie gestützt.
+
+### Soll ich das unidirektionale oder das bidirektionale Modell nehmen?
+
+Wenn Sie nur die Aufbaubatterie unterwegs laden möchten, genügt der unidirektionale DCDC-1224. Steht Ihr Fahrzeug oft lange oder soll eine solargeladene Aufbaubatterie auch die Starterbatterie stützen, wählen Sie den bidirektionalen DCDC-1224B.
+
+### Kann ich es per Smartphone überwachen?
+
+An dieses Gerät lassen sich die Bluetooth- und WLAN-Überwachungsmodule von Havensis anschließen; so verfolgen Sie alle Werte auf dem Smartphone. Das Modul ist nicht im Lieferumfang; fragen Sie uns nach dem Preis.
+
+### Wer installiert es, und liefern Sie auch außerhalb von Antalya?
+
+Wir versenden in die ganze Türkei; die Montage kann eine Kfz-Elektrikwerkstatt übernehmen. In der Region Antalya bieten wir optional die Montage vor Ort an.
+
+[Zur Seite →](https://www.gespaenerji.com/de/havensis-dcdc-40a-cift-yonlu.html)
+
+## BOOST-DC-DC-Laden (36–72-V-Batterien)
+
+### Bekomme ich immer 15 A Ladestrom?
+
+Nein. Das Gerät zieht am Eingang höchstens 20 A; der Strom in die Batterie hängt von Eingangs- und Batteriespannung ab. Beispiel: Bei 24 V Eingang werden 24 V × 20 A = 480 W aufgenommen; bei 95 % Wirkungsgrad fließen etwa 8–9 A in eine 48-V-Batterie. Bei 12 V Eingang sind es für dieselbe Batterie etwa 4–5 A. Den höchsten Strom erreichen Sie mit 24 V Eingang und einer 36-V-Batteriebank.
+
+### Mit welchen Batterien wird es verwendet?
+
+Mit 36-, 48-, 60- und 72-V-Batteriebänken. Schicken Sie uns Spannung, Typ und Ladewerte Ihrer Batteriebank mit der Bestellung; wir prüfen die Eignung gemeinsam.
+
+### Für welche Fahrzeuge ist es geeignet?
+
+Wohnwagen, Wohnmobile und Boote mit 12- oder 24-V-Bordnetz; der Eingang akzeptiert 12–32 V.
+
+### Kann ich ein Solarmodul direkt anschließen?
+
+Dieses Gerät ist für einen Batterie- und Lichtmaschineneingang ausgelegt. Um eine 24–72-V-Batteriebank aus Modulen zu laden, brauchen Sie ein MPPT-Gerät: Sehen Sie sich unseren BOOST-MPPT-Laderegler an.
+
+[BOOST-MPPT-Laderegler →](https://www.gespaenerji.com/de/elektrikli-arac-donusum.html)
+
+### Hat es Bluetooth?
+
+Integriertes Bluetooth ist optional und wird bei der Bestellung angegeben. Schreiben Sie uns vor der Bestellung, wenn Sie diese Option wünschen.
+
+### Wer installiert es, und liefern Sie auch außerhalb von Antalya?
+
+Wir versenden in die ganze Türkei; die Montage kann eine Kfz-Elektrikwerkstatt übernehmen. In der Region Antalya bieten wir optional die Montage vor Ort an.
+
+[Zur Seite →](https://www.gespaenerji.com/de/havensis-boost-dcdc-2448.html)
 
 ## Poolsicherheit — KI-Rettungsschwimmer-Assistenz
 
