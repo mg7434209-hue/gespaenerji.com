@@ -6,6 +6,7 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 const zlib = require("zlib");
+const kur = require("./kur");             // ₺ yuvarlama + TCMB kuru (build.js ile ortak)
 
 const PORT = process.env.PORT || 3000;
 const ROOT = __dirname;
@@ -315,6 +316,145 @@ function cardLimitError(amount) {
 // bekler; şirket ödemesinde iyzico'nun kabul ettiği yedek değer gönderilir,
 // VKN yalnız bizim sipariş kaydında ve işletme e-postasında durur.
 // KVKK: TCKN/VKN log'a ASLA yazılmaz.
+// ---- Canlı döviz kuru (TCMB) ------------------------------------------------
+// Katalog fiyatları USD'dir; ₺ = USD × kur (kur.js). Açılışta ve saatte bir
+// TCMB günlük bülteninden USD "döviz satış" kuru okunur. Uygulanan kur =
+// max(config.usdTry, TCMB × (1 + marj)) — config.usdTry ASGARİ kurdur ve
+// dosyada DEĞİŞMEZ. Kur değişince üçü birlikte yeni kura geçer:
+//   1) sunucunun ödeme tutarı (SITE_CFG.usdTry → pkgListTL),
+//   2) tarayıcıya giden /assets/config.js (serveConfigJs),
+//   3) statik sayfalar, şema, ürün akışı, llms (arka planda `node build.js`,
+//      GESPA_USDTRY ile).
+// Son geçerli TCMB değeri DATA_DIR/kur.json'dadır; TCMB'ye ulaşılamazsa o,
+// o da yoksa config.usdTry kullanılır. Yerelde ve testte KAPALIDIR (build
+// çıktısı repoda değişmesin): Railway'de ya da FX_AUTO=1 ile açılır,
+// FX_AUTO=0 her yerde kapatır. FX_URL test için TCMB adresini değiştirir.
+const FX_FILE = path.join(DATA_DIR, "kur.json");
+const FX_URL = process.env.FX_URL || "https://www.tcmb.gov.tr/kurlar/today.xml";
+const FX_CFG = (SITE_CFG && SITE_CFG.fx) || {};
+const FX = {
+  on: !!SITE_CFG && FX_CFG.auto !== false &&
+    (process.env.FX_AUTO === "1" || (process.env.FX_AUTO !== "0" && ON_RAILWAY)),
+  floor: +(SITE_CFG && SITE_CFG.usdTry) || 0,     // elle girilen asgari kur
+  rate: +(SITE_CFG && SITE_CFG.usdTry) || 0,      // UYGULANAN kur
+  tcmb: 0, date: "", checkedAt: "", changedAt: "", builtAt: "", error: "",
+  building: false, pending: false
+};
+function fetchText(url, timeoutMs, cb) {
+  let called = false;
+  const done = (e, d) => { if (!called) { called = true; cb(e, d); } };
+  try {
+    const u = new URL(url);
+    const rq = require(u.protocol === "http:" ? "http" : "https").get({
+      hostname: u.hostname, port: u.port || (u.protocol === "http:" ? 80 : 443), path: u.pathname + u.search,
+      timeout: timeoutMs, headers: { "User-Agent": "Mozilla/5.0 (compatible; gespa-kur/1.0)", "Accept": "application/xml,text/xml,*/*" }
+    }, (rs) => {
+      if (rs.statusCode !== 200) { rs.resume(); return done(new Error("HTTP " + rs.statusCode)); }
+      let s = "";
+      rs.setEncoding("utf8");
+      rs.on("data", (c) => { s += c; if (s.length > 512 * 1024) rq.destroy(new Error("yanıt çok büyük")); });
+      rs.on("end", () => done(null, s));
+    });
+    rq.on("timeout", () => rq.destroy(new Error("zaman aşımı")));
+    rq.on("error", (e) => done(e));
+  } catch (e) { done(e); }
+}
+let cfgJsCache = null;
+// TCMB değerini uygular; uygulanan kur değiştiyse true.
+function fxApply(tcmb, date) {
+  const rate = kur.effectiveRate(tcmb, FX.floor, FX_CFG.marginPct);
+  const changed = Math.abs(rate - FX.rate) >= 0.0001;
+  FX.tcmb = tcmb;
+  if (date) FX.date = date;
+  FX.rate = rate;
+  if (SITE_CFG) SITE_CFG.usdTry = rate;
+  process.env.GESPA_USDTRY = String(rate);        // açılıştaki build de bu kurla üretir
+  if (changed) { FX.changedAt = new Date().toISOString(); cfgJsCache = null; }
+  try {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+    fs.writeFileSync(FX_FILE, JSON.stringify({ tcmb: tcmb, date: FX.date, rate: rate, at: new Date().toISOString() }));
+  } catch (e) {}
+  return changed;
+}
+function refreshFx(cb) {
+  cb = cb || function () {};
+  if (!FX.on) return cb(false);
+  fetchText(FX_URL, 8000, (err, xml) => {
+    FX.checkedAt = new Date().toISOString();
+    const got = !err && kur.parseTcmb(xml, FX_CFG.field);
+    if (!got) {
+      FX.error = err ? err.message : "TCMB yanıtı çözülemedi";
+      console.warn("kur: TCMB okunamadı (" + FX.error + "); uygulanan kur " + FX.rate);
+      return cb(false);
+    }
+    // Veri hatasına karşı: ilk okumada asgari kurla geniş, sonra son TCMB
+    // değeriyle dar aralıkta kıyaslanır; aşan değer UYGULANMAZ.
+    const ref = FX.tcmb || FX.floor;
+    if (!kur.saneJump(ref, got.rate, FX.tcmb ? 25 : 60)) {
+      FX.error = "TCMB kuru " + got.rate + " beklenen aralıkta değil (önceki " + ref + "); uygulanmadı";
+      console.warn("kur: " + FX.error);
+      return cb(false);
+    }
+    FX.error = "";
+    const changed = fxApply(got.rate, got.date);
+    if (changed) console.log("kur: TCMB " + got.rate + " (" + got.date + ") → uygulanan " + FX.rate);
+    cb(changed);
+  });
+}
+// Kur değişince statik çıktıyı AYRI süreçte yeniden üretir: sunucu bu sırada
+// istek karşılamaya devam eder (build senkron çalışır, ana süreci kilitlerdi).
+function rebuildForFx() {
+  if (FX.building) { FX.pending = true; return; }
+  FX.building = true;
+  const child = require("child_process").spawn(process.execPath, [path.join(ROOT, "build.js")], {
+    cwd: ROOT, env: Object.assign({}, process.env, { GESPA_USDTRY: String(FX.rate) }), stdio: "inherit"
+  });
+  const bitti = (code) => {
+    FX.building = false;
+    FX.builtAt = new Date().toISOString();
+    console.log("kur: sayfalar " + FX.rate + " kuruyla yeniden üretildi (çıkış kodu " + code + ")");
+    if (FX.pending) { FX.pending = false; rebuildForFx(); }
+  };
+  child.on("exit", bitti);
+  child.on("error", (e) => { FX.building = false; console.warn("kur: build başlatılamadı:", e.message); });
+}
+// Tarayıcıya giden config.js: dosyadaki asgari kur yerine UYGULANAN kur
+// yazılır; vitrin/sepet fiyatı sunucunun tahsil edeceği tutarla aynı olur.
+function serveConfigJs(req, res) {
+  const file = path.join(ROOT, "assets/config.js");
+  let st;
+  try { st = fs.statSync(file); } catch (e) { return false; }
+  const key = st.mtimeMs + ":" + FX.rate;
+  if (!cfgJsCache || cfgJsCache.key !== key) {
+    const src = fs.readFileSync(file, "utf8").replace(/(\n\s*usdTry:\s*)[0-9.]+/, "$1" + FX.rate);
+    const body = Buffer.from(src, "utf8");
+    cfgJsCache = {
+      key: key, body: body, gz: zlib.gzipSync(body), br: zlib.brotliCompressSync(body),
+      etag: 'W/"kur-' + crypto.createHash("sha1").update(body).digest("hex").slice(0, 16) + '"'
+    };
+  }
+  const c = cfgJsCache;
+  const headers = {
+    "Content-Type": MIME[".js"], "Cache-Control": "no-cache", "ETag": c.etag,
+    "X-Content-Type-Options": "nosniff", "Vary": "Accept-Encoding"
+  };
+  if (req.headers["if-none-match"] === c.etag) { res.writeHead(304, headers); res.end(); return true; }
+  const ae = req.headers["accept-encoding"] || "";
+  let out = c.body;
+  if (/\bbr\b/.test(ae)) { headers["Content-Encoding"] = "br"; out = c.br; }
+  else if (/\bgzip\b/.test(ae)) { headers["Content-Encoding"] = "gzip"; out = c.gz; }
+  res.writeHead(200, headers);
+  res.end(req.method === "HEAD" ? undefined : out);
+  return true;
+}
+// Son bilinen TCMB değeri: ağ yokken bile önceki canlı kurla açılsın.
+if (FX.on) {
+  try {
+    const saved = JSON.parse(fs.readFileSync(FX_FILE, "utf8"));
+    if (saved && saved.tcmb > 1) fxApply(+saved.tcmb, saved.date);
+  } catch (e) {}
+}
+
 const IYZ_ID_FALLBACK = "11111111111";
 function invoiceId(buyer) {
   const b = buyer || {};
@@ -342,8 +482,8 @@ function writeOrder(token, data) {
 // Birim TL fiyat — assets/main.js pkgUnit ile AYNI kural (liste fiyatı).
 // Kart ödemesinde havale indirimi uygulanmaz; liste fiyatı tahsil edilir.
 function pkgListTL(p, cfg) {
-  const RATE = cfg.usdTry || 0;
-  return p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
+  const RATE = cfg.usdTry || 0;                  // canlı kur açıksa FX.rate (aşağıda)
+  return p.currency === "USD" ? kur.tlRound(p.price * RATE) : p.price;
 }
 
 // Fiyat biçimi — resmî SDK ile aynı: tam sayıya ".0" eklenir ("50" -> "50.0").
@@ -847,6 +987,14 @@ function handlePayRoutes(req, res, urlPath) {
       const inv = invoiceId(buyer);
       if (inv.error) return sendJson(res, 400, { error: inv.error });
       const total = lines.reduce((a, l) => a + l.unit * l.qty, 0);
+      // Müşterinin sepette GÖRDÜĞÜ tutar ile sunucunun hesapladığı tutar
+      // farklıysa ödeme BAŞLATILMAZ: kur güncellenmiş, sayfa eski fiyatla açık
+      // kalmış olabilir. Sayfa yenilenir, müşteri güncel tutarı görüp öder.
+      const seen = +b.expectTL;
+      if (seen > 0 && Math.abs(seen - total) >= 1) {
+        return sendJson(res, 409, { reload: true, totalTL: total,
+          error: "Fiyatlar güncel döviz kuruna göre değişti. Sayfa yenileniyor; lütfen yeni tutarı kontrol edip tekrar deneyin." });
+      }
       const cardErr = cardLimitError(total);
       if (cardErr) return sendJson(res, 400, { error: cardErr });
       const convId = "GES" + Date.now().toString(36).toUpperCase();
@@ -1091,6 +1239,17 @@ const server = http.createServer((req, res) => {
       if (handlePayRoutes(req, res, urlPath)) return;
       res.writeHead(404); return res.end("Not found");
     }
+    // Döviz kuru durumu — admin "💱 Döviz kuru" kartı okur. Gizli bilgi yok.
+    if (urlPath === "/api/fx") {
+      res.writeHead(200, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" });
+      return res.end(JSON.stringify({
+        auto: FX.on, rate: FX.rate, floor: FX.floor, marginPct: +FX_CFG.marginPct || 0,
+        tcmb: FX.tcmb || null, date: FX.date || null,
+        source: FX.on ? "TCMB USD döviz satış" : "elle (config.usdTry)",
+        checkedAt: FX.checkedAt || null, changedAt: FX.changedAt || null,
+        builtAt: FX.builtAt || null, building: FX.building, error: FX.error || null
+      }));
+    }
     // Ziyaretçi API — footer sayacı (main.js) buradan okur; sayım HTML servisinde
     if (urlPath === "/api/visitors") {
       res.writeHead(200, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" });
@@ -1137,6 +1296,10 @@ const server = http.createServer((req, res) => {
     // Dizin kökü (/, /en/, /de/, /ru/) → index.html
     if (urlPath.endsWith("/")) urlPath += "index.html";
 
+    // Canlı kur açıkken config.js uygulanan kurla gönderilir (bkz. serveConfigJs)
+    if (FX.on && urlPath === "/assets/config.js" && (req.method === "GET" || req.method === "HEAD")) {
+      if (serveConfigJs(req, res)) return;
+    }
     // İzin listesi dışındaki yol hiç diske gitmeden 404 sayfasına düşer
     // (varlığı da belli edilmez) — bkz. isPublicPath.
     let filePath = isPublicPath(urlPath) ? safeJoin(ROOT, urlPath) : path.join(ROOT, "__yayin-disi__");
@@ -1276,7 +1439,17 @@ const server = http.createServer((req, res) => {
 // Açılış sırası: 1) sayacı önceki sunucudan devral (yalnız Railway'de ve
 // dosya yoksa; en çok ~8 sn) 2) çok dilli sayfaları üret 3) dinlemeye başla.
 // Dinleme en sonda: healthcheck 200 döndüğünde her şey hazırdır.
-seedVisitsFromLive((msg) => {
+function startFx(next) {
+  if (!FX.on) { console.log("kur: elle (config.usdTry = " + FX.rate + ")"); return next(); }
+  refreshFx(() => {
+    console.log("kur: uygulanan " + FX.rate + (FX.tcmb ? " · TCMB " + FX.tcmb + " (" + FX.date + ")" : " · TCMB okunamadı, asgari kur") + " · asgari " + FX.floor);
+    // Saatte bir yokla; kur değişince sayfaları arka planda yeniden üret.
+    // FX_EVERY_MS yalnız test içindir (varsayılan 1 saat).
+    setInterval(() => refreshFx((changed) => { if (changed) rebuildForFx(); }), +process.env.FX_EVERY_MS || 60 * 60 * 1000).unref();
+    next();
+  });
+}
+startFx(() => seedVisitsFromLive((msg) => {
   console.log("ziyaretçi sayacı: " + msg);
   // Çok dilli statik sayfaları (/en, /de, /ru) başlangıçta üret
   try {
@@ -1288,7 +1461,7 @@ seedVisitsFromLive((msg) => {
   server.listen(PORT, () => {
     console.log(`GESPA Enerji sitesi http://localhost:${PORT} adresinde yayında`);
   });
-});
+}));
 
 // Railway eski kapsayıcıyı SIGTERM ile kapatır: bekleyen (2 sn gecikmeli)
 // sayaç yazımlarını hemen diske at. Volume varken son saniyelerin ziyaretleri

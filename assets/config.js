@@ -147,11 +147,19 @@ window.GESPA.config = {
   // perakende fiyatı formülle örtüşmez). `group`: ongrid | offgrid | irrigation.
   // İsim/açıklama/özellik TR kaynaktır; çeviri assets/i18n.js DICT'ten gelir
   // (eşleşmeyen metin zarifçe TR kalır).
-  // USD/TRY kuru — kitlerde ikinci para birimi karşılığı için (₺/$).
-  // Kur değişince SADECE burayı güncelleyin; "≈" ile yaklaşık gösterilir.
-  // USD fiyatlı ürünlerin ₺ fiyatı (kart ödemesinde tahsil edilen tutar
-  // dahil) bu kurla hesaplanır. Son güncelleme: 29 Eyl 2026.
+  // USD/TRY — ASGARİ KUR (₺/$). Katalogdaki TÜM ürünler USD tutulur; ₺ fiyat
+  // (kart ödemesinde tahsil edilen tutar dahil) USD × kur, kur.js `tlRound`
+  // ile yuvarlanır. Canlı kur açıkken (fx.auto, Railway) sunucu TCMB kurunu
+  // kullanır; TCMB bu değerin ALTINDAYSA bu değer uygulanır, fiyatlar bu
+  // seviyenin altına inmez. Elle son giriş: 29 Eyl 2026 (49,2). Ürünlerin
+  // yanındaki "₺… @ 49,2" notu o ürünün bu kurdaki ₺ fiyatıdır.
   usdTry: 49.2,
+  // CANLI KUR — server.js + kur.js. Railway'de sunucu TCMB günlük bülteninden
+  // USD "döviz satış" kurunu açılışta ve saatte bir okur; değişince fiyatları
+  // ve statik sayfaları (şema, ürün akışı, llms) kendiliğinden yeniler.
+  // marginPct: TCMB kuruna eklenecek pay (%), 0 = TCMB'nin aynısı.
+  // auto:false → yalnız usdTry kullanılır (elle kur).
+  fx: { auto: true, source: "TCMB", field: "ForexSelling", marginPct: 0 },
   // Ana sayfa hero slaytı — dönüş süresi (ms). Kısaltmak = daha hızlı döngü.
   hero: { intervalMs: 4000 },
 
@@ -250,7 +258,7 @@ window.GESPA.config = {
       url: "paket-285w.html", sku: "GES-KIT-285",
       kwp: 0.285, panelW: 285, panelCount: 1, portable: true, dailyKwh: 1.7,
       img: "assets/img/products/kit-285w.webp",
-      price: 25000,
+      price: 508.13, currency: "USD",                     // ₺25.000 @ 49,2
       for: "Kamp, karavan ve küçük ihtiyaçlar",
       name: "285W Güneş Paneli Paketi",
       desc: "Komple sistem: 285 W panel, güç kutusu ve bağlantı kabloları dahil tak-çalıştır mobil kit. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg.",
@@ -280,7 +288,7 @@ window.GESPA.config = {
       // ₺7.200 yazıp kasada ₺7.600 çekildiği için net fiyata geçildi.
       // freeShipping: kargo fiyata DAHİL — alıcıdan ayrıca kargo ücreti
       // istenmez; "KDV ve kargo dahil" notu basılır.
-      price: 7200, noCartDiscount: true, freeShipping: true,
+      price: 146.34, currency: "USD", noCartDiscount: true, freeShipping: true,  // ₺7.200 net @ 49,2
       chips: ["⚙️ 24 V – 72 V akü", "🔋 Tüm akü tipleri", "📶 Bluetooth ile ayar"],
       for: "Golf aracı, hizmet aracı ve elektrikli platformlar",
       name: "MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı",
@@ -302,7 +310,7 @@ window.GESPA.config = {
       url: "aku-lifepo4-72v-30ah.html", sku: "GES-EV-AKU-72V",
       brand: "europlus",
       img: "assets/img/products/ev/aku-72v-30ah.webp",
-      price: 28000,
+      price: 569.11, currency: "USD",                     // ₺28.000 @ 49,2
       chips: ["⚡ 72 V · 30 Ah · ~2.300 Wh", "🔁 2.000 çevrim ömrü", "🛡️ Dahili balanslı BMS"],
       for: "Elektrikli triportör, motosiklet ve 72 V hizmet araçları",
       name: "europlus 72 V 30 Ah LiFePO₄ Akü",
@@ -318,7 +326,7 @@ window.GESPA.config = {
       id: "panel-50w", icon: "🔆", tag: "Panel", group: "panel",
       sku: "GES-PNL-50",
       img: "assets/img/products/panel-50w.webp",
-      price: 1250, oldPrice: 2500,
+      price: 25.41, currency: "USD", oldPrice: 50.81,     // ₺1.250 · eski fiyat ₺2.500 @ 49,2
       // Kampanya fiyatı NET: zaten %50 indirimli, üstüne havale/EFT indirimi
       // uygulanmaz. Müşterinin ödeyeceği son tutar ₺1.250'dir.
       noCartDiscount: true,
@@ -360,7 +368,7 @@ window.GESPA.config = {
       id: "panel-lexron-285w", icon: "🔆", tag: "Panel", group: "panel",
       sku: "GES-PNL-285", brand: "Lexron",
       img: "assets/img/products/panel-lexron-285w.webp",
-      price: 7500,
+      price: 152.44, currency: "USD",                     // ₺7.500 @ 49,2
       chips: ["🔆 285 W TOPCon", "⚡ 42,84 V Voc", "⚖️ 8,5 kg"],
       for: "Balkon, bağ evi ve küçük off-grid sistemler",
       name: "Lexron 285 W Güneş Paneli",
@@ -371,7 +379,7 @@ window.GESPA.config = {
       id: "panel-lexron-655w", icon: "🔆", tag: "Panel", group: "panel",
       sku: "GES-PNL-655", brand: "Lexron",
       img: "assets/img/products/panel-lexron-655w.webp",
-      price: 10000,
+      price: 203.25, currency: "USD",                     // ₺10.000 @ 49,2
       chips: ["🔆 655 W N-type TOPCon", "📈 %24,25 verim", "🛡️ 30 yıl güç garantisi"],
       for: "Çatı ve arazi sistemleri, yüksek güç gerektiren kurulumlar",
       name: "Lexron 655 W TOPCon Güneş Paneli",
@@ -384,7 +392,7 @@ window.GESPA.config = {
       id: "panel-arcelik-540w", icon: "🔆", tag: "Panel", group: "panel",
       sku: "GES-PNL-540", brand: "Arçelik",
       img: "assets/img/products/panel-arcelik-540w.webp",
-      price: 10000,
+      price: 203.25, currency: "USD",                     // ₺10.000 @ 49,2
       chips: ["🔆 540 W", "🏷️ A sınıf", "🇹🇷 Arçelik"],
       for: "Çatı ve arazi kurulumları, yerli marka tercih edenler",
       name: "Arçelik 540 W Güneş Paneli",
@@ -398,7 +406,7 @@ window.GESPA.config = {
       id: "aku-titanx-51v-102ah", icon: "🔋", tag: "Enerji Depolama", group: "storage",
       sku: "GES-AKU-102", brand: "TitanX",
       img: "assets/img/products/aku-titanx-51v-102ah.webp",
-      price: 73372,
+      price: 1491.3, currency: "USD",                     // ₺73.400 (eski ₺73.372) @ 49,2
       chips: ["🔋 5,22 kWh", "⚡ 51,2 V · 102 Ah", "♻️ 6000+ çevrim"],
       for: "Ev ve işyeri enerji depolama, off-grid ve yedek güç",
       name: "TitanX 51,2 V 102 Ah LiFePO₄ Akü",
@@ -512,7 +520,7 @@ window.GESPA.config = {
       id: "kablo-solar-5m", icon: "🔌", tag: "Kablo", group: "cable",
       sku: "GES-KBL-5M",
       img: "assets/img/products/kablo-solar-5m.webp",
-      price: 1000,
+      price: 20.33, currency: "USD",                      // ₺1.000 @ 49,2
       chips: ["📏 5 m + 5 m", "⚫🔴 Siyah + kırmızı", "☀️ Solar kablo"],
       for: "Panel ile şarj kontrol cihazı arası bağlantı",
       name: "Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)",
@@ -531,7 +539,7 @@ window.GESPA.config = {
       url: "paket-motor-yolcu.html",
       sku: "GES-SET-YOLCU",
       img: "assets/img/products/ev/motor-yolcu.webp",
-      price: 15800,
+      price: 321.14, currency: "USD",                     // ₺15.800 @ 49,2
       parts: ["panel-lexron-285w", "boost-mppt", "kablo-solar-5m", "mc4-set"],
       chips: ["🔆 285 W TOPCon panel", "🔌 BOOST MPPT 24–72 V", "🧰 Kablo + MC4 dahil"],
       for: "Kabinli, 2–4 kişilik yolcu triportörleri — çatı alanı dar",
@@ -544,7 +552,7 @@ window.GESPA.config = {
       url: "paket-motor-kargo.html",
       sku: "GES-SET-KARGO",
       img: "assets/img/products/ev/motor-kargo.webp",
-      price: 18300,
+      price: 371.95, currency: "USD",                     // ₺18.300 @ 49,2
       parts: ["panel-lexron-655w", "boost-mppt", "kablo-solar-5m", "mc4-set"],
       chips: ["🔆 655 W TOPCon panel", "🔌 BOOST MPPT 24–72 V", "🧰 Kablo + MC4 dahil"],
       for: "Açık kasa veya tenteli yük triportörleri — çatı alanı geniş",
@@ -557,7 +565,7 @@ window.GESPA.config = {
       id: "mc4-set", icon: "🔗", tag: "Konnektör", group: "cable",
       sku: "GES-MC4-1",
       img: "assets/img/products/mc4-set.webp",
-      price: 100,
+      price: 2.03, currency: "USD",                       // ₺100 @ 49,2
       chips: ["🔗 1 takım", "⚡ Erkek + dişi", "☀️ Panel bağlantısı"],
       for: "Panel kablosu ile solar kablonun birleştirilmesi",
       name: "MC4 Konnektör Takımı",

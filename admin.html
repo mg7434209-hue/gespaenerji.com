@@ -150,6 +150,19 @@
       <div id="stState" class="adm-note info">Durum okunuyor…</div>
     </div>
 
+    <!-- Döviz kuru: canlı kur (TCMB) ve uygulanan değer — server.js /api/fx -->
+    <div id="fxcard" class="adm-card" hidden>
+      <div class="adm-head">
+        <h2 style="font-size:1.35rem;margin:0">💱 Döviz kuru</h2>
+      </div>
+      <p style="color:var(--muted);margin:0 0 6px;font-size:.92rem">
+        Mağazadaki tüm fiyatlar USD tutulur; ₺ fiyat USD × kurdur. Sunucu TCMB'nin günlük USD döviz satış
+        kurunu saatte bir okur, kur değişince fiyatları kendiliğinden günceller. Kur, config'teki asgari
+        kurun (<code>usdTry</code>) altına inmez.
+      </p>
+      <div id="fxState" class="adm-note info">Okunuyor…</div>
+    </div>
+
     <!-- Sipariş bildirim e-postası: canlı sipariş beklemeden ayarı doğrula -->
     <div id="mailtest" class="adm-card" hidden>
       <div class="adm-head">
@@ -186,7 +199,7 @@
   <script>
   document.addEventListener("DOMContentLoaded", function () {
     var C = (window.GESPA && GESPA.config) || {};
-    var KEY = "gespa-prices";
+    var KEY = "gespa-prices-usd";                  // USD dönemi (main.js ile aynı anahtar)
     var PASS = (C.admin && C.admin.pass) || "admin";
     var $ = function (s) { return document.querySelector(s); };
     var nf = new Intl.NumberFormat("tr-TR");
@@ -218,8 +231,37 @@
     function show() {
       $("#login").hidden = true; $("#editor").hidden = false; $("#paylink").hidden = false;
       $("#taksit").hidden = false; $("#mailtest").hidden = false; $("#aibots").hidden = false;
-      $("#storecard").hidden = false;
-      render(); payLink(); taksitAraci(); mailTest(); aiBots(); storeState();
+      $("#storecard").hidden = false; $("#fxcard").hidden = false;
+      render(); payLink(); taksitAraci(); mailTest(); aiBots(); storeState(); fxState();
+    }
+
+    // Döviz kuru — /api/fx (server.js FX). Pages aynasında sunucu yoktur.
+    function fxState() {
+      var st = $("#fxState");
+      var f4 = new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 4 });
+      var esc = function (t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+      var zaman = function (iso) {
+        if (!iso) return "—";
+        try { return new Date(iso).toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" }); } catch (e) { return iso; }
+      };
+      fetch("/api/fx").then(function (r) { return r.json(); }).then(function (d) {
+        var L = ["Uygulanan kur: <strong>1 USD = " + f4.format(d.rate) + " ₺</strong>"];
+        if (d.auto) {
+          L.push("TCMB döviz satış: " + (d.tcmb ? f4.format(d.tcmb) + " ₺ (" + esc(d.date || "—") + ")" : "henüz okunamadı"));
+          L.push("Asgari kur: " + f4.format(d.floor) + " ₺" + (d.marginPct ? " · TCMB'ye +%" + d.marginPct + " pay" : ""));
+          L.push("Son kontrol: " + zaman(d.checkedAt) + (d.changedAt ? " · son değişim: " + zaman(d.changedAt) : ""));
+          if (d.building) L.push("Sayfalar yeni kurla yeniden üretiliyor…");
+          if (d.error) L.push("⚠️ " + esc(d.error));
+          st.className = "adm-note " + (d.error ? "warn" : "ok");
+        } else {
+          L.push("Canlı kur KAPALI: yalnız config'teki elle girilen kur kullanılıyor.");
+          st.className = "adm-note warn";
+        }
+        st.innerHTML = L.join("<br>");
+      }).catch(function () {
+        st.className = "adm-note warn";
+        st.textContent = "Kur durumu okunamadı (sayfa GitHub Pages aynasında açıldıysa sunucu yoktur).";
+      });
     }
 
     // Kalıcı veri durumu — /api/pay/status `store` (server.js DATA_PERSISTENT)
@@ -232,8 +274,8 @@
         } else if (d && d.store === false) {
           st.className = "adm-note warn";
           st.innerHTML = "⚠️ Kalıcı disk <strong>YOK</strong> — ziyaretçi sayacı güncellemede önceki sunucudan "
-            + "devralınır, ama <strong>sipariş kayıtları, dekont bağlantıları ve AI bot sayıları</strong> site her "
-            + "güncellendiğinde silinir. Çözüm: Railway'de bu servise bir <strong>Volume</strong> ekleyin "
+            + "devralınır, dekontlar bağlantının içinde saklandığı için açılır, ama <strong>sipariş kayıtları ve "
+            + "AI bot sayıları</strong> site her güncellendiğinde silinir. Çözüm: Railway'de bu servise bir <strong>Volume</strong> ekleyin "
             + "(bağlama yolu örn. <code>/data</code>). Başka ayar gerekmez; sunucu yolu kendisi bulur.";
         } else {
           st.className = "adm-note info";
@@ -285,7 +327,9 @@
         html += '<div class="adm-grp-title">📦 Paketler</div>';
         C.packages.forEach(function (p) {
           var cur = (ov.packages && ov.packages[p.id] != null && ov.packages[p.id] !== "") ? ov.packages[p.id] : (p.price != null ? p.price : derivedPkg(p));
-          html += row("pkg-" + p.id, p.name, (p.tag || "") + " · " + (p.kwp || "") + " kWp", cur);
+          var usd = p.currency === "USD";
+          html += row("pkg-" + p.id, p.name, (p.tag || "") + (p.kwp ? " · " + p.kwp + " kWp" : "") +
+            (usd ? " · USD (₺ = USD × kur)" : " · ₺"), cur, usd);
         });
       }
       if (C.heater && C.heater.models) {
@@ -297,9 +341,9 @@
       }
       $("#rows").innerHTML = html;
     }
-    function row(id, title, sub, val) {
+    function row(id, title, sub, val, usd) {
       return '<div class="adm-row"><div class="lbl"><strong>' + title + '</strong><small>' + sub + '</small></div>' +
-        '<input type="number" min="0" step="100" id="' + id + '" value="' + (val || "") + '" /></div>';
+        '<input type="number" min="0" step="' + (usd ? "0.01" : "100") + '" id="' + id + '" value="' + (val || "") + '" /></div>';
     }
 
     function collect() {

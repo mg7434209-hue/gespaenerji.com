@@ -111,9 +111,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Energiespeicher für Haus und Betrieb, Off-Grid und Notstrom
 
-**₺73.372**≈ $1.491
+**₺73.400**≈ $1.491
 
-💰 Per Überweisung: **₺71.150**
+💰 Per Überweisung: **₺71.200**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -151,9 +151,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Wohnmobil: Aufbaubatterie über die Lichtmaschine laden · 12/24 V
 
-**₺9.700**≈ $198
+**₺9.750**≈ $198
 
-💰 Per Überweisung: **₺9.400**
+💰 Per Überweisung: **₺9.450**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -181,9 +181,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Lädt 36–72-V-Batterien über einen 12/24-V-Eingang · Wohnmobil und Boot
 
-**₺8.300**≈ $168
+**₺8.250**≈ $168
 
-💰 Per Überweisung: **₺8.050**
+💰 Per Überweisung: **₺8.000**
 
 Inkl. MwSt. · zzgl. Versand
 

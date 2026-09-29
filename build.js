@@ -13,6 +13,7 @@
 const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
+const kur = require("./kur");                 // ₺ yuvarlama kuralı (server.js ile ortak)
 const seo = require("./content/build-seo");
 const HELP = require("./content/sss");          // SSS merkezi (sss.html)
 const GLOSSARY = require("./content/sozluk");   // GES sözlüğü (sozluk.html)
@@ -601,7 +602,13 @@ function isoDurSec(x) { const m = /^PT(?:(\d+)M)?(?:(\d+)S)?$/.exec(x || ""); re
 function loadConfig() {
   const sandbox = { window: {} };
   vm.runInNewContext(fs.readFileSync(path.join(ROOT, "assets/config.js"), "utf8"), sandbox);
-  return sandbox.window.GESPA.config;
+  const cfg = sandbox.window.GESPA.config;
+  // CANLI KUR: Railway'de server.js TCMB kurunu çekip build'i GESPA_USDTRY ile
+  // çalıştırır; statik fiyatlar, şema ve ürün akışı sitenin kullandığı kurla
+  // üretilir. Değişken yoksa config.usdTry (elle/asgari kur) geçerlidir.
+  const live = +process.env.GESPA_USDTRY;
+  if (live > 1 && live < 1000) cfg.usdTry = live;
+  return cfg;
 }
 
 function localBusinessLd(c, cfg) {
@@ -789,7 +796,7 @@ const URUNLER_GROUPS = ["evset", "offgrid", "irrigation", "ongrid", "accessory"]
 // Yuvarlama main.js `pkgUnit()` ve server.js `pkgListTL` ile AYNIDIR.
 function priceTRY(cfg, price, currency) {
   const RATE = cfg.usdTry || 0;
-  return currency === "USD" ? Math.round(price * RATE / 100) * 100 : price;
+  return currency === "USD" ? kur.tlRound(price * RATE) : price;
 }
 
 function pctOf(cfg, p) {
@@ -821,16 +828,21 @@ function checkParts(cfg) {
   const sorun = [];
   (cfg.packages || []).forEach(p => {
     if (!p.parts || !p.parts.length) return;
-    let toplam = 0;
+    let toplam = 0, ham = 0;
     p.parts.forEach(id => {
       const m = (cfg.packages || []).filter(x => x.id === id)[0];
       if (!m) { sorun.push("  ! " + p.id + ": '" + id + "' config.packages'te YOK"); return; }
       if (m.price == null) { sorun.push("  ! " + p.id + ": '" + id + "' fiyatsız (teklif usulü)"); return; }
       toplam += priceTRY(cfg, m.price, m.currency);
+      ham += (m.currency === "USD" ? m.price * (cfg.usdTry || 0) : m.price);
     });
     if (p.price == null) return;
     const kendi = priceTRY(cfg, p.price, p.currency);
-    if (toplam && kendi !== toplam) {
+    // Karşılaştırma YUVARLANMAMIŞ tutarla yapılır: fiyatlar kura bağlı olduğu
+    // için kalemlerin ayrı ayrı yuvarlanması kur oynadıkça ±50–100 ₺ fark
+    // üretir; bu gerçek bir fiyat kayması değildir.
+    const kendiHam = p.currency === "USD" ? p.price * (cfg.usdTry || 0) : p.price;
+    if (ham && Math.abs(kendiHam - ham) > Math.max(1, kendiHam * 0.001)) {
       const fark = kendi - toplam;
       sorun.push("  ! " + p.id + ": set ₺" + kendi.toLocaleString("tr-TR") +
         " · kalemler toplamı ₺" + toplam.toLocaleString("tr-TR") +
@@ -1221,10 +1233,10 @@ function hydrateExtras(html, file, cfg) {
     const RATE = cfg.usdTry || 0;
     const rows = cfg.packages.filter(p => p.price != null || p.priceOnRequest).map(p => {
       const PCT = pctOf(cfg, p);                       // ürüne özel oran
-      const tl = p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
+      const tl = priceTRY(cfg, p.price, p.currency);
       const usd = p.currency === "USD" ? p.price : (RATE ? Math.round(p.price / RATE) : 0);
       const hav = havaleTL(p, tl, PCT);
-      const oldTL = p.oldPrice && (p.currency === "USD" ? Math.round(p.oldPrice * RATE / 100) * 100 : p.oldPrice);
+      const oldTL = p.oldPrice && priceTRY(cfg, p.oldPrice, p.currency);
       const camp = cfg.campaign || {};
       const onSale = oldTL && oldTL > tl && camp.endsAt && new Date(camp.endsAt) > new Date();
       // priceOnRequest: fiyat girilmemis urun — rakam yerine "Teklif alin"
@@ -1267,8 +1279,7 @@ function hydrateExtras(html, file, cfg) {
       const pk = cfg.packages.filter(x => x.id === st.pkg)[0];
       if (!pk || pk.price == null) return "";                    // eksik paketi YAYIMLAMA
       const ps = (pk.parts || []).map(m => cfg.packages.filter(x => x.id === m)[0]).filter(Boolean);
-      const RATE = cfg.usdTry || 0;
-      const total = pk.currency === "USD" ? Math.round(pk.price * RATE / 100) * 100 : pk.price;
+      const total = priceTRY(cfg, pk.price, pk.currency);
       // ÇEVİRİ NOTU: dil kopyalarında gövde METİN DÜĞÜMÜ bazında çevrilir —
       // düğümün TAMAMI bir DICT anahtarına eşleşmeli. Bu yüzden çevrilecek
       // her ifade kendi <span>'inde durur; fiyat rakamı dışarıda kalır.
@@ -1290,7 +1301,7 @@ function hydrateExtras(html, file, cfg) {
     const p = cfg.packages.filter(x => x.id === pkgId)[0];
     if (p && p.price != null) {
       const RATE = cfg.usdTry || 0, PCT = pctOf(cfg, p);
-      const tl = p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
+      const tl = priceTRY(cfg, p.price, p.currency);
       const usd = p.currency === "USD" ? p.price : (RATE ? Math.round(p.price / RATE) : 0);
       setSpan("pkgPrice", "₺" + nfTr(tl));
       setSpan("pkgAlt", usd ? "≈ $" + nfTr(usd) : "");
@@ -1414,7 +1425,7 @@ function hydrateExtras(html, file, cfg) {
           const PCT = pctOf(cfg, p);                   // ürüne özel oran
           const price = p.price != null ? p.price : (poa ? null : Math.round(p.kwp * COST));
           // Vitrin kartıyla AYNI gösterim: ana fiyat ₺, yanında ≈$, altında havale/EFT tutarı
-          const tl = poa ? null : (p.currency === "USD" ? Math.round(price * RATE / 100) * 100 : price);
+          const tl = poa ? null : priceTRY(cfg, price, p.currency);
           const usd = poa ? 0 : (p.currency === "USD" ? price : (RATE ? Math.round(price / RATE) : 0));
           const hav = poa ? null : havaleTL(p, tl, PCT);
           const priceTxt = poa
@@ -1519,10 +1530,9 @@ function writeLlms(cfg) {
   // Yalnız TR olup bir gruba yazılmış sayfa (rehber) "Yasal" başlığına düşmez
   const legal = TR_ONLY.filter(f => !listed.has(f)).map(line).filter(Boolean);
   const nf = n => new Intl.NumberFormat("tr-TR").format(Math.round(n));
-  const RATE = cfg.usdTry || 0;
   const products = (cfg.packages || []).filter(p => p.price != null || p.priceOnRequest).map(p => {
     const poa = p.price == null;
-    const tl = poa ? null : (p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price);
+    const tl = poa ? null : priceTRY(cfg, p.price, p.currency);
     return "- " + p.name + (p.for ? " — " + p.for : "") + (poa ? " · fiyat için teklif alın" : " · ₺" + nf(tl) + " (KDV dahil)")
       + (p.url ? " · " + web + "/" + p.url : " · " + web + "/online-satis.html");
   }).join("\n");
@@ -1765,9 +1775,9 @@ function hydrateContact(html, c) {
 // Fiyat LİSTE fiyatıdır (KDV dahil); havale/EFT indirimi bir ÖDEME YÖNTEMİ
 // indirimi olduğu için akışa girmez, yoksa kartla ödeyen yanılır.
 function writeProductFeed(cfg) {
-  const c = cfg.company, web = c.web, RATE = cfg.usdTry || 0;
+  const c = cfg.company, web = c.web;
   const items = (cfg.packages || []).filter(p => p.price != null && p.img).map(p => {
-    const tl = p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
+    const tl = priceTRY(cfg, p.price, p.currency);
     // Kendi sayfası olmayan ürün katalogda satılır — iniş sayfası orası.
     const link = web + "/" + (p.url || "online-satis.html");
     const avail = p.stock === 0 ? "out of stock" : "in stock";
@@ -1824,7 +1834,7 @@ function writeLlmsFull(cfg) {
     const lead = p.kwp ? `${p.kwp} kWp · ` : (p.sku ? `${p.sku} · ` : "");
     if (poa) return `- ${p.name} — ${lead}${p.for} · fiyat için teklif alın`;
     const price = p.price != null ? p.price : Math.round(p.kwp * COST);
-    const tl = p.currency === "USD" ? Math.round(price * RATE / 100) * 100 : price;
+    const tl = priceTRY(cfg, price, p.currency);
     const usd = p.currency === "USD" ? price : (RATE ? Math.round(price / RATE) : 0);
     const hav = havaleTL(p, tl, PCT);
     const tag = p.price != null
@@ -1888,7 +1898,7 @@ ${heaterLines}
 ## Paket Ürünler (${c.web}/urunler.html)
 Markalar — panel: ${cfg.brands.panel.join(", ")} · inverter: ${cfg.brands.inverter.join(", ")} · MPPT/DC-DC: ${(cfg.brands.mppt || []).join(", ")} · akü: ${(cfg.brands.battery || []).join(", ")}${(cfg.brands.own || []).length ? " · kendi markamız: " + cfg.brands.own.join(", ") : ""}
 ${pkgLines}
-Kargo & iade: Paketler TÜRKİYE'NİN HER İLİNE anlaşmalı kargo ile gönderilir (teslimat
+${cfg.fx && cfg.fx.auto ? "Fiyat ve kur: katalog fiyatları USD bazlıdır; ₺ karşılığı TCMB döviz satış kuruyla günlük güncellenir (kur, işletmenin belirlediği asgari kurun altına inmez). Bu dosyadaki ₺ tutarlar 1 USD = " + String(cfg.usdTry).replace(".", ",") + " ₺ ile hesaplandı; güncel fiyat sitededir.\n" : ""}Kargo & iade: Paketler TÜRKİYE'NİN HER İLİNE anlaşmalı kargo ile gönderilir (teslimat
 Antalya ile sınırlı değildir). Sipariş onayından sonra tahmini teslim ${(cfg.commerce || {}).shipDays || "2–5"} iş günü;
 kargo ücreti alıcıya aittir (yukarıda "kargo fiyata DAHİL" yazan ürünler hariç),
 fiyatlara KDV dahildir. Mesafeli satışta ${(cfg.commerce || {}).returnDays || 14} gün cayma

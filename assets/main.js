@@ -37,10 +37,15 @@
   var CFG = (window.GESPA && window.GESPA.config) || {};
   function setText(sel, v) { var e = $(sel); if (e && v != null) e.textContent = v; }
   // Admin panelinden kaydedilen fiyat override'larını uygula (yalnızca bu tarayıcı)
+  // Anahtar sürümlü: fiyatlar 29 Eyl 2026'da USD'ye geçti; eski anahtardaki
+  // değerler TL'dir ve USD diye okunursa fiyatı ~50 katına çıkarırdı.
+  // PRICE_OV: bu tarayıcıda paket fiyatı önizlemesi var. Sepet tutarı o zaman
+  // sunucununkinden farklıdır; ödeme kur denetimine (expectTL) sokulmaz.
+  var PRICE_OV = false;
   (function applyPriceOverrides() {
-    var ov; try { ov = JSON.parse(localStorage.getItem("gespa-prices") || "null"); } catch (e) { ov = null; }
+    var ov; try { ov = JSON.parse(localStorage.getItem("gespa-prices-usd") || "null"); } catch (e) { ov = null; }
     if (!ov) return;
-    if (ov.packages && CFG.packages) CFG.packages.forEach(function (p) { if (ov.packages[p.id] != null && ov.packages[p.id] !== "") p.price = +ov.packages[p.id]; });
+    if (ov.packages && CFG.packages) CFG.packages.forEach(function (p) { if (ov.packages[p.id] != null && ov.packages[p.id] !== "") { p.price = +ov.packages[p.id]; PRICE_OV = true; } });
     if (ov.heater && CFG.heater && CFG.heater.models) CFG.heater.models.forEach(function (m) { if (ov.heater[m.cap] != null && ov.heater[m.cap] !== "") m.price = +ov.heater[m.cap]; });
   })();
   (function fillFromConfig() {
@@ -184,13 +189,19 @@
     function partsOf(p) {
       return ((p && p.parts) || []).map(rawPkgOf).filter(Boolean);
     }
+    // ₺ FİYAT KURALI — kur.js `tlRound` ile BİREBİR aynı (sunucu ve build onu
+    // kullanır; test üçünü karşılaştırır). Katalog fiyatları USD'dir; ₺ = USD ×
+    // CFG.usdTry. Canlı kur açıkken sunucu config.js'i uygulanan kurla gönderir.
+    // 10.000 ₺ ve üstü 100'e, 1.000 ₺ ve üstü 50'ye, altı 10'a yuvarlanır.
+    function tlRound(v) { var s = v >= 10000 ? 100 : v >= 1000 ? 50 : 10; return Math.round(v / s) * s; }
+    function usdToTl(v) { return tlRound((+v || 0) * (CFG.usdTry || 0)); }
     // Birim fiyatlar (₺): list = liste, cart = havale/EFT, usd = yaklaşık $
     function pkgUnit(p) {
       var RATE = CFG.usdTry || 0, pct = pkgPct(p);
       // priceOnRequest: fiyat girilmemis urun — tutar URETILMEZ, cagiran
       // "Teklif alin" gosterir ve urun sepete eklenmez.
       if (p.price == null) return { list: null, cart: null, usd: 0, poa: true };
-      var tl = p.currency === "USD" ? Math.round(p.price * RATE / 100) * 100 : p.price;
+      var tl = p.currency === "USD" ? usdToTl(p.price) : p.price;
       return {
         list: tl,
         // noCartDiscount: fiyat zaten net (ör. kampanya fiyatı) — üstüne
@@ -258,8 +269,8 @@
       var nf = new Intl.NumberFormat("tr-TR");
       var RATE = CFG.usdTry || 0;
       var pct = p.noCartDiscount ? 0 : pkgPct(p);          // ürüne özel oran
-      var tlOf = function (v) { return p.currency === "USD" ? Math.round(v * RATE / 100) * 100 : v; };
-      var usdOf = function (v) { return p.currency === "USD" ? v : (RATE ? Math.round(v / RATE) : 0); };
+      var tlOf = function (v) { return p.currency === "USD" ? usdToTl(v) : v; };
+      var usdOf = function (v) { return p.currency === "USD" ? Math.round(v) : (RATE ? Math.round(v / RATE) : 0); };
       // Birim tutarlar (adet ile çarpılır) — kural sepet/vitrinle AYNI (pkgUnit)
       var unit = pkgUnit(p);
       var unitList = unit.list, unitCart = unit.cart;
@@ -580,7 +591,7 @@
         // (Havensis 108 × 1,20 = 129,6); statik liste ve llms-full gibi yuvarlanır.
         var usd = poa ? 0 : (p.currency === "USD" ? Math.round(p.price) : (CFG.usdTry ? Math.round(p.price / CFG.usdTry) : 0));
         var off = saleOf(p);
-        var oldTL = p.oldPrice && (p.currency === "USD" ? Math.round(p.oldPrice * (CFG.usdTry || 0) / 100) * 100 : p.oldPrice);
+        var oldTL = p.oldPrice && (p.currency === "USD" ? usdToTl(p.oldPrice) : p.oldPrice);
         var href = p.url || "";
         var media = '<span class="sh-tag">' + tName(p.tag || "") + "</span>" +
           (off ? '<span class="sh-off">−%' + off + "</span>" : "") +
@@ -975,11 +986,22 @@
               method: "POST", headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
                 items: t.ls.map(function (l) { return { id: l.p.id, qty: l.qty }; }),
+                // Görülen tutar: sunucu kendi hesabıyla kıyaslar; kur bu arada
+                // değiştiyse ödemeyi başlatmaz, sayfa güncel fiyatla yenilenir.
+                expectTL: PRICE_OV ? 0 : t.listT,
                 buyer: { ad: v("ad"), tel: v("tel"), eposta: v("eposta"), il: v("il"), adres: v("adres"), tckn: v("tckn"), firma: v("firma"), vd: v("vd") }
               })
             }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
               .then(function (out) {
                 if (out.ok && out.j && out.j.url) { location.href = out.j.url; return; }
+                if (out.j && out.j.reload) {
+                  if (doneEl) { doneEl.hidden = false; doneEl.textContent = L("Fiyatlar güncel döviz kuruna göre değişti. Sayfa yenileniyor; lütfen yeni tutarı kontrol edip tekrar deneyin.",
+                    "Prices were updated to the current exchange rate. Reloading; please check the new total and try again.",
+                    "Die Preise wurden an den aktuellen Wechselkurs angepasst. Die Seite wird neu geladen; bitte prüfen Sie den neuen Betrag und versuchen Sie es erneut.",
+                    "Цены обновлены по текущему курсу. Страница перезагружается; проверьте новую сумму и повторите попытку."); }
+                  setTimeout(function () { location.reload(); }, 2500);
+                  return;
+                }
                 ordSending = false;
                 if (btn) { btn.disabled = false; btn.textContent = L("🛒 Siparişi tamamla", "🛒 Complete your order", "🛒 Bestellung abschließen", "🛒 Завершить заказ"); }
                 if (doneEl) { doneEl.hidden = false; doneEl.textContent = (out.j && out.j.error) || L("Ödeme başlatılamadı; lütfen tekrar deneyin.", "Payment could not be started; please try again.", "Zahlung konnte nicht gestartet werden; bitte erneut versuchen.", "Не удалось начать оплату; попробуйте ещё раз."); }
@@ -1188,8 +1210,8 @@
         ld.push(ldItem);
         // TEK FORMAT: ana fiyat TL (USD ürünlerde kurla), yanında yaklaşık USD.
         var RATE = CFG.usdTry || 0;
-        var tlOf = function (v) { return p.currency === "USD" ? Math.round(v * RATE / 100) * 100 : v; };
-        var usdOf = function (v) { return p.currency === "USD" ? v : (RATE ? Math.round(v / RATE) : 0); };
+        var tlOf = function (v) { return p.currency === "USD" ? usdToTl(v) : v; };
+        var usdOf = function (v) { return p.currency === "USD" ? Math.round(v) : (RATE ? Math.round(v / RATE) : 0); };
         // vitrin LISTE fiyati gosterir; havale/EFT indirimli tutar altta yazar
         // (yuvarlama paket detay sayfasiyla AYNI: en yakin 50 TL)
         var cartPct = pkgPct(p);                                 // ürüne özel oran

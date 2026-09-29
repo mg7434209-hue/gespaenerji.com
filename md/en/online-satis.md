@@ -111,9 +111,9 @@ VAT included · shipping excluded
 
 Home and business energy storage, off-grid and backup power
 
-**₺73.372**≈ $1.491
+**₺73.400**≈ $1.491
 
-💰 By bank transfer: **₺71.150**
+💰 By bank transfer: **₺71.200**
 
 VAT included · shipping excluded
 
@@ -151,9 +151,9 @@ VAT included · shipping excluded
 
 Caravans: charging the house battery from the alternator · 12/24 V
 
-**₺9.700**≈ $198
+**₺9.750**≈ $198
 
-💰 By bank transfer: **₺9.400**
+💰 By bank transfer: **₺9.450**
 
 VAT included · shipping excluded
 
@@ -181,9 +181,9 @@ VAT included · shipping excluded
 
 Charges 36–72 V batteries from a 12/24 V input · caravans and boats
 
-**₺8.300**≈ $168
+**₺8.250**≈ $168
 
-💰 By bank transfer: **₺8.050**
+💰 By bank transfer: **₺8.000**
 
 VAT included · shipping excluded
 

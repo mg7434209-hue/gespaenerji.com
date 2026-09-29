@@ -111,9 +111,9 @@ KDV dahil · kargo hariç
 
 Ev ve işyeri enerji depolama, off-grid ve yedek güç
 
-**₺73.372**≈ $1.491
+**₺73.400**≈ $1.491
 
-💰 Havale/EFT ile: **₺71.150**
+💰 Havale/EFT ile: **₺71.200**
 
 KDV dahil · kargo hariç
 
@@ -151,9 +151,9 @@ KDV dahil · kargo hariç
 
 Karavan: alternatörden yaşam aküsüne şarj · 12/24 V
 
-**₺9.700**≈ $198
+**₺9.750**≈ $198
 
-💰 Havale/EFT ile: **₺9.400**
+💰 Havale/EFT ile: **₺9.450**
 
 KDV dahil · kargo hariç
 
@@ -181,9 +181,9 @@ KDV dahil · kargo hariç
 
 12/24 V girişten 36–72 V aküye şarj · karavan ve tekne
 
-**₺8.300**≈ $168
+**₺8.250**≈ $168
 
-💰 Havale/EFT ile: **₺8.050**
+💰 Havale/EFT ile: **₺8.000**
 
 KDV dahil · kargo hariç
 

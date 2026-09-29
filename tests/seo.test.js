@@ -190,6 +190,24 @@ assert.ok(!aboutPage.includes('01.11.2022')&&!aboutPage.includes('Kurumsallaşma
 const linkPay=fs.readFileSync(path.join(root,'odeme.html'),'utf8');
 assert.ok(!/name="(tckn|vd|firma)"/.test(linkPay),'odeme.html must not ask for TCKN/VKN');
 assert.ok(/location\.hash/.test(fs.readFileSync(path.join(root,'odeme-sonuc.html'),'utf8')),'receipt page reads #k= token');
+// Exchange rate (kur.js): TCMB parsing, floor + margin, jump guard, and ONE rounding rule shared by
+// the browser (main.js), the server and the build. Every catalog product is USD so all prices follow the rate.
+const kur=require(path.join(root,'kur.js')),vmk=require('node:vm');
+const tcmbXml='<?xml version="1.0" encoding="UTF-8"?><Tarih_Date Tarih="29.09.2026" Date="09/29/2026"><Currency CrossOrder="0" Kod="USD" CurrencyCode="USD"><Unit>1</Unit><Isim>ABD DOLARI</Isim><ForexBuying>49.1123</ForexBuying><ForexSelling>49.2008</ForexSelling></Currency><Currency Kod="JPY"><Unit>100</Unit><ForexSelling>33.1</ForexSelling></Currency></Tarih_Date>';
+assert.deepEqual(kur.parseTcmb(tcmbXml,'ForexSelling'),{rate:49.2008,date:'29.09.2026'},'TCMB USD selling rate');
+assert.equal(kur.parseTcmb('<html>bakım</html>','ForexSelling'),null,'unexpected TCMB body is ignored');
+assert.equal(kur.effectiveRate(48.5,49.2,0),49.2,'rate never drops below the floor');
+assert.equal(kur.effectiveRate(50,49.2,0),50,'rate follows TCMB above the floor');
+assert.equal(kur.effectiveRate(50,49.2,2),51,'optional margin on TCMB');
+assert.ok(kur.saneJump(49.2,50.1,25)&&!kur.saneJump(49.2,4.92,25),'jump guard');
+const mainSrc=fs.readFileSync(path.join(root,'assets/main.js'),'utf8');
+const tlSrc=(mainSrc.match(/function tlRound\(v\) \{[^\n]*\}/)||[])[0];assert.ok(tlSrc,'main.js tlRound');
+const tlMain=vmk.runInNewContext('('+tlSrc+')');
+for(const v of [4.9,95,99.876,104.9,999,1000.2,1024,6376.32,9741.6,9999.9,10000,24999.996,73371.96,108240,122754])assert.equal(tlMain(v),kur.tlRound(v),'browser and server round '+v+' the same');
+{const sbx={window:{}};vmk.runInNewContext(fs.readFileSync(path.join(root,'assets/config.js'),'utf8'),sbx);const C=sbx.window.GESPA.config;
+ const tl=C.packages.filter(p=>p.price!=null&&p.currency!=='USD').map(p=>p.id);
+ assert.equal(tl.length,0,'every catalog product is USD so its price follows the exchange rate: '+tl.join(', '));
+ assert.ok(C.usdTry>1&&C.fx&&C.fx.auto===true,'floor rate and live rate switch');}
 console.log('Static SEO: '+urls.length+' sitemap pages, '+schemas+' JSON-LD blocks; links and translations passed.');
 // Exercise the actual consent branch without loading analytics or contacting third parties.
 const main=fs.readFileSync(path.join(root,'assets/main.js'),'utf8');
@@ -212,7 +230,7 @@ const unrelated=consentRun('granted','https://notchatgpt.com/');assert.ok(!unrel
 console.log('Analytics: consent gate, exact AI source attribution and contact payload checks passed.');
 // The production server runs in this process tree so HTTP tests share its network context.
 const RECEIPT_TEST_SECRET='test-dekont-anahtari';
-const port=4317,server=spawn(process.execPath,['server.js'],{cwd:root,env:{...process.env,PORT:String(port),IYZIPAY_API_KEY:'',IYZICO_API_KEY:'',IYZIPAY_SECRET_KEY:RECEIPT_TEST_SECRET}});
+const port=4317,server=spawn(process.execPath,['server.js'],{cwd:root,env:{...process.env,PORT:String(port),IYZIPAY_API_KEY:'',IYZICO_API_KEY:'',IYZIPAY_SECRET_KEY:RECEIPT_TEST_SECRET,FX_AUTO:'0'}});
 let logs='',started=false;
 const timeout=setTimeout(()=>{server.kill();console.error(logs);process.exitCode=1;},25000);
 server.stderr.on('data',d=>logs+=d);
@@ -270,6 +288,9 @@ server.stdout.on('data',async d=>{
   for(const u of ['/b725d1a9c07cf60e8cb21fed369d7db3.txt','/urunler.xml','/md/index.md','/assets/config.js']){
    const r=await fetch('http://127.0.0.1:'+port+u);assert.equal(r.status,200,'public path: '+u);await r.text();
   }
+  const fx=await (await fetch('http://127.0.0.1:'+port+'/api/fx')).json();
+  {const sbx={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/config.js'),'utf8'),sbx);
+   assert.ok(fx.auto===false&&fx.rate===sbx.window.GESPA.config.usdTry&&fx.floor===fx.rate,'/api/fx: live rate off in tests, manual rate applies');}
   const langDir=await fetch('http://127.0.0.1:'+port+'/en',{redirect:'manual'});assert.equal(langDir.status,301,'/en redirects to /en/');await langDir.text();
   console.log('HTTP: key pages and bot files return 200; missing page returns 404; markdown mirrors, Accept negotiation, AI crawler counter, visitor handoff, receipt tokens and the public-file allowlist work.');
  }catch(e){console.error(e);process.exitCode=1;}finally{clearTimeout(timeout);server.kill();}

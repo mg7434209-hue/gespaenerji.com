@@ -79,14 +79,14 @@ Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş; talebe 
 - Lexron 285 W Güneş Paneli — Balkon, bağ evi ve küçük off-grid sistemler · ₺7.500 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
 - Lexron 655 W TOPCon Güneş Paneli — Çatı ve arazi sistemleri, yüksek güç gerektiren kurulumlar · ₺10.000 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
 - Arçelik 540 W Güneş Paneli — Çatı ve arazi kurulumları, yerli marka tercih edenler · ₺10.000 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
-- TitanX 51,2 V 102 Ah LiFePO₄ Akü — Ev ve işyeri enerji depolama, off-grid ve yedek güç · ₺73.372 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
+- TitanX 51,2 V 102 Ah LiFePO₄ Akü — Ev ve işyeri enerji depolama, off-grid ve yedek güç · ₺73.400 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
 - Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 A — 12/24 V akülü güneş sistemleri · 1200 W panele kadar · ₺6.400 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
 - Havensis Solar-60AMPS-100 MPPT Şarj Kontrol Cihazı 12/24 V 60 A — 12/24 V akülü güneş sistemleri · 2500 W panele kadar · ₺11.800 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
 - Havensis Solar-60AMPS 150|60 MPPT Şarj Kontrol Cihazı 12/24/36/48 V 60 A — 12/24/36/48 V akülü güneş sistemleri · 5000 W panele kadar · ₺16.200 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
-- Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 30 A — Karavan: alternatörden yaşam aküsüne şarj · 12/24 V · ₺9.700 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
+- Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 30 A — Karavan: alternatörden yaşam aküsüne şarj · 12/24 V · ₺9.750 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
 - Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A — Karavan: alternatörden yaşam aküsüne şarj · 12/24 V · ₺11.800 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
 - Havensis DCDC-1224B Çift Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A — Karavan: çift yönlü akü şarjı (takviye modu) · 12/24 V · ₺13.600 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
-- Havensis BOOST DCDC-2448 DC-DC Akü Şarj Cihazı 36/48/60/72 V — 12/24 V girişten 36–72 V aküye şarj · karavan ve tekne · ₺8.300 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
+- Havensis BOOST DCDC-2448 DC-DC Akü Şarj Cihazı 36/48/60/72 V — 12/24 V girişten 36–72 V aküye şarj · karavan ve tekne · ₺8.250 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
 - Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) — Panel ile şarj kontrol cihazı arası bağlantı · ₺1.000 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
 - Yolcu Kabinli Motor Güneş Paketi — 285 W — Kabinli, 2–4 kişilik yolcu triportörleri — çatı alanı dar · ₺15.800 (KDV dahil) · https://www.gespaenerji.com/paket-motor-yolcu.html
 - Kargo Kasalı Motor Güneş Paketi — 655 W — Açık kasa veya tenteli yük triportörleri — çatı alanı geniş · ₺18.300 (KDV dahil) · https://www.gespaenerji.com/paket-motor-kargo.html

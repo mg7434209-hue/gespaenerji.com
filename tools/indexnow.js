@@ -108,7 +108,7 @@ function report(key, k, probe, pg, local) {
   console.log("Anahtar dosyası: " + ORIGIN + "/" + key + ".txt → HTTP " + k.status
     + (k.status === 200 ? (keyOk ? " (doğru)" : " (içerik anahtarla eşleşmiyor)") : "") + (k.location ? " → " + k.location : ""));
   console.log("Yoklama sayfası: " + probe + " → HTTP " + pg.status
-    + (pg.status === 200 ? (local === null || pg.body === local ? " (bu commit)" : " (canlı içerik bu commit'ten farklı)") : "")
+    + (pg.status === 200 ? (local === null || sameBuild(pg.body, local) ? " (bu commit)" : " (canlı içerik bu commit'ten farklı)") : "")
     + (pg.location ? " → " + pg.location : ""));
   return keyOk;
 }
@@ -118,6 +118,11 @@ function report(key, k, probe, pg, local) {
 // böyle oldu). Bu yüzden: anahtar dosyası canlıda VE değişen ilk sayfanın canlı
 // içeriği repodakiyle BİREBİR aynı olana dek beklenir (build her ortamda aynı
 // çıktıyı üretir, sunucu dosyayı değiştirmeden servis eder).
+// Canlı kur (server.js FX) yalnız FİYAT RAKAMLARINI değiştirir: canlı sayfa
+// repodakinden TCMB kuruyla hesaplanmış tutarlarla ayrılabilir. Bu yüzden
+// karşılaştırma rakamlar çıkarılarak yapılır; metin/yapı aynıysa bu commit
+// yayındadır.
+const sameBuild = (a, b) => a === b || String(a).replace(/[0-9]/g, "") === String(b).replace(/[0-9]/g, "");
 async function waitLive(urls, key) {
   const keyUrl = ORIGIN + "/" + key + ".txt";
   const probe = urls.find(u => !/\/(en|de|ru)\//.test(u.slice(ORIGIN.length))) || urls[0];
@@ -128,7 +133,7 @@ async function waitLive(urls, key) {
   for (;;) {
     [k, pg] = await Promise.all([get(keyUrl), get(probe)]);
     const keyOk = k.status === 200 && k.body.trim() === key;
-    const pageOk = pg.status === 200 && (local === null || pg.body === local);
+    const pageOk = pg.status === 200 && (local === null || sameBuild(pg.body, local));
     if (keyOk && pageOk) { console.log("Canlı sürüm hazır (" + probe + ")."); return true; }
     if (Date.now() > deadline) break;
     await sleep(20000);

@@ -274,8 +274,11 @@ ve sepet simgesi ekran dışında kalır.
   üreticidir, foto logosu SİLİNMEZ.
   — `url` detay sayfası, `img` gerçek foto,
   `oldPrice` indirim rozeti, `currency:"USD"` dolar, `dailyKwh` günlük üretim.
-  `usdTry` kuru ile ikinci para "≈" gösterilir; kur değişince SADECE
-  config.usdTry güncellenir. Yeni ürün eklerken aynı alanlar + detay sayfası
+  TÜM ÜRÜNLER USD TUTULUR (29 Eyl 2026): ₺ fiyat = USD × kur, kura göre
+  kendiliğinden değişir (aşağıda "Döviz kuru"). Satırlardaki "₺… @ 49,2"
+  notu 49,2 kurundaki karşılıktır; bu belgedeki ₺ tutarlar da öyledir. Yeni
+  ürünün ₺ fiyatı verilirse güncel kura bölünüp USD yazılır; TL fiyatlı
+  katalog ürünü test düşürür. Yeni ürün eklerken aynı alanlar + detay sayfası
   (mevcut paket-*.html kopyala ya da mevcut bir sayfaya `data-pkg-detail` +
   `.buy-box` ekle) + build META satırı.
 - PANEL/AKÜ teknik değerleri ÜRETİCİ KÜNYESİNDEN gelir — kaynak PDF'ler
@@ -323,7 +326,9 @@ ve sepet simgesi ekran dışında kalır.
 - İndirim, ürüne `oldPrice` yazılarak açılır (`oldPrice > price` olmalı); rozet
   yüzdesi otomatik hesaplanır. UYARI: "önceki fiyat" olarak gösterilen tutar,
   mevzuat gereği indirimden önceki 30 gün içinde uygulanan EN DÜŞÜK fiyattır —
-  rakamı buna göre doğrula.
+  rakamı buna göre doğrula. `oldPrice` de USD'dir ve ₺ karşılığı kurla
+  YÜKSELİR; kampanya açıkken kur çıkarsa gösterilen eski fiyat o 30 günün en
+  düşük ₺ fiyatını aşabilir. Kampanya açarken/uzatırken bunu yeniden hesapla.
 - `group` alanı sayfayı belirler: `ongrid/offgrid/irrigation/accessory`
   urunler.html paket vitrininde ÇIKAR, `panel` gibi diğer gruplar yalnız
   online-satis.html kataloğunda listelenir. ItemList şeması da sayfaya göre
@@ -374,6 +379,9 @@ ve sepet simgesi ekran dışında kalır.
 - `admin.pass`: admin.html şifresi (statik sitede yalnızca caydırıcı).
 - Admin paneli fiyatları localStorage'da override eder (yalnız o cihaz);
   kalıcı/herkese yayın = değerleri bu dosyaya işleyip commit'lemek.
+  Anahtar `gespa-prices-usd` (değerler USD): eski `gespa-prices` TL idi,
+  USD diye okunsa fiyatı ~50 kat şişirirdi. Önizleme açık tarayıcı ödemede
+  `expectTL: 0` gönderir; kur denetimine takılmaz, sunucu kendi fiyatını alır.
 
 ## Motor güneş paketleri (`set-yolcu` · `set-kargo` + `config.evSets`)
 Müşteri aracına hangi panelin uyduğunu bilmediği için satış burada takılıyordu.
@@ -632,6 +640,26 @@ Tüm kurallar: @docs/odeme.md
   data/orders.json adresle okunabiliyordu. Yeni yayın klasörü eklersen
   izin listesine yaz.
 
+## Döviz kuru (otomatik, TCMB) — `kur.js` · server.js `FX`
+- Katalog fiyatları USD; ₺ = USD × kur, kademeli yuvarlama (≥10.000 ₺ → 100,
+  ≥1.000 ₺ → 50, altı → 10). Kural TEK: `kur.js tlRound` (server + build) ve
+  main.js `tlRound` BİREBİR aynı; test üçünü karşılaştırır.
+- Canlı kur: Railway'de açılışta ve saatte bir TCMB today.xml USD döviz satış.
+  Uygulanan kur = max(`config.usdTry`, TCMB × (1 + `fx.marginPct`%)):
+  `usdTry` ASGARİ kurdur, dosyada DEĞİŞMEZ. Değişince SUNUCU FİYATI
+  (SITE_CFG), tarayıcıya giden `/assets/config.js` (serveConfigJs) ve statik
+  çıktı (arka planda `node build.js`, `GESPA_USDTRY`) birlikte yeni kura geçer.
+- Güvenlik ağları: son TCMB değeri DATA_DIR/kur.json; TCMB'ye ulaşılamazsa o,
+  yoksa usdTry. %25'ten büyük sıçrama uygulanmaz. Sepette görülen tutar
+  (`expectTL`) sunucununkinden farklıysa ödeme BAŞLAMAZ (409, sayfa yenilenir).
+  `/assets/config.js` `Cache-Control: no-cache` ile gider; uzun önbellek
+  verilirse yenilenen sayfa eski kurla açılır ve müşteri 409'da takılı kalır.
+- Yerelde ve testte KAPALI (build çıktısı repoda değişmesin): FX_AUTO=1 açar,
+  FX_AUTO=0 kapatır; FX_URL/FX_EVERY_MS yalnız test içindir. Durum: `/api/fx`
+  ve admin "💱 Döviz kuru" kartı. Pages aynası elle kurla (usdTry) kalır.
+- Sistem Kurucu'nun teklifle satılan kalemleri (Lexron inverter, pano,
+  işçilik) ve su ısıtıcı fiyatları TL'dir, kura bağlı DEĞİLDİR.
+
 ## Ürün akışı — `urunler.xml`
 `build.js` `writeProductFeed()` config.packages'ten **Google Merchant Center
 biçiminde RSS 2.0** akışı üretir. Aynı biçimi iyzico "XML ile Ürünlerinizi
@@ -640,7 +668,8 @@ Yükleyin", Google Shopping ve Meta katalogları okur. Adres:
 sayfasının HTML adresi DEĞİL.
 - Fiyat **LİSTE** fiyatıdır (KDV dahil). Havale/EFT indirimi bir ÖDEME YÖNTEMİ
   indirimi olduğu için akışa GİRMEZ; girseydi kartla ödeyen yanılırdı.
-- USD ürünler `usdTry` ile TL'ye çevrilir — site kartlarıyla AYNI yuvarlama.
+- USD fiyat UYGULANAN kurla TL'ye çevrilir — site kartlarıyla AYNI yuvarlama
+  (canlı kur açıkken akış o kurla yeniden üretilir).
 - `price: null` (teklif usulü) ve görseli olmayan ürün akışa GİRMEZ;
   Merchant Center fiyat ve görseli zorunlu tutar.
 - Kendi sayfası olmayan ürünün iniş sayfası `online-satis.html`'dir.

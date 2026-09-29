@@ -10,7 +10,10 @@ Kart ödemesi server.js'te bağımlılıksız iyzico Ödeme Formu entegrasyonudu
   veri kalıcı mı; yalnız boolean).
 - `/api/pay/checkout`: sepet → iyzico sayfası. Tutar SUNUCUDA config'ten
   hesaplanır, istemci fiyatı yok sayılır. Kart ödemesinde havale indirimi YOK
-  (liste fiyatı, `pkgListTL`).
+  (liste fiyatı, `pkgListTL`). Fiyatlar kura bağlı olduğu için sepet,
+  gördüğü tutarı `expectTL` ile gönderir; sunucunun tutarı farklıysa (kur
+  sayfa açıkken değişti) 409 + `reload` döner, ödeme başlamaz, sayfa yenilenir
+  (CLAUDE.md "Döviz kuru").
 - `/api/pay/custom`: `odeme.html` serbest tutar (aşağıda).
 - `/api/pay/callback`: iyzico dönüşü → `odeme-sonuc.html`.
 - Anahtarlar YALNIZCA Railway ortam değişkeni: `IYZIPAY_API_KEY` /

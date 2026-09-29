@@ -162,8 +162,8 @@ birlikte commit'le.
   TÜM commit'lerin sayfaları bildirilir. Base yoksa `HEAD~1`'e düşer.
 - `--wait-live`: canlı site Railway'dedir ve Pages'ten ayrı dağıtılır. Betik,
   anahtar dosyası canlıda VE değişen ilk sayfanın canlı içeriği repodakiyle
-  BİREBİR aynı olana dek bekler (en çok 10 dk; build her ortamda aynı çıktıyı
-  üretir, sunucu dosyayı değiştirmeden servis eder). Anahtar dosyası canlıda
+  aynı olana dek bekler (en çok 10 dk). Karşılaştırma RAKAMLAR çıkarılarak
+  yapılır: canlı kur (server.js FX) yalnız fiyat rakamlarını değiştirir. Anahtar dosyası canlıda
   yoksa bildirim GÖNDERİLMEZ ve günlüğe HTTP durumu yazılır.
 - NEDEN: ilk kurulumda bildirim, Railway anahtar dosyasını yayına almadan
   gitti ve IndexNow 403 "UserForbiddedToAccessSite" döndü. IndexNow başarısız
