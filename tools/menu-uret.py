@@ -6,9 +6,11 @@ arasında sapma olmaz. Dil kopyaları (/en /de /ru) build'de üretildiği için
 yalnız kök dizindeki TR sayfalar yazılır. Sonra: node build.js → npm test.
 
 Menü (30 Eyl 2026):
-  Ana Sayfa · Solar Sistemler (→ hizmetler.html, Tarımsal Sulama oradan) ·
-  Elektrikli Araç Dönüşümü · Online Satış · Yapay Zekâ Ürünleri (→ merkez
-  sayfa) · Araçlar (TEK açılır grup) · Projeler · Hakkımızda · Teklif Al
+  Ana Sayfa · Elektrikli Araç Dönüşümü · Online Satış · Yapay Zekâ Ürünleri
+  (→ merkez sayfa) · Araçlar (TEK açılır grup) · Projeler · Hakkımızda ·
+  Teklif Al. "Solar Sistemler" kullanıcı kararıyla KALKTI: GES'i ana sayfa
+  tanıtıyor; hizmetler.html'e her sayfadan alt bilgideki "Tüm hizmetler"
+  bağlantısı gider (test denetler).
 
 Etkin öğe sayfanın MEVCUT menüsünden okunur (eski açılır grup biçimi de
 tanınır), böylece sayfaların kararı korunur. Araçlar grubu olduğu gibi
@@ -32,7 +34,6 @@ TOOLS_RE = re.compile(r'<div class="menu-group menu-tools">[\s\S]*?</div>\s*</di
 # grubu "tools" yer tutucusuyla araya girer.
 ITEMS = [
     ("home", "index.html", "Ana Sayfa", ""),
-    ("solar", "hizmetler.html", "Solar Sistemler", ""),
     ("ev", "elektrikli-arac-donusum.html", "Elektrikli Araç Dönüşümü", ' id="menuEv"'),
     ("online", "online-satis.html", "Online Satış", ""),
     ("ai", "yapay-zeka-urunleri.html", "Yapay Zekâ Ürünleri", ""),

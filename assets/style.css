@@ -148,15 +148,15 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
   .lang-switch button{padding:7px 4px;font-size:.67rem}
   .brand-text{font-size:1.02rem}
 }
-/* En dar bant: "Ana Sayfa" metni gizlenir — logo zaten ana sayfaya gider.
-   Üst sınır 1410: orta bant ancak 1411'den itibaren kaydırma çubuğu payıyla
-   sığıyor (TR/RU ölçümü). */
+/* En dar bant: yazılar bir kademe daha küçülür. Üst sınır 1410: orta bant
+   ancak 1411'den itibaren kaydırma çubuğu payıyla sığıyor (TR/RU ölçümü).
+   "Ana Sayfa" metni burada eskiden gizleniyordu; "Solar Sistemler" menüden
+   kalkınca (30 Eyl 2026) yer açıldı, artık her genişlikte görünür. */
 @media(min-width:1261px) and (max-width:1410px){
   .menu a,.menu .menu-parent{font-size:.79rem}
   .menu .btn-sm{padding:6px 9px;font-size:.76rem}
   .lang-switch button{padding:6px 3px;font-size:.64rem}
   .brand-text{font-size:.96rem}
-  .menu .menu-home{display:none}
 }
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
 .hamburger span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.25s}

@@ -46,6 +46,8 @@ function generate(root) {
     html=html.replace(/(<meta (?:name="description"|property="og:description") content=")[^"]*/g,(_,a)=>a+esc((p.desc||p.intro)[0]));
     html=html.replace(/(<meta property="og:title" content=")[^"]*/g,(_,a)=>a+esc(p.title[0]));
     html=html.replace(/https:\/\/www.gespaenerji.com\/hizmetler.html/g,'https://www.gespaenerji.com/'+p.file);
+    // Şablon hizmetler.html'dir; referans proje sayfasında üst menüde "Projeler" etkin
+    if(p.kind!=='Service')html=html.replace(/(<nav class="menu"[\s\S]*?<a href="projeler\.html")>/,'$1 class="active">');
     html=html.replace(/\s*<link rel="alternate"[^>]*>/g,'');
     if(p.image)html=html.replace(/(<meta property="og:image" content=")[^"]*/,'$1https://www.gespaenerji.com/'+p.image).replace(/(<meta name="twitter:image" content=")[^"]*/,'$1https://www.gespaenerji.com/'+p.image);
     let body='<main id="main"><section class="page-hero"><div class="container"><div class="crumbs"><a href="index.html">Ana Sayfa</a> <span>/</span> <a href="'+(p.kind==='Service'?'hizmetler.html':'projeler.html')+'">'+(p.kind==='Service'?'Hizmetlerimiz':'Referans Projeler')+'</a> <span>/</span> '+esc(p.title[0])+'</div><h1>'+esc(p.title[0])+'</h1><p class="lead">'+esc(p.intro[0])+'</p></div></section><section class="section"><div class="container seo-article">';

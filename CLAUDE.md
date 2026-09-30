@@ -168,10 +168,8 @@ formu main.js toptan IIFE'sinde; stok değişince config.b2b.stock güncelle +
 Ayrıca `admin.html`: fiyat yönetim paneli (menüde yok, robots'ta engelli,
 build PAGES listesine EKLENMEZ). Her sayfa: ortak header/footer, aktif menü
 vurgusu, breadcrumb, sayfaya özel SEO başlığı/canonical/Open Graph içerir.
-Nav menü (hizmet/satış ayrımı): Ana Sayfa · Solar Sistemler (DÜZ bağlantı
-→ hizmetler.html; açılır panel 30 Eyl 2026'da kullanıcı kararıyla KALKTI,
-Tarımsal Sulama hizmetler sayfasındaki öne çıkan banttan açılır) ·
-Elektrikli Araç Dönüşümü (DÜZ bağlantı → elektrikli-arac-donusum.html, o
+Nav menü (hizmet/satış ayrımı): Ana Sayfa · Elektrikli Araç Dönüşümü (DÜZ
+bağlantı → elektrikli-arac-donusum.html, o
 sayfada aktif; `id="menuEv" data-i18n-html` — EN/DE/RU kısa etiketi i18n.js
 HTMLMAP'tendir: EV Conversion · E-Fahrzeug-Umbau · Электромобили; aynı TR
 metnin footer'daki uzun çevirisi çubuğa SIĞMAZ) · Online Satış
@@ -180,8 +178,13 @@ Tüm ürünler (mağaza) → online-satis.html, Paket ürünler → urunler.html
 Solar Su Isıtıcı, Toptan Satış (B2B), GES Marketim ↗, Sepetim → sepet.html
 `rel="nofollow"` çünkü robots'ta engelli) · Yapay Zekâ Ürünleri (DÜZ
 bağlantı → yapay-zeka-urunleri.html; AI Cankurtaran'da da aktif) · Araçlar
-(TEK açılır grup: Tasarruf Hesaplayıcı + Sistem Kurucu) · Projeler ·
-Hakkımızda · Teklif Al.
+(TEK açılır grup: Tasarruf Hesaplayıcı + Sistem Kurucu) · Projeler (proje-*
+sayfalarında da aktif; build-seo.js şablona işler) · Hakkımızda · Teklif Al.
+"SOLAR SİSTEMLER" MENÜDEN KALKTI (30 Eyl 2026, kullanıcı kararı): GES'i ana
+sayfa tanıtıyor. hizmetler.html'e her sayfadan alt bilginin "Hizmetler"
+sütunundaki "Tüm hizmetleri gör →" bağlantısı gider (test denetler); ana
+sayfa ve hizmet sayfalarının içerik yolu da oraya bağlanır. Bu bağlantıyı
+kaldırma: ana hizmet sayfası site içi bağlantısız kalır.
 MENÜ ÜRETİCİSİ: `python3 tools/menu-uret.py` (DRY-RUN) / `--uygula` menüyü
 TÜM TR sayfalarda tek kaynaktan yazar; etkin öğeyi sayfanın mevcut menüsünden
 okur. hizmet/proje sayfaları (cati-ges, proje-* …) build'de hizmetler.html'in
@@ -235,12 +238,13 @@ CSS SIRA KURALI: mobil `@media(max-width:1260px)` nav bloğu, masaüstü
 `.menu-group`/`.submenu` kurallarından SONRA gelmek zorundadır — eşit
 özgüllükte sonraki kural kazanır. Blok yukarıdayken masaüstü kuralları onu
 eziyor ve açılır paneller mobilde mutlak konumlanıp üst üste biniyordu.
-GENİŞLİK KURALI: çubuk 7 üst seviye öğeyle dolu. Menü 1260px altında
+GENİŞLİK KURALI: çubukta 7 öğe + Teklif Al var. Menü 1260px altında
 hamburger'a düşer. Başlık kapsayıcısı sayfa gövdesinden geniştir
 (`.site-header .nav.container{max-width:1560px}`, gövde 1160). 1261–1580px
 bandında `.nav`/`.menu` gap'i, yazı boyu, dil düğmeleri ve marka yazısı
-kademeli küçülür; 1261–1410px'te bir kademe daha ve "Ana Sayfa" metni
-(`.menu-home`) GİZLENİR — logo ana sayfaya gider. Bant yazı kuralı
+kademeli küçülür; 1261–1410px'te bir kademe daha. "Ana Sayfa" metni eskiden
+bu bantta gizleniyordu; Solar Sistemler kalkınca yer açıldı, artık her
+genişlikte görünür (en dar pay 91 px, TR 1280). Bant yazı kuralı
 `.menu .menu-parent` özgüllüğüyle yazılır: yalın `.menu-parent` dosyada
 sonra gelen temel kuralca eziliyor, açılır grup başlıkları hiç küçülmüyordu.
 Eşikler 4 dilde, Windows kaydırma çubuğu (17px) payıyla ölçüldü — en dar

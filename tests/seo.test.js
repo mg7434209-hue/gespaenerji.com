@@ -205,15 +205,19 @@ assert.ok(/location\.hash/.test(fs.readFileSync(path.join(root,'odeme-sonuc.html
  for(const pg of sbq.window.GESPA.config.qa.pages){const h=fs.readFileSync(path.join(root,pg+'.html'),'utf8');
   assert.ok(/<!-- QA:STATIC -->[\s\S]*?<!-- \/QA:STATIC -->/.test(h)&&h.includes('data-qa-page="'+pg+'"')&&h.includes('src="assets/qa.js"'),pg+': Q&A markers and script');
   assert.ok(!/qa-thread/.test(h),pg+': no visitor content committed to the page');}}
-// Top menu (30 Sep 2026): "Solar Sistemler" and "Yapay Zekâ Ürünleri" are plain links, Araçlar is the only
-// dropdown (tools/menu-uret.py writes every page). The AI hub lists its products from the visible cards
-// (ItemList of Service, not Product: no price) and keeps the safety notes on fire and fall detection.
+// Top menu (30 Sep 2026): "Solar Sistemler" was removed (the home page presents solar), "Yapay Zekâ
+// Ürünleri" is a plain link to the hub, Araçlar is the only dropdown (tools/menu-uret.py writes every
+// page). The services hub keeps a link from every page through the footer "Hizmetler" column.
+// The AI hub lists its products from the visible cards (ItemList of Service, not Product: no price) and
+// keeps the safety notes on fire and fall detection.
 {let navs=0;
- for(const f of fs.readdirSync(root).filter(x=>x.endsWith('.html'))){const m=fs.readFileSync(path.join(root,f),'utf8').match(/<nav class="menu" id="menu"[\s\S]*?<\/nav>/);if(!m)continue;navs++;
-  assert.ok(/<a href="hizmetler\.html"( class="active")?>Solar Sistemler<\/a>/.test(m[0]),f+': Solar Sistemler is a plain link');
+ for(const f of fs.readdirSync(root).filter(x=>x.endsWith('.html'))){const h=fs.readFileSync(path.join(root,f),'utf8'),m=h.match(/<nav class="menu" id="menu"[\s\S]*?<\/nav>/);if(!m)continue;navs++;
+  assert.ok(!m[0].includes('Solar Sistemler'),f+': no Solar Sistemler item in the menu');
   assert.ok(/<a href="yapay-zeka-urunleri\.html"( class="active")?>Yapay Zekâ Ürünleri<\/a>/.test(m[0]),f+': AI products link to the hub');
-  assert.equal((m[0].match(/class="menu-group/g)||[]).length,1,f+': only Araçlar is a dropdown');}
+  assert.equal((m[0].match(/class="menu-group/g)||[]).length,1,f+': only Araçlar is a dropdown');
+  assert.ok(/<div class="footer-col"><h4>Hizmetler<\/h4>(?:(?!<\/div>)[\s\S])*href="hizmetler\.html"/.test(h),f+': footer links the services hub');}
  assert.ok(navs>=40,'menus checked: '+navs);
+ assert.ok(/<nav class="menu"[\s\S]*?<a href="projeler\.html" class="active">/.test(fs.readFileSync(path.join(root,'proje-kemer-villa.html'),'utf8')),'project pages mark Projeler active');
  const hub=fs.readFileSync(path.join(root,'yapay-zeka-urunleri.html'),'utf8');
  const art=id=>(hub.match(new RegExp('<article[^>]*\\bid="'+id+'"[\\s\\S]*?<\\/article>'))||[''])[0];
  const cards=(hub.match(/<article class="ai-(?:feature|card)[^"]*"[^>]*\bid="/g)||[]).length+(hub.includes('id="yazilim"')?1:0);
