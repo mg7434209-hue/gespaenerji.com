@@ -83,6 +83,13 @@ window.GESPA.config = {
       // belirgin şekilde güçlendirir (YouTube'dan tek tıkla değişir).
       "https://www.youtube.com/@mustafagoksoy6557"
     ],
+    // Google İşletme Profili yorum bağlantısı (Google → "Daha fazla yorum alın").
+    // data-c-review bağlantıları ve müşteri e-postası buradan beslenir.
+    // Yorum KARŞILIĞINDA indirim, hediye ya da puan VERİLMEZ: Google bunu sahte
+    // etkileşim sayar (yorumlar silinir, profil askıya alınabilir) ve 1 Ağustos
+    // 2026'dan beri Ticari Reklam Yönetmeliği de menfaat karşılığı içeriği
+    // sınırlar. İstek herkese, koşulsuz ve memnun olanları ayıklamadan yapılır.
+    googleReview: "https://g.page/r/CbkHeUEAA3x9EBM/review",
     // Solar e-mağazamız (ayrı site; Google Ads trafiği alır) — vitrin/footer linkleri
     shop: { name: "GES Marketim", url: "https://www.gesmarketim.com" },
     // Aynı firmaya ait DİĞER siteler. Footer "Kurumsal" sütununa bağlantı

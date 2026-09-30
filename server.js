@@ -1223,6 +1223,14 @@ function customerMailBody(o, rid, rk) {
   L.push("");
   L.push("Faturanız yasal süresi içinde düzenlenip tarafınıza iletilecektir.");
   L.push("Sipariş onayı ve kargo bilgisi için aynı gün içinde sizinle iletişime geçeceğiz.");
+  // Google yorum isteği: herkese, ödülsüz (yorum karşılığı indirim VERİLMEZ;
+  // config.company.googleReview notu).
+  if (c.googleReview) {
+    L.push("");
+    L.push("Ürününüz elinize ulaştıktan sonra deneyiminizi Google'da paylaşırsanız,");
+    L.push("bizi yeni tanıyan müşterilere yol gösterirsiniz:");
+    L.push(c.googleReview);
+  }
   L.push("");
   L.push("GESPA Enerji");
   if (c.phone && c.phone.display) L.push("Telefon: " + c.phone.display);

@@ -1843,6 +1843,7 @@ function hydrateContact(html, c) {
   html = html.replace(/<a\b[^>]*\bdata-c-tel\b[^>]*>/g, t => setHref(t, "tel:" + c.phone.tel));
   html = html.replace(/<a\b[^>]*\bdata-c-mailto\b[^>]*>/g, t => setHref(t, "mailto:" + c.email));
   html = html.replace(/<a\b[^>]*\bdata-c-wa\b[^>]*>/g, t => setHref(t, "https://wa.me/" + c.phone.wa));
+  if (c.googleReview) html = html.replace(/<a\b[^>]*\bdata-c-review\b[^>]*>/g, t => setHref(t, c.googleReview));
   return html;
 }
 

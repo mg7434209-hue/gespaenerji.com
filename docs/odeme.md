@@ -121,6 +121,8 @@ YOKTUR, adresi elle yazılır.
 2. Müşteriye ödeme onayı + dekont bağlantısı (`customerMailBody()`). KVKK
    gereği TCKN/VKN ve açık adres YAZILMAZ, e-posta iletilebilir. Müşteri
    adresi yoksa ya da `info@gespaenerji.com` yedeğine düşmüşse atlanır.
+   Sonunda ÖDÜLSÜZ Google yorum isteği durur (`company.googleReview`);
+   dekont sayfasında da aynı istek vardır, yazdırmada gizlenir.
 
 - Gönderici server.js içinde bağımlılıksız SMTP istemcisidir (`sendMail(to, …)`);
   465 örtük TLS ve 587 STARTTLS yolları sahte SMTP sunucusuyla uçtan uca test edildi.

@@ -248,6 +248,12 @@ ve sepet simgesi ekran dışında kalır.
 - Telefon / WhatsApp: 0543 743 42 09  ·  +90 543 743 42 09  ·  wa.me/905437434209
 - E-posta: gesmarketim@gmail.com
 - Adres: Örnek Mah. 1551 Sok. No:10/1, Manavgat / Antalya
+- Google yorum bağlantısı `googleReview` → `data-c-review` bağlantıları (build
+  + main.js; dekont sayfası, iletişim) ve müşteri onay e-postası. Yorum
+  KARŞILIĞINDA indirim/hediye/puan VERİLMEZ: Google sahte etkileşim sayar
+  (yorum silinir, profil askıya alınabilir) ve 1 Ağu 2026'dan beri Ticari
+  Reklam Yönetmeliği de menfaat karşılığı içeriği sınırlar. İstek herkese,
+  koşulsuz, memnun olanları ayıklamadan yapılır (test yorum kutusunu denetler).
 
 ### Markalar (config.brands)
 - Panel: Arçelik, Lexron, Bakırlar

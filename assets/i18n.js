@@ -3707,6 +3707,11 @@
     "Vergi dairesinin adı": "Название налоговой инспекции"
   });
 
+  // Google yorum isteği (iletisim.html; ödülsüz, config.company.googleReview)
+  Object.assign(DICT.en, { "Bizi Google'da değerlendirin": "Review us on Google" });
+  Object.assign(DICT.de, { "Bizi Google'da değerlendirin": "Bewerten Sie uns auf Google" });
+  Object.assign(DICT.ru, { "Bizi Google'da değerlendirin": "Оставьте отзыв о нас в Google" });
+
   // BOOST MPPT akü uyumluluk görseli (elektrikli-arac-donusum.html, Cihaz künyesi)
   Object.assign(DICT.en, {
     "BOOST MPPT uyumlu akü tipleri: AGM, jel, kurşun asit, lityum (LiFePO4), derin döngü ve nikel bazlı (NiCd/NiMH) aküler; 24V, 36V, 48V, 60V ve 72V sistemler": "Battery types compatible with BOOST MPPT: AGM, gel, lead-acid, lithium (LiFePO4), deep-cycle and nickel-based (NiCd/NiMH) batteries; 24V, 36V, 48V, 60V and 72V systems",

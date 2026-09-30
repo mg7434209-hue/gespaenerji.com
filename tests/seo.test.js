@@ -190,6 +190,14 @@ assert.ok(!aboutPage.includes('01.11.2022')&&!aboutPage.includes('Kurumsallaşma
 const linkPay=fs.readFileSync(path.join(root,'odeme.html'),'utf8');
 assert.ok(!/name="(tckn|vd|firma)"/.test(linkPay),'odeme.html must not ask for TCKN/VKN');
 assert.ok(/location\.hash/.test(fs.readFileSync(path.join(root,'odeme-sonuc.html'),'utf8')),'receipt page reads #k= token');
+// Google review requests: ONE link from config.company.googleReview, filled into every data-c-review anchor
+// (TR + language copies). Reviews are asked for WITHOUT incentives: Google treats a discount or gift for a
+// review as fake engagement, so no review box may promise one.
+{const sbr={window:{}};require('node:vm').runInNewContext(fs.readFileSync(path.join(root,'assets/config.js'),'utf8'),sbr);
+ const gr=sbr.window.GESPA.config.company.googleReview;assert.ok(/^https:\/\/g\.page\/r\/[\w-]+\/review$/.test(gr),'config.company.googleReview');
+ for(const f of ['iletisim.html','en/iletisim.html','de/iletisim.html','ru/iletisim.html','odeme-sonuc.html']){const h=fs.readFileSync(path.join(root,f),'utf8');
+  const a=[...h.matchAll(/<a\b[^>]*\bdata-c-review\b[^>]*>/g)].map(m=>m[0]);assert.ok(a.length&&a.every(t=>t.includes('href="'+gr+'"')),f+': review link from config');
+  for(const m of h.matchAll(/<(li|div)\b[^>]*data-review-box[^>]*>([\s\S]*?)<\/\1>/g))assert.ok(!/indirim|hediye|kupon|çekiliş|ödül|discount|gift|coupon|rabatt|скидк/i.test(m[2]),f+': review request must not offer an incentive');}}
 // Q&A section: every configured page carries the markers the server fills and loads qa.js; the committed
 // HTML (what the Pages mirror serves) never holds visitor content.
 {const sbq={window:{}};require('node:vm').runInNewContext(fs.readFileSync(path.join(root,'assets/config.js'),'utf8'),sbq);

@@ -2199,3 +2199,9 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
   .qa-thread{padding:14px 14px}
   .qa-answers{margin-left:0;padding-left:10px}
 }
+
+/* Google yorum isteği (odeme-sonuc.html). Ödülsüz: yorum karşılığı indirim YOK. */
+.review-ask{margin:28px auto 0;max-width:560px;padding:18px 20px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-alt)}
+.review-ask p{margin:0 0 10px;color:var(--muted);font-size:.95rem}
+.review-ask p:last-child{margin-bottom:0}
+.review-ask .review-ask-title{color:var(--ink);font-weight:800;font-family:var(--font);font-size:1.05rem}

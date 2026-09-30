@@ -3,7 +3,7 @@ title: "İletişim — Ücretsiz Keşif ve Teklif | GESPA Enerji"
 description: "GESPA Enerji ile iletişime geçin: 0543 743 42 09, info@gespaenerji.com, Örnek Mah. 1551 Sok. No:10 Manavgat/Antalya. Ücretsiz keşif ve teklif."
 canonical: https://www.gespaenerji.com/iletisim.html
 lang: tr
-dateModified: 2026-09-24
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 
@@ -22,6 +22,7 @@ Bize ulaşın
 - ✉️ [info@gespaenerji.com](mailto:info@gespaenerji.com)
 - 💬 [WhatsApp ile yazın](https://wa.me/905437434209)
 - 🕘 Hafta içi 09:00 – 18:00
+- ⭐ [Bizi Google'da değerlendirin](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 [f](https://www.facebook.com/gesmarketim/)[ig](https://www.instagram.com/gespaenerji_07/)[yt](https://www.youtube.com/@mustafagoksoy6557)
 

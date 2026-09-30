@@ -64,6 +64,11 @@
         $$("[data-c-wa]").forEach(function (el) { el.setAttribute("href", "https://wa.me/" + c.phone.wa); });
       }
       $$("[data-c-mailto]").forEach(function (el) { el.setAttribute("href", "mailto:" + c.email); });
+      // Google yorum bağlantısı (company.googleReview); tanımlı değilse kutusu gizlenir
+      $$("[data-c-review]").forEach(function (el) {
+        if (c.googleReview) { el.setAttribute("href", c.googleReview); return; }
+        (el.closest("[data-review-box]") || el).hidden = true;
+      });
       // Sosyal medya: config.sameAs'ten üretilir; boşsa blok gizlenir (ölü "#" linki kalmaz)
       $$(".socials").forEach(function (w) {
         var links = (c.sameAs || []).filter(Boolean);

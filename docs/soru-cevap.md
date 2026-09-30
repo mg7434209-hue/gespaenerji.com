@@ -79,6 +79,12 @@ sorar, diğer okuyucular cevap yazar, firma "GESPA Uzmanı" rozetiyle cevaplar.
   mevzuat iddiası yazılmaz. Okuyucu cevapları kişisel görüştür; bölümün
   notu bunu ve "hukuki görüş yerine geçmez" uyarısını söyler.
 - Abone numarası, tebligat, kimlik bilgisi içeren gönderi ONAYLANMAZ.
+- Bölüm bir DEĞERLENDİRME sistemi değildir. Ürün ya da firma hakkında övgü
+  veya şikâyet niteliğindeki gönderi yorum olarak ONAYLANMAZ: 1 Ağustos
+  2026'dan beri satın alması doğrulanamayan tüketici değerlendirmesi
+  yayınlanamaz (Ticari Reklam ve Haksız Ticari Uygulamalar Yönetmeliği
+  değişikliği, RG 01.07.2026/33297). İçinde soru varsa soru cevaplanır,
+  değerlendirme kısmı için müşteri Google yorumuna yönlendirilir.
 
 ## Yeni sayfaya eklemek
 `config.qa.pages`'e sayfa adı + sayfaya bölüm işaretlemesi (`data-qa-page`,
