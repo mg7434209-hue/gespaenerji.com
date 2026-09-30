@@ -28,7 +28,7 @@ const OG_ALL = { tr: "tr_TR", en: "en_US", de: "de_DE", ru: "ru_RU" };
 const PAGES = [
   "index.html", "hizmetler.html", "urunler.html", "online-satis.html", "su-isitici.html", "hesaplayici.html",
   "projeler.html", "hakkimizda.html", "iletisim.html", "tarimsal-sulama.html",
-  "ai-cankurtaran-destek-sistemi.html", "sistem-kur.html",
+  "yapay-zeka-urunleri.html", "ai-cankurtaran-destek-sistemi.html", "sistem-kur.html",
   "elektrikli-arac-donusum.html",
   "paket-285w.html", "paket-2x540w.html", "unv-trek-pro-2500.html", "toptan.html",
   "paket-motor-yolcu.html", "paket-motor-kargo.html",
@@ -292,6 +292,14 @@ const META = {
           d: "Wählen Sie Ihre Geräte und sehen Sie sofort benötigte PV-Leistung, Batteriekapazität und Wechselrichtergröße. Marken und Modelle wählen und Bestellung erstellen." },
     ru: { t: "Конфигуратор — свой солнечный комплект | GESPA",
           d: "Выберите приборы и сразу увидите нужную мощность панелей, ёмкость аккумулятора и мощность инвертора. Выберите бренды и модели и создайте заказ." }
+  },
+  "yapay-zeka-urunleri.html": {
+    en: { t: "AI Products — Video Analytics and Safety | GESPA Energy",
+          d: "AI Lifeguard, AI fire and smoke detection, perimeter security, hard hat and vest checks, and fall detection. Site survey, installation and custom software." },
+    de: { t: "KI-Produkte — Videoanalyse und Sicherheit | GESPA",
+          d: "KI-Rettungsschwimmer-Assistenz, KI-Brand- und Raucherkennung, Geländesicherung, Helm- und Westenkontrolle, Sturzerkennung. Vor-Ort-Termin, Montage, Software." },
+    ru: { t: "ИИ-продукты — видеоаналитика и безопасность | GESPA",
+          d: "ИИ-поддержка спасателей, ИИ-обнаружение огня и дыма, охрана периметра, контроль касок и жилетов, обнаружение падений. Выезд, монтаж и разработка ПО." }
   },
   "ai-cankurtaran-destek-sistemi.html": {
     en: { t: "AI Lifeguard Support System — Pool Safety | GESPA",
@@ -735,6 +743,7 @@ function localBusinessLd(c, cfg) {
 // sesli asistan ve AI özetleri için "önce bunu oku" seçicileri.
 const PAGE_TYPE = {
   "urunler.html": "CollectionPage", "online-satis.html": "CollectionPage", "projeler.html": "CollectionPage",
+  "yapay-zeka-urunleri.html": "CollectionPage",
   "hakkimizda.html": "AboutPage", "iletisim.html": "ContactPage",
   "su-isitici.html": "ItemPage", "ai-cankurtaran-destek-sistemi.html": "ItemPage"
 };
@@ -1047,6 +1056,60 @@ function breadcrumbLd(html, file, cfg) {
     "@id": cfg.company.web + "/" + (file === "index.html" ? "" : file) + "#breadcrumb", itemListElement: items };
 }
 
+// Yapay zekâ ürünleri merkezi: görünen kartlardan (article.ai-feature /
+// .ai-card + #yazilim bandı) ItemList. Öğeler Service'tir, Product DEĞİL:
+// fiyat/teklif yok, offers'sız Product Search Console'da hata sayılır. Ad ve
+// açıklama sayfadaki metnin aynısıdır; dil kopyasında DICT ile çevrilir.
+// aiCards() hem şemayı hem llms-full.txt bölümünü besler: tek kaynak sayfadır.
+const AI_HUB = "yapay-zeka-urunleri.html";
+function aiCards(html, web) {
+  const page = web + "/" + AI_HUB;
+  const text = x => decodeEnt(String(x || "").replace(/<[^>]+>/g, "")).replace(/\s+/g, " ").trim();
+  const out = [];
+  const re = /<article class="ai-(?:feature|card)[^"]*"[^>]*\bid="([^"]+)"[^>]*>([\s\S]*?)<\/article>/g;
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    const h3 = (m[2].match(/<h3>([\s\S]*?)<\/h3>/) || [])[1] || "";
+    const own = (h3.match(/href="([a-z0-9-]+\.html)"/) || [])[1];
+    out.push({
+      name: text(h3),
+      desc: text((m[2].match(/<div class="ai-body">[\s\S]*?<p>([\s\S]*?)<\/p>/) || [])[1]),
+      note: text((m[2].match(/<p class="ai-note">([\s\S]*?)<\/p>/) || [])[1]).replace(/^⚠️\s*/, ""),
+      state: text((m[2].match(/<span class="ai-state[^"]*">([\s\S]*?)<\/span>/) || [])[1]),
+      url: own ? web + "/" + own : page + "#" + m[1]
+    });
+  }
+  const dev = (html.match(/<section[^>]*\bid="yazilim"[^>]*>([\s\S]*?)<\/section>/) || [])[1];
+  if (dev) out.push({
+    name: text((dev.match(/<span class="kicker">([\s\S]*?)<\/span>/) || [])[1]),
+    desc: text((dev.match(/<\/h2>\s*<p>([\s\S]*?)<\/p>/) || [])[1]),
+    note: "", state: "", url: page + "#yazilim"
+  });
+  return out;
+}
+function aiItemListLd(html, cfg) {
+  const web = cfg.company.web;
+  const cards = aiCards(html, web);
+  if (!cards.length) return null;
+  return { "@context": "https://schema.org", "@type": "ItemList", "@id": web + "/" + AI_HUB + "#list",
+    name: decodeEnt(((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1] || "").replace(/<[^>]+>/g, "")).trim(),
+    numberOfItems: cards.length,
+    itemListElement: cards.map((c, i) => ({ "@type": "ListItem", position: i + 1,
+      item: { "@type": "Service", name: c.name, description: c.desc, url: c.url, provider: { "@id": web + "/#organization" } } })) };
+}
+// llms-full.txt: merkezdeki kartlar, durum ve uyarı notlarıyla (sayfa yoksa boş)
+function aiHubLlms(cfg) {
+  const f = path.join(ROOT, AI_HUB);
+  if (!fs.existsSync(f)) return "";
+  const cards = aiCards(fs.readFileSync(f, "utf8"), cfg.company.web);
+  if (!cards.length) return "";
+  return "### Yapay zekâ ürünleri (" + cfg.company.web + "/" + AI_HUB + ")\n"
+    + "Kamera görüntüsünü yapay zekâyla analiz eden çözümler. Fiyat listesi yayımlanmaz;\n"
+    + "keşiften sonra teklif verilir. Kimlik değil olay algılanır.\n"
+    + cards.map(c => "- " + c.name + (c.state ? " [" + c.state + "]" : "") + ": " + c.desc
+      + (c.note ? " NOT: " + c.note : "") + " (" + c.url + ")").join("\n") + "\n";
+}
+
 // Projeler sayfasındaki statik kartlardan ItemList üret
 function projectsItemListLd(html, cfg) {
   const items = [];
@@ -1110,6 +1173,7 @@ function injectStaticLd(html, file, cfg) {
     if (p) objs.push(packageProductLd(cfg, p, html));
   }
   if (file === "projeler.html") { const pl = projectsItemListLd(html, cfg); if (pl) objs.push(pl); }
+  if (file === "yapay-zeka-urunleri.html") { const al = aiItemListLd(html, cfg); if (al) objs.push(al); }
   if (file === "sozluk.html") objs.push(glossaryLd(cfg));
   if (/<main\b[^>]*\bdata-article\b/.test(html)) objs.push(articleLd(file, html, cfg));
   const faq = faqLdFromHtml(html);
@@ -1549,7 +1613,7 @@ function hydrateExtras(html, file, cfg) {
 // ---- sitemap.xml üretimi: TR + tüm dil sayfaları ayrı <url> girdileriyle ----
 const PRIORITY = {
   "index.html": "1.0", "hizmetler.html": "0.9", "urunler.html": "0.9", "online-satis.html": "0.9",
-  "ai-cankurtaran-destek-sistemi.html": "0.9", "su-isitici.html": "0.8",
+  "ai-cankurtaran-destek-sistemi.html": "0.9", "yapay-zeka-urunleri.html": "0.8", "su-isitici.html": "0.8",
   "tarimsal-sulama.html": "0.9", "hesaplayici.html": "0.8", "projeler.html": "0.7",
   "hakkimizda.html": "0.6", "iletisim.html": "0.8",
   "elektrikli-arac-donusum.html": "0.8", "unv-trek-pro-2500.html": "0.8",
@@ -1576,7 +1640,7 @@ const LLMS_GROUPS = [
     "havensis-mppt-30a.html", "havensis-mppt-60a.html", "havensis-mppt-60a-150v.html",
     "havensis-dcdc-30a.html", "havensis-dcdc-40a.html", "havensis-dcdc-40a-cift-yonlu.html", "havensis-boost-dcdc-2448.html",
     "su-isitici.html", "toptan.html"]],
-  ["Yapay zekâ ürünleri", ["ai-cankurtaran-destek-sistemi.html"]],
+  ["Yapay zekâ ürünleri", ["yapay-zeka-urunleri.html", "ai-cankurtaran-destek-sistemi.html"]],
   ["Ücretsiz araçlar", ["hesaplayici.html", "sistem-kur.html"]],
   ["Referans projeler", ["projeler.html", "proje-kemer-villa.html", "proje-manavgat-fabrika.html", "proje-manavgat-tarimsal.html"]],
   ["Rehberler ve güncel mevzuat (yalnız Türkçe)", ["gunes-paneli-kacak-elektrik-cezasi.html"]],
@@ -1969,6 +2033,7 @@ ikincil gözetim katmanıdır. Ücretsiz keşif ve pilot teklifi verilir.
 Cankurtaran sayısı mevzuatla belirlenir; sistem personel AZALTMAZ, mevcut kadroyu güçlendirir
 (karşılaştırma, özen yükümlülüğü kayıtları ve SSS ayrıntıları sayfadadır).
 
+${aiHubLlms(cfg)}
 ### Solar Su Isıtma Sistemi — PV su ısıtıcı (${c.web}/su-isitici.html)
 Monokristal panellerle suyu doğrudan güneş enerjisiyle ısıtır; bulutlu havada
 otomatik şebeke (AC) desteğine geçer. Emaye iç tank, akıllı GF-20 kontrol.

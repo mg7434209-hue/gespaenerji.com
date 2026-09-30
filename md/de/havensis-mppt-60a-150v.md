@@ -3,7 +3,7 @@ title: "Havensis 60A MPPT-Regler 12–48V, 150V — 5000W | GESPA Energy"
 description: "Havensis Solar-60AMPS 150|60 MPPT-Laderegler: 12/24/36/48-V-Batterie, 60 A Ladestrom, 150 V Moduleingang, bis 5000 W Module. Hergestellt in der Türkei, für 48-V-Inselanlagen."
 canonical: https://www.gespaenerji.com/de/havensis-mppt-60a-150v.html
 lang: de
-dateModified: 2026-09-29
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 

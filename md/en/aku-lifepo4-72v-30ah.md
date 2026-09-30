@@ -3,7 +3,7 @@ title: "europlus 72 V 30 Ah LiFePO₄ Battery — 72V Lithium | GESPA Energy"
 description: "LiFePO₄ traction battery for e-trikes and 72 V vehicles: 24S, ~2,300 Wh, 87.6 V max charge, built-in balanced BMS, 2,000 cycles. Drops in where the gel pack was; no power sag as it drains."
 canonical: https://www.gespaenerji.com/en/aku-lifepo4-72v-30ah.html
 lang: en
-dateModified: 2026-09-29
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 

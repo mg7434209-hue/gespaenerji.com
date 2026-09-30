@@ -48,6 +48,7 @@ Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş; talebe 
 - [Toptan Güneş Paneli, İnverter, Akü](https://www.gespaenerji.com/toptan.html): Bayi, EPC ve kurulumculara toptan güneş paneli, inverter ve LiFePO₄ akü. Kurumsal fatura, Türkiye geneli nakliye, adede göre toptan fiyat teklifi. · Markdown: https://www.gespaenerji.com/md/toptan.md
 
 ### Yapay zekâ ürünleri
+- [Yapay Zekâ Ürünleri — Görüntü Analizi ve Güvenlik](https://www.gespaenerji.com/yapay-zeka-urunleri.html): AI Cankurtaran, yapay zekâ ile yangın ve duman algılama, çevre güvenliği, baret-yelek denetimi ve düşme algılama. Keşif, kurulum ve size özel yazılım. · Markdown: https://www.gespaenerji.com/md/yapay-zeka-urunleri.md
 - [AI Cankurtaran Destek Sistemi — Havuz Güvenliği | GESPA](https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html): Otel, aquapark ve site havuzları için yapay zekâ destekli boğulma önleme: 7/24 izleme, cankurtaran saatine konumlu anında alarm, KVKK uyumlu yerel işleme. · Markdown: https://www.gespaenerji.com/md/ai-cankurtaran-destek-sistemi.md
 
 ### Ücretsiz araçlar

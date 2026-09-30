@@ -3,7 +3,7 @@ title: "Havensis bidirektionales 40A DC-DC-Ladegerät — Boost-Modus | GESPA En
 description: "Havensis DCDC-1224B bidirektionales DC-DC-Ladegerät: 40 A in die Aufbaubatterie, 10 A im Boost-Modus in die Starterbatterie. 12/24 V für Wohnmobile, 96,4 % Wirkungsgrad, hergestellt in der Türkei."
 canonical: https://www.gespaenerji.com/de/havensis-dcdc-40a-cift-yonlu.html
 lang: de
-dateModified: 2026-09-29
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 

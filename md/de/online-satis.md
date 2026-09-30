@@ -3,7 +3,7 @@ title: "Onlineshop — Solarprodukte und Ausrüstung | GESPA Energy"
 description: "Alle Verkaufsprodukte auf einer Seite: Solar-Fertigsets, MPPT-Laderegler und Zubehör. Transparente Preise inkl. MwSt., Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/online-satis.html
 lang: de
-dateModified: 2026-09-29
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 

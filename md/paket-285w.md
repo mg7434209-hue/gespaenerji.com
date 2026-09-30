@@ -3,7 +3,7 @@ title: "285W Güneş Paneli Paketi — Tak-Çalıştır | GESPA Enerji"
 description: "Kamp ve karavan için 285W komple güneş paketi: panel, güç kutusu ve kablolar. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg, tak-çalıştır."
 canonical: https://www.gespaenerji.com/paket-285w.html
 lang: tr
-dateModified: 2026-09-29
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 

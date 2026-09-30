@@ -3,11 +3,11 @@ title: "KI-Assistenz für Rettungsschwimmer — Poolsicherheit"
 description: "KI-gestützte Ertrinkungsprävention für Hotel- und Anlagenpools: 24/7-Überwachung, Standort-Alarm auf die Smartwatch, lokale DSGVO-konforme Verarbeitung."
 canonical: https://www.gespaenerji.com/de/ai-cankurtaran-destek-sistemi.html
 lang: de
-dateModified: 2026-09-24
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 
-[Startseite](https://www.gespaenerji.com/de/) / Neue Technologien / KI-Rettungsschwimmer-Assistenzsystem
+[Startseite](https://www.gespaenerji.com/de/) / [KI-Produkte](https://www.gespaenerji.com/de/yapay-zeka-urunleri.html) / KI-Rettungsschwimmer-Assistenzsystem
 
 Pool-Sicherheit
 

@@ -3,7 +3,7 @@ title: "Havensis 40A DC-DC-Ladegerät — Laden über die Lichtmaschine | GESPA 
 description: "Havensis DCDC-1224 40-A-DC-DC-Ladegerät: schnelles Laden der Aufbaubatterie über die Lichtmaschine. 12-12, 12-24, 24-12, 24-24 V, 96,4 % Wirkungsgrad, Motor-aus-Erkennung."
 canonical: https://www.gespaenerji.com/de/havensis-dcdc-40a.html
 lang: de
-dateModified: 2026-09-29
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 

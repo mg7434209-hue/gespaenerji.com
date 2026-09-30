@@ -3,7 +3,7 @@ title: "О нас — Gespa Enerji Ltd. (GESPA Energy) | Солнечные ре
 description: "Gespa Enerji Ltd.; компания из Манавгата/Антальи, предоставляющая инжиниринговые и EPC-услуги для солнечных электростанций."
 canonical: https://www.gespaenerji.com/ru/hakkimizda.html
 lang: ru
-dateModified: 2026-09-24
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 

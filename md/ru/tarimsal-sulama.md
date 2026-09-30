@@ -3,7 +3,7 @@ title: "Солнечное орошение — насосные системы 
 description: "Орошение на солнечной энергии: автономные решения без дизеля для погружных/поверхностных насосов. Манавгат/Анталья и вся Турция. Бесплатный калькулятор."
 canonical: https://www.gespaenerji.com/ru/tarimsal-sulama.html
 lang: ru
-dateModified: 2026-09-24
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 

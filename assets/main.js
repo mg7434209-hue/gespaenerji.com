@@ -1485,6 +1485,16 @@
   /* ---- Mobil menü ---- */
   var hamburger = $("#hamburger");
   var menu = $("#menu");
+  // Dar ekranda (≤560 px, CSS .menu-lang) dil seçici çekmece menünün başına
+  // taşınır: başlıkta dil + sepet + tema + ☰ 448 px istiyordu ve 390 px'lik
+  // telefonda hamburger düğmesi ekranın dışında kalıyordu. Kopya aynı
+  // .lang-switch sınıfını taşır; i18n.js tıklamayı belge düzeyinde yakalar.
+  var langSw = $(".nav-actions .lang-switch");
+  if (langSw && menu && !$(".menu-lang", menu)) {
+    var langCopy = langSw.cloneNode(true);
+    langCopy.classList.add("menu-lang");
+    menu.insertBefore(langCopy, menu.firstChild);
+  }
   if (hamburger && menu) {
     hamburger.addEventListener("click", function () {
       var open = menu.classList.toggle("open");
@@ -2341,6 +2351,12 @@
   /* ---- İletişim formu ---- */
   var form = $("#contactForm");
   if (form) {
+    // ?tip=<anahtar>: yapay zekâ ürünleri kartlarındaki "Teklif isteyin"
+    // bağlantısı proje tipini seçili açar. Anahtar option'ın data-k'sidir;
+    // metin değil, çünkü dil kopyasında seçenek metni çevrilir.
+    var tipKey = (location.search.match(/[?&]tip=([a-z0-9-]+)/) || [])[1];
+    var tipOpt = tipKey && form.tip && form.tip.querySelector('option[data-k="' + tipKey + '"]');
+    if (tipOpt) tipOpt.selected = true;
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var note = $("#form-note");

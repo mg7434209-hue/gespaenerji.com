@@ -58,21 +58,10 @@
       <a class="brand" href="/en/" aria-label="GESPA Enerji home"><span class="logo" aria-hidden="true"><img src="/assets/img/gespa-icon-72.png" alt="GESPA" width="36" height="36" /></span><span class="brand-text">GESPA<strong>Energy</strong></span></a>
       <nav class="menu" id="menu" aria-label="Main menu">
         <a href="/en/" class="menu-home">Home</a>
-        <div class="menu-group">
-          <button class="menu-parent" type="button" aria-haspopup="true" aria-expanded="false"><span>Solar Systems</span> <span class="caret" aria-hidden="true">▾</span></button>
-          <div class="submenu submenu-cards">
-            <a class="mcard" href="/en/hizmetler.html"><span class="mcard-ico" aria-hidden="true">🏗️</span><span class="mcard-txt"><b>Rooftop &amp; Ground-Mount Solar</b><em>Turnkey solar plants from engineering to commissioning</em></span></a>
-            <a class="mcard" href="/en/tarimsal-sulama.html"><span class="mcard-ico" aria-hidden="true">💧</span><span class="mcard-txt"><b>Solar Irrigation</b><em>Diesel-free, off-grid solar irrigation pumps</em></span></a>
-          </div>
-        </div>
+        <a href="/en/hizmetler.html">Solar Systems</a>
         <a href="/en/elektrikli-arac-donusum.html" id="menuEv" data-i18n-html>EV Conversion</a>
         <a href="/en/online-satis.html">Online Store</a>
-        <div class="menu-group">
-          <button class="menu-parent" type="button" aria-haspopup="true" aria-expanded="false"><span>AI Products</span> <span class="caret" aria-hidden="true">▾</span></button>
-          <div class="submenu submenu-cards">
-            <a class="mcard" href="/en/ai-cankurtaran-destek-sistemi.html"><span class="mcard-ico" aria-hidden="true">🛟</span><span class="mcard-txt"><b>AI Lifeguard Support System</b><em>Alerts the lifeguard to pool risk within seconds</em></span></a>
-          </div>
-        </div>
+        <a href="/en/yapay-zeka-urunleri.html">AI Products</a>
         <div class="menu-group menu-tools">
           <button class="menu-parent" type="button" aria-haspopup="true" aria-expanded="false"><span>Tools</span> <span class="caret" aria-hidden="true">▾</span></button>
           <div class="submenu submenu-cards">
@@ -132,7 +121,7 @@
             <div class="field"><label for="eposta">E-mail</label><input id="eposta" name="eposta" type="email" autocomplete="email" placeholder="example@mail.com" /></div>
           </div>
           <div class="row">
-            <div class="field"><label for="tip">Project Type</label><select id="tip" name="tip"><option>Rooftop Solar</option><option>Ground-Mount Solar</option><option>Solar Irrigation</option><option>Solar Water Heater</option><option>AI Lifeguard</option><option>Energy Storage</option><option>Other</option></select></div>
+            <div class="field"><label for="tip">Project Type</label><select id="tip" name="tip"><option>Rooftop Solar</option><option>Ground-Mount Solar</option><option>Solar Irrigation</option><option>Solar Water Heater</option><option>Energy Storage</option><option data-k="ai-cankurtaran">AI Lifeguard</option><option data-k="ai-yangin">AI Fire and Smoke Detection</option><option data-k="ai-cevre">AI Perimeter Security</option><option data-k="ai-isg">AI Workplace Safety</option><option data-k="ai-dusme">AI Fall Detection</option><option data-k="yazilim">Custom Software</option><option>Other</option></select></div>
             <div class="field"><label for="sehir">City</label><input id="sehir" name="sehir" type="text" autocomplete="address-level2" placeholder="City" /></div>
           </div>
           <div class="field"><label for="mesaj">Your Message</label><textarea id="mesaj" name="mesaj" rows="4" placeholder="Monthly consumption, location, etc."></textarea></div>

@@ -205,6 +205,28 @@ assert.ok(/location\.hash/.test(fs.readFileSync(path.join(root,'odeme-sonuc.html
  for(const pg of sbq.window.GESPA.config.qa.pages){const h=fs.readFileSync(path.join(root,pg+'.html'),'utf8');
   assert.ok(/<!-- QA:STATIC -->[\s\S]*?<!-- \/QA:STATIC -->/.test(h)&&h.includes('data-qa-page="'+pg+'"')&&h.includes('src="assets/qa.js"'),pg+': Q&A markers and script');
   assert.ok(!/qa-thread/.test(h),pg+': no visitor content committed to the page');}}
+// Top menu (30 Sep 2026): "Solar Sistemler" and "Yapay Zekâ Ürünleri" are plain links, Araçlar is the only
+// dropdown (tools/menu-uret.py writes every page). The AI hub lists its products from the visible cards
+// (ItemList of Service, not Product: no price) and keeps the safety notes on fire and fall detection.
+{let navs=0;
+ for(const f of fs.readdirSync(root).filter(x=>x.endsWith('.html'))){const m=fs.readFileSync(path.join(root,f),'utf8').match(/<nav class="menu" id="menu"[\s\S]*?<\/nav>/);if(!m)continue;navs++;
+  assert.ok(/<a href="hizmetler\.html"( class="active")?>Solar Sistemler<\/a>/.test(m[0]),f+': Solar Sistemler is a plain link');
+  assert.ok(/<a href="yapay-zeka-urunleri\.html"( class="active")?>Yapay Zekâ Ürünleri<\/a>/.test(m[0]),f+': AI products link to the hub');
+  assert.equal((m[0].match(/class="menu-group/g)||[]).length,1,f+': only Araçlar is a dropdown');}
+ assert.ok(navs>=40,'menus checked: '+navs);
+ const hub=fs.readFileSync(path.join(root,'yapay-zeka-urunleri.html'),'utf8');
+ const art=id=>(hub.match(new RegExp('<article[^>]*\\bid="'+id+'"[\\s\\S]*?<\\/article>'))||[''])[0];
+ const cards=(hub.match(/<article class="ai-(?:feature|card)[^"]*"[^>]*\bid="/g)||[]).length+(hub.includes('id="yazilim"')?1:0);
+ const il=[...hub.matchAll(/data-gld="itemlist">([^<]+)</g)].map(m=>JSON.parse(m[1]))[0];
+ assert.ok(il&&il.numberOfItems===cards&&il.itemListElement.every(x=>x.item['@type']==='Service'&&x.item.name&&x.item.description),'AI hub ItemList = visible cards (Service)');
+ assert.ok(/yerine geçmez/.test(art('yangin')),'fire detection note: not a replacement for the mandatory fire alarm system');
+ assert.ok(/Tıbbi cihaz değildir/.test(art('dusme')),'fall detection note: not a medical device');
+ const opts=new Set([...contactPage.matchAll(/<option data-k="([a-z0-9-]+)"/g)].map(m=>m[1]));
+ for(const m of hub.matchAll(/href="iletisim\.html\?tip=([a-z0-9-]+)"/g))assert.ok(opts.has(m[1]),'iletisim.html has an option for ?tip='+m[1]);
+ // Narrow header: language + cart + theme + menu button need 448 px; at <=560 px the language switch
+ // moves into the drawer (main.js copy), otherwise the menu button is pushed off a 390 px phone screen.
+ const css=fs.readFileSync(path.join(root,'assets/style.css'),'utf8'),mjs=fs.readFileSync(path.join(root,'assets/main.js'),'utf8');
+ assert.ok(/@media\(max-width:560px\)\{\s*\.nav-actions \.lang-switch\{display:none\}/.test(css)&&mjs.includes('classList.add("menu-lang")'),'narrow header: language switch moves into the drawer');}
 // Payment link amounts: Turkish writing wins ("120.000" is 120 thousand, not 120 TL), link t= values
 // are plain JS numbers. The link generator (admin.html) and the payment page share ONE rule.
 {const grab=(src,f)=>{const m=src.match(/function parseTL\(v\) \{[\s\S]*?\n\s*\}\n/);assert.ok(m,f+' parseTL');return m[0].replace(/\s+/g,' ').trim();};

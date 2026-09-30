@@ -3,7 +3,7 @@ title: "Havensis 30A DC-DC Battery Charger — Caravan Alternator Charging | GES
 description: "Havensis DCDC-1224 DC-DC battery charger that charges the caravan house battery from the alternator on the road: 30 A, 12/24 V, 96.4% efficiency, engine-off detection, display on a 5 m cable."
 canonical: https://www.gespaenerji.com/en/havensis-dcdc-30a.html
 lang: en
-dateModified: 2026-09-29
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 

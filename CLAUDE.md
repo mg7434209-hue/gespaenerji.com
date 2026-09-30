@@ -19,7 +19,10 @@ hero → marka şeridi → hizmetler → projeler → araçlar → finansman →
 su ısıtıcı → yapay zekâ ürünleri → yorumlar → SSS → CTA. KURAL: yan ürünlerin
 (su ısıtıcı + yapay zekâ ürünleri) toplam dikey alanı, GES + araç bölümlerinin
 toplamının %40'ını AŞMASIN ve ikisi de sayfanın ikinci yarısında kalsın —
-şu an %33, ilk yan ürün %63 derinlikte. Yeni yan ürün eklerken yeniden ölç.
+şu an %33 (30 Eyl 2026, 1280 px; payda = yan ürünlerden önceki tüm bölümler),
+ilk yan ürün %56 derinlikte. Yeni yan ürün eklerken yeniden ölç. Yapay zekâ
+bölümünde tek kart + "Tüm yapay zekâ ürünleri →" bağlantısı durur; diğer AI
+ürünleri ana sayfaya kart olarak EKLENMEZ, merkez sayfada listelenir.
 Tam genişlik hero slider `.hero2`, 5 slayt: GES fotoğrafı → elektrikli araç
 dönüşümü (→ elektrikli-arac-donusum.html; görsel `products/ev/hero-ev-donusum.webp`,
 kaynak `ev/kaynak/ev-donusum-kurulum.png`) → su ısıtıcı → AI cankurtaran →
@@ -114,6 +117,20 @@ yalnız AGM/jel/kurşun-asit/lityumdur; nikel bazlı destek KULLANICI PROFİLİ
 iledir. Bu yüzden künye tablosu bülteni yazar, NiCd/NiMH yalnız görsel
 altyazısında "üreticinin görseli" diye geçer. Tedarikçi MS Teknik'in telefonu siteye
 KONMAZ — iletişim tek kaynağı config.company'dir) ·
+`yapay-zeka-urunleri.html` (YAPAY ZEKÂ ÜRÜN MERKEZİ, menüdeki "Yapay Zekâ
+Ürünleri" buraya gider: 01 AI Cankurtaran `.ai-feature` (gerçek foto) → 02-05
+`.ai-card` (yangın-duman · çevre güvenliği · baret-yelek · düşme; çizimler
+metinsiz inline SVG `.ai-view`, lacivert palet çizimin İÇİNDE) → `#yazilim`
+"Size özel yazılım" bandı → adımlar → neden GESPA → veri/KVKK notu → SSS.
+YENİ ÜRÜN = yeni `article.ai-card` (benzersiz `id`, numara `ai-no`, durum
+`ai-state`); ItemList şeması (Service, fiyatsız) ve llms-full.txt bölümü
+kartlardan KENDİLİĞİNDEN üretilir (build.js `aiCards()`). 02-05 "Keşif ve
+teklifle"dir: fiyat, tedarikçi (Alibaba vb.) ve künyesiz teknik değer
+YAZILMAZ. Yangın kartı "zorunlu yangın algılama sisteminin yerine geçmez",
+düşme kartı "tıbbi cihaz değildir" notunu TAŞIR (test). Yüz tanıma
+pazarlanmaz: biyometrik = KVKK özel nitelikli veri. "Teklif isteyin"
+bağlantıları `iletisim.html?tip=<data-k>` → iletişim formunda proje tipi
+seçili açılır (main.js; seçenek `data-k`'sı, metni değil — metin çevrilir)) ·
 `ai-cankurtaran-destek-sistemi.html`
 (havuz güvenliği; lacivert/aqua `pool-*` stilleri, form → WhatsApp lead;
 "Nasıl çalışır?" bölümünün sonunda canlı simülasyon `.pool-sim` — inline SVG,
@@ -151,8 +168,9 @@ formu main.js toptan IIFE'sinde; stok değişince config.b2b.stock güncelle +
 Ayrıca `admin.html`: fiyat yönetim paneli (menüde yok, robots'ta engelli,
 build PAGES listesine EKLENMEZ). Her sayfa: ortak header/footer, aktif menü
 vurgusu, breadcrumb, sayfaya özel SEO başlığı/canonical/Open Graph içerir.
-Nav menü (hizmet/satış ayrımı): Ana Sayfa · Solar Sistemler (açılır grup:
-Çatı & Arazi GES Kurulumu → hizmetler.html + Tarımsal Sulama) ·
+Nav menü (hizmet/satış ayrımı): Ana Sayfa · Solar Sistemler (DÜZ bağlantı
+→ hizmetler.html; açılır panel 30 Eyl 2026'da kullanıcı kararıyla KALKTI,
+Tarımsal Sulama hizmetler sayfasındaki öne çıkan banttan açılır) ·
 Elektrikli Araç Dönüşümü (DÜZ bağlantı → elektrikli-arac-donusum.html, o
 sayfada aktif; `id="menuEv" data-i18n-html` — EN/DE/RU kısa etiketi i18n.js
 HTMLMAP'tendir: EV Conversion · E-Fahrzeug-Umbau · Электромобили; aynı TR
@@ -160,9 +178,19 @@ metnin footer'daki uzun çevirisi çubuğa SIĞMAZ) · Online Satış
 (SATIŞ PANELİ — aşağıya bak: satıştaki ürün kartları + bağlantı satırı:
 Tüm ürünler (mağaza) → online-satis.html, Paket ürünler → urunler.html,
 Solar Su Isıtıcı, Toptan Satış (B2B), GES Marketim ↗, Sepetim → sepet.html
-`rel="nofollow"` çünkü robots'ta engelli) · Yapay Zekâ Ürünleri
-(açılır grup: AI Cankurtaran Destek Sistemi) · Araçlar (açılır grup: Tasarruf
-Hesaplayıcı + Sistem Kurucu) · Projeler · Hakkımızda · Teklif Al.
+`rel="nofollow"` çünkü robots'ta engelli) · Yapay Zekâ Ürünleri (DÜZ
+bağlantı → yapay-zeka-urunleri.html; AI Cankurtaran'da da aktif) · Araçlar
+(TEK açılır grup: Tasarruf Hesaplayıcı + Sistem Kurucu) · Projeler ·
+Hakkımızda · Teklif Al.
+MENÜ ÜRETİCİSİ: `python3 tools/menu-uret.py` (DRY-RUN) / `--uygula` menüyü
+TÜM TR sayfalarda tek kaynaktan yazar; etkin öğeyi sayfanın mevcut menüsünden
+okur. hizmet/proje sayfaları (cati-ges, proje-* …) build'de hizmetler.html'in
+menüsünü devralır. Yeni sayfa: menüyü bir sayfadan kopyala, etkin öğeyi ver,
+betiği çalıştır.
+DAR BAŞLIK: ≤560 px'te dil seçici başlıkta GİZLENİR, main.js'in kopyası
+(`.menu-lang`) çekmece menünün başında görünür. Sebep: dil + sepet + tema +
+☰ 448 px istiyordu, 390 px telefonda hamburger ekran dışında kalıyordu (test
+denetler). Başlığa öğe eklersen 320/360/390/430 px'te yeniden ölç.
 Paket detay sayfalarında "Paket Ürünler", sepet.html'de "Sepetim" aktif
 işaretlenir; alt sayfa aktifken üst `menu-parent` de ` active` alır.
 Açılır paneller KART tipidir (`.submenu.submenu-cards` → `.mcard` = ikon +
@@ -201,10 +229,8 @@ TRUST + PAGES tablosu). Bağlantı eklemek = oraya satır + DICT'e 3 dil +
 `syncSaleLink()` yönetir — DIŞ kapsamdadır (renderSale katalog dışında hiç
 çalışmaz), her sayfada bir kez ve `gespa:lang` olayında çağrılır.
 İki sütunlu düzende sağ kolonun `.section-head` başlığı ORTALANMAZ.
-Üst menüye YENİ AÇILIR grup eklersen `nav5.py` GROUPS deseni.
-Yeni sayfa eklenince TÜM sayfalarda güncelle — nav bloğunu tek kaynaktan
-yeniden üreten scratchpad `nav5.py` deseni (sayfa→aktif grup/link tablosu +
-ikon/açıklama + SHOP ürün tablosu içerir) kullanılır.
+Üst menüye YENİ AÇILIR grup eklersen Araçlar grubunun `.submenu-cards`
+işaretlemesini örnek al ve `tools/menu-uret.py` ITEMS tablosuna ekle.
 CSS SIRA KURALI: mobil `@media(max-width:1260px)` nav bloğu, masaüstü
 `.menu-group`/`.submenu` kurallarından SONRA gelmek zorundadır — eşit
 özgüllükte sonraki kural kazanır. Blok yukarıdayken masaüstü kuralları onu

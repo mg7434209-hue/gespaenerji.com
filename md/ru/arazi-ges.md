@@ -3,7 +3,7 @@ title: "Наземные солнечные станции: оценка и мо
 description: "Наземные станции: оценка, обследование участка, проектирование и монтаж. Уклон, затенение, грунт и мощность подключения."
 canonical: https://www.gespaenerji.com/ru/arazi-ges.html
 lang: ru
-dateModified: 2026-09-24
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 

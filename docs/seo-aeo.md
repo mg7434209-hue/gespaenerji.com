@@ -99,6 +99,11 @@ birlikte commit'le.
   uydurma puan yapısal veri ihlalidir ve ceza sebebidir.
 - **Service** (`content/build-seo.js`): serviceType, areaServed = City nesneleri
   (containedInPlace Antalya). **ItemList** numberOfItems. **BreadcrumbList** `@id`.
+- **ItemList (yapay-zeka-urunleri.html)**: `aiItemListLd()` görünen kartlardan
+  (`article.ai-feature` / `.ai-card` + `#yazilim` bandı) Service öğeleri üretir;
+  Product DEĞİL (fiyat yok, offers'sız Product Search Console hatasıdır).
+  llms-full.txt'teki bölüm aynı `aiCards()` verisini okur; test öğe sayısını
+  görünen kart sayısıyla karşılaştırır.
 - **DefinedTermSet** (sozluk.html): terim başına DefinedTerm, `url` = `sozluk.html#id`.
 - Dil kopyasında `transform()` url, inLanguage ve metinleri yerelleştirir.
 

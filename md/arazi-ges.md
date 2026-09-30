@@ -3,7 +3,7 @@ title: "Arazi Tipi GES: Fizibilite ve Kurulum | GESPA Enerji"
 description: "Arazi tipi GES: fizibilite, arazi değerlendirmesi, mühendislik ve kurulum. Eğim, gölgelenme, zemin ve bağlantı kapasitesi birlikte incelenir."
 canonical: https://www.gespaenerji.com/arazi-ges.html
 lang: tr
-dateModified: 2026-09-24
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 

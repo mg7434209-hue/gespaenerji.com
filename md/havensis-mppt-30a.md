@@ -3,7 +3,7 @@ title: "Havensis 30A MPPT Şarj Kontrol Cihazı 12/24V — 1200W Panel | GESPA E
 description: "12/24 V akülü güneş sistemleri için Havensis Solar-30AMPS MPPT şarj kontrol cihazı: 30 A şarj, 20 A yük çıkışı, 100 V panel girişi, 1200 W'a kadar panel, LCD ekran. Yerli üretim."
 canonical: https://www.gespaenerji.com/havensis-mppt-30a.html
 lang: tr
-dateModified: 2026-09-29
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 

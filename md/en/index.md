@@ -3,7 +3,7 @@ title: "GESPA Energy — Solar Power Plants (PV) | Turnkey Solutions"
 description: "GESPA Energy: turnkey installation, engineering, financing and maintenance for rooftop and ground-mounted solar power plants (PV). Manavgat / Antalya, Türkiye."
 canonical: https://www.gespaenerji.com/en/
 lang: en
-dateModified: 2026-09-25
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 
@@ -203,6 +203,8 @@ Yapay zekâ destekli kameralar havuzu 7/24 tarar; riskli durumda cankurtarana sa
 [Request a Free Survey](https://www.gespaenerji.com/en/ai-cankurtaran-destek-sistemi.html#teklif)
 
 ![AI Cankurtaran Destek Sistemi — havuz güvenliği](https://www.gespaenerji.com/assets/img/products/cankurtaran/hero-havuz-guvenlik.svg)
+
+[All AI products →](https://www.gespaenerji.com/en/yapay-zeka-urunleri.html)
 
 Reference Projects
 

@@ -3,7 +3,7 @@ title: "Tarımsal Sulama GES — Güneşli Sulama | GESPA Enerji"
 description: "Güneş enerjili tarımsal sulama: mazotsuz, şebekeden bağımsız dalgıç ve yüzey pompa sistemleri. Ücretsiz keşif ve mazot tasarruf analizi."
 canonical: https://www.gespaenerji.com/tarimsal-sulama.html
 lang: tr
-dateModified: 2026-09-24
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 

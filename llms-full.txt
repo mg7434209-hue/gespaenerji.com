@@ -32,6 +32,16 @@ ikincil gözetim katmanıdır. Ücretsiz keşif ve pilot teklifi verilir.
 Cankurtaran sayısı mevzuatla belirlenir; sistem personel AZALTMAZ, mevcut kadroyu güçlendirir
 (karşılaştırma, özen yükümlülüğü kayıtları ve SSS ayrıntıları sayfadadır).
 
+### Yapay zekâ ürünleri (https://www.gespaenerji.com/yapay-zeka-urunleri.html)
+Kamera görüntüsünü yapay zekâyla analiz eden çözümler. Fiyat listesi yayımlanmaz;
+keşiften sonra teklif verilir. Kimlik değil olay algılanır.
+- AI Cankurtaran Destek Sistemi [Kuruluma hazır]: Havuzdaki her yüzücüyü ayrı takip eder; hareketsizlik, dikey batış ve panik hareketi gibi risk işaretlerinde cankurtaranın akıllı saatine konumlu alarm gönderir. Cankurtaranın yerine geçmez, ona yorulmayan bir ikinci göz olur. (https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html)
+- Yangın ve Duman Algılama [Keşif ve teklifle]: Kamera görüntüsünde alevi ve dumanı tanır; ilk anda telefona bildirim ve sesli-ışıklı uyarı verir. Dumanın tavandaki dedektöre geç ulaştığı yüksek tavanlı ve açık alanlarda erken uyarı sağlar. NOT: Zorunlu yangın algılama ve alarm sisteminin yerine geçmez; ona ek bir erken uyarı katmanıdır. (https://www.gespaenerji.com/yapay-zeka-urunleri.html#yangin)
+- Çevre ve Saha Güvenliği [Keşif ve teklifle]: Tarla, GES sahası, şantiye ve depo çevresinde insanı ve aracı ayırt eder; hayvan, sallanan dal ya da gölge kaynaklı boş alarmları azaltır. Şebeke elektriği olmayan yerde güneş paneli ve aküyle beslenen 4G kamerayla çalışır. (https://www.gespaenerji.com/yapay-zeka-urunleri.html#cevre)
+- İş Güvenliği: Baret ve Yelek Denetimi [Keşif ve teklifle]: Şantiye, fabrika ve depo girişlerinde baret ya da reflektif yelek olmadan alana giren çalışanı algılar; sahadaki sorumluya anında bildirir ve olayı kayda alır. (https://www.gespaenerji.com/yapay-zeka-urunleri.html#is-guvenligi)
+- Düşme ve Hareketsizlik Algılama [Keşif ve teklifle]: Yere düşme ve uzun süre hareketsiz kalma durumunu algılayıp görevliye haber verir. Tek başına çalışılan alanlarda ve bakım gerektiren ortak alanlarda yardımın gecikmesini önler. NOT: Tıbbi cihaz değildir; bakım personelinin yerine geçmez. (https://www.gespaenerji.com/yapay-zeka-urunleri.html#dusme)
+- Size özel yazılım: Hazır ürün ihtiyacınızı tam karşılamıyorsa işinize özel çözümü birlikte tasarlarız. Önce ihtiyacı tanımlar, küçük bir pilotla sahada doğrular, sonra yaygınlaştırırız. (https://www.gespaenerji.com/yapay-zeka-urunleri.html#yazilim)
+
 ### Solar Su Isıtma Sistemi — PV su ısıtıcı (https://www.gespaenerji.com/su-isitici.html)
 Monokristal panellerle suyu doğrudan güneş enerjisiyle ısıtır; bulutlu havada
 otomatik şebeke (AC) desteğine geçer. Emaye iç tank, akıllı GF-20 kontrol.

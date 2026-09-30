@@ -3,7 +3,7 @@ title: "Frequently Asked Questions — Solar Power, Orders and Installation | GE
 description: "Answers about solar power plants, batteries, EV solar conversion, ordering, shipping, payment and installation in one place. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/en/sss.html
 lang: en
-dateModified: 2026-09-29
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 
@@ -614,6 +614,34 @@ Built-in Bluetooth is optional and specified when ordering. Write to us before o
 We ship anywhere in Türkiye; an auto electrician can do the installation. In the Antalya region we offer optional on-site installation.
 
 [Go to page →](https://www.gespaenerji.com/en/havensis-boost-dcdc-2448.html)
+
+## AI products and custom software
+
+### Does it work with my existing security cameras?
+
+Usually, yes. IP cameras that provide an RTSP or ONVIF video stream can be connected to an AI recorder or analysis box. Suitability is confirmed during the site survey based on the camera model, position and image quality; where a camera is unsuitable, we recommend a new one.
+
+### Does AI fire detection replace a fire alarm system?
+
+No. The mandatory fire detection and alarm system in buildings is installed according to regulations. Camera-based detection is an additional early-warning layer; it provides visual confirmation, especially in warehouses, barns and open areas where smoke reaches ceiling detectors late.
+
+### Can it be installed on land with no electricity or internet?
+
+Yes. Where there is mobile network coverage, we use cameras powered by a solar panel and battery that send alerts over 4G. The panel and battery are sized for the number of cameras and the local sunshine.
+
+### Do you offer facial recognition?
+
+The solutions we recommend detect events, not identities. Facial recognition involves biometric data, which Turkish data protection law (KVKK) treats as a special category of personal data; it is considered separately and only in projects with a legal basis.
+
+### How is the price determined?
+
+It depends on the number of cameras, the size of the area, the existing infrastructure and the alert channels you want. After the site survey we give an itemised quote; where possible, we start with a pilot.
+
+### Do you also develop custom software?
+
+Yes. If you need a detection scenario, a reporting dashboard or an integration with your existing system that an off-the-shelf product doesn't cover, we define the requirement together, validate it with a small pilot and then roll it out.
+
+[Go to page →](https://www.gespaenerji.com/en/yapay-zeka-urunleri.html)
 
 ## Pool safety — AI Lifeguard
 

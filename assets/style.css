@@ -426,7 +426,9 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 /* ---- Yeni ürün sayfası (su-isitici.html) yardımcıları ---- */
 .cards-4{grid-template-columns:repeat(4,1fr)}
 .cards-2{grid-template-columns:repeat(2,1fr)}
-.steps-3{grid-template-columns:repeat(3,1fr);max-width:960px;margin:0 auto}
+/* .steps.steps-3: .steps kuralı dosyada SONRA gelir; tek sınıfla yazılınca
+   4 sütun ve margin:0 ona geçiyor, 3 adım sola yaslı kalıyordu. */
+.steps.steps-3{grid-template-columns:repeat(3,1fr);max-width:960px;margin:0 auto}
 .how-note{max-width:820px;margin:30px auto 0;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sun);border-radius:12px;padding:18px 22px}
 .how-note strong{display:block;margin-bottom:6px}
 .how-note p{margin:0;color:var(--muted);font-size:.95rem}
@@ -436,7 +438,7 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .model-caps{color:var(--green)!important;font-weight:800;font-family:var(--font);font-size:1.05rem!important;margin-bottom:6px!important}
 .spec-note{text-align:center;color:var(--muted);font-size:.9rem;margin:16px auto 0;max-width:70ch}
 .spec-quote{color:var(--green);font-weight:800;white-space:nowrap}
-@media(max-width:960px){.cards-4{grid-template-columns:repeat(2,1fr)}.steps-3{grid-template-columns:1fr}}
+@media(max-width:960px){.cards-4{grid-template-columns:repeat(2,1fr)}.steps.steps-3{grid-template-columns:1fr}}
 @media(max-width:640px){.cards-4,.cards-2{grid-template-columns:1fr}}
 
 /* ---- Ürün/spec tablosu (su-isitici.html) ---- */
@@ -691,6 +693,15 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
   .footer-bottom a{padding:6px 4px;display:inline-block}
   .crumbs a{padding:4px 0;display:inline-block}
   .topbar-inner{font-size:.82rem}
+}
+/* Dil seçicinin çekmece kopyası (main.js ekler). ≤560 px'te başlıktaki
+   seçici gizlenir, kopya menünün başında görünür: başlık dil + sepet + tema
+   + ☰ ile 448 px istiyordu, 390 px'te hamburger ekran dışında kalıyordu. */
+.menu-lang{display:none}
+@media(max-width:560px){
+  .nav-actions .lang-switch{display:none}
+  .menu .menu-lang{display:inline-flex;align-self:flex-start;flex-shrink:0}
+  .menu .menu-lang button{padding:11px 14px;font-size:.8rem}
 }
 @media(max-width:380px){
   .brand-text{font-size:.98rem}
@@ -1934,6 +1945,7 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
 .alt-media{overflow:hidden;min-height:210px;background:var(--bg-alt)}
 .alt-media img{width:100%;height:100%;object-fit:cover;display:block}
 @media(max-width:820px){.alt-card{grid-template-columns:1fr}.alt-media{order:-1;min-height:200px}}
+.alt-more{text-align:center;margin:22px 0 0}
 
 /* Kurumsal kimlik bloğu — iletişim sayfası kartı + yasal sayfalardaki satıcı künyesi */
 .legal-id{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin:14px 0 18px;font-size:.95rem}
@@ -2205,3 +2217,102 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
 .review-ask p{margin:0 0 10px;color:var(--muted);font-size:.95rem}
 .review-ask p:last-child{margin-bottom:0}
 .review-ask .review-ask-title{color:var(--ink);font-weight:800;font-family:var(--font);font-size:1.05rem}
+
+/* Yapay zekâ ürünleri merkezi (yapay-zeka-urunleri.html). Kamera görüşü
+   çizimleri (.ai-view) lacivert/aqua palettedir (pool-* ile aynı renkler);
+   palet çizimin İÇİNDE kalır, kart gövdesi site temasını izler. SVG'lerde
+   metin yoktur, çeviri gerektirmez. Animasyonlar azaltılmış harekette durur. */
+.ai-hero-pts{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.ai-hero-pts li{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.9rem;font-weight:600}
+.ai-feature{display:grid;grid-template-columns:1.1fr .9fr;border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;background:var(--card);box-shadow:var(--shadow)}
+.ai-feature-media{background:#0a2a43;min-height:260px}
+.ai-feature-media img{width:100%;height:100%;object-fit:cover}
+.ai-body{padding:clamp(20px,2.6vw,28px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.ai-body h3{font-size:1.25rem;margin:0}
+.ai-feature .ai-body h3{font-size:clamp(1.3rem,2.4vw,1.6rem)}
+.ai-body h3 a:hover{color:var(--green)}
+.ai-body p{margin:0;color:var(--muted)}
+.ai-body .ticks{margin:0}
+.ai-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ai-no{font-family:var(--font);font-weight:800;font-size:.78rem;letter-spacing:.5px;color:#fff;background:#123b5c;border-radius:8px;padding:3px 9px}
+.ai-state{font-size:.78rem;font-weight:700;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.ai-state.ok{color:var(--green);border-color:color-mix(in srgb,var(--green) 40%,var(--line));background:color-mix(in srgb,var(--green) 8%,transparent)}
+.ai-uses{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:6px}
+.ai-uses li{font-size:.8rem;background:var(--bg-alt);border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--ink)}
+.ai-body .ai-note{font-size:.86rem;border-left:3px solid var(--sun);padding:8px 12px;background:color-mix(in srgb,var(--sun) 10%,transparent);border-radius:0 8px 8px 0;color:var(--ink)}
+.ai-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.ai-link{margin-top:auto;padding-top:4px;font-weight:700;color:var(--green)}
+.ai-link:hover{text-decoration:underline}
+.ai-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:22px}
+.ai-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;background:var(--card);box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}
+.ai-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.ai-card .ai-body{flex:1}
+.ai-view{position:relative;aspect-ratio:16/9;overflow:hidden;background:radial-gradient(120% 90% at 85% 0%,#1d5580 0,transparent 60%),linear-gradient(170deg,#0a2a43,#123b5c)}
+.ai-view::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(127,214,232,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(127,214,232,.07) 1px,transparent 1px);background-size:22px 22px}
+.ai-svg{position:absolute;inset:0;width:100%;height:100%}
+.ai-svg .ai-ground{fill:#0d3350}
+.ai-svg .ai-bld{fill:#123e5f;stroke:#2a6189;stroke-width:1.5}
+.ai-svg .ai-line,.ai-svg .ai-fence{fill:none;stroke:#3f7aa3;stroke-width:2;stroke-linecap:round}
+.ai-svg .ai-fence{stroke:#2f6a8f}
+.ai-svg .ai-panel{fill:#1b4f7a;stroke:#7fd6e8;stroke-width:1.5}
+.ai-svg .ai-panel-l{fill:none;stroke:#7fd6e8;stroke-width:1;opacity:.6}
+.ai-svg .ai-cam{fill:#dfeef5}
+.ai-svg .ai-lens{fill:#0a2a43;stroke:#7fd6e8;stroke-width:1}
+.ai-svg .ai-tree path{fill:none;stroke:#2f6a8f;stroke-width:4}
+.ai-svg .ai-tree circle{fill:#1f5a4a}
+.ai-svg .ai-person,.ai-svg .ai-worker,.ai-svg .ai-car{fill:#cfe3ee}
+.ai-svg .ai-car .ai-glass{fill:#123b5c}
+.ai-svg .ai-car circle{fill:#0a2a43;stroke:#cfe3ee;stroke-width:2}
+.ai-svg .ai-helmet{fill:#f7b500}
+.ai-svg .ai-vest{fill:#ff8a3d}
+.ai-svg .ai-refl{fill:none;stroke:#fff6c2;stroke-width:2}
+.ai-svg .ai-crate{fill:#2a6189}
+.ai-svg .ai-smoke circle{fill:#9fb6c6;opacity:.5}
+.ai-svg .ai-flame-o{fill:#ff7a2f}
+.ai-svg .ai-flame-i{fill:#ffd166}
+.ai-svg .ai-box rect{stroke-width:1.5}
+.ai-svg .ai-corner{fill:none;stroke-width:3.5;stroke-linecap:round}
+.ai-svg .ai-box.ai-alert rect{fill:rgba(255,107,74,.12);stroke:#ff6b4a}
+.ai-svg .ai-box.ai-warn rect{fill:rgba(247,181,0,.10);stroke:#f7b500}
+.ai-svg .ai-box.ai-ok rect{fill:rgba(61,220,151,.10);stroke:#3ddc97}
+.ai-svg .ai-alert .ai-corner{stroke:#ff6b4a}
+.ai-svg .ai-warn .ai-corner{stroke:#f7b500}
+.ai-svg .ai-ok .ai-corner{stroke:#3ddc97}
+.ai-svg .ai-badge.ai-alert circle{fill:#ff6b4a}
+.ai-svg .ai-badge.ai-ok circle{fill:#3ddc97}
+.ai-svg .ai-badge path{fill:none;stroke:#fff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.ai-svg .ai-timer circle{fill:#0a2a43;stroke:#3f7aa3;stroke-width:2}
+.ai-svg .ai-timer path{fill:none;stroke:#ff6b4a;stroke-width:2.5;stroke-linecap:round}
+.ai-svg .ai-scan{fill:#7fd6e8;opacity:.45}
+.ai-svg .ai-rec{fill:#ff5a4f}
+.ai-svg .ai-win{fill:#0e3150;stroke:#3f7aa3;stroke-width:1.5}
+.ai-svg .ai-side{fill:#0b2842}
+.ai-svg .ai-menu,.ai-svg .ai-row{fill:none;stroke:#3f7aa3;stroke-width:4;stroke-linecap:round}
+.ai-svg .ai-dot{fill:#3f7aa3}
+.ai-svg .ai-tile{fill:#123e5f;stroke:#2a6189}
+.ai-svg .ai-chart{fill:none;stroke:#7fd6e8;stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.ai-svg .ai-dot-r{fill:#ff6b4a}
+.ai-svg .ai-dot-g{fill:#3ddc97}
+.ai-svg .ai-code{fill:none;stroke:#f7b500;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.ai-svg .ai-scan{animation:aiScan 5s linear infinite}
+.ai-svg .ai-rec{animation:aiBlink .8s ease-in-out infinite alternate}
+.ai-svg .ai-box.ai-alert{animation:aiPulse 1.6s ease-in-out infinite}
+.ai-svg .ai-smoke{animation:aiRise 3.2s ease-in-out infinite alternate}
+.ai-svg .ai-flame{transform-box:view-box;transform-origin:232px 150px;animation:aiFlick .9s ease-in-out infinite alternate}
+@keyframes aiScan{from{transform:translateX(-4px)}to{transform:translateX(324px)}}
+@keyframes aiBlink{from{opacity:1}to{opacity:.2}}
+@keyframes aiPulse{0%,100%{opacity:1}50%{opacity:.5}}
+@keyframes aiRise{from{transform:translateY(3px)}to{transform:translateY(-5px)}}
+@keyframes aiFlick{from{transform:scale(1,1)}to{transform:scale(.94,1.06)}}
+.ai-dev{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(22px,4vw,48px);align-items:center}
+.ai-dev-text h2{font-size:clamp(1.6rem,3.2vw,2.2rem);font-weight:800;margin:0 0 12px}
+.ai-dev-text>p{color:var(--muted);margin:0}
+.ai-dev .ticks{margin:16px 0 20px}
+.ai-dev-view{border-radius:var(--radius-lg);box-shadow:var(--shadow-lg)}
+.ai-privacy{border:1px solid var(--line);border-left:4px solid #17a8c4;border-radius:var(--radius);padding:22px 26px;background:var(--card)}
+.ai-privacy h2{font-size:1.3rem;margin:0 0 10px}
+.ai-privacy p{margin:0;color:var(--muted)}
+.ai-privacy p+p{margin-top:10px}
+@media(max-width:900px){.ai-feature,.ai-dev{grid-template-columns:1fr}.ai-feature-media{min-height:0;aspect-ratio:16/9}}
+@media(max-width:700px){.ai-grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.ai-svg *{animation:none!important}.ai-card,.ai-card:hover{transition:none;transform:none}}

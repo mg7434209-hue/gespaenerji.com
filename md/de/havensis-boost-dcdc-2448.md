@@ -3,7 +3,7 @@ title: "Havensis BOOST DC-DC-Ladegerät — 12/24V auf 36–72V | GESPA Energy"
 description: "Havensis BOOST DCDC-2448: DC-DC-Ladegerät, das 36-, 48-, 60- und 72-V-Batteriebänke aus einer 12/24-V-Fahrzeugbatterie lädt. 20 A Eingang, 15 A Laden, 95 % Wirkungsgrad. Für Wohnmobile und Boote."
 canonical: https://www.gespaenerji.com/de/havensis-boost-dcdc-2448.html
 lang: de
-dateModified: 2026-09-29
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 

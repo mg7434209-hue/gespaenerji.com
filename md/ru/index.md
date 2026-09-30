@@ -3,7 +3,7 @@ title: "GESPA Energy — Солнечные электростанции | Ре�
 description: "GESPA Energy: монтаж под ключ, инжиниринг, финансирование и обслуживание солнечных электростанций на крыше и на земле. Манавгат / Анталья, Турция."
 canonical: https://www.gespaenerji.com/ru/
 lang: ru
-dateModified: 2026-09-25
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 
@@ -203,6 +203,8 @@ Yapay zekâ destekli kameralar havuzu 7/24 tarar; riskli durumda cankurtarana sa
 [Запросить бесплатный выезд](https://www.gespaenerji.com/ru/ai-cankurtaran-destek-sistemi.html#teklif)
 
 ![AI Cankurtaran Destek Sistemi — havuz güvenliği](https://www.gespaenerji.com/assets/img/products/cankurtaran/hero-havuz-guvenlik.svg)
+
+[Все ИИ-продукты →](https://www.gespaenerji.com/ru/yapay-zeka-urunleri.html)
 
 Референс-проекты
 

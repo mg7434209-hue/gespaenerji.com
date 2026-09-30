@@ -3,7 +3,7 @@ title: "GESPA Enerji — Anahtar Teslim Güneş Enerjisi (GES)"
 description: "GESPA Enerji: çatı ve arazi tipi güneş enerjisi santralleri (GES) için anahtar teslim kurulum, mühendislik, finansman ve bakım. Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/
 lang: tr
-dateModified: 2026-09-25
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 
@@ -203,6 +203,8 @@ Yapay zekâ destekli kameralar havuzu 7/24 tarar; riskli durumda cankurtarana sa
 [Ücretsiz Keşif İste](https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html#teklif)
 
 ![AI Cankurtaran Destek Sistemi — havuz güvenliği](https://www.gespaenerji.com/assets/img/products/cankurtaran/hero-havuz-guvenlik.svg)
+
+[Tüm yapay zekâ ürünleri →](https://www.gespaenerji.com/yapay-zeka-urunleri.html)
 
 Referans Projeler
 

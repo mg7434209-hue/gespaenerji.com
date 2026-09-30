@@ -3,7 +3,7 @@ title: "Sıkça Sorulan Sorular — Güneş Enerjisi, Sipariş ve Kurulum | GESP
 description: "Güneş enerjisi santrali, akü, elektrikli araç güneş dönüşümü, sipariş, kargo, ödeme ve kurulum hakkında sık sorulan soruların cevapları tek sayfada. GESPA Enerji, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/sss.html
 lang: tr
-dateModified: 2026-09-29
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 
@@ -652,6 +652,34 @@ Dahili Bluetooth isteğe bağlıdır ve siparişte belirtilir. Bu seçenek için
 Türkiye'nin her yerine kargo ile gönderiyoruz; kurulumu bir oto elektrikçisi yapabilir. Antalya bölgesinde isteğe bağlı yerinde kurulum yapıyoruz.
 
 [Sayfaya git →](https://www.gespaenerji.com/havensis-boost-dcdc-2448.html)
+
+## Yapay zekâ ürünleri ve özel yazılım
+
+### Mevcut güvenlik kameralarımla çalışır mı?
+
+Genellikle evet. RTSP ya da ONVIF görüntü akışı veren IP kameralar yapay zekâ kayıt cihazına veya analiz kutusuna bağlanabilir. Uygunluk keşifte kamera modeline, konumuna ve görüntü kalitesine bakılarak netleşir; uygun olmayan noktalar için yeni kamera öneririz.
+
+### Yapay zekâ yangın algılama, yangın alarm sisteminin yerine geçer mi?
+
+Hayır. Binalardaki zorunlu yangın algılama ve alarm sistemi mevzuata göre kurulur. Kamera tabanlı algılama ona ek bir erken uyarı katmanıdır; özellikle dumanın tavandaki dedektöre geç ulaştığı depo, ahır ve açık alanlarda görsel doğrulama sağlar.
+
+### Elektrik ve internet olmayan bir arazide kurulabilir mi?
+
+Evet. Mobil şebeke kapsaması olan yerlerde güneş paneli ve aküyle beslenen, 4G üzerinden bildirim gönderen kameralar kullanılır. Panel ve akü, kamera sayısına ve bölgenin güneşlenmesine göre hesaplanır.
+
+### Yüz tanıma yapıyor musunuz?
+
+Önerdiğimiz çözümler kimliği değil olayı algılar. Yüz tanıma biyometrik veridir ve KVKK'da özel nitelikli kişisel veri sayılır; yalnız hukuki dayanağı olan projelerde, ayrıca değerlendirilir.
+
+### Fiyat nasıl belirleniyor?
+
+Kamera sayısına, alanın büyüklüğüne, mevcut altyapıya ve istenen bildirim yollarına göre. Keşiften sonra kalem kalem teklif veririz; mümkün olan projelerde önce pilot uygulama yapılır.
+
+### Size özel yazılım da geliştiriyor musunuz?
+
+Evet. Hazır ürünün karşılamadığı bir algılama senaryosu, raporlama paneli ya da mevcut sisteminizle entegrasyon gerekiyorsa ihtiyacı birlikte tanımlar, küçük bir pilotla doğrular, sonra yaygınlaştırırız.
+
+[Sayfaya git →](https://www.gespaenerji.com/yapay-zeka-urunleri.html)
 
 ## Havuz güvenliği — AI Cankurtaran
 

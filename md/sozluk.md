@@ -3,7 +3,7 @@ title: "GES Sözlüğü — Güneş Enerjisi, Akü ve İnverter Terimleri | GESP
 description: "kWp, MPPT, TOPCon, LiFePO₄, DoD, mahsuplaşma ve daha fazlası: güneş enerjisi, akü ve elektrikli araç dönüşümü terimlerinin kısa ve anlaşılır açıklamaları."
 canonical: https://www.gespaenerji.com/sozluk.html
 lang: tr
-dateModified: 2026-09-29
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 

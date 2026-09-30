@@ -136,6 +136,7 @@ module.exports = {
     { file: "havensis-mppt-30a.html", title: ["MPPT şarj kontrol cihazları (Havensis)", "MPPT charge controllers (Havensis)", "MPPT-Laderegler (Havensis)", "MPPT-контроллеры заряда (Havensis)"] },
     { file: "havensis-dcdc-40a-cift-yonlu.html", title: ["Karavan DC-DC akü şarj cihazları", "Caravan DC-DC battery chargers", "DC-DC-Ladegeräte für Wohnmobile", "Зарядные устройства DC-DC для автодомов"] },
     { file: "havensis-boost-dcdc-2448.html", title: ["BOOST DC-DC şarj (36–72 V akü)", "BOOST DC-DC charging (36–72 V batteries)", "BOOST-DC-DC-Laden (36–72-V-Batterien)", "Зарядка BOOST DC-DC (АКБ 36–72 В)"] },
+    { file: "yapay-zeka-urunleri.html", title: ["Yapay zekâ ürünleri ve özel yazılım", "AI products and custom software", "KI-Produkte und individuelle Software", "ИИ-продукты и разработка ПО"] },
     { file: "ai-cankurtaran-destek-sistemi.html", title: ["Havuz güvenliği — AI Cankurtaran", "Pool safety — AI Lifeguard", "Poolsicherheit — KI-Rettungsschwimmer-Assistenz", "Безопасность бассейна — ИИ-поддержка спасателей"] },
     { file: "toptan.html", title: ["Toptan satış (B2B)", "Wholesale (B2B)", "Großhandel (B2B)", "Оптовые продажи (B2B)"] },
     { file: "iletisim.html", title: ["İletişim ve keşif", "Contact and site survey", "Kontakt und Vor-Ort-Termin", "Контакты и выезд на объект"] }

@@ -3,7 +3,7 @@ title: "Häufige Fragen — Solarenergie, Bestellung und Montage | GESPA Energy"
 description: "Antworten zu Solaranlagen, Akkus, Solarumrüstung von E-Fahrzeugen, Bestellung, Versand, Zahlung und Montage an einem Ort. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/de/sss.html
 lang: de
-dateModified: 2026-09-29
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 
@@ -614,6 +614,34 @@ Integriertes Bluetooth ist optional und wird bei der Bestellung angegeben. Schre
 Wir versenden in die ganze Türkei; die Montage kann eine Kfz-Elektrikwerkstatt übernehmen. In der Region Antalya bieten wir optional die Montage vor Ort an.
 
 [Zur Seite →](https://www.gespaenerji.com/de/havensis-boost-dcdc-2448.html)
+
+## KI-Produkte und individuelle Software
+
+### Funktioniert es mit meinen vorhandenen Überwachungskameras?
+
+In der Regel ja. IP-Kameras mit RTSP- oder ONVIF-Videostream lassen sich an einen KI-Rekorder oder eine Analysebox anschließen. Ob sie geeignet sind, klärt sich bei der Besichtigung anhand von Kameramodell, Position und Bildqualität; für ungeeignete Stellen empfehlen wir neue Kameras.
+
+### Ersetzt die KI-Branderkennung eine Brandmeldeanlage?
+
+Nein. Die vorgeschriebene Brandmeldeanlage in Gebäuden wird nach den Vorschriften installiert. Die kamerabasierte Erkennung ist eine zusätzliche Frühwarnstufe; sie liefert eine visuelle Bestätigung, besonders in Lagern, Ställen und offenen Bereichen, in denen Rauch die Deckenmelder erst spät erreicht.
+
+### Lässt es sich auf einem Gelände ohne Strom und Internet installieren?
+
+Ja. Wo Mobilfunkempfang besteht, kommen Kameras zum Einsatz, die von Solarmodul und Akku versorgt werden und Meldungen über 4G senden. Modul und Akku werden nach Kameraanzahl und Sonneneinstrahlung vor Ort ausgelegt.
+
+### Bieten Sie Gesichtserkennung an?
+
+Die von uns empfohlenen Lösungen erkennen Ereignisse, keine Identitäten. Gesichtserkennung verarbeitet biometrische Daten, die das türkische Datenschutzgesetz (KVKK) als besondere Kategorie personenbezogener Daten einstuft; sie wird nur in Projekten mit Rechtsgrundlage und gesondert geprüft.
+
+### Wie wird der Preis ermittelt?
+
+Nach Anzahl der Kameras, Größe des Geländes, vorhandener Infrastruktur und gewünschten Meldewegen. Nach der Besichtigung erhalten Sie ein Angebot mit Einzelpositionen; wo möglich, beginnen wir mit einem Pilotprojekt.
+
+### Entwickeln Sie auch individuelle Software?
+
+Ja. Wenn Sie ein Erkennungsszenario, ein Berichts-Dashboard oder eine Anbindung an Ihr bestehendes System benötigen, das kein Standardprodukt abdeckt, definieren wir den Bedarf gemeinsam, prüfen ihn mit einem kleinen Pilotprojekt und rollen ihn dann aus.
+
+[Zur Seite →](https://www.gespaenerji.com/de/yapay-zeka-urunleri.html)
 
 ## Poolsicherheit — KI-Rettungsschwimmer-Assistenz
 

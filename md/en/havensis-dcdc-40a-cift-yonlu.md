@@ -3,7 +3,7 @@ title: "Havensis Bidirectional 40A DC-DC Battery Charger — Boost Mode | GESPA 
 description: "Havensis DCDC-1224B bidirectional DC-DC battery charger: 40 A to the house battery, 10 A to the starter battery in boost mode. 12/24 V for caravans, 96.4% efficiency, made in Türkiye."
 canonical: https://www.gespaenerji.com/en/havensis-dcdc-40a-cift-yonlu.html
 lang: en
-dateModified: 2026-09-29
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 

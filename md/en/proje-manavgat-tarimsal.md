@@ -3,7 +3,7 @@ title: "Manavgat Agricultural Solar: 30 kWp | GESPA Enerji"
 description: "A solar power plant on a greenhouse roof for greenhouse and field irrigation."
 canonical: https://www.gespaenerji.com/en/proje-manavgat-tarimsal.html
 lang: en
-dateModified: 2026-09-24
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 

@@ -3,11 +3,11 @@ title: "AI Cankurtaran Destek Sistemi — Havuz Güvenliği | GESPA"
 description: "Otel, aquapark ve site havuzları için yapay zekâ destekli boğulma önleme: 7/24 izleme, cankurtaran saatine konumlu anında alarm, KVKK uyumlu yerel işleme."
 canonical: https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html
 lang: tr
-dateModified: 2026-09-24
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 
-[Ana Sayfa](https://www.gespaenerji.com/) / Yeni Teknolojiler / AI Cankurtaran Destek Sistemi
+[Ana Sayfa](https://www.gespaenerji.com/) / [Yapay Zekâ Ürünleri](https://www.gespaenerji.com/yapay-zeka-urunleri.html) / AI Cankurtaran Destek Sistemi
 
 Havuz Güvenliği
 

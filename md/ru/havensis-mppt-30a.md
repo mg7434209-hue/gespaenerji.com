@@ -3,7 +3,7 @@ title: "MPPT-контроллер Havensis 30А 12/24В — до 1200Вт | GESP
 description: "MPPT-контроллер заряда Havensis Solar-30AMPS для солнечных систем с АКБ 12/24 В: заряд 30 А, выход нагрузки 20 А, вход панелей 100 В, до 1200 Вт панелей, ЖК-дисплей. Сделано в Турции."
 canonical: https://www.gespaenerji.com/ru/havensis-mppt-30a.html
 lang: ru
-dateModified: 2026-09-29
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 

@@ -3,7 +3,7 @@ title: "Çerez Politikası | GESPA Enerji"
 description: "GESPA Enerji çerez politikası: web sitemizde kullanılan çerez türleri, amaçları ve çerez tercihlerinizi nasıl yönetebileceğiniz."
 canonical: https://www.gespaenerji.com/cerez-politikasi.html
 lang: tr
-dateModified: 2026-09-24
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 

@@ -3,7 +3,7 @@ title: "Agricultural Solar Irrigation — Pumps | GESPA Energy"
 description: "Solar agricultural irrigation: off-grid, diesel-free PV systems for submersible and surface pumps. Free site survey and diesel-saving analysis."
 canonical: https://www.gespaenerji.com/en/tarimsal-sulama.html
 lang: en
-dateModified: 2026-09-24
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 
