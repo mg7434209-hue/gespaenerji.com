@@ -543,7 +543,6 @@
       "Sürekli çıkış gücü": "Continuous output power",
       "Verimlilik": "Efficiency",
       "24 V akü sistemi de desteklenir; üretici bülteninde 24 V için sürekli çıkış gücü ayrıca belirtilmemiştir.": "24 V battery systems are supported as well; the manufacturer's data sheet does not state a separate continuous output power for 24 V.",
-      "Cihaz AGM, jel, sulu kurşun-asit, lityum (LiFePO₄) ve derin döngü akülerle çalışır. Büyütmek için görsele tıklayın.": "The unit works with AGM, gel, flooded lead-acid, lithium (LiFePO₄) and deep-cycle batteries. Click the image to enlarge.",
       "Arka görünüm": "Rear view",
       "Yan görünüm — 6,5 cm gövde derinliği": "Side view — 6.5 cm housing depth",
       "Arka görünüm — pasif soğutma için alüminyum kanatlı sırt": "Rear view — finned aluminium back for passive cooling",
@@ -1151,7 +1150,6 @@
       "Sürekli çıkış gücü": "Dauerausgangsleistung",
       "Verimlilik": "Wirkungsgrad",
       "24 V akü sistemi de desteklenir; üretici bülteninde 24 V için sürekli çıkış gücü ayrıca belirtilmemiştir.": "24-V-Akkusysteme werden ebenfalls unterstützt; das Herstellerdatenblatt nennt für 24 V keine gesonderte Dauerausgangsleistung.",
-      "Cihaz AGM, jel, sulu kurşun-asit, lityum (LiFePO₄) ve derin döngü akülerle çalışır. Büyütmek için görsele tıklayın.": "Das Gerät arbeitet mit AGM-, Gel-, Nassblei-, Lithium- (LiFePO₄) und Deep-Cycle-Akkus. Zum Vergrößern auf das Bild klicken.",
       "Arka görünüm": "Rückansicht",
       "Yan görünüm — 6,5 cm gövde derinliği": "Seitenansicht — 6,5 cm Gehäusetiefe",
       "Arka görünüm — pasif soğutma için alüminyum kanatlı sırt": "Rückansicht — Aluminiumrippen für passive Kühlung",
@@ -1972,7 +1970,6 @@
       "Sürekli çıkış gücü": "Постоянная выходная мощность",
       "Verimlilik": "КПД",
       "24 V akü sistemi de desteklenir; üretici bülteninde 24 V için sürekli çıkış gücü ayrıca belirtilmemiştir.": "Системы 24 В также поддерживаются; в бюллетене производителя отдельная выходная мощность для 24 В не указана.",
-      "Cihaz AGM, jel, sulu kurşun-asit, lityum (LiFePO₄) ve derin döngü akülerle çalışır. Büyütmek için görsele tıklayın.": "Устройство работает с AGM, гелевыми, залитыми свинцово-кислотными, литиевыми (LiFePO₄) и тяговыми АКБ. Нажмите на изображение, чтобы увеличить.",
       "Arka görünüm": "Вид сзади",
       "Yan görünüm — 6,5 cm gövde derinliği": "Вид сбоку — глубина корпуса 6,5 см",
       "Arka görünüm — pasif soğutma için alüminyum kanatlı sırt": "Вид сзади — алюминиевые рёбра для пассивного охлаждения",
@@ -3710,21 +3707,18 @@
     "Vergi dairesinin adı": "Название налоговой инспекции"
   });
 
-  // BOOST MPPT akü uyumluluk görselleri (elektrikli-arac-donusum.html, Cihaz künyesi)
+  // BOOST MPPT akü uyumluluk görseli (elektrikli-arac-donusum.html, Cihaz künyesi)
   Object.assign(DICT.en, {
-    "BOOST MPPT akü uyumluluğu: AGM, jel, kurşun asit, lityum (LiFePO4) ve derin döngü aküler; desteklenen sistem voltajları 24V, 36V, 48V, 60V, 72V": "BOOST MPPT battery compatibility: AGM, gel, lead-acid, lithium (LiFePO4) and deep-cycle batteries; supported system voltages 24V, 36V, 48V, 60V, 72V",
     "BOOST MPPT uyumlu akü tipleri: AGM, jel, kurşun asit, lityum (LiFePO4), derin döngü ve nikel bazlı (NiCd/NiMH) aküler; 24V, 36V, 48V, 60V ve 72V sistemler": "Battery types compatible with BOOST MPPT: AGM, gel, lead-acid, lithium (LiFePO4), deep-cycle and nickel-based (NiCd/NiMH) batteries; 24V, 36V, 48V, 60V and 72V systems",
-    "Üreticinin uyumluluk görseli: nikel bazlı (NiCd / NiMH) aküler de desteklenir; şarj değerleri kullanıcı profilinden, akü üreticisinin önerdiği değerlere göre ayarlanır. Büyütmek için görsele tıklayın.": "The manufacturer's compatibility chart: nickel-based (NiCd / NiMH) batteries are supported too; charging values are set in the user profile to the battery maker's recommended values. Click the image to enlarge."
+    "Üreticinin uyumluluk görseli: cihaz AGM, jel, sulu kurşun-asit, lityum (LiFePO₄), derin döngü ve nikel bazlı (NiCd / NiMH) akülerle çalışır. Nikel bazlı akülerde şarj değerleri kullanıcı profilinden, akü üreticisinin önerdiği değerlere göre ayarlanır. Büyütmek için görsele tıklayın.": "The manufacturer's compatibility chart: the unit works with AGM, gel, flooded lead-acid, lithium (LiFePO₄), deep-cycle and nickel-based (NiCd / NiMH) batteries. For nickel-based batteries, charging values are set in the user profile to the battery maker's recommended values. Click the image to enlarge."
   });
   Object.assign(DICT.de, {
-    "BOOST MPPT akü uyumluluğu: AGM, jel, kurşun asit, lityum (LiFePO4) ve derin döngü aküler; desteklenen sistem voltajları 24V, 36V, 48V, 60V, 72V": "BOOST-MPPT-Akkukompatibilität: AGM-, Gel-, Blei-Säure-, Lithium- (LiFePO4) und Deep-Cycle-Akkus; unterstützte Systemspannungen 24 V, 36 V, 48 V, 60 V, 72 V",
     "BOOST MPPT uyumlu akü tipleri: AGM, jel, kurşun asit, lityum (LiFePO4), derin döngü ve nikel bazlı (NiCd/NiMH) aküler; 24V, 36V, 48V, 60V ve 72V sistemler": "Mit BOOST MPPT kompatible Akkutypen: AGM, Gel, Blei-Säure, Lithium (LiFePO4), Deep-Cycle und nickelbasiert (NiCd/NiMH); Systeme mit 24 V, 36 V, 48 V, 60 V und 72 V",
-    "Üreticinin uyumluluk görseli: nikel bazlı (NiCd / NiMH) aküler de desteklenir; şarj değerleri kullanıcı profilinden, akü üreticisinin önerdiği değerlere göre ayarlanır. Büyütmek için görsele tıklayın.": "Kompatibilitätsgrafik des Herstellers: Auch nickelbasierte Akkus (NiCd / NiMH) werden unterstützt; die Ladewerte werden im Benutzerprofil nach den Empfehlungen des Akkuherstellers eingestellt. Zum Vergrößern auf das Bild klicken."
+    "Üreticinin uyumluluk görseli: cihaz AGM, jel, sulu kurşun-asit, lityum (LiFePO₄), derin döngü ve nikel bazlı (NiCd / NiMH) akülerle çalışır. Nikel bazlı akülerde şarj değerleri kullanıcı profilinden, akü üreticisinin önerdiği değerlere göre ayarlanır. Büyütmek için görsele tıklayın.": "Kompatibilitätsgrafik des Herstellers: Das Gerät arbeitet mit AGM-, Gel-, Nassblei-, Lithium- (LiFePO₄), Deep-Cycle- und nickelbasierten Akkus (NiCd / NiMH). Bei nickelbasierten Akkus werden die Ladewerte im Benutzerprofil nach den Empfehlungen des Akkuherstellers eingestellt. Zum Vergrößern auf das Bild klicken."
   });
   Object.assign(DICT.ru, {
-    "BOOST MPPT akü uyumluluğu: AGM, jel, kurşun asit, lityum (LiFePO4) ve derin döngü aküler; desteklenen sistem voltajları 24V, 36V, 48V, 60V, 72V": "Совместимость BOOST MPPT с АКБ: AGM, гелевые, свинцово-кислотные, литиевые (LiFePO4) и тяговые; поддерживаемые напряжения систем 24 В, 36 В, 48 В, 60 В, 72 В",
     "BOOST MPPT uyumlu akü tipleri: AGM, jel, kurşun asit, lityum (LiFePO4), derin döngü ve nikel bazlı (NiCd/NiMH) aküler; 24V, 36V, 48V, 60V ve 72V sistemler": "Типы АКБ, совместимые с BOOST MPPT: AGM, гелевые, свинцово-кислотные, литиевые (LiFePO4), тяговые и никелевые (NiCd/NiMH); системы 24 В, 36 В, 48 В, 60 В и 72 В",
-    "Üreticinin uyumluluk görseli: nikel bazlı (NiCd / NiMH) aküler de desteklenir; şarj değerleri kullanıcı profilinden, akü üreticisinin önerdiği değerlere göre ayarlanır. Büyütmek için görsele tıklayın.": "Схема совместимости от производителя: поддерживаются и никелевые аккумуляторы (NiCd / NiMH); значения заряда задаются в пользовательском профиле по рекомендациям производителя АКБ. Нажмите на изображение, чтобы увеличить."
+    "Üreticinin uyumluluk görseli: cihaz AGM, jel, sulu kurşun-asit, lityum (LiFePO₄), derin döngü ve nikel bazlı (NiCd / NiMH) akülerle çalışır. Nikel bazlı akülerde şarj değerleri kullanıcı profilinden, akü üreticisinin önerdiği değerlere göre ayarlanır. Büyütmek için görsele tıklayın.": "Схема совместимости от производителя: устройство работает с AGM, гелевыми, залитыми свинцово-кислотными, литиевыми (LiFePO₄), тяговыми и никелевыми (NiCd / NiMH) АКБ. Для никелевых АКБ значения заряда задаются в пользовательском профиле по рекомендациям производителя АКБ. Нажмите на изображение, чтобы увеличить."
   });
 
   // HAVENSIS:DICT — Havensis ürün sayfaları; tools/havensis-sayfalar.py ÜRETİR.

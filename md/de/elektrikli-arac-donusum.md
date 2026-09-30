@@ -127,13 +127,9 @@ Die Werte stammen aus dem Datenblatt des Herstellers. Die passende Modulleistung
 
 Was bedeuten BOOST MPPT, MPPT und LiFePO₄? [Solar-Glossar →](https://www.gespaenerji.com/de/sozluk.html#boost-mppt)
 
-![BOOST-MPPT-Akkukompatibilität: AGM-, Gel-, Blei-Säure-, Lithium- (LiFePO4) und Deep-Cycle-Akkus; unterstützte Systemspannungen 24 V, 36 V, 48 V, 60 V, 72 V](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-aku-uyumluluk.webp)
-
-Das Gerät arbeitet mit AGM-, Gel-, Nassblei-, Lithium- (LiFePO₄) und Deep-Cycle-Akkus. Zum Vergrößern auf das Bild klicken.
-
 ![Mit BOOST MPPT kompatible Akkutypen: AGM, Gel, Blei-Säure, Lithium (LiFePO4), Deep-Cycle und nickelbasiert (NiCd/NiMH); Systeme mit 24 V, 36 V, 48 V, 60 V und 72 V](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-aku-tipleri.webp)
 
-Kompatibilitätsgrafik des Herstellers: Auch nickelbasierte Akkus (NiCd / NiMH) werden unterstützt; die Ladewerte werden im Benutzerprofil nach den Empfehlungen des Akkuherstellers eingestellt. Zum Vergrößern auf das Bild klicken.
+Kompatibilitätsgrafik des Herstellers: Das Gerät arbeitet mit AGM-, Gel-, Nassblei-, Lithium- (LiFePO₄), Deep-Cycle- und nickelbasierten Akkus (NiCd / NiMH). Bei nickelbasierten Akkus werden die Ladewerte im Benutzerprofil nach den Empfehlungen des Akkuherstellers eingestellt. Zum Vergrößern auf das Bild klicken.
 
 ⚡ Neue Kategorie
 

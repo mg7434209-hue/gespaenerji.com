@@ -127,13 +127,9 @@ Değerler üreticinin teknik bülteninden alınmıştır. Aracınıza uygun pane
 
 BOOST MPPT, MPPT ve LiFePO₄ nedir? [GES Sözlüğü →](https://www.gespaenerji.com/sozluk.html#boost-mppt)
 
-![BOOST MPPT akü uyumluluğu: AGM, jel, kurşun asit, lityum (LiFePO4) ve derin döngü aküler; desteklenen sistem voltajları 24V, 36V, 48V, 60V, 72V](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-aku-uyumluluk.webp)
-
-Cihaz AGM, jel, sulu kurşun-asit, lityum (LiFePO₄) ve derin döngü akülerle çalışır. Büyütmek için görsele tıklayın.
-
 ![BOOST MPPT uyumlu akü tipleri: AGM, jel, kurşun asit, lityum (LiFePO4), derin döngü ve nikel bazlı (NiCd/NiMH) aküler; 24V, 36V, 48V, 60V ve 72V sistemler](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-aku-tipleri.webp)
 
-Üreticinin uyumluluk görseli: nikel bazlı (NiCd / NiMH) aküler de desteklenir; şarj değerleri kullanıcı profilinden, akü üreticisinin önerdiği değerlere göre ayarlanır. Büyütmek için görsele tıklayın.
+Üreticinin uyumluluk görseli: cihaz AGM, jel, sulu kurşun-asit, lityum (LiFePO₄), derin döngü ve nikel bazlı (NiCd / NiMH) akülerle çalışır. Nikel bazlı akülerde şarj değerleri kullanıcı profilinden, akü üreticisinin önerdiği değerlere göre ayarlanır. Büyütmek için görsele tıklayın.
 
 ⚡ Yeni Kategori
 
