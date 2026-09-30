@@ -3,7 +3,7 @@ title: "Güneş Paneli Kaçak Elektrik Cezası: Nedeni ve Ne Yapmalı? | GESPA E
 description: "Güneş paneline neden ceza yazılıyor? 2 Nisan 2026 yönetmeliğindeki yaptırımlar, kabul süreci, Antalya'da AEDAŞ'a itiraz ve yasal kurulum adımları."
 canonical: https://www.gespaenerji.com/gunes-paneli-kacak-elektrik-cezasi.html
 lang: tr
-dateModified: 2026-09-24
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 
@@ -174,6 +174,8 @@ Antalya, Burdur ve Isparta bölgesinde dağıtım faaliyetini AEDAŞ (Akdeniz El
 
 Şebekeyle hiçbir elektriksel bağlantısı olmayan sistemler genel kural olarak şebeke bağlantı ve kabul sürecinin konusu değildir. Aynı pompa ya da tesisat şebekeden de besleniyorsa başvuru gerekir. Kurulum bir yapıya ya da araziye yapılıyorsa imar kuralları ayrıca geçerli olabilir.
 
+Sorunuzun cevabı burada yoksa sayfanın altındaki bölümde sorabilirsiniz. [Soru & Cevap bölümüne git ↓](#soru-cevap)
+
 ## Durumunuzu ücretsiz değerlendirelim
 
 GESPA Enerji olarak Manavgat ve Antalya genelinde yeni kurulumları baştan yasal süreçle yapıyor, mevcut sistemi olan kullanıcılar için de **uygunluk kontrolü** yapıyoruz: sisteminiz kabul kapsamında mı, başvuru yapılmış mı, yasallaştırılabilir mi?
@@ -192,6 +194,16 @@ Ceza aldıysanız ya da sisteminizin durumundan emin değilseniz, tebligatınız
 - [Alanya tarımına elektrik darbesi, Yeni Alanya](https://www.yenialanya.com/alanya-tarimina-elektrik-darbesi)
 
 *Bu yazı genel bilgilendirme amaçlıdır, hukuki görüş veya tavsiye niteliği taşımaz. Kendi durumunuza ilişkin bağlayıcı bilgi için dağıtım şirketinize, EPDK'nın güncel mevzuatına ve bir hukuk danışmanına başvurunuz. Mevzuat değişebilir; yazı yayın tarihindeki duruma göre hazırlanmıştır.*
+
+## Soru & Cevap
+
+Aklınıza takılanı sorun: **GESPA uzmanları** ve diğer okuyucular cevaplasın. Sorular ve cevaplar ekibimizin onayından sonra yayınlanır.
+
+✔ GESPA Uzmanı etiketli cevaplar firmamıza aittir; diğer cevaplar okuyucuların kişisel görüşüdür. Hiçbiri hukuki görüş yerine geçmez. Abone numarası, tebligat ya da kimlik bilgisi paylaşmayın.
+
+### Okuyucu soruları
+
+Henüz yayınlanmış soru yok. İlk soruyu siz sorun.
 
 ## Sisteminizin durumundan emin değil misiniz?
 

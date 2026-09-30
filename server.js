@@ -153,7 +153,8 @@ function countVisit(req, headers) {
 // Önce parolalı /api/visitors/export (toplam + saatlik kovalar), eski sürümde o
 // yoksa herkese açık /api/visitors (yalnız toplam). Dosya varsa (Volume) veya
 // Railway dışındaysak (yerel, test) hiç denenmez. Başarısızsa sayaç 0'dan başlar.
-function fetchJson(url, body, cb) {
+function fetchJson(url, body, cb, maxBytes) {
+  const cap = maxBytes || 64 * 1024;   // soru-cevap devri daha büyük yanıt alır
   let called = false;
   const done = (e, d) => { if (!called) { called = true; cb(e, d); } };
   try {
@@ -166,7 +167,7 @@ function fetchJson(url, body, cb) {
     }, (rs) => {
       let s = "";
       rs.setEncoding("utf8");
-      rs.on("data", (c) => { s += c; if (s.length > 64 * 1024) rq.destroy(new Error("çok büyük")); });
+      rs.on("data", (c) => { s += c; if (s.length > cap) rq.destroy(new Error("çok büyük")); });
       rs.on("end", () => {
         if (rs.statusCode !== 200) return done(new Error("HTTP " + rs.statusCode));
         try { done(null, JSON.parse(s)); } catch (e) { done(e); }
@@ -183,7 +184,6 @@ function seedVisitsFromLive(done) {
   // verilmezse canlı adres (config.company.web)
   const base = (process.env.VISITS_SEED_URL || "").replace(/\/+$/, "") || siteBase();
   if (!(ON_RAILWAY || process.env.VISITS_SEED_URL) || visitFileFound) return done("devir gerekmedi");
-  const pass = (SITE_CFG && SITE_CFG.admin && SITE_CFG.admin.pass) || "";
   const take = (d) => {
     const t = Math.floor(+(d && d.total));
     if (!(t > 0 && t < 1e9)) return false;
@@ -199,7 +199,7 @@ function seedVisitsFromLive(done) {
     saveVisits();
     return true;
   };
-  fetchJson(base + "/api/visitors/export", { pass }, (e1, d1) => {
+  fetchWithPasses(base + "/api/visitors/export", (e1, d1) => {
     if (!e1 && take(d1)) return done("önceki sunucudan devralındı: " + visitTotal + " (saatlik kovalarla)");
     fetchJson(base + "/api/visitors", null, (e2, d2) => {
       if (!e2 && take(d2)) return done("önceki sunucudan devralındı: " + visitTotal + " (yalnız toplam)");
@@ -696,6 +696,393 @@ function trTime(d) {
   catch (e) { return t.toISOString(); }
 }
 
+// ---- Yönetici şifresi -------------------------------------------------------
+// Railway ortam değişkeni ADMIN_PASS tanımlıysa sunucu YALNIZ onu kabul eder.
+// config.admin.pass herkese açık config.js'te durur (statik sitede caydırıcı);
+// ADMIN_PASS gelince canlıda geçersiz olur. Tanımlı değilse eski davranış
+// sürer. Soru-cevap moderasyonu ADMIN_PASS olmadan HİÇ çalışmaz: içerik
+// firmanın adıyla yayınlanır, herkese açık şifreye bırakılamaz.
+const ADMIN_ENV = String(process.env.ADMIN_PASS || "").trim();
+function adminSecret() { return ADMIN_ENV || String((SITE_CFG && SITE_CFG.admin && SITE_CFG.admin.pass) || ""); }
+function safeEqual(a, b) {
+  const x = Buffer.from(String(a || ""), "utf8"), y = Buffer.from(String(b || ""), "utf8");
+  return x.length === y.length && x.length > 0 && crypto.timingSafeEqual(x, y);
+}
+function adminOk(p) { return safeEqual(p, adminSecret()); }
+// Devirde denenecek şifreler: önce geçerli olan, sonra config şifresi. ADMIN_PASS
+// Railway'e İLK eklendiğinde eski sunucu henüz config şifresini bekler; yalnız
+// yenisi denenseydi sayaç ve soru-cevap o dağıtımda devralınamazdı.
+function handoffPasses() {
+  const cfgPass = String((SITE_CFG && SITE_CFG.admin && SITE_CFG.admin.pass) || "");
+  return [adminSecret(), cfgPass].filter((p, i, a) => p && a.indexOf(p) === i);
+}
+function fetchWithPasses(url, cb, maxBytes) {
+  const list = handoffPasses();
+  const next = (i, lastErr) => {
+    if (i >= list.length) return cb(lastErr || new Error("şifre yok"));
+    fetchJson(url, { pass: list[i] }, (e, d) => (e ? next(i + 1, e) : cb(null, d)), maxBytes);
+  };
+  next(0);
+}
+function clientIp(req) {
+  return String(req.headers["x-forwarded-for"] || "").split(",")[0].trim()
+    || (req.socket && req.socket.remoteAddress) || "?";
+}
+// Kayan pencereli sayaç: ip → istek zamanları. Yalnız bellekte tutulur.
+function recentHits(map, key, windowMs) {
+  const now = Date.now();
+  const arr = (map.get(key) || []).filter((t) => now - t < windowMs);
+  if (arr.length) map.set(key, arr); else map.delete(key);
+  return arr;
+}
+// Hatalı şifre denemesi: IP başına 10 dakikada 10 deneme.
+const adminFails = new Map();
+const adminThrottled = (ip) => recentHits(adminFails, ip, 10 * 60 * 1000).length >= 10;
+const adminFail = (ip) => adminFails.set(ip, recentHits(adminFails, ip, 10 * 60 * 1000).concat(Date.now()));
+// Yönetici uçlarının ortak kapısı: şifre doğruysa true; değilse yanıtı yazar.
+function adminGate(req, res, pass) {
+  const ip = clientIp(req);
+  if (adminThrottled(ip)) { sendJson(res, 429, { error: "Çok fazla hatalı deneme; 10 dakika sonra tekrar deneyin." }); return false; }
+  if (!adminOk(pass)) { adminFail(ip); sendJson(res, 403, { error: "Parola hatalı." }); return false; }
+  return true;
+}
+
+// ---- Soru & Cevap -------------------------------------------------------------
+// Makale altındaki herkese açık, ONAYLI soru-cevap bölümü (docs/soru-cevap.md).
+// Ziyaretçi soru sorar ya da yayındaki bir soruya cevap yazar; gönderi
+// "pending" olarak DATA_DIR/qa.json'a yazılır, YALNIZ admin onayından sonra
+// yayınlanır. Admin'in yazdığı cevap "GESPA Uzmanı" rozetiyle hemen yayınlanır.
+// Yayındaki içerik sayfa SUNULURKEN <!-- QA:STATIC --> işaretleri arasına HTML
+// olarak basılır (arama ve yapay zekâ botları JS çalıştırmaz) ve Article
+// şemasına Comment olarak eklenir. Kişisel veri: yalnız ziyaretçinin seçtiği
+// görünen ad. E-posta, telefon ve IP SAKLANMAZ; IP yalnız bellekte hız sınırı
+// içindir. Volume yoksa veri, sayaç gibi önceki sunucudan devralınır.
+const QA_FILE = path.join(DATA_DIR, "qa.json");
+let qa = { items: [] };
+let qaFileFound = false;
+let qaVersion = 0;              // her değişiklikte artar; sayfa önbelleği tazelenir
+function qaSave() {
+  qaVersion++;
+  try { fs.mkdirSync(DATA_DIR, { recursive: true }); fs.writeFileSync(QA_FILE, JSON.stringify(qa)); }
+  catch (e) { console.warn("soru-cevap yazılamadı:", e && e.message); }
+}
+function qaPages() { return ((SITE_CFG && SITE_CFG.qa && SITE_CFG.qa.pages) || []).filter((p) => /^[a-z0-9-]+$/.test(p)); }
+function qaExpertName() { return String((SITE_CFG && SITE_CFG.qa && SITE_CFG.qa.expertName) || "GESPA Uzmanı"); }
+// Metin temizliği: satır sonları tekleşir, kontrol ve yön değiştirme
+// karakterleri atılır (metni tersine çeviren U+202E gibi), boşluklar sadeleşir.
+function qaClean(s, max) {
+  return String(s == null ? "" : s)
+    .replace(/\r\n?/g, "\n")
+    .replace(/[\u0000-\u0009\u000B-\u001F\u007F​‎‏‪-‮⁦-⁩]/g, "")
+    .replace(/[  ]+/g, " ")
+    .replace(/ *\n */g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim()
+    .slice(0, max);
+}
+// Ziyaretçi firmanın ya da yöneticinin adını kullanamaz; rozetsiz bir
+// "GESPA Uzmanı" okuru yanıltırdı.
+function qaReservedName(n) {
+  const low = n.toLocaleLowerCase("tr");
+  return /gespa|y[öo]netic|admin|moderat/.test(low) || low === qaExpertName().toLocaleLowerCase("tr");
+}
+const QA_ID = /^[a-f0-9]{8,32}$/;
+function qaId() { return crypto.randomBytes(6).toString("hex"); }
+// Dışarıdan gelen kaydı (devir, yedekten yükleme) doğrular ve temizler.
+function qaSanitize(x) {
+  if (!x || typeof x !== "object") return null;
+  const id = String(x.id || "");
+  const kind = x.kind === "q" || x.kind === "a" ? x.kind : "";
+  const page = String(x.page || "");
+  const at = new Date(x.at);
+  if (!QA_ID.test(id) || !kind || !/^[a-z0-9-]{1,80}$/.test(page) || isNaN(at)) return null;
+  const name = qaClean(x.name, 60).replace(/\n/g, " ");
+  const text = qaClean(x.text, 3000);
+  if (!name || !text) return null;
+  const o = { id: id, page: page, kind: kind, name: name, text: text, at: at.toISOString(), status: x.status === "live" ? "live" : "pending" };
+  if (kind === "a") {
+    if (!QA_ID.test(String(x.parent || ""))) return null;
+    o.parent = String(x.parent);
+    if (x.expert === true) o.expert = true;
+  }
+  return o;
+}
+// Cevabı kalmayan (sorusu silinmiş) kayıtları atar.
+function qaPrune(items) {
+  const qs = new Set(items.filter((x) => x.kind === "q").map((x) => x.id));
+  return items.filter((x) => x.kind === "q" || qs.has(x.parent));
+}
+try {
+  const d = JSON.parse(fs.readFileSync(QA_FILE, "utf8"));
+  if (d && Array.isArray(d.items)) { qa.items = qaPrune(d.items.map(qaSanitize).filter(Boolean)); qaFileFound = true; }
+} catch (e) {}
+
+// Gönderi sınırı: IP başına 10 dakikada 3, günde 10 gönderi (yalnız kaydedilenler).
+// IP başlığı taklit edilebildiği için site geneline de tavan vardır: saatte 60
+// gönderi. Küçük bir sitede gerçek trafik buna ulaşmaz; sel ise durur.
+const qaHits = new Map();
+const qaAll = [];
+function qaLimited(ip) {
+  const day = recentHits(qaHits, ip, 24 * 60 * 60 * 1000);
+  const tenMin = day.filter((t) => Date.now() - t < 10 * 60 * 1000);
+  while (qaAll.length && Date.now() - qaAll[0] > 60 * 60 * 1000) qaAll.shift();
+  return tenMin.length >= 3 || day.length >= 10 || qaAll.length >= 60;
+}
+setInterval(() => { [qaHits, adminFails].forEach((m) => m.forEach((v, k) => recentHits(m, k, 24 * 60 * 60 * 1000))); }, 60 * 60 * 1000).unref();
+
+// Yeni gönderi işletmeye e-postayla bildirilir (SMTP ayarlıysa). Onay bekleyen
+// içeriğin tek kopyası bu e-postadır; Volume yokken kaybolsa bile metin kalır.
+// Saatte en çok 12 e-posta: sel olursa gelen kutusu dolmasın (admin listesi esastır).
+const qaMailAt = [];
+function qaNotify(it, parent) {
+  if (!mailReady()) return;
+  while (qaMailAt.length && Date.now() - qaMailAt[0] > 60 * 60 * 1000) qaMailAt.shift();
+  if (qaMailAt.length >= 12) return;
+  qaMailAt.push(Date.now());
+  const L = [
+    (it.kind === "q" ? "Yeni SORU" : "Yeni CEVAP") + " onayınızı bekliyor.", "",
+    "Sayfa : " + siteBase() + "/" + it.page + ".html#soru-cevap",
+    "Ad    : " + it.name,
+    "Tarih : " + trTime(it.at)
+  ];
+  if (parent) L.push("Soru  : " + parent.text.slice(0, 300));
+  L.push("", it.text, "", "Onaylamak, silmek ya da cevaplamak için: " + siteBase() + "/admin.html");
+  sendMail(SMTP.to || SMTP.user,
+    (it.kind === "q" ? "Yeni soru" : "Yeni cevap") + " (onay bekliyor): " + it.text.slice(0, 60).replace(/\s+/g, " "),
+    L.join("\n"), (e) => { if (e) console.warn("soru-cevap e-postası gönderilemedi:", e.message); });
+}
+
+// Ziyaretçi gönderisi: kind "q" = soru, "a" = yayındaki bir soruya cevap.
+function qaSubmit(req, res, kind) {
+  readBody(req, 8 * 1024, (raw) => {
+    let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
+    const page = String(b.page || "");
+    if (qaPages().indexOf(page) < 0) return sendJson(res, 404, { error: "Bu sayfada soru-cevap açık değil." });
+    // Bal küpü: görünmez "website" alanını yalnız botlar doldurur. Bota ipucu
+    // vermemek için başarı döner ama hiçbir şey kaydedilmez.
+    if (String(b.website || "").trim()) return sendJson(res, 200, { ok: true, pending: true });
+    // Form açıldıktan 3 sn geçmeden gelen gönderi insan işi değildir.
+    if (!(+b.ms >= 3000)) return sendJson(res, 400, { error: "Lütfen birkaç saniye sonra tekrar gönderin." });
+    if (b.ok !== true) return sendJson(res, 400, { error: "Adınızın ve metninizin yayınlanmasına onay verin." });
+    const name = qaClean(b.name, 40).replace(/\n/g, " ");
+    const text = qaClean(b.text, 1500);
+    if (name.length < 2) return sendJson(res, 400, { error: "Adınızı ya da bir rumuz yazın." });
+    if (qaReservedName(name)) return sendJson(res, 400, { error: "Bu ad kullanılamaz; kendi adınızı ya da bir rumuz yazın." });
+    if (text.length < (kind === "q" ? 10 : 5)) return sendJson(res, 400, { error: kind === "q" ? "Sorunuzu biraz daha açık yazın." : "Cevabınız çok kısa." });
+    let parent = null;
+    if (kind === "a") {
+      parent = qa.items.find((x) => x.id === String(b.parent || "") && x.kind === "q" && x.page === page && x.status === "live");
+      if (!parent) return sendJson(res, 404, { error: "Cevap yazmak istediğiniz soru bulunamadı." });
+    }
+    const ip = clientIp(req);
+    if (qaLimited(ip)) return sendJson(res, 429, { error: "Kısa sürede çok fazla gönderi yaptınız; biraz sonra tekrar deneyin." });
+    if (qa.items.filter((x) => x.status === "pending").length >= 300) {
+      return sendJson(res, 503, { error: "Şu an çok fazla onay bekleyen gönderi var; lütfen daha sonra deneyin." });
+    }
+    const it = { id: qaId(), page: page, kind: kind, name: name, text: text, at: new Date().toISOString(), status: "pending" };
+    if (parent) it.parent = parent.id;
+    qa.items.push(it);
+    qaHits.set(ip, recentHits(qaHits, ip, 24 * 60 * 60 * 1000).concat(Date.now()));
+    qaAll.push(Date.now());
+    qaSave();
+    qaNotify(it, parent);
+    sendJson(res, 200, { ok: true, pending: true });
+  });
+}
+
+// Moderasyon: list · approve · delete · answer (uzman cevabı) · import (yedek).
+function qaAdmin(req, res) {
+  readBody(req, 4 * 1024 * 1024, (raw) => {
+    let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
+    if (!ADMIN_ENV) {
+      return sendJson(res, 503, { needEnv: true, error: "Soru-cevap yönetimi için sunucuda yönetici şifresi tanımlı değil. Railway → Variables → ADMIN_PASS ekleyin, sonra o şifreyle giriş yapın." });
+    }
+    if (!adminGate(req, res, b.pass)) return;
+    const now = new Date().toISOString();
+    const byId = (id) => qa.items.find((x) => x.id === String(id || ""));
+    const op = String(b.op || "");
+    if (op === "list") {
+      return sendJson(res, 200, { items: qa.items, pages: qaPages(), expertName: qaExpertName(), persistent: DATA_PERSISTENT, mail: mailReady() });
+    }
+    if (op === "approve") {
+      const it = byId(b.id);
+      if (!it) return sendJson(res, 404, { error: "Gönderi bulunamadı." });
+      if (it.kind === "a") {
+        const p = byId(it.parent);
+        if (!p) return sendJson(res, 404, { error: "Cevabın sorusu bulunamadı." });
+        if (p.status !== "live") return sendJson(res, 409, { error: "Önce sorunun kendisini onaylayın." });
+      }
+      it.status = "live";
+      qaSave();
+      return sendJson(res, 200, { ok: true });
+    }
+    if (op === "delete") {
+      const it = byId(b.id);
+      if (!it) return sendJson(res, 404, { error: "Gönderi bulunamadı." });
+      qa.items = qa.items.filter((x) => x.id !== it.id && x.parent !== it.id);   // soru silinince cevapları da gider
+      qaSave();
+      return sendJson(res, 200, { ok: true });
+    }
+    if (op === "answer") {
+      const p = byId(b.parent);
+      if (!p || p.kind !== "q") return sendJson(res, 404, { error: "Soru bulunamadı." });
+      const text = qaClean(b.text, 3000);
+      if (text.length < 2) return sendJson(res, 400, { error: "Cevap boş olamaz." });
+      const name = qaClean(b.name, 60).replace(/\n/g, " ") || qaExpertName();
+      // Cevaplanan soru onay beklemesin: uzman cevabı soruyu da yayınlar.
+      p.status = "live";
+      qa.items.push({ id: qaId(), page: p.page, kind: "a", parent: p.id, name: name, text: text, at: now, status: "live", expert: true });
+      qaSave();
+      return sendJson(res, 200, { ok: true });
+    }
+    if (op === "import") {
+      if (!Array.isArray(b.items)) return sendJson(res, 400, { error: "Yedek dosyası geçersiz." });
+      const have = new Set(qa.items.map((x) => x.id));
+      let added = 0;
+      b.items.map(qaSanitize).filter(Boolean).forEach((x) => { if (!have.has(x.id)) { qa.items.push(x); have.add(x.id); added++; } });
+      qa.items = qaPrune(qa.items);
+      qaSave();
+      return sendJson(res, 200, { ok: true, added: added });
+    }
+    sendJson(res, 400, { error: "Bilinmeyen işlem." });
+  });
+}
+
+function handleQaRoutes(req, res, urlPath) {
+  if (req.method !== "POST") return false;
+  if (urlPath === "/api/qa/ask") return qaSubmit(req, res, "q"), true;
+  if (urlPath === "/api/qa/reply") return qaSubmit(req, res, "a"), true;
+  if (urlPath === "/api/qa/admin") return qaAdmin(req, res), true;
+  // Devir: yeni sunucu açılırken eskisinden veriyi alır (seedQaFromLive).
+  if (urlPath === "/api/qa/export") {
+    readBody(req, 4 * 1024, (raw) => {
+      let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
+      if (!adminGate(req, res, b.pass)) return;
+      sendJson(res, 200, { items: qa.items });
+    });
+    return true;
+  }
+  // Admin girişi sunucuda doğrulanır: ADMIN_PASS tanımlıysa yalnız o geçer.
+  if (urlPath === "/api/admin/login") {
+    readBody(req, 4 * 1024, (raw) => {
+      let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
+      if (!adminGate(req, res, b.pass)) return;
+      sendJson(res, 200, { ok: true, secure: !!ADMIN_ENV });
+    });
+    return true;
+  }
+  return false;
+}
+
+// Dağıtımda devir: sayaçla aynı yol (bkz. seedVisitsFromLive). Dosya varsa
+// (Volume) ya da Railway dışındaysak denenmez. QA_SEED_URL yalnız test içindir.
+function seedQaFromLive(done) {
+  const base = (process.env.QA_SEED_URL || "").replace(/\/+$/, "") || siteBase();
+  if (!(ON_RAILWAY || process.env.QA_SEED_URL) || qaFileFound) return done("devir gerekmedi");
+  fetchWithPasses(base + "/api/qa/export", (e, d) => {
+    if (e || !d || !Array.isArray(d.items)) return done("devralınamadı (" + ((e && e.message) || "geçersiz yanıt") + ")");
+    qa.items = qaPrune(d.items.map(qaSanitize).filter(Boolean));
+    qaSave();
+    done("önceki sunucudan devralındı: " + qa.items.length + " gönderi");
+  }, 8 * 1024 * 1024);
+}
+
+// ---- Yayındaki soru-cevabın sayfaya basılması --------------------------------
+function qaEsc(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+function qaDate(iso) {
+  try { return new Date(iso).toLocaleDateString("tr-TR", { timeZone: "Europe/Istanbul", day: "numeric", month: "long", year: "numeric" }); }
+  catch (e) { return String(iso).slice(0, 10); }
+}
+// Yeni soru üstte; soru içinde uzman cevabı önce, diğerleri tarih sırasıyla.
+function qaThreads(page) {
+  const live = qa.items.filter((x) => x.page === page && x.status === "live");
+  return live.filter((x) => x.kind === "q").sort((a, b) => (a.at < b.at ? 1 : a.at > b.at ? -1 : 0)).map((q) => ({
+    q: q,
+    answers: live.filter((x) => x.kind === "a" && x.parent === q.id)
+      .sort((a, b) => (!!b.expert - !!a.expert) || (a.at < b.at ? -1 : a.at > b.at ? 1 : 0))
+  }));
+}
+function qaPostHtml(x) {
+  const ex = qaExpertName();
+  const who = x.expert
+    ? (x.name && x.name !== ex ? '<span class="qa-name">' + qaEsc(x.name) + '</span> ' : "") + '<span class="qa-badge">✔ ' + qaEsc(ex) + "</span>"
+    : '<span class="qa-name">' + qaEsc(x.name) + "</span>";
+  const paras = x.text.split(/\n{2,}/).map((p) => "<p>" + qaEsc(p).replace(/\n/g, "<br>") + "</p>").join("");
+  return '<div class="qa-post ' + (x.kind === "q" ? "qa-q" : "qa-a") + (x.expert ? " qa-expert" : "") + '"'
+    + (x.kind === "a" ? ' id="cevap-' + x.id + '"' : "") + ">"
+    + '<div class="qa-meta">' + who + ' <time datetime="' + qaEsc(x.at) + '">' + qaEsc(qaDate(x.at)) + "</time></div>"
+    + '<div class="qa-text">' + paras + "</div></div>";
+}
+function qaListHtml(threads) {
+  if (!threads.length) return '<p class="qa-empty">Henüz yayınlanmış soru yok. İlk soruyu siz sorun.</p>';
+  const nA = threads.reduce((n, t) => n + t.answers.length, 0);
+  return '<p class="qa-sum">' + threads.length + " soru · " + nA + " cevap</p>"
+    + '<div class="qa-list">' + threads.map((t) => '<article class="qa-thread" id="soru-' + t.q.id + '">'
+      + qaPostHtml(t.q)
+      + (t.answers.length ? '<div class="qa-answers">' + t.answers.map(qaPostHtml).join("") + "</div>" : "")
+      + '<div class="qa-actions"><button type="button" class="qa-reply-btn" data-qa-reply="' + t.q.id + '" hidden>Cevap yaz</button></div>'
+      + "</article>").join("") + "</div>";
+}
+// Article şemasına yorumlar: görünen soru-cevapla birebir aynı veri.
+function qaLd(page) {
+  const url = siteBase() + "/" + page + ".html";
+  const brand = (SITE_CFG && SITE_CFG.company && SITE_CFG.company.brandName) || "GESPA Enerji";
+  const org = { "@type": "Organization", "@id": siteBase() + "/#organization", "name": brand };
+  let count = 0;
+  const comment = qaThreads(page).map((t) => {
+    count += 1 + t.answers.length;
+    const c = { "@type": "Comment", "text": t.q.text, "dateCreated": t.q.at, "author": { "@type": "Person", "name": t.q.name }, "url": url + "#soru-" + t.q.id };
+    if (t.answers.length) {
+      c.comment = t.answers.map((a) => ({ "@type": "Comment", "text": a.text, "dateCreated": a.at,
+        "author": a.expert ? org : { "@type": "Person", "name": a.name }, "url": url + "#cevap-" + a.id }));
+    }
+    return c;
+  });
+  return { count: count, comment: comment };
+}
+// Değiştirme İŞLEVLE yapılır: metindeki "$&" gibi dizgeler yer değiştirme
+// kalıbı sanılmasın. Şemada "<" kaçırılır: "</script>" yazan gönderi betiği kapatamaz.
+function qaInject(html, page) {
+  const threads = qaThreads(page);
+  html = html.replace(/<!-- QA:STATIC -->[\s\S]*?<!-- \/QA:STATIC -->/, () => "<!-- QA:STATIC -->" + qaListHtml(threads) + "<!-- /QA:STATIC -->");
+  if (!threads.length) return html;
+  return html.replace(/(<script type="application\/ld\+json" data-gld="article">)([\s\S]*?)(<\/script>)/, (m, open, json, close) => {
+    try {
+      const ld = JSON.parse(json);
+      const c = qaLd(page);
+      ld.commentCount = c.count;
+      ld.comment = c.comment;
+      return open + JSON.stringify(ld).replace(/</g, "\\u003c") + close;
+    } catch (e) { return m; }
+  });
+}
+function qaPageOf(urlPath) {
+  const m = /^\/([a-z0-9-]+)\.html$/.exec(urlPath);
+  return m && qaPages().indexOf(m[1]) >= 0 ? m[1] : "";
+}
+const qaPageCache = new Map();   // sayfa → {key, body, gz, br, etag}
+function serveQaPage(req, res, filePath, stat, headers, page) {
+  const key = stat.mtimeMs + ":" + stat.size + ":" + qaVersion;
+  let c = qaPageCache.get(page);
+  if (!c || c.key !== key) {
+    const body = Buffer.from(qaInject(fs.readFileSync(filePath, "utf8"), page), "utf8");
+    c = { key: key, body: body, gz: zlib.gzipSync(body), br: zlib.brotliCompressSync(body),
+      etag: 'W/"qa-' + crypto.createHash("sha1").update(body).digest("hex").slice(0, 16) + '"' };
+    qaPageCache.set(page, c);
+  }
+  headers["ETag"] = c.etag;
+  headers["Vary"] = "Accept-Encoding";
+  if (req.headers["if-none-match"] === c.etag) { res.writeHead(304, headers); return res.end(); }
+  const ae = req.headers["accept-encoding"] || "";
+  let out = c.body;
+  if (/\bbr\b/.test(ae)) { headers["Content-Encoding"] = "br"; out = c.br; }
+  else if (/\bgzip\b/.test(ae)) { headers["Content-Encoding"] = "gzip"; out = c.gz; }
+  res.writeHead(200, headers);
+  res.end(req.method === "HEAD" ? undefined : out);
+}
+
 // ---- Dekont belirteci: dekont sunucu kaydına BAĞLI DEĞİL -------------------
 // Railway'de Volume yokken orders.json her dağıtımda siliniyor, rid ile açılan
 // dekont "yüklenemedi" diyordu (28 Eyl 2026: öğlen alınan bir ödemenin kaydı
@@ -906,15 +1293,13 @@ function handlePayRoutes(req, res, urlPath) {
   }
   // E-posta testi — admin panelindeki düğme çağırır. Canlı sipariş beklemeden
   // SMTP ayarının çalıştığını doğrular ve HATANIN KENDİSİNİ döndürür.
-  // Parola config.admin.pass'tir (statik sitede caydırıcı); kötüye kullanımı
+  // Parola yönetici şifresidir (adminGate: ADMIN_PASS, yoksa config.admin.pass); kötüye kullanımı
   // sınırlamak için dakikada bir istek kabul edilir ve posta YALNIZ
   // işletmenin kendi adresine gider — serbest alıcı kabul edilmez.
   if (urlPath === "/api/pay/mailtest" && req.method === "POST") {
     readBody(req, 4 * 1024, (raw) => {
       let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
-      let cfg = null; try { cfg = SITE_CFG || (SITE_CFG = loadSiteConfig()); } catch (e) {}
-      const pass = (cfg && cfg.admin && cfg.admin.pass) || "";
-      if (!pass || String(b.pass || "") !== pass) return sendJson(res, 403, { error: "Parola hatalı." });
+      if (!adminGate(req, res, b.pass)) return;
       const now = Date.now();
       if (now - mailTestAt < 60000) return sendJson(res, 429, { error: "Çok sık denendi — 1 dakika bekleyip tekrar deneyin." });
       mailTestAt = now;
@@ -1239,6 +1624,11 @@ const server = http.createServer((req, res) => {
       if (handlePayRoutes(req, res, urlPath)) return;
       res.writeHead(404); return res.end("Not found");
     }
+    // Soru & Cevap (ziyaretçi gönderisi, moderasyon, devir) ve admin girişi
+    if (urlPath.startsWith("/api/qa/") || urlPath === "/api/admin/login") {
+      if (handleQaRoutes(req, res, urlPath)) return;
+      res.writeHead(404); return res.end("Not found");
+    }
     // Döviz kuru durumu — admin "💱 Döviz kuru" kartı okur. Gizli bilgi yok.
     if (urlPath === "/api/fx") {
       res.writeHead(200, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" });
@@ -1259,23 +1649,20 @@ const server = http.createServer((req, res) => {
       return res.end(JSON.stringify({ total: visitTotal, online: onlineCount(), day: day }));
     }
     // Sayaç devri: yeni sunucu açılırken bunu çağırır (seedVisitsFromLive).
-    // Yalnız toplam sayılar döner; parola config.admin.pass (/api/aibots gibi).
+    // Yalnız toplam sayılar döner; parola yönetici şifresi (adminGate, /api/aibots gibi).
     if (urlPath === "/api/visitors/export" && req.method === "POST") {
       return readBody(req, 4 * 1024, (raw) => {
         let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
-        const pass = (SITE_CFG && SITE_CFG.admin && SITE_CFG.admin.pass) || "";
-        if (!pass || String(b.pass || "") !== pass) return sendJson(res, 403, { error: "Parola hatalı." });
+        if (!adminGate(req, res, b.pass)) return;
         visitsLast24h();
         return sendJson(res, 200, { total: visitTotal, hours: visitHours, hoursSince: visitHoursSince });
       });
     }
-    // AI tarayıcı sayacı — admin paneli okur (config.admin.pass ile)
+    // AI tarayıcı sayacı — admin paneli okur (yönetici şifresiyle, adminGate)
     if (urlPath === "/api/aibots" && req.method === "POST") {
       return readBody(req, 4 * 1024, (raw) => {
         let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
-        let cfg = null; try { cfg = SITE_CFG || (SITE_CFG = loadSiteConfig()); } catch (e) {}
-        const pass = (cfg && cfg.admin && cfg.admin.pass) || "";
-        if (!pass || String(b.pass || "") !== pass) return sendJson(res, 403, { error: "Parola hatalı." });
+        if (!adminGate(req, res, b.pass)) return;
         const bots = Object.keys(aiBots.bots).map(n => {
           const r = aiBots.bots[n];
           const top = Object.keys(r.paths).sort((a, c) => r.paths[c] - r.paths[a]).slice(0, 5).map(k => ({ path: k, n: r.paths[k] }));
@@ -1366,6 +1753,14 @@ const server = http.createServer((req, res) => {
         ? "no-cache"
         : "public, max-age=2592000, stale-while-revalidate=86400";
 
+      // Soru-cevaplı sayfa: yayındaki gönderiler sunarken HTML'e basılır;
+      // ön-sıkıştırılmış .br/.gz kopyaları bu yüzden KULLANILMAZ.
+      const qaPage = status === 200 && stat && (req.method === "GET" || req.method === "HEAD") && qaPageOf(urlPath);
+      if (qaPage) {
+        try { return serveQaPage(req, res, filePath, stat, headers, qaPage); }
+        catch (e) { console.warn("soru-cevap sayfaya basılamadı:", e && e.message); }
+      }
+
       // Koşullu istekler: ETag (mtime-boyut) + Last-Modified → 304 (bant genişliği tasarrufu)
       if (stat) {
         const etag = 'W/"' + stat.mtime.getTime().toString(16) + "-" + stat.size.toString(16) + '"';
@@ -1451,15 +1846,18 @@ function startFx(next) {
 }
 startFx(() => seedVisitsFromLive((msg) => {
   console.log("ziyaretçi sayacı: " + msg);
-  // Çok dilli statik sayfaları (/en, /de, /ru) başlangıçta üret
-  try {
-    const built = require("./build").run();
-    console.log(`GESPA build: ${built} dil sayfası hazır.`);
-  } catch (e) {
-    console.warn("GESPA build atlandı:", e && e.message);
-  }
-  server.listen(PORT, () => {
-    console.log(`GESPA Enerji sitesi http://localhost:${PORT} adresinde yayında`);
+  seedQaFromLive((qmsg) => {
+    console.log("soru-cevap: " + qmsg + (ADMIN_ENV ? "" : " · UYARI: ADMIN_PASS yok, moderasyon kapalı"));
+    // Çok dilli statik sayfaları (/en, /de, /ru) başlangıçta üret
+    try {
+      const built = require("./build").run();
+      console.log(`GESPA build: ${built} dil sayfası hazır.`);
+    } catch (e) {
+      console.warn("GESPA build atlandı:", e && e.message);
+    }
+    server.listen(PORT, () => {
+      console.log(`GESPA Enerji sitesi http://localhost:${PORT} adresinde yayında`);
+    });
   });
 }));
 

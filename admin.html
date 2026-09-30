@@ -36,6 +36,19 @@
     .adm-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
     .adm-head a{color:var(--green);font-weight:700;font-size:.9rem}
     pre{white-space:pre-wrap;word-break:break-word;background:var(--bg-alt);border:1px solid var(--line);border-radius:10px;padding:12px;font-size:.82rem;max-height:240px;overflow:auto}
+    .qa-adm-h{font-family:var(--font);font-weight:800;font-size:1.05rem;margin:22px 0 8px}
+    .qa-adm-item{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:0 0 10px;background:var(--bg-alt)}
+    .qa-adm-item.pend{border-color:#f2d3b5;background:#fdf6ef}
+    .qa-adm-meta{font-size:.85rem;color:var(--muted);margin-bottom:6px}
+    .qa-adm-meta strong{color:var(--ink)}
+    .qa-adm-ctx{font-size:.85rem;color:var(--muted);margin-bottom:6px}
+    .qa-adm-text{white-space:pre-wrap;word-break:break-word;font-size:.95rem}
+    .qa-adm-ans{margin:10px 0 0 10px;padding:8px 0 0 10px;border-left:3px solid var(--line)}
+    .qa-adm-ans .qa-adm-row{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;margin-bottom:8px}
+    .qa-adm-item textarea{width:100%;min-height:84px;margin-top:10px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--card);color:var(--ink)}
+    .qa-adm-item .adm-actions{margin-top:10px}
+    .qa-adm-item .btn{padding:7px 14px;font-size:.85rem}
+    .qa-adm-badge{display:inline-block;padding:1px 8px;border-radius:999px;background:var(--green);color:#fff;font-size:.75rem;font-weight:800}
   </style>
 </head>
 <body>
@@ -71,6 +84,27 @@
         <pre id="exportPre"></pre>
       </div>
       <p style="margin-top:18px"><a href="su-isitici.html" target="_blank" style="color:var(--green);font-weight:700">Su ısıtıcı sayfasını önizle →</a> · <a href="urunler.html" target="_blank" style="color:var(--green);font-weight:700">Paketler sayfasını önizle →</a></p>
+    </div>
+
+    <!-- Soru & Cevap moderasyonu (server.js /api/qa/admin · docs/soru-cevap.md) -->
+    <div id="qacard" class="adm-card" hidden>
+      <div class="adm-head">
+        <h2 style="font-size:1.35rem;margin:0">💬 Soru &amp; Cevap</h2>
+        <a id="qaPageLink" href="gunes-paneli-kacak-elektrik-cezasi.html#soru-cevap" target="_blank" rel="noopener">Sayfada gör →</a>
+      </div>
+      <p style="color:var(--muted);margin:0 0 6px;font-size:.92rem">
+        Ziyaretçi soruları ve cevapları <strong>onayınız olmadan yayınlanmaz</strong>. Buradan onaylayın, silin ya da
+        <strong>GESPA Uzmanı</strong> rozetiyle cevap yazın. Sizin cevabınız hemen yayınlanır ve soruyu da yayına alır.
+      </p>
+      <div id="qaState" class="adm-note info">Okunuyor…</div>
+      <div id="qaPending"></div>
+      <div id="qaLive"></div>
+      <div class="adm-actions">
+        <button class="btn btn-ghost" type="button" id="qaReload">↻ Yenile</button>
+        <button class="btn btn-ghost" type="button" id="qaBackup">⬇ Yedeği indir</button>
+        <label class="btn btn-ghost" style="cursor:pointer">⬆ Yedekten yükle<input type="file" id="qaRestore" accept="application/json,.json" hidden /></label>
+      </div>
+      <div id="qaMsg" class="adm-note" hidden></div>
     </div>
 
     <!-- Ödeme bağlantısı üretici — ürün seçmeden serbest tutar tahsilatı -->
@@ -232,19 +266,170 @@
     function loadOv() { try { return JSON.parse(localStorage.getItem(KEY) || "null") || { packages: {}, heater: {} }; } catch (e) { return { packages: {}, heater: {} }; } }
     function derivedPkg(p) { var k = C.calc || {}; return Math.round((p.kwp || 0) * (k.costPerKwp || 0) + (p.battery ? p.battery * (k.batteryCostPerKwh || 0) : 0)); }
 
-    // Giriş
-    if (sessionStorage.getItem("gespa-admin") === "1") show();
+    // Giriş: şifre SUNUCUDA doğrulanır (/api/admin/login). Railway'de ADMIN_PASS
+    // tanımlıysa yalnız o geçer; config şifresi canlıda reddedilir. Sunucu yoksa
+    // (Pages aynası, eski sürüm) config şifresiyle yalnız önizleme açılır.
+    // Girilen şifre bu sekmenin oturumunda tutulur; yönetici uçları (e-posta
+    // testi, bot sayacı, soru-cevap) onu gönderir.
+    var SKEY = "gespa-admin-pass";
+    var sessPass = function () { try { return sessionStorage.getItem(SKEY) || PASS; } catch (e) { return PASS; } };
+    var relogin = function () { try { sessionStorage.removeItem("gespa-admin"); sessionStorage.removeItem(SKEY); } catch (e) {} location.reload(); };
+    // Şifresi saklanmamış eski oturum yeniden giriş ister (kartlar şifreyi gönderir).
+    if (sessionStorage.getItem("gespa-admin") === "1" && sessionStorage.getItem(SKEY)) show();
     $("#loginForm").addEventListener("submit", function (e) {
       e.preventDefault();
-      if ($("#pass").value === PASS) { sessionStorage.setItem("gespa-admin", "1"); show(); }
-      else { $("#loginErr").style.display = "block"; }
+      var p = $("#pass").value;
+      var ok = function () { try { sessionStorage.setItem("gespa-admin", "1"); sessionStorage.setItem(SKEY, p); } catch (x) {} show(); };
+      var bad = function (t) { $("#loginErr").textContent = t || "Şifre hatalı."; $("#loginErr").style.display = "block"; };
+      fetch("/api/admin/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pass: p }) })
+        .then(function (r) {
+          if (r.status === 200) return ok();
+          if (r.status === 403 || r.status === 429) return r.json().then(function (j) { bad(j && j.error); }, function () { bad(); });
+          throw new Error("sunucu yok");
+        })
+        .catch(function () { if (p === PASS) ok(); else bad(); });
     });
 
     function show() {
       $("#login").hidden = true; $("#editor").hidden = false; $("#paylink").hidden = false;
       $("#taksit").hidden = false; $("#mailtest").hidden = false; $("#aibots").hidden = false;
-      $("#storecard").hidden = false; $("#fxcard").hidden = false;
-      render(); payLink(); taksitAraci(); mailTest(); aiBots(); storeState(); fxState();
+      $("#storecard").hidden = false; $("#fxcard").hidden = false; $("#qacard").hidden = false;
+      render(); payLink(); taksitAraci(); mailTest(); aiBots(); storeState(); fxState(); qaMod();
+    }
+
+    // ---- Soru & Cevap moderasyonu -----------------------------------------
+    // /api/qa/admin (server.js). Sunucuda ADMIN_PASS yoksa 503 döner ve kart
+    // ne yapılacağını söyler. Ziyaretçi metni HER YERDE kaçırılarak basılır:
+    // bu sayfa yönetici şifresini tutar, gönderideki bir betik onu çalabilirdi.
+    function qaMod() {
+      var st = $("#qaState"), pend = $("#qaPending"), live = $("#qaLive"), msg = $("#qaMsg");
+      var esc = function (x) { return String(x == null ? "" : x).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+      var when = function (iso) { try { return new Date(iso).toLocaleString("tr-TR", { timeZone: "Europe/Istanbul", dateStyle: "medium", timeStyle: "short" }); } catch (e) { return iso; } };
+      var pages = (C.qa && C.qa.pages) || [];
+      if (pages[0]) $("#qaPageLink").href = pages[0] + ".html#soru-cevap";
+      var data = null;
+      function api(body) {
+        body.pass = sessPass();
+        return fetch("/api/qa/admin", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
+          .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, status: r.status, j: j }; }, function () { return { ok: false, status: r.status, j: {} }; }); });
+      }
+      function note(t, cls) {
+        msg.hidden = false; msg.className = "adm-note " + (cls || "ok"); msg.textContent = t;
+        clearTimeout(note.t); note.t = setTimeout(function () { msg.hidden = true; }, 5000);
+      }
+      function load() {
+        api({ op: "list" }).then(function (o) {
+          if (!o.ok) {
+            data = null; pend.innerHTML = ""; live.innerHTML = "";
+            st.className = "adm-note " + (o.status === 503 ? "warn" : "err");
+            st.textContent = ((o.j && o.j.error) || "Soru-cevap listesi okunamadı.")
+              + (o.status === 403 ? " Railway'de tanımladığınız ADMIN_PASS ile yeniden giriş yapın. " : "");
+            if (o.status === 403) {
+              var rb = document.createElement("button");
+              rb.type = "button"; rb.className = "btn btn-sm"; rb.textContent = "Yeniden giriş yap";
+              rb.addEventListener("click", relogin);
+              st.appendChild(rb);
+            }
+            return;
+          }
+          data = o.j; draw();
+        }).catch(function () {
+          st.className = "adm-note info";
+          st.textContent = "ℹ️ Soru-cevap yalnız canlı sitede (Railway) yönetilir; bu adreste sunucu yok.";
+        });
+      }
+      function answerBox(q) {
+        return '<textarea data-ans="' + esc(q.id) + '" maxlength="3000" placeholder="' + esc((data.expertName || "GESPA Uzmanı")) + ' olarak cevabınız…"></textarea>'
+          + '<div class="adm-actions"><button class="btn" type="button" data-op="answer" data-id="' + esc(q.id) + '">✍ '
+          + (q.status === "live" ? "Cevabı yayınla" : "Cevapla ve soruyu yayınla") + "</button></div>";
+      }
+      function draw() {
+        var items = data.items || [], byId = {};
+        items.forEach(function (x) { byId[x.id] = x; });
+        var asc = function (a, b) { return a.at < b.at ? -1 : a.at > b.at ? 1 : 0; };
+        var pending = items.filter(function (x) { return x.status === "pending"; }).sort(asc);
+        var qs = items.filter(function (x) { return x.kind === "q" && x.status === "live"; }).sort(function (a, b) { return asc(b, a); });
+        var L = ["Onay bekleyen: <strong>" + pending.length + "</strong> · Yayında: <strong>" + qs.length + "</strong> soru, <strong>"
+          + items.filter(function (x) { return x.kind === "a" && x.status === "live"; }).length + "</strong> cevap"];
+        if (data.persistent === false) L.push("⚠️ Kalıcı disk (Volume) yok: veriler güncellemede önceki sunucudan devralınır. Kesin güvence için Railway'de Volume ekleyin ve ara sıra yedek indirin.");
+        if (data.mail === false) L.push("ℹ️ Yeni soru e-postası kapalı (SMTP ayarı yok); yeni gönderileri buradan takip edin.");
+        st.className = "adm-note " + (data.persistent === false ? "warn" : "info");
+        st.innerHTML = L.join("<br>");
+        var h = "";
+        if (pending.length) {
+          h += '<div class="qa-adm-h">Onay bekleyenler</div>';
+          pending.forEach(function (x) {
+            var p = x.kind === "a" ? byId[x.parent] : null;
+            h += '<div class="qa-adm-item pend"><div class="qa-adm-meta"><strong>' + (x.kind === "q" ? "Soru" : "Cevap") + "</strong> · "
+              + esc(x.name) + " · " + esc(when(x.at)) + (pages.length > 1 ? " · " + esc(x.page) : "") + "</div>"
+              + (p ? '<div class="qa-adm-ctx">Şu soruya: <em>' + esc(p.text.slice(0, 160)) + (p.text.length > 160 ? "…" : "") + "</em></div>" : "")
+              + '<div class="qa-adm-text">' + esc(x.text) + "</div>"
+              + '<div class="adm-actions"><button class="btn" type="button" data-op="approve" data-id="' + esc(x.id) + '">✓ Onayla</button>'
+              + '<button class="btn btn-ghost" type="button" data-op="delete" data-id="' + esc(x.id) + '">🗑 Sil</button></div>'
+              + (x.kind === "q" ? answerBox(x) : "") + "</div>";
+          });
+        }
+        pend.innerHTML = h;
+        h = qs.length ? '<div class="qa-adm-h">Yayındaki sorular</div>' : "";
+        qs.forEach(function (q) {
+          var ans = items.filter(function (x) { return x.kind === "a" && x.parent === q.id && x.status === "live"; }).sort(asc);
+          h += '<div class="qa-adm-item"><div class="qa-adm-meta"><strong>Soru</strong> · ' + esc(q.name) + " · " + esc(when(q.at)) + "</div>"
+            + '<div class="qa-adm-text">' + esc(q.text) + "</div>"
+            + '<div class="adm-actions"><button class="btn btn-ghost" type="button" data-op="delete" data-id="' + esc(q.id) + '">🗑 Soruyu cevaplarıyla sil</button></div>';
+          if (ans.length) {
+            h += '<div class="qa-adm-ans">';
+            ans.forEach(function (a) {
+              h += '<div class="qa-adm-row"><div><div class="qa-adm-meta">' + (a.expert ? '<span class="qa-adm-badge">✔ Uzman</span> ' : "")
+                + "<strong>" + esc(a.name) + "</strong> · " + esc(when(a.at)) + '</div><div class="qa-adm-text">' + esc(a.text) + "</div></div>"
+                + '<button class="btn btn-ghost" type="button" data-op="delete" data-id="' + esc(a.id) + '">🗑</button></div>';
+            });
+            h += "</div>";
+          }
+          h += answerBox(q) + "</div>";
+        });
+        live.innerHTML = h;
+      }
+      $("#qacard").addEventListener("click", function (e) {
+        var b = e.target.closest("button[data-op]");
+        if (!b) return;
+        var op = b.getAttribute("data-op"), id = b.getAttribute("data-id"), body = { op: op };
+        if (op === "delete" && !confirm("Bu gönderi silinsin mi? Soru silinirse cevapları da gider.")) return;
+        if (op === "answer") {
+          var ta = $("#qacard").querySelector('textarea[data-ans="' + id + '"]');
+          if (!ta || ta.value.trim().length < 2) { note("Önce cevabınızı yazın.", "warn"); if (ta) ta.focus(); return; }
+          body.parent = id; body.text = ta.value;
+        } else body.id = id;
+        b.disabled = true;
+        api(body).then(function (o) {
+          b.disabled = false;
+          if (!o.ok) return note((o.j && o.j.error) || "İşlem yapılamadı.", "err");
+          note(op === "approve" ? "✓ Yayınlandı." : op === "delete" ? "✓ Silindi." : "✓ Cevabınız yayınlandı.");
+          load();
+        }).catch(function () { b.disabled = false; note("Sunucuya ulaşılamadı.", "err"); });
+      });
+      $("#qaReload").addEventListener("click", load);
+      $("#qaBackup").addEventListener("click", function () {
+        if (!data) return note("Önce liste yüklenmeli.", "warn");
+        var blob = new Blob([JSON.stringify({ items: data.items }, null, 1)], { type: "application/json" });
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "soru-cevap-yedek-" + new Date().toISOString().slice(0, 10) + ".json";
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+      });
+      $("#qaRestore").addEventListener("change", function () {
+        var f = this.files && this.files[0]; this.value = "";
+        if (!f) return;
+        f.text().then(function (t) {
+          var j = JSON.parse(t);
+          return api({ op: "import", items: j.items || j });
+        }).then(function (o) {
+          if (!o.ok) return note((o.j && o.j.error) || "Yedek yüklenemedi.", "err");
+          note("✓ Yedekten " + o.j.added + " gönderi eklendi (var olanlar atlandı).");
+          load();
+        }).catch(function () { note("Yedek dosyası okunamadı.", "err"); });
+      });
+      load();
     }
 
     // Döviz kuru — /api/fx (server.js FX). Pages aynasında sunucu yoktur.
@@ -303,7 +488,7 @@
     function aiBots() {
       var out = $("#abOut"); if (!out) return;
       var esc = function (x) { return String(x).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
-      fetch("/api/aibots", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pass: PASS }) })
+      fetch("/api/aibots", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pass: sessPass() }) })
         .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
         .then(function (j) {
           var bots = j.bots || [];
@@ -568,7 +753,7 @@
         out.className = "adm-note info"; out.hidden = false; out.textContent = "SMTP sunucusuna bağlanılıyor…";
         fetch("/api/pay/mailtest", {
           method: "POST", headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ pass: PASS })
+          body: JSON.stringify({ pass: sessPass() })
         }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
           .then(function (res) {
             go.disabled = false; go.textContent = eski;

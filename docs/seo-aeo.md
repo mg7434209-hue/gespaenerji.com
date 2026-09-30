@@ -177,7 +177,7 @@ birlikte commit'le.
   en çok çekilen 30 yol tutulur.
 - Kalıcı veri `DATA_DIR/aibots.json`. Railway Volume bağlı değilse her
   dağıtımda sıfırlanır.
-- `/api/aibots` POST `{pass}` (config.admin.pass) → admin.html "🤖 AI tarayıcı
+- `/api/aibots` POST `{pass}` (yönetici şifresi: `ADMIN_PASS`, yoksa config.admin.pass) → admin.html "🤖 AI tarayıcı
   ziyaretleri" kartı. GA4 `ai_referral` İNSAN trafiğini, bu sayaç BOTLARI ölçer.
 
 ## i18n demetleri
@@ -225,6 +225,9 @@ birlikte commit'le.
   grubu (`content/sss.js` → `trOnly: true`), sözlük terimi (`content/sozluk.js`
   → `trLink`), tarımsal sulama duyurusu ve SSS cevabı. `transform()` bu blokları
   dil kopyasından siler; `llms.txt`'te "Rehberler ve güncel mevzuat" grubu.
+- Rehberin altındaki ONAYLI Soru & Cevap bölümü, sayfa sunulurken HTML'e ve
+  Article şemasına (`comment`, `commentCount`) basılır; Markdown kopyasına
+  girmez. Kurallar: `docs/soru-cevap.md`.
 - Yeni rehber: `TR_ONLY` + `LLMS_GROUPS` + `PRIORITY` + gerekirse `GUIDE`
   benzeri bağlantı; sayfa şablonu mevcut rehberden kopyalanır.
 

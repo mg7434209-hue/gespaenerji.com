@@ -2161,3 +2161,41 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
 .shop-price{font-weight:800;font-family:var(--font);font-size:1.12rem;color:var(--ink)}
 .shop-price:empty{display:none}
 .how-note .ticks{margin-top:10px}
+
+/* Soru & Cevap (gunes-paneli-kacak-elektrik-cezasi.html · docs/soru-cevap.md).
+   Yayındaki gönderileri server.js basar; renkler tema değişkenlerinden. */
+.qa-jump{margin:14px 0 0;font-size:.95rem;color:var(--muted)}
+.qa-jump a{color:var(--green);font-weight:700}
+.qa-title{font-size:clamp(1.5rem,3vw,2rem);margin:0 0 10px}
+.qa-intro{margin:0 0 8px;font-size:1.05rem}
+.qa-note{margin:0 0 22px;font-size:.9rem;color:var(--muted)}
+.qa-badge{display:inline-block;padding:2px 10px;border-radius:999px;background:var(--green);color:#fff;font-size:.78rem;font-weight:800;letter-spacing:.01em;white-space:nowrap;vertical-align:1px}
+.qa-form-title{font-size:1.1rem;margin:0 0 14px}
+.qa-form .field-consent{margin:14px 0 16px}
+.qa-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.qa-msg{margin:14px 0 0;padding:10px 14px;border-radius:10px;font-size:.93rem;line-height:1.5}
+.qa-msg.ok{background:color-mix(in srgb,var(--green) 12%,transparent);color:var(--ink)}
+.qa-msg.err{background:color-mix(in srgb,#d64545 14%,transparent);color:var(--ink)}
+.qa-msg a{color:var(--green);font-weight:700;text-decoration:underline}
+.qa-list-title{font-size:1.2rem;margin:34px 0 6px}
+.qa-sum,.qa-empty{margin:0 0 14px;color:var(--muted);font-size:.93rem}
+.qa-list{display:grid;gap:16px}
+.qa-thread{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);scroll-margin-top:96px}
+.qa-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:.85rem;color:var(--muted);margin-bottom:6px}
+.qa-name{font-weight:800;color:var(--ink);font-family:var(--font)}
+.qa-text p{margin:0 0 8px;overflow-wrap:anywhere}
+.qa-text p:last-child{margin-bottom:0}
+.qa-q .qa-text{font-size:1.02rem}
+.qa-answers{margin:14px 0 0 6px;padding-left:16px;border-left:3px solid var(--line);display:grid;gap:12px}
+.qa-a{padding:10px 14px;border-radius:12px;background:var(--bg-alt);scroll-margin-top:96px}
+.qa-a.qa-expert{background:color-mix(in srgb,var(--green) 10%,var(--card));border:1px solid color-mix(in srgb,var(--green) 35%,transparent)}
+.qa-actions{margin-top:10px}
+.qa-reply-btn{background:none;border:0;padding:4px 0;color:var(--green);font:inherit;font-weight:700;cursor:pointer}
+.qa-reply-btn:hover{text-decoration:underline}
+.qa-reply-form{margin-top:12px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--bg-alt)}
+.qa-reply-form .ord-grid input,.qa-reply-form .ord-grid textarea{background:var(--card)}
+.qa-reply-btns{display:flex;flex-wrap:wrap;gap:10px}
+@media(max-width:640px){
+  .qa-thread{padding:14px 14px}
+  .qa-answers{margin-left:0;padding-left:10px}
+}

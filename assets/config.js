@@ -777,7 +777,17 @@ window.GESPA.config = {
 
   // Admin paneli (basit koruma — şifre herkese açık koddadır; gerçek güvenlik için
   // backend gerekir). Şifreyi buradan değiştirin.
+  // Railway'de ADMIN_PASS ortam değişkeni tanımlıysa sunucu YALNIZ onu kabul
+  // eder, bu şifre canlıda geçersiz olur. Soru-cevap moderasyonu ADMIN_PASS ister.
   admin: { pass: "gespa2026" },
+
+  // Soru & Cevap: makale altındaki herkese açık, ONAYLI soru-cevap bölümü.
+  // Sunucu yalnız burada listelenen sayfalara gönderi kabul eder; sayfada
+  // <!-- QA:STATIC --> işaretleri ve data-qa-page olmalı (docs/soru-cevap.md).
+  qa: {
+    pages: ["gunes-paneli-kacak-elektrik-cezasi"],
+    expertName: "GESPA Uzmanı"   // firmanın cevaplarındaki rozet
+  },
 
   // Hesaplayıcı katsayıları — TEK YER (koda hardcode edilmez)
   calc: {

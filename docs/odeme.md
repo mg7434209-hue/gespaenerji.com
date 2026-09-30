@@ -129,7 +129,7 @@ YOKTUR, adresi elle yazılır.
   korumasız bir istisna sunucu sürecini düşürürdü.
 - TEŞHİS: `/api/pay/status` → `mail:false` = Railway değişkenleri yok. Admin'deki
   "✉️ Sipariş e-postası" kartı bunu gösterir ve `/api/pay/mailtest` ile canlı
-  sipariş beklemeden test postası gönderir (config.admin.pass + dakikada 1
+  sipariş beklemeden test postası gönderir (yönetici şifresi: `ADMIN_PASS`, yoksa config.admin.pass; dakikada 1
   istek; alıcı YALNIZ ORDER_EMAIL_TO, serbest alıcı kabul edilmez). Gönderim
   hatası orders.json'a `mailErr` yazılır.
 - Ayarlar YALNIZCA Railway ortam değişkeni, parola repoya ASLA yazılmaz:

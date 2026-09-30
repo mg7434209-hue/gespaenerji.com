@@ -190,6 +190,13 @@ assert.ok(!aboutPage.includes('01.11.2022')&&!aboutPage.includes('Kurumsallaşma
 const linkPay=fs.readFileSync(path.join(root,'odeme.html'),'utf8');
 assert.ok(!/name="(tckn|vd|firma)"/.test(linkPay),'odeme.html must not ask for TCKN/VKN');
 assert.ok(/location\.hash/.test(fs.readFileSync(path.join(root,'odeme-sonuc.html'),'utf8')),'receipt page reads #k= token');
+// Q&A section: every configured page carries the markers the server fills and loads qa.js; the committed
+// HTML (what the Pages mirror serves) never holds visitor content.
+{const sbq={window:{}};require('node:vm').runInNewContext(fs.readFileSync(path.join(root,'assets/config.js'),'utf8'),sbq);
+ assert.ok(sbq.window.GESPA.config.qa.pages.length>0,'config.qa.pages');
+ for(const pg of sbq.window.GESPA.config.qa.pages){const h=fs.readFileSync(path.join(root,pg+'.html'),'utf8');
+  assert.ok(/<!-- QA:STATIC -->[\s\S]*?<!-- \/QA:STATIC -->/.test(h)&&h.includes('data-qa-page="'+pg+'"')&&h.includes('src="assets/qa.js"'),pg+': Q&A markers and script');
+  assert.ok(!/qa-thread/.test(h),pg+': no visitor content committed to the page');}}
 // Payment link amounts: Turkish writing wins ("120.000" is 120 thousand, not 120 TL), link t= values
 // are plain JS numbers. The link generator (admin.html) and the payment page share ONE rule.
 {const grab=(src,f)=>{const m=src.match(/function parseTL\(v\) \{[\s\S]*?\n\s*\}\n/);assert.ok(m,f+' parseTL');return m[0].replace(/\s+/g,' ').trim();};
@@ -239,7 +246,10 @@ const unrelated=consentRun('granted','https://notchatgpt.com/');assert.ok(!unrel
 console.log('Analytics: consent gate, exact AI source attribution and contact payload checks passed.');
 // The production server runs in this process tree so HTTP tests share its network context.
 const RECEIPT_TEST_SECRET='test-dekont-anahtari';
-const port=4317,server=spawn(process.execPath,['server.js'],{cwd:root,env:{...process.env,PORT:String(port),IYZIPAY_API_KEY:'',IYZICO_API_KEY:'',IYZIPAY_SECRET_KEY:RECEIPT_TEST_SECRET,FX_AUTO:'0'}});
+// ADMIN_PASS is set as on Railway: the public config password must then be rejected. Runtime data goes to
+// a temporary folder so test questions never appear on a locally served page.
+const ADMIN_TEST_PASS='test-yonetici-sifresi',TEST_DATA=fs.mkdtempSync(path.join(require('node:os').tmpdir(),'gespa-test-'));
+const port=4317,server=spawn(process.execPath,['server.js'],{cwd:root,env:{...process.env,PORT:String(port),IYZIPAY_API_KEY:'',IYZICO_API_KEY:'',IYZIPAY_SECRET_KEY:RECEIPT_TEST_SECRET,FX_AUTO:'0',ADMIN_PASS:ADMIN_TEST_PASS,DATA_DIR:TEST_DATA}});
 let logs='',started=false;
 const timeout=setTimeout(()=>{server.kill();console.error(logs);process.exitCode=1;},25000);
 server.stderr.on('data',d=>logs+=d);
@@ -263,7 +273,9 @@ server.stdout.on('data',async d=>{
   const ua=await fetch('http://127.0.0.1:'+port+'/llms.txt',{headers:{'User-Agent':'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.2; +https://openai.com/gptbot)'}});assert.equal(ua.status,200);await ua.text();
   const bad=await fetch('http://127.0.0.1:'+port+'/api/aibots',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({pass:'yanlis'})});assert.equal(bad.status,403);await bad.text();
   const cfgSrc=fs.readFileSync(path.join(root,'assets/config.js'),'utf8');const sb={window:{}};vm.runInNewContext(cfgSrc,sb);
-  const ok=await fetch('http://127.0.0.1:'+port+'/api/aibots',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({pass:sb.window.GESPA.config.admin.pass})});
+  const pub=await fetch('http://127.0.0.1:'+port+'/api/aibots',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({pass:sb.window.GESPA.config.admin.pass})});
+  assert.equal(pub.status,403,'public config password is rejected once ADMIN_PASS is set');await pub.text();
+  const ok=await fetch('http://127.0.0.1:'+port+'/api/aibots',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({pass:ADMIN_TEST_PASS})});
   assert.equal(ok.status,200);const bots=(await ok.json()).bots;const gpt=bots.find(b=>b.name==='GPTBot');
   assert.ok(gpt&&gpt.kind==='ai'&&gpt.count>=1&&gpt.top.some(t=>t.path==='/llms.txt'),'GPTBot counted');
   // Visitor counter: Railway healthcheck, 24 h figure key, and the password-protected handoff export
@@ -273,7 +285,7 @@ server.stdout.on('data',async d=>{
   const vis=await (await fetch('http://127.0.0.1:'+port+'/api/visitors')).json();
   assert.ok(Number.isFinite(vis.total)&&'day' in vis&&(vis.day===null||Number.isFinite(vis.day)),'visitors api: total + day');
   const ex403=await fetch('http://127.0.0.1:'+port+'/api/visitors/export',{method:'POST',body:JSON.stringify({pass:'yanlis'})});assert.equal(ex403.status,403);await ex403.text();
-  const ex=await fetch('http://127.0.0.1:'+port+'/api/visitors/export',{method:'POST',body:JSON.stringify({pass:sb.window.GESPA.config.admin.pass})});
+  const ex=await fetch('http://127.0.0.1:'+port+'/api/visitors/export',{method:'POST',body:JSON.stringify({pass:ADMIN_TEST_PASS})});
   assert.equal(ex.status,200);const exj=await ex.json();assert.ok(exj.total===vis.total&&exj.hours&&exj.hoursSince>0,'visitors export for redeploy handoff');
   // Payment receipt token: the receipt opens WITHOUT a server-side order record (Railway without a
   // Volume wipes orders.json on every deploy). Format must match server.js receiptSeal():
@@ -301,7 +313,42 @@ server.stdout.on('data',async d=>{
   {const sbx={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/config.js'),'utf8'),sbx);
    assert.ok(fx.auto===false&&fx.rate===sbx.window.GESPA.config.usdTry&&fx.floor===fx.rate,'/api/fx: live rate off in tests, manual rate applies');}
   const langDir=await fetch('http://127.0.0.1:'+port+'/en',{redirect:'manual'});assert.equal(langDir.status,301,'/en redirects to /en/');await langDir.text();
-  console.log('HTTP: key pages and bot files return 200; missing page returns 404; markdown mirrors, Accept negotiation, AI crawler counter, visitor handoff, receipt tokens and the public-file allowlist work.');
- }catch(e){console.error(e);process.exitCode=1;}finally{clearTimeout(timeout);server.kill();}
+  // Q&A under the regulation guide: posts wait for approval; visitor text is escaped in the HTML and in the
+  // Article JSON-LD; moderation needs ADMIN_PASS; live threads are printed into the served page (bots run no JS).
+  {const api=(u,b)=>fetch('http://127.0.0.1:'+port+u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)});
+   const pg='gunes-paneli-kacak-elektrik-cezasi';
+   const getPage=async()=>{const x=await fetch('http://127.0.0.1:'+port+'/'+pg+'.html');assert.equal(x.status,200);return x.text();};
+   const evil='Çatımda 3 kW </script><script>alert(1)</script> $& var, başvuru gerekir mi?';
+   let r=await api('/api/qa/ask',{page:pg,name:'Ayşe',text:evil,ok:true,ms:500});assert.equal(r.status,400,'Q&A: too fast is a bot');await r.text();
+   r=await api('/api/qa/ask',{page:pg,name:'Bot',text:'spam spam spam spam',ok:true,ms:5000,website:'x'});assert.equal(r.status,200,'Q&A: honeypot answers ok');await r.text();
+   r=await api('/api/qa/ask',{page:pg,name:'GESPA Uzmanı',text:'Uzman taklidi deneme metni',ok:true,ms:5000});assert.equal(r.status,400,'Q&A: reserved name');await r.text();
+   r=await api('/api/qa/ask',{page:'index',name:'Ayşe',text:evil,ok:true,ms:5000});assert.equal(r.status,404,'Q&A: configured pages only');await r.text();
+   r=await api('/api/qa/ask',{page:pg,name:'Ayşe <b>K</b>',text:evil,ok:true,ms:5000});assert.equal(r.status,200);assert.ok((await r.json()).pending);
+   assert.ok(!(await getPage()).includes('alert(1)'),'Q&A: pending question is not published');
+   r=await api('/api/qa/admin',{pass:sb.window.GESPA.config.admin.pass,op:'list'});assert.equal(r.status,403,'Q&A: moderation rejects the public config password');await r.text();
+   const list=async()=>{const x=await api('/api/qa/admin',{pass:ADMIN_TEST_PASS,op:'list'});assert.equal(x.status,200);return (await x.json()).items;};
+   let items=await list();assert.equal(items.length,1,'Q&A: honeypot post was not stored');const q=items[0];assert.equal(q.status,'pending');
+   r=await api('/api/qa/reply',{page:pg,parent:q.id,name:'Mehmet',text:'Başvurun.',ok:true,ms:5000});assert.equal(r.status,404,'Q&A: no replies to unpublished questions');await r.text();
+   r=await api('/api/qa/admin',{pass:ADMIN_TEST_PASS,op:'answer',parent:q.id,text:'Önce dağıtım şirketine başvurun.'});assert.equal(r.status,200);await r.text();
+   r=await api('/api/qa/reply',{page:pg,parent:q.id,name:'Mehmet',text:'Ben de başvurdum.',ok:true,ms:5000});assert.equal(r.status,200);await r.text();
+   let html=await getPage();const block=(html.match(/<!-- QA:STATIC -->([\s\S]*?)<!-- \/QA:STATIC -->/)||[])[1]||'';
+   assert.ok(block.includes('&lt;/script&gt;&lt;script&gt;alert(1)')&&!html.includes('<script>alert(1)'),'Q&A: visitor text is escaped');
+   assert.ok(block.includes('$&amp;'),'Q&A: "$&" in visitor text is not a replacement pattern');
+   assert.ok(block.includes('Ayşe &lt;b&gt;K&lt;/b&gt;')&&/qa-expert/.test(block),'Q&A: name escaped, expert answer published');
+   assert.ok(!block.includes('Ben de başvurdum'),'Q&A: visitor reply waits for approval');
+   const lds=[...html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1]));
+   const art=lds.find(x=>x['@type']==='Article');
+   assert.ok(art&&art.commentCount===2&&art.comment[0].comment[0].author['@type']==='Organization','Q&A: Article comments match the page');
+   items=await list();const rep=items.find(x=>x.kind==='a'&&!x.expert);
+   r=await api('/api/qa/admin',{pass:ADMIN_TEST_PASS,op:'approve',id:rep.id});assert.equal(r.status,200);await r.text();
+   assert.ok((await getPage()).includes('Ben de başvurdum'),'Q&A: approved reply is published');
+   r=await api('/api/qa/export',{pass:ADMIN_TEST_PASS});assert.equal(r.status,200);assert.equal((await r.json()).items.length,3,'Q&A: redeploy handoff export');
+   r=await api('/api/qa/admin',{pass:ADMIN_TEST_PASS,op:'delete',id:q.id});assert.equal(r.status,200);await r.text();
+   assert.equal((await list()).length,0,'Q&A: deleting a question removes its answers');
+   html=await getPage();assert.ok(!html.includes('alert(1)')&&html.includes('qa-empty'),'Q&A: deleted thread leaves the page');
+   r=await api('/api/admin/login',{pass:'yanlis'});assert.equal(r.status,403);await r.text();
+   r=await api('/api/admin/login',{pass:ADMIN_TEST_PASS});assert.deepEqual(await r.json(),{ok:true,secure:true},'admin login is verified by the server');}
+  console.log('HTTP: key pages and bot files return 200; missing page returns 404; markdown mirrors, Accept negotiation, AI crawler counter, visitor handoff, receipt tokens, the public-file allowlist and the moderated Q&A work.');
+ }catch(e){console.error(e);process.exitCode=1;}finally{clearTimeout(timeout);server.kill();fs.rmSync(TEST_DATA,{recursive:true,force:true});}
 });
 server.on('error',e=>{clearTimeout(timeout);console.error(e);process.exitCode=1;});

@@ -139,7 +139,8 @@ YAZILMAZ. Mevzuat değişince metin + görünen yayın/güncelleme tarihi birlik
 güncellenir. Ona verilen bağlantılar `<!-- TR:ONLY -->` içinde durur.
 Makale 3 DURUMLU ÖZETLE başlar (`.art-cases`: off-grid · kabulü tamam ·
 şebeke + güneş birlikte → başvuru ya da TAM AYRIM); ayrıntı bölümleri ve SSS
-bu özetle ÇELİŞMEZ, birini değiştirirsen ötekini de güncelle) ·
+bu özetle ÇELİŞMEZ, birini değiştirirsen ötekini de güncelle. Altında
+ONAYLI Soru & Cevap bölümü var: @docs/soru-cevap.md) ·
 `tarimsal-sulama.html` (KURAL: gece şebekeden beslenen hibrit sulama kurgusu
 başvuru + kabul şartı yazılmadan ÖNERİLMEZ — 2026 yaptırımları; sayfa başında
 yalnız TR görünen rehber duyurusu var) · `toptan.html` (B2B toptan satış: stok kartları ve
@@ -388,6 +389,8 @@ ve sepet simgesi ekran dışında kalır.
 - `img` boşsa kart nötr yer tutucu (`.sh-noimg`) gösterir; BAŞKA ürünün
   fotoğrafı kullanılmaz. `url` boşsa "Detay" düğmesi ve bağlantılar basılmaz.
 - `admin.pass`: admin.html şifresi (statik sitede yalnızca caydırıcı).
+  Railway'de `ADMIN_PASS` tanımlıysa sunucu YALNIZ onu kabul eder, giriş
+  sunucuda doğrulanır; soru-cevap moderasyonu `ADMIN_PASS` ister.
 - Admin paneli fiyatları localStorage'da override eder (yalnız o cihaz);
   kalıcı/herkese yayın = değerleri bu dosyaya işleyip commit'lemek.
   Anahtar `gespa-prices-usd` (değerler USD): eski `gespa-prices` TL idi,
