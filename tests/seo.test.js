@@ -190,6 +190,15 @@ assert.ok(!aboutPage.includes('01.11.2022')&&!aboutPage.includes('Kurumsallaşma
 const linkPay=fs.readFileSync(path.join(root,'odeme.html'),'utf8');
 assert.ok(!/name="(tckn|vd|firma)"/.test(linkPay),'odeme.html must not ask for TCKN/VKN');
 assert.ok(/location\.hash/.test(fs.readFileSync(path.join(root,'odeme-sonuc.html'),'utf8')),'receipt page reads #k= token');
+// Payment link amounts: Turkish writing wins ("120.000" is 120 thousand, not 120 TL), link t= values
+// are plain JS numbers. The link generator (admin.html) and the payment page share ONE rule.
+{const grab=(src,f)=>{const m=src.match(/function parseTL\(v\) \{[\s\S]*?\n\s*\}\n/);assert.ok(m,f+' parseTL');return m[0].replace(/\s+/g,' ').trim();};
+ const pOde=grab(linkPay,'odeme.html'),pAdm=grab(fs.readFileSync(path.join(root,'admin.html'),'utf8'),'admin.html');
+ assert.equal(pOde,pAdm,'admin.html and odeme.html parse amounts the same way');
+ const parseTL=require('node:vm').runInNewContext('('+pOde+')');
+ for(const [inp,out] of [['50',50],['120.000',120000],['4.500',4500],['1.250.000',1250000],['1.250,50',1250.5],['19.906,62',19906.62],['19906,62',19906.62],['19906.62',19906.62],['4500',4500],['₺ 4.500',4500],['1,250.50',1250.5],['12.5',12.5],['4,5',4.5],['',0],['abc',0]])
+  assert.equal(parseTL(inp),out,'parseTL('+JSON.stringify(inp)+')');
+ for(const v of [50,4500,120000,19906.62,1250.5,350000])assert.equal(parseTL(new Intl.NumberFormat('tr-TR',{maximumFractionDigits:2}).format(v)),v,'prefilled '+v+' reads back');}
 // Exchange rate (kur.js): TCMB parsing, floor + margin, jump guard, and ONE rounding rule shared by
 // the browser (main.js), the server and the build. Every catalog product is USD so all prices follow the rate.
 const kur=require(path.join(root,'kur.js')),vmk=require('node:vm');

@@ -114,8 +114,22 @@
       // Bağlantı parametreleri: ?t=tutar&a=aciklama&s=siparisno&tek=1|&tks=N
       // Tutar KURUŞLU olabilir: taksit vade farkı geri hesaplanınca tam sayı
       // çıkmaz (ör. 3 taksitte tam ₺20.000 tahsil için ₺19.906,62 gönderilir).
-      var amt = function (v) { return String(v == null ? "" : v).replace(",", ".").replace(/[^\d.]/g, ""); };
-      if (q.get("t")) form.tutar.value = amt(q.get("t"));
+      // Tutar okuma: Türkçe yazım esastır. "120.000" = 120 bin ₺ ve
+      // "1.250,50" = 1.250 ₺ 50 kr; noktayla ayrılmış tam 3'lü gruplar BİNLİK
+      // ayırıcıdır. Bağlantıdaki t= değeri JS sayısıdır ("19906.62") ve öyle
+      // okunur. Eskiden "120.000" 120 ₺ okunuyordu. admin.html ile AYNI kural.
+      function parseTL(v) {
+        var s = String(v == null ? "" : v).replace(/[^\d.,]/g, "");
+        var c = s.lastIndexOf(","), d = s.lastIndexOf(".");
+        if (c >= 0 && d >= 0) s = c > d ? s.replace(/\./g, "").replace(",", ".") : s.replace(/,/g, "");
+        else if (c >= 0) s = /^\d{1,3}(,\d{3})+$/.test(s) ? s.replace(/,/g, "") : s.replace(",", ".");
+        else if (/^\d{1,3}(\.\d{3})+$/.test(s)) s = s.replace(/\./g, "");
+        return Math.round((+s || 0) * 100) / 100;
+      }
+      // Hazır tutar Türkçe biçimde gösterilir ("120.000", "19.906,62");
+      // parseTL bu biçimi de aynı tutara geri okur.
+      var t0 = parseTL(q.get("t"));
+      if (t0 > 0) form.tutar.value = new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 2 }).format(t0);
       if (q.get("a")) form.aciklama.value = q.get("a").slice(0, 120);
       if (q.get("s")) form.siparisno.value = q.get("s").slice(0, 40);
       // tek=1 → taksit kapalı. Müşteriye söylenir; aksi hâlde taksit
@@ -181,7 +195,7 @@
           msg.textContent = "Eksik alan var — işaretli alanı doldurup tekrar deneyin.";
           return;
         }
-        if (cardMax && +amt(form.tutar.value) > cardMax) {
+        if (cardMax && parseTL(form.tutar.value) > cardMax) {
           msg.hidden = false;
           msg.textContent = "Kartla tek işlemde en fazla ₺" + new Intl.NumberFormat("tr-TR").format(cardMax) + " ödenebilir (iyzico hesap limiti). Bu tutar için havale/EFT ile ödeyebilir ya da bizimle iletişime geçebilirsiniz.";
           return;
@@ -192,7 +206,7 @@
         fetch("/api/pay/custom", {
           method: "POST", headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            amountTL: +amt(form.tutar.value), tek: tekCekim, taksit: taksitN,
+            amountTL: parseTL(form.tutar.value), tek: tekCekim, taksit: taksitN,
             desc: form.aciklama.value.trim(), ref: form.siparisno.value.trim(),
             buyer: { ad: form.ad.value, tel: form.tel.value, eposta: form.eposta.value, il: form.il.value, adres: form.adres.value }
           })

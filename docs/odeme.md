@@ -84,6 +84,15 @@ GES Marketim / serbest tutar: `?t=tutar&a=aciklama&s=no&tek=1|&tks=N`
 DOĞRULANIR. Form ad, telefon, e-posta, il ve adres ister; T.C. kimlik/vergi
 no İSTEMEZ (yukarıda "Fatura kimliği").
 
+TUTAR OKUMA (`parseTL`, 30 Eyl 2026): Türkçe yazım esastır. "120.000" =
+120 bin ₺, "1.250,50" = 1.250,50 ₺; noktayla ayrılmış tam 3'lü gruplar
+binlik ayırıcıdır. Bağlantıdaki `t=` JS sayısıdır ("19906.62") ve öyle
+okunur; hazır tutar sayfada Türkçe biçimde görünür ("19.906,62"). Eskiden
+"120.000" 120 ₺ okunuyordu: admin `t=120` üretiyor, ödeme sayfası iyzico'ya
+120 ₺ gönderiyordu. Fonksiyon `odeme.html` ve `admin.html`'de AYNIDIR, test
+iki kopyayı karşılaştırır. Admin kartı okunan tutarı "Bağlantıdaki tutar"
+satırında gösterir; tutar alanları bu yüzden `type=number` DEĞİLDİR.
+
 TAKSİT: iyzico hesabı vade farkını MÜŞTERİYE yansıtıyor: ₺20.000 gönderince
 kartından ₺20.093,81 çekiliyor.
 - `tek=1` → `enabledInstallments:[1]` (tek çekim, tutar tam tahsil edilir).

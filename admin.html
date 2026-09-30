@@ -16,7 +16,7 @@
     .adm-row .lbl strong{display:block}
     .adm-row .lbl small{color:var(--muted)}
     .adm-grp-title{font-family:var(--font);font-weight:800;font-size:1.15rem;margin:26px 0 6px;color:var(--green)}
-    input[type=number],input[type=password]{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--bg-alt);color:var(--ink)}
+    input[type=number],input[type=password],input[inputmode=decimal]{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--bg-alt);color:var(--ink)}
     input:focus{outline:none;border-color:var(--green)}
     .adm-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
     .adm-note{margin-top:16px;padding:14px 16px;border-radius:12px;font-size:.92rem;line-height:1.5}
@@ -86,7 +86,7 @@
       </p>
       <div id="payOff" class="adm-note" hidden style="background:#fdf1e7;color:#8a4b10;border:1px solid #f2d3b5"></div>
       <div class="adm-row"><div class="lbl"><strong>Tutar (₺)</strong><small id="plRange">50 – 500.000 ₺ arası</small></div>
-        <input type="number" id="plAmount" min="50" max="500000" step="50" placeholder="4500" /></div>
+        <input type="text" inputmode="decimal" autocomplete="off" id="plAmount" placeholder="4.500" /></div>
       <div class="adm-row"><div class="lbl"><strong>Açıklama</strong><small>Müşterinin ödeme ekranında görür</small></div>
         <input type="text" id="plDesc" maxlength="120" placeholder="GES Marketim — 2x540W paket" /></div>
       <div class="adm-row"><div class="lbl"><strong>Sipariş no</strong><small>İsteğe bağlı</small></div>
@@ -101,6 +101,7 @@
       <div class="adm-note info" style="margin-top:16px">
         <strong>Bağlantı:</strong>
         <pre id="plUrl" style="margin:8px 0 0">Tutar girin…</pre>
+        <p id="plAmt" hidden style="margin:8px 0 0"></p>
       </div>
       <div class="adm-actions">
         <button class="btn" id="plCopy" disabled>📋 Bağlantıyı kopyala</button>
@@ -126,7 +127,7 @@
         iyzico'dan okuyup, her taksit için <strong>bağlantıya yazılacak tutarı</strong> hesaplayalım.
       </p>
       <div class="adm-row"><div class="lbl"><strong>Tahsil edilecek tutar (₺)</strong><small>Müşterinin kartından çıkması gereken toplam</small></div>
-        <input type="number" id="tkTarget" min="50" max="500000" step="1" placeholder="20000" /></div>
+        <input type="text" inputmode="decimal" autocomplete="off" id="tkTarget" placeholder="20.000" /></div>
       <div class="adm-actions">
         <button class="btn" id="tkGo">Taksit tablosunu getir</button>
       </div>
@@ -213,7 +214,18 @@
     if (CARD_MAX && CARD_MAX < PAY_MAX) PAY_MAX = CARD_MAX;
     var PAY_ERR = "Tutar " + nf.format(PAY_MIN) + " ₺ ile " + nf.format(PAY_MAX) + " ₺ arasında olmalı."
       + (CARD_MAX && PAY_MAX === CARD_MAX ? " Üst sınır iyzico hesabınızın tek işlem limitidir; yükseltmek için iyzico'ya başvurun, sonra config'te commerce.cardMaxTL'yi güncelleyin." : "");
-    ["#plAmount", "#tkTarget"].forEach(function (s) { var i = $(s); if (i) { i.min = PAY_MIN; i.max = PAY_MAX; } });
+    // Tutar okuma: Türkçe yazım esastır. "120.000" = 120 bin ₺ ve
+    // "1.250,50" = 1.250 ₺ 50 kr; noktayla ayrılmış tam 3'lü gruplar BİNLİK
+    // ayırıcıdır. Bağlantıdaki t= değeri JS sayısıdır ("19906.62") ve öyle
+    // okunur. Eskiden "120.000" 120 ₺ okunuyordu. odeme.html ile AYNI kural.
+    function parseTL(v) {
+      var s = String(v == null ? "" : v).replace(/[^\d.,]/g, "");
+      var c = s.lastIndexOf(","), d = s.lastIndexOf(".");
+      if (c >= 0 && d >= 0) s = c > d ? s.replace(/\./g, "").replace(",", ".") : s.replace(/,/g, "");
+      else if (c >= 0) s = /^\d{1,3}(,\d{3})+$/.test(s) ? s.replace(/,/g, "") : s.replace(",", ".");
+      else if (/^\d{1,3}(\.\d{3})+$/.test(s)) s = s.replace(/\./g, "");
+      return Math.round((+s || 0) * 100) / 100;
+    }
     if ($("#plRange")) $("#plRange").textContent = nf.format(PAY_MIN) + " – " + nf.format(PAY_MAX) + " ₺ arası"
       + (CARD_MAX && PAY_MAX === CARD_MAX ? " (iyzico tek işlem limiti)" : "");
 
@@ -391,16 +403,24 @@
         w.hidden = false;
       });
 
+      var plAmt = $("#plAmt");
+      var nf2 = new Intl.NumberFormat("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
       function build() {
         // Kuruş kabul edilir: taksit farkı geri hesaplanınca tutar tam sayı olmaz.
-        var v = Math.round((+String(amt.value).replace(",", ".") || 0) * 100) / 100;
+        var v = parseTL(amt.value);
         tks.disabled = tek.checked;              // tek çekim varken taksit sayısı anlamsız
         if (!(v >= PAY_MIN && v <= PAY_MAX)) {
           url = "";
           out.textContent = v ? PAY_ERR : "Tutar girin…";
+          plAmt.hidden = true;
           copy.disabled = true; wa.removeAttribute("href"); open.removeAttribute("href");
           return;
         }
+        // Okunan tutar açıkça yazılır: yanlış okunan tutar gönderilmeden görülsün.
+        var shown = "₺" + (Number.isInteger(v) ? nf.format(v) : nf2.format(v));
+        plAmt.hidden = false;
+        plAmt.innerHTML = "Bağlantıdaki tutar: <strong></strong>";
+        plAmt.querySelector("strong").textContent = shown;
         var q = "?t=" + v;
         if (desc.value.trim()) q += "&a=" + encodeURIComponent(desc.value.trim().slice(0, 120));
         if (ref.value.trim()) q += "&s=" + encodeURIComponent(ref.value.trim().slice(0, 40));
@@ -413,9 +433,8 @@
         out.textContent = url;
         copy.disabled = false;
         open.href = url;
-        var nf2 = new Intl.NumberFormat("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         var msg = "Merhaba, " + (desc.value.trim() || "siparişiniz") + " için ödeme bağlantınız: "
-          + url + " — tutar: ₺" + (Number.isInteger(v) ? nf.format(v) : nf2.format(v))
+          + url + " — tutar: " + shown
           + ". Kart ile güvenle ödeyebilirsiniz.";
         wa.href = "https://wa.me/" + (waNo || "") + "?text=" + encodeURIComponent(msg);
       }
@@ -445,10 +464,11 @@
       var t = $("#tkTarget"), go = $("#tkGo"), out = $("#tkOut");
       var nf2 = new Intl.NumberFormat("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
       var tl = function (n) { return "₺" + nf2.format(Math.round((+n || 0) * 100) / 100); };
-      if (!t.value && $("#plAmount").value) t.value = Math.round(+$("#plAmount").value || 0) || "";
+      var p0 = Math.round(parseTL($("#plAmount").value));
+      if (!t.value && p0) t.value = nf.format(p0);
 
       go.addEventListener("click", function () {
-        var hedef = Math.round((+String(t.value).replace(",", ".") || 0) * 100) / 100;
+        var hedef = parseTL(t.value);
         if (!(hedef >= PAY_MIN && hedef <= PAY_MAX)) {
           out.className = "adm-note err"; out.hidden = false;
           out.textContent = PAY_ERR;
