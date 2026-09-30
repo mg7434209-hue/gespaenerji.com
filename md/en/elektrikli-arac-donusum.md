@@ -3,7 +3,7 @@ title: "Solar Conversion for EVs — BOOST MPPT | GESPA Energy"
 description: "Solar conversion for golf carts and service vehicles. MS Teknik BOOST MPPT 24–72 V: AGM, gel, lead-acid and lithium support, Bluetooth setup."
 canonical: https://www.gespaenerji.com/en/elektrikli-arac-donusum.html
 lang: en
-dateModified: 2026-09-29
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 
@@ -127,9 +127,13 @@ Values are taken from the manufacturer's data sheet. We size the right panel pow
 
 What do BOOST MPPT, MPPT and LiFePO₄ mean? [Solar Glossary →](https://www.gespaenerji.com/en/sozluk.html#boost-mppt)
 
-![BOOST MPPT akü uyumluluğu: AGM, jel, kurşun asit, lityum (LiFePO4) ve derin döngü aküler; desteklenen sistem voltajları 24V, 36V, 48V, 60V, 72V](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-aku-uyumluluk.webp)
+![BOOST MPPT battery compatibility: AGM, gel, lead-acid, lithium (LiFePO4) and deep-cycle batteries; supported system voltages 24V, 36V, 48V, 60V, 72V](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-aku-uyumluluk.webp)
 
 The unit works with AGM, gel, flooded lead-acid, lithium (LiFePO₄) and deep-cycle batteries. Click the image to enlarge.
+
+![Battery types compatible with BOOST MPPT: AGM, gel, lead-acid, lithium (LiFePO4), deep-cycle and nickel-based (NiCd/NiMH) batteries; 24V, 36V, 48V, 60V and 72V systems](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-aku-tipleri.webp)
+
+The manufacturer's compatibility chart: nickel-based (NiCd / NiMH) batteries are supported too; charging values are set in the user profile to the battery maker's recommended values. Click the image to enlarge.
 
 ⚡ New Category
 

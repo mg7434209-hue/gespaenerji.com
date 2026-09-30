@@ -106,7 +106,12 @@ build'de statik basılır, main.js `data-pkg-*` ile tazeler. TEKNİK DEĞERLER
 üreticinin bülteninden gelir — kaynak PDF ve ham görseller
 `assets/img/products/ev/kaynak/` altındadır; değer değiştirmeden önce oraya bak.
 Cihaz 24/36/48/60/72 V ve AGM·jel·kurşun-asit·lityum akülerle uyumludur;
-"yalnız lityum" veya "48V+" yazma. Tedarikçi MS Teknik'in telefonu siteye
+"yalnız lityum" veya "48V+" yazma. Künyede iki üretici görseli var:
+`boost-mppt-aku-uyumluluk.webp` ve `boost-mppt-aku-tipleri.webp` (ikincisi
+derin döngü + nikel bazlı NiCd/NiMH da gösterir). Bültende hazır profil
+yalnız AGM/jel/kurşun-asit/lityumdur; nikel bazlı destek KULLANICI PROFİLİ
+iledir. Bu yüzden künye tablosu bülteni yazar, NiCd/NiMH yalnız görsel
+altyazısında "üreticinin görseli" diye geçer. Tedarikçi MS Teknik'in telefonu siteye
 KONMAZ — iletişim tek kaynağı config.company'dir) ·
 `ai-cankurtaran-destek-sistemi.html`
 (havuz güvenliği; lacivert/aqua `pool-*` stilleri, form → WhatsApp lead;

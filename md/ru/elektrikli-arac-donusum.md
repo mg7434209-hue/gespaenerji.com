@@ -3,7 +3,7 @@ title: "Солнечное переоборудование — BOOST MPPT | GES
 description: "Солнечные панели для гольф-каров и служебных машин. MS Teknik BOOST MPPT 24–72 В: AGM, гель, свинцово-кислотные и литий, настройка по Bluetooth."
 canonical: https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html
 lang: ru
-dateModified: 2026-09-29
+dateModified: 2026-09-30
 publisher: "GESPA Enerji"
 ---
 
@@ -127,9 +127,13 @@ publisher: "GESPA Enerji"
 
 Что такое BOOST MPPT, MPPT и LiFePO₄? [Словарь солнечной энергетики →](https://www.gespaenerji.com/ru/sozluk.html#boost-mppt)
 
-![BOOST MPPT akü uyumluluğu: AGM, jel, kurşun asit, lityum (LiFePO4) ve derin döngü aküler; desteklenen sistem voltajları 24V, 36V, 48V, 60V, 72V](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-aku-uyumluluk.webp)
+![Совместимость BOOST MPPT с АКБ: AGM, гелевые, свинцово-кислотные, литиевые (LiFePO4) и тяговые; поддерживаемые напряжения систем 24 В, 36 В, 48 В, 60 В, 72 В](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-aku-uyumluluk.webp)
 
 Устройство работает с AGM, гелевыми, залитыми свинцово-кислотными, литиевыми (LiFePO₄) и тяговыми АКБ. Нажмите на изображение, чтобы увеличить.
+
+![Типы АКБ, совместимые с BOOST MPPT: AGM, гелевые, свинцово-кислотные, литиевые (LiFePO4), тяговые и никелевые (NiCd/NiMH); системы 24 В, 36 В, 48 В, 60 В и 72 В](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-aku-tipleri.webp)
+
+Схема совместимости от производителя: поддерживаются и никелевые аккумуляторы (NiCd / NiMH); значения заряда задаются в пользовательском профиле по рекомендациям производителя АКБ. Нажмите на изображение, чтобы увеличить.
 
 ⚡ Новая категория
 
