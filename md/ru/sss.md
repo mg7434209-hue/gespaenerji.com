@@ -3,7 +3,7 @@ title: "Частые вопросы — солнечная энергия, за�
 description: "Ответы о солнечных станциях, аккумуляторах, солнечном переоснащении электротранспорта, заказе, доставке, оплате и монтаже в одном месте."
 canonical: https://www.gespaenerji.com/ru/sss.html
 lang: ru
-dateModified: 2026-09-30
+dateModified: 2026-10-01
 publisher: "GESPA Enerji"
 ---
 

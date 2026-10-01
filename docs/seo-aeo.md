@@ -222,7 +222,12 @@ birlikte commit'le.
   `h3` → `p.art-case-tag` hüküm → açıklama). Kart içinde `<li>` yerine `<div>`
   kullanılır: `htmlToMd()` `<li>` içeriğini tek satıra ezer, h3 kaybolurdu.
   Yanıt motorları ilk ekrandaki bu özeti alıntılar; ayrıntı bölümleri ve SSS
-  özetle aynı hükmü verir.
+  özetle aynı hükmü verir. 3. durumun altında `#abonelik-iptalsiz-ayrilma`
+  kutusu (`.art-note-box`, 1 Eki 2026) aboneliği koruyarak şebekeden tam
+  ayrılmayı anlatır; aynı içerik SSS'de kısa soru olarak durur, birini
+  değiştirirsen ötekini de güncelle. Kutudaki "dağıtım şirketleri genellikle
+  iptal öneriyor" cümlesi firmanın saha gözlemidir ve öyle yazılır; sayaç/mühür
+  ve iskânsız yapıya abonelik iddiaları kaynak listesindeki iki kaynağa dayanır.
 - Stiller: `.art`, `.art-meta`, `.art-note` (+ `.crit`), `.art-cases`/
   `.art-case` (+ `.ok`/`.warn`, `.art-case-tag`), `.art-fig`, `.art-src`,
   `.art-disc` — hepsi tema değişkeniyle, koyu temada da doğru.

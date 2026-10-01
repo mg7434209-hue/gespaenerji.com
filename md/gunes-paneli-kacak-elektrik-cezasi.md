@@ -3,7 +3,7 @@ title: "Güneş Paneli Kaçak Elektrik Cezası: Nedeni ve Ne Yapmalı? | GESPA E
 description: "Güneş paneline neden ceza yazılıyor? 2 Nisan 2026 yönetmeliğindeki yaptırımlar, kabul süreci, Antalya'da AEDAŞ'a itiraz ve yasal kurulum adımları."
 canonical: https://www.gespaenerji.com/gunes-paneli-kacak-elektrik-cezasi.html
 lang: tr
-dateModified: 2026-09-30
+dateModified: 2026-10-01
 publisher: "GESPA Enerji"
 ---
 
@@ -13,7 +13,7 @@ publisher: "GESPA Enerji"
 
 Antalya'dan Yozgat'a birçok ilde güneş enerjisi kullanan çiftçilere ve işletmelere yüz binlerce liralık cezalar kesiliyor. Bu yazıda cezanın hukuki dayanağını, kimin risk altında olduğunu ve ne yapılması gerektiğini kaynaklarıyla açıklıyoruz.
 
-Yayın: 24 Eylül 2026 · Mevzuat durumu Eylül 2026 itibarıyladır · GESPA Enerji
+Yayın: 24 Eylül 2026 · Güncelleme: 1 Ekim 2026 · Mevzuat durumu Eylül 2026 itibarıyladır · GESPA Enerji
 
 ## Kısaca: sisteminiz hangi durumda?
 
@@ -46,6 +46,18 @@ Dağıtım şirketine başvurusu yapılmış, bağlantı anlaşması imzalanmı�
 - İnvertör çıkışının binanın şebeke tesisatına bağlanması
 
 Emin değilseniz kurulumdan önce dağıtım şirketine yazılı olarak sorun.
+
+### Aboneliği iptal etmeden şebekeden ayrılabilir miyim?
+
+Sahada gördüğümüz kadarıyla dağıtım şirketleri, tam off-grid geçmek isteyenlere genellikle aboneliğin iptalini öneriyor. Ancak iptal edilen aboneliği yeniden almak zahmetli olabilir; özellikle izin durumu tartışmalı yapılarda ve tarım arazilerinde yeni abonelik bağlanamayabilir. Bu nedenle aboneliği koruyup tesisatı şebekeden fiziksel olarak ayırmak da bir seçenektir. Doğru yapılması için:
+
+- **Kesim sayaçtan sonra yapılır.** Sayaca, sayaç mührüne ve sayaca kadar olan hatta dokunulmaz; bunlara müdahale ayrı bir yaptırım konusudur.
+- **Şalter indirmek yeterli değildir.** Sayaç çıkışındaki kablo sökülür, uçları izole edilir. Geri kaldırılabilen bir şalter veya komütatör, sistemi şebekeyle ilişkili gösterebilir.
+- **Güneş tarafında şebeke girişi boş kalır.** Hibrit invertörün AC giriş ucu bağlanmaz, transfer anahtarı kullanılmaz.
+- **İşlem yetkili elektrikçi tarafından yapılır ve belgelenir:** fotoğraf, yazılı tespit, tarih.
+- **Dağıtım şirketine yazılı bildirim yapılır ve teyit istenir.** Sabit kalan sayaç endeksi, tüketim yapılmadığını gösterir.
+
+Bu yöntem mevzuatta ayrıca tarif edilmiş bir prosedür değildir; uygulamadan önce bölgenizdeki dağıtım şirketinden yazılı görüş almanızı öneririz. Daha önce tespit veya tebligat yapılmışsa, sonradan yapılan ayrım o işlemi kendiliğinden ortadan kaldırmayabilir.
 
 **En yaygın yanlışı düzeltelim:** "Artık güneş enerjisi ile şebeke elektriği aynı anda kullanılamıyor" diye bir kural yoktur. Şebekeye bağlı (on-grid) bir sistemde panelleriniz üretim yaparken şebekeden de elektrik çekersiniz; sistemin çalışma prensibi zaten budur. Ceza bu yüzden yazılmıyor.
 
@@ -150,6 +162,10 @@ Hayır, böyle bir yasak yoktur. Şebekeye bağlı (on-grid) sistemlerin çalı�
 
 Panel, invertör, akü ve bunların beslediği hat ve cihazlar şebeke elektriğine hiçbir noktada temas etmiyorsa güneş tarafı off-grid çalışır ve genel kural olarak şebeke bağlantı ve kabul sürecinin konusu olmaz. Aynı pano ya da sayaç üzerinden besleme, aynı pompayı sırayla güneşten ve şebekeden besleyen komütatör ya da aküyü şebekeden şarj eden hibrit invertör bu ayrımı bozar; bu durumda başvuru ve kabul gerekir. Emin değilseniz kurulumdan önce dağıtım şirketine yazılı olarak sorun.
 
+### Aboneliği iptal etmeden şebekeden ayrılabilir miyim?
+
+Mümkün, ancak doğru yapılmalıdır. İptal edilen aboneliği yeniden almak zor olabilir; izin durumu tartışmalı yapılarda ve tarım arazilerinde yeni abonelik bağlanamayabilir. Aboneliği koruyarak ayrılmak için yetkili elektrikçi sayaç çıkışındaki kabloyu söker ve uçlarını izole eder; sayaca ve mühüre dokunulmaz, hibrit invertörün AC girişi ve transfer anahtarı kullanılmaz. İşlem belgelenir ve dağıtım şirketine yazılı bildirilir. Bu yöntem mevzuatta ayrıca tarif edilmediği için uygulamadan önce dağıtım şirketinden yazılı görüş alın.
+
 ### Şebekeye hiç enerji vermiyorum, yine de ceza alır mıyım?
 
 Alabilirsiniz. Denetimde belirleyici olan, kabulü yapılmamış bir üretim tesisinin işletmeye alınmış olmasıdır. "Şebekeye basmıyorum" beyanı tek başına koruma sağlamaz.
@@ -192,6 +208,8 @@ Ceza aldıysanız ya da sisteminizin durumundan emin değilseniz, tebligatınız
 - [Tarımsal sulamada güneş enerjisi için yapı ruhsatı muafiyeti, Çevre, Şehircilik ve İklim Değişikliği Bakanlığı](https://www.csb.gov.tr/tarimsal-sulamada-gunes-enerjisi-icin-yapi-ruhsati-muafiyeti-bakanlik-faaliyetleri-34172)
 - [Yozgat'ta tarımsal sulamada kullanılan güneş paneli için çiftçiye para cezası, ANKA Haber](https://ankahaber.net/haber/yozgat-ta-tarimsal-sulamada-kullanilan-gunes-paneli-icin-ciftciye-para-cezasi-3d737f47)
 - [Alanya tarımına elektrik darbesi, Yeni Alanya](https://www.yenialanya.com/alanya-tarimina-elektrik-darbesi)
+- [Elektrik Piyasası Tüketici Hizmetleri Yönetmeliği: kaçak tüketim ve sayaç mühürleme tanımları, Lexpera](https://www.lexpera.com.tr/mevzuat/yonetmelikler/elektrik-piyasasi-tuketici-hizmetleri-yonetmeligi-2)
+- [İskânı (yapı kullanma izni) olmayan eve elektrik, su, doğalgaz nasıl bağlatılır? (3194 sayılı İmar Kanunu md. 31), Türkyılmaz Hukuk Bürosu](https://turkyilmazhukuk.av.tr/iskani-yapi-kullanma-izni-olmayan-eve-elektrik-su-dogalgaz-nasil-baglatilir/)
 
 *Bu yazı genel bilgilendirme amaçlıdır, hukuki görüş veya tavsiye niteliği taşımaz. Kendi durumunuza ilişkin bağlayıcı bilgi için dağıtım şirketinize, EPDK'nın güncel mevzuatına ve bir hukuk danışmanına başvurunuz. Mevzuat değişebilir; yazı yayın tarihindeki duruma göre hazırlanmıştır.*
 

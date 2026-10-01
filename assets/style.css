@@ -2132,6 +2132,10 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
 .guide-notice .art-note{margin:0}
 .art-note{background:var(--bg-alt);border-left:4px solid var(--sun);border-radius:0 12px 12px 0;padding:14px 18px;margin:22px 0}
 .art-note.crit{border-left-color:#d9534f}
+/* Özetteki 3. durumun altındaki soru kutusu (başlık + maddeler) */
+.art .art-note-box{margin:14px 0}
+.art .art-note-box h3{margin:0 0 8px;font-size:1.06rem;line-height:1.4}
+.art .art-note-box ul{margin-bottom:14px}
 .art-note p:last-child{margin-bottom:0}
 .art-cases{margin:0 0 6px}
 .art .art-cases h2{border-top:0;padding-top:0;margin-top:0}

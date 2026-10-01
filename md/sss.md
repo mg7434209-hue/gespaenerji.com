@@ -3,7 +3,7 @@ title: "Sıkça Sorulan Sorular — Güneş Enerjisi, Sipariş ve Kurulum | GESP
 description: "Güneş enerjisi santrali, akü, elektrikli araç güneş dönüşümü, sipariş, kargo, ödeme ve kurulum hakkında sık sorulan soruların cevapları tek sayfada. GESPA Enerji, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/sss.html
 lang: tr
-dateModified: 2026-09-30
+dateModified: 2026-10-01
 publisher: "GESPA Enerji"
 ---
 
@@ -210,6 +210,10 @@ Hayır, böyle bir yasak yoktur. Şebekeye bağlı (on-grid) sistemlerin çalı�
 ### Güneş sistemini şebekeden tamamen ayırırsam başvuru gerekir mi?
 
 Panel, invertör, akü ve bunların beslediği hat ve cihazlar şebeke elektriğine hiçbir noktada temas etmiyorsa güneş tarafı off-grid çalışır ve genel kural olarak şebeke bağlantı ve kabul sürecinin konusu olmaz. Aynı pano ya da sayaç üzerinden besleme, aynı pompayı sırayla güneşten ve şebekeden besleyen komütatör ya da aküyü şebekeden şarj eden hibrit invertör bu ayrımı bozar; bu durumda başvuru ve kabul gerekir. Emin değilseniz kurulumdan önce dağıtım şirketine yazılı olarak sorun.
+
+### Aboneliği iptal etmeden şebekeden ayrılabilir miyim?
+
+Mümkün, ancak doğru yapılmalıdır. İptal edilen aboneliği yeniden almak zor olabilir; izin durumu tartışmalı yapılarda ve tarım arazilerinde yeni abonelik bağlanamayabilir. Aboneliği koruyarak ayrılmak için yetkili elektrikçi sayaç çıkışındaki kabloyu söker ve uçlarını izole eder; sayaca ve mühüre dokunulmaz, hibrit invertörün AC girişi ve transfer anahtarı kullanılmaz. İşlem belgelenir ve dağıtım şirketine yazılı bildirilir. Bu yöntem mevzuatta ayrıca tarif edilmediği için uygulamadan önce dağıtım şirketinden yazılı görüş alın.
 
 ### Şebekeye hiç enerji vermiyorum, yine de ceza alır mıyım?
 
