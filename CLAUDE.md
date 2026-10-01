@@ -93,7 +93,10 @@ edilir" maddesi vardır — TR sürüm tedarik edilene kadar KALDIRMA) ·
 `sepet.html` (sepet + sipariş: kalem listesi JS ile çizilir, özet/form statik;
 noindex + robots engelli + sitemap dışı ama build dil kopyalarını üretir.
 Sepet verisi localStorage `gespa-cart` = {paketId: adet}; birim fiyat kuralı
-main.js `pkgUnit()` — TÜM fiyat noktaları bununla hesaplanır. Üst menüdeki 🛒
+main.js `pkgUnit()` — TÜM fiyat noktaları bununla hesaplanır. Rozet, liste ve
+ödeme TEK süzgeci okur (cart `sellable()`: config'te olan + fiyatlı); eski ya
+da geçersiz kimlik açılışta depodan silinir. Eskiden rozet bunları da sayıyor,
+1 ürünlü sepette "2" yazıyordu (1 Eki 2026, test denetler). Üst menüdeki 🛒
 rozeti main.js'in `.nav-actions`a enjekte ettiği istemci bileşenidir, sayfalara
 elle eklenmez. Sipariş WhatsApp mesajına çok kalemli döküm yazılır) ·
 `su-isitici.html` (PV su ısıtıcı) · `elektrikli-arac-donusum.html`

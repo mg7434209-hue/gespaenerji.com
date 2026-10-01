@@ -231,6 +231,26 @@ assert.ok(/location\.hash/.test(fs.readFileSync(path.join(root,'odeme-sonuc.html
  // moves into the drawer (main.js copy), otherwise the menu button is pushed off a 390 px phone screen.
  const css=fs.readFileSync(path.join(root,'assets/style.css'),'utf8'),mjs=fs.readFileSync(path.join(root,'assets/main.js'),'utf8');
  assert.ok(/@media\(max-width:560px\)\{\s*\.nav-actions \.lang-switch\{display:none\}/.test(css)&&mjs.includes('classList.add("menu-lang")'),'narrow header: language switch moves into the drawer');}
+// Cart (main.js): the header badge, the cart list and checkout read ONE filter. A browser could keep an
+// old product id (removed packages, the former "set:<id>" key); the list hid it but the badge counted
+// it, so a cart with one product showed "2". Unknown, unpriced or non-positive entries are dropped and
+// the stored cart is cleaned on load.
+{const src=fs.readFileSync(path.join(root,'assets/main.js'),'utf8');
+ const a=src.indexOf('    var cart = (function () {'),b=src.indexOf('\n    })();',a);assert.ok(a>0&&b>a,'main.js cart module');
+ const run=(stored)=>{const mem=stored===undefined?{}:{'gespa-cart':JSON.stringify(stored)},badges=[{textContent:'',hidden:true}],io={writes:0};
+  const pk=[{id:'kit-2x540w',price:2200},{id:'boost-mppt',price:146},{id:'teklif-urun',price:null}];
+  const sb={localStorage:{getItem:k=>k in mem?mem[k]:null,setItem:(k,v)=>{io.writes++;mem[k]=v;}},$$:()=>badges,
+   rawPkgOf:id=>pk.find(p=>p.id===id)||null};
+  const cart=require('node:vm').runInNewContext(src.slice(a,b+'\n    })();'.length)+';cart',sb);
+  return {cart,mem,badges,io};};
+ const t=run({'kit-2x540w':1,'set:yolcu':1,'konut-baslangic':2,'teklif-urun':1,'boost-mppt':0});
+ assert.equal(t.cart.count(),1,'badge counts only sellable products');
+ assert.deepEqual(Object.keys(t.cart.read()),['kit-2x540w'],'cart list keeps only sellable products');
+ assert.deepEqual(JSON.parse(t.mem['gespa-cart']),{'kit-2x540w':1},'stored cart is cleaned on load');
+ t.cart.add('konut-baslangic',1);t.cart.add('teklif-urun',1);t.cart.setQty('set:kargo',2);
+ assert.equal(t.cart.count(),1,'unknown or unpriced products are never added');
+ t.cart.add('boost-mppt',2);t.cart.badge();assert.equal(t.cart.count(),3);assert.equal(t.badges[0].textContent,3,'badge shows the total quantity');
+ for(const e of [run({}),run(undefined),run({'kit-2x540w':2})])assert.equal(e.io.writes,0,'a clean or missing cart is not rewritten on load');}
 // Payment link amounts: Turkish writing wins ("120.000" is 120 thousand, not 120 TL), link t= values
 // are plain JS numbers. The link generator (admin.html) and the payment page share ONE rule.
 {const grab=(src,f)=>{const m=src.match(/function parseTL\(v\) \{[\s\S]*?\n\s*\}\n/);assert.ok(m,f+' parseTL');return m[0].replace(/\s+/g,' ').trim();};

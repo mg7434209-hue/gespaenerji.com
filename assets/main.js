@@ -218,15 +218,32 @@
     }
     var cart = (function () {
       var KEY = "gespa-cart";
-      function read() { try { var c = JSON.parse(localStorage.getItem(KEY) || "{}"); return (c && typeof c === "object" && !Array.isArray(c)) ? c : {}; } catch (e) { return {}; } }
+      function pkgOf(id) { return rawPkgOf(id); }
+      // Sepette yalnız SATIŞTAKİ ürün durur: config'te olan, fiyatı belli
+      // (priceOnRequest değil) ve adedi pozitif. Tarayıcıda eski bir ürün
+      // kimliği kalabiliyordu (kaldırılan paketler, eski "set:<id>" anahtarı):
+      // sepet listesi onu göstermiyor ama üst menü rozeti sayıyordu, 1 ürünlü
+      // sepette "2" yazıyordu. Rozet, liste ve ödeme artık AYNI süzgeci okur.
+      function sellable(id) { var p = pkgOf(id); return !!(p && p.price != null); }
+      function clean(c) {
+        var out = {};
+        if (c && typeof c === "object" && !Array.isArray(c)) Object.keys(c).forEach(function (id) {
+          var q = Math.floor(+c[id]);
+          if (q > 0 && sellable(id)) out[id] = Math.min(99, q);
+        });
+        return out;
+      }
+      function stored() { try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { return {}; } }
+      function read() { return clean(stored()); }
       function write(c) { try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {} badge(); }
       function count() { var c = read(), n = 0; Object.keys(c).forEach(function (k) { n += c[k]; }); return n; }
       function badge() { var n = count(); $$(".cart-count").forEach(function (b) { b.textContent = n; b.hidden = !n; }); }
-      function pkgOf(id) { return rawPkgOf(id); }
+      // Açılışta kayıt bir kez temizlenir; geçersiz satır depoda birikmesin.
+      (function () { var s = stored(), c = clean(s); if (JSON.stringify(s) !== JSON.stringify(c)) { try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {} } })();
       return {
         read: read, count: count, badge: badge, pkgOf: pkgOf,
-        add: function (id, qty) { if (!pkgOf(id)) return; var c = read(); c[id] = Math.max(1, Math.min(99, (c[id] || 0) + (qty || 1))); write(c); },
-        setQty: function (id, qty) { var c = read(); if (qty > 0) c[id] = Math.min(99, qty); else delete c[id]; write(c); },
+        add: function (id, qty) { if (!sellable(id)) return; var c = read(); c[id] = Math.max(1, Math.min(99, (c[id] || 0) + (qty || 1))); write(c); },
+        setQty: function (id, qty) { var c = read(); if (qty > 0 && sellable(id)) c[id] = Math.min(99, Math.floor(qty)); else delete c[id]; write(c); },
         remove: function (id) { var c = read(); delete c[id]; write(c); }
       };
     })();
