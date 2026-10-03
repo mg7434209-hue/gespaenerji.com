@@ -427,9 +427,13 @@ ve sepet simgesi ekran dışında kalır.
   `vatNote()`/`shipNote()` — yeni bir kargo notu eklersen oraya bağla.
 - `img` boşsa kart nötr yer tutucu (`.sh-noimg`) gösterir; BAŞKA ürünün
   fotoğrafı kullanılmaz. `url` boşsa "Detay" düğmesi ve bağlantılar basılmaz.
-- `admin.pass`: admin.html şifresi (statik sitede yalnızca caydırıcı).
-  Railway'de `ADMIN_PASS` tanımlıysa sunucu YALNIZ onu kabul eder, giriş
-  sunucuda doğrulanır; soru-cevap moderasyonu `ADMIN_PASS` ister.
+- Yönetici şifresi YALNIZ Railway ortam değişkeni `ADMIN_PASS`'tır; config'e
+  şifre YAZILMAZ (config.js her ziyaretçiye gider, repo herkese açık — eski
+  `admin.pass` bu yüzden kaldırıldı, test denetler). `ADMIN_PASS` yoksa tüm
+  yönetici uçları 503 döner, admin.html açılmaz (Pages aynasında da açılmaz).
+  ŞİFRE DEĞİŞTİRME: yeni değeri `ADMIN_PASS`'a, eskisini `ADMIN_PASS_PREV`'e
+  yaz; devir (sayaç + soru-cevap) eski sunucuya önceki şifreyle sorulur.
+  Yeni şifreyle bir dağıtım bitince `ADMIN_PASS_PREV` silinir.
 - Admin paneli fiyatları localStorage'da override eder (yalnız o cihaz);
   kalıcı/herkese yayın = değerleri bu dosyaya işleyip commit'lemek.
   Anahtar `gespa-prices-usd` (değerler USD): eski `gespa-prices` TL idi,

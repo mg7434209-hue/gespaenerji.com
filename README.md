@@ -65,7 +65,7 @@ npm run build    # sadece /en /de /ru dil sayfalarını üret
   sayfalara elle gömülmez.
 - Fiyatları `admin.html` panelinden düzenleyip dışa aktarabilirsiniz; kalıcı yayın için
   değerler `config.js`'e işlenir.
-- Admin şifresi: `config.js → admin.pass` (statik sitede yalnızca caydırıcıdır).
+- Admin şifresi: yalnız Railway ortam değişkeni `ADMIN_PASS` (config'e yazılmaz).
 - İletişim/bülten formları talebi WhatsApp'a yönlendirir; istenirse bir form servisine bağlanabilir.
 
 ## SEO içerikleri ve doğrulama

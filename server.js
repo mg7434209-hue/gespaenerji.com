@@ -697,24 +697,27 @@ function trTime(d) {
 }
 
 // ---- Yönetici şifresi -------------------------------------------------------
-// Railway ortam değişkeni ADMIN_PASS tanımlıysa sunucu YALNIZ onu kabul eder.
-// config.admin.pass herkese açık config.js'te durur (statik sitede caydırıcı);
-// ADMIN_PASS gelince canlıda geçersiz olur. Tanımlı değilse eski davranış
-// sürer. Soru-cevap moderasyonu ADMIN_PASS olmadan HİÇ çalışmaz: içerik
-// firmanın adıyla yayınlanır, herkese açık şifreye bırakılamaz.
+// TEK KAYNAK Railway ortam değişkeni ADMIN_PASS. Tanımlı değilse TÜM yönetici
+// uçları 503 döner (kapalı). Eskiden config.admin.pass yedekti; o dosya her
+// ziyaretçiye servis edildiği ve repo herkese açık olduğu için şifre herkesçe
+// biliniyordu — yedek kaldırıldı (3 Eki 2026).
+// ADMIN_PASS_PREV: şifre DEĞİŞTİRİLİRKEN bir önceki değer. Yalnız dağıtım
+// devrinde (sayaç + soru-cevap) eski sunucuya sorulur, yönetici girişinde
+// KABUL EDİLMEZ. Yeni şifreyle ilk dağıtım bitince silinebilir.
 const ADMIN_ENV = String(process.env.ADMIN_PASS || "").trim();
-function adminSecret() { return ADMIN_ENV || String((SITE_CFG && SITE_CFG.admin && SITE_CFG.admin.pass) || ""); }
+const ADMIN_PREV = String(process.env.ADMIN_PASS_PREV || "").trim();
+function adminSecret() { return ADMIN_ENV; }
 function safeEqual(a, b) {
   const x = Buffer.from(String(a || ""), "utf8"), y = Buffer.from(String(b || ""), "utf8");
   return x.length === y.length && x.length > 0 && crypto.timingSafeEqual(x, y);
 }
 function adminOk(p) { return safeEqual(p, adminSecret()); }
-// Devirde denenecek şifreler: önce geçerli olan, sonra config şifresi. ADMIN_PASS
-// Railway'e İLK eklendiğinde eski sunucu henüz config şifresini bekler; yalnız
-// yenisi denenseydi sayaç ve soru-cevap o dağıtımda devralınamazdı.
+// Devirde denenecek şifreler: önce geçerli olan, sonra ADMIN_PASS_PREV. Şifre
+// değiştirilirken eski sunucu hâlâ önceki şifreyi bekler; yalnız yenisi
+// denenseydi sayaç ve soru-cevap o dağıtımda devralınamazdı (Volume yoksa
+// soru-cevap kayıtları kaybolurdu).
 function handoffPasses() {
-  const cfgPass = String((SITE_CFG && SITE_CFG.admin && SITE_CFG.admin.pass) || "");
-  return [adminSecret(), cfgPass].filter((p, i, a) => p && a.indexOf(p) === i);
+  return [ADMIN_ENV, ADMIN_PREV].filter((p, i, a) => p && a.indexOf(p) === i);
 }
 function fetchWithPasses(url, cb, maxBytes) {
   const list = handoffPasses();
@@ -742,6 +745,7 @@ const adminFail = (ip) => adminFails.set(ip, recentHits(adminFails, ip, 10 * 60 
 // Yönetici uçlarının ortak kapısı: şifre doğruysa true; değilse yanıtı yazar.
 function adminGate(req, res, pass) {
   const ip = clientIp(req);
+  if (!ADMIN_ENV) { sendJson(res, 503, { needEnv: true, error: "Yönetici şifresi sunucuda tanımlı değil. Railway → Variables → ADMIN_PASS ekleyin." }); return false; }
   if (adminThrottled(ip)) { sendJson(res, 429, { error: "Çok fazla hatalı deneme; 10 dakika sonra tekrar deneyin." }); return false; }
   if (!adminOk(pass)) { adminFail(ip); sendJson(res, 403, { error: "Parola hatalı." }); return false; }
   return true;
@@ -962,7 +966,7 @@ function handleQaRoutes(req, res, urlPath) {
     });
     return true;
   }
-  // Admin girişi sunucuda doğrulanır: ADMIN_PASS tanımlıysa yalnız o geçer.
+  // Admin girişi sunucuda doğrulanır: yalnız ADMIN_PASS geçer.
   if (urlPath === "/api/admin/login") {
     readBody(req, 4 * 1024, (raw) => {
       let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
@@ -1301,7 +1305,7 @@ function handlePayRoutes(req, res, urlPath) {
   }
   // E-posta testi — admin panelindeki düğme çağırır. Canlı sipariş beklemeden
   // SMTP ayarının çalıştığını doğrular ve HATANIN KENDİSİNİ döndürür.
-  // Parola yönetici şifresidir (adminGate: ADMIN_PASS, yoksa config.admin.pass); kötüye kullanımı
+  // Parola yönetici şifresidir (adminGate: ADMIN_PASS); kötüye kullanımı
   // sınırlamak için dakikada bir istek kabul edilir ve posta YALNIZ
   // işletmenin kendi adresine gider — serbest alıcı kabul edilmez.
   if (urlPath === "/api/pay/mailtest" && req.method === "POST") {
@@ -1855,7 +1859,7 @@ function startFx(next) {
 startFx(() => seedVisitsFromLive((msg) => {
   console.log("ziyaretçi sayacı: " + msg);
   seedQaFromLive((qmsg) => {
-    console.log("soru-cevap: " + qmsg + (ADMIN_ENV ? "" : " · UYARI: ADMIN_PASS yok, moderasyon kapalı"));
+    console.log("soru-cevap: " + qmsg + (ADMIN_ENV ? "" : " · UYARI: ADMIN_PASS yok, yönetici uçları kapalı"));
     // Çok dilli statik sayfaları (/en, /de, /ru) başlangıçta üret
     try {
       const built = require("./build").run();
