@@ -2320,3 +2320,103 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
 @media(max-width:900px){.ai-feature,.ai-dev{grid-template-columns:1fr}.ai-feature-media{min-height:0;aspect-ratio:16/9}}
 @media(max-width:700px){.ai-grid{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.ai-svg *{animation:none!important}.ai-card,.ai-card:hover{transition:none;transform:none}}
+
+/* ==== Mobil iyileştirmeler — kategori gezintisi, menü, dokunma alanları ====
+   Ölçümle bulunan sorunlar (375×667 / 360×640 telefonda):
+   - Kategori çipleri 6 satıra dökülüp ~280 px yer kaplıyordu; ilk ürün ikinci
+     ekranda başlıyor, aşağıda çip değiştirmek için yukarı kaydırmak gerekiyordu.
+   - Ürün kartı ~555 px (≈ bir ekran); 21 ürün 12.000+ px kaydırma.
+   - Hamburger menü kaydırılamıyordu; "Teklif Al" küçük telefonda ekran dışıydı.
+   - Dokunmatikte :hover "yapışıyor", dokunulan çip seçili gibi kalıyordu.
+   - Yer yer 11 px yazı, 34–38 px dokunma alanı (hedef ≥44 px). */
+
+/* Okunabilirlik: rozet/etiket yazıları 12 px altına inmesin (tüm ekranlar) */
+.sh-tag,.t-tag,.pkg-disc,.shop-side-head{font-size:.75rem}
+.sh-vat{font-size:.78rem}
+
+/* Dokunmatik cihazda vurgu efekti yalnız fareli cihazlarda çalışsın */
+@media (hover:none){
+  .sh-chip:not(.is-on):hover{color:var(--muted);border-color:var(--line)}
+  .sh-chip-go:hover span{transform:none}
+  .sh-card:hover{transform:none;box-shadow:none;border-color:var(--line)}
+}
+
+/* Mağaza: kategori şeridi tek satır, kaydırmalı ve başlığın altında YAPIŞKAN.
+   --hdr-h main.js'ten gelir (başlık yüksekliği). Sağdaki solma maskesi
+   "kaydırılabilir" ipucu; padding-right son çipin maske dışına çıkmasını sağlar. */
+@media (max-width:900px){
+  .sh-bar{position:sticky;top:var(--hdr-h,64px);z-index:40;margin:0 -20px 14px;padding:8px 0 8px 20px;
+    background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line)}
+  .sh-filters{flex-wrap:nowrap;overflow-x:auto;padding-right:36px;scroll-snap-type:x proximity;
+    scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;
+    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent);
+            mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent)}
+  .sh-filters::-webkit-scrollbar{display:none}
+  .sh-chip{flex:0 0 auto;min-height:44px;white-space:nowrap;scroll-snap-align:start;
+    display:inline-flex;align-items:center}
+  /* Mağaza bölümleri şeridi: aynı kaydırma ipucu ve 44 px dokunma alanı */
+  .shop-side-nav{padding-right:32px;
+    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);
+            mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}
+  .shop-side .slink{min-height:44px}
+}
+
+/* Ürün kartları: telefonda 2 sütun (Trendyol/Amazon düzeni) — aynı ekranda
+   1 yerine 4 ürün; kategori içinde gezinmek 3 kat daha kısa. */
+@media (max-width:520px){
+  .sh-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .sh-tag{top:6px;left:6px;padding:3px 8px;letter-spacing:0;text-transform:none}
+  .sh-body{padding:10px 10px 12px}
+  .sh-body h3{font-size:.88rem;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+  .sh-for{font-size:.78rem;margin-bottom:8px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+  .sh-price{gap:2px 6px}
+  .sh-price strong{font-size:1.1rem}
+  .sh-price strong.sh-poa{font-size:.95rem}
+  .sh-usd{font-size:.75rem}
+  .sh-hav{font-size:.75rem;padding:5px 7px}
+  .sh-vat{font-size:.75rem;margin-top:6px}
+  .sh-act{flex-direction:column;gap:6px;margin-top:10px}
+  .sh-act .btn{min-height:44px;padding:8px;font-size:.82rem}
+  /* "Detay" düğmesi dar kartta ikinci satır açıyordu; görsel ve başlık zaten
+     aynı ürün sayfasına gider. Sepete ekle / Fiyat sor (birincil) kalır. */
+  .sh-act .btn-ghost{display:none}
+}
+@media (max-width:339px){.sh-grid{grid-template-columns:1fr}}
+
+/* Hamburger menü: ekrana sığmayınca KENDİ İÇİNDE kaydırılır (--menu-top
+   main.js'ten). "Araçlar" grup başlığı küçük etiket olarak görünür; iki araç
+   başlıksız kalmasın. Teklif Al tam genişlik birincil buton. */
+@media (max-width:1260px){
+  .menu{max-height:calc(100vh - var(--menu-top,70px));max-height:calc(100dvh - var(--menu-top,70px));
+    overflow-y:auto;overscroll-behavior:contain;padding-bottom:24px}
+  .menu .menu-tools .menu-parent{display:flex;pointer-events:none;margin-top:4px;
+    font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .menu .menu-tools .menu-parent .caret{display:none}
+  .menu > .btn{justify-content:center;min-height:48px;margin-top:6px}
+}
+html.menu-locked,html.menu-locked body{overflow:hidden}
+
+/* Başlık düğmeleri ve çekmecedeki dil seçici: ≥42–44 px dokunma alanı */
+@media (max-width:560px){
+  .cart-btn,.theme-toggle{width:42px;height:42px}
+  .hamburger{min-width:44px;min-height:44px;padding:10px 8px;justify-content:center;align-items:center}
+  .menu .menu-lang button{min-height:44px;min-width:52px}
+}
+/* Alt bilgi bağlantıları: alt alta dizili metin bağlantıları ~36 → ~42 px */
+@media (max-width:760px){
+  .footer-col a{padding:9px 0}
+}
+@media (max-width:380px){
+  .cart-btn,.theme-toggle{width:40px;height:40px}
+}
+
+/* Çerez bandı telefonda kompakt (157 → ~115 px); bant açıkken sohbet
+   düğmesi bandın arkasında kalıyordu — bant kapanana kadar gizli. */
+@media (max-width:760px){
+  .cookie-bar{left:8px;right:8px;padding:10px 12px;gap:8px;font-size:.84rem}
+  .cookie-bar p{flex-basis:100%;line-height:1.45}
+  .cookie-actions{width:100%;flex-wrap:nowrap}
+  .cookie-actions .btn{flex:1 1 0;min-height:44px;padding:8px 12px;justify-content:center}
+  body:has(.cookie-bar) .gchat-fab{opacity:0;pointer-events:none}
+}

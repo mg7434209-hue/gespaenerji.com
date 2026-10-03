@@ -740,6 +740,19 @@
         active = b.getAttribute("data-f");
         $$(".sh-chip", bar).forEach(function (x) { x.classList.toggle("is-on", x === b); });
         render(active);
+        // Mobilde çip şeridi tek satır kayar: seçilen çip görünür alana gelsin.
+        // scrollBy yalnız şeridi kaydırır (scrollIntoView sayfayı da oynatırdı).
+        if (bar.scrollWidth > bar.clientWidth) {
+          var br = b.getBoundingClientRect(), fr = bar.getBoundingClientRect();
+          bar.scrollBy({ left: (br.left + br.width / 2) - (fr.left + fr.width / 2), behavior: "smooth" });
+        }
+        // Liste ortasından süzüldüyse yeni listenin başına dön — yapışkan
+        // şeridin altında kalmasın diye şerit + başlık yüksekliği kadar pay bırakılır.
+        var stick = bar.closest(".sh-bar");
+        var gap = (stick && getComputedStyle(stick).position === "sticky" ? stick.offsetHeight : 0) +
+          (parseFloat(getComputedStyle(doc.documentElement).getPropertyValue("--hdr-h")) || 0) + 8;
+        var gTop = grid.getBoundingClientRect().top;
+        if (gTop < gap) window.scrollTo({ top: window.pageYOffset + gTop - gap, behavior: "smooth" });
       });
       buildFilters();
       renderSale();
@@ -1512,18 +1525,41 @@
     langCopy.classList.add("menu-lang");
     menu.insertBefore(langCopy, menu.firstChild);
   }
+  // Başlık yüksekliği → --hdr-h (mobilde yapışkan kategori şeridi bunun
+  // hemen altına yapışır; başlık yüksekliği ekran genişliğine göre değişir).
+  var siteHeader = $(".site-header");
+  function setHdrH() {
+    if (siteHeader) doc.documentElement.style.setProperty("--hdr-h", siteHeader.offsetHeight + "px");
+  }
+  setHdrH();
+  window.addEventListener("resize", setHdrH);
   if (hamburger && menu) {
-    hamburger.addEventListener("click", function () {
-      var open = menu.classList.toggle("open");
+    // Çekmece başlığın içinde konumlanır (backdrop-filter kapsayıcı blok
+    // oluşturur): ekrandaki üst kenarı = başlığın üstü + menünün `top` değeri.
+    // --menu-top ile max-height ekrana sığar, uzun menü kendi içinde kayar.
+    var setMenuTop = function () {
+      var top = (siteHeader ? siteHeader.getBoundingClientRect().top : 0) + (parseFloat(getComputedStyle(menu).top) || 0);
+      doc.documentElement.style.setProperty("--menu-top", Math.max(0, Math.round(top)) + "px");
+    };
+    var setMenu = function (open) {
+      if (open) setMenuTop();
+      menu.classList.toggle("open", open);
       hamburger.classList.toggle("open", open);
       hamburger.setAttribute("aria-expanded", open ? "true" : "false");
-    });
+      doc.documentElement.classList.toggle("menu-locked", open);   // arka sayfa kaymasın
+    };
+    hamburger.addEventListener("click", function () { setMenu(!menu.classList.contains("open")); });
     $$("a", menu).forEach(function (a) {
-      a.addEventListener("click", function () {
-        menu.classList.remove("open");
-        hamburger.classList.remove("open");
-        hamburger.setAttribute("aria-expanded", "false");
-      });
+      a.addEventListener("click", function () { setMenu(false); });
+    });
+    doc.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.classList.contains("open")) { setMenu(false); hamburger.focus(); }
+    });
+    // Telefon yan çevrilince çekmece açıksa yüksekliği yeniden hesapla;
+    // masaüstü genişliğine geçilirse kilit kalmasın.
+    window.addEventListener("resize", function () {
+      if (!menu.classList.contains("open")) return;
+      if (getComputedStyle(hamburger).display === "none") setMenu(false); else setMenuTop();
     });
   }
 

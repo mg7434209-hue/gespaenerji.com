@@ -628,6 +628,17 @@ Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD v
   `baglanti-semasi-900.webp` (`.feature-diagram`, object-fit:contain, data-zoom
   ile büyür). Görselin etiketleri TR gömülüdür (i18n çevirmez). Eski inline SVG
   şema kaldırıldı; `.hs-*` stilleri ve DICT etiket çevirileri repoda duruyor.
+- MOBİL (3 Eki 2026, style.css sonundaki "Mobil iyileştirmeler" bloğu):
+  ≤900 px katalog çipleri (`.sh-bar`) TEK SATIR kayar ve `--hdr-h` (main.js,
+  başlık yüksekliği) altına YAPIŞIR; çip tıklanınca şerit seçili çipe kayar,
+  liste ortasındaysa ızgara başına dönülür. ≤520 px `.sh-grid` 2 sütun, kartta
+  "Detay" gizli (görsel/başlık zaten ürün sayfasına gider). Hamburger çekmece
+  `--menu-top` ile ekrana sığar ve kendi içinde kayar (eskiden 640 px
+  telefonda "Teklif Al" ekran dışındaydı), açıkken `html.menu-locked`,
+  Esc kapatır; "Araçlar" mobilde küçük grup etiketi olarak görünür.
+  Dokunma alanı hedefi ≥44 px, yazı ≥12 px; `:hover` efektleri
+  `(hover:none)`'da kapalı (dokunulan çip seçili gibi yapışıyordu).
+  Çerez bandı açıkken sohbet düğmesi gizlidir (`body:has(.cookie-bar)`).
 - Açık/koyu tema, mobil menü, scroll animasyonları `assets/main.js` ile yönetilir;
   yeni DOM'lar `.reveal` ve `data-count` desenlerini kullanabilir.
 - Ziyaretçi sayacı: footer'daki `.visit-counter` rozetini main.js enjekte eder
