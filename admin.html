@@ -235,7 +235,6 @@
   document.addEventListener("DOMContentLoaded", function () {
     var C = (window.GESPA && GESPA.config) || {};
     var KEY = "gespa-prices-usd";                  // USD dönemi (main.js ile aynı anahtar)
-    var PASS = (C.admin && C.admin.pass) || "admin";
     var $ = function (s) { return document.querySelector(s); };
     var nf = new Intl.NumberFormat("tr-TR");
     // Link ödemesi tutar sınırları — tek kaynak config.commerce (sunucu da
@@ -266,13 +265,13 @@
     function loadOv() { try { return JSON.parse(localStorage.getItem(KEY) || "null") || { packages: {}, heater: {} }; } catch (e) { return { packages: {}, heater: {} }; } }
     function derivedPkg(p) { var k = C.calc || {}; return Math.round((p.kwp || 0) * (k.costPerKwp || 0) + (p.battery ? p.battery * (k.batteryCostPerKwh || 0) : 0)); }
 
-    // Giriş: şifre SUNUCUDA doğrulanır (/api/admin/login). Railway'de ADMIN_PASS
-    // tanımlıysa yalnız o geçer; config şifresi canlıda reddedilir. Sunucu yoksa
-    // (Pages aynası, eski sürüm) config şifresiyle yalnız önizleme açılır.
+    // Giriş: şifre YALNIZ SUNUCUDA doğrulanır (/api/admin/login, Railway
+    // ADMIN_PASS). Sunucu yoksa (Pages aynası) panel açılmaz — eskiden herkese
+    // açık config şifresiyle önizleme açılıyordu.
     // Girilen şifre bu sekmenin oturumunda tutulur; yönetici uçları (e-posta
     // testi, bot sayacı, soru-cevap) onu gönderir.
     var SKEY = "gespa-admin-pass";
-    var sessPass = function () { try { return sessionStorage.getItem(SKEY) || PASS; } catch (e) { return PASS; } };
+    var sessPass = function () { try { return sessionStorage.getItem(SKEY) || ""; } catch (e) { return ""; } };
     var relogin = function () { try { sessionStorage.removeItem("gespa-admin"); sessionStorage.removeItem(SKEY); } catch (e) {} location.reload(); };
     // Şifresi saklanmamış eski oturum yeniden giriş ister (kartlar şifreyi gönderir).
     if (sessionStorage.getItem("gespa-admin") === "1" && sessionStorage.getItem(SKEY)) show();
@@ -284,10 +283,10 @@
       fetch("/api/admin/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pass: p }) })
         .then(function (r) {
           if (r.status === 200) return ok();
-          if (r.status === 403 || r.status === 429) return r.json().then(function (j) { bad(j && j.error); }, function () { bad(); });
+          if (r.status === 403 || r.status === 429 || r.status === 503) return r.json().then(function (j) { bad(j && j.error); }, function () { bad(); });
           throw new Error("sunucu yok");
         })
-        .catch(function () { if (p === PASS) ok(); else bad(); });
+        .catch(function () { bad("Sunucuya ulaşılamadı. Yönetim paneli yalnız canlı sitede (Railway) çalışır."); });
     });
 
     function show() {

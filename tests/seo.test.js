@@ -302,6 +302,10 @@ console.log('Analytics: consent gate, exact AI source attribution and contact pa
 const RECEIPT_TEST_SECRET='test-dekont-anahtari';
 // ADMIN_PASS is set as on Railway: the public config password must then be rejected. Runtime data goes to
 // a temporary folder so test questions never appear on a locally served page.
+// The old password was public (config.js + public repo). It must be gone from the config and rejected.
+const LEAKED_PASS='gespa2026';
+{const vm=require('node:vm');const c={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/config.js'),'utf8'),c);const C=c.window.GESPA.config;assert.ok(!(C.admin&&C.admin.pass),'config.js carries no admin password');}
+assert.ok(!fs.readFileSync(path.join(root,'assets/config.js'),'utf8').includes(LEAKED_PASS),'leaked password removed from config.js');
 const ADMIN_TEST_PASS='test-yonetici-sifresi',TEST_DATA=fs.mkdtempSync(path.join(require('node:os').tmpdir(),'gespa-test-'));
 const port=4317,server=spawn(process.execPath,['server.js'],{cwd:root,env:{...process.env,PORT:String(port),IYZIPAY_API_KEY:'',IYZICO_API_KEY:'',IYZIPAY_SECRET_KEY:RECEIPT_TEST_SECRET,FX_AUTO:'0',ADMIN_PASS:ADMIN_TEST_PASS,DATA_DIR:TEST_DATA}});
 let logs='',started=false;
@@ -327,7 +331,7 @@ server.stdout.on('data',async d=>{
   const ua=await fetch('http://127.0.0.1:'+port+'/llms.txt',{headers:{'User-Agent':'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.2; +https://openai.com/gptbot)'}});assert.equal(ua.status,200);await ua.text();
   const bad=await fetch('http://127.0.0.1:'+port+'/api/aibots',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({pass:'yanlis'})});assert.equal(bad.status,403);await bad.text();
   const cfgSrc=fs.readFileSync(path.join(root,'assets/config.js'),'utf8');const sb={window:{}};vm.runInNewContext(cfgSrc,sb);
-  const pub=await fetch('http://127.0.0.1:'+port+'/api/aibots',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({pass:sb.window.GESPA.config.admin.pass})});
+  const pub=await fetch('http://127.0.0.1:'+port+'/api/aibots',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({pass:LEAKED_PASS})});
   assert.equal(pub.status,403,'public config password is rejected once ADMIN_PASS is set');await pub.text();
   const ok=await fetch('http://127.0.0.1:'+port+'/api/aibots',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({pass:ADMIN_TEST_PASS})});
   assert.equal(ok.status,200);const bots=(await ok.json()).bots;const gpt=bots.find(b=>b.name==='GPTBot');
@@ -379,7 +383,7 @@ server.stdout.on('data',async d=>{
    r=await api('/api/qa/ask',{page:'index',name:'Ayşe',text:evil,ok:true,ms:5000});assert.equal(r.status,404,'Q&A: configured pages only');await r.text();
    r=await api('/api/qa/ask',{page:pg,name:'Ayşe <b>K</b>',text:evil,ok:true,ms:5000});assert.equal(r.status,200);assert.ok((await r.json()).pending);
    assert.ok(!(await getPage()).includes('alert(1)'),'Q&A: pending question is not published');
-   r=await api('/api/qa/admin',{pass:sb.window.GESPA.config.admin.pass,op:'list'});assert.equal(r.status,403,'Q&A: moderation rejects the public config password');await r.text();
+   r=await api('/api/qa/admin',{pass:LEAKED_PASS,op:'list'});assert.equal(r.status,403,'Q&A: moderation rejects the old public password');await r.text();
    const list=async()=>{const x=await api('/api/qa/admin',{pass:ADMIN_TEST_PASS,op:'list'});assert.equal(x.status,200);return (await x.json()).items;};
    let items=await list();assert.equal(items.length,1,'Q&A: honeypot post was not stored');const q=items[0];assert.equal(q.status,'pending');
    r=await api('/api/qa/reply',{page:pg,parent:q.id,name:'Mehmet',text:'Başvurun.',ok:true,ms:5000});assert.equal(r.status,404,'Q&A: no replies to unpublished questions');await r.text();

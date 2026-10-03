@@ -182,7 +182,7 @@ birlikte commit'le.
   en çok çekilen 30 yol tutulur.
 - Kalıcı veri `DATA_DIR/aibots.json`. Railway Volume bağlı değilse her
   dağıtımda sıfırlanır.
-- `/api/aibots` POST `{pass}` (yönetici şifresi: `ADMIN_PASS`, yoksa config.admin.pass) → admin.html "🤖 AI tarayıcı
+- `/api/aibots` POST `{pass}` (yönetici şifresi: `ADMIN_PASS`) → admin.html "🤖 AI tarayıcı
   ziyaretleri" kartı. GA4 `ai_referral` İNSAN trafiğini, bu sayaç BOTLARI ölçer.
 
 ## i18n demetleri

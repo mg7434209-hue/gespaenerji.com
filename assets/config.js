@@ -782,11 +782,8 @@ window.GESPA.config = {
     nextSeason: 2027
   },
 
-  // Admin paneli (basit koruma — şifre herkese açık koddadır; gerçek güvenlik için
-  // backend gerekir). Şifreyi buradan değiştirin.
-  // Railway'de ADMIN_PASS ortam değişkeni tanımlıysa sunucu YALNIZ onu kabul
-  // eder, bu şifre canlıda geçersiz olur. Soru-cevap moderasyonu ADMIN_PASS ister.
-  admin: { pass: "gespa2026" },
+  // Admin paneli şifresi BURADA DEĞİL: yalnız Railway ortam değişkeni
+  // ADMIN_PASS (bu dosya her ziyaretçiye servis edilir, repo herkese açık).
 
   // Soru & Cevap: makale altındaki herkese açık, ONAYLI soru-cevap bölümü.
   // Sunucu yalnız burada listelenen sayfalara gönderi kabul eder; sayfada

@@ -20,14 +20,16 @@ sorar, diğer okuyucular cevap yazar, firma "GESPA Uzmanı" rozetiyle cevaplar.
 ## Yönetici şifresi: `ADMIN_PASS`
 - Moderasyon YALNIZ Railway ortam değişkeni `ADMIN_PASS` ile çalışır. Yoksa
   `/api/qa/admin` 503 döner, kart ne yapılacağını yazar; gönderiler yine
-  birikir ama yayınlanamaz. Neden: `config.admin.pass` herkese açık
-  `config.js`'tedir; onunla herkes sahte "GESPA Uzmanı" cevabı yazabilirdi.
-- `ADMIN_PASS` tanımlıysa sunucu TÜM yönetici uçlarında (e-posta testi, bot
-  sayacı, sayaç ve soru-cevap devri, giriş) yalnız onu kabul eder;
-  `config.admin.pass` canlıda reddedilir. Tek kapı server.js `adminGate()`;
-  IP başına 10 dakikada 10 hatalı deneme sınırı vardır.
+  birikir ama yayınlanamaz.
+- TÜM yönetici uçları (e-posta testi, bot sayacı, sayaç ve soru-cevap devri,
+  giriş) yalnız `ADMIN_PASS`'ı kabul eder; tanımlı değilse hepsi 503 döner.
+  Eski `config.admin.pass` yedeği KALDIRILDI (3 Eki 2026): config.js herkese
+  açıktı, onunla herkes sahte "GESPA Uzmanı" cevabı yazabilirdi. Tek kapı
+  server.js `adminGate()`; IP başına 10 dakikada 10 hatalı deneme sınırı vardır.
+- Şifre değiştirirken eski değer `ADMIN_PASS_PREV`'e yazılır: devir eski
+  sunucuya önce yeni, sonra önceki şifreyle sorar (girişte kabul edilmez).
 - `admin.html` girişi sunucuda doğrulanır (`POST /api/admin/login`). Sunucu
-  yoksa (Pages aynası) config şifresiyle yalnız fiyat önizlemesi açılır.
+  yoksa (Pages aynası) panel açılmaz.
   Girilen şifre sekme oturumunda (`sessionStorage`) tutulur, kartlar onu gönderir.
 - Şifre repoya ve sohbete YAZILMAZ (iyzico/SMTP kuralı).
 
