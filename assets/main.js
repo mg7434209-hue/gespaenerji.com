@@ -593,6 +593,13 @@
           charge: L("Şarj Kontrol & DC-DC", "Charge Controllers & DC-DC", "Laderegler & DC-DC", "Контроллеры заряда и DC-DC")
         })[g] || g;
       }
+      // Katalog süzgecinde üst kategoriye katılan gruplar. config.packages[].group
+      // DEĞİŞMEZ: urunler.html vitrininde "evset" kendi başlığıyla ayrı kalır;
+      // birleştirme yalnız bu sayfanın çiplerinde ve süzmesinde geçerlidir.
+      // Elektrikli motor güneş paketleri müşterinin aradığı "Elektrikli Araç"
+      // ürünleridir; ayrı çip aynı ihtiyacı ikiye bölüyordu (3 Eki 2026).
+      var CAT_MERGE = { evset: "accessory" };
+      function catOf(p) { var g = p.group || "ongrid"; return CAT_MERGE[g] || g; }
       function tName(t) {
         var lang = (window.GESPA && GESPA.lang) || "tr";
         if (lang === "tr") return t;
@@ -697,7 +704,7 @@
 
       function render(filter) {
         var list = filter && filter !== "all"
-          ? items.filter(function (p) { return (p.group || "ongrid") === filter; })
+          ? items.filter(function (p) { return catOf(p) === filter; })
           : items;
         grid.innerHTML = list.length
           ? list.map(tile).join("")
@@ -713,7 +720,7 @@
       var bar = $("#shopFilters");
       var active = "all";
       var seen = [];
-      items.forEach(function (p) { var g = p.group || "ongrid"; if (seen.indexOf(g) < 0) seen.push(g); });
+      items.forEach(function (p) { var g = catOf(p); if (seen.indexOf(g) < 0) seen.push(g); });
       function buildFilters() {
         if (!bar) return;
         var html = '<button type="button" class="sh-chip' + (active === "all" ? " is-on" : "") + '" data-f="all">' +
@@ -723,7 +730,7 @@
           // BAĞLANTIDIR: tek kartlık ara ızgarayı atlar, doğrudan ürün
           // sayfasına götürür (orada galeri, künye ve paketler var).
           // Kategoriye ikinci ürün girdiğinde kendiliğinden süzgece döner.
-          var inG = items.filter(function (p) { return (p.group || "ongrid") === g; });
+          var inG = items.filter(function (p) { return catOf(p) === g; });
           var solo = inG.length === 1 && inG[0].url ? inG[0] : null;
           if (solo) {
             html += '<a class="sh-chip sh-chip-go" href="' + String(solo.url).replace(/"/g, "&quot;") + '">' +

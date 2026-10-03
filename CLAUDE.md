@@ -344,6 +344,12 @@ ve sepet simgesi ekran dışında kalır.
   kataloğunda listelenir — main.js/build.js GROUPS listelerinde YOKTUR, orada
   olsaydı urunler.html paket vitrininde de çıkardı. Katalog süzgeç etiketi
   main.js `groupLabel()` içindedir; yeni grup eklerken oraya satır ekle.
+  KATALOG BİRLEŞTİRME: main.js `CAT_MERGE` bir grubu katalog çipinde başka
+  grubun altına alır, config'teki `group` DEĞİŞMEZ. Şu an `evset` →
+  `accessory`: motor güneş paketleri "Elektrikli Araç" çipinde listelenir
+  (3 Eki 2026, kullanıcı kararı), urunler.html vitrininde ise "Elektrikli
+  Motor Güneş Paketleri" başlığıyla AYRI kalır. Süzme, çip listesi ve tek
+  ürünlü çip kontrolü `catOf()` kullanır; `p.group`'u doğrudan okuma.
 - kWp'si OLMAYAN ürünlerde (cihaz/aksesuar) `kwp`/`panelW`/`panelCount` YAZILMAZ;
   kart çipleri `chips: [...]` ile elle verilir. main.js `card()`/`chipsOf()`,
   build.js `PKG:STATIC` ve llms-full.txt bu durumda güç yerine ürün kodunu yazar,
