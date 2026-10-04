@@ -469,6 +469,76 @@ function invoiceId(buyer) {
   return { error: "Fatura için 11 haneli T.C. kimlik numarası ya da 10 haneli vergi numarası gereklidir." };
 }
 
+// ---- Gespa OS özeti (/api/os/summary) ----------------------------------------
+// JARVIS'in siteyi "kontrol" ettiği tek uç: siparişler, onay bekleyen soru-cevap,
+// ziyaretçi/AI bot sayıları, kur, ödeme/e-posta durumu ve ürün uyarıları.
+// Yönetici şifresini DEĞİL ayrı OS_TOKEN'ı kabul eder (en az 32 karakter): JARVIS'in
+// elindeki anahtar sızsa da yönetim uçları açılmaz. YALNIZ OKUR, hiçbir şey yazmaz.
+// KVKK: alıcı bilgisi (ad, telefon, e-posta, adres, TCKN/VKN) ÇIKMAZ (test denetler).
+const OS_TOKEN = (() => { const t = String(process.env.OS_TOKEN || "").trim(); return t.length >= 32 ? t : ""; })();
+const OS_ORDER_DAYS = 30;
+function osCatalog(cfg) {
+  const now = Date.now();
+  const camp = cfg.campaign || {};
+  const endsAt = camp.endsAt ? Date.parse(camp.endsAt) : NaN;
+  const campaignLive = !isNaN(endsAt) && endsAt > now;
+  const alerts = [];
+  const products = (cfg.packages || []).map((p) => {
+    const poa = p.price == null || p.priceOnRequest === true;
+    let priceTL = null;
+    try { priceTL = poa ? null : pkgListTL(p, Object.assign({}, cfg, { usdTry: FX.rate || cfg.usdTry })); } catch (e) {}
+    const row = { id: p.id, name: p.name, group: p.group || null, currency: p.currency || "TRY",
+      price: poa ? null : p.price, priceTL: priceTL, oldPrice: p.oldPrice || null,
+      stock: typeof p.stock === "number" ? p.stock : null, hasImage: !!p.img, url: p.url || null };
+    if (poa) alerts.push({ type: "no_price", id: p.id, name: p.name });
+    if (!p.img) alerts.push({ type: "no_image", id: p.id, name: p.name });
+    if (typeof p.stock === "number" && p.stock <= 3) alerts.push({ type: p.stock === 0 ? "out_of_stock" : "low_stock", id: p.id, name: p.name, stock: p.stock });
+    if (p.oldPrice && !campaignLive) alerts.push({ type: "old_price_without_campaign", id: p.id, name: p.name });
+    return row;
+  });
+  if (!isNaN(endsAt) && campaignLive && endsAt - now < 3 * 864e5) alerts.push({ type: "campaign_ending", endsAt: camp.endsAt });
+  return {
+    count: products.length,
+    campaign: { endsAt: camp.endsAt || null, live: campaignLive },
+    alerts: alerts,
+    products: products
+  };
+}
+function osSummary() {
+  const cfg = SITE_CFG || (SITE_CFG = loadSiteConfig());
+  const since = Date.now() - OS_ORDER_DAYS * 864e5;
+  const orders = Object.values(readOrders())
+    .filter((o) => o && o.createdAt && Date.parse(o.createdAt) >= since)
+    .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))
+    .map((o) => ({
+      ref: o.conversationId || null,
+      channel: o.source === "gesmarketim" ? "link" : "sepet",
+      status: o.status || null,
+      createdAt: o.createdAt, resolvedAt: o.resolvedAt || null,
+      totalTL: o.totalTL != null ? +o.totalTL : null,
+      paidTL: o.paidPrice != null ? +o.paidPrice : null,
+      desc: o.desc || null,
+      items: orderLines(o).map((l) => ({ id: l.id, name: l.name, qty: l.qty }))
+    }));
+  const byStatus = {};
+  orders.forEach((o) => { byStatus[o.status] = (byStatus[o.status] || 0) + 1; });
+  const pending = qa.items.filter((x) => x.status === "pending");
+  const bots = Object.keys(aiBots.bots).map((n) => ({ name: n, kind: aiBots.bots[n].kind, count: aiBots.bots[n].count, last: aiBots.bots[n].last }))
+    .sort((a, b) => b.count - a.count).slice(0, 10);
+  return {
+    site: "gespaenerji.com",
+    generatedAt: new Date().toISOString(),
+    dataPersistent: DATA_PERSISTENT,
+    orders: { days: OS_ORDER_DAYS, count: orders.length, byStatus: byStatus, items: orders.slice(0, 50) },
+    qa: { pending: pending.length, items: pending.slice(0, 20).map((x) => ({ id: x.id, page: x.page, kind: x.kind, name: x.name, text: String(x.text).slice(0, 200), at: x.at })) },
+    visitors: { total: visitTotal, base: +((cfg.visitors || {}).base) || 0, day: Date.now() - visitHoursSince >= 24 * HOUR_MS ? visitsLast24h() : null, online: onlineCount() },
+    aiBots: { since: aiBots.since, top: bots },
+    fx: { auto: FX.on, rate: FX.rate, floor: FX.floor, tcmb: FX.tcmb || null, changedAt: FX.changedAt || null, error: FX.error || null },
+    pay: { card: !!(IYZ.apiKey && IYZ.secret), mail: mailReady() },
+    catalog: osCatalog(cfg)
+  };
+}
+
 function readOrders() { try { return JSON.parse(fs.readFileSync(ORDERS_FILE, "utf8")); } catch (e) { return {}; } }
 function writeOrder(token, data) {
   try {
@@ -1640,6 +1710,14 @@ const server = http.createServer((req, res) => {
     if (urlPath.startsWith("/api/qa/") || urlPath === "/api/admin/login") {
       if (handleQaRoutes(req, res, urlPath)) return;
       res.writeHead(404); return res.end("Not found");
+    }
+    // Gespa OS (JARVIS) özeti — SALT OKUNUR, tek uç. docs/os-ozet.md
+    if (urlPath === "/api/os/summary") {
+      if (req.method !== "GET") { res.writeHead(405); return res.end(); }
+      if (!OS_TOKEN) return sendJson(res, 503, { error: "OS_TOKEN tanımlı değil" });
+      if (!safeEqual(req.headers["x-os-token"], OS_TOKEN)) return sendJson(res, 403, { error: "Geçersiz belirteç" });
+      try { return sendJson(res, 200, osSummary()); }
+      catch (e) { console.warn("os özeti kurulamadı:", e && e.message); return sendJson(res, 500, { error: "özet kurulamadı" }); }
     }
     // Döviz kuru durumu — admin "💱 Döviz kuru" kartı okur. Gizli bilgi yok.
     if (urlPath === "/api/fx") {
