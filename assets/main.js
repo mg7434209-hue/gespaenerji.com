@@ -45,8 +45,32 @@
   (function applyPriceOverrides() {
     var ov; try { ov = JSON.parse(localStorage.getItem("gespa-prices-usd") || "null"); } catch (e) { ov = null; }
     if (!ov) return;
-    if (ov.packages && CFG.packages) CFG.packages.forEach(function (p) { if (ov.packages[p.id] != null && ov.packages[p.id] !== "") { p.price = +ov.packages[p.id]; PRICE_OV = true; } });
-    if (ov.heater && CFG.heater && CFG.heater.models) CFG.heater.models.forEach(function (m) { if (ov.heater[m.cap] != null && ov.heater[m.cap] !== "") m.price = +ov.heater[m.cap]; });
+    var any = false;
+    if (ov.packages && CFG.packages) CFG.packages.forEach(function (p) { if (ov.packages[p.id] != null && ov.packages[p.id] !== "") { p.price = +ov.packages[p.id]; PRICE_OV = true; any = true; } });
+    if (ov.heater && CFG.heater && CFG.heater.models) CFG.heater.models.forEach(function (m) { if (ov.heater[m.cap] != null && ov.heater[m.cap] !== "") { m.price = +ov.heater[m.cap]; any = true; } });
+    // Önizleme açıkken bunu SAYFADA söyle: admin "Kaydet" yalnız bu tarayıcıya
+    // yazar; masaüstünde yeni, telefonda (ve tüm müşterilerde) eski fiyat
+    // görünüyordu ve fiyat yayınlanmış sanıldı (4 Eki 2026).
+    if (!any || !doc.body) return;
+    var bar = doc.createElement("div");
+    bar.className = "price-ov-bar";
+    bar.setAttribute("role", "status");
+    bar.innerHTML = "<span>⚠️ " + L(
+      "Fiyat ÖNİZLEMESİ: yalnız bu cihazda. Müşteriler ve ödeme yayındaki fiyatı görür.",
+      "Price PREVIEW: this device only. Customers and checkout see the published price.",
+      "Preis-VORSCHAU: nur dieses Gerät. Kunden und Kasse sehen den veröffentlichten Preis.",
+      "ПРЕДПРОСМОТР цен: только это устройство. Покупатели и оплата видят опубликованную цену.") +
+      '</span><button type="button">' + L("Önizlemeyi kapat", "Close preview", "Vorschau beenden", "Закрыть просмотр") + "</button>";
+    bar.querySelector("button").addEventListener("click", function () {
+      try { localStorage.removeItem("gespa-prices-usd"); } catch (e) {}
+      location.reload();
+    });
+    // Sayfa en üstteyken ekle ve en üstte kal: tarayıcının kaydırma
+    // sabitlemesi (scroll anchoring) aksi hâlde sayfayı şerit kadar aşağı
+    // itip uyarıyı ekran dışında bırakıyordu.
+    var atTop = (window.pageYOffset || 0) === 0;
+    doc.body.insertBefore(bar, doc.body.firstChild);
+    if (atTop) window.scrollTo(0, 0);
   })();
   (function fillFromConfig() {
     var c = CFG.company;

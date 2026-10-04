@@ -440,6 +440,10 @@ ve sepet simgesi ekran dışında kalır.
   ŞİFRE DEĞİŞTİRME: yeni değeri `ADMIN_PASS`'a, eskisini `ADMIN_PASS_PREV`'e
   yaz; devir (sayaç + soru-cevap) eski sunucuya önceki şifreyle sorulur.
   Yeni şifreyle bir dağıtım bitince `ADMIN_PASS_PREV` silinir.
+- Önizleme açık tarayıcıda her sayfanın başında turuncu `.price-ov-bar`
+  uyarısı çıkar ("yalnız bu cihazda"), "Önizlemeyi kapat" anahtarı siler.
+  Sebep (4 Eki 2026): işletme "Kaydet"ten sonra fiyatı yayınlandı sandı;
+  masaüstünde yeni, telefonda ve tüm müşterilerde eski fiyat görünüyordu.
 - Admin paneli fiyatları localStorage'da override eder (yalnız o cihaz);
   kalıcı/herkese yayın = değerleri bu dosyaya işleyip commit'lemek.
   Anahtar `gespa-prices-usd` (değerler USD): eski `gespa-prices` TL idi,
