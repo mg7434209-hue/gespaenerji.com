@@ -25,3 +25,20 @@ JARVIS'te onay adımlı olarak GitHub PR'ı üzerinden yapılır, bu uçtan değ
   (kampanya bitmiş ama `oldPrice` duruyor — site zaten gizler, temizlik notu).
 
 Yeni alan eklerken: kişisel veri EKLEME; testteki sızıntı listesine bak.
+
+## Sipariş defteri — kalıcı kopya (Gespa OS Postgres)
+orders.json Volume yokken her dağıtımda silinir. Bu yüzden her sipariş durum
+değişikliğinde (oluştu → ödendi/başarısız, e-posta hatası) kişisel verisi
+ayıklanmış kayıt Gespa OS'e gönderilir: `POST <OS_INGEST_URL>/api/ingest/orders`,
+başlık `X-Ingest-Token`. JARVIS siparişleri oradan okur.
+- Tek dokunuş `writeOrder()` sonundaki `osScheduleSync()`: 1 sn sonra arka
+  planda gönderir, HATA ATMAZ, ödeme yanıtını BEKLETMEZ. Başarısızsa dakikada
+  bir yeniden dener; açılışta dosyada duran siparişler de gider.
+- Kayıt başına `osSent` = gönderilen "durum|e-posta hatası" anahtarı. Gönderim
+  sürerken durum değişirse anahtar tutmaz ve kayıt yeniden gider.
+- Gönderilenler: ref (conversationId), kanal, durum, tarih, tutar, ödenen,
+  açıklama, taksit, hata kodu, e-posta hatası var mı, kalemler (ad/adet/birim).
+  **Ad, telefon, e-posta, il, adres, TCKN/VKN, firma GÖNDERİLMEZ** (test).
+- Ayarlar: `OS_INGEST_URL` (Gespa OS adresi) + `OS_INGEST_TOKEN` (≥32 karakter,
+  Gespa OS'teki `ORDER_INGEST_TOKEN` ile AYNI). İkisi yoksa defter kapalıdır;
+  açılış logu "Gespa OS sipariş defteri: açık/kapalı" yazar.

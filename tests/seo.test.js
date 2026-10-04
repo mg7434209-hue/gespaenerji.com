@@ -310,7 +310,11 @@ const ADMIN_TEST_PASS='test-yonetici-sifresi',TEST_DATA=fs.mkdtempSync(path.join
 // Gespa OS summary: a stored order carries buyer PII; the summary must expose the order but never the buyer.
 const OS_TEST_TOKEN='os-test-belirteci-0123456789abcdefghij';
 fs.writeFileSync(path.join(TEST_DATA,'orders.json'),JSON.stringify({tok1:{conversationId:'GSP-TEST-1',status:'paid',createdAt:new Date().toISOString(),totalTL:1234,items:[{id:'boost-mppt',qty:2,unitTL:7200}],buyer:{ad:'Ayşe Gizli',tel:'05551112233',eposta:'ayse@example.com',tckn:'12345678901',il:'Antalya',adres:'Gizli Sok. 1'}}}));
-const port=4317,server=spawn(process.execPath,['server.js'],{cwd:root,env:{...process.env,PORT:String(port),IYZIPAY_API_KEY:'',IYZICO_API_KEY:'',IYZIPAY_SECRET_KEY:RECEIPT_TEST_SECRET,FX_AUTO:'0',ADMIN_PASS:ADMIN_TEST_PASS,DATA_DIR:TEST_DATA,OS_TOKEN:OS_TEST_TOKEN}});
+// Fake Gespa OS ledger: rejects the first delivery (retry path), accepts the rest.
+const INGEST_TOKEN='ingest-test-belirteci-0123456789abcdefgh',ingestHits=[];
+const ingest=require('node:http').createServer((q,r)=>{let b='';q.on('data',c=>b+=c);q.on('end',()=>{ingestHits.push({token:q.headers['x-ingest-token'],path:q.url,body:b});r.writeHead(ingestHits.length===1?500:200,{'Content-Type':'application/json'});r.end('{"ok":true}');});});
+ingest.listen(4318,'127.0.0.1');
+const port=4317,server=spawn(process.execPath,['server.js'],{cwd:root,env:{...process.env,PORT:String(port),IYZIPAY_API_KEY:'',IYZICO_API_KEY:'',IYZIPAY_SECRET_KEY:RECEIPT_TEST_SECRET,FX_AUTO:'0',ADMIN_PASS:ADMIN_TEST_PASS,DATA_DIR:TEST_DATA,OS_TOKEN:OS_TEST_TOKEN,OS_INGEST_URL:'http://127.0.0.1:4318',OS_INGEST_TOKEN:INGEST_TOKEN,OS_SYNC_EVERY_MS:'400'}});
 let logs='',started=false;
 const timeout=setTimeout(()=>{server.kill();console.error(logs);process.exitCode=1;},25000);
 server.stderr.on('data',d=>logs+=d);
@@ -342,6 +346,17 @@ server.stdout.on('data',async d=>{
    for(const leak of ['Ayşe Gizli','05551112233','ayse@example.com','12345678901','Gizli Sok','buyer'])assert.ok(!raw.includes(leak),'os summary leaks '+leak);
    assert.ok(j.catalog.count>0&&Array.isArray(j.catalog.alerts)&&j.catalog.products.every(p=>'priceTL' in p),'catalog section');
    assert.ok('pending' in j.qa&&'total' in j.visitors&&'rate' in j.fx&&'card' in j.pay,'summary sections');}
+  // Gespa OS order ledger: the stored order is delivered without PII, retried after a 500, then marked sent.
+  {for(let i=0;i<40&&ingestHits.length<2;i++)await new Promise(r=>setTimeout(r,250));
+   assert.ok(ingestHits.length>=2,'ledger retried after a failed delivery ('+ingestHits.length+' hits)');
+   const h=ingestHits[ingestHits.length-1];assert.equal(h.path,'/api/ingest/orders');assert.equal(h.token,INGEST_TOKEN);
+   const j=JSON.parse(h.body);assert.equal(j.site,'gespaenerji');assert.equal(j.orders.length,1);
+   assert.equal(j.orders[0].ref,'GSP-TEST-1');assert.equal(j.orders[0].status,'paid');assert.deepEqual(j.orders[0].items.map(x=>[x.id,x.qty]),[['boost-mppt',2]]);
+   for(const leak of ['Ayşe Gizli','05551112233','ayse@example.com','12345678901','Gizli Sok','Antalya','buyer'])assert.ok(!h.body.includes(leak),'ledger leaks '+leak);
+   for(let i=0;i<20;i++){const o=JSON.parse(fs.readFileSync(path.join(TEST_DATA,'orders.json'),'utf8')).tok1;if(o.osSent)break;await new Promise(r=>setTimeout(r,100));}
+   assert.equal(JSON.parse(fs.readFileSync(path.join(TEST_DATA,'orders.json'),'utf8')).tok1.osSent,'paid|0','delivered order marked');
+   const n=ingestHits.length;await new Promise(r=>setTimeout(r,900));assert.equal(ingestHits.length,n,'no resend once marked');
+   ingest.close();}
   // AI crawler counter: a GPTBot request is counted and readable with the admin password only.
   const ua=await fetch('http://127.0.0.1:'+port+'/llms.txt',{headers:{'User-Agent':'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.2; +https://openai.com/gptbot)'}});assert.equal(ua.status,200);await ua.text();
   const bad=await fetch('http://127.0.0.1:'+port+'/api/aibots',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({pass:'yanlis'})});assert.equal(bad.status,403);await bad.text();
