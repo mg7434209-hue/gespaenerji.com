@@ -187,6 +187,86 @@ Lädt 36–72-V-Batterien über einen 12/24-V-Eingang · Wohnmobil und Boot
 
 Inkl. MwSt. · zzgl. Versand
 
+### Lexron 20 A PWM Solar-Laderegler 12/24 V
+
+Kleine 12/24-V-Solaranlagen mit Batterie
+
+**₺660**≈ $13
+
+💰 Per Überweisung: **₺650**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Lexron 30 A PWM Solar-Laderegler 12/24 V
+
+Kleine 12/24-V-Solaranlagen mit Batterie
+
+**₺740**≈ $15
+
+💰 Per Überweisung: **₺700**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Lexron 40 A PWM Solar-Laderegler 12/24 V
+
+Kleine 12/24-V-Solaranlagen mit Batterie
+
+**₺950**≈ $19
+
+💰 Per Überweisung: **₺900**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Lexron 60 A PWM Solar-Laderegler 12/24/48 V
+
+12/24/48-V-Solaranlagen mit Batterie
+
+**₺2.000**≈ $40
+
+💰 Per Überweisung: **₺1.950**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Lexron 20 A MPPT Solar-Laderegler 12/24 V
+
+12/24-V-Solaranlagen mit Batterie · hoher Wirkungsgrad
+
+**₺2.850**≈ $58
+
+💰 Per Überweisung: **₺2.750**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Lexron 30 A MPPT Solar-Laderegler 12/24 V
+
+12/24-V-Solaranlagen mit Batterie · hoher Wirkungsgrad
+
+**₺3.150**≈ $64
+
+💰 Per Überweisung: **₺3.050**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Lexron 40 A MPPT Solar-Laderegler 12/24 V
+
+12/24-V-Solaranlagen mit Batterie · hoher Wirkungsgrad
+
+**₺3.450**≈ $70
+
+💰 Per Überweisung: **₺3.350**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Lexron 80 A HV (15~230 V) MPPT Solar-Laderegler 12/24/36/48 V
+
+Große 12/24/36/48-V-Solaranlagen mit Batterie
+
+**₺9.200**≈ $186
+
+💰 Per Überweisung: **₺8.900**
+
+Inkl. MwSt. · zzgl. Versand
+
 ### Solarkabel-Set (5 m Schwarz + 5 m Rot)
 
 Verbindung zwischen Modul und Laderegler

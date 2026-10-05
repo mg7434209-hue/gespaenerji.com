@@ -187,6 +187,86 @@ KDV dahil · kargo hariç
 
 KDV dahil · kargo hariç
 
+### Lexron 20 A PWM Şarj Kontrol Cihazı 12/24 V
+
+12/24 V akülü küçük güneş sistemleri
+
+**₺660**≈ $13
+
+💰 Havale/EFT ile: **₺650**
+
+KDV dahil · kargo hariç
+
+### Lexron 30 A PWM Şarj Kontrol Cihazı 12/24 V
+
+12/24 V akülü küçük güneş sistemleri
+
+**₺740**≈ $15
+
+💰 Havale/EFT ile: **₺700**
+
+KDV dahil · kargo hariç
+
+### Lexron 40 A PWM Şarj Kontrol Cihazı 12/24 V
+
+12/24 V akülü küçük güneş sistemleri
+
+**₺950**≈ $19
+
+💰 Havale/EFT ile: **₺900**
+
+KDV dahil · kargo hariç
+
+### Lexron 60 A PWM Şarj Kontrol Cihazı 12/24/48 V
+
+12/24/48 V akülü güneş sistemleri
+
+**₺2.000**≈ $40
+
+💰 Havale/EFT ile: **₺1.950**
+
+KDV dahil · kargo hariç
+
+### Lexron 20 A MPPT Şarj Kontrol Cihazı 12/24 V
+
+12/24 V akülü güneş sistemleri · yüksek verim
+
+**₺2.850**≈ $58
+
+💰 Havale/EFT ile: **₺2.750**
+
+KDV dahil · kargo hariç
+
+### Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V
+
+12/24 V akülü güneş sistemleri · yüksek verim
+
+**₺3.150**≈ $64
+
+💰 Havale/EFT ile: **₺3.050**
+
+KDV dahil · kargo hariç
+
+### Lexron 40 A MPPT Şarj Kontrol Cihazı 12/24 V
+
+12/24 V akülü güneş sistemleri · yüksek verim
+
+**₺3.450**≈ $70
+
+💰 Havale/EFT ile: **₺3.350**
+
+KDV dahil · kargo hariç
+
+### Lexron 80 A HV (15~230 V) MPPT Şarj Kontrol Cihazı 12/24/36/48 V
+
+12/24/36/48 V akülü büyük güneş sistemleri
+
+**₺9.200**≈ $186
+
+💰 Havale/EFT ile: **₺8.900**
+
+KDV dahil · kargo hariç
+
 ### Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)
 
 Panel ile şarj kontrol cihazı arası bağlantı

@@ -72,6 +72,14 @@ Markalar — panel: Arçelik, Lexron, Bakırlar · inverter: Tescom, Mexxsun, Le
 - Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A — DCDC-1224-40 · Karavan: alternatörden yaşam aküsüne şarj · 12/24 V · ₺11.800 (≈ $240) liste (KDV dahil) · havale/EFT ile ₺11.450 (%3 indirimli)
 - Havensis DCDC-1224B Çift Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A — DCDC-1224B-40 · Karavan: çift yönlü akü şarjı (takviye modu) · 12/24 V · ₺13.600 (≈ $276) liste (KDV dahil) · havale/EFT ile ₺13.200 (%3 indirimli)
 - Havensis BOOST DCDC-2448 DC-DC Akü Şarj Cihazı 36/48/60/72 V — DCDC-2472-20 · 12/24 V girişten 36–72 V aküye şarj · karavan ve tekne · ₺8.250 (≈ $168) liste (KDV dahil) · havale/EFT ile ₺8.000 (%3 indirimli)
+- Lexron 20 A PWM Şarj Kontrol Cihazı 12/24 V — GM-20APWMSARJKONT · 12/24 V akülü küçük güneş sistemleri · ₺660 (≈ $13) liste (KDV dahil) · havale/EFT ile ₺650 (%3 indirimli)
+- Lexron 30 A PWM Şarj Kontrol Cihazı 12/24 V — GM-30APWMSARJKONT · 12/24 V akülü küçük güneş sistemleri · ₺740 (≈ $15) liste (KDV dahil) · havale/EFT ile ₺700 (%3 indirimli)
+- Lexron 40 A PWM Şarj Kontrol Cihazı 12/24 V — GM-40APWMSARJKONT · 12/24 V akülü küçük güneş sistemleri · ₺950 (≈ $19) liste (KDV dahil) · havale/EFT ile ₺900 (%3 indirimli)
+- Lexron 60 A PWM Şarj Kontrol Cihazı 12/24/48 V — GM-60APWMSARJKONT · 12/24/48 V akülü güneş sistemleri · ₺2.000 (≈ $40) liste (KDV dahil) · havale/EFT ile ₺1.950 (%3 indirimli)
+- Lexron 20 A MPPT Şarj Kontrol Cihazı 12/24 V — GM-20AMPPTSARJKON · 12/24 V akülü güneş sistemleri · yüksek verim · ₺2.850 (≈ $58) liste (KDV dahil) · havale/EFT ile ₺2.750 (%3 indirimli)
+- Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V — GM-30AMPPTSARJKON · 12/24 V akülü güneş sistemleri · yüksek verim · ₺3.150 (≈ $64) liste (KDV dahil) · havale/EFT ile ₺3.050 (%3 indirimli)
+- Lexron 40 A MPPT Şarj Kontrol Cihazı 12/24 V — GM-40AMPPTSARJKON · 12/24 V akülü güneş sistemleri · yüksek verim · ₺3.450 (≈ $70) liste (KDV dahil) · havale/EFT ile ₺3.350 (%3 indirimli)
+- Lexron 80 A HV (15~230 V) MPPT Şarj Kontrol Cihazı 12/24/36/48 V — GM-80AHV15230VMPP · 12/24/36/48 V akülü büyük güneş sistemleri · ₺9.200 (≈ $186) liste (KDV dahil) · havale/EFT ile ₺8.900 (%3 indirimli)
 - Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) — GES-KBL-5M · Panel ile şarj kontrol cihazı arası bağlantı · ₺1.000 (≈ $20) liste (KDV dahil) · havale/EFT ile ₺950 (%3 indirimli)
 - Yolcu Kabinli Motor Güneş Paketi — 285 W — GES-SET-YOLCU · Kabinli, 2–4 kişilik yolcu triportörleri — çatı alanı dar · ₺15.800 (≈ $321) liste (KDV dahil) · havale/EFT ile ₺15.350 (%3 indirimli)
 - Kargo Kasalı Motor Güneş Paketi — 655 W — GES-SET-KARGO · Açık kasa veya tenteli yük triportörleri — çatı alanı geniş · ₺18.300 (≈ $372) liste (KDV dahil) · havale/EFT ile ₺17.750 (%3 indirimli)
@@ -87,8 +95,8 @@ Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi verili
 
 ## Elektrikli Motor (Triportör) Güneş Paketleri (https://www.gespaenerji.com/elektrikli-arac-donusum.html#paketler)
 Müşteri aracına hangi panelin uyduğunu bilmiyorsa araç tipini seçer, paket hazır çıkar.
-- Yolcu Kabinli Motor Güneş Paketi — 285 W — Kabinli, 2–4 kişilik yolcu araçları — çatı alanı dar. İçindekiler: Lexron 285 W Güneş Paneli + MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı + Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) + MC4 Konnektör Takımı = ₺321 (ürün kodu GES-SET-YOLCU) · ürün sayfası: https://www.gespaenerji.com/paket-motor-yolcu.html · tek tıkla sepete: https://www.gespaenerji.com/sepet.html?ekle=set-yolcu
-- Kargo Kasalı Motor Güneş Paketi — 655 W — Açık kasa veya tenteli yük araçları — çatı alanı geniş. İçindekiler: Lexron 655 W TOPCon Güneş Paneli + MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı + Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) + MC4 Konnektör Takımı = ₺372 (ürün kodu GES-SET-KARGO) · ürün sayfası: https://www.gespaenerji.com/paket-motor-kargo.html · tek tıkla sepete: https://www.gespaenerji.com/sepet.html?ekle=set-kargo
+- Yolcu Kabinli Motor Güneş Paketi — 285 W — Kabinli, 2–4 kişilik yolcu araçları — çatı alanı dar. İçindekiler: Lexron 285 W Güneş Paneli + MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı + Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) + MC4 Konnektör Takımı = ₺15.800 (ürün kodu GES-SET-YOLCU) · ürün sayfası: https://www.gespaenerji.com/paket-motor-yolcu.html · tek tıkla sepete: https://www.gespaenerji.com/sepet.html?ekle=set-yolcu
+- Kargo Kasalı Motor Güneş Paketi — 655 W — Açık kasa veya tenteli yük araçları — çatı alanı geniş. İçindekiler: Lexron 655 W TOPCon Güneş Paneli + MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı + Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) + MC4 Konnektör Takımı = ₺18.300 (ürün kodu GES-SET-KARGO) · ürün sayfası: https://www.gespaenerji.com/paket-motor-kargo.html · tek tıkla sepete: https://www.gespaenerji.com/sepet.html?ekle=set-kargo
 Paketin kendi fiyatı yoktur; toplam içindeki ürünlerin liste fiyatlarından gelir.
 Sayfadaki araç fotoğrafları yalnızca TİP ÖRNEĞİDİR (başka üreticilerin araçları);
 satışa konu olan yukarıda listelenen ürünlerdir — ARAÇ SATILMAZ.

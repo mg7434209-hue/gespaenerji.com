@@ -187,6 +187,86 @@ Charges 36–72 V batteries from a 12/24 V input · caravans and boats
 
 VAT included · shipping excluded
 
+### Lexron 20 A PWM Solar Charge Controller 12/24 V
+
+Small 12/24 V battery-based solar systems
+
+**₺660**≈ $13
+
+💰 By bank transfer: **₺650**
+
+VAT included · shipping excluded
+
+### Lexron 30 A PWM Solar Charge Controller 12/24 V
+
+Small 12/24 V battery-based solar systems
+
+**₺740**≈ $15
+
+💰 By bank transfer: **₺700**
+
+VAT included · shipping excluded
+
+### Lexron 40 A PWM Solar Charge Controller 12/24 V
+
+Small 12/24 V battery-based solar systems
+
+**₺950**≈ $19
+
+💰 By bank transfer: **₺900**
+
+VAT included · shipping excluded
+
+### Lexron 60 A PWM Solar Charge Controller 12/24/48 V
+
+12/24/48 V battery-based solar systems
+
+**₺2.000**≈ $40
+
+💰 By bank transfer: **₺1.950**
+
+VAT included · shipping excluded
+
+### Lexron 20 A MPPT Solar Charge Controller 12/24 V
+
+12/24 V battery-based solar systems · high efficiency
+
+**₺2.850**≈ $58
+
+💰 By bank transfer: **₺2.750**
+
+VAT included · shipping excluded
+
+### Lexron 30 A MPPT Solar Charge Controller 12/24 V
+
+12/24 V battery-based solar systems · high efficiency
+
+**₺3.150**≈ $64
+
+💰 By bank transfer: **₺3.050**
+
+VAT included · shipping excluded
+
+### Lexron 40 A MPPT Solar Charge Controller 12/24 V
+
+12/24 V battery-based solar systems · high efficiency
+
+**₺3.450**≈ $70
+
+💰 By bank transfer: **₺3.350**
+
+VAT included · shipping excluded
+
+### Lexron 80 A HV (15~230 V) MPPT Solar Charge Controller 12/24/36/48 V
+
+Large 12/24/36/48 V battery-based solar systems
+
+**₺9.200**≈ $186
+
+💰 By bank transfer: **₺8.900**
+
+VAT included · shipping excluded
+
 ### Solar Cable Set (5 m Black + 5 m Red)
 
 Connection between panel and charge controller
