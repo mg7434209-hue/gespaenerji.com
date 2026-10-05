@@ -301,7 +301,7 @@ ve sepet simgesi ekran dışında kalır.
 - `packages[]`: 2 komple kit (285W ₺ · 2x540W USD) + BOOST MPPT şarj kontrol
   cihazı (**₺7.200 NET** — `noCartDiscount`, kartta da havalede de aynı tutar;
   `freeShipping`, `group:"accessory"`) +
-  50W panel (kampanya, `group:"panel"`) + UNV Trek Pro 2500 W taşınabilir güç
+  50W panel ₺1.750 NET (`noCartDiscount`, `group:"panel"`; Eylül kampanyası bitti, `oldPrice` kalktı) + UNV Trek Pro 2500 W taşınabilir güç
   istasyonu ($2.495, `group:"offgrid"`) + tekil paneller Lexron 285 W ₺7.500 ·
   Lexron 655 W TOPCon ₺10.000 · Arçelik 540 W ₺10.000 (`group:"panel"`) +
   TitanX 51,2 V 102 Ah LiFePO₄ akü ₺73.372 (`group:"storage"`) +

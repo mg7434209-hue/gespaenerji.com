@@ -3,7 +3,7 @@ title: "Online Satış — Güneş Enerjisi Ürünleri | GESPA Enerji"
 description: "GESPA Enerji online satış: hazır güneş enerjisi paketleri, şarj kontrol cihazları ve solar ekipman. Şeffaf fiyat, KDV dahil, Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/online-satis.html
 lang: tr
-dateModified: 2026-09-30
+dateModified: 2026-10-05
 publisher: "GESPA Enerji"
 ---
 
@@ -63,7 +63,7 @@ KDV dahil · kargo hariç
 
 Küçük aydınlatma, kamera ve akü şarjı
 
-**₺1.250**≈ $25
+**₺1.750**≈ $36
 
 KDV dahil · kargo hariç
 
