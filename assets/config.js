@@ -333,9 +333,10 @@ window.GESPA.config = {
       id: "panel-50w", icon: "🔆", tag: "Panel", group: "panel",
       sku: "GES-PNL-50",
       img: "assets/img/products/panel-50w.webp",
-      price: 25.41, currency: "USD", oldPrice: 50.81,     // ₺1.250 · eski fiyat ₺2.500 @ 49,2
-      // Kampanya fiyatı NET: zaten %50 indirimli, üstüne havale/EFT indirimi
-      // uygulanmaz. Müşterinin ödeyeceği son tutar ₺1.250'dir.
+      price: 35.57, currency: "USD",     // ₺1.750 @ 49,2 (işletme, 5 Eki 2026)
+      // Fiyat NET: havale/EFT indirimi uygulanmaz, son tutar ₺1.750.
+      // Eylül kampanyasının oldPrice'ı (₺2.500) KALDIRILDI: son 30 günde
+      // ₺1.250'ye satıldığı için ₺2.500 "önceki fiyat" olarak gösterilemez.
       noCartDiscount: true,
       chips: ["🔆 50 W monokristal", "🔋 12 V sistem", "📦 Tek panel"],
       for: "Küçük aydınlatma, kamera ve akü şarjı",

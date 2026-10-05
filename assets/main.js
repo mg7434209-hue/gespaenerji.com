@@ -45,8 +45,32 @@
   (function applyPriceOverrides() {
     var ov; try { ov = JSON.parse(localStorage.getItem("gespa-prices-usd") || "null"); } catch (e) { ov = null; }
     if (!ov) return;
-    if (ov.packages && CFG.packages) CFG.packages.forEach(function (p) { if (ov.packages[p.id] != null && ov.packages[p.id] !== "") { p.price = +ov.packages[p.id]; PRICE_OV = true; } });
-    if (ov.heater && CFG.heater && CFG.heater.models) CFG.heater.models.forEach(function (m) { if (ov.heater[m.cap] != null && ov.heater[m.cap] !== "") m.price = +ov.heater[m.cap]; });
+    var any = false;
+    if (ov.packages && CFG.packages) CFG.packages.forEach(function (p) { if (ov.packages[p.id] != null && ov.packages[p.id] !== "") { p.price = +ov.packages[p.id]; PRICE_OV = true; any = true; } });
+    if (ov.heater && CFG.heater && CFG.heater.models) CFG.heater.models.forEach(function (m) { if (ov.heater[m.cap] != null && ov.heater[m.cap] !== "") { m.price = +ov.heater[m.cap]; any = true; } });
+    // Önizleme açıkken bunu SAYFADA söyle: admin "Kaydet" yalnız bu tarayıcıya
+    // yazar; masaüstünde yeni, telefonda (ve tüm müşterilerde) eski fiyat
+    // görünüyordu ve fiyat yayınlanmış sanıldı (4 Eki 2026).
+    if (!any || !doc.body) return;
+    var bar = doc.createElement("div");
+    bar.className = "price-ov-bar";
+    bar.setAttribute("role", "status");
+    bar.innerHTML = "<span>⚠️ " + L(
+      "Fiyat ÖNİZLEMESİ: yalnız bu cihazda. Müşteriler ve ödeme yayındaki fiyatı görür.",
+      "Price PREVIEW: this device only. Customers and checkout see the published price.",
+      "Preis-VORSCHAU: nur dieses Gerät. Kunden und Kasse sehen den veröffentlichten Preis.",
+      "ПРЕДПРОСМОТР цен: только это устройство. Покупатели и оплата видят опубликованную цену.") +
+      '</span><button type="button">' + L("Önizlemeyi kapat", "Close preview", "Vorschau beenden", "Закрыть просмотр") + "</button>";
+    bar.querySelector("button").addEventListener("click", function () {
+      try { localStorage.removeItem("gespa-prices-usd"); } catch (e) {}
+      location.reload();
+    });
+    // Sayfa en üstteyken ekle ve en üstte kal: tarayıcının kaydırma
+    // sabitlemesi (scroll anchoring) aksi hâlde sayfayı şerit kadar aşağı
+    // itip uyarıyı ekran dışında bırakıyordu.
+    var atTop = (window.pageYOffset || 0) === 0;
+    doc.body.insertBefore(bar, doc.body.firstChild);
+    if (atTop) window.scrollTo(0, 0);
   })();
   (function fillFromConfig() {
     var c = CFG.company;
@@ -593,6 +617,13 @@
           charge: L("Şarj Kontrol & DC-DC", "Charge Controllers & DC-DC", "Laderegler & DC-DC", "Контроллеры заряда и DC-DC")
         })[g] || g;
       }
+      // Katalog süzgecinde üst kategoriye katılan gruplar. config.packages[].group
+      // DEĞİŞMEZ: urunler.html vitrininde "evset" kendi başlığıyla ayrı kalır;
+      // birleştirme yalnız bu sayfanın çiplerinde ve süzmesinde geçerlidir.
+      // Elektrikli motor güneş paketleri müşterinin aradığı "Elektrikli Araç"
+      // ürünleridir; ayrı çip aynı ihtiyacı ikiye bölüyordu (3 Eki 2026).
+      var CAT_MERGE = { evset: "accessory" };
+      function catOf(p) { var g = p.group || "ongrid"; return CAT_MERGE[g] || g; }
       function tName(t) {
         var lang = (window.GESPA && GESPA.lang) || "tr";
         if (lang === "tr") return t;
@@ -697,7 +728,7 @@
 
       function render(filter) {
         var list = filter && filter !== "all"
-          ? items.filter(function (p) { return (p.group || "ongrid") === filter; })
+          ? items.filter(function (p) { return catOf(p) === filter; })
           : items;
         grid.innerHTML = list.length
           ? list.map(tile).join("")
@@ -713,7 +744,7 @@
       var bar = $("#shopFilters");
       var active = "all";
       var seen = [];
-      items.forEach(function (p) { var g = p.group || "ongrid"; if (seen.indexOf(g) < 0) seen.push(g); });
+      items.forEach(function (p) { var g = catOf(p); if (seen.indexOf(g) < 0) seen.push(g); });
       function buildFilters() {
         if (!bar) return;
         var html = '<button type="button" class="sh-chip' + (active === "all" ? " is-on" : "") + '" data-f="all">' +
@@ -723,7 +754,7 @@
           // BAĞLANTIDIR: tek kartlık ara ızgarayı atlar, doğrudan ürün
           // sayfasına götürür (orada galeri, künye ve paketler var).
           // Kategoriye ikinci ürün girdiğinde kendiliğinden süzgece döner.
-          var inG = items.filter(function (p) { return (p.group || "ongrid") === g; });
+          var inG = items.filter(function (p) { return catOf(p) === g; });
           var solo = inG.length === 1 && inG[0].url ? inG[0] : null;
           if (solo) {
             html += '<a class="sh-chip sh-chip-go" href="' + String(solo.url).replace(/"/g, "&quot;") + '">' +
@@ -740,6 +771,19 @@
         active = b.getAttribute("data-f");
         $$(".sh-chip", bar).forEach(function (x) { x.classList.toggle("is-on", x === b); });
         render(active);
+        // Mobilde çip şeridi tek satır kayar: seçilen çip görünür alana gelsin.
+        // scrollBy yalnız şeridi kaydırır (scrollIntoView sayfayı da oynatırdı).
+        if (bar.scrollWidth > bar.clientWidth) {
+          var br = b.getBoundingClientRect(), fr = bar.getBoundingClientRect();
+          bar.scrollBy({ left: (br.left + br.width / 2) - (fr.left + fr.width / 2), behavior: "smooth" });
+        }
+        // Liste ortasından süzüldüyse yeni listenin başına dön — yapışkan
+        // şeridin altında kalmasın diye şerit + başlık yüksekliği kadar pay bırakılır.
+        var stick = bar.closest(".sh-bar");
+        var gap = (stick && getComputedStyle(stick).position === "sticky" ? stick.offsetHeight : 0) +
+          (parseFloat(getComputedStyle(doc.documentElement).getPropertyValue("--hdr-h")) || 0) + 8;
+        var gTop = grid.getBoundingClientRect().top;
+        if (gTop < gap) window.scrollTo({ top: window.pageYOffset + gTop - gap, behavior: "smooth" });
       });
       buildFilters();
       renderSale();
@@ -1512,18 +1556,41 @@
     langCopy.classList.add("menu-lang");
     menu.insertBefore(langCopy, menu.firstChild);
   }
+  // Başlık yüksekliği → --hdr-h (mobilde yapışkan kategori şeridi bunun
+  // hemen altına yapışır; başlık yüksekliği ekran genişliğine göre değişir).
+  var siteHeader = $(".site-header");
+  function setHdrH() {
+    if (siteHeader) doc.documentElement.style.setProperty("--hdr-h", siteHeader.offsetHeight + "px");
+  }
+  setHdrH();
+  window.addEventListener("resize", setHdrH);
   if (hamburger && menu) {
-    hamburger.addEventListener("click", function () {
-      var open = menu.classList.toggle("open");
+    // Çekmece başlığın içinde konumlanır (backdrop-filter kapsayıcı blok
+    // oluşturur): ekrandaki üst kenarı = başlığın üstü + menünün `top` değeri.
+    // --menu-top ile max-height ekrana sığar, uzun menü kendi içinde kayar.
+    var setMenuTop = function () {
+      var top = (siteHeader ? siteHeader.getBoundingClientRect().top : 0) + (parseFloat(getComputedStyle(menu).top) || 0);
+      doc.documentElement.style.setProperty("--menu-top", Math.max(0, Math.round(top)) + "px");
+    };
+    var setMenu = function (open) {
+      if (open) setMenuTop();
+      menu.classList.toggle("open", open);
       hamburger.classList.toggle("open", open);
       hamburger.setAttribute("aria-expanded", open ? "true" : "false");
-    });
+      doc.documentElement.classList.toggle("menu-locked", open);   // arka sayfa kaymasın
+    };
+    hamburger.addEventListener("click", function () { setMenu(!menu.classList.contains("open")); });
     $$("a", menu).forEach(function (a) {
-      a.addEventListener("click", function () {
-        menu.classList.remove("open");
-        hamburger.classList.remove("open");
-        hamburger.setAttribute("aria-expanded", "false");
-      });
+      a.addEventListener("click", function () { setMenu(false); });
+    });
+    doc.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.classList.contains("open")) { setMenu(false); hamburger.focus(); }
+    });
+    // Telefon yan çevrilince çekmece açıksa yüksekliği yeniden hesapla;
+    // masaüstü genişliğine geçilirse kilit kalmasın.
+    window.addEventListener("resize", function () {
+      if (!menu.classList.contains("open")) return;
+      if (getComputedStyle(hamburger).display === "none") setMenu(false); else setMenuTop();
     });
   }
 

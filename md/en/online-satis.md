@@ -3,7 +3,7 @@ title: "Online Store — Solar Products and Equipment | GESPA Energy"
 description: "All products on sale in one place: ready-made solar kits, MPPT charge controllers and equipment. Transparent prices, VAT included, shipping across Türkiye."
 canonical: https://www.gespaenerji.com/en/online-satis.html
 lang: en
-dateModified: 2026-09-30
+dateModified: 2026-10-05
 publisher: "GESPA Enerji"
 ---
 
@@ -63,7 +63,7 @@ VAT included · shipping excluded
 
 Small lighting, cameras and battery charging
 
-**₺1.250**≈ $25
+**₺1.750**≈ $36
 
 VAT included · shipping excluded
 

@@ -301,7 +301,7 @@ ve sepet simgesi ekran dışında kalır.
 - `packages[]`: 2 komple kit (285W ₺ · 2x540W USD) + BOOST MPPT şarj kontrol
   cihazı (**₺7.200 NET** — `noCartDiscount`, kartta da havalede de aynı tutar;
   `freeShipping`, `group:"accessory"`) +
-  50W panel (kampanya, `group:"panel"`) + UNV Trek Pro 2500 W taşınabilir güç
+  50W panel ₺1.750 NET (`noCartDiscount`, `group:"panel"`; Eylül kampanyası bitti, `oldPrice` kalktı) + UNV Trek Pro 2500 W taşınabilir güç
   istasyonu ($2.495, `group:"offgrid"`) + tekil paneller Lexron 285 W ₺7.500 ·
   Lexron 655 W TOPCon ₺10.000 · Arçelik 540 W ₺10.000 (`group:"panel"`) +
   TitanX 51,2 V 102 Ah LiFePO₄ akü ₺73.372 (`group:"storage"`) +
@@ -344,6 +344,12 @@ ve sepet simgesi ekran dışında kalır.
   kataloğunda listelenir — main.js/build.js GROUPS listelerinde YOKTUR, orada
   olsaydı urunler.html paket vitrininde de çıkardı. Katalog süzgeç etiketi
   main.js `groupLabel()` içindedir; yeni grup eklerken oraya satır ekle.
+  KATALOG BİRLEŞTİRME: main.js `CAT_MERGE` bir grubu katalog çipinde başka
+  grubun altına alır, config'teki `group` DEĞİŞMEZ. Şu an `evset` →
+  `accessory`: motor güneş paketleri "Elektrikli Araç" çipinde listelenir
+  (3 Eki 2026, kullanıcı kararı), urunler.html vitrininde ise "Elektrikli
+  Motor Güneş Paketleri" başlığıyla AYRI kalır. Süzme, çip listesi ve tek
+  ürünlü çip kontrolü `catOf()` kullanır; `p.group`'u doğrudan okuma.
 - kWp'si OLMAYAN ürünlerde (cihaz/aksesuar) `kwp`/`panelW`/`panelCount` YAZILMAZ;
   kart çipleri `chips: [...]` ile elle verilir. main.js `card()`/`chipsOf()`,
   build.js `PKG:STATIC` ve llms-full.txt bu durumda güç yerine ürün kodunu yazar,
@@ -434,6 +440,10 @@ ve sepet simgesi ekran dışında kalır.
   ŞİFRE DEĞİŞTİRME: yeni değeri `ADMIN_PASS`'a, eskisini `ADMIN_PASS_PREV`'e
   yaz; devir (sayaç + soru-cevap) eski sunucuya önceki şifreyle sorulur.
   Yeni şifreyle bir dağıtım bitince `ADMIN_PASS_PREV` silinir.
+- Önizleme açık tarayıcıda her sayfanın başında turuncu `.price-ov-bar`
+  uyarısı çıkar ("yalnız bu cihazda"), "Önizlemeyi kapat" anahtarı siler.
+  Sebep (4 Eki 2026): işletme "Kaydet"ten sonra fiyatı yayınlandı sandı;
+  masaüstünde yeni, telefonda ve tüm müşterilerde eski fiyat görünüyordu.
 - Admin paneli fiyatları localStorage'da override eder (yalnız o cihaz);
   kalıcı/herkese yayın = değerleri bu dosyaya işleyip commit'lemek.
   Anahtar `gespa-prices-usd` (değerler USD): eski `gespa-prices` TL idi,
@@ -628,6 +638,17 @@ Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD v
   `baglanti-semasi-900.webp` (`.feature-diagram`, object-fit:contain, data-zoom
   ile büyür). Görselin etiketleri TR gömülüdür (i18n çevirmez). Eski inline SVG
   şema kaldırıldı; `.hs-*` stilleri ve DICT etiket çevirileri repoda duruyor.
+- MOBİL (3 Eki 2026, style.css sonundaki "Mobil iyileştirmeler" bloğu):
+  ≤900 px katalog çipleri (`.sh-bar`) TEK SATIR kayar ve `--hdr-h` (main.js,
+  başlık yüksekliği) altına YAPIŞIR; çip tıklanınca şerit seçili çipe kayar,
+  liste ortasındaysa ızgara başına dönülür. ≤520 px `.sh-grid` 2 sütun, kartta
+  "Detay" gizli (görsel/başlık zaten ürün sayfasına gider). Hamburger çekmece
+  `--menu-top` ile ekrana sığar ve kendi içinde kayar (eskiden 640 px
+  telefonda "Teklif Al" ekran dışındaydı), açıkken `html.menu-locked`,
+  Esc kapatır; "Araçlar" mobilde küçük grup etiketi olarak görünür.
+  Dokunma alanı hedefi ≥44 px, yazı ≥12 px; `:hover` efektleri
+  `(hover:none)`'da kapalı (dokunulan çip seçili gibi yapışıyordu).
+  Çerez bandı açıkken sohbet düğmesi gizlidir (`body:has(.cookie-bar)`).
 - Açık/koyu tema, mobil menü, scroll animasyonları `assets/main.js` ile yönetilir;
   yeni DOM'lar `.reveal` ve `data-count` desenlerini kullanabilir.
 - Ziyaretçi sayacı: footer'daki `.visit-counter` rozetini main.js enjekte eder
