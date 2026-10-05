@@ -1675,12 +1675,19 @@ const server = http.createServer((req, res) => {
       return readBody(req, 4 * 1024, (raw) => {
         let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
         if (!adminGate(req, res, b.pass)) return;
-        const bots = Object.keys(aiBots.bots).map(n => {
-          const r = aiBots.bots[n];
-          const top = Object.keys(r.paths).sort((a, c) => r.paths[c] - r.paths[a]).slice(0, 5).map(k => ({ path: k, n: r.paths[k] }));
-          return { name: n, kind: r.kind, count: r.count, last: r.last, top: top };
-        }).sort((a, c) => c.count - a.count);
-        sendJson(res, 200, { since: aiBots.since, bots: bots });
+        // Eksik alanlı eski kayıt (paths yok vb.) isteği düşürmesin: bu geri
+        // çağrı ana try/catch'in DIŞINDA, istisna yanıtsız askıda bırakırdı.
+        try {
+          const bots = Object.keys(aiBots.bots || {}).map(n => {
+            const r = aiBots.bots[n] || {};
+            const paths = r.paths || {};
+            const top = Object.keys(paths).sort((a, c) => paths[c] - paths[a]).slice(0, 5).map(k => ({ path: k, n: paths[k] }));
+            return { name: n, kind: r.kind || "ai", count: +r.count || 0, last: r.last || null, top: top };
+          }).sort((a, c) => c.count - a.count);
+          sendJson(res, 200, { since: aiBots.since, bots: bots });
+        } catch (e) {
+          sendJson(res, 500, { error: "AI tarayıcı sayacı okunamadı: " + (e && e.message) });
+        }
       });
     }
     // AI ajanları için içerik müzakeresi: `Accept: text/markdown` ile istenen
