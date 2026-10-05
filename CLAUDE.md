@@ -745,6 +745,12 @@ Tüm kurallar: @docs/odeme.md
   …/kaynak/ ve gizli dosyalar 404 döner (test denetler). 29 Eyl 2026'ya dek
   data/orders.json adresle okunabiliyordu. Yeni yayın klasörü eklersen
   izin listesine yaz.
+- GESPA OS (JARVIS) ÖZETİ: `GET /api/os/summary` + `X-OS-Token` (Railway `OS_TOKEN`,
+  ≥32 karakter). Salt okunur; alıcı kişisel verisi ÇIKMAZ (test denetler). @docs/os-ozet.md
+  SİPARİŞ DEFTERİ: her sipariş durum değişikliği KVKK-ayıklı olarak Gespa OS'e
+  (Postgres) gider (`OS_INGEST_URL` + `OS_INGEST_TOKEN`); arka planda, ödemeyi
+  bekletmez, hata atmaz, dakikada bir yeniden dener. `writeOrder()` sonundaki
+  `osScheduleSync()` çağrısını KALDIRMA.
 
 ## Döviz kuru (otomatik, TCMB) — `kur.js` · server.js `FX`
 - Katalog fiyatları USD; ₺ = USD × kur, kademeli yuvarlama (≥10.000 ₺ → 100,
