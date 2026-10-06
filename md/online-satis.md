@@ -3,7 +3,7 @@ title: "Online Satış — Güneş Enerjisi Ürünleri | GESPA Enerji"
 description: "GESPA Enerji online satış: hazır güneş enerjisi paketleri, şarj kontrol cihazları ve solar ekipman. Şeffaf fiyat, KDV dahil, Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/online-satis.html
 lang: tr
-dateModified: 2026-10-05
+dateModified: 2026-10-06
 publisher: "GESPA Enerji"
 ---
 
@@ -191,9 +191,9 @@ KDV dahil · kargo hariç
 
 12/24 V akülü küçük güneş sistemleri
 
-**₺660**≈ $13
+**₺730**≈ $15
 
-💰 Havale/EFT ile: **₺650**
+💰 Havale/EFT ile: **₺700**
 
 KDV dahil · kargo hariç
 
@@ -201,9 +201,9 @@ KDV dahil · kargo hariç
 
 12/24 V akülü küçük güneş sistemleri
 
-**₺740**≈ $15
+**₺820**≈ $17
 
-💰 Havale/EFT ile: **₺700**
+💰 Havale/EFT ile: **₺800**
 
 KDV dahil · kargo hariç
 
@@ -211,9 +211,9 @@ KDV dahil · kargo hariç
 
 12/24 V akülü küçük güneş sistemleri
 
-**₺950**≈ $19
+**₺1.050**≈ $21
 
-💰 Havale/EFT ile: **₺900**
+💰 Havale/EFT ile: **₺1.000**
 
 KDV dahil · kargo hariç
 
@@ -221,23 +221,13 @@ KDV dahil · kargo hariç
 
 12/24/48 V akülü güneş sistemleri
 
-**₺2.000**≈ $40
+**₺2.200**≈ $44
 
-💰 Havale/EFT ile: **₺1.950**
+💰 Havale/EFT ile: **₺2.150**
 
 KDV dahil · kargo hariç
 
 ### Lexron 20 A MPPT Şarj Kontrol Cihazı 12/24 V
-
-12/24 V akülü güneş sistemleri · yüksek verim
-
-**₺2.850**≈ $58
-
-💰 Havale/EFT ile: **₺2.750**
-
-KDV dahil · kargo hariç
-
-### Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V
 
 12/24 V akülü güneş sistemleri · yüksek verim
 
@@ -247,13 +237,23 @@ KDV dahil · kargo hariç
 
 KDV dahil · kargo hariç
 
+### Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V
+
+12/24 V akülü güneş sistemleri · yüksek verim
+
+**₺3.450**≈ $71
+
+💰 Havale/EFT ile: **₺3.350**
+
+KDV dahil · kargo hariç
+
 ### Lexron 40 A MPPT Şarj Kontrol Cihazı 12/24 V
 
 12/24 V akülü güneş sistemleri · yüksek verim
 
-**₺3.450**≈ $70
+**₺3.800**≈ $77
 
-💰 Havale/EFT ile: **₺3.350**
+💰 Havale/EFT ile: **₺3.700**
 
 KDV dahil · kargo hariç
 
@@ -261,9 +261,9 @@ KDV dahil · kargo hariç
 
 12/24/36/48 V akülü büyük güneş sistemleri
 
-**₺9.200**≈ $186
+**₺10.100**≈ $205
 
-💰 Havale/EFT ile: **₺8.900**
+💰 Havale/EFT ile: **₺9.800**
 
 KDV dahil · kargo hariç
 

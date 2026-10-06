@@ -517,7 +517,8 @@ window.GESPA.config = {
 
     // —— Lexron şarj kontrol cihazları —— GES Marketim kataloğundan (gesmarketim1
     // data/catalog.json, 10.08.2026 Lexron listesi) aktarıldı, 5 Eki 2026.
-    // price = GES Marketim'in KDV dahil saleUsd'si (iki sitede aynı dolar fiyatı).
+    // price = GES Marketim'in KDV dahil saleUsd'si × 1,10 (6 Eki 2026, sahibin
+    // kararı: gespaenerji'de %10 üstü fiyat).
     // Tedarikçi adı ve maliyet AKTARILMAZ. Akü gerilimleri ürün görselindeki
     // üretici etiketinden; panel girişi, yük çıkışı, koruma gibi değerler elimizde
     // YOK — yazılmaz, "bize yazın" denir (Havensis kuralı). Detay sayfası yok,
@@ -526,7 +527,7 @@ window.GESPA.config = {
       id: "lexron-pwm-20a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       sku: "GM-20APWMSARJKONT", brand: "Lexron",
       img: "assets/img/products/lexron-pwm-20a.webp",
-      price: 13.43, currency: "USD",
+      price: 14.77, currency: "USD",
       chips: ["⚡ 12/24 V · 20 A", "🔆 PWM"],
       for: "12/24 V akülü küçük güneş sistemleri",
       name: "Lexron 20 A PWM Şarj Kontrol Cihazı 12/24 V",
@@ -537,7 +538,7 @@ window.GESPA.config = {
       id: "lexron-pwm-30a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       sku: "GM-30APWMSARJKONT", brand: "Lexron",
       img: "assets/img/products/lexron-pwm-30a.webp",
-      price: 15.07, currency: "USD",
+      price: 16.58, currency: "USD",
       chips: ["⚡ 12/24 V · 30 A", "🔆 PWM"],
       for: "12/24 V akülü küçük güneş sistemleri",
       name: "Lexron 30 A PWM Şarj Kontrol Cihazı 12/24 V",
@@ -548,7 +549,7 @@ window.GESPA.config = {
       id: "lexron-pwm-40a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       sku: "GM-40APWMSARJKONT", brand: "Lexron",
       img: "assets/img/products/lexron-pwm-40a.webp",
-      price: 19.4, currency: "USD",
+      price: 21.34, currency: "USD",
       chips: ["⚡ 12/24 V · 40 A", "🔆 PWM"],
       for: "12/24 V akülü küçük güneş sistemleri",
       name: "Lexron 40 A PWM Şarj Kontrol Cihazı 12/24 V",
@@ -559,7 +560,7 @@ window.GESPA.config = {
       id: "lexron-pwm-60a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       sku: "GM-60APWMSARJKONT", brand: "Lexron",
       img: "assets/img/products/lexron-pwm-60a.webp",
-      price: 40.28, currency: "USD",
+      price: 44.31, currency: "USD",
       chips: ["⚡ 12/24/48 V · 60 A", "🔆 PWM"],
       for: "12/24/48 V akülü güneş sistemleri",
       name: "Lexron 60 A PWM Şarj Kontrol Cihazı 12/24/48 V",
@@ -570,7 +571,7 @@ window.GESPA.config = {
       id: "lexron-mppt-20a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       sku: "GM-20AMPPTSARJKON", brand: "Lexron",
       img: "assets/img/products/lexron-mppt-20a.webp",
-      price: 58.18, currency: "USD",
+      price: 64, currency: "USD",
       chips: ["⚡ 12/24 V · 20 A", "🔆 MPPT"],
       for: "12/24 V akülü güneş sistemleri · yüksek verim",
       name: "Lexron 20 A MPPT Şarj Kontrol Cihazı 12/24 V",
@@ -581,7 +582,7 @@ window.GESPA.config = {
       id: "lexron-mppt-30a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       sku: "GM-30AMPPTSARJKON", brand: "Lexron",
       img: "assets/img/products/lexron-mppt-30a.webp",
-      price: 64.15, currency: "USD",
+      price: 70.57, currency: "USD",
       chips: ["⚡ 12/24 V · 30 A", "🔆 MPPT"],
       for: "12/24 V akülü güneş sistemleri · yüksek verim",
       name: "Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V",
@@ -592,7 +593,7 @@ window.GESPA.config = {
       id: "lexron-mppt-40a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       sku: "GM-40AMPPTSARJKON", brand: "Lexron",
       img: "assets/img/products/lexron-mppt-40a.webp",
-      price: 70.13, currency: "USD",
+      price: 77.14, currency: "USD",
       chips: ["⚡ 12/24 V · 40 A", "🔆 MPPT"],
       for: "12/24 V akülü güneş sistemleri · yüksek verim",
       name: "Lexron 40 A MPPT Şarj Kontrol Cihazı 12/24 V",
@@ -603,7 +604,7 @@ window.GESPA.config = {
       id: "lexron-mppt-80a-hv", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       sku: "GM-80AHV15230VMPP", brand: "Lexron",
       img: "assets/img/products/lexron-mppt-80a-hv.webp",
-      price: 186.49, currency: "USD",
+      price: 205.14, currency: "USD",
       chips: ["⚡ 12/24/36/48 V · 80 A", "🔆 MPPT · HV"],
       for: "12/24/36/48 V akülü büyük güneş sistemleri",
       name: "Lexron 80 A HV (15~230 V) MPPT Şarj Kontrol Cihazı 12/24/36/48 V",

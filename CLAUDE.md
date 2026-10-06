@@ -326,8 +326,9 @@ ve sepet simgesi ekran dışında kalır.
   8 Lexron şarj kontrol cihazı (`lexron-pwm-20a/30a/40a/60a`,
   `lexron-mppt-20a/30a/40a/80a-hv`; `group:"charge"`, detay sayfası YOK):
   GES Marketim kataloğundan (repo gesmarketim1 `data/catalog.json`) aktarıldı
-  (5 Eki 2026). `price` = oradaki KDV dahil `saleUsd` — iki sitede aynı dolar;
-  ₺ farkı yalnız kurdan (GES Marketim 47,2 + %2 tampon). Tedarikçi/maliyet
+  (5 Eki 2026). `price` = oradaki KDV dahil `saleUsd` × 1,10 — sahibin kararı
+  (6 Eki 2026): gespaenerji fiyatı GES Marketim'in %10 üstüdür. Eşitlerken
+  GES Marketim saleUsd'sini 1,10 ile çarp, 2 haneye yuvarla. Tedarikçi/maliyet
   AKTARILMAZ. Akü gerilimi ürün görselindeki etiketten; diğer teknik değerler
   "bize yazın". Çeviriler i18n.js `LEXRON:DICT`. GES Marketim'de fiyat
   değişirse burası KENDİLİĞİNDEN değişmez, elle eşitlenir.

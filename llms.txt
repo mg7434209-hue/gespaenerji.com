@@ -95,14 +95,14 @@ Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş; talebe 
 - Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A — Karavan: alternatörden yaşam aküsüne şarj · 12/24 V · ₺11.800 (KDV dahil) · https://www.gespaenerji.com/havensis-dcdc-40a.html
 - Havensis DCDC-1224B Çift Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A — Karavan: çift yönlü akü şarjı (takviye modu) · 12/24 V · ₺13.600 (KDV dahil) · https://www.gespaenerji.com/havensis-dcdc-40a-cift-yonlu.html
 - Havensis BOOST DCDC-2448 DC-DC Akü Şarj Cihazı 36/48/60/72 V — 12/24 V girişten 36–72 V aküye şarj · karavan ve tekne · ₺8.250 (KDV dahil) · https://www.gespaenerji.com/havensis-boost-dcdc-2448.html
-- Lexron 20 A PWM Şarj Kontrol Cihazı 12/24 V — 12/24 V akülü küçük güneş sistemleri · ₺660 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
-- Lexron 30 A PWM Şarj Kontrol Cihazı 12/24 V — 12/24 V akülü küçük güneş sistemleri · ₺740 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
-- Lexron 40 A PWM Şarj Kontrol Cihazı 12/24 V — 12/24 V akülü küçük güneş sistemleri · ₺950 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
-- Lexron 60 A PWM Şarj Kontrol Cihazı 12/24/48 V — 12/24/48 V akülü güneş sistemleri · ₺2.000 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
-- Lexron 20 A MPPT Şarj Kontrol Cihazı 12/24 V — 12/24 V akülü güneş sistemleri · yüksek verim · ₺2.850 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
-- Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V — 12/24 V akülü güneş sistemleri · yüksek verim · ₺3.150 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
-- Lexron 40 A MPPT Şarj Kontrol Cihazı 12/24 V — 12/24 V akülü güneş sistemleri · yüksek verim · ₺3.450 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
-- Lexron 80 A HV (15~230 V) MPPT Şarj Kontrol Cihazı 12/24/36/48 V — 12/24/36/48 V akülü büyük güneş sistemleri · ₺9.200 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
+- Lexron 20 A PWM Şarj Kontrol Cihazı 12/24 V — 12/24 V akülü küçük güneş sistemleri · ₺730 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
+- Lexron 30 A PWM Şarj Kontrol Cihazı 12/24 V — 12/24 V akülü küçük güneş sistemleri · ₺820 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
+- Lexron 40 A PWM Şarj Kontrol Cihazı 12/24 V — 12/24 V akülü küçük güneş sistemleri · ₺1.050 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
+- Lexron 60 A PWM Şarj Kontrol Cihazı 12/24/48 V — 12/24/48 V akülü güneş sistemleri · ₺2.200 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
+- Lexron 20 A MPPT Şarj Kontrol Cihazı 12/24 V — 12/24 V akülü güneş sistemleri · yüksek verim · ₺3.150 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
+- Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V — 12/24 V akülü güneş sistemleri · yüksek verim · ₺3.450 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
+- Lexron 40 A MPPT Şarj Kontrol Cihazı 12/24 V — 12/24 V akülü güneş sistemleri · yüksek verim · ₺3.800 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
+- Lexron 80 A HV (15~230 V) MPPT Şarj Kontrol Cihazı 12/24/36/48 V — 12/24/36/48 V akülü büyük güneş sistemleri · ₺10.100 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
 - Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) — Panel ile şarj kontrol cihazı arası bağlantı · ₺1.000 (KDV dahil) · https://www.gespaenerji.com/online-satis.html
 - Yolcu Kabinli Motor Güneş Paketi — 285 W — Kabinli, 2–4 kişilik yolcu triportörleri — çatı alanı dar · ₺15.800 (KDV dahil) · https://www.gespaenerji.com/paket-motor-yolcu.html
 - Kargo Kasalı Motor Güneş Paketi — 655 W — Açık kasa veya tenteli yük triportörleri — çatı alanı geniş · ₺18.300 (KDV dahil) · https://www.gespaenerji.com/paket-motor-kargo.html

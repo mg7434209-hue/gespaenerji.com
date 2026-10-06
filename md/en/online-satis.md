@@ -3,7 +3,7 @@ title: "Online Store — Solar Products and Equipment | GESPA Energy"
 description: "All products on sale in one place: ready-made solar kits, MPPT charge controllers and equipment. Transparent prices, VAT included, shipping across Türkiye."
 canonical: https://www.gespaenerji.com/en/online-satis.html
 lang: en
-dateModified: 2026-10-05
+dateModified: 2026-10-06
 publisher: "GESPA Enerji"
 ---
 
@@ -191,9 +191,9 @@ VAT included · shipping excluded
 
 Small 12/24 V battery-based solar systems
 
-**₺660**≈ $13
+**₺730**≈ $15
 
-💰 By bank transfer: **₺650**
+💰 By bank transfer: **₺700**
 
 VAT included · shipping excluded
 
@@ -201,9 +201,9 @@ VAT included · shipping excluded
 
 Small 12/24 V battery-based solar systems
 
-**₺740**≈ $15
+**₺820**≈ $17
 
-💰 By bank transfer: **₺700**
+💰 By bank transfer: **₺800**
 
 VAT included · shipping excluded
 
@@ -211,9 +211,9 @@ VAT included · shipping excluded
 
 Small 12/24 V battery-based solar systems
 
-**₺950**≈ $19
+**₺1.050**≈ $21
 
-💰 By bank transfer: **₺900**
+💰 By bank transfer: **₺1.000**
 
 VAT included · shipping excluded
 
@@ -221,23 +221,13 @@ VAT included · shipping excluded
 
 12/24/48 V battery-based solar systems
 
-**₺2.000**≈ $40
+**₺2.200**≈ $44
 
-💰 By bank transfer: **₺1.950**
+💰 By bank transfer: **₺2.150**
 
 VAT included · shipping excluded
 
 ### Lexron 20 A MPPT Solar Charge Controller 12/24 V
-
-12/24 V battery-based solar systems · high efficiency
-
-**₺2.850**≈ $58
-
-💰 By bank transfer: **₺2.750**
-
-VAT included · shipping excluded
-
-### Lexron 30 A MPPT Solar Charge Controller 12/24 V
 
 12/24 V battery-based solar systems · high efficiency
 
@@ -247,13 +237,23 @@ VAT included · shipping excluded
 
 VAT included · shipping excluded
 
+### Lexron 30 A MPPT Solar Charge Controller 12/24 V
+
+12/24 V battery-based solar systems · high efficiency
+
+**₺3.450**≈ $71
+
+💰 By bank transfer: **₺3.350**
+
+VAT included · shipping excluded
+
 ### Lexron 40 A MPPT Solar Charge Controller 12/24 V
 
 12/24 V battery-based solar systems · high efficiency
 
-**₺3.450**≈ $70
+**₺3.800**≈ $77
 
-💰 By bank transfer: **₺3.350**
+💰 By bank transfer: **₺3.700**
 
 VAT included · shipping excluded
 
@@ -261,9 +261,9 @@ VAT included · shipping excluded
 
 Large 12/24/36/48 V battery-based solar systems
 
-**₺9.200**≈ $186
+**₺10.100**≈ $205
 
-💰 By bank transfer: **₺8.900**
+💰 By bank transfer: **₺9.800**
 
 VAT included · shipping excluded
 
