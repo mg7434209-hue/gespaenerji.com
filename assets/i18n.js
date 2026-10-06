@@ -3984,6 +3984,99 @@
   });
   // /AIHUB:DICT
 
+  // LEXRON:DICT — GES Marketim'den aktarılan Lexron şarj kontrol cihazları
+  // (config.packages lexron-*). Açıklama/özellik metinleri aile bazında ortaktır.
+  Object.assign(DICT.en, {
+    "Lexron 20 A PWM Şarj Kontrol Cihazı 12/24 V": "Lexron 20 A PWM Solar Charge Controller 12/24 V",
+    "Lexron 30 A PWM Şarj Kontrol Cihazı 12/24 V": "Lexron 30 A PWM Solar Charge Controller 12/24 V",
+    "Lexron 40 A PWM Şarj Kontrol Cihazı 12/24 V": "Lexron 40 A PWM Solar Charge Controller 12/24 V",
+    "Lexron 60 A PWM Şarj Kontrol Cihazı 12/24/48 V": "Lexron 60 A PWM Solar Charge Controller 12/24/48 V",
+    "Lexron 20 A MPPT Şarj Kontrol Cihazı 12/24 V": "Lexron 20 A MPPT Solar Charge Controller 12/24 V",
+    "Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V": "Lexron 30 A MPPT Solar Charge Controller 12/24 V",
+    "Lexron 40 A MPPT Şarj Kontrol Cihazı 12/24 V": "Lexron 40 A MPPT Solar Charge Controller 12/24 V",
+    "Lexron 80 A HV (15~230 V) MPPT Şarj Kontrol Cihazı 12/24/36/48 V": "Lexron 80 A HV (15~230 V) MPPT Solar Charge Controller 12/24/36/48 V",
+    "12/24 V akülü küçük güneş sistemleri": "Small 12/24 V battery-based solar systems",
+    "12/24/48 V akülü güneş sistemleri": "12/24/48 V battery-based solar systems",
+    "12/24 V akülü güneş sistemleri · yüksek verim": "12/24 V battery-based solar systems · high efficiency",
+    "12/24/36/48 V akülü büyük güneş sistemleri": "Large 12/24/36/48 V battery-based solar systems",
+    "Lexron PWM güneş şarj kontrol cihazı: 12/24 V akü sistemlerinde panelden aküye şarjı düzenler ve aküyü aşırı şarja karşı korur. PWM teknolojisi, panel gerilimi akü gerilimine yakın küçük sistemler (bağ evi, aydınlatma, kamera) için ekonomik bir çözümdür. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.": "Lexron PWM solar charge controller: regulates charging from the panel to the battery in 12/24 V battery systems and protects the battery from overcharging. PWM is an economical choice for small systems whose panel voltage is close to the battery voltage (garden houses, lighting, cameras). For detailed specifications such as panel input voltage and load output, write to us and we will confirm them with the manufacturer.",
+    "Lexron PWM güneş şarj kontrol cihazı: 12/24/48 V akü sistemlerinde panelden aküye şarjı düzenler ve aküyü aşırı şarja karşı korur. 60 A şarj akımıyla daha büyük panel gücüne sahip PWM sistemler içindir. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.": "Lexron PWM solar charge controller: regulates charging from the panel to the battery in 12/24/48 V battery systems and protects the battery from overcharging. With 60 A charging current it suits PWM systems with more panel power. For detailed specifications such as panel input voltage and load output, write to us and we will confirm them with the manufacturer.",
+    "Lexron MPPT güneş şarj kontrol cihazı: panelin maksimum güç noktasını izler; panel gerilimi akü geriliminden yüksek olduğunda PWM'e göre aküye daha fazla enerji aktarır. 12/24 V akü sistemleri için uygundur. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.": "Lexron MPPT solar charge controller: tracks the panel's maximum power point and, when the panel voltage is higher than the battery voltage, delivers more energy to the battery than PWM. Suitable for 12/24 V battery systems. For detailed specifications such as panel input voltage and load output, write to us and we will confirm them with the manufacturer.",
+    "Lexron 80 A HV (15~230 V) MPPT güneş şarj kontrol cihazı: 12/24/36/48 V akü sistemleri için yüksek akımlı MPPT modeli. MPPT teknolojisi panelin maksimum güç noktasını izleyerek enerjiyi aküye verimli aktarır. Ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.": "Lexron 80 A HV (15~230 V) MPPT solar charge controller: a high-current MPPT model for 12/24/36/48 V battery systems. MPPT tracks the panel's maximum power point and transfers energy to the battery efficiently. For detailed specifications, write to us and we will confirm them with the manufacturer.",
+    "12/24 V akü sistemleri": "12/24 V battery systems",
+    "12/24/48 V akü sistemleri": "12/24/48 V battery systems",
+    "12/24/36/48 V akü sistemleri": "12/24/36/48 V battery systems",
+    "PWM şarj teknolojisi": "PWM charging technology",
+    "MPPT şarj teknolojisi": "MPPT charging technology",
+    "Ekonomik küçük sistem çözümü": "Economical solution for small systems",
+    "PWM'e göre daha yüksek verim": "Higher efficiency than PWM",
+    "60 A şarj akımı": "60 A charging current",
+    "80 A şarj akımı": "80 A charging current",
+    "Teknik künye için bize yazın": "Write to us for the full specifications"
+  });
+  Object.assign(DICT.de, {
+    "Lexron 20 A PWM Şarj Kontrol Cihazı 12/24 V": "Lexron 20 A PWM Solar-Laderegler 12/24 V",
+    "Lexron 30 A PWM Şarj Kontrol Cihazı 12/24 V": "Lexron 30 A PWM Solar-Laderegler 12/24 V",
+    "Lexron 40 A PWM Şarj Kontrol Cihazı 12/24 V": "Lexron 40 A PWM Solar-Laderegler 12/24 V",
+    "Lexron 60 A PWM Şarj Kontrol Cihazı 12/24/48 V": "Lexron 60 A PWM Solar-Laderegler 12/24/48 V",
+    "Lexron 20 A MPPT Şarj Kontrol Cihazı 12/24 V": "Lexron 20 A MPPT Solar-Laderegler 12/24 V",
+    "Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V": "Lexron 30 A MPPT Solar-Laderegler 12/24 V",
+    "Lexron 40 A MPPT Şarj Kontrol Cihazı 12/24 V": "Lexron 40 A MPPT Solar-Laderegler 12/24 V",
+    "Lexron 80 A HV (15~230 V) MPPT Şarj Kontrol Cihazı 12/24/36/48 V": "Lexron 80 A HV (15~230 V) MPPT Solar-Laderegler 12/24/36/48 V",
+    "12/24 V akülü küçük güneş sistemleri": "Kleine 12/24-V-Solaranlagen mit Batterie",
+    "12/24/48 V akülü güneş sistemleri": "12/24/48-V-Solaranlagen mit Batterie",
+    "12/24 V akülü güneş sistemleri · yüksek verim": "12/24-V-Solaranlagen mit Batterie · hoher Wirkungsgrad",
+    "12/24/36/48 V akülü büyük güneş sistemleri": "Große 12/24/36/48-V-Solaranlagen mit Batterie",
+    "Lexron PWM güneş şarj kontrol cihazı: 12/24 V akü sistemlerinde panelden aküye şarjı düzenler ve aküyü aşırı şarja karşı korur. PWM teknolojisi, panel gerilimi akü gerilimine yakın küçük sistemler (bağ evi, aydınlatma, kamera) için ekonomik bir çözümdür. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.": "Lexron PWM-Solarladeregler: regelt in 12/24-V-Batteriesystemen das Laden vom Modul zur Batterie und schützt die Batterie vor Überladung. PWM ist eine wirtschaftliche Lösung für kleine Anlagen, deren Modulspannung nahe an der Batteriespannung liegt (Gartenhaus, Beleuchtung, Kamera). Für detaillierte technische Werte wie Moduleingangsspannung und Lastausgang schreiben Sie uns; wir klären sie mit dem Hersteller.",
+    "Lexron PWM güneş şarj kontrol cihazı: 12/24/48 V akü sistemlerinde panelden aküye şarjı düzenler ve aküyü aşırı şarja karşı korur. 60 A şarj akımıyla daha büyük panel gücüne sahip PWM sistemler içindir. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.": "Lexron PWM-Solarladeregler: regelt in 12/24/48-V-Batteriesystemen das Laden vom Modul zur Batterie und schützt die Batterie vor Überladung. Mit 60 A Ladestrom für PWM-Anlagen mit größerer Modulleistung. Für detaillierte technische Werte wie Moduleingangsspannung und Lastausgang schreiben Sie uns; wir klären sie mit dem Hersteller.",
+    "Lexron MPPT güneş şarj kontrol cihazı: panelin maksimum güç noktasını izler; panel gerilimi akü geriliminden yüksek olduğunda PWM'e göre aküye daha fazla enerji aktarır. 12/24 V akü sistemleri için uygundur. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.": "Lexron MPPT-Solarladeregler: verfolgt den Punkt maximaler Leistung des Moduls und liefert der Batterie mehr Energie als PWM, wenn die Modulspannung über der Batteriespannung liegt. Geeignet für 12/24-V-Batteriesysteme. Für detaillierte technische Werte wie Moduleingangsspannung und Lastausgang schreiben Sie uns; wir klären sie mit dem Hersteller.",
+    "Lexron 80 A HV (15~230 V) MPPT güneş şarj kontrol cihazı: 12/24/36/48 V akü sistemleri için yüksek akımlı MPPT modeli. MPPT teknolojisi panelin maksimum güç noktasını izleyerek enerjiyi aküye verimli aktarır. Ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.": "Lexron 80 A HV (15~230 V) MPPT-Solarladeregler: ein MPPT-Modell mit hohem Strom für 12/24/36/48-V-Batteriesysteme. MPPT verfolgt den Punkt maximaler Leistung des Moduls und überträgt die Energie effizient in die Batterie. Für detaillierte technische Werte schreiben Sie uns; wir klären sie mit dem Hersteller.",
+    "12/24 V akü sistemleri": "12/24-V-Batteriesysteme",
+    "12/24/48 V akü sistemleri": "12/24/48-V-Batteriesysteme",
+    "12/24/36/48 V akü sistemleri": "12/24/36/48-V-Batteriesysteme",
+    "PWM şarj teknolojisi": "PWM-Ladetechnik",
+    "MPPT şarj teknolojisi": "MPPT-Ladetechnik",
+    "Ekonomik küçük sistem çözümü": "Wirtschaftliche Lösung für kleine Anlagen",
+    "PWM'e göre daha yüksek verim": "Höherer Wirkungsgrad als PWM",
+    "60 A şarj akımı": "60 A Ladestrom",
+    "80 A şarj akımı": "80 A Ladestrom",
+    "Teknik künye için bize yazın": "Technisches Datenblatt auf Anfrage"
+  });
+  Object.assign(DICT.ru, {
+    "Lexron 20 A PWM Şarj Kontrol Cihazı 12/24 V": "Солнечный контроллер заряда Lexron PWM 20 А 12/24 В",
+    "Lexron 30 A PWM Şarj Kontrol Cihazı 12/24 V": "Солнечный контроллер заряда Lexron PWM 30 А 12/24 В",
+    "Lexron 40 A PWM Şarj Kontrol Cihazı 12/24 V": "Солнечный контроллер заряда Lexron PWM 40 А 12/24 В",
+    "Lexron 60 A PWM Şarj Kontrol Cihazı 12/24/48 V": "Солнечный контроллер заряда Lexron PWM 60 А 12/24/48 В",
+    "Lexron 20 A MPPT Şarj Kontrol Cihazı 12/24 V": "Солнечный контроллер заряда Lexron MPPT 20 А 12/24 В",
+    "Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V": "Солнечный контроллер заряда Lexron MPPT 30 А 12/24 В",
+    "Lexron 40 A MPPT Şarj Kontrol Cihazı 12/24 V": "Солнечный контроллер заряда Lexron MPPT 40 А 12/24 В",
+    "Lexron 80 A HV (15~230 V) MPPT Şarj Kontrol Cihazı 12/24/36/48 V": "Солнечный контроллер заряда Lexron MPPT HV (15~230 В) 80 А 12/24/36/48 В",
+    "12/24 V akülü küçük güneş sistemleri": "Небольшие солнечные системы с АКБ 12/24 В",
+    "12/24/48 V akülü güneş sistemleri": "Солнечные системы с АКБ 12/24/48 В",
+    "12/24 V akülü güneş sistemleri · yüksek verim": "Солнечные системы с АКБ 12/24 В · высокий КПД",
+    "12/24/36/48 V akülü büyük güneş sistemleri": "Крупные солнечные системы с АКБ 12/24/36/48 В",
+    "Lexron PWM güneş şarj kontrol cihazı: 12/24 V akü sistemlerinde panelden aküye şarjı düzenler ve aküyü aşırı şarja karşı korur. PWM teknolojisi, panel gerilimi akü gerilimine yakın küçük sistemler (bağ evi, aydınlatma, kamera) için ekonomik bir çözümdür. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.": "Солнечный контроллер заряда Lexron PWM: регулирует заряд от панели к аккумулятору в системах 12/24 В и защищает аккумулятор от перезаряда. PWM — экономичное решение для небольших систем, где напряжение панели близко к напряжению аккумулятора (дача, освещение, камеры). За подробными характеристиками, например входным напряжением панели и выходом нагрузки, напишите нам — уточним у производителя.",
+    "Lexron PWM güneş şarj kontrol cihazı: 12/24/48 V akü sistemlerinde panelden aküye şarjı düzenler ve aküyü aşırı şarja karşı korur. 60 A şarj akımıyla daha büyük panel gücüne sahip PWM sistemler içindir. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.": "Солнечный контроллер заряда Lexron PWM: регулирует заряд от панели к аккумулятору в системах 12/24/48 В и защищает аккумулятор от перезаряда. Ток заряда 60 А — для PWM-систем с большей мощностью панелей. За подробными характеристиками, например входным напряжением панели и выходом нагрузки, напишите нам — уточним у производителя.",
+    "Lexron MPPT güneş şarj kontrol cihazı: panelin maksimum güç noktasını izler; panel gerilimi akü geriliminden yüksek olduğunda PWM'e göre aküye daha fazla enerji aktarır. 12/24 V akü sistemleri için uygundur. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.": "Солнечный контроллер заряда Lexron MPPT: отслеживает точку максимальной мощности панели и, когда напряжение панели выше напряжения аккумулятора, передаёт в аккумулятор больше энергии, чем PWM. Подходит для систем 12/24 В. За подробными характеристиками, например входным напряжением панели и выходом нагрузки, напишите нам — уточним у производителя.",
+    "Lexron 80 A HV (15~230 V) MPPT güneş şarj kontrol cihazı: 12/24/36/48 V akü sistemleri için yüksek akımlı MPPT modeli. MPPT teknolojisi panelin maksimum güç noktasını izleyerek enerjiyi aküye verimli aktarır. Ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.": "Солнечный контроллер заряда Lexron MPPT HV (15~230 В) 80 А: мощная MPPT-модель для систем с АКБ 12/24/36/48 В. MPPT отслеживает точку максимальной мощности панели и эффективно передаёт энергию в аккумулятор. За подробными характеристиками напишите нам — уточним у производителя.",
+    "12/24 V akü sistemleri": "Системы с АКБ 12/24 В",
+    "12/24/48 V akü sistemleri": "Системы с АКБ 12/24/48 В",
+    "12/24/36/48 V akü sistemleri": "Системы с АКБ 12/24/36/48 В",
+    "PWM şarj teknolojisi": "Технология заряда PWM",
+    "MPPT şarj teknolojisi": "Технология заряда MPPT",
+    "Ekonomik küçük sistem çözümü": "Экономичное решение для небольших систем",
+    "PWM'e göre daha yüksek verim": "Более высокий КПД, чем у PWM",
+    "60 A şarj akımı": "Ток заряда 60 А",
+    "80 A şarj akımı": "Ток заряда 80 А",
+    "Teknik künye için bize yazın": "Технические характеристики — по запросу",
+    "⚡ 12/24 V · 20 A": "⚡ 12/24 В · 20 А",
+    "⚡ 12/24 V · 30 A": "⚡ 12/24 В · 30 А",
+    "⚡ 12/24 V · 40 A": "⚡ 12/24 В · 40 А",
+    "⚡ 12/24/48 V · 60 A": "⚡ 12/24/48 В · 60 А",
+    "⚡ 12/24/36/48 V · 80 A": "⚡ 12/24/36/48 В · 80 А"
+  });
+  // /LEXRON:DICT
+
   // HAVENSIS:DICT — Havensis ürün sayfaları; tools/havensis-sayfalar.py ÜRETİR.
   // Elle düzenleme: metni betikte değiştir, betiği --uygula ile çalıştır.
   Object.assign(DICT.en, {

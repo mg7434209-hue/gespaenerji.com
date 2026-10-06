@@ -3,7 +3,7 @@ title: "Online Satış — Güneş Enerjisi Ürünleri | GESPA Enerji"
 description: "GESPA Enerji online satış: hazır güneş enerjisi paketleri, şarj kontrol cihazları ve solar ekipman. Şeffaf fiyat, KDV dahil, Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/online-satis.html
 lang: tr
-dateModified: 2026-10-05
+dateModified: 2026-10-06
 publisher: "GESPA Enerji"
 ---
 
@@ -184,6 +184,86 @@ KDV dahil · kargo hariç
 **₺8.250**≈ $168
 
 💰 Havale/EFT ile: **₺8.000**
+
+KDV dahil · kargo hariç
+
+### Lexron 20 A PWM Şarj Kontrol Cihazı 12/24 V
+
+12/24 V akülü küçük güneş sistemleri
+
+**₺730**≈ $15
+
+💰 Havale/EFT ile: **₺700**
+
+KDV dahil · kargo hariç
+
+### Lexron 30 A PWM Şarj Kontrol Cihazı 12/24 V
+
+12/24 V akülü küçük güneş sistemleri
+
+**₺820**≈ $17
+
+💰 Havale/EFT ile: **₺800**
+
+KDV dahil · kargo hariç
+
+### Lexron 40 A PWM Şarj Kontrol Cihazı 12/24 V
+
+12/24 V akülü küçük güneş sistemleri
+
+**₺1.050**≈ $21
+
+💰 Havale/EFT ile: **₺1.000**
+
+KDV dahil · kargo hariç
+
+### Lexron 60 A PWM Şarj Kontrol Cihazı 12/24/48 V
+
+12/24/48 V akülü güneş sistemleri
+
+**₺2.200**≈ $44
+
+💰 Havale/EFT ile: **₺2.150**
+
+KDV dahil · kargo hariç
+
+### Lexron 20 A MPPT Şarj Kontrol Cihazı 12/24 V
+
+12/24 V akülü güneş sistemleri · yüksek verim
+
+**₺3.150**≈ $64
+
+💰 Havale/EFT ile: **₺3.050**
+
+KDV dahil · kargo hariç
+
+### Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V
+
+12/24 V akülü güneş sistemleri · yüksek verim
+
+**₺3.450**≈ $71
+
+💰 Havale/EFT ile: **₺3.350**
+
+KDV dahil · kargo hariç
+
+### Lexron 40 A MPPT Şarj Kontrol Cihazı 12/24 V
+
+12/24 V akülü güneş sistemleri · yüksek verim
+
+**₺3.800**≈ $77
+
+💰 Havale/EFT ile: **₺3.700**
+
+KDV dahil · kargo hariç
+
+### Lexron 80 A HV (15~230 V) MPPT Şarj Kontrol Cihazı 12/24/36/48 V
+
+12/24/36/48 V akülü büyük güneş sistemleri
+
+**₺10.100**≈ $205
+
+💰 Havale/EFT ile: **₺9.800**
 
 KDV dahil · kargo hariç
 

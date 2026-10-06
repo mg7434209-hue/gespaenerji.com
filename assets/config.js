@@ -515,6 +515,103 @@ window.GESPA.config = {
       features: ["12/24 V girişle 36/48/60/72 V akü şarjı", "12–32 V giriş · maks. 20 A giriş, 15 A şarj akımı", "%95 dönüştürücü verimi · gelişmiş koruma devreleri", "Dijital ekran bağlantısı ve 5 m uzatma kablosu", "İsteğe bağlı dahili Bluetooth (siparişte belirtin)", "162 × 210 × 70 mm · yerli üretim"]
     },
 
+    // —— Lexron şarj kontrol cihazları —— GES Marketim kataloğundan (gesmarketim1
+    // data/catalog.json, 10.08.2026 Lexron listesi) aktarıldı, 5 Eki 2026.
+    // price = GES Marketim'in KDV dahil saleUsd'si × 1,10 (6 Eki 2026, sahibin
+    // kararı: gespaenerji'de %10 üstü fiyat).
+    // Tedarikçi adı ve maliyet AKTARILMAZ. Akü gerilimleri ürün görselindeki
+    // üretici etiketinden; panel girişi, yük çıkışı, koruma gibi değerler elimizde
+    // YOK — yazılmaz, "bize yazın" denir (Havensis kuralı). Detay sayfası yok,
+    // iniş sayfası online-satis.html. 10 A PWM stokta olmadığı için alınmadı.
+    {
+      id: "lexron-pwm-20a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      sku: "GM-20APWMSARJKONT", brand: "Lexron",
+      img: "assets/img/products/lexron-pwm-20a.webp",
+      price: 14.77, currency: "USD",
+      chips: ["⚡ 12/24 V · 20 A", "🔆 PWM"],
+      for: "12/24 V akülü küçük güneş sistemleri",
+      name: "Lexron 20 A PWM Şarj Kontrol Cihazı 12/24 V",
+      desc: "Lexron PWM güneş şarj kontrol cihazı: 12/24 V akü sistemlerinde panelden aküye şarjı düzenler ve aküyü aşırı şarja karşı korur. PWM teknolojisi, panel gerilimi akü gerilimine yakın küçük sistemler (bağ evi, aydınlatma, kamera) için ekonomik bir çözümdür. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.",
+      features: ["12/24 V akü sistemleri", "PWM şarj teknolojisi", "Ekonomik küçük sistem çözümü", "Teknik künye için bize yazın"]
+    },
+    {
+      id: "lexron-pwm-30a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      sku: "GM-30APWMSARJKONT", brand: "Lexron",
+      img: "assets/img/products/lexron-pwm-30a.webp",
+      price: 16.58, currency: "USD",
+      chips: ["⚡ 12/24 V · 30 A", "🔆 PWM"],
+      for: "12/24 V akülü küçük güneş sistemleri",
+      name: "Lexron 30 A PWM Şarj Kontrol Cihazı 12/24 V",
+      desc: "Lexron PWM güneş şarj kontrol cihazı: 12/24 V akü sistemlerinde panelden aküye şarjı düzenler ve aküyü aşırı şarja karşı korur. PWM teknolojisi, panel gerilimi akü gerilimine yakın küçük sistemler (bağ evi, aydınlatma, kamera) için ekonomik bir çözümdür. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.",
+      features: ["12/24 V akü sistemleri", "PWM şarj teknolojisi", "Ekonomik küçük sistem çözümü", "Teknik künye için bize yazın"]
+    },
+    {
+      id: "lexron-pwm-40a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      sku: "GM-40APWMSARJKONT", brand: "Lexron",
+      img: "assets/img/products/lexron-pwm-40a.webp",
+      price: 21.34, currency: "USD",
+      chips: ["⚡ 12/24 V · 40 A", "🔆 PWM"],
+      for: "12/24 V akülü küçük güneş sistemleri",
+      name: "Lexron 40 A PWM Şarj Kontrol Cihazı 12/24 V",
+      desc: "Lexron PWM güneş şarj kontrol cihazı: 12/24 V akü sistemlerinde panelden aküye şarjı düzenler ve aküyü aşırı şarja karşı korur. PWM teknolojisi, panel gerilimi akü gerilimine yakın küçük sistemler (bağ evi, aydınlatma, kamera) için ekonomik bir çözümdür. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.",
+      features: ["12/24 V akü sistemleri", "PWM şarj teknolojisi", "Ekonomik küçük sistem çözümü", "Teknik künye için bize yazın"]
+    },
+    {
+      id: "lexron-pwm-60a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      sku: "GM-60APWMSARJKONT", brand: "Lexron",
+      img: "assets/img/products/lexron-pwm-60a.webp",
+      price: 44.31, currency: "USD",
+      chips: ["⚡ 12/24/48 V · 60 A", "🔆 PWM"],
+      for: "12/24/48 V akülü güneş sistemleri",
+      name: "Lexron 60 A PWM Şarj Kontrol Cihazı 12/24/48 V",
+      desc: "Lexron PWM güneş şarj kontrol cihazı: 12/24/48 V akü sistemlerinde panelden aküye şarjı düzenler ve aküyü aşırı şarja karşı korur. 60 A şarj akımıyla daha büyük panel gücüne sahip PWM sistemler içindir. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.",
+      features: ["12/24/48 V akü sistemleri", "PWM şarj teknolojisi", "60 A şarj akımı", "Teknik künye için bize yazın"]
+    },
+    {
+      id: "lexron-mppt-20a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      sku: "GM-20AMPPTSARJKON", brand: "Lexron",
+      img: "assets/img/products/lexron-mppt-20a.webp",
+      price: 64, currency: "USD",
+      chips: ["⚡ 12/24 V · 20 A", "🔆 MPPT"],
+      for: "12/24 V akülü güneş sistemleri · yüksek verim",
+      name: "Lexron 20 A MPPT Şarj Kontrol Cihazı 12/24 V",
+      desc: "Lexron MPPT güneş şarj kontrol cihazı: panelin maksimum güç noktasını izler; panel gerilimi akü geriliminden yüksek olduğunda PWM'e göre aküye daha fazla enerji aktarır. 12/24 V akü sistemleri için uygundur. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.",
+      features: ["12/24 V akü sistemleri", "MPPT şarj teknolojisi", "PWM'e göre daha yüksek verim", "Teknik künye için bize yazın"]
+    },
+    {
+      id: "lexron-mppt-30a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      sku: "GM-30AMPPTSARJKON", brand: "Lexron",
+      img: "assets/img/products/lexron-mppt-30a.webp",
+      price: 70.57, currency: "USD",
+      chips: ["⚡ 12/24 V · 30 A", "🔆 MPPT"],
+      for: "12/24 V akülü güneş sistemleri · yüksek verim",
+      name: "Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V",
+      desc: "Lexron MPPT güneş şarj kontrol cihazı: panelin maksimum güç noktasını izler; panel gerilimi akü geriliminden yüksek olduğunda PWM'e göre aküye daha fazla enerji aktarır. 12/24 V akü sistemleri için uygundur. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.",
+      features: ["12/24 V akü sistemleri", "MPPT şarj teknolojisi", "PWM'e göre daha yüksek verim", "Teknik künye için bize yazın"]
+    },
+    {
+      id: "lexron-mppt-40a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      sku: "GM-40AMPPTSARJKON", brand: "Lexron",
+      img: "assets/img/products/lexron-mppt-40a.webp",
+      price: 77.14, currency: "USD",
+      chips: ["⚡ 12/24 V · 40 A", "🔆 MPPT"],
+      for: "12/24 V akülü güneş sistemleri · yüksek verim",
+      name: "Lexron 40 A MPPT Şarj Kontrol Cihazı 12/24 V",
+      desc: "Lexron MPPT güneş şarj kontrol cihazı: panelin maksimum güç noktasını izler; panel gerilimi akü geriliminden yüksek olduğunda PWM'e göre aküye daha fazla enerji aktarır. 12/24 V akü sistemleri için uygundur. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.",
+      features: ["12/24 V akü sistemleri", "MPPT şarj teknolojisi", "PWM'e göre daha yüksek verim", "Teknik künye için bize yazın"]
+    },
+    {
+      id: "lexron-mppt-80a-hv", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      sku: "GM-80AHV15230VMPP", brand: "Lexron",
+      img: "assets/img/products/lexron-mppt-80a-hv.webp",
+      price: 205.14, currency: "USD",
+      chips: ["⚡ 12/24/36/48 V · 80 A", "🔆 MPPT · HV"],
+      for: "12/24/36/48 V akülü büyük güneş sistemleri",
+      name: "Lexron 80 A HV (15~230 V) MPPT Şarj Kontrol Cihazı 12/24/36/48 V",
+      desc: "Lexron 80 A HV (15~230 V) MPPT güneş şarj kontrol cihazı: 12/24/36/48 V akü sistemleri için yüksek akımlı MPPT modeli. MPPT teknolojisi panelin maksimum güç noktasını izleyerek enerjiyi aküye verimli aktarır. Ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.",
+      features: ["12/24/36/48 V akü sistemleri", "80 A şarj akımı", "MPPT şarj teknolojisi", "Teknik künye için bize yazın"]
+    },
+
     // —— Bağlantı malzemeleri —— elektrikli motor paketlerinin (evSets)
     // tamamlayıcı kalemleri. group:"cable" YALNIZ online-satis.html
     // kataloğunda listelenir; urunler.html paket vitrininde ÇIKMAZ.

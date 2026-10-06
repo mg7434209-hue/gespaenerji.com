@@ -3,7 +3,7 @@ title: "Online Store — Solar Products and Equipment | GESPA Energy"
 description: "All products on sale in one place: ready-made solar kits, MPPT charge controllers and equipment. Transparent prices, VAT included, shipping across Türkiye."
 canonical: https://www.gespaenerji.com/en/online-satis.html
 lang: en
-dateModified: 2026-10-05
+dateModified: 2026-10-06
 publisher: "GESPA Enerji"
 ---
 
@@ -184,6 +184,86 @@ Charges 36–72 V batteries from a 12/24 V input · caravans and boats
 **₺8.250**≈ $168
 
 💰 By bank transfer: **₺8.000**
+
+VAT included · shipping excluded
+
+### Lexron 20 A PWM Solar Charge Controller 12/24 V
+
+Small 12/24 V battery-based solar systems
+
+**₺730**≈ $15
+
+💰 By bank transfer: **₺700**
+
+VAT included · shipping excluded
+
+### Lexron 30 A PWM Solar Charge Controller 12/24 V
+
+Small 12/24 V battery-based solar systems
+
+**₺820**≈ $17
+
+💰 By bank transfer: **₺800**
+
+VAT included · shipping excluded
+
+### Lexron 40 A PWM Solar Charge Controller 12/24 V
+
+Small 12/24 V battery-based solar systems
+
+**₺1.050**≈ $21
+
+💰 By bank transfer: **₺1.000**
+
+VAT included · shipping excluded
+
+### Lexron 60 A PWM Solar Charge Controller 12/24/48 V
+
+12/24/48 V battery-based solar systems
+
+**₺2.200**≈ $44
+
+💰 By bank transfer: **₺2.150**
+
+VAT included · shipping excluded
+
+### Lexron 20 A MPPT Solar Charge Controller 12/24 V
+
+12/24 V battery-based solar systems · high efficiency
+
+**₺3.150**≈ $64
+
+💰 By bank transfer: **₺3.050**
+
+VAT included · shipping excluded
+
+### Lexron 30 A MPPT Solar Charge Controller 12/24 V
+
+12/24 V battery-based solar systems · high efficiency
+
+**₺3.450**≈ $71
+
+💰 By bank transfer: **₺3.350**
+
+VAT included · shipping excluded
+
+### Lexron 40 A MPPT Solar Charge Controller 12/24 V
+
+12/24 V battery-based solar systems · high efficiency
+
+**₺3.800**≈ $77
+
+💰 By bank transfer: **₺3.700**
+
+VAT included · shipping excluded
+
+### Lexron 80 A HV (15~230 V) MPPT Solar Charge Controller 12/24/36/48 V
+
+Large 12/24/36/48 V battery-based solar systems
+
+**₺10.100**≈ $205
+
+💰 By bank transfer: **₺9.800**
 
 VAT included · shipping excluded
 

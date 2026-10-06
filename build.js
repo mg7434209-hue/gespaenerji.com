@@ -1999,7 +1999,7 @@ function writeLlmsFull(cfg) {
     const ps = (pk.parts || []).map(m => (cfg.packages || []).filter(x => x.id === m)[0]).filter(Boolean);
     const web = (cfg.company && cfg.company.web) || "";
     return `- ${pk.name} — ${st.hint}. İçindekiler: ` + ps.map(m => m.name).join(" + ")
-      + ` = ₺${nf(pk.price)} (ürün kodu ${pk.sku})`
+      + ` = ₺${nf(priceTRY(cfg, pk.price, pk.currency))} (ürün kodu ${pk.sku})`
       + ` · ürün sayfası: ${web}/${pk.url}`
       + ` · tek tıkla sepete: ${web}/sepet.html?ekle=${pk.id}`;
   }).filter(Boolean).join("\n");

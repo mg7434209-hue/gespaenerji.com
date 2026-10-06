@@ -3,7 +3,7 @@ title: "Onlineshop — Solarprodukte und Ausrüstung | GESPA Energy"
 description: "Alle Verkaufsprodukte auf einer Seite: Solar-Fertigsets, MPPT-Laderegler und Zubehör. Transparente Preise inkl. MwSt., Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/online-satis.html
 lang: de
-dateModified: 2026-10-05
+dateModified: 2026-10-06
 publisher: "GESPA Enerji"
 ---
 
@@ -184,6 +184,86 @@ Lädt 36–72-V-Batterien über einen 12/24-V-Eingang · Wohnmobil und Boot
 **₺8.250**≈ $168
 
 💰 Per Überweisung: **₺8.000**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Lexron 20 A PWM Solar-Laderegler 12/24 V
+
+Kleine 12/24-V-Solaranlagen mit Batterie
+
+**₺730**≈ $15
+
+💰 Per Überweisung: **₺700**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Lexron 30 A PWM Solar-Laderegler 12/24 V
+
+Kleine 12/24-V-Solaranlagen mit Batterie
+
+**₺820**≈ $17
+
+💰 Per Überweisung: **₺800**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Lexron 40 A PWM Solar-Laderegler 12/24 V
+
+Kleine 12/24-V-Solaranlagen mit Batterie
+
+**₺1.050**≈ $21
+
+💰 Per Überweisung: **₺1.000**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Lexron 60 A PWM Solar-Laderegler 12/24/48 V
+
+12/24/48-V-Solaranlagen mit Batterie
+
+**₺2.200**≈ $44
+
+💰 Per Überweisung: **₺2.150**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Lexron 20 A MPPT Solar-Laderegler 12/24 V
+
+12/24-V-Solaranlagen mit Batterie · hoher Wirkungsgrad
+
+**₺3.150**≈ $64
+
+💰 Per Überweisung: **₺3.050**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Lexron 30 A MPPT Solar-Laderegler 12/24 V
+
+12/24-V-Solaranlagen mit Batterie · hoher Wirkungsgrad
+
+**₺3.450**≈ $71
+
+💰 Per Überweisung: **₺3.350**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Lexron 40 A MPPT Solar-Laderegler 12/24 V
+
+12/24-V-Solaranlagen mit Batterie · hoher Wirkungsgrad
+
+**₺3.800**≈ $77
+
+💰 Per Überweisung: **₺3.700**
+
+Inkl. MwSt. · zzgl. Versand
+
+### Lexron 80 A HV (15~230 V) MPPT Solar-Laderegler 12/24/36/48 V
+
+Große 12/24/36/48-V-Solaranlagen mit Batterie
+
+**₺10.100**≈ $205
+
+💰 Per Überweisung: **₺9.800**
 
 Inkl. MwSt. · zzgl. Versand
 
