@@ -1125,9 +1125,25 @@ function receiptOpen(tok) {
 // taşır. Sipariş kaydı eksikse (ör. dağıtımda silinmiş bekleyen kayıt) iyzico
 // yanıtındaki tutar, ödeme no ve sepet no kullanılır.
 // KVKK: T.C. kimlik/vergi no, açık adres, telefon ve e-posta BURADA YOKTUR.
+// Taksit sayısı: iyzico'nun ödeme sonucundaki `installment` (müşterinin
+// SEÇTİĞİ), yoksa link ödemesinde zorunlu tutulan sayı (`taksit`). 1 = tek
+// çekim; bilinmiyorsa (eski kayıt) alan hiç yazılmaz.
+function installmentOf(o, x) {
+  const n = Math.round(+((o && (o.installment || o.taksit)) || (x && x.installment) || 0));
+  return n >= 1 && n <= 12 ? n : undefined;
+}
+// Taksit satırı (e-postalar ve dekont için aynı biçim): "6 taksit · 6 × ₺49.999,44",
+// taksit yoksa "Tek çekim".
+function installmentLine(o) {
+  const n = installmentOf(o), tot = +(o.paidPrice || o.totalTL || 0);
+  if (n >= 2) return n + " taksit · " + n + " × ₺" + money(Math.floor(Math.round(tot * 100) / n) / 100);
+  // Taksit yoksa tek çekim; sayısı bilinmeyen eski kayıtta vade farkı varsa taksitlidir.
+  return (!n && o.totalTL && +o.paidPrice - +o.totalTL >= 0.01) ? "Taksitli" : "Tek çekim";
+}
 function receiptData(ord, out) {
   const o = ord || {}, x = out || {}, b = o.buyer || {};
   return {
+    taksit: installmentOf(o, x),
     no: o.conversationId || x.basketId || "",
     date: o.resolvedAt || o.createdAt || new Date().toISOString(),
     amount: +(o.paidPrice || x.paidPrice || o.totalTL || 0),
@@ -1156,6 +1172,7 @@ function orderMailBody(o, rid, rk) {
     // gönderdiğimizden büyük olur. İkisini de yaz ki faturada şaşırılmasın.
     L.push("Gönderilen    : ₺" + money(o.totalTL) + "  (fark: ₺" + money(+o.paidPrice - +o.totalTL) + " — taksit vade farkı)");
   }
+  L.push("Taksit        : " + installmentLine(o));
   L.push("Sipariş no    : " + (o.conversationId || "-"));
   L.push("iyzico ödeme  : " + (o.paymentId || "-"));
   L.push("Tarih         : " + trTime(o.resolvedAt));
@@ -1206,6 +1223,7 @@ function customerMailBody(o, rid, rk) {
   L.push("Ödemeniz iyzico güvencesiyle başarıyla alındı. Teşekkür ederiz.");
   L.push("");
   L.push("Tahsil edilen : ₺" + money(o.paidPrice || o.totalTL));
+  L.push("Taksit        : " + installmentLine(o));
   L.push("Sipariş no    : " + (o.conversationId || "-"));
   L.push("Ödeme no      : " + (o.paymentId || "-"));
   L.push("Tarih         : " + trTime(o.resolvedAt));
@@ -1538,6 +1556,7 @@ function handlePayRoutes(req, res, urlPath) {
           status: ok ? "paid" : "failed", resolvedAt: new Date().toISOString(),
           rid: rid,
           paymentId: out && out.paymentId, paidPrice: out && out.paidPrice,
+          installment: (ok && out && +out.installment) || undefined,
           mdStatus: (!ok && out && out.mdStatus) || undefined,
           errorCode: (!ok && out && out.errorCode) || undefined,
           errorMessage: (!ok && out && out.errorMessage) || undefined
