@@ -740,12 +740,11 @@ Tüm kurallar: @docs/odeme.md
   türetilir), sunucu kaydı silinse de açılır. E-posta ve dekont saati
   Türkiye saatidir (`trTime()`).
 - Taksit (7 Eki 2026): callback iyzico'nun `installment` alanını siparişe
-  yazar; dekont (`receiptData.taksit`, `installmentOf()`) ve e-postalar
-  "Ödeme şekli" satırı gösterir. ≥2 taksitte odeme-sonuc.html aylara göre
-  plan tablosu çizer: tahsil edilen tutar kuruşta eşit bölünür, artan kuruş
-  1. taksite; aylar ödeme ayının ERTESİNDEN başlar ve "tahminidir" notu
-  ZORUNLU (ekstre kesim tarihi bilinmez). Eski kayıtta `installment` yoksa
-  link ödemesinin zorunlu `taksit` sayısı kullanılır; ikisi de yoksa plan çizilmez.
+  yazar; dekont (`receiptData.taksit`, `installmentOf()`) ve e-postalar tek
+  satır gösterir: "Taksit: 6 taksit · 6 × ₺49.999,44" (aylık tutar kuruşa
+  AŞAĞI yuvarlanır) ya da "Tek çekim". Sahibin isteği: aylara göre plan
+  tablosu YOK. Eski kayıtta `installment` yoksa link ödemesinin zorunlu
+  `taksit` sayısı kullanılır; ikisi de yoksa satır yazılmaz.
 - Sınırlar `config.commerce`: `payLinkMinTL`/`payLinkMaxTL` bizim link ödemesi
   sınırımız; `cardMaxTL` iyzico HESABININ tek işlem limitidir (şu an ₺350.000).
   Aşan kart tutarı iyzico'ya gönderilmeden reddedilir, havale/EFT önerilir.

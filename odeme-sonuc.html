@@ -83,15 +83,6 @@
             <dl class="receipt-rows" id="rcRows"></dl>
             <ul class="receipt-items" id="rcItems" hidden></ul>
             <p class="receipt-total"><span>Tahsil edilen tutar</span><strong id="rcTotal">—</strong></p>
-            <!-- Taksitli ödemede aylara göre ödeme planı (d.taksit ≥ 2). -->
-            <div class="receipt-plan" id="rcPlan" hidden>
-              <p class="receipt-plan-title" id="rcPlanTitle"></p>
-              <table>
-                <thead><tr><th scope="col">Taksit</th><th scope="col">Ay</th><th scope="col">Tutar</th></tr></thead>
-                <tbody id="rcPlanRows"></tbody>
-              </table>
-              <p class="receipt-plan-note">Aylar tahminidir: taksitler kartınızın hesap kesim tarihine göre ekstrenize yansır, ilk taksit bir ay önce ya da sonra görünebilir. Kesin tutar ve tarihler banka ekstrenizdedir.</p>
-            </div>
             <p class="receipt-note">Ödeme iyzico altyapısı üzerinden alınmıştır. Bu belge ödemenin
             alındığını gösterir, <strong>fatura yerine geçmez</strong>; faturanız yasal süresi içinde
             düzenlenerek tarafınıza iletilir.</p>
@@ -178,9 +169,10 @@
           if (d.buyer && (d.buyer.ad || d.buyer.firma)) rows.push(["Ödeyen", [d.buyer.firma, d.buyer.ad, d.buyer.il].filter(Boolean).join(" · ")]);
           if (d.desc) rows.push(["Açıklama", d.desc]);
           if (d.ref) rows.push(["Referans", d.ref]);
+          // Taksit: "6 taksit · 6 × ₺49.999,44" (aylık tutar kuruşa aşağı yuvarlanır).
           var nT = Math.round(+d.taksit || 0);
-          if (nT === 1) rows.push(["Ödeme şekli", "Kredi kartı · tek çekim"]);
-          else if (nT >= 2) rows.push(["Ödeme şekli", "Kredi kartı · " + nT + " taksit"]);
+          if (nT === 1) rows.push(["Taksit", "Tek çekim"]);
+          else if (nT >= 2 && nT <= 12) rows.push(["Taksit", nT + " taksit · " + nT + " × " + money(Math.floor(Math.round((+d.amount || 0) * 100) / nT) / 100)]);
           // Taksitte iyzico vade farkını müşteriye yansıtır; gönderilen ile
           // tahsil edilen tutar farklıysa ikisini de göster — dekont şaşırtmasın.
           if (d.sentTL && Math.abs(d.amount - d.sentTL) >= 0.01) {
@@ -203,27 +195,6 @@
             ul.hidden = false;
           }
           document.getElementById("rcTotal").textContent = money(d.amount);
-          // Taksit planı: tutar kuruş olarak eşit bölünür, artan kuruş ilk
-          // taksite eklenir (bankalar da böyle yapar). Aylar ödeme ayının
-          // ertesinden başlar — tahminidir, not bunu söyler.
-          if (nT >= 2 && nT <= 12) {
-            var cents = Math.round((+d.amount || 0) * 100), base = Math.floor(cents / nT);
-            var first = cents - base * (nT - 1);
-            var d0 = new Date(d.date); if (isNaN(d0)) d0 = new Date();
-            var ay = function (i) {
-              var t = new Date(d0.getFullYear(), d0.getMonth() + 1 + i, 1);
-              try { return t.toLocaleDateString("tr-TR", { month: "long", year: "numeric" }); }
-              catch (e) { return (t.getMonth() + 1) + "/" + t.getFullYear(); }
-            };
-            var pr = [];
-            for (var i = 0; i < nT; i++) {
-              pr.push("<tr><td>" + (i + 1) + ". taksit</td><td>" + esc(ay(i)) + "</td><td>"
-                + money((i ? base : first) / 100) + "</td></tr>");
-            }
-            document.getElementById("rcPlanRows").innerHTML = pr.join("");
-            document.getElementById("rcPlanTitle").textContent = nT + " taksit · aylık yaklaşık " + money(base / 100);
-            document.getElementById("rcPlan").hidden = false;
-          }
           document.getElementById("receipt").hidden = false;
           var btn = document.getElementById("rcPrint");
           btn.hidden = false;

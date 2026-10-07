@@ -1132,11 +1132,11 @@ function installmentOf(o, x) {
   const n = Math.round(+((o && (o.installment || o.taksit)) || (x && x.installment) || 0));
   return n >= 1 && n <= 12 ? n : undefined;
 }
-// Taksit satırı (e-postalar için): "6 × ₺49.999,45".
+// Taksit satırı (e-postalar ve dekont için aynı biçim): "6 taksit · 6 × ₺49.999,44".
 function installmentLine(o) {
   const n = installmentOf(o), tot = +(o.paidPrice || o.totalTL || 0);
   if (!n) return "";
-  return n === 1 ? "Tek çekim" : n + " taksit × ₺" + money(Math.floor(tot * 100 / n) / 100) + " (aylık, yaklaşık)";
+  return n === 1 ? "Tek çekim" : n + " taksit · " + n + " × ₺" + money(Math.floor(Math.round(tot * 100) / n) / 100);
 }
 function receiptData(ord, out) {
   const o = ord || {}, x = out || {}, b = o.buyer || {};
@@ -1170,7 +1170,7 @@ function orderMailBody(o, rid, rk) {
     // gönderdiğimizden büyük olur. İkisini de yaz ki faturada şaşırılmasın.
     L.push("Gönderilen    : ₺" + money(o.totalTL) + "  (fark: ₺" + money(+o.paidPrice - +o.totalTL) + " — taksit vade farkı)");
   }
-  if (installmentLine(o)) L.push("Ödeme şekli   : " + installmentLine(o));
+  if (installmentLine(o)) L.push("Taksit        : " + installmentLine(o));
   L.push("Sipariş no    : " + (o.conversationId || "-"));
   L.push("iyzico ödeme  : " + (o.paymentId || "-"));
   L.push("Tarih         : " + trTime(o.resolvedAt));
@@ -1221,7 +1221,7 @@ function customerMailBody(o, rid, rk) {
   L.push("Ödemeniz iyzico güvencesiyle başarıyla alındı. Teşekkür ederiz.");
   L.push("");
   L.push("Tahsil edilen : ₺" + money(o.paidPrice || o.totalTL));
-  if (installmentLine(o)) L.push("Ödeme şekli   : " + installmentLine(o));
+  if (installmentLine(o)) L.push("Taksit        : " + installmentLine(o));
   L.push("Sipariş no    : " + (o.conversationId || "-"));
   L.push("Ödeme no      : " + (o.paymentId || "-"));
   L.push("Tarih         : " + trTime(o.resolvedAt));
