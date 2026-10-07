@@ -2001,6 +2001,15 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
   margin:16px 0 0;padding-top:14px;border-top:2px solid var(--line);font-weight:700}
 .receipt-total strong{font-size:1.35rem;color:var(--green)}
 .receipt-note{margin:14px 0 0;font-size:.78rem;color:var(--muted);line-height:1.5}
+/* Taksit planı (odeme-sonuc.html) */
+.receipt-plan{margin:14px 0 0;padding:14px 0 0;border-top:1px dashed var(--line)}
+.receipt-plan-title{margin:0 0 8px;font-weight:700;font-size:.95rem}
+.receipt-plan table{width:100%;border-collapse:collapse;font-size:.9rem}
+.receipt-plan th{text-align:left;font-weight:600;color:var(--muted);font-size:.8rem;padding:4px 0;border-bottom:1px solid var(--line)}
+.receipt-plan td{padding:5px 0;border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent)}
+.receipt-plan th:last-child,.receipt-plan td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.receipt-plan td:nth-child(2){text-transform:capitalize}
+.receipt-plan-note{margin:8px 0 0;font-size:.74rem;color:var(--muted);line-height:1.45}
 @media(max-width:560px){
   .receipt{padding:20px 18px}
   .receipt-head{flex-direction:column}
@@ -2025,7 +2034,7 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
     max-width:none;margin:0;padding:18px 22px}
   .print-receipt .receipt *{color:#000 !important;background:transparent !important}
   .print-receipt .receipt-seller span,.print-receipt .receipt-rows dt,.print-receipt .receipt-note,
-  .print-receipt .receipt-sub{color:#444 !important}
+  .print-receipt .receipt-sub,.print-receipt .receipt-plan th,.print-receipt .receipt-plan-note{color:#444 !important}
   .print-receipt .receipt-badge{border:1px solid #999 !important}
   .print-receipt .receipt-head,.print-receipt .receipt-items,.print-receipt .receipt-total{border-color:#bbb !important}
 }

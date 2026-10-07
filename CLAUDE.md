@@ -739,6 +739,13 @@ Tüm kurallar: @docs/odeme.md
   içinde ŞİFRELİ taşınır (AES-256-GCM, anahtar iyzico gizli anahtarından
   türetilir), sunucu kaydı silinse de açılır. E-posta ve dekont saati
   Türkiye saatidir (`trTime()`).
+- Taksit (7 Eki 2026): callback iyzico'nun `installment` alanını siparişe
+  yazar; dekont (`receiptData.taksit`, `installmentOf()`) ve e-postalar
+  "Ödeme şekli" satırı gösterir. ≥2 taksitte odeme-sonuc.html aylara göre
+  plan tablosu çizer: tahsil edilen tutar kuruşta eşit bölünür, artan kuruş
+  1. taksite; aylar ödeme ayının ERTESİNDEN başlar ve "tahminidir" notu
+  ZORUNLU (ekstre kesim tarihi bilinmez). Eski kayıtta `installment` yoksa
+  link ödemesinin zorunlu `taksit` sayısı kullanılır; ikisi de yoksa plan çizilmez.
 - Sınırlar `config.commerce`: `payLinkMinTL`/`payLinkMaxTL` bizim link ödemesi
   sınırımız; `cardMaxTL` iyzico HESABININ tek işlem limitidir (şu an ₺350.000).
   Aşan kart tutarı iyzico'ya gönderilmeden reddedilir, havale/EFT önerilir.
