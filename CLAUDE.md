@@ -742,9 +742,10 @@ Tüm kurallar: @docs/odeme.md
 - Taksit (7 Eki 2026): callback iyzico'nun `installment` alanını siparişe
   yazar; dekont (`receiptData.taksit`, `installmentOf()`) ve e-postalar tek
   satır gösterir: "Taksit: 6 taksit · 6 × ₺49.999,44" (aylık tutar kuruşa
-  AŞAĞI yuvarlanır) ya da "Tek çekim". Sahibin isteği: aylara göre plan
-  tablosu YOK. Eski kayıtta `installment` yoksa link ödemesinin zorunlu
-  `taksit` sayısı kullanılır; ikisi de yoksa satır yazılmaz.
+  AŞAĞI yuvarlanır); taksit yoksa "Tek çekim". Sahibin isteği: aylara göre
+  plan tablosu YOK. Eski kayıtta `installment` yoksa link ödemesinin zorunlu
+  `taksit` sayısı kullanılır; ikisi de yoksa "Tek çekim" — ancak vade farkı
+  varsa (tahsil > gönderilen) ödeme taksitlidir, "Taksitli" yazılır.
 - Sınırlar `config.commerce`: `payLinkMinTL`/`payLinkMaxTL` bizim link ödemesi
   sınırımız; `cardMaxTL` iyzico HESABININ tek işlem limitidir (şu an ₺350.000).
   Aşan kart tutarı iyzico'ya gönderilmeden reddedilir, havale/EFT önerilir.

@@ -169,10 +169,13 @@
           if (d.buyer && (d.buyer.ad || d.buyer.firma)) rows.push(["Ödeyen", [d.buyer.firma, d.buyer.ad, d.buyer.il].filter(Boolean).join(" · ")]);
           if (d.desc) rows.push(["Açıklama", d.desc]);
           if (d.ref) rows.push(["Referans", d.ref]);
-          // Taksit: "6 taksit · 6 × ₺49.999,44" (aylık tutar kuruşa aşağı yuvarlanır).
+          // Taksit: "6 taksit · 6 × ₺49.999,44" (aylık tutar kuruşa aşağı
+          // yuvarlanır); taksit yoksa "Tek çekim". Sayısı bilinmeyen eski
+          // kayıtta vade farkı varsa ödeme taksitlidir — "Tek çekim" YAZILMAZ.
           var nT = Math.round(+d.taksit || 0);
-          if (nT === 1) rows.push(["Taksit", "Tek çekim"]);
-          else if (nT >= 2 && nT <= 12) rows.push(["Taksit", nT + " taksit · " + nT + " × " + money(Math.floor(Math.round((+d.amount || 0) * 100) / nT) / 100)]);
+          var vade = d.sentTL && (+d.amount - +d.sentTL) >= 0.01;
+          if (nT >= 2 && nT <= 12) rows.push(["Taksit", nT + " taksit · " + nT + " × " + money(Math.floor(Math.round((+d.amount || 0) * 100) / nT) / 100)]);
+          else rows.push(["Taksit", (!nT && vade) ? "Taksitli" : "Tek çekim"]);
           // Taksitte iyzico vade farkını müşteriye yansıtır; gönderilen ile
           // tahsil edilen tutar farklıysa ikisini de göster — dekont şaşırtmasın.
           if (d.sentTL && Math.abs(d.amount - d.sentTL) >= 0.01) {
