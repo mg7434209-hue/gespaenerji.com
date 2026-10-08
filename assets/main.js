@@ -10,6 +10,96 @@
   var $$ = function (s, c) { return Array.prototype.slice.call((c || doc).querySelectorAll(s)); };
   function L(tr, en, de, ru) { var l = (window.GESPA && GESPA.lang) || "tr"; return l === "en" ? en : (l === "de" ? de : (l === "ru" ? ru : tr)); }
 
+  // ---- tami kart formu + taksit tablosu (sepet ve odeme.html ORTAK) ----
+  // Kart sağlayıcısı tami iken (/api/pay/status → provider) kart bu sitede
+  // alınır ve sunucuya yalnız ödeme isteğinde gider (server.js tamiStart);
+  // hiçbir yerde saklanmaz. Kartın ilk 8 hanesiyle taksit yapılabilirliği
+  // sorulur. Vade farkı % sunucudan gelir (status.taksit.farkPct); tutar
+  // formülü server.js → tami.js taksitTutar ile AYNI (kuruşa yuvarlı).
+  // o: { total: fn → taksitsiz ₺, cfg: {secenekler, farkPct}, only: 0 | 1 | N }
+  function tamiCard(host, o) {
+    var cfg = o.cfg || { secenekler: [], farkPct: {} };
+    var only = +o.only || 0;
+    var st = { bin: "", info: null, n: only > 1 ? only : 1, busy: false };
+    var money = function (n) { return "₺" + Number(n).toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+    var tutar = function (n) {
+      var base = +o.total() || 0, pct = n > 1 ? (+(cfg.farkPct || {})[n] || 0) : 0;
+      var fark = Math.round(base * pct) / 100;
+      return Math.round((base + fark) * 100) / 100;
+    };
+    host.className = "ord-tckn ord-card";
+    host.innerHTML =
+      '<label for="tkAd"></label><input id="tkAd" maxlength="30" autocomplete="cc-name" />' +
+      '<label for="tkNo"></label><input id="tkNo" inputmode="numeric" maxlength="23" autocomplete="cc-number" placeholder="0000 0000 0000 0000" />' +
+      '<div class="ord-card-row"><div><label for="tkSkt"></label><input id="tkSkt" inputmode="numeric" maxlength="7" autocomplete="cc-exp" /></div>' +
+      '<div><label for="tkCvv">CVV *</label><input id="tkCvv" inputmode="numeric" maxlength="4" autocomplete="cc-csc" placeholder="123" /></div></div>' +
+      '<div class="ord-taksit-info" hidden></div><div class="ord-taksit" hidden></div>' +
+      '<p class="pd-note ord-card-note"></p>';
+    var q = function (s) { return host.querySelector(s); };
+    var ad = q("#tkAd"), no = q("#tkNo"), skt = q("#tkSkt"), cvv = q("#tkCvv");
+    var box = q(".ord-taksit"), info = q(".ord-taksit-info");
+    function texts() {
+      q('label[for="tkAd"]').textContent = L("Kart üzerindeki ad *", "Name on card *", "Name auf der Karte *", "Имя на карте *");
+      q('label[for="tkNo"]').textContent = L("Kart numarası *", "Card number *", "Kartennummer *", "Номер карты *");
+      q('label[for="tkSkt"]').textContent = L("Son kullanma *", "Expiry *", "Gültig bis *", "Срок действия *");
+      skt.placeholder = L("AA/YY", "MM/YY", "MM/JJ", "ММ/ГГ");
+      q(".ord-card-note").textContent = "🔒 " + L("Kart bilgileriniz saklanmaz; yalnız ödeme için bankaya iletilir. Ödeme bankanızın 3D Secure onayıyla tamamlanır.",
+        "Your card details are not stored; they are only sent to the bank for this payment. The payment is completed with your bank's 3D Secure approval.",
+        "Ihre Kartendaten werden nicht gespeichert; sie werden nur für diese Zahlung an die Bank übermittelt. Die Zahlung wird mit 3D Secure Ihrer Bank abgeschlossen.",
+        "Данные карты не сохраняются; они передаются в банк только для этого платежа. Оплата подтверждается через 3D Secure вашего банка.");
+    }
+    function render() {
+      texts();
+      var bin8 = no.value.replace(/\D/g, "").slice(0, 8);
+      if (bin8.length < 8 || !cfg.secenekler || !cfg.secenekler.length && only < 2) { box.hidden = true; info.hidden = true; return; }
+      info.hidden = false;
+      if (st.busy) { info.textContent = L("Taksit seçenekleri sorgulanıyor…", "Checking instalment options…", "Ratenoptionen werden geprüft…", "Проверяем варианты рассрочки…"); box.hidden = true; return; }
+      if (!st.info) { info.textContent = L("Taksit bilgisi alınamadı; tek çekim ödenir.", "Instalment info unavailable; single payment.", "Rateninfo nicht verfügbar; Einmalzahlung.", "Нет данных о рассрочке; разовый платёж."); box.hidden = true; return; }
+      var head = [st.info.banka, st.info.program, st.info.tip].filter(Boolean).join(" · ");
+      if (!st.info.taksit) {
+        info.textContent = (head ? head + " — " : "") + L("bu kartla taksit yapılamıyor; tek çekim.", "no instalments with this card; single payment.", "mit dieser Karte keine Raten; Einmalzahlung.", "рассрочка по этой карте недоступна; разовый платёж.");
+        box.hidden = true; return;
+      }
+      info.textContent = head;
+      var list = only ? [only] : [1].concat(cfg.secenekler || []);
+      box.innerHTML = list.map(function (n) {
+        var t = tutar(n);
+        return '<label><input type="radio" name="tkTaksit" value="' + n + '"' + (st.n === n ? " checked" : "") + " />" +
+          "<span>" + (n === 1 ? L("Tek çekim", "Single payment", "Einmalzahlung", "Разовый платёж") : n + " " + L("taksit", "instalments", "Raten", "платежей")) + "</span>" +
+          '<span class="tk-sum">' + (n > 1 ? "<small>" + n + " × " + money(Math.floor(t / n * 100) / 100) + " = </small>" : "") + "<b>" + money(t) + "</b></span></label>";
+      }).join("");
+      box.hidden = false;
+    }
+    box.addEventListener("change", function (e) { if (e.target.name === "tkTaksit") { st.n = +e.target.value || 1; render(); } });
+    no.addEventListener("input", function () {
+      var bin8 = no.value.replace(/\D/g, "").slice(0, 8);
+      if (bin8.length < 8) { st.bin = ""; st.info = null; st.n = only > 1 ? only : 1; render(); return; }
+      if (bin8 === st.bin) return;
+      st.bin = bin8; st.info = null; st.busy = true; st.n = only > 1 ? only : 1; render();
+      fetch("/api/pay/tami/taksit", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ bin: bin8 }) })
+        .then(function (r) { return r.json(); }).catch(function () { return null; })
+        .then(function (j) { if (st.bin !== bin8) return; st.busy = false; st.info = j && j.ok ? j : null; render(); });
+    });
+    render();
+    return {
+      active: function (on) { host.hidden = !on; [ad, no, skt, cvv].forEach(function (i) { i.required = !!on; }); },
+      refresh: render,
+      // → { card, taksit } ya da { error, el }
+      read: function () {
+        var num = no.value.replace(/\D/g, ""), m = /^\s*(\d{1,2})\s*\/?\s*(\d{2}|\d{4})\s*$/.exec(skt.value);
+        if (ad.value.trim().length < 3) return { el: ad, error: L("Kart üzerindeki adı yazın.", "Enter the name on the card.", "Geben Sie den Namen auf der Karte ein.", "Введите имя на карте.") };
+        if (num.length < 12 || num.length > 19) return { el: no, error: L("Kart numarasını kontrol edin.", "Check the card number.", "Prüfen Sie die Kartennummer.", "Проверьте номер карты.") };
+        if (!m) return { el: skt, error: L("Son kullanma tarihini AA/YY biçiminde yazın.", "Enter the expiry date as MM/YY.", "Ablaufdatum als MM/JJ eingeben.", "Введите срок действия в формате ММ/ГГ.") };
+        if (!/^\d{3,4}$/.test(cvv.value.trim())) return { el: cvv, error: L("CVV'yi kontrol edin (kartın arkasındaki 3 hane).", "Check the CVV (3 digits on the back).", "Prüfen Sie die CVV (3 Ziffern auf der Rückseite).", "Проверьте CVV (3 цифры на обороте).") };
+        if (st.n > 1 && !(st.info && st.info.taksit)) return { el: no, error: L("Bu kartla taksit yapılamıyor.", "Instalments are not available with this card.", "Mit dieser Karte sind keine Raten möglich.", "Рассрочка по этой карте недоступна.") };
+        return { taksit: st.n, total: tutar(st.n), card: { holderName: ad.value.trim(), number: num, expireMonth: +m[1], expireYear: +m[2], cvv: cvv.value.trim() } };
+      },
+      clear: function () { [ad, no, skt, cvv].forEach(function (i) { i.value = ""; }); st.bin = ""; st.info = null; render(); }
+    };
+  }
+  window.GESPA = window.GESPA || {};
+  window.GESPA.tamiCard = tamiCard;
+
   /* ---- Yıl ---- */
   var yil = $("#yil");
   if (yil) yil.textContent = new Date().getFullYear();
@@ -882,8 +972,11 @@
         // iyzico hesabının tek işlem limiti (commerce.cardMaxTL): kartla
         // liste fiyatı çekilir, toplam limiti aşarsa iyzico reddeder. Müşteri
         // formu doldurmadan önce burada uyarılır; sunucu da aynı sınırı uygular.
+        // tami'ye uygulanmaz: o iyzico hesabının limitidir.
         var cardMax = +((CFG.commerce || {}).cardMaxTL) || 0;
-        var overCard = method === "kart" && cardMax > 0 && listT > cardMax;
+        var overCard = method === "kart" && cardMax > 0 && listT > cardMax && payProv !== "tami";
+        lastListT = listT;
+        if (tamiForm) tamiForm.refresh();
         var cmEl = $("#payCardMax");
         if (cmEl) {
           cmEl.hidden = !overCard;
@@ -947,6 +1040,9 @@
         // Kart ödemesi (iyzico): sunucuda anahtar tanımlıysa seçenek açılır.
         // API yoksa (GitHub Pages) veya kapalıysa "çok yakında" olarak kalır.
         var cardOpt = document.getElementById("payCardOpt");
+        // Kart sağlayıcısı (iyzico | tami) /api/pay/status'tan gelir; tami'de
+        // kart formu (tamiForm) bu sayfada açılır.
+        var payProv = "", tamiForm = null, lastListT = 0;
         var tcknRow = document.getElementById("payTcknRow");
         var epostaHint = document.getElementById("epostaHint");
         // Kart ödemesinde TCKN (fatura) ve E-POSTA zorunludur: ödeme onayı ve
@@ -965,6 +1061,7 @@
         if (form.tckn) form.tckn.addEventListener("input", syncCorp);
         function syncTckn() {
           var isCard = form.odeme && form.odeme.value === "kart";
+          if (tamiForm) tamiForm.active(isCard);
           if (tcknRow) { tcknRow.hidden = !isCard; var inp = tcknRow.querySelector("input"); if (inp) inp.required = isCard; }
           syncCorp();
           if (form.eposta) form.eposta.required = isCard;
@@ -978,7 +1075,20 @@
         if (cardOpt) {
           fetch("/api/pay/status").then(function (r) { return r.json(); }).then(function (st) {
             if (!st || !st.enabled) return;
+            payProv = st.provider || "iyzico";
             cardOpt.classList.remove("ord-soon"); cardOpt.classList.add("pay-enabled");
+            // tami: kart bu sayfada alınır (3D Secure); kutu TCKN satırının altına.
+            if (payProv === "tami" && window.GESPA.tamiCard && tcknRow) {
+              var host = document.createElement("div");
+              tcknRow.parentNode.insertBefore(host, tcknRow.nextSibling);
+              tamiForm = window.GESPA.tamiCard(host, { total: function () { return lastListT; }, cfg: st.taksit });
+              var onTxt = cardOpt.querySelector(".pay-card-on");
+              if (onTxt) onTxt.textContent = L("Garanti BBVA tami güvencesiyle kart ve taksit (3D Secure); liste fiyatı uygulanır.",
+                "Card and instalments secured by Garanti BBVA tami (3D Secure); list price applies.",
+                "Karte und Raten über Garanti BBVA tami (3D Secure); es gilt der Listenpreis.",
+                "Карта и рассрочка через Garanti BBVA tami (3D Secure); действует прайс-цена.");
+              syncTckn(); totals();
+            }
             var radio = cardOpt.querySelector("input"); if (radio) radio.disabled = false;
             var soon = cardOpt.querySelector(".pay-card-soon"), on = cardOpt.querySelector(".pay-card-on");
             if (soon) soon.hidden = true;
@@ -1042,6 +1152,15 @@
             return;
           }
           var warnEl = $("#ordWarn");
+          var kart = null;
+          if (t.method === "kart" && tamiForm) {
+            kart = tamiForm.read();
+            if (kart.error) {
+              if (warnEl) { warnEl.hidden = false; warnEl.textContent = kart.error; }
+              if (kart.el) { kart.el.scrollIntoView({ block: "center", behavior: "smooth" }); try { kart.el.focus({ preventScroll: true }); } catch (err) {} }
+              return;
+            }
+          }
           if (warnEl) warnEl.hidden = true;
           ordSending = true;
           if (t.method === "kart") {
@@ -1055,11 +1174,13 @@
                 // Görülen tutar: sunucu kendi hesabıyla kıyaslar; kur bu arada
                 // değiştiyse ödemeyi başlatmaz, sayfa güncel fiyatla yenilenir.
                 expectTL: PRICE_OV ? 0 : t.listT,
-                buyer: { ad: v("ad"), tel: v("tel"), eposta: v("eposta"), il: v("il"), adres: v("adres"), tckn: v("tckn"), firma: v("firma"), vd: v("vd") }
+                buyer: { ad: v("ad"), tel: v("tel"), eposta: v("eposta"), il: v("il"), adres: v("adres"), tckn: v("tckn"), firma: v("firma"), vd: v("vd") },
+                // tami: kart + taksit (iyzico'da yok; kart iyzico sayfasında girilir)
+                card: kart ? kart.card : undefined, tkTaksit: kart ? kart.taksit : undefined
               })
             }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
               .then(function (out) {
-                if (out.ok && out.j && out.j.url) { location.href = out.j.url; return; }
+                if (out.ok && out.j && out.j.url) { if (tamiForm) tamiForm.clear(); location.href = out.j.url; return; }
                 if (out.j && out.j.reload) {
                   if (doneEl) { doneEl.hidden = false; doneEl.textContent = L("Fiyatlar güncel döviz kuruna göre değişti. Sayfa yenileniyor; lütfen yeni tutarı kontrol edip tekrar deneyin.",
                     "Prices were updated to the current exchange rate. Reloading; please check the new total and try again.",

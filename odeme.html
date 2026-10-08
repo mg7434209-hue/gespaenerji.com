@@ -63,7 +63,7 @@
       <div class="container narrow">
         <div class="crumbs"><a href="index.html">Ana Sayfa</a> <span>/</span> Güvenli Ödeme</div>
         <h1>💳 Güvenli Ödeme</h1>
-        <p class="lead">GES Marketim ve Gespa Enerji siparişleriniz için kredi kartı / banka kartı ile ödeme.
+        <p class="lead" id="payLead">GES Marketim ve Gespa Enerji siparişleriniz için kredi kartı / banka kartı ile ödeme.
         Ödemeniz <strong>iyzico</strong> güvenli ödeme sayfasında gerçekleşir; kart bilgileriniz bize ulaşmaz.</p>
 
         <div id="payClosed" class="how-note" hidden>
@@ -84,6 +84,7 @@
             <div class="full"><label>İl / İlçe *</label><input required name="il" placeholder="Antalya / Manavgat" /></div>
             <div class="full"><label>Teslimat adresi *</label><textarea required name="adres" rows="3" placeholder="Mahalle, sokak, no, daire..."></textarea></div>
           </div>
+          <div id="tamiCardHost" hidden></div>
           <p class="ord-consent">Ödemeye geçerek <a href="/mesafeli-satis-sozlesmesi.html">Mesafeli Satış Sözleşmesi</a>'ni,
           <a href="/iade-teslimat.html">İade ve Teslimat Koşulları</a>'nı ve <a href="/kvkk.html">KVKK Aydınlatma Metni</a>'ni kabul etmiş olursunuz.
           Tahsilat, <span data-c-text="legalName">Gespa Enerji Sanayi Ticaret Limited Şirketi</span> tarafından yapılır.</p>
@@ -136,9 +137,30 @@
           : "ℹ️ Bu ödeme " + taksitN + " taksit olarak düzenlenmiştir; kartınızdan " + taksitN + " eşit taksitte tahsil edilir.";
         form.parentNode.insertBefore(not, form);
       }
+      // Kart sağlayıcısı (admin anahtarı, config.commerce.cardProvider):
+      // iyzico → iyzico'nun ödeme sayfasına gidilir; tami → kart bu sayfada
+      // alınır (main.js GESPA.tamiCard), ödeme bankanın 3D sayfasında onaylanır.
+      var tamiForm = null, payBtnText = "🔒 iyzico ile güvenli öde";
+      function startTami(st) {
+        var host = document.getElementById("tamiCardHost");
+        tamiForm = window.GESPA.tamiCard(host, { total: function () { return parseTL(form.tutar.value); }, cfg: st.taksit, only: tekCekim ? 1 : taksitN });
+        tamiForm.active(true);
+        form.tutar.addEventListener("input", function () { tamiForm.refresh(); });
+        payBtnText = "🔒 Güvenli öde (3D Secure)";
+        form.querySelector("button[type=submit]").textContent = payBtnText;
+        document.getElementById("payLead").innerHTML = "GES Marketim ve Gespa Enerji siparişleriniz için kredi kartı / banka kartı ile ödeme. "
+          + "Ödemeniz <strong>Garanti BBVA tami</strong> altyapısıyla, bankanızın 3D Secure onayıyla alınır; kart bilgileriniz saklanmaz.";
+        cardMax = 0;                                // iyzico hesap limiti tami'ye uygulanmaz
+        var h = document.getElementById("payMaxHint"); if (h) h.hidden = true;
+      }
       fetch("/api/pay/status").then(function (r) { return r.json(); }).then(function (st) {
-        if (st && st.enabled) { form.hidden = false; if (not) not.hidden = false; }
-        else closed.hidden = false;
+        if (!(st && st.enabled)) { closed.hidden = false; return; }
+        form.hidden = false; if (not) not.hidden = false;
+        if (st.provider === "tami") {
+          // main.js "defer" yüklenir; bileşen hazır değilse DOM hazır olunca kur.
+          if (window.GESPA && GESPA.tamiCard) startTami(st);
+          else document.addEventListener("DOMContentLoaded", function () { startTami(st); });
+        }
       }).catch(function () { closed.hidden = false; });
       // Kimlik (TCKN/VKN) bu sayfada İSTENMEZ (işletme kararı, 28 Eyl 2026):
       // tutar elle girilen GES Marketim siparişidir, fatura bilgisi orada.
@@ -147,6 +169,7 @@
       // "defer" yüklenir, bu yüzden DOMContentLoaded'da okunur.
       var cardMax = 0;
       document.addEventListener("DOMContentLoaded", function () {
+        if (tamiForm) return;                       // tami: iyzico limiti yok
         var c = (window.GESPA && GESPA.config && GESPA.config.commerce) || {};
         cardMax = +c.cardMaxTL || 0;
         var h = document.getElementById("payMaxHint");
@@ -168,7 +191,7 @@
         e.preventDefault();
         if (sending) return;                       // çift gönderimi engelle
         var btn = form.querySelector("button[type=submit]");
-        var fail = function (t) { sending = false; btn.disabled = false; btn.textContent = "🔒 iyzico ile güvenli öde"; msg.hidden = false; msg.textContent = t; };
+        var fail = function (t) { sending = false; btn.disabled = false; btn.textContent = payBtnText; msg.hidden = false; msg.textContent = t; };
         // Zorunlu alan eksikse tarayıcı gönderimi ENGELLER. Eskiden bu sessizce
         // olurdu: istek gitmez, hiçbir uyarı çıkmazdı — kullanıcı düğmeye
         // defalarca basardı. Artık eksik alan ekrana kaydırılır ve söylenir.
@@ -188,6 +211,15 @@
           msg.textContent = "Kartla tek işlemde en fazla ₺" + new Intl.NumberFormat("tr-TR").format(cardMax) + " ödenebilir (iyzico hesap limiti). Bu tutar için havale/EFT ile ödeyebilir ya da bizimle iletişime geçebilirsiniz.";
           return;
         }
+        var kart = null;
+        if (tamiForm) {
+          kart = tamiForm.read();
+          if (kart.error) {
+            msg.hidden = false; msg.textContent = kart.error;
+            if (kart.el) { kart.el.scrollIntoView({ block: "center", behavior: "smooth" }); try { kart.el.focus({ preventScroll: true }); } catch (err) {} }
+            return;
+          }
+        }
         msg.hidden = true;
         sending = true;
         btn.disabled = true; btn.textContent = "Ödeme sayfası açılıyor…";
@@ -196,11 +228,12 @@
           body: JSON.stringify({
             amountTL: parseTL(form.tutar.value), tek: tekCekim, taksit: taksitN,
             desc: form.aciklama.value.trim(), ref: form.siparisno.value.trim(),
-            buyer: { ad: form.ad.value, tel: form.tel.value, eposta: form.eposta.value, il: form.il.value, adres: form.adres.value }
+            buyer: { ad: form.ad.value, tel: form.tel.value, eposta: form.eposta.value, il: form.il.value, adres: form.adres.value },
+            card: kart ? kart.card : undefined, tkTaksit: kart ? kart.taksit : undefined
           })
         }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
           .then(function (out) {
-            if (out.ok && out.j && out.j.url) { location.href = out.j.url; return; }
+            if (out.ok && out.j && out.j.url) { if (tamiForm) tamiForm.clear(); location.href = out.j.url; return; }
             fail((out.j && out.j.error) || "Ödeme başlatılamadı; lütfen tekrar deneyin.");
           }).catch(function () { fail("Bağlantı hatası; lütfen tekrar deneyin."); });
       });

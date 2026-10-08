@@ -723,8 +723,17 @@ Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD v
   `META` tablosundadır — yeni sayfada oraya da satır ekle. Dil değiştirici ilgili
   dil URL'sine yönlendirir; `hreflang` `i18n.js` tarafından enjekte edilir.
 
-## Ödeme (iyzico), sipariş e-postaları ve dekont
+## Ödeme (iyzico / tami), sipariş e-postaları ve dekont
 Tüm kurallar: @docs/odeme.md
+- İKİ KART SAĞLAYICISI, ADMIN ANAHTARI: `config.commerce.cardProvider`
+  ("iyzico" | "tami"; Railway `CARD_PROVIDER` env'i ezer). Aynı anda YALNIZ
+  BİRİ açıktır (sepet + odeme.html); seçilenin anahtarı yoksa öteki
+  kullanılır. tami = Garanti BBVA, `tami.js` (gesmarketim1 ile AYNI dosya),
+  env: TAMI_MERCHANT_NUMBER · TAMI_TERMINAL_NUMBER · TAMI_SECRET_KEY ·
+  TAMI_KID · TAMI_K · TAMI_BASE_URL. tami'de kart BU sitede alınır (main.js
+  `GESPA.tamiCard`), 3D sayfası tek kullanımlık `/api/pay/tami/3d/<t>`
+  adresinden verilir (sayfa CSP'si `form-action 'self'` bankayı engeller).
+  Ayrıntı docs/odeme.md "tami".
 - Anahtarlar YALNIZCA Railway ortam değişkeni: IYZIPAY_API_KEY /
   IYZIPAY_SECRET_KEY / IYZIPAY_BASE_URL. SMTP de öyle: `SMTP_HOST` `SMTP_PORT`
   `SMTP_USER` `SMTP_PASS` `ORDER_EMAIL_TO`. Parola/anahtar repoya ASLA yazılmaz.

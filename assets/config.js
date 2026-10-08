@@ -237,7 +237,25 @@ window.GESPA.config = {
     // link) buna göre ÖNCEDEN reddedip havale/EFT'yi önerir; admin bağlantı
     // aracı da bunu üst sınır alır. iyzico limitinizi değiştirince SADECE
     // bunu güncelleyin. 0 = sınır yok.
-    cardMaxTL: 350000
+    cardMaxTL: 350000,
+    // KART SAĞLAYICISI — admin anahtarı: "iyzico" ya da "tami" (Garanti BBVA).
+    // Aynı anda YALNIZ BİRİ müşteriye açılır (sepet + odeme.html). Railway'de
+    // CARD_PROVIDER ortam değişkeni verilirse bunu ezer (kod değiştirmeden
+    // geçiş). Seçilenin anahtarları yoksa öteki kullanılır. tami anahtarları
+    // yalnız Railway env: TAMI_MERCHANT_NUMBER · TAMI_TERMINAL_NUMBER ·
+    // TAMI_SECRET_KEY · TAMI_KID · TAMI_K · TAMI_BASE_URL.
+    cardProvider: "iyzico",
+    // tami taksit: seçenekler + tami paneli (İş Yerim) komisyonları AYNEN
+    // (1 = tek çekim). Vade farkı MÜŞTERİYE yansır ve koddan türetilir:
+    //   fark% = ((1 − kom[1]) / (1 − kom[n]) − 1) × 100, kuruşa yukarı
+    // → işletmenin n taksitteki net'i tek çekim net'ine eşit kalır (tami.js
+    // farkPct). iyzico'nun vade farkını iyzico kendi hesaplar; bu tablo yalnız
+    // tami içindir. Oranlar: tami paneli, 8 Eki 2026.
+    tamiTaksit: {
+      secenekler: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      komisyonPct: { 1: 2.85, 2: 5.89, 3: 7.95, 4: 9.88, 5: 11.72, 6: 13.47,
+        7: 15.39, 8: 17.23, 9: 18.97, 10: 20.85, 11: 22.71, 12: 24.32 }
+    }
   },
 
   // ============================================================
