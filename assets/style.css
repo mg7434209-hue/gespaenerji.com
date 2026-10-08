@@ -1975,6 +1975,20 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
 /* Vergi no (10 hane) girilince açılan şirket alanları */
 .ord-corp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
 @media(max-width:560px){.ord-corp{grid-template-columns:1fr}}
+/* tami kart formu (sepet + odeme.html; main.js tamiCard). Alanlar .ord-tckn
+   stilini kullanır; taksit satırları .ord-pay seçenek kutusu stilini SIFIRLAR. */
+.ord-card{margin:10px 0 6px}
+.ord-card input{margin-bottom:8px}
+.ord-card-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:end}
+.ord-taksit-info{font-size:.8rem;color:var(--muted);margin:2px 0 6px}
+.ord-taksit{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:0 0 8px}
+.ord-pay .ord-taksit label,.ord-taksit label{display:flex;align-items:center;gap:8px;margin:0;border:0;border-top:1px solid var(--line);border-radius:0;padding:8px 10px;font-size:.88rem;color:var(--ink);cursor:pointer;min-height:44px}
+.ord-taksit label:first-child{border-top:0}
+.ord-taksit label:has(input:checked){background:color-mix(in srgb,var(--green) 8%,transparent)}
+.ord-taksit input{margin:0;width:auto;padding:0;border:0;accent-color:var(--green)}
+.ord-taksit .tk-sum{margin-left:auto;text-align:right;white-space:nowrap}
+.ord-taksit .tk-sum small{display:inline;color:var(--muted);font-size:.78rem}
+.ord-card-note{margin:4px 0 0;font-size:.8rem}
 .ord-pay label.pay-enabled{opacity:1}
 
 /* Ana sayfa su ısıtıcı şeridi — montaj şeması görseli (SVG yerine gerçek çizim) */
