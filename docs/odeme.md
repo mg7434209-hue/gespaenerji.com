@@ -237,7 +237,6 @@ hangisinin müşteriye açık olduğunu ADMIN ANAHTARI seçer (müşteri seçmez
   iyzico hiç tanımlı değilse tami secret'tan.
 - E-postalar sağlayıcıyı yazar ("tami ref no", maskeli kart, onay kodu;
   "Kargodan ÖNCE tutarı tami panelinden doğrulayın").
-- TEST: `tests/tami.test.js` (npm test) — sahte tami sunucusuyla uçtan uca.
 - HATA TEŞHİSİ: log satırı "tami … hatası: HTTP · kod · grup · mesaj ·
   cid=GM…"; cid = correlationId, tami destek isteği bununla bulur.
   9011 ("Şu anda işlemini gerçekleştiremiyoruz"): gesmarketim.com'dan

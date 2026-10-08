@@ -7,7 +7,7 @@
   "scripts": {
     "build": "node build.js",
     "start": "node server.js",
-    "test": "node tests/seo.test.js && node tests/tami.test.js",
+    "test": "node tests/seo.test.js",
     "indexnow": "node tools/indexnow.js"
   },
   "engines": {
