@@ -946,6 +946,11 @@
         });
         return out;
       }
+      function submitLabel(method) {
+        return method === "kart"
+          ? L("💳 Güvenli ödemeye geç", "💳 Proceed to secure payment", "💳 Weiter zur sicheren Zahlung", "💳 Перейти к безопасной оплате")
+          : L("🛒 Siparişi WhatsApp ile tamamla", "🛒 Complete order via WhatsApp", "🛒 Bestellung per WhatsApp abschließen", "🛒 Завершить заказ в WhatsApp");
+      }
       function totals() {
         var ls = lines(), listT = 0, cartT = 0;
         ls.forEach(function (l) { listT += l.sumList; cartT += l.sumCart; });
@@ -988,6 +993,10 @@
               "Оплата картой ограничена суммой " + lim + " за одну операцию. Для этой корзины выберите банковский перевод или свяжитесь с нами.");
           }
         }
+        // Gönder düğmesi seçilen yönteme göre yazar: kartta WhatsApp'a değil
+        // güvenli ödemeye gidilir (eskiden kartta da "WhatsApp ile" yazıyordu).
+        var sb = form && form.querySelector('button[type="submit"]');
+        if (sb && !ordSending) sb.textContent = submitLabel(method);
         return { ls: ls, listT: listT, cartT: cartT, method: method, overCard: overCard };
       }
       function render() {
@@ -1190,12 +1199,12 @@
                   return;
                 }
                 ordSending = false;
-                if (btn) { btn.disabled = false; btn.textContent = L("🛒 Siparişi tamamla", "🛒 Complete your order", "🛒 Bestellung abschließen", "🛒 Завершить заказ"); }
+                if (btn) { btn.disabled = false; btn.textContent = submitLabel("kart"); }
                 if (doneEl) { doneEl.hidden = false; doneEl.textContent = (out.j && out.j.error) || L("Ödeme başlatılamadı; lütfen tekrar deneyin.", "Payment could not be started; please try again.", "Zahlung konnte nicht gestartet werden; bitte erneut versuchen.", "Не удалось начать оплату; попробуйте ещё раз."); }
               })
               .catch(function () {
                 ordSending = false;
-                if (btn) { btn.disabled = false; btn.textContent = L("🛒 Siparişi tamamla", "🛒 Complete your order", "🛒 Bestellung abschließen", "🛒 Завершить заказ"); }
+                if (btn) { btn.disabled = false; btn.textContent = submitLabel("kart"); }
                 if (doneEl) { doneEl.hidden = false; doneEl.textContent = L("Bağlantı hatası; lütfen tekrar deneyin.", "Connection error; please try again.", "Verbindungsfehler; bitte erneut versuchen.", "Ошибка соединения; попробуйте ещё раз."); }
               });
             return;
