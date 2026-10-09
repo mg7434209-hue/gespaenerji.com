@@ -3,7 +3,7 @@ title: "Häufige Fragen — Solarenergie, Bestellung und Montage | GESPA Energy"
 description: "Antworten zu Solaranlagen, Akkus, Solarumrüstung von E-Fahrzeugen, Bestellung, Versand, Zahlung und Montage an einem Ort. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/de/sss.html
 lang: de
-dateModified: 2026-10-01
+dateModified: 2026-10-09
 publisher: "GESPA Enerji"
 ---
 
@@ -464,6 +464,46 @@ Geschlossene Fahrgastfahrzeuge haben ein schmales Dach; für sie passt das 285-W
 [Werfen Sie einen Blick auf das Solar-Set für Dreirad mit Fahrgastkabine →](https://www.gespaenerji.com/de/paket-motor-yolcu.html)
 
 [Zur Seite →](https://www.gespaenerji.com/de/paket-motor-kargo.html)
+
+## Solar-Set für Golfcart-Fahrzeug (460 W)
+
+### Mein Akkupack hat 60 V — passt das?
+
+Ja. Der im Paket enthaltene BOOST-MPPT-Regler wird für 24-, 36-, 48-, 60- und 72-V-Akkupacks konfiguriert.
+
+### Wie wird das Modul am Dach befestigt?
+
+Die Unterkonstruktion richtet sich nach der Dachstruktur des Fahrzeugs. In der Region Antalya bieten wir optional die Montage vor Ort an; in anderen Provinzen liefern wir den Montageplan und telefonischen Support.
+
+### Welchen Querschnitt hat das Kabel?
+
+Je nach Lagerbestand liefern wir 4 mm² oder 6 mm²; beides ist für diese Systeme geeignet.
+
+### Passt ein 460-W-Modul auf mein Fahrzeugdach?
+
+Das flache Dach von Golfcart-Fahrzeugen reicht für ein Modul dieser Leistung meist aus. Schicken Sie uns vor der Bestellung trotzdem Ihre Dachmaße per WhatsApp, dann prüfen wir die Passform gemeinsam.
+
+[Zur Seite →](https://www.gespaenerji.com/de/paket-motor-golf.html)
+
+## Solar-Set für Mini-Elektroauto (240 W)
+
+### Mein Akkupack hat 60 V — passt das?
+
+Ja. Der im Paket enthaltene BOOST-MPPT-Regler wird für 24-, 36-, 48-, 60- und 72-V-Akkupacks konfiguriert.
+
+### Wie wird das Modul am Dach befestigt?
+
+Die Unterkonstruktion richtet sich nach der Dachstruktur des Fahrzeugs. In der Region Antalya bieten wir optional die Montage vor Ort an; in anderen Provinzen liefern wir den Montageplan und telefonischen Support.
+
+### Welchen Querschnitt hat das Kabel?
+
+Je nach Lagerbestand liefern wir 4 mm² oder 6 mm²; beides ist für diese Systeme geeignet.
+
+### Passt ein 240-W-Modul auf mein Fahrzeugdach?
+
+Diese Leistung wurde für das Dach von Mini-Autos gewählt. Schicken Sie uns vor der Bestellung trotzdem Ihre Dachmaße per WhatsApp, dann prüfen wir die Passform gemeinsam.
+
+[Zur Seite →](https://www.gespaenerji.com/de/paket-motor-mini.html)
 
 ## 72-V-LiFePO₄-Traktionsakku
 

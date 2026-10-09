@@ -3,7 +3,7 @@ title: "Onlineshop — Solarprodukte und Ausrüstung | GESPA Energy"
 description: "Alle Verkaufsprodukte auf einer Seite: Solar-Fertigsets, MPPT-Laderegler und Zubehör. Transparente Preise inkl. MwSt., Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/online-satis.html
 lang: de
-dateModified: 2026-10-06
+dateModified: 2026-10-09
 publisher: "GESPA Enerji"
 ---
 
@@ -94,6 +94,26 @@ Aufdach- und Freiflächenanlagen, Installationen mit hoher Leistung
 **₺10.000**≈ $203
 
 💰 Per Überweisung: **₺9.700**
+
+Inkl. MwSt. · zzgl. Versand
+
+### 460-W-Half-Cut-Monokristallin-Solarmodul
+
+Elektrofahrzeuge im Golfcart-Stil und kleine Inselanlagen
+
+**₺8.000**≈ $163
+
+💰 Per Überweisung: **₺7.750**
+
+Inkl. MwSt. · zzgl. Versand
+
+### 240-W-TOPCon-Solarmodul
+
+Mini-Elektroautos und kleine Inselanlagen
+
+**₺6.500**≈ $132
+
+💰 Per Überweisung: **₺6.300**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -294,6 +314,26 @@ Dreiräder mit offener Ladefläche oder Plane — breite Dachfläche
 **₺18.300**≈ $372
 
 💰 Per Überweisung: **₺17.750**
+
+Inkl. MwSt. · zzgl. Versand
+
+### [Solar-Set für Golfcart-Fahrzeug — 460 W](https://www.gespaenerji.com/de/paket-motor-golf.html)
+
+Überdachte Elektro-Fahrgastfahrzeuge im Golfcart-Stil
+
+**₺16.300**≈ $331
+
+💰 Per Überweisung: **₺15.800**
+
+Inkl. MwSt. · zzgl. Versand
+
+### [Solar-Set für Mini-Elektroauto — 240 W](https://www.gespaenerji.com/de/paket-motor-mini.html)
+
+Geschlossene Mini-Elektroautos — kleine Dachfläche
+
+**₺14.800**≈ $301
+
+💰 Per Überweisung: **₺14.350**
 
 Inkl. MwSt. · zzgl. Versand
 

@@ -3,7 +3,7 @@ title: "Solar Conversion for EVs — BOOST MPPT | GESPA Energy"
 description: "Solar conversion for golf carts and service vehicles. MS Teknik BOOST MPPT 24–72 V: AGM, gel, lead-acid and lithium support, Bluetooth setup."
 canonical: https://www.gespaenerji.com/en/elektrikli-arac-donusum.html
 lang: en
-dateModified: 2026-09-30
+dateModified: 2026-10-09
 publisher: "GESPA Enerji"
 ---
 
@@ -88,6 +88,32 @@ Open-bed or canopied cargo vehicles — wide roof area
 Set total : **₺18.300** · VAT included · shipping excluded
 
 [Ürün sayfası](https://www.gespaenerji.com/en/paket-motor-kargo.html)
+
+### Golf-Cart-Type EV Solar Set — 460 W
+
+Roofed golf-cart-type passenger vehicles — flat roof
+
+- 460 W Half-Cut Monocrystalline Solar Panel
+- MS Teknik BOOST MPPT 24-72 V Charge Controller
+- Solar Cable Set (5 m Black + 5 m Red)
+- MC4 Connector Set
+
+Set total : **₺16.300** · VAT included · shipping excluded
+
+[Ürün sayfası](https://www.gespaenerji.com/en/paket-motor-golf.html)
+
+### Mini Electric Car Solar Set — 240 W
+
+Enclosed mini cars — small roof area
+
+- 240 W TOPCon Solar Panel
+- MS Teknik BOOST MPPT 24-72 V Charge Controller
+- Solar Cable Set (5 m Black + 5 m Red)
+- MC4 Connector Set
+
+Set total : **₺14.800** · VAT included · shipping excluded
+
+[Ürün sayfası](https://www.gespaenerji.com/en/paket-motor-mini.html)
 
 Technical Specs
 

@@ -66,6 +66,41 @@ JOBS = [
         "crop": (180, 0, 1032, 639),
         "quality": 84,
     },
+    # —— 3. ve 4. paketler (9 Eki 2026, kaynak: elektrikli_motor.docx) ——
+    # motor-golf-panelli.png panel cercevesindeki tedarikci yazisi (M.S.
+    # TECHNIK + telefon) `tools/yazi-sil.py` ile SILINMIS hâlidir; ham hali
+    # repoya KONMAZ (MS Teknik iletisimi siteye girmez kurali). ARORA /
+    # POLO PLUS arac markasi gercek ureticidir, SILINMEZ.
+    {
+        # Golf araci tipi, catisinda panel takili (siyah studyo zemin).
+        "src": "motor-golf-panelli.png",
+        "out": "motor-golf.webp",
+        "crop": (0, 47, 1126, 891),
+        "quality": 84,
+    },
+    {
+        # Paket kutusu sol gorseli: cati + panel yakin, 4:3.
+        "src": "motor-golf-panelli.png",
+        "out": "motor-golf-kurulum.webp",
+        "crop": (150, 50, 1110, 770),
+        "quality": 84,
+    },
+    {
+        # Kapali kabinli mini elektrikli arac (on-yan); dikey foto 4:3
+        # tuvale ortalanir, kirpilsa govde kesilirdi.
+        "src": "motor-mini-on.png",
+        "out": "motor-mini.webp",
+        "canvas": (960, 720, (247, 248, 248)),
+        "quality": 84,
+    },
+    {
+        # Yan gorunus — paket kutusunun sol gorseli (4:3 tuval). Kaynaktaki
+        # sahte saydamlik damasi (cam arkasi dahil) beyaza cevrilmis hâlidir.
+        "src": "motor-mini-yan.png",
+        "out": "motor-mini-kurulum.webp",
+        "canvas": (660, 495, (255, 255, 255)),
+        "quality": 84,
+    },
 ]
 
 
@@ -76,6 +111,20 @@ def run(job, write):
     before = im.size
     if job.get("crop"):
         im = im.crop(job["crop"])
+    if job.get("canvas"):
+        w, h, bg = job["canvas"]
+        im.thumbnail((w, h), Image.LANCZOS)
+        cv = Image.new("RGB", (w, h), bg)
+        px, py = (w - im.size[0]) // 2, (h - im.size[1]) // 2
+        # Yanlardaki bosluk fotografin kenar sutunu uzatilarak doldurulur:
+        # zemin tam beyaz degil (hafif gradyan), duz renk tuvalde fotografin
+        # siniri dikey cizgi gibi gorunuyordu.
+        if px > 0 and py == 0:
+            cv.paste(im.crop((0, 0, 1, im.size[1])).resize((px, im.size[1])), (0, 0))
+            rw = w - px - im.size[0]
+            cv.paste(im.crop((im.size[0] - 1, 0, im.size[0], im.size[1])).resize((rw, im.size[1])), (px + im.size[0], 0))
+        cv.paste(im, (px, py))
+        im = cv
     if job.get("max"):
         im.thumbnail((job["max"], job["max"]), Image.LANCZOS)
     print("%-28s %sx%s -> %-24s %sx%s" % (job["src"], before[0], before[1],

@@ -68,8 +68,8 @@ kargo-iade. Fiyat/kod/stok hem build'de statik basılır hem main.js'te
 `data-pkg-*` ile tazelenir. Satın alma sepet üzerinden: `data-add-cart` =
 sepete ekle + onay penceresi (Sepete git / Alışverişe devam), `data-add-cart-go`
 = ekle ve sepete git) ·
-`paket-motor-yolcu.html` `paket-motor-kargo.html` (elektrikli motor güneş
-paketlerinin ürün sayfaları — paket-*.html düzeni + `data-add-cart-go`
+`paket-motor-yolcu.html` `paket-motor-kargo.html` `paket-motor-golf.html`
+`paket-motor-mini.html` (elektrikli motor güneş paketlerinin ürün sayfaları — paket-*.html düzeni + `data-add-cart-go`
 "⚡ Hemen satın al"; ayrıntı "Motor güneş paketleri" bölümünde) ·
 `havensis-*.html` (7 Havensis ürün sayfası: `havensis-mppt-30a` ·
 `-mppt-60a` · `-mppt-60a-150v` · `-dcdc-30a` · `-dcdc-40a` ·
@@ -311,8 +311,12 @@ ve sepet simgesi ekran dışında kalır.
   online-satis.html). KABLO KESİTİ
   (mm2) YAZILMAZ: stoğa göre 4 ya da 6 mm2 geliyor, ikisi de uygun. +
   2 elektrikli motor güneş paketi: `set-yolcu` ₺15.800 (285 W) ·
-  `set-kargo` ₺18.300 (655 W), ikisi de `group:"evset"` ve `parts` listeli
-  — ayrıntısı "Motor güneş paketleri" bölümünde. +
+  `set-kargo` ₺18.300 (655 W), `set-golf` ₺16.300 (460 W, golf aracı
+  tipi) · `set-mini` ₺14.800 (240 W, kapalı kabinli mini otomobil) — hepsi
+  `group:"evset"` ve `parts` listeli; ayrıntısı "Motor güneş paketleri"
+  bölümünde. 3. ve 4. paketin panelleri `panel-460w` ₺8.000 · `panel-240w`
+  ₺6.500 (`group:"panel"`, künye ve foto YOK: güç + hücre tipi dışında
+  değer yazılmaz). +
   europlus 72 V 30 Ah LiFePO₄ çekiş aküsü ₺28.000 (`aku-lifepo4-72v`,
   `group:"accessory"` — BOOST MPPT ile AYNI grupta, "Elektrikli Araç" çipi
   böylece tek ürünlü doğrudan bağlantı olmaktan çıkıp gerçek süzgece döndü). +
@@ -567,9 +571,19 @@ işe yaramıyordu.
   ŞARJ CİHAZI ÜRÜNE DAHİL DEĞİLDİR (LiFePO₄ CC/CV, 87,6 V, 6–10 A önerilir).
   Künyenin alındığı satıcı bağlantısı siteye KONMAZ — MS Teknik / ACS
   ENERJİ kuralının aynısı.
+- 3. ve 4. PAKET (9 Eki 2026, kaynak `elektrikli_motor.docx`): belgedeki
+  toplamlar MC4'süzdü (₺16.200 / ₺14.700); 1-2. paketlerdeki gibi MC4
+  (₺100) eklendi. Mini otomobilin panelli kurulum fotoğrafı YOK: seçicide
+  sol görsel aracın yan görünüşüdür ve `proofKind: "vehicle"` ile altyazısı
+  "Araç tipi örneği" olur ("Panel montaj örneği" demek yanıltırdı).
+- TEDARİKÇİ YAZISI: golf aracı fotoğrafında panel çerçevesinde "M.S.
+  TECHNIK - 0533 …" yazıyordu; `tools/yazi-sil.py` (OpenCV inpaint) ile
+  silindi ve kaynak klasöre SİLİNMİŞ hâli kondu. Yeni fotoğrafta aynı
+  yazıyı ara; MS Teknik iletişimi siteye ve repoya girmez.
 - GÖRSELLER: `assets/img/products/ev/motor-*.webp`, kaynakları
-  `.../ev/kaynak/` altında + `tools/motor-foto.py` (DRY-RUN / `--uygula`).
-  Araçlar BAŞKA ÜRETİCİLERE aittir (CSN, SFM) — marka yazıları SİLİNMEZ
+  `.../ev/kaynak/` altında + `tools/motor-foto.py` (DRY-RUN / `--uygula`;
+  `canvas` işi dikey fotoğrafı kenar sütununu uzatarak 4:3'e ortalar).
+  Araçlar BAŞKA ÜRETİCİLERE aittir (CSN, SFM, ARORA) — marka yazıları SİLİNMEZ
   (UNV kuralı) ve sayfada "yalnızca tip örneğidir, araç satılmaz" notu
   KALIR. Kaynak belge de repoda: `.../ev/kaynak/elektrikli-motor-paketleri.docx`.
 

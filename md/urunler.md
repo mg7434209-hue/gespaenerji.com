@@ -3,7 +3,7 @@ title: "Hazır Solar Paketler — Off-Grid & Sulama | GESPA Enerji"
 description: "285 W ve 2×540 W hazır güneş enerjisi paketleri: kamp, karavan ve bağ evi için panel, güç kutusu ve kablo içeriği. Türkiye geneli gönderim — GESPA Enerji."
 canonical: https://www.gespaenerji.com/urunler.html
 lang: tr
-dateModified: 2026-09-30
+dateModified: 2026-10-09
 publisher: "GESPA Enerji"
 ---
 
@@ -21,6 +21,8 @@ Hazır güneş enerjisi paketleri — net içerik, şeffaf fiyat, Türkiye'nin h
 
 - **Yolcu Kabinli Motor Güneş Paketi — 285 W** — GES-SET-YOLCU · Kabinli, 2–4 kişilik yolcu triportörleri — çatı alanı dar · ₺15.800 (≈ $321) liste · havale/EFT ile ₺15.350 (%3 indirimli, KDV dahil ). Kabinli elektrikli yolcu triportörünü güneşle şarj etmek için hazırlanmış komple paket: 285 W TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Dar çatı alanına sığan panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.
 - **Kargo Kasalı Motor Güneş Paketi — 655 W** — GES-SET-KARGO · Açık kasa veya tenteli yük triportörleri — çatı alanı geniş · ₺18.300 (≈ $372) liste · havale/EFT ile ₺17.750 (%3 indirimli, KDV dahil ). Kargo kasalı elektrikli triportörü güneşle şarj etmek için hazırlanmış komple paket: 655 W N-type TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Geniş kasa/tente çatısının kaldırabileceği en verimli panel gücü seçilmiştir.
+- **Golf Aracı Tipi Motor Güneş Paketi — 460 W** — GES-SET-GOLF · Tavanlı, golf aracı tipi elektrikli yolcu araçları · ₺16.300 (≈ $331) liste · havale/EFT ile ₺15.800 (%3 indirimli, KDV dahil ). Tavanlı, golf aracı tipi elektrikli yolcu aracını güneşle şarj etmek için hazırlanmış komple paket: 460 W yarım hücre (half-cut) monokristal güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Panel, bu araçların düz tavanına göre seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.
+- **Mini Elektrikli Otomobil Güneş Paketi — 240 W** — GES-SET-MINI · Kapalı kabinli mini elektrikli otomobiller — tavan alanı küçük · ₺14.800 (≈ $301) liste · havale/EFT ile ₺14.350 (%3 indirimli, KDV dahil ). Kapalı kabinli mini elektrikli otomobili güneşle şarj etmek için hazırlanmış komple paket: 240 W TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Küçük tavan alanına göre panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.
 
 ## Taşınabilir & Off-Grid Paketler
 

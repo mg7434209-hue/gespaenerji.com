@@ -3,7 +3,7 @@ title: "Online Satış — Güneş Enerjisi Ürünleri | GESPA Enerji"
 description: "GESPA Enerji online satış: hazır güneş enerjisi paketleri, şarj kontrol cihazları ve solar ekipman. Şeffaf fiyat, KDV dahil, Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/online-satis.html
 lang: tr
-dateModified: 2026-10-06
+dateModified: 2026-10-09
 publisher: "GESPA Enerji"
 ---
 
@@ -94,6 +94,26 @@ KDV dahil · kargo hariç
 **₺10.000**≈ $203
 
 💰 Havale/EFT ile: **₺9.700**
+
+KDV dahil · kargo hariç
+
+### 460 W Half-Cut Monokristal Güneş Paneli
+
+Golf aracı tipi elektrikli araçlar ve küçük off-grid sistemler
+
+**₺8.000**≈ $163
+
+💰 Havale/EFT ile: **₺7.750**
+
+KDV dahil · kargo hariç
+
+### 240 W TOPCon Güneş Paneli
+
+Mini elektrikli otomobiller ve küçük off-grid sistemler
+
+**₺6.500**≈ $132
+
+💰 Havale/EFT ile: **₺6.300**
 
 KDV dahil · kargo hariç
 
@@ -294,6 +314,26 @@ Açık kasa veya tenteli yük triportörleri — çatı alanı geniş
 **₺18.300**≈ $372
 
 💰 Havale/EFT ile: **₺17.750**
+
+KDV dahil · kargo hariç
+
+### [Golf Aracı Tipi Motor Güneş Paketi — 460 W](https://www.gespaenerji.com/paket-motor-golf.html)
+
+Tavanlı, golf aracı tipi elektrikli yolcu araçları
+
+**₺16.300**≈ $331
+
+💰 Havale/EFT ile: **₺15.800**
+
+KDV dahil · kargo hariç
+
+### [Mini Elektrikli Otomobil Güneş Paketi — 240 W](https://www.gespaenerji.com/paket-motor-mini.html)
+
+Kapalı kabinli mini elektrikli otomobiller — tavan alanı küçük
+
+**₺14.800**≈ $301
+
+💰 Havale/EFT ile: **₺14.350**
 
 KDV dahil · kargo hariç
 

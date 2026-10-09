@@ -568,14 +568,19 @@
         var d = sets[secili];
         h += '<div class="mset-detail">';
         // Sol görsel SEÇİLEN ARACIN kurulum kadrajıdır; sette yoksa yedeğe düşer.
+        // `proofKind: "vehicle"`: elimizde panelli kurulum fotoğrafı yoksa sol
+        // görsel aracın kendisidir; "Panel montaj örneği" demek yanıltırdı.
         var proof = d.st.proof || CFG.evSetProof;
+        var aracFoto = d.st.proof && d.st.proofKind === "vehicle";
         if (proof) {
           h += '<div class="mset-proof"><img src="' + esc(proof) + '" alt="'
-            + esc(T(d.st.title)) + " — "
-            + esc(L("çatıya monte güneş paneli", "solar panel mounted on the roof",
-                    "auf dem Dach montiertes Solarmodul", "солнечная панель на крыше"))
+            + esc(T(d.st.title))
+            + (aracFoto ? "" : " — " + esc(L("çatıya monte güneş paneli", "solar panel mounted on the roof",
+                    "auf dem Dach montiertes Solarmodul", "солнечная панель на крыше")))
             + '" width="408" height="306" loading="lazy" data-zoom /><span>'
-            + L("Panel montaj örneği", "Panel mounting example", "Beispiel für die Modulmontage", "Пример монтажа панели") + "</span></div>";
+            + (aracFoto
+              ? L("Araç tipi örneği", "Vehicle type example", "Fahrzeugtyp-Beispiel", "Пример типа транспорта")
+              : L("Panel montaj örneği", "Panel mounting example", "Beispiel für die Modulmontage", "Пример монтажа панели")) + "</span></div>";
         }
         h += '<div class="mset-body"><h3>' + esc(TD(d.pk.name)) + "</h3>";
         h += '<ul class="mset-items">';

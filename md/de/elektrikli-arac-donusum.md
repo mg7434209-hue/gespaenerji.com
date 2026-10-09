@@ -3,7 +3,7 @@ title: "Solar-Umrüstung für E-Fahrzeuge — BOOST MPPT | GESPA"
 description: "Solar-Umrüstung für Golfcarts und Servicefahrzeuge. MS Teknik BOOST MPPT 24–72 V: AGM, Gel, Blei-Säure und Lithium, Einstellung per Bluetooth."
 canonical: https://www.gespaenerji.com/de/elektrikli-arac-donusum.html
 lang: de
-dateModified: 2026-09-30
+dateModified: 2026-10-09
 publisher: "GESPA Enerji"
 ---
 
@@ -88,6 +88,32 @@ Offene oder überdachte Lastenfahrzeuge — große Dachfläche
 Set-Summe : **₺18.300** · Inkl. MwSt. · zzgl. Versand
 
 [Ürün sayfası](https://www.gespaenerji.com/de/paket-motor-kargo.html)
+
+### Solar-Set für Golfcart-Fahrzeug — 460 W
+
+Überdachte Fahrgastfahrzeuge im Golfcart-Stil — flaches Dach
+
+- 460-W-Half-Cut-Monokristallin-Solarmodul
+- MS Teknik BOOST MPPT 24-72 V Laderegler
+- Solarkabel-Set (5 m Schwarz + 5 m Rot)
+- MC4-Steckerset
+
+Set-Summe : **₺16.300** · Inkl. MwSt. · zzgl. Versand
+
+[Ürün sayfası](https://www.gespaenerji.com/de/paket-motor-golf.html)
+
+### Solar-Set für Mini-Elektroauto — 240 W
+
+Geschlossene Mini-Autos — kleine Dachfläche
+
+- 240-W-TOPCon-Solarmodul
+- MS Teknik BOOST MPPT 24-72 V Laderegler
+- Solarkabel-Set (5 m Schwarz + 5 m Rot)
+- MC4-Steckerset
+
+Set-Summe : **₺14.800** · Inkl. MwSt. · zzgl. Versand
+
+[Ürün sayfası](https://www.gespaenerji.com/de/paket-motor-mini.html)
 
 Technische Daten
 

@@ -3,7 +3,7 @@ title: "Online Store — Solar Products and Equipment | GESPA Energy"
 description: "All products on sale in one place: ready-made solar kits, MPPT charge controllers and equipment. Transparent prices, VAT included, shipping across Türkiye."
 canonical: https://www.gespaenerji.com/en/online-satis.html
 lang: en
-dateModified: 2026-10-06
+dateModified: 2026-10-09
 publisher: "GESPA Enerji"
 ---
 
@@ -94,6 +94,26 @@ Rooftop and ground-mount systems, high-power installations
 **₺10.000**≈ $203
 
 💰 By bank transfer: **₺9.700**
+
+VAT included · shipping excluded
+
+### 460 W Half-Cut Monocrystalline Solar Panel
+
+Golf-cart-type electric vehicles and small off-grid systems
+
+**₺8.000**≈ $163
+
+💰 By bank transfer: **₺7.750**
+
+VAT included · shipping excluded
+
+### 240 W TOPCon Solar Panel
+
+Mini electric cars and small off-grid systems
+
+**₺6.500**≈ $132
+
+💰 By bank transfer: **₺6.300**
 
 VAT included · shipping excluded
 
@@ -294,6 +314,26 @@ Open-bed or canopied cargo three-wheelers — wide roof area
 **₺18.300**≈ $372
 
 💰 By bank transfer: **₺17.750**
+
+VAT included · shipping excluded
+
+### [Golf-Cart-Type EV Solar Set — 460 W](https://www.gespaenerji.com/en/paket-motor-golf.html)
+
+Roofed golf-cart-type electric passenger vehicles
+
+**₺16.300**≈ $331
+
+💰 By bank transfer: **₺15.800**
+
+VAT included · shipping excluded
+
+### [Mini Electric Car Solar Set — 240 W](https://www.gespaenerji.com/en/paket-motor-mini.html)
+
+Enclosed mini electric cars — small roof area
+
+**₺14.800**≈ $301
+
+💰 By bank transfer: **₺14.350**
 
 VAT included · shipping excluded
 
