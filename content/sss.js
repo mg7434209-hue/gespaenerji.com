@@ -132,6 +132,8 @@ module.exports = {
     { file: "elektrikli-arac-donusum.html", title: ["Elektrikli araç güneş dönüşümü (BOOST MPPT)", "EV solar conversion (BOOST MPPT)", "Solarumrüstung für E-Fahrzeuge (BOOST MPPT)", "Солнечное переоснащение электротранспорта (BOOST MPPT)"] },
     { file: "paket-motor-yolcu.html", title: ["Yolcu kabinli motor paketi (285 W)", "Passenger-cab e-trike set (285 W)", "Solar-Set für Fahrgast-Dreirad (285 W)", "Комплект для пассажирского трицикла (285 Вт)"] },
     { file: "paket-motor-kargo.html", title: ["Kargo kasalı motor paketi (655 W)", "Cargo-bed e-trike set (655 W)", "Solar-Set für Lasten-Dreirad (655 W)", "Комплект для грузового трицикла (655 Вт)"] },
+    { file: "paket-motor-golf.html", title: ["Golf aracı tipi motor paketi (460 W)", "Golf-cart-type EV set (460 W)", "Solar-Set für Golfcart-Fahrzeug (460 W)", "Комплект для электрокара типа гольф-кар (460 Вт)"] },
+    { file: "paket-motor-mini.html", title: ["Mini elektrikli otomobil paketi (240 W)", "Mini electric car set (240 W)", "Solar-Set für Mini-Elektroauto (240 W)", "Комплект для мини-электромобиля (240 Вт)"] },
     { file: "aku-lifepo4-72v-30ah.html", title: ["72 V LiFePO₄ çekiş aküsü", "72 V LiFePO₄ traction battery", "72-V-LiFePO₄-Traktionsakku", "Тяговый аккумулятор LiFePO₄ 72 В"] },
     { file: "havensis-mppt-30a.html", title: ["MPPT şarj kontrol cihazları (Havensis)", "MPPT charge controllers (Havensis)", "MPPT-Laderegler (Havensis)", "MPPT-контроллеры заряда (Havensis)"] },
     { file: "havensis-dcdc-40a-cift-yonlu.html", title: ["Karavan DC-DC akü şarj cihazları", "Caravan DC-DC battery chargers", "DC-DC-Ladegeräte für Wohnmobile", "Зарядные устройства DC-DC для автодомов"] },

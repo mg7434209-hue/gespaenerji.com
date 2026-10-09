@@ -454,6 +454,38 @@
       </g:shipping>
     </item>
     <item>
+      <g:id>set-golf</g:id>
+      <g:title>Golf Aracı Tipi Motor Güneş Paketi — 460 W</g:title>
+      <g:description>Tavanlı, golf aracı tipi elektrikli yolcu aracını güneşle şarj etmek için hazırlanmış komple paket: 460 W yarım hücre (half-cut) monokristal güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Panel, bu araçların düz tavanına göre seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.</g:description>
+      <g:link>https://www.gespaenerji.com/paket-motor-golf.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/ev/motor-golf.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>16300.00 TRY</g:price>
+      <g:brand>GESPA Enerji</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>GES-SET-GOLF</g:mpn>
+      <g:product_type>Hazır Paket</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>set-mini</g:id>
+      <g:title>Mini Elektrikli Otomobil Güneş Paketi — 240 W</g:title>
+      <g:description>Kapalı kabinli mini elektrikli otomobili güneşle şarj etmek için hazırlanmış komple paket: 240 W TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Küçük tavan alanına göre panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.</g:description>
+      <g:link>https://www.gespaenerji.com/paket-motor-mini.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/ev/motor-mini.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>14800.00 TRY</g:price>
+      <g:brand>GESPA Enerji</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>GES-SET-MINI</g:mpn>
+      <g:product_type>Hazır Paket</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
+    </item>
+    <item>
       <g:id>mc4-set</g:id>
       <g:title>MC4 Konnektör Takımı</g:title>
       <g:description>Güneş paneli çıkış kablosu ile solar kabloyu birleştiren erkek-dişi MC4 konnektör takımı. Elektrikli motor güneş paketlerine 1 takım dahildir.</g:description>

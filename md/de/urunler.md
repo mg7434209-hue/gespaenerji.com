@@ -3,7 +3,7 @@ title: "Solar-Pakete — Off-Grid & Bewässerung | GESPA Energy"
 description: "285-W- und 2×540-W-Solarsets für Camping, Wohnmobile und Ferienhäuser. Module, Power-Box und Kabel vergleichen; Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/urunler.html
 lang: de
-dateModified: 2026-09-30
+dateModified: 2026-10-09
 publisher: "GESPA Enerji"
 ---
 
@@ -21,6 +21,8 @@ Fertige Solarpakete — klarer Lieferumfang, transparente Preise, Versand in die
 
 - **Solar-Set für Dreirad mit Fahrgastkabine — 285 W** — GES-SET-YOLCU · Geschlossene Fahrgast-Dreiräder für 2–4 Personen — schmale Dachfläche · ₺15.800 (≈ $321) Listenpreis · per Überweisung ₺15.350 (%3 Rabatt, inkl. MwSt. ). Kabinli elektrikli yolcu triportörünü güneşle şarj etmek için hazırlanmış komple paket: 285 W TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Dar çatı alanına sığan panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.
 - **Solar-Set für Dreirad mit Ladefläche — 655 W** — GES-SET-KARGO · Dreiräder mit offener Ladefläche oder Plane — breite Dachfläche · ₺18.300 (≈ $372) Listenpreis · per Überweisung ₺17.750 (%3 Rabatt, inkl. MwSt. ). Kargo kasalı elektrikli triportörü güneşle şarj etmek için hazırlanmış komple paket: 655 W N-type TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Geniş kasa/tente çatısının kaldırabileceği en verimli panel gücü seçilmiştir.
+- **Solar-Set für Golfcart-Fahrzeug — 460 W** — GES-SET-GOLF · Überdachte Elektro-Fahrgastfahrzeuge im Golfcart-Stil · ₺16.300 (≈ $331) Listenpreis · per Überweisung ₺15.800 (%3 Rabatt, inkl. MwSt. ). Komplettset, um ein überdachtes Elektro-Fahrgastfahrzeug im Golfcart-Stil mit Sonnenenergie zu laden: 460-W-Half-Cut-Monokristallin-Solarmodul, BOOST MPPT 24–72 V Laderegler, 5 m schwarzes + 5 m rotes Solarkabel und ein MC4-Steckerset. Das Modul wurde für das flache Dach dieser Fahrzeuge gewählt — Sie müssen nicht recherchieren, welches Teil passt.
+- **Solar-Set für Mini-Elektroauto — 240 W** — GES-SET-MINI · Geschlossene Mini-Elektroautos — kleine Dachfläche · ₺14.800 (≈ $301) Listenpreis · per Überweisung ₺14.350 (%3 Rabatt, inkl. MwSt. ). Komplettset, um ein geschlossenes Mini-Elektroauto mit Sonnenenergie zu laden: 240-W-TOPCon-Solarmodul, BOOST MPPT 24–72 V Laderegler, 5 m schwarzes + 5 m rotes Solarkabel und ein MC4-Steckerset. Die Modulleistung wurde für die kleine Dachfläche gewählt — Sie müssen nicht recherchieren, welches Teil passt.
 
 ## Tragbare Off-Grid-Sets
 

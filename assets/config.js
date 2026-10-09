@@ -394,6 +394,30 @@ window.GESPA.config = {
       desc: "132 yarım kesim hücreli, N-type TOPCon teknolojili monokristal güneş paneli. 655 W güçte Voc 50,34 V · Vmp 42,32 V · Isc 16,53 A · Imp 15,48 A, modül verimi %24,25. Ölçü 2382 × 1134 × 35 mm, ağırlık 31 kg; 3,2 mm AR kaplamalı ısıl güçlendirilmiş cam, 35 mm anotlu alüminyum çerçeve, IP68 bağlantı kutusu. 1500 V sistem gerilimi, 2400 Pa rüzgâr ve 5400 Pa kar yükü dayanımı.",
       features: ["655 W · N-type TOPCon · 132 yarım kesim hücre", "Modül verimi %24,25 · 16 busbar · 0~+5 W tolerans", "Voc 50,34 V · Vmp 42,32 V · Isc 16,53 A · Imp 15,48 A", "2382 × 1134 × 35 mm · 31 kg · IP68 · 1500 V", "2400 Pa rüzgâr · 5400 Pa kar yükü dayanımı", "12 yıl ürün · 30 yıl güç garantisi (yıllık %0,45 kayıp)"]
     },
+    // 460 W ve 240 W: 3. ve 4. motor güneş paketlerinin panelleri (9 Eki
+    // 2026, kaynak elektrikli_motor.docx). Üretici künyesi elimizde YOK —
+    // güç ve hücre tipi dışında teknik değer YAZILMAZ, ürün fotoğrafı yok
+    // (kart nötr yer tutucu gösterir, Merchant akışına girmez).
+    {
+      id: "panel-460w", icon: "🔆", tag: "Panel", group: "panel",
+      sku: "GES-PNL-460",
+      price: 162.6, currency: "USD",                      // ₺8.000 @ 49,2
+      chips: ["🔆 460 W", "✂️ Yarım hücre (half-cut)", "💎 Monokristal"],
+      for: "Golf aracı tipi elektrikli araçlar ve küçük off-grid sistemler",
+      name: "460 W Half-Cut Monokristal Güneş Paneli",
+      desc: "460 W yarım hücre (half-cut) monokristal güneş paneli. Golf aracı tipi motor güneş paketimizin panelidir; tek başına da satılır. Ölçü, ağırlık ve elektriksel değerler için bize yazın; üretici künyesinden teyit edelim.",
+      features: ["460 W · monokristal · yarım hücre (half-cut)", "Golf Aracı Tipi Motor Güneş Paketi'nin panelidir", "Teknik künye için bize yazın"]
+    },
+    {
+      id: "panel-240w", icon: "🔆", tag: "Panel", group: "panel",
+      sku: "GES-PNL-240",
+      price: 132.11, currency: "USD",                     // ₺6.500 @ 49,2
+      chips: ["🔆 240 W", "🧪 TOPCon hücre"],
+      for: "Mini elektrikli otomobiller ve küçük off-grid sistemler",
+      name: "240 W TOPCon Güneş Paneli",
+      desc: "240 W TOPCon hücreli güneş paneli. Mini elektrikli otomobil güneş paketimizin panelidir; tek başına da satılır. Ölçü, ağırlık ve elektriksel değerler için bize yazın; üretici künyesinden teyit edelim.",
+      features: ["240 W · TOPCon hücre", "Mini Elektrikli Otomobil Güneş Paketi'nin panelidir", "Teknik künye için bize yazın"]
+    },
     // Arçelik 540 W: elimizde ÜRETİCİ KÜNYESİ YOK — güç, sınıf ve marka dışında
     // teknik değer YAZILMAZ. Künye gelirse buradan genişlet.
     {
@@ -668,6 +692,36 @@ window.GESPA.config = {
       features: ["655 W N-type TOPCon güneş paneli (geniş çatı için)", "BOOST MPPT 24–72 V şarj kontrol cihazı — tüm akü tipleriyle", "5 m siyah + 5 m kırmızı solar kablo", "MC4 konnektör takımı (erkek + dişi)", "Panel, cihaz ve kablolama birbiriyle uyumlu seçilmiştir"]
     },
 
+    // 3. ve 4. paketler (9 Eki 2026, elektrikli_motor.docx): belgedeki
+    // toplamlar MC4'süzdür (₺16.200 / ₺14.700); 1. ve 2. paketlerdeki gibi
+    // MC4 takımı (₺100) eklendi → ₺16.300 / ₺14.800.
+    {
+      id: "set-golf", icon: "🚙", tag: "Hazır Paket", group: "evset",
+      url: "paket-motor-golf.html",
+      sku: "GES-SET-GOLF",
+      img: "assets/img/products/ev/motor-golf.webp",
+      price: 331.3, currency: "USD",                      // ₺16.300 @ 49,2
+      parts: ["panel-460w", "boost-mppt", "kablo-solar-5m", "mc4-set"],
+      chips: ["🔆 460 W half-cut panel", "🔌 BOOST MPPT 24–72 V", "🧰 Kablo + MC4 dahil"],
+      for: "Tavanlı, golf aracı tipi elektrikli yolcu araçları",
+      name: "Golf Aracı Tipi Motor Güneş Paketi — 460 W",
+      desc: "Tavanlı, golf aracı tipi elektrikli yolcu aracını güneşle şarj etmek için hazırlanmış komple paket: 460 W yarım hücre (half-cut) monokristal güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Panel, bu araçların düz tavanına göre seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.",
+      features: ["460 W yarım hücre (half-cut) monokristal güneş paneli", "BOOST MPPT 24–72 V şarj kontrol cihazı — tüm akü tipleriyle", "5 m siyah + 5 m kırmızı solar kablo", "MC4 konnektör takımı (erkek + dişi)", "Panel, cihaz ve kablolama birbiriyle uyumlu seçilmiştir"]
+    },
+    {
+      id: "set-mini", icon: "🚗", tag: "Hazır Paket", group: "evset",
+      url: "paket-motor-mini.html",
+      sku: "GES-SET-MINI",
+      img: "assets/img/products/ev/motor-mini.webp",
+      price: 300.81, currency: "USD",                     // ₺14.800 @ 49,2
+      parts: ["panel-240w", "boost-mppt", "kablo-solar-5m", "mc4-set"],
+      chips: ["🔆 240 W TOPCon panel", "🔌 BOOST MPPT 24–72 V", "🧰 Kablo + MC4 dahil"],
+      for: "Kapalı kabinli mini elektrikli otomobiller — tavan alanı küçük",
+      name: "Mini Elektrikli Otomobil Güneş Paketi — 240 W",
+      desc: "Kapalı kabinli mini elektrikli otomobili güneşle şarj etmek için hazırlanmış komple paket: 240 W TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Küçük tavan alanına göre panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.",
+      features: ["240 W TOPCon güneş paneli (küçük tavana uygun)", "BOOST MPPT 24–72 V şarj kontrol cihazı — tüm akü tipleriyle", "5 m siyah + 5 m kırmızı solar kablo", "MC4 konnektör takımı (erkek + dişi)", "Panel, cihaz ve kablolama birbiriyle uyumlu seçilmiştir"]
+    },
+
     {
       id: "mc4-set", icon: "🔗", tag: "Konnektör", group: "cable",
       sku: "GES-MC4-1",
@@ -690,7 +744,7 @@ window.GESPA.config = {
   // config.packages'teki GERÇEK ÜRÜNE bağlanır (fiyat, içerik ve detay
   // sayfası oradan gelir). Böylece paketin kendi kartı, kendi adresi ve
   // sepette kendi satırı olur.
-  // GÖRSELLER: araçlar BAŞKA ÜRETİCİLERE aittir (CSN, SFM). Marka
+  // GÖRSELLER: araçlar BAŞKA ÜRETİCİLERE aittir (CSN, SFM, ARORA). Marka
   // yazıları SİLİNMEZ (UNV kuralının aynısı) ve sayfada "araç tipi
   // örneği" diye etiketlenir — o araçları biz satmıyoruz.
   evSets: [
@@ -712,6 +766,24 @@ window.GESPA.config = {
       title: "Kargo kasalı triportör",
       hint: "Açık kasa veya tenteli yük araçları — çatı alanı geniş",
       pkg: "set-kargo"
+    },
+    {
+      id: "golf",
+      img: "assets/img/products/ev/motor-golf.webp",
+      proof: "assets/img/products/ev/motor-golf-kurulum.webp",
+      title: "Golf aracı tipi",
+      hint: "Tavanlı, golf aracı tipi yolcu araçları — düz tavan",
+      pkg: "set-golf"
+    },
+    {
+      id: "mini",
+      img: "assets/img/products/ev/motor-mini.webp",
+      // Panelli kurulum fotoğrafı YOK: sol görsel aracın yan görünüşüdür,
+      // seçici altyazısı "Araç tipi örneği" olur (main.js proofKind).
+      proof: "assets/img/products/ev/motor-mini-kurulum.webp", proofKind: "vehicle",
+      title: "Mini elektrikli otomobil",
+      hint: "Kapalı kabinli mini otomobiller — tavan alanı küçük",
+      pkg: "set-mini"
     }
   ],
   // Sette `proof` yoksa kullanılacak yedek görsel.

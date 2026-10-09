@@ -3,7 +3,7 @@ title: "Sıkça Sorulan Sorular — Güneş Enerjisi, Sipariş ve Kurulum | GESP
 description: "Güneş enerjisi santrali, akü, elektrikli araç güneş dönüşümü, sipariş, kargo, ödeme ve kurulum hakkında sık sorulan soruların cevapları tek sayfada. GESPA Enerji, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/sss.html
 lang: tr
-dateModified: 2026-10-01
+dateModified: 2026-10-09
 publisher: "GESPA Enerji"
 ---
 
@@ -506,6 +506,46 @@ Kabinli yolcu araçlarında çatı dardır; onlar için 285 W'lık paket daha uy
 [Yolcu Kabinli Motor Güneş Paketi'ne göz atın →](https://www.gespaenerji.com/paket-motor-yolcu.html)
 
 [Sayfaya git →](https://www.gespaenerji.com/paket-motor-kargo.html)
+
+## Golf aracı tipi motor paketi (460 W)
+
+### Aracımın aküsü 60 V, uyar mı?
+
+Uyar. Pakete dahil BOOST MPPT cihazı 24, 36, 48, 60 ve 72 V akü gruplarıyla çalışacak şekilde yapılandırılır.
+
+### Panel çatıya nasıl sabitleniyor?
+
+Aracın çatı yapısına göre konstrüksiyon belirlenir. Antalya bölgesinde isteğe bağlı yerinde montaj yapıyoruz; diğer illerde montaj şeması ve telefonla destek veriyoruz.
+
+### Kablo kesiti kaç mm²?
+
+Stok durumuna göre 4 mm² veya 6 mm² gönderilir; bu sistemlerde ikisi de uygundur.
+
+### 460 W panel aracımın tavanına sığar mı?
+
+Golf aracı tipi araçların düz tavanı bu güçteki panel için genellikle yeterlidir. Yine de sipariş öncesi tavan ölçünüzü WhatsApp'tan gönderin, uygunluğu birlikte kontrol edelim.
+
+[Sayfaya git →](https://www.gespaenerji.com/paket-motor-golf.html)
+
+## Mini elektrikli otomobil paketi (240 W)
+
+### Aracımın aküsü 60 V, uyar mı?
+
+Uyar. Pakete dahil BOOST MPPT cihazı 24, 36, 48, 60 ve 72 V akü gruplarıyla çalışacak şekilde yapılandırılır.
+
+### Panel çatıya nasıl sabitleniyor?
+
+Aracın çatı yapısına göre konstrüksiyon belirlenir. Antalya bölgesinde isteğe bağlı yerinde montaj yapıyoruz; diğer illerde montaj şeması ve telefonla destek veriyoruz.
+
+### Kablo kesiti kaç mm²?
+
+Stok durumuna göre 4 mm² veya 6 mm² gönderilir; bu sistemlerde ikisi de uygundur.
+
+### 240 W panel aracımın tavanına sığar mı?
+
+Mini otomobillerin tavanı için bu güç seçildi. Yine de sipariş öncesi tavan ölçünüzü WhatsApp'tan gönderin, uygunluğu birlikte kontrol edelim.
+
+[Sayfaya git →](https://www.gespaenerji.com/paket-motor-mini.html)
 
 ## 72 V LiFePO₄ çekiş aküsü
 

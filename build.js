@@ -31,7 +31,7 @@ const PAGES = [
   "yapay-zeka-urunleri.html", "ai-cankurtaran-destek-sistemi.html", "sistem-kur.html",
   "elektrikli-arac-donusum.html",
   "paket-285w.html", "paket-2x540w.html", "unv-trek-pro-2500.html", "toptan.html",
-  "paket-motor-yolcu.html", "paket-motor-kargo.html",
+  "paket-motor-yolcu.html", "paket-motor-kargo.html", "paket-motor-golf.html", "paket-motor-mini.html",
   "aku-lifepo4-72v-30ah.html",
   // Havensis ürün sayfaları — tools/havensis-sayfalar.py üretir
   "havensis-mppt-30a.html", "havensis-mppt-60a.html", "havensis-mppt-60a-150v.html",
@@ -147,6 +147,22 @@ const META = {
           d: "Komplettset für Lasten-Dreiräder: 655-W-N-Type-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Maximaler Ertrag für große Dachflächen." },
     ru: { t: "Солнечный комплект для грузового трицикла — 655 Вт | GESPA",
           d: "Готовый комплект для грузовых трициклов: панель 655 Вт N-type TOPCon, контроллер BOOST MPPT 24–72 В, кабель и MC4." }
+  },
+  "paket-motor-golf.html": {
+    en: { t: "Golf-Cart-Type EV Solar Set — 460 W | GESPA Energy",
+          d: "Complete solar set for roofed golf-cart-type electric passenger vehicles: 460 W half-cut monocrystalline panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. No guessing which part fits." },
+    de: { t: "Solar-Set für Golfcart-Fahrzeuge — 460 W | GESPA Energy",
+          d: "Komplettset für überdachte Elektrofahrzeuge im Golfcart-Stil: 460-W-Half-Cut-Monomodul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt." },
+    ru: { t: "Солнечный комплект для электрокара типа гольф-кар — 460 Вт | GESPA",
+          d: "Готовый комплект для электромобилей типа гольф-кар с крышей: монокристаллическая панель half-cut 460 Вт, контроллер BOOST MPPT 24–72 В, кабель и MC4." }
+  },
+  "paket-motor-mini.html": {
+    en: { t: "Mini Electric Car Solar Set — 240 W | GESPA Energy",
+          d: "Complete solar set for enclosed mini electric cars: 240 W TOPCon panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. No guessing which part fits." },
+    de: { t: "Solar-Set für Mini-Elektroauto — 240 W | GESPA Energy",
+          d: "Komplettset für geschlossene Mini-Elektroautos: 240-W-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt." },
+    ru: { t: "Солнечный комплект для мини-электромобиля — 240 Вт | GESPA",
+          d: "Готовый комплект для закрытых мини-электромобилей: панель 240 Вт TOPCon, контроллер BOOST MPPT 24–72 В, кабель и MC4." }
   },
   "sss.html": {
     en: { t: "Frequently Asked Questions — Solar Power, Orders and Installation | GESPA Energy",
@@ -1636,7 +1652,8 @@ const LLMS_GROUPS = [
   ["Ana sayfa", ["index.html"]],
   ["Hizmetler", ["hizmetler.html", "cati-ges.html", "arazi-ges.html", "enerji-depolama.html", "bakim-izleme.html", "tarimsal-sulama.html"]],
   ["Mağaza ve ürünler", ["online-satis.html", "urunler.html", "paket-285w.html", "paket-2x540w.html", "unv-trek-pro-2500.html",
-    "elektrikli-arac-donusum.html", "paket-motor-yolcu.html", "paket-motor-kargo.html", "aku-lifepo4-72v-30ah.html",
+    "elektrikli-arac-donusum.html", "paket-motor-yolcu.html", "paket-motor-kargo.html", "paket-motor-golf.html", "paket-motor-mini.html",
+    "aku-lifepo4-72v-30ah.html",
     "havensis-mppt-30a.html", "havensis-mppt-60a.html", "havensis-mppt-60a-150v.html",
     "havensis-dcdc-30a.html", "havensis-dcdc-40a.html", "havensis-dcdc-40a-cift-yonlu.html", "havensis-boost-dcdc-2448.html",
     "su-isitici.html", "toptan.html"]],
