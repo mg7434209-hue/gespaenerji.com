@@ -39,6 +39,8 @@ Preis inkl. MwSt.
 
 Elektrofahrzeuge im Golfcart-Stil haben ein flaches, breites Dach; diese Fläche mit einem kleinen Modul zu belegen, kostet Tagesertrag. Das Set enthält ein für dieses Dach gewähltes 460-W-Half-Cut-Monokristallin-Solarmodul.
 
+Das Modul misst 2095 × 1039 × 30 mm und wiegt 25 kg. Seine Leerlaufspannung (Voc 51,90 V) liegt im Moduleingangsbereich von 15–60 V des enthaltenen BOOST-MPPT-Reglers.
+
 Neben dem Modul enthält das Paket einen BOOST-MPPT-Laderegler für 24–72 V: Ihr Akkupack kann 24, 36, 48, 60 oder 72 V haben, und er arbeitet mit AGM-, Gel-, Nassblei- und Lithiumakkus gleichermaßen. Er hebt die Modulspannung auf den Bedarf des Akkus an und lädt direkt.
 
 Fünf Meter schwarzes und fünf Meter rotes Solarkabel sowie ein MC4-Steckerset sind ebenfalls enthalten. Beim Öffnen des Kartons brauchen Sie also nichts weiter, um die Leitung zwischen Modul und Regler zu verlegen.
@@ -53,7 +55,7 @@ Fünf Meter schwarzes und fünf Meter rotes Solarkabel sowie ein MC4-Steckerset 
 
 Der Lieferumfang wird aufeinander abgestimmt versandt; Sie müssen nichts zusätzlich kaufen.
 
-Was bedeuten BOOST MPPT, TOPCon und MC4? [Solar-Glossar →](https://www.gespaenerji.com/de/sozluk.html#boost-mppt)
+Was sind BOOST MPPT und MC4? [Solar-Glossar →](https://www.gespaenerji.com/de/sozluk.html#boost-mppt)
 
 - Die Produkte werden per Vertragsspedition in alle Provinzen der Türkei geliefert; die Lieferung ist nicht auf Antalya beschränkt.
 - Die Lieferzeit beträgt ca. 2–5 Werktage nach Bestellbestätigung; die Sendungsnummer kommt per WhatsApp.
@@ -112,7 +114,7 @@ Je nach Lagerbestand liefern wir 4 mm² oder 6 mm²; beides ist für diese Syste
 
 ### Passt ein 460-W-Modul auf mein Fahrzeugdach?
 
-Das flache Dach von Golfcart-Fahrzeugen reicht für ein Modul dieser Leistung meist aus. Schicken Sie uns vor der Bestellung trotzdem Ihre Dachmaße per WhatsApp, dann prüfen wir die Passform gemeinsam.
+Das Modul misst 2095 × 1039 × 30 mm und wiegt 25 kg; das flache Dach von Golfcart-Fahrzeugen reicht dafür meist aus. Schicken Sie uns vor der Bestellung Ihre Dachmaße per WhatsApp, dann prüfen wir die Passform gemeinsam.
 
 **Ist Ihr Fahrzeug ein geschlossenes Mini-Auto?**
 

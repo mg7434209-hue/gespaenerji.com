@@ -107,7 +107,7 @@ Elektrofahrzeuge im Golfcart-Stil und kleine Inselanlagen
 
 Inkl. MwSt. · zzgl. Versand
 
-### 240-W-TOPCon-Solarmodul
+### 240-W-Monokristallin-Solarmodul
 
 Mini-Elektroautos und kleine Inselanlagen
 

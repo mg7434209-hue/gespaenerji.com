@@ -39,6 +39,8 @@ Price includes VAT.
 
 Golf-cart-type electric vehicles have a flat, wide roof; using that area for a small panel means losing daily yield. The set includes a 460 W half-cut monocrystalline solar panel chosen for this roof.
 
+The panel measures 2095 × 1039 × 30 mm and weighs 25 kg. Its open-circuit voltage (Voc 51.90 V) is within the 15–60 V panel input range of the included BOOST MPPT controller.
+
 Alongside the panel the package includes a BOOST MPPT 24–72 V charge controller: your battery pack may be 24, 36, 48, 60 or 72 V, and it works with AGM, gel, flooded lead-acid and lithium batteries alike. It raises the panel voltage to what the battery needs and charges it directly.
 
 Five metres of black and five metres of red solar cable plus an MC4 connector set are also included. So when you open the box you need nothing else to run the line between the panel and the controller.
@@ -53,7 +55,7 @@ Five metres of black and five metres of red solar cable plus an MC4 connector se
 
 The package ships with every part matched to work together; you need not buy anything extra.
 
-What do BOOST MPPT, TOPCon and MC4 mean? [Solar Glossary →](https://www.gespaenerji.com/en/sozluk.html#boost-mppt)
+What are BOOST MPPT and MC4? [Solar Glossary →](https://www.gespaenerji.com/en/sozluk.html#boost-mppt)
 
 - Products are shipped by contracted courier to every province of Türkiye; delivery is not limited to Antalya.
 - Estimated delivery is 2–5 business days after order confirmation; the tracking number is sent via WhatsApp.
@@ -112,7 +114,7 @@ Depending on stock we ship 4 mm² or 6 mm²; both are suitable for these systems
 
 ### Will a 460 W panel fit my vehicle's roof?
 
-The flat roof of golf-cart-type vehicles is usually large enough for a panel of this power. Still, send us your roof dimensions on WhatsApp before ordering and we will check the fit together.
+The panel measures 2095 × 1039 × 30 mm and weighs 25 kg; the flat roof of golf-cart-type vehicles is usually large enough for it. Send us your roof dimensions on WhatsApp before ordering and we will check the fit together.
 
 **Is your vehicle an enclosed mini car?**
 

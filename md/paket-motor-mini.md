@@ -1,6 +1,6 @@
 ---
 title: "Mini Elektrikli Otomobil Güneş Paketi — 240 W | GESPA Enerji"
-description: "Kapalı kabinli mini elektrikli otomobil için komple güneş paketi: 240 W TOPCon panel, BOOST MPPT 24–72 V şarj kontrol cihazı, solar kablo ve MC4. Hangi parçanın uyduğunu araştırmanıza gerek yok."
+description: "Kapalı kabinli mini elektrikli otomobil için komple güneş paketi: 240 W monokristal panel, BOOST MPPT 24–72 V şarj kontrol cihazı, solar kablo ve MC4. Hangi parçanın uyduğunu araştırmanıza gerek yok."
 canonical: https://www.gespaenerji.com/paket-motor-mini.html
 lang: tr
 dateModified: 2026-10-09
@@ -35,9 +35,11 @@ KDV dahil fiyattır.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
 - 🔧 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi.
 
-🔆 240 W TOPCon panel 🔌 BOOST MPPT 24–72 V 🧰 Kablo + MC4 dahil 🚗 Küçük tavana uygun
+🔆 240 W mono panel 🔌 BOOST MPPT 24–72 V 🧰 Kablo + MC4 dahil 🚗 Küçük tavana uygun
 
-Kapalı kabinli mini elektrikli otomobillerin tavanı küçüktür; büyük bir panel taşar ve rüzgâr yükü yaratır. Pakette bu tavana göre seçilmiş 240 W TOPCon güneş paneli bulunur.
+Kapalı kabinli mini elektrikli otomobillerin tavanı küçüktür; büyük bir panel taşar ve rüzgâr yükü yaratır. Pakette bu tavana göre seçilmiş 240 W monokristal güneş paneli bulunur.
+
+Panelin ölçüsü 1575 × 705 × 30 mm'dir. Açık devre gerilimi (Voc 25,38 V) pakete dahil BOOST MPPT cihazının 15–60 V panel giriş aralığındadır.
 
 Pakette panelin yanında BOOST MPPT 24–72 V şarj kontrol cihazı vardır: aracınızın akü grubu 24, 36, 48, 60 ya da 72 V olabilir; AGM, jel, sulu kurşun-asit ve lityum akülerin hepsiyle çalışır. Panelden gelen gerilimi akünün ihtiyacına yükselterek doğrudan şarj eder.
 
@@ -45,7 +47,7 @@ Bağlantı için 5 metre siyah + 5 metre kırmızı solar kablo ve MC4 konnektö
 
 | Adet | Bileşen |
 | --- | --- |
-| 1 × | 240 W TOPCon Güneş Paneli |
+| 1 × | 240 W Monokristal Güneş Paneli |
 | 1 × | MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı |
 | 1 × | Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) |
 | 1 × | MC4 Konnektör Takımı |
@@ -53,7 +55,7 @@ Bağlantı için 5 metre siyah + 5 metre kırmızı solar kablo ve MC4 konnektö
 
 Paket içeriği birbiriyle uyumlu seçilmiş hâlde gönderilir; ayrıca parça almanız gerekmez.
 
-BOOST MPPT, TOPCon ve MC4 nedir? [GES Sözlüğü →](https://www.gespaenerji.com/sozluk.html#boost-mppt)
+BOOST MPPT ve MC4 nedir? [GES Sözlüğü →](https://www.gespaenerji.com/sozluk.html#boost-mppt)
 
 - Ürünler Türkiye'nin her iline anlaşmalı kargo ile gönderilir; teslimat için Antalya şartı yoktur.
 - Sipariş onayından sonra tahmini teslim süresi 2–5 iş günüdür; kargo takip numarası WhatsApp'tan iletilir.
@@ -112,7 +114,7 @@ Stok durumuna göre 4 mm² veya 6 mm² gönderilir; bu sistemlerde ikisi de uygu
 
 ### 240 W panel aracımın tavanına sığar mı?
 
-Mini otomobillerin tavanı için bu güç seçildi. Yine de sipariş öncesi tavan ölçünüzü WhatsApp'tan gönderin, uygunluğu birlikte kontrol edelim.
+Panelin ölçüsü 1575 × 705 × 30 mm'dir. Sipariş öncesi tavan ölçünüzü WhatsApp'tan gönderin, uygunluğu birlikte kontrol edelim.
 
 **Aracınız golf aracı tipi mi?**
 

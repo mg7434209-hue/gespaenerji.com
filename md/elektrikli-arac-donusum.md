@@ -106,7 +106,7 @@ Set toplamı : **₺16.300** · KDV dahil · kargo hariç
 
 Kapalı kabinli mini otomobiller — tavan alanı küçük
 
-- 240 W TOPCon Güneş Paneli
+- 240 W Monokristal Güneş Paneli
 - MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı
 - Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)
 - MC4 Konnektör Takımı

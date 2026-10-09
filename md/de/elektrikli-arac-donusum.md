@@ -106,7 +106,7 @@ Set-Summe : **₺16.300** · Inkl. MwSt. · zzgl. Versand
 
 Geschlossene Mini-Autos — kleine Dachfläche
 
-- 240-W-TOPCon-Solarmodul
+- 240-W-Monokristallin-Solarmodul
 - MS Teknik BOOST MPPT 24-72 V Laderegler
 - Solarkabel-Set (5 m Schwarz + 5 m Rot)
 - MC4-Steckerset

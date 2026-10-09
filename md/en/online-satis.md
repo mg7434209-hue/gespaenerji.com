@@ -107,7 +107,7 @@ Golf-cart-type electric vehicles and small off-grid systems
 
 VAT included · shipping excluded
 
-### 240 W TOPCon Solar Panel
+### 240 W Monocrystalline Solar Panel
 
 Mini electric cars and small off-grid systems
 

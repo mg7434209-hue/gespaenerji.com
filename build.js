@@ -158,11 +158,11 @@ const META = {
   },
   "paket-motor-mini.html": {
     en: { t: "Mini Electric Car Solar Set — 240 W | GESPA Energy",
-          d: "Complete solar set for enclosed mini electric cars: 240 W TOPCon panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. No guessing which part fits." },
+          d: "Complete solar set for enclosed mini electric cars: 240 W monocrystalline panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. No guessing which part fits." },
     de: { t: "Solar-Set für Mini-Elektroauto — 240 W | GESPA Energy",
-          d: "Komplettset für geschlossene Mini-Elektroautos: 240-W-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt." },
+          d: "Komplettset für geschlossene Mini-Elektroautos: 240-W-Monokristallin-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt." },
     ru: { t: "Солнечный комплект для мини-электромобиля — 240 Вт | GESPA",
-          d: "Готовый комплект для закрытых мини-электромобилей: панель 240 Вт TOPCon, контроллер BOOST MPPT 24–72 В, кабель и MC4." }
+          d: "Готовый комплект для закрытых мини-электромобилей: монокристаллическая панель 240 Вт, контроллер BOOST MPPT 24–72 В, кабель и MC4." }
   },
   "sss.html": {
     en: { t: "Frequently Asked Questions — Solar Power, Orders and Installation | GESPA Energy",

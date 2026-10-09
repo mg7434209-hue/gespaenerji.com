@@ -107,7 +107,7 @@ Golf aracı tipi elektrikli araçlar ve küçük off-grid sistemler
 
 KDV dahil · kargo hariç
 
-### 240 W TOPCon Güneş Paneli
+### 240 W Monokristal Güneş Paneli
 
 Mini elektrikli otomobiller ve küçük off-grid sistemler
 

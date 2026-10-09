@@ -413,28 +413,34 @@ window.GESPA.config = {
       features: ["655 W · N-type TOPCon · 132 yarım kesim hücre", "Modül verimi %24,25 · 16 busbar · 0~+5 W tolerans", "Voc 50,34 V · Vmp 42,32 V · Isc 16,53 A · Imp 15,48 A", "2382 × 1134 × 35 mm · 31 kg · IP68 · 1500 V", "2400 Pa rüzgâr · 5400 Pa kar yükü dayanımı", "12 yıl ürün · 30 yıl güç garantisi (yıllık %0,45 kayıp)"]
     },
     // 460 W ve 240 W: 3. ve 4. motor güneş paketlerinin panelleri (9 Eki
-    // 2026, kaynak elektrikli_motor.docx). Üretici künyesi elimizde YOK —
-    // güç ve hücre tipi dışında teknik değer YAZILMAZ, ürün fotoğrafı yok
-    // (kart nötr yer tutucu gösterir, Merchant akışına girmez).
+    // 2026). TEKNİK DEĞERLER üretici künyesinden (işletmenin gönderdiği iki
+    // PDF, 9 Eki 2026). MARKA YAZILMAZ — işletme kararı; künye PDF'leri de bu
+    // yüzden repoya KONMADI (tedarikçi adı/adresi içeriyor). 240 W'ın künyesi
+    // "M" (monokristal) der, TOPCon DEMEZ: belgedeki "240W TOPCON" ifadesi
+    // künyeyle çeliştiği için kullanılmadı. Künyede hücre sayısı ve ağırlığı
+    // boş — yazılmaz. 460 W künyesinde ürün garantisi yılı yok, yazılmaz.
+    // Fotoğraflar kaynak/panel-*.png → tools/foto-hazirla.py.
     {
       id: "panel-460w", icon: "🔆", tag: "Panel", group: "panel",
       sku: "GES-PNL-460",
+      img: "assets/img/products/panel-460w.webp",
       price: 162.6, currency: "USD",                      // ₺8.000 @ 49,2
-      chips: ["🔆 460 W", "✂️ Yarım hücre (half-cut)", "💎 Monokristal"],
+      chips: ["🔆 460 W · %23,42 verim", "✂️ 144 yarım hücre", "⚖️ 25 kg"],
       for: "Golf aracı tipi elektrikli araçlar ve küçük off-grid sistemler",
       name: "460 W Half-Cut Monokristal Güneş Paneli",
-      desc: "460 W yarım hücre (half-cut) monokristal güneş paneli. Golf aracı tipi motor güneş paketimizin panelidir; tek başına da satılır. Ölçü, ağırlık ve elektriksel değerler için bize yazın; üretici künyesinden teyit edelim.",
-      features: ["460 W · monokristal · yarım hücre (half-cut)", "Golf Aracı Tipi Motor Güneş Paketi'nin panelidir", "Teknik künye için bize yazın"]
+      desc: "144 yarım hücreli (half-cut), çoklu busbar teknolojili 460 W monokristal güneş paneli. Voc 51,90 V · Isc 10,84 A · Vmp 43,50 V · Imp 10,58 A, modül verimi %23,42. Ölçü 2095 × 1039 × 30 mm, ağırlık 25 kg; yansıma önleyici kaplamalı temperli cam, 30 mm anotlu alüminyum çerçeve, IP68 bağlantı kutusu (3 bypass diyot), MC4 uyumlu konnektör. 1500 V sistem gerilimi, 2400 Pa rüzgâr ve 5400 Pa kar yükü dayanımı. Golf aracı tipi motor güneş paketimizin panelidir; tek başına da satılır.",
+      features: ["460 W · 144 yarım hücre (half-cut) · çoklu busbar", "Modül verimi %23,42 · 0~+5 W güç toleransı", "Voc 51,90 V · Vmp 43,50 V · Isc 10,84 A · Imp 10,58 A", "2095 × 1039 × 30 mm · 25 kg · IP68 · 1500 V", "2400 Pa rüzgâr · 5400 Pa kar yükü · 25 mm dolu dayanımı", "Sıcaklık katsayısı Pmax −0,29 %/°C · çalışma −40…+85 °C"]
     },
     {
       id: "panel-240w", icon: "🔆", tag: "Panel", group: "panel",
       sku: "GES-PNL-240",
+      img: "assets/img/products/panel-240w.webp",
       price: 132.11, currency: "USD",                     // ₺6.500 @ 49,2
-      chips: ["🔆 240 W", "🧪 TOPCon hücre"],
+      chips: ["🔆 240 W", "💎 Monokristal", "📐 1575 × 705 mm"],
       for: "Mini elektrikli otomobiller ve küçük off-grid sistemler",
-      name: "240 W TOPCon Güneş Paneli",
-      desc: "240 W TOPCon hücreli güneş paneli. Mini elektrikli otomobil güneş paketimizin panelidir; tek başına da satılır. Ölçü, ağırlık ve elektriksel değerler için bize yazın; üretici künyesinden teyit edelim.",
-      features: ["240 W · TOPCon hücre", "Mini Elektrikli Otomobil Güneş Paketi'nin panelidir", "Teknik künye için bize yazın"]
+      name: "240 W Monokristal Güneş Paneli",
+      desc: "240 W monokristal güneş paneli. Voc 25,38 V · Isc 11,87 A · Vmp 21,58 V · Imp 11,12 A. Ölçü 1575 × 705 × 30 mm. Yansıma önleyici, su itici kaplamalı cam; sabah, akşam ve bulutlu havada iyi düşük ışık performansı. 0~+5 W pozitif güç toleransı, 2400 Pa rüzgâr ve 5400 Pa kar yükü dayanımı. 10 yıl malzeme ve işçilik garantisi, 25 yıl güç garantisi (10. yılda %90, 25. yılda %80). Mini elektrikli otomobil güneş paketimizin panelidir; tek başına da satılır.",
+      features: ["240 W · monokristal hücre", "Voc 25,38 V · Vmp 21,58 V · Isc 11,87 A · Imp 11,12 A", "1575 × 705 × 30 mm", "2400 Pa rüzgâr · 5400 Pa kar yükü · 0~+5 W tolerans", "10 yıl ürün · 25 yıl güç garantisi (10. yıl %90 · 25. yıl %80)"]
     },
     // Arçelik 540 W: elimizde ÜRETİCİ KÜNYESİ YOK — güç, sınıf ve marka dışında
     // teknik değer YAZILMAZ. Künye gelirse buradan genişlet.
@@ -733,11 +739,11 @@ window.GESPA.config = {
       img: "assets/img/products/ev/motor-mini.webp",
       price: 300.81, currency: "USD",                     // ₺14.800 @ 49,2
       parts: ["panel-240w", "boost-mppt", "kablo-solar-5m", "mc4-set"],
-      chips: ["🔆 240 W TOPCon panel", "🔌 BOOST MPPT 24–72 V", "🧰 Kablo + MC4 dahil"],
+      chips: ["🔆 240 W mono panel", "🔌 BOOST MPPT 24–72 V", "🧰 Kablo + MC4 dahil"],
       for: "Kapalı kabinli mini elektrikli otomobiller — tavan alanı küçük",
       name: "Mini Elektrikli Otomobil Güneş Paketi — 240 W",
-      desc: "Kapalı kabinli mini elektrikli otomobili güneşle şarj etmek için hazırlanmış komple paket: 240 W TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Küçük tavan alanına göre panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.",
-      features: ["240 W TOPCon güneş paneli (küçük tavana uygun)", "BOOST MPPT 24–72 V şarj kontrol cihazı — tüm akü tipleriyle", "5 m siyah + 5 m kırmızı solar kablo", "MC4 konnektör takımı (erkek + dişi)", "Panel, cihaz ve kablolama birbiriyle uyumlu seçilmiştir"]
+      desc: "Kapalı kabinli mini elektrikli otomobili güneşle şarj etmek için hazırlanmış komple paket: 240 W monokristal güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Küçük tavan alanına göre panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.",
+      features: ["240 W monokristal güneş paneli (küçük tavana uygun)", "BOOST MPPT 24–72 V şarj kontrol cihazı — tüm akü tipleriyle", "5 m siyah + 5 m kırmızı solar kablo", "MC4 konnektör takımı (erkek + dişi)", "Panel, cihaz ve kablolama birbiriyle uyumlu seçilmiştir"]
     },
 
     {

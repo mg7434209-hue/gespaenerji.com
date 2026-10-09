@@ -39,6 +39,8 @@ KDV dahil fiyattır.
 
 Golf aracı tipi elektrikli araçların düz ve geniş bir tavanı vardır; bu alanı küçük bir panelle harcamak günlük üretimden kaybetmek demektir. Pakette bu tavan için seçilmiş 460 W yarım hücre (half-cut) monokristal güneş paneli bulunur.
 
+Panelin ölçüsü 2095 × 1039 × 30 mm, ağırlığı 25 kg'dır. Açık devre gerilimi (Voc 51,90 V) pakete dahil BOOST MPPT cihazının 15–60 V panel giriş aralığındadır.
+
 Pakette panelin yanında BOOST MPPT 24–72 V şarj kontrol cihazı vardır: aracınızın akü grubu 24, 36, 48, 60 ya da 72 V olabilir; AGM, jel, sulu kurşun-asit ve lityum akülerin hepsiyle çalışır. Panelden gelen gerilimi akünün ihtiyacına yükselterek doğrudan şarj eder.
 
 Bağlantı için 5 metre siyah + 5 metre kırmızı solar kablo ve MC4 konnektör takımı da pakete dahildir. Yani kutuyu açtığınızda panel ile cihaz arasındaki hattı kurmak için ayrıca bir şey almanız gerekmez.
@@ -53,7 +55,7 @@ Bağlantı için 5 metre siyah + 5 metre kırmızı solar kablo ve MC4 konnektö
 
 Paket içeriği birbiriyle uyumlu seçilmiş hâlde gönderilir; ayrıca parça almanız gerekmez.
 
-BOOST MPPT, TOPCon ve MC4 nedir? [GES Sözlüğü →](https://www.gespaenerji.com/sozluk.html#boost-mppt)
+BOOST MPPT ve MC4 nedir? [GES Sözlüğü →](https://www.gespaenerji.com/sozluk.html#boost-mppt)
 
 - Ürünler Türkiye'nin her iline anlaşmalı kargo ile gönderilir; teslimat için Antalya şartı yoktur.
 - Sipariş onayından sonra tahmini teslim süresi 2–5 iş günüdür; kargo takip numarası WhatsApp'tan iletilir.
@@ -112,7 +114,7 @@ Stok durumuna göre 4 mm² veya 6 mm² gönderilir; bu sistemlerde ikisi de uygu
 
 ### 460 W panel aracımın tavanına sığar mı?
 
-Golf aracı tipi araçların düz tavanı bu güçteki panel için genellikle yeterlidir. Yine de sipariş öncesi tavan ölçünüzü WhatsApp'tan gönderin, uygunluğu birlikte kontrol edelim.
+Panelin ölçüsü 2095 × 1039 × 30 mm, ağırlığı 25 kg'dır; golf aracı tipi araçların düz tavanı bu ölçü için genellikle yeterlidir. Sipariş öncesi tavan ölçünüzü WhatsApp'tan gönderin, uygunluğu birlikte kontrol edelim.
 
 **Aracınız kapalı kabinli mini otomobil mi?**
 

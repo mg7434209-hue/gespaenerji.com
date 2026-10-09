@@ -481,7 +481,7 @@ Depending on stock we ship 4 mm² or 6 mm²; both are suitable for these systems
 
 ### Will a 460 W panel fit my vehicle's roof?
 
-The flat roof of golf-cart-type vehicles is usually large enough for a panel of this power. Still, send us your roof dimensions on WhatsApp before ordering and we will check the fit together.
+The panel measures 2095 × 1039 × 30 mm and weighs 25 kg; the flat roof of golf-cart-type vehicles is usually large enough for it. Send us your roof dimensions on WhatsApp before ordering and we will check the fit together.
 
 [Go to page →](https://www.gespaenerji.com/en/paket-motor-golf.html)
 
@@ -501,7 +501,7 @@ Depending on stock we ship 4 mm² or 6 mm²; both are suitable for these systems
 
 ### Will a 240 W panel fit my vehicle's roof?
 
-This power was chosen for the roof of mini cars. Still, send us your roof dimensions on WhatsApp before ordering and we will check the fit together.
+The panel measures 1575 × 705 × 30 mm. Send us your roof dimensions on WhatsApp before ordering and we will check the fit together.
 
 [Go to page →](https://www.gespaenerji.com/en/paket-motor-mini.html)
 

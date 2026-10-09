@@ -134,6 +134,38 @@
       </g:shipping>
     </item>
     <item>
+      <g:id>panel-460w</g:id>
+      <g:title>460 W Half-Cut Monokristal Güneş Paneli</g:title>
+      <g:description>144 yarım hücreli (half-cut), çoklu busbar teknolojili 460 W monokristal güneş paneli. Voc 51,90 V · Isc 10,84 A · Vmp 43,50 V · Imp 10,58 A, modül verimi %23,42. Ölçü 2095 × 1039 × 30 mm, ağırlık 25 kg; yansıma önleyici kaplamalı temperli cam, 30 mm anotlu alüminyum çerçeve, IP68 bağlantı kutusu (3 bypass diyot), MC4 uyumlu konnektör. 1500 V sistem gerilimi, 2400 Pa rüzgâr ve 5400 Pa kar yükü dayanımı. Golf aracı tipi motor güneş paketimizin panelidir; tek başına da satılır.</g:description>
+      <g:link>https://www.gespaenerji.com/online-satis.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/panel-460w.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>8000.00 TRY</g:price>
+      <g:brand>GESPA Enerji</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>GES-PNL-460</g:mpn>
+      <g:product_type>Panel</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>panel-240w</g:id>
+      <g:title>240 W Monokristal Güneş Paneli</g:title>
+      <g:description>240 W monokristal güneş paneli. Voc 25,38 V · Isc 11,87 A · Vmp 21,58 V · Imp 11,12 A. Ölçü 1575 × 705 × 30 mm. Yansıma önleyici, su itici kaplamalı cam; sabah, akşam ve bulutlu havada iyi düşük ışık performansı. 0~+5 W pozitif güç toleransı, 2400 Pa rüzgâr ve 5400 Pa kar yükü dayanımı. 10 yıl malzeme ve işçilik garantisi, 25 yıl güç garantisi (10. yılda %90, 25. yılda %80). Mini elektrikli otomobil güneş paketimizin panelidir; tek başına da satılır.</g:description>
+      <g:link>https://www.gespaenerji.com/online-satis.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/panel-240w.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>6500.00 TRY</g:price>
+      <g:brand>GESPA Enerji</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>GES-PNL-240</g:mpn>
+      <g:product_type>Panel</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
+    </item>
+    <item>
       <g:id>panel-arcelik-540w</g:id>
       <g:title>Arçelik 540 W Güneş Paneli</g:title>
       <g:description>Arçelik marka 540 W A sınıf monokristal güneş paneli. Yetkili tedarik, orijinal ürün; çatı ve arazi tipi kurulumlar için uygundur. Ayrıntılı teknik künye ve palet bazında toptan sevkiyat için bize ulaşın.</g:description>
@@ -472,7 +504,7 @@
     <item>
       <g:id>set-mini</g:id>
       <g:title>Mini Elektrikli Otomobil Güneş Paketi — 240 W</g:title>
-      <g:description>Kapalı kabinli mini elektrikli otomobili güneşle şarj etmek için hazırlanmış komple paket: 240 W TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Küçük tavan alanına göre panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.</g:description>
+      <g:description>Kapalı kabinli mini elektrikli otomobili güneşle şarj etmek için hazırlanmış komple paket: 240 W monokristal güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Küçük tavan alanına göre panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.</g:description>
       <g:link>https://www.gespaenerji.com/paket-motor-mini.html</g:link>
       <g:image_link>https://www.gespaenerji.com/assets/img/products/ev/motor-mini.webp</g:image_link>
       <g:availability>in stock</g:availability>

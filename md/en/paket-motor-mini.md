@@ -1,6 +1,6 @@
 ---
 title: "Mini Electric Car Solar Set — 240 W | GESPA Energy"
-description: "Complete solar set for enclosed mini electric cars: 240 W TOPCon panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. No guessing which part fits."
+description: "Complete solar set for enclosed mini electric cars: 240 W monocrystalline panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. No guessing which part fits."
 canonical: https://www.gespaenerji.com/en/paket-motor-mini.html
 lang: en
 dateModified: 2026-10-09
@@ -35,9 +35,11 @@ Price includes VAT.
 - 🔄 Right of withdrawal (distance sales): **14** days — return shipping is paid by the buyer.
 - 🔧 Optional on-site installation and training in the Antalya region.
 
-🔆 240 W TOPCon panel 🔌 BOOST MPPT 24–72 V 🧰 Cable + MC4 included 🚗 Fits a small roof
+🔆 240 W mono panel 🔌 BOOST MPPT 24–72 V 🧰 Cable + MC4 included 🚗 Fits a small roof
 
-Enclosed mini electric cars have a small roof; a large panel would overhang and catch the wind. The set includes a 240 W TOPCon solar panel chosen for this roof.
+Enclosed mini electric cars have a small roof; a large panel would overhang and catch the wind. The set includes a 240 W monocrystalline solar panel chosen for this roof.
+
+The panel measures 1575 × 705 × 30 mm. Its open-circuit voltage (Voc 25.38 V) is within the 15–60 V panel input range of the included BOOST MPPT controller.
 
 Alongside the panel the package includes a BOOST MPPT 24–72 V charge controller: your battery pack may be 24, 36, 48, 60 or 72 V, and it works with AGM, gel, flooded lead-acid and lithium batteries alike. It raises the panel voltage to what the battery needs and charges it directly.
 
@@ -45,7 +47,7 @@ Five metres of black and five metres of red solar cable plus an MC4 connector se
 
 | Quantity | Component |
 | --- | --- |
-| 1 × | 240 W TOPCon Solar Panel |
+| 1 × | 240 W Monocrystalline Solar Panel |
 | 1 × | MS Teknik BOOST MPPT 24-72 V Charge Controller |
 | 1 × | Solar Cable Set (5 m Black + 5 m Red) |
 | 1 × | MC4 Connector Set |
@@ -53,7 +55,7 @@ Five metres of black and five metres of red solar cable plus an MC4 connector se
 
 The package ships with every part matched to work together; you need not buy anything extra.
 
-What do BOOST MPPT, TOPCon and MC4 mean? [Solar Glossary →](https://www.gespaenerji.com/en/sozluk.html#boost-mppt)
+What are BOOST MPPT and MC4? [Solar Glossary →](https://www.gespaenerji.com/en/sozluk.html#boost-mppt)
 
 - Products are shipped by contracted courier to every province of Türkiye; delivery is not limited to Antalya.
 - Estimated delivery is 2–5 business days after order confirmation; the tracking number is sent via WhatsApp.
@@ -112,7 +114,7 @@ Depending on stock we ship 4 mm² or 6 mm²; both are suitable for these systems
 
 ### Will a 240 W panel fit my vehicle's roof?
 
-This power was chosen for the roof of mini cars. Still, send us your roof dimensions on WhatsApp before ordering and we will check the fit together.
+The panel measures 1575 × 705 × 30 mm. Send us your roof dimensions on WhatsApp before ordering and we will check the fit together.
 
 **Is your vehicle a golf-cart type?**
 

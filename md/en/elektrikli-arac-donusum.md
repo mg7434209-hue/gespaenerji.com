@@ -106,7 +106,7 @@ Set total : **₺16.300** · VAT included · shipping excluded
 
 Enclosed mini cars — small roof area
 
-- 240 W TOPCon Solar Panel
+- 240 W Monocrystalline Solar Panel
 - MS Teknik BOOST MPPT 24-72 V Charge Controller
 - Solar Cable Set (5 m Black + 5 m Red)
 - MC4 Connector Set

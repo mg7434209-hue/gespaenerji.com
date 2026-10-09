@@ -104,6 +104,13 @@ JOBS = [
     # BOOST DCDC-2448: listedeki görselde cihaz ve dijital ekran yan yana.
     {"src": "havensis-dcdc-2448.png", "out": "havensis-dcdc-2448.webp",
      "crop": (39, 69, 479, 427), "canvas": (880, 660), "pad": 30, "quality": 86},
+    # 460 W ve 240 W paneller (9 Eki 2026, işletmenin gönderdiği ön görünüm
+    # fotoğrafları). Kırpma = alüminyum çerçeve; altındaki ayak/gölge dışarıda.
+    # Üretici markası fotoğrafta YOK ve siteye de yazılmaz (işletme kararı).
+    {"src": "panel-460w.png", "out": "panel-460w.webp",
+     "crop": (7, 6, 264, 524), "canvas": (880, 660), "pad": 30, "quality": 86},
+    {"src": "panel-240w.png", "out": "panel-240w.webp",
+     "crop": (28, 31, 256, 533), "canvas": (880, 660), "pad": 30, "quality": 86},
 ]
 
 
