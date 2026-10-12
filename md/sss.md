@@ -3,7 +3,7 @@ title: "Sıkça Sorulan Sorular — Güneş Enerjisi, Sipariş ve Kurulum | GESP
 description: "Güneş enerjisi santrali, akü, elektrikli araç güneş dönüşümü, sipariş, kargo, ödeme ve kurulum hakkında sık sorulan soruların cevapları tek sayfada. GESPA Enerji, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/sss.html
 lang: tr
-dateModified: 2026-10-09
+dateModified: 2026-10-12
 publisher: "GESPA Enerji"
 ---
 
@@ -523,7 +523,7 @@ Stok durumuna göre 4 mm² veya 6 mm² gönderilir; bu sistemlerde ikisi de uygu
 
 ### 460 W panel aracımın tavanına sığar mı?
 
-Golf aracı tipi araçların düz tavanı bu güçteki panel için genellikle yeterlidir. Yine de sipariş öncesi tavan ölçünüzü WhatsApp'tan gönderin, uygunluğu birlikte kontrol edelim.
+Panelin ölçüsü 2095 × 1039 × 30 mm, ağırlığı 25 kg'dır; golf aracı tipi araçların düz tavanı bu ölçü için genellikle yeterlidir. Sipariş öncesi tavan ölçünüzü WhatsApp'tan gönderin, uygunluğu birlikte kontrol edelim.
 
 [Sayfaya git →](https://www.gespaenerji.com/paket-motor-golf.html)
 
@@ -543,7 +543,7 @@ Stok durumuna göre 4 mm² veya 6 mm² gönderilir; bu sistemlerde ikisi de uygu
 
 ### 240 W panel aracımın tavanına sığar mı?
 
-Mini otomobillerin tavanı için bu güç seçildi. Yine de sipariş öncesi tavan ölçünüzü WhatsApp'tan gönderin, uygunluğu birlikte kontrol edelim.
+Panelin ölçüsü 1320 × 776 × 30 mm, ağırlığı 8 kg'dır. Sipariş öncesi tavan ölçünüzü WhatsApp'tan gönderin, uygunluğu birlikte kontrol edelim.
 
 [Sayfaya git →](https://www.gespaenerji.com/paket-motor-mini.html)
 

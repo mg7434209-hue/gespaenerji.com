@@ -1,9 +1,9 @@
 ---
 title: "Solar-Set für Mini-Elektroauto — 240 W | GESPA Energy"
-description: "Komplettset für geschlossene Mini-Elektroautos: 240-W-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt."
+description: "Komplettset für geschlossene Mini-Elektroautos: 240-W-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt."
 canonical: https://www.gespaenerji.com/de/paket-motor-mini.html
 lang: de
-dateModified: 2026-10-09
+dateModified: 2026-10-12
 publisher: "GESPA Enerji"
 ---
 
@@ -35,9 +35,11 @@ Preis inkl. MwSt.
 - 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendekosten trägt der Käufer.
 - 🔧 Optionale Vor-Ort-Montage und Einweisung in der Region Antalya.
 
-🔆 240-W-TOPCon-Modul 🔌 BOOST MPPT 24–72 V 🧰 Kabel + MC4 inklusive 🚗 Passt auf ein kleines Dach
+🔆 240-W-Modul 🔌 BOOST MPPT 24–72 V 🧰 Kabel + MC4 inklusive 🚗 Passt auf ein kleines Dach
 
-Geschlossene Mini-Elektroautos haben ein kleines Dach; ein großes Modul würde überstehen und Windlast erzeugen. Das Set enthält ein für dieses Dach gewähltes 240-W-TOPCon-Solarmodul.
+Geschlossene Mini-Elektroautos haben ein kleines Dach; ein großes Modul würde überstehen und Windlast erzeugen. Das Set enthält ein für dieses Dach gewähltes 240-W-Solarmodul (48 Zellen).
+
+Das Modul misst 1320 × 776 × 30 mm und wiegt 8 kg. Seine Leerlaufspannung (Voc 36,12 V) liegt im Moduleingangsbereich von 15–60 V des enthaltenen BOOST-MPPT-Reglers.
 
 Neben dem Modul enthält das Paket einen BOOST-MPPT-Laderegler für 24–72 V: Ihr Akkupack kann 24, 36, 48, 60 oder 72 V haben, und er arbeitet mit AGM-, Gel-, Nassblei- und Lithiumakkus gleichermaßen. Er hebt die Modulspannung auf den Bedarf des Akkus an und lädt direkt.
 
@@ -45,7 +47,7 @@ Fünf Meter schwarzes und fünf Meter rotes Solarkabel sowie ein MC4-Steckerset 
 
 | Menge | Komponente |
 | --- | --- |
-| 1 × | 240-W-TOPCon-Solarmodul |
+| 1 × | 240-W-Solarmodul (48 Zellen) |
 | 1 × | MS Teknik BOOST MPPT 24-72 V Laderegler |
 | 1 × | Solarkabel-Set (5 m Schwarz + 5 m Rot) |
 | 1 × | MC4-Steckerset |
@@ -53,7 +55,7 @@ Fünf Meter schwarzes und fünf Meter rotes Solarkabel sowie ein MC4-Steckerset 
 
 Der Lieferumfang wird aufeinander abgestimmt versandt; Sie müssen nichts zusätzlich kaufen.
 
-Was bedeuten BOOST MPPT, TOPCon und MC4? [Solar-Glossar →](https://www.gespaenerji.com/de/sozluk.html#boost-mppt)
+Was sind BOOST MPPT und MC4? [Solar-Glossar →](https://www.gespaenerji.com/de/sozluk.html#boost-mppt)
 
 - Die Produkte werden per Vertragsspedition in alle Provinzen der Türkei geliefert; die Lieferung ist nicht auf Antalya beschränkt.
 - Die Lieferzeit beträgt ca. 2–5 Werktage nach Bestellbestätigung; die Sendungsnummer kommt per WhatsApp.
@@ -112,7 +114,7 @@ Je nach Lagerbestand liefern wir 4 mm² oder 6 mm²; beides ist für diese Syste
 
 ### Passt ein 240-W-Modul auf mein Fahrzeugdach?
 
-Diese Leistung wurde für das Dach von Mini-Autos gewählt. Schicken Sie uns vor der Bestellung trotzdem Ihre Dachmaße per WhatsApp, dann prüfen wir die Passform gemeinsam.
+Das Modul misst 1320 × 776 × 30 mm und wiegt 8 kg. Schicken Sie uns vor der Bestellung Ihre Dachmaße per WhatsApp, dann prüfen wir die Passform gemeinsam.
 
 **Ist Ihr Fahrzeug ein Golfcart-Typ?**
 

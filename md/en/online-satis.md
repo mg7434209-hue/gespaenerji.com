@@ -3,7 +3,7 @@ title: "Online Store — Solar Products and Equipment | GESPA Energy"
 description: "All products on sale in one place: ready-made solar kits, MPPT charge controllers and equipment. Transparent prices, VAT included, shipping across Türkiye."
 canonical: https://www.gespaenerji.com/en/online-satis.html
 lang: en
-dateModified: 2026-10-09
+dateModified: 2026-10-12
 publisher: "GESPA Enerji"
 ---
 
@@ -107,7 +107,7 @@ Golf-cart-type electric vehicles and small off-grid systems
 
 VAT included · shipping excluded
 
-### 240 W TOPCon Solar Panel
+### 240 W Solar Panel (48 Cells)
 
 Mini electric cars and small off-grid systems
 

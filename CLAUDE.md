@@ -315,8 +315,11 @@ ve sepet simgesi ekran dışında kalır.
   tipi) · `set-mini` ₺14.800 (240 W, kapalı kabinli mini otomobil) — hepsi
   `group:"evset"` ve `parts` listeli; ayrıntısı "Motor güneş paketleri"
   bölümünde. 3. ve 4. paketin panelleri `panel-460w` ₺8.000 · `panel-240w`
-  ₺6.500 (`group:"panel"`, künye ve foto YOK: güç + hücre tipi dışında
-  değer yazılmaz). +
+  ₺6.500 (`group:"panel"`). Değerler üretici künyesinden; MARKA YAZILMAZ
+  (işletme kararı, künye PDF'leri bu yüzden repoya konmadı). 240 W = 48
+  hücreli, 1320 × 776 × 30 mm, 8 kg panel (12 Eki 2026, paneller.docx
+  fotoğrafı + künye ekranı); 1575 × 705'lik panelin değerleri başka panele
+  aitti, kaldırıldı. Hücre tipi künyede yok, yazılmaz. +
   europlus 72 V 30 Ah LiFePO₄ çekiş aküsü ₺28.000 (`aku-lifepo4-72v`,
   `group:"accessory"` — BOOST MPPT ile AYNI grupta, "Elektrikli Araç" çipi
   böylece tek ürünlü doğrudan bağlantı olmaktan çıkıp gerçek süzgece döndü). +
