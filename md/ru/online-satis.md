@@ -207,7 +207,7 @@ publisher: "GESPA Enerji"
 
 НДС включён · доставка отдельно
 
-### Солнечный контроллер заряда Lexron PWM 20 А 12/24 В
+### [Солнечный контроллер заряда Lexron PWM 20 А 12/24 В](https://www.gespaenerji.com/ru/lexron-pwm-20a.html)
 
 Небольшие солнечные системы с АКБ 12/24 В
 
@@ -217,7 +217,7 @@ publisher: "GESPA Enerji"
 
 НДС включён · доставка отдельно
 
-### Солнечный контроллер заряда Lexron PWM 30 А 12/24 В
+### [Солнечный контроллер заряда Lexron PWM 30 А 12/24 В](https://www.gespaenerji.com/ru/lexron-pwm-30a.html)
 
 Небольшие солнечные системы с АКБ 12/24 В
 
@@ -227,7 +227,7 @@ publisher: "GESPA Enerji"
 
 НДС включён · доставка отдельно
 
-### Солнечный контроллер заряда Lexron PWM 40 А 12/24 В
+### [Солнечный контроллер заряда Lexron PWM 40 А 12/24 В](https://www.gespaenerji.com/ru/lexron-pwm-40a.html)
 
 Небольшие солнечные системы с АКБ 12/24 В
 
@@ -237,7 +237,7 @@ publisher: "GESPA Enerji"
 
 НДС включён · доставка отдельно
 
-### Солнечный контроллер заряда Lexron PWM 60 А 12/24/48 В
+### [Солнечный контроллер заряда Lexron PWM 60 А 12/24/48 В](https://www.gespaenerji.com/ru/lexron-pwm-60a.html)
 
 Солнечные системы с АКБ 12/24/48 В
 
@@ -247,7 +247,7 @@ publisher: "GESPA Enerji"
 
 НДС включён · доставка отдельно
 
-### Солнечный контроллер заряда Lexron MPPT 20 А 12/24 В
+### [Солнечный контроллер заряда Lexron MPPT 20 А 12/24 В](https://www.gespaenerji.com/ru/lexron-mppt-20a.html)
 
 Солнечные системы с АКБ 12/24 В · высокий КПД
 
@@ -257,7 +257,7 @@ publisher: "GESPA Enerji"
 
 НДС включён · доставка отдельно
 
-### Солнечный контроллер заряда Lexron MPPT 30 А 12/24 В
+### [Солнечный контроллер заряда Lexron MPPT 30 А 12/24 В](https://www.gespaenerji.com/ru/lexron-mppt-30a.html)
 
 Солнечные системы с АКБ 12/24 В · высокий КПД
 
@@ -267,7 +267,7 @@ publisher: "GESPA Enerji"
 
 НДС включён · доставка отдельно
 
-### Солнечный контроллер заряда Lexron MPPT 40 А 12/24 В
+### [Солнечный контроллер заряда Lexron MPPT 40 А 12/24 В](https://www.gespaenerji.com/ru/lexron-mppt-40a.html)
 
 Солнечные системы с АКБ 12/24 В · высокий КПД
 
@@ -277,7 +277,7 @@ publisher: "GESPA Enerji"
 
 НДС включён · доставка отдельно
 
-### Солнечный контроллер заряда Lexron MPPT HV (15~230 В) 80 А 12/24/36/48 В
+### [Солнечный контроллер заряда Lexron MPPT HV (15~230 В) 80 А 12/24/36/48 В](https://www.gespaenerji.com/ru/lexron-mppt-80a-hv.html)
 
 Крупные солнечные системы с АКБ 12/24/36/48 В
 

@@ -331,7 +331,12 @@ ve sepet simgesi ekran dışında kalır.
   kâr payı EKLENMEZ; satır yanında liste fiyatı yazılı. Havensis gerçek
   üreticidir, foto logosu SİLİNMEZ. +
   8 Lexron şarj kontrol cihazı (`lexron-pwm-20a/30a/40a/60a`,
-  `lexron-mppt-20a/30a/40a/80a-hv`; `group:"charge"`, detay sayfası YOK):
+  `lexron-mppt-20a/30a/40a/80a-hv`; `group:"charge"`, detay sayfaları
+  `lexron-*.html` — `tools/lexron-sayfalar.py` ÜRETİR, elle düzenlenmez;
+  Havensis betiğinin HTML bloklarını kullanır, sözlüğü `LEXRONPAGE:DICT`.
+  KÜNYE YOK: sayfada yalnız tür/akım/akü gerilimi (etiket) ve 80 A'da adındaki
+  HV (15~230 V); "yaklaşık panel gücü" = akım × akü gerilimi, "künye değeri
+  değil" diye yazılır):
   GES Marketim kataloğundan (repo gesmarketim1 `data/catalog.json`) aktarıldı
   (5 Eki 2026). `price` = oradaki KDV dahil `saleUsd` × 1,10 — sahibin kararı
   (6 Eki 2026): gespaenerji fiyatı GES Marketim'in %10 üstüdür. Eşitlerken

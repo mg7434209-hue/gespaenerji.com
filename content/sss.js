@@ -135,6 +135,8 @@ module.exports = {
     { file: "paket-motor-golf.html", title: ["Golf aracı tipi motor paketi (460 W)", "Golf-cart-type EV set (460 W)", "Solar-Set für Golfcart-Fahrzeug (460 W)", "Комплект для электрокара типа гольф-кар (460 Вт)"] },
     { file: "paket-motor-mini.html", title: ["Mini elektrikli otomobil paketi (240 W)", "Mini electric car set (240 W)", "Solar-Set für Mini-Elektroauto (240 W)", "Комплект для мини-электромобиля (240 Вт)"] },
     { file: "aku-lifepo4-72v-30ah.html", title: ["72 V LiFePO₄ çekiş aküsü", "72 V LiFePO₄ traction battery", "72-V-LiFePO₄-Traktionsakku", "Тяговый аккумулятор LiFePO₄ 72 В"] },
+    { file: "lexron-mppt-30a.html", title: ["MPPT şarj kontrol cihazları (Lexron)", "MPPT charge controllers (Lexron)", "MPPT-Laderegler (Lexron)", "MPPT-контроллеры заряда (Lexron)"] },
+    { file: "lexron-pwm-20a.html", title: ["PWM şarj kontrol cihazları (Lexron)", "PWM charge controllers (Lexron)", "PWM-Laderegler (Lexron)", "ШИМ-контроллеры заряда (Lexron)"] },
     { file: "havensis-mppt-30a.html", title: ["MPPT şarj kontrol cihazları (Havensis)", "MPPT charge controllers (Havensis)", "MPPT-Laderegler (Havensis)", "MPPT-контроллеры заряда (Havensis)"] },
     { file: "havensis-dcdc-40a-cift-yonlu.html", title: ["Karavan DC-DC akü şarj cihazları", "Caravan DC-DC battery chargers", "DC-DC-Ladegeräte für Wohnmobile", "Зарядные устройства DC-DC для автодомов"] },
     { file: "havensis-boost-dcdc-2448.html", title: ["BOOST DC-DC şarj (36–72 V akü)", "BOOST DC-DC charging (36–72 V batteries)", "BOOST-DC-DC-Laden (36–72-V-Batterien)", "Зарядка BOOST DC-DC (АКБ 36–72 В)"] },

@@ -545,6 +545,54 @@ Ja. Zum Laden eines 72-V-Akkusatzes direkt vom Modul setzen wir den BOOST-MPPT-L
 
 [Zur Seite →](https://www.gespaenerji.com/de/aku-lifepo4-72v-30ah.html)
 
+## MPPT-Laderegler (Lexron)
+
+### Soll ich PWM oder MPPT wählen?
+
+Liegt die Modulspannung deutlich über der Batteriespannung (wie bei den 285-W- und 655-W-Modulen in unserem Shop), holt MPPT mehr Energie aus demselben Modul und ist die richtige Wahl. Für kleine, preisorientierte Anlagen mit Modulspannung nahe der Batteriespannung genügen PWM-Modelle.
+
+### Wie viel Modulleistung kann ich anschließen?
+
+Faustregel: Ladestrom × Batteriespannung. Für 30 A ergibt das etwa 360 W bei 12 V, etwa 720 W bei 24 V. Das ist ein Richtwert, kein Datenblattwert; schreiben Sie uns für die vom Hersteller zugelassene maximale Modulleistung und -spannung.
+
+### Wie viele Module kann ich in Reihe schalten?
+
+Bei Reihenschaltung bestimmt die maximale Moduleingangsspannung des Reglers die Grenze; dieser Wert fehlt in unseren Produktinformationen. Schicken Sie uns die Voc Ihres Moduls; wir prüfen den Aufbau vor der Bestellung gemeinsam.
+
+### Kann ich ihn mit einer Lithiumbatterie verwenden?
+
+Die Einstellungen für den Batterietyp stehen im Herstellerdatenblatt, nicht in unseren Produktinformationen. Schicken Sie uns Batterietyp und Ladewerte; wir klären es vor der Bestellung mit dem Hersteller.
+
+### Wer installiert es, und liefern Sie auch außerhalb von Antalya?
+
+Wir versenden in die ganze Türkei. In der Region Antalya bieten wir optional die Montage vor Ort an; anderswo planen wir den Anschluss telefonisch mit Ihnen.
+
+[Zur Seite →](https://www.gespaenerji.com/de/lexron-mppt-30a.html)
+
+## PWM-Laderegler (Lexron)
+
+### Soll ich PWM oder MPPT wählen?
+
+Liegt die Modulspannung nahe an der Batteriespannung (z. B. ein 12-V-Modul an einer 12-V-Batterie), ist PWM günstig und ausreichend. Liegt sie deutlich darüber (wie bei den 285-W- und 655-W-Modulen in unserem Shop), holt MPPT aus demselben Modul mehr Energie; dann sehen Sie sich unsere MPPT-Modelle an.
+
+### Wie viel Modulleistung kann ich anschließen?
+
+Bei PWM begrenzt der Kurzschlussstrom (Isc) der Module. Die Grundregel ist 25 % Reserve: Bei einem 20-A-Regler sollte die Gesamt-Isc der Module höchstens etwa 16 A betragen. Die Modulspannung sollte nahe an der Batteriespannung liegen; bei Hochspannungsmodulen wählen Sie MPPT.
+
+### Wie viele Module kann ich in Reihe schalten?
+
+Bei Reihenschaltung bestimmt die maximale Moduleingangsspannung des Reglers die Grenze; dieser Wert fehlt in unseren Produktinformationen. Schicken Sie uns die Voc Ihres Moduls; wir prüfen den Aufbau vor der Bestellung gemeinsam.
+
+### Kann ich ihn mit einer Lithiumbatterie verwenden?
+
+Die Einstellungen für den Batterietyp stehen im Herstellerdatenblatt, nicht in unseren Produktinformationen. Schicken Sie uns Batterietyp und Ladewerte; wir klären es vor der Bestellung mit dem Hersteller.
+
+### Wer installiert es, und liefern Sie auch außerhalb von Antalya?
+
+Wir versenden in die ganze Türkei. In der Region Antalya bieten wir optional die Montage vor Ort an; anderswo planen wir den Anschluss telefonisch mit Ihnen.
+
+[Zur Seite →](https://www.gespaenerji.com/de/lexron-pwm-20a.html)
+
 ## MPPT-Laderegler (Havensis)
 
 ### Lädt der Regler mit 1200 W, wenn ich 1200 W Module anschließe?

@@ -207,7 +207,7 @@ KDV dahil · kargo hariç
 
 KDV dahil · kargo hariç
 
-### Lexron 20 A PWM Şarj Kontrol Cihazı 12/24 V
+### [Lexron 20 A PWM Şarj Kontrol Cihazı 12/24 V](https://www.gespaenerji.com/lexron-pwm-20a.html)
 
 12/24 V akülü küçük güneş sistemleri
 
@@ -217,7 +217,7 @@ KDV dahil · kargo hariç
 
 KDV dahil · kargo hariç
 
-### Lexron 30 A PWM Şarj Kontrol Cihazı 12/24 V
+### [Lexron 30 A PWM Şarj Kontrol Cihazı 12/24 V](https://www.gespaenerji.com/lexron-pwm-30a.html)
 
 12/24 V akülü küçük güneş sistemleri
 
@@ -227,7 +227,7 @@ KDV dahil · kargo hariç
 
 KDV dahil · kargo hariç
 
-### Lexron 40 A PWM Şarj Kontrol Cihazı 12/24 V
+### [Lexron 40 A PWM Şarj Kontrol Cihazı 12/24 V](https://www.gespaenerji.com/lexron-pwm-40a.html)
 
 12/24 V akülü küçük güneş sistemleri
 
@@ -237,7 +237,7 @@ KDV dahil · kargo hariç
 
 KDV dahil · kargo hariç
 
-### Lexron 60 A PWM Şarj Kontrol Cihazı 12/24/48 V
+### [Lexron 60 A PWM Şarj Kontrol Cihazı 12/24/48 V](https://www.gespaenerji.com/lexron-pwm-60a.html)
 
 12/24/48 V akülü güneş sistemleri
 
@@ -247,7 +247,7 @@ KDV dahil · kargo hariç
 
 KDV dahil · kargo hariç
 
-### Lexron 20 A MPPT Şarj Kontrol Cihazı 12/24 V
+### [Lexron 20 A MPPT Şarj Kontrol Cihazı 12/24 V](https://www.gespaenerji.com/lexron-mppt-20a.html)
 
 12/24 V akülü güneş sistemleri · yüksek verim
 
@@ -257,7 +257,7 @@ KDV dahil · kargo hariç
 
 KDV dahil · kargo hariç
 
-### Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V
+### [Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V](https://www.gespaenerji.com/lexron-mppt-30a.html)
 
 12/24 V akülü güneş sistemleri · yüksek verim
 
@@ -267,7 +267,7 @@ KDV dahil · kargo hariç
 
 KDV dahil · kargo hariç
 
-### Lexron 40 A MPPT Şarj Kontrol Cihazı 12/24 V
+### [Lexron 40 A MPPT Şarj Kontrol Cihazı 12/24 V](https://www.gespaenerji.com/lexron-mppt-40a.html)
 
 12/24 V akülü güneş sistemleri · yüksek verim
 
@@ -277,7 +277,7 @@ KDV dahil · kargo hariç
 
 KDV dahil · kargo hariç
 
-### Lexron 80 A HV (15~230 V) MPPT Şarj Kontrol Cihazı 12/24/36/48 V
+### [Lexron 80 A HV (15~230 V) MPPT Şarj Kontrol Cihazı 12/24/36/48 V](https://www.gespaenerji.com/lexron-mppt-80a-hv.html)
 
 12/24/36/48 V akülü büyük güneş sistemleri
 

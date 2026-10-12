@@ -571,10 +571,11 @@ window.GESPA.config = {
     // kararı: gespaenerji'de %10 üstü fiyat).
     // Tedarikçi adı ve maliyet AKTARILMAZ. Akü gerilimleri ürün görselindeki
     // üretici etiketinden; panel girişi, yük çıkışı, koruma gibi değerler elimizde
-    // YOK — yazılmaz, "bize yazın" denir (Havensis kuralı). Detay sayfası yok,
-    // iniş sayfası online-satis.html. 10 A PWM stokta olmadığı için alınmadı.
+    // YOK — yazılmaz, "bize yazın" denir (Havensis kuralı). Detay sayfaları
+    // lexron-*.html: tools/lexron-sayfalar.py ÜRETİR (12 Eki 2026). 10 A PWM stokta olmadığı için alınmadı.
     {
       id: "lexron-pwm-20a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      url: "lexron-pwm-20a.html",
       sku: "GM-20APWMSARJKONT", brand: "Lexron",
       img: "assets/img/products/lexron-pwm-20a.webp",
       price: 14.77, currency: "USD",
@@ -586,6 +587,7 @@ window.GESPA.config = {
     },
     {
       id: "lexron-pwm-30a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      url: "lexron-pwm-30a.html",
       sku: "GM-30APWMSARJKONT", brand: "Lexron",
       img: "assets/img/products/lexron-pwm-30a.webp",
       price: 16.58, currency: "USD",
@@ -597,6 +599,7 @@ window.GESPA.config = {
     },
     {
       id: "lexron-pwm-40a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      url: "lexron-pwm-40a.html",
       sku: "GM-40APWMSARJKONT", brand: "Lexron",
       img: "assets/img/products/lexron-pwm-40a.webp",
       price: 21.34, currency: "USD",
@@ -608,6 +611,7 @@ window.GESPA.config = {
     },
     {
       id: "lexron-pwm-60a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      url: "lexron-pwm-60a.html",
       sku: "GM-60APWMSARJKONT", brand: "Lexron",
       img: "assets/img/products/lexron-pwm-60a.webp",
       price: 44.31, currency: "USD",
@@ -619,6 +623,7 @@ window.GESPA.config = {
     },
     {
       id: "lexron-mppt-20a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      url: "lexron-mppt-20a.html",
       sku: "GM-20AMPPTSARJKON", brand: "Lexron",
       img: "assets/img/products/lexron-mppt-20a.webp",
       price: 64, currency: "USD",
@@ -630,6 +635,7 @@ window.GESPA.config = {
     },
     {
       id: "lexron-mppt-30a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      url: "lexron-mppt-30a.html",
       sku: "GM-30AMPPTSARJKON", brand: "Lexron",
       img: "assets/img/products/lexron-mppt-30a.webp",
       price: 70.57, currency: "USD",
@@ -641,6 +647,7 @@ window.GESPA.config = {
     },
     {
       id: "lexron-mppt-40a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      url: "lexron-mppt-40a.html",
       sku: "GM-40AMPPTSARJKON", brand: "Lexron",
       img: "assets/img/products/lexron-mppt-40a.webp",
       price: 77.14, currency: "USD",
@@ -652,6 +659,7 @@ window.GESPA.config = {
     },
     {
       id: "lexron-mppt-80a-hv", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      url: "lexron-mppt-80a-hv.html",
       sku: "GM-80AHV15230VMPP", brand: "Lexron",
       img: "assets/img/products/lexron-mppt-80a-hv.webp",
       price: 205.14, currency: "USD",
