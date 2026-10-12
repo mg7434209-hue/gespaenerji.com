@@ -3,7 +3,7 @@ title: "Onlineshop — Solarprodukte und Ausrüstung | GESPA Energy"
 description: "Alle Verkaufsprodukte auf einer Seite: Solar-Fertigsets, MPPT-Laderegler und Zubehör. Transparente Preise inkl. MwSt., Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/online-satis.html
 lang: de
-dateModified: 2026-10-09
+dateModified: 2026-10-12
 publisher: "GESPA Enerji"
 ---
 
@@ -107,7 +107,7 @@ Elektrofahrzeuge im Golfcart-Stil und kleine Inselanlagen
 
 Inkl. MwSt. · zzgl. Versand
 
-### 240-W-Monokristallin-Solarmodul
+### 240-W-Solarmodul (48 Zellen)
 
 Mini-Elektroautos und kleine Inselanlagen
 

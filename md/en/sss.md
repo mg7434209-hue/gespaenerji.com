@@ -3,7 +3,7 @@ title: "Frequently Asked Questions — Solar Power, Orders and Installation | GE
 description: "Answers about solar power plants, batteries, EV solar conversion, ordering, shipping, payment and installation in one place. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/en/sss.html
 lang: en
-dateModified: 2026-10-09
+dateModified: 2026-10-12
 publisher: "GESPA Enerji"
 ---
 
@@ -501,7 +501,7 @@ Depending on stock we ship 4 mm² or 6 mm²; both are suitable for these systems
 
 ### Will a 240 W panel fit my vehicle's roof?
 
-The panel measures 1575 × 705 × 30 mm. Send us your roof dimensions on WhatsApp before ordering and we will check the fit together.
+The panel measures 1320 × 776 × 30 mm and weighs 8 kg. Send us your roof dimensions on WhatsApp before ordering and we will check the fit together.
 
 [Go to page →](https://www.gespaenerji.com/en/paket-motor-mini.html)
 

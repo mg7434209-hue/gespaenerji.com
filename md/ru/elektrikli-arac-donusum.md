@@ -3,7 +3,7 @@ title: "Солнечное переоборудование — BOOST MPPT | GES
 description: "Солнечные панели для гольф-каров и служебных машин. MS Teknik BOOST MPPT 24–72 В: AGM, гель, свинцово-кислотные и литий, настройка по Bluetooth."
 canonical: https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html
 lang: ru
-dateModified: 2026-10-09
+dateModified: 2026-10-12
 publisher: "GESPA Enerji"
 ---
 
@@ -106,7 +106,7 @@ publisher: "GESPA Enerji"
 
 Закрытые мини-автомобили — маленькая площадь крыши
 
-- Монокристаллическая солнечная панель 240 Вт
+- Солнечная панель 240 Вт (48 ячеек)
 - Контроллер заряда MS Teknik BOOST MPPT 24-72 В
 - Комплект солнечного кабеля (5 м чёрный + 5 м красный)
 - Комплект коннекторов MC4

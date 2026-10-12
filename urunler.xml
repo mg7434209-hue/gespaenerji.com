@@ -151,8 +151,8 @@
     </item>
     <item>
       <g:id>panel-240w</g:id>
-      <g:title>240 W Monokristal Güneş Paneli</g:title>
-      <g:description>240 W monokristal güneş paneli. Voc 25,38 V · Isc 11,87 A · Vmp 21,58 V · Imp 11,12 A. Ölçü 1575 × 705 × 30 mm. Yansıma önleyici, su itici kaplamalı cam; sabah, akşam ve bulutlu havada iyi düşük ışık performansı. 0~+5 W pozitif güç toleransı, 2400 Pa rüzgâr ve 5400 Pa kar yükü dayanımı. 10 yıl malzeme ve işçilik garantisi, 25 yıl güç garantisi (10. yılda %90, 25. yılda %80). Mini elektrikli otomobil güneş paketimizin panelidir; tek başına da satılır.</g:description>
+      <g:title>240 W Güneş Paneli (48 Hücre)</g:title>
+      <g:description>48 hücreli 240 W güneş paneli. Voc 36,12 V · Isc 8,15 A · Vmp 30,23 V · Imp 7,94 A; maksimum sistem gerilimi 1500 V. Ölçü 1320 × 776 × 30 mm, ağırlık 8 kg; CE ve IEC belgeli. Mini elektrikli otomobil güneş paketimizin panelidir; tek başına da satılır.</g:description>
       <g:link>https://www.gespaenerji.com/online-satis.html</g:link>
       <g:image_link>https://www.gespaenerji.com/assets/img/products/panel-240w.webp</g:image_link>
       <g:availability>in stock</g:availability>
@@ -504,7 +504,7 @@
     <item>
       <g:id>set-mini</g:id>
       <g:title>Mini Elektrikli Otomobil Güneş Paketi — 240 W</g:title>
-      <g:description>Kapalı kabinli mini elektrikli otomobili güneşle şarj etmek için hazırlanmış komple paket: 240 W monokristal güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Küçük tavan alanına göre panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.</g:description>
+      <g:description>Kapalı kabinli mini elektrikli otomobili güneşle şarj etmek için hazırlanmış komple paket: 240 W (48 hücre) güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Küçük tavan alanına göre panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.</g:description>
       <g:link>https://www.gespaenerji.com/paket-motor-mini.html</g:link>
       <g:image_link>https://www.gespaenerji.com/assets/img/products/ev/motor-mini.webp</g:image_link>
       <g:availability>in stock</g:availability>

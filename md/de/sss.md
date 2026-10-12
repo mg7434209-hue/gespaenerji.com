@@ -3,7 +3,7 @@ title: "Häufige Fragen — Solarenergie, Bestellung und Montage | GESPA Energy"
 description: "Antworten zu Solaranlagen, Akkus, Solarumrüstung von E-Fahrzeugen, Bestellung, Versand, Zahlung und Montage an einem Ort. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/de/sss.html
 lang: de
-dateModified: 2026-10-09
+dateModified: 2026-10-12
 publisher: "GESPA Enerji"
 ---
 
@@ -501,7 +501,7 @@ Je nach Lagerbestand liefern wir 4 mm² oder 6 mm²; beides ist für diese Syste
 
 ### Passt ein 240-W-Modul auf mein Fahrzeugdach?
 
-Das Modul misst 1575 × 705 × 30 mm. Schicken Sie uns vor der Bestellung Ihre Dachmaße per WhatsApp, dann prüfen wir die Passform gemeinsam.
+Das Modul misst 1320 × 776 × 30 mm und wiegt 8 kg. Schicken Sie uns vor der Bestellung Ihre Dachmaße per WhatsApp, dann prüfen wir die Passform gemeinsam.
 
 [Zur Seite →](https://www.gespaenerji.com/de/paket-motor-mini.html)
 

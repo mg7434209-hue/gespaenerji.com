@@ -109,8 +109,11 @@ JOBS = [
     # Üretici markası fotoğrafta YOK ve siteye de yazılmaz (işletme kararı).
     {"src": "panel-460w.png", "out": "panel-460w.webp",
      "crop": (7, 6, 264, 524), "canvas": (880, 660), "pad": 30, "quality": 86},
+    # 240 W: 12 Eki 2026'da gelen paneller.docx fotoğrafı (48 hücre, 776 ×
+    # 1320 mm). Sol üst köşedeki 3 px'lik beyaz leke silinir.
     {"src": "panel-240w.png", "out": "panel-240w.webp",
-     "crop": (28, 31, 256, 533), "canvas": (880, 660), "pad": 30, "quality": 86},
+     "crop": (7, 12, 305, 452), "erase": [(8, 4, 13, 9)],
+     "canvas": (880, 660), "pad": 30, "quality": 86},
 ]
 
 
