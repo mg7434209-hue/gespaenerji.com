@@ -587,6 +587,54 @@ Evet. Panelden 72 V akü grubuna doğrudan şarj için BOOST MPPT 24–72 V şar
 
 [Sayfaya git →](https://www.gespaenerji.com/aku-lifepo4-72v-30ah.html)
 
+## MPPT şarj kontrol cihazları (Lexron)
+
+### PWM mi, MPPT mi seçmeliyim?
+
+Panel gerilimi akünün çok üstündeyse (mağazamızdaki 285 W ve 655 W paneller gibi) MPPT aynı panelden daha fazla enerji toplar ve doğru seçimdir. Panel gerilimi akü gerilimine yakın küçük, bütçe öncelikli sistemlerde PWM modeller yeterlidir.
+
+### Bu cihaza ne kadar panel bağlayabilirim?
+
+Genel hesap: şarj akımı × akü gerilimi. 30 A için 12 V'ta yaklaşık 360 W, 24 V'ta yaklaşık 720 W eder. Bu yaklaşık değerdir, künye değeri değildir; üreticinin izin verdiği en yüksek panel gücü ve gerilimi için bize yazın.
+
+### Kaç panel seri bağlayabilirim?
+
+Seri bağlamada sınırı cihazın en yüksek panel giriş gerilimi belirler; bu değer elimizdeki ürün bilgisinde yok. Kullanacağınız panelin Voc değerini bize yazın, dizilimi sipariş öncesi birlikte kontrol edelim.
+
+### Lityum akü ile kullanabilir miyim?
+
+Akü tipi ayarları üreticinin künyesinde yer alır; elimizdeki ürün bilgisinde yazmıyor. Akünüzün tipini ve şarj değerlerini bize gönderin, sipariş öncesi üreticiden teyit edelim.
+
+### Kurulumu kim yapar, Antalya dışına gönderiyor musunuz?
+
+Türkiye'nin her yerine kargo ile gönderiyoruz. Antalya bölgesinde isteğe bağlı yerinde kurulum yapıyoruz; diğer illerde bağlantıyı telefonla birlikte planlıyoruz.
+
+[Sayfaya git →](https://www.gespaenerji.com/lexron-mppt-30a.html)
+
+## PWM şarj kontrol cihazları (Lexron)
+
+### PWM mi, MPPT mi seçmeliyim?
+
+Panel gerilimi akü gerilimine yakınsa (örneğin 12 V aküye 12 V sınıfı panel) PWM ekonomik ve yeterlidir. Panel gerilimi akünün çok üstündeyse (mağazamızdaki 285 W ve 655 W paneller gibi) MPPT aynı panelden daha fazla enerji toplar; o durumda MPPT modellerimize bakın.
+
+### Bu cihaza ne kadar panel bağlayabilirim?
+
+PWM'de sınırı panellerin kısa devre akımı (Isc) belirler. Genel kural %25 pay bırakmaktır: 20 A cihazda panellerin toplam Isc'si en fazla yaklaşık 16 A olmalı. Panel gerilimi akü gerilimine yakın olmalıdır; yüksek gerilimli panellerde MPPT seçin.
+
+### Kaç panel seri bağlayabilirim?
+
+Seri bağlamada sınırı cihazın en yüksek panel giriş gerilimi belirler; bu değer elimizdeki ürün bilgisinde yok. Kullanacağınız panelin Voc değerini bize yazın, dizilimi sipariş öncesi birlikte kontrol edelim.
+
+### Lityum akü ile kullanabilir miyim?
+
+Akü tipi ayarları üreticinin künyesinde yer alır; elimizdeki ürün bilgisinde yazmıyor. Akünüzün tipini ve şarj değerlerini bize gönderin, sipariş öncesi üreticiden teyit edelim.
+
+### Kurulumu kim yapar, Antalya dışına gönderiyor musunuz?
+
+Türkiye'nin her yerine kargo ile gönderiyoruz. Antalya bölgesinde isteğe bağlı yerinde kurulum yapıyoruz; diğer illerde bağlantıyı telefonla birlikte planlıyoruz.
+
+[Sayfaya git →](https://www.gespaenerji.com/lexron-pwm-20a.html)
+
 ## MPPT şarj kontrol cihazları (Havensis)
 
 ### 1200 W panel bağlarsam cihaz 1200 W şarj eder mi?

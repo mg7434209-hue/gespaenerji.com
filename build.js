@@ -37,6 +37,9 @@ const PAGES = [
   "havensis-mppt-30a.html", "havensis-mppt-60a.html", "havensis-mppt-60a-150v.html",
   "havensis-dcdc-30a.html", "havensis-dcdc-40a.html", "havensis-dcdc-40a-cift-yonlu.html",
   "havensis-boost-dcdc-2448.html",
+  // Lexron şarj kontrol sayfaları — tools/lexron-sayfalar.py üretir
+  "lexron-pwm-20a.html", "lexron-pwm-30a.html", "lexron-pwm-40a.html", "lexron-pwm-60a.html",
+  "lexron-mppt-20a.html", "lexron-mppt-30a.html", "lexron-mppt-40a.html", "lexron-mppt-80a-hv.html",
   "sepet.html"   // noindex; sitemap'e girmez (NOSITEMAP)
 ];
 
@@ -163,6 +166,70 @@ const META = {
           d: "Komplettset für geschlossene Mini-Elektroautos: 240-W-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt." },
     ru: { t: "Солнечный комплект для мини-электромобиля — 240 Вт | GESPA",
           d: "Готовый комплект для закрытых мини-электромобилей: панель 240 Вт, контроллер BOOST MPPT 24–72 В, кабель и MC4." }
+  },
+  "lexron-pwm-20a.html": {
+    en: { t: "Lexron 20A PWM Charge Controller 12/24V | GESPA Energy",
+          d: "Lexron 20 A PWM solar charge controller for 12/24 V battery systems. Values from the product label; write to us for the full datasheet. Shipped anywhere in Türkiye." },
+    de: { t: "Lexron 20A PWM-Laderegler 12/24V | GESPA Energy",
+          d: "Lexron 20 A PWM-Solarladeregler für 12/24-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei." },
+    ru: { t: "Контроллер заряда Lexron 20А ШИМ 12/24В | GESPA",
+          d: "Солнечный контроллер заряда Lexron 20 А ШИМ для систем с АКБ 12/24 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции." }
+  },
+  "lexron-pwm-30a.html": {
+    en: { t: "Lexron 30A PWM Charge Controller 12/24V | GESPA Energy",
+          d: "Lexron 30 A PWM solar charge controller for 12/24 V battery systems. Values from the product label; write to us for the full datasheet. Shipped anywhere in Türkiye." },
+    de: { t: "Lexron 30A PWM-Laderegler 12/24V | GESPA Energy",
+          d: "Lexron 30 A PWM-Solarladeregler für 12/24-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei." },
+    ru: { t: "Контроллер заряда Lexron 30А ШИМ 12/24В | GESPA",
+          d: "Солнечный контроллер заряда Lexron 30 А ШИМ для систем с АКБ 12/24 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции." }
+  },
+  "lexron-pwm-40a.html": {
+    en: { t: "Lexron 40A PWM Charge Controller 12/24V | GESPA Energy",
+          d: "Lexron 40 A PWM solar charge controller for 12/24 V battery systems. Values from the product label; write to us for the full datasheet. Shipped anywhere in Türkiye." },
+    de: { t: "Lexron 40A PWM-Laderegler 12/24V | GESPA Energy",
+          d: "Lexron 40 A PWM-Solarladeregler für 12/24-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei." },
+    ru: { t: "Контроллер заряда Lexron 40А ШИМ 12/24В | GESPA",
+          d: "Солнечный контроллер заряда Lexron 40 А ШИМ для систем с АКБ 12/24 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции." }
+  },
+  "lexron-pwm-60a.html": {
+    en: { t: "Lexron 60A PWM Charge Controller 12/24/48V | GESPA Energy",
+          d: "Lexron 60 A PWM solar charge controller for 12/24/48 V battery systems. Values from the product label; write to us for the full datasheet. Shipped anywhere in Türkiye." },
+    de: { t: "Lexron 60A PWM-Laderegler 12/24/48V | GESPA Energy",
+          d: "Lexron 60 A PWM-Solarladeregler für 12/24/48-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei." },
+    ru: { t: "Контроллер заряда Lexron 60А ШИМ 12/24/48В | GESPA",
+          d: "Солнечный контроллер заряда Lexron 60 А ШИМ для систем с АКБ 12/24/48 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции." }
+  },
+  "lexron-mppt-20a.html": {
+    en: { t: "Lexron 20A MPPT Charge Controller 12/24V | GESPA Energy",
+          d: "Lexron 20 A MPPT solar charge controller for 12/24 V battery systems. Values from the product label; write to us for the full datasheet. Shipped anywhere in Türkiye." },
+    de: { t: "Lexron 20A MPPT-Laderegler 12/24V | GESPA Energy",
+          d: "Lexron 20 A MPPT-Solarladeregler für 12/24-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei." },
+    ru: { t: "Контроллер заряда Lexron 20А MPPT 12/24В | GESPA",
+          d: "Солнечный контроллер заряда Lexron 20 А MPPT для систем с АКБ 12/24 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции." }
+  },
+  "lexron-mppt-30a.html": {
+    en: { t: "Lexron 30A MPPT Charge Controller 12/24V | GESPA Energy",
+          d: "Lexron 30 A MPPT solar charge controller for 12/24 V battery systems. Values from the product label; write to us for the full datasheet. Shipped anywhere in Türkiye." },
+    de: { t: "Lexron 30A MPPT-Laderegler 12/24V | GESPA Energy",
+          d: "Lexron 30 A MPPT-Solarladeregler für 12/24-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei." },
+    ru: { t: "Контроллер заряда Lexron 30А MPPT 12/24В | GESPA",
+          d: "Солнечный контроллер заряда Lexron 30 А MPPT для систем с АКБ 12/24 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции." }
+  },
+  "lexron-mppt-40a.html": {
+    en: { t: "Lexron 40A MPPT Charge Controller 12/24V | GESPA Energy",
+          d: "Lexron 40 A MPPT solar charge controller for 12/24 V battery systems. Values from the product label; write to us for the full datasheet. Shipped anywhere in Türkiye." },
+    de: { t: "Lexron 40A MPPT-Laderegler 12/24V | GESPA Energy",
+          d: "Lexron 40 A MPPT-Solarladeregler für 12/24-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei." },
+    ru: { t: "Контроллер заряда Lexron 40А MPPT 12/24В | GESPA",
+          d: "Солнечный контроллер заряда Lexron 40 А MPPT для систем с АКБ 12/24 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции." }
+  },
+  "lexron-mppt-80a-hv.html": {
+    en: { t: "Lexron 80A MPPT HV Charge Controller 12/24/36/48V | GESPA Energy",
+          d: "Lexron 80 A MPPT HV solar charge controller for 12/24/36/48 V battery systems. Values from the product label; write to us for the full datasheet. Shipped anywhere in Türkiye." },
+    de: { t: "Lexron 80A MPPT HV-Laderegler 12/24/36/48V | GESPA Energy",
+          d: "Lexron 80 A MPPT HV-Solarladeregler für 12/24/36/48-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei." },
+    ru: { t: "Контроллер заряда Lexron 80А MPPT HV 12/24/36/48В | GESPA",
+          d: "Солнечный контроллер заряда Lexron 80 А MPPT HV для систем с АКБ 12/24/36/48 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции." }
   },
   "sss.html": {
     en: { t: "Frequently Asked Questions — Solar Power, Orders and Installation | GESPA Energy",
@@ -1656,6 +1723,7 @@ const LLMS_GROUPS = [
     "aku-lifepo4-72v-30ah.html",
     "havensis-mppt-30a.html", "havensis-mppt-60a.html", "havensis-mppt-60a-150v.html",
     "havensis-dcdc-30a.html", "havensis-dcdc-40a.html", "havensis-dcdc-40a-cift-yonlu.html", "havensis-boost-dcdc-2448.html",
+    "lexron-pwm-20a.html", "lexron-pwm-30a.html", "lexron-pwm-40a.html", "lexron-pwm-60a.html", "lexron-mppt-20a.html", "lexron-mppt-30a.html", "lexron-mppt-40a.html", "lexron-mppt-80a-hv.html",
     "su-isitici.html", "toptan.html"]],
   ["Yapay zekâ ürünleri", ["yapay-zeka-urunleri.html", "ai-cankurtaran-destek-sistemi.html"]],
   ["Ücretsiz araçlar", ["hesaplayici.html", "sistem-kur.html"]],

@@ -207,7 +207,7 @@ Charges 36–72 V batteries from a 12/24 V input · caravans and boats
 
 VAT included · shipping excluded
 
-### Lexron 20 A PWM Solar Charge Controller 12/24 V
+### [Lexron 20 A PWM Solar Charge Controller 12/24 V](https://www.gespaenerji.com/en/lexron-pwm-20a.html)
 
 Small 12/24 V battery-based solar systems
 
@@ -217,7 +217,7 @@ Small 12/24 V battery-based solar systems
 
 VAT included · shipping excluded
 
-### Lexron 30 A PWM Solar Charge Controller 12/24 V
+### [Lexron 30 A PWM Solar Charge Controller 12/24 V](https://www.gespaenerji.com/en/lexron-pwm-30a.html)
 
 Small 12/24 V battery-based solar systems
 
@@ -227,7 +227,7 @@ Small 12/24 V battery-based solar systems
 
 VAT included · shipping excluded
 
-### Lexron 40 A PWM Solar Charge Controller 12/24 V
+### [Lexron 40 A PWM Solar Charge Controller 12/24 V](https://www.gespaenerji.com/en/lexron-pwm-40a.html)
 
 Small 12/24 V battery-based solar systems
 
@@ -237,7 +237,7 @@ Small 12/24 V battery-based solar systems
 
 VAT included · shipping excluded
 
-### Lexron 60 A PWM Solar Charge Controller 12/24/48 V
+### [Lexron 60 A PWM Solar Charge Controller 12/24/48 V](https://www.gespaenerji.com/en/lexron-pwm-60a.html)
 
 12/24/48 V battery-based solar systems
 
@@ -247,7 +247,7 @@ VAT included · shipping excluded
 
 VAT included · shipping excluded
 
-### Lexron 20 A MPPT Solar Charge Controller 12/24 V
+### [Lexron 20 A MPPT Solar Charge Controller 12/24 V](https://www.gespaenerji.com/en/lexron-mppt-20a.html)
 
 12/24 V battery-based solar systems · high efficiency
 
@@ -257,7 +257,7 @@ VAT included · shipping excluded
 
 VAT included · shipping excluded
 
-### Lexron 30 A MPPT Solar Charge Controller 12/24 V
+### [Lexron 30 A MPPT Solar Charge Controller 12/24 V](https://www.gespaenerji.com/en/lexron-mppt-30a.html)
 
 12/24 V battery-based solar systems · high efficiency
 
@@ -267,7 +267,7 @@ VAT included · shipping excluded
 
 VAT included · shipping excluded
 
-### Lexron 40 A MPPT Solar Charge Controller 12/24 V
+### [Lexron 40 A MPPT Solar Charge Controller 12/24 V](https://www.gespaenerji.com/en/lexron-mppt-40a.html)
 
 12/24 V battery-based solar systems · high efficiency
 
@@ -277,7 +277,7 @@ VAT included · shipping excluded
 
 VAT included · shipping excluded
 
-### Lexron 80 A HV (15~230 V) MPPT Solar Charge Controller 12/24/36/48 V
+### [Lexron 80 A HV (15~230 V) MPPT Solar Charge Controller 12/24/36/48 V](https://www.gespaenerji.com/en/lexron-mppt-80a-hv.html)
 
 Large 12/24/36/48 V battery-based solar systems
 

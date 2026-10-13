@@ -207,7 +207,7 @@ Lädt 36–72-V-Batterien über einen 12/24-V-Eingang · Wohnmobil und Boot
 
 Inkl. MwSt. · zzgl. Versand
 
-### Lexron 20 A PWM Solar-Laderegler 12/24 V
+### [Lexron 20 A PWM Solar-Laderegler 12/24 V](https://www.gespaenerji.com/de/lexron-pwm-20a.html)
 
 Kleine 12/24-V-Solaranlagen mit Batterie
 
@@ -217,7 +217,7 @@ Kleine 12/24-V-Solaranlagen mit Batterie
 
 Inkl. MwSt. · zzgl. Versand
 
-### Lexron 30 A PWM Solar-Laderegler 12/24 V
+### [Lexron 30 A PWM Solar-Laderegler 12/24 V](https://www.gespaenerji.com/de/lexron-pwm-30a.html)
 
 Kleine 12/24-V-Solaranlagen mit Batterie
 
@@ -227,7 +227,7 @@ Kleine 12/24-V-Solaranlagen mit Batterie
 
 Inkl. MwSt. · zzgl. Versand
 
-### Lexron 40 A PWM Solar-Laderegler 12/24 V
+### [Lexron 40 A PWM Solar-Laderegler 12/24 V](https://www.gespaenerji.com/de/lexron-pwm-40a.html)
 
 Kleine 12/24-V-Solaranlagen mit Batterie
 
@@ -237,7 +237,7 @@ Kleine 12/24-V-Solaranlagen mit Batterie
 
 Inkl. MwSt. · zzgl. Versand
 
-### Lexron 60 A PWM Solar-Laderegler 12/24/48 V
+### [Lexron 60 A PWM Solar-Laderegler 12/24/48 V](https://www.gespaenerji.com/de/lexron-pwm-60a.html)
 
 12/24/48-V-Solaranlagen mit Batterie
 
@@ -247,7 +247,7 @@ Inkl. MwSt. · zzgl. Versand
 
 Inkl. MwSt. · zzgl. Versand
 
-### Lexron 20 A MPPT Solar-Laderegler 12/24 V
+### [Lexron 20 A MPPT Solar-Laderegler 12/24 V](https://www.gespaenerji.com/de/lexron-mppt-20a.html)
 
 12/24-V-Solaranlagen mit Batterie · hoher Wirkungsgrad
 
@@ -257,7 +257,7 @@ Inkl. MwSt. · zzgl. Versand
 
 Inkl. MwSt. · zzgl. Versand
 
-### Lexron 30 A MPPT Solar-Laderegler 12/24 V
+### [Lexron 30 A MPPT Solar-Laderegler 12/24 V](https://www.gespaenerji.com/de/lexron-mppt-30a.html)
 
 12/24-V-Solaranlagen mit Batterie · hoher Wirkungsgrad
 
@@ -267,7 +267,7 @@ Inkl. MwSt. · zzgl. Versand
 
 Inkl. MwSt. · zzgl. Versand
 
-### Lexron 40 A MPPT Solar-Laderegler 12/24 V
+### [Lexron 40 A MPPT Solar-Laderegler 12/24 V](https://www.gespaenerji.com/de/lexron-mppt-40a.html)
 
 12/24-V-Solaranlagen mit Batterie · hoher Wirkungsgrad
 
@@ -277,7 +277,7 @@ Inkl. MwSt. · zzgl. Versand
 
 Inkl. MwSt. · zzgl. Versand
 
-### Lexron 80 A HV (15~230 V) MPPT Solar-Laderegler 12/24/36/48 V
+### [Lexron 80 A HV (15~230 V) MPPT Solar-Laderegler 12/24/36/48 V](https://www.gespaenerji.com/de/lexron-mppt-80a-hv.html)
 
 Große 12/24/36/48-V-Solaranlagen mit Batterie
 

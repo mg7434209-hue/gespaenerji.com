@@ -545,6 +545,54 @@ Yes. For charging a 72 V pack straight from a panel we use the BOOST MPPT 24–7
 
 [Go to page →](https://www.gespaenerji.com/en/aku-lifepo4-72v-30ah.html)
 
+## MPPT charge controllers (Lexron)
+
+### Should I choose PWM or MPPT?
+
+If the panel voltage is well above the battery voltage (like the 285 W and 655 W panels in our shop), MPPT collects more energy from the same panel and is the right choice. For small, budget-first systems where the panel voltage is close to the battery voltage, PWM models are enough.
+
+### How much panel power can I connect?
+
+Rule of thumb: charging current × battery voltage. For 30 A that is about 360 W at 12 V, about 720 W at 24 V. This is an estimate, not a datasheet value; write to us for the maximum panel power and voltage the manufacturer allows.
+
+### How many panels can I wire in series?
+
+In series wiring the limit is set by the controller's maximum panel input voltage, which is not in the product information we have. Send us the Voc of the panel you will use and we'll check the layout together before you order.
+
+### Can I use it with a lithium battery?
+
+Battery-type settings are in the manufacturer's datasheet and are not in the product information we have. Send us your battery type and charging values and we'll confirm with the manufacturer before you order.
+
+### Who installs it, and do you ship outside Antalya?
+
+We ship anywhere in Türkiye. In the Antalya region we offer optional on-site installation; elsewhere we plan the wiring with you by phone.
+
+[Go to page →](https://www.gespaenerji.com/en/lexron-mppt-30a.html)
+
+## PWM charge controllers (Lexron)
+
+### Should I choose PWM or MPPT?
+
+If the panel voltage is close to the battery voltage (for example a 12 V-class panel on a 12 V battery), PWM is economical and sufficient. If the panel voltage is well above the battery voltage (like the 285 W and 655 W panels in our shop), MPPT collects more energy from the same panel; in that case look at our MPPT models.
+
+### How much panel power can I connect?
+
+With PWM the limit is the panels' short-circuit current (Isc). The general rule is to leave 25% headroom: on a 20 A controller the panels' total Isc should be at most about 16 A. The panel voltage should be close to the battery voltage; for high-voltage panels choose MPPT.
+
+### How many panels can I wire in series?
+
+In series wiring the limit is set by the controller's maximum panel input voltage, which is not in the product information we have. Send us the Voc of the panel you will use and we'll check the layout together before you order.
+
+### Can I use it with a lithium battery?
+
+Battery-type settings are in the manufacturer's datasheet and are not in the product information we have. Send us your battery type and charging values and we'll confirm with the manufacturer before you order.
+
+### Who installs it, and do you ship outside Antalya?
+
+We ship anywhere in Türkiye. In the Antalya region we offer optional on-site installation; elsewhere we plan the wiring with you by phone.
+
+[Go to page →](https://www.gespaenerji.com/en/lexron-pwm-20a.html)
+
 ## MPPT charge controllers (Havensis)
 
 ### If I connect 1200 W of panels, will it charge at 1200 W?
