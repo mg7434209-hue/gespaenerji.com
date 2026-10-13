@@ -452,6 +452,14 @@ ve sepet simgesi ekran dışında kalır.
   "kargo fiyata DAHİL" eklenir. Liste fiyatı kargoyu İÇERDİĞİ için kart
   ödemesinde de ek kargo alınmaz. Tek kural main.js `vatNote()` ve build.js
   `vatNote()`/`shipNote()` — yeni bir kargo notu eklersen oraya bağla.
+- HER KATALOG ÜRÜNÜNÜN DETAY SAYFASI VAR (13 Eki 2026, kullanıcı isteği):
+  paneller, TitanX, kablo ve MC4 sayfaları `tools/urun-sayfalar.py` ÜRETİR
+  (`panel-*.html`, `aku-titanx-51v-102ah.html`, `kablo-solar-5m.html`,
+  `mc4-set.html`; sözlük `URUNPAGE:DICT`, katalog kartı metinlerinin eksik
+  çevirileri de orada). Elle düzenlenmez. Panel sayfasındaki seri bağlama
+  sayısı Voc × 1,1 ile hesaplanır. YENİ ÜRÜN EKLERKEN detay sayfasını da
+  üret (ilgili betiğe ekle ya da paket-*.html kopyala); `url`'siz ürün
+  kalmasın.
 - `img` boşsa kart nötr yer tutucu (`.sh-noimg`) gösterir; BAŞKA ürünün
   fotoğrafı kullanılmaz. `url` boşsa "Detay" düğmesi ve bağlantılar basılmaz.
 - Yönetici şifresi YALNIZ Railway ortam değişkeni `ADMIN_PASS`'tır; config'e

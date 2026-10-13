@@ -349,6 +349,7 @@ window.GESPA.config = {
     // img: gerçek 50 W panel fotoğrafı gelince doldurulacak (şu an yer tutucu).
     {
       id: "panel-50w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-50w.html",
       sku: "GES-PNL-50",
       img: "assets/img/products/panel-50w.webp",
       price: 35.57, currency: "USD",     // ₺1.750 @ 49,2 (işletme, 5 Eki 2026)
@@ -392,6 +393,7 @@ window.GESPA.config = {
     // o komple sistem, bu tek panel. Adları karıştırma.
     {
       id: "panel-lexron-285w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-lexron-285w.html",
       sku: "GES-PNL-285", brand: "Lexron",
       img: "assets/img/products/panel-lexron-285w.webp",
       price: 152.44, currency: "USD",                     // ₺7.500 @ 49,2
@@ -403,6 +405,7 @@ window.GESPA.config = {
     },
     {
       id: "panel-lexron-655w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-lexron-655w.html",
       sku: "GES-PNL-655", brand: "Lexron",
       img: "assets/img/products/panel-lexron-655w.webp",
       price: 203.25, currency: "USD",                     // ₺10.000 @ 49,2
@@ -420,6 +423,7 @@ window.GESPA.config = {
     // Fotoğraflar kaynak/panel-*.png → tools/foto-hazirla.py.
     {
       id: "panel-460w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-460w.html",
       sku: "GES-PNL-460",
       img: "assets/img/products/panel-460w.webp",
       price: 162.6, currency: "USD",                      // ₺8.000 @ 49,2
@@ -435,6 +439,7 @@ window.GESPA.config = {
       // yazılan 1575 × 705 mm'lik panelin değerleri BAŞKA bir panele aitti,
       // kaldırıldı. Hücre tipi künyede yok — "TOPCon"/"mono" YAZILMAZ.
       id: "panel-240w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-240w.html",
       sku: "GES-PNL-240",
       img: "assets/img/products/panel-240w.webp",
       price: 132.11, currency: "USD",                     // ₺6.500 @ 49,2
@@ -448,6 +453,7 @@ window.GESPA.config = {
     // teknik değer YAZILMAZ. Künye gelirse buradan genişlet.
     {
       id: "panel-arcelik-540w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-arcelik-540w.html",
       sku: "GES-PNL-540", brand: "Arçelik",
       img: "assets/img/products/panel-arcelik-540w.webp",
       price: 203.25, currency: "USD",                     // ₺10.000 @ 49,2
@@ -462,6 +468,7 @@ window.GESPA.config = {
     // listelenir (urunler.html GROUPS listesinde yoktur).
     {
       id: "aku-titanx-51v-102ah", icon: "🔋", tag: "Enerji Depolama", group: "storage",
+      url: "aku-titanx-51v-102ah.html",
       sku: "GES-AKU-102", brand: "TitanX",
       img: "assets/img/products/aku-titanx-51v-102ah.webp",
       price: 1491.3, currency: "USD",                     // ₺73.400 (eski ₺73.372) @ 49,2
@@ -683,6 +690,7 @@ window.GESPA.config = {
       // Belirli bir kesit yazmak teslimatla çelişirdi; durum açıklamada
       // olduğu gibi söylenir.
       id: "kablo-solar-5m", icon: "🔌", tag: "Kablo", group: "cable",
+      url: "kablo-solar-5m.html",
       sku: "GES-KBL-5M",
       img: "assets/img/products/kablo-solar-5m.webp",
       price: 20.33, currency: "USD",                      // ₺1.000 @ 49,2
@@ -758,6 +766,7 @@ window.GESPA.config = {
 
     {
       id: "mc4-set", icon: "🔗", tag: "Konnektör", group: "cable",
+      url: "mc4-set.html",
       sku: "GES-MC4-1",
       img: "assets/img/products/mc4-set.webp",
       price: 2.03, currency: "USD",                       // ₺100 @ 49,2

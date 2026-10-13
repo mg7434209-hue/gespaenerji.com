@@ -3,7 +3,7 @@ title: "Солнечный комплект для электрокара тип
 description: "Готовый комплект для электромобилей типа гольф-кар с крышей: монокристаллическая панель half-cut 460 Вт, контроллер BOOST MPPT 24–72 В, кабель и MC4."
 canonical: https://www.gespaenerji.com/ru/paket-motor-golf.html
 lang: ru
-dateModified: 2026-10-09
+dateModified: 2026-10-13
 publisher: "GESPA Enerji"
 ---
 
