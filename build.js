@@ -40,6 +40,11 @@ const PAGES = [
   // Lexron şarj kontrol sayfaları — tools/lexron-sayfalar.py üretir
   "lexron-pwm-20a.html", "lexron-pwm-30a.html", "lexron-pwm-40a.html", "lexron-pwm-60a.html",
   "lexron-mppt-20a.html", "lexron-mppt-30a.html", "lexron-mppt-40a.html", "lexron-mppt-80a-hv.html",
+  // Paneller, akü, kablo, MC4 — tools/urun-sayfalar.py üretir
+  "panel-50w.html", "panel-240w.html", "panel-lexron-285w.html", "panel-460w.html", "panel-arcelik-540w.html", "panel-lexron-655w.html",
+  "aku-titanx-51v-102ah.html", "kablo-solar-5m.html", "mc4-set.html",
+  "hero-led-ampul-10w.html", "hero-led-solar-sokak-100w.html",
+  "hero-led-aplik-50w.html", "hero-led-bahce-50w.html", "hero-led-solar-sokak-200w.html", "hero-led-solar-sokak-600w.html",
   "sepet.html"   // noindex; sitemap'e girmez (NOSITEMAP)
 ];
 
@@ -230,6 +235,81 @@ const META = {
           d: "Lexron 80 A MPPT HV-Solarladeregler für 12/24/36/48-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei." },
     ru: { t: "Контроллер заряда Lexron 80А MPPT HV 12/24/36/48В | GESPA",
           d: "Солнечный контроллер заряда Lexron 80 А MPPT HV для систем с АКБ 12/24/36/48 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции." }
+  },
+  "panel-50w.html": {
+    en: { t: "50W Solar Panel for 12V Systems | GESPA Energy", d: "50 W monocrystalline solar panel for 12 V systems: garden lights, cameras and battery charging." },
+    de: { t: "50-W-Solarmodul für 12-V-Anlagen | GESPA Energy", d: "50-W-Monokristallin-Solarmodul für 12-V-Anlagen: Gartenbeleuchtung, Kameras und Batterieladung." },
+    ru: { t: "Солнечная панель 50 Вт для систем 12 В | GESPA", d: "Монокристаллическая панель 50 Вт для систем 12 В: садовое освещение, камеры и зарядка АКБ." }
+  },
+  "panel-240w.html": {
+    en: { t: "240W Solar Panel (48 Cells) | GESPA Energy", d: "240 W solar panel with 48 cells: Voc 36.12 V, 1320 × 776 × 30 mm, 8 kg. For mini electric cars and small off-grid systems." },
+    de: { t: "240-W-Solarmodul (48 Zellen) | GESPA Energy", d: "240-W-Solarmodul mit 48 Zellen: Voc 36,12 V, 1320 × 776 × 30 mm, 8 kg. Für Mini-Elektroautos und kleine Inselanlagen." },
+    ru: { t: "Солнечная панель 240 Вт (48 ячеек) | GESPA", d: "Солнечная панель 240 Вт, 48 ячеек: Voc 36,12 В, 1320 × 776 × 30 мм, 8 кг. Для мини-электромобилей и небольших автономных систем." }
+  },
+  "panel-lexron-285w.html": {
+    en: { t: "Lexron 285W TOPCon Solar Panel | GESPA Energy", d: "Lexron 210R PowerLite 285 W TOPCon panel: Voc 42.84 V, 780 × 1536 × 30 mm, 8.5 kg, 12-year product and 30-year power warranty." },
+    de: { t: "Lexron 285-W-TOPCon-Solarmodul | GESPA Energy", d: "Lexron 210R PowerLite 285-W-TOPCon-Modul: Voc 42,84 V, 780 × 1536 × 30 mm, 8,5 kg, 12 Jahre Produkt- und 30 Jahre Leistungsgarantie." },
+    ru: { t: "Солнечная панель Lexron 285 Вт TOPCon | GESPA", d: "Панель Lexron 210R PowerLite 285 Вт TOPCon: Voc 42,84 В, 780 × 1536 × 30 мм, 8,5 кг, 12 лет на изделие и 30 лет на мощность." }
+  },
+  "panel-460w.html": {
+    en: { t: "460W Half-Cut Monocrystalline Solar Panel | GESPA Energy", d: "460 W panel with 144 half-cut cells: 23.42% efficiency, Voc 51.90 V, 2095 × 1039 × 30 mm, 25 kg, IP68." },
+    de: { t: "460-W-Half-Cut-Monokristallin-Solarmodul | GESPA Energy", d: "460-W-Modul mit 144 Halbzellen: 23,42 % Wirkungsgrad, Voc 51,90 V, 2095 × 1039 × 30 mm, 25 kg, IP68." },
+    ru: { t: "Монокристаллическая панель half-cut 460 Вт | GESPA", d: "Панель 460 Вт, 144 ячейки half-cut: КПД 23,42 %, Voc 51,90 В, 2095 × 1039 × 30 мм, 25 кг, IP68." }
+  },
+  "panel-arcelik-540w.html": {
+    en: { t: "Arçelik 540W Solar Panel | GESPA Energy", d: "Arçelik 540 W grade-A monocrystalline solar panel for rooftop and ground systems; pallet shipments available." },
+    de: { t: "Arçelik 540-W-Solarmodul | GESPA Energy", d: "Arçelik 540-W-Monokristallin-Solarmodul Klasse A für Dach- und Freiflächenanlagen; palettenweise Lieferung möglich." },
+    ru: { t: "Солнечная панель Arçelik 540 Вт | GESPA", d: "Монокристаллическая панель Arçelik 540 Вт класса A для крышных и наземных систем; поставки паллетами." }
+  },
+  "panel-lexron-655w.html": {
+    en: { t: "Lexron 655W N-type TOPCon Solar Panel | GESPA Energy", d: "Lexron 655 W N-type TOPCon panel: 24.25% efficiency, Voc 50.34 V, 2382 × 1134 × 35 mm, 31 kg, IP68, 30-year power warranty." },
+    de: { t: "Lexron 655-W-N-Type-TOPCon-Solarmodul | GESPA Energy", d: "Lexron 655-W-N-Type-TOPCon-Modul: 24,25 % Wirkungsgrad, Voc 50,34 V, 2382 × 1134 × 35 mm, 31 kg, IP68, 30 Jahre Leistungsgarantie." },
+    ru: { t: "Солнечная панель Lexron 655 Вт N-type TOPCon | GESPA", d: "Панель Lexron 655 Вт N-type TOPCon: КПД 24,25 %, Voc 50,34 В, 2382 × 1134 × 35 мм, 31 кг, IP68, 30 лет на мощность." }
+  },
+  "aku-titanx-51v-102ah.html": {
+    en: { t: "TitanX 51.2V 102Ah LiFePO4 Battery (5.22 kWh) | GESPA Energy", d: "TitanX 51.2 V 102 Ah (5.22 kWh) LiFePO₄ storage battery: built-in BMS, 6000+ cycles, CAN/RS485, up to 16 in parallel." },
+    de: { t: "TitanX 51,2V 102Ah LiFePO4-Akku (5,22 kWh) | GESPA Energy", d: "TitanX 51,2 V 102 Ah (5,22 kWh) LiFePO₄-Speicherakku: integriertes BMS, über 6000 Zyklen, CAN/RS485, bis zu 16 parallel." },
+    ru: { t: "Аккумулятор TitanX 51,2 В 102 А·ч LiFePO4 (5,22 кВт·ч) | GESPA", d: "Аккумулятор TitanX 51,2 В 102 А·ч (5,22 кВт·ч) LiFePO₄: встроенная BMS, 6000+ циклов, CAN/RS485, до 16 параллельно." }
+  },
+  "kablo-solar-5m.html": {
+    en: { t: "Solar Cable Set 5m Black + 5m Red | GESPA Energy", d: "Solar cable set, 5 m black + 5 m red, for connecting the panel to the charge controller." },
+    de: { t: "Solarkabelset 5 m Schwarz + 5 m Rot | GESPA Energy", d: "Solarkabelset, 5 m Schwarz + 5 m Rot, für die Verbindung von Modul und Laderegler." },
+    ru: { t: "Комплект солнечного кабеля 5 м чёрный + 5 м красный | GESPA", d: "Комплект солнечного кабеля 5 м чёрного + 5 м красного для соединения панели с контроллером." }
+  },
+  "mc4-set.html": {
+    en: { t: "MC4 Connector Set | GESPA Energy", d: "Male + female MC4 connector set for joining the panel cable to the solar cable." },
+    de: { t: "MC4-Steckerset | GESPA Energy", d: "MC4-Steckerset (Stecker + Buchse) zur Verbindung von Modulkabel und Solarkabel." },
+    ru: { t: "Набор разъёмов MC4 | GESPA", d: "Набор разъёмов MC4 папа + мама для соединения кабеля панели с солнечным кабелем." }
+  },
+  "hero-led-ampul-10w.html": {
+    en: { t: "Hero LED 10W 12V DC LED Bulb (12–60V AC/DC) | GESPA Energy", d: "Hero LED 10 W LED bulb for 12–60 V AC/DC: 850 lm, 6500 K white light. Runs straight from the battery in caravans, boats and solar battery systems." },
+    de: { t: "Hero LED 10W 12V DC LED-Lampe (12–60V AC/DC) | GESPA Energy", d: "Hero LED 10-W-LED-Lampe für 12–60 V AC/DC: 850 lm, 6500 K weißes Licht. Läuft direkt an der Batterie in Wohnmobilen, Booten und solaren Batterieanlagen." },
+    ru: { t: "Лампа Hero LED 10 Вт 12 В DC (12–60 В AC/DC) | GESPA", d: "Светодиодная лампа Hero LED 10 Вт для 12–60 В AC/DC: 850 лм, белый свет 6500 K. Работает прямо от аккумулятора в автодомах, лодках и солнечных системах." }
+  },
+  "hero-led-solar-sokak-100w.html": {
+    en: { t: "Hero LED 100W Solar Street Light with Sensor | GESPA Energy", d: "Hero LED 100 W solar street light (HL-5151): solar panel, motion sensor, remote control, IP65, 30,000 h. No power line needed." },
+    de: { t: "Hero LED 100W Solar-Straßenleuchte mit Sensor | GESPA Energy", d: "Hero LED 100 W Solar-Straßenleuchte (HL-5151): Solarmodul, Bewegungssensor, Fernbedienung, IP65, 30.000 h. Keine Stromleitung nötig." },
+    ru: { t: "Солнечный уличный светильник Hero LED 100 Вт с датчиком | GESPA", d: "Солнечный уличный светильник Hero LED 100 Вт (HL-5151): солнечная панель, датчик движения, пульт, IP65, 30 000 ч. Электролиния не нужна." }
+  },
+  "hero-led-aplik-50w.html": {
+    en: { t: "Hero LED 50W Solar LED Wall Light, 3 Colours + RGB | GESPA Energy", d: "Hero LED 50 W solar wall light (HL-5181): 4000 lm, 3200/4000/6500 K + RGB, remote control, IP65, 15,000 h. Lower unit price for 5 or more." },
+    de: { t: "Hero LED 50W Solar-LED-Wandleuchte, 3 Farben + RGB | GESPA Energy", d: "Hero LED 50 W Solar-Wandleuchte (HL-5181): 4000 lm, 3200/4000/6500 K + RGB, Fernbedienung, IP65, 15.000 h. Günstigerer Stückpreis ab 5 Stück." },
+    ru: { t: "Солнечный настенный светильник Hero LED 50 Вт, 3 цвета + RGB | GESPA", d: "Солнечный настенный светильник Hero LED 50 Вт (HL-5181): 4000 лм, 3200/4000/6500 K + RGB, пульт, IP65, 15 000 ч. Цена ниже от 5 штук." }
+  },
+  "hero-led-bahce-50w.html": {
+    en: { t: "Hero LED 50W Solar Pillar-Top Garden Light | GESPA Energy", d: "Hero LED 50 W solar garden light for pillars, ledges and walls (HL-5180): 4000 lm, 3 colours + RGB, remote, IP65. Lower unit price for 5 or more." },
+    de: { t: "Hero LED 50W Solar-Pfeilerleuchte für den Garten | GESPA Energy", d: "Hero LED 50 W Solar-Gartenleuchte für Pfeiler, Sockel und Wand (HL-5180): 4000 lm, 3 Farben + RGB, Fernbedienung, IP65. Günstigerer Stückpreis ab 5 Stück." },
+    ru: { t: "Садовый солнечный светильник на столб Hero LED 50 Вт | GESPA", d: "Солнечный садовый светильник Hero LED 50 Вт на столб, бордюр и стену (HL-5180): 4000 лм, 3 цвета + RGB, пульт, IP65. Цена ниже от 5 штук." }
+  },
+  "hero-led-solar-sokak-200w.html": {
+    en: { t: "Hero LED 200W Solar Street Light with Sensor | GESPA Energy", d: "Hero LED 200 W solar street light (HL-5153): solar panel, motion sensor, fixed-on timer, remote, IP65, 30,000 h. Lower unit price for 5 or more." },
+    de: { t: "Hero LED 200W Solar-Straßenleuchte mit Sensor | GESPA Energy", d: "Hero LED 200 W Solar-Straßenleuchte (HL-5153): Solarmodul, Bewegungssensor, Dauerlicht-Timer, Fernbedienung, IP65, 30.000 h. Günstigerer Stückpreis ab 5 Stück." },
+    ru: { t: "Солнечный уличный светильник Hero LED 200 Вт с датчиком | GESPA", d: "Солнечный уличный светильник Hero LED 200 Вт (HL-5153): панель, датчик движения, таймер, пульт, IP65, 30 000 ч. Цена ниже от 5 штук." }
+  },
+  "hero-led-solar-sokak-600w.html": {
+    en: { t: "Hero LED 600W Solar Street Light with Radar Sensor | GESPA Energy", d: "Hero LED 600 W solar street light for large areas (HL-5157): separate solar panel, radar sensor, remote, IP65, 30,000 h. Lower unit price for 5 or more." },
+    de: { t: "Hero LED 600W Solar-Straßenleuchte mit Radarsensor | GESPA Energy", d: "Hero LED 600 W Solar-Straßenleuchte für große Flächen (HL-5157): separates Solarmodul, Radarsensor, Fernbedienung, IP65, 30.000 h. Günstigerer Stückpreis ab 5 Stück." },
+    ru: { t: "Солнечный уличный светильник Hero LED 600 Вт с радаром | GESPA", d: "Солнечный уличный светильник Hero LED 600 Вт для больших площадей (HL-5157): отдельная панель, радарный датчик, пульт, IP65, 30 000 ч. Цена ниже от 5 штук." }
   },
   "sss.html": {
     en: { t: "Frequently Asked Questions — Solar Power, Orders and Installation | GESPA Energy",
@@ -968,7 +1048,8 @@ function shipNote(p) {
     : "Türkiye'nin her yerine kargo ile gönderilir.";
 }
 function havaleTL(p, tl, pct) {
-  return p.noCartDiscount ? tl : Math.round(tl * (100 - pct) / 100 / 50) * 50;
+  // main.js pkgUnit ile AYNI: havale hiçbir zaman liste fiyatını geçmez.
+  return p.noCartDiscount ? tl : Math.min(tl, Math.round(tl * (100 - pct) / 100 / 50) * 50);
 }
 
 // `parts` listesi olan paket ürünlerin (hazır set) fiyatını DENETLER.
@@ -1724,6 +1805,9 @@ const LLMS_GROUPS = [
     "havensis-mppt-30a.html", "havensis-mppt-60a.html", "havensis-mppt-60a-150v.html",
     "havensis-dcdc-30a.html", "havensis-dcdc-40a.html", "havensis-dcdc-40a-cift-yonlu.html", "havensis-boost-dcdc-2448.html",
     "lexron-pwm-20a.html", "lexron-pwm-30a.html", "lexron-pwm-40a.html", "lexron-pwm-60a.html", "lexron-mppt-20a.html", "lexron-mppt-30a.html", "lexron-mppt-40a.html", "lexron-mppt-80a-hv.html",
+    "panel-50w.html", "panel-240w.html", "panel-lexron-285w.html", "panel-460w.html", "panel-arcelik-540w.html", "panel-lexron-655w.html", "aku-titanx-51v-102ah.html", "kablo-solar-5m.html", "mc4-set.html",
+    "hero-led-ampul-10w.html", "hero-led-solar-sokak-100w.html",
+    "hero-led-aplik-50w.html", "hero-led-bahce-50w.html", "hero-led-solar-sokak-200w.html", "hero-led-solar-sokak-600w.html",
     "su-isitici.html", "toptan.html"]],
   ["Yapay zekâ ürünleri", ["yapay-zeka-urunleri.html", "ai-cankurtaran-destek-sistemi.html"]],
   ["Ücretsiz araçlar", ["hesaplayici.html", "sistem-kur.html"]],
@@ -2070,7 +2154,11 @@ function writeLlmsFull(cfg) {
       ? (PCT && hav < tl ? ` liste (KDV dahil) · havale/EFT ile ₺${nf(hav)} (%${PCT} indirimli)` : " (KDV dahil, net fiyat)")
       : " (yaklaşık, keşifle netleşir)";
     const ship = p.freeShipping ? " · kargo fiyata DAHİL" : "";
-    return `- ${p.name} — ${lead}${p.for} · ₺${nf(tl)}${usd ? ` (≈ $${nf(usd)})` : ""}${tag}${ship}`;
+    // 5'li (bulk) adet fiyatı — sepet ve ödeme aynı kuralı uygular (main.js
+    // pkgUnit(p, qty) · server.js pkgListTL(p, cfg, qty)).
+    const bulk = p.bulk && p.bulk.price != null
+      ? ` · ${p.bulk.min} adet ve üzeri alımda adet fiyatı ₺${nf(priceTRY(cfg, p.bulk.price, p.currency))}` : "";
+    return `- ${p.name} — ${lead}${p.for} · ₺${nf(tl)}${usd ? ` (≈ $${nf(usd)})` : ""}${tag}${ship}${bulk}`;
   }).join("\n");
   const showHeaterPrice = cfg.heater.showPrices !== false;
   const heaterLines = cfg.heater.models.map(m =>

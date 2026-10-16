@@ -3,7 +3,7 @@ title: "Häufige Fragen — Solarenergie, Bestellung und Montage | GESPA Energy"
 description: "Antworten zu Solaranlagen, Akkus, Solarumrüstung von E-Fahrzeugen, Bestellung, Versand, Zahlung und Montage an einem Ort. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/de/sss.html
 lang: de
-dateModified: 2026-10-12
+dateModified: 2026-10-13
 publisher: "GESPA Enerji"
 ---
 
@@ -544,6 +544,50 @@ LiFePO₄ ist thermisch wesentlich stabiler als andere Lithium-Ionen-Chemien wie
 Ja. Zum Laden eines 72-V-Akkusatzes direkt vom Modul setzen wir den BOOST-MPPT-Laderegler 24–72 V ein; er steckt auch in unseren Solar-Komplettsets für Dreiräder.
 
 [Zur Seite →](https://www.gespaenerji.com/de/aku-lifepo4-72v-30ah.html)
+
+## Solarmodule
+
+### Wie viele Module kann ich in Reihe schalten?
+
+Die Voc des Moduls beträgt 50,34 V. Mit 10 % Reserve für den Anstieg der Voc bei Kälte: an MPPT-Reglern mit 100-V-Moduleingang (z. B. Havensis Solar-30AMPS) höchstens 1, an 150-V-Eingängen (z. B. Havensis Solar-60AMPS 150|60) höchstens 2 Module in Reihe. Ein einzelnes Modul passt auch an den 15–60-V-Eingang des BOOST MPPT aus unseren E-Fahrzeug-Sets. Prüfen Sie den genauen Aufbau vor der Bestellung mit uns.
+
+### Kann ich das Modul direkt an eine Batterie anschließen?
+
+Nein. Zwischen Modul und Batterie gehört immer ein Laderegler, sonst wird die Batterie überladen. Liegt die Modulspannung deutlich über der Batteriespannung, wählen Sie MPPT, liegt sie nahe daran, PWM.
+
+### Wie werden große Module versandt?
+
+Große Module werden bruchsicher verpackt per Paketdienst oder Spedition versandt. Prüfen Sie das Paket bei der Übergabe vor dem Zusteller; bei beschädigter Ware tragen wir alle Kosten. Für palettenweise Großhandelslieferungen schreiben Sie uns.
+
+### Wer installiert es, und liefern Sie auch außerhalb von Antalya?
+
+Wir versenden in die ganze Türkei. In der Region Antalya bieten wir optional die Montage vor Ort an; anderswo planen wir den Anschluss telefonisch mit Ihnen.
+
+[Zur Seite →](https://www.gespaenerji.com/de/panel-lexron-655w.html)
+
+## TitanX LiFePO₄-Akku (5,22 kWh)
+
+### Mit welchen Wechselrichtern arbeitet er?
+
+Er arbeitet mit Wechselrichtern mit 48-V-Batterieeingang. Bei Wechselrichtern mit CAN / RS485 werden die Batteriedaten geteilt; schicken Sie uns Ihr Wechselrichtermodell, wir prüfen die Kompatibilität vor der Bestellung.
+
+### Kann ich die Kapazität erweitern?
+
+Ja, bis zu 16 Einheiten lassen sich parallel schalten. Jede Batterie bringt 5,22 kWh, also speichern z. B. 2 Batterien etwa 10,4 kWh und 4 Batterien etwa 20,9 kWh.
+
+### Wie stelle ich mein Ladegerät ein?
+
+Die maximale Ladespannung beträgt 58,4 V, die Entladeschlussspannung 40 V und der maximale Ladestrom 100 A. Stellen Sie Laderegler oder Wechselrichter so ein, dass diese Werte eingehalten werden.
+
+### Wo sollte er aufgestellt werden?
+
+Stellen Sie ihn an einem trockenen, belüfteten Ort im Innenbereich auf; die Schutzart ist IP20, für draußen ist er nicht geeignet. Geladen werden darf zwischen 0 und 50 °C.
+
+### Wer installiert es, und liefern Sie auch außerhalb von Antalya?
+
+Wir versenden in die ganze Türkei. In der Region Antalya bieten wir optional die Montage vor Ort an; anderswo planen wir den Anschluss telefonisch mit Ihnen.
+
+[Zur Seite →](https://www.gespaenerji.com/de/aku-titanx-51v-102ah.html)
 
 ## MPPT-Laderegler (Lexron)
 

@@ -3,7 +3,7 @@ title: "Onlineshop — Solarprodukte und Ausrüstung | GESPA Energy"
 description: "Alle Verkaufsprodukte auf einer Seite: Solar-Fertigsets, MPPT-Laderegler und Zubehör. Transparente Preise inkl. MwSt., Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/online-satis.html
 lang: de
-dateModified: 2026-10-12
+dateModified: 2026-10-16
 publisher: "GESPA Enerji"
 ---
 
@@ -59,7 +59,7 @@ Elektro-Dreiräder, Motorräder und 72-V-Nutzfahrzeuge
 
 Inkl. MwSt. · zzgl. Versand
 
-### 50-W-Solarmodul
+### [50-W-Solarmodul](https://www.gespaenerji.com/de/panel-50w.html)
 
 Kleine Beleuchtung, Kameras und Akkuladung
 
@@ -77,7 +77,7 @@ Camping, Wohnmobil, Außeneinsatz und Notstrom zu Hause
 
 Inkl. MwSt. · zzgl. Versand
 
-### Lexron 285-W-Solarmodul
+### [Lexron 285-W-Solarmodul](https://www.gespaenerji.com/de/panel-lexron-285w.html)
 
 Balkon, Gartenhaus und kleine Off-Grid-Systeme
 
@@ -87,7 +87,7 @@ Balkon, Gartenhaus und kleine Off-Grid-Systeme
 
 Inkl. MwSt. · zzgl. Versand
 
-### Lexron 655-W-TOPCon-Solarmodul
+### [Lexron 655-W-TOPCon-Solarmodul](https://www.gespaenerji.com/de/panel-lexron-655w.html)
 
 Aufdach- und Freiflächenanlagen, Installationen mit hoher Leistung
 
@@ -97,7 +97,7 @@ Aufdach- und Freiflächenanlagen, Installationen mit hoher Leistung
 
 Inkl. MwSt. · zzgl. Versand
 
-### 460-W-Half-Cut-Monokristallin-Solarmodul
+### [460-W-Half-Cut-Monokristallin-Solarmodul](https://www.gespaenerji.com/de/panel-460w.html)
 
 Elektrofahrzeuge im Golfcart-Stil und kleine Inselanlagen
 
@@ -107,7 +107,7 @@ Elektrofahrzeuge im Golfcart-Stil und kleine Inselanlagen
 
 Inkl. MwSt. · zzgl. Versand
 
-### 240-W-Solarmodul (48 Zellen)
+### [240-W-Solarmodul (48 Zellen)](https://www.gespaenerji.com/de/panel-240w.html)
 
 Mini-Elektroautos und kleine Inselanlagen
 
@@ -117,7 +117,7 @@ Mini-Elektroautos und kleine Inselanlagen
 
 Inkl. MwSt. · zzgl. Versand
 
-### Arçelik 540-W-Solarmodul
+### [Arçelik 540-W-Solarmodul](https://www.gespaenerji.com/de/panel-arcelik-540w.html)
 
 Aufdach- und Freiflächenmontage, für Freunde einer türkischen Marke
 
@@ -127,7 +127,7 @@ Aufdach- und Freiflächenmontage, für Freunde einer türkischen Marke
 
 Inkl. MwSt. · zzgl. Versand
 
-### TitanX 51,2 V 102 Ah LiFePO₄ Batterie
+### [TitanX 51,2 V 102 Ah LiFePO₄ Batterie](https://www.gespaenerji.com/de/aku-titanx-51v-102ah.html)
 
 Energiespeicher für Haus und Betrieb, Off-Grid und Notstrom
 
@@ -287,7 +287,7 @@ Große 12/24/36/48-V-Solaranlagen mit Batterie
 
 Inkl. MwSt. · zzgl. Versand
 
-### Solarkabel-Set (5 m Schwarz + 5 m Rot)
+### [Solarkabel-Set (5 m Schwarz + 5 m Rot)](https://www.gespaenerji.com/de/kablo-solar-5m.html)
 
 Verbindung zwischen Modul und Laderegler
 
@@ -337,11 +337,69 @@ Geschlossene Mini-Elektroautos — kleine Dachfläche
 
 Inkl. MwSt. · zzgl. Versand
 
-### MC4-Steckerset
+### [MC4-Steckerset](https://www.gespaenerji.com/de/mc4-set.html)
 
 Verbindung von Modulleitung und Solarkabel
 
 **₺100**≈ $2
+
+Inkl. MwSt. · zzgl. Versand
+
+### [Hero LED 10 W 12 V DC LED-Lampe (12–60 V AC/DC)](https://www.gespaenerji.com/de/hero-led-ampul-10w.html)
+
+Wohnmobile, Boote, Ferienhäuser und solare Batterieanlagen
+
+**₺130**≈ $3
+
+Inkl. MwSt. · zzgl. Versand
+
+### [Hero LED 100 W Solar-Straßenleuchte (Sensor, Fernbedienung)](https://www.gespaenerji.com/de/hero-led-solar-sokak-100w.html)
+
+Garten-, Straßen-, Wohnanlagen-, Parkplatz- und Fabrikbeleuchtung
+
+**₺1.200**≈ $25
+
+💰 Per Überweisung: **₺1.150**
+
+Inkl. MwSt. · zzgl. Versand
+
+### [Hero LED 50 W Solar-LED-Wandleuchte (Fernbedienung, 3 Farben + RGB)](https://www.gespaenerji.com/de/hero-led-aplik-50w.html)
+
+Wand-, Eingangs-, Gartenmauer- und Terrassenbeleuchtung
+
+**₺830**≈ $17
+
+💰 Per Überweisung: **₺800**
+
+Inkl. MwSt. · zzgl. Versand
+
+### [Hero LED 50 W Solar-Pfeilerleuchte für den Garten (Fernbedienung, 3 Farben + RGB)](https://www.gespaenerji.com/de/hero-led-bahce-50w.html)
+
+Beleuchtung für Gartenmauer, Sockel, Pfeilerkopf und Eingang
+
+**₺780**≈ $16
+
+💰 Per Überweisung: **₺750**
+
+Inkl. MwSt. · zzgl. Versand
+
+### [Hero LED 200 W Solar-Straßenleuchte (Sensor, Fernbedienung)](https://www.gespaenerji.com/de/hero-led-solar-sokak-200w.html)
+
+Garten-, Straßen-, Wohnanlagen-, Parkplatz- und Fabrikbeleuchtung
+
+**₺2.250**≈ $45
+
+💰 Per Überweisung: **₺2.200**
+
+Inkl. MwSt. · zzgl. Versand
+
+### [Hero LED 600 W Solar-Straßenleuchte (Radarsensor, Fernbedienung)](https://www.gespaenerji.com/de/hero-led-solar-sokak-600w.html)
+
+Große Gärten, Straßen, Wohnanlagen, Parkplätze und Fabrikgelände
+
+**₺2.650**≈ $54
+
+💰 Per Überweisung: **₺2.550**
 
 Inkl. MwSt. · zzgl. Versand
 

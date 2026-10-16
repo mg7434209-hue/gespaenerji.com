@@ -3,7 +3,7 @@ title: "Frequently Asked Questions — Solar Power, Orders and Installation | GE
 description: "Answers about solar power plants, batteries, EV solar conversion, ordering, shipping, payment and installation in one place. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/en/sss.html
 lang: en
-dateModified: 2026-10-12
+dateModified: 2026-10-13
 publisher: "GESPA Enerji"
 ---
 
@@ -544,6 +544,50 @@ LiFePO₄ is far more thermally stable than other lithium-ion chemistries such a
 Yes. For charging a 72 V pack straight from a panel we use the BOOST MPPT 24–72 V charge controller; it is also in our ready-made e-trike solar sets.
 
 [Go to page →](https://www.gespaenerji.com/en/aku-lifepo4-72v-30ah.html)
+
+## Solar panels
+
+### How many panels can I wire in series?
+
+The panel's Voc is 50.34 V. Allowing 10% for the rise of Voc in the cold: up to 1 panels in series on MPPT controllers with a 100 V panel input (e.g. Havensis Solar-30AMPS), up to 2 on 150 V inputs (e.g. Havensis Solar-60AMPS 150|60). A single panel also fits the 15–60 V input of the BOOST MPPT in our EV solar sets. Check the exact layout with us before ordering.
+
+### Can I connect the panel straight to a battery?
+
+No. There must always be a charge controller between the panel and the battery; otherwise the battery gets overcharged. If the panel voltage is well above the battery voltage choose MPPT, if it is close choose PWM.
+
+### How are large panels shipped?
+
+Large panels are shipped by courier or freight in breakage-protected packaging. Check the package in front of the courier on delivery; for damaged goods all costs are ours. For wholesale shipment by the pallet, write to us.
+
+### Who installs it, and do you ship outside Antalya?
+
+We ship anywhere in Türkiye. In the Antalya region we offer optional on-site installation; elsewhere we plan the wiring with you by phone.
+
+[Go to page →](https://www.gespaenerji.com/en/panel-lexron-655w.html)
+
+## TitanX LiFePO₄ battery (5.22 kWh)
+
+### Which inverters does it work with?
+
+It works with inverters that have a 48 V battery input. With inverters that support CAN / RS485, battery data is shared with the inverter; send us your inverter model and we'll check compatibility before you order.
+
+### Can I add capacity later?
+
+Yes, up to 16 units can be connected in parallel. Each battery adds 5.22 kWh, so for example 2 batteries store about 10.4 kWh and 4 batteries about 20.9 kWh.
+
+### How should I set my charger?
+
+The maximum charging voltage is 58.4 V, the discharge cut-off voltage 40 V and the maximum charging current 100 A. Set your charge controller or inverter to stay within these values.
+
+### Where should it be installed?
+
+Install it in a dry, ventilated indoor place; its protection class is IP20, so it is not suitable for outdoors. Charging must take place between 0 and 50 °C.
+
+### Who installs it, and do you ship outside Antalya?
+
+We ship anywhere in Türkiye. In the Antalya region we offer optional on-site installation; elsewhere we plan the wiring with you by phone.
+
+[Go to page →](https://www.gespaenerji.com/en/aku-titanx-51v-102ah.html)
 
 ## MPPT charge controllers (Lexron)
 

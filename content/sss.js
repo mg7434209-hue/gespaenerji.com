@@ -135,6 +135,8 @@ module.exports = {
     { file: "paket-motor-golf.html", title: ["Golf aracı tipi motor paketi (460 W)", "Golf-cart-type EV set (460 W)", "Solar-Set für Golfcart-Fahrzeug (460 W)", "Комплект для электрокара типа гольф-кар (460 Вт)"] },
     { file: "paket-motor-mini.html", title: ["Mini elektrikli otomobil paketi (240 W)", "Mini electric car set (240 W)", "Solar-Set für Mini-Elektroauto (240 W)", "Комплект для мини-электромобиля (240 Вт)"] },
     { file: "aku-lifepo4-72v-30ah.html", title: ["72 V LiFePO₄ çekiş aküsü", "72 V LiFePO₄ traction battery", "72-V-LiFePO₄-Traktionsakku", "Тяговый аккумулятор LiFePO₄ 72 В"] },
+    { file: "panel-lexron-655w.html", title: ["Güneş panelleri", "Solar panels", "Solarmodule", "Солнечные панели"] },
+    { file: "aku-titanx-51v-102ah.html", title: ["TitanX LiFePO₄ akü (5,22 kWh)", "TitanX LiFePO₄ battery (5.22 kWh)", "TitanX LiFePO₄-Akku (5,22 kWh)", "Аккумулятор TitanX LiFePO₄ (5,22 кВт·ч)"] },
     { file: "lexron-mppt-30a.html", title: ["MPPT şarj kontrol cihazları (Lexron)", "MPPT charge controllers (Lexron)", "MPPT-Laderegler (Lexron)", "MPPT-контроллеры заряда (Lexron)"] },
     { file: "lexron-pwm-20a.html", title: ["PWM şarj kontrol cihazları (Lexron)", "PWM charge controllers (Lexron)", "PWM-Laderegler (Lexron)", "ШИМ-контроллеры заряда (Lexron)"] },
     { file: "havensis-mppt-30a.html", title: ["MPPT şarj kontrol cihazları (Havensis)", "MPPT charge controllers (Havensis)", "MPPT-Laderegler (Havensis)", "MPPT-контроллеры заряда (Havensis)"] },

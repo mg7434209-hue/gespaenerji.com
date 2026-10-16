@@ -88,6 +88,12 @@ Markalar — panel: Arçelik, Lexron, Bakırlar · inverter: Tescom, Mexxsun, Le
 - Golf Aracı Tipi Motor Güneş Paketi — 460 W — GES-SET-GOLF · Tavanlı, golf aracı tipi elektrikli yolcu araçları · ₺16.300 (≈ $331) liste (KDV dahil) · havale/EFT ile ₺15.800 (%3 indirimli)
 - Mini Elektrikli Otomobil Güneş Paketi — 240 W — GES-SET-MINI · Kapalı kabinli mini elektrikli otomobiller — tavan alanı küçük · ₺14.800 (≈ $301) liste (KDV dahil) · havale/EFT ile ₺14.350 (%3 indirimli)
 - MC4 Konnektör Takımı — GES-MC4-1 · Panel kablosu ile solar kablonun birleştirilmesi · ₺100 (≈ $2) (KDV dahil, net fiyat)
+- Hero LED 10 W 12 V DC LED Ampul (12–60 V AC/DC) — HL-7020 · Karavan, tekne, bağ evi ve akülü güneş sistemleri · ₺130 (≈ $3) (KDV dahil, net fiyat)
+- Hero LED 100 W Solar Sokak Armatürü (Sensörlü, Kumandalı) — HL-5151 · Bahçe, sokak, site, otopark ve fabrika aydınlatması · ₺1.200 (≈ $25) liste (KDV dahil) · havale/EFT ile ₺1.150 (%3 indirimli)
+- Hero LED 50 W Solar LED Aplik (Kumandalı, 3 Renk + RGB) — HL-5181 · Duvar, giriş kapısı, bahçe duvarı ve teras aydınlatması · ₺830 (≈ $17) liste (KDV dahil) · havale/EFT ile ₺800 (%3 indirimli) · 5 adet ve üzeri alımda adet fiyatı ₺760
+- Hero LED 50 W Solar Set Üstü Bahçe Armatürü (Kumandalı, 3 Renk + RGB) — HL-5180 · Bahçe duvarı, set, kolon başı ve giriş aydınlatması · ₺780 (≈ $16) liste (KDV dahil) · havale/EFT ile ₺750 (%3 indirimli) · 5 adet ve üzeri alımda adet fiyatı ₺710
+- Hero LED 200 W Solar Sokak Armatürü (Sensörlü, Kumandalı) — HL-5153 · Bahçe, sokak, site, otopark ve fabrika aydınlatması · ₺2.250 (≈ $45) liste (KDV dahil) · havale/EFT ile ₺2.200 (%3 indirimli) · 5 adet ve üzeri alımda adet fiyatı ₺2.050
+- Hero LED 600 W Solar Sokak Armatürü (Radar Sensörlü, Kumandalı) — HL-5157 · Geniş bahçe, sokak, site, otopark ve fabrika sahası · ₺2.650 (≈ $54) liste (KDV dahil) · havale/EFT ile ₺2.550 (%3 indirimli) · 5 adet ve üzeri alımda adet fiyatı ₺2.450
 Fiyat ve kur: katalog fiyatları USD bazlıdır; ₺ karşılığı TCMB döviz satış kuruyla günlük güncellenir (kur, işletmenin belirlediği asgari kurun altına inmez). Bu dosyadaki ₺ tutarlar 1 USD = 49,2 ₺ ile hesaplandı; güncel fiyat sitededir.
 Kargo & iade: Paketler TÜRKİYE'NİN HER İLİNE anlaşmalı kargo ile gönderilir (teslimat
 Antalya ile sınırlı değildir). Sipariş onayından sonra tahmini teslim 2–5 iş günü;

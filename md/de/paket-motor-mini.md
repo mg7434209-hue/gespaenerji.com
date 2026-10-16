@@ -3,7 +3,7 @@ title: "Solar-Set für Mini-Elektroauto — 240 W | GESPA Energy"
 description: "Komplettset für geschlossene Mini-Elektroautos: 240-W-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt."
 canonical: https://www.gespaenerji.com/de/paket-motor-mini.html
 lang: de
-dateModified: 2026-10-12
+dateModified: 2026-10-13
 publisher: "GESPA Enerji"
 ---
 

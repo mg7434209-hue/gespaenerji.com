@@ -3,7 +3,7 @@ title: "Sıkça Sorulan Sorular — Güneş Enerjisi, Sipariş ve Kurulum | GESP
 description: "Güneş enerjisi santrali, akü, elektrikli araç güneş dönüşümü, sipariş, kargo, ödeme ve kurulum hakkında sık sorulan soruların cevapları tek sayfada. GESPA Enerji, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/sss.html
 lang: tr
-dateModified: 2026-10-12
+dateModified: 2026-10-13
 publisher: "GESPA Enerji"
 ---
 
@@ -586,6 +586,50 @@ LiFePO₄, NMC gibi diğer lityum iyon kimyalarına göre ısıl olarak çok dah
 Evet. Panelden 72 V akü grubuna doğrudan şarj için BOOST MPPT 24–72 V şarj kontrol cihazını kullanıyoruz; hazır motor güneş paketlerimizde de bu cihaz var.
 
 [Sayfaya git →](https://www.gespaenerji.com/aku-lifepo4-72v-30ah.html)
+
+## Güneş panelleri
+
+### Kaç panel seri bağlayabilirim?
+
+Panelin Voc değeri 50,34 V. Soğukta Voc yükseldiği için %10 pay bırakarak hesaplarsak: 100 V panel girişli MPPT cihazlara (ör. Havensis Solar-30AMPS) en fazla 1, 150 V girişli cihazlara (ör. Havensis Solar-60AMPS 150|60) en fazla 2 panel seri bağlanır. Tek panel, elektrikli araç paketlerimizdeki BOOST MPPT'nin 15–60 V girişine de uyar. Kesin dizilimi sipariş öncesi bizimle kontrol edin.
+
+### Paneli doğrudan aküye bağlayabilir miyim?
+
+Hayır. Panel ile akü arasında mutlaka bir şarj kontrol cihazı bulunur; aksi hâlde akü aşırı şarj olur. Panel gerilimi akü geriliminin çok üstündeyse MPPT, yakınsa PWM cihaz seçin.
+
+### Büyük paneller nasıl gönderiliyor?
+
+Büyük paneller kırılmaya karşı korumalı paketle kargo ya da ambarla gönderilir. Teslim alırken paketi görevli önünde kontrol edin; hasarlı üründe tüm masraflar bize aittir. Palet bazında toptan sevkiyat için bize yazın.
+
+### Kurulumu kim yapar, Antalya dışına gönderiyor musunuz?
+
+Türkiye'nin her yerine kargo ile gönderiyoruz. Antalya bölgesinde isteğe bağlı yerinde kurulum yapıyoruz; diğer illerde bağlantıyı telefonla birlikte planlıyoruz.
+
+[Sayfaya git →](https://www.gespaenerji.com/panel-lexron-655w.html)
+
+## TitanX LiFePO₄ akü (5,22 kWh)
+
+### Hangi inverterle çalışır?
+
+48 V akü girişli inverterlerle çalışır. CAN / RS485 haberleşmesi olan inverterlerde akü bilgisi inverterle paylaşılır; inverterinizin modelini bize yazın, uyumu sipariş öncesi kontrol edelim.
+
+### Kapasiteyi artırabilir miyim?
+
+Evet, 16 adede kadar paralel bağlanabilir. Her akü 5,22 kWh eklediği için örneğin 2 akü yaklaşık 10,4 kWh, 4 akü yaklaşık 20,9 kWh depolar.
+
+### Şarj cihazımı nasıl ayarlamalıyım?
+
+Maksimum şarj gerilimi 58,4 V, deşarj kesme gerilimi 40 V, maksimum şarj akımı 100 A'dir. Şarj kontrol cihazınızı ya da inverterinizi bu değerlerin içinde kalacak şekilde ayarlayın.
+
+### Nereye yerleştirilmeli?
+
+Kuru, havadar ve kapalı bir yere yerleştirin; koruma sınıfı IP20'dir, açık havaya uygun değildir. Şarj 0~50 °C aralığında yapılmalıdır.
+
+### Kurulumu kim yapar, Antalya dışına gönderiyor musunuz?
+
+Türkiye'nin her yerine kargo ile gönderiyoruz. Antalya bölgesinde isteğe bağlı yerinde kurulum yapıyoruz; diğer illerde bağlantıyı telefonla birlikte planlıyoruz.
+
+[Sayfaya git →](https://www.gespaenerji.com/aku-titanx-51v-102ah.html)
 
 ## MPPT şarj kontrol cihazları (Lexron)
 

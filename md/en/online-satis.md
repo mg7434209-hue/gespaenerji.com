@@ -3,7 +3,7 @@ title: "Online Store — Solar Products and Equipment | GESPA Energy"
 description: "All products on sale in one place: ready-made solar kits, MPPT charge controllers and equipment. Transparent prices, VAT included, shipping across Türkiye."
 canonical: https://www.gespaenerji.com/en/online-satis.html
 lang: en
-dateModified: 2026-10-12
+dateModified: 2026-10-16
 publisher: "GESPA Enerji"
 ---
 
@@ -59,7 +59,7 @@ E-trikes, motorcycles and 72 V utility vehicles
 
 VAT included · shipping excluded
 
-### 50 W Solar Panel
+### [50 W Solar Panel](https://www.gespaenerji.com/en/panel-50w.html)
 
 Small lighting, cameras and battery charging
 
@@ -77,7 +77,7 @@ Camping, caravans, field work and home backup power
 
 VAT included · shipping excluded
 
-### Lexron 285 W Solar Panel
+### [Lexron 285 W Solar Panel](https://www.gespaenerji.com/en/panel-lexron-285w.html)
 
 Balconies, cabins and small off-grid systems
 
@@ -87,7 +87,7 @@ Balconies, cabins and small off-grid systems
 
 VAT included · shipping excluded
 
-### Lexron 655 W TOPCon Solar Panel
+### [Lexron 655 W TOPCon Solar Panel](https://www.gespaenerji.com/en/panel-lexron-655w.html)
 
 Rooftop and ground-mount systems, high-power installations
 
@@ -97,7 +97,7 @@ Rooftop and ground-mount systems, high-power installations
 
 VAT included · shipping excluded
 
-### 460 W Half-Cut Monocrystalline Solar Panel
+### [460 W Half-Cut Monocrystalline Solar Panel](https://www.gespaenerji.com/en/panel-460w.html)
 
 Golf-cart-type electric vehicles and small off-grid systems
 
@@ -107,7 +107,7 @@ Golf-cart-type electric vehicles and small off-grid systems
 
 VAT included · shipping excluded
 
-### 240 W Solar Panel (48 Cells)
+### [240 W Solar Panel (48 Cells)](https://www.gespaenerji.com/en/panel-240w.html)
 
 Mini electric cars and small off-grid systems
 
@@ -117,7 +117,7 @@ Mini electric cars and small off-grid systems
 
 VAT included · shipping excluded
 
-### Arçelik 540 W Solar Panel
+### [Arçelik 540 W Solar Panel](https://www.gespaenerji.com/en/panel-arcelik-540w.html)
 
 Rooftop and ground installations, for those who prefer a Turkish brand
 
@@ -127,7 +127,7 @@ Rooftop and ground installations, for those who prefer a Turkish brand
 
 VAT included · shipping excluded
 
-### TitanX 51.2 V 102 Ah LiFePO₄ Battery
+### [TitanX 51.2 V 102 Ah LiFePO₄ Battery](https://www.gespaenerji.com/en/aku-titanx-51v-102ah.html)
 
 Home and business energy storage, off-grid and backup power
 
@@ -287,7 +287,7 @@ Large 12/24/36/48 V battery-based solar systems
 
 VAT included · shipping excluded
 
-### Solar Cable Set (5 m Black + 5 m Red)
+### [Solar Cable Set (5 m Black + 5 m Red)](https://www.gespaenerji.com/en/kablo-solar-5m.html)
 
 Connection between panel and charge controller
 
@@ -337,11 +337,69 @@ Enclosed mini electric cars — small roof area
 
 VAT included · shipping excluded
 
-### MC4 Connector Set
+### [MC4 Connector Set](https://www.gespaenerji.com/en/mc4-set.html)
 
 Joining the panel lead to the solar cable
 
 **₺100**≈ $2
+
+VAT included · shipping excluded
+
+### [Hero LED 10 W 12 V DC LED Bulb (12–60 V AC/DC)](https://www.gespaenerji.com/en/hero-led-ampul-10w.html)
+
+Caravans, boats, country houses and solar battery systems
+
+**₺130**≈ $3
+
+VAT included · shipping excluded
+
+### [Hero LED 100 W Solar Street Light (Sensor, Remote)](https://www.gespaenerji.com/en/hero-led-solar-sokak-100w.html)
+
+Garden, street, estate, car park and factory lighting
+
+**₺1.200**≈ $25
+
+💰 By bank transfer: **₺1.150**
+
+VAT included · shipping excluded
+
+### [Hero LED 50 W Solar LED Wall Light (Remote, 3 Colours + RGB)](https://www.gespaenerji.com/en/hero-led-aplik-50w.html)
+
+Wall, entrance, garden wall and terrace lighting
+
+**₺830**≈ $17
+
+💰 By bank transfer: **₺800**
+
+VAT included · shipping excluded
+
+### [Hero LED 50 W Solar Pillar-Top Garden Light (Remote, 3 Colours + RGB)](https://www.gespaenerji.com/en/hero-led-bahce-50w.html)
+
+Garden wall, ledge, pillar-top and entrance lighting
+
+**₺780**≈ $16
+
+💰 By bank transfer: **₺750**
+
+VAT included · shipping excluded
+
+### [Hero LED 200 W Solar Street Light (Sensor, Remote)](https://www.gespaenerji.com/en/hero-led-solar-sokak-200w.html)
+
+Garden, street, estate, car park and factory lighting
+
+**₺2.250**≈ $45
+
+💰 By bank transfer: **₺2.200**
+
+VAT included · shipping excluded
+
+### [Hero LED 600 W Solar Street Light (Radar Sensor, Remote)](https://www.gespaenerji.com/en/hero-led-solar-sokak-600w.html)
+
+Large gardens, streets, estates, car parks and factory yards
+
+**₺2.650**≈ $54
+
+💰 By bank transfer: **₺2.550**
 
 VAT included · shipping excluded
 

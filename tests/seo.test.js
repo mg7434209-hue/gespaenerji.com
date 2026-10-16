@@ -309,7 +309,8 @@ assert.ok(!fs.readFileSync(path.join(root,'assets/config.js'),'utf8').includes(L
 const ADMIN_TEST_PASS='test-yonetici-sifresi',TEST_DATA=fs.mkdtempSync(path.join(require('node:os').tmpdir(),'gespa-test-'));
 const port=4317,server=spawn(process.execPath,['server.js'],{cwd:root,env:{...process.env,PORT:String(port),IYZIPAY_API_KEY:'',IYZICO_API_KEY:'',IYZIPAY_SECRET_KEY:RECEIPT_TEST_SECRET,FX_AUTO:'0',ADMIN_PASS:ADMIN_TEST_PASS,DATA_DIR:TEST_DATA}});
 let logs='',started=false;
-const timeout=setTimeout(()=>{server.kill();console.error(logs);process.exitCode=1;},25000);
+// Sunucu dinlemeden önce build çalıştırır; 238 sayfada bu ~25 s sürüyor (railway.json healthcheckTimeout 300 s).
+const timeout=setTimeout(()=>{server.kill();console.error(logs);process.exitCode=1;},90000);
 server.stderr.on('data',d=>logs+=d);
 server.stdout.on('data',async d=>{
  logs+=d;if(started||!logs.includes('adresinde yayında'))return;started=true;

@@ -452,6 +452,35 @@ ve sepet simgesi ekran dışında kalır.
   "kargo fiyata DAHİL" eklenir. Liste fiyatı kargoyu İÇERDİĞİ için kart
   ödemesinde de ek kargo alınmaz. Tek kural main.js `vatNote()` ve build.js
   `vatNote()`/`shipNote()` — yeni bir kargo notu eklersen oraya bağla.
+- HER KATALOG ÜRÜNÜNÜN DETAY SAYFASI VAR (13 Eki 2026, kullanıcı isteği):
+  paneller, TitanX, kablo ve MC4 sayfaları `tools/urun-sayfalar.py` ÜRETİR
+  (`panel-*.html`, `aku-titanx-51v-102ah.html`, `kablo-solar-5m.html`,
+  `mc4-set.html`; sözlük `URUNPAGE:DICT`, katalog kartı metinlerinin eksik
+  çevirileri de orada). Elle düzenlenmez. Panel sayfasındaki seri bağlama
+  sayısı Voc × 1,1 ile hesaplanır. YENİ ÜRÜN EKLERKEN detay sayfasını da
+  üret (ilgili betiğe ekle ya da paket-*.html kopyala); `url`'siz ürün
+  kalmasın.
+- AYDINLATMA (`group:"lighting"`, 16 Eki 2026): Hero LED 10 W 12 V DC ampul
+  (₺130 NET, `noCartDiscount` — %3 havale 50'ye yuvarlanınca sıfırlanıyordu)
+  ve Hero LED 100 W solar sokak armatürü HL-5151 (₺1.200; belgedeki ₺1.215
+  ≥₺1.000 yuvarlamasıyla yazılamadığı için). Kaynak `aydinlatma_2.rtf`;
+  değerler üretici afişlerinden, afişte olmayan (duy, akü kapasitesi, şarj
+  süresi) YAZILMAZ. HERO LED gerçek marka, logo SİLİNMEZ. Sayfaları
+  `tools/urun-sayfalar.py` üretir (galeri `GALLERY`).
+  Ek 4 ürün (aynı gün; aydinlatma/aydinlatma3/aydin4/aydin5.rtf): 50 W solar
+  aplik HL-5181, 50 W set üstü bahçe HL-5180, 200 W sokak HL-5153, 600 W
+  sokak HL-5157 (`lighting2()`). Belgedeki fiyat 5'Lİ ALIMIN adet fiyatıdır.
+- 5'Lİ (ADET) FİYAT: `bulk: { min: 5, price }` → sepette adet ≥ `min` olunca
+  birim fiyat `bulk.price`, altında `price` (tekli = 5'li × 1,10, işletme
+  kararı). Kural main.js `pkgUnit(p, qty)` ve server.js `pkgListTL(p, cfg,
+  qty)`'de AYNIDIR; birini değiştirirsen ötekini de değiştir. Ürün sayfasında
+  `[data-pkg-bulk]` satırı (betik `add_bulk()` basar) ve adet 5'e çıkınca
+  fiyat/havale tutarı adet fiyatına döner; kartta `.sh-bulk`, sepette
+  `.cart-item-bulk`; llms-full.txt'te "5 adet ve üzeri…" eki. Şema, ürün akışı
+  ve vitrin TEKLİ fiyatı gösterir.
+- HAVALE ≤ LİSTE: 50'ye yuvarlama ucuz üründe havaleyi listenin ÜSTÜNE
+  çıkarıyordu (₺130 → ₺150). main.js `pkgUnit()`/vitrin ve build.js
+  `havaleTL()` artık `Math.min(liste, …)` kullanır.
 - `img` boşsa kart nötr yer tutucu (`.sh-noimg`) gösterir; BAŞKA ürünün
   fotoğrafı kullanılmaz. `url` boşsa "Detay" düğmesi ve bağlantılar basılmaz.
 - Yönetici şifresi YALNIZ Railway ortam değişkeni `ADMIN_PASS`'tır; config'e

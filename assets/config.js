@@ -349,6 +349,7 @@ window.GESPA.config = {
     // img: gerçek 50 W panel fotoğrafı gelince doldurulacak (şu an yer tutucu).
     {
       id: "panel-50w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-50w.html",
       sku: "GES-PNL-50",
       img: "assets/img/products/panel-50w.webp",
       price: 35.57, currency: "USD",     // ₺1.750 @ 49,2 (işletme, 5 Eki 2026)
@@ -392,6 +393,7 @@ window.GESPA.config = {
     // o komple sistem, bu tek panel. Adları karıştırma.
     {
       id: "panel-lexron-285w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-lexron-285w.html",
       sku: "GES-PNL-285", brand: "Lexron",
       img: "assets/img/products/panel-lexron-285w.webp",
       price: 152.44, currency: "USD",                     // ₺7.500 @ 49,2
@@ -403,6 +405,7 @@ window.GESPA.config = {
     },
     {
       id: "panel-lexron-655w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-lexron-655w.html",
       sku: "GES-PNL-655", brand: "Lexron",
       img: "assets/img/products/panel-lexron-655w.webp",
       price: 203.25, currency: "USD",                     // ₺10.000 @ 49,2
@@ -420,6 +423,7 @@ window.GESPA.config = {
     // Fotoğraflar kaynak/panel-*.png → tools/foto-hazirla.py.
     {
       id: "panel-460w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-460w.html",
       sku: "GES-PNL-460",
       img: "assets/img/products/panel-460w.webp",
       price: 162.6, currency: "USD",                      // ₺8.000 @ 49,2
@@ -435,6 +439,7 @@ window.GESPA.config = {
       // yazılan 1575 × 705 mm'lik panelin değerleri BAŞKA bir panele aitti,
       // kaldırıldı. Hücre tipi künyede yok — "TOPCon"/"mono" YAZILMAZ.
       id: "panel-240w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-240w.html",
       sku: "GES-PNL-240",
       img: "assets/img/products/panel-240w.webp",
       price: 132.11, currency: "USD",                     // ₺6.500 @ 49,2
@@ -448,6 +453,7 @@ window.GESPA.config = {
     // teknik değer YAZILMAZ. Künye gelirse buradan genişlet.
     {
       id: "panel-arcelik-540w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-arcelik-540w.html",
       sku: "GES-PNL-540", brand: "Arçelik",
       img: "assets/img/products/panel-arcelik-540w.webp",
       price: 203.25, currency: "USD",                     // ₺10.000 @ 49,2
@@ -462,6 +468,7 @@ window.GESPA.config = {
     // listelenir (urunler.html GROUPS listesinde yoktur).
     {
       id: "aku-titanx-51v-102ah", icon: "🔋", tag: "Enerji Depolama", group: "storage",
+      url: "aku-titanx-51v-102ah.html",
       sku: "GES-AKU-102", brand: "TitanX",
       img: "assets/img/products/aku-titanx-51v-102ah.webp",
       price: 1491.3, currency: "USD",                     // ₺73.400 (eski ₺73.372) @ 49,2
@@ -683,6 +690,7 @@ window.GESPA.config = {
       // Belirli bir kesit yazmak teslimatla çelişirdi; durum açıklamada
       // olduğu gibi söylenir.
       id: "kablo-solar-5m", icon: "🔌", tag: "Kablo", group: "cable",
+      url: "kablo-solar-5m.html",
       sku: "GES-KBL-5M",
       img: "assets/img/products/kablo-solar-5m.webp",
       price: 20.33, currency: "USD",                      // ₺1.000 @ 49,2
@@ -758,6 +766,7 @@ window.GESPA.config = {
 
     {
       id: "mc4-set", icon: "🔗", tag: "Konnektör", group: "cable",
+      url: "mc4-set.html",
       sku: "GES-MC4-1",
       img: "assets/img/products/mc4-set.webp",
       price: 2.03, currency: "USD",                       // ₺100 @ 49,2
@@ -766,6 +775,100 @@ window.GESPA.config = {
       name: "MC4 Konnektör Takımı",
       desc: "Güneş paneli çıkış kablosu ile solar kabloyu birleştiren erkek-dişi MC4 konnektör takımı. Elektrikli motor güneş paketlerine 1 takım dahildir.",
       features: ["1 takım erkek + dişi MC4 konnektör", "Panel kablosu – solar kablo bağlantısı", "Elektrikli motor güneş paketlerine dahildir"]
+    },
+
+    // —— Aydınlatma —— Hero LED (16 Eki 2026, işletmenin gönderdiği
+    // aydinlatma_2.rtf). Değerler üreticinin ürün afişlerinden; afişte
+    // olmayan değer (duy tipi, akü kapasitesi, şarj süresi) YAZILMAZ.
+    // HERO LED gerçek üretici markasıdır, fotoğraftaki logo SİLİNMEZ.
+    // FİYAT: belgede ₺130 ve ₺1.215. ₺1.215, ≥₺1.000 tutarlar 50'ye
+    // yuvarlandığı için yazılamaz; en yakın ₺1.200 seçildi.
+    {
+      id: "hero-led-ampul-10w", icon: "💡", tag: "Aydınlatma", group: "lighting",
+      url: "hero-led-ampul-10w.html",
+      sku: "HL-7020", brand: "Hero LED",
+      img: "assets/img/products/hero-led-ampul-10w.webp",
+      price: 2.64, currency: "USD",                       // ₺130 @ 49,2
+      // %3 havale indirimi 50'ye yuvarlanınca ₺130'da sıfırlanıyor; rozet
+      // "indirim" deyip indirim vermesin diye fiyat NET tutulur.
+      noCartDiscount: true,
+      chips: ["💡 10 W · 850 lm", "⚡ 12–60 V AC/DC", "⚪ 6500 K beyaz"],
+      for: "Karavan, tekne, bağ evi ve akülü güneş sistemleri",
+      name: "Hero LED 10 W 12 V DC LED Ampul (12–60 V AC/DC)",
+      desc: "12–60 V AC/DC geniş gerilim aralığında çalışan 10 W LED ampul: 850 lümen, 6500 K beyaz ışık. 12 V ve 24 V akülü güneş sistemlerinde, karavanda, teknede ve bağ evinde doğrudan aküden çalışır. Ölçü 60 × 118 mm, çalışma sıcaklığı −20 ~ +55 °C, enerji sınıfı F (10 kWh/1000 saat); ultraviyole ışın içermez.",
+      features: ["10 W · 850 lümen · 6500 K beyaz ışık", "12–60 V AC/DC geniş gerilim aralığı", "12 V / 24 V akü sistemlerinde doğrudan kullanım", "60 × 118 mm · −20 ~ +55 °C", "Enerji sınıfı F · 10 kWh/1000 saat · UV içermez"]
+    },
+    {
+      id: "hero-led-solar-sokak-100w", icon: "🌙", tag: "Aydınlatma", group: "lighting",
+      url: "hero-led-solar-sokak-100w.html",
+      sku: "HL-5151", brand: "Hero LED",
+      img: "assets/img/products/hero-led-solar-sokak-100w.webp",
+      price: 24.7, currency: "USD",                       // ₺1.200 @ 49,2
+      chips: ["☀️ Güneş panelli", "🚶 Hareket sensörü", "💧 IP65"],
+      for: "Bahçe, sokak, site, otopark ve fabrika aydınlatması",
+      name: "Hero LED 100 W Solar Sokak Armatürü (Sensörlü, Kumandalı)",
+      desc: "Güneş paneliyle şarj olup gece çalışan 100 W solar sokak armatürü (HL-5151): elektrik hattı çekmeden aydınlatma sağlar. SMD LED, 6500 K beyaz ışık, hareket sensörüyle otomatik yanma, uzaktan kumanda, IP65 suya dayanıklılık ve 30.000 saat ömür. Bahçe, sokak, site, otopark ve fabrika aydınlatması için.",
+      features: ["Güneş panelli — elektrik hattı gerektirmez", "SMD LED · 6500 K beyaz ışık", "Hareket sensörüyle otomatik yanma", "Uzaktan kumanda", "IP65 suya dayanıklı · 30.000 saat ömür"]
+    },
+
+    // —— 5'Lİ ALIM FİYATLI Hero LED ürünleri (16 Eki 2026; aydinlatma.rtf,
+    // aydinlatma3.rtf, aydin4.rtf, aydin5.rtf). Belgedeki fiyat 5 adet ve
+    // üzeri alımın ADET fiyatıdır (`bulk`); tek alımda %10 fazlası (`price`).
+    // Kural main.js pkgUnit(p, qty) ve server.js pkgListTL(p, cfg, qty)'de
+    // AYNIDIR. Belge → site (yuvarlama): aplik ₺755 → ₺760 / tekli ₺830;
+    // bahçe ₺705 → ₺710 / ₺780; 200 W ₺2.025 → ₺2.050 / ₺2.250;
+    // 600 W ₺2.430 → ₺2.450 / ₺2.650.
+    {
+      id: "hero-led-aplik-50w", icon: "🏮", tag: "Aydınlatma", group: "lighting",
+      url: "hero-led-aplik-50w.html",
+      sku: "HL-5181", brand: "Hero LED",
+      img: "assets/img/products/hero-led-aplik-50w.webp",
+      price: 16.88, currency: "USD",                      // ₺830 @ 49,2 (tekli)
+      bulk: { min: 5, price: 15.35 },                     // ₺760 @ 49,2 (5+ adet)
+      chips: ["☀️ Güneş enerjili", "🌈 3 renk + RGB", "💧 IP65"],
+      for: "Duvar, giriş kapısı, bahçe duvarı ve teras aydınlatması",
+      name: "Hero LED 50 W Solar LED Aplik (Kumandalı, 3 Renk + RGB)",
+      desc: "Üstündeki güneş paneliyle gündüz şarj olup gece çalışan 50 W solar duvar apliği (HL-5181): elektrik hattı gerektirmez. 4000 lümen, 3200 K / 4000 K / 6500 K ve RGB ışık seçeneği, 60° ışık açısı, uzaktan kumanda, IP65 suya dayanıklılık ve 15.000 saat ömür. Şarj süresi 6 saat, çalışma süresi 8 saat; ölçü 160 × 160 × 213 mm.",
+      features: ["Güneş enerjili — elektrik hattı gerektirmez", "50 W · 4000 lümen · 60° ışık açısı", "3200 K / 4000 K / 6500 K + RGB ışık seçeneği", "Uzaktan kumanda · duvar tipi montaj", "IP65 suya dayanıklı · 15.000 saat ömür", "Şarj 6 saat · çalışma 8 saat"]
+    },
+    {
+      id: "hero-led-bahce-50w", icon: "🏡", tag: "Aydınlatma", group: "lighting",
+      url: "hero-led-bahce-50w.html",
+      sku: "HL-5180", brand: "Hero LED",
+      img: "assets/img/products/hero-led-bahce-50w.webp",
+      price: 15.76, currency: "USD",                      // ₺780 @ 49,2 (tekli)
+      bulk: { min: 5, price: 14.33 },                     // ₺710 @ 49,2 (5+ adet)
+      chips: ["☀️ Güneş enerjili", "🌈 3 renk + RGB", "💧 IP65"],
+      for: "Bahçe duvarı, set, kolon başı ve giriş aydınlatması",
+      name: "Hero LED 50 W Solar Set Üstü Bahçe Armatürü (Kumandalı, 3 Renk + RGB)",
+      desc: "Bahçe duvarı, set ve kolon başına takılan 50 W solar bahçe armatürü (HL-5180); duvara da monte edilebilir. Üstündeki güneş paneliyle şarj olur, elektrik hattı gerektirmez. 4000 lümen, 3200 K / 4000 K / 6500 K ve RGB ışık seçeneği, 60° ışık açısı, uzaktan kumanda, IP65 suya dayanıklılık ve 15.000 saat ömür. Şarj süresi 6 saat, çalışma süresi 8 saat; ölçü 160 × 160 × 213 mm.",
+      features: ["Güneş enerjili — elektrik hattı gerektirmez", "50 W · 4000 lümen · 60° ışık açısı", "3200 K / 4000 K / 6500 K + RGB ışık seçeneği", "Uzaktan kumanda · set üstü / duvar tipi montaj", "IP65 suya dayanıklı · 15.000 saat ömür", "Şarj 6 saat · çalışma 8 saat"]
+    },
+    {
+      id: "hero-led-solar-sokak-200w", icon: "🌙", tag: "Aydınlatma", group: "lighting",
+      url: "hero-led-solar-sokak-200w.html",
+      sku: "HL-5153", brand: "Hero LED",
+      img: "assets/img/products/hero-led-solar-sokak-200w.webp",
+      price: 45.27, currency: "USD",                      // ₺2.250 @ 49,2 (tekli)
+      bulk: { min: 5, price: 41.16 },                     // ₺2.050 @ 49,2 (5+ adet)
+      chips: ["☀️ Güneş panelli", "🚶 Hareket sensörü", "💧 IP65"],
+      for: "Bahçe, sokak, site, otopark ve fabrika aydınlatması",
+      name: "Hero LED 200 W Solar Sokak Armatürü (Sensörlü, Kumandalı)",
+      desc: "Güneş paneliyle şarj olup gece çalışan 200 W solar sokak armatürü (HL-5153): elektrik hattı çekmeden aydınlatma sağlar. SMD LED, 6500 K beyaz ışık, hareket sensörüyle otomatik yanma, sabit yanma zaman ayarı, uzaktan kumanda, IP65 suya dayanıklılık ve 30.000 saat ömür. Armatür ölçüsü 188 × 586 mm. Bahçe, sokak, site, otopark ve fabrika aydınlatması için.",
+      features: ["Güneş panelli — elektrik hattı gerektirmez", "SMD LED · 6500 K beyaz ışık", "Hareket sensörü · sabit yanma zaman ayarı", "Uzaktan kumanda", "IP65 suya dayanıklı · 30.000 saat ömür", "Armatür 188 × 586 mm"]
+    },
+    {
+      id: "hero-led-solar-sokak-600w", icon: "🌙", tag: "Aydınlatma", group: "lighting",
+      url: "hero-led-solar-sokak-600w.html",
+      sku: "HL-5157", brand: "Hero LED",
+      img: "assets/img/products/hero-led-solar-sokak-600w.webp",
+      price: 54.33, currency: "USD",                      // ₺2.650 @ 49,2 (tekli)
+      bulk: { min: 5, price: 49.39 },                     // ₺2.450 @ 49,2 (5+ adet)
+      chips: ["☀️ Güneş panelli", "📡 Radar sensör", "💧 IP65"],
+      for: "Geniş bahçe, sokak, site, otopark ve fabrika sahası",
+      name: "Hero LED 600 W Solar Sokak Armatürü (Radar Sensörlü, Kumandalı)",
+      desc: "Geniş alanlar için 600 W solar sokak armatürü (HL-5157): ayrı güneş paneliyle şarj olur, elektrik hattı ve elektrik faturası gerektirmez. SMD LED, 6500 K beyaz ışık, radar hareket sensörü, sabit yanma zaman ayarı, uzaktan kumanda, IP65 suya dayanıklılık ve 30.000 saat ömür. Kutu bilgisine göre sensör modunda 24–36 saat, sabit yanmada 6–8 saat çalışır. Armatür ölçüsü 29,8 × 46,5 cm.",
+      features: ["Ayrı güneş paneli — elektrik hattı gerektirmez", "SMD LED · 6500 K beyaz ışık", "Radar hareket sensörü · sabit yanma zaman ayarı", "Sensör modunda 24–36 saat · sabit yanmada 6–8 saat", "Uzaktan kumanda · IP65 · 30.000 saat ömür", "Armatür 29,8 × 46,5 cm"]
     },
 
   ],
