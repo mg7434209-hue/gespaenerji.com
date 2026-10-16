@@ -43,6 +43,7 @@ const PAGES = [
   // Paneller, akü, kablo, MC4 — tools/urun-sayfalar.py üretir
   "panel-50w.html", "panel-240w.html", "panel-lexron-285w.html", "panel-460w.html", "panel-arcelik-540w.html", "panel-lexron-655w.html",
   "aku-titanx-51v-102ah.html", "kablo-solar-5m.html", "mc4-set.html",
+  "hero-led-ampul-10w.html", "hero-led-solar-sokak-100w.html",
   "sepet.html"   // noindex; sitemap'e girmez (NOSITEMAP)
 ];
 
@@ -278,6 +279,16 @@ const META = {
     en: { t: "MC4 Connector Set | GESPA Energy", d: "Male + female MC4 connector set for joining the panel cable to the solar cable." },
     de: { t: "MC4-Steckerset | GESPA Energy", d: "MC4-Steckerset (Stecker + Buchse) zur Verbindung von Modulkabel und Solarkabel." },
     ru: { t: "Набор разъёмов MC4 | GESPA", d: "Набор разъёмов MC4 папа + мама для соединения кабеля панели с солнечным кабелем." }
+  },
+  "hero-led-ampul-10w.html": {
+    en: { t: "Hero LED 10W 12V DC LED Bulb (12–60V AC/DC) | GESPA Energy", d: "Hero LED 10 W LED bulb for 12–60 V AC/DC: 850 lm, 6500 K white light. Runs straight from the battery in caravans, boats and solar battery systems." },
+    de: { t: "Hero LED 10W 12V DC LED-Lampe (12–60V AC/DC) | GESPA Energy", d: "Hero LED 10-W-LED-Lampe für 12–60 V AC/DC: 850 lm, 6500 K weißes Licht. Läuft direkt an der Batterie in Wohnmobilen, Booten und solaren Batterieanlagen." },
+    ru: { t: "Лампа Hero LED 10 Вт 12 В DC (12–60 В AC/DC) | GESPA", d: "Светодиодная лампа Hero LED 10 Вт для 12–60 В AC/DC: 850 лм, белый свет 6500 K. Работает прямо от аккумулятора в автодомах, лодках и солнечных системах." }
+  },
+  "hero-led-solar-sokak-100w.html": {
+    en: { t: "Hero LED 100W Solar Street Light with Sensor | GESPA Energy", d: "Hero LED 100 W solar street light (HL-5151): solar panel, motion sensor, remote control, IP65, 30,000 h. No power line needed." },
+    de: { t: "Hero LED 100W Solar-Straßenleuchte mit Sensor | GESPA Energy", d: "Hero LED 100 W Solar-Straßenleuchte (HL-5151): Solarmodul, Bewegungssensor, Fernbedienung, IP65, 30.000 h. Keine Stromleitung nötig." },
+    ru: { t: "Солнечный уличный светильник Hero LED 100 Вт с датчиком | GESPA", d: "Солнечный уличный светильник Hero LED 100 Вт (HL-5151): солнечная панель, датчик движения, пульт, IP65, 30 000 ч. Электролиния не нужна." }
   },
   "sss.html": {
     en: { t: "Frequently Asked Questions — Solar Power, Orders and Installation | GESPA Energy",
@@ -1016,7 +1027,8 @@ function shipNote(p) {
     : "Türkiye'nin her yerine kargo ile gönderilir.";
 }
 function havaleTL(p, tl, pct) {
-  return p.noCartDiscount ? tl : Math.round(tl * (100 - pct) / 100 / 50) * 50;
+  // main.js pkgUnit ile AYNI: havale hiçbir zaman liste fiyatını geçmez.
+  return p.noCartDiscount ? tl : Math.min(tl, Math.round(tl * (100 - pct) / 100 / 50) * 50);
 }
 
 // `parts` listesi olan paket ürünlerin (hazır set) fiyatını DENETLER.
@@ -1773,6 +1785,7 @@ const LLMS_GROUPS = [
     "havensis-dcdc-30a.html", "havensis-dcdc-40a.html", "havensis-dcdc-40a-cift-yonlu.html", "havensis-boost-dcdc-2448.html",
     "lexron-pwm-20a.html", "lexron-pwm-30a.html", "lexron-pwm-40a.html", "lexron-pwm-60a.html", "lexron-mppt-20a.html", "lexron-mppt-30a.html", "lexron-mppt-40a.html", "lexron-mppt-80a-hv.html",
     "panel-50w.html", "panel-240w.html", "panel-lexron-285w.html", "panel-460w.html", "panel-arcelik-540w.html", "panel-lexron-655w.html", "aku-titanx-51v-102ah.html", "kablo-solar-5m.html", "mc4-set.html",
+    "hero-led-ampul-10w.html", "hero-led-solar-sokak-100w.html",
     "su-isitici.html", "toptan.html"]],
   ["Yapay zekâ ürünleri", ["yapay-zeka-urunleri.html", "ai-cankurtaran-destek-sistemi.html"]],
   ["Ücretsiz araçlar", ["hesaplayici.html", "sistem-kur.html"]],

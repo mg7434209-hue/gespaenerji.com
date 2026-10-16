@@ -3,7 +3,7 @@ title: "Солнечная панель Lexron 655 Вт N-type TOPCon | GESPA"
 description: "Панель Lexron 655 Вт N-type TOPCon: КПД 24,25 %, Voc 50,34 В, 2382 × 1134 × 35 мм, 31 кг, IP68, 30 лет на мощность."
 canonical: https://www.gespaenerji.com/ru/panel-lexron-655w.html
 lang: ru
-dateModified: 2026-10-13
+dateModified: 2026-10-16
 publisher: "GESPA Enerji"
 ---
 

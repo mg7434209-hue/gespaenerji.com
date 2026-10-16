@@ -3,7 +3,7 @@ title: "Onlineshop — Solarprodukte und Ausrüstung | GESPA Energy"
 description: "Alle Verkaufsprodukte auf einer Seite: Solar-Fertigsets, MPPT-Laderegler und Zubehör. Transparente Preise inkl. MwSt., Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/online-satis.html
 lang: de
-dateModified: 2026-10-13
+dateModified: 2026-10-16
 publisher: "GESPA Enerji"
 ---
 
@@ -342,6 +342,24 @@ Inkl. MwSt. · zzgl. Versand
 Verbindung von Modulleitung und Solarkabel
 
 **₺100**≈ $2
+
+Inkl. MwSt. · zzgl. Versand
+
+### [Hero LED 10 W 12 V DC LED-Lampe (12–60 V AC/DC)](https://www.gespaenerji.com/de/hero-led-ampul-10w.html)
+
+Wohnmobile, Boote, Ferienhäuser und solare Batterieanlagen
+
+**₺130**≈ $3
+
+Inkl. MwSt. · zzgl. Versand
+
+### [Hero LED 100 W Solar-Straßenleuchte (Sensor, Fernbedienung)](https://www.gespaenerji.com/de/hero-led-solar-sokak-100w.html)
+
+Garten-, Straßen-, Wohnanlagen-, Parkplatz- und Fabrikbeleuchtung
+
+**₺1.200**≈ $25
+
+💰 Per Überweisung: **₺1.150**
 
 Inkl. MwSt. · zzgl. Versand
 

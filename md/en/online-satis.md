@@ -3,7 +3,7 @@ title: "Online Store — Solar Products and Equipment | GESPA Energy"
 description: "All products on sale in one place: ready-made solar kits, MPPT charge controllers and equipment. Transparent prices, VAT included, shipping across Türkiye."
 canonical: https://www.gespaenerji.com/en/online-satis.html
 lang: en
-dateModified: 2026-10-13
+dateModified: 2026-10-16
 publisher: "GESPA Enerji"
 ---
 
@@ -342,6 +342,24 @@ VAT included · shipping excluded
 Joining the panel lead to the solar cable
 
 **₺100**≈ $2
+
+VAT included · shipping excluded
+
+### [Hero LED 10 W 12 V DC LED Bulb (12–60 V AC/DC)](https://www.gespaenerji.com/en/hero-led-ampul-10w.html)
+
+Caravans, boats, country houses and solar battery systems
+
+**₺130**≈ $3
+
+VAT included · shipping excluded
+
+### [Hero LED 100 W Solar Street Light (Sensor, Remote)](https://www.gespaenerji.com/en/hero-led-solar-sokak-100w.html)
+
+Garden, street, estate, car park and factory lighting
+
+**₺1.200**≈ $25
+
+💰 By bank transfer: **₺1.150**
 
 VAT included · shipping excluded
 

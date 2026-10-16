@@ -3,7 +3,7 @@ title: "Lexron 285-W-TOPCon-Solarmodul | GESPA Energy"
 description: "Lexron 210R PowerLite 285-W-TOPCon-Modul: Voc 42,84 V, 780 × 1536 × 30 mm, 8,5 kg, 12 Jahre Produkt- und 30 Jahre Leistungsgarantie."
 canonical: https://www.gespaenerji.com/de/panel-lexron-285w.html
 lang: de
-dateModified: 2026-10-13
+dateModified: 2026-10-16
 publisher: "GESPA Enerji"
 ---
 

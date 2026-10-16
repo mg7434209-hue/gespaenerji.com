@@ -88,6 +88,8 @@ Markalar — panel: Arçelik, Lexron, Bakırlar · inverter: Tescom, Mexxsun, Le
 - Golf Aracı Tipi Motor Güneş Paketi — 460 W — GES-SET-GOLF · Tavanlı, golf aracı tipi elektrikli yolcu araçları · ₺16.300 (≈ $331) liste (KDV dahil) · havale/EFT ile ₺15.800 (%3 indirimli)
 - Mini Elektrikli Otomobil Güneş Paketi — 240 W — GES-SET-MINI · Kapalı kabinli mini elektrikli otomobiller — tavan alanı küçük · ₺14.800 (≈ $301) liste (KDV dahil) · havale/EFT ile ₺14.350 (%3 indirimli)
 - MC4 Konnektör Takımı — GES-MC4-1 · Panel kablosu ile solar kablonun birleştirilmesi · ₺100 (≈ $2) (KDV dahil, net fiyat)
+- Hero LED 10 W 12 V DC LED Ampul (12–60 V AC/DC) — HL-7020 · Karavan, tekne, bağ evi ve akülü güneş sistemleri · ₺130 (≈ $3) (KDV dahil, net fiyat)
+- Hero LED 100 W Solar Sokak Armatürü (Sensörlü, Kumandalı) — HL-5151 · Bahçe, sokak, site, otopark ve fabrika aydınlatması · ₺1.200 (≈ $25) liste (KDV dahil) · havale/EFT ile ₺1.150 (%3 indirimli)
 Fiyat ve kur: katalog fiyatları USD bazlıdır; ₺ karşılığı TCMB döviz satış kuruyla günlük güncellenir (kur, işletmenin belirlediği asgari kurun altına inmez). Bu dosyadaki ₺ tutarlar 1 USD = 49,2 ₺ ile hesaplandı; güncel fiyat sitededir.
 Kargo & iade: Paketler TÜRKİYE'NİN HER İLİNE anlaşmalı kargo ile gönderilir (teslimat
 Antalya ile sınırlı değildir). Sipariş onayından sonra tahmini teslim 2–5 iş günü;

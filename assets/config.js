@@ -777,6 +777,40 @@ window.GESPA.config = {
       features: ["1 takım erkek + dişi MC4 konnektör", "Panel kablosu – solar kablo bağlantısı", "Elektrikli motor güneş paketlerine dahildir"]
     },
 
+    // —— Aydınlatma —— Hero LED (16 Eki 2026, işletmenin gönderdiği
+    // aydinlatma_2.rtf). Değerler üreticinin ürün afişlerinden; afişte
+    // olmayan değer (duy tipi, akü kapasitesi, şarj süresi) YAZILMAZ.
+    // HERO LED gerçek üretici markasıdır, fotoğraftaki logo SİLİNMEZ.
+    // FİYAT: belgede ₺130 ve ₺1.215. ₺1.215, ≥₺1.000 tutarlar 50'ye
+    // yuvarlandığı için yazılamaz; en yakın ₺1.200 seçildi.
+    {
+      id: "hero-led-ampul-10w", icon: "💡", tag: "Aydınlatma", group: "lighting",
+      url: "hero-led-ampul-10w.html",
+      sku: "HL-7020", brand: "Hero LED",
+      img: "assets/img/products/hero-led-ampul-10w.webp",
+      price: 2.64, currency: "USD",                       // ₺130 @ 49,2
+      // %3 havale indirimi 50'ye yuvarlanınca ₺130'da sıfırlanıyor; rozet
+      // "indirim" deyip indirim vermesin diye fiyat NET tutulur.
+      noCartDiscount: true,
+      chips: ["💡 10 W · 850 lm", "⚡ 12–60 V AC/DC", "⚪ 6500 K beyaz"],
+      for: "Karavan, tekne, bağ evi ve akülü güneş sistemleri",
+      name: "Hero LED 10 W 12 V DC LED Ampul (12–60 V AC/DC)",
+      desc: "12–60 V AC/DC geniş gerilim aralığında çalışan 10 W LED ampul: 850 lümen, 6500 K beyaz ışık. 12 V ve 24 V akülü güneş sistemlerinde, karavanda, teknede ve bağ evinde doğrudan aküden çalışır. Ölçü 60 × 118 mm, çalışma sıcaklığı −20 ~ +55 °C, enerji sınıfı F (10 kWh/1000 saat); ultraviyole ışın içermez.",
+      features: ["10 W · 850 lümen · 6500 K beyaz ışık", "12–60 V AC/DC geniş gerilim aralığı", "12 V / 24 V akü sistemlerinde doğrudan kullanım", "60 × 118 mm · −20 ~ +55 °C", "Enerji sınıfı F · 10 kWh/1000 saat · UV içermez"]
+    },
+    {
+      id: "hero-led-solar-sokak-100w", icon: "🌙", tag: "Aydınlatma", group: "lighting",
+      url: "hero-led-solar-sokak-100w.html",
+      sku: "HL-5151", brand: "Hero LED",
+      img: "assets/img/products/hero-led-solar-sokak-100w.webp",
+      price: 24.7, currency: "USD",                       // ₺1.200 @ 49,2
+      chips: ["☀️ Güneş panelli", "🚶 Hareket sensörü", "💧 IP65"],
+      for: "Bahçe, sokak, site, otopark ve fabrika aydınlatması",
+      name: "Hero LED 100 W Solar Sokak Armatürü (Sensörlü, Kumandalı)",
+      desc: "Güneş paneliyle şarj olup gece çalışan 100 W solar sokak armatürü (HL-5151): elektrik hattı çekmeden aydınlatma sağlar. SMD LED, 6500 K beyaz ışık, hareket sensörüyle otomatik yanma, uzaktan kumanda, IP65 suya dayanıklılık ve 30.000 saat ömür. Bahçe, sokak, site, otopark ve fabrika aydınlatması için.",
+      features: ["Güneş panelli — elektrik hattı gerektirmez", "SMD LED · 6500 K beyaz ışık", "Hareket sensörüyle otomatik yanma", "Uzaktan kumanda", "IP65 suya dayanıklı · 30.000 saat ömür"]
+    },
+
   ],
 
   // ============================================================

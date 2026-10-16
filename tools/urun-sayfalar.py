@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Paneller, TitanX akü, solar kablo ve MC4 ürün sayfaları (9 sayfa) — TEK KAYNAK.
+"""Paneller, TitanX akü, solar kablo, MC4 ve Hero LED aydınlatma ürün sayfaları (11 sayfa) — TEK KAYNAK.
 
 Kullanım:
   python3 tools/urun-sayfalar.py            DRY-RUN: üretir, denetler, yazmaz
@@ -121,6 +121,36 @@ CFG = [
  ("☀️ Panel bağlantısı", "☀️ Panel connection", "☀️ Modulanschluss", "☀️ Подключение панели"),
  ("1 takım erkek + dişi MC4 konnektör", "1 set of male + female MC4 connectors", "1 Set MC4-Stecker + -Buchse", "1 комплект разъёмов MC4 папа + мама"),
  ("Panel kablosu – solar kablo bağlantısı", "Panel cable – solar cable connection", "Verbindung Modulkabel – Solarkabel", "Соединение кабель панели – солнечный кабель"),
+ # Hero LED ampul
+ ("💡 10 W · 850 lm", "💡 10 W · 850 lm", "💡 10 W · 850 lm", "💡 10 Вт · 850 лм"),
+ ("⚡ 12–60 V AC/DC", "⚡ 12–60 V AC/DC", "⚡ 12–60 V AC/DC", "⚡ 12–60 В AC/DC"),
+ ("⚪ 6500 K beyaz", "⚪ 6500 K white", "⚪ 6500 K weiß", "⚪ 6500 K белый"),
+ ("Karavan, tekne, bağ evi ve akülü güneş sistemleri", "Caravans, boats, country houses and solar battery systems", "Wohnmobile, Boote, Ferienhäuser und solare Batterieanlagen", "Автодома, лодки, дачи и солнечные системы с АКБ"),
+ ("Hero LED 10 W 12 V DC LED Ampul (12–60 V AC/DC)", "Hero LED 10 W 12 V DC LED Bulb (12–60 V AC/DC)", "Hero LED 10 W 12 V DC LED-Lampe (12–60 V AC/DC)", "Светодиодная лампа Hero LED 10 Вт 12 В DC (12–60 В AC/DC)"),
+ ("12–60 V AC/DC geniş gerilim aralığında çalışan 10 W LED ampul: 850 lümen, 6500 K beyaz ışık. 12 V ve 24 V akülü güneş sistemlerinde, karavanda, teknede ve bağ evinde doğrudan aküden çalışır. Ölçü 60 × 118 mm, çalışma sıcaklığı −20 ~ +55 °C, enerji sınıfı F (10 kWh/1000 saat); ultraviyole ışın içermez.",
+  "10 W LED bulb working over a wide 12–60 V AC/DC range: 850 lumens, 6500 K white light. Runs straight from the battery in 12 V and 24 V solar battery systems, caravans, boats and country houses. Size 60 × 118 mm, operating temperature −20 ~ +55 °C, energy class F (10 kWh/1000 h); contains no ultraviolet radiation.",
+  "10-W-LED-Lampe für den weiten Bereich 12–60 V AC/DC: 850 Lumen, 6500 K weißes Licht. Läuft direkt an der Batterie in solaren 12-V- und 24-V-Batterieanlagen, Wohnmobilen, Booten und Ferienhäusern. Maße 60 × 118 mm, Betriebstemperatur −20 ~ +55 °C, Energieklasse F (10 kWh/1000 h); ohne UV-Strahlung.",
+  "Светодиодная лампа 10 Вт для широкого диапазона 12–60 В AC/DC: 850 люмен, белый свет 6500 K. Работает напрямую от аккумулятора в солнечных системах 12 В и 24 В, автодомах, лодках и на дачах. Размер 60 × 118 мм, рабочая температура −20 ~ +55 °C, класс энергоэффективности F (10 кВт·ч/1000 ч); без ультрафиолета."),
+ ("10 W · 850 lümen · 6500 K beyaz ışık", "10 W · 850 lumens · 6500 K white light", "10 W · 850 Lumen · 6500 K weißes Licht", "10 Вт · 850 люмен · белый свет 6500 K"),
+ ("12–60 V AC/DC geniş gerilim aralığı", "Wide 12–60 V AC/DC voltage range", "Weiter Spannungsbereich 12–60 V AC/DC", "Широкий диапазон напряжения 12–60 В AC/DC"),
+ ("12 V / 24 V akü sistemlerinde doğrudan kullanım", "Direct use on 12 V / 24 V battery systems", "Direkt an 12-V-/24-V-Batteriesystemen nutzbar", "Прямое подключение к системам АКБ 12 В / 24 В"),
+ ("60 × 118 mm · −20 ~ +55 °C", "60 × 118 mm · −20 ~ +55 °C", "60 × 118 mm · −20 ~ +55 °C", "60 × 118 мм · −20 ~ +55 °C"),
+ ("Enerji sınıfı F · 10 kWh/1000 saat · UV içermez", "Energy class F · 10 kWh/1000 h · no UV", "Energieklasse F · 10 kWh/1000 h · ohne UV", "Класс F · 10 кВт·ч/1000 ч · без УФ"),
+ # Hero LED solar sokak
+ ("☀️ Güneş panelli", "☀️ Solar panel included", "☀️ Mit Solarmodul", "☀️ С солнечной панелью"),
+ ("🚶 Hareket sensörü", "🚶 Motion sensor", "🚶 Bewegungssensor", "🚶 Датчик движения"),
+ ("💧 IP65", "💧 IP65", "💧 IP65", "💧 IP65"),
+ ("Bahçe, sokak, site, otopark ve fabrika aydınlatması", "Garden, street, estate, car park and factory lighting", "Garten-, Straßen-, Wohnanlagen-, Parkplatz- und Fabrikbeleuchtung", "Освещение садов, улиц, жилых комплексов, парковок и заводов"),
+ ("Hero LED 100 W Solar Sokak Armatürü (Sensörlü, Kumandalı)", "Hero LED 100 W Solar Street Light (Sensor, Remote)", "Hero LED 100 W Solar-Straßenleuchte (Sensor, Fernbedienung)", "Солнечный уличный светильник Hero LED 100 Вт (датчик, пульт)"),
+ ("Güneş paneliyle şarj olup gece çalışan 100 W solar sokak armatürü (HL-5151): elektrik hattı çekmeden aydınlatma sağlar. SMD LED, 6500 K beyaz ışık, hareket sensörüyle otomatik yanma, uzaktan kumanda, IP65 suya dayanıklılık ve 30.000 saat ömür. Bahçe, sokak, site, otopark ve fabrika aydınlatması için.",
+  "100 W solar street light (HL-5151) that charges from its solar panel and works at night: light without running a power line. SMD LEDs, 6500 K white light, automatic switch-on by motion sensor, remote control, IP65 water resistance and a 30,000-hour lifetime. For gardens, streets, estates, car parks and factories.",
+  "100-W-Solar-Straßenleuchte (HL-5151), die sich über ihr Solarmodul lädt und nachts leuchtet: Licht ohne Stromleitung. SMD-LEDs, 6500 K weißes Licht, automatisches Einschalten per Bewegungssensor, Fernbedienung, IP65-Wasserschutz und 30.000 Stunden Lebensdauer. Für Gärten, Straßen, Wohnanlagen, Parkplätze und Fabriken.",
+  "Солнечный уличный светильник 100 Вт (HL-5151): заряжается от солнечной панели и светит ночью, без прокладки электролинии. SMD-светодиоды, белый свет 6500 K, автоматическое включение по датчику движения, пульт ДУ, защита от воды IP65 и ресурс 30 000 часов. Для садов, улиц, жилых комплексов, парковок и заводов."),
+ ("Güneş panelli — elektrik hattı gerektirmez", "Solar panel — no power line needed", "Mit Solarmodul — keine Stromleitung nötig", "С солнечной панелью — электролиния не нужна"),
+ ("SMD LED · 6500 K beyaz ışık", "SMD LEDs · 6500 K white light", "SMD-LEDs · 6500 K weißes Licht", "SMD-светодиоды · белый свет 6500 K"),
+ ("Hareket sensörüyle otomatik yanma", "Automatic switch-on by motion sensor", "Automatisches Einschalten per Bewegungssensor", "Автоматическое включение по датчику движения"),
+ ("Uzaktan kumanda", "Remote control", "Fernbedienung", "Пульт ДУ"),
+ ("IP65 suya dayanıklı · 30.000 saat ömür", "IP65 water-resistant · 30,000-hour lifetime", "IP65 wassergeschützt · 30.000 Stunden Lebensdauer", "Защита IP65 · ресурс 30 000 часов"),
 ]
 for row in CFG:
     t(*row)
@@ -596,6 +626,186 @@ def accessory(pk, pid):
     }
 
 
+# ------------------------------------------------------------ aydınlatma
+GALLERY = {
+    "hero-led-ampul-10w": [("assets/img/products/hero-led-ampul-10w-afis.webp", t("Hero LED 12 V DC LED ampul — tanıtım", "Hero LED 12 V DC LED bulb — overview", "Hero LED 12 V DC LED-Lampe — Übersicht", "Лампа Hero LED 12 В DC — обзор")),
+                           ("assets/img/products/hero-led-ampul-10w-kullanim.webp", t("12–60 V AC/DC kullanım alanları", "12–60 V AC/DC applications", "12–60 V AC/DC Einsatzbereiche", "Применение 12–60 В AC/DC")),
+                           ("assets/img/products/hero-led-ampul-10w-teknik.webp", t("Teknik özellikler ve enerji etiketi", "Technical data and energy label", "Technische Daten und Energielabel", "Технические характеристики и энергоэтикетка"))],
+    "hero-led-solar-sokak-100w": [("assets/img/products/hero-led-solar-sokak-100w-afis.webp", t("Hero LED 100 W solar sokak armatürü — tanıtım", "Hero LED 100 W solar street light — overview", "Hero LED 100 W Solar-Straßenleuchte — Übersicht", "Солнечный светильник Hero LED 100 Вт — обзор")),
+                                  ("assets/img/products/hero-led-solar-sokak-100w-detay.webp", t("Güneş paneli, SMD LED ve kullanım alanları", "Solar panel, SMD LEDs and applications", "Solarmodul, SMD-LEDs und Einsatzbereiche", "Солнечная панель, SMD-светодиоды и применение"))],
+}
+
+
+def add_gallery(html, P, pk):
+    imgs = GALLERY.get(P["id"])
+    if not imgs:
+        return html
+    main_img = pk[P["id"]]["img"]
+    w, h = H.img_size(main_img)
+    th = ['<a class="prod-thumb is-on" href="%s"><img src="%s" alt="%s" loading="lazy" decoding="async" width="%d" height="%d" /></a>'
+          % (main_img, main_img, H.attr(P["alt"]), w, h)]
+    for src, alt in imgs:
+        iw, ih = H.img_size(src)
+        th.append('<a class="prod-thumb" href="%s"><img src="%s" alt="%s" loading="lazy" decoding="async" width="%d" height="%d" /></a>'
+                  % (src, src, H.attr(alt), iw, ih))
+    a = html.index('<figure class="prod-main">')
+    b = html.index("</figure>", a) + len("</figure>")
+    return html[:b] + '\n            <div class="prod-thumbs">' + "".join(th) + "</div>" + html[b:]
+
+
+def lighting(pk, pid):
+    p = pk[pid]
+    bulb = pid == "hero-led-ampul-10w"
+    BR = (ROW["marka"], k("Hero LED"))
+    if bulb:
+        sp = [BR, (ROW["model"], k("HL-7020 · HL-7021")), (ROW["guc"], u("10 W")),
+              (t("Işık akısı", "Luminous flux", "Lichtstrom", "Световой поток"), t("850 lm", "850 lm", "850 lm", "850 лм")),
+              (t("Renk sıcaklığı", "Colour temperature", "Farbtemperatur", "Цветовая температура"), t("6500 K (beyaz ışık)", "6500 K (white light)", "6500 K (weißes Licht)", "6500 K (белый свет)")),
+              (t("Çalışma gerilimi", "Operating voltage", "Betriebsspannung", "Рабочее напряжение"), t("12–60 V AC/DC", "12–60 V AC/DC", "12–60 V AC/DC", "12–60 В AC/DC")),
+              (t("Frekans", "Frequency", "Frequenz", "Частота"), t("50–60 Hz", "50–60 Hz", "50–60 Hz", "50–60 Гц")),
+              (ROW["olcu"], u("60 × 118 mm")),
+              (t("Çalışma sıcaklığı", "Operating temperature", "Betriebstemperatur", "Рабочая температура"), k("−20 ~ +55 °C")),
+              (t("Enerji sınıfı", "Energy class", "Energieklasse", "Класс энергоэффективности"), t("F · 10 kWh/1000 saat", "F · 10 kWh/1000 h", "F · 10 kWh/1000 h", "F · 10 кВт·ч/1000 ч")),
+              (ROW["belge"], t("CE · AEEE yönetmeliğine uygun · UV içermez", "CE · WEEE compliant · no UV", "CE · WEEE-konform · ohne UV", "CE · соответствует WEEE · без УФ"))]
+        faq = [
+            (t("12 V aküye doğrudan bağlanır mı?", "Can it be connected straight to a 12 V battery?", "Kann sie direkt an eine 12-V-Batterie?", "Можно ли подключить прямо к АКБ 12 В?"),
+             t("Evet. Ampul 12–60 V AC/DC aralığında çalışır; 12 V ve 24 V akülü sistemlerde inverter gerekmeden doğrudan aküden beslenir.",
+               "Yes. The bulb works on 12–60 V AC/DC; in 12 V and 24 V battery systems it runs straight from the battery without an inverter.",
+               "Ja. Die Lampe arbeitet mit 12–60 V AC/DC; in 12-V- und 24-V-Batterieanlagen läuft sie ohne Wechselrichter direkt an der Batterie.",
+               "Да. Лампа работает от 12–60 В AC/DC; в системах с АКБ 12 В и 24 В питается прямо от аккумулятора без инвертора.")),
+            (t("Ev elektriğinde (220 V) kullanılır mı?", "Can it be used on mains power (230 V)?", "Kann sie am Hausstrom (230 V) betrieben werden?", "Можно ли использовать от сети 220 В?"),
+             t("Hayır. Çalışma aralığı 12–60 V'tur; 220 V şebekeye takılmamalıdır.",
+               "No. Its operating range is 12–60 V; it must not be plugged into 230 V mains.",
+               "Nein. Der Betriebsbereich ist 12–60 V; sie darf nicht an 230-V-Netzstrom.",
+               "Нет. Рабочий диапазон 12–60 В; к сети 220 В подключать нельзя.")),
+            (t("Bir aküyle kaç saat yanar?", "How long does it run on a battery?", "Wie lange leuchtet sie an einer Batterie?", "Сколько она проработает от аккумулятора?"),
+             t("Ampul 10 W çeker. Yaklaşık hesap: 12 V 100 Ah akünün kullanılabilir enerjisi (≈ 600 Wh, %50 deşarj) tek ampulü yaklaşık 60 saat yakar. Gerçek süre akü tipine ve durumuna göre değişir.",
+               "The bulb draws 10 W. Rough estimate: the usable energy of a 12 V 100 Ah battery (≈ 600 Wh at 50% discharge) runs one bulb for about 60 hours. The actual time depends on battery type and condition.",
+               "Die Lampe nimmt 10 W auf. Grobe Rechnung: Die nutzbare Energie einer 12-V-100-Ah-Batterie (≈ 600 Wh bei 50 % Entladung) reicht für eine Lampe etwa 60 Stunden. Die tatsächliche Dauer hängt von Batterietyp und Zustand ab.",
+               "Лампа потребляет 10 Вт. Ориентировочно: полезной энергии АКБ 12 В 100 А·ч (≈ 600 Вт·ч при разряде 50 %) хватит одной лампе примерно на 60 часов. Реальное время зависит от типа и состояния аккумулятора.")),
+            Q_KUR]
+        use = [("🚐", t("Karavan", "Caravans", "Wohnmobile", "Автодома"), t("12 V yaşam aküsünden aydınlatma.", "Lighting from the 12 V leisure battery.", "Licht aus der 12-V-Bordbatterie.", "Освещение от бытового аккумулятора 12 В.")),
+               ("⛵", t("Tekne", "Boats", "Boote", "Лодки"), t("Kabin ve güverte aydınlatması.", "Cabin and deck lighting.", "Kabinen- und Deckbeleuchtung.", "Освещение каюты и палубы.")),
+               ("🏡", t("Bağ evi ve kulübe", "Country houses and cabins", "Ferienhäuser und Hütten", "Дачи и домики"), t("Şebekesiz evlerde akülü aydınlatma.", "Battery lighting in off-grid homes.", "Batteriebeleuchtung in netzfernen Häusern.", "Освещение от АКБ в домах без сети.")),
+               ("☀️", t("Güneş enerjisi sistemleri", "Solar systems", "Solaranlagen", "Солнечные системы"), t("12/24 V akülü sistemlere doğrudan.", "Directly on 12/24 V battery systems.", "Direkt an 12/24-V-Batterieanlagen.", "Напрямую к системам АКБ 12/24 В."))]
+        flow = [("☀️", t("Güneş paneli", "Solar panel", "Solarmodul", "Солнечная панель"), t("DC gerilim", "DC voltage", "DC-Spannung", "напряжение DC")),
+                ("📟", t("Şarj kontrol cihazı", "Charge controller", "Laderegler", "Контроллер заряда"), t("PWM · MPPT", "PWM · MPPT", "PWM · MPPT", "ШИМ · MPPT")),
+                ("🔋", t("Akü", "Battery", "Batterie", "Аккумулятор"), u("12 V / 24 V")),
+                ("💡", k("Hero LED"), u("10 W"))]
+        steps = [(t("Duy ve kablo", "Socket and cable", "Fassung und Kabel", "Патрон и кабель"),
+                  t("Ampulü uygun bir duya takın; duy kablosunu sigorta üzerinden aküye ya da şarj kontrol cihazının yük çıkışına bağlayın.",
+                    "Fit the bulb into a suitable socket; connect the socket cable to the battery through a fuse or to the charge controller's load output.",
+                    "Setzen Sie die Lampe in eine passende Fassung; schließen Sie das Fassungskabel über eine Sicherung an die Batterie oder an den Lastausgang des Ladereglers an.",
+                    "Вкрутите лампу в подходящий патрон; подключите кабель патрона к аккумулятору через предохранитель или к выходу нагрузки контроллера.")),
+                 (t("Kutupları kontrol edin", "Check polarity", "Polarität prüfen", "Проверьте полярность"),
+                  t("DC bağlantıda artı ve eksi uçları doğru bağlayın.", "On DC, connect plus and minus the right way round.", "Bei DC Plus und Minus richtig anschließen.", "При DC соблюдайте полярность плюса и минуса.")),
+                 (t("Anahtarla kumanda edin", "Use a switch", "Mit Schalter bedienen", "Управляйте выключателем"),
+                  t("Hatta bir anahtar koyun; ampulü gereksiz yakmak aküyü boşaltır.", "Put a switch on the line; leaving the bulb on drains the battery.", "Bauen Sie einen Schalter ein; unnötiges Leuchten entleert die Batterie.", "Поставьте выключатель: лишнее горение разряжает аккумулятор."))]
+        xs = [("lexron-pwm-20a", XS["pwm"]), ("panel-50w", t("Küçük 12 V sistemler için kompakt panel.", "A compact panel for small 12 V systems.", "Ein kompaktes Modul für kleine 12-V-Anlagen.", "Компактная панель для небольших систем 12 В.")),
+              ("kablo-solar-5m", XS["kablo"]), ("mc4-set", XS["mc4"])]
+        kicker = t("💡 LED Ampul", "💡 LED Bulb", "💡 LED-Lampe", "💡 Светодиодная лампа")
+        lead = t("Hero LED 10 W 12 V DC LED ampul: 12–60 V AC/DC aralığında çalışır, 850 lümen beyaz ışık verir; karavan, tekne ve akülü güneş sistemlerinde doğrudan aküden yanar.",
+                 "Hero LED 10 W 12 V DC LED bulb: works on 12–60 V AC/DC and gives 850 lumens of white light; runs straight from the battery in caravans, boats and solar battery systems.",
+                 "Hero LED 10 W 12 V DC LED-Lampe: arbeitet mit 12–60 V AC/DC und liefert 850 Lumen weißes Licht; läuft direkt an der Batterie in Wohnmobilen, Booten und solaren Batterieanlagen.",
+                 "Светодиодная лампа Hero LED 10 Вт 12 В DC: работает от 12–60 В AC/DC, даёт 850 люмен белого света; питается прямо от аккумулятора в автодомах, лодках и солнечных системах.")
+        cta = t("Ampulü bugün sipariş edin", "Order the bulb today", "Bestellen Sie die Lampe noch heute", "Закажите лампу сегодня")
+        how_p = t("Ampul akülü sistemde aküden ya da şarj kontrol cihazının yük çıkışından beslenir.",
+                  "In a battery system the bulb is fed from the battery or from the charge controller's load output.",
+                  "In einer Batterieanlage wird die Lampe aus der Batterie oder vom Lastausgang des Ladereglers versorgt.",
+                  "В системе с АКБ лампа питается от аккумулятора или от выхода нагрузки контроллера.")
+    else:
+        sp = [BR, (ROW["model"], k("HL-5151")), (ROW["guc"], u("100 W")),
+              (t("Işık kaynağı", "Light source", "Lichtquelle", "Источник света"), k("SMD LED")),
+              (t("Renk sıcaklığı", "Colour temperature", "Farbtemperatur", "Цветовая температура"), t("6500 K (beyaz ışık)", "6500 K (white light)", "6500 K (weißes Licht)", "6500 K (белый свет)")),
+              (t("Enerji kaynağı", "Power source", "Energiequelle", "Источник питания"), t("Güneş paneli (ürünle birlikte)", "Solar panel (supplied)", "Solarmodul (im Lieferumfang)", "Солнечная панель (в комплекте)")),
+              (t("Sensör", "Sensor", "Sensor", "Датчик"), t("Hareket sensörü — otomatik yanma", "Motion sensor — automatic switch-on", "Bewegungssensor — automatisches Einschalten", "Датчик движения — автовключение")),
+              (t("Kumanda", "Control", "Bedienung", "Управление"), t("Uzaktan kumanda", "Remote control", "Fernbedienung", "Пульт ДУ")),
+              (t("Koruma sınıfı", "Protection class", "Schutzart", "Класс защиты"), k("IP65")),
+              (t("Ömür", "Lifetime", "Lebensdauer", "Ресурс"), t("30.000 saat", "30,000 hours", "30.000 Stunden", "30 000 часов")),
+              (ROW["diger"], SOR)]
+        faq = [
+            (t("Elektrik bağlantısı gerekir mi?", "Does it need a mains connection?", "Braucht sie einen Stromanschluss?", "Нужно ли подключение к сети?"),
+             t("Hayır. Armatür gündüz güneş paneliyle şarj olur, gece kendi kendine çalışır; elektrik hattı çekmeye gerek yoktur.",
+               "No. The light charges from its solar panel during the day and works on its own at night; no power line is needed.",
+               "Nein. Die Leuchte lädt tagsüber über ihr Solarmodul und arbeitet nachts selbstständig; eine Stromleitung ist nicht nötig.",
+               "Нет. Днём светильник заряжается от солнечной панели, ночью работает сам; прокладывать электролинию не нужно.")),
+            (t("Hareket sensörü nasıl çalışır?", "How does the motion sensor work?", "Wie funktioniert der Bewegungssensor?", "Как работает датчик движения?"),
+             t("Sensör hareket algıladığında armatür otomatik yanar; çalışma modlarını uzaktan kumandayla seçebilirsiniz.",
+               "When the sensor detects motion the light switches on automatically; you can choose the operating modes with the remote control.",
+               "Erkennt der Sensor Bewegung, schaltet sich die Leuchte automatisch ein; die Betriebsarten wählen Sie mit der Fernbedienung.",
+               "При обнаружении движения светильник включается автоматически; режимы работы выбираются с пульта.")),
+            (t("Kaç saat yanar, akü kapasitesi nedir?", "How long does it run, and what is the battery capacity?", "Wie lange leuchtet sie, welche Akkukapazität hat sie?", "Сколько светит и какая ёмкость аккумулятора?"),
+             t("Yanma süresi güneşlenmeye ve seçilen moda göre değişir. Akü kapasitesi ve şarj süresi tanıtım bilgisinde yer almıyor; sipariş öncesi bize yazın, üreticiden teyit edelim.",
+               "Run time depends on sunlight and the selected mode. Battery capacity and charging time are not in the product information; write to us before ordering and we'll confirm with the manufacturer.",
+               "Die Leuchtdauer hängt von Sonneneinstrahlung und gewähltem Modus ab. Akkukapazität und Ladezeit stehen nicht in den Produktinformationen; schreiben Sie uns vor der Bestellung, wir klären es mit dem Hersteller.",
+               "Время работы зависит от солнца и выбранного режима. Ёмкость аккумулятора и время зарядки в описании не указаны; напишите нам до заказа — уточним у производителя.")),
+            (t("Nereye monte edilir?", "Where is it mounted?", "Wo wird sie montiert?", "Куда монтируется?"),
+             t("Direğe, duvara ya da bahçe ayağına monte edilir; güneş panelinin gün boyu gölgesiz bir yönde, tercihen güneye bakması gerekir.",
+               "On a pole, a wall or a garden post; the solar panel should face a shade-free direction all day, preferably south.",
+               "An Mast, Wand oder Gartenpfosten; das Solarmodul sollte ganztägig schattenfrei, möglichst nach Süden ausgerichtet sein.",
+               "На столб, стену или садовую стойку; солнечная панель должна весь день быть без тени, желательно на юг.")),
+            Q_KUR]
+        use = [("🏡", t("Bahçe", "Gardens", "Gärten", "Сады"), t("Elektrik hattı çekmeden bahçe aydınlatması.", "Garden lighting without running a power line.", "Gartenbeleuchtung ohne Stromleitung.", "Освещение сада без прокладки линии.")),
+               ("🛣️", t("Sokak ve site yolu", "Streets and estate roads", "Straßen und Wohnanlagen", "Улицы и дороги в комплексах"), t("Yol ve geçiş aydınlatması.", "Road and path lighting.", "Weg- und Durchgangsbeleuchtung.", "Освещение дорог и проходов.")),
+               ("🅿️", t("Otopark", "Car parks", "Parkplätze", "Парковки"), t("Hareketle yanan otopark aydınlatması.", "Car park lighting that switches on with motion.", "Parkplatzbeleuchtung mit Bewegungsschaltung.", "Освещение парковки с включением по движению.")),
+               ("🏭", t("Fabrika ve depo", "Factories and depots", "Fabriken und Lager", "Заводы и склады"), t("Saha ve çevre aydınlatması.", "Yard and perimeter lighting.", "Hof- und Umfeldbeleuchtung.", "Освещение территории и периметра."))]
+        flow = [("☀️", t("Güneş paneli", "Solar panel", "Solarmodul", "Солнечная панель"), t("gündüz şarj", "charges by day", "lädt tagsüber", "заряд днём")),
+                ("🔋", t("Dahili depolama", "Built-in storage", "Integrierter Speicher", "Встроенный накопитель"), t("armatürde", "in the luminaire", "in der Leuchte", "в светильнике")),
+                ("🚶", t("Hareket sensörü", "Motion sensor", "Bewegungssensor", "Датчик движения"), t("otomatik yanma", "auto switch-on", "autom. Einschalten", "автовключение")),
+                ("💡", t("Gece aydınlatma", "Night lighting", "Nachtbeleuchtung", "Ночное освещение"), u("100 W"))]
+        steps = [(t("Yer seçin", "Choose the spot", "Den Standort wählen", "Выберите место"),
+                  t("Panelin gün boyu güneş alacağı, gölgesiz bir yer seçin.", "Choose a spot where the panel gets sun all day without shade.", "Wählen Sie einen Ort, an dem das Modul ganztägig schattenfrei Sonne bekommt.", "Выберите место, где панель весь день на солнце без тени.")),
+                 (t("Monte edin", "Mount it", "Montieren", "Смонтируйте"),
+                  t("Armatürü direğe ya da duvara sabitleyin, paneli güneye yönlendirin.", "Fix the luminaire to a pole or wall and point the panel south.", "Befestigen Sie die Leuchte an Mast oder Wand und richten Sie das Modul nach Süden aus.", "Закрепите светильник на столбе или стене, направьте панель на юг.")),
+                 (t("Modu seçin", "Choose the mode", "Modus wählen", "Выберите режим"),
+                  t("Uzaktan kumandayla çalışma modunu seçin; ilk kullanımdan önce paneli güneşte şarj olmaya bırakın.", "Choose the operating mode with the remote; let the panel charge in the sun before first use.", "Wählen Sie den Betriebsmodus per Fernbedienung; lassen Sie das Modul vor dem ersten Einsatz in der Sonne laden.", "Выберите режим пультом; перед первым использованием дайте панели зарядиться на солнце."))]
+        xs = [("hero-led-ampul-10w", t("12–60 V akülü sistemler için LED ampul.", "LED bulb for 12–60 V battery systems.", "LED-Lampe für 12–60-V-Batterieanlagen.", "Светодиодная лампа для систем АКБ 12–60 В.")),
+              ("panel-50w", t("Küçük 12 V sistemler için kompakt panel.", "A compact panel for small 12 V systems.", "Ein kompaktes Modul für kleine 12-V-Anlagen.", "Компактная панель для небольших систем 12 В.")),
+              ("kablo-solar-5m", XS["kablo"]), ("mc4-set", XS["mc4"])]
+        kicker = t("🌙 Solar Aydınlatma", "🌙 Solar Lighting", "🌙 Solarbeleuchtung", "🌙 Солнечное освещение")
+        lead = t("Hero LED 100 W solar sokak armatürü: güneş paneliyle gündüz şarj olur, gece hareket sensörüyle yanar; elektrik hattı gerektirmez.",
+                 "Hero LED 100 W solar street light: charges from its solar panel by day and lights up at night with a motion sensor; no power line needed.",
+                 "Hero LED 100 W Solar-Straßenleuchte: lädt tagsüber über ihr Solarmodul und leuchtet nachts per Bewegungssensor; keine Stromleitung nötig.",
+                 "Солнечный уличный светильник Hero LED 100 Вт: днём заряжается от панели, ночью светит по датчику движения; электролиния не нужна.")
+        cta = t("Solar armatürü bugün sipariş edin", "Order the solar street light today", "Bestellen Sie die Solarleuchte noch heute", "Закажите солнечный светильник сегодня")
+        how_p = t("Gündüz panel enerji toplar, gece armatür bu enerjiyle yanar; sensör ve kumanda çalışma şeklini belirler.",
+                  "By day the panel collects energy, at night the light runs on it; the sensor and remote set how it operates.",
+                  "Tagsüber sammelt das Modul Energie, nachts leuchtet die Leuchte damit; Sensor und Fernbedienung bestimmen den Betrieb.",
+                  "Днём панель накапливает энергию, ночью светильник работает на ней; режим задают датчик и пульт.")
+    return {
+        "id": pid, "file": pid + ".html",
+        "kaynak": t("Değerler üreticinin ürün tanıtım bilgisinden alınmıştır. Listede olmayan bir değer için bize yazın; üreticiden teyit edelim.",
+                    "Values are taken from the manufacturer's product information. For any value not listed, write to us and we'll confirm it with the manufacturer.",
+                    "Die Werte stammen aus den Produktinformationen des Herstellers. Für nicht aufgeführte Werte schreiben Sie uns; wir klären sie mit dem Hersteller.",
+                    "Значения взяты из информации производителя. Если нужного значения нет, напишите нам — уточним у производителя."),
+        "title": "%s | GESPA Enerji" % p["name"], "desc": p["desc"],
+        "alt": t("%s — ürün fotoğrafı" % p["name"], "%s — product photo" % H.REG[p["name"]][0], "%s — Produktfoto" % H.REG[p["name"]][1], "%s — фото товара" % H.REG[p["name"]][2]),
+        "kicker": kicker, "lead": lead,
+        "info": [("🏷️", t("Marka: Hero LED", "Brand: Hero LED", "Marke: Hero LED", "Марка: Hero LED"))],
+        "chips": p["chips"], "about": [p["desc"]], "specs": sp,
+        "gloss": (t("Akülü güneş sistemi nedir?", "What is an off-grid solar system?", "Was ist eine Solar-Inselanlage?", "Что такое автономная солнечная система?"), "sozluk.html#off-grid"),
+        "use": use,
+        "use_p": t("Elektriğin olmadığı ya da akülü sistemle çalışılan yerlerde aydınlatma.",
+                   "Lighting where there is no mains or where a battery system is used.",
+                   "Beleuchtung dort, wo es keinen Netzstrom gibt oder ein Batteriesystem läuft.",
+                   "Освещение там, где нет сети или используется система с АКБ."),
+        "how_p": how_p, "flow": flow, "flow_here": 3, "flow_notes": [], "steps": steps,
+        "tips": [t("Bağlantı ve montajda gerilim değerlerini kontrol edin; şüphede bize yazın.",
+                   "Check the voltage values when wiring and mounting; if in doubt, write to us.",
+                   "Prüfen Sie bei Anschluss und Montage die Spannungswerte; im Zweifel schreiben Sie uns.",
+                   "При подключении и монтаже проверяйте напряжения; если сомневаетесь — напишите нам.")],
+        "xsell": xs, "faq": faq,
+        "note": (t("Sisteminizi birlikte kuralım", "Let's build your system together", "Lassen Sie uns Ihre Anlage gemeinsam planen", "Соберём систему вместе"),
+                 t("Aydınlatmanızı besleyecek panel, akü ve şarj kontrol cihazını Sistem Kurucu ile birkaç adımda görün.",
+                   "See the panel, battery and charge controller to power your lighting in a few steps with the System Builder.",
+                   "Sehen Sie mit dem System-Konfigurator in wenigen Schritten Modul, Batterie und Laderegler für Ihre Beleuchtung.",
+                   "Подберите панель, аккумулятор и контроллер для освещения за несколько шагов в конструкторе систем."),
+                 "sistem-kur.html",
+                 t("Sistem Kurucu'yu açın →", "Open the System Builder →", "System-Konfigurator öffnen →", "Открыть конструктор систем →")),
+        "cta": cta,
+    }
+
+
 # ------------------------------------------------------------ yazım
 def load_base():
     js = r"""
@@ -634,13 +844,14 @@ def main():
     pk = H.load_packages()
     base = BASE = load_base()
     tpl = open(os.path.join(ROOT, H.TEMPLATE), encoding="utf-8").read()
-    prods = [panel_product(pk, *row) for row in PANELS] + [titanx(pk), accessory(pk, "kablo-solar-5m"), accessory(pk, "mc4-set")]
+    prods = [panel_product(pk, *row) for row in PANELS] + [titanx(pk), accessory(pk, "kablo-solar-5m"), accessory(pk, "mc4-set"),
+                                                     lighting(pk, "hero-led-ampul-10w"), lighting(pk, "hero-led-solar-sokak-100w")]
     pages, problems = {}, 0
     for P in prods:
         if pk[P["id"]].get("url") != P["file"]:
             sys.exit("config url uyuşmuyor (%s): %r ≠ %r" % (P["id"], pk[P["id"]].get("url"), P["file"]))
         H.KAYNAK = P["kaynak"]
-        html = H.build_page(tpl, P, pk, H.main_html(P, pk))
+        html = add_gallery(H.build_page(tpl, P, pk, H.main_html(P, pk)), P, pk)
         for lang, x in H.check_translations(html, base):
             print("ÇEVİRİ EKSİK [%s] %s: %s" % (lang, P["file"], x[:90]))
             problems += 1

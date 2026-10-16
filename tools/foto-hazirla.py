@@ -107,6 +107,23 @@ JOBS = [
     # 460 W ve 240 W paneller (9 Eki 2026, işletmenin gönderdiği ön görünüm
     # fotoğrafları). Kırpma = alüminyum çerçeve; altındaki ayak/gölge dışarıda.
     # Üretici markası fotoğrafta YOK ve siteye de yazılmaz (işletme kararı).
+    # Hero LED (16 Eki 2026, işletmenin gönderdiği aydinlatma_2.rtf). HERO LED
+    # GERÇEK ÜRETİCİ markasıdır: swap/mark YAPILMAZ (UNV kuralı). Kart
+    # görselleri tanıtım afişlerinden kırpılır; tam afişler galeriye girer.
+    {"src": "hero-led-ampul-1.png", "out": "hero-led-ampul-10w.webp",
+     "crop": (430, 20, 936, 452), "canvas": (880, 660), "pad": 0, "quality": 86},
+    {"src": "hero-led-ampul-1.png", "out": "hero-led-ampul-10w-afis.webp",
+     "crop": (0, 0, 936, 460), "quality": 86},
+    {"src": "hero-led-ampul-2.png", "out": "hero-led-ampul-10w-kullanim.webp",
+     "crop": (0, 0, 379, 463), "quality": 86},
+    {"src": "hero-led-ampul-3.png", "out": "hero-led-ampul-10w-teknik.webp",
+     "crop": (0, 0, 961, 422), "quality": 86},
+    {"src": "hero-led-solar-sokak.png", "out": "hero-led-solar-sokak-100w.webp",
+     "crop": (266, 504, 480, 860), "canvas": (880, 660), "pad": 20, "quality": 86},
+    {"src": "hero-led-solar-sokak.png", "out": "hero-led-solar-sokak-100w-afis.webp",
+     "crop": (0, 0, 1766, 442), "quality": 86},
+    {"src": "hero-led-solar-sokak.png", "out": "hero-led-solar-sokak-100w-detay.webp",
+     "crop": (0, 446, 1766, 885), "quality": 86},
     {"src": "panel-460w.png", "out": "panel-460w.webp",
      "crop": (7, 6, 264, 524), "canvas": (880, 660), "pad": 30, "quality": 86},
     # 240 W: 12 Eki 2026'da gelen paneller.docx fotoğrafı (48 hücre, 776 ×

@@ -533,5 +533,37 @@
         <g:country>TR</g:country>
       </g:shipping>
     </item>
+    <item>
+      <g:id>hero-led-ampul-10w</g:id>
+      <g:title>Hero LED 10 W 12 V DC LED Ampul (12–60 V AC/DC)</g:title>
+      <g:description>12–60 V AC/DC geniş gerilim aralığında çalışan 10 W LED ampul: 850 lümen, 6500 K beyaz ışık. 12 V ve 24 V akülü güneş sistemlerinde, karavanda, teknede ve bağ evinde doğrudan aküden çalışır. Ölçü 60 × 118 mm, çalışma sıcaklığı −20 ~ +55 °C, enerji sınıfı F (10 kWh/1000 saat); ultraviyole ışın içermez.</g:description>
+      <g:link>https://www.gespaenerji.com/hero-led-ampul-10w.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/hero-led-ampul-10w.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>130.00 TRY</g:price>
+      <g:brand>Hero LED</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>HL-7020</g:mpn>
+      <g:product_type>Aydınlatma</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>hero-led-solar-sokak-100w</g:id>
+      <g:title>Hero LED 100 W Solar Sokak Armatürü (Sensörlü, Kumandalı)</g:title>
+      <g:description>Güneş paneliyle şarj olup gece çalışan 100 W solar sokak armatürü (HL-5151): elektrik hattı çekmeden aydınlatma sağlar. SMD LED, 6500 K beyaz ışık, hareket sensörüyle otomatik yanma, uzaktan kumanda, IP65 suya dayanıklılık ve 30.000 saat ömür. Bahçe, sokak, site, otopark ve fabrika aydınlatması için.</g:description>
+      <g:link>https://www.gespaenerji.com/hero-led-solar-sokak-100w.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/hero-led-solar-sokak-100w.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>1200.00 TRY</g:price>
+      <g:brand>Hero LED</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>HL-5151</g:mpn>
+      <g:product_type>Aydınlatma</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
+    </item>
   </channel>
 </rss>

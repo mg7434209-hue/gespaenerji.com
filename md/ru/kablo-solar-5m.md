@@ -3,7 +3,7 @@ title: "Комплект солнечного кабеля 5 м чёрный + 5
 description: "Комплект солнечного кабеля 5 м чёрного + 5 м красного для соединения панели с контроллером."
 canonical: https://www.gespaenerji.com/ru/kablo-solar-5m.html
 lang: ru
-dateModified: 2026-10-13
+dateModified: 2026-10-16
 publisher: "GESPA Enerji"
 ---
 

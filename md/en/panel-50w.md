@@ -3,7 +3,7 @@ title: "50W Solar Panel for 12V Systems | GESPA Energy"
 description: "50 W monocrystalline solar panel for 12 V systems: garden lights, cameras and battery charging."
 canonical: https://www.gespaenerji.com/en/panel-50w.html
 lang: en
-dateModified: 2026-10-13
+dateModified: 2026-10-16
 publisher: "GESPA Enerji"
 ---
 

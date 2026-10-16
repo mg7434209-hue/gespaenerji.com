@@ -460,6 +460,16 @@ ve sepet simgesi ekran dışında kalır.
   sayısı Voc × 1,1 ile hesaplanır. YENİ ÜRÜN EKLERKEN detay sayfasını da
   üret (ilgili betiğe ekle ya da paket-*.html kopyala); `url`'siz ürün
   kalmasın.
+- AYDINLATMA (`group:"lighting"`, 16 Eki 2026): Hero LED 10 W 12 V DC ampul
+  (₺130 NET, `noCartDiscount` — %3 havale 50'ye yuvarlanınca sıfırlanıyordu)
+  ve Hero LED 100 W solar sokak armatürü HL-5151 (₺1.200; belgedeki ₺1.215
+  ≥₺1.000 yuvarlamasıyla yazılamadığı için). Kaynak `aydinlatma_2.rtf`;
+  değerler üretici afişlerinden, afişte olmayan (duy, akü kapasitesi, şarj
+  süresi) YAZILMAZ. HERO LED gerçek marka, logo SİLİNMEZ. Sayfaları
+  `tools/urun-sayfalar.py` üretir (galeri `GALLERY`).
+- HAVALE ≤ LİSTE: 50'ye yuvarlama ucuz üründe havaleyi listenin ÜSTÜNE
+  çıkarıyordu (₺130 → ₺150). main.js `pkgUnit()`/vitrin ve build.js
+  `havaleTL()` artık `Math.min(liste, …)` kullanır.
 - `img` boşsa kart nötr yer tutucu (`.sh-noimg`) gösterir; BAŞKA ürünün
   fotoğrafı kullanılmaz. `url` boşsa "Detay" düğmesi ve bağlantılar basılmaz.
 - Yönetici şifresi YALNIZ Railway ortam değişkeni `ADMIN_PASS`'tır; config'e

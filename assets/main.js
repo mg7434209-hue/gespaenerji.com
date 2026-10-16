@@ -325,7 +325,9 @@
         list: tl,
         // noCartDiscount: fiyat zaten net (ör. kampanya fiyatı) — üstüne
         // havale/EFT indirimi BİNMEZ. TÜM fiyat noktaları bu kuralı izler.
-        cart: p.noCartDiscount ? tl : Math.round(tl * (100 - pct) / 100 / 50) * 50,
+        // Min(): ucuz üründe 50'ye yuvarlama havale fiyatını listenin ÜSTÜNE
+        // çıkarabiliyordu (₺130 → ₺150). Havale hiçbir zaman listeyi geçmez.
+        cart: p.noCartDiscount ? tl : Math.min(tl, Math.round(tl * (100 - pct) / 100 / 50) * 50),
         // yalnız "≈ $" gösterimi için; kuruşlu USD fiyat (KDV'li) yuvarlanır
         usd: p.currency === "USD" ? Math.round(p.price) : (RATE ? Math.round(p.price / RATE) : 0)
       };
@@ -709,7 +711,8 @@
           cable: L("Kablo & Bağlantı", "Cable & Wiring", "Kabel & Anschluss", "Кабели и подключение"),
           evset: L("Elektrikli Motor Paketleri", "E-Vehicle Solar Sets", "Solar-Sets für E-Fahrzeuge", "Комплекты для электротранспорта"),
           storage: L("Enerji Depolama", "Energy Storage", "Energiespeicher", "Накопители энергии"),
-          charge: L("Şarj Kontrol & DC-DC", "Charge Controllers & DC-DC", "Laderegler & DC-DC", "Контроллеры заряда и DC-DC")
+          charge: L("Şarj Kontrol & DC-DC", "Charge Controllers & DC-DC", "Laderegler & DC-DC", "Контроллеры заряда и DC-DC"),
+          lighting: L("Aydınlatma", "Lighting", "Beleuchtung", "Освещение")
         })[g] || g;
       }
       // Katalog süzgecinde üst kategoriye katılan gruplar. config.packages[].group
@@ -1420,7 +1423,7 @@
         if (price != null) {
           var listTL = tlOf(price);
           var netPrice = !!p.noCartDiscount;                       // fiyat zaten net
-          var havTL = netPrice ? listTL : Math.round(listTL * (100 - cartPct) / 100 / 50) * 50;
+          var havTL = netPrice ? listTL : Math.min(listTL, Math.round(listTL * (100 - cartPct) / 100 / 50) * 50);
           var showHav = cartPct && !netPrice;
           priceHtml = '<div class="pkg-price"><span class="pkg-price-lbl">' + priceLbl +
             (showHav ? ' <em class="pkg-disc">🛒 ' + L("Sepette %" + cartPct + " indirim", cartPct + "% off in cart", cartPct + " % Rabatt im Warenkorb", "−" + cartPct + " % в корзине") + "</em>" : "") + "</span>" +

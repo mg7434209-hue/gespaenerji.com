@@ -3,7 +3,7 @@ title: "Arçelik 540 W Güneş Paneli | GESPA Enerji"
 description: "Arçelik 540 W Güneş Paneli: Çatı ve arazi kurulumları, yerli marka tercih edenler Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/panel-arcelik-540w.html
 lang: tr
-dateModified: 2026-10-13
+dateModified: 2026-10-16
 publisher: "GESPA Enerji"
 ---
 

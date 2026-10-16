@@ -3,7 +3,7 @@ title: "Online Satış — Güneş Enerjisi Ürünleri | GESPA Enerji"
 description: "GESPA Enerji online satış: hazır güneş enerjisi paketleri, şarj kontrol cihazları ve solar ekipman. Şeffaf fiyat, KDV dahil, Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/online-satis.html
 lang: tr
-dateModified: 2026-10-13
+dateModified: 2026-10-16
 publisher: "GESPA Enerji"
 ---
 
@@ -342,6 +342,24 @@ KDV dahil · kargo hariç
 Panel kablosu ile solar kablonun birleştirilmesi
 
 **₺100**≈ $2
+
+KDV dahil · kargo hariç
+
+### [Hero LED 10 W 12 V DC LED Ampul (12–60 V AC/DC)](https://www.gespaenerji.com/hero-led-ampul-10w.html)
+
+Karavan, tekne, bağ evi ve akülü güneş sistemleri
+
+**₺130**≈ $3
+
+KDV dahil · kargo hariç
+
+### [Hero LED 100 W Solar Sokak Armatürü (Sensörlü, Kumandalı)](https://www.gespaenerji.com/hero-led-solar-sokak-100w.html)
+
+Bahçe, sokak, site, otopark ve fabrika aydınlatması
+
+**₺1.200**≈ $25
+
+💰 Havale/EFT ile: **₺1.150**
 
 KDV dahil · kargo hariç
 

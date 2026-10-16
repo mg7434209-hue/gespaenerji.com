@@ -3,7 +3,7 @@ title: "Солнечная панель Lexron 285 Вт TOPCon | GESPA"
 description: "Панель Lexron 210R PowerLite 285 Вт TOPCon: Voc 42,84 В, 780 × 1536 × 30 мм, 8,5 кг, 12 лет на изделие и 30 лет на мощность."
 canonical: https://www.gespaenerji.com/ru/panel-lexron-285w.html
 lang: ru
-dateModified: 2026-10-13
+dateModified: 2026-10-16
 publisher: "GESPA Enerji"
 ---
 
