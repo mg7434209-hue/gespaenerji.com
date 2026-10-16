@@ -315,12 +315,18 @@
     function tlRound(v) { var s = v >= 10000 ? 100 : v >= 1000 ? 50 : 10; return Math.round(v / s) * s; }
     function usdToTl(v) { return tlRound((+v || 0) * (CFG.usdTry || 0)); }
     // Birim fiyatlar (₺): list = liste, cart = havale/EFT, usd = yaklaşık $
-    function pkgUnit(p) {
+    // ADET FİYATI (`bulk: {min, price}`): sepetteki adet `min`'e ulaşınca
+    // birim fiyat `bulk.price` olur (ör. 5'li alım). qty verilmezse tekli
+    // fiyat döner — kart, ürün sayfası ve akış tekli fiyatı gösterir.
+    // server.js pkgListTL(p, cfg, qty) ile AYNI kural.
+    function bulkOn(p, qty) { return !!(p.bulk && p.bulk.price != null && qty >= (p.bulk.min || 0)); }
+    function pkgUnit(p, qty) {
       var RATE = CFG.usdTry || 0, pct = pkgPct(p);
       // priceOnRequest: fiyat girilmemis urun — tutar URETILMEZ, cagiran
       // "Teklif alin" gosterir ve urun sepete eklenmez.
       if (p.price == null) return { list: null, cart: null, usd: 0, poa: true };
-      var tl = p.currency === "USD" ? usdToTl(p.price) : p.price;
+      var base = bulkOn(p, qty) ? p.bulk.price : p.price;
+      var tl = p.currency === "USD" ? usdToTl(base) : base;
       return {
         list: tl,
         // noCartDiscount: fiyat zaten net (ör. kampanya fiyatı) — üstüne
@@ -329,8 +335,14 @@
         // çıkarabiliyordu (₺130 → ₺150). Havale hiçbir zaman listeyi geçmez.
         cart: p.noCartDiscount ? tl : Math.min(tl, Math.round(tl * (100 - pct) / 100 / 50) * 50),
         // yalnız "≈ $" gösterimi için; kuruşlu USD fiyat (KDV'li) yuvarlanır
-        usd: p.currency === "USD" ? Math.round(p.price) : (RATE ? Math.round(p.price / RATE) : 0)
+        usd: p.currency === "USD" ? Math.round(base) : (RATE ? Math.round(base / RATE) : 0),
+        bulk: bulkOn(p, qty)
       };
+    }
+    // Ürünün 5'li (bulk) birim fiyatı ₺; yoksa null.
+    function bulkTL(p) {
+      if (!p.bulk || p.bulk.price == null) return null;
+      return p.currency === "USD" ? usdToTl(p.bulk.price) : p.bulk.price;
     }
     var cart = (function () {
       var KEY = "gespa-cart";
@@ -411,6 +423,21 @@
       var usdOf = function (v) { return p.currency === "USD" ? Math.round(v) : (RATE ? Math.round(v / RATE) : 0); };
       // Birim tutarlar (adet ile çarpılır) — kural sepet/vitrinle AYNI (pkgUnit)
       var unit = pkgUnit(p);
+      // 5'li (bulk) adet fiyatı satırı: `[data-pkg-bulk]` ürün sayfası betiğinin
+      // bıraktığı boş yer tutucudur; dil değişince yeniden yazılır.
+      var bulkEl = document.querySelector("[data-pkg-bulk]");
+      var bT = bulkTL(p);
+      var applyBulk = function () {
+        if (!bulkEl || bT == null) return;
+        var n = p.bulk.min;
+        bulkEl.textContent = "📦 " + L(n + " adet ve üzeri alımda adet fiyatı ₺" + nf.format(bT),
+          "Buy " + n + " or more: ₺" + nf.format(bT) + " per unit",
+          "Ab " + n + " Stück: ₺" + nf.format(bT) + " pro Stück",
+          "От " + n + " шт.: ₺" + nf.format(bT) + " за штуку");
+        bulkEl.hidden = false;
+      };
+      applyBulk();
+      document.addEventListener("gespa:lang", applyBulk);
       var unitList = unit.list, unitCart = unit.cart;
       var qty = 1;                                                          // adet (adet kutusu değiştirir)
       var set = function (sel, txt) { document.querySelectorAll(sel).forEach(function (el) { el.textContent = txt; }); };
@@ -473,7 +500,16 @@
       // Adet kutusu (− n +) — seçilen adet "Sepete ekle" ile sepete geçer
       var qtyIn = document.querySelector("[data-qty-input]");
       // Üst sınır stoktur: stokta 1 varsa müşteri 5 adet sipariş edemez.
-      var setQty = function (n) { qty = Math.max(1, Math.min(maxQty || 1, Math.round(n) || 1)); if (qtyIn) qtyIn.value = qty; };
+      // 5'li (bulk) üründe adet `bulk.min`'e ulaşınca fiyat ve havale tutarı
+      // adet fiyatına döner; sepet aynı kuralı pkgUnit(p, qty) ile uygular.
+      var showUnit = function () {
+        if (bT == null) return;
+        var uq = pkgUnit(p, qty);
+        set("[data-pkg-price]", "₺" + nf.format(uq.list));
+        if (pct) set("[data-pkg-havale]", "₺" + nf.format(uq.cart));
+        if (bulkEl) bulkEl.classList.toggle("is-on", !!uq.bulk);
+      };
+      var setQty = function (n) { qty = Math.max(1, Math.min(maxQty || 1, Math.round(n) || 1)); if (qtyIn) qtyIn.value = qty; showUnit(); };
       document.querySelectorAll(".buy-row [data-q]").forEach(function (b) {
         b.addEventListener("click", function () { setQty(qty + (+b.getAttribute("data-q"))); });
       });
@@ -766,6 +802,8 @@
                 (usd ? '<span class="sh-usd">≈ $' + nf.format(usd) + "</span>" : "") + "</div>" +
               (cardPct && u.cart < u.list ? '<p class="sh-hav">💰 ' + L("Havale/EFT ile:", "By bank transfer:", "Per Überweisung:", "Банковским переводом:") +
                 " <b>₺" + nf.format(u.cart) + "</b></p>" : "") +
+              (bulkTL(p) != null ? '<p class="sh-bulk">📦 ' + L(p.bulk.min + "+ adet:", p.bulk.min + "+ pcs:", "ab " + p.bulk.min + " Stk.:", "от " + p.bulk.min + " шт.:") +
+                " <b>₺" + nf.format(bulkTL(p)) + "</b> " + L("/adet", "/unit", "/Stk.", "/шт.") + "</p>" : "") +
               '<p class="sh-vat">' + vatNote(p) + "</p>") +
             '<div class="sh-act">' +
               (href ? '<a class="btn btn-ghost btn-sm" href="' + href + '">' +
@@ -949,7 +987,7 @@
         Object.keys(c).forEach(function (id) {
           var p = cart.pkgOf(id);
           if (!p || p.price == null || !c[id]) return;
-          var u = pkgUnit(p);
+          var u = pkgUnit(p, c[id]);
           out.push({ p: p, qty: c[id], unit: u, sumList: u.list * c[id], sumCart: u.cart * c[id] });
         });
         return out;
@@ -1028,6 +1066,13 @@
               '<p class="cart-item-name"><a href="' + (l.p.url || "urunler.html") + '">' + l.p.name + "</a></p>" +
               icerik +
               '<p class="cart-item-unit">₺' + nf.format(l.unit.list) + (l.unit.usd ? " (≈ $" + nf.format(l.unit.usd) + ")" : "") + " × " + l.qty + " " + L("adet", "pcs", "Stk.", "шт.") + "</p>" +
+              // 5'li fiyat: uygulandıysa rozet, uygulanmadıysa kaç adet eksik olduğunu söyler.
+              (bulkTL(l.p) != null
+                ? '<p class="cart-item-bulk">' + (l.unit.bulk
+                    ? "📦 " + L(l.p.bulk.min + "'li alım fiyatı uygulandı", l.p.bulk.min + "-unit price applied", l.p.bulk.min + "er-Preis angewendet", "Применена цена от " + l.p.bulk.min + " шт.")
+                    : "📦 " + L(l.p.bulk.min + " adet ve üzeri: ₺" + nf.format(bulkTL(l.p)) + "/adet", l.p.bulk.min + "+ pcs: ₺" + nf.format(bulkTL(l.p)) + "/unit",
+                                "ab " + l.p.bulk.min + " Stk.: ₺" + nf.format(bulkTL(l.p)) + "/Stk.", "от " + l.p.bulk.min + " шт.: ₺" + nf.format(bulkTL(l.p)) + "/шт.")) + "</p>"
+                : "") +
               '<div class="qbox"><button type="button" data-q="-1" aria-label="' + L("Adet azalt", "Decrease quantity", "Menge verringern", "Уменьшить количество") + '">−</button>' +
               '<input type="text" inputmode="numeric" value="' + l.qty + '" aria-label="' + L("Adet", "Quantity", "Menge", "Количество") + '" />' +
               '<button type="button" data-q="1" aria-label="' + L("Adet artır", "Increase quantity", "Menge erhöhen", "Увеличить количество") + '">+</button></div>' +

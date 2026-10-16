@@ -811,6 +811,66 @@ window.GESPA.config = {
       features: ["Güneş panelli — elektrik hattı gerektirmez", "SMD LED · 6500 K beyaz ışık", "Hareket sensörüyle otomatik yanma", "Uzaktan kumanda", "IP65 suya dayanıklı · 30.000 saat ömür"]
     },
 
+    // —— 5'Lİ ALIM FİYATLI Hero LED ürünleri (16 Eki 2026; aydinlatma.rtf,
+    // aydinlatma3.rtf, aydin4.rtf, aydin5.rtf). Belgedeki fiyat 5 adet ve
+    // üzeri alımın ADET fiyatıdır (`bulk`); tek alımda %10 fazlası (`price`).
+    // Kural main.js pkgUnit(p, qty) ve server.js pkgListTL(p, cfg, qty)'de
+    // AYNIDIR. Belge → site (yuvarlama): aplik ₺755 → ₺760 / tekli ₺830;
+    // bahçe ₺705 → ₺710 / ₺780; 200 W ₺2.025 → ₺2.050 / ₺2.250;
+    // 600 W ₺2.430 → ₺2.450 / ₺2.650.
+    {
+      id: "hero-led-aplik-50w", icon: "🏮", tag: "Aydınlatma", group: "lighting",
+      url: "hero-led-aplik-50w.html",
+      sku: "HL-5181", brand: "Hero LED",
+      img: "assets/img/products/hero-led-aplik-50w.webp",
+      price: 16.88, currency: "USD",                      // ₺830 @ 49,2 (tekli)
+      bulk: { min: 5, price: 15.35 },                     // ₺760 @ 49,2 (5+ adet)
+      chips: ["☀️ Güneş enerjili", "🌈 3 renk + RGB", "💧 IP65"],
+      for: "Duvar, giriş kapısı, bahçe duvarı ve teras aydınlatması",
+      name: "Hero LED 50 W Solar LED Aplik (Kumandalı, 3 Renk + RGB)",
+      desc: "Üstündeki güneş paneliyle gündüz şarj olup gece çalışan 50 W solar duvar apliği (HL-5181): elektrik hattı gerektirmez. 4000 lümen, 3200 K / 4000 K / 6500 K ve RGB ışık seçeneği, 60° ışık açısı, uzaktan kumanda, IP65 suya dayanıklılık ve 15.000 saat ömür. Şarj süresi 6 saat, çalışma süresi 8 saat; ölçü 160 × 160 × 213 mm.",
+      features: ["Güneş enerjili — elektrik hattı gerektirmez", "50 W · 4000 lümen · 60° ışık açısı", "3200 K / 4000 K / 6500 K + RGB ışık seçeneği", "Uzaktan kumanda · duvar tipi montaj", "IP65 suya dayanıklı · 15.000 saat ömür", "Şarj 6 saat · çalışma 8 saat"]
+    },
+    {
+      id: "hero-led-bahce-50w", icon: "🏡", tag: "Aydınlatma", group: "lighting",
+      url: "hero-led-bahce-50w.html",
+      sku: "HL-5180", brand: "Hero LED",
+      img: "assets/img/products/hero-led-bahce-50w.webp",
+      price: 15.76, currency: "USD",                      // ₺780 @ 49,2 (tekli)
+      bulk: { min: 5, price: 14.33 },                     // ₺710 @ 49,2 (5+ adet)
+      chips: ["☀️ Güneş enerjili", "🌈 3 renk + RGB", "💧 IP65"],
+      for: "Bahçe duvarı, set, kolon başı ve giriş aydınlatması",
+      name: "Hero LED 50 W Solar Set Üstü Bahçe Armatürü (Kumandalı, 3 Renk + RGB)",
+      desc: "Bahçe duvarı, set ve kolon başına takılan 50 W solar bahçe armatürü (HL-5180); duvara da monte edilebilir. Üstündeki güneş paneliyle şarj olur, elektrik hattı gerektirmez. 4000 lümen, 3200 K / 4000 K / 6500 K ve RGB ışık seçeneği, 60° ışık açısı, uzaktan kumanda, IP65 suya dayanıklılık ve 15.000 saat ömür. Şarj süresi 6 saat, çalışma süresi 8 saat; ölçü 160 × 160 × 213 mm.",
+      features: ["Güneş enerjili — elektrik hattı gerektirmez", "50 W · 4000 lümen · 60° ışık açısı", "3200 K / 4000 K / 6500 K + RGB ışık seçeneği", "Uzaktan kumanda · set üstü / duvar tipi montaj", "IP65 suya dayanıklı · 15.000 saat ömür", "Şarj 6 saat · çalışma 8 saat"]
+    },
+    {
+      id: "hero-led-solar-sokak-200w", icon: "🌙", tag: "Aydınlatma", group: "lighting",
+      url: "hero-led-solar-sokak-200w.html",
+      sku: "HL-5153", brand: "Hero LED",
+      img: "assets/img/products/hero-led-solar-sokak-200w.webp",
+      price: 45.27, currency: "USD",                      // ₺2.250 @ 49,2 (tekli)
+      bulk: { min: 5, price: 41.16 },                     // ₺2.050 @ 49,2 (5+ adet)
+      chips: ["☀️ Güneş panelli", "🚶 Hareket sensörü", "💧 IP65"],
+      for: "Bahçe, sokak, site, otopark ve fabrika aydınlatması",
+      name: "Hero LED 200 W Solar Sokak Armatürü (Sensörlü, Kumandalı)",
+      desc: "Güneş paneliyle şarj olup gece çalışan 200 W solar sokak armatürü (HL-5153): elektrik hattı çekmeden aydınlatma sağlar. SMD LED, 6500 K beyaz ışık, hareket sensörüyle otomatik yanma, sabit yanma zaman ayarı, uzaktan kumanda, IP65 suya dayanıklılık ve 30.000 saat ömür. Armatür ölçüsü 188 × 586 mm. Bahçe, sokak, site, otopark ve fabrika aydınlatması için.",
+      features: ["Güneş panelli — elektrik hattı gerektirmez", "SMD LED · 6500 K beyaz ışık", "Hareket sensörü · sabit yanma zaman ayarı", "Uzaktan kumanda", "IP65 suya dayanıklı · 30.000 saat ömür", "Armatür 188 × 586 mm"]
+    },
+    {
+      id: "hero-led-solar-sokak-600w", icon: "🌙", tag: "Aydınlatma", group: "lighting",
+      url: "hero-led-solar-sokak-600w.html",
+      sku: "HL-5157", brand: "Hero LED",
+      img: "assets/img/products/hero-led-solar-sokak-600w.webp",
+      price: 54.33, currency: "USD",                      // ₺2.650 @ 49,2 (tekli)
+      bulk: { min: 5, price: 49.39 },                     // ₺2.450 @ 49,2 (5+ adet)
+      chips: ["☀️ Güneş panelli", "📡 Radar sensör", "💧 IP65"],
+      for: "Geniş bahçe, sokak, site, otopark ve fabrika sahası",
+      name: "Hero LED 600 W Solar Sokak Armatürü (Radar Sensörlü, Kumandalı)",
+      desc: "Geniş alanlar için 600 W solar sokak armatürü (HL-5157): ayrı güneş paneliyle şarj olur, elektrik hattı ve elektrik faturası gerektirmez. SMD LED, 6500 K beyaz ışık, radar hareket sensörü, sabit yanma zaman ayarı, uzaktan kumanda, IP65 suya dayanıklılık ve 30.000 saat ömür. Kutu bilgisine göre sensör modunda 24–36 saat, sabit yanmada 6–8 saat çalışır. Armatür ölçüsü 29,8 × 46,5 cm.",
+      features: ["Ayrı güneş paneli — elektrik hattı gerektirmez", "SMD LED · 6500 K beyaz ışık", "Radar hareket sensörü · sabit yanma zaman ayarı", "Sensör modunda 24–36 saat · sabit yanmada 6–8 saat", "Uzaktan kumanda · IP65 · 30.000 saat ömür", "Armatür 29,8 × 46,5 cm"]
+    },
+
   ],
 
   // ============================================================

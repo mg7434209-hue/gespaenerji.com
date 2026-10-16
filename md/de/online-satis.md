@@ -363,6 +363,46 @@ Garten-, Straßen-, Wohnanlagen-, Parkplatz- und Fabrikbeleuchtung
 
 Inkl. MwSt. · zzgl. Versand
 
+### [Hero LED 50 W Solar-LED-Wandleuchte (Fernbedienung, 3 Farben + RGB)](https://www.gespaenerji.com/de/hero-led-aplik-50w.html)
+
+Wand-, Eingangs-, Gartenmauer- und Terrassenbeleuchtung
+
+**₺830**≈ $17
+
+💰 Per Überweisung: **₺800**
+
+Inkl. MwSt. · zzgl. Versand
+
+### [Hero LED 50 W Solar-Pfeilerleuchte für den Garten (Fernbedienung, 3 Farben + RGB)](https://www.gespaenerji.com/de/hero-led-bahce-50w.html)
+
+Beleuchtung für Gartenmauer, Sockel, Pfeilerkopf und Eingang
+
+**₺780**≈ $16
+
+💰 Per Überweisung: **₺750**
+
+Inkl. MwSt. · zzgl. Versand
+
+### [Hero LED 200 W Solar-Straßenleuchte (Sensor, Fernbedienung)](https://www.gespaenerji.com/de/hero-led-solar-sokak-200w.html)
+
+Garten-, Straßen-, Wohnanlagen-, Parkplatz- und Fabrikbeleuchtung
+
+**₺2.250**≈ $45
+
+💰 Per Überweisung: **₺2.200**
+
+Inkl. MwSt. · zzgl. Versand
+
+### [Hero LED 600 W Solar-Straßenleuchte (Radarsensor, Fernbedienung)](https://www.gespaenerji.com/de/hero-led-solar-sokak-600w.html)
+
+Große Gärten, Straßen, Wohnanlagen, Parkplätze und Fabrikgelände
+
+**₺2.650**≈ $54
+
+💰 Per Überweisung: **₺2.550**
+
+Inkl. MwSt. · zzgl. Versand
+
 Häufige Fragen
 
 ## Bestellung, Versand und Zahlung

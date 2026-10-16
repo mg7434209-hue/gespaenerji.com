@@ -363,6 +363,46 @@ Bahçe, sokak, site, otopark ve fabrika aydınlatması
 
 KDV dahil · kargo hariç
 
+### [Hero LED 50 W Solar LED Aplik (Kumandalı, 3 Renk + RGB)](https://www.gespaenerji.com/hero-led-aplik-50w.html)
+
+Duvar, giriş kapısı, bahçe duvarı ve teras aydınlatması
+
+**₺830**≈ $17
+
+💰 Havale/EFT ile: **₺800**
+
+KDV dahil · kargo hariç
+
+### [Hero LED 50 W Solar Set Üstü Bahçe Armatürü (Kumandalı, 3 Renk + RGB)](https://www.gespaenerji.com/hero-led-bahce-50w.html)
+
+Bahçe duvarı, set, kolon başı ve giriş aydınlatması
+
+**₺780**≈ $16
+
+💰 Havale/EFT ile: **₺750**
+
+KDV dahil · kargo hariç
+
+### [Hero LED 200 W Solar Sokak Armatürü (Sensörlü, Kumandalı)](https://www.gespaenerji.com/hero-led-solar-sokak-200w.html)
+
+Bahçe, sokak, site, otopark ve fabrika aydınlatması
+
+**₺2.250**≈ $45
+
+💰 Havale/EFT ile: **₺2.200**
+
+KDV dahil · kargo hariç
+
+### [Hero LED 600 W Solar Sokak Armatürü (Radar Sensörlü, Kumandalı)](https://www.gespaenerji.com/hero-led-solar-sokak-600w.html)
+
+Geniş bahçe, sokak, site, otopark ve fabrika sahası
+
+**₺2.650**≈ $54
+
+💰 Havale/EFT ile: **₺2.550**
+
+KDV dahil · kargo hariç
+
 Sıkça Sorulan Sorular
 
 ## Sipariş, kargo ve ödeme

@@ -363,6 +363,46 @@ Garden, street, estate, car park and factory lighting
 
 VAT included · shipping excluded
 
+### [Hero LED 50 W Solar LED Wall Light (Remote, 3 Colours + RGB)](https://www.gespaenerji.com/en/hero-led-aplik-50w.html)
+
+Wall, entrance, garden wall and terrace lighting
+
+**₺830**≈ $17
+
+💰 By bank transfer: **₺800**
+
+VAT included · shipping excluded
+
+### [Hero LED 50 W Solar Pillar-Top Garden Light (Remote, 3 Colours + RGB)](https://www.gespaenerji.com/en/hero-led-bahce-50w.html)
+
+Garden wall, ledge, pillar-top and entrance lighting
+
+**₺780**≈ $16
+
+💰 By bank transfer: **₺750**
+
+VAT included · shipping excluded
+
+### [Hero LED 200 W Solar Street Light (Sensor, Remote)](https://www.gespaenerji.com/en/hero-led-solar-sokak-200w.html)
+
+Garden, street, estate, car park and factory lighting
+
+**₺2.250**≈ $45
+
+💰 By bank transfer: **₺2.200**
+
+VAT included · shipping excluded
+
+### [Hero LED 600 W Solar Street Light (Radar Sensor, Remote)](https://www.gespaenerji.com/en/hero-led-solar-sokak-600w.html)
+
+Large gardens, streets, estates, car parks and factory yards
+
+**₺2.650**≈ $54
+
+💰 By bank transfer: **₺2.550**
+
+VAT included · shipping excluded
+
 Frequently Asked Questions
 
 ## Orders, shipping and payment

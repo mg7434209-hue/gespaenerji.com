@@ -510,9 +510,13 @@ function writeOrder(token, data) {
 
 // Birim TL fiyat — assets/main.js pkgUnit ile AYNI kural (liste fiyatı).
 // Kart ödemesinde havale indirimi uygulanmaz; liste fiyatı tahsil edilir.
-function pkgListTL(p, cfg) {
+// qty: sepetteki adet — `bulk: {min, price}` olan üründe adet min'e ulaşınca
+// birim fiyat bulk.price olur (main.js pkgUnit(p, qty) ile AYNI kural).
+function pkgListTL(p, cfg, qty) {
   const RATE = cfg.usdTry || 0;                  // canlı kur açıksa FX.rate (aşağıda)
-  return p.currency === "USD" ? kur.tlRound(p.price * RATE) : p.price;
+  const bulk = p.bulk && p.bulk.price != null && qty >= (p.bulk.min || 0);
+  const base = bulk ? p.bulk.price : p.price;
+  return p.currency === "USD" ? kur.tlRound(base * RATE) : base;
 }
 
 // Fiyat biçimi — resmî SDK ile aynı: tam sayıya ".0" eklenir ("50" -> "50.0").
@@ -1540,7 +1544,7 @@ function handlePayRoutes(req, res, urlPath) {
       items.forEach((it) => {
         const p = (cfg.packages || []).find((x) => x.id === it.id);
         const qty = Math.max(1, Math.min(99, parseInt(it.qty, 10) || 0));
-        if (p && p.price != null && qty) lines.push({ p, qty, unit: pkgListTL(p, cfg) });
+        if (p && p.price != null && qty) lines.push({ p, qty, unit: pkgListTL(p, cfg, qty) });
       });
       if (!lines.length) return sendJson(res, 400, { error: "Sepet boş veya ürünler tanınamadı." });
       const nm = String(buyer.ad || "").trim().split(/\s+/);

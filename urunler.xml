@@ -565,5 +565,69 @@
         <g:country>TR</g:country>
       </g:shipping>
     </item>
+    <item>
+      <g:id>hero-led-aplik-50w</g:id>
+      <g:title>Hero LED 50 W Solar LED Aplik (Kumandalı, 3 Renk + RGB)</g:title>
+      <g:description>Üstündeki güneş paneliyle gündüz şarj olup gece çalışan 50 W solar duvar apliği (HL-5181): elektrik hattı gerektirmez. 4000 lümen, 3200 K / 4000 K / 6500 K ve RGB ışık seçeneği, 60° ışık açısı, uzaktan kumanda, IP65 suya dayanıklılık ve 15.000 saat ömür. Şarj süresi 6 saat, çalışma süresi 8 saat; ölçü 160 × 160 × 213 mm.</g:description>
+      <g:link>https://www.gespaenerji.com/hero-led-aplik-50w.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/hero-led-aplik-50w.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>830.00 TRY</g:price>
+      <g:brand>Hero LED</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>HL-5181</g:mpn>
+      <g:product_type>Aydınlatma</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>hero-led-bahce-50w</g:id>
+      <g:title>Hero LED 50 W Solar Set Üstü Bahçe Armatürü (Kumandalı, 3 Renk + RGB)</g:title>
+      <g:description>Bahçe duvarı, set ve kolon başına takılan 50 W solar bahçe armatürü (HL-5180); duvara da monte edilebilir. Üstündeki güneş paneliyle şarj olur, elektrik hattı gerektirmez. 4000 lümen, 3200 K / 4000 K / 6500 K ve RGB ışık seçeneği, 60° ışık açısı, uzaktan kumanda, IP65 suya dayanıklılık ve 15.000 saat ömür. Şarj süresi 6 saat, çalışma süresi 8 saat; ölçü 160 × 160 × 213 mm.</g:description>
+      <g:link>https://www.gespaenerji.com/hero-led-bahce-50w.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/hero-led-bahce-50w.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>780.00 TRY</g:price>
+      <g:brand>Hero LED</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>HL-5180</g:mpn>
+      <g:product_type>Aydınlatma</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>hero-led-solar-sokak-200w</g:id>
+      <g:title>Hero LED 200 W Solar Sokak Armatürü (Sensörlü, Kumandalı)</g:title>
+      <g:description>Güneş paneliyle şarj olup gece çalışan 200 W solar sokak armatürü (HL-5153): elektrik hattı çekmeden aydınlatma sağlar. SMD LED, 6500 K beyaz ışık, hareket sensörüyle otomatik yanma, sabit yanma zaman ayarı, uzaktan kumanda, IP65 suya dayanıklılık ve 30.000 saat ömür. Armatür ölçüsü 188 × 586 mm. Bahçe, sokak, site, otopark ve fabrika aydınlatması için.</g:description>
+      <g:link>https://www.gespaenerji.com/hero-led-solar-sokak-200w.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/hero-led-solar-sokak-200w.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>2250.00 TRY</g:price>
+      <g:brand>Hero LED</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>HL-5153</g:mpn>
+      <g:product_type>Aydınlatma</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>hero-led-solar-sokak-600w</g:id>
+      <g:title>Hero LED 600 W Solar Sokak Armatürü (Radar Sensörlü, Kumandalı)</g:title>
+      <g:description>Geniş alanlar için 600 W solar sokak armatürü (HL-5157): ayrı güneş paneliyle şarj olur, elektrik hattı ve elektrik faturası gerektirmez. SMD LED, 6500 K beyaz ışık, radar hareket sensörü, sabit yanma zaman ayarı, uzaktan kumanda, IP65 suya dayanıklılık ve 30.000 saat ömür. Kutu bilgisine göre sensör modunda 24–36 saat, sabit yanmada 6–8 saat çalışır. Armatür ölçüsü 29,8 × 46,5 cm.</g:description>
+      <g:link>https://www.gespaenerji.com/hero-led-solar-sokak-600w.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/hero-led-solar-sokak-600w.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>2650.00 TRY</g:price>
+      <g:brand>Hero LED</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>HL-5157</g:mpn>
+      <g:product_type>Aydınlatma</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
+    </item>
   </channel>
 </rss>

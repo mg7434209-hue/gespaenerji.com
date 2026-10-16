@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Paneller, TitanX akü, solar kablo, MC4 ve Hero LED aydınlatma ürün sayfaları (11 sayfa) — TEK KAYNAK.
+"""Paneller, TitanX akü, solar kablo, MC4 ve Hero LED aydınlatma ürün sayfaları (15 sayfa) — TEK KAYNAK.
 
 Kullanım:
   python3 tools/urun-sayfalar.py            DRY-RUN: üretir, denetler, yazmaz
@@ -153,6 +153,52 @@ CFG = [
  ("IP65 suya dayanıklı · 30.000 saat ömür", "IP65 water-resistant · 30,000-hour lifetime", "IP65 wassergeschützt · 30.000 Stunden Lebensdauer", "Защита IP65 · ресурс 30 000 часов"),
 ]
 for row in CFG:
+    t(*row)
+
+# Hero LED 5'li alım fiyatlı ürünler (aplik, bahçe, 200 W, 600 W)
+CFG2 = [
+ ("☀️ Güneş enerjili", "☀️ Solar powered", "☀️ Solarbetrieben", "☀️ На солнечной энергии"),
+ ("🌈 3 renk + RGB", "🌈 3 colours + RGB", "🌈 3 Farben + RGB", "🌈 3 цвета + RGB"),
+ ("📡 Radar sensör", "📡 Radar sensor", "📡 Radarsensor", "📡 Радарный датчик"),
+ ("Duvar, giriş kapısı, bahçe duvarı ve teras aydınlatması", "Wall, entrance, garden wall and terrace lighting", "Wand-, Eingangs-, Gartenmauer- und Terrassenbeleuchtung", "Освещение стен, входа, садовой ограды и террасы"),
+ ("Bahçe duvarı, set, kolon başı ve giriş aydınlatması", "Garden wall, ledge, pillar-top and entrance lighting", "Beleuchtung für Gartenmauer, Sockel, Pfeilerkopf und Eingang", "Освещение садовой ограды, бордюра, верха колонн и входа"),
+ ("Geniş bahçe, sokak, site, otopark ve fabrika sahası", "Large gardens, streets, estates, car parks and factory yards", "Große Gärten, Straßen, Wohnanlagen, Parkplätze und Fabrikgelände", "Большие сады, улицы, жилые комплексы, парковки и территории заводов"),
+ ("Hero LED 50 W Solar LED Aplik (Kumandalı, 3 Renk + RGB)", "Hero LED 50 W Solar LED Wall Light (Remote, 3 Colours + RGB)", "Hero LED 50 W Solar-LED-Wandleuchte (Fernbedienung, 3 Farben + RGB)", "Солнечный настенный светильник Hero LED 50 Вт (пульт, 3 цвета + RGB)"),
+ ("Hero LED 50 W Solar Set Üstü Bahçe Armatürü (Kumandalı, 3 Renk + RGB)", "Hero LED 50 W Solar Pillar-Top Garden Light (Remote, 3 Colours + RGB)", "Hero LED 50 W Solar-Pfeilerleuchte für den Garten (Fernbedienung, 3 Farben + RGB)", "Солнечный садовый светильник на столб Hero LED 50 Вт (пульт, 3 цвета + RGB)"),
+ ("Hero LED 200 W Solar Sokak Armatürü (Sensörlü, Kumandalı)", "Hero LED 200 W Solar Street Light (Sensor, Remote)", "Hero LED 200 W Solar-Straßenleuchte (Sensor, Fernbedienung)", "Солнечный уличный светильник Hero LED 200 Вт (датчик, пульт)"),
+ ("Hero LED 600 W Solar Sokak Armatürü (Radar Sensörlü, Kumandalı)", "Hero LED 600 W Solar Street Light (Radar Sensor, Remote)", "Hero LED 600 W Solar-Straßenleuchte (Radarsensor, Fernbedienung)", "Солнечный уличный светильник Hero LED 600 Вт (радарный датчик, пульт)"),
+ ("Üstündeki güneş paneliyle gündüz şarj olup gece çalışan 50 W solar duvar apliği (HL-5181): elektrik hattı gerektirmez. 4000 lümen, 3200 K / 4000 K / 6500 K ve RGB ışık seçeneği, 60° ışık açısı, uzaktan kumanda, IP65 suya dayanıklılık ve 15.000 saat ömür. Şarj süresi 6 saat, çalışma süresi 8 saat; ölçü 160 × 160 × 213 mm.",
+  "50 W solar wall light (HL-5181) that charges by day from the solar panel on top and works at night: no power line needed. 4000 lumens, 3200 K / 4000 K / 6500 K and RGB light options, 60° beam angle, remote control, IP65 water resistance and a 15,000-hour lifetime. Charging time 6 hours, run time 8 hours; size 160 × 160 × 213 mm.",
+  "50-W-Solar-Wandleuchte (HL-5181), die sich tagsüber über das Solarmodul auf der Oberseite lädt und nachts leuchtet: keine Stromleitung nötig. 4000 Lumen, Lichtoptionen 3200 K / 4000 K / 6500 K und RGB, 60° Abstrahlwinkel, Fernbedienung, IP65-Wasserschutz und 15.000 Stunden Lebensdauer. Ladezeit 6 Stunden, Leuchtdauer 8 Stunden; Maße 160 × 160 × 213 mm.",
+  "Солнечный настенный светильник 50 Вт (HL-5181): днём заряжается от панели сверху, ночью светит, электролиния не нужна. 4000 люмен, свет 3200 K / 4000 K / 6500 K и RGB, угол 60°, пульт ДУ, защита от воды IP65 и ресурс 15 000 часов. Зарядка 6 часов, работа 8 часов; размер 160 × 160 × 213 мм."),
+ ("Bahçe duvarı, set ve kolon başına takılan 50 W solar bahçe armatürü (HL-5180); duvara da monte edilebilir. Üstündeki güneş paneliyle şarj olur, elektrik hattı gerektirmez. 4000 lümen, 3200 K / 4000 K / 6500 K ve RGB ışık seçeneği, 60° ışık açısı, uzaktan kumanda, IP65 suya dayanıklılık ve 15.000 saat ömür. Şarj süresi 6 saat, çalışma süresi 8 saat; ölçü 160 × 160 × 213 mm.",
+  "50 W solar garden light (HL-5180) for garden walls, ledges and pillar tops; it can also be wall-mounted. It charges from the solar panel on top, so no power line is needed. 4000 lumens, 3200 K / 4000 K / 6500 K and RGB light options, 60° beam angle, remote control, IP65 water resistance and a 15,000-hour lifetime. Charging time 6 hours, run time 8 hours; size 160 × 160 × 213 mm.",
+  "50-W-Solar-Gartenleuchte (HL-5180) für Gartenmauern, Sockel und Pfeilerköpfe; auch zur Wandmontage. Sie lädt über das Solarmodul auf der Oberseite, eine Stromleitung ist nicht nötig. 4000 Lumen, Lichtoptionen 3200 K / 4000 K / 6500 K und RGB, 60° Abstrahlwinkel, Fernbedienung, IP65-Wasserschutz und 15.000 Stunden Lebensdauer. Ladezeit 6 Stunden, Leuchtdauer 8 Stunden; Maße 160 × 160 × 213 mm.",
+  "Солнечный садовый светильник 50 Вт (HL-5180) для садовых оград, бордюров и верха колонн; можно крепить и на стену. Заряжается от панели сверху, электролиния не нужна. 4000 люмен, свет 3200 K / 4000 K / 6500 K и RGB, угол 60°, пульт ДУ, защита от воды IP65 и ресурс 15 000 часов. Зарядка 6 часов, работа 8 часов; размер 160 × 160 × 213 мм."),
+ ("Güneş paneliyle şarj olup gece çalışan 200 W solar sokak armatürü (HL-5153): elektrik hattı çekmeden aydınlatma sağlar. SMD LED, 6500 K beyaz ışık, hareket sensörüyle otomatik yanma, sabit yanma zaman ayarı, uzaktan kumanda, IP65 suya dayanıklılık ve 30.000 saat ömür. Armatür ölçüsü 188 × 586 mm. Bahçe, sokak, site, otopark ve fabrika aydınlatması için.",
+  "200 W solar street light (HL-5153) that charges from its solar panel and works at night: light without running a power line. SMD LEDs, 6500 K white light, automatic switch-on by motion sensor, fixed-on timer, remote control, IP65 water resistance and a 30,000-hour lifetime. Luminaire size 188 × 586 mm. For gardens, streets, estates, car parks and factories.",
+  "200-W-Solar-Straßenleuchte (HL-5153), die sich über ihr Solarmodul lädt und nachts leuchtet: Licht ohne Stromleitung. SMD-LEDs, 6500 K weißes Licht, automatisches Einschalten per Bewegungssensor, Zeitschaltung für Dauerlicht, Fernbedienung, IP65-Wasserschutz und 30.000 Stunden Lebensdauer. Leuchtenmaß 188 × 586 mm. Für Gärten, Straßen, Wohnanlagen, Parkplätze und Fabriken.",
+  "Солнечный уличный светильник 200 Вт (HL-5153): заряжается от солнечной панели и светит ночью, без прокладки электролинии. SMD-светодиоды, белый свет 6500 K, автоматическое включение по датчику движения, таймер постоянного свечения, пульт ДУ, защита от воды IP65 и ресурс 30 000 часов. Размер светильника 188 × 586 мм. Для садов, улиц, жилых комплексов, парковок и заводов."),
+ ("Geniş alanlar için 600 W solar sokak armatürü (HL-5157): ayrı güneş paneliyle şarj olur, elektrik hattı ve elektrik faturası gerektirmez. SMD LED, 6500 K beyaz ışık, radar hareket sensörü, sabit yanma zaman ayarı, uzaktan kumanda, IP65 suya dayanıklılık ve 30.000 saat ömür. Kutu bilgisine göre sensör modunda 24–36 saat, sabit yanmada 6–8 saat çalışır. Armatür ölçüsü 29,8 × 46,5 cm.",
+  "600 W solar street light for large areas (HL-5157): it charges from a separate solar panel, so no power line and no electricity bill. SMD LEDs, 6500 K white light, radar motion sensor, fixed-on timer, remote control, IP65 water resistance and a 30,000-hour lifetime. According to the box it runs 24–36 hours in sensor mode and 6–8 hours in fixed-on mode. Luminaire size 29.8 × 46.5 cm.",
+  "600-W-Solar-Straßenleuchte für große Flächen (HL-5157): lädt über ein separates Solarmodul, ohne Stromleitung und ohne Stromrechnung. SMD-LEDs, 6500 K weißes Licht, Radar-Bewegungssensor, Zeitschaltung für Dauerlicht, Fernbedienung, IP65-Wasserschutz und 30.000 Stunden Lebensdauer. Laut Verpackung 24–36 Stunden im Sensormodus und 6–8 Stunden im Dauerlicht. Leuchtenmaß 29,8 × 46,5 cm.",
+  "Солнечный уличный светильник 600 Вт для больших территорий (HL-5157): заряжается от отдельной солнечной панели, без электролинии и счетов за электричество. SMD-светодиоды, белый свет 6500 K, радарный датчик движения, таймер постоянного свечения, пульт ДУ, защита от воды IP65 и ресурс 30 000 часов. По данным упаковки — 24–36 часов в режиме датчика и 6–8 часов при постоянном свечении. Размер светильника 29,8 × 46,5 см."),
+ ("Güneş enerjili — elektrik hattı gerektirmez", "Solar powered — no power line needed", "Solarbetrieben — keine Stromleitung nötig", "На солнечной энергии — электролиния не нужна"),
+ ("50 W · 4000 lümen · 60° ışık açısı", "50 W · 4000 lumens · 60° beam angle", "50 W · 4000 Lumen · 60° Abstrahlwinkel", "50 Вт · 4000 люмен · угол 60°"),
+ ("3200 K / 4000 K / 6500 K + RGB ışık seçeneği", "3200 K / 4000 K / 6500 K + RGB light options", "Lichtoptionen 3200 K / 4000 K / 6500 K + RGB", "Свет 3200 K / 4000 K / 6500 K + RGB"),
+ ("Uzaktan kumanda · duvar tipi montaj", "Remote control · wall mounting", "Fernbedienung · Wandmontage", "Пульт ДУ · настенный монтаж"),
+ ("Uzaktan kumanda · set üstü / duvar tipi montaj", "Remote control · pillar-top / wall mounting", "Fernbedienung · Pfeiler- / Wandmontage", "Пульт ДУ · монтаж на столб / стену"),
+ ("IP65 suya dayanıklı · 15.000 saat ömür", "IP65 water-resistant · 15,000-hour lifetime", "IP65 wassergeschützt · 15.000 Stunden Lebensdauer", "Защита IP65 · ресурс 15 000 часов"),
+ ("Şarj 6 saat · çalışma 8 saat", "Charging 6 h · run time 8 h", "Laden 6 h · Leuchtdauer 8 h", "Зарядка 6 ч · работа 8 ч"),
+ ("Hareket sensörü · sabit yanma zaman ayarı", "Motion sensor · fixed-on timer", "Bewegungssensor · Zeitschaltung für Dauerlicht", "Датчик движения · таймер постоянного свечения"),
+ ("Armatür 188 × 586 mm", "Luminaire 188 × 586 mm", "Leuchte 188 × 586 mm", "Светильник 188 × 586 мм"),
+ ("Ayrı güneş paneli — elektrik hattı gerektirmez", "Separate solar panel — no power line needed", "Separates Solarmodul — keine Stromleitung nötig", "Отдельная солнечная панель — электролиния не нужна"),
+ ("Radar hareket sensörü · sabit yanma zaman ayarı", "Radar motion sensor · fixed-on timer", "Radar-Bewegungssensor · Zeitschaltung für Dauerlicht", "Радарный датчик движения · таймер постоянного свечения"),
+ ("Sensör modunda 24–36 saat · sabit yanmada 6–8 saat", "24–36 h in sensor mode · 6–8 h fixed-on", "24–36 h im Sensormodus · 6–8 h Dauerlicht", "24–36 ч в режиме датчика · 6–8 ч постоянно"),
+ ("Uzaktan kumanda · IP65 · 30.000 saat ömür", "Remote control · IP65 · 30,000-hour lifetime", "Fernbedienung · IP65 · 30.000 Stunden Lebensdauer", "Пульт ДУ · IP65 · ресурс 30 000 часов"),
+ ("Armatür 29,8 × 46,5 cm", "Luminaire 29.8 × 46.5 cm", "Leuchte 29,8 × 46,5 cm", "Светильник 29,8 × 46,5 см"),
+]
+for row in CFG2:
     t(*row)
 
 # ------------------------------------------------------------ ortak metinler
@@ -633,7 +679,24 @@ GALLERY = {
                            ("assets/img/products/hero-led-ampul-10w-teknik.webp", t("Teknik özellikler ve enerji etiketi", "Technical data and energy label", "Technische Daten und Energielabel", "Технические характеристики и энергоэтикетка"))],
     "hero-led-solar-sokak-100w": [("assets/img/products/hero-led-solar-sokak-100w-afis.webp", t("Hero LED 100 W solar sokak armatürü — tanıtım", "Hero LED 100 W solar street light — overview", "Hero LED 100 W Solar-Straßenleuchte — Übersicht", "Солнечный светильник Hero LED 100 Вт — обзор")),
                                   ("assets/img/products/hero-led-solar-sokak-100w-detay.webp", t("Güneş paneli, SMD LED ve kullanım alanları", "Solar panel, SMD LEDs and applications", "Solarmodul, SMD-LEDs und Einsatzbereiche", "Солнечная панель, SMD-светодиоды и применение"))],
+    "hero-led-aplik-50w": [("assets/img/products/hero-led-aplik-50w-afis.webp", t("Hero LED 50 W solar LED aplik — tanıtım ve ışık renkleri", "Hero LED 50 W solar LED wall light — overview and light colours", "Hero LED 50 W Solar-LED-Wandleuchte — Übersicht und Lichtfarben", "Солнечный настенный светильник Hero LED 50 Вт — обзор и цвета света")),
+                           ("assets/img/products/hero-led-aplik-50w-teknik.webp", t("Teknik özellikler, ölçüler ve kutu içeriği", "Technical data, dimensions and box contents", "Technische Daten, Maße und Lieferumfang", "Технические характеристики, размеры и комплектация"))],
+    "hero-led-bahce-50w": [("assets/img/products/hero-led-bahce-50w-afis.webp", t("Hero LED 50 W solar set üstü bahçe armatürü — tanıtım", "Hero LED 50 W solar pillar-top garden light — overview", "Hero LED 50 W Solar-Pfeilerleuchte — Übersicht", "Садовый солнечный светильник Hero LED 50 Вт — обзор")),
+                           ("assets/img/products/hero-led-bahce-50w-renk.webp", t("3 renk + RGB ışık seçenekleri", "3 colours + RGB light options", "3 Farben + RGB Lichtoptionen", "3 цвета + RGB: варианты света")),
+                           ("assets/img/products/hero-led-bahce-50w-teknik.webp", t("Teknik özellikler, ölçüler ve kutu içeriği", "Technical data, dimensions and box contents", "Technische Daten, Maße und Lieferumfang", "Технические характеристики, размеры и комплектация"))],
+    "hero-led-solar-sokak-200w": [("assets/img/products/hero-led-solar-sokak-200w-afis.webp", t("Hero LED 200 W solar sokak armatürü — tanıtım", "Hero LED 200 W solar street light — overview", "Hero LED 200 W Solar-Straßenleuchte — Übersicht", "Солнечный светильник Hero LED 200 Вт — обзор")),
+                                  ("assets/img/products/hero-led-solar-sokak-200w-detay.webp", t("Ölçüler, SMD LED, kullanım alanları ve kutu", "Dimensions, SMD LEDs, applications and box", "Maße, SMD-LEDs, Einsatzbereiche und Verpackung", "Размеры, SMD-светодиоды, применение и упаковка"))],
+    "hero-led-solar-sokak-600w": [("assets/img/products/hero-led-solar-sokak-600w-afis.webp", t("Hero LED 600 W solar sokak armatürü — tanıtım", "Hero LED 600 W solar street light — overview", "Hero LED 600 W Solar-Straßenleuchte — Übersicht", "Солнечный светильник Hero LED 600 Вт — обзор")),
+                                  ("assets/img/products/hero-led-solar-sokak-600w-detay.webp", t("Geniş alan aydınlatması, ölçüler, güneş paneli ve kutu", "Large-area lighting, dimensions, solar panel and box", "Großflächenbeleuchtung, Maße, Solarmodul und Verpackung", "Освещение больших площадей, размеры, панель и упаковка"))],
 }
+
+# 5'li (bulk) fiyatlı ürün: fiyat kutusuna adet fiyatı satırı (main.js doldurur).
+def add_bulk(html, P, pk):
+    if not pk[P["id"]].get("bulk"):
+        return html
+    a = html.index('<p class="pd-vat" data-pkg-vat>')
+    b = html.index("</p>", a) + len("</p>")
+    return html[:b] + '\n              <p class="pd-bulk" data-pkg-bulk hidden></p>' + html[b:]
 
 
 def add_gallery(html, P, pk):
@@ -759,9 +822,7 @@ def lighting(pk, pid):
                   t("Armatürü direğe ya da duvara sabitleyin, paneli güneye yönlendirin.", "Fix the luminaire to a pole or wall and point the panel south.", "Befestigen Sie die Leuchte an Mast oder Wand und richten Sie das Modul nach Süden aus.", "Закрепите светильник на столбе или стене, направьте панель на юг.")),
                  (t("Modu seçin", "Choose the mode", "Modus wählen", "Выберите режим"),
                   t("Uzaktan kumandayla çalışma modunu seçin; ilk kullanımdan önce paneli güneşte şarj olmaya bırakın.", "Choose the operating mode with the remote; let the panel charge in the sun before first use.", "Wählen Sie den Betriebsmodus per Fernbedienung; lassen Sie das Modul vor dem ersten Einsatz in der Sonne laden.", "Выберите режим пультом; перед первым использованием дайте панели зарядиться на солнце."))]
-        xs = [("hero-led-ampul-10w", t("12–60 V akülü sistemler için LED ampul.", "LED bulb for 12–60 V battery systems.", "LED-Lampe für 12–60-V-Batterieanlagen.", "Светодиодная лампа для систем АКБ 12–60 В.")),
-              ("panel-50w", t("Küçük 12 V sistemler için kompakt panel.", "A compact panel for small 12 V systems.", "Ein kompaktes Modul für kleine 12-V-Anlagen.", "Компактная панель для небольших систем 12 В.")),
-              ("kablo-solar-5m", XS["kablo"]), ("mc4-set", XS["mc4"])]
+        xs = [(x, XL[x]) for x in ("hero-led-solar-sokak-200w", "hero-led-solar-sokak-600w", "hero-led-bahce-50w", "hero-led-aplik-50w")]
         kicker = t("🌙 Solar Aydınlatma", "🌙 Solar Lighting", "🌙 Solarbeleuchtung", "🌙 Солнечное освещение")
         lead = t("Hero LED 100 W solar sokak armatürü: güneş paneliyle gündüz şarj olur, gece hareket sensörüyle yanar; elektrik hattı gerektirmez.",
                  "Hero LED 100 W solar street light: charges from its solar panel by day and lights up at night with a motion sensor; no power line needed.",
@@ -806,6 +867,175 @@ def lighting(pk, pid):
     }
 
 
+# ------------------------------------------------------------ 5'li alımlı Hero LED
+XL = {
+    "hero-led-aplik-50w": t("Duvara monte 50 W solar aplik, 3 renk + RGB.", "50 W solar wall light, 3 colours + RGB.", "50-W-Solar-Wandleuchte, 3 Farben + RGB.", "Солнечный настенный светильник 50 Вт, 3 цвета + RGB."),
+    "hero-led-bahce-50w": t("Set ve kolon üstü 50 W solar bahçe armatürü.", "50 W solar light for ledges and pillar tops.", "50-W-Solarleuchte für Sockel und Pfeilerköpfe.", "Солнечный светильник 50 Вт на бордюр и столб."),
+    "hero-led-solar-sokak-100w": t("Sensörlü 100 W solar sokak armatürü.", "100 W solar street light with sensor.", "100-W-Solar-Straßenleuchte mit Sensor.", "Солнечный уличный светильник 100 Вт с датчиком."),
+    "hero-led-solar-sokak-200w": t("Sensörlü 200 W solar sokak armatürü.", "200 W solar street light with sensor.", "200-W-Solar-Straßenleuchte mit Sensor.", "Солнечный уличный светильник 200 Вт с датчиком."),
+    "hero-led-solar-sokak-600w": t("Geniş alanlar için radar sensörlü 600 W solar armatür.", "600 W solar light with radar sensor for large areas.", "600-W-Solarleuchte mit Radarsensor für große Flächen.", "Солнечный светильник 600 Вт с радаром для больших площадей."),
+}
+Q_BULK = (t("5 adet ve üzeri alımda fiyat değişiyor mu?", "Is there a price for 5 or more?", "Gibt es einen Preis ab 5 Stück?", "Есть ли цена от 5 штук?"),
+          t("Evet. 5 adet ve üzeri alımda daha düşük adet fiyatı uygulanır; bu fiyat ürün fiyatının altında yazar. Sepette adet 5'e ulaşınca adet fiyatı kendiliğinden düşer, ayrıca bir kod girmeniz gerekmez.",
+            "Yes. Buying 5 or more gets a lower unit price, shown under the product price. When the quantity in the cart reaches 5 the unit price drops automatically; no code is needed.",
+            "Ja. Ab 5 Stück gilt ein niedrigerer Stückpreis, er steht unter dem Produktpreis. Erreicht die Menge im Warenkorb 5, sinkt der Stückpreis automatisch; ein Code ist nicht nötig.",
+            "Да. При покупке от 5 штук действует более низкая цена за штуку, она указана под ценой товара. Когда в корзине 5 штук, цена за штуку снижается автоматически; код не нужен."))
+
+
+def r(tr):
+    """Daha önce kayıtlı (çevirisi olan) metni aynen kullan."""
+    if tr not in H.REG:
+        sys.exit("KAYITSIZ METİN: %r" % tr)
+    return tr
+
+
+def lighting2(pk, pid):
+    p = pk[pid]
+    BR = (ROW["marka"], k("Hero LED"))
+    SICAK = t("Renk sıcaklığı", "Colour temperature", "Farbtemperatur", "Цветовая температура")
+    KUM = (t("Kumanda", "Control", "Bedienung", "Управление"), t("Uzaktan kumanda", "Remote control", "Fernbedienung", "Пульт ДУ"))
+    IP = t("Koruma sınıfı", "Protection class", "Schutzart", "Класс защиты")
+    OMUR = t("Ömür", "Lifetime", "Lebensdauer", "Ресурс")
+    KAYNAKR = t("Enerji kaynağı", "Power source", "Energiequelle", "Источник питания")
+    Q_ELK = (r("Elektrik bağlantısı gerekir mi?"), r("Hayır. Armatür gündüz güneş paneliyle şarj olur, gece kendi kendine çalışır; elektrik hattı çekmeye gerek yoktur."))
+    STEP_YER = (r("Yer seçin"), r("Panelin gün boyu güneş alacağı, gölgesiz bir yer seçin."))
+    STEP_MOD = (r("Modu seçin"), r("Uzaktan kumandayla çalışma modunu seçin; ilk kullanımdan önce paneli güneşte şarj olmaya bırakın."))
+    FLOW_PV = ("☀️", r("Güneş paneli"), r("gündüz şarj"))
+    FLOW_DEP = ("🔋", r("Dahili depolama"), r("armatürde"))
+    small = pid in ("hero-led-aplik-50w", "hero-led-bahce-50w")
+    if small:
+        aplik = pid == "hero-led-aplik-50w"
+        sp = [BR, (ROW["model"], k("HL-5181" if aplik else "HL-5180")), (ROW["guc"], u("50 W")),
+              (r("Işık akısı"), t("4000 lm", "4000 lm", "4000 lm", "4000 лм")),
+              (SICAK, t("3200 K / 4000 K / 6500 K + RGB", "3200 K / 4000 K / 6500 K + RGB", "3200 K / 4000 K / 6500 K + RGB", "3200 K / 4000 K / 6500 K + RGB")),
+              (t("Işık açısı", "Beam angle", "Abstrahlwinkel", "Угол освещения"), k("60°")),
+              (KAYNAKR, t("Güneş paneli (armatürün üstünde)", "Solar panel (on top of the light)", "Solarmodul (oben auf der Leuchte)", "Солнечная панель (сверху светильника)")),
+              (t("Şarj süresi", "Charging time", "Ladezeit", "Время зарядки"), t("6 saat", "6 hours", "6 Stunden", "6 часов")),
+              (t("Çalışma süresi", "Run time", "Leuchtdauer", "Время работы"), t("8 saat", "8 hours", "8 Stunden", "8 часов")),
+              KUM,
+              (IP, t("IP65 · Class I", "IP65 · Class I", "IP65 · Schutzklasse I", "IP65 · класс I")),
+              (r("Çalışma sıcaklığı"), k("−10 ~ +45 °C")),
+              (OMUR, t("15.000 saat", "15,000 hours", "15.000 Stunden", "15 000 часов")),
+              (r("Frekans"), r("50–60 Hz")),
+              (ROW["olcu"], u("160 × 160 × 213 mm")),
+              (t("Montaj", "Mounting", "Montage", "Монтаж"),
+               t("Duvar tipi", "Wall mounting", "Wandmontage", "Настенный") if aplik else
+               t("Set üstü / duvar tipi", "Pillar top / wall", "Pfeilerkopf / Wand", "На столб / на стену")),
+              (t("Kutu içeriği", "Box contents", "Lieferumfang", "Комплектация"),
+               t("Armatür, uzaktan kumanda, montaj aparatları, kullanım kılavuzu", "Light, remote control, mounting kit, user manual", "Leuchte, Fernbedienung, Montageset, Bedienungsanleitung", "Светильник, пульт ДУ, крепёж, инструкция")),
+              (ROW["belge"], k("CE · RoHS"))]
+        faq = [Q_ELK,
+               (t("Işık rengini nasıl değiştiririm?", "How do I change the light colour?", "Wie ändere ich die Lichtfarbe?", "Как сменить цвет света?"),
+                t("Uzaktan kumandayla 6500 K beyaz, 4000 K ılık beyaz ve 3200 K sıcak beyaz ışık ile RGB renkler arasında geçiş yapabilirsiniz.",
+                  "With the remote you can switch between 6500 K white, 4000 K neutral white, 3200 K warm white and RGB colours.",
+                  "Mit der Fernbedienung wechseln Sie zwischen 6500 K Weiß, 4000 K Neutralweiß, 3200 K Warmweiß und RGB-Farben.",
+                  "С пульта можно переключать белый 6500 K, нейтральный 4000 K, тёплый 3200 K и цвета RGB.")),
+               (t("Kaç saat yanar?", "How long does it run?", "Wie lange leuchtet sie?", "Сколько она светит?"),
+                t("Üretici bilgisine göre güneşte yaklaşık 6 saatte şarj olur ve 8 saat çalışır. Gerçek süre güneşlenmeye, mevsime ve seçilen ışık moduna göre değişir.",
+                  "According to the manufacturer it charges in about 6 hours of sun and runs for 8 hours. The actual time depends on sunlight, season and the selected light mode.",
+                  "Laut Hersteller lädt sie in etwa 6 Sonnenstunden und leuchtet 8 Stunden. Die tatsächliche Dauer hängt von Sonne, Jahreszeit und gewähltem Lichtmodus ab.",
+                  "По данным производителя заряжается примерно за 6 часов солнца и работает 8 часов. Реальное время зависит от солнца, сезона и режима света.")),
+               Q_BULK, Q_KUR]
+        if aplik:
+            use = [("🚪", t("Giriş ve kapı", "Entrances and doors", "Eingänge und Türen", "Входы и двери"), t("Kapı yanı ve giriş aydınlatması.", "Lighting beside doors and at entrances.", "Licht neben Türen und am Eingang.", "Освещение у дверей и входа.")),
+                   ("🧱", t("Bahçe duvarı", "Garden walls", "Gartenmauern", "Садовые ограды"), t("Kablo çekmeden duvar aydınlatması.", "Wall lighting without running cable.", "Wandbeleuchtung ohne Kabel.", "Освещение стен без прокладки кабеля.")),
+                   ("🌿", t("Teras ve balkon", "Terraces and balconies", "Terrassen und Balkone", "Террасы и балконы"), t("Renkli ve beyaz ışık seçeneği.", "Coloured or white light.", "Farbiges oder weißes Licht.", "Цветной или белый свет.")),
+                   ("🏡", t("Bağ evi", "Country houses", "Ferienhäuser", "Дачи"), t("Şebekesiz evlerde dış aydınlatma.", "Outdoor lighting for off-grid homes.", "Außenlicht für netzferne Häuser.", "Наружный свет для домов без сети."))]
+            mount = t("Armatürü montaj aparatlarıyla duvara sabitleyin; üstteki panelin gün boyu güneş görmesine dikkat edin.",
+                      "Fix the light to the wall with the mounting kit; make sure the panel on top sees the sun all day.",
+                      "Befestigen Sie die Leuchte mit dem Montageset an der Wand; das Modul oben sollte ganztägig Sonne bekommen.",
+                      "Закрепите светильник на стене крепежом; панель сверху должна весь день видеть солнце.")
+            lead = t("Hero LED 50 W solar LED aplik: üstündeki güneş paneliyle şarj olur, gece 4000 lümen beyaz ya da RGB ışık verir; elektrik hattı gerektirmez.",
+                     "Hero LED 50 W solar LED wall light: charges from the panel on top and gives 4000 lumens of white or RGB light at night; no power line needed.",
+                     "Hero LED 50 W Solar-LED-Wandleuchte: lädt über das Modul auf der Oberseite und gibt nachts 4000 Lumen weißes oder RGB-Licht; keine Stromleitung nötig.",
+                     "Солнечный настенный светильник Hero LED 50 Вт: заряжается от панели сверху, ночью даёт 4000 люмен белого или RGB-света; электролиния не нужна.")
+            xs_ids = ("hero-led-bahce-50w", "hero-led-solar-sokak-100w", "hero-led-solar-sokak-200w", "hero-led-solar-sokak-600w")
+        else:
+            use = [("🏛️", t("Kolon ve set başı", "Pillar and ledge tops", "Pfeiler- und Sockelköpfe", "Верх колонн и бордюров"), t("Bahçe duvarı ve kolon üstü aydınlatma.", "Lighting on garden walls and pillar tops.", "Licht auf Gartenmauern und Pfeilern.", "Освещение на оградах и колоннах.")),
+                   ("🚶", t("Bahçe yolu", "Garden paths", "Gartenwege", "Садовые дорожки"), t("Yol kenarı ve geçiş aydınlatması.", "Path-side and walkway lighting.", "Weg- und Durchgangsbeleuchtung.", "Освещение дорожек и проходов.")),
+                   ("🚪", t("Giriş ve kapı", "Entrances and doors", "Eingänge und Türen", "Входы и двери"), t("Bahçe kapısı ve giriş aydınlatması.", "Garden gate and entrance lighting.", "Licht an Gartentor und Eingang.", "Освещение калитки и входа.")),
+                   ("🌿", t("Teras ve balkon", "Terraces and balconies", "Terrassen und Balkone", "Террасы и балконы"), t("Renkli ve beyaz ışık seçeneği.", "Coloured or white light.", "Farbiges oder weißes Licht.", "Цветной или белый свет."))]
+            mount = t("Armatürü montaj aparatlarıyla set, kolon başı ya da duvara sabitleyin; üstteki panelin gün boyu güneş görmesine dikkat edin.",
+                      "Fix the light to a ledge, pillar top or wall with the mounting kit; make sure the panel on top sees the sun all day.",
+                      "Befestigen Sie die Leuchte mit dem Montageset auf Sockel, Pfeilerkopf oder Wand; das Modul oben sollte ganztägig Sonne bekommen.",
+                      "Закрепите светильник на бордюре, столбе или стене крепежом; панель сверху должна весь день видеть солнце.")
+            lead = t("Hero LED 50 W solar set üstü bahçe armatürü: kolon, set ya da duvara takılır, üstündeki güneş paneliyle şarj olur ve gece 4000 lümen beyaz ya da RGB ışık verir.",
+                     "Hero LED 50 W solar pillar-top garden light: fits on pillars, ledges or walls, charges from the panel on top and gives 4000 lumens of white or RGB light at night.",
+                     "Hero LED 50 W Solar-Pfeilerleuchte: für Pfeiler, Sockel oder Wand, lädt über das Modul auf der Oberseite und gibt nachts 4000 Lumen weißes oder RGB-Licht.",
+                     "Садовый солнечный светильник Hero LED 50 Вт: ставится на колонну, бордюр или стену, заряжается от панели сверху и ночью даёт 4000 люмен белого или RGB-света.")
+            xs_ids = ("hero-led-aplik-50w", "hero-led-solar-sokak-100w", "hero-led-solar-sokak-200w", "hero-led-solar-sokak-600w")
+        flow = [FLOW_PV, FLOW_DEP,
+                ("🎛️", r("Uzaktan kumanda"), t("3 renk + RGB", "3 colours + RGB", "3 Farben + RGB", "3 цвета + RGB")),
+                ("💡", r("Gece aydınlatma"), u("50 W"))]
+        steps = [STEP_YER, (r("Monte edin"), mount), STEP_MOD]
+        cta = t("Solar aydınlatmayı bugün sipariş edin", "Order the solar light today", "Bestellen Sie die Solarleuchte noch heute", "Закажите солнечный светильник сегодня")
+    else:
+        big = pid == "hero-led-solar-sokak-600w"
+        W = "600 W" if big else "200 W"
+        sp = [BR, (ROW["model"], k("HL-5157" if big else "HL-5153")), (ROW["guc"], u(W)),
+              (r("Işık kaynağı"), k("SMD LED")),
+              (SICAK, r("6500 K (beyaz ışık)")),
+              (KAYNAKR, r("Güneş paneli (ürünle birlikte)")),
+              (r("Sensör"), t("Radar hareket sensörü", "Radar motion sensor", "Radar-Bewegungssensor", "Радарный датчик движения") if big else r("Hareket sensörü — otomatik yanma")),
+              (t("Çalışma modu", "Operating mode", "Betriebsart", "Режим работы"),
+               t("Sensör modu · sabit yanma zaman ayarı", "Sensor mode · fixed-on timer", "Sensormodus · Zeitschaltung für Dauerlicht", "Режим датчика · таймер постоянного свечения"))]
+        if big:
+            sp.append((r("Çalışma süresi"), t("Sensör modunda 24–36 saat · sabit yanmada 6–8 saat (kutu bilgisi)", "24–36 h in sensor mode · 6–8 h fixed-on (box information)", "24–36 h im Sensormodus · 6–8 h Dauerlicht (Angabe auf der Verpackung)", "24–36 ч в режиме датчика · 6–8 ч постоянно (данные упаковки)")))
+        sp += [KUM, (IP, k("IP65")), (OMUR, r("30.000 saat")),
+               (ROW["olcu"], t("29,8 × 46,5 cm (armatür)", "29.8 × 46.5 cm (luminaire)", "29,8 × 46,5 cm (Leuchte)", "29,8 × 46,5 см (светильник)") if big else
+                t("188 × 586 mm (armatür)", "188 × 586 mm (luminaire)", "188 × 586 mm (Leuchte)", "188 × 586 мм (светильник)")),
+               (ROW["diger"], SOR)]
+        if big:
+            q_sure = (r("Kaç saat yanar?"),
+                      t("Kutu bilgisine göre sensör modunda 24–36 saat, sabit yanma modunda 6–8 saat çalışır; süre güneşlenmeye ve mevsime göre değişir. Akü kapasitesi tanıtım bilgisinde yer almıyor; sipariş öncesi bize yazın, üreticiden teyit edelim.",
+                        "According to the box it runs 24–36 hours in sensor mode and 6–8 hours in fixed-on mode; the time depends on sunlight and season. Battery capacity is not in the product information; write to us before ordering and we'll confirm with the manufacturer.",
+                        "Laut Verpackung leuchtet sie 24–36 Stunden im Sensormodus und 6–8 Stunden im Dauerlicht; die Dauer hängt von Sonne und Jahreszeit ab. Die Akkukapazität steht nicht in den Produktinformationen; schreiben Sie uns vor der Bestellung, wir klären es mit dem Hersteller.",
+                        "По данным упаковки — 24–36 часов в режиме датчика и 6–8 часов при постоянном свечении; время зависит от солнца и сезона. Ёмкость аккумулятора в описании не указана; напишите нам до заказа — уточним у производителя."))
+        else:
+            q_sure = (r("Kaç saat yanar, akü kapasitesi nedir?"), r("Yanma süresi güneşlenmeye ve seçilen moda göre değişir. Akü kapasitesi ve şarj süresi tanıtım bilgisinde yer almıyor; sipariş öncesi bize yazın, üreticiden teyit edelim."))
+        faq = [Q_ELK,
+               (r("Hareket sensörü nasıl çalışır?"), r("Sensör hareket algıladığında armatür otomatik yanar; çalışma modlarını uzaktan kumandayla seçebilirsiniz.")),
+               q_sure,
+               (r("Nereye monte edilir?"), r("Direğe, duvara ya da bahçe ayağına monte edilir; güneş panelinin gün boyu gölgesiz bir yönde, tercihen güneye bakması gerekir.")),
+               Q_BULK, Q_KUR]
+        use = [("🏡", r("Bahçe"), r("Elektrik hattı çekmeden bahçe aydınlatması.")),
+               ("🛣️", r("Sokak ve site yolu"), r("Yol ve geçiş aydınlatması.")),
+               ("🅿️", r("Otopark"), r("Hareketle yanan otopark aydınlatması.")),
+               ("🏭", r("Fabrika ve depo"), r("Saha ve çevre aydınlatması."))]
+        flow = [FLOW_PV, FLOW_DEP,
+                ("📡", t("Radar sensör", "Radar sensor", "Radarsensor", "Радарный датчик"), r("otomatik yanma")) if big else ("🚶", r("Hareket sensörü"), r("otomatik yanma")),
+                ("💡", r("Gece aydınlatma"), u(W))]
+        steps = [STEP_YER, (r("Monte edin"), r("Armatürü direğe ya da duvara sabitleyin, paneli güneye yönlendirin.")), STEP_MOD]
+        if big:
+            lead = t("Hero LED 600 W solar sokak armatürü: geniş alanlar için; ayrı güneş paneliyle şarj olur, radar sensörüyle yanar, elektrik hattı ve faturası gerektirmez.",
+                     "Hero LED 600 W solar street light for large areas: charges from a separate solar panel and switches on with a radar sensor; no power line, no electricity bill.",
+                     "Hero LED 600 W Solar-Straßenleuchte für große Flächen: lädt über ein separates Solarmodul und schaltet per Radarsensor; ohne Stromleitung und Stromrechnung.",
+                     "Солнечный уличный светильник Hero LED 600 Вт для больших площадей: заряжается от отдельной панели, включается по радару; без электролинии и счетов.")
+            xs_ids = ("hero-led-solar-sokak-200w", "hero-led-solar-sokak-100w", "hero-led-bahce-50w", "hero-led-aplik-50w")
+        else:
+            lead = t("Hero LED 200 W solar sokak armatürü: güneş paneliyle gündüz şarj olur, gece hareket sensörüyle ya da sabit yanma modunda çalışır; elektrik hattı gerektirmez.",
+                     "Hero LED 200 W solar street light: charges from its solar panel by day and works at night by motion sensor or in fixed-on mode; no power line needed.",
+                     "Hero LED 200 W Solar-Straßenleuchte: lädt tagsüber über ihr Solarmodul und leuchtet nachts per Bewegungssensor oder als Dauerlicht; keine Stromleitung nötig.",
+                     "Солнечный уличный светильник Hero LED 200 Вт: днём заряжается от панели, ночью работает по датчику движения или постоянно; электролиния не нужна.")
+            xs_ids = ("hero-led-solar-sokak-600w", "hero-led-solar-sokak-100w", "hero-led-bahce-50w", "hero-led-aplik-50w")
+        cta = r("Solar armatürü bugün sipariş edin")
+    P = lighting(pk, "hero-led-solar-sokak-100w")
+    P.update({
+        "id": pid, "file": pid + ".html",
+        "title": "%s | GESPA Enerji" % p["name"], "desc": p["desc"],
+        "alt": t("%s — ürün fotoğrafı" % p["name"], "%s — product photo" % H.REG[p["name"]][0], "%s — Produktfoto" % H.REG[p["name"]][1], "%s — фото товара" % H.REG[p["name"]][2]),
+        "lead": lead, "chips": p["chips"], "about": [p["desc"]], "specs": sp,
+        "use": use, "use_p": t("Elektrik hattının olmadığı ya da kablo çekmenin zor olduğu dış alanlarda aydınlatma.",
+                               "Outdoor lighting where there is no power line or running cable is difficult.",
+                               "Außenbeleuchtung dort, wo es keine Stromleitung gibt oder Kabel schwer zu verlegen sind.",
+                               "Наружное освещение там, где нет линии или сложно проложить кабель."),
+        "how_p": r("Gündüz panel enerji toplar, gece armatür bu enerjiyle yanar; sensör ve kumanda çalışma şeklini belirler."),
+        "flow": flow, "steps": steps, "faq": faq, "cta": cta,
+        "xsell": [(x, XL[x]) for x in xs_ids],
+    })
+    return P
+
+
 # ------------------------------------------------------------ yazım
 def load_base():
     js = r"""
@@ -845,13 +1075,14 @@ def main():
     base = BASE = load_base()
     tpl = open(os.path.join(ROOT, H.TEMPLATE), encoding="utf-8").read()
     prods = [panel_product(pk, *row) for row in PANELS] + [titanx(pk), accessory(pk, "kablo-solar-5m"), accessory(pk, "mc4-set"),
-                                                     lighting(pk, "hero-led-ampul-10w"), lighting(pk, "hero-led-solar-sokak-100w")]
+                                                     lighting(pk, "hero-led-ampul-10w"), lighting(pk, "hero-led-solar-sokak-100w")] + \
+            [lighting2(pk, x) for x in ("hero-led-aplik-50w", "hero-led-bahce-50w", "hero-led-solar-sokak-200w", "hero-led-solar-sokak-600w")]
     pages, problems = {}, 0
     for P in prods:
         if pk[P["id"]].get("url") != P["file"]:
             sys.exit("config url uyuşmuyor (%s): %r ≠ %r" % (P["id"], pk[P["id"]].get("url"), P["file"]))
         H.KAYNAK = P["kaynak"]
-        html = add_gallery(H.build_page(tpl, P, pk, H.main_html(P, pk)), P, pk)
+        html = add_bulk(add_gallery(H.build_page(tpl, P, pk, H.main_html(P, pk)), P, pk), P, pk)
         for lang, x in H.check_translations(html, base):
             print("ÇEVİRİ EKSİK [%s] %s: %s" % (lang, P["file"], x[:90]))
             problems += 1

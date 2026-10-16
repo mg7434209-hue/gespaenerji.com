@@ -467,6 +467,17 @@ ve sepet simgesi ekran dışında kalır.
   değerler üretici afişlerinden, afişte olmayan (duy, akü kapasitesi, şarj
   süresi) YAZILMAZ. HERO LED gerçek marka, logo SİLİNMEZ. Sayfaları
   `tools/urun-sayfalar.py` üretir (galeri `GALLERY`).
+  Ek 4 ürün (aynı gün; aydinlatma/aydinlatma3/aydin4/aydin5.rtf): 50 W solar
+  aplik HL-5181, 50 W set üstü bahçe HL-5180, 200 W sokak HL-5153, 600 W
+  sokak HL-5157 (`lighting2()`). Belgedeki fiyat 5'Lİ ALIMIN adet fiyatıdır.
+- 5'Lİ (ADET) FİYAT: `bulk: { min: 5, price }` → sepette adet ≥ `min` olunca
+  birim fiyat `bulk.price`, altında `price` (tekli = 5'li × 1,10, işletme
+  kararı). Kural main.js `pkgUnit(p, qty)` ve server.js `pkgListTL(p, cfg,
+  qty)`'de AYNIDIR; birini değiştirirsen ötekini de değiştir. Ürün sayfasında
+  `[data-pkg-bulk]` satırı (betik `add_bulk()` basar) ve adet 5'e çıkınca
+  fiyat/havale tutarı adet fiyatına döner; kartta `.sh-bulk`, sepette
+  `.cart-item-bulk`; llms-full.txt'te "5 adet ve üzeri…" eki. Şema, ürün akışı
+  ve vitrin TEKLİ fiyatı gösterir.
 - HAVALE ≤ LİSTE: 50'ye yuvarlama ucuz üründe havaleyi listenin ÜSTÜNE
   çıkarıyordu (₺130 → ₺150). main.js `pkgUnit()`/vitrin ve build.js
   `havaleTL()` artık `Math.min(liste, …)` kullanır.

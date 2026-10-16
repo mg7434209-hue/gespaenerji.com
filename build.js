@@ -44,6 +44,7 @@ const PAGES = [
   "panel-50w.html", "panel-240w.html", "panel-lexron-285w.html", "panel-460w.html", "panel-arcelik-540w.html", "panel-lexron-655w.html",
   "aku-titanx-51v-102ah.html", "kablo-solar-5m.html", "mc4-set.html",
   "hero-led-ampul-10w.html", "hero-led-solar-sokak-100w.html",
+  "hero-led-aplik-50w.html", "hero-led-bahce-50w.html", "hero-led-solar-sokak-200w.html", "hero-led-solar-sokak-600w.html",
   "sepet.html"   // noindex; sitemap'e girmez (NOSITEMAP)
 ];
 
@@ -289,6 +290,26 @@ const META = {
     en: { t: "Hero LED 100W Solar Street Light with Sensor | GESPA Energy", d: "Hero LED 100 W solar street light (HL-5151): solar panel, motion sensor, remote control, IP65, 30,000 h. No power line needed." },
     de: { t: "Hero LED 100W Solar-Straßenleuchte mit Sensor | GESPA Energy", d: "Hero LED 100 W Solar-Straßenleuchte (HL-5151): Solarmodul, Bewegungssensor, Fernbedienung, IP65, 30.000 h. Keine Stromleitung nötig." },
     ru: { t: "Солнечный уличный светильник Hero LED 100 Вт с датчиком | GESPA", d: "Солнечный уличный светильник Hero LED 100 Вт (HL-5151): солнечная панель, датчик движения, пульт, IP65, 30 000 ч. Электролиния не нужна." }
+  },
+  "hero-led-aplik-50w.html": {
+    en: { t: "Hero LED 50W Solar LED Wall Light, 3 Colours + RGB | GESPA Energy", d: "Hero LED 50 W solar wall light (HL-5181): 4000 lm, 3200/4000/6500 K + RGB, remote control, IP65, 15,000 h. Lower unit price for 5 or more." },
+    de: { t: "Hero LED 50W Solar-LED-Wandleuchte, 3 Farben + RGB | GESPA Energy", d: "Hero LED 50 W Solar-Wandleuchte (HL-5181): 4000 lm, 3200/4000/6500 K + RGB, Fernbedienung, IP65, 15.000 h. Günstigerer Stückpreis ab 5 Stück." },
+    ru: { t: "Солнечный настенный светильник Hero LED 50 Вт, 3 цвета + RGB | GESPA", d: "Солнечный настенный светильник Hero LED 50 Вт (HL-5181): 4000 лм, 3200/4000/6500 K + RGB, пульт, IP65, 15 000 ч. Цена ниже от 5 штук." }
+  },
+  "hero-led-bahce-50w.html": {
+    en: { t: "Hero LED 50W Solar Pillar-Top Garden Light | GESPA Energy", d: "Hero LED 50 W solar garden light for pillars, ledges and walls (HL-5180): 4000 lm, 3 colours + RGB, remote, IP65. Lower unit price for 5 or more." },
+    de: { t: "Hero LED 50W Solar-Pfeilerleuchte für den Garten | GESPA Energy", d: "Hero LED 50 W Solar-Gartenleuchte für Pfeiler, Sockel und Wand (HL-5180): 4000 lm, 3 Farben + RGB, Fernbedienung, IP65. Günstigerer Stückpreis ab 5 Stück." },
+    ru: { t: "Садовый солнечный светильник на столб Hero LED 50 Вт | GESPA", d: "Солнечный садовый светильник Hero LED 50 Вт на столб, бордюр и стену (HL-5180): 4000 лм, 3 цвета + RGB, пульт, IP65. Цена ниже от 5 штук." }
+  },
+  "hero-led-solar-sokak-200w.html": {
+    en: { t: "Hero LED 200W Solar Street Light with Sensor | GESPA Energy", d: "Hero LED 200 W solar street light (HL-5153): solar panel, motion sensor, fixed-on timer, remote, IP65, 30,000 h. Lower unit price for 5 or more." },
+    de: { t: "Hero LED 200W Solar-Straßenleuchte mit Sensor | GESPA Energy", d: "Hero LED 200 W Solar-Straßenleuchte (HL-5153): Solarmodul, Bewegungssensor, Dauerlicht-Timer, Fernbedienung, IP65, 30.000 h. Günstigerer Stückpreis ab 5 Stück." },
+    ru: { t: "Солнечный уличный светильник Hero LED 200 Вт с датчиком | GESPA", d: "Солнечный уличный светильник Hero LED 200 Вт (HL-5153): панель, датчик движения, таймер, пульт, IP65, 30 000 ч. Цена ниже от 5 штук." }
+  },
+  "hero-led-solar-sokak-600w.html": {
+    en: { t: "Hero LED 600W Solar Street Light with Radar Sensor | GESPA Energy", d: "Hero LED 600 W solar street light for large areas (HL-5157): separate solar panel, radar sensor, remote, IP65, 30,000 h. Lower unit price for 5 or more." },
+    de: { t: "Hero LED 600W Solar-Straßenleuchte mit Radarsensor | GESPA Energy", d: "Hero LED 600 W Solar-Straßenleuchte für große Flächen (HL-5157): separates Solarmodul, Radarsensor, Fernbedienung, IP65, 30.000 h. Günstigerer Stückpreis ab 5 Stück." },
+    ru: { t: "Солнечный уличный светильник Hero LED 600 Вт с радаром | GESPA", d: "Солнечный уличный светильник Hero LED 600 Вт для больших площадей (HL-5157): отдельная панель, радарный датчик, пульт, IP65, 30 000 ч. Цена ниже от 5 штук." }
   },
   "sss.html": {
     en: { t: "Frequently Asked Questions — Solar Power, Orders and Installation | GESPA Energy",
@@ -1786,6 +1807,7 @@ const LLMS_GROUPS = [
     "lexron-pwm-20a.html", "lexron-pwm-30a.html", "lexron-pwm-40a.html", "lexron-pwm-60a.html", "lexron-mppt-20a.html", "lexron-mppt-30a.html", "lexron-mppt-40a.html", "lexron-mppt-80a-hv.html",
     "panel-50w.html", "panel-240w.html", "panel-lexron-285w.html", "panel-460w.html", "panel-arcelik-540w.html", "panel-lexron-655w.html", "aku-titanx-51v-102ah.html", "kablo-solar-5m.html", "mc4-set.html",
     "hero-led-ampul-10w.html", "hero-led-solar-sokak-100w.html",
+    "hero-led-aplik-50w.html", "hero-led-bahce-50w.html", "hero-led-solar-sokak-200w.html", "hero-led-solar-sokak-600w.html",
     "su-isitici.html", "toptan.html"]],
   ["Yapay zekâ ürünleri", ["yapay-zeka-urunleri.html", "ai-cankurtaran-destek-sistemi.html"]],
   ["Ücretsiz araçlar", ["hesaplayici.html", "sistem-kur.html"]],
@@ -2132,7 +2154,11 @@ function writeLlmsFull(cfg) {
       ? (PCT && hav < tl ? ` liste (KDV dahil) · havale/EFT ile ₺${nf(hav)} (%${PCT} indirimli)` : " (KDV dahil, net fiyat)")
       : " (yaklaşık, keşifle netleşir)";
     const ship = p.freeShipping ? " · kargo fiyata DAHİL" : "";
-    return `- ${p.name} — ${lead}${p.for} · ₺${nf(tl)}${usd ? ` (≈ $${nf(usd)})` : ""}${tag}${ship}`;
+    // 5'li (bulk) adet fiyatı — sepet ve ödeme aynı kuralı uygular (main.js
+    // pkgUnit(p, qty) · server.js pkgListTL(p, cfg, qty)).
+    const bulk = p.bulk && p.bulk.price != null
+      ? ` · ${p.bulk.min} adet ve üzeri alımda adet fiyatı ₺${nf(priceTRY(cfg, p.bulk.price, p.currency))}` : "";
+    return `- ${p.name} — ${lead}${p.for} · ₺${nf(tl)}${usd ? ` (≈ $${nf(usd)})` : ""}${tag}${ship}${bulk}`;
   }).join("\n");
   const showHeaterPrice = cfg.heater.showPrices !== false;
   const heaterLines = cfg.heater.models.map(m =>
