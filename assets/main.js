@@ -881,6 +881,26 @@
       var active = "all";
       var seen = [];
       items.forEach(function (p) { var g = catOf(p); if (seen.indexOf(g) < 0) seen.push(g); });
+      // PAYLAŞILABİLİR KATEGORİ ADRESİ: çip seçilince adres
+      // `online-satis.html?kategori=aydinlatma` olur (replaceState: sayfa
+      // yenilenmez, geri tuşu geçmişi şişmez); bu adresle açılınca kategori
+      // seçili gelir. "Tümü" parametreyi siler. Slug yoksa grup anahtarı.
+      var CAT_SLUG = { offgrid: "tasinabilir", ongrid: "cati", irrigation: "sulama", accessory: "elektrikli-arac",
+        panel: "panel", cable: "kablo", evset: "motor-paketleri", storage: "enerji-depolama",
+        charge: "sarj-kontrol", lighting: "aydinlatma" };
+      var slugOf = function (g) { return CAT_SLUG[g] || g; };
+      var catParam = function () { try { return new URLSearchParams(location.search).get("kategori"); } catch (e) { return null; } };
+      (function () {
+        var want = catParam(); if (!want) return;
+        seen.forEach(function (g) { if (slugOf(g) === want || g === want) active = g; });
+      })();
+      var setCatUrl = function (g) {
+        try {
+          var u = new URL(location.href);
+          if (g === "all") u.searchParams.delete("kategori"); else u.searchParams.set("kategori", slugOf(g));
+          history.replaceState(history.state, "", u.pathname + u.search + u.hash);
+        } catch (e) { /* eski tarayıcı: adres değişmez, süzgeç yine çalışır */ }
+      };
       function buildFilters() {
         if (!bar) return;
         var html = '<button type="button" class="sh-chip' + (active === "all" ? " is-on" : "") + '" data-f="all">' +
@@ -907,6 +927,7 @@
         active = b.getAttribute("data-f");
         $$(".sh-chip", bar).forEach(function (x) { x.classList.toggle("is-on", x === b); });
         render(active);
+        setCatUrl(active);
         // Mobilde çip şeridi tek satır kayar: seçilen çip görünür alana gelsin.
         // scrollBy yalnız şeridi kaydırır (scrollIntoView sayfayı da oynatırdı).
         if (bar.scrollWidth > bar.clientWidth) {

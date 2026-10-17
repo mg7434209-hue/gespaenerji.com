@@ -54,6 +54,13 @@ olur — tek kartlık ara ızgara boşuna bir tıklamaydı. Gruba ikinci ürün
 girince kendiliğinden süzgece döner. "Tümü" çipindeki `#shopCount` HER
 ZAMAN toplam ürün sayısıdır; süzülmüş sayıyı yazmak "Tümü (1)" gibi
 kendisiyle çelişen etiket üretiyordu.
+KATEGORİ ADRESİ (17 Eki 2026): çip seçilince adres
+`online-satis.html?kategori=<slug>` olur (`history.replaceState`, sayfa
+yenilenmez); bu adresle açılınca kategori seçili gelir, geçersiz slug
+"Tümü"ye düşer, "Tümü" parametreyi siler. Slug'lar main.js `CAT_SLUG`
+(aydinlatma, panel, kablo, sarj-kontrol, enerji-depolama…); yeni grupta
+slug yazılmazsa grup anahtarı kullanılır. Yayınlanmış slug DEĞİŞTİRİLMEZ
+(paylaşılan bağlantılar kırılır). canonical parametresiz kalır.
 JS'siz ortam ve AI botları için `SHOP:STATIC` listesi build'de basılır;
 ItemList JSON-LD de bu sayfada üretilir. DİKKAT: kartlara `.reveal` KOYMA —
 süzgeç her tıklamada ızgarayı yeniden çizer, yeni düğümler
