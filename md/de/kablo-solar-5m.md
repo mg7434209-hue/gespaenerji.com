@@ -3,7 +3,7 @@ title: "Solarkabelset 5 m Schwarz + 5 m Rot | GESPA Energy"
 description: "Solarkabelset, 5 m Schwarz + 5 m Rot, für die Verbindung von Modul und Laderegler."
 canonical: https://www.gespaenerji.com/de/kablo-solar-5m.html
 lang: de
-dateModified: 2026-10-16
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 

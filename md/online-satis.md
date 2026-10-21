@@ -3,7 +3,7 @@ title: "Online Satış — Güneş Enerjisi Ürünleri | GESPA Enerji"
 description: "GESPA Enerji online satış: hazır güneş enerjisi paketleri, şarj kontrol cihazları ve solar ekipman. Şeffaf fiyat, KDV dahil, Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/online-satis.html
 lang: tr
-dateModified: 2026-10-16
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 
@@ -94,6 +94,16 @@ KDV dahil · kargo hariç
 **₺10.000**≈ $203
 
 💰 Havale/EFT ile: **₺9.700**
+
+KDV dahil · kargo hariç
+
+### [700 W Bifacial TOPCon Güneş Paneli](https://www.gespaenerji.com/panel-700w.html)
+
+Kargo kasalı elektrikli araçlar, çatı ve arazi sistemleri
+
+**₺8.700**≈ $177
+
+💰 Havale/EFT ile: **₺8.450**
 
 KDV dahil · kargo hariç
 
@@ -307,13 +317,13 @@ Kabinli, 2–4 kişilik yolcu triportörleri — çatı alanı dar
 
 KDV dahil · kargo hariç
 
-### [Kargo Kasalı Motor Güneş Paketi — 655 W](https://www.gespaenerji.com/paket-motor-kargo.html)
+### [Kargo Kasalı Motor Güneş Paketi — 700 W](https://www.gespaenerji.com/paket-motor-kargo.html)
 
 Açık kasa veya tenteli yük triportörleri — çatı alanı geniş
 
-**₺18.300**≈ $372
+**₺17.000**≈ $346
 
-💰 Havale/EFT ile: **₺17.750**
+💰 Havale/EFT ile: **₺16.500**
 
 KDV dahil · kargo hariç
 

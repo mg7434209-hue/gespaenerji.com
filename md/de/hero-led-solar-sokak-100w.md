@@ -3,7 +3,7 @@ title: "Hero LED 100W Solar-Straßenleuchte mit Sensor | GESPA Energy"
 description: "Hero LED 100 W Solar-Straßenleuchte (HL-5151): Solarmodul, Bewegungssensor, Fernbedienung, IP65, 30.000 h. Keine Stromleitung nötig."
 canonical: https://www.gespaenerji.com/de/hero-led-solar-sokak-100w.html
 lang: de
-dateModified: 2026-10-16
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 

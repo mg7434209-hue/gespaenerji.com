@@ -3,7 +3,7 @@ title: "Yolcu Kabinli Motor Güneş Paketi — 285 W | GESPA Enerji"
 description: "Kabinli elektrikli yolcu triportörü için komple güneş paketi: 285 W TOPCon panel, BOOST MPPT 24–72 V şarj kontrol cihazı, solar kablo ve MC4. Hangi parçanın uyduğunu araştırmanıza gerek yok."
 canonical: https://www.gespaenerji.com/paket-motor-yolcu.html
 lang: tr
-dateModified: 2026-10-13
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 
@@ -112,13 +112,13 @@ Stok durumuna göre 4 mm² veya 6 mm² gönderilir; bu sistemlerde ikisi de uygu
 
 ### Aracım kargo kasalı, bu paket olur mu?
 
-Kasalı araçların çatı alanı daha geniştir; onlar için 655 W'lık paket daha verimlidir.
+Kasalı araçların çatı alanı daha geniştir; onlar için 700 W'lık paket daha verimlidir.
 
 [Kargo Kasalı Motor Güneş Paketi'ne göz atın →](https://www.gespaenerji.com/paket-motor-kargo.html)
 
 **Aracınız kargo kasalı mı?**
 
-Açık kasa ya da tenteli yük araçlarında çatı alanı daha geniştir; daha fazla üretim için 655 W'lık paket daha uygundur.
+Açık kasa ya da tenteli yük araçlarında çatı alanı daha geniştir; daha fazla üretim için 700 W'lık paket daha uygundur.
 
 [Kargo Kasalı Motor Güneş Paketi'ne göz atın →](https://www.gespaenerji.com/paket-motor-kargo.html)
 

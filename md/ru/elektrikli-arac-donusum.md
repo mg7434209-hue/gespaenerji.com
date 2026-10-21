@@ -3,7 +3,7 @@ title: "Солнечное переоборудование — BOOST MPPT | GES
 description: "Солнечные панели для гольф-каров и служебных машин. MS Teknik BOOST MPPT 24–72 В: AGM, гель, свинцово-кислотные и литий, настройка по Bluetooth."
 canonical: https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html
 lang: ru
-dateModified: 2026-10-12
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 
@@ -76,16 +76,16 @@ publisher: "GESPA Enerji"
 
 [Ürün sayfası](https://www.gespaenerji.com/ru/paket-motor-yolcu.html)
 
-### Солнечный комплект для грузового трицикла — 655 Вт
+### Солнечный комплект для грузового трицикла — 700 Вт
 
 Открытый кузов или тент — широкая крыша
 
-- Солнечная панель Lexron 655 Вт TOPCon
+- Двусторонняя солнечная панель TOPCon 700 Вт
 - Контроллер заряда MS Teknik BOOST MPPT 24-72 В
 - Комплект солнечного кабеля (5 м чёрный + 5 м красный)
 - Комплект коннекторов MC4
 
-Итого за комплект : **₺18.300** · НДС включён · доставка отдельно
+Итого за комплект : **₺17.000** · НДС включён · доставка отдельно
 
 [Ürün sayfası](https://www.gespaenerji.com/ru/paket-motor-kargo.html)
 

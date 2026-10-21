@@ -1,29 +1,29 @@
 ---
-title: "Kargo Kasalı Motor Güneş Paketi — 655 W | GESPA Enerji"
-description: "Kargo kasalı elektrikli triportör için komple güneş paketi: 655 W N-type TOPCon panel, BOOST MPPT 24–72 V şarj kontrol cihazı, solar kablo ve MC4. Geniş çatı için en verimli güç."
+title: "Kargo Kasalı Motor Güneş Paketi — 700 W | GESPA Enerji"
+description: "Kargo kasalı elektrikli triportör için komple güneş paketi: 700 W bifacial TOPCon panel, BOOST MPPT 24–72 V şarj kontrol cihazı, solar kablo ve MC4. Geniş çatı için en verimli güç."
 canonical: https://www.gespaenerji.com/paket-motor-kargo.html
 lang: tr
-dateModified: 2026-10-13
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 
-[Ana Sayfa](https://www.gespaenerji.com/) / [Ürünler](https://www.gespaenerji.com/urunler.html) / Kargo Kasalı Motor Güneş Paketi — 655 W
+[Ana Sayfa](https://www.gespaenerji.com/) / [Ürünler](https://www.gespaenerji.com/urunler.html) / Kargo Kasalı Motor Güneş Paketi — 700 W
 
 ![Kargo kasalı elektrikli triportör](https://www.gespaenerji.com/assets/img/products/ev/motor-kargo.webp)
 
 🚚 Hazır Paket
 
-# Kargo Kasalı Motor Güneş Paketi — 655 W
+# Kargo Kasalı Motor Güneş Paketi — 700 W
 
 Ürün kodu: **GES-SET-KARGO** Stokta / tedarikte
 
 Kargo kasalı elektrikli triportörünüzü güneşle şarj edin. Geniş kasa çatısının kaldırabileceği en verimli panel gücü seçildi; şarj kontrol cihazı, kablo ve MC4 pakete dahil.
 
-**₺18.300** ≈ $372
+**₺17.000** ≈ $346
 
 KDV dahil fiyattır.
 
-💰 Havale/EFT ile: **₺17.750**
+💰 Havale/EFT ile: **₺16.500**
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
@@ -35,9 +35,9 @@ KDV dahil fiyattır.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
 - 🔧 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi.
 
-🔆 655 W TOPCon panel 🔌 BOOST MPPT 24–72 V 🧰 Kablo + MC4 dahil 🚚 Geniş çatıya uygun
+🔆 700 W bifacial TOPCon panel 🔌 BOOST MPPT 24–72 V 🧰 Kablo + MC4 dahil 🚚 Geniş çatıya uygun
 
-Kargo kasalı elektrikli triportörlerde çatı ya da tente alanı geniştir; bu alanı küçük bir panelle harcamak günlük üretimden kaybetmek demektir. 655 W N-type TOPCon panel, bu araçlarda alanın karşılığını en iyi veren ölçüdür.
+Kargo kasalı elektrikli triportörlerde çatı ya da tente alanı geniştir; bu alanı küçük bir panelle harcamak günlük üretimden kaybetmek demektir. 700 W bifacial (çift yüzlü) N-type TOPCon panel 2278 × 1133 mm ölçüsüyle bu alana sığar; ön yüz gücü 610 Wp'tir.
 
 Pakette panelin yanında BOOST MPPT 24–72 V şarj kontrol cihazı vardır: aracınızın akü grubu 24, 36, 48, 60 ya da 72 V olabilir; AGM, jel, sulu kurşun-asit ve lityum akülerin hepsiyle çalışır. Panelden gelen gerilimi akünün ihtiyacına yükselterek doğrudan şarj eder.
 
@@ -45,7 +45,7 @@ Bağlantı için 5 metre siyah + 5 metre kırmızı solar kablo ve MC4 konnektö
 
 | Adet | Bileşen |
 | --- | --- |
-| 1 × | Lexron 655 W TOPCon Güneş Paneli |
+| 1 × | 700 W Bifacial TOPCon Güneş Paneli |
 | 1 × | MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı |
 | 1 × | Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) |
 | 1 × | MC4 Konnektör Takımı |
@@ -72,7 +72,7 @@ Panel gücü aracınızın çatı alanına, şarj cihazı akü gerilimine göre 
 
 ### Geniş çatının karşılığı
 
-655 W panel, kasa/tente çatısındaki alanı verimli kullanır; günlük üretim 285 W'lık pakete göre belirgin biçimde yüksektir.
+700 W bifacial panel (ön yüz 610 Wp), kasa/tente çatısındaki alanı verimli kullanır; günlük üretim 285 W'lık pakete göre belirgin biçimde yüksektir.
 
 ✅
 
@@ -102,9 +102,13 @@ Sıkça Sorulan Sorular
 
 Uyar. Pakete dahil BOOST MPPT cihazı 24, 36, 48, 60 ve 72 V akü gruplarıyla çalışacak şekilde yapılandırılır.
 
-### 655 W panel kasaya ağır gelir mi?
+### 700 W panel kasaya sığar mı?
 
-Panel yaklaşık 31 kg'dır ve yükü konstrüksiyonla kasa şasisine dağıtılır. Aracınızın yapısını sipariş öncesi birlikte değerlendiriyoruz.
+Panel 2278 × 1133 × 30 mm'dir; yükü konstrüksiyonla kasa şasisine dağıtılır. Aracınızın ölçüsünü ve yapısını sipariş öncesi birlikte değerlendiriyoruz.
+
+### Bifacial (çift yüzlü) panel araçta ne kazandırır?
+
+Panelin arka yüzü de ışık toplar. 700 W değeri, ön yüzün 610 Wp gücüne arka yüzden gelen %15 ek kazancın eklenmesiyle bulunan değerdir. Arka yüz kazancı panelin altına yansıyan ışığa bağlıdır; kasa ya da tente çatısına yakın montajda düşer, bu yüzden üretim hesabında ön yüz gücü (610 Wp) esas alınmalıdır.
 
 ### Kablo kesiti kaç mm²?
 

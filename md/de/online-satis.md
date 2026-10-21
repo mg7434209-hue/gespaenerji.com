@@ -3,7 +3,7 @@ title: "Onlineshop — Solarprodukte und Ausrüstung | GESPA Energy"
 description: "Alle Verkaufsprodukte auf einer Seite: Solar-Fertigsets, MPPT-Laderegler und Zubehör. Transparente Preise inkl. MwSt., Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/online-satis.html
 lang: de
-dateModified: 2026-10-16
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 
@@ -94,6 +94,16 @@ Aufdach- und Freiflächenanlagen, Installationen mit hoher Leistung
 **₺10.000**≈ $203
 
 💰 Per Überweisung: **₺9.700**
+
+Inkl. MwSt. · zzgl. Versand
+
+### [700 W Bifaziales TOPCon-Solarmodul](https://www.gespaenerji.com/de/panel-700w.html)
+
+Elektrofahrzeuge mit Ladefläche, Dach- und Freiflächenanlagen
+
+**₺8.700**≈ $177
+
+💰 Per Überweisung: **₺8.450**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -307,13 +317,13 @@ Geschlossene Fahrgast-Dreiräder für 2–4 Personen — schmale Dachfläche
 
 Inkl. MwSt. · zzgl. Versand
 
-### [Solar-Set für Dreirad mit Ladefläche — 655 W](https://www.gespaenerji.com/de/paket-motor-kargo.html)
+### [Solar-Set für Dreirad mit Ladefläche — 700 W](https://www.gespaenerji.com/de/paket-motor-kargo.html)
 
 Dreiräder mit offener Ladefläche oder Plane — breite Dachfläche
 
-**₺18.300**≈ $372
+**₺17.000**≈ $346
 
-💰 Per Überweisung: **₺17.750**
+💰 Per Überweisung: **₺16.500**
 
 Inkl. MwSt. · zzgl. Versand
 

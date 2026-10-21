@@ -3,7 +3,7 @@ title: "Passenger E-Trike Solar Set — 285 W | GESPA Energy"
 description: "Complete solar set for enclosed passenger e-trikes: 285 W TOPCon panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. No guessing which part fits."
 canonical: https://www.gespaenerji.com/en/paket-motor-yolcu.html
 lang: en
-dateModified: 2026-10-13
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 
@@ -112,13 +112,13 @@ Depending on stock we ship 4 mm² or 6 mm²; both are suitable for these systems
 
 ### My vehicle has a cargo bed — is this the right package?
 
-Bed vehicles have a wider roof area; the 655 W package is more productive for them.
+Bed vehicles have a wider roof area; the 700 W package is more productive for them.
 
 [Take a look at the Cargo-Bed E-Trike Solar Set →](https://www.gespaenerji.com/en/paket-motor-kargo.html)
 
 **Does your vehicle have a cargo bed?**
 
-Open-bed or canopied cargo vehicles have a wider roof area; for more yield the 655 W package suits better.
+Open-bed or canopied cargo vehicles have a wider roof area; for more yield the 700 W package suits better.
 
 [Take a look at the Cargo-Bed E-Trike Solar Set →](https://www.gespaenerji.com/en/paket-motor-kargo.html)
 

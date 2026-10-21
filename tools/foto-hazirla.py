@@ -159,6 +159,12 @@ JOBS = [
     {"src": "panel-240w.png", "out": "panel-240w.webp",
      "crop": (7, 12, 305, 452), "erase": [(8, 4, 13, 9)],
      "canvas": (880, 660), "pad": 30, "quality": 86},
+    # 700 W bifacial (21 Eki 2026): işletmenin gönderdiği künye PDF'inin ön
+    # sayfa fotoğrafı. Kaynak PNG ZATEN TEMİZDİR: üretici etiketini örten
+    # kırmızı kutu, alttaki hücre sıralarının kopyasıyla; sol üst köşe logosu
+    # inpaint ile silindi (marka yazılmaz kuralı).
+    {"src": "panel-700w.png", "out": "panel-700w.webp",
+     "crop": (745, 282, 1198, 1108), "canvas": (880, 660), "pad": 30, "quality": 86},
 ]
 
 

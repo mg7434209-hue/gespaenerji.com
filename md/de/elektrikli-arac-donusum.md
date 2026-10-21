@@ -3,7 +3,7 @@ title: "Solar-Umrüstung für E-Fahrzeuge — BOOST MPPT | GESPA"
 description: "Solar-Umrüstung für Golfcarts und Servicefahrzeuge. MS Teknik BOOST MPPT 24–72 V: AGM, Gel, Blei-Säure und Lithium, Einstellung per Bluetooth."
 canonical: https://www.gespaenerji.com/de/elektrikli-arac-donusum.html
 lang: de
-dateModified: 2026-10-12
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 
@@ -76,16 +76,16 @@ Set-Summe : **₺15.800** · Inkl. MwSt. · zzgl. Versand
 
 [Ürün sayfası](https://www.gespaenerji.com/de/paket-motor-yolcu.html)
 
-### Solar-Set für Dreirad mit Ladefläche — 655 W
+### Solar-Set für Dreirad mit Ladefläche — 700 W
 
 Offene oder überdachte Lastenfahrzeuge — große Dachfläche
 
-- Lexron 655-W-TOPCon-Solarmodul
+- 700 W Bifaziales TOPCon-Solarmodul
 - MS Teknik BOOST MPPT 24-72 V Laderegler
 - Solarkabel-Set (5 m Schwarz + 5 m Rot)
 - MC4-Steckerset
 
-Set-Summe : **₺18.300** · Inkl. MwSt. · zzgl. Versand
+Set-Summe : **₺17.000** · Inkl. MwSt. · zzgl. Versand
 
 [Ürün sayfası](https://www.gespaenerji.com/de/paket-motor-kargo.html)
 

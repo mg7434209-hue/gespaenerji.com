@@ -1,29 +1,29 @@
 ---
-title: "Cargo E-Trike Solar Set — 655 W | GESPA Energy"
-description: "Complete solar set for cargo-bed e-trikes: 655 W N-type TOPCon panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. The most output a wide roof can carry."
+title: "Cargo E-Trike Solar Set — 700 W | GESPA Energy"
+description: "Complete solar set for cargo-bed e-trikes: 700 W bifacial TOPCon panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. The most output a wide roof can carry."
 canonical: https://www.gespaenerji.com/en/paket-motor-kargo.html
 lang: en
-dateModified: 2026-10-13
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 
-[Home](https://www.gespaenerji.com/en/) / [Products](https://www.gespaenerji.com/en/urunler.html) / Cargo-Bed E-Trike Solar Set — 655 W
+[Home](https://www.gespaenerji.com/en/) / [Products](https://www.gespaenerji.com/en/urunler.html) / Cargo-Bed E-Trike Solar Set — 700 W
 
 ![Kargo kasalı elektrikli triportör](https://www.gespaenerji.com/assets/img/products/ev/motor-kargo.webp)
 
 🚚 Ready-Made Set
 
-# Cargo-Bed E-Trike Solar Set — 655 W
+# Cargo-Bed E-Trike Solar Set — 700 W
 
 Product code: **GES-SET-KARGO** In stock / available to order
 
 Charge your cargo-bed electric three-wheeler from the sun. We picked the most productive panel size the wide bed roof can carry; the charge controller, cable and MC4 connectors are included.
 
-**₺18.300** ≈ $372
+**₺17.000** ≈ $346
 
 Price includes VAT.
 
-💰 By bank transfer: **₺17.750**
+💰 By bank transfer: **₺16.500**
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
@@ -35,9 +35,9 @@ Price includes VAT.
 - 🔄 Right of withdrawal (distance sales): **14** days — return shipping is paid by the buyer.
 - 🔧 Optional on-site installation and training in the Antalya region.
 
-🔆 655 W TOPCon panel 🔌 BOOST MPPT 24–72 V 🧰 Cable + MC4 included 🚚 Fits a wide roof
+🔆 700 W bifacial TOPCon panel 🔌 BOOST MPPT 24–72 V 🧰 Cable + MC4 included 🚚 Fits a wide roof
 
-On cargo-bed electric three-wheelers the roof or canopy area is wide; spending that area on a small panel means losing daily yield. A 655 W N-type TOPCon panel is the size that pays that area back best on these vehicles.
+On cargo-bed electric three-wheelers the roof or canopy area is wide; spending that area on a small panel means losing daily yield. The 700 W bifacial N-type TOPCon panel fits this area at 2278 × 1133 mm; its front-side power is 610 Wp.
 
 Alongside the panel the package includes a BOOST MPPT 24–72 V charge controller: your battery pack may be 24, 36, 48, 60 or 72 V, and it works with AGM, gel, flooded lead-acid and lithium batteries alike. It raises the panel voltage to what the battery needs and charges it directly.
 
@@ -45,7 +45,7 @@ Five metres of black and five metres of red solar cable plus an MC4 connector se
 
 | Quantity | Component |
 | --- | --- |
-| 1 × | Lexron 655 W TOPCon Solar Panel |
+| 1 × | 700 W Bifacial TOPCon Solar Panel |
 | 1 × | MS Teknik BOOST MPPT 24-72 V Charge Controller |
 | 1 × | Solar Cable Set (5 m Black + 5 m Red) |
 | 1 × | MC4 Connector Set |
@@ -72,7 +72,7 @@ The panel power was set by your vehicle's roof area, the controller by your batt
 
 ### Making the wide roof pay
 
-A 655 W panel uses the bed or canopy roof area efficiently; daily yield is markedly higher than with the 285 W package.
+The 700 W bifacial panel (610 Wp front side) uses the bed or canopy roof area efficiently; daily yield is markedly higher than with the 285 W package.
 
 ✅
 
@@ -102,9 +102,13 @@ Frequently Asked Questions
 
 Yes. The BOOST MPPT unit in the package is configured to work with 24, 36, 48, 60 and 72 V battery packs.
 
-### Is a 655 W panel too heavy for the bed?
+### Will a 700 W panel fit on the bed?
 
-The panel weighs about 31 kg and the mounting frame spreads the load onto the bed chassis. We assess your vehicle's structure together with you before the order.
+The panel measures 2278 × 1133 × 30 mm; the mounting frame spreads the load onto the bed chassis. We check your vehicle's size and structure together with you before the order.
+
+### What does a bifacial panel gain on a vehicle?
+
+The rear side of the panel also collects light. The 700 W rating is the 610 Wp front-side power plus a 15% rear-side gain. The rear gain depends on light reflected under the panel and drops when it is mounted close to the bed or canopy roof, so yield should be estimated from the front-side power (610 Wp).
 
 ### What is the cable cross-section?
 

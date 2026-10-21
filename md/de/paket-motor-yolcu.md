@@ -3,7 +3,7 @@ title: "Solar-Set für Fahrgast-Dreirad — 285 W | GESPA Energy"
 description: "Komplettset für geschlossene Fahrgast-Dreiräder: 285-W-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt."
 canonical: https://www.gespaenerji.com/de/paket-motor-yolcu.html
 lang: de
-dateModified: 2026-10-13
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 
@@ -112,13 +112,13 @@ Je nach Lagerbestand liefern wir 4 mm² oder 6 mm²; beides ist für diese Syste
 
 ### Mein Fahrzeug hat eine Ladefläche — ist das das richtige Paket?
 
-Fahrzeuge mit Ladefläche haben eine breitere Dachfläche; für sie ist das 655-W-Paket ertragreicher.
+Fahrzeuge mit Ladefläche haben eine breitere Dachfläche; für sie ist das 700-W-Paket ertragreicher.
 
 [Werfen Sie einen Blick auf das Solar-Set für Dreirad mit Ladefläche →](https://www.gespaenerji.com/de/paket-motor-kargo.html)
 
 **Hat Ihr Fahrzeug eine Ladefläche?**
 
-Fahrzeuge mit offener Ladefläche oder Plane haben eine breitere Dachfläche; für mehr Ertrag passt das 655-W-Paket besser.
+Fahrzeuge mit offener Ladefläche oder Plane haben eine breitere Dachfläche; für mehr Ertrag passt das 700-W-Paket besser.
 
 [Werfen Sie einen Blick auf das Solar-Set für Dreirad mit Ladefläche →](https://www.gespaenerji.com/de/paket-motor-kargo.html)
 

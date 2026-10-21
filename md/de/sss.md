@@ -3,7 +3,7 @@ title: "Häufige Fragen — Solarenergie, Bestellung und Montage | GESPA Energy"
 description: "Antworten zu Solaranlagen, Akkus, Solarumrüstung von E-Fahrzeugen, Bestellung, Versand, Zahlung und Montage an einem Ort. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/de/sss.html
 lang: de
-dateModified: 2026-10-13
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 
@@ -437,21 +437,25 @@ Je nach Lagerbestand liefern wir 4 mm² oder 6 mm²; beides ist für diese Syste
 
 ### Mein Fahrzeug hat eine Ladefläche — ist das das richtige Paket?
 
-Fahrzeuge mit Ladefläche haben eine breitere Dachfläche; für sie ist das 655-W-Paket ertragreicher.
+Fahrzeuge mit Ladefläche haben eine breitere Dachfläche; für sie ist das 700-W-Paket ertragreicher.
 
 [Werfen Sie einen Blick auf das Solar-Set für Dreirad mit Ladefläche →](https://www.gespaenerji.com/de/paket-motor-kargo.html)
 
 [Zur Seite →](https://www.gespaenerji.com/de/paket-motor-yolcu.html)
 
-## Solar-Set für Lasten-Dreirad (655 W)
+## Solar-Set für Lasten-Dreirad (700 W)
 
 ### Mein Akkupack hat 72 V — passt das?
 
 Ja. Der im Paket enthaltene BOOST-MPPT-Regler wird für 24-, 36-, 48-, 60- und 72-V-Akkupacks konfiguriert.
 
-### Ist ein 655-W-Modul zu schwer für die Ladefläche?
+### Passt ein 700-W-Modul auf die Ladefläche?
 
-Das Modul wiegt rund 31 kg; die Unterkonstruktion verteilt die Last auf den Rahmen der Ladefläche. Die Struktur Ihres Fahrzeugs prüfen wir vor der Bestellung gemeinsam.
+Das Modul misst 2278 × 1133 × 30 mm; die Unterkonstruktion verteilt die Last auf den Rahmen der Ladefläche. Maße und Struktur Ihres Fahrzeugs prüfen wir vor der Bestellung gemeinsam.
+
+### Was bringt ein bifaziales Modul am Fahrzeug?
+
+Auch die Rückseite des Moduls sammelt Licht. Der 700-W-Wert ergibt sich aus der Vorderseitenleistung von 610 Wp plus 15 % Rückseitengewinn. Dieser Gewinn hängt vom Licht ab, das unter das Modul reflektiert wird, und sinkt bei Montage nahe am Ladeflächen- oder Planendach; der Ertrag sollte daher mit der Vorderseitenleistung (610 Wp) gerechnet werden.
 
 ### Welchen Querschnitt hat das Kabel?
 

@@ -201,6 +201,29 @@ CFG2 = [
 for row in CFG2:
     t(*row)
 
+# 700 W bifacial panel (21 Eki 2026)
+CFG3 = [
+ ("🔆 700 W bifacial", "🔆 700 W bifacial", "🔆 700 W bifazial", "🔆 700 Вт двусторонняя"),
+ ("☀️ Ön yüz 610 Wp", "☀️ Front side 610 Wp", "☀️ Vorderseite 610 Wp", "☀️ Лицевая сторона 610 Вт"),
+ ("✂️ 144 yarım hücre", "✂️ 144 half-cut cells", "✂️ 144 Halbzellen", "✂️ 144 половинчатые ячейки"),
+ ("Kargo kasalı elektrikli araçlar, çatı ve arazi sistemleri", "Cargo-bed electric vehicles, rooftop and ground systems", "Elektrofahrzeuge mit Ladefläche, Dach- und Freiflächenanlagen", "Электротранспорт с кузовом, крышные и наземные системы"),
+ ("700 W Bifacial TOPCon Güneş Paneli", "700 W Bifacial TOPCon Solar Panel", "700 W Bifaziales TOPCon-Solarmodul", "Двусторонняя солнечная панель TOPCon 700 Вт"),
+ ("144 yarım hücreli, N-type TOPCon teknolojili çift yüzlü (bifacial) güneş paneli. Ön yüz STC gücü 610 Wp; arka yüzden %15 ek kazançla 701,5 W'a ulaşır (%10'da 671 W, %20'de 732 W). Ön yüzde Voc 53,27 V · Vmp 44,51 V · Isc 14,34 A · Imp 13,71 A, modül verimi %23,62. Ölçü 2278 × 1133 × 30 mm; 1500 V sistem gerilimi, 0~+5 W güç toleransı. Kargo kasalı motor güneş paketimizin panelidir; tek başına da satılır.",
+  "Bifacial (double-sided) solar panel with 144 half-cut cells and N-type TOPCon technology. Front-side STC power is 610 Wp; with a 15% rear-side gain it reaches 701.5 W (671 W at 10%, 732 W at 20%). Front side: Voc 53.27 V · Vmp 44.51 V · Isc 14.34 A · Imp 13.71 A, module efficiency 23.62%. Size 2278 × 1133 × 30 mm; 1500 V system voltage, 0~+5 W power tolerance. It is the panel of our cargo-bed EV solar set and is also sold on its own.",
+  "Bifaziales (beidseitiges) Solarmodul mit 144 Halbzellen und N-Type-TOPCon-Technologie. Vorderseitige STC-Leistung 610 Wp; mit 15 % Rückseitengewinn erreicht es 701,5 W (671 W bei 10 %, 732 W bei 20 %). Vorderseite: Voc 53,27 V · Vmp 44,51 V · Isc 14,34 A · Imp 13,71 A, Modulwirkungsgrad 23,62 %. Maße 2278 × 1133 × 30 mm; 1500 V Systemspannung, 0~+5 W Leistungstoleranz. Modul unseres Solar-Sets für Lasten-Dreiräder, auch einzeln erhältlich.",
+  "Двусторонняя (bifacial) солнечная панель со 144 половинчатыми ячейками по технологии N-type TOPCon. Мощность лицевой стороны по STC — 610 Вт; с приростом 15 % от тыльной стороны достигает 701,5 Вт (671 Вт при 10 %, 732 Вт при 20 %). Лицевая сторона: Voc 53,27 В · Vmp 44,51 В · Isc 14,34 А · Imp 13,71 А, КПД модуля 23,62 %. Размер 2278 × 1133 × 30 мм; напряжение системы 1500 В, допуск мощности 0~+5 Вт. Панель нашего комплекта для грузовых трициклов, продаётся и отдельно."),
+ ("700 W bifacial · ön yüz 610 Wp + %15 arka yüz kazancı", "700 W bifacial · 610 Wp front + 15% rear-side gain", "700 W bifazial · 610 Wp Vorderseite + 15 % Rückseitengewinn", "700 Вт двусторонняя · 610 Вт лицевая + 15 % тыльная"),
+ ("N-type TOPCon · 144 yarım hücre · modül verimi %23,62", "N-type TOPCon · 144 half-cut cells · module efficiency 23.62%", "N-Type-TOPCon · 144 Halbzellen · Modulwirkungsgrad 23,62 %", "N-type TOPCon · 144 половинчатые ячейки · КПД 23,62 %"),
+ ("Voc 53,27 V · Vmp 44,51 V · Isc 14,34 A · Imp 13,71 A", "Voc 53.27 V · Vmp 44.51 V · Isc 14.34 A · Imp 13.71 A", "Voc 53,27 V · Vmp 44,51 V · Isc 14,34 A · Imp 13,71 A", "Voc 53,27 В · Vmp 44,51 В · Isc 14,34 А · Imp 13,71 А"),
+ ("2278 × 1133 × 30 mm · 1500 V · 0~+5 W tolerans", "2278 × 1133 × 30 mm · 1500 V · 0~+5 W tolerance", "2278 × 1133 × 30 mm · 1500 V · 0~+5 W Toleranz", "2278 × 1133 × 30 мм · 1500 В · допуск 0~+5 Вт"),
+ ("Sıcaklık katsayısı Pmax −0,29 %/°C · çalışma −40…+85 °C", "Temperature coefficient Pmax −0.29 %/°C · operating −40…+85 °C", "Temperaturkoeffizient Pmax −0,29 %/°C · Betrieb −40…+85 °C", "Температурный коэффициент Pmax −0,29 %/°C · работа −40…+85 °C"),
+ # kargo paketi
+ ("🔆 700 W bifacial TOPCon panel", "🔆 700 W bifacial TOPCon panel", "🔆 700-W-Bifazial-TOPCon-Modul", "🔆 Двусторонняя панель TOPCon 700 Вт"),
+ ("Kargo Kasalı Motor Güneş Paketi — 700 W", "Cargo-Bed E-Trike Solar Set — 700 W", "Solar-Set für Dreirad mit Ladefläche — 700 W", "Солнечный комплект для грузового трицикла — 700 Вт"),
+]
+for row in CFG3:
+    t(*row)
+
 # ------------------------------------------------------------ ortak metinler
 KAYNAK = {
  "kunye": t("Değerler üreticinin teknik künyesinden alınmıştır. Künyede olmayan bir değeri merak ediyorsanız bize yazın; üreticiden teyit edelim.",
@@ -237,6 +260,10 @@ ROW = {
     "sicaklik": t("Sıcaklık", "Temperature", "Temperatur", "Температура"),
     "sinif": t("Sınıf", "Grade", "Klasse", "Класс"),
     "sistemv": t("Kullanım", "Use", "Verwendung", "Применение"),
+    "onguc": t("Ön yüz gücü (STC)", "Front-side power (STC)", "Vorderseitenleistung (STC)", "Мощность лицевой стороны (STC)"),
+    "bifaz": t("Arka yüz kazancıyla güç", "Power with rear-side gain", "Leistung mit Rückseitengewinn", "Мощность с приростом от тыльной стороны"),
+    "tolerans": t("Güç toleransı", "Power tolerance", "Leistungstoleranz", "Допуск мощности"),
+    "sigorta": t("Maks. seri sigorta", "Max. series fuse", "Max. Reihensicherung", "Макс. последовательный предохранитель"),
     "diger": t("Diğer teknik değerler", "Other technical values", "Weitere technische Werte", "Другие технические параметры"),
 }
 SOR = t("Üretici künyesinden teyit edilir — bize yazın", "Confirmed from the manufacturer's datasheet — write to us",
@@ -270,6 +297,7 @@ PANELS = [
     ("panel-460w", "panel-460w.html", 460, 51.90, "2095 × 1039 × 30 mm", "25 kg"),
     ("panel-arcelik-540w", "panel-arcelik-540w.html", 540, None, None, None),
     ("panel-lexron-655w", "panel-lexron-655w.html", 655, 50.34, "2382 × 1134 × 35 mm", "31 kg"),
+    ("panel-700w", "panel-700w.html", 700, 53.27, "2278 × 1133 × 30 mm", None),   # Voc: ön yüz (610 Wp)
 ]
 PANEL_SPECS = {
     "panel-50w": [("guc", "50 W"), ("hucre", "monokristal"), ("sistemv", "12 V"), ("diger", None)],
@@ -284,6 +312,12 @@ PANEL_SPECS = {
     "panel-lexron-655w": [("guc", "655 W"), ("hucre", "132 yarım TOPCon"), ("voc", "50,34 V"), ("vmp", "42,32 V"), ("isc", "16,53 A"), ("imp", "15,48 A"),
                           ("verim", "%24,25"), ("sistem", "1500 V"), ("olcu", "2382 × 1134 × 35 mm"), ("agirlik", "31 kg"),
                           ("kutu", "IP68"), ("cam", "3,2 mm"), ("dayanim", "2400/5400"), ("garanti", "12y/30y")],
+    # 700 W: künyenin 610 W satırı (ön yüz STC) + bifacial kazanç satırları.
+    "panel-700w": [("guc", "700bif"), ("onguc", "610 Wp"), ("bifaz", "bifaz"), ("hucre", "144 yarım TOPCon bif"),
+                   ("voc", "53,27 V"), ("vmp", "44,51 V"), ("isc", "14,34 A"), ("imp", "13,71 A"),
+                   ("verim", "%23,62"), ("tolerans", "0~+5 W"), ("sistem", "1500 V"), ("sigorta", "30 A"),
+                   ("olcu", "2278 × 1133 × 30 mm"), ("sicaklik", "−0,29/700"), ("belge", "IEC 61215 · IEC 61730"),
+                   ("garanti", "30y87"), ("agirlik", None)],
 }
 VAL = {
     "monokristal": t("Monokristal", "Monocrystalline", "Monokristallin", "Монокристалл"),
@@ -298,6 +332,11 @@ VAL = {
     "2400/5400/dolu": t("2400 Pa rüzgâr · 5400 Pa kar · 25 mm dolu", "2400 Pa wind · 5400 Pa snow · 25 mm hail", "2400 Pa Wind · 5400 Pa Schnee · 25 mm Hagel", "Ветер 2400 Па · снег 5400 Па · град 25 мм"),
     "2400/5400": t("2400 Pa rüzgâr · 5400 Pa kar", "2400 Pa wind · 5400 Pa snow", "2400 Pa Wind · 5400 Pa Schnee", "Ветер 2400 Па · снег 5400 Па"),
     "3,2 mm": t("3,2 mm AR kaplamalı cam · 35 mm anotlu alüminyum", "3.2 mm AR-coated glass · 35 mm anodised aluminium", "3,2 mm AR-beschichtetes Glas · 35 mm eloxiertes Aluminium", "Стекло 3,2 мм с AR-покрытием · анодированный алюминий 35 мм"),
+    "700bif": t("700 W (bifacial, %15 arka yüz kazancıyla)", "700 W (bifacial, with 15% rear-side gain)", "700 W (bifazial, mit 15 % Rückseitengewinn)", "700 Вт (двусторонняя, с приростом 15 % от тыльной стороны)"),
+    "bifaz": t("%10: 671 W · %15: 701,5 W · %20: 732 W", "10%: 671 W · 15%: 701.5 W · 20%: 732 W", "10 %: 671 W · 15 %: 701,5 W · 20 %: 732 W", "10 %: 671 Вт · 15 %: 701,5 Вт · 20 %: 732 Вт"),
+    "144 yarım TOPCon bif": t("144 yarım hücre, N-type TOPCon, çift yüzlü", "144 half-cut cells, N-type TOPCon, bifacial", "144 Halbzellen, N-Type-TOPCon, bifazial", "144 половинчатые ячейки, N-type TOPCon, двусторонняя"),
+    "−0,29/700": t("Pmax −0,29 %/°C · Voc −0,25 %/°C · Isc +0,046 %/°C · NOCT 42 ± 2 °C · çalışma −40…+85 °C", "Pmax −0.29 %/°C · Voc −0.25 %/°C · Isc +0.046 %/°C · NOCT 42 ± 2 °C · operating −40…+85 °C", "Pmax −0,29 %/°C · Voc −0,25 %/°C · Isc +0,046 %/°C · NOCT 42 ± 2 °C · Betrieb −40…+85 °C", "Pmax −0,29 %/°C · Voc −0,25 %/°C · Isc +0,046 %/°C · NOCT 42 ± 2 °C · работа −40…+85 °C"),
+    "30y87": t("30 yıl güç garantisi (30. yılda %87,4)", "30-year power warranty (87.4% in year 30)", "30 Jahre Leistungsgarantie (87,4 % im 30. Jahr)", "30 лет гарантии мощности (87,4 % на 30-й год)"),
     "−0,29": t("Pmax −0,29 %/°C · çalışma −40…+85 °C", "Pmax −0.29 %/°C · operating −40…+85 °C", "Pmax −0,29 %/°C · Betrieb −40…+85 °C", "Pmax −0,29 %/°C · работа −40…+85 °C"),
 }
 

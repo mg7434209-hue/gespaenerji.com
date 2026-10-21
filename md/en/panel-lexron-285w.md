@@ -3,7 +3,7 @@ title: "Lexron 285W TOPCon Solar Panel | GESPA Energy"
 description: "Lexron 210R PowerLite 285 W TOPCon panel: Voc 42.84 V, 780 × 1536 × 30 mm, 8.5 kg, 12-year product and 30-year power warranty."
 canonical: https://www.gespaenerji.com/en/panel-lexron-285w.html
 lang: en
-dateModified: 2026-10-16
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 
@@ -128,6 +128,7 @@ All panels in our shop; a dash (—) means we do not have that value's datasheet
 | 460 W Half-Cut Monocrystalline Solar Panel | 460 W | 51.9 V | 2095 × 1039 × 30 mm | 25 kg |
 | Arçelik 540 W Solar Panel | 540 W | — | — | — |
 | Lexron 655 W TOPCon Solar Panel | 655 W | 50.34 V | 2382 × 1134 × 35 mm | 31 kg |
+| 700 W Bifacial TOPCon Solar Panel | 700 W | 53.27 V | 2278 × 1133 × 30 mm | — |
 
 - For vehicle roofs and tight spaces, look at the 240–460 W panels.
 - For rooftop and ground systems the 540–655 W panels are more economical per watt.

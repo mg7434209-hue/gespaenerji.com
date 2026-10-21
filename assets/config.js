@@ -415,6 +415,25 @@ window.GESPA.config = {
       desc: "132 yarım kesim hücreli, N-type TOPCon teknolojili monokristal güneş paneli. 655 W güçte Voc 50,34 V · Vmp 42,32 V · Isc 16,53 A · Imp 15,48 A, modül verimi %24,25. Ölçü 2382 × 1134 × 35 mm, ağırlık 31 kg; 3,2 mm AR kaplamalı ısıl güçlendirilmiş cam, 35 mm anotlu alüminyum çerçeve, IP68 bağlantı kutusu. 1500 V sistem gerilimi, 2400 Pa rüzgâr ve 5400 Pa kar yükü dayanımı.",
       features: ["655 W · N-type TOPCon · 132 yarım kesim hücre", "Modül verimi %24,25 · 16 busbar · 0~+5 W tolerans", "Voc 50,34 V · Vmp 42,32 V · Isc 16,53 A · Imp 15,48 A", "2382 × 1134 × 35 mm · 31 kg · IP68 · 1500 V", "2400 Pa rüzgâr · 5400 Pa kar yükü dayanımı", "12 yıl ürün · 30 yıl güç garantisi (yıllık %0,45 kayıp)"]
     },
+    // 700 W bifacial (21 Eki 2026): işletmenin gönderdiği künye PDF'i
+    // (700W.pdf). MARKA YAZILMAZ, PDF repoya KONMAZ (tedarikçi adı var).
+    // DİKKAT: künyedeki STC tablosu 590–610 W'tır; "700 W" = 610 Wp ön yüz
+    // + %15 arka yüz kazancı (701,5 W). Ad işletme kararıyla "700 W
+    // Bifacial"; 610 Wp açıklamada ve teknik tabloda AÇIKÇA yazılır.
+    // Ağırlık, cam ve hücre üreticisi künyede yok — YAZILMAZ.
+    // Kargo motor paketinin panelidir (655 W'ın yerine, 21 Eki 2026).
+    {
+      id: "panel-700w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-700w.html",
+      sku: "GES-PNL-700",
+      img: "assets/img/products/panel-700w.webp",
+      price: 176.83, currency: "USD",                     // ₺8.700 @ 49,2
+      chips: ["🔆 700 W bifacial", "☀️ Ön yüz 610 Wp", "✂️ 144 yarım hücre"],
+      for: "Kargo kasalı elektrikli araçlar, çatı ve arazi sistemleri",
+      name: "700 W Bifacial TOPCon Güneş Paneli",
+      desc: "144 yarım hücreli, N-type TOPCon teknolojili çift yüzlü (bifacial) güneş paneli. Ön yüz STC gücü 610 Wp; arka yüzden %15 ek kazançla 701,5 W'a ulaşır (%10'da 671 W, %20'de 732 W). Ön yüzde Voc 53,27 V · Vmp 44,51 V · Isc 14,34 A · Imp 13,71 A, modül verimi %23,62. Ölçü 2278 × 1133 × 30 mm; 1500 V sistem gerilimi, 0~+5 W güç toleransı. Kargo kasalı motor güneş paketimizin panelidir; tek başına da satılır.",
+      features: ["700 W bifacial · ön yüz 610 Wp + %15 arka yüz kazancı", "N-type TOPCon · 144 yarım hücre · modül verimi %23,62", "Voc 53,27 V · Vmp 44,51 V · Isc 14,34 A · Imp 13,71 A", "2278 × 1133 × 30 mm · 1500 V · 0~+5 W tolerans", "Sıcaklık katsayısı Pmax −0,29 %/°C · çalışma −40…+85 °C"]
+    },
     // 460 W ve 240 W: 3. ve 4. motor güneş paketlerinin panelleri (9 Eki
     // 2026). TEKNİK DEĞERLER üretici künyesinden (işletmenin gönderdiği iki
     // PDF, 9 Eki 2026). MARKA YAZILMAZ — işletme kararı; künye PDF'leri de bu
@@ -725,13 +744,13 @@ window.GESPA.config = {
       url: "paket-motor-kargo.html",
       sku: "GES-SET-KARGO",
       img: "assets/img/products/ev/motor-kargo.webp",
-      price: 371.95, currency: "USD",                     // ₺18.300 @ 49,2
-      parts: ["panel-lexron-655w", "boost-mppt", "kablo-solar-5m", "mc4-set"],
-      chips: ["🔆 655 W TOPCon panel", "🔌 BOOST MPPT 24–72 V", "🧰 Kablo + MC4 dahil"],
+      price: 345.53, currency: "USD",                     // ₺17.000 @ 49,2 (21 Eki 2026: 655 W → 700 W)
+      parts: ["panel-700w", "boost-mppt", "kablo-solar-5m", "mc4-set"],
+      chips: ["🔆 700 W bifacial TOPCon panel", "🔌 BOOST MPPT 24–72 V", "🧰 Kablo + MC4 dahil"],
       for: "Açık kasa veya tenteli yük triportörleri — çatı alanı geniş",
-      name: "Kargo Kasalı Motor Güneş Paketi — 655 W",
-      desc: "Kargo kasalı elektrikli triportörü güneşle şarj etmek için hazırlanmış komple paket: 655 W N-type TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Geniş kasa/tente çatısının kaldırabileceği en verimli panel gücü seçilmiştir.",
-      features: ["655 W N-type TOPCon güneş paneli (geniş çatı için)", "BOOST MPPT 24–72 V şarj kontrol cihazı — tüm akü tipleriyle", "5 m siyah + 5 m kırmızı solar kablo", "MC4 konnektör takımı (erkek + dişi)", "Panel, cihaz ve kablolama birbiriyle uyumlu seçilmiştir"]
+      name: "Kargo Kasalı Motor Güneş Paketi — 700 W",
+      desc: "Kargo kasalı elektrikli triportörü güneşle şarj etmek için hazırlanmış komple paket: 700 W bifacial (çift yüzlü) N-type TOPCon güneş paneli (ön yüz 610 Wp), BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Geniş kasa/tente çatısının kaldırabileceği en verimli panel gücü seçilmiştir.",
+      features: ["700 W bifacial TOPCon güneş paneli (ön yüz 610 Wp, geniş çatı için)", "BOOST MPPT 24–72 V şarj kontrol cihazı — tüm akü tipleriyle", "5 m siyah + 5 m kırmızı solar kablo", "MC4 konnektör takımı (erkek + dişi)", "Panel, cihaz ve kablolama birbiriyle uyumlu seçilmiştir"]
     },
 
     // 3. ve 4. paketler (9 Eki 2026, elektrikli_motor.docx): belgedeki

@@ -3,7 +3,7 @@ title: "Hero LED 50W Solar-LED-Wandleuchte, 3 Farben + RGB | GESPA Energy"
 description: "Hero LED 50 W Solar-Wandleuchte (HL-5181): 4000 lm, 3200/4000/6500 K + RGB, Fernbedienung, IP65, 15.000 h. Günstigerer Stückpreis ab 5 Stück."
 canonical: https://www.gespaenerji.com/de/hero-led-aplik-50w.html
 lang: de
-dateModified: 2026-10-16
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 

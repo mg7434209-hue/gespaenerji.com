@@ -3,7 +3,7 @@ title: "Аккумулятор TitanX 51,2 В 102 А·ч LiFePO4 (5,22 кВт·�
 description: "Аккумулятор TitanX 51,2 В 102 А·ч (5,22 кВт·ч) LiFePO₄: встроенная BMS, 6000+ циклов, CAN/RS485, до 16 параллельно."
 canonical: https://www.gespaenerji.com/ru/aku-titanx-51v-102ah.html
 lang: ru
-dateModified: 2026-10-16
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 

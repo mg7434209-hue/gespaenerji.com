@@ -3,7 +3,7 @@ title: "Arçelik 540-W-Solarmodul | GESPA Energy"
 description: "Arçelik 540-W-Monokristallin-Solarmodul Klasse A für Dach- und Freiflächenanlagen; palettenweise Lieferung möglich."
 canonical: https://www.gespaenerji.com/de/panel-arcelik-540w.html
 lang: de
-dateModified: 2026-10-16
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 
@@ -122,6 +122,7 @@ Alle Module in unserem Shop; ein Strich (—) bedeutet, dass uns der Wert nicht 
 | 460-W-Half-Cut-Monokristallin-Solarmodul | 460 W | 51,9 V | 2095 × 1039 × 30 mm | 25 kg |
 | Arçelik 540-W-Solarmodul Dieses Produkt | 540 W | — | — | — |
 | Lexron 655-W-TOPCon-Solarmodul | 655 W | 50,34 V | 2382 × 1134 × 35 mm | 31 kg |
+| 700 W Bifaziales TOPCon-Solarmodul | 700 W | 53,27 V | 2278 × 1133 × 30 mm | — |
 
 - Für Fahrzeugdächer und wenig Platz sehen Sie sich die 240–460-W-Module an.
 - Für Dach- und Freiflächenanlagen sind die 540–655-W-Module pro Watt günstiger.
