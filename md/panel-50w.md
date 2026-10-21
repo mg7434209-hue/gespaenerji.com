@@ -3,7 +3,7 @@ title: "50W Güneş Paneli | GESPA Enerji"
 description: "50W Güneş Paneli: Küçük aydınlatma, kamera ve akü şarjı Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/panel-50w.html
 lang: tr
-dateModified: 2026-10-16
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 
@@ -121,6 +121,7 @@ Mağazamızdaki tüm paneller; tire (—) olan değerin künyesi elimizde yok.
 | 460 W Half-Cut Monokristal Güneş Paneli | 460 W | 51,9 V | 2095 × 1039 × 30 mm | 25 kg |
 | Arçelik 540 W Güneş Paneli | 540 W | — | — | — |
 | Lexron 655 W TOPCon Güneş Paneli | 655 W | 50,34 V | 2382 × 1134 × 35 mm | 31 kg |
+| 700 W Bifacial TOPCon Güneş Paneli | 700 W | 53,27 V | 2278 × 1133 × 30 mm | — |
 
 - Araç çatısı ve dar alan için 240–460 W panellere bakın.
 - Çatı ve arazi sistemlerinde 540–655 W paneller watt başına daha ekonomiktir.

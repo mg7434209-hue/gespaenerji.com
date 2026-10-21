@@ -477,6 +477,17 @@ ve sepet simgesi ekran dışında kalır.
   Ek 4 ürün (aynı gün; aydinlatma/aydinlatma3/aydin4/aydin5.rtf): 50 W solar
   aplik HL-5181, 50 W set üstü bahçe HL-5180, 200 W sokak HL-5153, 600 W
   sokak HL-5157 (`lighting2()`). Belgedeki fiyat 5'Lİ ALIMIN adet fiyatıdır.
+- 700 W BIFACIAL PANEL (21 Eki 2026, `panel-700w`, ₺8.700): künye PDF'i
+  repoya KONMADI, marka YAZILMAZ. Künyenin STC tablosu 590–610 W'tır;
+  "700 W" = 610 Wp ön yüz + %15 arka yüz kazancı. Ad işletme kararıyla
+  "700 W Bifacial TOPCon Güneş Paneli"; 610 Wp açıklamada, çipte, teknik
+  tabloda ve kargo paketi SSS'inde AÇIKÇA yazılır (araç tavanında arka yüz
+  kazancı düşer). Ağırlık künyede yok, yazılmaz. Seri bağlama hesabı ön yüz
+  Voc 53,27 V ile (×1,1 = 58,6 V < BOOST 60 V girişi).
+  KARGO MOTOR PAKETİ artık bu paneli içerir (655 W yerine; ₺18.300 →
+  ₺17.000). Lexron 655 W tek başına satışta kalır. Paket sayfası
+  `paket-motor-kargo.html` elle yazılıdır; metinleri ve i18n.js'teki 3 dil
+  karşılıkları birlikte güncellendi.
 - 5'Lİ (ADET) FİYAT: `bulk: { min: 5, price }` → sepette adet ≥ `min` olunca
   birim fiyat `bulk.price`, altında `price` (tekli = 5'li × 1,10, işletme
   kararı). Kural main.js `pkgUnit(p, qty)` ve server.js `pkgListTL(p, cfg,

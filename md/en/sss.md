@@ -3,7 +3,7 @@ title: "Frequently Asked Questions — Solar Power, Orders and Installation | GE
 description: "Answers about solar power plants, batteries, EV solar conversion, ordering, shipping, payment and installation in one place. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/en/sss.html
 lang: en
-dateModified: 2026-10-13
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 
@@ -437,21 +437,25 @@ Depending on stock we ship 4 mm² or 6 mm²; both are suitable for these systems
 
 ### My vehicle has a cargo bed — is this the right package?
 
-Bed vehicles have a wider roof area; the 655 W package is more productive for them.
+Bed vehicles have a wider roof area; the 700 W package is more productive for them.
 
 [Take a look at the Cargo-Bed E-Trike Solar Set →](https://www.gespaenerji.com/en/paket-motor-kargo.html)
 
 [Go to page →](https://www.gespaenerji.com/en/paket-motor-yolcu.html)
 
-## Cargo-bed e-trike set (655 W)
+## Cargo-bed e-trike set (700 W)
 
 ### My battery pack is 72 V — will it work?
 
 Yes. The BOOST MPPT unit in the package is configured to work with 24, 36, 48, 60 and 72 V battery packs.
 
-### Is a 655 W panel too heavy for the bed?
+### Will a 700 W panel fit on the bed?
 
-The panel weighs about 31 kg and the mounting frame spreads the load onto the bed chassis. We assess your vehicle's structure together with you before the order.
+The panel measures 2278 × 1133 × 30 mm; the mounting frame spreads the load onto the bed chassis. We check your vehicle's size and structure together with you before the order.
+
+### What does a bifacial panel gain on a vehicle?
+
+The rear side of the panel also collects light. The 700 W rating is the 610 Wp front-side power plus a 15% rear-side gain. The rear gain depends on light reflected under the panel and drops when it is mounted close to the bed or canopy roof, so yield should be estimated from the front-side power (610 Wp).
 
 ### What is the cable cross-section?
 

@@ -3,7 +3,7 @@ title: "Elektrikli Araç Güneş Dönüşümü — BOOST MPPT | GESPA"
 description: "Golf ve hizmet araçlarına güneş paneli dönüşümü. MS Teknik BOOST MPPT 24-72 V: AGM, jel, kurşun-asit ve lityum akü desteği, Bluetooth ile ayar."
 canonical: https://www.gespaenerji.com/elektrikli-arac-donusum.html
 lang: tr
-dateModified: 2026-10-12
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 
@@ -76,16 +76,16 @@ Set toplamı : **₺15.800** · KDV dahil · kargo hariç
 
 [Ürün sayfası](https://www.gespaenerji.com/paket-motor-yolcu.html)
 
-### Kargo Kasalı Motor Güneş Paketi — 655 W
+### Kargo Kasalı Motor Güneş Paketi — 700 W
 
 Açık kasa veya tenteli yük araçları — çatı alanı geniş
 
-- Lexron 655 W TOPCon Güneş Paneli
+- 700 W Bifacial TOPCon Güneş Paneli
 - MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı
 - Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)
 - MC4 Konnektör Takımı
 
-Set toplamı : **₺18.300** · KDV dahil · kargo hariç
+Set toplamı : **₺17.000** · KDV dahil · kargo hariç
 
 [Ürün sayfası](https://www.gespaenerji.com/paket-motor-kargo.html)
 

@@ -3,7 +3,7 @@ title: "Online Store — Solar Products and Equipment | GESPA Energy"
 description: "All products on sale in one place: ready-made solar kits, MPPT charge controllers and equipment. Transparent prices, VAT included, shipping across Türkiye."
 canonical: https://www.gespaenerji.com/en/online-satis.html
 lang: en
-dateModified: 2026-10-16
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 
@@ -94,6 +94,16 @@ Rooftop and ground-mount systems, high-power installations
 **₺10.000**≈ $203
 
 💰 By bank transfer: **₺9.700**
+
+VAT included · shipping excluded
+
+### [700 W Bifacial TOPCon Solar Panel](https://www.gespaenerji.com/en/panel-700w.html)
+
+Cargo-bed electric vehicles, rooftop and ground systems
+
+**₺8.700**≈ $177
+
+💰 By bank transfer: **₺8.450**
 
 VAT included · shipping excluded
 
@@ -307,13 +317,13 @@ Enclosed 2–4 seater passenger three-wheelers — narrow roof area
 
 VAT included · shipping excluded
 
-### [Cargo-Bed E-Trike Solar Set — 655 W](https://www.gespaenerji.com/en/paket-motor-kargo.html)
+### [Cargo-Bed E-Trike Solar Set — 700 W](https://www.gespaenerji.com/en/paket-motor-kargo.html)
 
 Open-bed or canopied cargo three-wheelers — wide roof area
 
-**₺18.300**≈ $372
+**₺17.000**≈ $346
 
-💰 By bank transfer: **₺17.750**
+💰 By bank transfer: **₺16.500**
 
 VAT included · shipping excluded
 

@@ -41,7 +41,7 @@ const PAGES = [
   "lexron-pwm-20a.html", "lexron-pwm-30a.html", "lexron-pwm-40a.html", "lexron-pwm-60a.html",
   "lexron-mppt-20a.html", "lexron-mppt-30a.html", "lexron-mppt-40a.html", "lexron-mppt-80a-hv.html",
   // Paneller, akü, kablo, MC4 — tools/urun-sayfalar.py üretir
-  "panel-50w.html", "panel-240w.html", "panel-lexron-285w.html", "panel-460w.html", "panel-arcelik-540w.html", "panel-lexron-655w.html",
+  "panel-50w.html", "panel-240w.html", "panel-lexron-285w.html", "panel-460w.html", "panel-arcelik-540w.html", "panel-lexron-655w.html", "panel-700w.html",
   "aku-titanx-51v-102ah.html", "kablo-solar-5m.html", "mc4-set.html",
   "hero-led-ampul-10w.html", "hero-led-solar-sokak-100w.html",
   "hero-led-aplik-50w.html", "hero-led-bahce-50w.html", "hero-led-solar-sokak-200w.html", "hero-led-solar-sokak-600w.html",
@@ -149,12 +149,12 @@ const META = {
           d: "Готовый комплект для закрытых пассажирских трициклов: панель 285 Вт TOPCon, контроллер BOOST MPPT 24–72 В, кабель и MC4." }
   },
   "paket-motor-kargo.html": {
-    en: { t: "Cargo E-Trike Solar Set — 655 W | GESPA Energy",
-          d: "Complete solar set for cargo-bed e-trikes: 655 W N-type TOPCon panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. The most output a wide roof can carry." },
-    de: { t: "Solar-Set für Lasten-Dreirad — 655 W | GESPA Energy",
-          d: "Komplettset für Lasten-Dreiräder: 655-W-N-Type-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Maximaler Ertrag für große Dachflächen." },
-    ru: { t: "Солнечный комплект для грузового трицикла — 655 Вт | GESPA",
-          d: "Готовый комплект для грузовых трициклов: панель 655 Вт N-type TOPCon, контроллер BOOST MPPT 24–72 В, кабель и MC4." }
+    en: { t: "Cargo E-Trike Solar Set — 700 W | GESPA Energy",
+          d: "Complete solar set for cargo-bed e-trikes: 700 W bifacial TOPCon panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. The most output a wide roof can carry." },
+    de: { t: "Solar-Set für Lasten-Dreirad — 700 W | GESPA Energy",
+          d: "Komplettset für Lasten-Dreiräder: bifaziales 700-W-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Maximaler Ertrag für große Dachflächen." },
+    ru: { t: "Солнечный комплект для грузового трицикла — 700 Вт | GESPA",
+          d: "Готовый комплект для грузовых трициклов: двусторонняя панель TOPCon 700 Вт, контроллер BOOST MPPT 24–72 В, кабель и MC4." }
   },
   "paket-motor-golf.html": {
     en: { t: "Golf-Cart-Type EV Solar Set — 460 W | GESPA Energy",
@@ -260,6 +260,11 @@ const META = {
     en: { t: "Arçelik 540W Solar Panel | GESPA Energy", d: "Arçelik 540 W grade-A monocrystalline solar panel for rooftop and ground systems; pallet shipments available." },
     de: { t: "Arçelik 540-W-Solarmodul | GESPA Energy", d: "Arçelik 540-W-Monokristallin-Solarmodul Klasse A für Dach- und Freiflächenanlagen; palettenweise Lieferung möglich." },
     ru: { t: "Солнечная панель Arçelik 540 Вт | GESPA", d: "Монокристаллическая панель Arçelik 540 Вт класса A для крышных и наземных систем; поставки паллетами." }
+  },
+  "panel-700w.html": {
+    en: { t: "700W Bifacial TOPCon Solar Panel | GESPA Energy", d: "700 W bifacial N-type TOPCon panel: 610 Wp front side + 15% rear-side gain, 144 half-cut cells, Voc 53.27 V, 23.62% efficiency, 2278 × 1133 × 30 mm." },
+    de: { t: "700W Bifaziales TOPCon-Solarmodul | GESPA Energy", d: "Bifaziales 700-W-N-Type-TOPCon-Modul: 610 Wp Vorderseite + 15 % Rückseitengewinn, 144 Halbzellen, Voc 53,27 V, 23,62 % Wirkungsgrad, 2278 × 1133 × 30 mm." },
+    ru: { t: "Двусторонняя солнечная панель TOPCon 700 Вт | GESPA", d: "Двусторонняя панель N-type TOPCon 700 Вт: 610 Вт лицевая сторона + 15 % тыльная, 144 половинчатые ячейки, Voc 53,27 В, КПД 23,62 %, 2278 × 1133 × 30 мм." }
   },
   "panel-lexron-655w.html": {
     en: { t: "Lexron 655W N-type TOPCon Solar Panel | GESPA Energy", d: "Lexron 655 W N-type TOPCon panel: 24.25% efficiency, Voc 50.34 V, 2382 × 1134 × 35 mm, 31 kg, IP68, 30-year power warranty." },
@@ -1805,7 +1810,7 @@ const LLMS_GROUPS = [
     "havensis-mppt-30a.html", "havensis-mppt-60a.html", "havensis-mppt-60a-150v.html",
     "havensis-dcdc-30a.html", "havensis-dcdc-40a.html", "havensis-dcdc-40a-cift-yonlu.html", "havensis-boost-dcdc-2448.html",
     "lexron-pwm-20a.html", "lexron-pwm-30a.html", "lexron-pwm-40a.html", "lexron-pwm-60a.html", "lexron-mppt-20a.html", "lexron-mppt-30a.html", "lexron-mppt-40a.html", "lexron-mppt-80a-hv.html",
-    "panel-50w.html", "panel-240w.html", "panel-lexron-285w.html", "panel-460w.html", "panel-arcelik-540w.html", "panel-lexron-655w.html", "aku-titanx-51v-102ah.html", "kablo-solar-5m.html", "mc4-set.html",
+    "panel-50w.html", "panel-240w.html", "panel-lexron-285w.html", "panel-460w.html", "panel-arcelik-540w.html", "panel-lexron-655w.html", "panel-700w.html", "aku-titanx-51v-102ah.html", "kablo-solar-5m.html", "mc4-set.html",
     "hero-led-ampul-10w.html", "hero-led-solar-sokak-100w.html",
     "hero-led-aplik-50w.html", "hero-led-bahce-50w.html", "hero-led-solar-sokak-200w.html", "hero-led-solar-sokak-600w.html",
     "su-isitici.html", "toptan.html"]],

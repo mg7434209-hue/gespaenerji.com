@@ -3,7 +3,7 @@ title: "50W Solar Panel for 12V Systems | GESPA Energy"
 description: "50 W monocrystalline solar panel for 12 V systems: garden lights, cameras and battery charging."
 canonical: https://www.gespaenerji.com/en/panel-50w.html
 lang: en
-dateModified: 2026-10-16
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 
@@ -121,6 +121,7 @@ All panels in our shop; a dash (—) means we do not have that value's datasheet
 | 460 W Half-Cut Monocrystalline Solar Panel | 460 W | 51.9 V | 2095 × 1039 × 30 mm | 25 kg |
 | Arçelik 540 W Solar Panel | 540 W | — | — | — |
 | Lexron 655 W TOPCon Solar Panel | 655 W | 50.34 V | 2382 × 1134 × 35 mm | 31 kg |
+| 700 W Bifacial TOPCon Solar Panel | 700 W | 53.27 V | 2278 × 1133 × 30 mm | — |
 
 - For vehicle roofs and tight spaces, look at the 240–460 W panels.
 - For rooftop and ground systems the 540–655 W panels are more economical per watt.

@@ -3,7 +3,7 @@ title: "TitanX 51.2V 102Ah LiFePO4 Battery (5.22 kWh) | GESPA Energy"
 description: "TitanX 51.2 V 102 Ah (5.22 kWh) LiFePO₄ storage battery: built-in BMS, 6000+ cycles, CAN/RS485, up to 16 in parallel."
 canonical: https://www.gespaenerji.com/en/aku-titanx-51v-102ah.html
 lang: en
-dateModified: 2026-10-16
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 

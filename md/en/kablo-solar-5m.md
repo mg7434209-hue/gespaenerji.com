@@ -3,7 +3,7 @@ title: "Solar Cable Set 5m Black + 5m Red | GESPA Energy"
 description: "Solar cable set, 5 m black + 5 m red, for connecting the panel to the charge controller."
 canonical: https://www.gespaenerji.com/en/kablo-solar-5m.html
 lang: en
-dateModified: 2026-10-16
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 

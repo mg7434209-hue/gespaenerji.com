@@ -3,7 +3,7 @@ title: "Sıkça Sorulan Sorular — Güneş Enerjisi, Sipariş ve Kurulum | GESP
 description: "Güneş enerjisi santrali, akü, elektrikli araç güneş dönüşümü, sipariş, kargo, ödeme ve kurulum hakkında sık sorulan soruların cevapları tek sayfada. GESPA Enerji, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/sss.html
 lang: tr
-dateModified: 2026-10-13
+dateModified: 2026-10-21
 publisher: "GESPA Enerji"
 ---
 
@@ -479,21 +479,25 @@ Stok durumuna göre 4 mm² veya 6 mm² gönderilir; bu sistemlerde ikisi de uygu
 
 ### Aracım kargo kasalı, bu paket olur mu?
 
-Kasalı araçların çatı alanı daha geniştir; onlar için 655 W'lık paket daha verimlidir.
+Kasalı araçların çatı alanı daha geniştir; onlar için 700 W'lık paket daha verimlidir.
 
 [Kargo Kasalı Motor Güneş Paketi'ne göz atın →](https://www.gespaenerji.com/paket-motor-kargo.html)
 
 [Sayfaya git →](https://www.gespaenerji.com/paket-motor-yolcu.html)
 
-## Kargo kasalı motor paketi (655 W)
+## Kargo kasalı motor paketi (700 W)
 
 ### Aracımın aküsü 72 V, uyar mı?
 
 Uyar. Pakete dahil BOOST MPPT cihazı 24, 36, 48, 60 ve 72 V akü gruplarıyla çalışacak şekilde yapılandırılır.
 
-### 655 W panel kasaya ağır gelir mi?
+### 700 W panel kasaya sığar mı?
 
-Panel yaklaşık 31 kg'dır ve yükü konstrüksiyonla kasa şasisine dağıtılır. Aracınızın yapısını sipariş öncesi birlikte değerlendiriyoruz.
+Panel 2278 × 1133 × 30 mm'dir; yükü konstrüksiyonla kasa şasisine dağıtılır. Aracınızın ölçüsünü ve yapısını sipariş öncesi birlikte değerlendiriyoruz.
+
+### Bifacial (çift yüzlü) panel araçta ne kazandırır?
+
+Panelin arka yüzü de ışık toplar. 700 W değeri, ön yüzün 610 Wp gücüne arka yüzden gelen %15 ek kazancın eklenmesiyle bulunan değerdir. Arka yüz kazancı panelin altına yansıyan ışığa bağlıdır; kasa ya da tente çatısına yakın montajda düşer, bu yüzden üretim hesabında ön yüz gücü (610 Wp) esas alınmalıdır.
 
 ### Kablo kesiti kaç mm²?
 
