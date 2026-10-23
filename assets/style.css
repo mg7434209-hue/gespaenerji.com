@@ -416,6 +416,10 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .ord-grid input,.ord-grid textarea{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--bg-alt);color:var(--ink)}
 .ord-grid input:focus,.ord-grid textarea:focus{outline:none;border-color:var(--green)}
 .ord-consent{font-size:.82rem;color:var(--muted);margin:14px 0}
+/* Kargo alıcı ödemeli onayı (sepet, 23 Eki 2026) */
+.ord-ship-ok{display:flex;gap:10px;align-items:flex-start;margin:14px 0 0;padding:12px 14px;border:1px solid var(--line, rgba(0,0,0,.12));border-left:4px solid #e6a700;border-radius:10px;background:rgba(230,167,0,.08);font-size:.86rem;font-weight:600;line-height:1.45;cursor:pointer}
+.ord-ship-ok input{margin-top:3px;flex:none;width:18px;height:18px;accent-color:var(--green)}
+.ord-ship-ok[hidden]{display:none}
 .ord-consent a{color:var(--green);font-weight:700}
 @media(max-width:640px){.ord-grid{grid-template-columns:1fr}}
 .pkg-price-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}

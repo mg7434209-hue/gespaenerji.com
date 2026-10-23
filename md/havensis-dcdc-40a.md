@@ -3,7 +3,7 @@ title: "Havensis DC-DC Akü Şarj Cihazı 40A — Karavan Alternatör Şarjı | 
 description: "Havensis DCDC-1224 40 A DC-DC akü şarj cihazı: karavan yaşam aküsünü alternatörden hızlı şarj eder. 12-12, 12-24, 24-12, 24-24 V, %96,4 verim, motor kapalı tanıma."
 canonical: https://www.gespaenerji.com/havensis-dcdc-40a.html
 lang: tr
-dateModified: 2026-09-30
+dateModified: 2026-10-23
 publisher: "GESPA Enerji"
 ---
 
@@ -30,7 +30,7 @@ KDV dahil fiyattır.
 [⚡ Hemen satın al](https://www.gespaenerji.com/sepet.html)
 [💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
 
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir.
+- 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
 - 🔋 Akü ürüne dahil değildir.

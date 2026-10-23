@@ -794,6 +794,19 @@ Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD v
 
 ## Ödeme (iyzico / tami), sipariş e-postaları ve dekont
 Tüm kurallar: @docs/odeme.md
+- KARGO ALICI ÖDEMELİ (geçici, 23 Eki 2026): müşteri kapıda kargo ücretini
+  ödemeyip paketi geri çevirdi, iki yönü işletme ödedi. Şimdilik: sepette
+  "Kargo: Alıcı ödemeli — teslimatta ödenir" satırı + ZORUNLU onay kutusu
+  (`#ordShipOk`, `kargoOnay`); sepetteki ürünlerin hepsi `freeShipping` ise
+  satır "Ücretsiz" olur, kutu gizlenir. WhatsApp mesajına ve kart siparişinin
+  kaydına/işletme e-postasına `kargo` satırı yazılır (server.js checkout).
+  Ürün sayfası kargo satırı "kargo ücreti alıcıya aittir" der.
+  CAYMA METNİ: sepetteki eski "cayma hâlinde iade kargo ücreti alıcıya
+  aittir" cümlesi sözleşmeyle ve Mesafeli Sözleşmeler Yönetmeliği'yle
+  çelişiyordu; artık "anlaşmalı kargoyla iadede bize, başka firmada alıcıya".
+  "Gidiş-dönüş kargo kesilerek iade" maddesi YAZILMAZ (cayma hâlinde gönderim
+  bedeli de iade edilmek zorunda). KALICI ÇÖZÜM (yapılmadı): kargo ücretinin
+  siparişte peşin alınması (ürüne `freeShipping` ya da kargo sınıfı).
 - İKİ KART SAĞLAYICISI, ADMIN ANAHTARI: `config.commerce.cardProvider`
   ("iyzico" | "tami"; Railway `CARD_PROVIDER` env'i ezer). Aynı anda YALNIZ
   BİRİ açıktır (sepet + odeme.html); seçilenin anahtarı yoksa öteki

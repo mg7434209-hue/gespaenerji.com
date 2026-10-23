@@ -474,8 +474,8 @@
               "Free shipping to anywhere in Türkiye; shipping is included in the price.",
               "Kostenloser Versand in die ganze Türkei; der Versand ist im Preis enthalten.",
               "Бесплатная доставка по всей Турции; доставка включена в цену.")
-          : L("Türkiye'nin her yerine kargo ile gönderilir.", "Ships to anywhere in Türkiye.",
-              "Versand in die ganze Türkei.", "Доставка по всей Турции."));
+          : L("Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.", "Ships to anywhere in Türkiye; shipping is paid by the buyer.",
+              "Versand in die ganze Türkei; die Versandkosten trägt der Käufer.", "Доставка по всей Турции; доставку оплачивает покупатель."));
       };
       applyShip();
       document.addEventListener("gespa:lang", applyShip);
@@ -1049,6 +1049,18 @@
         var overCard = method === "kart" && cardMax > 0 && listT > cardMax && payProv !== "tami";
         lastListT = listT;
         if (tamiForm) tamiForm.refresh();
+        // KARGO (23 Eki 2026): ücretsiz kargolu olmayan ürün varsa kargo ALICI
+        // ÖDEMELİDİR; müşteri bunu kutucukla onaylar (kapıda "ödemem" diyip
+        // paketi geri çevirmesin diye). Hepsi `freeShipping` ise kutu gizlenir.
+        var allFree = ls.length > 0 && ls.every(function (l) { return !!l.p.freeShipping; });
+        set("[data-ord-ship]", allFree
+          ? L("Ücretsiz — fiyata dahil", "Free — included in the price", "Kostenlos — im Preis enthalten", "Бесплатно — включено в цену")
+          : L("Alıcı ödemeli — teslimatta ödenir", "Paid by the buyer on delivery", "Vom Käufer bei Zustellung zu zahlen", "Оплачивает покупатель при получении"));
+        var shipOk = $("#ordShipOk");
+        if (shipOk) {
+          shipOk.hidden = allFree;
+          var sbox = shipOk.querySelector("input"); if (sbox) sbox.required = !allFree;
+        }
         var cmEl = $("#payCardMax");
         if (cmEl) {
           cmEl.hidden = !overCard;
@@ -1064,7 +1076,7 @@
         // güvenli ödemeye gidilir (eskiden kartta da "WhatsApp ile" yazıyordu).
         var sb = form && form.querySelector('button[type="submit"]');
         if (sb && !ordSending) sb.textContent = submitLabel(method);
-        return { ls: ls, listT: listT, cartT: cartT, method: method, overCard: overCard };
+        return { ls: ls, listT: listT, cartT: cartT, method: method, overCard: overCard, allFree: allFree };
       }
       function render() {
         var ls = lines();
@@ -1257,7 +1269,8 @@
                 // Görülen tutar: sunucu kendi hesabıyla kıyaslar; kur bu arada
                 // değiştiyse ödemeyi başlatmaz, sayfa güncel fiyatla yenilenir.
                 expectTL: PRICE_OV ? 0 : t.listT,
-                buyer: { ad: v("ad"), tel: v("tel"), eposta: v("eposta"), il: v("il"), adres: v("adres"), tckn: v("tckn"), firma: v("firma"), vd: v("vd") },
+                buyer: { ad: v("ad"), tel: v("tel"), eposta: v("eposta"), il: v("il"), adres: v("adres"), tckn: v("tckn"), firma: v("firma"), vd: v("vd"),
+                  kargoOnay: !!(form.kargoOnay && form.kargoOnay.checked) },
                 // tami: kart + taksit (iyzico'da yok; kart iyzico sayfasında girilir)
                 card: kart ? kart.card : undefined, tkTaksit: kart ? kart.taksit : undefined
               })
@@ -1297,6 +1310,7 @@
           msg.push("Ödeme: Havale/EFT" + (uniqPct != null ? " (sepette %" + uniqPct + " indirim)" : " (indirimli)"));
           msg.push("Ödenecek: ₺" + nf.format(t.cartT));
           if (CFG.company && CFG.company.bank) msg.push("Hesap: " + CFG.company.bank.accountHolder + " · " + CFG.company.bank.iban);
+          msg.push(t.allFree ? "Kargo: Ücretsiz (fiyata dahil)" : "Kargo: Alıcı ödemeli — teslimatta ödenir (müşteri onayladı)");
           msg.push("— Teslimat —", "Ad: " + v("ad"), "Tel: " + v("tel"));
           if (v("eposta")) msg.push("E-posta: " + v("eposta"));
           msg.push("İl/İlçe: " + v("il"), "Adres: " + v("adres"));
@@ -1313,6 +1327,8 @@
         });
       }
       render();
+      // Dil değişince özet satırları (kargo, indirim) yeni dilde yeniden yazılır.
+      document.addEventListener("gespa:lang", function () { totals(); });
     })();
 
     // ---- Toptan / B2B (toptan.html) — kartlar build'de statik basılır;

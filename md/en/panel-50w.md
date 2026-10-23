@@ -3,7 +3,7 @@ title: "50W Solar Panel for 12V Systems | GESPA Energy"
 description: "50 W monocrystalline solar panel for 12 V systems: garden lights, cameras and battery charging."
 canonical: https://www.gespaenerji.com/en/panel-50w.html
 lang: en
-dateModified: 2026-10-21
+dateModified: 2026-10-23
 publisher: "GESPA Enerji"
 ---
 
@@ -30,7 +30,7 @@ Price includes VAT.
 [⚡ Buy it now](https://www.gespaenerji.com/en/sepet.html)
 [💬 Ask on WhatsApp](https://www.gespaenerji.com/en/iletisim.html)
 
-- 🚚 Shipped by courier to anywhere in Türkiye.
+- 🚚 Ships to anywhere in Türkiye; shipping is paid by the buyer.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
 - 🔄 Right of withdrawal (distance sales): **14** days — return shipping is paid by the buyer.
 - 🔌 Charge controller and cables are not included.

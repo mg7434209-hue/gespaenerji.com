@@ -3,7 +3,7 @@ title: "UNV Trek Pro 2500 W tragbare Powerstation | GESPA"
 description: "2500 W Dauerleistung, 2496 Wh Akku, 4 × 230 V reine Sinuswelle, USV in 30 ms. Tragbare Powerstation für Camping, Wohnmobil und Notstrom."
 canonical: https://www.gespaenerji.com/de/unv-trek-pro-2500.html
 lang: de
-dateModified: 2026-09-30
+dateModified: 2026-10-23
 publisher: "GESPA Enerji"
 ---
 
@@ -31,7 +31,7 @@ Preis inkl. MwSt.
 [📦 Alle Produkte](https://www.gespaenerji.com/de/online-satis.html)
 
 - 📦 Der Bestand ist begrenzt — von diesem Produkt ist noch 1 Stück vorhanden.
-- 🚚 Versand per Spedition in die ganze Türkei.
+- 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
 - 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendekosten trägt der Käufer.
 

@@ -3,7 +3,7 @@ title: "Lexron 60A PWM Charge Controller 12/24/48V | GESPA Energy"
 description: "Lexron 60 A PWM solar charge controller for 12/24/48 V battery systems. Values from the product label; write to us for the full datasheet. Shipped anywhere in Türkiye."
 canonical: https://www.gespaenerji.com/en/lexron-pwm-60a.html
 lang: en
-dateModified: 2026-10-12
+dateModified: 2026-10-23
 publisher: "GESPA Enerji"
 ---
 
@@ -30,7 +30,7 @@ Price includes VAT.
 [⚡ Buy it now](https://www.gespaenerji.com/en/sepet.html)
 [💬 Ask on WhatsApp](https://www.gespaenerji.com/en/iletisim.html)
 
-- 🚚 Shipped by courier to anywhere in Türkiye.
+- 🚚 Ships to anywhere in Türkiye; shipping is paid by the buyer.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
 - 🔄 Right of withdrawal (distance sales): **14** days — return shipping is paid by the buyer.
 - ☀️ Panels and batteries are not included.

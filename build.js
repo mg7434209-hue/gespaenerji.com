@@ -1050,7 +1050,7 @@ function vatNote(p) {
 function shipNote(p) {
   return p && p.freeShipping
     ? "Türkiye'nin her yerine ücretsiz kargo ile gönderilir; kargo ücreti fiyata dahildir."
-    : "Türkiye'nin her yerine kargo ile gönderilir.";
+    : "Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.";
 }
 function havaleTL(p, tl, pct) {
   // main.js pkgUnit ile AYNI: havale hiçbir zaman liste fiyatını geçmez.

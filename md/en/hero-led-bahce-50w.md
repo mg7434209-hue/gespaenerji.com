@@ -3,7 +3,7 @@ title: "Hero LED 50W Solar Pillar-Top Garden Light | GESPA Energy"
 description: "Hero LED 50 W solar garden light for pillars, ledges and walls (HL-5180): 4000 lm, 3 colours + RGB, remote, IP65. Lower unit price for 5 or more."
 canonical: https://www.gespaenerji.com/en/hero-led-bahce-50w.html
 lang: en
-dateModified: 2026-10-21
+dateModified: 2026-10-23
 publisher: "GESPA Enerji"
 ---
 

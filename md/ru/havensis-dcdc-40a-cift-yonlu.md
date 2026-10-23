@@ -3,7 +3,7 @@ title: "Двунаправленное зарядное DC-DC Havensis 40А — 
 description: "Двунаправленное зарядное DC-DC Havensis DCDC-1224B: 40 А в бытовой аккумулятор, 10 А в стартерный в режиме подпитки. 12/24 В для автодомов, КПД 96,4 %, сделано в Турции."
 canonical: https://www.gespaenerji.com/ru/havensis-dcdc-40a-cift-yonlu.html
 lang: ru
-dateModified: 2026-09-30
+dateModified: 2026-10-23
 publisher: "GESPA Enerji"
 ---
 
@@ -30,7 +30,7 @@ publisher: "GESPA Enerji"
 [⚡ Купить сейчас](https://www.gespaenerji.com/ru/sepet.html)
 [💬 Спросить в WhatsApp](https://www.gespaenerji.com/ru/iletisim.html)
 
-- 🚚 Доставка транспортной компанией по всей Турции.
+- 🚚 Доставка по всей Турции; доставку оплачивает покупатель.
 - ⏱️ Ориентировочная доставка после подтверждения заказа: **2–5** рабочих дня.
 - 🔄 Право на отказ (дистанционная продажа): **14** дней — обратную доставку оплачивает покупатель.
 - 🔋 Аккумуляторы в комплект не входят.

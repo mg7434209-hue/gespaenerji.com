@@ -3,7 +3,7 @@ title: "Солнечный уличный светильник Hero LED 200 Вт
 description: "Солнечный уличный светильник Hero LED 200 Вт (HL-5153): панель, датчик движения, таймер, пульт, IP65, 30 000 ч. Цена ниже от 5 штук."
 canonical: https://www.gespaenerji.com/ru/hero-led-solar-sokak-200w.html
 lang: ru
-dateModified: 2026-10-21
+dateModified: 2026-10-23
 publisher: "GESPA Enerji"
 ---
 

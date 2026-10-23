@@ -3,7 +3,7 @@ title: "UNV Trek Pro 2500 W Taşınabilir Güç İstasyonu | GESPA"
 description: "2500 W sürekli çıkış, 2496 Wh batarya, 4 × 230 V saf sinüs priz, 30 ms UPS. Kamp, karavan ve ev tipi yedek güç için taşınabilir güç istasyonu."
 canonical: https://www.gespaenerji.com/unv-trek-pro-2500.html
 lang: tr
-dateModified: 2026-09-30
+dateModified: 2026-10-23
 publisher: "GESPA Enerji"
 ---
 
@@ -31,7 +31,7 @@ KDV dahil fiyattır.
 [📦 Tüm ürünler](https://www.gespaenerji.com/online-satis.html)
 
 - 📦 Stok sınırlıdır — bu üründen elimizde 1 adet kalmıştır.
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir.
+- 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
 

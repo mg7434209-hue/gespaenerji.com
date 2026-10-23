@@ -3,7 +3,7 @@ title: "Hero LED 10W 12V DC LED Bulb (12–60V AC/DC) | GESPA Energy"
 description: "Hero LED 10 W LED bulb for 12–60 V AC/DC: 850 lm, 6500 K white light. Runs straight from the battery in caravans, boats and solar battery systems."
 canonical: https://www.gespaenerji.com/en/hero-led-ampul-10w.html
 lang: en
-dateModified: 2026-10-21
+dateModified: 2026-10-23
 publisher: "GESPA Enerji"
 ---
 
@@ -30,7 +30,7 @@ Price includes VAT.
 [⚡ Buy it now](https://www.gespaenerji.com/en/sepet.html)
 [💬 Ask on WhatsApp](https://www.gespaenerji.com/en/iletisim.html)
 
-- 🚚 Shipped by courier to anywhere in Türkiye.
+- 🚚 Ships to anywhere in Türkiye; shipping is paid by the buyer.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
 - 🔄 Right of withdrawal (distance sales): **14** days — return shipping is paid by the buyer.
 - 🏷️ Brand: Hero LED
