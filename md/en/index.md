@@ -3,7 +3,7 @@ title: "GESPA Energy — Solar Power Plants (PV) | Turnkey Solutions"
 description: "GESPA Energy: turnkey installation, engineering, financing and maintenance for rooftop and ground-mounted solar power plants (PV). Manavgat / Antalya, Türkiye."
 canonical: https://www.gespaenerji.com/en/
 lang: en
-dateModified: 2026-09-30
+dateModified: 2026-10-24
 publisher: "GESPA Enerji"
 ---
 
@@ -61,6 +61,16 @@ Güneş enerjisi ürünleri, sahadan evinize
 Solar panel, inverter, akü ve bağlantı ekipmanlarını güvenilir markalarla inceleyin; ihtiyacınıza uygun sistemi hemen sipariş edin.
 
 [Solar Mağazaya Git ↗](https://www.gesmarketim.com/)
+
+## What are you looking for?
+
+## Featured products
+
+[All products →](https://www.gespaenerji.com/en/online-satis.html)
+
+[![285W Solar Panel Package](https://www.gespaenerji.com/assets/img/products/kit-285w.webp)285W Solar Panel Package ₺25.000](https://www.gespaenerji.com/en/paket-285w.html)[![700 W Bifacial TOPCon Solar Panel](https://www.gespaenerji.com/assets/img/products/panel-700w.webp)700 W Bifacial TOPCon Solar Panel ₺8.700](https://www.gespaenerji.com/en/panel-700w.html)[![MS Teknik BOOST MPPT 24-72 V Charge Controller](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Charge Controller ₺7.200](https://www.gespaenerji.com/en/elektrikli-arac-donusum.html)[![Hero LED 200 W Solar Street Light (Sensor, Remote)](https://www.gespaenerji.com/assets/img/products/hero-led-solar-sokak-200w.webp)Hero LED 200 W Solar Street Light (Sensor, Remote) ₺2.250](https://www.gespaenerji.com/en/hero-led-solar-sokak-200w.html)
+
+About us: [Services](https://www.gespaenerji.com/en/hizmetler.html) · [Projects](https://www.gespaenerji.com/en/projeler.html) · [About](https://www.gespaenerji.com/en/hakkimizda.html) · [Contact](https://www.gespaenerji.com/en/iletisim.html)
 
 Equipment brands we work with:
 Arçelik Lexron Bakırlar Tescom Mexxsun Deye TitanX Havensis MS Teknik Orbus GESPA

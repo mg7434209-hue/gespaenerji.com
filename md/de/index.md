@@ -3,7 +3,7 @@ title: "GESPA Energy — Schlüsselfertige Solaranlagen (PV)"
 description: "GESPA Energy: schlüsselfertige Installation, Engineering, Finanzierung und Wartung für Aufdach- und Freiflächen-Solaranlagen. Manavgat / Antalya, Türkei."
 canonical: https://www.gespaenerji.com/de/
 lang: de
-dateModified: 2026-09-30
+dateModified: 2026-10-24
 publisher: "GESPA Enerji"
 ---
 
@@ -61,6 +61,16 @@ Güneş enerjisi ürünleri, sahadan evinize
 Solar panel, inverter, akü ve bağlantı ekipmanlarını güvenilir markalarla inceleyin; ihtiyacınıza uygun sistemi hemen sipariş edin.
 
 [Solar Mağazaya Git ↗](https://www.gesmarketim.com/)
+
+## Was suchen Sie?
+
+## Ausgewählte Produkte
+
+[Alle Produkte →](https://www.gespaenerji.com/de/online-satis.html)
+
+[![285-W-Solarmodul-Paket](https://www.gespaenerji.com/assets/img/products/kit-285w.webp)285-W-Solarmodul-Paket ₺25.000](https://www.gespaenerji.com/de/paket-285w.html)[![700 W Bifaziales TOPCon-Solarmodul](https://www.gespaenerji.com/assets/img/products/panel-700w.webp)700 W Bifaziales TOPCon-Solarmodul ₺8.700](https://www.gespaenerji.com/de/panel-700w.html)[![MS Teknik BOOST MPPT 24-72 V Laderegler](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Laderegler ₺7.200](https://www.gespaenerji.com/de/elektrikli-arac-donusum.html)[![Hero LED 200 W Solar-Straßenleuchte (Sensor, Fernbedienung)](https://www.gespaenerji.com/assets/img/products/hero-led-solar-sokak-200w.webp)Hero LED 200 W Solar-Straßenleuchte (Sensor, Fernbedienung) ₺2.250](https://www.gespaenerji.com/de/hero-led-solar-sokak-200w.html)
+
+Über uns: [Leistungen](https://www.gespaenerji.com/de/hizmetler.html) · [Projekte](https://www.gespaenerji.com/de/projeler.html) · [Über uns](https://www.gespaenerji.com/de/hakkimizda.html) · [Kontakt](https://www.gespaenerji.com/de/iletisim.html)
 
 Von uns verbaute Marken:
 Arçelik Lexron Bakırlar Tescom Mexxsun Deye TitanX Havensis MS Teknik Orbus GESPA

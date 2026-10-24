@@ -3,7 +3,7 @@ title: "Hero LED 100 W Solar Sokak Armatürü (Sensörlü, Kumandalı) | GESPA E
 description: "Güneş paneliyle şarj olup gece çalışan 100 W solar sokak armatürü (HL-5151): elektrik hattı çekmeden aydınlatma sağlar. SMD LED, 6500 K beyaz ışık, hareket sensörüyle otomatik yanma, uzaktan kumanda, IP65 suya dayanıklılık ve 30.000 saat ömür. Bahçe, sokak, site, otopark ve fabrika aydınlatması için."
 canonical: https://www.gespaenerji.com/hero-led-solar-sokak-100w.html
 lang: tr
-dateModified: 2026-10-21
+dateModified: 2026-10-24
 publisher: "GESPA Enerji"
 ---
 
@@ -30,7 +30,7 @@ KDV dahil fiyattır.
 [⚡ Hemen satın al](https://www.gespaenerji.com/sepet.html)
 [💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
 
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir.
+- 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
 - 🏷️ Marka: Hero LED

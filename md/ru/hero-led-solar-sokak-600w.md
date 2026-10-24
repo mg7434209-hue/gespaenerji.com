@@ -3,7 +3,7 @@ title: "Солнечный уличный светильник Hero LED 600 Вт
 description: "Солнечный уличный светильник Hero LED 600 Вт для больших площадей (HL-5157): отдельная панель, радарный датчик, пульт, IP65, 30 000 ч. Цена ниже от 5 штук."
 canonical: https://www.gespaenerji.com/ru/hero-led-solar-sokak-600w.html
 lang: ru
-dateModified: 2026-10-21
+dateModified: 2026-10-24
 publisher: "GESPA Enerji"
 ---
 

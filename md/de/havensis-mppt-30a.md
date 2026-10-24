@@ -3,7 +3,7 @@ title: "Havensis 30A MPPT-Laderegler 12/24V — 1200W Module | GESPA Energy"
 description: "Havensis Solar-30AMPS MPPT-Laderegler für Solaranlagen mit 12/24-V-Batterie: 30 A Ladestrom, 20-A-Lastausgang, 100 V Moduleingang, bis 1200 W Module, LCD-Display. Hergestellt in der Türkei."
 canonical: https://www.gespaenerji.com/de/havensis-mppt-30a.html
 lang: de
-dateModified: 2026-09-30
+dateModified: 2026-10-23
 publisher: "GESPA Enerji"
 ---
 
@@ -30,7 +30,7 @@ Preis inkl. MwSt.
 [⚡ Jetzt kaufen](https://www.gespaenerji.com/de/sepet.html)
 [💬 Per WhatsApp fragen](https://www.gespaenerji.com/de/iletisim.html)
 
-- 🚚 Versand per Spedition in die ganze Türkei.
+- 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
 - 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendekosten trägt der Käufer.
 - ☀️ Module und Batterie sind nicht im Lieferumfang enthalten.

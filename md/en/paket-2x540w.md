@@ -3,7 +3,7 @@ title: "2×540W Solar System — LiFePO₄ Battery | GESPA Energy"
 description: "2×540W panels + LiFePO₄ power box: a complete mobile solar system that runs a fridge, TV and washing machine. About 6.5 kWh per day."
 canonical: https://www.gespaenerji.com/en/paket-2x540w.html
 lang: en
-dateModified: 2026-09-30
+dateModified: 2026-10-24
 publisher: "GESPA Enerji"
 ---
 
@@ -30,7 +30,7 @@ Price includes VAT.
 [💬 Ask on WhatsApp](https://www.gespaenerji.com/en/iletisim.html)
 [🧮 Is it right for me?](https://www.gespaenerji.com/en/hesaplayici.html)
 
-- 🚚 Shipped by courier to anywhere in Türkiye.
+- 🚚 Ships to anywhere in Türkiye; shipping is paid by the buyer.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
 - 🔄 Right of withdrawal (distance sales): **14** days — return shipping is paid by the buyer.
 - 🔧 Optional on-site installation and training in the Antalya region.

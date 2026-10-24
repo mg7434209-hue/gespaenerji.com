@@ -3,7 +3,7 @@ title: "GESPA Energy — Солнечные электростанции | Ре�
 description: "GESPA Energy: монтаж под ключ, инжиниринг, финансирование и обслуживание солнечных электростанций на крыше и на земле. Манавгат / Анталья, Турция."
 canonical: https://www.gespaenerji.com/ru/
 lang: ru
-dateModified: 2026-09-30
+dateModified: 2026-10-24
 publisher: "GESPA Enerji"
 ---
 
@@ -61,6 +61,16 @@ Güneş enerjisi ürünleri, sahadan evinize
 Solar panel, inverter, akü ve bağlantı ekipmanlarını güvenilir markalarla inceleyin; ihtiyacınıza uygun sistemi hemen sipariş edin.
 
 [Solar Mağazaya Git ↗](https://www.gesmarketim.com/)
+
+## Что вы ищете?
+
+## Популярные товары
+
+[Все товары →](https://www.gespaenerji.com/ru/online-satis.html)
+
+[![Пакет с панелью 285 Вт](https://www.gespaenerji.com/assets/img/products/kit-285w.webp)Пакет с панелью 285 Вт ₺25.000](https://www.gespaenerji.com/ru/paket-285w.html)[![Двусторонняя солнечная панель TOPCon 700 Вт](https://www.gespaenerji.com/assets/img/products/panel-700w.webp)Двусторонняя солнечная панель TOPCon 700 Вт ₺8.700](https://www.gespaenerji.com/ru/panel-700w.html)[![Контроллер заряда MS Teknik BOOST MPPT 24-72 В](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)Контроллер заряда MS Teknik BOOST MPPT 24-72 В ₺7.200](https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html)[![Солнечный уличный светильник Hero LED 200 Вт (датчик, пульт)](https://www.gespaenerji.com/assets/img/products/hero-led-solar-sokak-200w.webp)Солнечный уличный светильник Hero LED 200 Вт (датчик, пульт) ₺2.250](https://www.gespaenerji.com/ru/hero-led-solar-sokak-200w.html)
+
+О нас: [Услуги](https://www.gespaenerji.com/ru/hizmetler.html) · [Проекты](https://www.gespaenerji.com/ru/projeler.html) · [О нас](https://www.gespaenerji.com/ru/hakkimizda.html) · [Контакты](https://www.gespaenerji.com/ru/iletisim.html)
 
 Бренды оборудования, с которыми работаем:
 Arçelik Lexron Bakırlar Tescom Mexxsun Deye TitanX Havensis MS Teknik Orbus GESPA

@@ -647,6 +647,47 @@ işe yaramıyordu.
 - Katsayılar tek config dosyasında (`config.calc`) ve koddan ayarlanabilir.
 - KURAL: Hesaplayıcı bileşenine hiçbir sayı (fiyat, katsayı, güç) hardcode ETME.
 
+## Telefon ana sayfası (24 Eki 2026, işletme kararı)
+Telefonda (≤760 px) ana sayfa 21 ekrandı, markalar yarım ekran kaplıyordu.
+Artık: kısa banner (etiket, istatistikler ve 2. düğme gizli) → `.m-hub` hızlı
+menü (6 kutu: Online Satış, Elektrikli Araç, Çatı/Arazi GES, Tarımsal Sulama,
+Yapay Zekâ, Hesaplayıcı) → 4 öne çıkan ürün (`data-pkg-name`/`data-pkg-list`,
+fiyat config'ten) → "Bizi tanıyın" bağlantıları → CTA bandı (~5 ekran).
+Diğer üst düzey bölümler `.m-hide` sınıfıyla telefonda GİZLİDİR; HTML'de durur
+(bilgisayar ve arama motorları/AI için içerik kaybı yok). Bilgisayar düzeni
+DEĞİŞMEDİ, `.m-hub` orada görünmez. Ana sayfaya yeni bölüm eklerken telefonda
+da görünmesi istenmiyorsa `m-hide` ver. Öne çıkan ürünleri değiştirmek:
+index.html `.m-prods` içindeki 4 kart (id + url + görsel). Metinlerin
+çevirisi i18n.js `MHUB:DICT` bloğunda.
+
+## Mobil hız kuralları (24 Eki 2026 ölçümü)
+Ölçüm: Playwright, iPhone 13, 4× CPU, 4G 250 ms gecikme (ABD batı sunucusu
+taklidi). Sonuç ve tekrar betikleri commit'lenmedi; kurallar:
+- ANA SAYFA SLAYTLARI: 1. slayt görseli (`hero-gespa-villa`) `-640/-960/-1280`
+  kopyalarıyla srcset + AYNI srcset'le preload. 2.+ slaytların görselleri
+  `data-src`/`data-srcset`'tir; main.js sayfa yüklendikten 1,5 sn sonra ya da
+  slayt gösterilmeden hemen önce yükler. Gizli slaytlara `src` YAZMA: hepsi
+  ekran içinde sayıldığı için loading="lazy" durdurmuyordu (~700 KB). Eski
+  preload kullanılmayan `hero.webp`'yi (181 KB) indiriyordu.
+- İLK EKRAN `.reveal` BEKLEMEZ: `.page-hero`, `.prod-sec`, `.shop-head`,
+  `.shop-side`, `.sh-bar` ve `.hero2` içindeki `.reveal` görünür başlar
+  (style.css sonu). Yoksa başlık/ürün fotoğrafı main.js'i bekler (LCP +~1 sn).
+- VARLIK SÜRÜMLEME: build.js `versionAssets()` YALNIZ yayın ortamında
+  (Railway/Render env'i ya da `ASSET_VERSION=1`) HTML'deki assets/*.css|js
+  adreslerine `?v=<özet>` ekler; server.js `?v=`'li isteğe 1 yıl `immutable`
+  önbellek verir. Repodaki HTML'e YAZILMAZ (yazılsa her CSS/JS değişikliği tüm
+  sayfaların lastmod'unu bugüne çekerdi). config.js sürümlenmez (canlı kur).
+  chatbot.js, main.js'in kendi `?v=`'siyle istenir.
+- GALERİ ÖNİZLEMELERİ: `.prod-thumbs` küçük resimleri `<ad>-k.webp` (240 px,
+  `tools/kucuk-resim.py` üretir, build.js `thumbify()` bağlar). Tam boy dosya
+  bağlantıda kalır; Product şeması ve sitemap tam boyu okur. YENİ GALERİ
+  GÖRSELİNDEN SONRA `python3 tools/kucuk-resim.py` çalıştır.
+- Telefonda: üst şerit tek satır, adet (− n +) düğmeleri ≥ 40 px, slayt
+  noktalarının dokunma alanı büyük, ürün fotoğrafı ≤ 36vh.
+- EN BÜYÜK KALAN ETKEN SUNUCU BÖLGESİ: Railway servisi us-west2'de; her istek
+  Türkiye'den ABD batı kıyısına gidiyor. Avrupa bölgesine taşımak (Railway
+  Settings → Region) her sayfada ~0,3–0,5 sn kazandırır.
+
 ## SEO / AEO — statik üretim (AI botları JS çalıştırmaz!)
 Dosya/işlev haritası, şema alanları ve yeni sayfa kontrol listesi: @docs/seo-aeo.md
 ÜRETİLEN — ELLE DÜZENLENMEZ: `robots.txt` · `sitemap.xml` (görsel + video
@@ -794,6 +835,19 @@ Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD v
 
 ## Ödeme (iyzico / tami), sipariş e-postaları ve dekont
 Tüm kurallar: @docs/odeme.md
+- KARGO ALICI ÖDEMELİ (geçici, 23 Eki 2026): müşteri kapıda kargo ücretini
+  ödemeyip paketi geri çevirdi, iki yönü işletme ödedi. Şimdilik: sepette
+  "Kargo: Alıcı ödemeli — teslimatta ödenir" satırı + ZORUNLU onay kutusu
+  (`#ordShipOk`, `kargoOnay`); sepetteki ürünlerin hepsi `freeShipping` ise
+  satır "Ücretsiz" olur, kutu gizlenir. WhatsApp mesajına ve kart siparişinin
+  kaydına/işletme e-postasına `kargo` satırı yazılır (server.js checkout).
+  Ürün sayfası kargo satırı "kargo ücreti alıcıya aittir" der.
+  CAYMA METNİ: sepetteki eski "cayma hâlinde iade kargo ücreti alıcıya
+  aittir" cümlesi sözleşmeyle ve Mesafeli Sözleşmeler Yönetmeliği'yle
+  çelişiyordu; artık "anlaşmalı kargoyla iadede bize, başka firmada alıcıya".
+  "Gidiş-dönüş kargo kesilerek iade" maddesi YAZILMAZ (cayma hâlinde gönderim
+  bedeli de iade edilmek zorunda). KALICI ÇÖZÜM (yapılmadı): kargo ücretinin
+  siparişte peşin alınması (ürüne `freeShipping` ya da kargo sınıfı).
 - İKİ KART SAĞLAYICISI, ADMIN ANAHTARI: `config.commerce.cardProvider`
   ("iyzico" | "tami"; Railway `CARD_PROVIDER` env'i ezer). Aynı anda YALNIZ
   BİRİ açıktır (sepet + odeme.html); seçilenin anahtarı yoksa öteki

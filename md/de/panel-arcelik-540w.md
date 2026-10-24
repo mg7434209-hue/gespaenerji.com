@@ -3,7 +3,7 @@ title: "Arçelik 540-W-Solarmodul | GESPA Energy"
 description: "Arçelik 540-W-Monokristallin-Solarmodul Klasse A für Dach- und Freiflächenanlagen; palettenweise Lieferung möglich."
 canonical: https://www.gespaenerji.com/de/panel-arcelik-540w.html
 lang: de
-dateModified: 2026-10-21
+dateModified: 2026-10-23
 publisher: "GESPA Enerji"
 ---
 
@@ -30,7 +30,7 @@ Preis inkl. MwSt.
 [⚡ Jetzt kaufen](https://www.gespaenerji.com/de/sepet.html)
 [💬 Per WhatsApp fragen](https://www.gespaenerji.com/de/iletisim.html)
 
-- 🚚 Versand per Spedition in die ganze Türkei.
+- 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
 - 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendekosten trägt der Käufer.
 - 🔌 Laderegler und Kabel sind nicht im Lieferumfang enthalten.

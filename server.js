@@ -1234,6 +1234,7 @@ function orderMailBody(o, rid, rk) {
   L.push("E-posta       : " + (b.eposta || "-"));
   L.push("İl / İlçe     : " + (b.il || "-"));
   L.push("Adres         : " + (b.adres || "-"));
+  if (o.kargo) L.push("Kargo         : " + o.kargo);
   const lines = orderLines(o);
   if (lines.length) {
     L.push("");
@@ -1547,6 +1548,10 @@ function handlePayRoutes(req, res, urlPath) {
         if (p && p.price != null && qty) lines.push({ p, qty, unit: pkgListTL(p, cfg, qty) });
       });
       if (!lines.length) return sendJson(res, 400, { error: "Sepet boş veya ürünler tanınamadı." });
+      // Kargo (23 Eki 2026): ücretsiz kargolu olmayan kalem varsa ALICI ÖDEMELİ;
+      // müşterinin sepetteki onay kutusu kayda ve işletme e-postasına yazılır.
+      const kargo = lines.every((l) => l.p.freeShipping) ? "Ücretsiz (fiyata dahil)"
+        : "Alıcı ödemeli — teslimatta" + (buyer.kargoOnay ? " (müşteri sepette onayladı)" : "");
       const nm = String(buyer.ad || "").trim().split(/\s+/);
       const surname = nm.length > 1 ? nm.pop() : "-";
       const name = nm.join(" ") || "-";
@@ -1574,7 +1579,8 @@ function handlePayRoutes(req, res, urlPath) {
           buyer: { name: (name + " " + surname).trim(), phone: tel, email: email, city: il.split("/")[0].trim(), addr: adres + " " + il, company: inv.firma },
           record: {
             conversationId: convId, items: lines.map((l) => ({ id: l.p.id, qty: l.qty, unitTL: l.unit })),
-            buyer: { ad: buyer.ad, tel: tel, eposta: email, tckn: inv.tckn, vkn: inv.vkn, vd: inv.vd, firma: inv.firma, il: il, adres: adres }
+            buyer: { ad: buyer.ad, tel: tel, eposta: email, tckn: inv.tckn, vkn: inv.vkn, vd: inv.vd, firma: inv.firma, il: il, adres: adres },
+            kargo: kargo
           }
         });
       }
@@ -1612,7 +1618,8 @@ function handlePayRoutes(req, res, urlPath) {
           totalTL: total, items: lines.map((l) => ({ id: l.p.id, qty: l.qty, unitTL: l.unit })),
           // tckn / vkn + vd + firma FATURA için saklanır (e-arşiv/e-fatura alanları).
           // KVKK: yalnız sunucuda tutulur, log'a ASLA yazılmaz.
-          buyer: { ad: buyer.ad, tel: tel, eposta: email, tckn: inv.tckn, vkn: inv.vkn, vd: inv.vd, firma: inv.firma, il: il, adres: adres }
+          buyer: { ad: buyer.ad, tel: tel, eposta: email, tckn: inv.tckn, vkn: inv.vkn, vd: inv.vd, firma: inv.firma, il: il, adres: adres },
+            kargo: kargo
         });
         sendJson(res, 200, { url: out.paymentPageUrl || out.payWithIyzicoPageUrl });
       });
@@ -1997,9 +2004,14 @@ const server = http.createServer((req, res) => {
       // (no-cache = önbelleğe alınır ama her seferinde doğrulanır → güncellemeler
       // anında görünür). Görsel/font/favicon uzun süre önbelleğe alınır.
       var fresh = /^\.(html|css|js|json|xml|txt|webmanifest)$/.test(ext);
-      headers["Cache-Control"] = fresh
-        ? "no-cache"
-        : "public, max-age=2592000, stale-while-revalidate=86400";
+      // Sürümlü CSS/JS (`?v=` — build.js versionAssets): içerik değişince adres
+      // de değiştiği için 1 yıl, yeniden doğrulamasız önbellek.
+      var versioned = (ext === ".css" || ext === ".js") && /[?&]v=[0-9a-f]{6,}/.test(qs || "");
+      headers["Cache-Control"] = versioned
+        ? "public, max-age=31536000, immutable"
+        : fresh
+          ? "no-cache"
+          : "public, max-age=2592000, stale-while-revalidate=86400";
 
       // Soru-cevaplı sayfa: yayındaki gönderiler sunarken HTML'e basılır;
       // ön-sıkıştırılmış .br/.gz kopyaları bu yüzden KULLANILMAZ.

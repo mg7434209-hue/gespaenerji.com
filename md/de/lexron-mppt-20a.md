@@ -3,7 +3,7 @@ title: "Lexron 20A MPPT-Laderegler 12/24V | GESPA Energy"
 description: "Lexron 20 A MPPT-Solarladeregler für 12/24-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/lexron-mppt-20a.html
 lang: de
-dateModified: 2026-10-12
+dateModified: 2026-10-23
 publisher: "GESPA Enerji"
 ---
 
@@ -30,7 +30,7 @@ Preis inkl. MwSt.
 [⚡ Jetzt kaufen](https://www.gespaenerji.com/de/sepet.html)
 [💬 Per WhatsApp fragen](https://www.gespaenerji.com/de/iletisim.html)
 
-- 🚚 Versand per Spedition in die ganze Türkei.
+- 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
 - 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendekosten trägt der Käufer.
 - ☀️ Module und Batterie sind nicht im Lieferumfang enthalten.

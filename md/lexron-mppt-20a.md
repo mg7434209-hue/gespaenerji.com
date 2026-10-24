@@ -3,7 +3,7 @@ title: "Lexron 20 A MPPT Şarj Kontrol Cihazı 12/24 V | GESPA Enerji"
 description: "Lexron 20 A MPPT Şarj Kontrol Cihazı 12/24 V: 12/24 V akülü güneş sistemleri için MPPT şarj kontrol cihazı, 20 A şarj akımı. Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/lexron-mppt-20a.html
 lang: tr
-dateModified: 2026-10-12
+dateModified: 2026-10-23
 publisher: "GESPA Enerji"
 ---
 
@@ -30,7 +30,7 @@ KDV dahil fiyattır.
 [⚡ Hemen satın al](https://www.gespaenerji.com/sepet.html)
 [💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
 
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir.
+- 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
 - ☀️ Panel ve akü ürüne dahil değildir.

@@ -3,7 +3,7 @@ title: "Зарядное BOOST DC-DC Havensis — с 12/24В на АКБ 36–72
 description: "Havensis BOOST DCDC-2448: зарядное устройство DC-DC, заряжающее блоки 36, 48, 60 и 72 В от автомобильного аккумулятора 12/24 В. Вход 20 А, заряд 15 А, КПД 95 %. Для автодомов и лодок."
 canonical: https://www.gespaenerji.com/ru/havensis-boost-dcdc-2448.html
 lang: ru
-dateModified: 2026-09-30
+dateModified: 2026-10-23
 publisher: "GESPA Enerji"
 ---
 
@@ -30,7 +30,7 @@ publisher: "GESPA Enerji"
 [⚡ Купить сейчас](https://www.gespaenerji.com/ru/sepet.html)
 [💬 Спросить в WhatsApp](https://www.gespaenerji.com/ru/iletisim.html)
 
-- 🚚 Доставка транспортной компанией по всей Турции.
+- 🚚 Доставка по всей Турции; доставку оплачивает покупатель.
 - ⏱️ Ориентировочная доставка после подтверждения заказа: **2–5** рабочих дня.
 - 🔄 Право на отказ (дистанционная продажа): **14** дней — обратную доставку оплачивает покупатель.
 - 🔋 Аккумуляторы в комплект не входят.

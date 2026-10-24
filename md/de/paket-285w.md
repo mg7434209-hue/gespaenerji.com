@@ -3,7 +3,7 @@ title: "285-W-Solarmodul-Paket — Plug-and-Play | GESPA Energy"
 description: "Komplettes 285-W-Solarset für Camping, Wohnmobil und kleine Verbraucher: Modul + Power-Box + Kabel. Betreibt TV, Licht und Handy-Ladung; 23–25 kg, Plug-and-Play."
 canonical: https://www.gespaenerji.com/de/paket-285w.html
 lang: de
-dateModified: 2026-09-30
+dateModified: 2026-10-24
 publisher: "GESPA Enerji"
 ---
 
@@ -30,7 +30,7 @@ Preis inkl. MwSt.
 [💬 Per WhatsApp fragen](https://www.gespaenerji.com/de/iletisim.html)
 [🧮 Passt es zu mir?](https://www.gespaenerji.com/de/hesaplayici.html)
 
-- 🚚 Versand per Spedition in die ganze Türkei.
+- 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
 - 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendekosten trägt der Käufer.
 - 🔧 Optionale Vor-Ort-Montage und Einweisung in der Region Antalya.

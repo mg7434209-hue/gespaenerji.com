@@ -3,7 +3,7 @@ title: "Havensis Çift Yönlü DC-DC Akü Şarj Cihazı 40A — Takviye Modlu | 
 description: "Havensis DCDC-1224B çift yönlü DC-DC akü şarj cihazı: yaşam aküsüne 40 A şarj, takviye modunda marş aküsüne 10 A. Karavanlar için 12/24 V, %96,4 verim, yerli üretim."
 canonical: https://www.gespaenerji.com/havensis-dcdc-40a-cift-yonlu.html
 lang: tr
-dateModified: 2026-09-30
+dateModified: 2026-10-23
 publisher: "GESPA Enerji"
 ---
 
@@ -30,7 +30,7 @@ KDV dahil fiyattır.
 [⚡ Hemen satın al](https://www.gespaenerji.com/sepet.html)
 [💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
 
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir.
+- 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
 - 🔋 Akü ürüne dahil değildir.

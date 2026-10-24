@@ -3,7 +3,7 @@ title: "TitanX 51,2V 102Ah LiFePO4-Akku (5,22 kWh) | GESPA Energy"
 description: "TitanX 51,2 V 102 Ah (5,22 kWh) LiFePO₄-Speicherakku: integriertes BMS, über 6000 Zyklen, CAN/RS485, bis zu 16 parallel."
 canonical: https://www.gespaenerji.com/de/aku-titanx-51v-102ah.html
 lang: de
-dateModified: 2026-10-21
+dateModified: 2026-10-23
 publisher: "GESPA Enerji"
 ---
 
@@ -30,7 +30,7 @@ Preis inkl. MwSt.
 [⚡ Jetzt kaufen](https://www.gespaenerji.com/de/sepet.html)
 [💬 Per WhatsApp fragen](https://www.gespaenerji.com/de/iletisim.html)
 
-- 🚚 Versand per Spedition in die ganze Türkei.
+- 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
 - 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendekosten trägt der Käufer.
 - 🏷️ Marke: TitanX

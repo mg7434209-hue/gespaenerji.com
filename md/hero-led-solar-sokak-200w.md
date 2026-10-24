@@ -3,7 +3,7 @@ title: "Hero LED 200 W Solar Sokak Armatürü (Sensörlü, Kumandalı) | GESPA E
 description: "Güneş paneliyle şarj olup gece çalışan 200 W solar sokak armatürü (HL-5153): elektrik hattı çekmeden aydınlatma sağlar. SMD LED, 6500 K beyaz ışık, hareket sensörüyle otomatik yanma, sabit yanma zaman ayarı, uzaktan kumanda, IP65 suya dayanıklılık ve 30.000 saat ömür. Armatür ölçüsü 188 × 586 mm. Bahçe, sokak, site, otopark ve fabrika aydınlatması için."
 canonical: https://www.gespaenerji.com/hero-led-solar-sokak-200w.html
 lang: tr
-dateModified: 2026-10-21
+dateModified: 2026-10-24
 publisher: "GESPA Enerji"
 ---
 

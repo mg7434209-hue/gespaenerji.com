@@ -3,7 +3,7 @@ title: "Hero LED 200W Solar Street Light with Sensor | GESPA Energy"
 description: "Hero LED 200 W solar street light (HL-5153): solar panel, motion sensor, fixed-on timer, remote, IP65, 30,000 h. Lower unit price for 5 or more."
 canonical: https://www.gespaenerji.com/en/hero-led-solar-sokak-200w.html
 lang: en
-dateModified: 2026-10-21
+dateModified: 2026-10-24
 publisher: "GESPA Enerji"
 ---
 
