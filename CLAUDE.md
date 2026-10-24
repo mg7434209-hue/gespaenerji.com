@@ -647,6 +647,19 @@ işe yaramıyordu.
 - Katsayılar tek config dosyasında (`config.calc`) ve koddan ayarlanabilir.
 - KURAL: Hesaplayıcı bileşenine hiçbir sayı (fiyat, katsayı, güç) hardcode ETME.
 
+## Telefon ana sayfası (24 Eki 2026, işletme kararı)
+Telefonda (≤760 px) ana sayfa 21 ekrandı, markalar yarım ekran kaplıyordu.
+Artık: kısa banner (etiket, istatistikler ve 2. düğme gizli) → `.m-hub` hızlı
+menü (6 kutu: Online Satış, Elektrikli Araç, Çatı/Arazi GES, Tarımsal Sulama,
+Yapay Zekâ, Hesaplayıcı) → 4 öne çıkan ürün (`data-pkg-name`/`data-pkg-list`,
+fiyat config'ten) → "Bizi tanıyın" bağlantıları → CTA bandı (~5 ekran).
+Diğer üst düzey bölümler `.m-hide` sınıfıyla telefonda GİZLİDİR; HTML'de durur
+(bilgisayar ve arama motorları/AI için içerik kaybı yok). Bilgisayar düzeni
+DEĞİŞMEDİ, `.m-hub` orada görünmez. Ana sayfaya yeni bölüm eklerken telefonda
+da görünmesi istenmiyorsa `m-hide` ver. Öne çıkan ürünleri değiştirmek:
+index.html `.m-prods` içindeki 4 kart (id + url + görsel). Metinlerin
+çevirisi i18n.js `MHUB:DICT` bloğunda.
+
 ## Mobil hız kuralları (24 Eki 2026 ölçümü)
 Ölçüm: Playwright, iPhone 13, 4× CPU, 4G 250 ms gecikme (ABD batı sunucusu
 taklidi). Sonuç ve tekrar betikleri commit'lenmedi; kurallar:

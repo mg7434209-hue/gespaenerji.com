@@ -5630,6 +5630,50 @@
     "Lexron 80 A HV (15~230 V) MPPT Şarj Kontrol Cihazı 12/24/36/48 V — ürün fotoğrafı": "Lexron 80 A HV (15~230 V) MPPT Şarj Kontrol Cihazı 12/24/36/48 V — фото товара",
   });
   // /LEXRONPAGE:DICT
+  // MHUB:DICT — telefon ana sayfası hızlı menüsü (index.html .m-hub, 24 Eki 2026)
+  Object.assign(DICT.en, {
+    "Ne arıyorsunuz?": "What are you looking for?",
+    "Hızlı menü": "Quick menu",
+    "Panel, akü, şarj cihazı": "Panels, batteries, controllers",
+    "Güneşle şarj paketleri": "Solar charging sets",
+    "Çatı / Arazi GES": "Rooftop / Ground PV",
+    "Mazotsuz güneşli pompa": "Diesel-free solar pumping",
+    "Yapay Zekâ": "Artificial Intelligence",
+    "AI Cankurtaran ve daha fazlası": "AI Lifeguard and more",
+    "Tasarrufunuzu hesaplayın": "Calculate your savings",
+    "Öne çıkan ürünler": "Featured products",
+    "Tüm ürünler →": "All products →",
+    "Bizi tanıyın:": "About us:",
+  });
+  Object.assign(DICT.de, {
+    "Ne arıyorsunuz?": "Was suchen Sie?",
+    "Hızlı menü": "Schnellmenü",
+    "Panel, akü, şarj cihazı": "Module, Akkus, Laderegler",
+    "Güneşle şarj paketleri": "Solar-Ladesets",
+    "Çatı / Arazi GES": "Dach- / Freiflächen-PV",
+    "Mazotsuz güneşli pompa": "Solarpumpen ohne Diesel",
+    "Yapay Zekâ": "Künstliche Intelligenz",
+    "AI Cankurtaran ve daha fazlası": "KI-Rettungsschwimmer und mehr",
+    "Tasarrufunuzu hesaplayın": "Ersparnis berechnen",
+    "Öne çıkan ürünler": "Ausgewählte Produkte",
+    "Tüm ürünler →": "Alle Produkte →",
+    "Bizi tanıyın:": "Über uns:",
+  });
+  Object.assign(DICT.ru, {
+    "Ne arıyorsunuz?": "Что вы ищете?",
+    "Hızlı menü": "Быстрое меню",
+    "Panel, akü, şarj cihazı": "Панели, АКБ, контроллеры",
+    "Güneşle şarj paketleri": "Солнечные комплекты зарядки",
+    "Çatı / Arazi GES": "Крышные / наземные СЭС",
+    "Mazotsuz güneşli pompa": "Солнечные насосы без дизеля",
+    "Yapay Zekâ": "Искусственный интеллект",
+    "AI Cankurtaran ve daha fazlası": "ИИ-спасатель и другое",
+    "Tasarrufunuzu hesaplayın": "Рассчитайте экономию",
+    "Öne çıkan ürünler": "Популярные товары",
+    "Tüm ürünler →": "Все товары →",
+    "Bizi tanıyın:": "О нас:",
+  });
+  // /MHUB:DICT
   // URUNPAGE:DICT — panel/akü/kablo/MC4 sayfaları + katalog metinleri; tools/urun-sayfalar.py ÜRETİR.
   // Elle düzenleme: metni betikte değiştir, betiği --uygula ile çalıştır.
   Object.assign(DICT.en, {
