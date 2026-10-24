@@ -2514,3 +2514,27 @@ html.menu-locked,html.menu-locked body{overflow:hidden}
   .hero2-sub{margin-bottom:16px;font-size:.95rem;line-height:1.55}
   .hero2-cta .btn:nth-child(n+2){display:none}
 }
+
+/* ---- PARLAMENT MAVİSİ TEMA (geçici deneme, 25 Eki 2026) ----
+   Yalnız <body class="tema-parlament"> taşıyan sayfalarda (şimdilik ana
+   sayfa ve dil kopyaları). GERİ ALMAK: index.html <body>'den sınıfı sil.
+   Bütün siteye yaymak: sınıfı diğer sayfalara ekle ya da bu değişkenleri
+   :root'a taşı. Vurgu rengi logodaki sarı (--sun) aynen kalır. */
+body.tema-parlament{
+  --green:#1d3557;--green-dark:#14253d;--green-light:#2f5d8c;
+  --shadow:0 10px 30px rgba(29,53,87,.12);--shadow-lg:0 24px 60px rgba(29,53,87,.18);
+}
+html:not([data-theme="dark"]) body.tema-parlament{--bg-alt:#f2f5fa;--line:#dfe6f0}
+body.tema-parlament .topbar:not(.topbar-campaign){background:#14253d}
+body.tema-parlament .hero2{background:#0f1f36}
+body.tema-parlament .hero2-shade{background:linear-gradient(90deg,rgba(13,27,48,.9) 0%,rgba(13,27,48,.62) 44%,rgba(13,27,48,.18) 100%)}
+body.tema-parlament .hero2-stats span{color:#c8d6ea}
+body.tema-parlament .grad-1{background:linear-gradient(135deg,#1d3557,#2f5d8c)}
+body.tema-parlament .hero-shop-art,body.tema-parlament .hero2-shopbg{background:linear-gradient(120deg,#1d3557,#2f5d8c 55%,#f0a500 175%)}
+body.tema-parlament .site-footer{background:#0d1626}
+@media (max-width:760px){
+  body.tema-parlament .hero2-shade{background:linear-gradient(180deg,rgba(13,27,48,.55),rgba(13,27,48,.85))}
+}
+/* Lacivert banner üzerinde ana düğme logo sarısı (lacivert üstünde lacivert seçilmiyordu) */
+body.tema-parlament .hero2-cta .btn:first-child{background:var(--sun);color:#14253d}
+body.tema-parlament .hero2-cta .btn:first-child:hover{background:#ffc93a}
