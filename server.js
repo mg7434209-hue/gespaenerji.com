@@ -2004,9 +2004,14 @@ const server = http.createServer((req, res) => {
       // (no-cache = önbelleğe alınır ama her seferinde doğrulanır → güncellemeler
       // anında görünür). Görsel/font/favicon uzun süre önbelleğe alınır.
       var fresh = /^\.(html|css|js|json|xml|txt|webmanifest)$/.test(ext);
-      headers["Cache-Control"] = fresh
-        ? "no-cache"
-        : "public, max-age=2592000, stale-while-revalidate=86400";
+      // Sürümlü CSS/JS (`?v=` — build.js versionAssets): içerik değişince adres
+      // de değiştiği için 1 yıl, yeniden doğrulamasız önbellek.
+      var versioned = (ext === ".css" || ext === ".js") && /[?&]v=[0-9a-f]{6,}/.test(qs || "");
+      headers["Cache-Control"] = versioned
+        ? "public, max-age=31536000, immutable"
+        : fresh
+          ? "no-cache"
+          : "public, max-age=2592000, stale-while-revalidate=86400";
 
       // Soru-cevaplı sayfa: yayındaki gönderiler sunarken HTML'e basılır;
       // ön-sıkıştırılmış .br/.gz kopyaları bu yüzden KULLANILMAZ.

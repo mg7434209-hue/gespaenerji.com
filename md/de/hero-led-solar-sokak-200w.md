@@ -3,7 +3,7 @@ title: "Hero LED 200W Solar-Straßenleuchte mit Sensor | GESPA Energy"
 description: "Hero LED 200 W Solar-Straßenleuchte (HL-5153): Solarmodul, Bewegungssensor, Dauerlicht-Timer, Fernbedienung, IP65, 30.000 h. Günstigerer Stückpreis ab 5 Stück."
 canonical: https://www.gespaenerji.com/de/hero-led-solar-sokak-200w.html
 lang: de
-dateModified: 2026-10-23
+dateModified: 2026-10-24
 publisher: "GESPA Enerji"
 ---
 

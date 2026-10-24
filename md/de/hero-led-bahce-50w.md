@@ -3,7 +3,7 @@ title: "Hero LED 50W Solar-Pfeilerleuchte für den Garten | GESPA Energy"
 description: "Hero LED 50 W Solar-Gartenleuchte für Pfeiler, Sockel und Wand (HL-5180): 4000 lm, 3 Farben + RGB, Fernbedienung, IP65. Günstigerer Stückpreis ab 5 Stück."
 canonical: https://www.gespaenerji.com/de/hero-led-bahce-50w.html
 lang: de
-dateModified: 2026-10-23
+dateModified: 2026-10-24
 publisher: "GESPA Enerji"
 ---
 

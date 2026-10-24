@@ -3,7 +3,7 @@ title: "Golf Aracı Tipi Motor Güneş Paketi — 460 W | GESPA Enerji"
 description: "Tavanlı, golf aracı tipi elektrikli yolcu aracı için komple güneş paketi: 460 W half-cut monokristal panel, BOOST MPPT 24–72 V şarj kontrol cihazı, solar kablo ve MC4. Hangi parçanın uyduğunu araştırmanıza gerek yok."
 canonical: https://www.gespaenerji.com/paket-motor-golf.html
 lang: tr
-dateModified: 2026-10-23
+dateModified: 2026-10-24
 publisher: "GESPA Enerji"
 ---
 

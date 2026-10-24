@@ -2453,3 +2453,21 @@ html.menu-locked,html.menu-locked body{overflow:hidden}
 .pd-bulk{margin:-4px 0 10px;font-size:.92rem;font-weight:700;color:var(--green)}
 .pd-bulk.is-on::after{content:" ✔"}
 .cart-item-bulk{margin:-6px 0 10px;font-size:.8rem;font-weight:600;color:var(--green)}
+
+/* ---- Mobil hız ve kullanılabilirlik (24 Eki 2026) ----
+   1) İlk ekrandaki bölümler `.reveal` animasyonunu BEKLEMEZ: opaklık 0'dan
+      başlayıp main.js'in çalışmasını beklediği için ürün fotoğrafı/fiyat ve
+      sayfa başlığı (LCP) ~1 sn geç görünüyordu. */
+.page-hero .reveal,.page-hero.reveal,.prod-sec .reveal,.shop-head.reveal,.shop-side.reveal,.sh-bar.reveal,.hero2 .reveal{opacity:1;transform:none;transition:none}
+/* 2) Dokunma alanları: slayt noktaları 9 px idi; görünüm aynı, dokunulan alan ~33 px. */
+.hero-dots button{position:relative}
+.hero-dots button::after{content:"";position:absolute;inset:-12px}
+@media (max-width:760px){
+  /* Adet (− n +) düğmeleri 21 px yüksekti; parmakla rahat basılsın. */
+  .qbox button,.qbox input{min-height:40px}
+  /* Üst duyuru şeridi telefonda tek satır (iki satıra taşıp ekranın %7'sini alıyordu). */
+  .topbar-inner{height:auto;min-height:34px;flex-wrap:nowrap;gap:10px;padding-top:6px;padding-bottom:6px}
+  .topbar-inner>span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  /* Ürün sayfası: fotoğraf ilk ekranı tek başına doldurmasın; ad ve fiyat yukarı gelsin. */
+  .prod-main img{max-height:36vh}
+}

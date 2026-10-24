@@ -800,12 +800,21 @@ function firstModOf(file) {
 
 // Sitemap'e girecek sayfa görselleri: <main> içindeki <img src="assets/…">
 // (svg/ikon hariç, tekrarsız, en çok 30). Başlık = alt metni.
+// Galeri küçük resimleri `-k.webp` önizlemesini kullanır (tools/kucuk-resim.py
+// üretir). Tam boy dosya bağlantıda (`href`) kalır: tıklanınca o açılır, Product
+// şeması ve sitemap de tam boyu okur. Önizleme dosyası yoksa dokunulmaz.
+function thumbify(html) {
+  return html.replace(/<div class="prod-thumbs[^"]*">[\s\S]*?<\/div>/g, block =>
+    block.replace(/(<img\b[^>]*\bsrc=")(assets\/[^"]+?)(\.webp")/g, (m, a, stem, ext) =>
+      !/-k$/.test(stem) && fs.existsSync(path.join(ROOT, stem + "-k.webp")) ? a + stem + "-k" + ext : m));
+}
 function pageImages(html) {
   const main = (html.match(/<main\b[\s\S]*?<\/main>/) || [html])[0];
   const seen = new Set(), out = [];
   const re = /<img\b([^>]*)>/g; let m;
   while ((m = re.exec(main)) !== null) {
-    const src = (m[1].match(/\bsrc="([^"]+)"/) || [])[1];
+    // Galeri önizlemesi (-k.webp) yerine tam boy görsel haritaya girer.
+    const src = ((m[1].match(/\bsrc="([^"]+)"/) || [])[1] || "").replace(/-k\.webp$/, ".webp") || undefined;
     if (!src || !/^assets\//.test(src) || /\.svg$/i.test(src) || /favicon|gespa-icon/.test(src)) continue;
     if (seen.has(src)) continue;
     seen.add(src);
@@ -2042,6 +2051,41 @@ function writeSitemap(i18n) {
   fs.writeFileSync(path.join(ROOT, "sitemap.xml"), xml);
 }
 
+// ---- Varlık sürümleme (24 Eki 2026) ----
+// HTML'deki assets/*.css|js adreslerine `?v=<içerik özeti>` eklenir; server.js
+// `?v=` taşıyan isteğe 1 yıllık `immutable` önbellek verir. Böylece tarayıcı her
+// sayfa geçişinde 5 dosyayı yeniden SORMAZ (her biri sunucuya bir gidiş-dönüş;
+// ABD'deki sunucuda sayfa başına ~0,25 sn). Dosya değişince özet değişir, yeni
+// adres hemen indirilir — eski önbellek sorun çıkarmaz.
+// YALNIZ YAYIN ORTAMINDA (Railway/Render ya da ASSET_VERSION=1) çalışır: repodaki
+// HTML'e yazılsaydı her CSS/JS değişikliğinde TÜM sayfalar "değişti" görünür,
+// sitemap lastmod / dateModified tarihleri anlamını yitirirdi. Bu yüzden tarih
+// hesabından sonra, ön-sıkıştırmadan önce çağrılır.
+// config.js SÜRÜMLENMEZ: canlı kur açıkken içeriği dosyadan bağımsız değişir.
+function versionAssets() {
+  const on = process.env.ASSET_VERSION === "1" || !!(process.env.RAILWAY_ENVIRONMENT_NAME ||
+    process.env.RAILWAY_DEPLOYMENT_ID || process.env.RENDER);
+  if (!on) return 0;
+  const crypto = require("crypto");
+  const h = crypto.createHash("sha1");
+  const files = fs.readdirSync(path.join(ROOT, "assets")).filter(f => /\.(css|js)$/.test(f) && f !== "config.js").sort();
+  files.forEach(f => h.update(f).update(fs.readFileSync(path.join(ROOT, "assets", f))));
+  const v = h.digest("hex").slice(0, 10);
+  const re = /((?:src|href)="(?:\/|\.\.\/)?assets\/(?!config\.js)[A-Za-z0-9_.-]+\.(?:css|js))(?:\?v=[0-9a-f]+)?"/g;
+  let n = 0;
+  const dirs = [ROOT].concat(LANGS.map(l => path.join(ROOT, l)).filter(d => fs.existsSync(d)));
+  for (const d of dirs) {
+    for (const f of fs.readdirSync(d)) {
+      if (!/\.html$/.test(f)) continue;
+      const p = path.join(d, f), src = fs.readFileSync(p, "utf8");
+      const out = src.replace(re, (m, a) => a + "?v=" + v + '"');
+      if (out !== src) { fs.writeFileSync(p, out); n++; }
+    }
+  }
+  console.log("varlık sürümü v=" + v + " · " + n + " sayfa");
+  return n;
+}
+
 // Metin varlıklarını ön-sıkıştır (.br + .gz) — server.js hazır dosyayı servis eder.
 // Çıktılar .gitignore'dadır; her build'de yeniden üretilir (Railway start'ta da çalışır).
 function precompress() {
@@ -2415,6 +2459,7 @@ function run() {
     let html = fs.readFileSync(p, "utf8");
     const before = html;
     html = hydrateHead(html, file);
+    html = thumbify(html);
     html = hydrateHelp(html, file);
     html = hydrateContact(html, cfg.company);
     html = hydrateSisterSites(html, cfg.company);
@@ -2452,6 +2497,8 @@ function run() {
       count++;
     }
   }
+  // Yayın ortamında CSS/JS adreslerine sürüm etiketi (tarih hesabından SONRA)
+  versionAssets();
   // Tüm çıktılar yazıldıktan SONRA ön-sıkıştır (dil sayfaları dahil)
   precompress();
   return count;

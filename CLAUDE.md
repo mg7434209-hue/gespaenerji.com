@@ -647,6 +647,34 @@ işe yaramıyordu.
 - Katsayılar tek config dosyasında (`config.calc`) ve koddan ayarlanabilir.
 - KURAL: Hesaplayıcı bileşenine hiçbir sayı (fiyat, katsayı, güç) hardcode ETME.
 
+## Mobil hız kuralları (24 Eki 2026 ölçümü)
+Ölçüm: Playwright, iPhone 13, 4× CPU, 4G 250 ms gecikme (ABD batı sunucusu
+taklidi). Sonuç ve tekrar betikleri commit'lenmedi; kurallar:
+- ANA SAYFA SLAYTLARI: 1. slayt görseli (`hero-gespa-villa`) `-640/-960/-1280`
+  kopyalarıyla srcset + AYNI srcset'le preload. 2.+ slaytların görselleri
+  `data-src`/`data-srcset`'tir; main.js sayfa yüklendikten 1,5 sn sonra ya da
+  slayt gösterilmeden hemen önce yükler. Gizli slaytlara `src` YAZMA: hepsi
+  ekran içinde sayıldığı için loading="lazy" durdurmuyordu (~700 KB). Eski
+  preload kullanılmayan `hero.webp`'yi (181 KB) indiriyordu.
+- İLK EKRAN `.reveal` BEKLEMEZ: `.page-hero`, `.prod-sec`, `.shop-head`,
+  `.shop-side`, `.sh-bar` ve `.hero2` içindeki `.reveal` görünür başlar
+  (style.css sonu). Yoksa başlık/ürün fotoğrafı main.js'i bekler (LCP +~1 sn).
+- VARLIK SÜRÜMLEME: build.js `versionAssets()` YALNIZ yayın ortamında
+  (Railway/Render env'i ya da `ASSET_VERSION=1`) HTML'deki assets/*.css|js
+  adreslerine `?v=<özet>` ekler; server.js `?v=`'li isteğe 1 yıl `immutable`
+  önbellek verir. Repodaki HTML'e YAZILMAZ (yazılsa her CSS/JS değişikliği tüm
+  sayfaların lastmod'unu bugüne çekerdi). config.js sürümlenmez (canlı kur).
+  chatbot.js, main.js'in kendi `?v=`'siyle istenir.
+- GALERİ ÖNİZLEMELERİ: `.prod-thumbs` küçük resimleri `<ad>-k.webp` (240 px,
+  `tools/kucuk-resim.py` üretir, build.js `thumbify()` bağlar). Tam boy dosya
+  bağlantıda kalır; Product şeması ve sitemap tam boyu okur. YENİ GALERİ
+  GÖRSELİNDEN SONRA `python3 tools/kucuk-resim.py` çalıştır.
+- Telefonda: üst şerit tek satır, adet (− n +) düğmeleri ≥ 40 px, slayt
+  noktalarının dokunma alanı büyük, ürün fotoğrafı ≤ 36vh.
+- EN BÜYÜK KALAN ETKEN SUNUCU BÖLGESİ: Railway servisi us-west2'de; her istek
+  Türkiye'den ABD batı kıyısına gidiyor. Avrupa bölgesine taşımak (Railway
+  Settings → Region) her sayfada ~0,3–0,5 sn kazandırır.
+
 ## SEO / AEO — statik üretim (AI botları JS çalıştırmaz!)
 Dosya/işlev haritası, şema alanları ve yeni sayfa kontrol listesi: @docs/seo-aeo.md
 ÜRETİLEN — ELLE DÜZENLENMEZ: `robots.txt` · `sitemap.xml` (görsel + video

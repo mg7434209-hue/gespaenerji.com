@@ -4,6 +4,9 @@
 (function () {
   "use strict";
   var doc = document;
+  // Sayfanın main.js adresindeki sürüm (`?v=`, build.js versionAssets) —
+  // sonradan yüklenen chatbot.js de aynı sürümle istenir (uzun önbellek).
+  var ASSET_V = (function () { try { var m = /[?&]v=([0-9a-f]+)/.exec(doc.currentScript.src); return m ? m[1] : ""; } catch (e) { return ""; } })();
   var REDUCED = false;
   try { REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
   var $ = function (s, c) { return (c || doc).querySelector(s); };
@@ -1743,7 +1746,7 @@
     if (window.__gchatLoaded) return;
     var sub = /^\/(en|de|ru)\//.test(location.pathname);
     var s = doc.createElement("script"); s.defer = true;
-    s.src = (sub ? "/assets/" : "assets/") + "chatbot.js";
+    s.src = (sub ? "/assets/" : "assets/") + "chatbot.js" + (ASSET_V ? "?v=" + ASSET_V : "");
     doc.body.appendChild(s);
   })();
 
@@ -2571,6 +2574,18 @@
   (function () {
     var show = $("#heroShow"); if (!show) return;
     var slides = $$(".hero2-slide, .hero-slide", show);
+    // HIZ (24 Eki 2026): 2.+ slaytların görselleri `data-src`/`data-srcset`
+    // ile ertelenir — gizli slaytlar da ekranın içinde sayıldığı için
+    // loading="lazy" onları durdurmuyordu ve açılışta ~700 KB iniyordu.
+    // Sayfa yüklendikten sonra boşta indirilir; slayt gösterilmeden önce de.
+    function loadSlide(s) {
+      if (!s) return;
+      $$("[data-srcset]", s).forEach(function (el) { el.srcset = el.getAttribute("data-srcset"); el.removeAttribute("data-srcset"); });
+      $$("[data-src]", s).forEach(function (el) { el.src = el.getAttribute("data-src"); el.removeAttribute("data-src"); });
+    }
+    function loadAll() { slides.forEach(loadSlide); }
+    if (doc.readyState === "complete") setTimeout(loadAll, 1500);
+    else window.addEventListener("load", function () { setTimeout(loadAll, 1500); });
     var dotsWrap = $(".hero-dots", show);
     if (slides.length < 2 || !dotsWrap) return;
     // Azaltılmış harekette SMIL simülasyonu da durdurulur
@@ -2587,6 +2602,7 @@
     var dots = $$("button", dotsWrap);
     function go(i) {
       idx = (i + slides.length) % slides.length;
+      loadSlide(slides[idx]);
       slides.forEach(function (s, j) { s.classList.toggle("is-on", j === idx); });
       dots.forEach(function (d, j) { d.classList.toggle("is-on", j === idx); });
     }

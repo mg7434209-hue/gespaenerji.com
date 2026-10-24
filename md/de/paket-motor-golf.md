@@ -3,7 +3,7 @@ title: "Solar-Set für Golfcart-Fahrzeuge — 460 W | GESPA Energy"
 description: "Komplettset für überdachte Elektrofahrzeuge im Golfcart-Stil: 460-W-Half-Cut-Monomodul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt."
 canonical: https://www.gespaenerji.com/de/paket-motor-golf.html
 lang: de
-dateModified: 2026-10-23
+dateModified: 2026-10-24
 publisher: "GESPA Enerji"
 ---
 
