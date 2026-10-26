@@ -83,9 +83,6 @@ Car-km equivalent (25 yrs) —
 
 Battery (optional) —
 
-[Request a free quote with these results](https://www.gespaenerji.com/en/iletisim.html)
-[📲 Send results via WhatsApp](#)
-
 Engineering Tools
 
 ## Solar Toolbox

@@ -152,8 +152,19 @@
           <div class="calc-chart" id="calcChart" aria-hidden="true"></div>
           <p class="chart-note" id="chartNote" aria-live="polite"></p>
           <div class="calc-actions">
-            <a class="btn btn-block btn-lg" href="/de/iletisim.html" id="calcCta">Mit diesen Ergebnissen Angebot anfordern</a>
-            <a class="btn btn-block btn-ghost" id="calcWa" href="#" target="_blank" rel="noopener">📲 Ergebnisse per WhatsApp senden</a>
+            <form id="leadForm" class="lead-form" novalidate>
+              <h3>Mit diesem Ergebnis eine kostenlose Besichtigung planen</h3>
+              <p class="lead-note">Dies ist eine erste Schätzung; der genaue Wert wird bei der kostenlosen Besichtigung ermittelt. Ihre Angaben werden nur für dieses Gespräch verwendet.</p>
+              <div class="lead-grid">
+                <input name="ad" placeholder="Adınız" required autocomplete="name" aria-label="Adınız" />
+                <input name="tel" type="tel" placeholder="Telefon" required autocomplete="tel" inputmode="tel" aria-label="Telefon" />
+                <input name="ilce" placeholder="İl / İlçe" autocomplete="address-level2" aria-label="İl / İlçe" />
+              </div>
+              <label class="lead-kvkk"><input type="checkbox" name="kvkk" required /><span>Ich bin einverstanden, dass meine Angaben für dieses Gespräch verwendet werden.</span> <a href="/kvkk.html">KVKK</a></label>
+              <input type="text" name="website" class="lead-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+              <button class="btn btn-block btn-lg" type="submit" id="leadSend">Ergebnis per WhatsApp senden, Besichtigung planen</button>
+              <p class="lead-done" id="leadDone" hidden aria-live="polite"></p>
+            </form>
             <button class="btn btn-block btn-ghost" id="calcPrint" type="button">🖨️ Drucken / als PDF speichern</button>
           </div>
         </div>

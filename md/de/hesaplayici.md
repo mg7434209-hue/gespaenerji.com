@@ -83,9 +83,6 @@ Auto-km-Äquivalent (25 J.) —
 
 Batterie (optional) —
 
-[Mit diesen Ergebnissen Angebot anfordern](https://www.gespaenerji.com/de/iletisim.html)
-[📲 Ergebnisse per WhatsApp senden](#)
-
 Ingenieurwerkzeuge
 
 ## Solar-Werkzeugkasten

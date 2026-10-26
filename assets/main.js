@@ -906,10 +906,14 @@
         el.textContent = (d ? d + L("g ", "d ", "T ", "д ") : "") + two(h) + ":" + two(m) + ":" + two(s2);
       }
 
+      // Kullanım senaryosu (config.shopScenarios): kategori süzgecinin üstünde,
+      // ikisi birlikte çalışır (senaryo → sonra teknik kategori).
+      var SCEN = CFG.shopScenarios || [], scen = "all";
+      function inScen(p) { if (scen === "all") return true; var s = SCEN.filter(function (x) { return x.id === scen; })[0]; return !!(s && (s.ids || []).indexOf(p.id) >= 0); }
       function render(filter) {
-        var list = filter && filter !== "all"
+        var list = (filter && filter !== "all"
           ? items.filter(function (p) { return catOf(p) === filter; })
-          : items;
+          : items).filter(inScen);
         grid.innerHTML = list.length
           ? list.map(tile).join("")
           : '<p class="sh-empty">' + L("Bu kategoride şu an ürün yok.", "No products in this category yet.",
@@ -986,9 +990,34 @@
         var gTop = grid.getBoundingClientRect().top;
         if (gTop < gap) window.scrollTo({ top: window.pageYOffset + gTop - gap, behavior: "smooth" });
       });
+      // Senaryo kartları
+      var scenBar = $("#shopScenarios");
+      var scenParam = function () { try { return new URLSearchParams(location.search).get("senaryo"); } catch (e) { return null; } };
+      function buildScen() {
+        if (!scenBar || !SCEN.length) return;
+        var html = '<button type="button" class="sh-scard' + (scen === "all" ? " is-on" : "") + '" data-s="all"><span class="sh-scard-ico" aria-hidden="true">🧰</span><b>' + L("Tüm ürünler", "All products", "Alle Produkte", "Все товары") + "</b><small>" + items.length + " " + L("ürün", "products", "Produkte", "товаров") + "</small></button>";
+        SCEN.forEach(function (s) {
+          var n = s.href ? 0 : items.filter(function (p) { return (s.ids || []).indexOf(p.id) >= 0; }).length;
+          if (!s.href && !n) return;
+          var inner = '<span class="sh-scard-ico" aria-hidden="true">' + s.icon + "</span><b>" + tName(s.label) + "</b><small>" + (s.href ? tName(s.hint) : tName(s.hint)) + "</small>";
+          html += s.href ? '<a class="sh-scard sh-scard-go" href="' + s.href + '">' + inner + "</a>"
+                         : '<button type="button" class="sh-scard' + (scen === s.id ? " is-on" : "") + '" data-s="' + s.id + '">' + inner + "</button>";
+        });
+        scenBar.innerHTML = html;
+      }
+      (function () { var w = scenParam(); if (w && SCEN.some(function (s) { return s.id === w && !s.href; })) scen = w; })();
+      if (scenBar) scenBar.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-s]"); if (!b) return;
+        scen = b.getAttribute("data-s");
+        $$(".sh-scard", scenBar).forEach(function (x) { x.classList.toggle("is-on", x === b); });
+        render(active);
+        try { var u = new URL(location.href); if (scen === "all") u.searchParams.delete("senaryo"); else u.searchParams.set("senaryo", scen); history.replaceState(history.state, "", u.pathname + u.search + u.hash); } catch (err) {}
+      });
+      buildScen();
       buildFilters();
       renderSale();
       render(active);
+      doc.addEventListener("gespa:lang", function () { buildScen(); });
       // sepete ekle — onay penceresi paket sayfalarıyla ortak
       function bindAdd(root) {
         if (!root) return;
@@ -2071,6 +2100,7 @@
     var DEG = (k.degradation || 0) / 100;            // yıllık verim kaybı
     var CO2_PER_CAR_KM = k.co2PerCarKm || 0.12;      // kg CO2 / km
     var chartEl = $("#calcChart"), chartNote = $("#chartNote"), waBtn = $("#calcWa");
+    var lastCalc = null, leadOpened = Date.now();
     var WA = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
     var selfEl = $("#self"), batteryEl = $("#battery"), printBtn = $("#calcPrint");
     var FEED = k.feedInFactor != null ? k.feedInFactor : 0.5;
@@ -2183,6 +2213,7 @@
               "With these values it doesn't pay back within 25 years; adjust the inputs.",
               "Mit diesen Werten amortisiert sich die Anlage nicht in 25 Jahren; bitte Eingaben anpassen.",
               "При этих значениях окупаемость не достигается за 25 лет; измените параметры.");
+        lastCalc = { kwp: fmt1(kwp), panels: fmt(panels), save: fmt(save), cost: fmt(cost), pb: payback > 0 ? fmt1(payback) + " " + (u.yil || "yıl") : (u.yilPlus || "25+ yıl") };
         if (waBtn && WA) {
           var pb = payback > 0 ? fmt1(payback) + " " + (u.yil || "yıl") : (u.yilPlus || "25+ yıl");
           var msg = L(
@@ -2204,6 +2235,46 @@
     if (orient) orient.addEventListener("change", calc);
     if (batteryEl) batteryEl.addEventListener("change", calc);
     if (printBtn) printBtn.addEventListener("click", function () { window.print(); });
+    // LEAD HUNİSİ (CRO FAZ 1-d, 26 Eki 2026): sonuç → ad/telefon/ilçe → sunucuya
+    // kayıt (/api/lead: leads.json + işletme e-postası) → WhatsApp ön-dolu mesaj
+    // → teşekkür. Sunucu yoksa/hata verirse WhatsApp yine açılır (lead kaybolmasın).
+    var leadForm = $("#leadForm");
+    if (leadForm) leadForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var v = function (n) { return (leadForm[n] && String(leadForm[n].value || "").trim()) || ""; };
+      var done = $("#leadDone"), btn = $("#leadSend");
+      var warn = function (t) { if (done) { done.hidden = false; done.className = "lead-done is-warn"; done.textContent = t; } };
+      if (!lastCalc) return warn(L("Önce yukarıdaki alanlara değerlerinizi girin.", "Enter your values above first.", "Bitte zuerst oben Ihre Werte eingeben.", "Сначала введите значения выше."));
+      if (v("ad").length < 2 || v("tel").replace(/\D/g, "").length < 10 || !(leadForm.kvkk && leadForm.kvkk.checked)) {
+        if (leadForm.reportValidity) leadForm.reportValidity();
+        return warn(L("Ad, telefon ve onay kutusu gerekli.", "Name, phone and the consent box are required.", "Name, Telefon und Zustimmung sind erforderlich.", "Нужны имя, телефон и согласие."));
+      }
+      var ilce = v("ilce");
+      var msg = L("Merhaba GESPA, hesaplayıcı sonucum: " + lastCalc.kwp + " kWp · yıllık ≈ ₺" + lastCalc.save + " · geri ödeme " + lastCalc.pb + (ilce ? " · " + ilce : "") + ". Ücretsiz keşif istiyorum. Adım: " + v("ad"),
+        "Hello GESPA, my calculator result: " + lastCalc.kwp + " kWp · ≈ ₺" + lastCalc.save + "/year · payback " + lastCalc.pb + (ilce ? " · " + ilce : "") + ". I would like a free site survey. Name: " + v("ad"),
+        "Hallo GESPA, mein Rechner-Ergebnis: " + lastCalc.kwp + " kWp · ≈ ₺" + lastCalc.save + "/Jahr · Amortisation " + lastCalc.pb + (ilce ? " · " + ilce : "") + ". Ich möchte eine kostenlose Besichtigung. Name: " + v("ad"),
+        "Здравствуйте, GESPA, мой результат: " + lastCalc.kwp + " кВт · ≈ ₺" + lastCalc.save + "/год · окупаемость " + lastCalc.pb + (ilce ? " · " + ilce : "") + ". Хочу бесплатный осмотр. Имя: " + v("ad"));
+      var openWa = function () { if (WA) window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(msg), "_blank"); };
+      var thanks = function () {
+        if (done) { done.hidden = false; done.className = "lead-done";
+          done.textContent = L("Aldık, " + v("ad") + ". En kısa sürede " + v("tel") + " numaranızı arayacağız. WhatsApp penceresi açılmadıysa alttaki yeşil düğmeyi kullanın.",
+            "Thank you, " + v("ad") + ". We will call " + v("tel") + " shortly. If WhatsApp did not open, use the green button below.",
+            "Danke, " + v("ad") + ". Wir rufen Sie in Kürze unter " + v("tel") + " an. Falls WhatsApp nicht geöffnet wurde, nutzen Sie den grünen Button unten.",
+            "Спасибо, " + v("ad") + ". Мы скоро позвоним на " + v("tel") + ". Если WhatsApp не открылся, используйте зелёную кнопку ниже."); }
+        if (btn) { btn.disabled = true; btn.textContent = L("Gönderildi ✓", "Sent ✓", "Gesendet ✓", "Отправлено ✓"); }
+        try { if (window.gtag) { gtag("event", "lead_form", { page_path: location.pathname }); gtag("event", "lead_whatsapp", { page_path: location.pathname }); } } catch (err) {}
+      };
+      if (btn) { btn.disabled = true; btn.textContent = L("Gönderiliyor…", "Sending…", "Wird gesendet…", "Отправка…"); }
+      var body = { ad: v("ad"), tel: v("tel"), ilce: ilce, kwp: lastCalc.kwp, panels: lastCalc.panels, save: lastCalc.save, cost: lastCalc.cost, payback: lastCalc.pb,
+        lang: (window.GESPA && GESPA.lang) || "tr", path: location.pathname, ms: Date.now() - leadOpened, website: v("website") };
+      var finish = function () { openWa(); thanks(); };
+      try {
+        fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
+          .then(function (r) { return r.json().catch(function () { return {}; }); })
+          .then(function (j) { if (j && j.error && j.retry) { if (btn) { btn.disabled = false; btn.textContent = L("Sonucu WhatsApp'a gönder, keşif planla", "Send result to WhatsApp, plan a survey", "Ergebnis per WhatsApp senden, Besichtigung planen", "Отправить результат в WhatsApp, запланировать осмотр"); } return warn(j.error); } finish(); })
+          .catch(finish);
+      } catch (err) { finish(); }
+    });
     document.addEventListener("gespa:lang", calc);
     // URL ile yöntem seçimi (ör. hesaplayici.html#tarim)
     var hashM = (location.hash || "").replace("#", "");

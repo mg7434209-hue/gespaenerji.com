@@ -151,8 +151,19 @@
           <div class="calc-chart" id="calcChart" aria-hidden="true"></div>
           <p class="chart-note" id="chartNote" aria-live="polite"></p>
           <div class="calc-actions">
-            <a class="btn btn-block btn-lg" href="iletisim.html" id="calcCta">Bu sonuçlarla ücretsiz teklif iste</a>
-            <a class="btn btn-block btn-ghost" id="calcWa" href="#" target="_blank" rel="noopener">📲 Sonuçları WhatsApp'tan gönder</a>
+            <form id="leadForm" class="lead-form" novalidate>
+              <h3>Bu sonuçla ücretsiz keşif planlayın</h3>
+              <p class="lead-note">Bu bir ön hesaptır; kesin rakam ücretsiz keşifte belirlenir. Bilgileriniz yalnız bu görüşme için kullanılır.</p>
+              <div class="lead-grid">
+                <input name="ad" placeholder="Adınız" required autocomplete="name" aria-label="Adınız" />
+                <input name="tel" type="tel" placeholder="Telefon" required autocomplete="tel" inputmode="tel" aria-label="Telefon" />
+                <input name="ilce" placeholder="İl / İlçe" autocomplete="address-level2" aria-label="İl / İlçe" />
+              </div>
+              <label class="lead-kvkk"><input type="checkbox" name="kvkk" required /><span>Bilgilerimin bu görüşme için kullanılmasını kabul ediyorum.</span> <a href="/kvkk.html">KVKK</a></label>
+              <input type="text" name="website" class="lead-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+              <button class="btn btn-block btn-lg" type="submit" id="leadSend">Sonucu WhatsApp'a gönder, keşif planla</button>
+              <p class="lead-done" id="leadDone" hidden aria-live="polite"></p>
+            </form>
             <button class="btn btn-block btn-ghost" id="calcPrint" type="button">🖨️ Yazdır / PDF olarak kaydet</button>
           </div>
         </div>

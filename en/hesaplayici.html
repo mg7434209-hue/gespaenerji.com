@@ -152,8 +152,19 @@
           <div class="calc-chart" id="calcChart" aria-hidden="true"></div>
           <p class="chart-note" id="chartNote" aria-live="polite"></p>
           <div class="calc-actions">
-            <a class="btn btn-block btn-lg" href="/en/iletisim.html" id="calcCta">Request a free quote with these results</a>
-            <a class="btn btn-block btn-ghost" id="calcWa" href="#" target="_blank" rel="noopener">📲 Send results via WhatsApp</a>
+            <form id="leadForm" class="lead-form" novalidate>
+              <h3>Plan a free site survey with this result</h3>
+              <p class="lead-note">This is a first estimate; the exact figure is set at the free survey. Your details are used only for this conversation.</p>
+              <div class="lead-grid">
+                <input name="ad" placeholder="Adınız" required autocomplete="name" aria-label="Adınız" />
+                <input name="tel" type="tel" placeholder="Telefon" required autocomplete="tel" inputmode="tel" aria-label="Telefon" />
+                <input name="ilce" placeholder="İl / İlçe" autocomplete="address-level2" aria-label="İl / İlçe" />
+              </div>
+              <label class="lead-kvkk"><input type="checkbox" name="kvkk" required /><span>I agree to my details being used for this conversation.</span> <a href="/kvkk.html">KVKK</a></label>
+              <input type="text" name="website" class="lead-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+              <button class="btn btn-block btn-lg" type="submit" id="leadSend">Send result to WhatsApp, plan a survey</button>
+              <p class="lead-done" id="leadDone" hidden aria-live="polite"></p>
+            </form>
             <button class="btn btn-block btn-ghost" id="calcPrint" type="button">🖨️ Print / save as PDF</button>
           </div>
         </div>

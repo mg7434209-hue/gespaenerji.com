@@ -279,6 +279,26 @@ window.GESPA.config = {
     // Ücretsiz keşif WhatsApp mesajı (menü düğmesi, hero, üst bant, CTA bandı)
     kesifMsg: "Merhaba GESPA, ücretsiz keşif istiyorum. İl/ilçe: ___ · Çatı / arazi / tarla: ___"
   },
+  // MAĞAZA KULLANIM SENARYOLARI (CRO FAZ 1-e, 26 Eki 2026): müşteri "MPPT mi
+  // PWM mi" değil "karavanıma ne lazım" diye arar. online-satis.html'de
+  // teknik kategorilerin ÜSTÜNDE senaryo kartları; bir ürün birden çok
+  // senaryoda olabilir. `href` olan kart ürün değil sayfa bağlantısıdır.
+  // Yeni ürün eklenince ilgili senaryoya id'sini yaz (yazmazsan yalnız
+  // "Tümü" ve teknik kategoride görünür).
+  shopScenarios: [
+    { id: "bagevi", icon: "🏡", label: "Bağ evi & kamp", hint: "Şebekesiz küçük ev",
+      ids: ["kit-285w", "kit-2x540w", "unv-trek-pro-2500", "panel-50w", "panel-240w", "lexron-pwm-20a", "lexron-pwm-30a", "lexron-pwm-40a", "lexron-pwm-60a", "lexron-mppt-20a", "lexron-mppt-30a", "lexron-mppt-40a", "hero-led-ampul-10w", "kablo-solar-5m", "mc4-set"] },
+    { id: "karavan", icon: "🚐", label: "Karavan & tekne", hint: "12/24 V mobil sistem",
+      ids: ["unv-trek-pro-2500", "havensis-dcdc-1224-30", "havensis-dcdc-1224-40", "havensis-dcdc-1224b-40", "havensis-dcdc-2448", "panel-50w", "panel-240w", "hero-led-ampul-10w", "lexron-mppt-20a", "lexron-pwm-20a", "kablo-solar-5m", "mc4-set"] },
+    { id: "arac", icon: "🛺", label: "Elektrikli araç şarjı", hint: "Triportör, golf, mini araç",
+      ids: ["set-yolcu", "set-kargo", "set-golf", "set-mini", "boost-mppt", "aku-lifepo4-72v", "panel-240w", "panel-460w", "panel-700w", "kablo-solar-5m", "mc4-set"] },
+    { id: "ev", icon: "🏠", label: "Ev & çatı sistemi", hint: "Büyük panel, akü, MPPT",
+      ids: ["panel-460w", "panel-arcelik-540w", "panel-lexron-655w", "panel-700w", "panel-lexron-285w", "aku-titanx-51v-102ah", "havensis-s30amps", "havensis-s60amps100", "havensis-s60amps150", "lexron-mppt-80a-hv", "lexron-pwm-60a", "kablo-solar-5m", "mc4-set"] },
+    { id: "aydinlatma", icon: "💡", label: "Bahçe & sokak aydınlatması", hint: "Elektrik hattı gerektirmez",
+      ids: ["hero-led-solar-sokak-100w", "hero-led-solar-sokak-200w", "hero-led-solar-sokak-600w", "hero-led-aplik-50w", "hero-led-bahce-50w", "hero-led-ampul-10w"] },
+    { id: "toptan", icon: "📦", label: "Toptan & proje", hint: "Çok adet, kurumsal teklif", href: "toptan.html" }
+  ],
+
   campaign: {
     endsAt: "2026-09-20T23:59:59+03:00",
     title: "İndirimli Ürünler",

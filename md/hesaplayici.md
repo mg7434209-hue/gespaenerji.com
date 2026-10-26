@@ -83,9 +83,6 @@ Araç-km eşdeğeri (25 yıl) —
 
 Batarya (opsiyonel) —
 
-[Bu sonuçlarla ücretsiz teklif iste](https://www.gespaenerji.com/iletisim.html)
-[📲 Sonuçları WhatsApp'tan gönder](#)
-
 Mühendislik Araçları
 
 ## GES Alet Çantası
