@@ -1545,7 +1545,8 @@ function handlePayRoutes(req, res, urlPath) {
       items.forEach((it) => {
         const p = (cfg.packages || []).find((x) => x.id === it.id);
         const qty = Math.max(1, Math.min(99, parseInt(it.qty, 10) || 0));
-        if (p && p.price != null && qty) lines.push({ p, qty, unit: pkgListTL(p, cfg, qty) });
+        // stock:0 = tükendi: eski bir sepetten gelse bile tahsil edilmez.
+        if (p && p.price != null && p.stock !== 0 && qty) lines.push({ p, qty, unit: pkgListTL(p, cfg, qty) });
       });
       if (!lines.length) return sendJson(res, 400, { error: "Sepet boş veya ürünler tanınamadı." });
       // Kargo (23 Eki 2026): ücretsiz kargolu olmayan kalem varsa ALICI ÖDEMELİ;

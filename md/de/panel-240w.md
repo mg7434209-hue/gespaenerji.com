@@ -3,7 +3,7 @@ title: "240-W-Solarmodul (48 Zellen) | GESPA Energy"
 description: "240-W-Solarmodul mit 48 Zellen: Voc 36,12 V, 1320 × 776 × 30 mm, 8 kg. Für Mini-Elektroautos und kleine Inselanlagen."
 canonical: https://www.gespaenerji.com/de/panel-240w.html
 lang: de
-dateModified: 2026-10-23
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -32,7 +32,7 @@ Preis inkl. MwSt.
 
 - 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
-- 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendekosten trägt der Käufer.
+- 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
 - 🔌 Laderegler und Kabel sind nicht im Lieferumfang enthalten.
 
 🔆 240 W 🔢 48 Zellen ⚖️ 8 kg

@@ -3,7 +3,7 @@ title: "Solar-Set für Lasten-Dreirad — 700 W | GESPA Energy"
 description: "Komplettset für Lasten-Dreiräder: bifaziales 700-W-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Maximaler Ertrag für große Dachflächen."
 canonical: https://www.gespaenerji.com/de/paket-motor-kargo.html
 lang: de
-dateModified: 2026-10-24
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -32,7 +32,7 @@ Preis inkl. MwSt.
 
 - 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
-- 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendekosten trägt der Käufer.
+- 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
 - 🔧 Optionale Vor-Ort-Montage und Einweisung in der Region Antalya.
 
 🔆 700-W-Bifazial-TOPCon-Modul 🔌 BOOST MPPT 24–72 V 🧰 Kabel + MC4 inklusive 🚚 Für breite Dächer
@@ -72,7 +72,7 @@ Die Modulleistung richtet sich nach der Dachfläche Ihres Fahrzeugs, der Ladereg
 
 ### Die breite Dachfläche zahlt sich aus
 
-Das bifaziale 700-W-Modul (610 Wp Vorderseite) nutzt die Fläche des Ladeflächen- oder Planendachs effizient; der Tagesertrag liegt deutlich über dem des 285-W-Pakets.
+Das bifaziale 700-W-Modul (610 Wp Vorderseite) nutzt die Fläche des Ladeflächen- oder Planendachs effizient; der Tagesertrag liegt deutlich über dem des 240-W-Pakets.
 
 ✅
 
@@ -116,13 +116,13 @@ Je nach Lagerbestand liefern wir 4 mm² oder 6 mm²; beides ist für diese Syste
 
 ### Mein Fahrzeug ist ein geschlossenes Fahrgastmodell — ist das das richtige Paket?
 
-Geschlossene Fahrgastfahrzeuge haben ein schmales Dach; für sie passt das 285-W-Paket besser.
+Geschlossene Fahrgastfahrzeuge haben ein schmales Dach; für sie passt das 240-W-Paket besser.
 
 [Werfen Sie einen Blick auf das Solar-Set für Dreirad mit Fahrgastkabine →](https://www.gespaenerji.com/de/paket-motor-yolcu.html)
 
 **Ist Ihr Fahrzeug ein geschlossenes Fahrgastmodell?**
 
-Für geschlossene Fahrgastfahrzeuge mit schmaler Dachfläche passt das 285-W-Paket besser.
+Für geschlossene Fahrgastfahrzeuge mit schmaler Dachfläche passt das 240-W-Paket besser.
 
 [Werfen Sie einen Blick auf das Solar-Set für Dreirad mit Fahrgastkabine →](https://www.gespaenerji.com/de/paket-motor-yolcu.html)
 

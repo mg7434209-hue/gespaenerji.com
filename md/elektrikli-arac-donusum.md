@@ -3,7 +3,7 @@ title: "Elektrikli Araç Güneş Dönüşümü — BOOST MPPT | GESPA"
 description: "Golf ve hizmet araçlarına güneş paneli dönüşümü. MS Teknik BOOST MPPT 24-72 V: AGM, jel, kurşun-asit ve lityum akü desteği, Bluetooth ile ayar."
 canonical: https://www.gespaenerji.com/elektrikli-arac-donusum.html
 lang: tr
-dateModified: 2026-10-24
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -34,7 +34,7 @@ KDV ve kargo dahil fiyattır.
 
 - 🚚 Türkiye'nin her yerine ücretsiz kargo ile gönderilir; kargo ücreti fiyata dahildir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
-- 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
+- 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
 - 🔧 Antalya bölgesinde isteğe bağlı yerinde kurulum: panel montajı, kablolama ve cihaz ayarı ekibimizce yapılır.
 
 ⚙️ 24 – 72 V akü 🔋 AGM · jel · kurşun-asit · lityum 📶 Bluetooth ile ayar ⚡ 15 A sürekli çıkış 🛡️ IP22 · 2 yıl garanti
@@ -63,16 +63,16 @@ Motorunu Seç
 
 Çoğu müşteri hangi panelin aracına sığacağını bilmiyor. Aracınızın tipini seçin; uygun panel, şarj kontrol cihazı ve bağlantı malzemeleri hazır paket olarak çıksın.
 
-### Yolcu Kabinli Motor Güneş Paketi — 285 W
+### Yolcu Kabinli Motor Güneş Paketi — 240 W
 
 Kabinli, 2–4 kişilik yolcu araçları — çatı alanı dar
 
-- Lexron 285 W Güneş Paneli
+- 240 W Güneş Paneli (48 Hücre)
 - MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı
 - Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)
 - MC4 Konnektör Takımı
 
-Set toplamı : **₺15.800** · KDV dahil · kargo hariç
+Set toplamı : **₺14.800** · KDV dahil · kargo hariç
 
 [Ürün sayfası](https://www.gespaenerji.com/paket-motor-yolcu.html)
 

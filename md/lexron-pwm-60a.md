@@ -3,7 +3,7 @@ title: "Lexron 60 A PWM Şarj Kontrol Cihazı 12/24/48 V | GESPA Enerji"
 description: "Lexron 60 A PWM Şarj Kontrol Cihazı 12/24/48 V: 12/24/48 V akülü güneş sistemleri için PWM şarj kontrol cihazı, 60 A şarj akımı. Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/lexron-pwm-60a.html
 lang: tr
-dateModified: 2026-10-23
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -32,7 +32,7 @@ KDV dahil fiyattır.
 
 - 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
-- 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
+- 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
 - ☀️ Panel ve akü ürüne dahil değildir.
 - 🏷️ Marka: Lexron
 

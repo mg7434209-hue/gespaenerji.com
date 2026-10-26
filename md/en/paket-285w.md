@@ -3,7 +3,7 @@ title: "285W Solar Panel Package — Plug-and-Play | GESPA"
 description: "Complete 285W solar kit for camping, caravans and small needs: panel + power box + cables. Runs a TV, lights and phone charging; 23–25 kg, plug-and-play."
 canonical: https://www.gespaenerji.com/en/paket-285w.html
 lang: en
-dateModified: 2026-10-24
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -32,7 +32,7 @@ Price includes VAT.
 
 - 🚚 Ships to anywhere in Türkiye; shipping is paid by the buyer.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
-- 🔄 Right of withdrawal (distance sales): **14** days — return shipping is paid by the buyer.
+- 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
 - 🔧 Optional on-site installation and training in the Antalya region.
 
 ⚡ 1× 285 W panel ☀️ About 1.7 kWh daily generation ⚖️ 23–25 kg — portable 🔌 Plug and play

@@ -3,7 +3,7 @@ title: "Online Store — Solar Products and Equipment | GESPA Energy"
 description: "All products on sale in one place: ready-made solar kits, MPPT charge controllers and equipment. Transparent prices, VAT included, shipping across Türkiye."
 canonical: https://www.gespaenerji.com/en/online-satis.html
 lang: en
-dateModified: 2026-10-21
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -307,13 +307,13 @@ Connection between panel and charge controller
 
 VAT included · shipping excluded
 
-### [Passenger-Cab E-Trike Solar Set — 285 W](https://www.gespaenerji.com/en/paket-motor-yolcu.html)
+### [Passenger-Cab E-Trike Solar Set — 240 W](https://www.gespaenerji.com/en/paket-motor-yolcu.html)
 
 Enclosed 2–4 seater passenger three-wheelers — narrow roof area
 
-**₺15.800**≈ $321
+**₺14.800**≈ $301
 
-💰 By bank transfer: **₺15.350**
+💰 By bank transfer: **₺14.350**
 
 VAT included · shipping excluded
 
@@ -429,7 +429,7 @@ You can pay by credit card (secure payment via iyzico) or by bank transfer/EFT. 
 
 ### How do returns and the right of withdrawal work?
 
-Right of withdrawal (distance sales): **14** days — return shipping is paid by the buyer.
+Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
 
 For damaged or defective goods all costs are ours — please inspect the parcel in front of the courier on delivery.
 

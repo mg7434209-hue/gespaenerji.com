@@ -3,7 +3,7 @@ title: "Mini Elektrikli Otomobil Güneş Paketi — 240 W | GESPA Enerji"
 description: "Kapalı kabinli mini elektrikli otomobil için komple güneş paketi: 240 W panel, BOOST MPPT 24–72 V şarj kontrol cihazı, solar kablo ve MC4. Hangi parçanın uyduğunu araştırmanıza gerek yok."
 canonical: https://www.gespaenerji.com/paket-motor-mini.html
 lang: tr
-dateModified: 2026-10-24
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -32,7 +32,7 @@ KDV dahil fiyattır.
 
 - 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
-- 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
+- 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
 - 🔧 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi.
 
 🔆 240 W panel 🔌 BOOST MPPT 24–72 V 🧰 Kablo + MC4 dahil 🚗 Küçük tavana uygun

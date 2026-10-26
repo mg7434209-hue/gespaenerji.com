@@ -3,7 +3,7 @@ title: "Sıkça Sorulan Sorular — Güneş Enerjisi, Sipariş ve Kurulum | GESP
 description: "Güneş enerjisi santrali, akü, elektrikli araç güneş dönüşümü, sipariş, kargo, ödeme ve kurulum hakkında sık sorulan soruların cevapları tek sayfada. GESPA Enerji, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/sss.html
 lang: tr
-dateModified: 2026-10-21
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -295,7 +295,7 @@ Kredi kartıyla (iyzico güvenli ödeme) ya da havale/EFT ile ödeyebilirsiniz. 
 
 ### İade ve cayma hakkı nasıl işler?
 
-Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
+Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
 
 Hasarlı veya ayıplı üründe tüm masraflar bize aittir — kargoyu teslim alırken paketi görevli önünde kontrol edin.
 
@@ -463,7 +463,7 @@ Araç üreticisinin garanti koşulları markadan markaya değişir. Kurulum önc
 
 [Sayfaya git →](https://www.gespaenerji.com/elektrikli-arac-donusum.html)
 
-## Yolcu kabinli motor paketi (285 W)
+## Yolcu kabinli motor paketi (240 W)
 
 ### Aracımın aküsü 60 V, uyar mı?
 
@@ -505,7 +505,7 @@ Stok durumuna göre 4 mm² veya 6 mm² gönderilir; bu sistemlerde ikisi de uygu
 
 ### Aracım kabinli yolcu tipi, bu paket olur mu?
 
-Kabinli yolcu araçlarında çatı dardır; onlar için 285 W'lık paket daha uygundur.
+Kabinli yolcu araçlarında çatı dardır; onlar için 240 W'lık paket daha uygundur.
 
 [Yolcu Kabinli Motor Güneş Paketi'ne göz atın →](https://www.gespaenerji.com/paket-motor-yolcu.html)
 

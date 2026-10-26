@@ -130,7 +130,7 @@ module.exports = {
     { file: "unv-trek-pro-2500.html", title: ["Taşınabilir güç istasyonu (UNV Trek Pro 2500)", "Portable power station (UNV Trek Pro 2500)", "Tragbare Powerstation (UNV Trek Pro 2500)", "Портативная электростанция (UNV Trek Pro 2500)"] },
     { file: "su-isitici.html", title: ["PV güneş enerjili su ısıtıcı", "PV solar water heater", "PV-Solar-Warmwasserbereiter", "Фотоэлектрический водонагреватель"] },
     { file: "elektrikli-arac-donusum.html", title: ["Elektrikli araç güneş dönüşümü (BOOST MPPT)", "EV solar conversion (BOOST MPPT)", "Solarumrüstung für E-Fahrzeuge (BOOST MPPT)", "Солнечное переоснащение электротранспорта (BOOST MPPT)"] },
-    { file: "paket-motor-yolcu.html", title: ["Yolcu kabinli motor paketi (285 W)", "Passenger-cab e-trike set (285 W)", "Solar-Set für Fahrgast-Dreirad (285 W)", "Комплект для пассажирского трицикла (285 Вт)"] },
+    { file: "paket-motor-yolcu.html", title: ["Yolcu kabinli motor paketi (240 W)", "Passenger-cab e-trike set (240 W)", "Solar-Set für Fahrgast-Dreirad (240 W)", "Комплект для пассажирского трицикла (240 Вт)"] },
     { file: "paket-motor-kargo.html", title: ["Kargo kasalı motor paketi (700 W)", "Cargo-bed e-trike set (700 W)", "Solar-Set für Lasten-Dreirad (700 W)", "Комплект для грузового трицикла (700 Вт)"] },
     { file: "paket-motor-golf.html", title: ["Golf aracı tipi motor paketi (460 W)", "Golf-cart-type EV set (460 W)", "Solar-Set für Golfcart-Fahrzeug (460 W)", "Комплект для электрокара типа гольф-кар (460 Вт)"] },
     { file: "paket-motor-mini.html", title: ["Mini elektrikli otomobil paketi (240 W)", "Mini electric car set (240 W)", "Solar-Set für Mini-Elektroauto (240 W)", "Комплект для мини-электромобиля (240 Вт)"] },

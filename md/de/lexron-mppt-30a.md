@@ -3,7 +3,7 @@ title: "Lexron 30A MPPT-Laderegler 12/24V | GESPA Energy"
 description: "Lexron 30 A MPPT-Solarladeregler für 12/24-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/lexron-mppt-30a.html
 lang: de
-dateModified: 2026-10-23
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -32,7 +32,7 @@ Preis inkl. MwSt.
 
 - 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
-- 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendekosten trägt der Käufer.
+- 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
 - ☀️ Module und Batterie sind nicht im Lieferumfang enthalten.
 - 🏷️ Marke: Lexron
 

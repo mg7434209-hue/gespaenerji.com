@@ -141,12 +141,12 @@ const META = {
           d: "Полный солнечный комплект 285 Вт для кемпинга и караванов: панель + блок питания + кабели. Питает ТВ, свет и зарядку телефона; 23–25 кг." }
   },
   "paket-motor-yolcu.html": {
-    en: { t: "Passenger E-Trike Solar Set — 285 W | GESPA Energy",
-          d: "Complete solar set for enclosed passenger e-trikes: 285 W TOPCon panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. No guessing which part fits." },
-    de: { t: "Solar-Set für Fahrgast-Dreirad — 285 W | GESPA Energy",
-          d: "Komplettset für geschlossene Fahrgast-Dreiräder: 285-W-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt." },
-    ru: { t: "Солнечный комплект для пассажирского трицикла — 285 Вт | GESPA",
-          d: "Готовый комплект для закрытых пассажирских трициклов: панель 285 Вт TOPCon, контроллер BOOST MPPT 24–72 В, кабель и MC4." }
+    en: { t: "Passenger E-Trike Solar Set — 240 W | GESPA Energy",
+          d: "Complete solar set for enclosed passenger e-trikes: 240 W panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. No guessing which part fits." },
+    de: { t: "Solar-Set für Fahrgast-Dreirad — 240 W | GESPA Energy",
+          d: "Komplettset für geschlossene Fahrgast-Dreiräder: 240-W-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt." },
+    ru: { t: "Солнечный комплект для пассажирского трицикла — 240 Вт | GESPA",
+          d: "Готовый комплект для закрытых пассажирских трициклов: панель 240 Вт, контроллер BOOST MPPT 24–72 В, кабель и MC4." }
   },
   "paket-motor-kargo.html": {
     en: { t: "Cargo E-Trike Solar Set — 700 W | GESPA Energy",

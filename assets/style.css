@@ -2547,3 +2547,6 @@ body.tema-parlament .news-form input{background:rgba(255,255,255,.08);border-col
 body.tema-parlament .news-form input::placeholder{color:#b4c4dc}
 body.tema-parlament .news-form .btn{background:var(--sun);color:#16215a}
 body.tema-parlament .site-footer .menu-parent{color:#c3d1e6}
+
+/* Tükenen ürün (config stock:0) — satın alma düğmeleri pasif */
+.btn.is-soldout{background:#9aa3ad !important;color:#fff !important;border-color:#9aa3ad !important;cursor:not-allowed;box-shadow:none}

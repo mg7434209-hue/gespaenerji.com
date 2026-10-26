@@ -396,7 +396,7 @@ window.GESPA.config = {
       url: "panel-lexron-285w.html",
       sku: "GES-PNL-285", brand: "Lexron",
       img: "assets/img/products/panel-lexron-285w.webp",
-      price: 152.44, currency: "USD",                     // ₺7.500 @ 49,2
+      price: 152.44, currency: "USD", stock: 0,   // 26 Eki 2026: stokta yok (satılamaz)                     // ₺7.500 @ 49,2
       chips: ["🔆 285 W TOPCon", "⚡ 42,84 V Voc", "⚖️ 8,5 kg"],
       for: "Balkon, bağ evi ve küçük off-grid sistemler",
       name: "Lexron 285 W Güneş Paneli",
@@ -731,13 +731,13 @@ window.GESPA.config = {
       url: "paket-motor-yolcu.html",
       sku: "GES-SET-YOLCU",
       img: "assets/img/products/ev/motor-yolcu.webp",
-      price: 321.14, currency: "USD",                     // ₺15.800 @ 49,2
-      parts: ["panel-lexron-285w", "boost-mppt", "kablo-solar-5m", "mc4-set"],
-      chips: ["🔆 285 W TOPCon panel", "🔌 BOOST MPPT 24–72 V", "🧰 Kablo + MC4 dahil"],
+      price: 300.81, currency: "USD",                     // ₺14.800 @ 49,2 (26 Eki 2026: 285 W stokta yok → 240 W)
+      parts: ["panel-240w", "boost-mppt", "kablo-solar-5m", "mc4-set"],
+      chips: ["🔆 240 W panel", "🔌 BOOST MPPT 24–72 V", "🧰 Kablo + MC4 dahil"],
       for: "Kabinli, 2–4 kişilik yolcu triportörleri — çatı alanı dar",
-      name: "Yolcu Kabinli Motor Güneş Paketi — 285 W",
-      desc: "Kabinli elektrikli yolcu triportörünü güneşle şarj etmek için hazırlanmış komple paket: 285 W TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Dar çatı alanına sığan panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.",
-      features: ["285 W TOPCon güneş paneli (dar çatıya uygun ölçü)", "BOOST MPPT 24–72 V şarj kontrol cihazı — tüm akü tipleriyle", "5 m siyah + 5 m kırmızı solar kablo", "MC4 konnektör takımı (erkek + dişi)", "Panel, cihaz ve kablolama birbiriyle uyumlu seçilmiştir"]
+      name: "Yolcu Kabinli Motor Güneş Paketi — 240 W",
+      desc: "Kabinli elektrikli yolcu triportörünü güneşle şarj etmek için hazırlanmış komple paket: 240 W (48 hücre) güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Dar çatı alanına sığan panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.",
+      features: ["240 W güneş paneli (1320 × 776 mm, dar çatıya uygun)", "BOOST MPPT 24–72 V şarj kontrol cihazı — tüm akü tipleriyle", "5 m siyah + 5 m kırmızı solar kablo", "MC4 konnektör takımı (erkek + dişi)", "Panel, cihaz ve kablolama birbiriyle uyumlu seçilmiştir"]
     },
     {
       id: "set-kargo", icon: "🚚", tag: "Hazır Paket", group: "evset",

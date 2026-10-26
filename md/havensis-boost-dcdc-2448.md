@@ -3,7 +3,7 @@ title: "Havensis BOOST DC-DC Şarj Cihazı — 12/24V'tan 36–72V Aküye | GESP
 description: "Havensis BOOST DCDC-2448: 12/24 V araç aküsünden 36, 48, 60 ve 72 V akü grubunu şarj eden DC-DC cihaz. 20 A giriş, 15 A şarj, %95 verim. Karavan ve tekneler için."
 canonical: https://www.gespaenerji.com/havensis-boost-dcdc-2448.html
 lang: tr
-dateModified: 2026-10-23
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -32,7 +32,7 @@ KDV dahil fiyattır.
 
 - 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
-- 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
+- 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
 - 🔋 Akü ürüne dahil değildir.
 - 🏭 Yerli üretim · Havensis
 

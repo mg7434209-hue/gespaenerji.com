@@ -3,7 +3,7 @@ title: "Havensis DC-DC Akü Şarj Cihazı 30A — Karavan Alternatör Şarjı | 
 description: "Karavanda yaşam aküsünü yolda alternatörden şarj eden Havensis DCDC-1224 DC-DC akü şarj cihazı: 30 A, 12/24 V, %96,4 verim, motor kapalı tanıma, 5 m kablolu ekran."
 canonical: https://www.gespaenerji.com/havensis-dcdc-30a.html
 lang: tr
-dateModified: 2026-10-23
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -32,7 +32,7 @@ KDV dahil fiyattır.
 
 - 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
-- 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
+- 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
 - 🔋 Akü ürüne dahil değildir.
 - 🏭 Yerli üretim · Havensis
 

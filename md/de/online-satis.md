@@ -3,7 +3,7 @@ title: "Onlineshop — Solarprodukte und Ausrüstung | GESPA Energy"
 description: "Alle Verkaufsprodukte auf einer Seite: Solar-Fertigsets, MPPT-Laderegler und Zubehör. Transparente Preise inkl. MwSt., Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/online-satis.html
 lang: de
-dateModified: 2026-10-21
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -307,13 +307,13 @@ Verbindung zwischen Modul und Laderegler
 
 Inkl. MwSt. · zzgl. Versand
 
-### [Solar-Set für Dreirad mit Fahrgastkabine — 285 W](https://www.gespaenerji.com/de/paket-motor-yolcu.html)
+### [Solar-Set für Dreirad mit Fahrgastkabine — 240 W](https://www.gespaenerji.com/de/paket-motor-yolcu.html)
 
 Geschlossene Fahrgast-Dreiräder für 2–4 Personen — schmale Dachfläche
 
-**₺15.800**≈ $321
+**₺14.800**≈ $301
 
-💰 Per Überweisung: **₺15.350**
+💰 Per Überweisung: **₺14.350**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -429,7 +429,7 @@ Sie können per Kreditkarte (sichere Zahlung über iyzico) oder per Überweisung
 
 ### Wie funktionieren Rückgabe und Widerruf?
 
-Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendekosten trägt der Käufer.
+Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
 
 Bei beschädigter oder mangelhafter Ware tragen wir alle Kosten — bitte prüfen Sie das Paket bei der Übergabe vor dem Zusteller.
 

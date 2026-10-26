@@ -355,7 +355,7 @@
       // kimliği kalabiliyordu (kaldırılan paketler, eski "set:<id>" anahtarı):
       // sepet listesi onu göstermiyor ama üst menü rozeti sayıyordu, 1 ürünlü
       // sepette "2" yazıyordu. Rozet, liste ve ödeme artık AYNI süzgeci okur.
-      function sellable(id) { var p = pkgOf(id); return !!(p && p.price != null); }
+      function sellable(id) { var p = pkgOf(id); return !!(p && p.price != null && p.stock !== 0); }   // stock:0 = tükendi, satılamaz
       function clean(c) {
         var out = {};
         if (c && typeof c === "object" && !Array.isArray(c)) Object.keys(c).forEach(function (id) {
@@ -517,10 +517,24 @@
         b.addEventListener("click", function () { setQty(qty + (+b.getAttribute("data-q"))); });
       });
       if (qtyIn) qtyIn.addEventListener("input", function () { setQty(parseInt(qtyIn.value, 10)); });
+      // TÜKENDİ (stock: 0): satın alma düğmeleri kapanır, müşteri WhatsApp'tan sorabilir.
+      var soldOut = p.stock === 0;
+      if (soldOut) {
+        var markSold = function () {
+          document.querySelectorAll("[data-add-cart], [data-add-cart-go]").forEach(function (b) {
+            b.setAttribute("aria-disabled", "true"); b.classList.add("is-soldout");
+            b.textContent = b.hasAttribute("data-add-cart")
+              ? "⛔ " + L("Stokta yok", "Out of stock", "Nicht vorrätig", "Нет в наличии")
+              : L("Stok bilgisi için WhatsApp →", "Ask on WhatsApp →", "Per WhatsApp anfragen →", "Спросить в WhatsApp →");
+          });
+        };
+        markSold(); document.addEventListener("gespa:lang", markSold);
+      }
       // "Sepete ekle": ürünü ekler, onay penceresi açar (Sepete git / Alışverişe devam)
       document.querySelectorAll("[data-add-cart]").forEach(function (btn) {
         btn.addEventListener("click", function (e) {
           e.preventDefault();
+          if (soldOut) return;
           cart.add(p.id, qty);
           cartPop(p.name);
         });
@@ -529,6 +543,7 @@
       document.querySelectorAll("[data-add-cart-go]").forEach(function (btn) {
         btn.addEventListener("click", function (e) {
           e.preventDefault();
+          if (soldOut) { var w = document.querySelector("[data-pkg-wa]"); if (w && w.href) window.open(w.href, "_blank"); return; }
           if (!cart.read()[p.id]) cart.add(p.id, qty);
           location.href = "sepet.html";
         });
@@ -820,7 +835,9 @@
                       "Здравствуйте, хочу получить цену на «" + p.name + "».")) +
                     '" target="_blank" rel="noopener">💬 ' +
                     L("Fiyat sor", "Ask for price", "Preis anfragen", "Узнать цену") + "</a>" : "")
-                : '<button class="btn btn-sm" type="button" data-sh-add="' + p.id + '">🛒 ' +
+                : p.stock === 0
+                  ? '<button class="btn btn-sm is-soldout" type="button" disabled>⛔ ' + L("Stokta yok", "Out of stock", "Nicht vorrätig", "Нет в наличии") + "</button>"
+                  : '<button class="btn btn-sm" type="button" data-sh-add="' + p.id + '">🛒 ' +
                   L("Sepete ekle", "Add to cart", "In den Warenkorb", "В корзину") + "</button>") +
             "</div>" +
           "</div></article>";

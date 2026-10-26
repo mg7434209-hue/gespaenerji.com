@@ -3,7 +3,7 @@ title: "Solarkabelset 5 m Schwarz + 5 m Rot | GESPA Energy"
 description: "Solarkabelset, 5 m Schwarz + 5 m Rot, für die Verbindung von Modul und Laderegler."
 canonical: https://www.gespaenerji.com/de/kablo-solar-5m.html
 lang: de
-dateModified: 2026-10-23
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -32,7 +32,7 @@ Preis inkl. MwSt.
 
 - 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
-- 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendekosten trägt der Käufer.
+- 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
 
 📏 5 m + 5 m ⚫🔴 Schwarz + Rot ☀️ Solarkabel
 

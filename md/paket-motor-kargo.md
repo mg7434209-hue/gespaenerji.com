@@ -3,7 +3,7 @@ title: "Kargo Kasalı Motor Güneş Paketi — 700 W | GESPA Enerji"
 description: "Kargo kasalı elektrikli triportör için komple güneş paketi: 700 W bifacial TOPCon panel, BOOST MPPT 24–72 V şarj kontrol cihazı, solar kablo ve MC4. Geniş çatı için en verimli güç."
 canonical: https://www.gespaenerji.com/paket-motor-kargo.html
 lang: tr
-dateModified: 2026-10-24
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -32,7 +32,7 @@ KDV dahil fiyattır.
 
 - 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
-- 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
+- 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
 - 🔧 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi.
 
 🔆 700 W bifacial TOPCon panel 🔌 BOOST MPPT 24–72 V 🧰 Kablo + MC4 dahil 🚚 Geniş çatıya uygun
@@ -72,7 +72,7 @@ Panel gücü aracınızın çatı alanına, şarj cihazı akü gerilimine göre 
 
 ### Geniş çatının karşılığı
 
-700 W bifacial panel (ön yüz 610 Wp), kasa/tente çatısındaki alanı verimli kullanır; günlük üretim 285 W'lık pakete göre belirgin biçimde yüksektir.
+700 W bifacial panel (ön yüz 610 Wp), kasa/tente çatısındaki alanı verimli kullanır; günlük üretim 240 W'lık pakete göre belirgin biçimde yüksektir.
 
 ✅
 
@@ -116,13 +116,13 @@ Stok durumuna göre 4 mm² veya 6 mm² gönderilir; bu sistemlerde ikisi de uygu
 
 ### Aracım kabinli yolcu tipi, bu paket olur mu?
 
-Kabinli yolcu araçlarında çatı dardır; onlar için 285 W'lık paket daha uygundur.
+Kabinli yolcu araçlarında çatı dardır; onlar için 240 W'lık paket daha uygundur.
 
 [Yolcu Kabinli Motor Güneş Paketi'ne göz atın →](https://www.gespaenerji.com/paket-motor-yolcu.html)
 
 **Aracınız kabinli yolcu tipi mi?**
 
-Çatı alanı dar olan kabinli yolcu araçları için 285 W'lık paket daha uygundur.
+Çatı alanı dar olan kabinli yolcu araçları için 240 W'lık paket daha uygundur.
 
 [Yolcu Kabinli Motor Güneş Paketi'ne göz atın →](https://www.gespaenerji.com/paket-motor-yolcu.html)
 

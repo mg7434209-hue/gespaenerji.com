@@ -3,7 +3,7 @@ title: "Cargo E-Trike Solar Set — 700 W | GESPA Energy"
 description: "Complete solar set for cargo-bed e-trikes: 700 W bifacial TOPCon panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. The most output a wide roof can carry."
 canonical: https://www.gespaenerji.com/en/paket-motor-kargo.html
 lang: en
-dateModified: 2026-10-24
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -32,7 +32,7 @@ Price includes VAT.
 
 - 🚚 Ships to anywhere in Türkiye; shipping is paid by the buyer.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
-- 🔄 Right of withdrawal (distance sales): **14** days — return shipping is paid by the buyer.
+- 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
 - 🔧 Optional on-site installation and training in the Antalya region.
 
 🔆 700 W bifacial TOPCon panel 🔌 BOOST MPPT 24–72 V 🧰 Cable + MC4 included 🚚 Fits a wide roof
@@ -72,7 +72,7 @@ The panel power was set by your vehicle's roof area, the controller by your batt
 
 ### Making the wide roof pay
 
-The 700 W bifacial panel (610 Wp front side) uses the bed or canopy roof area efficiently; daily yield is markedly higher than with the 285 W package.
+The 700 W bifacial panel (610 Wp front side) uses the bed or canopy roof area efficiently; daily yield is markedly higher than with the 240 W package.
 
 ✅
 
@@ -116,13 +116,13 @@ Depending on stock we ship 4 mm² or 6 mm²; both are suitable for these systems
 
 ### My vehicle is an enclosed passenger type — is this the right package?
 
-Enclosed passenger vehicles have a narrow roof; the 285 W package suits them better.
+Enclosed passenger vehicles have a narrow roof; the 240 W package suits them better.
 
 [Take a look at the Passenger-Cab E-Trike Solar Set →](https://www.gespaenerji.com/en/paket-motor-yolcu.html)
 
 **Is your vehicle an enclosed passenger type?**
 
-For enclosed passenger vehicles with a narrow roof area the 285 W package suits better.
+For enclosed passenger vehicles with a narrow roof area the 240 W package suits better.
 
 [Take a look at the Passenger-Cab E-Trike Solar Set →](https://www.gespaenerji.com/en/paket-motor-yolcu.html)
 
