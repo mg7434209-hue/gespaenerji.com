@@ -3,7 +3,7 @@ title: "460 W Half-Cut Monokristal Güneş Paneli | GESPA Enerji"
 description: "460 W Half-Cut Monokristal Güneş Paneli: Golf aracı tipi elektrikli araçlar ve küçük off-grid sistemler Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/panel-460w.html
 lang: tr
-dateModified: 2026-10-23
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -32,7 +32,7 @@ KDV dahil fiyattır.
 
 - 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
-- 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
+- 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
 - 🔌 Şarj kontrol cihazı ve kablo ürüne dahil değildir.
 
 🔆 460 W · %23,42 verim ✂️ 144 yarım hücre ⚖️ 25 kg

@@ -3,7 +3,7 @@ title: "Solar Packages — Off-Grid & Irrigation | GESPA Energy"
 description: "285 W and 2×540 W solar kits for camping, caravans and cottages. Compare panels, power boxes and cables; shipping across Türkiye — GESPA Enerji."
 canonical: https://www.gespaenerji.com/en/urunler.html
 lang: en
-dateModified: 2026-10-21
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -19,7 +19,7 @@ Ready-made solar packages — clear contents, transparent pricing, shipping acro
 
 ## Elektrikli Motor Güneş Paketleri
 
-- **Passenger-Cab E-Trike Solar Set — 285 W** — GES-SET-YOLCU · Enclosed 2–4 seater passenger three-wheelers — narrow roof area · ₺15.800 (≈ $321) list price · by bank transfer ₺15.350 (%3 discount, VAT included ). Kabinli elektrikli yolcu triportörünü güneşle şarj etmek için hazırlanmış komple paket: 285 W TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Dar çatı alanına sığan panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.
+- **Passenger-Cab E-Trike Solar Set — 240 W** — GES-SET-YOLCU · Enclosed 2–4 seater passenger three-wheelers — narrow roof area · ₺14.800 (≈ $301) list price · by bank transfer ₺14.350 (%3 discount, VAT included ). Kabinli elektrikli yolcu triportörünü güneşle şarj etmek için hazırlanmış komple paket: 240 W (48 hücre) güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Dar çatı alanına sığan panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.
 - **Cargo-Bed E-Trike Solar Set — 700 W** — GES-SET-KARGO · Open-bed or canopied cargo three-wheelers — wide roof area · ₺17.000 (≈ $346) list price · by bank transfer ₺16.500 (%3 discount, VAT included ). Kargo kasalı elektrikli triportörü güneşle şarj etmek için hazırlanmış komple paket: 700 W bifacial (çift yüzlü) N-type TOPCon güneş paneli (ön yüz 610 Wp), BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Geniş kasa/tente çatısının kaldırabileceği en verimli panel gücü seçilmiştir.
 - **Golf-Cart-Type EV Solar Set — 460 W** — GES-SET-GOLF · Roofed golf-cart-type electric passenger vehicles · ₺16.300 (≈ $331) list price · by bank transfer ₺15.800 (%3 discount, VAT included ). A complete set for charging a roofed golf-cart-type electric passenger vehicle from the sun: 460 W half-cut monocrystalline solar panel, BOOST MPPT 24–72 V charge controller, 5 m black + 5 m red solar cable and an MC4 connector set. The panel was chosen for the flat roof of these vehicles, so you need not research which part fits.
 - **Mini Electric Car Solar Set — 240 W** — GES-SET-MINI · Enclosed mini electric cars — small roof area · ₺14.800 (≈ $301) list price · by bank transfer ₺14.350 (%3 discount, VAT included ). A complete set for charging an enclosed mini electric car from the sun: 240 W (48-cell) solar panel, BOOST MPPT 24–72 V charge controller, 5 m black + 5 m red solar cable and an MC4 connector set. The panel power was chosen for the small roof area, so you need not research which part fits.

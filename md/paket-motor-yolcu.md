@@ -1,29 +1,29 @@
 ---
-title: "Yolcu Kabinli Motor Güneş Paketi — 285 W | GESPA Enerji"
-description: "Kabinli elektrikli yolcu triportörü için komple güneş paketi: 285 W TOPCon panel, BOOST MPPT 24–72 V şarj kontrol cihazı, solar kablo ve MC4. Hangi parçanın uyduğunu araştırmanıza gerek yok."
+title: "Yolcu Kabinli Motor Güneş Paketi — 240 W | GESPA Enerji"
+description: "Kabinli elektrikli yolcu triportörü için komple güneş paketi: 240 W panel, BOOST MPPT 24–72 V şarj kontrol cihazı, solar kablo ve MC4. Hangi parçanın uyduğunu araştırmanıza gerek yok."
 canonical: https://www.gespaenerji.com/paket-motor-yolcu.html
 lang: tr
-dateModified: 2026-10-24
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
-[Ana Sayfa](https://www.gespaenerji.com/) / [Ürünler](https://www.gespaenerji.com/urunler.html) / Yolcu Kabinli Motor Güneş Paketi — 285 W
+[Ana Sayfa](https://www.gespaenerji.com/) / [Ürünler](https://www.gespaenerji.com/urunler.html) / Yolcu Kabinli Motor Güneş Paketi — 240 W
 
 ![Yolcu kabinli elektrikli triportör](https://www.gespaenerji.com/assets/img/products/ev/motor-yolcu.webp)
 
 🛺 Hazır Paket
 
-# Yolcu Kabinli Motor Güneş Paketi — 285 W
+# Yolcu Kabinli Motor Güneş Paketi — 240 W
 
 Ürün kodu: **GES-SET-YOLCU** Stokta / tedarikte
 
 Kabinli elektrikli yolcu triportörünüzü güneşle şarj edin. Panel, şarj kontrol cihazı, kablo ve MC4 birbiriyle uyumlu seçilmiş hâlde tek pakette gelir — hangi panelin aracınıza sığacağını araştırmanıza gerek yok.
 
-**₺15.800** ≈ $321
+**₺14.800** ≈ $301
 
 KDV dahil fiyattır.
 
-💰 Havale/EFT ile: **₺15.350**
+💰 Havale/EFT ile: **₺14.350**
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
@@ -32,12 +32,12 @@ KDV dahil fiyattır.
 
 - 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
-- 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
+- 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
 - 🔧 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi.
 
-🔆 285 W TOPCon panel 🔌 BOOST MPPT 24–72 V 🧰 Kablo + MC4 dahil 🛺 Dar çatıya uygun
+🔆 240 W panel 🔌 BOOST MPPT 24–72 V 🧰 Kablo + MC4 dahil 🛺 Dar çatıya uygun
 
-Elektrikli triportör sahiplerinin en çok takıldığı soru şu: “Benim aracıma hangi panel uyar?” Çatı alanı dar olan kabinli yolcu araçlarında 285 W TOPCon panel, alanı zorlamadan en yüksek günlük üretimi veren ölçüdür.
+Elektrikli triportör sahiplerinin en çok takıldığı soru şu: “Benim aracıma hangi panel uyar?” Çatı alanı dar olan kabinli yolcu araçlarında 240 W panel, 1320 × 776 mm ölçüsüyle çatıdan taşmadan sığar.
 
 Pakette panelin yanında BOOST MPPT 24–72 V şarj kontrol cihazı vardır: aracınızın akü grubu 24, 36, 48, 60 ya da 72 V olabilir; AGM, jel, sulu kurşun-asit ve lityum akülerin hepsiyle çalışır. Panelden gelen gerilimi akünün ihtiyacına yükselterek doğrudan şarj eder.
 
@@ -45,7 +45,7 @@ Bağlantı için 5 metre siyah + 5 metre kırmızı solar kablo ve MC4 konnektö
 
 | Adet | Bileşen |
 | --- | --- |
-| 1 × | Lexron 285 W Güneş Paneli |
+| 1 × | 240 W Güneş Paneli (48 Hücre) |
 | 1 × | MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı |
 | 1 × | Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) |
 | 1 × | MC4 Konnektör Takımı |
@@ -72,7 +72,7 @@ Panel gücü aracınızın çatı alanına, şarj cihazı akü gerilimine göre 
 
 ### Dar çatıya göre seçilmiş güç
 
-285 W panel, kabinli yolcu triportörlerinin çatı ölçüsüne sığar; daha büyük panel taşma ve rüzgâr sorunu yaratır.
+240 W panel (1320 × 776 mm), kabinli yolcu triportörlerinin çatı ölçüsüne sığar; daha büyük panel taşma ve rüzgâr sorunu yaratır.
 
 ✅
 

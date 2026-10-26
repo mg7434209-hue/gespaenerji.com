@@ -1,29 +1,29 @@
 ---
-title: "Solar-Set für Fahrgast-Dreirad — 285 W | GESPA Energy"
-description: "Komplettset für geschlossene Fahrgast-Dreiräder: 285-W-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt."
+title: "Solar-Set für Fahrgast-Dreirad — 240 W | GESPA Energy"
+description: "Komplettset für geschlossene Fahrgast-Dreiräder: 240-W-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt."
 canonical: https://www.gespaenerji.com/de/paket-motor-yolcu.html
 lang: de
-dateModified: 2026-10-24
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
-[Startseite](https://www.gespaenerji.com/de/) / [Produkte](https://www.gespaenerji.com/de/urunler.html) / Solar-Set für Dreirad mit Fahrgastkabine — 285 W
+[Startseite](https://www.gespaenerji.com/de/) / [Produkte](https://www.gespaenerji.com/de/urunler.html) / Solar-Set für Dreirad mit Fahrgastkabine — 240 W
 
 ![Yolcu kabinli elektrikli triportör](https://www.gespaenerji.com/assets/img/products/ev/motor-yolcu.webp)
 
 🛺 Komplettset
 
-# Solar-Set für Dreirad mit Fahrgastkabine — 285 W
+# Solar-Set für Dreirad mit Fahrgastkabine — 240 W
 
 Artikelnummer: **GES-SET-YOLCU** Auf Lager / bestellbar
 
 Laden Sie Ihr geschlossenes Elektro-Fahrgastdreirad mit Sonnenstrom. Modul, Laderegler, Kabel und MC4-Stecker kommen aufeinander abgestimmt in einem Paket — Sie müssen nicht recherchieren, welches Modul zu Ihrem Fahrzeug passt.
 
-**₺15.800** ≈ $321
+**₺14.800** ≈ $301
 
 Preis inkl. MwSt.
 
-💰 Per Überweisung: **₺15.350**
+💰 Per Überweisung: **₺14.350**
 
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 
@@ -32,12 +32,12 @@ Preis inkl. MwSt.
 
 - 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
-- 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendekosten trägt der Käufer.
+- 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
 - 🔧 Optionale Vor-Ort-Montage und Einweisung in der Region Antalya.
 
-🔆 285-W-TOPCon-Modul 🔌 BOOST MPPT 24–72 V 🧰 Kabel + MC4 inklusive 🛺 Für schmale Dächer
+🔆 240-W-Modul 🔌 BOOST MPPT 24–72 V 🧰 Kabel + MC4 inklusive 🛺 Für schmale Dächer
 
-Die Frage, an der Besitzer von Elektro-Dreirädern hängen bleiben, lautet: „Welches Modul passt auf mein Fahrzeug?“ Bei geschlossenen Fahrgastfahrzeugen mit schmalem Dach liefert ein 285-W-TOPCon-Modul den höchsten Tagesertrag, ohne überzustehen.
+Die Frage, an der Besitzer von Elektro-Dreirädern hängen bleiben, lautet: „Welches Modul passt auf mein Fahrzeug?“ Bei geschlossenen Fahrgastfahrzeugen mit schmalem Dach passt das 240-W-Modul mit 1320 × 776 mm, ohne überzustehen.
 
 Neben dem Modul enthält das Paket einen BOOST-MPPT-Laderegler für 24–72 V: Ihr Akkupack kann 24, 36, 48, 60 oder 72 V haben, und er arbeitet mit AGM-, Gel-, Nassblei- und Lithiumakkus gleichermaßen. Er hebt die Modulspannung auf den Bedarf des Akkus an und lädt direkt.
 
@@ -45,7 +45,7 @@ Fünf Meter schwarzes und fünf Meter rotes Solarkabel sowie ein MC4-Steckerset 
 
 | Menge | Komponente |
 | --- | --- |
-| 1 × | Lexron 285-W-Solarmodul |
+| 1 × | 240-W-Solarmodul (48 Zellen) |
 | 1 × | MS Teknik BOOST MPPT 24-72 V Laderegler |
 | 1 × | Solarkabel-Set (5 m Schwarz + 5 m Rot) |
 | 1 × | MC4-Steckerset |
@@ -72,7 +72,7 @@ Die Modulleistung richtet sich nach der Dachfläche Ihres Fahrzeugs, der Ladereg
 
 ### Leistung für ein schmales Dach
 
-Ein 285-W-Modul passt auf das Dach geschlossener Fahrgast-Dreiräder; ein größeres Modul steht über und verursacht Windprobleme.
+Das 240-W-Modul (1320 × 776 mm) passt auf das Dach geschlossener Fahrgast-Dreiräder; ein größeres Modul steht über und verursacht Windprobleme.
 
 ✅
 

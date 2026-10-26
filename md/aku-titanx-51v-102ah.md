@@ -3,7 +3,7 @@ title: "TitanX 51,2 V 102 Ah LiFePO₄ Akü | GESPA Enerji"
 description: "TitanX 51,2 V 102 Ah (5,22 kWh) LiFePO₄ enerji depolama aküsü: dahili BMS, 6000+ çevrim, CAN/RS485, 16 adede kadar paralel. Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/aku-titanx-51v-102ah.html
 lang: tr
-dateModified: 2026-10-23
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -32,7 +32,7 @@ KDV dahil fiyattır.
 
 - 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
-- 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
+- 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
 - 🏷️ Marka: TitanX
 - 🛡️ 2 yıl garanti
 

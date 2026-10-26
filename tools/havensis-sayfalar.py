@@ -92,7 +92,7 @@ TXT_BUY = {
     "add": "🛒 Sepete ekle", "buy": "⚡ Hemen satın al", "wa": "💬 WhatsApp'tan sor",
     "ship": "Türkiye'nin her yerine kargo ile gönderilir.",
     "eta": "Sipariş onayından sonra tahmini teslim:", "days": "iş günü.",
-    "ret": "Cayma hakkı (mesafeli satış):", "retd": "gün — iade kargosu alıcıya aittir.",
+    "ret": "Cayma hakkı (mesafeli satış):", "retd": "gün — anlaşmalı kargomuzla iade ücretsizdir.",
 }
 KARGO = [
     "Ürünler Türkiye'nin her iline anlaşmalı kargo ile gönderilir; teslimat için Antalya şartı yoktur.",

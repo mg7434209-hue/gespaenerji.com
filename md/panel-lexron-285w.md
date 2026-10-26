@@ -3,7 +3,7 @@ title: "Lexron 285 W Güneş Paneli | GESPA Enerji"
 description: "Lexron 285 W Güneş Paneli: Balkon, bağ evi ve küçük off-grid sistemler Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/panel-lexron-285w.html
 lang: tr
-dateModified: 2026-10-23
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -15,7 +15,7 @@ publisher: "GESPA Enerji"
 
 # Lexron 285 W Güneş Paneli
 
-Ürün kodu: **GES-PNL-285** Stokta / tedarikte
+Ürün kodu: **GES-PNL-285** Tükendi
 
 285 W güneş paneli — Balkon, bağ evi ve küçük off-grid sistemler.
 
@@ -32,7 +32,7 @@ KDV dahil fiyattır.
 
 - 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
-- 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
+- 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
 - 🔌 Şarj kontrol cihazı ve kablo ürüne dahil değildir.
 
 🔆 285 W TOPCon ⚡ 42,84 V Voc ⚖️ 8,5 kg

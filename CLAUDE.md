@@ -488,6 +488,16 @@ ve sepet simgesi ekran dışında kalır.
   ₺17.000). Lexron 655 W tek başına satışta kalır. Paket sayfası
   `paket-motor-kargo.html` elle yazılıdır; metinleri ve i18n.js'teki 3 dil
   karşılıkları birlikte güncellendi.
+- TÜKENEN ÜRÜN (`stock: 0`, 26 Eki 2026): SATILAMAZ. main.js `sellable()`
+  false döner (sepete girmez, eski sepetten temizlenir); ürün sayfasında
+  düğmeler "⛔ Stokta yok" + "WhatsApp'tan sor", mağaza kartında pasif düğme;
+  server.js checkout kalemi almaz; şema/akış OutOfStock; Sistem Kurucu
+  önermez. İlk örnek: Lexron 285 W. Stoğa girince `stock: 0`'ı SİL.
+  YOLCU MOTOR PAKETİ 285 W yerine 240 W panelle (₺14.800, mini paketle aynı
+  içerik ve fiyat).
+- CAYMA / İADE KARGOSU: ürün sayfalarındaki satır "14 gün — anlaşmalı
+  kargomuzla iade ücretsizdir" (sözleşme ve Mesafeli Sözleşmeler
+  Yönetmeliği ile aynı). "iade kargosu alıcıya aittir" YAZILMAZ.
 - 5'Lİ (ADET) FİYAT: `bulk: { min: 5, price }` → sepette adet ≥ `min` olunca
   birim fiyat `bulk.price`, altında `price` (tekli = 5'li × 1,10, işletme
   kararı). Kural main.js `pkgUnit(p, qty)` ve server.js `pkgListTL(p, cfg,

@@ -3,7 +3,7 @@ title: "Online Satış — Güneş Enerjisi Ürünleri | GESPA Enerji"
 description: "GESPA Enerji online satış: hazır güneş enerjisi paketleri, şarj kontrol cihazları ve solar ekipman. Şeffaf fiyat, KDV dahil, Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/online-satis.html
 lang: tr
-dateModified: 2026-10-21
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -307,13 +307,13 @@ Panel ile şarj kontrol cihazı arası bağlantı
 
 KDV dahil · kargo hariç
 
-### [Yolcu Kabinli Motor Güneş Paketi — 285 W](https://www.gespaenerji.com/paket-motor-yolcu.html)
+### [Yolcu Kabinli Motor Güneş Paketi — 240 W](https://www.gespaenerji.com/paket-motor-yolcu.html)
 
 Kabinli, 2–4 kişilik yolcu triportörleri — çatı alanı dar
 
-**₺15.800**≈ $321
+**₺14.800**≈ $301
 
-💰 Havale/EFT ile: **₺15.350**
+💰 Havale/EFT ile: **₺14.350**
 
 KDV dahil · kargo hariç
 
@@ -429,7 +429,7 @@ Kredi kartıyla (iyzico güvenli ödeme) ya da havale/EFT ile ödeyebilirsiniz. 
 
 ### İade ve cayma hakkı nasıl işler?
 
-Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
+Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
 
 Hasarlı veya ayıplı üründe tüm masraflar bize aittir — kargoyu teslim alırken paketi görevli önünde kontrol edin.
 

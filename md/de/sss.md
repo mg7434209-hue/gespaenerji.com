@@ -3,7 +3,7 @@ title: "Häufige Fragen — Solarenergie, Bestellung und Montage | GESPA Energy"
 description: "Antworten zu Solaranlagen, Akkus, Solarumrüstung von E-Fahrzeugen, Bestellung, Versand, Zahlung und Montage an einem Ort. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/de/sss.html
 lang: de
-dateModified: 2026-10-21
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -253,7 +253,7 @@ Sie können per Kreditkarte (sichere Zahlung über iyzico) oder per Überweisung
 
 ### Wie funktionieren Rückgabe und Widerruf?
 
-Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendekosten trägt der Käufer.
+Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
 
 Bei beschädigter oder mangelhafter Ware tragen wir alle Kosten — bitte prüfen Sie das Paket bei der Übergabe vor dem Zusteller.
 
@@ -421,7 +421,7 @@ Die Garantiebedingungen der Hersteller unterscheiden sich je nach Marke. Vor der
 
 [Zur Seite →](https://www.gespaenerji.com/de/elektrikli-arac-donusum.html)
 
-## Solar-Set für Fahrgast-Dreirad (285 W)
+## Solar-Set für Fahrgast-Dreirad (240 W)
 
 ### Mein Akkupack hat 60 V — passt das?
 
@@ -463,7 +463,7 @@ Je nach Lagerbestand liefern wir 4 mm² oder 6 mm²; beides ist für diese Syste
 
 ### Mein Fahrzeug ist ein geschlossenes Fahrgastmodell — ist das das richtige Paket?
 
-Geschlossene Fahrgastfahrzeuge haben ein schmales Dach; für sie passt das 285-W-Paket besser.
+Geschlossene Fahrgastfahrzeuge haben ein schmales Dach; für sie passt das 240-W-Paket besser.
 
 [Werfen Sie einen Blick auf das Solar-Set für Dreirad mit Fahrgastkabine →](https://www.gespaenerji.com/de/paket-motor-yolcu.html)
 

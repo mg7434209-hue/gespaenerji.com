@@ -1,29 +1,29 @@
 ---
-title: "Passenger E-Trike Solar Set — 285 W | GESPA Energy"
-description: "Complete solar set for enclosed passenger e-trikes: 285 W TOPCon panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. No guessing which part fits."
+title: "Passenger E-Trike Solar Set — 240 W | GESPA Energy"
+description: "Complete solar set for enclosed passenger e-trikes: 240 W panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. No guessing which part fits."
 canonical: https://www.gespaenerji.com/en/paket-motor-yolcu.html
 lang: en
-dateModified: 2026-10-24
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
-[Home](https://www.gespaenerji.com/en/) / [Products](https://www.gespaenerji.com/en/urunler.html) / Passenger-Cab E-Trike Solar Set — 285 W
+[Home](https://www.gespaenerji.com/en/) / [Products](https://www.gespaenerji.com/en/urunler.html) / Passenger-Cab E-Trike Solar Set — 240 W
 
 ![Yolcu kabinli elektrikli triportör](https://www.gespaenerji.com/assets/img/products/ev/motor-yolcu.webp)
 
 🛺 Ready-Made Set
 
-# Passenger-Cab E-Trike Solar Set — 285 W
+# Passenger-Cab E-Trike Solar Set — 240 W
 
 Product code: **GES-SET-YOLCU** In stock / available to order
 
 Charge your enclosed electric passenger three-wheeler from the sun. The panel, charge controller, cable and MC4 connectors arrive in one package, matched to work together — no need to research which panel fits your vehicle.
 
-**₺15.800** ≈ $321
+**₺14.800** ≈ $301
 
 Price includes VAT.
 
-💰 By bank transfer: **₺15.350**
+💰 By bank transfer: **₺14.350**
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
@@ -32,12 +32,12 @@ Price includes VAT.
 
 - 🚚 Ships to anywhere in Türkiye; shipping is paid by the buyer.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
-- 🔄 Right of withdrawal (distance sales): **14** days — return shipping is paid by the buyer.
+- 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
 - 🔧 Optional on-site installation and training in the Antalya region.
 
-🔆 285 W TOPCon panel 🔌 BOOST MPPT 24–72 V 🧰 Cable + MC4 included 🛺 Fits a narrow roof
+🔆 240 W panel 🔌 BOOST MPPT 24–72 V 🧰 Cable + MC4 included 🛺 Fits a narrow roof
 
-The question electric three-wheeler owners get stuck on is: “Which panel fits my vehicle?” On enclosed passenger vehicles with a narrow roof, a 285 W TOPCon panel is the size that gives the highest daily yield without overhanging.
+The question electric three-wheeler owners get stuck on is: “Which panel fits my vehicle?” On enclosed passenger vehicles with a narrow roof, the 240 W panel fits without overhanging at 1320 × 776 mm.
 
 Alongside the panel the package includes a BOOST MPPT 24–72 V charge controller: your battery pack may be 24, 36, 48, 60 or 72 V, and it works with AGM, gel, flooded lead-acid and lithium batteries alike. It raises the panel voltage to what the battery needs and charges it directly.
 
@@ -45,7 +45,7 @@ Five metres of black and five metres of red solar cable plus an MC4 connector se
 
 | Quantity | Component |
 | --- | --- |
-| 1 × | Lexron 285 W Solar Panel |
+| 1 × | 240 W Solar Panel (48 Cells) |
 | 1 × | MS Teknik BOOST MPPT 24-72 V Charge Controller |
 | 1 × | Solar Cable Set (5 m Black + 5 m Red) |
 | 1 × | MC4 Connector Set |
@@ -72,7 +72,7 @@ The panel power was set by your vehicle's roof area, the controller by your batt
 
 ### Power sized for a narrow roof
 
-A 285 W panel fits the roof dimensions of enclosed passenger three-wheelers; a larger panel overhangs and creates wind problems.
+The 240 W panel (1320 × 776 mm) fits the roof dimensions of enclosed passenger three-wheelers; a larger panel overhangs and creates wind problems.
 
 ✅
 

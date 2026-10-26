@@ -3,7 +3,7 @@ title: "MC4-Steckerset | GESPA Energy"
 description: "MC4-Steckerset (Stecker + Buchse) zur Verbindung von Modulkabel und Solarkabel."
 canonical: https://www.gespaenerji.com/de/mc4-set.html
 lang: de
-dateModified: 2026-10-23
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -32,7 +32,7 @@ Preis inkl. MwSt.
 
 - 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
-- 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendekosten trägt der Käufer.
+- 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
 
 🔗 1 Set ⚡ Stecker + Buchse ☀️ Modulanschluss
 

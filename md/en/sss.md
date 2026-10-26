@@ -3,7 +3,7 @@ title: "Frequently Asked Questions — Solar Power, Orders and Installation | GE
 description: "Answers about solar power plants, batteries, EV solar conversion, ordering, shipping, payment and installation in one place. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/en/sss.html
 lang: en
-dateModified: 2026-10-21
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -253,7 +253,7 @@ You can pay by credit card (secure payment via iyzico) or by bank transfer/EFT. 
 
 ### How do returns and the right of withdrawal work?
 
-Right of withdrawal (distance sales): **14** days — return shipping is paid by the buyer.
+Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
 
 For damaged or defective goods all costs are ours — please inspect the parcel in front of the courier on delivery.
 
@@ -421,7 +421,7 @@ Manufacturers' warranty terms differ from brand to brand. We review your vehicle
 
 [Go to page →](https://www.gespaenerji.com/en/elektrikli-arac-donusum.html)
 
-## Passenger-cab e-trike set (285 W)
+## Passenger-cab e-trike set (240 W)
 
 ### My battery pack is 60 V — will it work?
 
@@ -463,7 +463,7 @@ Depending on stock we ship 4 mm² or 6 mm²; both are suitable for these systems
 
 ### My vehicle is an enclosed passenger type — is this the right package?
 
-Enclosed passenger vehicles have a narrow roof; the 285 W package suits them better.
+Enclosed passenger vehicles have a narrow roof; the 240 W package suits them better.
 
 [Take a look at the Passenger-Cab E-Trike Solar Set →](https://www.gespaenerji.com/en/paket-motor-yolcu.html)
 
