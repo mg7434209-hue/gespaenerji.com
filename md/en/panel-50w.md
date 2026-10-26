@@ -25,17 +25,31 @@ Price includes VAT.
 
 💰 By bank transfer: **₺1.750**
 
+🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
 [⚡ Buy it now](https://www.gespaenerji.com/en/sepet.html)
-[💬 Ask on WhatsApp](https://www.gespaenerji.com/en/iletisim.html)
+[💬 Ask on WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%2250W%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-50)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpanel-50w.html)
 
-- 🚚 Ships to anywhere in Türkiye; shipping is paid by the buyer.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
 - 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
+- 🔒 Secure payment: iyzico / tami · invoice with every order
 - 🔌 Charge controller and cables are not included.
 
 🔆 50 W monocrystalline 🔋 12 V system 📦 Single panel
+
+### ✅ Suitable for
+
+- Battery (off-grid) systems with a charge controller
+- An additional panel for a rooftop or ground plant
+- Compatible EV solar sets
+
+### ⛔ Not suitable for
+
+- Connecting straight to a battery (a charge controller is required)
+- Devices whose panel input limit is below this Voc (see the spec table)
+- Connecting to the grid on its own (an inverter is required)
 
 A single 50 W monocrystalline solar panel for 12 V systems. Suitable for small loads such as garden lighting, security cameras and battery charging; the panel is sold on its own — battery and controller are not included.
 
@@ -155,6 +169,14 @@ We ship anywhere in Türkiye. In the Antalya region we offer optional on-site in
 See how many panels, which battery and which inverter you need in a few steps with the System Builder.
 
 [Open the System Builder →](https://www.gespaenerji.com/en/sistem-kur.html)
+
+Customer reviews
+
+## What do buyers of this product say?
+
+No published reviews for this product yet. If you bought it, write about your experience; it is published here after approval.
+
+[Write a review (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%2250W%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-50)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Our Google reviews ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Order the panel today
 

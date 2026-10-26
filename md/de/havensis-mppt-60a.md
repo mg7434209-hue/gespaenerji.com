@@ -25,18 +25,32 @@ Preis inkl. MwSt.
 
 💰 Per Überweisung: **₺11.450**
 
+🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 
 [⚡ Jetzt kaufen](https://www.gespaenerji.com/de/sepet.html)
-[💬 Per WhatsApp fragen](https://www.gespaenerji.com/de/iletisim.html)
+[💬 Per WhatsApp fragen](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20Solar-60AMPS-100%20MPPT%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%2012%2F24%20V%2060%20A%22%20(S60AMPS100)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fhavensis-mppt-60a.html)
 
-- 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
 - 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
+- 🔒 Sichere Zahlung: iyzico / tami · Rechnung zu jeder Bestellung
 - ☀️ Module und Batterie sind nicht im Lieferumfang enthalten.
 - 🏭 Hergestellt in der Türkei · Havensis
 
 ⚡ 12/24 V · 60 A ☀️ 100 V · 2500 W Module 💡 20-A-Lastausgang 📟 LCD-Display 🏭 Hergestellt in der Türkei
+
+### ✅ Geeignet für
+
+- Batteriesysteme mit den in der Tabelle genannten Spannungen
+- Modulstränge, deren Voc-Summe unter der Eingangsgrenze bleibt
+- Ferienhaus, Wohnmobil, Boot und E-Fahrzeug-Ladung
+
+### ⛔ Nicht geeignet für
+
+- Netzgekoppelte Anlagen mit Wechselrichter
+- Reihenstränge über der Eingangsspannungsgrenze
+- Batterietypen oder Spannungen, die nicht in der Tabelle stehen
 
 Der Havensis Solar-60AMPS-100 ist der 60-A-Laderegler der MPPT-Serie (MPS). Die Angabe 100|60 im Modellcode steht für bis zu 100 V Moduleingang und bis zu 60 A Ladestrom. Er arbeitet mit 12-V- und 24-V-Batterien; bis zu 2500 W Solarmodule lassen sich anschließen.
 
@@ -213,6 +227,14 @@ Wir versenden in die ganze Türkei; jeder Elektriker kann das Gerät anschließe
 Zum Laden der Aufbaubatterie über die Lichtmaschine sehen Sie sich unsere DC-DC-Ladegeräte an.
 
 [DC-DC-Batterieladegeräte →](https://www.gespaenerji.com/de/havensis-dcdc-30a.html)
+
+Kundenbewertungen
+
+## Was sagen Käufer dieses Produkts?
+
+Für dieses Produkt gibt es noch keine veröffentlichte Bewertung. Wenn Sie es gekauft haben, schreiben Sie uns Ihre Erfahrung; nach Prüfung erscheint sie hier.
+
+[Bewertung schreiben (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20Solar-60AMPS-100%20MPPT%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%2012%2F24%20V%2060%20A%22%20(S60AMPS100)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Unsere Google-Bewertungen ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Bestellen Sie Ihren Laderegler noch heute
 

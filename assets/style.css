@@ -2578,3 +2578,26 @@ html.menu-locked,html.menu-locked body{overflow:hidden}
   .why-grid img{display:none}
   .projects .project:nth-child(n+2){display:none}
 }
+
+/* ---- Ürün sayfası şablonu (CRO FAZ 2, 26 Eki 2026) ---- */
+.pd-rows{display:grid;gap:4px;margin:2px 0 12px}
+.pd-row{margin:0;font-size:.86rem;color:var(--muted);line-height:1.45}
+.pd-row span:first-of-type{color:var(--ink);font-weight:600}
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0 0}
+.fit-col{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--bg-alt)}
+.fit-col h3{font-size:.92rem;margin:0 0 8px}
+.fit-col ul{margin:0;padding-left:18px;font-size:.84rem;color:var(--muted);line-height:1.5}
+.fit-yes{border-color:rgba(31,47,120,.25)}
+.fit-no{background:#fff5f3;border-color:#f3cfc7}
+[data-theme="dark"] .fit-no{background:#2a1a17;border-color:#5a2f27}
+.reviews-sec{padding-top:0}
+.reviews-empty{border:1px dashed var(--line);border-radius:16px;padding:20px 22px;text-align:center;color:var(--muted)}
+.reviews-empty p{margin:0 0 12px}
+.reviews-btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+@media (max-width:760px){
+  .fit{grid-template-columns:1fr}
+  .mobile-cta-prod{align-items:center}
+  .mcta-price{flex:0 0 auto;font-family:var(--font);font-weight:800;font-size:1.15rem;color:var(--green);padding:0 6px}
+  .mcta-ico{flex:0 0 52px}
+  .mobile-cta-prod .mcta-quote{flex:1}
+}

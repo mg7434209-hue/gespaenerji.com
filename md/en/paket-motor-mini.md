@@ -25,17 +25,31 @@ Price includes VAT.
 
 💰 By bank transfer: **₺14.350**
 
+🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
 [⚡ Buy it now](https://www.gespaenerji.com/en/sepet.html)
-[💬 Ask on WhatsApp](https://www.gespaenerji.com/en/iletisim.html)
+[💬 Ask on WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Mini%20Elektrikli%20Otomobil%20G%C3%BCne%C5%9F%20Paketi%20%E2%80%94%20240%20W%22%20(GES-SET-MINI)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpaket-motor-mini.html)
 
-- 🚚 Ships to anywhere in Türkiye; shipping is paid by the buyer.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
 - 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
+- 🔒 Secure payment: iyzico / tami · invoice with every order
 - 🔧 Optional on-site installation and training in the Antalya region.
 
 🔆 240 W panel 🔌 BOOST MPPT 24–72 V 🧰 Cable + MC4 included 🚗 Fits a small roof
+
+### ✅ Suitable for
+
+- Three-wheelers, golf carts and mini cars with 24–72 V batteries
+- Vehicles whose roof fits the panel in the set
+- AGM, gel, flooded lead-acid and lithium batteries
+
+### ⛔ Not suitable for
+
+- Vehicles with 12 V batteries
+- Vehicles with a roof smaller than the panel
+- Vehicles parked indoors or in shade all day
 
 Enclosed mini electric cars have a small roof; a large panel would overhang and catch the wind. The set includes a 240 W (48-cell) solar panel chosen for this roof.
 
@@ -121,6 +135,14 @@ The panel measures 1320 × 776 × 30 mm and weighs 8 kg. Send us your roof dimen
 Golf-cart-type vehicles have a wider flat roof; for more yield the 460 W set suits them better.
 
 [Take a look at the Golf-Cart-Type EV Solar Set →](https://www.gespaenerji.com/en/paket-motor-golf.html)
+
+Customer reviews
+
+## What do buyers of this product say?
+
+No published reviews for this product yet. If you bought it, write about your experience; it is published here after approval.
+
+[Write a review (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Mini%20Elektrikli%20Otomobil%20G%C3%BCne%C5%9F%20Paketi%20%E2%80%94%20240%20W%22%20(GES-SET-MINI)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Our Google reviews ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Order your package today
 

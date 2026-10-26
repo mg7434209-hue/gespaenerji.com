@@ -25,14 +25,16 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺100**
 
+🚚 Доставку оплачивает покупатель — курьеру при получении · 2–5 рабочих дней
+
 [🛒 В корзину](https://www.gespaenerji.com/ru/sepet.html)
 
 [⚡ Купить сейчас](https://www.gespaenerji.com/ru/sepet.html)
-[💬 Спросить в WhatsApp](https://www.gespaenerji.com/ru/iletisim.html)
+[💬 Спросить в WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22MC4%20Konnekt%C3%B6r%20Tak%C4%B1m%C4%B1%22%20(GES-MC4-1)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fmc4-set.html)
 
-- 🚚 Доставка по всей Турции; доставку оплачивает покупатель.
 - ⏱️ Ориентировочная доставка после подтверждения заказа: **2–5** рабочих дня.
 - 🔄 Право на отказ (дистанционная продажа): **14** дней — возврат через нашу договорную службу доставки бесплатный.
+- 🔒 Безопасная оплата: iyzico / tami · счёт-фактура к каждому заказу
 
 🔗 1 комплект ⚡ Папа + мама ☀️ Подключение панели
 
@@ -118,6 +120,14 @@ publisher: "GESPA Enerji"
 В наших солнечных комплектах для электротранспорта — панель, BOOST MPPT, кабель и MC4 вместе.
 
 [Смотреть комплекты для электротранспорта →](https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html#paketler)
+
+Отзывы покупателей
+
+## Что говорят покупатели этого товара?
+
+Опубликованных отзывов об этом товаре пока нет. Если вы его купили, напишите о своём опыте; после проверки он появится здесь.
+
+[Написать отзыв (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22MC4%20Konnekt%C3%B6r%20Tak%C4%B1m%C4%B1%22%20(GES-MC4-1)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Наши отзывы в Google ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Закажите сегодня
 

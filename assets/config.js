@@ -318,6 +318,7 @@ window.GESPA.config = {
     {
       id: "boost-mppt", icon: "🔌", tag: "Elektrikli Araç", group: "accessory",
       url: "elektrikli-arac-donusum.html", sku: "GES-EV-BOOST",
+      warranty: "2 yıl",                     // sayfadaki güven satırı; künyeden
       img: "assets/img/products/ev/boost-mppt-on.webp",
       // ₺7.200 NET: noCartDiscount ile havale/EFT indirimi BİNMEZ — kartla da
       // havaleyle de aynı tutar tahsil edilir, havale satırı hiçbir yerde
@@ -406,6 +407,7 @@ window.GESPA.config = {
     {
       id: "panel-lexron-285w", icon: "🔆", tag: "Panel", group: "panel",
       url: "panel-lexron-285w.html",
+      warranty: "12 yıl ürün · 30 yıl güç",                     // sayfadaki güven satırı; künyeden
       sku: "GES-PNL-285", brand: "Lexron",
       img: "assets/img/products/panel-lexron-285w.webp",
       price: 152.44, currency: "USD", stock: 0,   // 26 Eki 2026: stokta yok (satılamaz)                     // ₺7.500 @ 49,2
@@ -418,6 +420,7 @@ window.GESPA.config = {
     {
       id: "panel-lexron-655w", icon: "🔆", tag: "Panel", group: "panel",
       url: "panel-lexron-655w.html",
+      warranty: "12 yıl ürün · 30 yıl güç",                     // sayfadaki güven satırı; künyeden
       sku: "GES-PNL-655", brand: "Lexron",
       img: "assets/img/products/panel-lexron-655w.webp",
       price: 203.25, currency: "USD",                     // ₺10.000 @ 49,2
@@ -437,6 +440,7 @@ window.GESPA.config = {
     {
       id: "panel-700w", icon: "🔆", tag: "Panel", group: "panel",
       url: "panel-700w.html",
+      warranty: "30 yıl güç (30. yılda %87,4)",                     // sayfadaki güven satırı; künyeden
       sku: "GES-PNL-700",
       img: "assets/img/products/panel-700w.webp",
       price: 176.83, currency: "USD",                     // ₺8.700 @ 49,2

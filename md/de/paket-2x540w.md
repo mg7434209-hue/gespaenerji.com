@@ -25,17 +25,31 @@ Preis inkl. MwSt.
 
 💰 Per Überweisung: **₺104.950**
 
+🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 
-[💬 Per WhatsApp fragen](https://www.gespaenerji.com/de/iletisim.html)
+[💬 Per WhatsApp fragen](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Tam%20Kapsaml%C4%B1%20G%C3%BCne%C5%9F%20Enerjisi%20Sistemi%22%20(GES-KIT-2X540)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpaket-2x540w.html)
 [🧮 Passt es zu mir?](https://www.gespaenerji.com/de/hesaplayici.html)
 
-- 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
 - 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
+- 🔒 Sichere Zahlung: iyzico / tami · Rechnung zu jeder Bestellung
 - 🔧 Optionale Vor-Ort-Montage und Einweisung in der Region Antalya.
 
 ⚡ 2× 540 W panel ☀️ Etwa 6,5 kWh Tagesertrag 🔋 LiFePO₄ lityum batarya 🎒 Tragbar
+
+### ✅ Geeignet für
+
+- TV, Licht und Laden in Ferienhaus, Camp und Wohnmobil
+- Orte ohne Netzstrom
+- Wer eine Plug-and-play-Lösung möchte
+
+### ⛔ Nicht geeignet für
+
+- Leistungsstarke Geräte wie Klimaanlage oder Backofen
+- Einspeisung ins Netz (On-Grid)
+- Tagesverbrauch über der Kapazität in der Tabelle
 
 Kein Teile-Suchen: jede Komponente von Modul bis Kabel kommt aufeinander abgestimmt in einem Paket.
 
@@ -170,6 +184,14 @@ Die Produkte werden in modernen Anlagen eines Herstellers mit über 15 Jahren Er
 **🧰 Eine kleinere Lösung gesucht?**
 
 Wenn Sie nur TV, Licht und Laden benötigen, [285-W-Solarset ansehen →](https://www.gespaenerji.com/de/paket-285w.html)
+
+Kundenbewertungen
+
+## Was sagen Käufer dieses Produkts?
+
+Für dieses Produkt gibt es noch keine veröffentlichte Bewertung. Wenn Sie es gekauft haben, schreiben Sie uns Ihre Erfahrung; nach Prüfung erscheint sie hier.
+
+[Bewertung schreiben (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Tam%20Kapsaml%C4%B1%20G%C3%BCne%C5%9F%20Enerjisi%20Sistemi%22%20(GES-KIT-2X540)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Unsere Google-Bewertungen ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Heute bestellen, morgen Sonne ernten
 

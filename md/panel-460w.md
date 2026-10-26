@@ -25,17 +25,31 @@ KDV dahil fiyattır.
 
 💰 Havale/EFT ile: **₺7.750**
 
+🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
 [⚡ Hemen satın al](https://www.gespaenerji.com/sepet.html)
-[💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22460%20W%20Half-Cut%20Monokristal%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-460)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpanel-460w.html)
 
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 - 🔌 Şarj kontrol cihazı ve kablo ürüne dahil değildir.
 
 🔆 460 W · %23,42 verim ✂️ 144 yarım hücre ⚖️ 25 kg
+
+### ✅ Kimler için uygun
+
+- Şarj kontrol cihazlı akülü (off-grid) sistemler
+- Çatı veya arazi santraline ek panel
+- Uyumlu elektrikli araç güneş paketleri
+
+### ⛔ Uygun değil
+
+- Doğrudan aküye bağlamak (şarj kontrol cihazı şart)
+- Panel giriş gerilimi sınırını aşan cihazlar (Voc teknik tabloda)
+- Şebekeye tek başına bağlamak (inverter gerekir)
 
 144 yarım hücreli (half-cut), çoklu busbar teknolojili 460 W monokristal güneş paneli. Voc 51,90 V · Isc 10,84 A · Vmp 43,50 V · Imp 10,58 A, modül verimi %23,42. Ölçü 2095 × 1039 × 30 mm, ağırlık 25 kg; yansıma önleyici kaplamalı temperli cam, 30 mm anotlu alüminyum çerçeve, IP68 bağlantı kutusu (3 bypass diyot), MC4 uyumlu konnektör. 1500 V sistem gerilimi, 2400 Pa rüzgâr ve 5400 Pa kar yükü dayanımı. Golf aracı tipi motor güneş paketimizin panelidir; tek başına da satılır.
 
@@ -168,6 +182,14 @@ Türkiye'nin her yerine kargo ile gönderiyoruz. Antalya bölgesinde isteğe ba�
 Kaç panel, hangi akü ve inverter gerektiğini Sistem Kurucu ile birkaç adımda görün.
 
 [Sistem Kurucu'yu açın →](https://www.gespaenerji.com/sistem-kur.html)
+
+Müşteri yorumları
+
+## Bu ürünü alanlar ne diyor?
+
+Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
+
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22460%20W%20Half-Cut%20Monokristal%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-460)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Paneli bugün sipariş edin
 

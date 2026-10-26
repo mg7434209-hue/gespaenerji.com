@@ -25,18 +25,32 @@ KDV dahil fiyattır.
 
 💰 Havale/EFT ile: **₺3.350**
 
+🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
 [⚡ Hemen satın al](https://www.gespaenerji.com/sepet.html)
-[💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Lexron%2030%20A%20MPPT%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%2012%2F24%20V%22%20(GM-30AMPPTSARJKON)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Flexron-mppt-30a.html)
 
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 - ☀️ Panel ve akü ürüne dahil değildir.
 - 🏷️ Marka: Lexron
 
 ⚡ 12/24 V · 30 A 🔆 MPPT ☀️ ≈ 360–720 W panel
+
+### ✅ Kimler için uygun
+
+- Teknik tablodaki akü gerilimlerine sahip akülü sistemler
+- Panel Voc toplamı giriş sınırının altında kalan diziler
+- Bağ evi, karavan, tekne ve elektrikli araç şarjı
+
+### ⛔ Uygun değil
+
+- Şebekeye bağlı inverterli sistemler
+- Giriş gerilimi sınırını aşan seri panel dizileri
+- Teknik tabloda yazmayan akü tipi veya gerilimi
 
 Lexron 30 A MPPT, 12/24 V akü sistemleri için 30 A şarj akımına sahiptir. Model ve akü gerilimleri ürünün üzerindeki etikette yazılıdır.
 
@@ -166,6 +180,14 @@ Türkiye'nin her yerine kargo ile gönderiyoruz. Antalya bölgesinde isteğe ba�
 Panel gerilimi akü gerilimine yakın küçük sistemlerde PWM modeller ekonomik bir çözümdür.
 
 [Lexron PWM şarj kontrol cihazları →](https://www.gespaenerji.com/lexron-pwm-20a.html)
+
+Müşteri yorumları
+
+## Bu ürünü alanlar ne diyor?
+
+Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
+
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Lexron%2030%20A%20MPPT%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%2012%2F24%20V%22%20(GM-30AMPPTSARJKON)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## MPPT şarj kontrol cihazını bugün sipariş edin
 

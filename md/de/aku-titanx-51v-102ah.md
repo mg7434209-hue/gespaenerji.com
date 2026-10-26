@@ -25,18 +25,32 @@ Preis inkl. MwSt.
 
 💰 Per Überweisung: **₺71.200**
 
+🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 
 [⚡ Jetzt kaufen](https://www.gespaenerji.com/de/sepet.html)
-[💬 Per WhatsApp fragen](https://www.gespaenerji.com/de/iletisim.html)
+[💬 Per WhatsApp fragen](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22TitanX%2051%2C2%20V%20102%20Ah%20LiFePO%E2%82%84%20Ak%C3%BC%22%20(GES-AKU-102)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Faku-titanx-51v-102ah.html)
 
-- 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
 - 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
+- 🔒 Sichere Zahlung: iyzico / tami · Rechnung zu jeder Bestellung
 - 🏷️ Marke: TitanX
 - 🛡️ 2 Jahre Garantie
 
 🔋 5,22 kWh ⚡ 51,2 V · 102 Ah ♻️ 6000+ Zyklen
+
+### ✅ Geeignet für
+
+- Batteriesysteme mit der in der Tabelle genannten Spannung
+- Die aufgeführten passenden Laderegler
+- Tagesertrag in die Nacht mitnehmen
+
+### ⛔ Nicht geeignet für
+
+- Anlagen mit anderer Spannung
+- Direkter Modulanschluss ohne Laderegler
+- Ladeströme, die nicht in der Tabelle stehen
 
 LiFePO₄-Energiespeicherakku 51,2 V 102 Ah (5,22 kWh). Prismatischer 16S1P-Zellaufbau, integriertes intelligentes BMS mit Schutz vor Über-/Tiefentladung, Überstrom, Kurzschluss und Temperatur. 100 A Dauerentladung, 150 A Spitze (5 s); über 6000 Zyklen (80 % DoD). CAN/RS485 und Bluetooth oder WLAN; bis zu 16 Einheiten parallel. Gewicht 37 kg, Maße 560 × 150 × 380 mm, IP20, M8-Anschlüsse, 2 Jahre Garantie.
 
@@ -159,6 +173,14 @@ Wir versenden in die ganze Türkei. In der Region Antalya bieten wir optional di
 Sehen Sie mit dem System-Konfigurator in wenigen Schritten, wie viele Akkus, welche Module und welcher Wechselrichter nötig sind.
 
 [System-Konfigurator öffnen →](https://www.gespaenerji.com/de/sistem-kur.html)
+
+Kundenbewertungen
+
+## Was sagen Käufer dieses Produkts?
+
+Für dieses Produkt gibt es noch keine veröffentlichte Bewertung. Wenn Sie es gekauft haben, schreiben Sie uns Ihre Erfahrung; nach Prüfung erscheint sie hier.
+
+[Bewertung schreiben (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22TitanX%2051%2C2%20V%20102%20Ah%20LiFePO%E2%82%84%20Ak%C3%BC%22%20(GES-AKU-102)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Unsere Google-Bewertungen ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Bestellen Sie den Akku noch heute
 

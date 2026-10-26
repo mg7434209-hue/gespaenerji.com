@@ -25,17 +25,32 @@ Price includes VAT.
 
 💰 By bank transfer: **₺8.450**
 
+🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
 [⚡ Buy it now](https://www.gespaenerji.com/en/sepet.html)
-[💬 Ask on WhatsApp](https://www.gespaenerji.com/en/iletisim.html)
+[💬 Ask on WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22700%20W%20Bifacial%20TOPCon%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-700)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpanel-700w.html)
 
-- 🚚 Ships to anywhere in Türkiye; shipping is paid by the buyer.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
 - 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
+- 🛡️ Warranty: **30-year power (87.4% in year 30)**
+- 🔒 Secure payment: iyzico / tami · invoice with every order
 - 🔌 Charge controller and cables are not included.
 
 🔆 700 W bifacial ☀️ Front side 610 Wp ✂️ 144 half-cut cells
+
+### ✅ Suitable for
+
+- Battery (off-grid) systems with a charge controller
+- An additional panel for a rooftop or ground plant
+- Compatible EV solar sets
+
+### ⛔ Not suitable for
+
+- Connecting straight to a battery (a charge controller is required)
+- Devices whose panel input limit is below this Voc (see the spec table)
+- Connecting to the grid on its own (an inverter is required)
 
 Bifacial (double-sided) solar panel with 144 half-cut cells and N-type TOPCon technology. Front-side STC power is 610 Wp; with a 15% rear-side gain it reaches 701.5 W (671 W at 10%, 732 W at 20%). Front side: Voc 53.27 V · Vmp 44.51 V · Isc 14.34 A · Imp 13.71 A, module efficiency 23.62%. Size 2278 × 1133 × 30 mm; 1500 V system voltage, 0~+5 W power tolerance. It is the panel of our cargo-bed EV solar set and is also sold on its own.
 
@@ -172,6 +187,14 @@ We ship anywhere in Türkiye. In the Antalya region we offer optional on-site in
 See how many panels, which battery and which inverter you need in a few steps with the System Builder.
 
 [Open the System Builder →](https://www.gespaenerji.com/en/sistem-kur.html)
+
+Customer reviews
+
+## What do buyers of this product say?
+
+No published reviews for this product yet. If you bought it, write about your experience; it is published here after approval.
+
+[Write a review (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22700%20W%20Bifacial%20TOPCon%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-700)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Our Google reviews ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Order the panel today
 

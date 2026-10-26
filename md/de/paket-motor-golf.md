@@ -25,17 +25,31 @@ Preis inkl. MwSt.
 
 💰 Per Überweisung: **₺15.800**
 
+🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 
 [⚡ Jetzt kaufen](https://www.gespaenerji.com/de/sepet.html)
-[💬 Per WhatsApp fragen](https://www.gespaenerji.com/de/iletisim.html)
+[💬 Per WhatsApp fragen](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Golf%20Arac%C4%B1%20Tipi%20Motor%20G%C3%BCne%C5%9F%20Paketi%20%E2%80%94%20460%20W%22%20(GES-SET-GOLF)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpaket-motor-golf.html)
 
-- 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
 - 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
+- 🔒 Sichere Zahlung: iyzico / tami · Rechnung zu jeder Bestellung
 - 🔧 Optionale Vor-Ort-Montage und Einweisung in der Region Antalya.
 
 🔆 460-W-Half-Cut-Modul 🔌 BOOST MPPT 24–72 V 🧰 Kabel + MC4 inklusive 🚙 Passt auf ein Golfcart-Dach
+
+### ✅ Geeignet für
+
+- Dreiräder, Golfcarts und Minifahrzeuge mit 24–72-V-Batterie
+- Fahrzeuge, auf deren Dach das Modul des Sets passt
+- AGM-, Gel-, Nass- und Lithium-Batterien
+
+### ⛔ Nicht geeignet für
+
+- Fahrzeuge mit 12-V-Batterie
+- Fahrzeuge mit kleinerem Dach als das Modul
+- Fahrzeuge, die ganztägig in Halle oder Schatten stehen
 
 Elektrofahrzeuge im Golfcart-Stil haben ein flaches, breites Dach; diese Fläche mit einem kleinen Modul zu belegen, kostet Tagesertrag. Das Set enthält ein für dieses Dach gewähltes 460-W-Half-Cut-Monokristallin-Solarmodul.
 
@@ -121,6 +135,14 @@ Das Modul misst 2095 × 1039 × 30 mm und wiegt 25 kg; das flache Dach von Golfc
 Geschlossene Mini-Elektroautos haben ein kleines Dach; für sie ist das 240-W-Set besser geeignet.
 
 [Werfen Sie einen Blick auf das Solar-Set für Mini-Elektroautos →](https://www.gespaenerji.com/de/paket-motor-mini.html)
+
+Kundenbewertungen
+
+## Was sagen Käufer dieses Produkts?
+
+Für dieses Produkt gibt es noch keine veröffentlichte Bewertung. Wenn Sie es gekauft haben, schreiben Sie uns Ihre Erfahrung; nach Prüfung erscheint sie hier.
+
+[Bewertung schreiben (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Golf%20Arac%C4%B1%20Tipi%20Motor%20G%C3%BCne%C5%9F%20Paketi%20%E2%80%94%20460%20W%22%20(GES-SET-GOLF)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Unsere Google-Bewertungen ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Bestellen Sie Ihr Paket noch heute
 

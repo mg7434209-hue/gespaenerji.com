@@ -25,18 +25,32 @@ Price includes VAT.
 
 💰 By bank transfer: **₺9.450**
 
+🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
 [⚡ Buy it now](https://www.gespaenerji.com/en/sepet.html)
-[💬 Ask on WhatsApp](https://www.gespaenerji.com/en/iletisim.html)
+[💬 Ask on WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20DCDC-1224%20Tek%20Y%C3%B6nl%C3%BC%20DC-DC%20Ak%C3%BC%20%C5%9Earj%20Cihaz%C4%B1%2012%2F24%20V%2030%20A%22%20(DCDC-1224-30)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fhavensis-dcdc-30a.html)
 
-- 🚚 Ships to anywhere in Türkiye; shipping is paid by the buyer.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
 - 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
+- 🔒 Secure payment: iyzico / tami · invoice with every order
 - 🔋 Batteries are not included.
 - 🏭 Made in Türkiye · Havensis
 
 🔋 12/24 V · 30 A 🚐 Charging from the alternator 🔁 12-12 · 12-24 · 24-12 · 24-24 V ⚙️ 96.4% efficiency 🏭 Made in Türkiye
+
+### ✅ Suitable for
+
+- Battery systems with the voltages listed in the spec table
+- Panel strings whose total Voc stays below the input limit
+- Country houses, caravans, boats and EV charging
+
+### ⛔ Not suitable for
+
+- Grid-tied systems with an inverter
+- Series strings exceeding the input voltage limit
+- Battery types or voltages not listed in the spec table
 
 The Havensis DCDC-1224 is a one-way DC-DC battery charger designed especially for caravans. This model works with a 30 A charging current; it accepts a 10–35 V input, delivers a 12–32 V output and has a conversion efficiency of 96.4%.
 
@@ -207,6 +221,14 @@ We ship anywhere in Türkiye; an auto electrician can do the installation. In th
 To charge a high-voltage battery bank from a 12/24 V vehicle battery, see our BOOST DC-DC charger.
 
 [BOOST DC-DC charger →](https://www.gespaenerji.com/en/havensis-boost-dcdc-2448.html)
+
+Customer reviews
+
+## What do buyers of this product say?
+
+No published reviews for this product yet. If you bought it, write about your experience; it is published here after approval.
+
+[Write a review (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20DCDC-1224%20Tek%20Y%C3%B6nl%C3%BC%20DC-DC%20Ak%C3%BC%20%C5%9Earj%20Cihaz%C4%B1%2012%2F24%20V%2030%20A%22%20(DCDC-1224-30)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Our Google reviews ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Charge your house battery on the road
 

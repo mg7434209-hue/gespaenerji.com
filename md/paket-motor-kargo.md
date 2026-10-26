@@ -25,17 +25,31 @@ KDV dahil fiyattır.
 
 💰 Havale/EFT ile: **₺16.500**
 
+🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
 [⚡ Hemen satın al](https://www.gespaenerji.com/sepet.html)
-[💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Kargo%20Kasal%C4%B1%20Motor%20G%C3%BCne%C5%9F%20Paketi%20%E2%80%94%20700%20W%22%20(GES-SET-KARGO)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpaket-motor-kargo.html)
 
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 - 🔧 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi.
 
 🔆 700 W bifacial TOPCon panel 🔌 BOOST MPPT 24–72 V 🧰 Kablo + MC4 dahil 🚚 Geniş çatıya uygun
+
+### ✅ Kimler için uygun
+
+- 24–72 V akülü triportör, golf aracı ve mini araçlar
+- Çatısı paketteki panelin ölçüsüne sığan araçlar
+- AGM, jel, sulu kurşun-asit ve lityum aküler
+
+### ⛔ Uygun değil
+
+- 12 V akülü araçlar
+- Çatısı panelden küçük araçlar
+- Gün boyu kapalı veya gölgede park eden araçlar
 
 Kargo kasalı elektrikli triportörlerde çatı ya da tente alanı geniştir; bu alanı küçük bir panelle harcamak günlük üretimden kaybetmek demektir. 700 W bifacial (çift yüzlü) N-type TOPCon panel 2278 × 1133 mm ölçüsüyle bu alana sığar; ön yüz gücü 610 Wp'tir.
 
@@ -125,6 +139,14 @@ Kabinli yolcu araçlarında çatı dardır; onlar için 240 W'lık paket daha uy
 Çatı alanı dar olan kabinli yolcu araçları için 240 W'lık paket daha uygundur.
 
 [Yolcu Kabinli Motor Güneş Paketi'ne göz atın →](https://www.gespaenerji.com/paket-motor-yolcu.html)
+
+Müşteri yorumları
+
+## Bu ürünü alanlar ne diyor?
+
+Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
+
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Kargo%20Kasal%C4%B1%20Motor%20G%C3%BCne%C5%9F%20Paketi%20%E2%80%94%20700%20W%22%20(GES-SET-KARGO)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Paketi bugün sipariş edin
 

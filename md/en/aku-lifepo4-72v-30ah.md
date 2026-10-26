@@ -25,14 +25,16 @@ Price includes VAT.
 
 💰 By bank transfer: **₺27.150**
 
+🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
 [⚡ Buy it now](https://www.gespaenerji.com/en/sepet.html)
-[💬 Ask on WhatsApp](https://www.gespaenerji.com/en/iletisim.html)
+[💬 Ask on WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22europlus%2072%20V%2030%20Ah%20LiFePO%E2%82%84%20Ak%C3%BC%22%20(GES-EV-AKU-72V)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Faku-lifepo4-72v-30ah.html)
 
-- 🚚 Ships to anywhere in Türkiye; shipping is paid by the buyer.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
 - 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
+- 🔒 Secure payment: iyzico / tami · invoice with every order
 - 🔌 The charger is not included.
 
 ⚡ 72 V · 30 Ah · ~2,300 Wh 🔁 2,000-cycle life 🛡️ Built-in balanced BMS 🪶 Lighter than a gel pack
@@ -176,6 +178,14 @@ Yes. For charging a 72 V pack straight from a panel we use the BOOST MPPT 24–7
 We also source batteries for 24, 36, 48 and 60 V systems — write to us for stock and pricing.
 
 [Get in touch →](https://www.gespaenerji.com/en/iletisim.html)
+
+Customer reviews
+
+## What do buyers of this product say?
+
+No published reviews for this product yet. If you bought it, write about your experience; it is published here after approval.
+
+[Write a review (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22europlus%2072%20V%2030%20Ah%20LiFePO%E2%82%84%20Ak%C3%BC%22%20(GES-EV-AKU-72V)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Our Google reviews ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Order your battery today
 

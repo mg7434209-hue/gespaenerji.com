@@ -25,17 +25,31 @@ KDV dahil fiyattır.
 
 💰 Havale/EFT ile: **₺24.250**
 
+🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
-[💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22285W%20G%C3%BCne%C5%9F%20Paneli%20Paketi%22%20(GES-KIT-285)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpaket-285w.html)
 [🧮 Bana uygun mu?](https://www.gespaenerji.com/hesaplayici.html)
 
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 - 🔧 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi.
 
 ⚡ 1× 285 W panel ☀️ Günlük ~1,7 kWh üretim ⚖️ 23–25 kg — taşınabilir 🔌 Tak-çalıştır
+
+### ✅ Kimler için uygun
+
+- Bağ evi, kamp ve karavanda TV, aydınlatma ve şarj
+- Şebekenin olmadığı yerler
+- Tak-çalıştır kurulum isteyenler
+
+### ⛔ Uygun değil
+
+- Klima, fırın gibi yüksek güçlü cihazlar
+- Şebekeye satış (on-grid) amacı
+- Teknik tablodaki kapasitenin üstünde günlük tüketim
 
 Parça toplamakla uğraşmayın: panelden kablosuna kadar ihtiyacınız olan her bileşen tek pakette, birbiriyle uyumlu şekilde hazırlanmış olarak gelir.
 
@@ -164,6 +178,14 @@ Bu paketin fiyatı TL'dir; kartta gösterilen USD karşılığı yalnızca bilgi
 **🎒 Daha fazla güç mü gerekiyor?**
 
 Buzdolabı, çamaşır ve bulaşık makinesi de çalıştırmak istiyorsanız [Tam Kapsamlı Güneş Enerjisi Sistemi'ne (2×540W) göz atın →](https://www.gespaenerji.com/paket-2x540w.html)
+
+Müşteri yorumları
+
+## Bu ürünü alanlar ne diyor?
+
+Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
+
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22285W%20G%C3%BCne%C5%9F%20Paneli%20Paketi%22%20(GES-KIT-285)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Bugün sipariş verin, güneşiniz hazır olsun
 

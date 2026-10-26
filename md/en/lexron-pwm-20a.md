@@ -25,18 +25,32 @@ Price includes VAT.
 
 💰 By bank transfer: **₺700**
 
+🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
 [⚡ Buy it now](https://www.gespaenerji.com/en/sepet.html)
-[💬 Ask on WhatsApp](https://www.gespaenerji.com/en/iletisim.html)
+[💬 Ask on WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Lexron%2020%20A%20PWM%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%2012%2F24%20V%22%20(GM-20APWMSARJKONT)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Flexron-pwm-20a.html)
 
-- 🚚 Ships to anywhere in Türkiye; shipping is paid by the buyer.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
 - 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
+- 🔒 Secure payment: iyzico / tami · invoice with every order
 - ☀️ Panels and batteries are not included.
 - 🏷️ Brand: Lexron
 
 ⚡ 12/24 V · 20 A 🔆 PWM
+
+### ✅ Suitable for
+
+- Battery systems with the voltages listed in the spec table
+- Panel strings whose total Voc stays below the input limit
+- Country houses, caravans, boats and EV charging
+
+### ⛔ Not suitable for
+
+- Grid-tied systems with an inverter
+- Series strings exceeding the input voltage limit
+- Battery types or voltages not listed in the spec table
 
 Lexron 20 A PWM has a 20 A charging current for 12/24 V battery systems. The model and battery voltages are printed on the label on the unit.
 
@@ -166,6 +180,14 @@ We ship anywhere in Türkiye. In the Antalya region we offer optional on-site in
 If the panel voltage is higher than the battery voltage, MPPT models collect more energy from the same panel.
 
 [Lexron MPPT charge controllers →](https://www.gespaenerji.com/en/lexron-mppt-30a.html)
+
+Customer reviews
+
+## What do buyers of this product say?
+
+No published reviews for this product yet. If you bought it, write about your experience; it is published here after approval.
+
+[Write a review (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Lexron%2020%20A%20PWM%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%2012%2F24%20V%22%20(GM-20APWMSARJKONT)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Our Google reviews ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Order the PWM charge controller today
 

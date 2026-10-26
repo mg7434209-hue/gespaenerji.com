@@ -25,17 +25,31 @@ Price includes VAT.
 
 💰 By bank transfer: **₺130**
 
+🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
 [⚡ Buy it now](https://www.gespaenerji.com/en/sepet.html)
-[💬 Ask on WhatsApp](https://www.gespaenerji.com/en/iletisim.html)
+[💬 Ask on WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Hero%20LED%2010%20W%2012%20V%20DC%20LED%20Ampul%20(12%E2%80%9360%20V%20AC%2FDC)%22%20(HL-7020)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fhero-led-ampul-10w.html)
 
-- 🚚 Ships to anywhere in Türkiye; shipping is paid by the buyer.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
 - 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
+- 🔒 Secure payment: iyzico / tami · invoice with every order
 - 🏷️ Brand: Hero LED
 
 💡 10 W · 850 lm ⚡ 12–60 V AC/DC ⚪ 6500 K white
+
+### ✅ Suitable for
+
+- Gardens, streets, estates and car parks without a power line
+- Mounting spots that get sun all day
+- Areas that should light up on motion
+
+### ⛔ Not suitable for
+
+- Places in permanent shade
+- Indoor lighting
+- A fixture that should run on mains power
 
 10 W LED bulb working over a wide 12–60 V AC/DC range: 850 lumens, 6500 K white light. Runs straight from the battery in 12 V and 24 V solar battery systems, caravans, boats and country houses. Size 60 × 118 mm, operating temperature −20 ~ +55 °C, energy class F (10 kWh/1000 h); contains no ultraviolet radiation.
 
@@ -144,6 +158,14 @@ We ship anywhere in Türkiye. In the Antalya region we offer optional on-site in
 See the panel, battery and charge controller to power your lighting in a few steps with the System Builder.
 
 [Open the System Builder →](https://www.gespaenerji.com/en/sistem-kur.html)
+
+Customer reviews
+
+## What do buyers of this product say?
+
+No published reviews for this product yet. If you bought it, write about your experience; it is published here after approval.
+
+[Write a review (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Hero%20LED%2010%20W%2012%20V%20DC%20LED%20Ampul%20(12%E2%80%9360%20V%20AC%2FDC)%22%20(HL-7020)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Our Google reviews ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Order the bulb today
 

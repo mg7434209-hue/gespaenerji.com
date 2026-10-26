@@ -25,18 +25,32 @@ KDV dahil fiyattır.
 
 💰 Havale/EFT ile: **₺15.700**
 
+🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
 [⚡ Hemen satın al](https://www.gespaenerji.com/sepet.html)
-[💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20Solar-60AMPS%20150%7C60%20MPPT%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%2012%2F24%2F36%2F48%20V%2060%20A%22%20(S60AMPS)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fhavensis-mppt-60a-150v.html)
 
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 - ☀️ Panel ve akü ürüne dahil değildir.
 - 🏭 Yerli üretim · Havensis
 
 ⚡ 12/24/36/48 V · 60 A ☀️ 150 V · 5000 W panel 📈 %99,6 MPP izleme 📟 LCD ekran 🏭 Yerli üretim
+
+### ✅ Kimler için uygun
+
+- Teknik tablodaki akü gerilimlerine sahip akülü sistemler
+- Panel Voc toplamı giriş sınırının altında kalan diziler
+- Bağ evi, karavan, tekne ve elektrikli araç şarjı
+
+### ⛔ Uygun değil
+
+- Şebekeye bağlı inverterli sistemler
+- Giriş gerilimi sınırını aşan seri panel dizileri
+- Teknik tabloda yazmayan akü tipi veya gerilimi
 
 Havensis Solar-60AMPS 150|60, MPPT serisinin (MPS) 12–48 V akülerle çalışan 60 A'lik modelidir. Model kodundaki 150|60, cihazın en fazla 150 V panel girişi ve 60 A şarj akımıyla çalıştığını anlatır. 12, 24, 36 ve 48 V akülerle kullanılır; 5000 W'a kadar güneş paneli bağlanabilir.
 
@@ -204,6 +218,14 @@ Türkiye'nin her yerine kargo ile gönderiyoruz; cihazı bir elektrikçi bağlay
 Alternatörden yaşam aküsüne şarj için DC-DC akü şarj cihazlarımıza bakın.
 
 [DC-DC akü şarj cihazları →](https://www.gespaenerji.com/havensis-dcdc-30a.html)
+
+Müşteri yorumları
+
+## Bu ürünü alanlar ne diyor?
+
+Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
+
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20Solar-60AMPS%20150%7C60%20MPPT%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%2012%2F24%2F36%2F48%20V%2060%20A%22%20(S60AMPS)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Şarj kontrol cihazınızı bugün sipariş edin
 

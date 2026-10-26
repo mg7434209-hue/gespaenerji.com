@@ -25,17 +25,31 @@ Price includes VAT.
 
 💰 By bank transfer: **₺1.150**
 
+🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
 [⚡ Buy it now](https://www.gespaenerji.com/en/sepet.html)
-[💬 Ask on WhatsApp](https://www.gespaenerji.com/en/iletisim.html)
+[💬 Ask on WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Hero%20LED%20100%20W%20Solar%20Sokak%20Armat%C3%BCr%C3%BC%20(Sens%C3%B6rl%C3%BC%2C%20Kumandal%C4%B1)%22%20(HL-5151)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fhero-led-solar-sokak-100w.html)
 
-- 🚚 Ships to anywhere in Türkiye; shipping is paid by the buyer.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
 - 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
+- 🔒 Secure payment: iyzico / tami · invoice with every order
 - 🏷️ Brand: Hero LED
 
 ☀️ Solar panel included 🚶 Motion sensor 💧 IP65
+
+### ✅ Suitable for
+
+- Gardens, streets, estates and car parks without a power line
+- Mounting spots that get sun all day
+- Areas that should light up on motion
+
+### ⛔ Not suitable for
+
+- Places in permanent shade
+- Indoor lighting
+- A fixture that should run on mains power
 
 100 W solar street light (HL-5151) that charges from its solar panel and works at night: light without running a power line. SMD LEDs, 6500 K white light, automatic switch-on by motion sensor, remote control, IP65 water resistance and a 30,000-hour lifetime. For gardens, streets, estates, car parks and factories.
 
@@ -148,6 +162,14 @@ We ship anywhere in Türkiye. In the Antalya region we offer optional on-site in
 See the panel, battery and charge controller to power your lighting in a few steps with the System Builder.
 
 [Open the System Builder →](https://www.gespaenerji.com/en/sistem-kur.html)
+
+Customer reviews
+
+## What do buyers of this product say?
+
+No published reviews for this product yet. If you bought it, write about your experience; it is published here after approval.
+
+[Write a review (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Hero%20LED%20100%20W%20Solar%20Sokak%20Armat%C3%BCr%C3%BC%20(Sens%C3%B6rl%C3%BC%2C%20Kumandal%C4%B1)%22%20(HL-5151)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Our Google reviews ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Order the solar street light today
 

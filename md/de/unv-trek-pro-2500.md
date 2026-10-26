@@ -25,17 +25,31 @@ Preis inkl. MwSt.
 
 💰 Per Überweisung: **₺119.100**
 
+🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 
-[💬 Per WhatsApp fragen](https://www.gespaenerji.com/de/iletisim.html)
+[💬 Per WhatsApp fragen](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22UNV%20Trek%20Pro%202500%20W%20Ta%C5%9F%C4%B1nabilir%20G%C3%BC%C3%A7%20%C4%B0stasyonu%22%20(ES-E2500-A2)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Funv-trek-pro-2500.html)
 [📦 Alle Produkte](https://www.gespaenerji.com/de/online-satis.html)
 
 - 📦 Der Bestand ist begrenzt — von diesem Produkt ist noch 1 Stück vorhanden.
-- 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
 - 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
+- 🔒 Sichere Zahlung: iyzico / tami · Rechnung zu jeder Bestellung
 
 ⚡ 2500 W Dauerleistung 🔋 2496 Wh Akku 🔌 4 × 230 V reine Sinuswelle ⏱️ 30 ms USV
+
+### ✅ Geeignet für
+
+- TV, Licht und Laden in Ferienhaus, Camp und Wohnmobil
+- Orte ohne Netzstrom
+- Wer eine Plug-and-play-Lösung möchte
+
+### ⛔ Nicht geeignet für
+
+- Leistungsstarke Geräte wie Klimaanlage oder Backofen
+- Einspeisung ins Netz (On-Grid)
+- Tagesverbrauch über der Kapazität in der Tabelle
 
 Die Trek Pro 2500 ist eine tragbare Powerstation, mit der Sie Strom überall dorthin mitnehmen, wo Sie eine Steckdose brauchen. Der 2.496-Wh-Akku betreibt Geräte mit bis zu 2.500 W netzunabhängig.
 
@@ -130,6 +144,14 @@ Ein Solarmodul ist nicht im Lieferumfang enthalten. Fragen Sie uns vor der Beste
 ### Passen die Steckdosen zu türkischen Steckern?
 
 Dieses Produkt wird mit unterschiedlichen Steckdosenstandards gefertigt. Wir bestätigen den Steckdosentyp des an Sie gelieferten Geräts vor der Bestellung per WhatsApp; eine unpassende Version versenden wir nicht.
+
+Kundenbewertungen
+
+## Was sagen Käufer dieses Produkts?
+
+Für dieses Produkt gibt es noch keine veröffentlichte Bewertung. Wenn Sie es gekauft haben, schreiben Sie uns Ihre Erfahrung; nach Prüfung erscheint sie hier.
+
+[Bewertung schreiben (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22UNV%20Trek%20Pro%202500%20W%20Ta%C5%9F%C4%B1nabilir%20G%C3%BC%C3%A7%20%C4%B0stasyonu%22%20(ES-E2500-A2)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Unsere Google-Bewertungen ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Nur noch 1 Stück — heute bestellen
 

@@ -25,14 +25,16 @@ KDV dahil fiyattır.
 
 💰 Havale/EFT ile: **₺950**
 
+🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
 [⚡ Hemen satın al](https://www.gespaenerji.com/sepet.html)
-[💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Solar%20Kablo%20Tak%C4%B1m%C4%B1%20(5%20m%20Siyah%20%2B%205%20m%20K%C4%B1rm%C4%B1z%C4%B1)%22%20(GES-KBL-5M)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fkablo-solar-5m.html)
 
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 
 📏 5 m + 5 m ⚫🔴 Siyah + kırmızı ☀️ Solar kablo
 
@@ -119,6 +121,14 @@ Türkiye'nin her yerine kargo ile gönderiyoruz. Antalya bölgesinde isteğe ba�
 Elektrikli araç güneş paketlerimizde panel, BOOST MPPT, kablo ve MC4 birlikte gelir.
 
 [Motor güneş paketlerine bakın →](https://www.gespaenerji.com/elektrikli-arac-donusum.html#paketler)
+
+Müşteri yorumları
+
+## Bu ürünü alanlar ne diyor?
+
+Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
+
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Solar%20Kablo%20Tak%C4%B1m%C4%B1%20(5%20m%20Siyah%20%2B%205%20m%20K%C4%B1rm%C4%B1z%C4%B1)%22%20(GES-KBL-5M)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Bugün sipariş edin
 

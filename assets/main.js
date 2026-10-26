@@ -488,18 +488,42 @@
         set("[data-pkg-havale]", "₺" + nf.format(unitCart));
         set("[data-pkg-cta]", "🛒 " + L("Sepete ekle — %" + pct + " indirimle al", "Add to cart — get " + pct + "% off", "In den Warenkorb — " + pct + " % sparen", "В корзину — скидка " + pct + " %"));
       }
-      // WhatsApp bilgi linkleri
+      // WhatsApp bilgi linkleri — ürün adı + kod + adet + sayfa adresi (CRO FAZ 2)
       var wa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
       var waHref = function (msg) { return "https://wa.me/" + wa + "?text=" + encodeURIComponent(msg); };
-      if (wa) {
+      var pageUrl = ((CFG.company && CFG.company.web) || "") + "/" + (p.url || "");
+      var applyWa = function () {
+        if (!wa) return;
+        var tag = p.sku ? " (" + p.sku + ")" : "";
         document.querySelectorAll("[data-pkg-wa]").forEach(function (el) {
-          el.href = waHref(L("Merhaba, \"" + p.name + "\" paketi hakkında bilgi almak istiyorum.",
-            "Hello, I would like information about the \"" + p.name + "\" package.",
-            "Hallo, ich interessiere mich für das Paket \"" + p.name + "\".",
-            "Здравствуйте, интересует пакет «" + p.name + "»."));
+          el.href = waHref(L("Merhaba GESPA, \"" + p.name + "\"" + tag + " hakkında bilgi almak istiyorum. Adet: " + qty + ". " + pageUrl,
+            "Hello GESPA, I would like information about \"" + p.name + "\"" + tag + ". Quantity: " + qty + ". " + pageUrl,
+            "Hallo GESPA, ich interessiere mich für \"" + p.name + "\"" + tag + ". Menge: " + qty + ". " + pageUrl,
+            "Здравствуйте, GESPA, интересует «" + p.name + "»" + tag + ". Количество: " + qty + ". " + pageUrl));
           el.target = "_blank"; el.rel = "noopener";
         });
-      }
+        document.querySelectorAll("[data-pkg-review]").forEach(function (el) {
+          el.href = waHref(L("Merhaba GESPA, \"" + p.name + "\"" + tag + " ürünü için yorumum: ",
+            "Hello GESPA, my review of \"" + p.name + "\"" + tag + ": ",
+            "Hallo GESPA, meine Bewertung zu \"" + p.name + "\"" + tag + ": ",
+            "Здравствуйте, GESPA, мой отзыв о «" + p.name + "»" + tag + ": "));
+        });
+      };
+      applyWa();
+      document.addEventListener("gespa:lang", applyWa);
+      // Taksit satırı: kart ödemesi açıksa görünür; tami'de en yüksek taksit sayısı yazılır.
+      var tkEl = document.querySelector("[data-pay-taksit]");
+      if (tkEl) fetch("/api/pay/status").then(function (r) { return r.json(); }).then(function (st) {
+        if (!st || !st.enabled) return;
+        var n = st.taksit && st.taksit.secenekler && st.taksit.secenekler.length ? Math.max.apply(null, st.taksit.secenekler) : 0;
+        var sp = tkEl.querySelector("span");
+        var write = function () {
+          if (sp) sp.textContent = n
+            ? L("Kredi kartına " + n + " taksite kadar — ödeme sayfasında seçilir", "Up to " + n + " instalments by card — chosen on the payment page", "Bis zu " + n + " Raten per Karte — auf der Zahlungsseite wählbar", "До " + n + " платежей картой — выбирается на странице оплаты")
+            : L("Kredi kartına taksit — ödeme sayfasında seçilir", "Card instalments — chosen on the payment page", "Ratenzahlung per Karte — auf der Zahlungsseite wählbar", "Рассрочка картой — выбирается на странице оплаты");
+        };
+        write(); tkEl.hidden = false; document.addEventListener("gespa:lang", write);
+      }).catch(function () {});
       // Adet kutusu (− n +) — seçilen adet "Sepete ekle" ile sepete geçer
       var qtyIn = document.querySelector("[data-qty-input]");
       // Üst sınır stoktur: stokta 1 varsa müşteri 5 adet sipariş edemez.
@@ -512,7 +536,7 @@
         if (pct) set("[data-pkg-havale]", "₺" + nf.format(uq.cart));
         if (bulkEl) bulkEl.classList.toggle("is-on", !!uq.bulk);
       };
-      var setQty = function (n) { qty = Math.max(1, Math.min(maxQty || 1, Math.round(n) || 1)); if (qtyIn) qtyIn.value = qty; showUnit(); };
+      var setQty = function (n) { qty = Math.max(1, Math.min(maxQty || 1, Math.round(n) || 1)); if (qtyIn) qtyIn.value = qty; showUnit(); applyWa(); };
       document.querySelectorAll(".buy-row [data-q]").forEach(function (b) {
         b.addEventListener("click", function () { setQty(qty + (+b.getAttribute("data-q"))); });
       });
@@ -1751,6 +1775,25 @@
     var bar = doc.createElement("div");
     bar.className = "mobile-cta";
     bar.setAttribute("aria-label", L("Hızlı iletişim", "Quick contact", "Schnellkontakt", "Быстрая связь"));
+    // ÜRÜN SAYFASINDA (CRO FAZ 2): fiyat + Sepete ekle + WhatsApp. "Ücretsiz Keşif"
+    // satışı GES hunisine saptırıyordu. Tükenen üründe WhatsApp'tan sor.
+    var host = $("[data-pkg-detail]"), shop = window.GESPA && GESPA.shop;
+    var pp = host && shop && shop.pkg(host.getAttribute("data-pkg-detail"));
+    if (pp && pp.price != null) {
+      var nf = new Intl.NumberFormat("tr-TR"), u = shop.unit(pp);
+      var waEl = $("[data-pkg-wa]");
+      bar.classList.add("mobile-cta-prod");
+      bar.innerHTML = '<span class="mcta-price">₺' + nf.format(u.list) + "</span>" +
+        (pp.stock === 0
+          ? '<a class="mcta mcta-quote" href="' + (waEl ? waEl.href : "https://wa.me/" + c.phone.wa) + '" target="_blank" rel="noopener">💬 ' + L("Stok için sor", "Ask about stock", "Verfügbarkeit anfragen", "Спросить о наличии") + "</a>"
+          : '<button type="button" class="mcta mcta-quote" data-mcta-add>🛒 ' + L("Sepete ekle", "Add to cart", "In den Warenkorb", "В корзину") + "</button>") +
+        '<a class="mcta mcta-wa mcta-ico" href="' + (waEl ? waEl.href : "https://wa.me/" + c.phone.wa) + '" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>';
+      doc.body.appendChild(bar);
+      bar.addEventListener("click", function (e) {
+        if (e.target.closest("[data-mcta-add]")) { var btn = $(".buy-box [data-add-cart]"); if (btn) btn.click(); }
+      });
+      return;
+    }
     bar.innerHTML =
       '<a class="mcta mcta-call" href="tel:' + c.phone.tel + '">📞 ' + L("Hemen Ara", "Call now", "Anrufen", "Позвонить") + '</a>' +
       '<a class="mcta mcta-wa" href="https://wa.me/' + c.phone.wa + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +

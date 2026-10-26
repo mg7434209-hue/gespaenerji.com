@@ -25,17 +25,32 @@ KDV dahil fiyattır.
 
 💰 Havale/EFT ile: **₺8.450**
 
+🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
 [⚡ Hemen satın al](https://www.gespaenerji.com/sepet.html)
-[💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22700%20W%20Bifacial%20TOPCon%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-700)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpanel-700w.html)
 
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🛡️ Garanti: **30 yıl güç (30. yılda %87,4)**
+- 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 - 🔌 Şarj kontrol cihazı ve kablo ürüne dahil değildir.
 
 🔆 700 W bifacial ☀️ Ön yüz 610 Wp ✂️ 144 yarım hücre
+
+### ✅ Kimler için uygun
+
+- Şarj kontrol cihazlı akülü (off-grid) sistemler
+- Çatı veya arazi santraline ek panel
+- Uyumlu elektrikli araç güneş paketleri
+
+### ⛔ Uygun değil
+
+- Doğrudan aküye bağlamak (şarj kontrol cihazı şart)
+- Panel giriş gerilimi sınırını aşan cihazlar (Voc teknik tabloda)
+- Şebekeye tek başına bağlamak (inverter gerekir)
 
 144 yarım hücreli, N-type TOPCon teknolojili çift yüzlü (bifacial) güneş paneli. Ön yüz STC gücü 610 Wp; arka yüzden %15 ek kazançla 701,5 W'a ulaşır (%10'da 671 W, %20'de 732 W). Ön yüzde Voc 53,27 V · Vmp 44,51 V · Isc 14,34 A · Imp 13,71 A, modül verimi %23,62. Ölçü 2278 × 1133 × 30 mm; 1500 V sistem gerilimi, 0~+5 W güç toleransı. Kargo kasalı motor güneş paketimizin panelidir; tek başına da satılır.
 
@@ -172,6 +187,14 @@ Türkiye'nin her yerine kargo ile gönderiyoruz. Antalya bölgesinde isteğe ba�
 Kaç panel, hangi akü ve inverter gerektiğini Sistem Kurucu ile birkaç adımda görün.
 
 [Sistem Kurucu'yu açın →](https://www.gespaenerji.com/sistem-kur.html)
+
+Müşteri yorumları
+
+## Bu ürünü alanlar ne diyor?
+
+Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
+
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22700%20W%20Bifacial%20TOPCon%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-700)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Paneli bugün sipariş edin
 
