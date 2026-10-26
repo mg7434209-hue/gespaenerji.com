@@ -25,6 +25,8 @@ Preis inkl. MwSt.
 
 💰 Per Überweisung: **₺119.100**
 
+💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
+
 🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
 
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
@@ -35,6 +37,7 @@ Preis inkl. MwSt.
 - 📦 Der Bestand ist begrenzt — von diesem Produkt ist noch 1 Stück vorhanden.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
 - 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
+- 🛡️ Garantie: **2 Jahre**
 - 🔒 Sichere Zahlung: iyzico / tami · Rechnung zu jeder Bestellung
 
 ⚡ 2500 W Dauerleistung 🔋 2496 Wh Akku 🔌 4 × 230 V reine Sinuswelle ⏱️ 30 ms USV

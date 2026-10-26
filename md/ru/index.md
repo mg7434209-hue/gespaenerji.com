@@ -22,7 +22,7 @@ publisher: "GESPA Enerji"
 - **15 MW**Установленная мощность
 - **21 лет**Опыт в отрасли
 
-🏢 В Манавгате с 2005 года ✅ 500+ завершённых проектов ⚡ 15 МВт установленной мощности 🔒 Безопасная оплата: iyzico · tami
+🏢 В Манавгате с 2005 года ✅ 500+ завершённых проектов ⚡ 15 МВт установленной мощности 📞 Ответ на запрос осмотра за 1–3 дня 🔒 Безопасная оплата: iyzico · tami
 
 ## Что вы ищете?
 
@@ -113,6 +113,8 @@ publisher: "GESPA Enerji"
 [Подробнее о проекте →](https://www.gespaenerji.com/ru/proje-manavgat-tarimsal.html)
 
 [Все проекты →](https://www.gespaenerji.com/ru/projeler.html) [Галерея с объектов →](https://www.gespaenerji.com/ru/projeler.html#galeri)
+
+[![Villa çatısı güneş enerjisi kurulumu](https://www.gespaenerji.com/assets/img/gallery/g1-thumb.webp)](https://www.gespaenerji.com/ru/projeler.html#galeri)[![Vinçle panel taşıma](https://www.gespaenerji.com/assets/img/gallery/g4-thumb.webp)](https://www.gespaenerji.com/ru/projeler.html#galeri)[![İnverter kurulumu](https://www.gespaenerji.com/assets/img/gallery/g6-thumb.webp)](https://www.gespaenerji.com/ru/projeler.html#galeri)[![Ticari çatı panel uygulaması](https://www.gespaenerji.com/assets/img/gallery/g3-thumb.webp)](https://www.gespaenerji.com/ru/projeler.html#galeri)
 
 Почему GESPA?
 

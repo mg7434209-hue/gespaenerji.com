@@ -27,6 +27,8 @@ KDV ve kargo dahil fiyattır.
 
 💰 Havale/EFT ile: **₺7.200**
 
+💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
+
 🚚 Kargo ücretsiz — fiyata dahil · 2–5 iş günü
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)

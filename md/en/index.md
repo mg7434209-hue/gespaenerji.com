@@ -22,7 +22,7 @@ Panels, batteries, charge controllers and ready-made kits shipped anywhere in T�
 - **15 MW**Installed Capacity
 - **21 years**Industry Experience
 
-🏢 In Manavgat since 2005 ✅ 500+ completed projects ⚡ 15 MW installed 🔒 Secure payment: iyzico · tami
+🏢 In Manavgat since 2005 ✅ 500+ completed projects ⚡ 15 MW installed 📞 Survey requests answered in 1–3 days 🔒 Secure payment: iyzico · tami
 
 ## What are you looking for?
 
@@ -113,6 +113,8 @@ A solar power plant on a greenhouse roof for greenhouse and field irrigation.
 [Project details →](https://www.gespaenerji.com/en/proje-manavgat-tarimsal.html)
 
 [See all projects →](https://www.gespaenerji.com/en/projeler.html) [Site gallery →](https://www.gespaenerji.com/en/projeler.html#galeri)
+
+[![Villa çatısı güneş enerjisi kurulumu](https://www.gespaenerji.com/assets/img/gallery/g1-thumb.webp)](https://www.gespaenerji.com/en/projeler.html#galeri)[![Vinçle panel taşıma](https://www.gespaenerji.com/assets/img/gallery/g4-thumb.webp)](https://www.gespaenerji.com/en/projeler.html#galeri)[![İnverter kurulumu](https://www.gespaenerji.com/assets/img/gallery/g6-thumb.webp)](https://www.gespaenerji.com/en/projeler.html#galeri)[![Ticari çatı panel uygulaması](https://www.gespaenerji.com/assets/img/gallery/g3-thumb.webp)](https://www.gespaenerji.com/en/projeler.html#galeri)
 
 Why GESPA?
 

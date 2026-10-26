@@ -25,6 +25,8 @@ Price includes VAT.
 
 💰 By bank transfer: **₺119.100**
 
+💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
+
 🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
@@ -35,6 +37,7 @@ Price includes VAT.
 - 📦 Stock is limited — we have 1 unit of this product left.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
 - 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
+- 🛡️ Warranty: **2 years**
 - 🔒 Secure payment: iyzico / tami · invoice with every order
 
 ⚡ 2500 W continuous output 🔋 2496 Wh battery 🔌 4 × 230 V pure sine wave ⏱️ 30 ms UPS

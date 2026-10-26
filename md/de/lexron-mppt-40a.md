@@ -25,6 +25,8 @@ Preis inkl. MwSt.
 
 💰 Per Überweisung: **₺3.700**
 
+💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
+
 🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
 
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
@@ -34,6 +36,7 @@ Preis inkl. MwSt.
 
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
 - 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
+- 🛡️ Garantie: **2 Jahre**
 - 🔒 Sichere Zahlung: iyzico / tami · Rechnung zu jeder Bestellung
 - ☀️ Module und Batterie sind nicht im Lieferumfang enthalten.
 - 🏷️ Marke: Lexron

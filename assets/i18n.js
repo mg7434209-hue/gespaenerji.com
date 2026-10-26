@@ -6006,6 +6006,21 @@
     "Çok adet, kurumsal teklif": "Крупные партии, корпоративное предложение",
     "Kullanım senaryosu": "Сценарий использования",
   });
+  Object.assign(DICT.en, {
+    "Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir": "Up to 12 monthly instalments by card (interest applies) — chosen on the payment page",
+    "Bu bir ön hesaptır; kesin rakam ücretsiz keşifte belirlenir. 1–3 gün içinde sizi ararız; bilgileriniz yalnız bu görüşme için kullanılır.": "This is a first estimate; the exact figure is set at the free survey. We call you within 1–3 days; your details are used only for this conversation.",
+    "📞 Keşif talebine 1–3 günde dönüş": "📞 Survey requests answered in 1–3 days",
+  });
+  Object.assign(DICT.de, {
+    "Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir": "Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar",
+    "Bu bir ön hesaptır; kesin rakam ücretsiz keşifte belirlenir. 1–3 gün içinde sizi ararız; bilgileriniz yalnız bu görüşme için kullanılır.": "Dies ist eine erste Schätzung; der genaue Wert wird bei der kostenlosen Besichtigung ermittelt. Wir rufen Sie innerhalb von 1–3 Tagen an; Ihre Angaben werden nur für dieses Gespräch verwendet.",
+    "📞 Keşif talebine 1–3 günde dönüş": "📞 Rückmeldung zur Besichtigung in 1–3 Tagen",
+  });
+  Object.assign(DICT.ru, {
+    "Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir": "До 12 ежемесячных платежей картой (с процентами) — выбирается на странице оплаты",
+    "Bu bir ön hesaptır; kesin rakam ücretsiz keşifte belirlenir. 1–3 gün içinde sizi ararız; bilgileriniz yalnız bu görüşme için kullanılır.": "Это предварительный расчёт; точная цифра определяется при бесплатном осмотре. Мы позвоним в течение 1–3 дней; ваши данные используются только для этого разговора.",
+    "📞 Keşif talebine 1–3 günde dönüş": "📞 Ответ на запрос осмотра за 1–3 дня",
+  });
   // /CRO:DICT
   // MHUB:DICT — telefon ana sayfası hızlı menüsü (index.html .m-hub, 24 Eki 2026)
   Object.assign(DICT.en, {

@@ -22,7 +22,7 @@ Module, Akkus, Laderegler und fertige Sets mit Versand in die ganze Türkei. In 
 - **15 MW**Installierte Leistung
 - **21 Jahre**Branchenerfahrung
 
-🏢 Seit 2005 in Manavgat ✅ 500+ abgeschlossene Projekte ⚡ 15 MW installierte Leistung 🔒 Sichere Zahlung: iyzico · tami
+🏢 Seit 2005 in Manavgat ✅ 500+ abgeschlossene Projekte ⚡ 15 MW installierte Leistung 📞 Rückmeldung zur Besichtigung in 1–3 Tagen 🔒 Sichere Zahlung: iyzico · tami
 
 ## Was suchen Sie?
 
@@ -113,6 +113,8 @@ Solarkraftwerk auf einem Gewächshausdach für Gewächshaus- und Feldbewässerun
 [Projektdetails →](https://www.gespaenerji.com/de/proje-manavgat-tarimsal.html)
 
 [Alle Projekte →](https://www.gespaenerji.com/de/projeler.html) [Baustellen-Galerie →](https://www.gespaenerji.com/de/projeler.html#galeri)
+
+[![Villa çatısı güneş enerjisi kurulumu](https://www.gespaenerji.com/assets/img/gallery/g1-thumb.webp)](https://www.gespaenerji.com/de/projeler.html#galeri)[![Vinçle panel taşıma](https://www.gespaenerji.com/assets/img/gallery/g4-thumb.webp)](https://www.gespaenerji.com/de/projeler.html#galeri)[![İnverter kurulumu](https://www.gespaenerji.com/assets/img/gallery/g6-thumb.webp)](https://www.gespaenerji.com/de/projeler.html#galeri)[![Ticari çatı panel uygulaması](https://www.gespaenerji.com/assets/img/gallery/g3-thumb.webp)](https://www.gespaenerji.com/de/projeler.html#galeri)
 
 Warum GESPA?
 

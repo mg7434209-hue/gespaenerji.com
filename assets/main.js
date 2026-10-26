@@ -514,7 +514,8 @@
       // Taksit satırı: kart ödemesi açıksa görünür; tami'de en yüksek taksit sayısı yazılır.
       var tkEl = document.querySelector("[data-pay-taksit]");
       if (tkEl) fetch("/api/pay/status").then(function (r) { return r.json(); }).then(function (st) {
-        if (!st || !st.enabled) return;
+        if (!st || !st.enabled) { tkEl.hidden = true; return; }
+        if (tkEl.textContent.trim().length > 10 && (CFG.commerce || {}).taksitMax) return;   // statik metin (config) yeterli
         var n = st.taksit && st.taksit.secenekler && st.taksit.secenekler.length ? Math.max.apply(null, st.taksit.secenekler) : 0;
         var sp = tkEl.querySelector("span");
         var write = function () {
@@ -2257,10 +2258,11 @@
       var openWa = function () { if (WA) window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(msg), "_blank"); };
       var thanks = function () {
         if (done) { done.hidden = false; done.className = "lead-done";
-          done.textContent = L("Aldık, " + v("ad") + ". En kısa sürede " + v("tel") + " numaranızı arayacağız. WhatsApp penceresi açılmadıysa alttaki yeşil düğmeyi kullanın.",
-            "Thank you, " + v("ad") + ". We will call " + v("tel") + " shortly. If WhatsApp did not open, use the green button below.",
-            "Danke, " + v("ad") + ". Wir rufen Sie in Kürze unter " + v("tel") + " an. Falls WhatsApp nicht geöffnet wurde, nutzen Sie den grünen Button unten.",
-            "Спасибо, " + v("ad") + ". Мы скоро позвоним на " + v("tel") + ". Если WhatsApp не открылся, используйте зелёную кнопку ниже."); }
+          var rd = (CFG.commerce && CFG.commerce.leadReplyDays) || "1–3";
+          done.textContent = L("Aldık, " + v("ad") + ". " + rd + " gün içinde " + v("tel") + " numaranızı arayacağız. WhatsApp penceresi açılmadıysa alttaki yeşil düğmeyi kullanın.",
+            "Thank you, " + v("ad") + ". We will call " + v("tel") + " within " + rd + " days. If WhatsApp did not open, use the green button below.",
+            "Danke, " + v("ad") + ". Wir rufen Sie innerhalb von " + rd + " Tagen unter " + v("tel") + " an. Falls WhatsApp nicht geöffnet wurde, nutzen Sie den grünen Button unten.",
+            "Спасибо, " + v("ad") + ". Мы позвоним на " + v("tel") + " в течение " + rd + " дней. Если WhatsApp не открылся, используйте зелёную кнопку ниже."); }
         if (btn) { btn.disabled = true; btn.textContent = L("Gönderildi ✓", "Sent ✓", "Gesendet ✓", "Отправлено ✓"); }
         try { if (window.gtag) { gtag("event", "lead_form", { page_path: location.pathname }); gtag("event", "lead_whatsapp", { page_path: location.pathname }); } } catch (err) {}
       };

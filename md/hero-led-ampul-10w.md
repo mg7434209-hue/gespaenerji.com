@@ -25,6 +25,8 @@ KDV dahil fiyattır.
 
 💰 Havale/EFT ile: **₺130**
 
+💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
+
 🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
@@ -34,6 +36,7 @@ KDV dahil fiyattır.
 
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🛡️ Garanti: **2 yıl**
 - 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 - 🏷️ Marka: Hero LED
 

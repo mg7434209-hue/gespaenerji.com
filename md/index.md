@@ -22,7 +22,7 @@ Panel, akü, şarj cihazı ve hazır paketler Türkiye'nin her yerine kargo. Ça
 - **15 MW**Bölgede Kurulu Güç
 - **21 yıl**Sektör Deneyimi
 
-🏢 2005'ten beri Manavgat'ta ✅ 500+ tamamlanan proje ⚡ 15 MW kurulu güç 🔒 Güvenli ödeme: iyzico · tami
+🏢 2005'ten beri Manavgat'ta ✅ 500+ tamamlanan proje ⚡ 15 MW kurulu güç 📞 Keşif talebine 1–3 günde dönüş 🔒 Güvenli ödeme: iyzico · tami
 
 ## Ne arıyorsunuz?
 
@@ -113,6 +113,8 @@ Sera ve tarla sulaması için sera çatısına kurulan güneş enerjisi santrali
 [Proje ayrıntıları →](https://www.gespaenerji.com/proje-manavgat-tarimsal.html)
 
 [Tüm projeleri gör →](https://www.gespaenerji.com/projeler.html) [Saha galerisi →](https://www.gespaenerji.com/projeler.html#galeri)
+
+[![Villa çatısı güneş enerjisi kurulumu](https://www.gespaenerji.com/assets/img/gallery/g1-thumb.webp)](https://www.gespaenerji.com/projeler.html#galeri)[![Vinçle panel taşıma](https://www.gespaenerji.com/assets/img/gallery/g4-thumb.webp)](https://www.gespaenerji.com/projeler.html#galeri)[![İnverter kurulumu](https://www.gespaenerji.com/assets/img/gallery/g6-thumb.webp)](https://www.gespaenerji.com/projeler.html#galeri)[![Ticari çatı panel uygulaması](https://www.gespaenerji.com/assets/img/gallery/g3-thumb.webp)](https://www.gespaenerji.com/projeler.html#galeri)
 
 Neden GESPA?
 

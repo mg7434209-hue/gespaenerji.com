@@ -25,6 +25,8 @@ Price includes VAT.
 
 💰 By bank transfer: **₺27.150**
 
+💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
+
 🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
@@ -34,6 +36,7 @@ Price includes VAT.
 
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
 - 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
+- 🛡️ Warranty: **2 years**
 - 🔒 Secure payment: iyzico / tami · invoice with every order
 - 🔌 The charger is not included.
 

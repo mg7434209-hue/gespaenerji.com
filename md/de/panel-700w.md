@@ -25,6 +25,8 @@ Preis inkl. MwSt.
 
 💰 Per Überweisung: **₺8.450**
 
+💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
+
 🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
 
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)

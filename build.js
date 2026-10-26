@@ -602,19 +602,21 @@ function hydrateProductTemplate(html, cfg, p) {
     });
   }
   // 2) Fiyat kutusu satırları
-  const days = (cfg.commerce && cfg.commerce.shipDays) || "2–5";
+  const com = cfg.commerce || {};
+  const days = com.shipDays || "2–5";
   const kargo = p.freeShipping
     ? '<p class="pd-row">🚚 <span>Kargo ücretsiz — fiyata dahil</span> · <span>' + esc(days) + ' iş günü</span></p>'
     : '<p class="pd-row">🚚 <span>Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir</span> · <span>' + esc(days) + ' iş günü</span></p>';
   const rows = '<!-- PRICEROWS:STATIC --><div class="pd-rows">' +
-    '<p class="pd-row pd-taksit" data-pay-taksit hidden>💳 <span>Kredi kartına taksit — ödeme sayfasında seçilir</span></p>' + kargo +
+    (com.taksitMax ? '<p class="pd-row pd-taksit" data-pay-taksit>💳 <span>' + esc("Kredi kartına " + com.taksitMax + " aya kadar taksit" + (com.taksitVadeFarki ? " (vade farkı uygulanır)" : "") + " — ödeme sayfasında seçilir") + "</span></p>"
+                   : '<p class="pd-row pd-taksit" data-pay-taksit hidden>💳 <span>Kredi kartına taksit — ödeme sayfasında seçilir</span></p>') + kargo +
     "</div><!-- /PRICEROWS:STATIC -->";
   if (/<!-- PRICEROWS:STATIC -->/.test(html)) html = html.replace(/<!-- PRICEROWS:STATIC -->[\s\S]*?<!-- \/PRICEROWS:STATIC -->/, rows);
   else html = html.replace(/(<p class="pd-havale">[\s\S]*?<\/p>)/, "$1\n              " + rows);
   // 3) Güven satırı: kargo satırı fiyat kutusuna taşındı; garanti (varsa) + güvenli ödeme
   html = html.replace(/\s*<li>🚚 <span data-pkg-ship>[^<]*<\/span><\/li>/, "");
   const trust = "<!-- TRUST:STATIC -->" +
-    (p.warranty ? "<li>🛡️ <span>Garanti: <b>" + esc(p.warranty) + "</b></span></li>" : "") +
+    ((p.warranty || com.warrantyDefault) ? "<li>🛡️ <span>Garanti: <b>" + esc(p.warranty || com.warrantyDefault) + "</b></span></li>" : "") +
     "<li>🔒 <span>Güvenli ödeme: iyzico / tami · her siparişe fatura</span></li><!-- /TRUST:STATIC -->";
   if (/<!-- TRUST:STATIC -->/.test(html)) html = html.replace(/<!-- TRUST:STATIC -->[\s\S]*?<!-- \/TRUST:STATIC -->/, trust);
   else html = html.replace(/(<li>🔄 <span>[\s\S]*?<\/span><\/li>)/, "$1" + trust);

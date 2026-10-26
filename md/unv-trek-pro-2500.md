@@ -25,6 +25,8 @@ KDV dahil fiyattır.
 
 💰 Havale/EFT ile: **₺119.100**
 
+💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
+
 🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
@@ -35,6 +37,7 @@ KDV dahil fiyattır.
 - 📦 Stok sınırlıdır — bu üründen elimizde 1 adet kalmıştır.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🛡️ Garanti: **2 yıl**
 - 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 
 ⚡ 2500 W sürekli çıkış 🔋 2496 Wh batarya 🔌 4 × 230 V saf sinüs ⏱️ 30 ms UPS

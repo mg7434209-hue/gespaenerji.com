@@ -27,6 +27,8 @@ Price includes VAT and shipping.
 
 💰 By bank transfer: **₺7.200**
 
+💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
+
 🚚 Free shipping — included in the price · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)

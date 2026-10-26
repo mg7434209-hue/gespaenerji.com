@@ -218,7 +218,13 @@ window.GESPA.config = {
   commerce: {
     stockLabel: "Stokta / tedarikte",   // ürün sayfasındaki durum rozeti
     shipCountry: "Türkiye",             // gönderim yapılan ülke (tüm iller)
-    shipDays: "2–5",                    // teslim süresi (gün sayısı; birim metinde yazılı)
+    shipDays: "2–5",
+    // İşletme bilgisi (26 Eki 2026): kart ödemesinde 12 aya kadar taksit, vade
+    // farkı MÜŞTERİYE; tüm ürünlerde 2 yıl garanti (üründe `warranty` yazılıysa
+    // o geçerli: paneller 12/30 yıl); keşif taleplerine 1–3 gün içinde dönüş.
+    taksitMax: 12, taksitVadeFarki: true,
+    warrantyDefault: "2 yıl",
+    leadReplyDays: "1–3",                    // teslim süresi (gün sayısı; birim metinde yazılı)
     returnDays: 14,                     // cayma hakkı süresi (mesafeli satış)
     // Kabul edilen ödeme yolları — LocalBusiness.paymentAccepted buradan basılır;
     // sepetteki seçeneklerle AYNI tutulur (kart = iyzico, havale/EFT).
