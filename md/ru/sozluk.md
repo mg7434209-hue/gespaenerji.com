@@ -3,7 +3,7 @@ title: "Словарь солнечной энергетики — термин�
 description: "kWp, MPPT, TOPCon, LiFePO₄, DoD, взаимозачёт и другое: краткие и понятные объяснения терминов солнечной энергетики и аккумуляторов."
 canonical: https://www.gespaenerji.com/ru/sozluk.html
 lang: ru
-dateModified: 2026-09-30
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 

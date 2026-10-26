@@ -7,7 +7,7 @@ dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
-[Home](https://www.gespaenerji.com/en/) / [Products](https://www.gespaenerji.com/en/urunler.html) / Mini Electric Car Solar Set — 240 W
+[Home](https://www.gespaenerji.com/en/) / [Products](https://www.gespaenerji.com/en/urunler.html)[AI Products](https://www.gespaenerji.com/en/yapay-zeka-urunleri.html) / Mini Electric Car Solar Set — 240 W
 
 ![Enclosed mini electric car](https://www.gespaenerji.com/assets/img/products/ev/motor-mini.webp)
 

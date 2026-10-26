@@ -7,7 +7,7 @@ dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
-[Home](https://www.gespaenerji.com/en/) / [Products](https://www.gespaenerji.com/en/urunler.html) / UNV Trek Pro 2500 W Portable Power Station
+[Home](https://www.gespaenerji.com/en/) / [Products](https://www.gespaenerji.com/en/urunler.html)[AI Products](https://www.gespaenerji.com/en/yapay-zeka-urunleri.html) / UNV Trek Pro 2500 W Portable Power Station
 
 ![UNV Trek Pro 2500 W taşınabilir güç istasyonu — 4 AC prizi, USB ve Type-C çıkışları](https://www.gespaenerji.com/assets/img/products/unv-trek-pro-2500.webp)
 

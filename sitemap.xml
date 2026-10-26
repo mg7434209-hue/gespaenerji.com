@@ -5,103 +5,103 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://www.gespaenerji.com/</loc>
-    <lastmod>2026-10-24</lastmod><changefreq>weekly</changefreq><priority>1.0</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>weekly</changefreq><priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/" />
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gespa-villa.webp</image:loc><image:title>GESPA Enerji çatı güneş enerjisi sistemi kurulmuş modern villa ve saha ekibi</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/hero-ev-donusum.webp</image:loc><image:title>Teknisyen golf arabasına BOOST MPPT şarj kontrol cihazı ve akü bağlantısını kuruyor, arkada güneş panelli sundurma</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gespa-ekip.webp</image:loc><image:title>GESPA Enerji mühendislik ekibi güneş enerjisi santralinde saha incelemesi yapıyor</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/hero-ai-cankurtaran.webp</image:loc><image:title>AI kamera havuzdaki yüzücüleri tarıyor, risk algılandığında ışıklı alarm ve cankurtaran saatine bildirim gönderiyor</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gesmarketim.webp</image:loc><image:title>GES Marketim solar e-ticaret: güneş paneli, inverter ve akü ürünleri</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w.webp</image:loc><image:title>285W Güneş Paneli Paketi</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/panel-700w.webp</image:loc><image:title>700 W Bifacial TOPCon Güneş Paneli</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp</image:loc><image:title>MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/hero-led-solar-sokak-200w.webp</image:loc><image:title>Hero LED 200 W Solar Sokak Armatürü (Sensörlü, Kumandalı)</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp</image:loc><image:title>Kiremit çatıya kurulu güneş enerjisi santrali — Kemer</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-sanayi-800.webp</image:loc><image:title>Fabrika çatısına kurulu güneş enerjisi santralinin havadan görünümü</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp</image:loc><image:title>Villa teras çatısına kurulu güneş enerjisi santrali</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kirsehir-tarimsal.webp</image:loc><image:title>Arazi tipi güneş enerjisi kurulumu</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp</image:loc><image:title>Sera çatısına kurulu tarımsal güneş enerjisi santrali — Manavgat</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-golf-kurulum.webp</image:loc><image:title>Golf aracının tavanına kurulmuş güneş paneli</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-yolcu.webp</image:loc><image:title>Yolcu kabinli triportör</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-kargo.webp</image:loc><image:title>Kargo kasalı triportör</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-golf.webp</image:loc><image:title>Golf aracı tipi</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-mini.webp</image:loc><image:title>Mini elektrikli otomobil</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-fabrika-800.webp</image:loc><image:title>Manavgat Fabrika — GESPA Enerji GES projesi</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w.webp</image:loc><image:title>2x540 W lityum bataryalı güneş enerjisi sistemi</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/baglanti-semasi-900.webp</image:loc><image:title>Solar su ısıtıcı montaj şeması: çatıdaki güneş paneli, panel kablosu ve banyodaki termosifonun PV girişi bağlantısı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/about-montaj-600.webp</image:loc><image:title>GESPA Enerji ekibi çatıya güneş paneli monte ediyor</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/</loc>
-    <lastmod>2026-10-24</lastmod><changefreq>weekly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>weekly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/" />
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gespa-villa.webp</image:loc><image:title>GESPA Enerji çatı güneş enerjisi sistemi kurulmuş modern villa ve saha ekibi</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/hero-ev-donusum.webp</image:loc><image:title>A technician installs a BOOST MPPT charge controller and battery wiring in a golf cart, with a solar carport behind</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gespa-ekip.webp</image:loc><image:title>GESPA Enerji mühendislik ekibi güneş enerjisi santralinde saha incelemesi yapıyor</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/hero-ai-cankurtaran.webp</image:loc><image:title>AI kamera havuzdaki yüzücüleri tarıyor, risk algılandığında ışıklı alarm ve cankurtaran saatine bildirim gönderiyor</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gesmarketim.webp</image:loc><image:title>GES Marketim solar e-ticaret: güneş paneli, inverter ve akü ürünleri</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w.webp</image:loc><image:title>285W Solar Panel Package</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/panel-700w.webp</image:loc><image:title>700 W Bifacial TOPCon Solar Panel</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp</image:loc><image:title>MS Teknik BOOST MPPT 24-72 V Charge Controller</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/hero-led-solar-sokak-200w.webp</image:loc><image:title>Hero LED 200 W Solar Street Light (Sensor, Remote)</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp</image:loc><image:title>Solar power system on a tiled roof — Kemer</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-sanayi-800.webp</image:loc><image:title>Aerial view of a solar power plant on a factory roof</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp</image:loc><image:title>Solar power system installed on a villa terrace roof</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kirsehir-tarimsal.webp</image:loc><image:title>Ground-mounted solar installation</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp</image:loc><image:title>Agricultural solar plant on a greenhouse roof — Manavgat</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-golf-kurulum.webp</image:loc><image:title>Solar panel mounted on the roof of a golf cart</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-yolcu.webp</image:loc><image:title>Enclosed passenger three-wheeler</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-kargo.webp</image:loc><image:title>Cargo-bed three-wheeler</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-golf.webp</image:loc><image:title>Golf-cart type</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-mini.webp</image:loc><image:title>Mini electric car</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-fabrika-800.webp</image:loc><image:title>Manavgat Fabrika — GESPA Enerji GES projesi</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w.webp</image:loc><image:title>2x540 W lityum bataryalı güneş enerjisi sistemi</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/baglanti-semasi-900.webp</image:loc><image:title>Solar su ısıtıcı montaj şeması: çatıdaki güneş paneli, panel kablosu ve banyodaki termosifonun PV girişi bağlantısı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/about-montaj-600.webp</image:loc><image:title>GESPA Energy team installing solar panels on a roof</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/</loc>
-    <lastmod>2026-10-24</lastmod><changefreq>weekly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>weekly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/" />
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gespa-villa.webp</image:loc><image:title>GESPA Enerji çatı güneş enerjisi sistemi kurulmuş modern villa ve saha ekibi</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/hero-ev-donusum.webp</image:loc><image:title>Ein Techniker baut einen BOOST-MPPT-Laderegler und die Akkuverkabelung in ein Golfcart ein, dahinter ein Solarcarport</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gespa-ekip.webp</image:loc><image:title>GESPA Enerji mühendislik ekibi güneş enerjisi santralinde saha incelemesi yapıyor</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/hero-ai-cankurtaran.webp</image:loc><image:title>AI kamera havuzdaki yüzücüleri tarıyor, risk algılandığında ışıklı alarm ve cankurtaran saatine bildirim gönderiyor</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gesmarketim.webp</image:loc><image:title>GES Marketim solar e-ticaret: güneş paneli, inverter ve akü ürünleri</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w.webp</image:loc><image:title>285-W-Solarmodul-Paket</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/panel-700w.webp</image:loc><image:title>700 W Bifaziales TOPCon-Solarmodul</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp</image:loc><image:title>MS Teknik BOOST MPPT 24-72 V Laderegler</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/hero-led-solar-sokak-200w.webp</image:loc><image:title>Hero LED 200 W Solar-Straßenleuchte (Sensor, Fernbedienung)</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp</image:loc><image:title>Solaranlage auf einem Ziegeldach — Kemer</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-sanayi-800.webp</image:loc><image:title>Luftaufnahme einer Solaranlage auf einem Fabrikdach</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp</image:loc><image:title>Solaranlage auf einem Villen-Flachdach</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kirsehir-tarimsal.webp</image:loc><image:title>Freiflächen-Solaranlage</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp</image:loc><image:title>Landwirtschaftliche Solaranlage auf einem Gewächshausdach — Manavgat</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-golf-kurulum.webp</image:loc><image:title>Solarmodul auf dem Dach eines Golfcarts</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-yolcu.webp</image:loc><image:title>Dreirad mit Fahrgastkabine</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-kargo.webp</image:loc><image:title>Dreirad mit Ladefläche</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-golf.webp</image:loc><image:title>Golfcart-Typ</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-mini.webp</image:loc><image:title>Mini-Elektroauto</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-fabrika-800.webp</image:loc><image:title>Manavgat Fabrika — GESPA Enerji GES projesi</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w.webp</image:loc><image:title>2x540 W lityum bataryalı güneş enerjisi sistemi</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/baglanti-semasi-900.webp</image:loc><image:title>Solar su ısıtıcı montaj şeması: çatıdaki güneş paneli, panel kablosu ve banyodaki termosifonun PV girişi bağlantısı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/about-montaj-600.webp</image:loc><image:title>GESPA-Energy-Team montiert Solarmodule auf einem Dach</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/</loc>
-    <lastmod>2026-10-24</lastmod><changefreq>weekly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>weekly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.gespaenerji.com/ru/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/" />
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gespa-villa.webp</image:loc><image:title>GESPA Enerji çatı güneş enerjisi sistemi kurulmuş modern villa ve saha ekibi</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/hero-ev-donusum.webp</image:loc><image:title>Техник устанавливает в гольф-кар контроллер заряда BOOST MPPT и проводку аккумулятора; на заднем плане навес с солнечными панелями</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gespa-ekip.webp</image:loc><image:title>GESPA Enerji mühendislik ekibi güneş enerjisi santralinde saha incelemesi yapıyor</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/cankurtaran/hero-ai-cankurtaran.webp</image:loc><image:title>AI kamera havuzdaki yüzücüleri tarıyor, risk algılandığında ışıklı alarm ve cankurtaran saatine bildirim gönderiyor</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/hero-gesmarketim.webp</image:loc><image:title>GES Marketim solar e-ticaret: güneş paneli, inverter ve akü ürünleri</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-285w.webp</image:loc><image:title>Пакет с панелью 285 Вт</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/panel-700w.webp</image:loc><image:title>Двусторонняя солнечная панель TOPCon 700 Вт</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp</image:loc><image:title>Контроллер заряда MS Teknik BOOST MPPT 24-72 В</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/hero-led-solar-sokak-200w.webp</image:loc><image:title>Солнечный уличный светильник Hero LED 200 Вт (датчик, пульт)</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp</image:loc><image:title>Солнечная электростанция на черепичной крыше — Кемер</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-sanayi-800.webp</image:loc><image:title>Вид с воздуха на солнечную электростанцию на крыше завода</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp</image:loc><image:title>Солнечная электростанция на террасной крыше виллы</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/kirsehir-tarimsal.webp</image:loc><image:title>Наземная солнечная установка</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp</image:loc><image:title>Аграрная солнечная станция на крыше теплицы — Манавгат</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-golf-kurulum.webp</image:loc><image:title>Солнечная панель на крыше гольф-кара</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-yolcu.webp</image:loc><image:title>Трицикл с пассажирской кабиной</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-kargo.webp</image:loc><image:title>Грузовой трицикл с кузовом</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-golf.webp</image:loc><image:title>Тип гольф-кар</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/ev/motor-mini.webp</image:loc><image:title>Мини-электромобиль</image:title></image:image>
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-fabrika-800.webp</image:loc><image:title>Manavgat Fabrika — GESPA Enerji GES projesi</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/kit-2x540w.webp</image:loc><image:title>2x540 W lityum bataryalı güneş enerjisi sistemi</image:title></image:image>
-    <image:image><image:loc>https://www.gespaenerji.com/assets/img/products/heater/baglanti-semasi-900.webp</image:loc><image:title>Solar su ısıtıcı montaj şeması: çatıdaki güneş paneli, panel kablosu ve banyodaki termosifonun PV girişi bağlantısı</image:title></image:image>
+    <image:image><image:loc>https://www.gespaenerji.com/assets/img/about-montaj-600.webp</image:loc><image:title>Команда GESPA Energy монтирует солнечные панели на крыше</image:title></image:image>
   </url>
   <url>
     <loc>https://www.gespaenerji.com/hizmetler.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hizmetler.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hizmetler.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hizmetler.html" />
@@ -110,7 +110,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/hizmetler.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hizmetler.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hizmetler.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hizmetler.html" />
@@ -119,7 +119,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/hizmetler.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hizmetler.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hizmetler.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hizmetler.html" />
@@ -128,7 +128,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/hizmetler.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hizmetler.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hizmetler.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hizmetler.html" />
@@ -209,7 +209,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/su-isitici.html</loc>
-    <lastmod>2026-10-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/su-isitici.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/su-isitici.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/su-isitici.html" />
@@ -237,7 +237,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/su-isitici.html</loc>
-    <lastmod>2026-10-24</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/su-isitici.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/su-isitici.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/su-isitici.html" />
@@ -265,7 +265,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/su-isitici.html</loc>
-    <lastmod>2026-10-24</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/su-isitici.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/su-isitici.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/su-isitici.html" />
@@ -293,7 +293,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/su-isitici.html</loc>
-    <lastmod>2026-10-24</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/su-isitici.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/su-isitici.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/su-isitici.html" />
@@ -321,7 +321,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/hesaplayici.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hesaplayici.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hesaplayici.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hesaplayici.html" />
@@ -330,7 +330,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/hesaplayici.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hesaplayici.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hesaplayici.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hesaplayici.html" />
@@ -339,7 +339,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/hesaplayici.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hesaplayici.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hesaplayici.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hesaplayici.html" />
@@ -348,7 +348,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/hesaplayici.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hesaplayici.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hesaplayici.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hesaplayici.html" />
@@ -357,7 +357,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/projeler.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/projeler.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/projeler.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/projeler.html" />
@@ -383,7 +383,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/projeler.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/projeler.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/projeler.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/projeler.html" />
@@ -409,7 +409,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/projeler.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/projeler.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/projeler.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/projeler.html" />
@@ -435,7 +435,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/projeler.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/projeler.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/projeler.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/projeler.html" />
@@ -461,7 +461,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/hakkimizda.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hakkimizda.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hakkimizda.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hakkimizda.html" />
@@ -471,7 +471,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/hakkimizda.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hakkimizda.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hakkimizda.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hakkimizda.html" />
@@ -481,7 +481,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/hakkimizda.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hakkimizda.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hakkimizda.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hakkimizda.html" />
@@ -491,7 +491,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/hakkimizda.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/hakkimizda.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/hakkimizda.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/hakkimizda.html" />
@@ -501,7 +501,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/iletisim.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/iletisim.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/iletisim.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/iletisim.html" />
@@ -510,7 +510,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/iletisim.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/iletisim.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/iletisim.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/iletisim.html" />
@@ -519,7 +519,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/iletisim.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/iletisim.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/iletisim.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/iletisim.html" />
@@ -528,7 +528,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/iletisim.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/iletisim.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/iletisim.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/iletisim.html" />
@@ -537,7 +537,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/tarimsal-sulama.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/tarimsal-sulama.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/tarimsal-sulama.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/tarimsal-sulama.html" />
@@ -546,7 +546,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/tarimsal-sulama.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/tarimsal-sulama.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/tarimsal-sulama.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/tarimsal-sulama.html" />
@@ -555,7 +555,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/tarimsal-sulama.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/tarimsal-sulama.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/tarimsal-sulama.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/tarimsal-sulama.html" />
@@ -564,7 +564,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/tarimsal-sulama.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/tarimsal-sulama.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/tarimsal-sulama.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/tarimsal-sulama.html" />
@@ -573,7 +573,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/yapay-zeka-urunleri.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/yapay-zeka-urunleri.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/yapay-zeka-urunleri.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/yapay-zeka-urunleri.html" />
@@ -583,7 +583,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/yapay-zeka-urunleri.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/yapay-zeka-urunleri.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/yapay-zeka-urunleri.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/yapay-zeka-urunleri.html" />
@@ -593,7 +593,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/yapay-zeka-urunleri.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/yapay-zeka-urunleri.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/yapay-zeka-urunleri.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/yapay-zeka-urunleri.html" />
@@ -603,7 +603,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/yapay-zeka-urunleri.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/yapay-zeka-urunleri.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/yapay-zeka-urunleri.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/yapay-zeka-urunleri.html" />
@@ -613,7 +613,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/ai-cankurtaran-destek-sistemi.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/ai-cankurtaran-destek-sistemi.html" />
@@ -627,7 +627,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/ai-cankurtaran-destek-sistemi.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/ai-cankurtaran-destek-sistemi.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/ai-cankurtaran-destek-sistemi.html" />
@@ -641,7 +641,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/ai-cankurtaran-destek-sistemi.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/ai-cankurtaran-destek-sistemi.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/ai-cankurtaran-destek-sistemi.html" />
@@ -655,7 +655,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/ai-cankurtaran-destek-sistemi.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/ai-cankurtaran-destek-sistemi.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/ai-cankurtaran-destek-sistemi.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/ai-cankurtaran-destek-sistemi.html" />
@@ -669,7 +669,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/sistem-kur.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/sistem-kur.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/sistem-kur.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/sistem-kur.html" />
@@ -678,7 +678,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/sistem-kur.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/sistem-kur.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/sistem-kur.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/sistem-kur.html" />
@@ -687,7 +687,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/sistem-kur.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/sistem-kur.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/sistem-kur.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/sistem-kur.html" />
@@ -696,7 +696,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/sistem-kur.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/sistem-kur.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/sistem-kur.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/sistem-kur.html" />
@@ -909,7 +909,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/toptan.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/toptan.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/toptan.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/toptan.html" />
@@ -918,7 +918,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/toptan.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/toptan.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/toptan.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/toptan.html" />
@@ -927,7 +927,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/toptan.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/toptan.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/toptan.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/toptan.html" />
@@ -936,7 +936,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/toptan.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/toptan.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/toptan.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/toptan.html" />
@@ -2993,7 +2993,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/cati-ges.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/cati-ges.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/cati-ges.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/cati-ges.html" />
@@ -3002,7 +3002,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/cati-ges.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/cati-ges.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/cati-ges.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/cati-ges.html" />
@@ -3011,7 +3011,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/cati-ges.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/cati-ges.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/cati-ges.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/cati-ges.html" />
@@ -3020,7 +3020,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/cati-ges.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/cati-ges.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/cati-ges.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/cati-ges.html" />
@@ -3029,7 +3029,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/arazi-ges.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/arazi-ges.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/arazi-ges.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/arazi-ges.html" />
@@ -3038,7 +3038,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/arazi-ges.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/arazi-ges.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/arazi-ges.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/arazi-ges.html" />
@@ -3047,7 +3047,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/arazi-ges.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/arazi-ges.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/arazi-ges.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/arazi-ges.html" />
@@ -3056,7 +3056,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/arazi-ges.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/arazi-ges.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/arazi-ges.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/arazi-ges.html" />
@@ -3065,7 +3065,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/enerji-depolama.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/enerji-depolama.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/enerji-depolama.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/enerji-depolama.html" />
@@ -3074,7 +3074,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/enerji-depolama.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/enerji-depolama.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/enerji-depolama.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/enerji-depolama.html" />
@@ -3083,7 +3083,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/enerji-depolama.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/enerji-depolama.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/enerji-depolama.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/enerji-depolama.html" />
@@ -3092,7 +3092,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/enerji-depolama.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/enerji-depolama.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/enerji-depolama.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/enerji-depolama.html" />
@@ -3101,7 +3101,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/bakim-izleme.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/bakim-izleme.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/bakim-izleme.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/bakim-izleme.html" />
@@ -3110,7 +3110,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/bakim-izleme.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/bakim-izleme.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/bakim-izleme.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/bakim-izleme.html" />
@@ -3119,7 +3119,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/bakim-izleme.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/bakim-izleme.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/bakim-izleme.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/bakim-izleme.html" />
@@ -3128,7 +3128,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/bakim-izleme.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/bakim-izleme.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/bakim-izleme.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/bakim-izleme.html" />
@@ -3137,7 +3137,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/proje-kemer-villa.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/proje-kemer-villa.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/proje-kemer-villa.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-kemer-villa.html" />
@@ -3147,7 +3147,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/proje-kemer-villa.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/proje-kemer-villa.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/proje-kemer-villa.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-kemer-villa.html" />
@@ -3157,7 +3157,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/proje-kemer-villa.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/proje-kemer-villa.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/proje-kemer-villa.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-kemer-villa.html" />
@@ -3167,7 +3167,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/proje-kemer-villa.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/proje-kemer-villa.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/proje-kemer-villa.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-kemer-villa.html" />
@@ -3177,7 +3177,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/proje-manavgat-fabrika.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/proje-manavgat-fabrika.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/proje-manavgat-fabrika.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-manavgat-fabrika.html" />
@@ -3187,7 +3187,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/proje-manavgat-fabrika.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/proje-manavgat-fabrika.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/proje-manavgat-fabrika.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-manavgat-fabrika.html" />
@@ -3197,7 +3197,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/proje-manavgat-fabrika.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/proje-manavgat-fabrika.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/proje-manavgat-fabrika.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-manavgat-fabrika.html" />
@@ -3207,7 +3207,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/proje-manavgat-fabrika.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/proje-manavgat-fabrika.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/proje-manavgat-fabrika.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-manavgat-fabrika.html" />
@@ -3217,7 +3217,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/proje-manavgat-tarimsal.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/proje-manavgat-tarimsal.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/proje-manavgat-tarimsal.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-manavgat-tarimsal.html" />
@@ -3227,7 +3227,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/proje-manavgat-tarimsal.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/proje-manavgat-tarimsal.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/proje-manavgat-tarimsal.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-manavgat-tarimsal.html" />
@@ -3237,7 +3237,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/proje-manavgat-tarimsal.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/proje-manavgat-tarimsal.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/proje-manavgat-tarimsal.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-manavgat-tarimsal.html" />
@@ -3247,7 +3247,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/proje-manavgat-tarimsal.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/proje-manavgat-tarimsal.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/proje-manavgat-tarimsal.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/proje-manavgat-tarimsal.html" />
@@ -3257,7 +3257,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/sozluk.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/sozluk.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/sozluk.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/sozluk.html" />
@@ -3266,7 +3266,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/en/sozluk.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/sozluk.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/sozluk.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/sozluk.html" />
@@ -3275,7 +3275,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/de/sozluk.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/sozluk.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/sozluk.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/sozluk.html" />
@@ -3284,7 +3284,7 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/ru/sozluk.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/sozluk.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.gespaenerji.com/en/sozluk.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://www.gespaenerji.com/de/sozluk.html" />
@@ -3329,37 +3329,37 @@
   </url>
   <url>
     <loc>https://www.gespaenerji.com/kvkk.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.3</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/kvkk.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/kvkk.html" />
   </url>
   <url>
     <loc>https://www.gespaenerji.com/gizlilik.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.3</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/gizlilik.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/gizlilik.html" />
   </url>
   <url>
     <loc>https://www.gespaenerji.com/cerez-politikasi.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.3</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/cerez-politikasi.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/cerez-politikasi.html" />
   </url>
   <url>
     <loc>https://www.gespaenerji.com/mesafeli-satis-sozlesmesi.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.4</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.4</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/mesafeli-satis-sozlesmesi.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/mesafeli-satis-sozlesmesi.html" />
   </url>
   <url>
     <loc>https://www.gespaenerji.com/iade-teslimat.html</loc>
-    <lastmod>2026-09-30</lastmod><changefreq>monthly</changefreq><priority>0.4</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.4</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/iade-teslimat.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/iade-teslimat.html" />
   </url>
   <url>
     <loc>https://www.gespaenerji.com/gunes-paneli-kacak-elektrik-cezasi.html</loc>
-    <lastmod>2026-10-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/gunes-paneli-kacak-elektrik-cezasi.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/gunes-paneli-kacak-elektrik-cezasi.html" />
     <image:image><image:loc>https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp</image:loc><image:title>Manavgat'ta sera çatısına kurulan 30 kWp tarımsal güneş enerjisi santrali</image:title></image:image>

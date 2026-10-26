@@ -3,7 +3,7 @@ title: "Reference Projects — Rooftop & Ground PV | GESPA Energy"
 description: "Solar power plant (PV) projects we delivered across sectors: industry, agriculture, cold storage, hotels and ground-mounted plants."
 canonical: https://www.gespaenerji.com/en/projeler.html
 lang: en
-dateModified: 2026-09-30
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -21,7 +21,7 @@ A grid-tied residential system installed on a double-pitched tiled-roof villa in
 
 📍 Kemer, Antalya ⚡ 12 kWp
 
-[Proje ayrıntıları →](https://www.gespaenerji.com/en/proje-kemer-villa.html)
+[Project details →](https://www.gespaenerji.com/en/proje-kemer-villa.html)
 
 ![Manavgat Tarımsal GES — GESPA Enerji GES projesi](https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp)Agricultural
 
@@ -31,7 +31,7 @@ A solar power plant on a greenhouse roof for greenhouse and field irrigation.
 
 📍 Manavgat, Antalya ⚡ 30 kWp
 
-[Proje ayrıntıları →](https://www.gespaenerji.com/en/proje-manavgat-tarimsal.html)
+[Project details →](https://www.gespaenerji.com/en/proje-manavgat-tarimsal.html)
 
 ![Manavgat Sanayi Tesisi — GESPA Enerji GES projesi](https://www.gespaenerji.com/assets/img/projects/manavgat-sanayi-800.webp)Industrial
 
@@ -49,7 +49,7 @@ A 1.2 MW solar power plant installed on a large factory roof in Manavgat.
 
 📍 Manavgat, Antalya ⚡ 1.2 MWp
 
-[Proje ayrıntıları →](https://www.gespaenerji.com/en/proje-manavgat-fabrika.html)
+[Project details →](https://www.gespaenerji.com/en/proje-manavgat-fabrika.html)
 
 ![Serik / Kemer Kurulum — GESPA Enerji GES projesi](https://www.gespaenerji.com/assets/img/projects/serik-kemer-800.webp)Commercial
 

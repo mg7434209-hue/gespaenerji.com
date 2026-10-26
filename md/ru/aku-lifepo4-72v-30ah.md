@@ -7,7 +7,7 @@ dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
-[Главная](https://www.gespaenerji.com/ru/) / [Продукты](https://www.gespaenerji.com/ru/urunler.html) / Аккумулятор europlus 72 В 30 А·ч LiFePO₄
+[Главная](https://www.gespaenerji.com/ru/) / [Продукты](https://www.gespaenerji.com/ru/urunler.html)[ИИ-продукты](https://www.gespaenerji.com/ru/yapay-zeka-urunleri.html) / Аккумулятор europlus 72 В 30 А·ч LiFePO₄
 
 ![europlus 72 V 30 Ah LiFePO4 akü](https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah.webp)
 

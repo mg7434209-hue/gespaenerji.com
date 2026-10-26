@@ -267,6 +267,18 @@ window.GESPA.config = {
   // NOT: "önceki fiyat" olarak gösterilen tutar, mevzuat gereği indirimden
   // önceki 30 gün içinde uygulanan EN DÜŞÜK fiyat olmalıdır.
   // ============================================================
+  // ÜST BANT (mevsimlik, 26 Eki 2026): build.js ve main.js içinde bulunulan
+  // aya göre seçer. Kampanya/teşvik iddiası YAZILMAZ (doğrulanamıyor);
+  // metinler her zaman doğru mevsim çağrılarıdır. `wa: true` → bağlantı
+  // ücretsiz keşif WhatsApp mesajıdır.
+  topbar: {
+    seasons: [
+      { months: [11, 12, 1, 2], text: "☀️ Yaz güneşine şimdiden hazırlanın: kışın keşif ve proje, baharda kurulum.", label: "Ücretsiz keşif →", wa: true },
+      { months: [3, 4, 5, 6, 7, 8, 9, 10], text: "☀️ Yaz faturası gelmeden çatınızı güneşe çevirin.", label: "Tasarrufunu hesapla →", href: "hesaplayici.html" }
+    ],
+    // Ücretsiz keşif WhatsApp mesajı (menü düğmesi, hero, üst bant, CTA bandı)
+    kesifMsg: "Merhaba GESPA, ücretsiz keşif istiyorum. İl/ilçe: ___ · Çatı / arazi / tarla: ___"
+  },
   campaign: {
     endsAt: "2026-09-20T23:59:59+03:00",
     title: "İndirimli Ürünler",

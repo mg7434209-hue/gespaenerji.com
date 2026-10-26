@@ -49,21 +49,29 @@ Online Satış sayfasında ürünü sepete ekleyip kredi kartıyla ya da havale/
 
 ## Güneş enerjisine başlarken
 
-### Manavgat'ta güvenilir bir güneş enerjisi (GES) firması nasıl seçilir?
+### Yatırım kaç yılda kendini öder?
 
-Anahtar teslim (mühendislik, kurulum, finansman ve bakımı tek elden veren), ücretsiz keşif sunan, panel ve inverterde marka garantisi veren, referans projeleri ve yerel saha ekibi olan firmalar tercih edilmelidir. GESPA Enerji, Manavgat/Antalya merkezli olarak bu hizmetlerin tamamını anahtar teslim sunar.
+Tüketiminize, çatı yönüne ve elektrik tarifesine bağlıdır. Hesaplayıcı ön rakamı verir; kesin süre ücretsiz keşifte çıkan proje ve teklifle netleşir.
 
-### GESPA Enerji hangi bölgelerde hizmet veriyor?
+### Kışın ve bulutlu havada sistem çalışır mı?
 
-Manavgat merkezli olarak Side, Antalya, Alanya, Serik, Gazipaşa ve çevresinde; talebe göre tüm Türkiye'de çatı GES, arazi tipi GES ve güneş enerjili tarımsal sulama hizmeti verir.
+Çalışır; üretim güneşlenmeyle azalır ama durmaz. Hesaplamalar yıllık toplam üzerinden yapılır, Antalya'da kış ayları da üretime katkı verir.
 
-### GES yatırımı kaç yılda amorti olur?
+### Çatım panelleri taşır mı, su sızdırır mı?
 
-Tüketim profili, bölge ve elektrik fiyatına göre tipik olarak 3–6 yıl arasında değişir. Ücretsiz online hesaplayıcımızla çatınıza özel geri ödeme süresini saniyeler içinde tahmin edebilirsiniz.
+Keşifte çatının taşıma kapasitesi ve kaplaması incelenir; montaj çatının yapısına uygun aparatlarla yapılır, su yalıtımı korunur.
 
-### Manavgat'ta çatıma güneş paneli kurulumu için ne yapmalıyım?
+### Elektrik kesildiğinde evim çalışmaya devam eder mi?
 
-Ücretsiz keşif talep etmeniz yeterli. Saha incelemesi, üretim simülasyonu ve geri ödeme süresiyle net bir teklif hazırlanır; ardından anahtar teslim kurulum yapılır.
+Şebeke bağlantılı sistem güvenlik gereği kesintide durur. Kesintide de çalışmak istiyorsanız akülü ya da hibrit sistem planlanır; keşifte birlikte karar verilir.
+
+### İzin ve bağlantı işlemleriyle kim ilgileniyor?
+
+Biz. Proje, başvuru ve dağıtım şirketiyle yazışmalar tarafımızdan yürütülür; siz yalnız gerekli belgeleri imzalarsınız.
+
+### Peşin param yok, yine de kurabilir miyim?
+
+Evet. Banka kredisi ve leasing seçenekleriyle yatırım, elde edilen tasarrufla finanse edilebilir. Aylık tutarı keşifte tüketiminize göre birlikte hesaplarız.
 
 [Sayfaya git →](https://www.gespaenerji.com/)
 

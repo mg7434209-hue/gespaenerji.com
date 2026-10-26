@@ -1754,8 +1754,40 @@
     bar.innerHTML =
       '<a class="mcta mcta-call" href="tel:' + c.phone.tel + '">📞 ' + L("Hemen Ara", "Call now", "Anrufen", "Позвонить") + '</a>' +
       '<a class="mcta mcta-wa" href="https://wa.me/' + c.phone.wa + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
-      '<a class="mcta mcta-quote" href="iletisim.html">' + L("Ücretsiz Keşif", "Free Survey", "Beratung", "Бесплатно") + '</a>';
+      '<a class="mcta mcta-quote" href="iletisim.html" data-wa-kesif target="_blank" rel="noopener">' + L("Ücretsiz Keşif", "Free Survey", "Beratung", "Бесплатно") + '</a>';
     doc.body.appendChild(bar);
+  })();
+
+  /* ---- Ücretsiz keşif WhatsApp düğmeleri + mevsimlik üst bant (26 Eki 2026) ----
+     [data-wa-kesif] bağlantıları config.topbar.kesifMsg ile (dil değişince o
+     dilde) yazılır. Üst bant: build'in seçtiği mevsim ay değişince burada
+     yenilenir. */
+  (function () {
+    var tb = CFG.topbar || {}, wa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
+    function kesifHref() {
+      var msg = L(tb.kesifMsg || "Merhaba GESPA, ücretsiz keşif istiyorum.",
+        "Hello GESPA, I would like a free site survey. City/district: ___ · Roof / land / field: ___",
+        "Hallo GESPA, ich möchte eine kostenlose Besichtigung. Stadt/Bezirk: ___ · Dach / Grundstück / Feld: ___",
+        "Здравствуйте, GESPA, хочу бесплатный осмотр. Город/район: ___ · Крыша / участок / поле: ___");
+      return wa ? "https://wa.me/" + wa + "?text=" + encodeURIComponent(msg) : "iletisim.html";
+    }
+    function applyKesif() { $$("[data-wa-kesif]").forEach(function (a) { a.href = kesifHref(); }); }
+    function applyTopbar() {
+      var bar = $(".topbar[data-topbar]"), seasons = tb.seasons || [];
+      if (!bar || !seasons.length) return;
+      var mo = new Date().getMonth() + 1;
+      var s = seasons.filter(function (x) { return (x.months || []).indexOf(mo) >= 0; })[0] || seasons[0];
+      var span = $("span", bar), a = $("a", bar);
+      var tr = function (t) { try { var d = GESPA.i18nData && GESPA.i18nData.DICT && GESPA.i18nData.DICT[(window.GESPA && GESPA.lang) || "tr"]; return (d && d[t]) || t; } catch (e) { return t; } };
+      if (span && span.textContent !== tr(s.text)) span.textContent = tr(s.text);
+      if (a) {
+        if (a.textContent !== tr(s.label)) a.textContent = tr(s.label);
+        if (s.wa) { a.setAttribute("data-wa-kesif", ""); a.href = kesifHref(); a.target = "_blank"; a.rel = "noopener"; }
+        else { a.removeAttribute("data-wa-kesif"); a.href = s.href || "iletisim.html"; a.removeAttribute("target"); }
+      }
+    }
+    applyTopbar(); applyKesif();
+    doc.addEventListener("gespa:lang", function () { applyTopbar(); applyKesif(); });
   })();
 
   /* ---- Akıllı asistan (sohbet botu) yükle ---- */

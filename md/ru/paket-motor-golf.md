@@ -7,7 +7,7 @@ dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
-[Главная](https://www.gespaenerji.com/ru/) / [Продукты](https://www.gespaenerji.com/ru/urunler.html) / Солнечный комплект для электрокара типа гольф-кар — 460 Вт
+[Главная](https://www.gespaenerji.com/ru/) / [Продукты](https://www.gespaenerji.com/ru/urunler.html)[ИИ-продукты](https://www.gespaenerji.com/ru/yapay-zeka-urunleri.html) / Солнечный комплект для электрокара типа гольф-кар — 460 Вт
 
 ![Электромобиль типа гольф-кар с солнечной панелью на крыше](https://www.gespaenerji.com/assets/img/products/ev/motor-golf.webp)
 

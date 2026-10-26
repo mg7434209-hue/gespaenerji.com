@@ -3,64 +3,26 @@ title: "GESPA Energy — Солнечные электростанции | Ре�
 description: "GESPA Energy: монтаж под ключ, инжиниринг, финансирование и обслуживание солнечных электростанций на крыше и на земле. Манавгат / Анталья, Турция."
 canonical: https://www.gespaenerji.com/ru/
 lang: ru
-dateModified: 2026-10-24
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
 ![GESPA Enerji çatı güneş enerjisi sistemi kurulmuş modern villa ve saha ekibi](https://www.gespaenerji.com/assets/img/hero-gespa-villa.webp)
 
-Солнечные электростанции под ключ
+Манавгат · Анталия · с 2005 года
 
-# Энергия солнца, превращённая в прибыль .
+# Солнечная энергия: товары со склада , станции под ключ.
 
-Крышные и наземные СЭС: инжиниринг, монтаж, финансирование и обслуживание — всё из одних рук.
+Панели, АКБ, контроллеры и готовые комплекты с доставкой по всей Турции. В Анталии мы строим крышные, наземные и аграрные СЭС от осмотра до пуска.
 
-[Бесплатный выезд](https://www.gespaenerji.com/ru/iletisim.html)
-[Рассчитать экономию](https://www.gespaenerji.com/ru/hesaplayici.html)
+[В магазин](https://www.gespaenerji.com/ru/online-satis.html)
+[Запросить бесплатный осмотр](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%C3%BCcretsiz%20ke%C5%9Fif%20istiyorum.%20%C4%B0l%2Fil%C3%A7e%3A%20___%20%C2%B7%20%C3%87at%C4%B1%20%2F%20arazi%20%2F%20tarla%3A%20___)
 
 - **500+**Завершённых проектов
 - **15 MW**Установленная мощность
 - **21 лет**Опыт в отрасли
 
-![Техник устанавливает в гольф-кар контроллер заряда BOOST MPPT и проводку аккумулятора; на заднем плане навес с солнечными панелями](https://www.gespaenerji.com/assets/img/products/ev/hero-ev-donusum.webp)
-
-🛺 Переоборудование электромобилей
-
-Заряжайте электромобиль от солнца
-
-Солнечные панели и контроллер заряда BOOST MPPT для гольф-каров, электротрициклов и служебного транспорта. 24–72 В, совместим со всеми типами аккумуляторов; есть готовые комплекты.
-
-[Подробнее о переоборудовании](https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html)
-
-![GESPA Enerji mühendislik ekibi güneş enerjisi santralinde saha incelemesi yapıyor](https://www.gespaenerji.com/assets/img/hero-gespa-ekip.webp)
-
-🔥 Новинка
-
-Бесплатная горячая вода от солнца
-
-PV-водонагреватель: в солнце греет бесплатно, в пасмурную погоду автоматически подключается сеть. Модели 60–200 л.
-
-[Смотреть товар](https://www.gespaenerji.com/ru/su-isitici.html)
-
-![AI kamera havuzdaki yüzücüleri tarıyor, risk algılandığında ışıklı alarm ve cankurtaran saatine bildirim gönderiyor](https://www.gespaenerji.com/assets/img/products/cankurtaran/hero-ai-cankurtaran.webp)
-
-🛟 AI Teknolojileri
-
-ИИ-система поддержки спасателей
-
-Сообщает об опасном моменте в бассейне на смарт-часы спасателя за секунды. Для отелей, аквапарков и ЖК.
-
-[Смотреть систему](https://www.gespaenerji.com/ru/ai-cankurtaran-destek-sistemi.html)
-
-[![GES Marketim solar e-ticaret: güneş paneli, inverter ve akü ürünleri](https://www.gespaenerji.com/assets/img/hero-gesmarketim.webp)](https://www.gesmarketim.com/)
-
-🧰 Solar E-Mağaza
-
-Güneş enerjisi ürünleri, sahadan evinize
-
-Solar panel, inverter, akü ve bağlantı ekipmanlarını güvenilir markalarla inceleyin; ihtiyacınıza uygun sistemi hemen sipariş edin.
-
-[Solar Mağazaya Git ↗](https://www.gesmarketim.com/)
+🏢 В Манавгате с 2005 года ✅ 500+ завершённых проектов ⚡ 15 МВт установленной мощности 🔒 Безопасная оплата: iyzico · tami
 
 ## Что вы ищете?
 
@@ -70,22 +32,51 @@ Solar panel, inverter, akü ve bağlantı ekipmanlarını güvenilir markalarla 
 
 [![Пакет с панелью 285 Вт](https://www.gespaenerji.com/assets/img/products/kit-285w.webp)Пакет с панелью 285 Вт ₺25.000](https://www.gespaenerji.com/ru/paket-285w.html)[![Двусторонняя солнечная панель TOPCon 700 Вт](https://www.gespaenerji.com/assets/img/products/panel-700w.webp)Двусторонняя солнечная панель TOPCon 700 Вт ₺8.700](https://www.gespaenerji.com/ru/panel-700w.html)[![Контроллер заряда MS Teknik BOOST MPPT 24-72 В](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)Контроллер заряда MS Teknik BOOST MPPT 24-72 В ₺7.200](https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html)[![Солнечный уличный светильник Hero LED 200 Вт (датчик, пульт)](https://www.gespaenerji.com/assets/img/products/hero-led-solar-sokak-200w.webp)Солнечный уличный светильник Hero LED 200 Вт (датчик, пульт) ₺2.250](https://www.gespaenerji.com/ru/hero-led-solar-sokak-200w.html)
 
-О нас: [Услуги](https://www.gespaenerji.com/ru/hizmetler.html) · [Проекты](https://www.gespaenerji.com/ru/projeler.html) · [О нас](https://www.gespaenerji.com/ru/hakkimizda.html) · [Контакты](https://www.gespaenerji.com/ru/iletisim.html)
-
-Бренды оборудования, с которыми работаем:
-Arçelik Lexron Bakırlar Tescom Mexxsun Deye TitanX Havensis MS Teknik Orbus GESPA
-
 Наши услуги
 
-## Рядом на каждом этапе проекта
+## Солнечная электростанция под ключ
 
-Комплексное решение: от ТЭО до ввода в эксплуатацию, от обслуживания до финансирования.
+Одна команда от осмотра до пуска, от обслуживания до финансирования. Манавгат, Анталия и окрестности.
 
-[![Солнечная электростанция на черепичной крыше — Кемер](https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp) Солнечные на крышеИндивидуальные энергоэффективные системы для жилых, коммерческих и промышленных крыш.](https://www.gespaenerji.com/ru/cati-ges.html)
-[![Вид с воздуха на солнечную электростанцию на крыше завода](https://www.gespaenerji.com/assets/img/projects/manavgat-sanayi-800.webp) Станции для заводовСтанции большой мощности на крышах заводов и промышленных объектов — монтаж без остановки производства.](https://www.gespaenerji.com/ru/arazi-ges.html)
-[![Солнечная электростанция на террасной крыше виллы](https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp) Крыши виллСистемы для вилл и частных домов: на плоских и скатных крышах, не нарушая внешний вид.](https://www.gespaenerji.com/ru/hizmetler.html)
+[![Солнечная электростанция на черепичной крыше — Кемер](https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp) Солнечные на крышеСистемы, эффективно использующие крыши домов, бизнеса и промышленности.](https://www.gespaenerji.com/ru/cati-ges.html)
+[![Наземная солнечная установка](https://www.gespaenerji.com/assets/img/projects/kirsehir-tarimsal.webp) Наземные станцииСтанции на полях и свободных участках на наземных конструкциях.](https://www.gespaenerji.com/ru/arazi-ges.html)
+[![Аграрная солнечная станция на крыше теплицы — Манавгат](https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp) Солнечный поливНасосы для полива на солнечной энергии, без расходов на дизель и сеть.](https://www.gespaenerji.com/ru/tarimsal-sulama.html)
 
-[Все услуги →](https://www.gespaenerji.com/ru/hizmetler.html)
+Как мы работаем
+
+## Станция под ключ за 4 шага
+
+- 1 ### Выезд и анализ Осмотр объекта, анализ потребления и данные инсоляции.
+- 2 ### Проект и КП Чёткое КП с симуляцией выработки и сроком окупаемости.
+- 3 ### Монтаж Быстрый и безопасный монтаж сертифицированными бригадами.
+- 4 ### Ввод и мониторинг Подключение к сети и постоянный контроль производительности.
+
+[Рассчитать экономию](https://www.gespaenerji.com/ru/hesaplayici.html)[Бесплатный выезд](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%C3%BCcretsiz%20ke%C5%9Fif%20istiyorum.%20%C4%B0l%2Fil%C3%A7e%3A%20___%20%C2%B7%20%C3%87at%C4%B1%20%2F%20arazi%20%2F%20tarla%3A%20___)
+
+![Солнечная панель на крыше гольф-кара](https://www.gespaenerji.com/assets/img/products/ev/motor-golf-kurulum.webp)
+
+🛺 Переоборудование электромобилей
+
+## Заряжайте электромобиль от солнца
+
+Солнечные панели и контроллер заряда BOOST MPPT для гольф-каров, электротрициклов и служебного транспорта. 24–72 В, совместим со всеми типами аккумуляторов; есть готовые комплекты.
+
+[![Трицикл с пассажирской кабиной](https://www.gespaenerji.com/assets/img/products/ev/motor-yolcu.webp)Солнечный комплект для трицикла с кабиной — 240 Вт **₺14.800**](https://www.gespaenerji.com/ru/paket-motor-yolcu.html)
+[![Грузовой трицикл с кузовом](https://www.gespaenerji.com/assets/img/products/ev/motor-kargo.webp)Солнечный комплект для грузового трицикла — 700 Вт **₺17.000**](https://www.gespaenerji.com/ru/paket-motor-kargo.html)
+[![Тип гольф-кар](https://www.gespaenerji.com/assets/img/products/ev/motor-golf.webp)Солнечный комплект для электрокара типа гольф-кар — 460 Вт **₺16.300**](https://www.gespaenerji.com/ru/paket-motor-golf.html)
+[![Мини-электромобиль](https://www.gespaenerji.com/assets/img/products/ev/motor-mini.webp)Солнечный комплект для мини-электромобиля — 240 Вт **₺14.800**](https://www.gespaenerji.com/ru/paket-motor-mini.html)
+
+[Подробнее о переоборудовании](https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html)
+
+Делаем инвестиции простыми
+
+## Перейдите на солнечную энергию без предоплаты
+
+Финансируйте инвестицию кредитом или лизингом за счёт будущей экономии. Начните без первоначального капитала.
+
+Ежемесячный платёж рассчитываем вместе при осмотре, исходя из вашего потребления.
+
+[Узнать о финансировании →](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%C3%BCcretsiz%20ke%C5%9Fif%20istiyorum.%20%C4%B0l%2Fil%C3%A7e%3A%20___%20%C2%B7%20%C3%87at%C4%B1%20%2F%20arazi%20%2F%20tarla%3A%20___)
 
 Референс-проекты
 
@@ -99,7 +90,7 @@ Arçelik Lexron Bakırlar Tescom Mexxsun Deye TitanX Havensis MS Teknik Orbus GE
 
 📍 Manavgat, Antalya ⚡ 1.2 MWp
 
-[Proje ayrıntıları →](https://www.gespaenerji.com/ru/proje-manavgat-fabrika.html)
+[Подробнее о проекте →](https://www.gespaenerji.com/ru/proje-manavgat-fabrika.html)
 
 ![Kemer Villa Projesi — GESPA Enerji GES projesi](https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp)On-Grid
 
@@ -109,7 +100,7 @@ Arçelik Lexron Bakırlar Tescom Mexxsun Deye TitanX Havensis MS Teknik Orbus GE
 
 📍 Kemer, Antalya ⚡ 12 kWp
 
-[Proje ayrıntıları →](https://www.gespaenerji.com/ru/proje-kemer-villa.html)
+[Подробнее о проекте →](https://www.gespaenerji.com/ru/proje-kemer-villa.html)
 
 ![Manavgat Tarımsal GES — GESPA Enerji GES projesi](https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp)Сельское хоз-во
 
@@ -119,136 +110,67 @@ Arçelik Lexron Bakırlar Tescom Mexxsun Deye TitanX Havensis MS Teknik Orbus GE
 
 📍 Manavgat, Antalya ⚡ 30 kWp
 
-[Proje ayrıntıları →](https://www.gespaenerji.com/ru/proje-manavgat-tarimsal.html)
+[Подробнее о проекте →](https://www.gespaenerji.com/ru/proje-manavgat-tarimsal.html)
 
-[Все проекты →](https://www.gespaenerji.com/ru/projeler.html)
+[Все проекты →](https://www.gespaenerji.com/ru/projeler.html) [Галерея с объектов →](https://www.gespaenerji.com/ru/projeler.html#galeri)
 
-Бесплатный калькулятор экономии
+Почему GESPA?
 
-## Решим вашу проблему со счетами вместе
+## Три отличия работы с нами
 
-Просто введите свой счёт и за секунды увидите **мощность системы, годовую экономию, срок окупаемости и доход за 25 лет**. А также **инженерные инструменты** для раскладки модулей, инвертора и кабеля.
+![Команда GESPA Energy монтирует солнечные панели на крыше](https://www.gespaenerji.com/assets/img/about-montaj-600.webp)
 
-[Рассчитать экономию →](https://www.gespaenerji.com/ru/hesaplayici.html)
-[Конфигуратор системы →](https://www.gespaenerji.com/ru/sistem-kur.html)
+🏢
 
-- ⚡ Мощность системы и число панелей
-- 💰 Экономия за год и за 25 лет
-- 📅 Срок окупаемости
-- 🌱 CO₂ и эквивалент в деревьях
+### Та же команда с 2005 года
 
-⚡ Живая симуляция
+21 год мы работаем в Манавгате по одному адресу с одной командой; и спустя годы после монтажа вы обращаетесь к тем же людям.
 
-От солнца до розетки: так течёт ваша энергия
+🧭
 
-Делаем инвестиции простыми
+### Один контакт от осмотра до обслуживания
 
-## Перейдите на солнечную энергию без предоплаты
+Проект, разрешения, монтаж, пуск и обслуживание из одних рук; без посредников и разделённой ответственности.
 
-💳
+📄
 
-### Финансирование и лизинг
+### Прозрачные цены, письменное предложение
 
-Финансируйте инвестицию кредитом или лизингом за счёт будущей экономии. Начните без первоначального капитала.
-
-[Finansman seçeneklerini sor →](https://www.gespaenerji.com/ru/iletisim.html)
-
-🤝
-
-### Почему GESPA?
-
-20+ лет опыта, инжиниринг под ключ и гарантия до 25 лет. Познакомьтесь с нашей командой.
-
-[Hakkımızda →](https://www.gespaenerji.com/ru/hakkimizda.html)
-
-📍
-
-### Реальные проекты
-
-Посмотрите реальные объекты и мощности из промышленных, аграрных и жилых проектов.
-
-[Projeleri gör →](https://www.gespaenerji.com/ru/projeler.html)
-
-🧰 Интернет-магазин
-
-## Солнечные товары со склада
-
-Панели, АКБ, инверторы и аксессуары: сотни товаров в GES Marketim, доставка по всей Турции. Готовые комплекты можно заказать прямо здесь.
-
-[![285 W güneş paneli paketi](https://www.gespaenerji.com/assets/img/products/kit-285w.webp) Пакет с панелью 285 ВтМобильный комплект plug-and-play для кемпинга, автодома и небольших нагрузок.Смотреть продукт →](https://www.gespaenerji.com/ru/paket-285w.html)
-[![2x540 W lityum bataryalı güneş enerjisi sistemi](https://www.gespaenerji.com/assets/img/products/kit-2x540w.webp) Полная солнечная энергосистемаКомплектная система с аккумулятором LiFePO₄ — для дачи и автодома.Смотреть продукт →](https://www.gespaenerji.com/ru/paket-2x540w.html)
-[🛒 GES Marketim Панель · АКБ · Инвертор · Аксессуары В магазин ↗](https://www.gesmarketim.com)
-
-🔆 Солнечный водонагреватель
-
-## [Бесплатная горячая вода от солнца](https://www.gespaenerji.com/ru/su-isitici.html)
-
-С PV-водонагревателем нового поколения горячая вода из крана не закончится. В солнечные дни вода нагревается бесплатно; в пасмурную погоду система включается автоматически. Меньше счета, комфортный дом.
-
-- Бесплатный нагрев солнечной энергией
-- Авто-резерв от сети (AC) в пасмурную погоду
-- Эмалевый бак — долговечность и гигиена
-
-[Смотреть продукт →](https://www.gespaenerji.com/ru/su-isitici.html)
-[Все пакеты →](https://www.gespaenerji.com/ru/urunler.html)
-
-![Solar su ısıtıcı montaj şeması: çatıdaki güneş paneli, panel kablosu ve banyodaki termosifonun PV girişi bağlantısı](https://www.gespaenerji.com/assets/img/products/heater/baglanti-semasi-900.webp)
-
-ИИ-продукты
-
-## Решения нового поколения рядом с энергетикой
-
-Солнечная энергия — наше основное дело; здесь же технологические продукты, которые мы развиваем рядом с ней.
-
-🛟 ИИ-система поддержки спасателей
-
-## [В воде важна каждая секунда](https://www.gespaenerji.com/ru/ai-cankurtaran-destek-sistemi.html)
-
-Yapay zekâ destekli kameralar havuzu 7/24 tarar; riskli durumda cankurtarana saniyeler içinde konumlu alarm gönderir.
-
-- Мгновенные оповещения на смарт-часы и точки тревоги
-- По ISO 20380:2017 · локальная обработка данных
-
-[Смотреть продукт →](https://www.gespaenerji.com/ru/ai-cankurtaran-destek-sistemi.html)
-[Запросить бесплатный выезд](https://www.gespaenerji.com/ru/ai-cankurtaran-destek-sistemi.html#teklif)
-
-![AI Cankurtaran Destek Sistemi — havuz güvenliği](https://www.gespaenerji.com/assets/img/products/cankurtaran/hero-havuz-guvenlik.svg)
-
-[Все ИИ-продукты →](https://www.gespaenerji.com/ru/yapay-zeka-urunleri.html)
-
-Референс-проекты
-
-## Посмотрите установки, похожие на ваш проект
-
-Посмотрите примеры с расположением и мощностью; свяжитесь с командой для подробных сведений и технического объёма.
-
-[Projeleri gör →](https://www.gespaenerji.com/ru/projeler.html)[Запросить сведения о проекте](https://www.gespaenerji.com/ru/iletisim.html)
+Цены в магазине с НДС; по СЭС после осмотра вы получаете письменное предложение по позициям.
 
 Частые вопросы
 
 ## О солнечной энергии в Манавгате
 
-### Как выбрать надёжную солнечную компанию в Манавгате?
+### За сколько лет окупится инвестиция?
 
-Выбирайте компании «под ключ» (инжиниринг, монтаж, финансирование и сервис из одних рук), с бесплатным выездом, фирменными гарантиями на панели и инверторы, референс-проектами и местной командой. GESPA Enerji из Манавгата/Антальи предоставляет всё это под ключ.
+Зависит от потребления, ориентации крыши и тарифа. Калькулятор даёт предварительную цифру; точный срок определяют проект и предложение после бесплатного осмотра.
 
-### В каких регионах работает GESPA Enerji?
+### Работает ли система зимой и в пасмурную погоду?
 
-Мы из Манавгата: работаем в Сиде, Анталье, Алании, Серике, Газипаше и окрестностях; по запросу — крышные и наземные СЭС и солнечный полив по всей Турции.
+Да; выработка снижается при меньшем солнце, но не прекращается. Расчёты ведутся по годовой сумме, и в Анталии зимние месяцы тоже дают вклад.
 
-### За сколько лет окупается солнечная инвестиция?
+### Выдержит ли крыша панели и не потечёт ли она?
 
-Обычно 3–6 лет в зависимости от потребления, региона и цены электроэнергии. Оцените окупаемость именно вашей крыши за секунды в бесплатном онлайн-калькуляторе.
+При осмотре проверяем несущую способность и покрытие крыши; монтаж ведётся крепежом под тип крыши, гидроизоляция сохраняется.
 
-### Что нужно, чтобы установить солнечные панели на крыше в Манавгате?
+### Будет ли дом работать при отключении электричества?
 
-Достаточно запросить бесплатный выезд. Готовим чёткое предложение с осмотром, моделированием выработки и сроком окупаемости; затем монтаж под ключ.
+Сетевая система при отключении останавливается из соображений безопасности. Если нужна работа при отключениях, планируется система с АКБ или гибрид; решаем вместе при осмотре.
+
+### Кто занимается разрешениями и подключением к сети?
+
+Мы. Проект, заявку и переписку с сетевой компанией ведём мы; вы только подписываете необходимые документы.
+
+### Нет денег на предоплату — можно ли всё равно установить?
+
+Да. С банковским кредитом и лизингом инвестицию можно финансировать из полученной экономии. Ежемесячную сумму рассчитываем вместе при осмотре по вашему потреблению.
 
 ## Готовы перейти на солнце?
 
 Свяжитесь с нами для бесплатного выезда и анализа экономии.
 
-[Получить заявку](https://www.gespaenerji.com/ru/iletisim.html)
+[Бесплатный выезд](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%C3%BCcretsiz%20ke%C5%9Fif%20istiyorum.%20%C4%B0l%2Fil%C3%A7e%3A%20___%20%C2%B7%20%C3%87at%C4%B1%20%2F%20arazi%20%2F%20tarla%3A%20___)
 
 ---
 Kaynak sayfa: https://www.gespaenerji.com/ru/ · GESPA Enerji · 0543 743 42 09 · info@gespaenerji.com · Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01, Manavgat / Antalya

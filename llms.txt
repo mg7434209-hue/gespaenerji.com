@@ -17,7 +17,7 @@ Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş; talebe 
 
 ## Sayfalar
 ### Ana sayfa
-- [GESPA Enerji — Anahtar Teslim Güneş Enerjisi (GES)](https://www.gespaenerji.com/): GESPA Enerji: çatı ve arazi tipi güneş enerjisi santralleri (GES) için anahtar teslim kurulum, mühendislik, finansman ve bakım. Manavgat / Antalya. · Markdown: https://www.gespaenerji.com/md/index.md
+- [GESPA Enerji — Anahtar Teslim Güneş Enerjisi (GES)](https://www.gespaenerji.com/): GESPA Enerji: Manavgat ve Antalya'da çatı, arazi ve tarımsal güneş enerjisi santrali (GES) kurulumu. Ücretsiz keşif, yazılı teklif, finansman ve bakım tek elden; 2005'ten beri. · Markdown: https://www.gespaenerji.com/md/index.md
 
 ### Hizmetler
 - [Hizmetler — Çatı & Arazi GES, Depolama](https://www.gespaenerji.com/hizmetler.html): Çatı GES, arazi tipi GES, enerji depolama, mühendislik, finansman ve bakım (O&M) hizmetleri. Anahtar teslim güneş enerjisi çözümleri — GESPA Enerji. · Markdown: https://www.gespaenerji.com/md/hizmetler.md

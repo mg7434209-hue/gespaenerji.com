@@ -3,7 +3,7 @@ title: "Güneş Paneli Kaçak Elektrik Cezası: Nedeni ve Ne Yapmalı? | GESPA E
 description: "Güneş paneline neden ceza yazılıyor? 2 Nisan 2026 yönetmeliğindeki yaptırımlar, kabul süreci, Antalya'da AEDAŞ'a itiraz ve yasal kurulum adımları."
 canonical: https://www.gespaenerji.com/gunes-paneli-kacak-elektrik-cezasi.html
 lang: tr
-dateModified: 2026-10-01
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 

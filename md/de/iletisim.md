@@ -3,7 +3,7 @@ title: "Kontakt — Vor-Ort-Analyse & Angebot | GESPA Energy"
 description: "Kontaktieren Sie GESPA Energy: +90 543 743 42 09, info@gespaenerji.com, Manavgat/Antalya. Kostenlose Vor-Ort-Analyse und Angebot."
 canonical: https://www.gespaenerji.com/de/iletisim.html
 lang: de
-dateModified: 2026-09-30
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 

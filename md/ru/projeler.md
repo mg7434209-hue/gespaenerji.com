@@ -3,7 +3,7 @@ title: "Реализованные проекты — Солнечные ста�
 description: "Проекты солнечных электростанций в разных отраслях: промышленность, сельское хозяйство, холодные склады, отели и наземные станции."
 canonical: https://www.gespaenerji.com/ru/projeler.html
 lang: ru
-dateModified: 2026-09-30
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -21,7 +21,7 @@ publisher: "GESPA Enerji"
 
 📍 Kemer, Antalya ⚡ 12 kWp
 
-[Proje ayrıntıları →](https://www.gespaenerji.com/ru/proje-kemer-villa.html)
+[Подробнее о проекте →](https://www.gespaenerji.com/ru/proje-kemer-villa.html)
 
 ![Manavgat Tarımsal GES — GESPA Enerji GES projesi](https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp)Сельское хоз-во
 
@@ -31,7 +31,7 @@ publisher: "GESPA Enerji"
 
 📍 Manavgat, Antalya ⚡ 30 kWp
 
-[Proje ayrıntıları →](https://www.gespaenerji.com/ru/proje-manavgat-tarimsal.html)
+[Подробнее о проекте →](https://www.gespaenerji.com/ru/proje-manavgat-tarimsal.html)
 
 ![Manavgat Sanayi Tesisi — GESPA Enerji GES projesi](https://www.gespaenerji.com/assets/img/projects/manavgat-sanayi-800.webp)Промышленность
 
@@ -49,7 +49,7 @@ publisher: "GESPA Enerji"
 
 📍 Manavgat, Antalya ⚡ 1.2 MWp
 
-[Proje ayrıntıları →](https://www.gespaenerji.com/ru/proje-manavgat-fabrika.html)
+[Подробнее о проекте →](https://www.gespaenerji.com/ru/proje-manavgat-fabrika.html)
 
 ![Serik / Kemer Kurulum — GESPA Enerji GES projesi](https://www.gespaenerji.com/assets/img/projects/serik-kemer-800.webp)Коммерция
 

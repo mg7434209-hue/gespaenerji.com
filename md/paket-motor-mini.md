@@ -7,7 +7,7 @@ dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
-[Ana Sayfa](https://www.gespaenerji.com/) / [Ürünler](https://www.gespaenerji.com/urunler.html) / Mini Elektrikli Otomobil Güneş Paketi — 240 W
+[Ana Sayfa](https://www.gespaenerji.com/) / [Ürünler](https://www.gespaenerji.com/urunler.html)[Yapay Zekâ Ürünleri](https://www.gespaenerji.com/yapay-zeka-urunleri.html) / Mini Elektrikli Otomobil Güneş Paketi — 240 W
 
 ![Kapalı kabinli mini elektrikli otomobil](https://www.gespaenerji.com/assets/img/products/ev/motor-mini.webp)
 

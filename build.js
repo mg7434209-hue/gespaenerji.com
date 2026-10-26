@@ -538,6 +538,26 @@ function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;"
 // Kardeş site bağlantıları (config.company.sisterSites) — footer "Kurumsal"
 // sütununda GES Marketim bağlantısının ardına basılır. İşaretçi arasında
 // tutulur, böylece her build'de yeniden yazılır ve çoğalmaz.
+function kesifWaUrl(c) {
+  const cfg = loadConfig();
+  const msg = (cfg.topbar && cfg.topbar.kesifMsg) || "";
+  return c && c.phone && c.phone.wa ? "https://wa.me/" + c.phone.wa + (msg ? "?text=" + encodeURIComponent(msg) : "") : "";
+}
+// ÜST BANT (mevsimlik): `<div class="topbar" data-topbar>` taşıyan sayfalarda
+// bulunulan aya göre config.topbar.seasons'tan seçilir. main.js aynı seçimi
+// çalışma zamanında yineler (build ile ay değişmişse). Hesaplayıcı sayfaları
+// kendi uyarı bandını taşır, data-topbar yoktur, dokunulmaz.
+function hydrateTopbar(html, cfg) {
+  const t = cfg.topbar; if (!t || !t.seasons || !/<div class="topbar" data-topbar>/.test(html)) return html;
+  const mo = new Date().getMonth() + 1;
+  const s = t.seasons.filter(x => (x.months || []).includes(mo))[0] || t.seasons[0];
+  const href = s.wa ? kesifWaUrl(cfg.company) : (s.href || "iletisim.html");
+  const a = s.wa ? '<a href="' + esc(href) + '" data-wa-kesif target="_blank" rel="noopener">' + esc(s.label) + "</a>"
+                 : '<a href="' + esc(href) + '">' + esc(s.label) + "</a>";
+  return html.replace(/<div class="topbar" data-topbar><div class="container topbar-inner">[\s\S]*?<\/div><\/div>/,
+    '<div class="topbar" data-topbar><div class="container topbar-inner"><span>' + esc(s.text) + "</span>" + a + "</div></div>");
+}
+
 function hydrateSisterSites(html, c) {
   const sites = (c.sisterSites || []).filter(x => x && x.url && x.label);
   const block = sites.map(x =>
@@ -2126,6 +2146,10 @@ function hydrateContact(html, c) {
   html = html.replace(/<a\b[^>]*\bdata-c-mailto\b[^>]*>/g, t => setHref(t, "mailto:" + c.email));
   html = html.replace(/<a\b[^>]*\bdata-c-wa\b[^>]*>/g, t => setHref(t, "https://wa.me/" + c.phone.wa));
   if (c.googleReview) html = html.replace(/<a\b[^>]*\bdata-c-review\b[^>]*>/g, t => setHref(t, c.googleReview));
+  // Ücretsiz keşif WhatsApp düğmeleri (menü, hero, üst bant, CTA bandı):
+  // mesaj config.topbar.kesifMsg; main.js dil değişince yeniden yazar.
+  const kesif = kesifWaUrl(c);
+  if (kesif) html = html.replace(/<a\b[^>]*\bdata-wa-kesif\b[^>]*>/g, t => setHref(t, kesif));
   return html;
 }
 
@@ -2461,6 +2485,7 @@ function run() {
     html = hydrateHead(html, file);
     html = thumbify(html);
     html = hydrateHelp(html, file);
+    html = hydrateTopbar(html, cfg);
     html = hydrateContact(html, cfg.company);
     html = hydrateSisterSites(html, cfg.company);
     html = hydrateExtras(html, file, cfg);

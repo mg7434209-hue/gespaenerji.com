@@ -3,7 +3,7 @@ title: "ИИ-продукты — видеоаналитика и безопас
 description: "ИИ-поддержка спасателей, ИИ-обнаружение огня и дыма, охрана периметра, контроль касок и жилетов, обнаружение падений. Выезд, монтаж и разработка ПО."
 canonical: https://www.gespaenerji.com/ru/yapay-zeka-urunleri.html
 lang: ru
-dateModified: 2026-09-30
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
