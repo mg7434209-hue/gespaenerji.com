@@ -7,7 +7,7 @@ dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
-[Главная](https://www.gespaenerji.com/ru/) / [Продукты](https://www.gespaenerji.com/ru/urunler.html) / Аккумулятор europlus 72 В 30 А·ч LiFePO₄
+[Главная](https://www.gespaenerji.com/ru/) / [Продукты](https://www.gespaenerji.com/ru/urunler.html)[ИИ-продукты](https://www.gespaenerji.com/ru/yapay-zeka-urunleri.html) / Аккумулятор europlus 72 В 30 А·ч LiFePO₄
 
 ![europlus 72 V 30 Ah LiFePO4 akü](https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah.webp)
 
@@ -25,14 +25,19 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺27.150**
 
+💳 До 12 ежемесячных платежей картой (с процентами) — выбирается на странице оплаты
+
+🚚 Доставку оплачивает покупатель — курьеру при получении · 2–5 рабочих дней
+
 [🛒 В корзину](https://www.gespaenerji.com/ru/sepet.html)
 
 [⚡ Купить сейчас](https://www.gespaenerji.com/ru/sepet.html)
-[💬 Спросить в WhatsApp](https://www.gespaenerji.com/ru/iletisim.html)
+[💬 Спросить в WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22europlus%2072%20V%2030%20Ah%20LiFePO%E2%82%84%20Ak%C3%BC%22%20(GES-EV-AKU-72V)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Faku-lifepo4-72v-30ah.html)
 
-- 🚚 Доставка по всей Турции; доставку оплачивает покупатель.
 - ⏱️ Ориентировочная доставка после подтверждения заказа: **2–5** рабочих дня.
 - 🔄 Право на отказ (дистанционная продажа): **14** дней — возврат через нашу договорную службу доставки бесплатный.
+- 🛡️ Гарантия: **2 года**
+- 🔒 Безопасная оплата: iyzico / tami · счёт-фактура к каждому заказу
 - 🔌 Зарядное устройство в комплект не входит.
 
 ⚡ 72 В · 30 А·ч · ~2300 Вт·ч 🔁 Ресурс 2000 циклов 🛡️ Встроенная BMS с балансировкой 🪶 Легче гелевого аккумулятора
@@ -176,6 +181,14 @@ LiFePO₄ термически гораздо стабильнее других 
 Мы поставляем аккумуляторы и для систем на 24, 36, 48 и 60 В — напишите нам о наличии и цене.
 
 [Свяжитесь с нами →](https://www.gespaenerji.com/ru/iletisim.html)
+
+Отзывы покупателей
+
+## Что говорят покупатели этого товара?
+
+Опубликованных отзывов об этом товаре пока нет. Если вы его купили, напишите о своём опыте; после проверки он появится здесь.
+
+[Написать отзыв (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22europlus%2072%20V%2030%20Ah%20LiFePO%E2%82%84%20Ak%C3%BC%22%20(GES-EV-AKU-72V)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Наши отзывы в Google ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Закажите аккумулятор сегодня
 

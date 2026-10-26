@@ -218,7 +218,13 @@ window.GESPA.config = {
   commerce: {
     stockLabel: "Stokta / tedarikte",   // ürün sayfasındaki durum rozeti
     shipCountry: "Türkiye",             // gönderim yapılan ülke (tüm iller)
-    shipDays: "2–5",                    // teslim süresi (gün sayısı; birim metinde yazılı)
+    shipDays: "2–5",
+    // İşletme bilgisi (26 Eki 2026): kart ödemesinde 12 aya kadar taksit, vade
+    // farkı MÜŞTERİYE; tüm ürünlerde 2 yıl garanti (üründe `warranty` yazılıysa
+    // o geçerli: paneller 12/30 yıl); keşif taleplerine 1–3 gün içinde dönüş.
+    taksitMax: 12, taksitVadeFarki: true,
+    warrantyDefault: "2 yıl",
+    leadReplyDays: "1–3",                    // teslim süresi (gün sayısı; birim metinde yazılı)
     returnDays: 14,                     // cayma hakkı süresi (mesafeli satış)
     // Kabul edilen ödeme yolları — LocalBusiness.paymentAccepted buradan basılır;
     // sepetteki seçeneklerle AYNI tutulur (kart = iyzico, havale/EFT).
@@ -267,6 +273,38 @@ window.GESPA.config = {
   // NOT: "önceki fiyat" olarak gösterilen tutar, mevzuat gereği indirimden
   // önceki 30 gün içinde uygulanan EN DÜŞÜK fiyat olmalıdır.
   // ============================================================
+  // ÜST BANT (mevsimlik, 26 Eki 2026): build.js ve main.js içinde bulunulan
+  // aya göre seçer. Kampanya/teşvik iddiası YAZILMAZ (doğrulanamıyor);
+  // metinler her zaman doğru mevsim çağrılarıdır. `wa: true` → bağlantı
+  // ücretsiz keşif WhatsApp mesajıdır.
+  topbar: {
+    seasons: [
+      { months: [11, 12, 1, 2], text: "☀️ Yaz güneşine şimdiden hazırlanın: kışın keşif ve proje, baharda kurulum.", label: "Ücretsiz keşif →", wa: true },
+      { months: [3, 4, 5, 6, 7, 8, 9, 10], text: "☀️ Yaz faturası gelmeden çatınızı güneşe çevirin.", label: "Tasarrufunu hesapla →", href: "hesaplayici.html" }
+    ],
+    // Ücretsiz keşif WhatsApp mesajı (menü düğmesi, hero, üst bant, CTA bandı)
+    kesifMsg: "Merhaba GESPA, ücretsiz keşif istiyorum. İl/ilçe: ___ · Çatı / arazi / tarla: ___"
+  },
+  // MAĞAZA KULLANIM SENARYOLARI (CRO FAZ 1-e, 26 Eki 2026): müşteri "MPPT mi
+  // PWM mi" değil "karavanıma ne lazım" diye arar. online-satis.html'de
+  // teknik kategorilerin ÜSTÜNDE senaryo kartları; bir ürün birden çok
+  // senaryoda olabilir. `href` olan kart ürün değil sayfa bağlantısıdır.
+  // Yeni ürün eklenince ilgili senaryoya id'sini yaz (yazmazsan yalnız
+  // "Tümü" ve teknik kategoride görünür).
+  shopScenarios: [
+    { id: "bagevi", icon: "🏡", label: "Bağ evi & kamp", hint: "Şebekesiz küçük ev",
+      ids: ["kit-285w", "kit-2x540w", "unv-trek-pro-2500", "panel-50w", "panel-240w", "lexron-pwm-20a", "lexron-pwm-30a", "lexron-pwm-40a", "lexron-pwm-60a", "lexron-mppt-20a", "lexron-mppt-30a", "lexron-mppt-40a", "hero-led-ampul-10w", "kablo-solar-5m", "mc4-set"] },
+    { id: "karavan", icon: "🚐", label: "Karavan & tekne", hint: "12/24 V mobil sistem",
+      ids: ["unv-trek-pro-2500", "havensis-dcdc-1224-30", "havensis-dcdc-1224-40", "havensis-dcdc-1224b-40", "havensis-dcdc-2448", "panel-50w", "panel-240w", "hero-led-ampul-10w", "lexron-mppt-20a", "lexron-pwm-20a", "kablo-solar-5m", "mc4-set"] },
+    { id: "arac", icon: "🛺", label: "Elektrikli araç şarjı", hint: "Triportör, golf, mini araç",
+      ids: ["set-yolcu", "set-kargo", "set-golf", "set-mini", "boost-mppt", "aku-lifepo4-72v", "panel-240w", "panel-460w", "panel-700w", "kablo-solar-5m", "mc4-set"] },
+    { id: "ev", icon: "🏠", label: "Ev & çatı sistemi", hint: "Büyük panel, akü, MPPT",
+      ids: ["panel-460w", "panel-arcelik-540w", "panel-lexron-655w", "panel-700w", "panel-lexron-285w", "aku-titanx-51v-102ah", "havensis-s30amps", "havensis-s60amps100", "havensis-s60amps150", "lexron-mppt-80a-hv", "lexron-pwm-60a", "kablo-solar-5m", "mc4-set"] },
+    { id: "aydinlatma", icon: "💡", label: "Bahçe & sokak aydınlatması", hint: "Elektrik hattı gerektirmez",
+      ids: ["hero-led-solar-sokak-100w", "hero-led-solar-sokak-200w", "hero-led-solar-sokak-600w", "hero-led-aplik-50w", "hero-led-bahce-50w", "hero-led-ampul-10w"] },
+    { id: "toptan", icon: "📦", label: "Toptan & proje", hint: "Çok adet, kurumsal teklif", href: "toptan.html" }
+  ],
+
   campaign: {
     endsAt: "2026-09-20T23:59:59+03:00",
     title: "İndirimli Ürünler",
@@ -306,6 +344,7 @@ window.GESPA.config = {
     {
       id: "boost-mppt", icon: "🔌", tag: "Elektrikli Araç", group: "accessory",
       url: "elektrikli-arac-donusum.html", sku: "GES-EV-BOOST",
+      warranty: "2 yıl",                     // sayfadaki güven satırı; künyeden
       img: "assets/img/products/ev/boost-mppt-on.webp",
       // ₺7.200 NET: noCartDiscount ile havale/EFT indirimi BİNMEZ — kartla da
       // havaleyle de aynı tutar tahsil edilir, havale satırı hiçbir yerde
@@ -394,6 +433,7 @@ window.GESPA.config = {
     {
       id: "panel-lexron-285w", icon: "🔆", tag: "Panel", group: "panel",
       url: "panel-lexron-285w.html",
+      warranty: "12 yıl ürün · 30 yıl güç",                     // sayfadaki güven satırı; künyeden
       sku: "GES-PNL-285", brand: "Lexron",
       img: "assets/img/products/panel-lexron-285w.webp",
       price: 152.44, currency: "USD", stock: 0,   // 26 Eki 2026: stokta yok (satılamaz)                     // ₺7.500 @ 49,2
@@ -406,6 +446,7 @@ window.GESPA.config = {
     {
       id: "panel-lexron-655w", icon: "🔆", tag: "Panel", group: "panel",
       url: "panel-lexron-655w.html",
+      warranty: "12 yıl ürün · 30 yıl güç",                     // sayfadaki güven satırı; künyeden
       sku: "GES-PNL-655", brand: "Lexron",
       img: "assets/img/products/panel-lexron-655w.webp",
       price: 203.25, currency: "USD",                     // ₺10.000 @ 49,2
@@ -425,6 +466,7 @@ window.GESPA.config = {
     {
       id: "panel-700w", icon: "🔆", tag: "Panel", group: "panel",
       url: "panel-700w.html",
+      warranty: "30 yıl güç (30. yılda %87,4)",                     // sayfadaki güven satırı; künyeden
       sku: "GES-PNL-700",
       img: "assets/img/products/panel-700w.webp",
       price: 176.83, currency: "USD",                     // ₺8.700 @ 49,2

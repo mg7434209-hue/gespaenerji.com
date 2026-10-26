@@ -25,18 +25,35 @@ Price includes VAT.
 
 💰 By bank transfer: **₺71.200**
 
+💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
+
+🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
 [⚡ Buy it now](https://www.gespaenerji.com/en/sepet.html)
-[💬 Ask on WhatsApp](https://www.gespaenerji.com/en/iletisim.html)
+[💬 Ask on WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22TitanX%2051%2C2%20V%20102%20Ah%20LiFePO%E2%82%84%20Ak%C3%BC%22%20(GES-AKU-102)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Faku-titanx-51v-102ah.html)
 
-- 🚚 Ships to anywhere in Türkiye; shipping is paid by the buyer.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
 - 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
+- 🛡️ Warranty: **2 years**
+- 🔒 Secure payment: iyzico / tami · invoice with every order
 - 🏷️ Brand: TitanX
 - 🛡️ 2-year warranty
 
 🔋 5.22 kWh ⚡ 51.2 V · 102 Ah ♻️ 6000+ cycles
+
+### ✅ Suitable for
+
+- Battery systems running at the voltage in the spec table
+- The compatible charge controllers listed
+- Carrying daytime production into the night
+
+### ⛔ Not suitable for
+
+- Systems with a different voltage
+- Connecting straight to a panel without a charge controller
+- Charge currents not listed in the spec table
 
 51.2 V 102 Ah (5.22 kWh) LiFePO₄ energy storage battery. 16S1P prismatic cell layout, built-in smart BMS with overcharge/over-discharge, overcurrent, short-circuit and temperature protection. 100 A continuous discharge, 150 A peak (5 s); 6000+ cycle life (80% DoD). CAN/RS485 and Bluetooth or WiFi communication; up to 16 units in parallel. Weight 37 kg, dimensions 560 × 150 × 380 mm, IP20, M8 terminals, 2-year warranty.
 
@@ -159,6 +176,14 @@ We ship anywhere in Türkiye. In the Antalya region we offer optional on-site in
 See how many batteries, which panels and which inverter you need in a few steps with the System Builder.
 
 [Open the System Builder →](https://www.gespaenerji.com/en/sistem-kur.html)
+
+Customer reviews
+
+## What do buyers of this product say?
+
+No published reviews for this product yet. If you bought it, write about your experience; it is published here after approval.
+
+[Write a review (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22TitanX%2051%2C2%20V%20102%20Ah%20LiFePO%E2%82%84%20Ak%C3%BC%22%20(GES-AKU-102)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Our Google reviews ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Order your battery today
 

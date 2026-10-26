@@ -7,7 +7,7 @@ dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
-[Home](https://www.gespaenerji.com/en/) / [Products](https://www.gespaenerji.com/en/urunler.html) / UNV Trek Pro 2500 W Portable Power Station
+[Home](https://www.gespaenerji.com/en/) / [Products](https://www.gespaenerji.com/en/urunler.html)[AI Products](https://www.gespaenerji.com/en/yapay-zeka-urunleri.html) / UNV Trek Pro 2500 W Portable Power Station
 
 ![UNV Trek Pro 2500 W taşınabilir güç istasyonu — 4 AC prizi, USB ve Type-C çıkışları](https://www.gespaenerji.com/assets/img/products/unv-trek-pro-2500.webp)
 
@@ -25,17 +25,34 @@ Price includes VAT.
 
 💰 By bank transfer: **₺119.100**
 
+💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
+
+🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
-[💬 Ask on WhatsApp](https://www.gespaenerji.com/en/iletisim.html)
+[💬 Ask on WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22UNV%20Trek%20Pro%202500%20W%20Ta%C5%9F%C4%B1nabilir%20G%C3%BC%C3%A7%20%C4%B0stasyonu%22%20(ES-E2500-A2)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Funv-trek-pro-2500.html)
 [📦 All products](https://www.gespaenerji.com/en/online-satis.html)
 
 - 📦 Stock is limited — we have 1 unit of this product left.
-- 🚚 Ships to anywhere in Türkiye; shipping is paid by the buyer.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
 - 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
+- 🛡️ Warranty: **2 years**
+- 🔒 Secure payment: iyzico / tami · invoice with every order
 
 ⚡ 2500 W continuous output 🔋 2496 Wh battery 🔌 4 × 230 V pure sine wave ⏱️ 30 ms UPS
+
+### ✅ Suitable for
+
+- TV, lighting and charging in country houses, camps and caravans
+- Places without mains power
+- Anyone wanting a plug-and-play setup
+
+### ⛔ Not suitable for
+
+- High-power appliances such as air conditioners or ovens
+- Selling power to the grid (on-grid)
+- Daily consumption above the capacity in the spec table
 
 The Trek Pro 2500 is a portable power station built to take mains power with you wherever you need a socket. Its 2,496 Wh battery runs devices drawing up to 2,500 W independently of the grid.
 
@@ -130,6 +147,14 @@ A solar panel is not included with the product. Ask us before ordering about pan
 ### Do the sockets fit Turkish plugs?
 
 This product is manufactured with different socket standards. We confirm the socket type of the unit you will receive over WhatsApp before you order; we do not ship a version that does not fit.
+
+Customer reviews
+
+## What do buyers of this product say?
+
+No published reviews for this product yet. If you bought it, write about your experience; it is published here after approval.
+
+[Write a review (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22UNV%20Trek%20Pro%202500%20W%20Ta%C5%9F%C4%B1nabilir%20G%C3%BC%C3%A7%20%C4%B0stasyonu%22%20(ES-E2500-A2)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Our Google reviews ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Only 1 left — order today
 

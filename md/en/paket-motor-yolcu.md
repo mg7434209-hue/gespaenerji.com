@@ -7,7 +7,7 @@ dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
-[Home](https://www.gespaenerji.com/en/) / [Products](https://www.gespaenerji.com/en/urunler.html) / Passenger-Cab E-Trike Solar Set — 240 W
+[Home](https://www.gespaenerji.com/en/) / [Products](https://www.gespaenerji.com/en/urunler.html)[AI Products](https://www.gespaenerji.com/en/yapay-zeka-urunleri.html) / Passenger-Cab E-Trike Solar Set — 240 W
 
 ![Yolcu kabinli elektrikli triportör](https://www.gespaenerji.com/assets/img/products/ev/motor-yolcu.webp)
 
@@ -25,17 +25,34 @@ Price includes VAT.
 
 💰 By bank transfer: **₺14.350**
 
+💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
+
+🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
 [⚡ Buy it now](https://www.gespaenerji.com/en/sepet.html)
-[💬 Ask on WhatsApp](https://www.gespaenerji.com/en/iletisim.html)
+[💬 Ask on WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Yolcu%20Kabinli%20Motor%20G%C3%BCne%C5%9F%20Paketi%20%E2%80%94%20240%20W%22%20(GES-SET-YOLCU)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpaket-motor-yolcu.html)
 
-- 🚚 Ships to anywhere in Türkiye; shipping is paid by the buyer.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
 - 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
+- 🛡️ Warranty: **2 years**
+- 🔒 Secure payment: iyzico / tami · invoice with every order
 - 🔧 Optional on-site installation and training in the Antalya region.
 
 🔆 240 W panel 🔌 BOOST MPPT 24–72 V 🧰 Cable + MC4 included 🛺 Fits a narrow roof
+
+### ✅ Suitable for
+
+- Three-wheelers, golf carts and mini cars with 24–72 V batteries
+- Vehicles whose roof fits the panel in the set
+- AGM, gel, flooded lead-acid and lithium batteries
+
+### ⛔ Not suitable for
+
+- Vehicles with 12 V batteries
+- Vehicles with a roof smaller than the panel
+- Vehicles parked indoors or in shade all day
 
 The question electric three-wheeler owners get stuck on is: “Which panel fits my vehicle?” On enclosed passenger vehicles with a narrow roof, the 240 W panel fits without overhanging at 1320 × 776 mm.
 
@@ -121,6 +138,14 @@ Bed vehicles have a wider roof area; the 700 W package is more productive for th
 Open-bed or canopied cargo vehicles have a wider roof area; for more yield the 700 W package suits better.
 
 [Take a look at the Cargo-Bed E-Trike Solar Set →](https://www.gespaenerji.com/en/paket-motor-kargo.html)
+
+Customer reviews
+
+## What do buyers of this product say?
+
+No published reviews for this product yet. If you bought it, write about your experience; it is published here after approval.
+
+[Write a review (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Yolcu%20Kabinli%20Motor%20G%C3%BCne%C5%9F%20Paketi%20%E2%80%94%20240%20W%22%20(GES-SET-YOLCU)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Our Google reviews ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Order your package today
 

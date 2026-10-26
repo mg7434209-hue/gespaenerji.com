@@ -3,7 +3,7 @@ title: "Калькулятор экономии на солнечной энер
 description: "Бесплатный калькулятор: мощность, годовая выработка, экономия, срок окупаемости и снижение CO₂ по счёту, потреблению или площади крыши."
 canonical: https://www.gespaenerji.com/ru/hesaplayici.html
 lang: ru
-dateModified: 2026-09-30
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -82,9 +82,6 @@ CO₂ за 25 лет —
 Эквивалент авто-км (25 л.) —
 
 Аккумулятор (опц.) —
-
-[Запросить КП по этим результатам](https://www.gespaenerji.com/ru/iletisim.html)
-[📲 Отправить результаты в WhatsApp](#)
 
 Инженерные инструменты
 

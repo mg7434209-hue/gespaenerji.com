@@ -538,6 +538,112 @@ function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;"
 // Kardeş site bağlantıları (config.company.sisterSites) — footer "Kurumsal"
 // sütununda GES Marketim bağlantısının ardına basılır. İşaretçi arasında
 // tutulur, böylece her build'de yeniden yazılır ve çoğalmaz.
+function kesifWaUrl(c) {
+  const cfg = loadConfig();
+  const msg = (cfg.topbar && cfg.topbar.kesifMsg) || "";
+  return c && c.phone && c.phone.wa ? "https://wa.me/" + c.phone.wa + (msg ? "?text=" + encodeURIComponent(msg) : "") : "";
+}
+// ÜST BANT (mevsimlik): `<div class="topbar" data-topbar>` taşıyan sayfalarda
+// bulunulan aya göre config.topbar.seasons'tan seçilir. main.js aynı seçimi
+// çalışma zamanında yineler (build ile ay değişmişse). Hesaplayıcı sayfaları
+// kendi uyarı bandını taşır, data-topbar yoktur, dokunulmaz.
+function hydrateTopbar(html, cfg) {
+  const t = cfg.topbar; if (!t || !t.seasons || !/<div class="topbar" data-topbar>/.test(html)) return html;
+  const mo = new Date().getMonth() + 1;
+  const s = t.seasons.filter(x => (x.months || []).includes(mo))[0] || t.seasons[0];
+  const href = s.wa ? kesifWaUrl(cfg.company) : (s.href || "iletisim.html");
+  const a = s.wa ? '<a href="' + esc(href) + '" data-wa-kesif target="_blank" rel="noopener">' + esc(s.label) + "</a>"
+                 : '<a href="' + esc(href) + '">' + esc(s.label) + "</a>";
+  return html.replace(/<div class="topbar" data-topbar><div class="container topbar-inner">[\s\S]*?<\/div><\/div>/,
+    '<div class="topbar" data-topbar><div class="container topbar-inner"><span>' + esc(s.text) + "</span>" + a + "</div></div>");
+}
+
+// ---- ÜRÜN SAYFASI ŞABLONU (CRO FAZ 2, 26 Eki 2026) ----
+// Tüm data-pkg-detail sayfalarına aynı bloklar statik basılır (işaretli,
+// yeniden çalıştırılabilir): fiyat kutusunda taksit + kargo satırları
+// (PRICEROWS), güven satırı (TRUST: garanti · güvenli ödeme), "kimler için
+// uygun / uygun değil" kutusu (FIT, ürün grubuna göre), yorum alanı (REVIEWS)
+// ve ürün adlı WhatsApp bağlantısı. Metinler DICT ile çevrilir (CRO:DICT).
+// Garanti yalnız config'te `warranty` yazan üründe çıkar — UYDURULMAZ.
+const FIT = {
+  panel: [["Şarj kontrol cihazlı akülü (off-grid) sistemler", "Çatı veya arazi santraline ek panel", "Uyumlu elektrikli araç güneş paketleri"],
+          ["Doğrudan aküye bağlamak (şarj kontrol cihazı şart)", "Panel giriş gerilimi sınırını aşan cihazlar (Voc teknik tabloda)", "Şebekeye tek başına bağlamak (inverter gerekir)"]],
+  charge: [["Teknik tablodaki akü gerilimlerine sahip akülü sistemler", "Panel Voc toplamı giriş sınırının altında kalan diziler", "Bağ evi, karavan, tekne ve elektrikli araç şarjı"],
+           ["Şebekeye bağlı inverterli sistemler", "Giriş gerilimi sınırını aşan seri panel dizileri", "Teknik tabloda yazmayan akü tipi veya gerilimi"]],
+  lighting: [["Elektrik hattı olmayan bahçe, sokak, site ve otopark", "Gün boyu güneş gören montaj yerleri", "Hareketle yanması istenen alanlar"],
+             ["Sürekli gölgede kalan yerler", "İç mekân aydınlatması", "Şebekeden beslenmesi istenen armatür"]],
+  storage: [["Teknik tablodaki gerilimle çalışan akülü sistemler", "Listelenen uyumlu şarj kontrol cihazları", "Gün içi üretimi geceye taşımak"],
+            ["Farklı gerilimli sistemler", "Şarj kontrol cihazı olmadan doğrudan panele bağlamak", "Teknik tabloda yazmayan şarj akımı"]],
+  evset: [["24–72 V akülü triportör, golf aracı ve mini araçlar", "Çatısı paketteki panelin ölçüsüne sığan araçlar", "AGM, jel, sulu kurşun-asit ve lityum aküler"],
+          ["12 V akülü araçlar", "Çatısı panelden küçük araçlar", "Gün boyu kapalı veya gölgede park eden araçlar"]],
+  offgrid: [["Bağ evi, kamp ve karavanda TV, aydınlatma ve şarj", "Şebekenin olmadığı yerler", "Tak-çalıştır kurulum isteyenler"],
+            ["Klima, fırın gibi yüksek güçlü cihazlar", "Şebekeye satış (on-grid) amacı", "Teknik tablodaki kapasitenin üstünde günlük tüketim"]],
+};
+function fitGroupOf(p) {
+  if (!p) return null;
+  if (/^(boost-mppt|havensis-|lexron-)/.test(p.id)) return "charge";
+  if (p.group === "accessory") return null;
+  if (p.group === "offgrid") return "offgrid";
+  return FIT[p.group] ? p.group : null;
+}
+function hydrateProductTemplate(html, cfg, p) {
+  if (!p) return html;
+  const c = cfg.company || {};
+  const wa = c.phone && c.phone.wa;
+  const url = (c.web || "") + "/" + (p.url || "");
+  // 1) WhatsApp'tan sor: ürün adlı ön-dolu bağlantı (statik; main.js dil/adet ile yeniler)
+  if (wa) {
+    const msg = 'Merhaba GESPA, "' + p.name + '"' + (p.sku ? " (" + p.sku + ")" : "") + " hakkında bilgi almak istiyorum. Adet: 1. " + url;
+    html = html.replace(/<a\b([^>]*)\bdata-pkg-wa\b([^>]*)>/g, (m, a1, a2) => {
+      let t = "<a" + a1 + "data-pkg-wa" + a2 + ">";
+      t = t.replace(/href="[^"]*"/, 'href="https://wa.me/' + wa + "?text=" + encodeURIComponent(msg) + '"');
+      if (!/target=/.test(t)) t = t.replace(/>$/, ' target="_blank" rel="noopener">');
+      return t;
+    });
+  }
+  // 2) Fiyat kutusu satırları
+  const com = cfg.commerce || {};
+  const days = com.shipDays || "2–5";
+  const kargo = p.freeShipping
+    ? '<p class="pd-row">🚚 <span>Kargo ücretsiz — fiyata dahil</span> · <span>' + esc(days) + ' iş günü</span></p>'
+    : '<p class="pd-row">🚚 <span>Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir</span> · <span>' + esc(days) + ' iş günü</span></p>';
+  const rows = '<!-- PRICEROWS:STATIC --><div class="pd-rows">' +
+    (com.taksitMax ? '<p class="pd-row pd-taksit" data-pay-taksit>💳 <span>' + esc("Kredi kartına " + com.taksitMax + " aya kadar taksit" + (com.taksitVadeFarki ? " (vade farkı uygulanır)" : "") + " — ödeme sayfasında seçilir") + "</span></p>"
+                   : '<p class="pd-row pd-taksit" data-pay-taksit hidden>💳 <span>Kredi kartına taksit — ödeme sayfasında seçilir</span></p>') + kargo +
+    "</div><!-- /PRICEROWS:STATIC -->";
+  if (/<!-- PRICEROWS:STATIC -->/.test(html)) html = html.replace(/<!-- PRICEROWS:STATIC -->[\s\S]*?<!-- \/PRICEROWS:STATIC -->/, rows);
+  else html = html.replace(/(<p class="pd-havale">[\s\S]*?<\/p>)/, "$1\n              " + rows);
+  // 3) Güven satırı: kargo satırı fiyat kutusuna taşındı; garanti (varsa) + güvenli ödeme
+  html = html.replace(/\s*<li>🚚 <span data-pkg-ship>[^<]*<\/span><\/li>/, "");
+  const trust = "<!-- TRUST:STATIC -->" +
+    ((p.warranty || com.warrantyDefault) ? "<li>🛡️ <span>Garanti: <b>" + esc(p.warranty || com.warrantyDefault) + "</b></span></li>" : "") +
+    "<li>🔒 <span>Güvenli ödeme: iyzico / tami · her siparişe fatura</span></li><!-- /TRUST:STATIC -->";
+  if (/<!-- TRUST:STATIC -->/.test(html)) html = html.replace(/<!-- TRUST:STATIC -->[\s\S]*?<!-- \/TRUST:STATIC -->/, trust);
+  else html = html.replace(/(<li>🔄 <span>[\s\S]*?<\/span><\/li>)/, "$1" + trust);
+  // 4) Uygun / uygun değil
+  const g = fitGroupOf(p);
+  html = html.replace(/\s*<div class="fit"><!-- FIT:STATIC -->[\s\S]*?<!-- \/FIT:STATIC --><\/div>/, "");
+  if (g) {
+    const [yes, no] = FIT[g];
+    const box = '\n            <div class="fit"><!-- FIT:STATIC --><div class="fit-col fit-yes"><h3>✅ Kimler için uygun</h3><ul>' +
+      yes.map(x => "<li>" + esc(x) + "</li>").join("") + '</ul></div><div class="fit-col fit-no"><h3>⛔ Uygun değil</h3><ul>' +
+      no.map(x => "<li>" + esc(x) + "</li>").join("") + "</ul></div><!-- /FIT:STATIC --></div>";
+    html = html.replace(/(<div class="prod-chips">[\s\S]*?<\/div>)/, "$1" + box);
+  }
+  // 5) Yorum alanı (gerçek yorum yok → uydurma yok; WhatsApp ile yorum + Google yorumları)
+  const rmsg = 'Merhaba GESPA, "' + p.name + '"' + (p.sku ? " (" + p.sku + ")" : "") + " ürünü için yorumum: ";
+  const rev = '<section class="section reviews-sec"><div class="container narrow"><!-- REVIEWS:STATIC -->' +
+    '<div class="section-head"><span class="kicker">Müşteri yorumları</span><h2>Bu ürünü alanlar ne diyor?</h2></div>' +
+    '<div class="reviews-empty"><p>Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.</p>' +
+    '<p class="reviews-btns">' + (wa ? '<a class="btn btn-ghost" href="https://wa.me/' + wa + "?text=" + encodeURIComponent(rmsg) + '" data-pkg-review target="_blank" rel="noopener">Yorum yazın (WhatsApp)</a>' : "") +
+    (c.googleReview ? '<a class="btn btn-ghost" href="' + esc(c.googleReview) + '" target="_blank" rel="noopener">Google yorumlarımız ↗</a>' : "") +
+    "</p></div><!-- /REVIEWS:STATIC --></div></section>";
+  if (/<!-- REVIEWS:STATIC -->/.test(html)) html = html.replace(/<section class="section reviews-sec">[\s\S]*?<!-- \/REVIEWS:STATIC --><\/div><\/section>/, rev);
+  else if (/<section class="cta-band"/.test(html)) html = html.replace(/(\s*)(<section class="cta-band")/, "$1" + rev + "$1$2");
+  else html = html.replace(/(\s*<\/main>)/, "\n" + rev + "$1");
+  return html;
+}
+
 function hydrateSisterSites(html, c) {
   const sites = (c.sisterSites || []).filter(x => x && x.url && x.label);
   const block = sites.map(x =>
@@ -1628,6 +1734,7 @@ function hydrateExtras(html, file, cfg) {
     // Kargo alıcıya mı ait? config'teki freeShipping tek kaynaktır.
     setMark("data-pkg-vat", p && p.freeShipping ? "KDV ve kargo dahil fiyattır." : "KDV dahil fiyattır.");
     setMark("data-pkg-ship", shipNote(p));
+    html = hydrateProductTemplate(html, cfg, p);
   }
   // Çapraz satış kartları: data-pkg-list="<id>" → o ürünün LİSTE fiyatı
   // (ürün sayfalarındaki "Sistemi tamamlayın" şeridi). main.js istemcide
@@ -2126,6 +2233,10 @@ function hydrateContact(html, c) {
   html = html.replace(/<a\b[^>]*\bdata-c-mailto\b[^>]*>/g, t => setHref(t, "mailto:" + c.email));
   html = html.replace(/<a\b[^>]*\bdata-c-wa\b[^>]*>/g, t => setHref(t, "https://wa.me/" + c.phone.wa));
   if (c.googleReview) html = html.replace(/<a\b[^>]*\bdata-c-review\b[^>]*>/g, t => setHref(t, c.googleReview));
+  // Ücretsiz keşif WhatsApp düğmeleri (menü, hero, üst bant, CTA bandı):
+  // mesaj config.topbar.kesifMsg; main.js dil değişince yeniden yazar.
+  const kesif = kesifWaUrl(c);
+  if (kesif) html = html.replace(/<a\b[^>]*\bdata-wa-kesif\b[^>]*>/g, t => setHref(t, kesif));
   return html;
 }
 
@@ -2461,6 +2572,7 @@ function run() {
     html = hydrateHead(html, file);
     html = thumbify(html);
     html = hydrateHelp(html, file);
+    html = hydrateTopbar(html, cfg);
     html = hydrateContact(html, cfg.company);
     html = hydrateSisterSites(html, cfg.company);
     html = hydrateExtras(html, file, cfg);

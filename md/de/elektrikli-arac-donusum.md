@@ -27,17 +27,34 @@ Preis inkl. MwSt. und Versand.
 
 💰 Per Überweisung: **₺7.200**
 
+💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
+
+🚚 Versand kostenlos — im Preis enthalten · 2–5 Werktage
+
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 
-[💬 Per WhatsApp fragen](https://www.gespaenerji.com/de/iletisim.html)
+[💬 Per WhatsApp fragen](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22MS%20Teknik%20BOOST%20MPPT%2024-72%20V%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%22%20(GES-EV-BOOST)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Felektrikli-arac-donusum.html)
 [❓ Passt das zu meinem Fahrzeug?](#sss)
 
-- 🚚 Kostenloser Versand in die ganze Türkei; der Versand ist im Preis enthalten.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
 - 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
+- 🛡️ Garantie: **2 Jahre**
+- 🔒 Sichere Zahlung: iyzico / tami · Rechnung zu jeder Bestellung
 - 🔧 Optionale Vor-Ort-Montage in der Region Antalya: Modulmontage, Verkabelung und Geräteeinstellung übernimmt unser Team.
 
 ⚙️ 24 – 72 V Akku 🔋 AGM · Gel · Blei · Lithium 📶 Einstellung per Bluetooth ⚡ 15 A Dauerausgang 🛡️ IP22 · 2 Jahre Garantie
+
+### ✅ Geeignet für
+
+- Batteriesysteme mit den in der Tabelle genannten Spannungen
+- Modulstränge, deren Voc-Summe unter der Eingangsgrenze bleibt
+- Ferienhaus, Wohnmobil, Boot und E-Fahrzeug-Ladung
+
+### ⛔ Nicht geeignet für
+
+- Netzgekoppelte Anlagen mit Wechselrichter
+- Reihenstränge über der Eingangsspannungsgrenze
+- Batterietypen oder Spannungen, die nicht in der Tabelle stehen
 
 🔋
 
@@ -259,6 +276,14 @@ Das Modul erzeugt Strom, solange Licht darauf fällt; das System arbeitet im Sta
 ### Beeinflusst die Montage die Fahrzeuggarantie?
 
 Die Garantiebedingungen der Hersteller unterscheiden sich je nach Marke. Vor der Montage prüfen wir gemeinsam den Garantiestatus Ihres Fahrzeugs und handeln nie ohne Ihre Zustimmung.
+
+Kundenbewertungen
+
+## Was sagen Käufer dieses Produkts?
+
+Für dieses Produkt gibt es noch keine veröffentlichte Bewertung. Wenn Sie es gekauft haben, schreiben Sie uns Ihre Erfahrung; nach Prüfung erscheint sie hier.
+
+[Bewertung schreiben (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22MS%20Teknik%20BOOST%20MPPT%2024-72%20V%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%22%20(GES-EV-BOOST)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Unsere Google-Bewertungen ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Prüfen wir gemeinsam, ob es zu Ihrem Fahrzeug passt
 

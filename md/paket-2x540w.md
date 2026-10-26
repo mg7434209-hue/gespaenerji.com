@@ -7,7 +7,7 @@ dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
-[Ana Sayfa](https://www.gespaenerji.com/) / [Ürünler](https://www.gespaenerji.com/urunler.html) / Tam Kapsamlı Güneş Enerjisi Sistemi
+[Ana Sayfa](https://www.gespaenerji.com/) / [Ürünler](https://www.gespaenerji.com/urunler.html)[Yapay Zekâ Ürünleri](https://www.gespaenerji.com/yapay-zeka-urunleri.html) / Tam Kapsamlı Güneş Enerjisi Sistemi
 
 ![Tam kapsamlı güneş enerjisi sistemi](https://www.gespaenerji.com/assets/img/products/kit-2x540w.webp)
 
@@ -25,17 +25,34 @@ KDV dahil fiyattır.
 
 💰 Havale/EFT ile: **₺104.950**
 
+💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
+
+🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
-[💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Tam%20Kapsaml%C4%B1%20G%C3%BCne%C5%9F%20Enerjisi%20Sistemi%22%20(GES-KIT-2X540)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpaket-2x540w.html)
 [🧮 Bana uygun mu?](https://www.gespaenerji.com/hesaplayici.html)
 
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🛡️ Garanti: **2 yıl**
+- 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 - 🔧 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi.
 
 ⚡ 2× 540 W panel ☀️ Günlük ~6,5 kWh üretim 🔋 LiFePO₄ lityum batarya 🎒 Mobil taşınabilir
+
+### ✅ Kimler için uygun
+
+- Bağ evi, kamp ve karavanda TV, aydınlatma ve şarj
+- Şebekenin olmadığı yerler
+- Tak-çalıştır kurulum isteyenler
+
+### ⛔ Uygun değil
+
+- Klima, fırın gibi yüksek güçlü cihazlar
+- Şebekeye satış (on-grid) amacı
+- Teknik tablodaki kapasitenin üstünde günlük tüketim
 
 Parça toplamakla uğraşmayın: panelden kablosuna kadar ihtiyacınız olan her bileşen tek pakette, birbiriyle uyumlu şekilde hazırlanmış olarak gelir.
 
@@ -170,6 +187,14 @@ Yüksek tüketimli ısıtma/soğutma cihazları bu paketin kapsamı dışındad�
 **🧰 Daha küçük bir çözüm mü lazım?**
 
 Yalnızca TV, aydınlatma ve şarj ihtiyacınız varsa [285W Güneş Paneli Paketi'ne göz atın →](https://www.gespaenerji.com/paket-285w.html)
+
+Müşteri yorumları
+
+## Bu ürünü alanlar ne diyor?
+
+Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
+
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Tam%20Kapsaml%C4%B1%20G%C3%BCne%C5%9F%20Enerjisi%20Sistemi%22%20(GES-KIT-2X540)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Bugün sipariş verin, güneşiniz hazır olsun
 

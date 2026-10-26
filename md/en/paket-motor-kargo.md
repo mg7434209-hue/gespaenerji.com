@@ -7,7 +7,7 @@ dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
-[Home](https://www.gespaenerji.com/en/) / [Products](https://www.gespaenerji.com/en/urunler.html) / Cargo-Bed E-Trike Solar Set — 700 W
+[Home](https://www.gespaenerji.com/en/) / [Products](https://www.gespaenerji.com/en/urunler.html)[AI Products](https://www.gespaenerji.com/en/yapay-zeka-urunleri.html) / Cargo-Bed E-Trike Solar Set — 700 W
 
 ![Kargo kasalı elektrikli triportör](https://www.gespaenerji.com/assets/img/products/ev/motor-kargo.webp)
 
@@ -25,17 +25,34 @@ Price includes VAT.
 
 💰 By bank transfer: **₺16.500**
 
+💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
+
+🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
 [⚡ Buy it now](https://www.gespaenerji.com/en/sepet.html)
-[💬 Ask on WhatsApp](https://www.gespaenerji.com/en/iletisim.html)
+[💬 Ask on WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Kargo%20Kasal%C4%B1%20Motor%20G%C3%BCne%C5%9F%20Paketi%20%E2%80%94%20700%20W%22%20(GES-SET-KARGO)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpaket-motor-kargo.html)
 
-- 🚚 Ships to anywhere in Türkiye; shipping is paid by the buyer.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
 - 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
+- 🛡️ Warranty: **2 years**
+- 🔒 Secure payment: iyzico / tami · invoice with every order
 - 🔧 Optional on-site installation and training in the Antalya region.
 
 🔆 700 W bifacial TOPCon panel 🔌 BOOST MPPT 24–72 V 🧰 Cable + MC4 included 🚚 Fits a wide roof
+
+### ✅ Suitable for
+
+- Three-wheelers, golf carts and mini cars with 24–72 V batteries
+- Vehicles whose roof fits the panel in the set
+- AGM, gel, flooded lead-acid and lithium batteries
+
+### ⛔ Not suitable for
+
+- Vehicles with 12 V batteries
+- Vehicles with a roof smaller than the panel
+- Vehicles parked indoors or in shade all day
 
 On cargo-bed electric three-wheelers the roof or canopy area is wide; spending that area on a small panel means losing daily yield. The 700 W bifacial N-type TOPCon panel fits this area at 2278 × 1133 mm; its front-side power is 610 Wp.
 
@@ -125,6 +142,14 @@ Enclosed passenger vehicles have a narrow roof; the 240 W package suits them bet
 For enclosed passenger vehicles with a narrow roof area the 240 W package suits better.
 
 [Take a look at the Passenger-Cab E-Trike Solar Set →](https://www.gespaenerji.com/en/paket-motor-yolcu.html)
+
+Customer reviews
+
+## What do buyers of this product say?
+
+No published reviews for this product yet. If you bought it, write about your experience; it is published here after approval.
+
+[Write a review (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Kargo%20Kasal%C4%B1%20Motor%20G%C3%BCne%C5%9F%20Paketi%20%E2%80%94%20700%20W%22%20(GES-SET-KARGO)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Our Google reviews ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Order your package today
 

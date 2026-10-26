@@ -49,21 +49,29 @@ Add the product to your cart on the Online Store page and pay by credit card or 
 
 ## Getting started with solar
 
-### How do you choose a reliable solar (PV) company in Manavgat?
+### How many years until the investment pays back?
 
-Choose companies that deliver turnkey (engineering, installation, financing and maintenance from one source), offer a free site survey, provide brand warranties on panels and inverters, and have reference projects with a local field team. GESPA Enerji, based in Manavgat/Antalya, provides all of these turnkey.
+It depends on your consumption, roof orientation and electricity tariff. The calculator gives a first figure; the exact period is set by the design and quote from the free survey.
 
-### Which regions does GESPA Enerji serve?
+### Does the system work in winter and on cloudy days?
 
-Based in Manavgat, we serve Side, Antalya, Alanya, Serik, Gazipaşa and the region; rooftop solar, ground-mounted solar and solar irrigation across Türkiye on request.
+Yes; output drops with less sunshine but does not stop. Calculations use the annual total, and in Antalya the winter months still contribute.
 
-### How many years does a solar investment take to pay back?
+### Can my roof carry the panels, and will it leak?
 
-Typically 3–6 years depending on consumption profile, region and electricity price. Estimate your roof-specific payback in seconds with our free online calculator.
+At the survey we check the roof's load capacity and covering; mounting uses hardware suited to the roof type, and the waterproofing is preserved.
 
-### What should I do to install solar panels on my roof in Manavgat?
+### Does my home keep running during a power cut?
 
-Just request a free site survey. A clear offer is prepared with field inspection, production simulation and payback period; then turnkey installation follows.
+A grid-tied system shuts down during an outage for safety. If you want power during cuts, a battery or hybrid system is planned; we decide together at the survey.
+
+### Who handles the permits and grid connection?
+
+We do. The design, the application and the correspondence with the grid company are handled by us; you only sign the required documents.
+
+### I have no cash up front — can I still install?
+
+Yes. With bank loans and leasing the investment can be financed from the savings it produces. We work out the monthly amount together at the survey, based on your consumption.
 
 [Go to page →](https://www.gespaenerji.com/en/)
 

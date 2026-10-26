@@ -25,18 +25,35 @@ KDV dahil fiyattır.
 
 💰 Havale/EFT ile: **₺11.450**
 
+💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
+
+🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
 [⚡ Hemen satın al](https://www.gespaenerji.com/sepet.html)
-[💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20DCDC-1224%20Tek%20Y%C3%B6nl%C3%BC%20DC-DC%20Ak%C3%BC%20%C5%9Earj%20Cihaz%C4%B1%2012%2F24%20V%2040%20A%22%20(DCDC-1224-40)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fhavensis-dcdc-40a.html)
 
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🛡️ Garanti: **2 yıl**
+- 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 - 🔋 Akü ürüne dahil değildir.
 - 🏭 Yerli üretim · Havensis
 
 🔋 12/24 V · 40 A 🚐 Alternatörden şarj 🔁 12-12 · 12-24 · 24-12 · 24-24 V ⚙️ %96,4 verim 🏭 Yerli üretim
+
+### ✅ Kimler için uygun
+
+- Teknik tablodaki akü gerilimlerine sahip akülü sistemler
+- Panel Voc toplamı giriş sınırının altında kalan diziler
+- Bağ evi, karavan, tekne ve elektrikli araç şarjı
+
+### ⛔ Uygun değil
+
+- Şebekeye bağlı inverterli sistemler
+- Giriş gerilimi sınırını aşan seri panel dizileri
+- Teknik tabloda yazmayan akü tipi veya gerilimi
 
 Havensis DCDC-1224, karavanlar için özel tasarlanmış tek yönlü DC-DC akü şarj cihazıdır. Bu model 40 A şarj akımıyla çalışır; 10–35 V girişi kabul eder, 12–32 V çıkış verir ve %96,4 dönüştürücü verimine sahiptir.
 
@@ -207,6 +224,14 @@ Türkiye'nin her yerine kargo ile gönderiyoruz; kurulumu bir oto elektrikçisi 
 12/24 V araç aküsünden yüksek gerilimli akü grubunu şarj etmek için BOOST DC-DC şarj cihazımıza bakın.
 
 [BOOST DC-DC şarj cihazı →](https://www.gespaenerji.com/havensis-boost-dcdc-2448.html)
+
+Müşteri yorumları
+
+## Bu ürünü alanlar ne diyor?
+
+Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
+
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20DCDC-1224%20Tek%20Y%C3%B6nl%C3%BC%20DC-DC%20Ak%C3%BC%20%C5%9Earj%20Cihaz%C4%B1%2012%2F24%20V%2040%20A%22%20(DCDC-1224-40)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Yaşam akünüzü yolda doldurun
 

@@ -3,7 +3,7 @@ title: "Solar Savings Calculator (PV) | GESPA Energy"
 description: "Free solar calculator: system size, annual yield, savings, payback period and CO₂ reduction from your bill, consumption or roof area."
 canonical: https://www.gespaenerji.com/en/hesaplayici.html
 lang: en
-dateModified: 2026-09-30
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -82,9 +82,6 @@ Tree equivalent / year —
 Car-km equivalent (25 yrs) —
 
 Battery (optional) —
-
-[Request a free quote with these results](https://www.gespaenerji.com/en/iletisim.html)
-[📲 Send results via WhatsApp](#)
 
 Engineering Tools
 

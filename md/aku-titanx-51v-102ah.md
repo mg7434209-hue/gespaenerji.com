@@ -25,18 +25,35 @@ KDV dahil fiyattır.
 
 💰 Havale/EFT ile: **₺71.200**
 
+💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
+
+🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
 [⚡ Hemen satın al](https://www.gespaenerji.com/sepet.html)
-[💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22TitanX%2051%2C2%20V%20102%20Ah%20LiFePO%E2%82%84%20Ak%C3%BC%22%20(GES-AKU-102)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Faku-titanx-51v-102ah.html)
 
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🛡️ Garanti: **2 yıl**
+- 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 - 🏷️ Marka: TitanX
 - 🛡️ 2 yıl garanti
 
 🔋 5,22 kWh ⚡ 51,2 V · 102 Ah ♻️ 6000+ çevrim
+
+### ✅ Kimler için uygun
+
+- Teknik tablodaki gerilimle çalışan akülü sistemler
+- Listelenen uyumlu şarj kontrol cihazları
+- Gün içi üretimi geceye taşımak
+
+### ⛔ Uygun değil
+
+- Farklı gerilimli sistemler
+- Şarj kontrol cihazı olmadan doğrudan panele bağlamak
+- Teknik tabloda yazmayan şarj akımı
 
 51,2 V 102 Ah (5,22 kWh) LiFePO₄ enerji depolama aküsü. 16S1P prizmatik hücre yapısı, dahili akıllı BMS ile aşırı şarj/deşarj, aşırı akım, kısa devre ve sıcaklık koruması. 100 A sürekli deşarj, 150 A tepe (5 sn); 6000+ çevrim ömrü (%80 DoD). CAN/RS485 ve Bluetooth veya WiFi haberleşme; 16 adede kadar paralel bağlanabilir. Ağırlık 37 kg, ölçü 560 × 150 × 380 mm, IP20, M8 terminal, 2 yıl garanti.
 
@@ -159,6 +176,14 @@ Türkiye'nin her yerine kargo ile gönderiyoruz. Antalya bölgesinde isteğe ba�
 Kaç akü, hangi panel ve inverter gerektiğini Sistem Kurucu ile birkaç adımda görün.
 
 [Sistem Kurucu'yu açın →](https://www.gespaenerji.com/sistem-kur.html)
+
+Müşteri yorumları
+
+## Bu ürünü alanlar ne diyor?
+
+Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
+
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22TitanX%2051%2C2%20V%20102%20Ah%20LiFePO%E2%82%84%20Ak%C3%BC%22%20(GES-AKU-102)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Aküyü bugün sipariş edin
 

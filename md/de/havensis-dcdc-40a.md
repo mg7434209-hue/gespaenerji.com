@@ -25,18 +25,35 @@ Preis inkl. MwSt.
 
 💰 Per Überweisung: **₺11.450**
 
+💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
+
+🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 
 [⚡ Jetzt kaufen](https://www.gespaenerji.com/de/sepet.html)
-[💬 Per WhatsApp fragen](https://www.gespaenerji.com/de/iletisim.html)
+[💬 Per WhatsApp fragen](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20DCDC-1224%20Tek%20Y%C3%B6nl%C3%BC%20DC-DC%20Ak%C3%BC%20%C5%9Earj%20Cihaz%C4%B1%2012%2F24%20V%2040%20A%22%20(DCDC-1224-40)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fhavensis-dcdc-40a.html)
 
-- 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
 - 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
+- 🛡️ Garantie: **2 Jahre**
+- 🔒 Sichere Zahlung: iyzico / tami · Rechnung zu jeder Bestellung
 - 🔋 Batterien sind nicht im Lieferumfang enthalten.
 - 🏭 Hergestellt in der Türkei · Havensis
 
 🔋 12/24 V · 40 A 🚐 Laden über die Lichtmaschine 🔁 12-12 · 12-24 · 24-12 · 24-24 V ⚙️ 96,4 % Wirkungsgrad 🏭 Hergestellt in der Türkei
+
+### ✅ Geeignet für
+
+- Batteriesysteme mit den in der Tabelle genannten Spannungen
+- Modulstränge, deren Voc-Summe unter der Eingangsgrenze bleibt
+- Ferienhaus, Wohnmobil, Boot und E-Fahrzeug-Ladung
+
+### ⛔ Nicht geeignet für
+
+- Netzgekoppelte Anlagen mit Wechselrichter
+- Reihenstränge über der Eingangsspannungsgrenze
+- Batterietypen oder Spannungen, die nicht in der Tabelle stehen
 
 Der Havensis DCDC-1224 ist ein speziell für Wohnmobile entwickeltes unidirektionales DC-DC-Ladegerät. Dieses Modell arbeitet mit 40 A Ladestrom; es akzeptiert 10–35 V am Eingang, liefert 12–32 V am Ausgang und hat einen Wandlungswirkungsgrad von 96,4 %.
 
@@ -207,6 +224,14 @@ Wir versenden in die ganze Türkei; die Montage kann eine Kfz-Elektrikwerkstatt 
 Um eine Hochvolt-Batteriebank aus einer 12/24-V-Fahrzeugbatterie zu laden, sehen Sie sich unser BOOST-DC-DC-Ladegerät an.
 
 [BOOST-DC-DC-Ladegerät →](https://www.gespaenerji.com/de/havensis-boost-dcdc-2448.html)
+
+Kundenbewertungen
+
+## Was sagen Käufer dieses Produkts?
+
+Für dieses Produkt gibt es noch keine veröffentlichte Bewertung. Wenn Sie es gekauft haben, schreiben Sie uns Ihre Erfahrung; nach Prüfung erscheint sie hier.
+
+[Bewertung schreiben (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20DCDC-1224%20Tek%20Y%C3%B6nl%C3%BC%20DC-DC%20Ak%C3%BC%20%C5%9Earj%20Cihaz%C4%B1%2012%2F24%20V%2040%20A%22%20(DCDC-1224-40)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Unsere Google-Bewertungen ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Laden Sie Ihre Aufbaubatterie unterwegs
 

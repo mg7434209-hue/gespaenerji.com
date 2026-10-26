@@ -25,17 +25,34 @@ Preis inkl. MwSt.
 
 💰 Per Überweisung: **₺9.700**
 
+💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
+
+🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 
 [⚡ Jetzt kaufen](https://www.gespaenerji.com/de/sepet.html)
-[💬 Per WhatsApp fragen](https://www.gespaenerji.com/de/iletisim.html)
+[💬 Per WhatsApp fragen](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Lexron%20655%20W%20TOPCon%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-655)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpanel-lexron-655w.html)
 
-- 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
 - 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
+- 🛡️ Garantie: **12 Jahre Produkt · 30 Jahre Leistung**
+- 🔒 Sichere Zahlung: iyzico / tami · Rechnung zu jeder Bestellung
 - 🔌 Laderegler und Kabel sind nicht im Lieferumfang enthalten.
 
 🔆 655 W N-Type-TOPCon 📈 24,25 % Wirkungsgrad 🛡️ 30 Jahre Leistungsgarantie
+
+### ✅ Geeignet für
+
+- Batteriesysteme (Insel) mit Laderegler
+- Zusatzmodul für eine Dach- oder Freiflächenanlage
+- Passende E-Fahrzeug-Solar-Sets
+
+### ⛔ Nicht geeignet für
+
+- Direkter Anschluss an eine Batterie (Laderegler nötig)
+- Geräte, deren Moduleingang unter dieser Voc liegt (siehe Tabelle)
+- Alleiniger Netzanschluss (Wechselrichter nötig)
 
 Monokristallin-Solarmodul mit 132 Halbzellen und N-Type-TOPCon-Technologie. Bei 655 W: Voc 50,34 V · Vmp 42,32 V · Isc 16,53 A · Imp 15,48 A, Modulwirkungsgrad 24,25 %. Maße 2382 × 1134 × 35 mm, Gewicht 31 kg; 3,2 mm AR-beschichtetes, wärmeverstärktes Glas, 35 mm eloxierter Aluminiumrahmen, IP68-Anschlussdose. 1500 V Systemspannung, 2400 Pa Wind- und 5400 Pa Schneelast.
 
@@ -170,6 +187,14 @@ Wir versenden in die ganze Türkei. In der Region Antalya bieten wir optional di
 Sehen Sie mit dem System-Konfigurator in wenigen Schritten, wie viele Module und welche Batterie und welcher Wechselrichter nötig sind.
 
 [System-Konfigurator öffnen →](https://www.gespaenerji.com/de/sistem-kur.html)
+
+Kundenbewertungen
+
+## Was sagen Käufer dieses Produkts?
+
+Für dieses Produkt gibt es noch keine veröffentlichte Bewertung. Wenn Sie es gekauft haben, schreiben Sie uns Ihre Erfahrung; nach Prüfung erscheint sie hier.
+
+[Bewertung schreiben (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Lexron%20655%20W%20TOPCon%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-655)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Unsere Google-Bewertungen ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Bestellen Sie das Modul noch heute
 

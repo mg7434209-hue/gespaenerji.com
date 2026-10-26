@@ -3,64 +3,26 @@ title: "GESPA Energy — Schlüsselfertige Solaranlagen (PV)"
 description: "GESPA Energy: schlüsselfertige Installation, Engineering, Finanzierung und Wartung für Aufdach- und Freiflächen-Solaranlagen. Manavgat / Antalya, Türkei."
 canonical: https://www.gespaenerji.com/de/
 lang: de
-dateModified: 2026-10-24
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
 ![GESPA Enerji çatı güneş enerjisi sistemi kurulmuş modern villa ve saha ekibi](https://www.gespaenerji.com/assets/img/hero-gespa-villa.webp)
 
-Schlüsselfertige Solarkraftwerke
+Manavgat · Antalya · seit 2005
 
-# Energie, die aus Sonne Gewinn macht.
+# Solarenergie: Produkte ab Lager , Anlagen schlüsselfertig.
 
-Für Aufdach- und Freiflächen-PV: Engineering, Installation, Finanzierung und Wartung — alles aus einer Hand.
+Module, Akkus, Laderegler und fertige Sets mit Versand in die ganze Türkei. In Antalya bauen wir Dach-, Freiflächen- und Agrar-PV von der Besichtigung bis zur Inbetriebnahme.
 
-[Kostenlose Beratung](https://www.gespaenerji.com/de/iletisim.html)
-[Ersparnis berechnen](https://www.gespaenerji.com/de/hesaplayici.html)
+[Zum Shop](https://www.gespaenerji.com/de/online-satis.html)
+[Kostenlose Besichtigung anfragen](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%C3%BCcretsiz%20ke%C5%9Fif%20istiyorum.%20%C4%B0l%2Fil%C3%A7e%3A%20___%20%C2%B7%20%C3%87at%C4%B1%20%2F%20arazi%20%2F%20tarla%3A%20___)
 
 - **500+**Abgeschlossene Projekte
 - **15 MW**Installierte Leistung
 - **21 Jahre**Branchenerfahrung
 
-![Ein Techniker baut einen BOOST-MPPT-Laderegler und die Akkuverkabelung in ein Golfcart ein, dahinter ein Solarcarport](https://www.gespaenerji.com/assets/img/products/ev/hero-ev-donusum.webp)
-
-🛺 E-Fahrzeug-Umbau
-
-Laden Sie Ihr Elektrofahrzeug mit Sonnenstrom
-
-Solarmodule und ein BOOST-MPPT-Laderegler für Golfcarts, Elektro-Dreiräder und Nutzfahrzeuge. 24–72 V, mit allen Akkutypen kompatibel; als fertige Sets erhältlich.
-
-[Umbau ansehen](https://www.gespaenerji.com/de/elektrikli-arac-donusum.html)
-
-![GESPA Enerji mühendislik ekibi güneş enerjisi santralinde saha incelemesi yapıyor](https://www.gespaenerji.com/assets/img/hero-gespa-ekip.webp)
-
-🔥 Neues Produkt
-
-Kostenloses Warmwasser von der Sonne
-
-PV-Warmwasserbereiter: heizt bei Sonne gratis, bei Bewölkung übernimmt automatisch das Netz. Modelle mit 60–200 Litern.
-
-[Produkt ansehen](https://www.gespaenerji.com/de/su-isitici.html)
-
-![AI kamera havuzdaki yüzücüleri tarıyor, risk algılandığında ışıklı alarm ve cankurtaran saatine bildirim gönderiyor](https://www.gespaenerji.com/assets/img/products/cankurtaran/hero-ai-cankurtaran.webp)
-
-🛟 AI Teknolojileri
-
-KI-Rettungsschwimmer-Assistenzsystem
-
-Meldet riskante Momente im Pool binnen Sekunden an die Smartwatch des Rettungsschwimmers. Für Hotel-, Aquapark- und Wohnanlagenpools.
-
-[System ansehen](https://www.gespaenerji.com/de/ai-cankurtaran-destek-sistemi.html)
-
-[![GES Marketim solar e-ticaret: güneş paneli, inverter ve akü ürünleri](https://www.gespaenerji.com/assets/img/hero-gesmarketim.webp)](https://www.gesmarketim.com/)
-
-🧰 Solar E-Mağaza
-
-Güneş enerjisi ürünleri, sahadan evinize
-
-Solar panel, inverter, akü ve bağlantı ekipmanlarını güvenilir markalarla inceleyin; ihtiyacınıza uygun sistemi hemen sipariş edin.
-
-[Solar Mağazaya Git ↗](https://www.gesmarketim.com/)
+🏢 Seit 2005 in Manavgat ✅ 500+ abgeschlossene Projekte ⚡ 15 MW installierte Leistung 📞 Rückmeldung zur Besichtigung in 1–3 Tagen 🔒 Sichere Zahlung: iyzico · tami
 
 ## Was suchen Sie?
 
@@ -70,22 +32,51 @@ Solar panel, inverter, akü ve bağlantı ekipmanlarını güvenilir markalarla 
 
 [![285-W-Solarmodul-Paket](https://www.gespaenerji.com/assets/img/products/kit-285w.webp)285-W-Solarmodul-Paket ₺25.000](https://www.gespaenerji.com/de/paket-285w.html)[![700 W Bifaziales TOPCon-Solarmodul](https://www.gespaenerji.com/assets/img/products/panel-700w.webp)700 W Bifaziales TOPCon-Solarmodul ₺8.700](https://www.gespaenerji.com/de/panel-700w.html)[![MS Teknik BOOST MPPT 24-72 V Laderegler](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Laderegler ₺7.200](https://www.gespaenerji.com/de/elektrikli-arac-donusum.html)[![Hero LED 200 W Solar-Straßenleuchte (Sensor, Fernbedienung)](https://www.gespaenerji.com/assets/img/products/hero-led-solar-sokak-200w.webp)Hero LED 200 W Solar-Straßenleuchte (Sensor, Fernbedienung) ₺2.250](https://www.gespaenerji.com/de/hero-led-solar-sokak-200w.html)
 
-Über uns: [Leistungen](https://www.gespaenerji.com/de/hizmetler.html) · [Projekte](https://www.gespaenerji.com/de/projeler.html) · [Über uns](https://www.gespaenerji.com/de/hakkimizda.html) · [Kontakt](https://www.gespaenerji.com/de/iletisim.html)
-
-Von uns verbaute Marken:
-Arçelik Lexron Bakırlar Tescom Mexxsun Deye TitanX Havensis MS Teknik Orbus GESPA
-
 Unsere Leistungen
 
-## An Ihrer Seite in jeder Projektphase
+## Schlüsselfertige Solaranlage
 
-End-to-End-Lösung von der Machbarkeit bis zur Inbetriebnahme, von Wartung bis Finanzierung.
+Ein Team von der Besichtigung bis zur Inbetriebnahme, von der Wartung bis zur Finanzierung. In Manavgat, Antalya und Umgebung.
 
-[![Solaranlage auf einem Ziegeldach — Kemer](https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp) Aufdach-SolarMaßgeschneiderte, flächeneffiziente Systeme für Wohn-, Gewerbe- und Industriedächer.](https://www.gespaenerji.com/de/cati-ges.html)
-[![Luftaufnahme einer Solaranlage auf einem Fabrikdach](https://www.gespaenerji.com/assets/img/projects/manavgat-sanayi-800.webp) Industriedach-SolarHochleistungsanlagen auf Fabrik- und Industriedächern — installiert ohne Produktionsstopp.](https://www.gespaenerji.com/de/arazi-ges.html)
-[![Solaranlage auf einem Villen-Flachdach](https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp) VillendächerSysteme für Villen und Einfamilienhäuser — auf Flach- und Schrägdächern, ohne die Optik zu stören.](https://www.gespaenerji.com/de/hizmetler.html)
+[![Solaranlage auf einem Ziegeldach — Kemer](https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp) Aufdach-SolarAnlagen, die Wohn-, Gewerbe- und Industriedächer effizient nutzen.](https://www.gespaenerji.com/de/cati-ges.html)
+[![Freiflächen-Solaranlage](https://www.gespaenerji.com/assets/img/projects/kirsehir-tarimsal.webp) Freiflächen-SolarAnlagen auf Feldern und freien Flächen mit bodenfester Unterkonstruktion.](https://www.gespaenerji.com/de/arazi-ges.html)
+[![Landwirtschaftliche Solaranlage auf einem Gewächshausdach — Manavgat](https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp) Solar-BewässerungBewässerungspumpen mit Sonnenstrom, ohne Diesel- und Netzkosten.](https://www.gespaenerji.com/de/tarimsal-sulama.html)
 
-[Alle Leistungen →](https://www.gespaenerji.com/de/hizmetler.html)
+Wie wir arbeiten
+
+## Schlüsselfertige Solaranlage in 4 Schritten
+
+- 1 ### Beratung & Analyse Vor-Ort-Begehung, Verbrauchsanalyse und Einstrahlungsdaten.
+- 2 ### Design & Angebot Klares Angebot mit Ertragssimulation und Amortisationszeit.
+- 3 ### Installation Schnelle, sichere Montage durch zertifizierte Teams.
+- 4 ### Inbetriebnahme & Monitoring Netzanschluss und laufende Leistungsüberwachung.
+
+[Ersparnis berechnen](https://www.gespaenerji.com/de/hesaplayici.html)[Kostenlose Beratung](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%C3%BCcretsiz%20ke%C5%9Fif%20istiyorum.%20%C4%B0l%2Fil%C3%A7e%3A%20___%20%C2%B7%20%C3%87at%C4%B1%20%2F%20arazi%20%2F%20tarla%3A%20___)
+
+![Solarmodul auf dem Dach eines Golfcarts](https://www.gespaenerji.com/assets/img/products/ev/motor-golf-kurulum.webp)
+
+🛺 E-Fahrzeug-Umbau
+
+## Laden Sie Ihr Elektrofahrzeug mit Sonnenstrom
+
+Solarmodule und ein BOOST-MPPT-Laderegler für Golfcarts, Elektro-Dreiräder und Nutzfahrzeuge. 24–72 V, mit allen Akkutypen kompatibel; als fertige Sets erhältlich.
+
+[![Dreirad mit Fahrgastkabine](https://www.gespaenerji.com/assets/img/products/ev/motor-yolcu.webp)Solar-Set für Dreirad mit Fahrgastkabine — 240 W **₺14.800**](https://www.gespaenerji.com/de/paket-motor-yolcu.html)
+[![Dreirad mit Ladefläche](https://www.gespaenerji.com/assets/img/products/ev/motor-kargo.webp)Solar-Set für Dreirad mit Ladefläche — 700 W **₺17.000**](https://www.gespaenerji.com/de/paket-motor-kargo.html)
+[![Golfcart-Typ](https://www.gespaenerji.com/assets/img/products/ev/motor-golf.webp)Solar-Set für Golfcart-Fahrzeug — 460 W **₺16.300**](https://www.gespaenerji.com/de/paket-motor-golf.html)
+[![Mini-Elektroauto](https://www.gespaenerji.com/assets/img/products/ev/motor-mini.webp)Solar-Set für Mini-Elektroauto — 240 W **₺14.800**](https://www.gespaenerji.com/de/paket-motor-mini.html)
+
+[Umbau ansehen](https://www.gespaenerji.com/de/elektrikli-arac-donusum.html)
+
+Wir machen die Investition leicht
+
+## Ohne Anzahlung auf Solar umsteigen
+
+Finanzieren Sie Ihre Investition mit Kredit- und Leasingoptionen aus der erzielten Ersparnis. Start ohne Eigenkapital.
+
+Die monatliche Rate berechnen wir bei der Besichtigung gemeinsam anhand Ihres Verbrauchs.
+
+[Finanzierungsoptionen anfragen →](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%C3%BCcretsiz%20ke%C5%9Fif%20istiyorum.%20%C4%B0l%2Fil%C3%A7e%3A%20___%20%C2%B7%20%C3%87at%C4%B1%20%2F%20arazi%20%2F%20tarla%3A%20___)
 
 Referenzprojekte
 
@@ -99,7 +90,7 @@ Ein 1,2-MW-Solarkraftwerk auf einem großen Fabrikdach in Manavgat.
 
 📍 Manavgat, Antalya ⚡ 1.2 MWp
 
-[Proje ayrıntıları →](https://www.gespaenerji.com/de/proje-manavgat-fabrika.html)
+[Projektdetails →](https://www.gespaenerji.com/de/proje-manavgat-fabrika.html)
 
 ![Kemer Villa Projesi — GESPA Enerji GES projesi](https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp)On-Grid
 
@@ -109,7 +100,7 @@ Netzgekoppelte Wohnanlage auf einer Villa mit Ziegel-Satteldach in Kemer.
 
 📍 Kemer, Antalya ⚡ 12 kWp
 
-[Proje ayrıntıları →](https://www.gespaenerji.com/de/proje-kemer-villa.html)
+[Projektdetails →](https://www.gespaenerji.com/de/proje-kemer-villa.html)
 
 ![Manavgat Tarımsal GES — GESPA Enerji GES projesi](https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp)Landwirtschaft
 
@@ -119,136 +110,69 @@ Solarkraftwerk auf einem Gewächshausdach für Gewächshaus- und Feldbewässerun
 
 📍 Manavgat, Antalya ⚡ 30 kWp
 
-[Proje ayrıntıları →](https://www.gespaenerji.com/de/proje-manavgat-tarimsal.html)
+[Projektdetails →](https://www.gespaenerji.com/de/proje-manavgat-tarimsal.html)
 
-[Alle Projekte →](https://www.gespaenerji.com/de/projeler.html)
+[Alle Projekte →](https://www.gespaenerji.com/de/projeler.html) [Baustellen-Galerie →](https://www.gespaenerji.com/de/projeler.html#galeri)
 
-Kostenloser Ersparnisrechner
+[![Villa çatısı güneş enerjisi kurulumu](https://www.gespaenerji.com/assets/img/gallery/g1-thumb.webp)](https://www.gespaenerji.com/de/projeler.html#galeri)[![Vinçle panel taşıma](https://www.gespaenerji.com/assets/img/gallery/g4-thumb.webp)](https://www.gespaenerji.com/de/projeler.html#galeri)[![İnverter kurulumu](https://www.gespaenerji.com/assets/img/gallery/g6-thumb.webp)](https://www.gespaenerji.com/de/projeler.html#galeri)[![Ticari çatı panel uygulaması](https://www.gespaenerji.com/assets/img/gallery/g3-thumb.webp)](https://www.gespaenerji.com/de/projeler.html#galeri)
 
-## Lösen wir Ihre Stromrechnung gemeinsam
+Warum GESPA?
 
-Geben Sie einfach Ihre Rechnung ein und sehen Sie **Anlagengröße, jährliche Ersparnis, Amortisationszeit und Ihren 25-Jahres-Ertrag** in Sekunden. Dazu **Engineering-Tools** für Modulbelegung, Wechselrichter und Kabel.
+## Drei Unterschiede bei der Zusammenarbeit mit uns
 
-[Meine Ersparnis berechnen →](https://www.gespaenerji.com/de/hesaplayici.html)
-[System-Konfigurator →](https://www.gespaenerji.com/de/sistem-kur.html)
+![GESPA-Energy-Team montiert Solarmodule auf einem Dach](https://www.gespaenerji.com/assets/img/about-montaj-600.webp)
 
-- ⚡ Anlagengröße & Modulanzahl
-- 💰 Jährliche & 25-Jahres-Ersparnis
-- 📅 Amortisationszeit
-- 🌱 CO₂- & Baum-Äquivalent
+🏢
 
-⚡ Live-Simulation
+### Seit 2005 dasselbe Team
 
-Von der Sonne zur Steckdose: so fließt Ihre Energie
+Seit 21 Jahren arbeiten wir in Manavgat an derselben Adresse mit demselben Team; auch Jahre nach der Montage erreichen Sie dieselben Ansprechpartner.
 
-Wir machen die Investition leicht
+🧭
 
-## Ohne Anzahlung auf Solar umsteigen
+### Ein Ansprechpartner von der Besichtigung bis zur Wartung
 
-💳
+Planung, Genehmigung, Montage, Inbetriebnahme und Wartung aus einer Hand; keine Vermittler, keine geteilte Verantwortung.
 
-### Finanzierung & Leasing
+📄
 
-Finanzieren Sie Ihre Investition mit Kredit- und Leasingoptionen aus der erzielten Ersparnis. Start ohne Eigenkapital.
+### Klare Preise, schriftliches Angebot
 
-[Finansman seçeneklerini sor →](https://www.gespaenerji.com/de/iletisim.html)
-
-🤝
-
-### Warum GESPA?
-
-20+ Jahre Erfahrung, schlüsselfertiges Engineering und bis zu 25 Jahre Garantie. Lernen Sie unser Team kennen.
-
-[Hakkımızda →](https://www.gespaenerji.com/de/hakkimizda.html)
-
-📍
-
-### Referenzen aus der Praxis
-
-Sehen Sie echte Installationen und Kapazitäten aus Industrie-, Landwirtschafts- und Wohnprojekten.
-
-[Projeleri gör →](https://www.gespaenerji.com/de/projeler.html)
-
-🧰 Online-Shop
-
-## Solarprodukte ab Lager kaufen
-
-Module, Batterien, Wechselrichter und Zubehör: Hunderte Produkte bei GES Marketim, Versand in die ganze Türkei. Unsere Fertigpakete können Sie direkt hier bestellen.
-
-[![285 W güneş paneli paketi](https://www.gespaenerji.com/assets/img/products/kit-285w.webp) 285-W-Solarmodul-PaketPlug-and-play-Mobilset für Camping, Wohnmobil und kleine Verbraucher.Produkt ansehen →](https://www.gespaenerji.com/de/paket-285w.html)
-[![2x540 W lityum bataryalı güneş enerjisi sistemi](https://www.gespaenerji.com/assets/img/products/kit-2x540w.webp) Komplettes SolarenergiesystemKomplettsystem mit LiFePO₄-Akku — für Ferienhaus und Wohnmobil.Produkt ansehen →](https://www.gespaenerji.com/de/paket-2x540w.html)
-[🛒 GES Marketim Modul · Batterie · Wechselrichter · Zubehör Zum Shop ↗](https://www.gesmarketim.com)
-
-🔆 Solar-Warmwasserbereiter
-
-## [Kostenloses Warmwasser von der Sonne](https://www.gespaenerji.com/de/su-isitici.html)
-
-Mit dem PV-Solar-Warmwasserbereiter der neuen Generation geht das Warmwasser am Hahn nie aus. An sonnigen Tagen erwärmt sich das Wasser kostenlos; bei Bewölkung schaltet sich das System automatisch ein. Niedrigere Rechnungen, ein behagliches Zuhause.
-
-- Kostenlose Erwärmung mit Solarenergie
-- Automatische Netz-(AC)-Reserve bei Bewölkung
-- Email-Innentank — Langlebigkeit und Hygiene
-
-[Produkt ansehen →](https://www.gespaenerji.com/de/su-isitici.html)
-[Alle Pakete →](https://www.gespaenerji.com/de/urunler.html)
-
-![Solar su ısıtıcı montaj şeması: çatıdaki güneş paneli, panel kablosu ve banyodaki termosifonun PV girişi bağlantısı](https://www.gespaenerji.com/assets/img/products/heater/baglanti-semasi-900.webp)
-
-KI-Produkte
-
-## Lösungen der neuen Generation neben der Energie
-
-Solarenergie ist unser Kerngeschäft; die Technologieprodukte, die wir daneben entwickeln, finden Sie hier.
-
-🛟 KI-Rettungsschwimmer-Assistenzsystem
-
-## [Im Wasser zählt jede Sekunde](https://www.gespaenerji.com/de/ai-cankurtaran-destek-sistemi.html)
-
-Yapay zekâ destekli kameralar havuzu 7/24 tarar; riskli durumda cankurtarana saniyeler içinde konumlu alarm gönderir.
-
-- Sofortige Warnung auf Smartwatch und Alarmpunkte
-- Nach ISO 20380:2017 · datenschutzkonforme lokale Verarbeitung
-
-[Produkt ansehen →](https://www.gespaenerji.com/de/ai-cankurtaran-destek-sistemi.html)
-[Kostenlose Beratung anfordern](https://www.gespaenerji.com/de/ai-cankurtaran-destek-sistemi.html#teklif)
-
-![AI Cankurtaran Destek Sistemi — havuz güvenliği](https://www.gespaenerji.com/assets/img/products/cankurtaran/hero-havuz-guvenlik.svg)
-
-[Alle KI-Produkte →](https://www.gespaenerji.com/de/yapay-zeka-urunleri.html)
-
-Referenzprojekte
-
-## Ähnliche Anlagen für Ihr Projekt ansehen
-
-Sehen Sie Praxisbeispiele mit Standort und Leistung; kontaktieren Sie unser Team für detaillierte Referenzen und technischen Umfang.
-
-[Projeleri gör →](https://www.gespaenerji.com/de/projeler.html)[Referenzangaben anfragen](https://www.gespaenerji.com/de/iletisim.html)
+Shop-Preise inkl. MwSt.; für die PV-Anlage erhalten Sie nach der Besichtigung ein schriftliches Angebot Position für Position.
 
 Häufige Fragen
 
 ## Über Solarenergie in Manavgat
 
-### Wie wählt man in Manavgat eine zuverlässige Solarfirma (PV)?
+### In wie vielen Jahren amortisiert sich die Investition?
 
-Wählen Sie Firmen, die schlüsselfertig liefern (Engineering, Installation, Finanzierung und Wartung aus einer Hand), eine kostenlose Vor-Ort-Analyse bieten, Markengarantien auf Module und Wechselrichter geben und Referenzprojekte mit lokalem Team vorweisen. GESPA Enerji aus Manavgat/Antalya bietet all das schlüsselfertig.
+Das hängt von Verbrauch, Dachausrichtung und Stromtarif ab. Der Rechner liefert einen ersten Wert; die genaue Dauer ergibt sich aus Planung und Angebot nach der kostenlosen Besichtigung.
 
-### Welche Regionen bedient GESPA Enerji?
+### Funktioniert die Anlage im Winter und bei bewölktem Himmel?
 
-Mit Sitz in Manavgat bedienen wir Side, Antalya, Alanya, Serik, Gazipaşa und Umgebung; auf Anfrage Aufdach-PV, Freiflächen-PV und Solarbewässerung in der ganzen Türkei.
+Ja; der Ertrag sinkt bei weniger Sonne, hört aber nicht auf. Gerechnet wird mit der Jahressumme, und in Antalya tragen auch die Wintermonate bei.
 
-### In wie vielen Jahren amortisiert sich eine Solarinvestition?
+### Trägt mein Dach die Module, und wird es undicht?
 
-Typisch 3–6 Jahre je nach Verbrauchsprofil, Region und Strompreis. Schätzen Sie Ihre dachspezifische Amortisation in Sekunden mit unserem kostenlosen Online-Rechner.
+Bei der Besichtigung prüfen wir Tragfähigkeit und Eindeckung; montiert wird mit zum Dach passenden Halterungen, die Abdichtung bleibt erhalten.
 
-### Was muss ich tun, um in Manavgat Solarmodule auf meinem Dach zu installieren?
+### Läuft mein Haus bei Stromausfall weiter?
 
-Fordern Sie einfach eine kostenlose Vor-Ort-Analyse an. Ein klares Angebot mit Begehung, Ertragssimulation und Amortisation wird erstellt; danach folgt die schlüsselfertige Installation.
+Eine netzgekoppelte Anlage schaltet bei Ausfall aus Sicherheitsgründen ab. Soll es auch dann Strom geben, wird eine Batterie- oder Hybridanlage geplant; das entscheiden wir gemeinsam bei der Besichtigung.
+
+### Wer kümmert sich um Genehmigung und Netzanschluss?
+
+Wir. Planung, Antrag und Schriftverkehr mit dem Netzbetreiber übernehmen wir; Sie unterschreiben nur die nötigen Unterlagen.
+
+### Ich habe kein Geld für die Vorauszahlung — geht es trotzdem?
+
+Ja. Mit Bankkredit und Leasing lässt sich die Investition aus der erzielten Ersparnis finanzieren. Die monatliche Rate berechnen wir bei der Besichtigung gemeinsam anhand Ihres Verbrauchs.
 
 ## Bereit für den Wechsel zur Sonne?
 
 Kontaktieren Sie uns für eine kostenlose Vor-Ort- und Ersparnisanalyse.
 
-[Jetzt Angebot](https://www.gespaenerji.com/de/iletisim.html)
+[Kostenlose Beratung](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%C3%BCcretsiz%20ke%C5%9Fif%20istiyorum.%20%C4%B0l%2Fil%C3%A7e%3A%20___%20%C2%B7%20%C3%87at%C4%B1%20%2F%20arazi%20%2F%20tarla%3A%20___)
 
 ---
 Kaynak sayfa: https://www.gespaenerji.com/de/ · GESPA Enerji · 0543 743 42 09 · info@gespaenerji.com · Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01, Manavgat / Antalya

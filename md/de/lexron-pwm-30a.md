@@ -25,18 +25,35 @@ Preis inkl. MwSt.
 
 💰 Per Überweisung: **₺800**
 
+💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
+
+🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 
 [⚡ Jetzt kaufen](https://www.gespaenerji.com/de/sepet.html)
-[💬 Per WhatsApp fragen](https://www.gespaenerji.com/de/iletisim.html)
+[💬 Per WhatsApp fragen](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Lexron%2030%20A%20PWM%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%2012%2F24%20V%22%20(GM-30APWMSARJKONT)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Flexron-pwm-30a.html)
 
-- 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
 - 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
+- 🛡️ Garantie: **2 Jahre**
+- 🔒 Sichere Zahlung: iyzico / tami · Rechnung zu jeder Bestellung
 - ☀️ Module und Batterie sind nicht im Lieferumfang enthalten.
 - 🏷️ Marke: Lexron
 
 ⚡ 12/24 V · 30 A 🔆 PWM
+
+### ✅ Geeignet für
+
+- Batteriesysteme mit den in der Tabelle genannten Spannungen
+- Modulstränge, deren Voc-Summe unter der Eingangsgrenze bleibt
+- Ferienhaus, Wohnmobil, Boot und E-Fahrzeug-Ladung
+
+### ⛔ Nicht geeignet für
+
+- Netzgekoppelte Anlagen mit Wechselrichter
+- Reihenstränge über der Eingangsspannungsgrenze
+- Batterietypen oder Spannungen, die nicht in der Tabelle stehen
 
 Lexron 30 A PWM hat einen Ladestrom von 30 A für 12/24 V-Batteriesysteme. Modell und Batteriespannungen stehen auf dem Etikett am Gerät.
 
@@ -166,6 +183,14 @@ Wir versenden in die ganze Türkei. In der Region Antalya bieten wir optional di
 Ist die Modulspannung höher als die Batteriespannung, holen MPPT-Modelle mehr Energie aus demselben Modul.
 
 [Lexron MPPT-Laderegler →](https://www.gespaenerji.com/de/lexron-mppt-30a.html)
+
+Kundenbewertungen
+
+## Was sagen Käufer dieses Produkts?
+
+Für dieses Produkt gibt es noch keine veröffentlichte Bewertung. Wenn Sie es gekauft haben, schreiben Sie uns Ihre Erfahrung; nach Prüfung erscheint sie hier.
+
+[Bewertung schreiben (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Lexron%2030%20A%20PWM%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%2012%2F24%20V%22%20(GM-30APWMSARJKONT)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Unsere Google-Bewertungen ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Bestellen Sie den PWM-Laderegler noch heute
 

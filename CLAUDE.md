@@ -657,6 +657,47 @@ işe yaramıyordu.
 - Katsayılar tek config dosyasında (`config.calc`) ve koddan ayarlanabilir.
 - KURAL: Hesaplayıcı bileşenine hiçbir sayı (fiyat, katsayı, güç) hardcode ETME.
 
+## CRO düzeni (26 Eki 2026, işletme kararı — satışa göre yeniden düzen)
+- TEMA: parlament mavisi SİTE GENELİ (`:root --green:#1f2f78`, koyu #16215a,
+  açık #3a52a8); vurgu sarısı aynı. Yeşil sabit renk yazma.
+- MENÜ (`tools/menu-uret.py --uygula`, test denetler): Mağaza · Çatı & Arazi
+  GES · Tarımsal Sulama · Elektrikli Araç · Referanslar · Hakkımızda ·
+  [Ücretsiz Keşif] (`data-wa-kesif` → WhatsApp, mesaj config.topbar.kesifMsg;
+  build hydrateContact statik yazar, main.js dilde yeniler). Açılır grup ve
+  AI ürünleri menüde YOK; alt bilgi "Kurumsal" sütununda. Mağaza BAŞLANGIÇ
+  (işletme: "başlangıç online satış"), GES tanıtımı "Hizmetlerimiz"
+  bölümünde, elektrikli araç ~%25 ağırlık (ana sayfada kendi bandı).
+- ÜST BANT: `config.topbar.seasons` (ay listesi); build.js hydrateTopbar
+  bulunulan aya göre seçer (`data-topbar` taşıyan sayfalar), main.js dil ve
+  ay değişiminde yeniler. Kampanya/teşvik iddiası YAZILMAZ. Hesaplayıcı
+  sayfalarının kendi uyarı bandı vardır (data-topbar yok).
+- ANA SAYFA SIRASI: tek hero (karusel KALKTI) → güven şeridi → 4 kutu (Mağaza
+  önce) → öne çıkan ürünler → Hizmetlerimiz (3 kart + 4 adım + CTA) →
+  elektrikli araç bandı (4 paket, fiyat config'ten) → finansman → referanslar
+  → Neden GESPA (3 madde) → 6 itiraz SSS → CTA. Markalar, AI, su ısıtıcı,
+  GES Marketim slaytı/şeridi KALKTI (GES Marketim yalnız alt bilgide).
+  Telefonda kompakt kurallar style.css sonunda (svc kartları satır, adımlar
+  2 sütun, referansta ilk kart, görseller gizli).
+- ÜRÜN SAYFASI ŞABLONU (build.js `hydrateProductTemplate`, tüm
+  data-pkg-detail sayfaları): PRICEROWS (taksit satırı — kart açıksa main.js
+  gösterir; kargo satırı freeShipping'e göre), TRUST (garanti yalnız config
+  `warranty` olan üründe — UYDURMA; güvenli ödeme), FIT (grup bazlı
+  uygun/uygun değil, `FIT` tablosu, değer uydurulmaz), REVIEWS (gerçek yorum
+  yok: WhatsApp'la yorum + Google yorum bağlantısı; şemaya yorum/puan
+  GİRMEZ), WhatsApp'tan sor = wa.me + ürün adı/kod/adet/adres. Telefon alt
+  çubuğu ürün sayfasında fiyat + Sepete ekle + WhatsApp.
+- LEAD HUNİSİ (hesaplayici.html `#leadForm` → main.js → `POST /api/lead`):
+  ad/telefon/ilçe + KVKK onayı; sunucu `DATA_DIR/leads.json`'a yazar ve
+  SMTP açıksa işletmeye e-posta gönderir; ardından WhatsApp ön-dolu mesaj
+  açılır (sunucu yoksa da açılır). Telefon LOG'A YAZILMAZ. Bal küpü
+  `website`, 3 sn kuralı, IP sınırı soru-cevapla aynı. GA4: lead_form,
+  lead_whatsapp. Dönüş süresi SÖZÜ VERİLMEZ (işletme vermedi).
+- MAĞAZA SENARYOLARI (`config.shopScenarios`, main.js `buildScen`): teknik
+  kategorilerin üstünde kullanım senaryosu kartları, `?senaryo=<id>`; bir
+  ürün birden çok senaryoda olabilir. Yeni ürünü ilgili senaryoya ekle.
+- SATIŞ METNİ KURALI: rakam, yorum, garanti süresi, kampanya UYDURULMAZ;
+  bilinmeyen değer yazılmaz (gizlenir), "[DOLDUR]" siteye ÇIKMAZ.
+
 ## Telefon ana sayfası (24 Eki 2026, işletme kararı)
 Telefonda (≤760 px) ana sayfa 21 ekrandı, markalar yarım ekran kaplıyordu.
 Artık: kısa banner (etiket, istatistikler ve 2. düğme gizli) → `.m-hub` hızlı

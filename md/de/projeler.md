@@ -3,7 +3,7 @@ title: "Referenzprojekte — Aufdach & Freifläche | GESPA"
 description: "Realisierte Solarkraftwerk-Projekte (PV) in verschiedenen Branchen: Industrie, Landwirtschaft, Kühlhäuser, Hotels und Freiflächenanlagen."
 canonical: https://www.gespaenerji.com/de/projeler.html
 lang: de
-dateModified: 2026-09-30
+dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
@@ -21,7 +21,7 @@ Netzgekoppelte Wohnanlage auf einer Villa mit Ziegel-Satteldach in Kemer.
 
 📍 Kemer, Antalya ⚡ 12 kWp
 
-[Proje ayrıntıları →](https://www.gespaenerji.com/de/proje-kemer-villa.html)
+[Projektdetails →](https://www.gespaenerji.com/de/proje-kemer-villa.html)
 
 ![Manavgat Tarımsal GES — GESPA Enerji GES projesi](https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp)Landwirtschaft
 
@@ -31,7 +31,7 @@ Solarkraftwerk auf einem Gewächshausdach für Gewächshaus- und Feldbewässerun
 
 📍 Manavgat, Antalya ⚡ 30 kWp
 
-[Proje ayrıntıları →](https://www.gespaenerji.com/de/proje-manavgat-tarimsal.html)
+[Projektdetails →](https://www.gespaenerji.com/de/proje-manavgat-tarimsal.html)
 
 ![Manavgat Sanayi Tesisi — GESPA Enerji GES projesi](https://www.gespaenerji.com/assets/img/projects/manavgat-sanayi-800.webp)Industrie
 
@@ -49,7 +49,7 @@ Ein 1,2-MW-Solarkraftwerk auf einem großen Fabrikdach in Manavgat.
 
 📍 Manavgat, Antalya ⚡ 1.2 MWp
 
-[Proje ayrıntıları →](https://www.gespaenerji.com/de/proje-manavgat-fabrika.html)
+[Projektdetails →](https://www.gespaenerji.com/de/proje-manavgat-fabrika.html)
 
 ![Serik / Kemer Kurulum — GESPA Enerji GES projesi](https://www.gespaenerji.com/assets/img/projects/serik-kemer-800.webp)Gewerbe
 

@@ -488,18 +488,43 @@
         set("[data-pkg-havale]", "₺" + nf.format(unitCart));
         set("[data-pkg-cta]", "🛒 " + L("Sepete ekle — %" + pct + " indirimle al", "Add to cart — get " + pct + "% off", "In den Warenkorb — " + pct + " % sparen", "В корзину — скидка " + pct + " %"));
       }
-      // WhatsApp bilgi linkleri
+      // WhatsApp bilgi linkleri — ürün adı + kod + adet + sayfa adresi (CRO FAZ 2)
       var wa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
       var waHref = function (msg) { return "https://wa.me/" + wa + "?text=" + encodeURIComponent(msg); };
-      if (wa) {
+      var pageUrl = ((CFG.company && CFG.company.web) || "") + "/" + (p.url || "");
+      var applyWa = function () {
+        if (!wa) return;
+        var tag = p.sku ? " (" + p.sku + ")" : "";
         document.querySelectorAll("[data-pkg-wa]").forEach(function (el) {
-          el.href = waHref(L("Merhaba, \"" + p.name + "\" paketi hakkında bilgi almak istiyorum.",
-            "Hello, I would like information about the \"" + p.name + "\" package.",
-            "Hallo, ich interessiere mich für das Paket \"" + p.name + "\".",
-            "Здравствуйте, интересует пакет «" + p.name + "»."));
+          el.href = waHref(L("Merhaba GESPA, \"" + p.name + "\"" + tag + " hakkında bilgi almak istiyorum. Adet: " + qty + ". " + pageUrl,
+            "Hello GESPA, I would like information about \"" + p.name + "\"" + tag + ". Quantity: " + qty + ". " + pageUrl,
+            "Hallo GESPA, ich interessiere mich für \"" + p.name + "\"" + tag + ". Menge: " + qty + ". " + pageUrl,
+            "Здравствуйте, GESPA, интересует «" + p.name + "»" + tag + ". Количество: " + qty + ". " + pageUrl));
           el.target = "_blank"; el.rel = "noopener";
         });
-      }
+        document.querySelectorAll("[data-pkg-review]").forEach(function (el) {
+          el.href = waHref(L("Merhaba GESPA, \"" + p.name + "\"" + tag + " ürünü için yorumum: ",
+            "Hello GESPA, my review of \"" + p.name + "\"" + tag + ": ",
+            "Hallo GESPA, meine Bewertung zu \"" + p.name + "\"" + tag + ": ",
+            "Здравствуйте, GESPA, мой отзыв о «" + p.name + "»" + tag + ": "));
+        });
+      };
+      applyWa();
+      document.addEventListener("gespa:lang", applyWa);
+      // Taksit satırı: kart ödemesi açıksa görünür; tami'de en yüksek taksit sayısı yazılır.
+      var tkEl = document.querySelector("[data-pay-taksit]");
+      if (tkEl) fetch("/api/pay/status").then(function (r) { return r.json(); }).then(function (st) {
+        if (!st || !st.enabled) { tkEl.hidden = true; return; }
+        if (tkEl.textContent.trim().length > 10 && (CFG.commerce || {}).taksitMax) return;   // statik metin (config) yeterli
+        var n = st.taksit && st.taksit.secenekler && st.taksit.secenekler.length ? Math.max.apply(null, st.taksit.secenekler) : 0;
+        var sp = tkEl.querySelector("span");
+        var write = function () {
+          if (sp) sp.textContent = n
+            ? L("Kredi kartına " + n + " taksite kadar — ödeme sayfasında seçilir", "Up to " + n + " instalments by card — chosen on the payment page", "Bis zu " + n + " Raten per Karte — auf der Zahlungsseite wählbar", "До " + n + " платежей картой — выбирается на странице оплаты")
+            : L("Kredi kartına taksit — ödeme sayfasında seçilir", "Card instalments — chosen on the payment page", "Ratenzahlung per Karte — auf der Zahlungsseite wählbar", "Рассрочка картой — выбирается на странице оплаты");
+        };
+        write(); tkEl.hidden = false; document.addEventListener("gespa:lang", write);
+      }).catch(function () {});
       // Adet kutusu (− n +) — seçilen adet "Sepete ekle" ile sepete geçer
       var qtyIn = document.querySelector("[data-qty-input]");
       // Üst sınır stoktur: stokta 1 varsa müşteri 5 adet sipariş edemez.
@@ -512,7 +537,7 @@
         if (pct) set("[data-pkg-havale]", "₺" + nf.format(uq.cart));
         if (bulkEl) bulkEl.classList.toggle("is-on", !!uq.bulk);
       };
-      var setQty = function (n) { qty = Math.max(1, Math.min(maxQty || 1, Math.round(n) || 1)); if (qtyIn) qtyIn.value = qty; showUnit(); };
+      var setQty = function (n) { qty = Math.max(1, Math.min(maxQty || 1, Math.round(n) || 1)); if (qtyIn) qtyIn.value = qty; showUnit(); applyWa(); };
       document.querySelectorAll(".buy-row [data-q]").forEach(function (b) {
         b.addEventListener("click", function () { setQty(qty + (+b.getAttribute("data-q"))); });
       });
@@ -882,10 +907,14 @@
         el.textContent = (d ? d + L("g ", "d ", "T ", "д ") : "") + two(h) + ":" + two(m) + ":" + two(s2);
       }
 
+      // Kullanım senaryosu (config.shopScenarios): kategori süzgecinin üstünde,
+      // ikisi birlikte çalışır (senaryo → sonra teknik kategori).
+      var SCEN = CFG.shopScenarios || [], scen = "all";
+      function inScen(p) { if (scen === "all") return true; var s = SCEN.filter(function (x) { return x.id === scen; })[0]; return !!(s && (s.ids || []).indexOf(p.id) >= 0); }
       function render(filter) {
-        var list = filter && filter !== "all"
+        var list = (filter && filter !== "all"
           ? items.filter(function (p) { return catOf(p) === filter; })
-          : items;
+          : items).filter(inScen);
         grid.innerHTML = list.length
           ? list.map(tile).join("")
           : '<p class="sh-empty">' + L("Bu kategoride şu an ürün yok.", "No products in this category yet.",
@@ -962,9 +991,34 @@
         var gTop = grid.getBoundingClientRect().top;
         if (gTop < gap) window.scrollTo({ top: window.pageYOffset + gTop - gap, behavior: "smooth" });
       });
+      // Senaryo kartları
+      var scenBar = $("#shopScenarios");
+      var scenParam = function () { try { return new URLSearchParams(location.search).get("senaryo"); } catch (e) { return null; } };
+      function buildScen() {
+        if (!scenBar || !SCEN.length) return;
+        var html = '<button type="button" class="sh-scard' + (scen === "all" ? " is-on" : "") + '" data-s="all"><span class="sh-scard-ico" aria-hidden="true">🧰</span><b>' + L("Tüm ürünler", "All products", "Alle Produkte", "Все товары") + "</b><small>" + items.length + " " + L("ürün", "products", "Produkte", "товаров") + "</small></button>";
+        SCEN.forEach(function (s) {
+          var n = s.href ? 0 : items.filter(function (p) { return (s.ids || []).indexOf(p.id) >= 0; }).length;
+          if (!s.href && !n) return;
+          var inner = '<span class="sh-scard-ico" aria-hidden="true">' + s.icon + "</span><b>" + tName(s.label) + "</b><small>" + (s.href ? tName(s.hint) : tName(s.hint)) + "</small>";
+          html += s.href ? '<a class="sh-scard sh-scard-go" href="' + s.href + '">' + inner + "</a>"
+                         : '<button type="button" class="sh-scard' + (scen === s.id ? " is-on" : "") + '" data-s="' + s.id + '">' + inner + "</button>";
+        });
+        scenBar.innerHTML = html;
+      }
+      (function () { var w = scenParam(); if (w && SCEN.some(function (s) { return s.id === w && !s.href; })) scen = w; })();
+      if (scenBar) scenBar.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-s]"); if (!b) return;
+        scen = b.getAttribute("data-s");
+        $$(".sh-scard", scenBar).forEach(function (x) { x.classList.toggle("is-on", x === b); });
+        render(active);
+        try { var u = new URL(location.href); if (scen === "all") u.searchParams.delete("senaryo"); else u.searchParams.set("senaryo", scen); history.replaceState(history.state, "", u.pathname + u.search + u.hash); } catch (err) {}
+      });
+      buildScen();
       buildFilters();
       renderSale();
       render(active);
+      doc.addEventListener("gespa:lang", function () { buildScen(); });
       // sepete ekle — onay penceresi paket sayfalarıyla ortak
       function bindAdd(root) {
         if (!root) return;
@@ -1751,11 +1805,62 @@
     var bar = doc.createElement("div");
     bar.className = "mobile-cta";
     bar.setAttribute("aria-label", L("Hızlı iletişim", "Quick contact", "Schnellkontakt", "Быстрая связь"));
+    // ÜRÜN SAYFASINDA (CRO FAZ 2): fiyat + Sepete ekle + WhatsApp. "Ücretsiz Keşif"
+    // satışı GES hunisine saptırıyordu. Tükenen üründe WhatsApp'tan sor.
+    var host = $("[data-pkg-detail]"), shop = window.GESPA && GESPA.shop;
+    var pp = host && shop && shop.pkg(host.getAttribute("data-pkg-detail"));
+    if (pp && pp.price != null) {
+      var nf = new Intl.NumberFormat("tr-TR"), u = shop.unit(pp);
+      var waEl = $("[data-pkg-wa]");
+      bar.classList.add("mobile-cta-prod");
+      bar.innerHTML = '<span class="mcta-price">₺' + nf.format(u.list) + "</span>" +
+        (pp.stock === 0
+          ? '<a class="mcta mcta-quote" href="' + (waEl ? waEl.href : "https://wa.me/" + c.phone.wa) + '" target="_blank" rel="noopener">💬 ' + L("Stok için sor", "Ask about stock", "Verfügbarkeit anfragen", "Спросить о наличии") + "</a>"
+          : '<button type="button" class="mcta mcta-quote" data-mcta-add>🛒 ' + L("Sepete ekle", "Add to cart", "In den Warenkorb", "В корзину") + "</button>") +
+        '<a class="mcta mcta-wa mcta-ico" href="' + (waEl ? waEl.href : "https://wa.me/" + c.phone.wa) + '" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>';
+      doc.body.appendChild(bar);
+      bar.addEventListener("click", function (e) {
+        if (e.target.closest("[data-mcta-add]")) { var btn = $(".buy-box [data-add-cart]"); if (btn) btn.click(); }
+      });
+      return;
+    }
     bar.innerHTML =
       '<a class="mcta mcta-call" href="tel:' + c.phone.tel + '">📞 ' + L("Hemen Ara", "Call now", "Anrufen", "Позвонить") + '</a>' +
       '<a class="mcta mcta-wa" href="https://wa.me/' + c.phone.wa + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
-      '<a class="mcta mcta-quote" href="iletisim.html">' + L("Ücretsiz Keşif", "Free Survey", "Beratung", "Бесплатно") + '</a>';
+      '<a class="mcta mcta-quote" href="iletisim.html" data-wa-kesif target="_blank" rel="noopener">' + L("Ücretsiz Keşif", "Free Survey", "Beratung", "Бесплатно") + '</a>';
     doc.body.appendChild(bar);
+  })();
+
+  /* ---- Ücretsiz keşif WhatsApp düğmeleri + mevsimlik üst bant (26 Eki 2026) ----
+     [data-wa-kesif] bağlantıları config.topbar.kesifMsg ile (dil değişince o
+     dilde) yazılır. Üst bant: build'in seçtiği mevsim ay değişince burada
+     yenilenir. */
+  (function () {
+    var tb = CFG.topbar || {}, wa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
+    function kesifHref() {
+      var msg = L(tb.kesifMsg || "Merhaba GESPA, ücretsiz keşif istiyorum.",
+        "Hello GESPA, I would like a free site survey. City/district: ___ · Roof / land / field: ___",
+        "Hallo GESPA, ich möchte eine kostenlose Besichtigung. Stadt/Bezirk: ___ · Dach / Grundstück / Feld: ___",
+        "Здравствуйте, GESPA, хочу бесплатный осмотр. Город/район: ___ · Крыша / участок / поле: ___");
+      return wa ? "https://wa.me/" + wa + "?text=" + encodeURIComponent(msg) : "iletisim.html";
+    }
+    function applyKesif() { $$("[data-wa-kesif]").forEach(function (a) { a.href = kesifHref(); }); }
+    function applyTopbar() {
+      var bar = $(".topbar[data-topbar]"), seasons = tb.seasons || [];
+      if (!bar || !seasons.length) return;
+      var mo = new Date().getMonth() + 1;
+      var s = seasons.filter(function (x) { return (x.months || []).indexOf(mo) >= 0; })[0] || seasons[0];
+      var span = $("span", bar), a = $("a", bar);
+      var tr = function (t) { try { var d = GESPA.i18nData && GESPA.i18nData.DICT && GESPA.i18nData.DICT[(window.GESPA && GESPA.lang) || "tr"]; return (d && d[t]) || t; } catch (e) { return t; } };
+      if (span && span.textContent !== tr(s.text)) span.textContent = tr(s.text);
+      if (a) {
+        if (a.textContent !== tr(s.label)) a.textContent = tr(s.label);
+        if (s.wa) { a.setAttribute("data-wa-kesif", ""); a.href = kesifHref(); a.target = "_blank"; a.rel = "noopener"; }
+        else { a.removeAttribute("data-wa-kesif"); a.href = s.href || "iletisim.html"; a.removeAttribute("target"); }
+      }
+    }
+    applyTopbar(); applyKesif();
+    doc.addEventListener("gespa:lang", function () { applyTopbar(); applyKesif(); });
   })();
 
   /* ---- Akıllı asistan (sohbet botu) yükle ---- */
@@ -1996,6 +2101,7 @@
     var DEG = (k.degradation || 0) / 100;            // yıllık verim kaybı
     var CO2_PER_CAR_KM = k.co2PerCarKm || 0.12;      // kg CO2 / km
     var chartEl = $("#calcChart"), chartNote = $("#chartNote"), waBtn = $("#calcWa");
+    var lastCalc = null, leadOpened = Date.now();
     var WA = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
     var selfEl = $("#self"), batteryEl = $("#battery"), printBtn = $("#calcPrint");
     var FEED = k.feedInFactor != null ? k.feedInFactor : 0.5;
@@ -2108,6 +2214,7 @@
               "With these values it doesn't pay back within 25 years; adjust the inputs.",
               "Mit diesen Werten amortisiert sich die Anlage nicht in 25 Jahren; bitte Eingaben anpassen.",
               "При этих значениях окупаемость не достигается за 25 лет; измените параметры.");
+        lastCalc = { kwp: fmt1(kwp), panels: fmt(panels), save: fmt(save), cost: fmt(cost), pb: payback > 0 ? fmt1(payback) + " " + (u.yil || "yıl") : (u.yilPlus || "25+ yıl") };
         if (waBtn && WA) {
           var pb = payback > 0 ? fmt1(payback) + " " + (u.yil || "yıl") : (u.yilPlus || "25+ yıl");
           var msg = L(
@@ -2129,6 +2236,47 @@
     if (orient) orient.addEventListener("change", calc);
     if (batteryEl) batteryEl.addEventListener("change", calc);
     if (printBtn) printBtn.addEventListener("click", function () { window.print(); });
+    // LEAD HUNİSİ (CRO FAZ 1-d, 26 Eki 2026): sonuç → ad/telefon/ilçe → sunucuya
+    // kayıt (/api/lead: leads.json + işletme e-postası) → WhatsApp ön-dolu mesaj
+    // → teşekkür. Sunucu yoksa/hata verirse WhatsApp yine açılır (lead kaybolmasın).
+    var leadForm = $("#leadForm");
+    if (leadForm) leadForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var v = function (n) { return (leadForm[n] && String(leadForm[n].value || "").trim()) || ""; };
+      var done = $("#leadDone"), btn = $("#leadSend");
+      var warn = function (t) { if (done) { done.hidden = false; done.className = "lead-done is-warn"; done.textContent = t; } };
+      if (!lastCalc) return warn(L("Önce yukarıdaki alanlara değerlerinizi girin.", "Enter your values above first.", "Bitte zuerst oben Ihre Werte eingeben.", "Сначала введите значения выше."));
+      if (v("ad").length < 2 || v("tel").replace(/\D/g, "").length < 10 || !(leadForm.kvkk && leadForm.kvkk.checked)) {
+        if (leadForm.reportValidity) leadForm.reportValidity();
+        return warn(L("Ad, telefon ve onay kutusu gerekli.", "Name, phone and the consent box are required.", "Name, Telefon und Zustimmung sind erforderlich.", "Нужны имя, телефон и согласие."));
+      }
+      var ilce = v("ilce");
+      var msg = L("Merhaba GESPA, hesaplayıcı sonucum: " + lastCalc.kwp + " kWp · yıllık ≈ ₺" + lastCalc.save + " · geri ödeme " + lastCalc.pb + (ilce ? " · " + ilce : "") + ". Ücretsiz keşif istiyorum. Adım: " + v("ad"),
+        "Hello GESPA, my calculator result: " + lastCalc.kwp + " kWp · ≈ ₺" + lastCalc.save + "/year · payback " + lastCalc.pb + (ilce ? " · " + ilce : "") + ". I would like a free site survey. Name: " + v("ad"),
+        "Hallo GESPA, mein Rechner-Ergebnis: " + lastCalc.kwp + " kWp · ≈ ₺" + lastCalc.save + "/Jahr · Amortisation " + lastCalc.pb + (ilce ? " · " + ilce : "") + ". Ich möchte eine kostenlose Besichtigung. Name: " + v("ad"),
+        "Здравствуйте, GESPA, мой результат: " + lastCalc.kwp + " кВт · ≈ ₺" + lastCalc.save + "/год · окупаемость " + lastCalc.pb + (ilce ? " · " + ilce : "") + ". Хочу бесплатный осмотр. Имя: " + v("ad"));
+      var openWa = function () { if (WA) window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(msg), "_blank"); };
+      var thanks = function () {
+        if (done) { done.hidden = false; done.className = "lead-done";
+          var rd = (CFG.commerce && CFG.commerce.leadReplyDays) || "1–3";
+          done.textContent = L("Aldık, " + v("ad") + ". " + rd + " gün içinde " + v("tel") + " numaranızı arayacağız. WhatsApp penceresi açılmadıysa alttaki yeşil düğmeyi kullanın.",
+            "Thank you, " + v("ad") + ". We will call " + v("tel") + " within " + rd + " days. If WhatsApp did not open, use the green button below.",
+            "Danke, " + v("ad") + ". Wir rufen Sie innerhalb von " + rd + " Tagen unter " + v("tel") + " an. Falls WhatsApp nicht geöffnet wurde, nutzen Sie den grünen Button unten.",
+            "Спасибо, " + v("ad") + ". Мы позвоним на " + v("tel") + " в течение " + rd + " дней. Если WhatsApp не открылся, используйте зелёную кнопку ниже."); }
+        if (btn) { btn.disabled = true; btn.textContent = L("Gönderildi ✓", "Sent ✓", "Gesendet ✓", "Отправлено ✓"); }
+        try { if (window.gtag) { gtag("event", "lead_form", { page_path: location.pathname }); gtag("event", "lead_whatsapp", { page_path: location.pathname }); } } catch (err) {}
+      };
+      if (btn) { btn.disabled = true; btn.textContent = L("Gönderiliyor…", "Sending…", "Wird gesendet…", "Отправка…"); }
+      var body = { ad: v("ad"), tel: v("tel"), ilce: ilce, kwp: lastCalc.kwp, panels: lastCalc.panels, save: lastCalc.save, cost: lastCalc.cost, payback: lastCalc.pb,
+        lang: (window.GESPA && GESPA.lang) || "tr", path: location.pathname, ms: Date.now() - leadOpened, website: v("website") };
+      var finish = function () { openWa(); thanks(); };
+      try {
+        fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
+          .then(function (r) { return r.json().catch(function () { return {}; }); })
+          .then(function (j) { if (j && j.error && j.retry) { if (btn) { btn.disabled = false; btn.textContent = L("Sonucu WhatsApp'a gönder, keşif planla", "Send result to WhatsApp, plan a survey", "Ergebnis per WhatsApp senden, Besichtigung planen", "Отправить результат в WhatsApp, запланировать осмотр"); } return warn(j.error); } finish(); })
+          .catch(finish);
+      } catch (err) { finish(); }
+    });
     document.addEventListener("gespa:lang", calc);
     // URL ile yöntem seçimi (ör. hesaplayici.html#tarim)
     var hashM = (location.hash || "").replace("#", "");

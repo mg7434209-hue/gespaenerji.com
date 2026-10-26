@@ -25,17 +25,34 @@ KDV dahil fiyattır.
 
 💰 Havale/EFT ile: **₺130**
 
+💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
+
+🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
 [⚡ Hemen satın al](https://www.gespaenerji.com/sepet.html)
-[💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Hero%20LED%2010%20W%2012%20V%20DC%20LED%20Ampul%20(12%E2%80%9360%20V%20AC%2FDC)%22%20(HL-7020)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fhero-led-ampul-10w.html)
 
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🛡️ Garanti: **2 yıl**
+- 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 - 🏷️ Marka: Hero LED
 
 💡 10 W · 850 lm ⚡ 12–60 V AC/DC ⚪ 6500 K beyaz
+
+### ✅ Kimler için uygun
+
+- Elektrik hattı olmayan bahçe, sokak, site ve otopark
+- Gün boyu güneş gören montaj yerleri
+- Hareketle yanması istenen alanlar
+
+### ⛔ Uygun değil
+
+- Sürekli gölgede kalan yerler
+- İç mekân aydınlatması
+- Şebekeden beslenmesi istenen armatür
 
 12–60 V AC/DC geniş gerilim aralığında çalışan 10 W LED ampul: 850 lümen, 6500 K beyaz ışık. 12 V ve 24 V akülü güneş sistemlerinde, karavanda, teknede ve bağ evinde doğrudan aküden çalışır. Ölçü 60 × 118 mm, çalışma sıcaklığı −20 ~ +55 °C, enerji sınıfı F (10 kWh/1000 saat); ultraviyole ışın içermez.
 
@@ -144,6 +161,14 @@ Türkiye'nin her yerine kargo ile gönderiyoruz. Antalya bölgesinde isteğe ba�
 Aydınlatmanızı besleyecek panel, akü ve şarj kontrol cihazını Sistem Kurucu ile birkaç adımda görün.
 
 [Sistem Kurucu'yu açın →](https://www.gespaenerji.com/sistem-kur.html)
+
+Müşteri yorumları
+
+## Bu ürünü alanlar ne diyor?
+
+Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
+
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Hero%20LED%2010%20W%2012%20V%20DC%20LED%20Ampul%20(12%E2%80%9360%20V%20AC%2FDC)%22%20(HL-7020)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Ampulü bugün sipariş edin
 

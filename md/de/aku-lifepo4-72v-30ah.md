@@ -7,7 +7,7 @@ dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
-[Startseite](https://www.gespaenerji.com/de/) / [Produkte](https://www.gespaenerji.com/de/urunler.html) / europlus 72-V-30-Ah-LiFePO₄-Akku
+[Startseite](https://www.gespaenerji.com/de/) / [Produkte](https://www.gespaenerji.com/de/urunler.html)[KI-Produkte](https://www.gespaenerji.com/de/yapay-zeka-urunleri.html) / europlus 72-V-30-Ah-LiFePO₄-Akku
 
 ![europlus 72 V 30 Ah LiFePO4 akü](https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah.webp)
 
@@ -25,14 +25,19 @@ Preis inkl. MwSt.
 
 💰 Per Überweisung: **₺27.150**
 
+💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
+
+🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 
 [⚡ Jetzt kaufen](https://www.gespaenerji.com/de/sepet.html)
-[💬 Per WhatsApp fragen](https://www.gespaenerji.com/de/iletisim.html)
+[💬 Per WhatsApp fragen](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22europlus%2072%20V%2030%20Ah%20LiFePO%E2%82%84%20Ak%C3%BC%22%20(GES-EV-AKU-72V)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Faku-lifepo4-72v-30ah.html)
 
-- 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
 - 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
+- 🛡️ Garantie: **2 Jahre**
+- 🔒 Sichere Zahlung: iyzico / tami · Rechnung zu jeder Bestellung
 - 🔌 Das Ladegerät ist nicht im Lieferumfang enthalten.
 
 ⚡ 72 V · 30 Ah · ~2.300 Wh 🔁 2.000 Zyklen Lebensdauer 🛡️ Integriertes Balancer-BMS 🪶 Leichter als ein Gel-Akku
@@ -176,6 +181,14 @@ Ja. Zum Laden eines 72-V-Akkusatzes direkt vom Modul setzen wir den BOOST-MPPT-L
 Wir beschaffen auch Akkus für 24-, 36-, 48- und 60-V-Systeme — schreiben Sie uns wegen Verfügbarkeit und Preis.
 
 [Kontakt aufnehmen →](https://www.gespaenerji.com/de/iletisim.html)
+
+Kundenbewertungen
+
+## Was sagen Käufer dieses Produkts?
+
+Für dieses Produkt gibt es noch keine veröffentlichte Bewertung. Wenn Sie es gekauft haben, schreiben Sie uns Ihre Erfahrung; nach Prüfung erscheint sie hier.
+
+[Bewertung schreiben (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22europlus%2072%20V%2030%20Ah%20LiFePO%E2%82%84%20Ak%C3%BC%22%20(GES-EV-AKU-72V)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Unsere Google-Bewertungen ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Bestellen Sie den Akku noch heute
 

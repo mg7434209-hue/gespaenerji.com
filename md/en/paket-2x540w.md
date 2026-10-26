@@ -7,7 +7,7 @@ dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
-[Home](https://www.gespaenerji.com/en/) / [Products](https://www.gespaenerji.com/en/urunler.html) / Complete Solar Energy System
+[Home](https://www.gespaenerji.com/en/) / [Products](https://www.gespaenerji.com/en/urunler.html)[AI Products](https://www.gespaenerji.com/en/yapay-zeka-urunleri.html) / Complete Solar Energy System
 
 ![Tam kapsamlı güneş enerjisi sistemi](https://www.gespaenerji.com/assets/img/products/kit-2x540w.webp)
 
@@ -25,17 +25,34 @@ Price includes VAT.
 
 💰 By bank transfer: **₺104.950**
 
+💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
+
+🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
-[💬 Ask on WhatsApp](https://www.gespaenerji.com/en/iletisim.html)
+[💬 Ask on WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Tam%20Kapsaml%C4%B1%20G%C3%BCne%C5%9F%20Enerjisi%20Sistemi%22%20(GES-KIT-2X540)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpaket-2x540w.html)
 [🧮 Is it right for me?](https://www.gespaenerji.com/en/hesaplayici.html)
 
-- 🚚 Ships to anywhere in Türkiye; shipping is paid by the buyer.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
 - 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
+- 🛡️ Warranty: **2 years**
+- 🔒 Secure payment: iyzico / tami · invoice with every order
 - 🔧 Optional on-site installation and training in the Antalya region.
 
 ⚡ 2× 540 W panel ☀️ About 6.5 kWh daily generation 🔋 LiFePO₄ lityum batarya 🎒 Portable
+
+### ✅ Suitable for
+
+- TV, lighting and charging in country houses, camps and caravans
+- Places without mains power
+- Anyone wanting a plug-and-play setup
+
+### ⛔ Not suitable for
+
+- High-power appliances such as air conditioners or ovens
+- Selling power to the grid (on-grid)
+- Daily consumption above the capacity in the spec table
 
 No hunting for parts: every component from panel to cables comes in one package, matched to work together.
 
@@ -170,6 +187,14 @@ Products are made in modern facilities by a manufacturer with over 15 years of e
 **🧰 Need a smaller solution?**
 
 If you only need TV, lights and charging, [See the 285W solar kit →](https://www.gespaenerji.com/en/paket-285w.html)
+
+Customer reviews
+
+## What do buyers of this product say?
+
+No published reviews for this product yet. If you bought it, write about your experience; it is published here after approval.
+
+[Write a review (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Tam%20Kapsaml%C4%B1%20G%C3%BCne%C5%9F%20Enerjisi%20Sistemi%22%20(GES-KIT-2X540)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Our Google reviews ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Order today, have your sunshine ready
 

@@ -7,7 +7,7 @@ dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
-[Ana Sayfa](https://www.gespaenerji.com/) / [Ürünler](https://www.gespaenerji.com/urunler.html) / UNV Trek Pro 2500 W Taşınabilir Güç İstasyonu
+[Ana Sayfa](https://www.gespaenerji.com/) / [Ürünler](https://www.gespaenerji.com/urunler.html)[Yapay Zekâ Ürünleri](https://www.gespaenerji.com/yapay-zeka-urunleri.html) / UNV Trek Pro 2500 W Taşınabilir Güç İstasyonu
 
 ![UNV Trek Pro 2500 W taşınabilir güç istasyonu — 4 AC prizi, USB ve Type-C çıkışları](https://www.gespaenerji.com/assets/img/products/unv-trek-pro-2500.webp)
 
@@ -25,17 +25,34 @@ KDV dahil fiyattır.
 
 💰 Havale/EFT ile: **₺119.100**
 
+💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
+
+🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
-[💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22UNV%20Trek%20Pro%202500%20W%20Ta%C5%9F%C4%B1nabilir%20G%C3%BC%C3%A7%20%C4%B0stasyonu%22%20(ES-E2500-A2)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Funv-trek-pro-2500.html)
 [📦 Tüm ürünler](https://www.gespaenerji.com/online-satis.html)
 
 - 📦 Stok sınırlıdır — bu üründen elimizde 1 adet kalmıştır.
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🛡️ Garanti: **2 yıl**
+- 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 
 ⚡ 2500 W sürekli çıkış 🔋 2496 Wh batarya 🔌 4 × 230 V saf sinüs ⏱️ 30 ms UPS
+
+### ✅ Kimler için uygun
+
+- Bağ evi, kamp ve karavanda TV, aydınlatma ve şarj
+- Şebekenin olmadığı yerler
+- Tak-çalıştır kurulum isteyenler
+
+### ⛔ Uygun değil
+
+- Klima, fırın gibi yüksek güçlü cihazlar
+- Şebekeye satış (on-grid) amacı
+- Teknik tablodaki kapasitenin üstünde günlük tüketim
 
 Trek Pro 2500, prize ihtiyaç duyduğunuz her yere elektriği birlikte götürmeniz için tasarlanmış taşınabilir bir güç istasyonudur. İçindeki 2496 Wh'lik batarya, 2500 W'a kadar çeken cihazları şebekeden bağımsız çalıştırır.
 
@@ -130,6 +147,14 @@ Güneş paneli ürüne dahil değildir. Kullanımınıza uygun panel ve bağlant
 ### Prizler Türkiye fişine uygun mu?
 
 Bu ürün farklı priz standartlarıyla üretilmektedir. Size gönderilecek cihazın priz tipini sipariş öncesi WhatsApp'tan teyit ediyoruz; uygun olmayan bir sürüm göndermiyoruz.
+
+Müşteri yorumları
+
+## Bu ürünü alanlar ne diyor?
+
+Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
+
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22UNV%20Trek%20Pro%202500%20W%20Ta%C5%9F%C4%B1nabilir%20G%C3%BC%C3%A7%20%C4%B0stasyonu%22%20(ES-E2500-A2)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Son 1 adet — bugün sipariş verin
 

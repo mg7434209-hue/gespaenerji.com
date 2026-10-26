@@ -7,7 +7,7 @@ dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
-[Startseite](https://www.gespaenerji.com/de/) / [Produkte](https://www.gespaenerji.com/de/urunler.html) / Solar-Set für Dreirad mit Ladefläche — 700 W
+[Startseite](https://www.gespaenerji.com/de/) / [Produkte](https://www.gespaenerji.com/de/urunler.html)[KI-Produkte](https://www.gespaenerji.com/de/yapay-zeka-urunleri.html) / Solar-Set für Dreirad mit Ladefläche — 700 W
 
 ![Kargo kasalı elektrikli triportör](https://www.gespaenerji.com/assets/img/products/ev/motor-kargo.webp)
 
@@ -25,17 +25,34 @@ Preis inkl. MwSt.
 
 💰 Per Überweisung: **₺16.500**
 
+💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
+
+🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 
 [⚡ Jetzt kaufen](https://www.gespaenerji.com/de/sepet.html)
-[💬 Per WhatsApp fragen](https://www.gespaenerji.com/de/iletisim.html)
+[💬 Per WhatsApp fragen](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Kargo%20Kasal%C4%B1%20Motor%20G%C3%BCne%C5%9F%20Paketi%20%E2%80%94%20700%20W%22%20(GES-SET-KARGO)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpaket-motor-kargo.html)
 
-- 🚚 Versand in die ganze Türkei; die Versandkosten trägt der Käufer.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
 - 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
+- 🛡️ Garantie: **2 Jahre**
+- 🔒 Sichere Zahlung: iyzico / tami · Rechnung zu jeder Bestellung
 - 🔧 Optionale Vor-Ort-Montage und Einweisung in der Region Antalya.
 
 🔆 700-W-Bifazial-TOPCon-Modul 🔌 BOOST MPPT 24–72 V 🧰 Kabel + MC4 inklusive 🚚 Für breite Dächer
+
+### ✅ Geeignet für
+
+- Dreiräder, Golfcarts und Minifahrzeuge mit 24–72-V-Batterie
+- Fahrzeuge, auf deren Dach das Modul des Sets passt
+- AGM-, Gel-, Nass- und Lithium-Batterien
+
+### ⛔ Nicht geeignet für
+
+- Fahrzeuge mit 12-V-Batterie
+- Fahrzeuge mit kleinerem Dach als das Modul
+- Fahrzeuge, die ganztägig in Halle oder Schatten stehen
 
 Bei Elektro-Lastendreirädern ist die Dach- oder Planenfläche breit; diese Fläche mit einem kleinen Modul zu belegen, kostet Tagesertrag. Das bifaziale 700-W-N-Type-TOPCon-Modul passt mit 2278 × 1133 mm auf diese Fläche; seine Vorderseitenleistung beträgt 610 Wp.
 
@@ -125,6 +142,14 @@ Geschlossene Fahrgastfahrzeuge haben ein schmales Dach; für sie passt das 240-W
 Für geschlossene Fahrgastfahrzeuge mit schmaler Dachfläche passt das 240-W-Paket besser.
 
 [Werfen Sie einen Blick auf das Solar-Set für Dreirad mit Fahrgastkabine →](https://www.gespaenerji.com/de/paket-motor-yolcu.html)
+
+Kundenbewertungen
+
+## Was sagen Käufer dieses Produkts?
+
+Für dieses Produkt gibt es noch keine veröffentlichte Bewertung. Wenn Sie es gekauft haben, schreiben Sie uns Ihre Erfahrung; nach Prüfung erscheint sie hier.
+
+[Bewertung schreiben (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Kargo%20Kasal%C4%B1%20Motor%20G%C3%BCne%C5%9F%20Paketi%20%E2%80%94%20700%20W%22%20(GES-SET-KARGO)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Unsere Google-Bewertungen ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Bestellen Sie Ihr Paket noch heute
 

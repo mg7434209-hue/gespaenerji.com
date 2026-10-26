@@ -985,8 +985,55 @@ function qaAdmin(req, res) {
   });
 }
 
+// ---- GES KEŞİF TALEBİ (lead) — hesaplayıcı sonuç formu (CRO, 26 Eki 2026) ----
+// POST /api/lead {ad, tel, ilce, kwp, panels, save, cost, payback, lang, path, ms, website}
+// Kayıt DATA_DIR/leads.json (son 2000); SMTP açıksa işletmeye e-posta. KVKK:
+// telefon LOG'A YAZILMAZ; yalnız dosyada ve e-postada. Bal küpü `website`,
+// 3 sn kuralı ve IP başına sınır (10 dk'da 3, günde 10) soru-cevapla aynı.
+const leadHits = new Map();
+const LEADS_FILE = path.join(DATA_DIR, "leads.json");
+function leadSubmit(req, res) {
+  readBody(req, 4 * 1024, (raw) => {
+    let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
+    if (String(b.website || "").trim()) return sendJson(res, 200, { ok: true });
+    if (!(+b.ms >= 3000)) return sendJson(res, 400, { error: "Lütfen birkaç saniye sonra tekrar deneyin.", retry: true });
+    const ad = qaClean(b.ad, 60).replace(/\n/g, " ");
+    const tel = String(b.tel || "").replace(/[^\d+ ]/g, "").trim().slice(0, 20);
+    if (ad.length < 2 || tel.replace(/\D/g, "").length < 10) return sendJson(res, 400, { error: "Ad ve telefon gerekli.", retry: true });
+    const ip = clientIp(req);
+    const day = recentHits(leadHits, ip, 24 * 60 * 60 * 1000);
+    if (day.filter((t) => Date.now() - t < 10 * 60 * 1000).length >= 3 || day.length >= 10) {
+      return sendJson(res, 429, { error: "Kısa sürede çok fazla gönderim; biraz sonra tekrar deneyin.", retry: true });
+    }
+    leadHits.set(ip, day.concat(Date.now()));
+    const lead = {
+      at: new Date().toISOString(), ad, tel, ilce: qaClean(b.ilce, 60), kwp: qaClean(b.kwp, 12), panels: qaClean(b.panels, 8),
+      save: qaClean(b.save, 16), cost: qaClean(b.cost, 16), payback: qaClean(b.payback, 16), lang: qaClean(b.lang, 2), path: qaClean(b.path, 80)
+    };
+    try {
+      let arr = []; try { arr = JSON.parse(fs.readFileSync(LEADS_FILE, "utf8")); } catch (e) {}
+      if (!Array.isArray(arr)) arr = [];
+      arr.push(lead); if (arr.length > 2000) arr = arr.slice(-2000);
+      fs.mkdirSync(path.dirname(LEADS_FILE), { recursive: true });
+      fs.writeFileSync(LEADS_FILE, JSON.stringify(arr));
+    } catch (e) { console.warn("lead kaydedilemedi: " + e.message); }
+    if (mailReady()) {
+      const L = ["YENİ GES KEŞİF TALEBİ (hesaplayıcı)", "",
+        "Ad        : " + ad, "Telefon   : " + tel, "İl/İlçe   : " + (lead.ilce || "-"), "",
+        "Sistem    : " + (lead.kwp || "-") + " kWp (" + (lead.panels || "-") + " panel)",
+        "Yıllık tas: ₺" + (lead.save || "-"), "Yatırım   : ₺" + (lead.cost || "-"), "Geri ödeme: " + (lead.payback || "-"), "",
+        "Dil/sayfa : " + (lead.lang || "tr") + " " + (lead.path || ""), "Tarih     : " + trTime(lead.at),
+        "", "Müşteri aynı anda WhatsApp'tan da yazmış olabilir; en kısa sürede arayın."];
+      try { sendMail(SMTP.to || SMTP.user, "GES keşif talebi — " + ad + (lead.ilce ? " · " + lead.ilce : ""), L.join("\n"), () => {}); } catch (e) {}
+    }
+    console.log("lead: yeni keşif talebi (" + (lead.ilce || "ilçe yok") + ")");
+    sendJson(res, 200, { ok: true });
+  });
+}
+
 function handleQaRoutes(req, res, urlPath) {
   if (req.method !== "POST") return false;
+  if (urlPath === "/api/lead") return leadSubmit(req, res), true;
   if (urlPath === "/api/qa/ask") return qaSubmit(req, res, "q"), true;
   if (urlPath === "/api/qa/reply") return qaSubmit(req, res, "a"), true;
   if (urlPath === "/api/qa/admin") return qaAdmin(req, res), true;
@@ -1874,7 +1921,7 @@ const server = http.createServer((req, res) => {
       res.writeHead(404); return res.end("Not found");
     }
     // Soru & Cevap (ziyaretçi gönderisi, moderasyon, devir) ve admin girişi
-    if (urlPath.startsWith("/api/qa/") || urlPath === "/api/admin/login") {
+    if (urlPath.startsWith("/api/qa/") || urlPath === "/api/admin/login" || urlPath === "/api/lead") {
       if (handleQaRoutes(req, res, urlPath)) return;
       res.writeHead(404); return res.end("Not found");
     }

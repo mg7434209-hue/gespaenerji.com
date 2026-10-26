@@ -49,21 +49,29 @@ Legen Sie das Produkt im Onlineshop in den Warenkorb und bezahlen Sie per Kredit
 
 ## Einstieg in die Solarenergie
 
-### Wie wählt man in Manavgat eine zuverlässige Solarfirma (PV)?
+### In wie vielen Jahren amortisiert sich die Investition?
 
-Wählen Sie Firmen, die schlüsselfertig liefern (Engineering, Installation, Finanzierung und Wartung aus einer Hand), eine kostenlose Vor-Ort-Analyse bieten, Markengarantien auf Module und Wechselrichter geben und Referenzprojekte mit lokalem Team vorweisen. GESPA Enerji aus Manavgat/Antalya bietet all das schlüsselfertig.
+Das hängt von Verbrauch, Dachausrichtung und Stromtarif ab. Der Rechner liefert einen ersten Wert; die genaue Dauer ergibt sich aus Planung und Angebot nach der kostenlosen Besichtigung.
 
-### Welche Regionen bedient GESPA Enerji?
+### Funktioniert die Anlage im Winter und bei bewölktem Himmel?
 
-Mit Sitz in Manavgat bedienen wir Side, Antalya, Alanya, Serik, Gazipaşa und Umgebung; auf Anfrage Aufdach-PV, Freiflächen-PV und Solarbewässerung in der ganzen Türkei.
+Ja; der Ertrag sinkt bei weniger Sonne, hört aber nicht auf. Gerechnet wird mit der Jahressumme, und in Antalya tragen auch die Wintermonate bei.
 
-### In wie vielen Jahren amortisiert sich eine Solarinvestition?
+### Trägt mein Dach die Module, und wird es undicht?
 
-Typisch 3–6 Jahre je nach Verbrauchsprofil, Region und Strompreis. Schätzen Sie Ihre dachspezifische Amortisation in Sekunden mit unserem kostenlosen Online-Rechner.
+Bei der Besichtigung prüfen wir Tragfähigkeit und Eindeckung; montiert wird mit zum Dach passenden Halterungen, die Abdichtung bleibt erhalten.
 
-### Was muss ich tun, um in Manavgat Solarmodule auf meinem Dach zu installieren?
+### Läuft mein Haus bei Stromausfall weiter?
 
-Fordern Sie einfach eine kostenlose Vor-Ort-Analyse an. Ein klares Angebot mit Begehung, Ertragssimulation und Amortisation wird erstellt; danach folgt die schlüsselfertige Installation.
+Eine netzgekoppelte Anlage schaltet bei Ausfall aus Sicherheitsgründen ab. Soll es auch dann Strom geben, wird eine Batterie- oder Hybridanlage geplant; das entscheiden wir gemeinsam bei der Besichtigung.
+
+### Wer kümmert sich um Genehmigung und Netzanschluss?
+
+Wir. Planung, Antrag und Schriftverkehr mit dem Netzbetreiber übernehmen wir; Sie unterschreiben nur die nötigen Unterlagen.
+
+### Ich habe kein Geld für die Vorauszahlung — geht es trotzdem?
+
+Ja. Mit Bankkredit und Leasing lässt sich die Investition aus der erzielten Ersparnis finanzieren. Die monatliche Rate berechnen wir bei der Besichtigung gemeinsam anhand Ihres Verbrauchs.
 
 [Zur Seite →](https://www.gespaenerji.com/de/)
 

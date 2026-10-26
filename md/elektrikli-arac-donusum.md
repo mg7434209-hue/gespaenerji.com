@@ -27,17 +27,34 @@ KDV ve kargo dahil fiyattır.
 
 💰 Havale/EFT ile: **₺7.200**
 
+💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
+
+🚚 Kargo ücretsiz — fiyata dahil · 2–5 iş günü
+
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
-[💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22MS%20Teknik%20BOOST%20MPPT%2024-72%20V%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%22%20(GES-EV-BOOST)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Felektrikli-arac-donusum.html)
 [❓ Aracıma uygun mu?](#sss)
 
-- 🚚 Türkiye'nin her yerine ücretsiz kargo ile gönderilir; kargo ücreti fiyata dahildir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🛡️ Garanti: **2 yıl**
+- 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 - 🔧 Antalya bölgesinde isteğe bağlı yerinde kurulum: panel montajı, kablolama ve cihaz ayarı ekibimizce yapılır.
 
 ⚙️ 24 – 72 V akü 🔋 AGM · jel · kurşun-asit · lityum 📶 Bluetooth ile ayar ⚡ 15 A sürekli çıkış 🛡️ IP22 · 2 yıl garanti
+
+### ✅ Kimler için uygun
+
+- Teknik tablodaki akü gerilimlerine sahip akülü sistemler
+- Panel Voc toplamı giriş sınırının altında kalan diziler
+- Bağ evi, karavan, tekne ve elektrikli araç şarjı
+
+### ⛔ Uygun değil
+
+- Şebekeye bağlı inverterli sistemler
+- Giriş gerilimi sınırını aşan seri panel dizileri
+- Teknik tabloda yazmayan akü tipi veya gerilimi
 
 🔋
 
@@ -259,6 +276,14 @@ Panel ışık aldığı sürece üretim yapar; sistem hem park hâlinde hem hare
 ### Kurulum aracın garantisini etkiler mi?
 
 Araç üreticisinin garanti koşulları markadan markaya değişir. Kurulum öncesinde aracınızın garanti durumunu birlikte değerlendiriyoruz; sizinle netleştirmeden işlem yapmıyoruz.
+
+Müşteri yorumları
+
+## Bu ürünü alanlar ne diyor?
+
+Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
+
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22MS%20Teknik%20BOOST%20MPPT%2024-72%20V%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%22%20(GES-EV-BOOST)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Aracınıza uygun mu, birlikte bakalım
 

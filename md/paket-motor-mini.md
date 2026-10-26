@@ -7,7 +7,7 @@ dateModified: 2026-10-26
 publisher: "GESPA Enerji"
 ---
 
-[Ana Sayfa](https://www.gespaenerji.com/) / [Ürünler](https://www.gespaenerji.com/urunler.html) / Mini Elektrikli Otomobil Güneş Paketi — 240 W
+[Ana Sayfa](https://www.gespaenerji.com/) / [Ürünler](https://www.gespaenerji.com/urunler.html)[Yapay Zekâ Ürünleri](https://www.gespaenerji.com/yapay-zeka-urunleri.html) / Mini Elektrikli Otomobil Güneş Paketi — 240 W
 
 ![Kapalı kabinli mini elektrikli otomobil](https://www.gespaenerji.com/assets/img/products/ev/motor-mini.webp)
 
@@ -25,17 +25,34 @@ KDV dahil fiyattır.
 
 💰 Havale/EFT ile: **₺14.350**
 
+💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
+
+🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
 [⚡ Hemen satın al](https://www.gespaenerji.com/sepet.html)
-[💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Mini%20Elektrikli%20Otomobil%20G%C3%BCne%C5%9F%20Paketi%20%E2%80%94%20240%20W%22%20(GES-SET-MINI)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpaket-motor-mini.html)
 
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🛡️ Garanti: **2 yıl**
+- 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 - 🔧 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi.
 
 🔆 240 W panel 🔌 BOOST MPPT 24–72 V 🧰 Kablo + MC4 dahil 🚗 Küçük tavana uygun
+
+### ✅ Kimler için uygun
+
+- 24–72 V akülü triportör, golf aracı ve mini araçlar
+- Çatısı paketteki panelin ölçüsüne sığan araçlar
+- AGM, jel, sulu kurşun-asit ve lityum aküler
+
+### ⛔ Uygun değil
+
+- 12 V akülü araçlar
+- Çatısı panelden küçük araçlar
+- Gün boyu kapalı veya gölgede park eden araçlar
 
 Kapalı kabinli mini elektrikli otomobillerin tavanı küçüktür; büyük bir panel taşar ve rüzgâr yükü yaratır. Pakette bu tavana göre seçilmiş 240 W (48 hücre) güneş paneli bulunur.
 
@@ -121,6 +138,14 @@ Panelin ölçüsü 1320 × 776 × 30 mm, ağırlığı 8 kg'dır. Sipariş önce
 Golf aracı tipi araçların düz tavanı daha geniştir; daha fazla üretim için 460 W'lık paket daha uygundur.
 
 [Golf Aracı Tipi Motor Güneş Paketi'ne göz atın →](https://www.gespaenerji.com/paket-motor-golf.html)
+
+Müşteri yorumları
+
+## Bu ürünü alanlar ne diyor?
+
+Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
+
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Mini%20Elektrikli%20Otomobil%20G%C3%BCne%C5%9F%20Paketi%20%E2%80%94%20240%20W%22%20(GES-SET-MINI)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Paketi bugün sipariş edin
 

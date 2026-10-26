@@ -25,14 +25,19 @@ Price includes VAT.
 
 💰 By bank transfer: **₺100**
 
+💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
+
+🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
 [⚡ Buy it now](https://www.gespaenerji.com/en/sepet.html)
-[💬 Ask on WhatsApp](https://www.gespaenerji.com/en/iletisim.html)
+[💬 Ask on WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22MC4%20Konnekt%C3%B6r%20Tak%C4%B1m%C4%B1%22%20(GES-MC4-1)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fmc4-set.html)
 
-- 🚚 Ships to anywhere in Türkiye; shipping is paid by the buyer.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
 - 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
+- 🛡️ Warranty: **2 years**
+- 🔒 Secure payment: iyzico / tami · invoice with every order
 
 🔗 1 set ⚡ Male + female ☀️ Panel connection
 
@@ -118,6 +123,14 @@ We ship anywhere in Türkiye. In the Antalya region we offer optional on-site in
 Our EV solar sets bring the panel, BOOST MPPT, cable and MC4 together.
 
 [See the EV solar sets →](https://www.gespaenerji.com/en/elektrikli-arac-donusum.html#paketler)
+
+Customer reviews
+
+## What do buyers of this product say?
+
+No published reviews for this product yet. If you bought it, write about your experience; it is published here after approval.
+
+[Write a review (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22MC4%20Konnekt%C3%B6r%20Tak%C4%B1m%C4%B1%22%20(GES-MC4-1)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Our Google reviews ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Order today
 
