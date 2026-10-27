@@ -1,9 +1,9 @@
 ---
-title: "Солнечный настенный светильник Hero LED 50 Вт, 3 цвета + RGB | GESPA"
+title: "Солнечный настенный светильник Hero LED 50 Вт, 3 цвета + RGB"
 description: "Солнечный настенный светильник Hero LED 50 Вт (HL-5181): 4000 лм, 3200/4000/6500 K + RGB, пульт, IP65, 15 000 ч. Цена ниже от 5 штук."
 canonical: https://www.gespaenerji.com/ru/hero-led-aplik-50w.html
 lang: ru
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

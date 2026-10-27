@@ -1,9 +1,9 @@
 ---
 title: "285-W-Solarmodul-Paket — Plug-and-Play | GESPA Energy"
-description: "Komplettes 285-W-Solarset für Camping, Wohnmobil und kleine Verbraucher: Modul + Power-Box + Kabel. Betreibt TV, Licht und Handy-Ladung; 23–25 kg, Plug-and-Play."
+description: "Komplettes 285-W-Solarset für Camping, Wohnmobil und kleine Verbraucher: Modul + Power-Box + Kabel. Betreibt TV, Licht und Handy-Ladung;"
 canonical: https://www.gespaenerji.com/de/paket-285w.html
 lang: de
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

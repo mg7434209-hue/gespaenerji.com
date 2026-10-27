@@ -1,9 +1,9 @@
 ---
-title: "Sıkça Sorulan Sorular — Güneş Enerjisi, Sipariş ve Kurulum | GESPA Enerji"
-description: "Güneş enerjisi santrali, akü, elektrikli araç güneş dönüşümü, sipariş, kargo, ödeme ve kurulum hakkında sık sorulan soruların cevapları tek sayfada. GESPA Enerji, Manavgat / Antalya."
+title: "Sıkça Sorulan Sorular — Güneş Enerjisi, Sipariş ve Kurulum"
+description: "Güneş enerjisi santrali, akü, elektrikli araç güneş dönüşümü, sipariş, kargo, ödeme ve kurulum hakkında sık sorulan soruların cevapları tek sayfada."
 canonical: https://www.gespaenerji.com/sss.html
 lang: tr
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

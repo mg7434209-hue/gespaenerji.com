@@ -3,7 +3,7 @@ title: "Passenger E-Trike Solar Set — 240 W | GESPA Energy"
 description: "Complete solar set for enclosed passenger e-trikes: 240 W panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. No guessing which part fits."
 canonical: https://www.gespaenerji.com/en/paket-motor-yolcu.html
 lang: en
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

@@ -3,7 +3,7 @@ title: "MC4 Konnektör Takımı | GESPA Enerji"
 description: "Güneş paneli çıkış kablosu ile solar kabloyu birleştiren erkek-dişi MC4 konnektör takımı. Elektrikli motor güneş paketlerine 1 takım dahildir."
 canonical: https://www.gespaenerji.com/mc4-set.html
 lang: tr
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

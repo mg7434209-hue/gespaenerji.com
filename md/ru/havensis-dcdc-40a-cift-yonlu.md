@@ -1,9 +1,9 @@
 ---
-title: "Двунаправленное зарядное DC-DC Havensis 40А — режим подпитки | GESPA"
-description: "Двунаправленное зарядное DC-DC Havensis DCDC-1224B: 40 А в бытовой аккумулятор, 10 А в стартерный в режиме подпитки. 12/24 В для автодомов, КПД 96,4 %, сделано в Турции."
+title: "Двунаправленное зарядное DC-DC Havensis 40А — режим подпитки"
+description: "Двунаправленное зарядное DC-DC Havensis DCDC-1224B: 40 А в бытовой аккумулятор, 10 А в стартерный в режиме подпитки."
 canonical: https://www.gespaenerji.com/ru/havensis-dcdc-40a-cift-yonlu.html
 lang: ru
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

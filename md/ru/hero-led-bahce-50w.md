@@ -3,7 +3,7 @@ title: "Садовый солнечный светильник на столб H
 description: "Солнечный садовый светильник Hero LED 50 Вт на столб, бордюр и стену (HL-5180): 4000 лм, 3 цвета + RGB, пульт, IP65. Цена ниже от 5 штук."
 canonical: https://www.gespaenerji.com/ru/hero-led-bahce-50w.html
 lang: ru
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

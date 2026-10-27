@@ -1,9 +1,9 @@
 ---
-title: "Havensis 30A DC-DC-Ladegerät — Laden über die Lichtmaschine | GESPA Energy"
-description: "Havensis DCDC-1224 DC-DC-Ladegerät, das die Aufbaubatterie unterwegs über die Lichtmaschine lädt: 30 A, 12/24 V, 96,4 % Wirkungsgrad, Motor-aus-Erkennung, Display am 5-m-Kabel."
+title: "Havensis 30A DC-DC-Ladegerät — Laden über die Lichtmaschine"
+description: "Havensis DCDC-1224 DC-DC-Ladegerät, das die Aufbaubatterie unterwegs über die Lichtmaschine lädt: 30 A, 12/24 V, 96,4 % Wirkungsgrad, Motor-aus-Erkennung…"
 canonical: https://www.gespaenerji.com/de/havensis-dcdc-30a.html
 lang: de
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

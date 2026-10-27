@@ -1,9 +1,9 @@
 ---
 title: "Lexron 40A MPPT Charge Controller 12/24V | GESPA Energy"
-description: "Lexron 40 A MPPT solar charge controller for 12/24 V battery systems. Values from the product label; write to us for the full datasheet. Shipped anywhere in Türkiye."
+description: "Lexron 40 A MPPT solar charge controller for 12/24 V battery systems. Values from the product label; write to us for the full datasheet."
 canonical: https://www.gespaenerji.com/en/lexron-mppt-40a.html
 lang: en
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

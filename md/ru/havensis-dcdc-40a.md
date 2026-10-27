@@ -1,9 +1,9 @@
 ---
-title: "Зарядное DC-DC Havensis 40А — зарядка автодома от генератора | GESPA"
-description: "Зарядное устройство DC-DC Havensis DCDC-1224 на 40 А: быстрая зарядка бытового аккумулятора автодома от генератора. 12-12, 12-24, 24-12, 24-24 В, КПД 96,4 %, распознавание выключенного двигателя."
+title: "Зарядное DC-DC Havensis 40А — зарядка автодома от генератора"
+description: "Зарядное устройство DC-DC Havensis DCDC-1224 на 40 А: быстрая зарядка бытового аккумулятора автодома от генератора."
 canonical: https://www.gespaenerji.com/ru/havensis-dcdc-40a.html
 lang: ru
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

@@ -98,9 +98,13 @@ Markalar — panel: Arçelik, Lexron, Bakırlar · inverter: Tescom, Mexxsun, Le
 Fiyat ve kur: katalog fiyatları USD bazlıdır; ₺ karşılığı TCMB döviz satış kuruyla günlük güncellenir (kur, işletmenin belirlediği asgari kurun altına inmez). Bu dosyadaki ₺ tutarlar 1 USD = 49,2 ₺ ile hesaplandı; güncel fiyat sitededir.
 Kargo & iade: Paketler TÜRKİYE'NİN HER İLİNE anlaşmalı kargo ile gönderilir (teslimat
 Antalya ile sınırlı değildir). Sipariş onayından sonra tahmini teslim 2–5 iş günü;
-kargo ücreti alıcıya aittir (yukarıda "kargo fiyata DAHİL" yazan ürünler hariç),
-fiyatlara KDV dahildir. Mesafeli satışta 14 gün cayma
-hakkı vardır (sorunsuz teslimde iade kargosu alıcıya ait; hasarlı/ayıplı üründe satıcıya).
+kargo ücreti alıcıya aittir ve paket teslim alınırken kargo firmasına ödenir (yukarıda "kargo
+fiyata DAHİL" yazan ürünler hariç); fiyatlara KDV dahildir. Mesafeli satışta 14 gün cayma
+hakkı vardır; anlaşmalı kargomuzla yapılan iadede iade kargosu ÜCRETSİZDİR (başka kargo firması
+seçilirse alıcıya aittir); hasarlı/ayıplı üründe tüm masraflar satıcıya aittir.
+Taksit: kredi kartına 12 aya kadar taksit, vade farkı müşteriye aittir (ödeme sayfasında seçilir).
+Garanti: mağaza ürünlerinde 2 yıl; ürün sayfasında farklı yazıyorsa o geçerlidir (ör. paneller 12 yıl ürün / 30 yıl güç).
+Mağaza kullanım senaryoları (https://www.gespaenerji.com/online-satis.html?senaryo=<id>): Bağ evi & kamp [bagevi] · Karavan & tekne [karavan] · Elektrikli araç şarjı [arac] · Ev & çatı sistemi [ev] · Bahçe & sokak aydınlatması [aydinlatma].
 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi verilir.
 Ödeme: havale/EFT'te indirim uygulanır (oran ürüne göre değişir; her ürünün indirimli tutarı yukarıdaki listede yazılıdır). Kart ödemesinde indirim UYGULANMAZ, liste fiyatı geçerlidir.
 
@@ -141,7 +145,8 @@ gerekli panel gücü (kWp), akü kapasitesi (kWh, model DoD'una göre) ve invert
 - Solar sulama pompası seçimi (https://www.gespaenerji.com/tarimsal-sulama.html).
 
 ## Garanti & Güvence
-- A-marka panellerde 25 yıla varan üretim performans garantisi; inverterlerde 5–12 yıl ürün garantisi.
+- Mağaza ürünlerinde 2 yıl garanti; panellerde üreticinin ürün/güç garantisi ürün sayfasında yazılıdır (Lexron 12 yıl ürün / 30 yıl güç, 700 W bifacial 30 yıl güç). Anahtar teslim GES'te ekipman garantileri teklifte kalem kalem yazılır.
+- Keşif taleplerine 1–3 gün içinde dönülür; keşif ve teklif ücretsizdir.
 - Anahtar teslim teslimat: keşif → projelendirme → kurulum → devreye alma; bakım (O&M) hizmeti sürer.
 - Ücretsiz keşif ve tasarruf analizi tüm hizmetlerde standarttır.
 

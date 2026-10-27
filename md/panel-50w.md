@@ -3,7 +3,7 @@ title: "50W Güneş Paneli | GESPA Enerji"
 description: "50W Güneş Paneli: Küçük aydınlatma, kamera ve akü şarjı Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/panel-50w.html
 lang: tr
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

@@ -3,7 +3,7 @@ title: "460 W Half-Cut Monokristal Güneş Paneli | GESPA Enerji"
 description: "460 W Half-Cut Monokristal Güneş Paneli: Golf aracı tipi elektrikli araçlar ve küçük off-grid sistemler Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/panel-460w.html
 lang: tr
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

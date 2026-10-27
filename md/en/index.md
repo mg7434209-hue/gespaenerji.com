@@ -1,9 +1,9 @@
 ---
-title: "GESPA Energy — Solar Power Plants (PV) | Turnkey Solutions"
-description: "GESPA Energy: turnkey installation, engineering, financing and maintenance for rooftop and ground-mounted solar power plants (PV). Manavgat / Antalya, Türkiye."
+title: "GESPA Energy — Solar Products & Turnkey PV Plants | Antalya"
+description: "Solar panels, batteries, charge controllers and ready kits shipped across Türkiye; rooftop, ground and agricultural PV plants built turnkey in…"
 canonical: https://www.gespaenerji.com/en/
 lang: en
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 
@@ -11,7 +11,7 @@ publisher: "GESPA Enerji"
 
 Manavgat · Antalya · since 2005
 
-# Solar energy: products in stock , power plants turnkey.
+# Solar energy: products in stock, power plants turnkey.
 
 Panels, batteries, charge controllers and ready-made kits shipped anywhere in Türkiye. In Antalya we build rooftop, ground and agricultural PV plants from survey to commissioning.
 

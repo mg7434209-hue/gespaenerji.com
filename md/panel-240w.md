@@ -3,7 +3,7 @@ title: "240 W Güneş Paneli (48 Hücre) | GESPA Enerji"
 description: "240 W Güneş Paneli (48 Hücre): Mini elektrikli otomobiller ve küçük off-grid sistemler Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/panel-240w.html
 lang: tr
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

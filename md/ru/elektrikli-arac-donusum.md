@@ -3,7 +3,7 @@ title: "Солнечное переоборудование — BOOST MPPT | GES
 description: "Солнечные панели для гольф-каров и служебных машин. MS Teknik BOOST MPPT 24–72 В: AGM, гель, свинцово-кислотные и литий, настройка по Bluetooth."
 canonical: https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html
 lang: ru
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 
@@ -89,7 +89,7 @@ publisher: "GESPA Enerji"
 - Комплект солнечного кабеля (5 м чёрный + 5 м красный)
 - Комплект коннекторов MC4
 
-Итого за комплект : **₺14.800** · НДС включён · доставка отдельно
+Итого за комплект: **₺14.800** · НДС включён · доставка отдельно
 
 [Ürün sayfası](https://www.gespaenerji.com/ru/paket-motor-yolcu.html)
 
@@ -102,7 +102,7 @@ publisher: "GESPA Enerji"
 - Комплект солнечного кабеля (5 м чёрный + 5 м красный)
 - Комплект коннекторов MC4
 
-Итого за комплект : **₺17.000** · НДС включён · доставка отдельно
+Итого за комплект: **₺17.000** · НДС включён · доставка отдельно
 
 [Ürün sayfası](https://www.gespaenerji.com/ru/paket-motor-kargo.html)
 
@@ -115,7 +115,7 @@ publisher: "GESPA Enerji"
 - Комплект солнечного кабеля (5 м чёрный + 5 м красный)
 - Комплект коннекторов MC4
 
-Итого за комплект : **₺16.300** · НДС включён · доставка отдельно
+Итого за комплект: **₺16.300** · НДС включён · доставка отдельно
 
 [Ürün sayfası](https://www.gespaenerji.com/ru/paket-motor-golf.html)
 
@@ -128,7 +128,7 @@ publisher: "GESPA Enerji"
 - Комплект солнечного кабеля (5 м чёрный + 5 м красный)
 - Комплект коннекторов MC4
 
-Итого за комплект : **₺14.800** · НДС включён · доставка отдельно
+Итого за комплект: **₺14.800** · НДС включён · доставка отдельно
 
 [Ürün sayfası](https://www.gespaenerji.com/ru/paket-motor-mini.html)
 

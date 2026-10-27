@@ -3,7 +3,7 @@ title: "Солнечный комплект для грузового трици
 description: "Готовый комплект для грузовых трициклов: двусторонняя панель TOPCon 700 Вт, контроллер BOOST MPPT 24–72 В, кабель и MC4."
 canonical: https://www.gespaenerji.com/ru/paket-motor-kargo.html
 lang: ru
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

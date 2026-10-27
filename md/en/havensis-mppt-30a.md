@@ -1,9 +1,9 @@
 ---
-title: "Havensis 30A MPPT Charge Controller 12/24V — 1200W Panels | GESPA Energy"
-description: "Havensis Solar-30AMPS MPPT charge controller for 12/24 V battery solar systems: 30 A charging, 20 A load output, 100 V panel input, up to 1200 W of panels, LCD display. Made in Türkiye."
+title: "Havensis 30A MPPT Charge Controller 12/24V — 1200W Panels"
+description: "Havensis Solar-30AMPS MPPT charge controller for 12/24 V battery solar systems: 30 A charging, 20 A load output, 100 V panel input, up to 1200 W of panels…"
 canonical: https://www.gespaenerji.com/en/havensis-mppt-30a.html
 lang: en
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 
