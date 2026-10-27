@@ -657,6 +657,14 @@ işe yaramıyordu.
 - Katsayılar tek config dosyasında (`config.calc`) ve koddan ayarlanabilir.
 - KURAL: Hesaplayıcı bileşenine hiçbir sayı (fiyat, katsayı, güç) hardcode ETME.
 
+## Railway: CRON YASAK (27 Eki 2026)
+Railway servisine panelden "Cron Schedule" (Daily 0 0 * * *) eklenmişti:
+servis cron moduna geçti, ağ açılmadı ("Network: Not started"), site
+"Application failed to respond" verdi. railway.json `deploy.cronSchedule:
+null` ile kod tarafından kapatıldı (config-as-code panelden önceliklidir).
+Bu satırı SİLME. Site sürekli çalışan bir web sunucusudur; zamanlanmış iş
+gerekirse ayrı servis açılır.
+
 ## CRO düzeni (26 Eki 2026, işletme kararı — satışa göre yeniden düzen)
 - TEMA: parlament mavisi SİTE GENELİ (`:root --green:#1f2f78`, koyu #16215a,
   açık #3a52a8); vurgu sarısı aynı. Yeşil sabit renk yazma.
