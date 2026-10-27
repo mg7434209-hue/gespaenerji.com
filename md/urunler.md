@@ -1,6 +1,6 @@
 ---
 title: "Hazır Solar Paketler — Off-Grid & Sulama | GESPA Enerji"
-description: "285 W ve 2×540 W hazır güneş enerjisi paketleri: kamp, karavan ve bağ evi için panel, güç kutusu ve kablo içeriği. Türkiye geneli gönderim — GESPA Enerji."
+description: "240 W ve 2×540 W hazır güneş enerjisi paketleri: kamp, karavan ve bağ evi için panel, güç kutusu ve kablo içeriği. Türkiye geneli gönderim — GESPA Enerji."
 canonical: https://www.gespaenerji.com/urunler.html
 lang: tr
 dateModified: 2026-10-27
@@ -26,7 +26,7 @@ Hazır güneş enerjisi paketleri — net içerik, şeffaf fiyat, Türkiye'nin h
 
 ## Taşınabilir & Off-Grid Paketler
 
-- **285W Güneş Paneli Paketi** — 0.285 kWp · Kamp, karavan ve küçük ihtiyaçlar · ₺25.000 (≈ $508) liste · havale/EFT ile ₺24.250 (%3 indirimli, KDV dahil ). Komple sistem: 285 W panel, güç kutusu ve bağlantı kabloları dahil tak-çalıştır mobil kit. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg.
+- **240W Güneş Paneli Paketi** — 0.24 kWp · Kamp, karavan ve küçük ihtiyaçlar · ₺24.000 (≈ $488) liste · havale/EFT ile ₺23.300 (%3 indirimli, KDV dahil ). Komple sistem: 240 W panel, güç kutusu ve bağlantı kabloları dahil tak-çalıştır mobil kit. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg.
 - **Tam Kapsamlı Güneş Enerjisi Sistemi** — 1.08 kWp · Karavan, kamp ve bağ evi · ₺108.200 (≈ $2.200) liste · havale/EFT ile ₺104.950 (%3 indirimli, KDV dahil ). 2× 540 W güneş paneli dahil komple mobil sistem: LiFePO₄ lityum batarya ve büyük güç kutusuyla buzdolabı, TV, çamaşır ve bulaşık makinesini çalıştırır.
 - **UNV Trek Pro 2500 W Taşınabilir Güç İstasyonu** — ES-E2500-A2 · Kamp, karavan, saha çalışması ve ev tipi yedek güç · ₺122.800 (≈ $2.495) liste · havale/EFT ile ₺119.100 (%3 indirimli, KDV dahil ). 2496 Wh kapasiteli, 2500 W sürekli çıkış veren taşınabilir güç istasyonu. Dört adet 230 V saf sinüs AC prizi, USB ve Type-C çıkışlarıyla aynı anda 14 cihaza kadar besleme yapar; 30 ms tepki süresiyle kesintisiz güç kaynağı (UPS) olarak da çalışır. Güneş paneli ürüne dahil değildir.
 

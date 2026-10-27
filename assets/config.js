@@ -299,7 +299,7 @@ window.GESPA.config = {
     { id: "arac", icon: "🛺", label: "Elektrikli araç şarjı", hint: "Triportör, golf, mini araç",
       ids: ["set-yolcu", "set-kargo", "set-golf", "set-mini", "boost-mppt", "aku-lifepo4-72v", "panel-240w", "panel-460w", "panel-700w", "kablo-solar-5m", "mc4-set"] },
     { id: "ev", icon: "🏠", label: "Ev & çatı sistemi", hint: "Büyük panel, akü, MPPT",
-      ids: ["panel-460w", "panel-arcelik-540w", "panel-lexron-655w", "panel-700w", "panel-lexron-285w", "aku-titanx-51v-102ah", "havensis-s30amps", "havensis-s60amps100", "havensis-s60amps150", "lexron-mppt-80a-hv", "lexron-pwm-60a", "kablo-solar-5m", "mc4-set"] },
+      ids: ["panel-460w", "panel-arcelik-540w", "panel-lexron-655w", "panel-700w", "panel-240w", "aku-titanx-51v-102ah", "havensis-s30amps", "havensis-s60amps100", "havensis-s60amps150", "lexron-mppt-80a-hv", "lexron-pwm-60a", "kablo-solar-5m", "mc4-set"] },
     { id: "aydinlatma", icon: "💡", label: "Bahçe & sokak aydınlatması", hint: "Elektrik hattı gerektirmez",
       ids: ["hero-led-solar-sokak-100w", "hero-led-solar-sokak-200w", "hero-led-solar-sokak-600w", "hero-led-aplik-50w", "hero-led-bahce-50w", "hero-led-ampul-10w"] },
     { id: "toptan", icon: "📦", label: "Toptan & proje", hint: "Çok adet, kurumsal teklif", href: "toptan.html" }
@@ -319,13 +319,13 @@ window.GESPA.config = {
     {
       id: "kit-285w", icon: "🧰", tag: "Taşınabilir", group: "offgrid", kit: true,
       url: "paket-285w.html", sku: "GES-KIT-285",
-      kwp: 0.285, panelW: 285, panelCount: 1, portable: true, dailyKwh: 1.7,
+      kwp: 0.24, panelW: 240, panelCount: 1, portable: true, dailyKwh: 1.4,
       img: "assets/img/products/kit-285w.webp",
-      price: 508.13, currency: "USD",                     // ₺25.000 @ 49,2
+      price: 487.8, currency: "USD",                      // ₺24.000 @ 49,2 (27 Eki 2026: 285 W stokta yok → 240 W panel, panel farkı ₺1.000 düşüldü)
       for: "Kamp, karavan ve küçük ihtiyaçlar",
-      name: "285W Güneş Paneli Paketi",
-      desc: "Komple sistem: 285 W panel, güç kutusu ve bağlantı kabloları dahil tak-çalıştır mobil kit. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg.",
-      features: ["TV, lambalar ve telefon şarjı çalıştırır", "Günlük ~1,7 kWh güneş üretimi", "23–25 kg — mobil taşınabilir", "Güç kutusu ve kablolar dahil"]
+      name: "240W Güneş Paneli Paketi",
+      desc: "Komple sistem: 240 W panel, güç kutusu ve bağlantı kabloları dahil tak-çalıştır mobil kit. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg.",
+      features: ["TV, lambalar ve telefon şarjı çalıştırır", "Günlük ~1,4 kWh güneş üretimi", "23–25 kg — mobil taşınabilir", "Güç kutusu ve kablolar dahil"]
     },
     {
       id: "kit-2x540w", icon: "🎒", tag: "Taşınabilir", group: "offgrid", kit: true,
@@ -428,7 +428,7 @@ window.GESPA.config = {
 
     // —— Tekil paneller —— TEKNİK DEĞERLER üreticinin künyesinden gelir:
     // assets/img/products/kaynak/lexron-*.pdf. Künyede OLMAYAN değer yazılmaz.
-    // DİKKAT: "285W Güneş Paneli Paketi" (kit-285w, ₺25.000) AYRI bir üründür —
+    // DİKKAT: "240W Güneş Paneli Paketi" (kit-285w, ₺24.000; Eki 2026 öncesi 285 W panelliydi) AYRI bir üründür —
     // o komple sistem, bu tek panel. Adları karıştırma.
     {
       id: "panel-lexron-285w", icon: "🔆", tag: "Panel", group: "panel",
@@ -1027,7 +1027,7 @@ window.GESPA.config = {
         items: { buzdolabi: 1, tv: 1, led: 6, telefon: 2, wifi: 1, su_pompasi: 1 } },
       { id: "karavan", icon: "🚐", label: "Karavan / Kamp", desc: "Mobil kullanım, düşük tüketim",
         items: { buzdolabi_mini: 1, led: 4, telefon: 2, laptop: 1 },
-        prefer: { panel: "pnl-lexron-285" } },
+        prefer: { panel: "pnl-240" } },
       { id: "mustakil", icon: "🏠", label: "Müstakil Ev", desc: "Tam zamanlı yaşam",
         items: { buzdolabi: 1, tv: 2, led: 12, telefon: 4, wifi: 1, camasir: 1, bulasik: 1, su_pompasi: 1, klima: 1 } },
       { id: "tarla", icon: "🌾", label: "Tarla / Sulama", desc: "Pompa ağırlıklı sezonluk",
@@ -1086,7 +1086,8 @@ window.GESPA.config = {
       panel: [
         { id: "pnl-lexron-655", pkg: "panel-lexron-655w", w: 655 },
         { id: "pnl-arcelik-540", pkg: "panel-arcelik-540w", w: 540 },
-        { id: "pnl-lexron-285", pkg: "panel-lexron-285w", w: 285 }
+        { id: "pnl-lexron-285", pkg: "panel-lexron-285w", w: 285 },   // stock: 0 → kurucudan kendiliğinden düşer
+        { id: "pnl-240", pkg: "panel-240w", w: 240 }
       ],
       battery: [
         { id: "bat-titanx-51-102", pkg: "aku-titanx-51v-102ah", kwh: 5.22, dod: 0.9, v: 48 }

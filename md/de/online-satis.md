@@ -3,7 +3,7 @@ title: "Onlineshop — Solarprodukte und Ausrüstung | GESPA Energy"
 description: "Alle Verkaufsprodukte auf einer Seite: Solar-Fertigsets, MPPT-Laderegler und Zubehör. Transparente Preise inkl. MwSt., Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/online-satis.html
 lang: de
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 
@@ -21,13 +21,13 @@ Shop
 - 💰 Rabatt per Überweisung
 - 🔒 Sichere Zahlung über iyzico
 
-### [285-W-Solarmodul-Paket](https://www.gespaenerji.com/de/paket-285w.html)
+### [240-W-Solarmodul-Paket](https://www.gespaenerji.com/de/paket-285w.html)
 
 Camping, Wohnmobil und kleine Verbraucher
 
-**₺25.000**≈ $508
+**₺24.000**≈ $488
 
-💰 Per Überweisung: **₺24.250**
+💰 Per Überweisung: **₺23.300**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -74,16 +74,6 @@ Camping, Wohnmobil, Außeneinsatz und Notstrom zu Hause
 **₺122.800**≈ $2.495
 
 💰 Per Überweisung: **₺119.100**
-
-Inkl. MwSt. · zzgl. Versand
-
-### [Lexron 285-W-Solarmodul](https://www.gespaenerji.com/de/panel-lexron-285w.html)
-
-Balkon, Gartenhaus und kleine Off-Grid-Systeme
-
-**₺7.500**≈ $152
-
-💰 Per Überweisung: **₺7.300**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -410,6 +400,16 @@ Große Gärten, Straßen, Wohnanlagen, Parkplätze und Fabrikgelände
 **₺2.650**≈ $54
 
 💰 Per Überweisung: **₺2.550**
+
+Inkl. MwSt. · zzgl. Versand
+
+### [Lexron 285-W-Solarmodul](https://www.gespaenerji.com/de/panel-lexron-285w.html)
+
+Balkon, Gartenhaus und kleine Off-Grid-Systeme
+
+**₺7.500**≈ $152
+
+💰 Per Überweisung: **₺7.300**
 
 Inkl. MwSt. · zzgl. Versand
 

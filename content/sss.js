@@ -125,7 +125,7 @@ module.exports = {
     { file: "sistem-kur.html", title: ["Off-grid sistem kurma", "Building an off-grid system", "Inselanlage zusammenstellen", "Сборка автономной системы"] },
     { file: "online-satis.html", title: ["Sipariş, kargo ve ödeme", "Orders, shipping and payment", "Bestellung, Versand und Zahlung", "Заказ, доставка и оплата"] },
     { file: "urunler.html", title: ["Hazır solar paketler", "Ready-made solar kits", "Fertige Solarsets", "Готовые солнечные комплекты"] },
-    { file: "paket-285w.html", title: ["Tak-çalıştır 285 W paket", "Plug-and-play 285 W kit", "Plug-and-Play-Set 285 W", "Комплект 285 Вт «включи и работай»"] },
+    { file: "paket-285w.html", title: ["Tak-çalıştır 240 W paket", "Plug-and-play 240 W kit", "Plug-and-Play-Set 240 W", "Комплект 240 Вт «включи и работай»"] },
     { file: "paket-2x540w.html", title: ["2×540 W LiFePO₄ bataryalı sistem", "2×540 W system with LiFePO₄ battery", "2×540-W-System mit LiFePO₄-Akku", "Система 2×540 Вт с аккумулятором LiFePO₄"] },
     { file: "unv-trek-pro-2500.html", title: ["Taşınabilir güç istasyonu (UNV Trek Pro 2500)", "Portable power station (UNV Trek Pro 2500)", "Tragbare Powerstation (UNV Trek Pro 2500)", "Портативная электростанция (UNV Trek Pro 2500)"] },
     { file: "su-isitici.html", title: ["PV güneş enerjili su ısıtıcı", "PV solar water heater", "PV-Solar-Warmwasserbereiter", "Фотоэлектрический водонагреватель"] },

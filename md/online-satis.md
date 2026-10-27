@@ -3,7 +3,7 @@ title: "Online Satış — Güneş Enerjisi Ürünleri | GESPA Enerji"
 description: "GESPA Enerji online satış: hazır güneş enerjisi paketleri, şarj kontrol cihazları ve solar ekipman. Şeffaf fiyat, KDV dahil, Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/online-satis.html
 lang: tr
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 
@@ -21,13 +21,13 @@ Mağaza
 - 💰 Havale/EFT'te indirim
 - 🔒 iyzico ile güvenli ödeme
 
-### [285W Güneş Paneli Paketi](https://www.gespaenerji.com/paket-285w.html)
+### [240W Güneş Paneli Paketi](https://www.gespaenerji.com/paket-285w.html)
 
 Kamp, karavan ve küçük ihtiyaçlar
 
-**₺25.000**≈ $508
+**₺24.000**≈ $488
 
-💰 Havale/EFT ile: **₺24.250**
+💰 Havale/EFT ile: **₺23.300**
 
 KDV dahil · kargo hariç
 
@@ -74,16 +74,6 @@ Kamp, karavan, saha çalışması ve ev tipi yedek güç
 **₺122.800**≈ $2.495
 
 💰 Havale/EFT ile: **₺119.100**
-
-KDV dahil · kargo hariç
-
-### [Lexron 285 W Güneş Paneli](https://www.gespaenerji.com/panel-lexron-285w.html)
-
-Balkon, bağ evi ve küçük off-grid sistemler
-
-**₺7.500**≈ $152
-
-💰 Havale/EFT ile: **₺7.300**
 
 KDV dahil · kargo hariç
 
@@ -410,6 +400,16 @@ Geniş bahçe, sokak, site, otopark ve fabrika sahası
 **₺2.650**≈ $54
 
 💰 Havale/EFT ile: **₺2.550**
+
+KDV dahil · kargo hariç
+
+### [Lexron 285 W Güneş Paneli](https://www.gespaenerji.com/panel-lexron-285w.html)
+
+Balkon, bağ evi ve küçük off-grid sistemler
+
+**₺7.500**≈ $152
+
+💰 Havale/EFT ile: **₺7.300**
 
 KDV dahil · kargo hariç
 

@@ -55,7 +55,7 @@ Modeller ve fiyatlar (KDV dahil, ₺):
 
 ## Paket Ürünler (https://www.gespaenerji.com/urunler.html)
 Markalar — panel: Arçelik, Lexron, Bakırlar · inverter: Tescom, Mexxsun, Lexron, Arçelik, Deye, TitanX · MPPT/DC-DC: Havensis, MS Teknik · akü: Orbus, TitanX · kendi markamız: GESPA
-- 285W Güneş Paneli Paketi — 0.285 kWp · Kamp, karavan ve küçük ihtiyaçlar · ₺25.000 (≈ $508) liste (KDV dahil) · havale/EFT ile ₺24.250 (%3 indirimli)
+- 240W Güneş Paneli Paketi — 0.24 kWp · Kamp, karavan ve küçük ihtiyaçlar · ₺24.000 (≈ $488) liste (KDV dahil) · havale/EFT ile ₺23.300 (%3 indirimli)
 - Tam Kapsamlı Güneş Enerjisi Sistemi — 1.08 kWp · Karavan, kamp ve bağ evi · ₺108.200 (≈ $2.200) liste (KDV dahil) · havale/EFT ile ₺104.950 (%3 indirimli)
 - MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı — GES-EV-BOOST · Golf aracı, hizmet aracı ve elektrikli platformlar · ₺7.200 (≈ $146) (KDV dahil, net fiyat) · kargo fiyata DAHİL
 - europlus 72 V 30 Ah LiFePO₄ Akü — GES-EV-AKU-72V · Elektrikli triportör, motosiklet ve 72 V hizmet araçları · ₺28.000 (≈ $569) liste (KDV dahil) · havale/EFT ile ₺27.150 (%3 indirimli)

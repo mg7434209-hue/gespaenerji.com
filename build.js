@@ -102,11 +102,11 @@ const META = {
   },
   "urunler.html": {
     en: { t: "Solar Packages — Off-Grid & Irrigation | GESPA Energy",
-          d: "285 W and 2×540 W solar kits for camping, caravans and cottages. Compare panels, power boxes and cables; shipping across Türkiye — GESPA Enerji." },
+          d: "240 W and 2×540 W solar kits for camping, caravans and cottages. Compare panels, power boxes and cables; shipping across Türkiye — GESPA Enerji." },
     de: { t: "Solar-Pakete — Off-Grid & Bewässerung | GESPA Energy",
-          d: "285-W- und 2×540-W-Solarsets für Camping, Wohnmobile und Ferienhäuser. Module, Power-Box und Kabel vergleichen; Versand in die ganze Türkei." },
+          d: "240-W- und 2×540-W-Solarsets für Camping, Wohnmobile und Ferienhäuser. Module, Power-Box und Kabel vergleichen; Versand in die ganze Türkei." },
     ru: { t: "Солнечные пакеты — off-grid и полив | GESPA",
-          d: "Комплекты 285 Вт и 2×540 Вт для кемпинга, автодомов и дач. Панели, блок питания и кабели; доставка по всей Турции." }
+          d: "Комплекты 240 Вт и 2×540 Вт для кемпинга, автодомов и дач. Панели, блок питания и кабели; доставка по всей Турции." }
   },
   "elektrikli-arac-donusum.html": {
     en: { t: "Solar Conversion for EVs — BOOST MPPT | GESPA Energy",
@@ -133,12 +133,12 @@ const META = {
           d: "2500 Вт, АКБ 2496 Вт·ч, 4 розетки 230 В чистый синус, ИБП 30 мс. Портативная электростанция для кемпинга, автодома и резервного питания." }
   },
   "paket-285w.html": {
-    en: { t: "285W Solar Panel Package — Plug-and-Play | GESPA",
-          d: "Complete 285W solar kit for camping, caravans and small needs: panel + power box + cables. Runs a TV, lights and phone charging; 23–25 kg, plug-and-play." },
-    de: { t: "285-W-Solarmodul-Paket — Plug-and-Play | GESPA Energy",
-          d: "Komplettes 285-W-Solarset für Camping, Wohnmobil und kleine Verbraucher: Modul + Power-Box + Kabel. Betreibt TV, Licht und Handy-Ladung; 23–25 kg, Plug-and-Play." },
-    ru: { t: "Пакет с панелью 285 Вт — подключи и работай | GESPA",
-          d: "Полный солнечный комплект 285 Вт для кемпинга и караванов: панель + блок питания + кабели. Питает ТВ, свет и зарядку телефона; 23–25 кг." }
+    en: { t: "240W Solar Panel Package — Plug-and-Play | GESPA",
+          d: "Complete 240W solar kit for camping, caravans and small needs: panel + power box + cables. Runs a TV, lights and phone charging; 23–25 kg, plug-and-play." },
+    de: { t: "240-W-Solarmodul-Paket — Plug-and-Play | GESPA Energy",
+          d: "Komplettes 240-W-Solarset für Camping, Wohnmobil und kleine Verbraucher: Modul + Power-Box + Kabel. Betreibt TV, Licht und Handy-Ladung; 23–25 kg, Plug-and-Play." },
+    ru: { t: "Пакет с панелью 240 Вт — подключи и работай | GESPA",
+          d: "Полный солнечный комплект 240 Вт для кемпинга и караванов: панель + блок питания + кабели. Питает ТВ, свет и зарядку телефона; 23–25 кг." }
   },
   "paket-motor-yolcu.html": {
     en: { t: "Passenger E-Trike Solar Set — 240 W | GESPA Energy",
@@ -1677,7 +1677,9 @@ function hydrateExtras(html, file, cfg) {
   // Online satış kataloğu — JS'siz ortam/AI botları için statik ürün listesi
   if (file === "online-satis.html" && cfg.packages) {
     const RATE = cfg.usdTry || 0;
-    const rows = cfg.packages.filter(p => p.price != null || p.priceOnRequest).map(p => {
+    // Tükenen ürün (stock: 0) en sona iner — main.js mağaza listesiyle aynı sıra
+    const shopList = cfg.packages.filter(p => p.price != null || p.priceOnRequest);
+    const rows = shopList.filter(p => p.stock !== 0).concat(shopList.filter(p => p.stock === 0)).map(p => {
       const PCT = pctOf(cfg, p);                       // ürüne özel oran
       const tl = priceTRY(cfg, p.price, p.currency);
       const usd = p.currency === "USD" ? p.price : (RATE ? Math.round(p.price / RATE) : 0);

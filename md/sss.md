@@ -335,7 +335,7 @@ Faturanıza veya tüketiminize göre ücretsiz hesaplayıcımızı kullanın; uy
 
 [Sayfaya git →](https://www.gespaenerji.com/urunler.html)
 
-## Tak-çalıştır 285 W paket
+## Tak-çalıştır 240 W paket
 
 ### Kurulumu zor mu?
 

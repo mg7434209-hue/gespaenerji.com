@@ -293,7 +293,7 @@ Use our free calculator based on your bill or consumption; see the suitable syst
 
 [Go to page →](https://www.gespaenerji.com/en/urunler.html)
 
-## Plug-and-play 285 W kit
+## Plug-and-play 240 W kit
 
 ### Kurulumu zor mu?
 
