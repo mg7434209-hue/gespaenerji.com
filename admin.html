@@ -173,6 +173,19 @@
       </p>
     </div>
 
+    <!-- Ziyaretçiler: son 24 saat, saatlik dağılım — server.js /api/visitors(+export) -->
+    <div id="viscard" class="adm-card" hidden>
+      <div class="adm-head">
+        <h2 style="font-size:1.35rem;margin:0">👥 Ziyaretçiler — son 24 saat</h2>
+        <button class="btn btn-sm" type="button" id="visRefresh">↻ Yenile</button>
+      </div>
+      <p style="color:var(--muted);margin:0 0 10px;font-size:.92rem">
+        Sunucu her ziyaretçiyi 24 saatte bir kez sayar (çerezle; botlar sayılmaz). Çubuklar Türkiye
+        saatine göre her saatte gelen yeni ziyaretçidir. Sayfa açıkken dakikada bir yenilenir.
+      </p>
+      <div id="visOut" class="adm-note info">Okunuyor…</div>
+    </div>
+
     <!-- Kalıcı veri: Railway Volume bağlı mı (ziyaretçi sayacı, siparişler, dekontlar) -->
     <div id="storecard" class="adm-card" hidden>
       <div class="adm-head">
@@ -292,8 +305,8 @@
     function show() {
       $("#login").hidden = true; $("#editor").hidden = false; $("#paylink").hidden = false;
       $("#taksit").hidden = false; $("#mailtest").hidden = false; $("#aibots").hidden = false;
-      $("#storecard").hidden = false; $("#fxcard").hidden = false; $("#qacard").hidden = false;
-      render(); payLink(); taksitAraci(); mailTest(); aiBots(); storeState(); fxState(); qaMod();
+      $("#storecard").hidden = false; $("#fxcard").hidden = false; $("#qacard").hidden = false; $("#viscard").hidden = false;
+      render(); payLink(); taksitAraci(); mailTest(); aiBots(); storeState(); fxState(); qaMod(); visitCard();
     }
 
     // ---- Soru & Cevap moderasyonu -----------------------------------------
@@ -459,6 +472,51 @@
         st.textContent = "Kur durumu okunamadı (sayfa GitHub Pages aynasında açıldıysa sunucu yoktur).";
       });
     }
+
+    // Ziyaretçiler — son 24 saat: herkese açık /api/visitors (toplam, şu an,
+    // son 24 saat) + parolalı /api/visitors/export (saatlik kovalar)
+    var visTimer = null;
+    function visitCard() {
+      var out = $("#visOut"); if (!out) return;
+      var HOUR = 3600000;
+      var base = (C.visitors && C.visitors.base) || 0;
+      var hh = function (k) { return new Date(k * HOUR).toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Istanbul" }); };
+      Promise.all([
+        fetch("/api/visitors", { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }),
+        fetch("/api/visitors/export", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pass: sessPass() }) })
+          .then(function (r) { return r.ok ? r.json() : null; }, function () { return null; })
+      ]).then(function (res) {
+        var v = res[0], ex = res[1];
+        var full = v.day != null;
+        var n24 = full ? +v.day || 0 : +v.recent || 0;
+        var hrs = full ? 24 : +v.recentHours || 0;
+        var html = '<div style="display:flex;flex-wrap:wrap;gap:18px;margin:0 0 12px">'
+          + '<div><div style="font-size:1.9rem;font-weight:800;line-height:1.1">' + nf.format(n24) + '</div><div style="color:var(--muted);font-size:.85rem">son ' + hrs + ' saatte</div></div>'
+          + '<div><div style="font-size:1.9rem;font-weight:800;line-height:1.1">' + nf.format(+v.online || 0) + '</div><div style="color:var(--muted);font-size:.85rem">şu an sitede (son 5 dk)</div></div>'
+          + '<div><div style="font-size:1.9rem;font-weight:800;line-height:1.1">' + nf.format(base + (+v.total || 0)) + '</div><div style="color:var(--muted);font-size:.85rem">toplam ziyaretçi</div></div></div>';
+        if (ex && ex.hours) {
+          var now = Math.floor(Date.now() / HOUR), max = 1, bars = [];
+          for (var k = now - 23; k <= now; k++) { var c = +ex.hours[k] || 0; bars.push([k, c]); if (c > max) max = c; }
+          html += '<div style="display:flex;align-items:flex-end;gap:2px;height:120px;border-bottom:1px solid var(--line,#ccd)" role="img" aria-label="Son 24 saatin saatlik ziyaretçi grafiği">'
+            + bars.map(function (b) {
+                var h = b[1] ? Math.max(4, Math.round(b[1] / max * 100)) : 0;
+                return '<div title="' + hh(b[0]) + ' — ' + b[1] + ' ziyaretçi" style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%">'
+                  + (b[1] ? '<span style="font-size:.62rem;color:var(--muted)">' + b[1] + '</span>' : '')
+                  + '<div style="width:100%;height:' + h + '%;background:var(--green,#1f2f78);border-radius:3px 3px 0 0"></div></div>';
+              }).join("") + '</div>'
+            + '<div style="display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted);margin-top:4px"><span>' + hh(now - 23) + '</span><span>' + hh(now - 12) + '</span><span>şimdi</span></div>';
+          if (!full && ex.hoursSince) html += '<p style="margin:8px 0 0;font-size:.85rem;color:var(--muted)">Saatlik sayım ' + new Date(ex.hoursSince).toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" }) + ' tarihinde başladı; 24 saat dolunca sitedeki rozet "son 24 saatte" yazar.</p>';
+        } else {
+          html += '<p style="margin:0;font-size:.85rem;color:var(--muted)">Saatlik grafik için yönetici girişi gerekir (Railway ADMIN_PASS).</p>';
+        }
+        out.className = "adm-note ok"; out.innerHTML = html;
+      }).catch(function () {
+        out.className = "adm-note info";
+        out.textContent = "ℹ️ Sayaç bu adresten okunamadı (muhtemelen Pages aynası). Canlı sitede admin.html'i açın.";
+      });
+      if (!visTimer) visTimer = setInterval(function () { if (!document.hidden) visitCard(); }, 60000);
+    }
+    var visBtn = $("#visRefresh"); if (visBtn) visBtn.addEventListener("click", visitCard);
 
     // Kalıcı veri durumu — /api/pay/status `store` (server.js DATA_PERSISTENT)
     function storeState() {

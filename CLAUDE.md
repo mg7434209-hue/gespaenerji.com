@@ -855,8 +855,13 @@ Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD v
   Açılış sırası: devir → build → listen. SIGTERM'de bekleyen yazımlar diske
   atılır. Siparişler ve AI bot sayıları devredilmez, onlar için Volume şart.
   SON 24 SAAT: sayılan ziyaretler saatlik kovalarda; `/api/visitors` → `day`.
-  24 saatlik kesintisiz veri (`hoursSince`) birikmeden `day: null` döner ve
-  rozet o parçayı göstermez (eksik veriyle küçük sayı yayınlanmaz).
+  24 saatlik kesintisiz veri (`hoursSince`) birikmeden `day: null` +
+  `recent`/`recentHours` döner; rozet o zaman "son N saatte X" yazar (süre
+  açık yazılır, eksik veri "24 saat" diye sunulmaz — 27 Eki 2026, kesinti
+  sonrası parça hiç görünmüyordu). Admin "👥 Ziyaretçiler — son 24 saat"
+  kartı: son 24 saat · şu an sitede · toplam + Türkiye saatine göre saatlik
+  çubuk grafik (`/api/visitors/export` kovaları, yönetici şifresiyle),
+  dakikada bir yenilenir.
   Taban (`visitors.base`) artık elle taşınmaz; geçmiş taşımalar config'te.
 - Sohbet botu `assets/chatbot.js` (main.js dinamik yükler): metinleri kendi içinde
   `[tr,en,de,ru]` dizileriyle çok dillidir (i18n DICT'e bağlı değildir); yeni yanıt

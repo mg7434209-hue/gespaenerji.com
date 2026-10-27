@@ -2040,14 +2040,16 @@
     var p = doc.createElement("p");
     p.className = "visit-counter";
     host.appendChild(p);
-    // day: son 24 saatteki tekil ziyaretçi — sunucu 24 saatlik kesintisiz veri
-    // biriktirmeden göndermez (null), o zamana kadar parça görünmez
-    function render(total, online, day) {
+    // day: son 24 saatteki tekil ziyaretçi. Sunucu 24 saatlik kesintisiz veri
+    // biriktirmeden day=null + recent/recentHours gönderir; rozet o zaman
+    // "son N saatte X" yazar (süre açık, eksik veri "24 saat" diye sunulmaz)
+    // hours: day'in kapsadığı saat (24 ya da veri kısaysa 1–23, "son N saatte")
+    function render(total, online, day, hours) {
       var html = '<span class="visit-total"><span aria-hidden="true">👥</span> <b>' + nf.format(total) + "</b> " +
         L("ziyaretçi", "visitors", "Besucher", "посетителей") + "</span>";
       if (day > 0) {
-        var d = "<b>" + nf.format(day) + "</b>";
-        html += ' <span class="visit-day">· ' + L("son 24 saatte " + d, d + " in the last 24 h", d + " in den letzten 24 Std.", d + " за последние 24 ч") + "</span>";
+        var d = "<b>" + nf.format(day) + "</b>", h = hours || 24;
+        html += ' <span class="visit-day">· ' + L("son " + h + " saatte " + d, d + " in the last " + h + " h", d + " in den letzten " + h + " Std.", d + " за последние " + h + " ч") + "</span>";
       }
       if (v.showOnline && online > 0) {
         html += ' <span class="visit-online">· <span class="visit-dot" aria-hidden="true"></span> ' + nf.format(online) + " " +
@@ -2064,7 +2066,10 @@
     try {
       fetch("/api/visitors", { cache: "no-store" })
         .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-        .then(function (d) { render((v.base || 0) + (+d.total || 0), +d.online || 0, +d.day || 0); })
+        .then(function (d) {
+          var full = d.day != null;   // 24 saatlik kesintisiz veri var mı
+          render((v.base || 0) + (+d.total || 0), +d.online || 0, full ? +d.day || 0 : +d.recent || 0, full ? 24 : +d.recentHours || 0);
+        })
         .catch(function () {});
     } catch (e) {}
   })();
