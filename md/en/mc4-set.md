@@ -3,7 +3,7 @@ title: "MC4 Connector Set | GESPA Energy"
 description: "Male + female MC4 connector set for joining the panel cable to the solar cable."
 canonical: https://www.gespaenerji.com/en/mc4-set.html
 lang: en
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

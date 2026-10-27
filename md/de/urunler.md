@@ -3,7 +3,7 @@ title: "Solar-Pakete — Off-Grid & Bewässerung | GESPA Energy"
 description: "285-W- und 2×540-W-Solarsets für Camping, Wohnmobile und Ferienhäuser. Module, Power-Box und Kabel vergleichen; Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/urunler.html
 lang: de
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

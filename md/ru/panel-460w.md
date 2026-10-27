@@ -3,7 +3,7 @@ title: "Монокристаллическая панель half-cut 460 Вт | 
 description: "Панель 460 Вт, 144 ячейки half-cut: КПД 23,42 %, Voc 51,90 В, 2095 × 1039 × 30 мм, 25 кг, IP68."
 canonical: https://www.gespaenerji.com/ru/panel-460w.html
 lang: ru
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

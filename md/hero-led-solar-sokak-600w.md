@@ -1,9 +1,9 @@
 ---
-title: "Hero LED 600 W Solar Sokak Armatürü (Radar Sensörlü, Kumandalı) | GESPA Enerji"
-description: "Geniş alanlar için 600 W solar sokak armatürü (HL-5157): ayrı güneş paneliyle şarj olur, elektrik hattı ve elektrik faturası gerektirmez. SMD LED, 6500 K beyaz ışık, radar hareket sensörü, sabit yanma zaman ayarı, uzaktan kumanda, IP65 suya dayanıklılık ve 30.000 saat ömür. Kutu bilgisine göre sensör modunda 24–36 saat, sabit yanmada 6–8 saat çalışır. Armatür ölçüsü 29,8 × 46,5 cm."
+title: "Hero LED 600 W Solar Sokak Armatürü | GESPA Enerji"
+description: "Geniş alanlar için 600 W solar sokak armatürü (HL-5157): ayrı güneş paneliyle şarj olur, elektrik hattı ve elektrik faturası gerektirmez."
 canonical: https://www.gespaenerji.com/hero-led-solar-sokak-600w.html
 lang: tr
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

@@ -3,7 +3,7 @@ title: "Elektrikli Araç Güneş Dönüşümü — BOOST MPPT | GESPA"
 description: "Golf ve hizmet araçlarına güneş paneli dönüşümü. MS Teknik BOOST MPPT 24-72 V: AGM, jel, kurşun-asit ve lityum akü desteği, Bluetooth ile ayar."
 canonical: https://www.gespaenerji.com/elektrikli-arac-donusum.html
 lang: tr
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

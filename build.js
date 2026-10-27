@@ -77,10 +77,10 @@ PAGES.push("sozluk.html", "sss.html");
 // Sayfa başına dil-özel <title> ve meta description (en kritik SEO sinyalleri)
 const META = {
   "index.html": {
-    en: { t: "GESPA Energy — Solar Power Plants (PV) | Turnkey Solutions",
-          d: "GESPA Energy: turnkey installation, engineering, financing and maintenance for rooftop and ground-mounted solar power plants (PV). Manavgat / Antalya, Türkiye." },
-    de: { t: "GESPA Energy — Schlüsselfertige Solaranlagen (PV)",
-          d: "GESPA Energy: schlüsselfertige Installation, Engineering, Finanzierung und Wartung für Aufdach- und Freiflächen-Solaranlagen. Manavgat / Antalya, Türkei." },
+    en: { t: "GESPA Energy — Solar Products & Turnkey PV Plants | Antalya",
+          d: "Solar panels, batteries, charge controllers and ready kits shipped across Türkiye; rooftop, ground and agricultural PV plants built turnkey in Manavgat/Antalya since 2005." },
+    de: { t: "GESPA Energy — Solarprodukte & schlüsselfertige PV | Antalya",
+          d: "Solarmodule, Akkus, Laderegler und fertige Sets mit Versand in die ganze Türkei; Dach-, Freiflächen- und Agrar-PV schlüsselfertig in Manavgat/Antalya seit 2005." },
     ru: { t: "GESPA Energy — Солнечные электростанции | Решения под ключ",
           d: "GESPA Energy: монтаж под ключ, инжиниринг, финансирование и обслуживание солнечных электростанций на крыше и на земле. Манавгат / Анталья, Турция." }
   },
@@ -762,7 +762,37 @@ function glossaryLd(cfg) {
 // küçük çıkar. noindex sayfalara DOKUNULMAZ (kendi robots etiketleri var).
 // og:locale:alternate yalnız dil kopyası olan sayfalara yazılır (TR_ONLY hariç);
 // transform() dil kopyasında kümeyi "geçerli dil hariç diğerleri" yapar.
+// SERP uzunlukları (27 Eki 2026): başlık ≤ 65, açıklama ≤ 160 karakter.
+// Üretici betikleri ürün adını olduğu gibi başlık yapar ("…(Kumandalı, 3 Renk +
+// RGB) | GESPA Enerji" 84 karakter) ve ürün açıklamasını meta description'a
+// koyar (300+). Burada: önce parantez içi atılır, sonra "| GESPA …" eki,
+// yine uzunsa kelime sınırında kesilir. Açıklama cümle sonunda kesilir.
+// Kaynak sayfa YENİDEN YAZILIR (idempotent). Dil META'sına da uygulanır.
+function tidyTitle(t) {
+  t = String(t || "").replace(/\s+/g, " ").trim();
+  if (t.length <= 65) return t;
+  const m = /^(.*?)(\s\|\s(GESPA[^|]*))$/.exec(t);
+  let core = (m ? m[1] : t).replace(/\s*\([^)]*\)/g, "").replace(/\s+/g, " ").trim();
+  const suffix = m ? m[2] : "";
+  if ((core + suffix).length <= 65) return core + suffix;
+  if (core.length <= 65) return core;
+  core = core.slice(0, 63); core = core.slice(0, core.lastIndexOf(" ") > 40 ? core.lastIndexOf(" ") : 63);
+  return core.replace(/[\s,;:·—-]+$/, "") + "…";
+}
+function tidyDesc(d) {
+  d = String(d || "").replace(/\s+/g, " ").trim();
+  if (d.length <= 160) return d;
+  const head = d.slice(0, 159);
+  let cut = Math.max(head.lastIndexOf(". "), head.lastIndexOf("; "), head.lastIndexOf("! "));
+  if (cut >= 90) return head.slice(0, cut + 1);
+  cut = head.lastIndexOf(" ");
+  return head.slice(0, cut > 100 ? cut : 157).replace(/[\s,;:·—-]+$/, "") + "…";
+}
 function hydrateHead(html, file) {
+  html = html.replace(/<title>([\s\S]*?)<\/title>/, (m, t) => "<title>" + esc(tidyTitle(unesc(t))) + "</title>");
+  html = html.replace(/<meta name="description" content="([^"]*)"/, (m, d) => '<meta name="description" content="' + esc(tidyDesc(unesc(d))) + '"');
+  html = html.replace(/<meta property="og:title" content="([^"]*)"/, (m, t) => '<meta property="og:title" content="' + esc(tidyTitle(unesc(t))) + '"');
+  html = html.replace(/<meta property="og:description" content="([^"]*)"/, (m, d) => '<meta property="og:description" content="' + esc(tidyDesc(unesc(d))) + '"');
   // Dil demeti: TR kaynak sayfa sözlüksüz i18n.tr.js yükler; transform() dil
   // kopyasında /assets/i18n.<dil>.js yapar (kaynak i18n.js'i sayfalar YÜKLEMEZ).
   html = html.replace(/(<script defer src=")assets\/i18n(?:\.[a-z]{2})?\.js(">)/, "$1assets/i18n.tr.js$2");
@@ -1282,6 +1312,11 @@ function packageProductLd(cfg, p, html) {
       }
     };
     ld.offers.priceValidUntil = priceValidUntil(cfg, p);
+    // Garanti: config `warranty` (ürün) ya da commerce.warrantyDefault; yalnız
+    // "N yıl" biçimi şemaya girer (paneldeki "12 yıl ürün · 30 yıl güç" metni
+    // sayfada kalır, şemaya tek sayı uydurulmaz).
+    const wy = /^(\d+) yıl$/.exec(String(p.warranty || com.warrantyDefault || ""));
+    if (wy) ld.offers.warranty = { "@type": "WarrantyPromise", durationOfWarranty: { "@type": "QuantitativeValue", value: +wy[1], unitCode: "ANN" } };
     if (com.returnDays) {
       ld.offers.hasMerchantReturnPolicy = {
         "@type": "MerchantReturnPolicy",
@@ -2378,9 +2413,13 @@ Markalar — panel: ${cfg.brands.panel.join(", ")} · inverter: ${cfg.brands.inv
 ${pkgLines}
 ${cfg.fx && cfg.fx.auto ? "Fiyat ve kur: katalog fiyatları USD bazlıdır; ₺ karşılığı TCMB döviz satış kuruyla günlük güncellenir (kur, işletmenin belirlediği asgari kurun altına inmez). Bu dosyadaki ₺ tutarlar 1 USD = " + String(cfg.usdTry).replace(".", ",") + " ₺ ile hesaplandı; güncel fiyat sitededir.\n" : ""}Kargo & iade: Paketler TÜRKİYE'NİN HER İLİNE anlaşmalı kargo ile gönderilir (teslimat
 Antalya ile sınırlı değildir). Sipariş onayından sonra tahmini teslim ${(cfg.commerce || {}).shipDays || "2–5"} iş günü;
-kargo ücreti alıcıya aittir (yukarıda "kargo fiyata DAHİL" yazan ürünler hariç),
-fiyatlara KDV dahildir. Mesafeli satışta ${(cfg.commerce || {}).returnDays || 14} gün cayma
-hakkı vardır (sorunsuz teslimde iade kargosu alıcıya ait; hasarlı/ayıplı üründe satıcıya).
+kargo ücreti alıcıya aittir ve paket teslim alınırken kargo firmasına ödenir (yukarıda "kargo
+fiyata DAHİL" yazan ürünler hariç); fiyatlara KDV dahildir. Mesafeli satışta ${(cfg.commerce || {}).returnDays || 14} gün cayma
+hakkı vardır; anlaşmalı kargomuzla yapılan iadede iade kargosu ÜCRETSİZDİR (başka kargo firması
+seçilirse alıcıya aittir); hasarlı/ayıplı üründe tüm masraflar satıcıya aittir.
+Taksit: kredi kartına ${(cfg.commerce || {}).taksitMax || 12} aya kadar taksit, vade farkı müşteriye aittir (ödeme sayfasında seçilir).
+Garanti: mağaza ürünlerinde ${(cfg.commerce || {}).warrantyDefault || "2 yıl"}; ürün sayfasında farklı yazıyorsa o geçerlidir (ör. paneller 12 yıl ürün / 30 yıl güç).
+Mağaza kullanım senaryoları (${c.web}/online-satis.html?senaryo=<id>): ${(cfg.shopScenarios || []).filter(s => !s.href).map(s => s.label + " [" + s.id + "]").join(" · ")}.
 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi verilir.
 Ödeme: havale/EFT'te indirim uygulanır (oran ürüne göre değişir; her ürünün indirimli tutarı yukarıdaki listede yazılıdır). Kart ödemesinde indirim UYGULANMAZ, liste fiyatı geçerlidir.
 
@@ -2418,7 +2457,8 @@ gerekli panel gücü (kWp), akü kapasitesi (kWh, model DoD'una göre) ve invert
 - Solar sulama pompası seçimi (${c.web}/tarimsal-sulama.html).
 
 ## Garanti & Güvence
-- A-marka panellerde 25 yıla varan üretim performans garantisi; inverterlerde 5–12 yıl ürün garantisi.
+- Mağaza ürünlerinde ${(cfg.commerce || {}).warrantyDefault || "2 yıl"} garanti; panellerde üreticinin ürün/güç garantisi ürün sayfasında yazılıdır (Lexron 12 yıl ürün / 30 yıl güç, 700 W bifacial 30 yıl güç). Anahtar teslim GES'te ekipman garantileri teklifte kalem kalem yazılır.
+- Keşif taleplerine ${(cfg.commerce || {}).leadReplyDays || "1–3"} gün içinde dönülür; keşif ve teklif ücretsizdir.
 - Anahtar teslim teslimat: keşif → projelendirme → kurulum → devreye alma; bakım (O&M) hizmeti sürer.
 - Ücretsiz keşif ve tasarruf analizi tüm hizmetlerde standarttır.
 
@@ -2445,7 +2485,8 @@ KVKK aydınlatma metni: ${c.web}/kvkk.html · Gizlilik: ${c.web}/gizlilik.html �
 }
 
 function transform(html, lang, file, i18n) {
-  const m = META[file] && META[file][lang];
+  const m0 = META[file] && META[file][lang];
+  const m = m0 ? { t: tidyTitle(m0.t), d: tidyDesc(m0.d) } : m0;
   const canonical = ORIGIN + "/" + lang + "/" + (file === "index.html" ? "" : file);
   let out = html;
   // WebPage şemasındaki ad/açıklama TR <title>/description ile aynı metindir;

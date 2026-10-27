@@ -1,9 +1,9 @@
 ---
-title: "Havensis 60A MPPT Controller 12–48V, 150V — 5000W Panels | GESPA Energy"
-description: "Havensis Solar-60AMPS 150|60 MPPT charge controller: 12/24/36/48 V battery, 60 A charging, 150 V panel input, up to 5000 W of panels. Made in Türkiye, for 48 V off-grid systems."
+title: "Havensis 60A MPPT Controller 12–48V, 150V — 5000W Panels"
+description: "Havensis Solar-60AMPS 150|60 MPPT charge controller: 12/24/36/48 V battery, 60 A charging, 150 V panel input, up to 5000 W of panels."
 canonical: https://www.gespaenerji.com/en/havensis-mppt-60a-150v.html
 lang: en
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

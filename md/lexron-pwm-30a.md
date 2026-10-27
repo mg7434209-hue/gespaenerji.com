@@ -3,7 +3,7 @@ title: "Lexron 30 A PWM Şarj Kontrol Cihazı 12/24 V | GESPA Enerji"
 description: "Lexron 30 A PWM Şarj Kontrol Cihazı 12/24 V: 12/24 V akülü güneş sistemleri için PWM şarj kontrol cihazı, 30 A şarj akımı. Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/lexron-pwm-30a.html
 lang: tr
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

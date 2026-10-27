@@ -3,7 +3,7 @@ title: "Солнечная панель 240 Вт (48 ячеек) | GESPA"
 description: "Солнечная панель 240 Вт, 48 ячеек: Voc 36,12 В, 1320 × 776 × 30 мм, 8 кг. Для мини-электромобилей и небольших автономных систем."
 canonical: https://www.gespaenerji.com/ru/panel-240w.html
 lang: ru
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

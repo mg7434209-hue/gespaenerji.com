@@ -3,7 +3,7 @@ title: "MC4-Steckerset | GESPA Energy"
 description: "MC4-Steckerset (Stecker + Buchse) zur Verbindung von Modulkabel und Solarkabel."
 canonical: https://www.gespaenerji.com/de/mc4-set.html
 lang: de
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

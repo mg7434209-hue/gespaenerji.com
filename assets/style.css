@@ -2629,3 +2629,14 @@ html.menu-locked,html.menu-locked body{overflow:hidden}
 .home-gal{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}
 .home-gal img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px;display:block;box-shadow:var(--shadow)}
 @media (max-width:760px){.home-gal{grid-template-columns:repeat(2,1fr)}}
+
+/* Telefonda dokunma alanları ≥ 40 px (27 Eki 2026 denetimi) */
+@media (max-width:760px){
+  .footer-bottom a{padding:10px 6px}
+  .crumbs a{padding:8px 0}
+  .topbar-inner a{padding:7px 0;display:inline-block}
+  .cart-remove{min-height:40px;padding:8px 6px}
+  input[type="checkbox"]{width:18px;height:18px}
+  .m-feat-head a{padding:10px 0}
+  .sh-bar .sh-chip{min-height:40px}
+}

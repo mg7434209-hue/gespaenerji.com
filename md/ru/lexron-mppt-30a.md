@@ -3,7 +3,7 @@ title: "Контроллер заряда Lexron 30А MPPT 12/24В | GESPA"
 description: "Солнечный контроллер заряда Lexron 30 А MPPT для систем с АКБ 12/24 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции."
 canonical: https://www.gespaenerji.com/ru/lexron-mppt-30a.html
 lang: ru
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

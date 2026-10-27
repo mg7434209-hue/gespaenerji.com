@@ -3,7 +3,7 @@ title: "Arçelik 540W Solar Panel | GESPA Energy"
 description: "Arçelik 540 W grade-A monocrystalline solar panel for rooftop and ground systems; pallet shipments available."
 canonical: https://www.gespaenerji.com/en/panel-arcelik-540w.html
 lang: en
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

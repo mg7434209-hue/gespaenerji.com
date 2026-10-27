@@ -1,9 +1,9 @@
 ---
 title: "Havensis 30A MPPT-Laderegler 12/24V — 1200W Module | GESPA Energy"
-description: "Havensis Solar-30AMPS MPPT-Laderegler für Solaranlagen mit 12/24-V-Batterie: 30 A Ladestrom, 20-A-Lastausgang, 100 V Moduleingang, bis 1200 W Module, LCD-Display. Hergestellt in der Türkei."
+description: "Havensis Solar-30AMPS MPPT-Laderegler für Solaranlagen mit 12/24-V-Batterie: 30 A Ladestrom, 20-A-Lastausgang, 100 V Moduleingang, bis 1200 W Module…"
 canonical: https://www.gespaenerji.com/de/havensis-mppt-30a.html
 lang: de
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

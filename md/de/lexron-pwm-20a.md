@@ -3,7 +3,7 @@ title: "Lexron 20A PWM-Laderegler 12/24V | GESPA Energy"
 description: "Lexron 20 A PWM-Solarladeregler für 12/24-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/lexron-pwm-20a.html
 lang: de
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

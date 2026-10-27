@@ -1,9 +1,9 @@
 ---
 title: "Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) | GESPA Enerji"
-description: "Güneş paneli ile şarj kontrol cihazı arasındaki bağlantı için 5 metre siyah + 5 metre kırmızı solar kablo takımı. Kesit stok durumuna göre 4 mm2 veya 6 mm2 gelir; bu sistemlerde ikisi de uygundur. Elektrikli motor güneş paketlerinin standart kalemidir."
+description: "Güneş paneli ile şarj kontrol cihazı arasındaki bağlantı için 5 metre siyah + 5 metre kırmızı solar kablo takımı."
 canonical: https://www.gespaenerji.com/kablo-solar-5m.html
 lang: tr
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

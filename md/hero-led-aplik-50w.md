@@ -1,9 +1,9 @@
 ---
-title: "Hero LED 50 W Solar LED Aplik (Kumandalı, 3 Renk + RGB) | GESPA Enerji"
-description: "Üstündeki güneş paneliyle gündüz şarj olup gece çalışan 50 W solar duvar apliği (HL-5181): elektrik hattı gerektirmez. 4000 lümen, 3200 K / 4000 K / 6500 K ve RGB ışık seçeneği, 60° ışık açısı, uzaktan kumanda, IP65 suya dayanıklılık ve 15.000 saat ömür. Şarj süresi 6 saat, çalışma süresi 8 saat; ölçü 160 × 160 × 213 mm."
+title: "Hero LED 50 W Solar LED Aplik | GESPA Enerji"
+description: "Üstündeki güneş paneliyle gündüz şarj olup gece çalışan 50 W solar duvar apliği (HL-5181): elektrik hattı gerektirmez."
 canonical: https://www.gespaenerji.com/hero-led-aplik-50w.html
 lang: tr
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

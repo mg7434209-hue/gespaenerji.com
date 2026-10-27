@@ -1,9 +1,9 @@
 ---
 title: "Hero LED 600W Solar-Straßenleuchte mit Radarsensor | GESPA Energy"
-description: "Hero LED 600 W Solar-Straßenleuchte für große Flächen (HL-5157): separates Solarmodul, Radarsensor, Fernbedienung, IP65, 30.000 h. Günstigerer Stückpreis ab 5 Stück."
+description: "Hero LED 600 W Solar-Straßenleuchte für große Flächen (HL-5157): separates Solarmodul, Radarsensor, Fernbedienung, IP65, 30.000 h."
 canonical: https://www.gespaenerji.com/de/hero-led-solar-sokak-600w.html
 lang: de
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

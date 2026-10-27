@@ -3,7 +3,7 @@ title: "Arçelik 540-W-Solarmodul | GESPA Energy"
 description: "Arçelik 540-W-Monokristallin-Solarmodul Klasse A für Dach- und Freiflächenanlagen; palettenweise Lieferung möglich."
 canonical: https://www.gespaenerji.com/de/panel-arcelik-540w.html
 lang: de
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

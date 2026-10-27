@@ -1,9 +1,9 @@
 ---
 title: "Hero LED 10 W 12 V DC LED Ampul (12–60 V AC/DC) | GESPA Enerji"
-description: "12–60 V AC/DC geniş gerilim aralığında çalışan 10 W LED ampul: 850 lümen, 6500 K beyaz ışık. 12 V ve 24 V akülü güneş sistemlerinde, karavanda, teknede ve bağ evinde doğrudan aküden çalışır. Ölçü 60 × 118 mm, çalışma sıcaklığı −20 ~ +55 °C, enerji sınıfı F (10 kWh/1000 saat); ultraviyole ışın içermez."
+description: "12–60 V AC/DC geniş gerilim aralığında çalışan 10 W LED ampul: 850 lümen, 6500 K beyaz ışık."
 canonical: https://www.gespaenerji.com/hero-led-ampul-10w.html
 lang: tr
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

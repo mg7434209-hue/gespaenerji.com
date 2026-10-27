@@ -1,9 +1,9 @@
 ---
-title: "Havensis 60A MPPT Charge Controller 12/24V — 2500W Panels | GESPA Energy"
-description: "Havensis Solar-60AMPS-100 MPPT charge controller: 12/24 V battery, 60 A charging, 20 A load output, 100 V panel input, up to 2500 W of panels, LCD display. For cabins and caravans."
+title: "Havensis 60A MPPT Charge Controller 12/24V — 2500W Panels"
+description: "Havensis Solar-60AMPS-100 MPPT charge controller: 12/24 V battery, 60 A charging, 20 A load output, 100 V panel input, up to 2500 W of panels, LCD display."
 canonical: https://www.gespaenerji.com/en/havensis-mppt-60a.html
 lang: en
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 

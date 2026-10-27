@@ -3,7 +3,7 @@ title: "GESPA Energy — Солнечные электростанции | Ре�
 description: "GESPA Energy: монтаж под ключ, инжиниринг, финансирование и обслуживание солнечных электростанций на крыше и на земле. Манавгат / Анталья, Турция."
 canonical: https://www.gespaenerji.com/ru/
 lang: ru
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 
