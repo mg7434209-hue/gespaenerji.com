@@ -89,7 +89,7 @@ Kabinli, 2–4 kişilik yolcu araçları — çatı alanı dar
 - Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)
 - MC4 Konnektör Takımı
 
-Set toplamı : **₺14.800** · KDV dahil · kargo hariç
+Set toplamı: **₺14.800** · KDV dahil · kargo hariç
 
 [Ürün sayfası](https://www.gespaenerji.com/paket-motor-yolcu.html)
 
@@ -102,7 +102,7 @@ Açık kasa veya tenteli yük araçları — çatı alanı geniş
 - Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)
 - MC4 Konnektör Takımı
 
-Set toplamı : **₺17.000** · KDV dahil · kargo hariç
+Set toplamı: **₺17.000** · KDV dahil · kargo hariç
 
 [Ürün sayfası](https://www.gespaenerji.com/paket-motor-kargo.html)
 
@@ -115,7 +115,7 @@ Tavanlı, golf aracı tipi yolcu araçları — düz tavan
 - Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)
 - MC4 Konnektör Takımı
 
-Set toplamı : **₺16.300** · KDV dahil · kargo hariç
+Set toplamı: **₺16.300** · KDV dahil · kargo hariç
 
 [Ürün sayfası](https://www.gespaenerji.com/paket-motor-golf.html)
 
@@ -128,7 +128,7 @@ Kapalı kabinli mini otomobiller — tavan alanı küçük
 - Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)
 - MC4 Konnektör Takımı
 
-Set toplamı : **₺14.800** · KDV dahil · kargo hariç
+Set toplamı: **₺14.800** · KDV dahil · kargo hariç
 
 [Ürün sayfası](https://www.gespaenerji.com/paket-motor-mini.html)
 

@@ -89,7 +89,7 @@ Enclosed 2–4 seater passenger vehicles — narrow roof area
 - Solar Cable Set (5 m Black + 5 m Red)
 - MC4 Connector Set
 
-Set total : **₺14.800** · VAT included · shipping excluded
+Set total: **₺14.800** · VAT included · shipping excluded
 
 [Ürün sayfası](https://www.gespaenerji.com/en/paket-motor-yolcu.html)
 
@@ -102,7 +102,7 @@ Open-bed or canopied cargo vehicles — wide roof area
 - Solar Cable Set (5 m Black + 5 m Red)
 - MC4 Connector Set
 
-Set total : **₺17.000** · VAT included · shipping excluded
+Set total: **₺17.000** · VAT included · shipping excluded
 
 [Ürün sayfası](https://www.gespaenerji.com/en/paket-motor-kargo.html)
 
@@ -115,7 +115,7 @@ Roofed golf-cart-type passenger vehicles — flat roof
 - Solar Cable Set (5 m Black + 5 m Red)
 - MC4 Connector Set
 
-Set total : **₺16.300** · VAT included · shipping excluded
+Set total: **₺16.300** · VAT included · shipping excluded
 
 [Ürün sayfası](https://www.gespaenerji.com/en/paket-motor-golf.html)
 
@@ -128,7 +128,7 @@ Enclosed mini cars — small roof area
 - Solar Cable Set (5 m Black + 5 m Red)
 - MC4 Connector Set
 
-Set total : **₺14.800** · VAT included · shipping excluded
+Set total: **₺14.800** · VAT included · shipping excluded
 
 [Ürün sayfası](https://www.gespaenerji.com/en/paket-motor-mini.html)
 

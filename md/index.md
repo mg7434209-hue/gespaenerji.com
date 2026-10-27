@@ -11,7 +11,7 @@ publisher: "GESPA Enerji"
 
 Manavgat · Antalya · 2005'ten beri
 
-# Güneş enerjisi: ürünler stoktan , santral anahtar teslim.
+# Güneş enerjisi: ürünler stoktan, santral anahtar teslim.
 
 Panel, akü, şarj cihazı ve hazır paketler Türkiye'nin her yerine kargo. Çatı, arazi ve tarımsal GES'i Antalya'da keşiften devreye almaya biz kuruyoruz.
 

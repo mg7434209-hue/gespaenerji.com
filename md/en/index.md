@@ -11,7 +11,7 @@ publisher: "GESPA Enerji"
 
 Manavgat · Antalya · since 2005
 
-# Solar energy: products in stock , power plants turnkey.
+# Solar energy: products in stock, power plants turnkey.
 
 Panels, batteries, charge controllers and ready-made kits shipped anywhere in Türkiye. In Antalya we build rooftop, ground and agricultural PV plants from survey to commissioning.
 

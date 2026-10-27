@@ -2080,6 +2080,7 @@ function htmlToMd(mainHtml, base) {
   // SSS soruları önce başlığa çevrilir (ardından tüm düğmeler silinir)
   h = h.replace(/<button class="faq-q"[^>]*>([\s\S]*?)<\/button>/g, (m, q) => "<h3>" + text(q.replace(/<span class="faq-ico"[^>]*>[\s\S]*?<\/span>/, "")) + "</h3>");
   h = h.replace(/<\/span>/gi, "</span> ");   // yan yana çipler/etiketler yapışmasın
+  h = h.replace(/<\/span> ([,.;:!?])/g, "</span>$1");   // ama noktalama işaretinden önce boşluk kalmasın ("stoktan ,")
   h = h.replace(/<(script|style|svg|form|select|noscript|template|video|audio|iframe|textarea)\b[\s\S]*?<\/\1>/gi, "");
   h = h.replace(/<(input|meta|link|source|track)\b[^>]*>/gi, "");
   h = stripBalanced(h, /<(div|section|p|span|a|ul|ol|li|aside|article|figure|nav|details|button)\b[^>]*?(?:\shidden(?:=|\s|>)|display:\s*none)[^>]*>/);

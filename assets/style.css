@@ -2640,3 +2640,7 @@ html.menu-locked,html.menu-locked body{overflow:hidden}
   .m-feat-head a{padding:10px 0}
   .sh-bar .sh-chip{min-height:40px}
 }
+@media (max-width:760px){
+  .ord-pay input[type="radio"]{width:20px;height:20px}
+  .iban-copy{min-height:40px;padding:8px 10px}
+}

@@ -11,7 +11,7 @@ publisher: "GESPA Enerji"
 
 Manavgat · Antalya · seit 2005
 
-# Solarenergie: Produkte ab Lager , Anlagen schlüsselfertig.
+# Solarenergie: Produkte ab Lager, Anlagen schlüsselfertig.
 
 Module, Akkus, Laderegler und fertige Sets mit Versand in die ganze Türkei. In Antalya bauen wir Dach-, Freiflächen- und Agrar-PV von der Besichtigung bis zur Inbetriebnahme.
 
