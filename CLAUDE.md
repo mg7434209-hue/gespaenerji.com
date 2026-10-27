@@ -305,7 +305,7 @@ ve sepet simgesi ekran dışında kalır.
   kullanır — yeni grup eklersen İKİSİNE de yaz.
 
 ### Ürünler & fiyatlar (config.packages · config.heater · config.admin)
-- `packages[]`: 2 komple kit (285W ₺ · 2x540W USD) + BOOST MPPT şarj kontrol
+- `packages[]`: 2 komple kit (240W ₺ · 2x540W USD) + BOOST MPPT şarj kontrol
   cihazı (**₺7.200 NET** — `noCartDiscount`, kartta da havalede de aynı tutar;
   `freeShipping`, `group:"accessory"`) +
   50W panel ₺1.750 NET (`noCartDiscount`, `group:"panel"`; Eylül kampanyası bitti, `oldPrice` kalktı) + UNV Trek Pro 2500 W taşınabilir güç
@@ -365,8 +365,9 @@ ve sepet simgesi ekran dışında kalır.
   Arçelik 540 W'ın künyesi elimizde YOK, bu yüzden güç/sınıf/marka dışında
   iddia taşımaz. Künyelerin alt bilgisindeki tedarikçi (ACS ENERJİ) adres ve
   telefonu siteye KONMAZ — MS Teknik kuralının aynısı.
-  ADLANDIRMA TUZAĞI: `kit-285w` "285W Güneş Paneli Paketi" (komple sistem,
-  ₺25.000) ile `panel-lexron-285w` "Lexron 285 W Güneş Paneli" (tek panel,
+  ADLANDIRMA TUZAĞI: `kit-285w` "240W Güneş Paneli Paketi" (komple sistem,
+  ₺24.000; 27 Eki 2026'ya dek 285 W panelliydi, id/URL/SKU bilerek eski
+  kaldı) ile `panel-lexron-285w` "Lexron 285 W Güneş Paneli" (tek panel,
   ₺7.500) AYRI ürünlerdir; adları kısaltıp karıştırma.
 - `group:"storage"` (enerji depolama) `panel` gibi YALNIZ online-satis.html
   kataloğunda listelenir — main.js/build.js GROUPS listelerinde YOKTUR, orada
@@ -494,7 +495,11 @@ ve sepet simgesi ekran dışında kalır.
   server.js checkout kalemi almaz; şema/akış OutOfStock; Sistem Kurucu
   önermez. İlk örnek: Lexron 285 W. Stoğa girince `stock: 0`'ı SİL.
   YOLCU MOTOR PAKETİ 285 W yerine 240 W panelle (₺14.800, mini paketle aynı
-  içerik ve fiyat).
+  içerik ve fiyat). KOMPLE KİT de 240 W panelle (27 Eki 2026): ad "240W
+  Güneş Paneli Paketi", ₺25.000 → ₺24.000 (panel farkı), günlük ~1,4 kWh
+  (1,7 × 240/285). Görseldeki "285W" yazıları 240W'a çevrildi
+  (kit-285w.webp/.jpg/-k). Sistem Kurucu karavan önerisi `pnl-240`.
+  Tükenen ürün mağaza listesinde EN SONA iner (main.js + build.js statik liste).
 - CAYMA / İADE KARGOSU: ürün sayfalarındaki satır "14 gün — anlaşmalı
   kargomuzla iade ücretsizdir" (sözleşme ve Mesafeli Sözleşmeler
   Yönetmeliği ile aynı). "iade kargosu alıcıya aittir" YAZILMAZ.
@@ -656,6 +661,14 @@ işe yaramıyordu.
 - Tüm formüller ve katsayılar: @docs/hesaplayici-spec.md
 - Katsayılar tek config dosyasında (`config.calc`) ve koddan ayarlanabilir.
 - KURAL: Hesaplayıcı bileşenine hiçbir sayı (fiyat, katsayı, güç) hardcode ETME.
+
+## Railway: CRON YASAK (27 Eki 2026)
+Railway servisine panelden "Cron Schedule" (Daily 0 0 * * *) eklenmişti:
+servis cron moduna geçti, ağ açılmadı ("Network: Not started"), site
+"Application failed to respond" verdi. railway.json `deploy.cronSchedule:
+null` ile kod tarafından kapatıldı (config-as-code panelden önceliklidir).
+Bu satırı SİLME. Site sürekli çalışan bir web sunucusudur; zamanlanmış iş
+gerekirse ayrı servis açılır.
 
 ## CRO düzeni (26 Eki 2026, işletme kararı — satışa göre yeniden düzen)
 - TEMA: parlament mavisi SİTE GENELİ (`:root --green:#1f2f78`, koyu #16215a,
@@ -842,8 +855,13 @@ Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD v
   Açılış sırası: devir → build → listen. SIGTERM'de bekleyen yazımlar diske
   atılır. Siparişler ve AI bot sayıları devredilmez, onlar için Volume şart.
   SON 24 SAAT: sayılan ziyaretler saatlik kovalarda; `/api/visitors` → `day`.
-  24 saatlik kesintisiz veri (`hoursSince`) birikmeden `day: null` döner ve
-  rozet o parçayı göstermez (eksik veriyle küçük sayı yayınlanmaz).
+  24 saatlik kesintisiz veri (`hoursSince`) birikmeden `day: null` +
+  `recent`/`recentHours` döner; rozet o zaman "son N saatte X" yazar (süre
+  açık yazılır, eksik veri "24 saat" diye sunulmaz — 27 Eki 2026, kesinti
+  sonrası parça hiç görünmüyordu). Admin "👥 Ziyaretçiler — son 24 saat"
+  kartı: son 24 saat · şu an sitede · toplam + Türkiye saatine göre saatlik
+  çubuk grafik (`/api/visitors/export` kovaları, yönetici şifresiyle),
+  dakikada bir yenilenir.
   Taban (`visitors.base`) artık elle taşınmaz; geçmiş taşımalar config'te.
 - Sohbet botu `assets/chatbot.js` (main.js dinamik yükler): metinleri kendi içinde
   `[tr,en,de,ru]` dizileriyle çok dillidir (i18n DICT'e bağlı değildir); yeni yanıt

@@ -293,7 +293,7 @@ Nutzen Sie unseren kostenlosen Rechner anhand Rechnung oder Verbrauch; sehen Sie
 
 [Zur Seite →](https://www.gespaenerji.com/de/urunler.html)
 
-## Plug-and-Play-Set 285 W
+## Plug-and-Play-Set 240 W
 
 ### Kurulumu zor mu?
 

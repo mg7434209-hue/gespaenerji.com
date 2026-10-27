@@ -186,7 +186,7 @@ Products are made in modern facilities by a manufacturer with over 15 years of e
 
 **🧰 Need a smaller solution?**
 
-If you only need TV, lights and charging, [See the 285W solar kit →](https://www.gespaenerji.com/en/paket-285w.html)
+If you only need TV, lights and charging, [See the 240W solar kit →](https://www.gespaenerji.com/en/paket-285w.html)
 
 Customer reviews
 

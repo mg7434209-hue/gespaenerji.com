@@ -348,6 +348,7 @@ server.stdout.on('data',async d=>{
   const rj=JSON.parse(fs.readFileSync(path.join(root,'railway.json'),'utf8'));assert.equal(rj.deploy.healthcheckPath,'/api/health','railway healthcheck path');
   const vis=await (await fetch('http://127.0.0.1:'+port+'/api/visitors')).json();
   assert.ok(Number.isFinite(vis.total)&&'day' in vis&&(vis.day===null||Number.isFinite(vis.day)),'visitors api: total + day');
+  if(vis.day===null)assert.ok(Number.isFinite(vis.recent)&&vis.recentHours>=1&&vis.recentHours<=24,'visitors api: partial window states its hours');
   const ex403=await fetch('http://127.0.0.1:'+port+'/api/visitors/export',{method:'POST',body:JSON.stringify({pass:'yanlis'})});assert.equal(ex403.status,403);await ex403.text();
   const ex=await fetch('http://127.0.0.1:'+port+'/api/visitors/export',{method:'POST',body:JSON.stringify({pass:ADMIN_TEST_PASS})});
   assert.equal(ex.status,200);const exj=await ex.json();assert.ok(exj.total===vis.total&&exj.hours&&exj.hoursSince>0,'visitors export for redeploy handoff');

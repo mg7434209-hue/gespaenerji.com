@@ -1,29 +1,29 @@
 ---
-title: "285W Güneş Paneli Paketi — Tak-Çalıştır | GESPA Enerji"
-description: "Kamp ve karavan için 285W komple güneş paketi: panel, güç kutusu ve kablolar. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg, tak-çalıştır."
+title: "240W Güneş Paneli Paketi — Tak-Çalıştır | GESPA Enerji"
+description: "Kamp ve karavan için 240W komple güneş paketi: panel, güç kutusu ve kablolar. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg, tak-çalıştır."
 canonical: https://www.gespaenerji.com/paket-285w.html
 lang: tr
 dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 
-[Ana Sayfa](https://www.gespaenerji.com/) / [Ürünler](https://www.gespaenerji.com/urunler.html)[Yapay Zekâ Ürünleri](https://www.gespaenerji.com/yapay-zeka-urunleri.html) / 285W Güneş Paneli Paketi
+[Ana Sayfa](https://www.gespaenerji.com/) / [Ürünler](https://www.gespaenerji.com/urunler.html)[Yapay Zekâ Ürünleri](https://www.gespaenerji.com/yapay-zeka-urunleri.html) / 240W Güneş Paneli Paketi
 
-![285W komple güneş paneli paketi](https://www.gespaenerji.com/assets/img/products/kit-285w.webp)
+![240W komple güneş paneli paketi](https://www.gespaenerji.com/assets/img/products/kit-285w.webp)
 
 📦 Komple Sistem
 
-# 285W Güneş Paneli Paketi
+# 240W Güneş Paneli Paketi
 
 Ürün kodu: **GES-KIT-285** Stokta / tedarikte
 
 Kamp, karavan ve bağ evi için elektrik özgürlüğü: panel, güç kutusu ve kablolar tek pakette. Kur, tak, kullan — şebeke yoksa bile TV'niz, ışığınız ve telefon şarjınız var.
 
-**₺25.000** ≈ $508
+**₺24.000** ≈ $488
 
 KDV dahil fiyattır.
 
-💰 Havale/EFT ile: **₺24.250**
+💰 Havale/EFT ile: **₺23.300**
 
 💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
 
@@ -31,7 +31,7 @@ KDV dahil fiyattır.
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
-[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22285W%20G%C3%BCne%C5%9F%20Paneli%20Paketi%22%20(GES-KIT-285)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpaket-285w.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22240W%20G%C3%BCne%C5%9F%20Paneli%20Paketi%22%20(GES-KIT-285)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpaket-285w.html)
 [🧮 Bana uygun mu?](https://www.gespaenerji.com/hesaplayici.html)
 
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
@@ -40,7 +40,7 @@ KDV dahil fiyattır.
 - 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 - 🔧 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi.
 
-⚡ 1× 285 W panel ☀️ Günlük ~1,7 kWh üretim ⚖️ 23–25 kg — taşınabilir 🔌 Tak-çalıştır
+⚡ 1× 240 W panel ☀️ Günlük ~1,4 kWh üretim ⚖️ 23–25 kg — taşınabilir 🔌 Tak-çalıştır
 
 ### ✅ Kimler için uygun
 
@@ -56,22 +56,22 @@ KDV dahil fiyattır.
 
 Parça toplamakla uğraşmayın: panelden kablosuna kadar ihtiyacınız olan her bileşen tek pakette, birbiriyle uyumlu şekilde hazırlanmış olarak gelir.
 
-285 W monokristal panel ve priz çıkışlı güç kutusuyla televizyonunuzu, LED aydınlatmanızı ve telefon şarjınızı şebekeye ihtiyaç duymadan çalıştırır. 23–25 kg ağırlığıyla arabanızın bagajına sığar; kampta, karavanda ve bağ evinde aynı kolaylıkla kullanılır.
+240 W monokristal panel ve priz çıkışlı güç kutusuyla televizyonunuzu, LED aydınlatmanızı ve telefon şarjınızı şebekeye ihtiyaç duymadan çalıştırır. 23–25 kg ağırlığıyla arabanızın bagajına sığar; kampta, karavanda ve bağ evinde aynı kolaylıkla kullanılır.
 
 Kurulum teknik bilgi gerektirmez: paneli gölgesiz bir yere koyun, renk kodlu MC4 kabloları takın, cihazınızı güç kutusunun prizine bağlayın.
 
 | Adet | Bileşen |
 | --- | --- |
-| 1 × | 285 W monokristal güneş paneli |
+| 1 × | 240 W monokristal güneş paneli |
 | 1 × | Priz çıkışlı güç kutusu (gösterge ekranlı) |
 | 1 set | MC4 bağlantı kabloları (renk kodlu) |
 | — | Sipariş öncesi ücretsiz danışmanlık |
 
 Paket içeriği tek kutuda, birbiriyle uyumlu şekilde hazırlanmış olarak gönderilir.
 
-| Güneş paneli | 1× 285 W monokristal |
+| Güneş paneli | 1× 240 W monokristal |
 | --- | --- |
-| Günlük üretim | ~1,7 kWh (bölgeye göre değişir) |
+| Günlük üretim | ~1,4 kWh (bölgeye göre değişir) |
 | Güç kutusu | Priz çıkışlı, göstergeli — kutudan kullanıma hazır |
 | Bağlantı | MC4 kablolar dahil, renk kodlu |
 | Ağırlık | 23–25 kg (komple set) |
@@ -188,7 +188,7 @@ Müşteri yorumları
 
 Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
 
-[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22285W%20G%C3%BCne%C5%9F%20Paneli%20Paketi%22%20(GES-KIT-285)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22240W%20G%C3%BCne%C5%9F%20Paneli%20Paketi%22%20(GES-KIT-285)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Bugün sipariş verin, güneşiniz hazır olsun
 

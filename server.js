@@ -1942,7 +1942,15 @@ const server = http.createServer((req, res) => {
       // day: son 24 saatte sayılan tekil ziyaretçi; 24 saatlik kesintisiz veri
       // yoksa null (rozet o parçayı göstermez)
       const day = Date.now() - visitHoursSince >= 24 * HOUR_MS ? visitsLast24h() : null;
-      return res.end(JSON.stringify({ total: visitTotal, online: onlineCount(), day: day }));
+      // recent/recentHours: veri 24 saatten kısaysa (dağıtım devri başarısız,
+      // kesinti) rozet "son N saatte X" yazar; süre AÇIKÇA yazıldığı için
+      // eksik veri "24 saat" diye sunulmaz. day doluyken ikisi de gönderilmez.
+      const out = { total: visitTotal, online: onlineCount(), day: day };
+      if (day === null) {
+        out.recent = visitsLast24h();
+        out.recentHours = Math.max(1, Math.min(24, Math.ceil((Date.now() - visitHoursSince) / HOUR_MS)));
+      }
+      return res.end(JSON.stringify(out));
     }
     // Sayaç devri: yeni sunucu açılırken bunu çağırır (seedVisitsFromLive).
     // Yalnız toplam sayılar döner; parola yönetici şifresi (adminGate, /api/aibots gibi).

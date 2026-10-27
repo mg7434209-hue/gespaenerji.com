@@ -3,7 +3,7 @@ title: "Online Store — Solar Products and Equipment | GESPA Energy"
 description: "All products on sale in one place: ready-made solar kits, MPPT charge controllers and equipment. Transparent prices, VAT included, shipping across Türkiye."
 canonical: https://www.gespaenerji.com/en/online-satis.html
 lang: en
-dateModified: 2026-10-26
+dateModified: 2026-10-27
 publisher: "GESPA Enerji"
 ---
 
@@ -21,13 +21,13 @@ Store
 - 💰 Discount by bank transfer
 - 🔒 Secure payment via iyzico
 
-### [285W Solar Panel Package](https://www.gespaenerji.com/en/paket-285w.html)
+### [240W Solar Panel Package](https://www.gespaenerji.com/en/paket-285w.html)
 
 Camping, caravans and small needs
 
-**₺25.000**≈ $508
+**₺24.000**≈ $488
 
-💰 By bank transfer: **₺24.250**
+💰 By bank transfer: **₺23.300**
 
 VAT included · shipping excluded
 
@@ -74,16 +74,6 @@ Camping, caravans, field work and home backup power
 **₺122.800**≈ $2.495
 
 💰 By bank transfer: **₺119.100**
-
-VAT included · shipping excluded
-
-### [Lexron 285 W Solar Panel](https://www.gespaenerji.com/en/panel-lexron-285w.html)
-
-Balconies, cabins and small off-grid systems
-
-**₺7.500**≈ $152
-
-💰 By bank transfer: **₺7.300**
 
 VAT included · shipping excluded
 
@@ -410,6 +400,16 @@ Large gardens, streets, estates, car parks and factory yards
 **₺2.650**≈ $54
 
 💰 By bank transfer: **₺2.550**
+
+VAT included · shipping excluded
+
+### [Lexron 285 W Solar Panel](https://www.gespaenerji.com/en/panel-lexron-285w.html)
+
+Balconies, cabins and small off-grid systems
+
+**₺7.500**≈ $152
+
+💰 By bank transfer: **₺7.300**
 
 VAT included · shipping excluded
 

@@ -186,7 +186,7 @@ Die Produkte werden in modernen Anlagen eines Herstellers mit über 15 Jahren Er
 
 **🧰 Eine kleinere Lösung gesucht?**
 
-Wenn Sie nur TV, Licht und Laden benötigen, [285-W-Solarset ansehen →](https://www.gespaenerji.com/de/paket-285w.html)
+Wenn Sie nur TV, Licht und Laden benötigen, [240-W-Solarset ansehen →](https://www.gespaenerji.com/de/paket-285w.html)
 
 Kundenbewertungen
 

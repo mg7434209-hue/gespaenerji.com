@@ -29,8 +29,8 @@ Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş; talebe 
 
 ### Mağaza ve ürünler
 - [Online Satış — Güneş Enerjisi Ürünleri](https://www.gespaenerji.com/online-satis.html): GESPA Enerji online satış: hazır güneş enerjisi paketleri, şarj kontrol cihazları ve solar ekipman. Şeffaf fiyat, KDV dahil, Türkiye'nin her yerine kargo. · Markdown: https://www.gespaenerji.com/md/online-satis.md
-- [Hazır Solar Paketler — Off-Grid & Sulama](https://www.gespaenerji.com/urunler.html): 285 W ve 2×540 W hazır güneş enerjisi paketleri: kamp, karavan ve bağ evi için panel, güç kutusu ve kablo içeriği. Türkiye geneli gönderim — GESPA Enerji. · Markdown: https://www.gespaenerji.com/md/urunler.md
-- [285W Güneş Paneli Paketi — Tak-Çalıştır](https://www.gespaenerji.com/paket-285w.html): Kamp ve karavan için 285W komple güneş paketi: panel, güç kutusu ve kablolar. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg, tak-çalıştır. · Markdown: https://www.gespaenerji.com/md/paket-285w.md
+- [Hazır Solar Paketler — Off-Grid & Sulama](https://www.gespaenerji.com/urunler.html): 240 W ve 2×540 W hazır güneş enerjisi paketleri: kamp, karavan ve bağ evi için panel, güç kutusu ve kablo içeriği. Türkiye geneli gönderim — GESPA Enerji. · Markdown: https://www.gespaenerji.com/md/urunler.md
+- [240W Güneş Paneli Paketi — Tak-Çalıştır](https://www.gespaenerji.com/paket-285w.html): Kamp ve karavan için 240W komple güneş paketi: panel, güç kutusu ve kablolar. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg, tak-çalıştır. · Markdown: https://www.gespaenerji.com/md/paket-285w.md
 - [2×540W Güneş Sistemi — LiFePO₄ Bataryalı](https://www.gespaenerji.com/paket-2x540w.html): 2×540W panel + LiFePO₄ bataryalı güç kutusu: buzdolabı, TV ve çamaşır makinesi çalıştıran komple mobil güneş sistemi. Günlük ~6,5 kWh üretim. · Markdown: https://www.gespaenerji.com/md/paket-2x540w.md
 - [UNV Trek Pro 2500 W Taşınabilir Güç İstasyonu | GESPA](https://www.gespaenerji.com/unv-trek-pro-2500.html): 2500 W sürekli çıkış, 2496 Wh batarya, 4 × 230 V saf sinüs priz, 30 ms UPS. Kamp, karavan ve ev tipi yedek güç için taşınabilir güç istasyonu. · Markdown: https://www.gespaenerji.com/md/unv-trek-pro-2500.md
 - [Elektrikli Araç Güneş Dönüşümü — BOOST MPPT | GESPA](https://www.gespaenerji.com/elektrikli-arac-donusum.html): Golf ve hizmet araçlarına güneş paneli dönüşümü. MS Teknik BOOST MPPT 24-72 V: AGM, jel, kurşun-asit ve lityum akü desteği, Bluetooth ile ayar. · Markdown: https://www.gespaenerji.com/md/elektrikli-arac-donusum.md
@@ -104,7 +104,7 @@ Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş; talebe 
 - [İade, Teslimat ve Kargo Koşulları](https://www.gespaenerji.com/iade-teslimat.html): GESPA Enerji teslimat ve iade koşulları: Türkiye geneli kargo, teslim süresi, hasarlı teslimat, 14 gün cayma hakkı, iade adımları, bedel iadesi ve garanti… · Markdown: https://www.gespaenerji.com/md/iade-teslimat.md
 
 ## Satıştaki ürünler (liste fiyatı; havale/EFT indirimi ve ayrıntı için llms-full.txt)
-- 285W Güneş Paneli Paketi — Kamp, karavan ve küçük ihtiyaçlar · ₺25.000 (KDV dahil) · https://www.gespaenerji.com/paket-285w.html
+- 240W Güneş Paneli Paketi — Kamp, karavan ve küçük ihtiyaçlar · ₺24.000 (KDV dahil) · https://www.gespaenerji.com/paket-285w.html
 - Tam Kapsamlı Güneş Enerjisi Sistemi — Karavan, kamp ve bağ evi · ₺108.200 (KDV dahil) · https://www.gespaenerji.com/paket-2x540w.html
 - MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı — Golf aracı, hizmet aracı ve elektrikli platformlar · ₺7.200 (KDV dahil) · https://www.gespaenerji.com/elektrikli-arac-donusum.html
 - europlus 72 V 30 Ah LiFePO₄ Akü — Elektrikli triportör, motosiklet ve 72 V hizmet araçları · ₺28.000 (KDV dahil) · https://www.gespaenerji.com/aku-lifepo4-72v-30ah.html

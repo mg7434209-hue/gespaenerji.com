@@ -72,7 +72,8 @@
 
 - `recommend()`: ihtiyacı EN DÜŞÜK toplam tutarla karşılayan model;
   eşitlikte daha çok kapasite, sonra daha az adet. Senaryonun `prefer`'i
-  önce gelir (karavan → 285 W kompakt panel; 2,4 m'lik panel tavana sığmaz).
+  önce gelir (karavan → 240 W kompakt panel, 1320 × 776 mm; 2,4 m'lik panel
+  tavana sığmaz. Lexron 285 W stokta yok, `stock: 0` olduğu için kurucudan düşer).
 - GERİLİM UYUMU: akü ve inverter `v` (sistem gerilimi) taşır. Lexron 6,2 ve
   11 kW için 48 V yazıldı (bu güç sınıfı 48 V'tur, işletmeden teyit
   bekleniyor). İnverter yalnız

@@ -186,7 +186,7 @@ Yüksek tüketimli ısıtma/soğutma cihazları bu paketin kapsamı dışındad�
 
 **🧰 Daha küçük bir çözüm mü lazım?**
 
-Yalnızca TV, aydınlatma ve şarj ihtiyacınız varsa [285W Güneş Paneli Paketi'ne göz atın →](https://www.gespaenerji.com/paket-285w.html)
+Yalnızca TV, aydınlatma ve şarj ihtiyacınız varsa [240W Güneş Paneli Paketi'ne göz atın →](https://www.gespaenerji.com/paket-285w.html)
 
 Müşteri yorumları
 
