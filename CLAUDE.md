@@ -665,10 +665,11 @@ işe yaramıyordu.
 ## Railway: CRON YASAK (27 Eki 2026)
 Railway servisine panelden "Cron Schedule" (Daily 0 0 * * *) eklenmişti:
 servis cron moduna geçti, ağ açılmadı ("Network: Not started"), site
-"Application failed to respond" verdi. railway.json `deploy.cronSchedule:
-null` ile kod tarafından kapatıldı (config-as-code panelden önceliklidir).
-Bu satırı SİLME. Site sürekli çalışan bir web sunucusudur; zamanlanmış iş
-gerekirse ayrı servis açılır.
+"Application failed to respond" verdi. Panelde Settings → Cron Schedule →
+"No schedule" ile kapatıldı. railway.json'a `"cronSchedule": null`
+EKLEME: eklendiği tek dağıtım (27 Eki 2026, PR #60) asıl serviste "Deployment
+failed" verdi, satır 29 Eki'de kaldırıldı. Site sürekli çalışan bir web
+sunucusudur; zamanlanmış iş gerekirse ayrı servis açılır.
 
 ## CRO düzeni (26 Eki 2026, işletme kararı — satışa göre yeniden düzen)
 - TEMA: parlament mavisi SİTE GENELİ (`:root --green:#1f2f78`, koyu #16215a,
