@@ -3,7 +3,7 @@ title: "Набор разъёмов MC4 | GESPA"
 description: "Набор разъёмов MC4 папа + мама для соединения кабеля панели с солнечным кабелем."
 canonical: https://www.gespaenerji.com/ru/mc4-set.html
 lang: ru
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

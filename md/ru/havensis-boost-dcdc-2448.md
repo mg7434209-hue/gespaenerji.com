@@ -3,7 +3,7 @@ title: "Зарядное BOOST DC-DC Havensis — с 12/24В на АКБ 36–72
 description: "Havensis BOOST DCDC-2448: зарядное устройство DC-DC, заряжающее блоки 36, 48, 60 и 72 В от автомобильного аккумулятора 12/24 В."
 canonical: https://www.gespaenerji.com/ru/havensis-boost-dcdc-2448.html
 lang: ru
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

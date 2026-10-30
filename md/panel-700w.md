@@ -3,7 +3,7 @@ title: "700 W Bifacial TOPCon Güneş Paneli | GESPA Enerji"
 description: "700 W Bifacial TOPCon Güneş Paneli: Kargo kasalı elektrikli araçlar, çatı ve arazi sistemleri Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/panel-700w.html
 lang: tr
-dateModified: 2026-10-26
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

@@ -3,7 +3,7 @@ title: "Solar-Umrüstung für E-Fahrzeuge — BOOST MPPT | GESPA"
 description: "Solar-Umrüstung für Golfcarts und Servicefahrzeuge. MS Teknik BOOST MPPT 24–72 V: AGM, Gel, Blei-Säure und Lithium, Einstellung per Bluetooth."
 canonical: https://www.gespaenerji.com/de/elektrikli-arac-donusum.html
 lang: de
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

@@ -3,7 +3,7 @@ title: "Yapay Zekâ Ürünleri — Görüntü Analizi ve Güvenlik | GESPA Enerj
 description: "AI Cankurtaran, yapay zekâ ile yangın ve duman algılama, çevre güvenliği, baret-yelek denetimi ve düşme algılama. Keşif, kurulum ve size özel yazılım."
 canonical: https://www.gespaenerji.com/yapay-zeka-urunleri.html
 lang: tr
-dateModified: 2026-10-26
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

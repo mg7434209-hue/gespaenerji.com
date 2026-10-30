@@ -3,7 +3,7 @@ title: "Hero LED 600 W Solar Sokak Armatürü | GESPA Enerji"
 description: "Geniş alanlar için 600 W solar sokak armatürü (HL-5157): ayrı güneş paneliyle şarj olur, elektrik hattı ve elektrik faturası gerektirmez."
 canonical: https://www.gespaenerji.com/hero-led-solar-sokak-600w.html
 lang: tr
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

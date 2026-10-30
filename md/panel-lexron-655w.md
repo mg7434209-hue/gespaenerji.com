@@ -3,7 +3,7 @@ title: "Lexron 655 W TOPCon Güneş Paneli | GESPA Enerji"
 description: "Lexron 655 W TOPCon Güneş Paneli: Çatı ve arazi sistemleri, yüksek güç gerektiren kurulumlar Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/panel-lexron-655w.html
 lang: tr
-dateModified: 2026-10-26
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

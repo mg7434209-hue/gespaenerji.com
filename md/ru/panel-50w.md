@@ -3,7 +3,7 @@ title: "Солнечная панель 50 Вт для систем 12 В | GESP
 description: "Монокристаллическая панель 50 Вт для систем 12 В: садовое освещение, камеры и зарядка АКБ."
 canonical: https://www.gespaenerji.com/ru/panel-50w.html
 lang: ru
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

@@ -3,7 +3,7 @@ title: "Контроллер заряда Lexron 80А MPPT HV 12/24/36/48В | GE
 description: "Солнечный контроллер заряда Lexron 80 А MPPT HV для систем с АКБ 12/24/36/48 В. Значения с этикетки изделия; полный паспорт — по запросу."
 canonical: https://www.gespaenerji.com/ru/lexron-mppt-80a-hv.html
 lang: ru
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

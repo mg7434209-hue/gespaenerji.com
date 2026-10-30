@@ -885,6 +885,24 @@ Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD v
   istemci sözlüğüne (ve dil demetlerine) geçmez. JS ile ÇİZİLEN metnin (katalog kartı, ürün adı,
   builder) çevirisi bu yüzden doğrudan `assets/i18n.js` DICT'ine yazılmalıdır. Marka/iletişim
   (`data-c-text`) ve dinamik sayılar çeviriden hariç tutulur.
+- MÜHENDİSLİK REHBERLERİ (30 Eki 2026, yalnız TR, `TR_ONLY`): `rehberler.html` (merkez) +
+  `off-grid-gunes-sistemi-boyutlandirma.html` · `pwm-mppt-sarj-kontrol-farki.html` ·
+  `solar-sulama-pompasi-secimi.html`. Kabuk (head/menü/alt bilgi) mevcut mevzuat rehberinden
+  kopyalanır, `<main data-article>` → Article + FAQPage (görünen `.faq-item`) + BreadcrumbList build'de
+  üretilir. İÇERİK KURALI: örnek hesaplar sitedeki araçlarla BİREBİR aynı formülü/katsayıyı kullanır
+  (Sistem Kurucu `config.builder.sizing`, pompa aracı `config.calc.pump`) ve künye değerleri ürün
+  sayfalarından gelir (Lexron 285/655 W, Havensis 150|60); katsayı değişirse rehberdeki örnek rakamları
+  da güncelle. Mevzuat/hibe iddiası YAZILMAZ; şebekeden de beslenen sulama kurgusu yalnız mevzuat
+  rehberine bağlantıyla anılır. Ana sayfadaki `#rehberler` bölümü ve footer "Rehberler" bağlantısı
+  `<!-- TR:ONLY -->` içindedir (dil kopyasından silinir). Yeni rehber = TR_ONLY + PRIORITY + LLMS_GROUPS
+  + `rehberler.html` kartı + ana sayfa bölümü (gerekirse).
+- KOYU TEMA: `[data-theme="dark"]` `--green`'i açık tona çeker (lacivert vurgu koyu zeminde 1,2:1'di).
+  Yeni bileşende SABİT BEYAZ zemin (`background:#fff`) kullanırsan yazı rengini de sabitle — `var(--ink)`
+  koyu temada açık renk olur ve beyaz üstünde kaybolur (`.m-prod` böyle düzeltildi). Kontrast taraması:
+  koyu temayı açıp öğe başına WCAG oranı hesapla; <3:1 çıkanları düzelt.
+- BREADCRUMB TUZAĞI: footer bağlantılarını toplu bul-değiştir ile güncellerken `<div class="crumbs">`
+  bloklarını HARİÇ tut. 9 ürün sayfasının breadcrumb'ına "Yapay Zekâ Ürünleri" sızmış, BreadcrumbList
+  şemasına da sahte bir adım olarak girmişti (düzeltildi).
 - YASAL SAYFALAR YALNIZ TÜRKÇE yayınlanır (`kvkk` `gizlilik` `cerez-politikasi`
   `mesafeli-satis-sozlesmesi` `iade-teslimat`): bağlayıcı metin Türkçedir, dil
   kopyası ÜRETİLMEZ. Liste build.js `TR_ONLY` — PAGES'te DEĞİLDİR. Sonuçları:

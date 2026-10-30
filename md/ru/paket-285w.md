@@ -3,11 +3,11 @@ title: "Пакет с панелью 240 Вт — подключи и работ
 description: "Полный солнечный комплект 240 Вт для кемпинга и караванов: панель + блок питания + кабели. Питает ТВ, свет и зарядку телефона; 23–25 кг."
 canonical: https://www.gespaenerji.com/ru/paket-285w.html
 lang: ru
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 
-[Главная](https://www.gespaenerji.com/ru/) / [Продукты](https://www.gespaenerji.com/ru/urunler.html)[ИИ-продукты](https://www.gespaenerji.com/ru/yapay-zeka-urunleri.html) / Пакет с панелью 240 Вт
+[Главная](https://www.gespaenerji.com/ru/) / [Продукты](https://www.gespaenerji.com/ru/urunler.html) / Пакет с панелью 240 Вт
 
 ![240W komple güneş paneli paketi](https://www.gespaenerji.com/assets/img/products/kit-285w.webp)
 

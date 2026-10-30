@@ -3,7 +3,7 @@ title: "Havensis BOOST DC-DC Şarj Cihazı — 12/24V'tan 36–72V Aküye"
 description: "Havensis BOOST DCDC-2448: 12/24 V araç aküsünden 36, 48, 60 ve 72 V akü grubunu şarj eden DC-DC cihaz. 20 A giriş, 15 A şarj, %95 verim."
 canonical: https://www.gespaenerji.com/havensis-boost-dcdc-2448.html
 lang: tr
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

@@ -3,11 +3,11 @@ title: "Солнечный комплект для пассажирского т
 description: "Готовый комплект для закрытых пассажирских трициклов: панель 240 Вт, контроллер BOOST MPPT 24–72 В, кабель и MC4."
 canonical: https://www.gespaenerji.com/ru/paket-motor-yolcu.html
 lang: ru
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 
-[Главная](https://www.gespaenerji.com/ru/) / [Продукты](https://www.gespaenerji.com/ru/urunler.html)[ИИ-продукты](https://www.gespaenerji.com/ru/yapay-zeka-urunleri.html) / Солнечный комплект для трицикла с кабиной — 240 Вт
+[Главная](https://www.gespaenerji.com/ru/) / [Продукты](https://www.gespaenerji.com/ru/urunler.html) / Солнечный комплект для трицикла с кабиной — 240 Вт
 
 ![Yolcu kabinli elektrikli triportör](https://www.gespaenerji.com/assets/img/products/ev/motor-yolcu.webp)
 

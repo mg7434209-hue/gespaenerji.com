@@ -3,7 +3,7 @@ title: "KI-Produkte — Videoanalyse und Sicherheit | GESPA"
 description: "KI-Rettungsschwimmer-Assistenz, KI-Brand- und Raucherkennung, Geländesicherung, Helm- und Westenkontrolle, Sturzerkennung. Vor-Ort-Termin, Montage, Software."
 canonical: https://www.gespaenerji.com/de/yapay-zeka-urunleri.html
 lang: de
-dateModified: 2026-10-26
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

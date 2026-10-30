@@ -3,11 +3,11 @@ title: "Golf-Cart-Type EV Solar Set — 460 W | GESPA Energy"
 description: "Complete solar set for roofed golf-cart-type electric passenger vehicles: 460 W half-cut monocrystalline panel, BOOST MPPT 24–72 V charge controller, solar…"
 canonical: https://www.gespaenerji.com/en/paket-motor-golf.html
 lang: en
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 
-[Home](https://www.gespaenerji.com/en/) / [Products](https://www.gespaenerji.com/en/urunler.html)[AI Products](https://www.gespaenerji.com/en/yapay-zeka-urunleri.html) / Golf-Cart-Type EV Solar Set — 460 W
+[Home](https://www.gespaenerji.com/en/) / [Products](https://www.gespaenerji.com/en/urunler.html) / Golf-Cart-Type EV Solar Set — 460 W
 
 ![Golf-cart-type electric vehicle with a solar panel on its roof](https://www.gespaenerji.com/assets/img/products/ev/motor-golf.webp)
 

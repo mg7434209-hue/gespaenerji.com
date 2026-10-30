@@ -3,7 +3,7 @@ title: "Hero LED 200 W Solar Sokak Armatürü | GESPA Enerji"
 description: "Güneş paneliyle şarj olup gece çalışan 200 W solar sokak armatürü (HL-5153): elektrik hattı çekmeden aydınlatma sağlar."
 canonical: https://www.gespaenerji.com/hero-led-solar-sokak-200w.html
 lang: tr
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

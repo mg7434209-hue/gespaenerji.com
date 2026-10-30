@@ -1,9 +1,9 @@
 ---
-title: "Online Satış — Güneş Enerjisi Ürünleri | GESPA Enerji"
-description: "GESPA Enerji online satış: hazır güneş enerjisi paketleri, şarj kontrol cihazları ve solar ekipman. Şeffaf fiyat, KDV dahil, Türkiye'nin her yerine kargo."
+title: "Güneş Paneli, Akü ve MPPT Şarj Kontrol Satın Al | GESPA"
+description: "Lexron ve Arçelik güneş panelleri, LiFePO₄ akü, MPPT/PWM şarj kontrol cihazı, solar kablo ve hazır paketler. KDV dahil açık fiyat, Türkiye'ye kargo."
 canonical: https://www.gespaenerji.com/online-satis.html
 lang: tr
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 
@@ -11,7 +11,7 @@ publisher: "GESPA Enerji"
 
 🛒 E-Ticaret
 
-# Online Satış
+# Güneş Paneli ve Solar Ekipman Mağazası
 
 Satıştaki tüm ürünler tek sayfada: hazır güneş enerjisi paketleri, şarj kontrol cihazları ve solar ekipman. Fiyatlar KDV dahildir, kargo Türkiye'nin her yerine yapılır.
 

@@ -3,7 +3,7 @@ title: "Hazır Solar Paketler — Off-Grid & Sulama | GESPA Enerji"
 description: "240 W ve 2×540 W hazır güneş enerjisi paketleri: kamp, karavan ve bağ evi için panel, güç kutusu ve kablo içeriği. Türkiye geneli gönderim — GESPA Enerji."
 canonical: https://www.gespaenerji.com/urunler.html
 lang: tr
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

@@ -3,7 +3,7 @@ title: "Hero LED 50W Solar LED Wall Light, 3 Colours + RGB | GESPA Energy"
 description: "Hero LED 50 W solar wall light (HL-5181): 4000 lm, 3200/4000/6500 K + RGB, remote control, IP65, 15,000 h. Lower unit price for 5 or more."
 canonical: https://www.gespaenerji.com/en/hero-led-aplik-50w.html
 lang: en
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

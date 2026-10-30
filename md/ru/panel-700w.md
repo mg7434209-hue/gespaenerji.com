@@ -3,7 +3,7 @@ title: "Двусторонняя солнечная панель TOPCon 700 Вт
 description: "Двусторонняя панель N-type TOPCon 700 Вт: 610 Вт лицевая сторона + 15 % тыльная, 144 половинчатые ячейки, Voc 53,27 В, КПД 23,62 %, 2278 × 1133 × 30 мм."
 canonical: https://www.gespaenerji.com/ru/panel-700w.html
 lang: ru
-dateModified: 2026-10-26
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

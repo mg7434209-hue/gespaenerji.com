@@ -120,7 +120,7 @@ for(const pre of ['','en/','de/','ru/']){
 }
 for(const f of fs.readdirSync(root).filter(f=>f.endsWith('.html'))){
  const h=fs.readFileSync(path.join(root,f),'utf8');
- if(h.includes('<!-- /SISTER:STATIC -->'))assert.ok(/<!-- HELP:STATIC --><a href="sss.html">[^<]+<\/a><a href="sozluk.html">[^<]+<\/a><!-- TR:ONLY --><a href="gunes-paneli-kacak-elektrik-cezasi.html">[^<]+<\/a><!-- \/TR:ONLY --><!-- \/HELP:STATIC -->/.test(h),f+': footer help links');
+ if(h.includes('<!-- /SISTER:STATIC -->'))assert.ok(/<!-- HELP:STATIC --><a href="sss.html">[^<]+<\/a><a href="sozluk.html">[^<]+<\/a><!-- TR:ONLY --><a href="rehberler.html">[^<]+<\/a><a href="gunes-paneli-kacak-elektrik-cezasi.html">[^<]+<\/a><!-- \/TR:ONLY --><!-- \/HELP:STATIC -->/.test(h),f+': footer help links');
 }
 // TR-only blocks (links to the Turkish-only regulation guide) never reach a language copy or its Markdown mirror.
 for(const d of ['en','de','ru','md/en','md/de','md/ru'])for(const f of fs.readdirSync(path.join(root,d)).filter(f=>/\.(html|md)$/.test(f))){

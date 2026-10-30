@@ -1,15 +1,15 @@
 ---
-title: "Hizmetler — Çatı & Arazi GES, Depolama | GESPA Enerji"
-description: "Çatı GES, arazi tipi GES, enerji depolama, mühendislik, finansman ve bakım (O&M) hizmetleri. Anahtar teslim güneş enerjisi çözümleri — GESPA Enerji."
+title: "Çatı, Arazi ve Tarımsal Sulama GES Kurulumu | GESPA Enerji"
+description: "Manavgat ve Antalya'da çatı GES, arazi tipi GES, tarımsal sulama, enerji depolama ve bakım: keşif, mühendislik, kurulum ve izleme tek elden."
 canonical: https://www.gespaenerji.com/hizmetler.html
 lang: tr
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 
 [Ana Sayfa](https://www.gespaenerji.com/) / Hizmetler
 
-# Hizmetlerimiz
+# Çatı, Arazi ve Tarımsal Sulama GES Hizmetleri
 
 Fizibiliteden devreye almaya, finansmandan bakıma kadar güneş enerjisi yatırımınızın her aşamasını tek elden yönetiyoruz.
 

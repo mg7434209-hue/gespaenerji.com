@@ -1,15 +1,15 @@
 ---
-title: "Leistungen — Aufdach- & Freiflächen-PV | GESPA Energy"
-description: "Aufdach-PV, Freiflächen-PV, Energiespeicher, Engineering, Finanzierung und Wartung (O&M). Schlüsselfertige Solarlösungen — GESPA Energy."
+title: "Aufdach-, Freiflächen- & Solar-Bewässerung | GESPA"
+description: "Aufdach-PV, Freiflächen-PV, solare Bewässerung, Energiespeicher und Wartung in Manavgat und Antalya: Begutachtung, Planung, Montage und Monitoring aus einer…"
 canonical: https://www.gespaenerji.com/de/hizmetler.html
 lang: de
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 
 [Startseite](https://www.gespaenerji.com/de/) / Leistungen
 
-# Unsere Leistungen
+# PV-Leistungen für Dach, Freifläche und Bewässerung
 
 Von der Machbarkeit bis zur Inbetriebnahme, von der Finanzierung bis zur Wartung — wir steuern jede Phase Ihrer Solarinvestition aus einer Hand.
 

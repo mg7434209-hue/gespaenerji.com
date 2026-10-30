@@ -3,7 +3,7 @@ title: "Güneş Enerjisi Depolama ve Batarya Sistemleri | GESPA Enerji"
 description: "Güneş enerjisi depolama: batarya seçimi günlük tüketim, kritik yükler, inverter uyumu ve hedef yedekleme süresine göre yapılır."
 canonical: https://www.gespaenerji.com/enerji-depolama.html
 lang: tr
-dateModified: 2026-10-26
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

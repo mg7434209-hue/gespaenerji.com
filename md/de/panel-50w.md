@@ -3,7 +3,7 @@ title: "50-W-Solarmodul für 12-V-Anlagen | GESPA Energy"
 description: "50-W-Monokristallin-Solarmodul für 12-V-Anlagen: Gartenbeleuchtung, Kameras und Batterieladung."
 canonical: https://www.gespaenerji.com/de/panel-50w.html
 lang: de
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

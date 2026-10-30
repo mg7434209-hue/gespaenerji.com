@@ -3,7 +3,7 @@ title: "Lexron 30A PWM Charge Controller 12/24V | GESPA Energy"
 description: "Lexron 30 A PWM solar charge controller for 12/24 V battery systems. Values from the product label; write to us for the full datasheet."
 canonical: https://www.gespaenerji.com/en/lexron-pwm-30a.html
 lang: en
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

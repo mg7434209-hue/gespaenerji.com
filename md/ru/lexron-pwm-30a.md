@@ -3,7 +3,7 @@ title: "Контроллер заряда Lexron 30А ШИМ 12/24В | GESPA"
 description: "Солнечный контроллер заряда Lexron 30 А ШИМ для систем с АКБ 12/24 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции."
 canonical: https://www.gespaenerji.com/ru/lexron-pwm-30a.html
 lang: ru
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

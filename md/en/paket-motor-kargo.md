@@ -3,11 +3,11 @@ title: "Cargo E-Trike Solar Set — 700 W | GESPA Energy"
 description: "Complete solar set for cargo-bed e-trikes: 700 W bifacial TOPCon panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4."
 canonical: https://www.gespaenerji.com/en/paket-motor-kargo.html
 lang: en
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 
-[Home](https://www.gespaenerji.com/en/) / [Products](https://www.gespaenerji.com/en/urunler.html)[AI Products](https://www.gespaenerji.com/en/yapay-zeka-urunleri.html) / Cargo-Bed E-Trike Solar Set — 700 W
+[Home](https://www.gespaenerji.com/en/) / [Products](https://www.gespaenerji.com/en/urunler.html) / Cargo-Bed E-Trike Solar Set — 700 W
 
 ![Kargo kasalı elektrikli triportör](https://www.gespaenerji.com/assets/img/products/ev/motor-kargo.webp)
 

@@ -3,11 +3,11 @@ title: "Solar-Set für Lasten-Dreirad — 700 W | GESPA Energy"
 description: "Komplettset für Lasten-Dreiräder: bifaziales 700-W-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Maximaler Ertrag für große Dachflächen."
 canonical: https://www.gespaenerji.com/de/paket-motor-kargo.html
 lang: de
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 
-[Startseite](https://www.gespaenerji.com/de/) / [Produkte](https://www.gespaenerji.com/de/urunler.html)[KI-Produkte](https://www.gespaenerji.com/de/yapay-zeka-urunleri.html) / Solar-Set für Dreirad mit Ladefläche — 700 W
+[Startseite](https://www.gespaenerji.com/de/) / [Produkte](https://www.gespaenerji.com/de/urunler.html) / Solar-Set für Dreirad mit Ladefläche — 700 W
 
 ![Kargo kasalı elektrikli triportör](https://www.gespaenerji.com/assets/img/products/ev/motor-kargo.webp)
 

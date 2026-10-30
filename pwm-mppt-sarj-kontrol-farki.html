@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PWM mi MPPT mi? Şarj Kontrol Cihazı Nasıl Seçilir | GESPA</title>
+  <meta name="description" content="PWM ve MPPT şarj kontrol cihazı farkı, hangisi ne zaman seçilir, panel gerilimi ve akım hesabı, adım adım örnek. Lexron ve Havensis modelleriyle." />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <link rel="canonical" href="https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html" />
+  <link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html" />
+  <link rel="alternate" type="text/markdown" href="/md/pwm-mppt-sarj-kontrol-farki.md" />
+  <meta property="og:type" content="article" />
+  <meta property="article:published_time" content="2026-10-30" />
+  <meta property="og:title" content="PWM mi MPPT mi? Güneş Paneli Şarj Kontrol Cihazı Seçim Rehberi" />
+  <meta property="og:description" content="PWM ve MPPT farkı, hangisinin ne zaman seçileceği ve panel gerilimi/akım hesabı: örnekli rehber." />
+  <meta property="og:locale" content="tr_TR" />
+  <meta property="og:site_name" content="GESPA Enerji" />
+  <meta property="og:image" content="https://www.gespaenerji.com/assets/img/hero.jpg" />
+  <meta property="og:image:alt" content="Güneş panelleri ve Manavgat kırsalı" />
+  <meta property="og:image:width" content="1600" />
+  <meta property="og:image:height" content="1200" />
+  <meta property="og:url" content="https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.gespaenerji.com/assets/img/hero.jpg" />
+  <meta name="theme-color" content="#0a6e4f" />
+  <link rel="icon" href="assets/img/favicon/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="assets/img/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/img/favicon/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" /></noscript>
+  <link rel="stylesheet" href="assets/style.css" />
+  <!-- LD:STATIC — build.js config'ten üretir; elle düzenlemeyin -->
+  <script type="application/ld+json" data-gld="localbusiness">{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://www.gespaenerji.com/#organization","name":"GESPA Enerji","legalName":"Gespa Enerji Sanayi Ticaret Limited Şirketi","url":"https://www.gespaenerji.com","telephone":"+905437434209","email":"info@gespaenerji.com","image":"https://www.gespaenerji.com/assets/img/gespa-icon.png","logo":{"@type":"ImageObject","url":"https://www.gespaenerji.com/assets/img/gespa-icon.png","width":512,"height":512},"address":{"@type":"PostalAddress","streetAddress":"Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01","addressLocality":"Manavgat","addressRegion":"Antalya","addressCountry":"TR","postalCode":"07600"},"description":"Gespa Enerji; Manavgat/Antalya merkezli, çatı ve arazi tipi güneş enerjisi santralleri (GES) ile güneş enerjili tarımsal sulama için anahtar teslim mühendislik, kurulum, finansman ve bakım hizmeti sunar.","slogan":"Manavgat ve Antalya'da anahtar teslim güneş enerjisi santralleri","openingHours":"Mo-Fr 09:00-18:00","priceRange":"₺₺","areaServed":["Manavgat","Side","Antalya","Alanya","Serik","Gazipaşa","Akseki","Gündoğmuş"],"knowsAbout":["Güneş enerjisi santrali (GES)","Çatı GES","Arazi tipi GES","Güneş enerjili tarımsal sulama","Güneş paneli","İnverter","Enerji depolama / batarya","Lisanssız elektrik üretimi"],"foundingDate":"2005","taxID":"3941259669","vatID":"3941259669","identifier":{"@type":"PropertyValue","propertyID":"MERSIS","value":"0394125966900001"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Hizmetler","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Çatı GES"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Arazi Tipi GES"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Güneş Enerjili Tarımsal Sulama"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Enerji Depolama (Batarya)"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Mühendislik & Projelendirme"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Finansman & Leasing"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Bakım (O&M)"}}]},"sameAs":["https://www.facebook.com/gesmarketim/","https://www.instagram.com/gespaenerji_07/","https://www.youtube.com/@mustafagoksoy6557","https://www.solaranaliz.tr"],"geo":{"@type":"GeoCoordinates","latitude":36.777346,"longitude":31.458277},"hasMap":"https://www.google.com/maps?q=36.777346,31.458277","contactPoint":{"@type":"ContactPoint","contactType":"customer service","telephone":"+905437434209","email":"info@gespaenerji.com","availableLanguage":["tr","en","de","ru"],"areaServed":"TR"},"knowsLanguage":["tr","en","de","ru"],"foundingLocation":{"@type":"Place","name":"Manavgat, Antalya"},"paymentAccepted":"Kredi kartı (iyzico), Havale/EFT","currenciesAccepted":"TRY"}</script>
+  <script type="application/ld+json" data-gld="website">{"@context":"https://schema.org","@type":"WebSite","@id":"https://www.gespaenerji.com/#website","name":"GESPA Enerji","alternateName":"Gespa Enerji Sanayi Ticaret Limited Şirketi","url":"https://www.gespaenerji.com/","inLanguage":["tr","en","de","ru"],"publisher":{"@id":"https://www.gespaenerji.com/#organization"}}</script>
+  <script type="application/ld+json" data-gld="webpage">{"@context":"https://schema.org","@type":"WebPage","@id":"https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html#page","url":"https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html","name":"PWM mi MPPT mi? Şarj Kontrol Cihazı Nasıl Seçilir | GESPA","description":"PWM ve MPPT şarj kontrol cihazı farkı, hangisi ne zaman seçilir, panel gerilimi ve akım hesabı, adım adım örnek. Lexron ve Havensis modelleriyle.","inLanguage":"tr","isPartOf":{"@id":"https://www.gespaenerji.com/#website"},"datePublished":"2026-10-30","dateModified":"2026-10-30","about":{"@id":"https://www.gespaenerji.com/#organization"},"mainEntity":{"@id":"https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html#article"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://www.gespaenerji.com/assets/img/hero.jpg"},"breadcrumb":{"@id":"https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html#breadcrumb"},"speakable":{"@type":"SpeakableSpecification","cssSelector":["h1",".lead"]}}</script>
+  <script type="application/ld+json" data-gld="article">{"@context":"https://schema.org","@type":"Article","@id":"https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html#article","headline":"PWM mi MPPT mi? Güneş Paneli Şarj Kontrol Cihazı Seçim Rehberi","description":"PWM ve MPPT şarj kontrol cihazı farkı, hangisi ne zaman seçilir, panel gerilimi ve akım hesabı, adım adım örnek. Lexron ve Havensis modelleriyle.","inLanguage":"tr","datePublished":"2026-10-30","dateModified":"2026-10-30","author":{"@id":"https://www.gespaenerji.com/#organization"},"publisher":{"@id":"https://www.gespaenerji.com/#organization"},"mainEntityOfPage":{"@id":"https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html#page"},"isAccessibleForFree":true,"image":"https://www.gespaenerji.com/assets/img/hero.jpg"}</script>
+  <script type="application/ld+json" data-gld="faqpage">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"MPPT, PWM'den yüzde kaç daha fazla enerji toplar?","acceptedAnswer":{"@type":"Answer","text":"Sabit bir yüzde yoktur. Fark; panel geriliminin akü gerilimine oranına, sıcaklığa ve ışınıma bağlıdır. Gerilimler birbirine yakınsa fark küçüktür, aradaki gerilim farkı büyüdükçe belirgin hale gelir. Yukarıdaki örnekte 12 V akü ile büyük bir panelde fark çok büyüktür; küçük 12 V'luk panellerde çok daha azdır. Kendi panel ve akü bilgilerinizle hesap için bize yazabilirsiniz."}},{"@type":"Question","name":"60 veya 72 hücreli panel PWM cihazla çalışır mı?","acceptedAnswer":{"@type":"Answer","text":"Yalnızca panelin Voc değeri cihazın giriş gerilimi sınırının altındaysa ve akü gerilimi uygunsa bağlanabilir; ancak panelin gücünün önemli bölümü kullanılamaz. Bu tür paneller için MPPT önerilir. Giriş gerilimi sınırını cihazın etiketinden veya üreticiden teyit edin."}},{"@type":"Question","name":"MPPT cihazın akımını nasıl seçerim?","acceptedAnswer":{"@type":"Answer","text":"Toplam panel gücünü akü gerilimine bölün; çıkan değer cihazın şarj akımının altında kalmalıdır (örneğin 1.310 W ÷ 48 V ≈ 27 A). Üretici panel gücü sınırı belirtmişse onu da aşmayın."}},{"@type":"Question","name":"Şarj kontrol cihazını şebekeye bağlı inverterle kullanabilir miyim?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Şarj kontrol cihazı aküyü şarj eder; şebekeye bağlı (on-grid) sistemlerde MPPT işlevi inverterin içindedir. Şebeke bağlantılı çatı sistemi için çatı GES hizmetimizi inceleyebilirsiniz."}}]}</script>
+  <script type="application/ld+json" data-gld="breadcrumblist">{"@context":"https://schema.org","@type":"BreadcrumbList","@id":"https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://www.gespaenerji.com/"},{"@type":"ListItem","position":2,"name":"Rehberler","item":"https://www.gespaenerji.com/rehberler.html"},{"@type":"ListItem","position":3,"name":"PWM mi MPPT mi?","item":"https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html"}]}</script>
+  <!-- /LD:STATIC -->
+</head>
+<body>
+  <a class="skip-link" href="#main">İçeriğe geç</a>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="topbar" data-topbar><div class="container topbar-inner"><span>☀️ Yaz faturası gelmeden çatınızı güneşe çevirin.</span><a href="hesaplayici.html">Tasarrufunu hesapla →</a></div></div>
+  <header class="site-header" id="top">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="GESPA Enerji ana sayfa"><span class="logo" aria-hidden="true"><img src="assets/img/gespa-icon-72.png" alt="GESPA" width="36" height="36" /></span><span class="brand-text">GESPA<strong>Enerji</strong></span></a>
+      <nav class="menu" id="menu" aria-label="Ana menü">
+        <a href="online-satis.html">Mağaza</a>
+        <a href="hizmetler.html">Çatı &amp; Arazi GES</a>
+        <a href="tarimsal-sulama.html">Tarımsal Sulama</a>
+        <a href="elektrikli-arac-donusum.html">Elektrikli Araç</a>
+        <a href="projeler.html">Referanslar</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%C3%BCcretsiz%20ke%C5%9Fif%20istiyorum.%20%C4%B0l%2Fil%C3%A7e%3A%20___%20%C2%B7%20%C3%87at%C4%B1%20%2F%20arazi%20%2F%20tarla%3A%20___" class="btn btn-sm" data-wa-kesif target="_blank" rel="noopener">Ücretsiz Keşif</a>
+      </nav>
+      <div class="nav-actions"><div class="lang-switch" role="group" aria-label="Dil"><button data-lang="tr">TR</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="ru">RU</button></div><button class="theme-toggle" id="themeToggle" aria-label="Tema değiştir"><span class="theme-icon-sun">☀️</span><span class="theme-icon-moon">🌙</span></button><button class="hamburger" id="hamburger" aria-label="Menüyü aç/kapat" aria-expanded="false"><span></span><span></span><span></span></button></div>
+    </div>
+  </header>
+
+  <main id="main" data-article>
+    <section class="page-hero">
+      <div class="container reveal">
+        <div class="crumbs"><a href="index.html">Ana Sayfa</a> <span>/</span> <a href="rehberler.html">Rehberler</a> <span>/</span> PWM mi MPPT mi?</div>
+        <h1>PWM mi MPPT mi? Güneş Paneli Şarj Kontrol Cihazı Seçim Rehberi</h1>
+        <p class="lead">Aynı panel, aynı akü: yalnızca şarj kontrol cihazı değişince aküye giren enerji değişir. Bu rehberde PWM ve MPPT'nin farkını, hangisinin ne zaman mantıklı olduğunu ve cihaz seçerken yapılacak üç hesabı örnekle anlatıyoruz.</p>
+        <p class="art-meta">Yayın: <time datetime="2026-10-30">30 Ekim 2026</time> · GESPA Enerji</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container narrow">
+        <article class="art">
+
+          <div class="art-note"><p><strong>Kısaca:</strong> PWM, panelin gerilimini akü gerilimine &quot;çeker&quot;; panel gerilimi akü geriliminden ne kadar yüksekse o kadar enerji kullanılamaz. MPPT ise paneli en verimli noktasında çalıştırır ve fazla gerilimi akıma çevirerek aküye aktarır. Panel gerilimi akü gerilimine zaten yakınsa (küçük, nominal 12 V'luk panel ve 12 V akü) PWM yeterlidir; 60/72 hücreli büyük paneller, 24/48 V akü grupları ve seri bağlı diziler için MPPT seçilir.</p></div>
+
+          <h2 id="ne-yapar">Şarj kontrol cihazı ne işe yarar?</h2>
+          <p>Panelin verdiği değişken gerilim ve akımı, akünün istediği şarj profiline çevirir: kademeli şarj, gerilim sınırı ve akım sınırı. Aküyü aşırı şarjdan korur, geceleri akımın panele geri akmasını engeller. Güneş paneli aküye doğrudan bağlanmaz; arada mutlaka bir şarj kontrol cihazı bulunur.</p>
+
+          <h2 id="pwm">PWM nasıl çalışır?</h2>
+          <p>PWM (darbe genişlik modülasyonu) cihazı, panel ile akü arasında hızlı bir anahtar gibi çalışır. Şarj sırasında panel, akünün gerilimine yakın bir gerilimde çalışır. Panelin gücü gerilim × akım olduğundan, panel kendi en verimli geriliminde (Vmp) değil çok daha düşük bir gerilimde çalışıyorsa potansiyelinin bir bölümü kullanılmadan kalır. PWM'in avantajı basit, ucuz ve dayanıklı olmasıdır; panel gerilimi akü gerilimine uygunsa kayıp küçüktür.</p>
+
+          <h2 id="mppt">MPPT nasıl çalışır?</h2>
+          <p>MPPT (maksimum güç noktası izleme) cihazının içinde bir DC-DC dönüştürücü bulunur. Panelin o anki ışık ve sıcaklıkta en çok güç verdiği noktayı (Vmp ve Imp) sürekli arar, panelin bu noktada çalışmasını sağlar ve gerilim farkını akıma çevirerek aküye verir. Yüksek gerilimli panelden gelen enerji, daha düşük gerilimli ama daha yüksek akımlı şarj olarak aküye ulaşır. Üretici verilerinde dönüştürücü verimi yüzde 97 civarındadır; örneğin Havensis Solar-60AMPS 150|60 için üretici %97,5 verim belirtir. <a href="sozluk.html#mppt">MPPT nedir? GES Sözlüğü →</a></p>
+
+          <h2 id="ornek">Aynı panelle bir örnek</h2>
+          <p>Lexron 285 W panelin künye değerleri: Vmp 35,85 V, Imp 7,95 A, Isc 8,19 A (<a href="panel-lexron-285w.html">ürün sayfası</a>). Bu panelin 12 V'luk bir aküyü (şarj sırasında yaklaşık 13 V) şarj ettiğini düşünelim:</p>
+          <div class="art-table-wrap"><table class="art-table"><thead><tr><th></th><th>PWM</th><th>MPPT</th></tr></thead><tbody><tr><td>Panelin çalıştığı gerilim</td><td>≈ 13 V (akü gerilimine çekilir)</td><td>≈ 35,85 V (Vmp)</td></tr><tr><td>Aküye giden akım</td><td>≈ 8 A (panel akımı, Isc civarı)</td><td>≈ 21 A (285 W × %97 ÷ 13 V)</td></tr><tr><td>Aküye giden güç</td><td>≈ 105 W (8 A × 13 V)</td><td>≈ 275 W</td></tr></tbody></table></div>
+          <p>Bu uç bir örnektir: büyük bir panel ile 12 V akü ve PWM nadiren doğru eşleşmedir. PWM için doğru eşleşme, Vmp'si akü gerilimine yakın küçük panellerdir; orada kayıp daha küçüktür. Ancak gösterdiği ilke geneldir: <strong>panel gerilimi akü geriliminden ne kadar yüksekse PWM'de kayıp o kadar büyür.</strong> Gerçek değerler ışınım, sıcaklık, kablo ve akü gerilimine göre değişir; örnek ideal koşulları varsayar.</p>
+
+          <h2 id="hangisi">Hangi durumda PWM, hangisinde MPPT?</h2>
+          <div class="art-table-wrap"><table class="art-table"><thead><tr><th>Kriter</th><th>PWM</th><th>MPPT</th></tr></thead><tbody><tr><td>Panel gerilimi</td><td>Akü gerilimine yakın olmalı (ör. nominal 12 V'luk küçük panel + 12 V akü)</td><td>Akü geriliminden yüksek olabilir (60/72 hücreli paneller, seri diziler)</td></tr><tr><td>Aynı panelden toplanan enerji</td><td>Panel ile akü gerilimi arasındaki fark büyüdükçe azalır</td><td>Panelin o anki en verimli noktasına yakın enerji toplar</td></tr><tr><td>Panel tarafı kablo</td><td>Panel gerilimi akü gerilimine yakın tutulur, akım yüksek olabilir</td><td>Seri dizide yüksek gerilim, düşük akım: daha ince kablo mümkün</td></tr><tr><td>Fiyat</td><td>Daha ucuz</td><td>Daha pahalı</td></tr><tr><td>Tipik kullanım</td><td>Küçük aydınlatma, kamera, kamp ve karavan setleri</td><td>Off-grid ev ve bağ evi, 24/48 V akü grupları, seri panel dizileri</td></tr></tbody></table></div>
+          <p>Sistem büyüdükçe ve panel gerilimi akü geriliminden yükseldikçe MPPT'nin sağladığı fark parasal olarak da büyür. Soğuk havada panel gerilimi yükselir; MPPT bu yüksek gerilimi de değerlendirir, ancak cihazın giriş gerilimi sınırı aşılmamalıdır.</p>
+
+          <h2 id="uc-hesap">Cihaz seçerken yapılacak 3 hesap</h2>
+          <ol>
+            <li><strong>Akü gerilimi ve tipi.</strong> Cihaz 12, 24 veya 48 V akü grubunu desteklemeli; AGM, jel ve LiFePO₄ gibi akü tipi için uygun şarj profili ayarlanabilmelidir. Yanlış profil akü ömrünü kısaltır; akü üreticisinin şarj gerilimlerini esas alın.</li>
+            <li><strong>Maksimum panel giriş gerilimi.</strong> Seri bağlı panellerin Voc toplamı × 1,1, cihazın giriş sınırının altında kalmalıdır. 1,1 payı, soğukta Voc'un yükselmesi içindir; sitemizdeki ürün sayfalarında da bu pratik kural kullanılır.</li>
+            <li><strong>Akım.</strong> MPPT için toplam panel gücü ÷ akü gerilimi, cihazın şarj akımının altında kalmalıdır. PWM için bağlanan panellerin toplam Isc değeri cihazın akımını aşmamalıdır.</li>
+          </ol>
+          <h3>Örnek: 2 × Lexron 655 W seri, 48 V akü</h3>
+          <p>Künye: Voc 50,34 V, Imp 15,48 A (<a href="panel-lexron-655w.html">Lexron 655 W</a>).</p>
+          <p class="art-formula">Voc toplamı = 2 × 50,34 = 100,68 V · × 1,1 ≈ 110,7 V<br />Panel gücü = 2 × 655 = 1.310 W · ÷ 48 V ≈ 27 A</p>
+          <p>110,7 V, <a href="havensis-mppt-60a-150v.html">Havensis Solar-60AMPS 150|60</a> gibi 150 V girişli bir cihaz için uygundur; 27 A, 60 A'lik cihazın rahatça altındadır. <strong>Üç panel seri bağlansaydı</strong> Voc toplamı 151 V, × 1,1 ise yaklaşık 166 V olurdu ve 150 V sınırı aşılırdı: bu dizi uygun değildir. 24 V akü grubunda ise aynı 1.310 W için akım ≈ 55 A çıkar; 60 A'lik cihazda marj çok azdır, daha büyük cihaz ya da 48 V sistem düşünülür.</p>
+
+          <h2 id="hatalar">Sık yapılan hatalar</h2>
+          <ul>
+            <li>Seri dizinin Voc toplamını soğuk hava payı olmadan hesaplamak: sabah ve kışın gerilim yükselir.</li>
+            <li>Cihazı yalnızca akıma göre seçip panel giriş gerilimi sınırını kontrol etmemek.</li>
+            <li>Akü tipine uygun olmayan şarj profili kullanmak.</li>
+            <li>Şarj kontrol cihazını şebekeye bağlı (on-grid) inverterle birlikte düşünmek: şarj kontrol cihazı aküyü şarj eder; şebeke bağlantılı inverterlerde MPPT inverterin içindedir (<a href="sozluk.html#on-grid">on-grid nedir?</a>).</li>
+            <li>Panel ile cihaz arasındaki kablo kesitini küçük seçmek: gerilim düşümü kaybı artırır. <a href="hesaplayici.html">Hesaplayıcıdaki DC kablo aracı</a> kesiti hesaplar.</li>
+          </ul>
+
+          <h2 id="urunler">Mağazamızdaki şarj kontrol cihazları</h2>
+          <p>PWM tarafında Lexron 20, 30, 40 ve 60 A modelleri (<a href="lexron-pwm-30a.html">örnek: Lexron 30 A PWM</a>); MPPT tarafında Lexron 20, 30, 40 A modelleri (<a href="lexron-mppt-30a.html">örnek: Lexron 30 A MPPT</a>), <a href="lexron-mppt-80a-hv.html">Lexron 80 A HV MPPT</a> ve Havensis Solar-30AMPS ile Solar-60AMPS serisi (<a href="havensis-mppt-60a-150v.html">150 V girişli 60 A model</a>) bulunur. Tüm şarj kontrol ürünlerini <a href="online-satis.html?kategori=sarj-kontrol">mağazada</a> görebilirsiniz.</p>
+          <p>Panelinizin künyesini (Voc, Imp) ve akü gerilimini bize yazın; uygun cihazı birlikte hesaplayalım.</p>
+
+          <h2 id="sss">Sık sorulan sorular</h2>
+          <div class="faq"><div class="faq-item reveal"><button class="faq-q"><span>MPPT, PWM'den yüzde kaç daha fazla enerji toplar?</span><span class="faq-ico">+</span></button><div class="faq-a"><p>Sabit bir yüzde yoktur. Fark; panel geriliminin akü gerilimine oranına, sıcaklığa ve ışınıma bağlıdır. Gerilimler birbirine yakınsa fark küçüktür, aradaki gerilim farkı büyüdükçe belirgin hale gelir. Yukarıdaki örnekte 12 V akü ile büyük bir panelde fark çok büyüktür; küçük 12 V'luk panellerde çok daha azdır. Kendi panel ve akü bilgilerinizle hesap için bize yazabilirsiniz.</p></div></div><div class="faq-item reveal"><button class="faq-q"><span>60 veya 72 hücreli panel PWM cihazla çalışır mı?</span><span class="faq-ico">+</span></button><div class="faq-a"><p>Yalnızca panelin Voc değeri cihazın giriş gerilimi sınırının altındaysa ve akü gerilimi uygunsa bağlanabilir; ancak panelin gücünün önemli bölümü kullanılamaz. Bu tür paneller için MPPT önerilir. Giriş gerilimi sınırını cihazın etiketinden veya üreticiden teyit edin.</p></div></div><div class="faq-item reveal"><button class="faq-q"><span>MPPT cihazın akımını nasıl seçerim?</span><span class="faq-ico">+</span></button><div class="faq-a"><p>Toplam panel gücünü akü gerilimine bölün; çıkan değer cihazın şarj akımının altında kalmalıdır (örneğin 1.310 W ÷ 48 V ≈ 27 A). Üretici panel gücü sınırı belirtmişse onu da aşmayın.</p></div></div><div class="faq-item reveal"><button class="faq-q"><span>Şarj kontrol cihazını şebekeye bağlı inverterle kullanabilir miyim?</span><span class="faq-ico">+</span></button><div class="faq-a"><p>Hayır. Şarj kontrol cihazı aküyü şarj eder; şebekeye bağlı (on-grid) sistemlerde MPPT işlevi inverterin içindedir. Şebeke bağlantılı çatı sistemi için çatı GES hizmetimizi inceleyebilirsiniz.</p></div></div></div>
+          <p>Sistemin tamamını hesaplamak için <a href="off-grid-gunes-sistemi-boyutlandirma.html">off-grid sistem boyutlandırma rehberine</a> ve <a href="sistem-kur.html">Sistem Kurucu</a>'ya bakabilirsiniz.</p>
+
+          <p class="art-disc"><em>Bu yazı genel bilgilendirme amaçlıdır. Örnek hesaplar ideal koşulları ve belirtilen varsayımları kullanır; gerçek değerler ışınım, sıcaklık, kablo, gölgelenme ve ekipmana göre değişir. Kesin seçim ve kurulum için ürün künyesine, üretici talimatına ve yerel mevzuata uyunuz.</em></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta-band"><div class="container cta-inner reveal"><div><h2>Panelinize ve akünüze uygun cihazı birlikte seçelim</h2><p>Panel künyesini ve akü gerilimini WhatsApp'tan yazın, uygun şarj kontrol cihazını hesaplayalım.</p></div><a class="btn btn-lg btn-light" data-c-wa href="https://wa.me/905437434209" target="_blank" rel="noopener">WhatsApp'tan yazın</a></div></section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand-col">
+        <span class="brand-text footer-brand">GESPA<strong>Enerji</strong></span>
+        <p>Anahtar teslim güneş enerjisi santralleri. Mühendislik, kurulum, finansman ve bakım.</p>
+        <ul class="footer-contact"><li>📍 <span data-c-text="address.full">Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01, Manavgat / Antalya</span></li><li>📞 <a href="tel:+905437434209" data-c-tel data-c-text="phone.display">0543 743 42 09</a></li><li>✉️ <a href="mailto:info@gespaenerji.com" data-c-mailto data-c-text="email">info@gespaenerji.com</a></li></ul>
+        <div class="socials"><a href="https://www.facebook.com/gesmarketim/" target="_blank" rel="noopener" aria-label="Facebook">f</a><a href="https://www.instagram.com/gespaenerji_07/" target="_blank" rel="noopener" aria-label="Instagram">ig</a><a href="https://www.youtube.com/@mustafagoksoy6557" target="_blank" rel="noopener" aria-label="YouTube">yt</a></div>
+      </div>
+      <div class="footer-col"><h4>Hizmetler</h4><a href="cati-ges.html">Çatı GES</a><a href="arazi-ges.html">Arazi Tipi GES</a><a href="tarimsal-sulama.html">Tarımsal Sulama</a><a href="enerji-depolama.html">Enerji Depolama</a><a href="ai-cankurtaran-destek-sistemi.html">AI Cankurtaran</a><a href="elektrikli-arac-donusum.html">Elektrikli Araç Dönüşümü</a><a href="bakim-izleme.html">Bakım (O&amp;M)</a><a href="hizmetler.html">Tüm hizmetleri gör →</a></div>
+      <div class="footer-col"><h4>Kurumsal</h4><a href="hakkimizda.html">Hakkımızda</a><a href="urunler.html">Ürünler</a><a href="yapay-zeka-urunleri.html">Yapay Zekâ Ürünleri</a><a href="toptan.html">Toptan Satış (B2B)</a><a href="https://www.gesmarketim.com" target="_blank" rel="noopener">GES Marketim (E-Mağaza) ↗</a><!-- SISTER:STATIC --><a href="https://www.solaranaliz.tr" target="_blank" rel="noopener">Solar Analiz (Fatura Analizi) ↗</a><!-- /SISTER:STATIC --><!-- HELP:STATIC --><a href="sss.html">Sıkça Sorulan Sorular</a><a href="sozluk.html">GES Sözlüğü</a><!-- TR:ONLY --><a href="rehberler.html">Rehberler</a><a href="gunes-paneli-kacak-elektrik-cezasi.html">Güneş Paneli Cezası Rehberi</a><!-- /TR:ONLY --><!-- /HELP:STATIC --><a href="su-isitici.html">Solar Su Isıtıcı</a><a href="projeler.html">Projeler</a><div class="menu-group menu-tools">
+          <button class="menu-parent" type="button" aria-haspopup="true" aria-expanded="false"><span>Araçlar</span> <span class="caret" aria-hidden="true">▾</span></button>
+          <div class="submenu">
+            <a href="hesaplayici.html">Tasarruf Hesaplayıcı</a>
+            <a href="sistem-kur.html">Sistem Kurucu</a>
+          </div>
+        </div><a href="iletisim.html">İletişim</a></div>
+      <div class="footer-col footer-news"><h4>Bülten</h4><p>Güneş enerjisi haberleri ve teşvikler.</p><form id="newsForm" class="news-form"><input type="email" placeholder="E-posta adresiniz" aria-label="E-posta" required /><button class="btn btn-sm" type="submit">Abone ol</button></form><p class="news-note" id="newsNote"></p></div>
+    </div>
+    <div class="container footer-bottom"><div class="pay-logos"><img src="assets/img/payment/iyzico-band.webp" alt="iyzico ile Öde · Mastercard · Visa · American Express · troy ile güvenli ödeme" width="399" height="28" loading="lazy" /></div><p>© <span id="yil">2026</span> <span data-c-text="legalName">Gespa Enerji Sanayi Ticaret Limited Şirketi</span>. Tüm hakları saklıdır.</p><p class="footer-legal-id">MERSİS <span data-c-text="registry.mersis">0394125966900001</span> · Vergi D./No <span data-c-text="registry.taxOffice">Manavgat Vergi Dairesi</span> / <span data-c-text="registry.taxNo">3941259669</span> · Ticaret Sicil No <span data-c-text="registry.tradeRegistryNo">14369</span></p><p><a href="/mesafeli-satis-sozlesmesi.html">Mesafeli Satış Sözleşmesi</a> · <a href="/iade-teslimat.html">İade ve Teslimat</a> · <a href="/gizlilik.html">Gizlilik</a> · <a href="/kvkk.html">KVKK</a> · <a href="/cerez-politikasi.html">Çerez Politikası</a></p></div>
+  </footer>
+
+  <a class="fab fab-wa" data-c-wa href="https://wa.me/905437434209" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+  <button class="fab fab-top" id="backTop" aria-label="Başa dön">↑</button>
+  <script defer src="assets/config.js"></script>
+  <script defer src="assets/i18n.tr.js"></script>
+  <script defer src="assets/main.js"></script>
+</body>
+</html>

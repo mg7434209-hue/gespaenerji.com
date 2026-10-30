@@ -3,7 +3,7 @@ title: "GESPA Energy — Солнечные электростанции | Ре�
 description: "GESPA Energy: монтаж под ключ, инжиниринг, финансирование и обслуживание солнечных электростанций на крыше и на земле. Манавгат / Анталья, Турция."
 canonical: https://www.gespaenerji.com/ru/
 lang: ru
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 
@@ -41,6 +41,8 @@ publisher: "GESPA Enerji"
 [![Солнечная электростанция на черепичной крыше — Кемер](https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp) Солнечные на крышеСистемы, эффективно использующие крыши домов, бизнеса и промышленности.](https://www.gespaenerji.com/ru/cati-ges.html)
 [![Наземная солнечная установка](https://www.gespaenerji.com/assets/img/projects/kirsehir-tarimsal.webp) Наземные станцииСтанции на полях и свободных участках на наземных конструкциях.](https://www.gespaenerji.com/ru/arazi-ges.html)
 [![Аграрная солнечная станция на крыше теплицы — Манавгат](https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp) Солнечный поливНасосы для полива на солнечной энергии, без расходов на дизель и сеть.](https://www.gespaenerji.com/ru/tarimsal-sulama.html)
+
+Другие услуги: [Накопители энергии](https://www.gespaenerji.com/ru/enerji-depolama.html) · [Обслуживание (O&M)](https://www.gespaenerji.com/ru/bakim-izleme.html) · [Конфигуратор системы](https://www.gespaenerji.com/ru/sistem-kur.html) · [Калькулятор экономии](https://www.gespaenerji.com/ru/hesaplayici.html)
 
 Как мы работаем
 

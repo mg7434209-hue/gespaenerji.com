@@ -17,10 +17,10 @@ Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş; talebe 
 
 ## Sayfalar
 ### Ana sayfa
-- [GESPA Enerji — Güneş Enerjisi Ürünleri ve Anahtar Teslim GES |…](https://www.gespaenerji.com/): Panel, akü, şarj cihazı ve hazır paketler Türkiye'nin her yerine kargo; Manavgat ve Antalya'da çatı, arazi ve tarımsal GES anahtar teslim. · Markdown: https://www.gespaenerji.com/md/index.md
+- [Güneş Paneli, Akü ve Anahtar Teslim GES — Manavgat | GESPA](https://www.gespaenerji.com/): Güneş paneli, akü, MPPT şarj kontrol ve hazır paketler Türkiye'ye kargo. Manavgat ve Antalya'da çatı, arazi ve tarımsal sulama GES anahtar teslim. · Markdown: https://www.gespaenerji.com/md/index.md
 
 ### Hizmetler
-- [Hizmetler — Çatı & Arazi GES, Depolama](https://www.gespaenerji.com/hizmetler.html): Çatı GES, arazi tipi GES, enerji depolama, mühendislik, finansman ve bakım (O&M) hizmetleri. Anahtar teslim güneş enerjisi çözümleri — GESPA Enerji. · Markdown: https://www.gespaenerji.com/md/hizmetler.md
+- [Çatı, Arazi ve Tarımsal Sulama GES Kurulumu](https://www.gespaenerji.com/hizmetler.html): Manavgat ve Antalya'da çatı GES, arazi tipi GES, tarımsal sulama, enerji depolama ve bakım: keşif, mühendislik, kurulum ve izleme tek elden. · Markdown: https://www.gespaenerji.com/md/hizmetler.md
 - [Manavgat ve Antalya Çatı GES Kurulumu](https://www.gespaenerji.com/cati-ges.html): Çatı GES: konut, iş yeri ve sanayi çatılarında elektrik üretimi. Keşif, mühendislik, ekipman seçimi, kurulum ve bakım tek elden planlanır. · Markdown: https://www.gespaenerji.com/md/cati-ges.md
 - [Arazi Tipi GES: Fizibilite ve Kurulum](https://www.gespaenerji.com/arazi-ges.html): Arazi tipi GES: fizibilite, arazi değerlendirmesi, mühendislik ve kurulum. Eğim, gölgelenme, zemin ve bağlantı kapasitesi birlikte incelenir. · Markdown: https://www.gespaenerji.com/md/arazi-ges.md
 - [Güneş Enerjisi Depolama ve Batarya Sistemleri](https://www.gespaenerji.com/enerji-depolama.html): Güneş enerjisi depolama: batarya seçimi günlük tüketim, kritik yükler, inverter uyumu ve hedef yedekleme süresine göre yapılır. · Markdown: https://www.gespaenerji.com/md/enerji-depolama.md
@@ -28,7 +28,7 @@ Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş; talebe 
 - [Tarımsal Sulama GES — Güneşli Sulama](https://www.gespaenerji.com/tarimsal-sulama.html): Güneş enerjili tarımsal sulama: mazotsuz, şebekeden bağımsız dalgıç ve yüzey pompa sistemleri. Ücretsiz keşif ve mazot tasarruf analizi. · Markdown: https://www.gespaenerji.com/md/tarimsal-sulama.md
 
 ### Mağaza ve ürünler
-- [Online Satış — Güneş Enerjisi Ürünleri](https://www.gespaenerji.com/online-satis.html): GESPA Enerji online satış: hazır güneş enerjisi paketleri, şarj kontrol cihazları ve solar ekipman. Şeffaf fiyat, KDV dahil, Türkiye'nin her yerine kargo. · Markdown: https://www.gespaenerji.com/md/online-satis.md
+- [Güneş Paneli, Akü ve MPPT Şarj Kontrol Satın Al | GESPA](https://www.gespaenerji.com/online-satis.html): Lexron ve Arçelik güneş panelleri, LiFePO₄ akü, MPPT/PWM şarj kontrol cihazı, solar kablo ve hazır paketler. KDV dahil açık fiyat, Türkiye'ye kargo. · Markdown: https://www.gespaenerji.com/md/online-satis.md
 - [Hazır Solar Paketler — Off-Grid & Sulama](https://www.gespaenerji.com/urunler.html): 240 W ve 2×540 W hazır güneş enerjisi paketleri: kamp, karavan ve bağ evi için panel, güç kutusu ve kablo içeriği. Türkiye geneli gönderim — GESPA Enerji. · Markdown: https://www.gespaenerji.com/md/urunler.md
 - [240W Güneş Paneli Paketi — Tak-Çalıştır](https://www.gespaenerji.com/paket-285w.html): Kamp ve karavan için 240W komple güneş paketi: panel, güç kutusu ve kablolar. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg, tak-çalıştır. · Markdown: https://www.gespaenerji.com/md/paket-285w.md
 - [2×540W Güneş Sistemi — LiFePO₄ Bataryalı](https://www.gespaenerji.com/paket-2x540w.html): 2×540W panel + LiFePO₄ bataryalı güç kutusu: buzdolabı, TV ve çamaşır makinesi çalıştıran komple mobil güneş sistemi. Günlük ~6,5 kWh üretim. · Markdown: https://www.gespaenerji.com/md/paket-2x540w.md
@@ -88,6 +88,10 @@ Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş; talebe 
 - [Manavgat Tarımsal GES: 30 kWp](https://www.gespaenerji.com/proje-manavgat-tarimsal.html): Sera ve tarla sulaması için sera çatısına kurulan güneş enerjisi santrali. · Markdown: https://www.gespaenerji.com/md/proje-manavgat-tarimsal.md
 
 ### Rehberler ve güncel mevzuat (yalnız Türkçe)
+- [Güneş Enerjisi Rehberleri — Hesap, Seçim ve Kurulum | GESPA](https://www.gespaenerji.com/rehberler.html): Güneş enerjisi rehberleri: off-grid sistem boyutlandırma, PWM–MPPT şarj kontrol seçimi, solar sulama pompası ve güneş paneli mevzuatı. Örnekli, adım adım. · Markdown: https://www.gespaenerji.com/md/rehberler.md
+- [Off-Grid Güneş Sistemi Nasıl Boyutlandırılır? | GESPA](https://www.gespaenerji.com/off-grid-gunes-sistemi-boyutlandirma.html): Günlük tüketimden panel, akü ve inverter gücünü hesaplayın: adım adım formüller, örnek hesap ve sık yapılan hatalar. Sistem Kurucu ile aynı mantık. · Markdown: https://www.gespaenerji.com/md/off-grid-gunes-sistemi-boyutlandirma.md
+- [PWM mi MPPT mi? Şarj Kontrol Cihazı Nasıl Seçilir | GESPA](https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html): PWM ve MPPT şarj kontrol cihazı farkı, hangisi ne zaman seçilir, panel gerilimi ve akım hesabı, adım adım örnek. Lexron ve Havensis modelleriyle. · Markdown: https://www.gespaenerji.com/md/pwm-mppt-sarj-kontrol-farki.md
+- [Solar Sulama Pompası Seçimi: Debi, Yükseklik, Panel | GESPA](https://www.gespaenerji.com/solar-sulama-pompasi-secimi.html): Güneş enerjili sulama pompası nasıl seçilir? Günlük su ve basma yüksekliğinden pompa gücü ile panel kWp hesabı, örnek ve dikkat edilecekler. · Markdown: https://www.gespaenerji.com/md/solar-sulama-pompasi-secimi.md
 - [Güneş Paneli Kaçak Elektrik Cezası: Nedeni ve Ne Yapmalı?](https://www.gespaenerji.com/gunes-paneli-kacak-elektrik-cezasi.html): Güneş paneline neden ceza yazılıyor? 2 Nisan 2026 yönetmeliğindeki yaptırımlar, kabul süreci, Antalya'da AEDAŞ'a itiraz ve yasal kurulum adımları. · Markdown: https://www.gespaenerji.com/md/gunes-paneli-kacak-elektrik-cezasi.md
 
 ### Kurumsal ve yardım

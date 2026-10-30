@@ -3,11 +3,11 @@ title: "Солнечный комплект для мини-электромоб
 description: "Готовый комплект для закрытых мини-электромобилей: панель 240 Вт, контроллер BOOST MPPT 24–72 В, кабель и MC4."
 canonical: https://www.gespaenerji.com/ru/paket-motor-mini.html
 lang: ru
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 
-[Главная](https://www.gespaenerji.com/ru/) / [Продукты](https://www.gespaenerji.com/ru/urunler.html)[ИИ-продукты](https://www.gespaenerji.com/ru/yapay-zeka-urunleri.html) / Солнечный комплект для мини-электромобиля — 240 Вт
+[Главная](https://www.gespaenerji.com/ru/) / [Продукты](https://www.gespaenerji.com/ru/urunler.html) / Солнечный комплект для мини-электромобиля — 240 Вт
 
 ![Закрытый мини-электромобиль](https://www.gespaenerji.com/assets/img/products/ev/motor-mini.webp)
 

@@ -3,7 +3,7 @@ title: "Hero LED 50 W Solar Set Üstü Bahçe Armatürü | GESPA Enerji"
 description: "Bahçe duvarı, set ve kolon başına takılan 50 W solar bahçe armatürü (HL-5180); duvara da monte edilebilir."
 canonical: https://www.gespaenerji.com/hero-led-bahce-50w.html
 lang: tr
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

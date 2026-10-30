@@ -241,6 +241,19 @@ birlikte commit'le.
 - Yeni rehber: `TR_ONLY` + `LLMS_GROUPS` + `PRIORITY` + gerekirse `GUIDE`
   benzeri bağlantı; sayfa şablonu mevcut rehberden kopyalanır.
 
+## Mühendislik rehberleri (yalnız Türkçe, TR_ONLY)
+- `rehberler.html` merkez sayfadır; üç rehber: off-grid boyutlandırma, PWM/MPPT şarj kontrol seçimi,
+  solar sulama pompası seçimi. Hedef: ürün arayan ziyaretçinin "nasıl seçerim/hesaplarım" sorgularından
+  mağazaya ve araçlara (`sistem-kur.html`, `hesaplayici.html`, `tarimsal-sulama.html#pompa-secimi`) geçmesi.
+- Şablon: mevzuat rehberi kabuğu; sayfa başında `.art-note` "Kısaca", gövdede `.art-table`/`.art-formula`,
+  sonda `.faq-item` SSS (FAQPage kendiliğinden) ve `p.art-disc`. Kaynakça (`ul.art-src`) isteğe bağlıdır;
+  mühendislik rehberlerinde dış kaynak yerine sitedeki künye sayfalarına satır içi bağlantı verilir.
+- Örnek rakamlar kod değil metindir: Sistem Kurucu (`sunHours 4,5` · `systemEff 0,75` · `dod 0,9` ·
+  `invEff 0,92` · `simultaneity 0,7` · `surgeMargin 1,3`) ve pompa aracı (`pumpEfficiency 0,40` ·
+  `pvOversize 1,3`) katsayıları değişirse rehberlerdeki hesapları yeniden çıkar.
+- Başlık/açıklama kuralı: başlık ≤ 60 karakter (build `tidyTitle` uzununu "…" ile keser; ana sayfa
+  başlığı eskiden "|…" diye kesiliyordu), açıklama ≤ 160, anahtar sözcük başta, marka sonda.
+
 ## Kurumsal hikâye
 - Hakkımızda TEK SÜREGELEN HİKÂYE anlatır: 2005'ten bu yana Manavgat'ta
   kesintisiz faaliyet. Şirket/şahıs ayrımı ve 2022 "kurumsallaşma"/sicil tarihi

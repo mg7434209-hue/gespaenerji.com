@@ -3,7 +3,7 @@ title: "Lexron 80A MPPT HV-Laderegler 12/24/36/48V | GESPA Energy"
 description: "Lexron 80 A MPPT HV-Solarladeregler für 12/24/36/48-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage."
 canonical: https://www.gespaenerji.com/de/lexron-mppt-80a-hv.html
 lang: de
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

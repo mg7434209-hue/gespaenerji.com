@@ -3,7 +3,7 @@ title: "700W Bifacial TOPCon Solar Panel | GESPA Energy"
 description: "700 W bifacial N-type TOPCon panel: 610 Wp front side + 15% rear-side gain, 144 half-cut cells, Voc 53.27 V, 23.62% efficiency, 2278 × 1133 × 30 mm."
 canonical: https://www.gespaenerji.com/en/panel-700w.html
 lang: en
-dateModified: 2026-10-26
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

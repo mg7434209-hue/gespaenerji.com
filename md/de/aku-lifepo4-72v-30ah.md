@@ -3,11 +3,11 @@ title: "europlus 72-V-30-Ah-LiFePO₄-Akku — 72V Lithium | GESPA Energy"
 description: "LiFePO₄-Traktionsakku für Elektro-Dreiräder und 72-V-Fahrzeuge: 24S, ~2.300 Wh, max. Ladespannung 87,6 V, integriertes Balancer-BMS, 2.000 Zyklen."
 canonical: https://www.gespaenerji.com/de/aku-lifepo4-72v-30ah.html
 lang: de
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 
-[Startseite](https://www.gespaenerji.com/de/) / [Produkte](https://www.gespaenerji.com/de/urunler.html)[KI-Produkte](https://www.gespaenerji.com/de/yapay-zeka-urunleri.html) / europlus 72-V-30-Ah-LiFePO₄-Akku
+[Startseite](https://www.gespaenerji.com/de/) / [Produkte](https://www.gespaenerji.com/de/urunler.html) / europlus 72-V-30-Ah-LiFePO₄-Akku
 
 ![europlus 72 V 30 Ah LiFePO4 akü](https://www.gespaenerji.com/assets/img/products/ev/aku-72v-30ah.webp)
 

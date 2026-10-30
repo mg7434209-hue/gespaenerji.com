@@ -3,7 +3,7 @@ title: "Gizlilik Politikası | GESPA Enerji"
 description: "GESPA Enerji gizlilik politikası: web sitemizde kişisel verilerinizin nasıl toplandığı, işlendiği ve korunduğu hakkında bilgi."
 canonical: https://www.gespaenerji.com/gizlilik.html
 lang: tr
-dateModified: 2026-10-26
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

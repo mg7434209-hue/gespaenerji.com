@@ -1,9 +1,9 @@
 ---
-title: "Onlineshop — Solarprodukte und Ausrüstung | GESPA Energy"
-description: "Alle Verkaufsprodukte auf einer Seite: Solar-Fertigsets, MPPT-Laderegler und Zubehör. Transparente Preise inkl. MwSt., Versand in die ganze Türkei."
+title: "Solarmodule, Akkus & MPPT-Laderegler kaufen | GESPA"
+description: "Lexron- und Arçelik-Solarmodule, LiFePO₄-Akkus, MPPT/PWM-Laderegler, Solarkabel und Fertigsets. Preise inkl. MwSt., Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/online-satis.html
 lang: de
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 
@@ -11,7 +11,7 @@ publisher: "GESPA Enerji"
 
 🛒 E-Commerce
 
-# Onlineshop
+# Solarmodule & Solarzubehör im Shop
 
 Alle Verkaufsprodukte auf einer Seite: Solar-Fertigsets, Laderegler und Solarzubehör. Preise inkl. MwSt., Versand in die ganze Türkei.
 

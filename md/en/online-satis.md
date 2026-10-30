@@ -1,9 +1,9 @@
 ---
-title: "Online Store — Solar Products and Equipment | GESPA Energy"
-description: "All products on sale in one place: ready-made solar kits, MPPT charge controllers and equipment. Transparent prices, VAT included, shipping across Türkiye."
+title: "Buy Solar Panels, Batteries & MPPT Controllers | GESPA"
+description: "Lexron and Arçelik solar panels, LiFePO₄ batteries, MPPT/PWM charge controllers, solar cable and ready kits. VAT-inclusive prices, shipping across Türkiye."
 canonical: https://www.gespaenerji.com/en/online-satis.html
 lang: en
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 
@@ -11,7 +11,7 @@ publisher: "GESPA Enerji"
 
 🛒 E-Commerce
 
-# Online Store
+# Solar Panel & Equipment Store
 
 Every product on sale in one place: ready-made solar kits, charge controllers and solar equipment. Prices include VAT and we ship across Türkiye.
 

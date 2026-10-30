@@ -3,7 +3,7 @@ title: "Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V | GESPA Enerji"
 description: "Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V: 12/24 V akülü güneş sistemleri için MPPT şarj kontrol cihazı, 30 A şarj akımı. Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/lexron-mppt-30a.html
 lang: tr
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

@@ -63,10 +63,14 @@ const PAGES = [
 const TR_ONLY = [
   "kvkk.html", "gizlilik.html", "cerez-politikasi.html",
   "mesafeli-satis-sozlesmesi.html", "iade-teslimat.html",
-  "gunes-paneli-kacak-elektrik-cezasi.html"
+  "gunes-paneli-kacak-elektrik-cezasi.html",
+  // Mühendislik rehberleri (yalnız Türkçe; <main data-article>) + merkez sayfası
+  "rehberler.html", "off-grid-gunes-sistemi-boyutlandirma.html", "pwm-mppt-sarj-kontrol-farki.html", "solar-sulama-pompasi-secimi.html"
 ];
 // Mevzuat rehberi — footer "Kurumsal" sütununda yalnız TR sayfalarda görünür
 const GUIDE = { file: "gunes-paneli-kacak-elektrik-cezasi.html", label: "Güneş Paneli Cezası Rehberi" };
+// Rehberler merkezi (yalnız TR, TR_ONLY) — footer "Kurumsal" sütununda mevzuat rehberinin yanında
+const GUIDE_HUB = { file: "rehberler.html", label: "Rehberler" };
 const TR_ONLY_RE = /<!-- TR:ONLY -->[\s\S]*?<!-- \/TR:ONLY -->/g;
 
 PAGES.push(...seo.pages.map(p => p.file));
@@ -85,20 +89,20 @@ const META = {
           d: "GESPA Energy: монтаж под ключ, инжиниринг, финансирование и обслуживание солнечных электростанций на крыше и на земле. Манавгат / Анталья, Турция." }
   },
   "hizmetler.html": {
-    en: { t: "Services — Rooftop & Ground Solar, Storage | GESPA",
-          d: "Rooftop PV, ground-mounted PV, energy storage, engineering, financing and maintenance (O&M). Turnkey solar energy solutions — GESPA Energy." },
-    de: { t: "Leistungen — Aufdach- & Freiflächen-PV | GESPA Energy",
-          d: "Aufdach-PV, Freiflächen-PV, Energiespeicher, Engineering, Finanzierung und Wartung (O&M). Schlüsselfertige Solarlösungen — GESPA Energy." },
-    ru: { t: "Услуги — солнечные станции и накопители | GESPA",
-          d: "Солнечные станции на крыше и на земле, накопители энергии, инжиниринг, финансирование и обслуживание (O&M). Решения под ключ — GESPA Energy." }
+    en: { t: "Rooftop, Ground-Mount & Solar Irrigation PV | GESPA",
+          d: "Rooftop PV, ground-mounted PV, solar irrigation, energy storage and maintenance in Manavgat and Antalya: survey, engineering, installation and monitoring in one hand." },
+    de: { t: "Aufdach-, Freiflächen- & Solar-Bewässerung | GESPA",
+          d: "Aufdach-PV, Freiflächen-PV, solare Bewässerung, Energiespeicher und Wartung in Manavgat und Antalya: Begutachtung, Planung, Montage und Monitoring aus einer Hand." },
+    ru: { t: "Солнечные станции на крыше, земле и для полива | GESPA",
+          d: "Солнечные станции на крыше и на земле, солнечный полив, накопители и обслуживание в Манавгате и Анталье: обследование, проектирование, монтаж и мониторинг под ключ." }
   },
   "online-satis.html": {
-    en: { t: "Online Store — Solar Products and Equipment | GESPA Energy",
-          d: "All products on sale in one place: ready-made solar kits, MPPT charge controllers and equipment. Transparent prices, VAT included, shipping across Türkiye." },
-    de: { t: "Onlineshop — Solarprodukte und Ausrüstung | GESPA Energy",
-          d: "Alle Verkaufsprodukte auf einer Seite: Solar-Fertigsets, MPPT-Laderegler und Zubehör. Transparente Preise inkl. MwSt., Versand in die ganze Türkei." },
-    ru: { t: "Интернет-магазин солнечного оборудования | GESPA",
-          d: "Все товары в продаже на одной странице: готовые солнечные комплекты, MPPT-контроллеры и оборудование. Прозрачные цены с НДС, доставка по Турции." }
+    en: { t: "Buy Solar Panels, Batteries & MPPT Controllers | GESPA",
+          d: "Lexron and Arçelik solar panels, LiFePO₄ batteries, MPPT/PWM charge controllers, solar cable and ready kits. VAT-inclusive prices, shipping across Türkiye." },
+    de: { t: "Solarmodule, Akkus & MPPT-Laderegler kaufen | GESPA",
+          d: "Lexron- und Arçelik-Solarmodule, LiFePO₄-Akkus, MPPT/PWM-Laderegler, Solarkabel und Fertigsets. Preise inkl. MwSt., Versand in die ganze Türkei." },
+    ru: { t: "Купить солнечные панели, АКБ и MPPT-контроллеры | GESPA",
+          d: "Солнечные панели Lexron и Arçelik, LiFePO₄ АКБ, MPPT/PWM-контроллеры, кабель и готовые комплекты. Цены с НДС, доставка по Турции." }
   },
   "urunler.html": {
     en: { t: "Solar Packages — Off-Grid & Irrigation | GESPA Energy",
@@ -703,7 +707,7 @@ function faqItemHtml(q, a, link) {
 }
 function hydrateHelp(html, file) {
   const help = '<!-- HELP:STATIC --><a href="sss.html">' + esc(HELP.labels.title[0]) + '</a><a href="sozluk.html">'
-    + esc(GLOSSARY.labels.title[0]) + '</a><!-- TR:ONLY --><a href="' + GUIDE.file + '">' + esc(GUIDE.label)
+    + esc(GLOSSARY.labels.title[0]) + '</a><!-- TR:ONLY --><a href="' + GUIDE_HUB.file + '">' + esc(GUIDE_HUB.label) + '</a><a href="' + GUIDE.file + '">' + esc(GUIDE.label)
     + '</a><!-- /TR:ONLY --><!-- /HELP:STATIC -->';
   if (/<!-- HELP:STATIC -->/.test(html)) html = html.replace(/<!-- HELP:STATIC -->[\s\S]*?<!-- \/HELP:STATIC -->/g, () => help);
   else html = html.replace(/(<!-- \/SISTER:STATIC -->)/, m => m + help);
@@ -1942,6 +1946,7 @@ const PRIORITY = {
   "kvkk.html": "0.3", "gizlilik.html": "0.3", "cerez-politikasi.html": "0.3",
   "mesafeli-satis-sozlesmesi.html": "0.4", "iade-teslimat.html": "0.4",
   "sss.html": "0.7", "sozluk.html": "0.6", "gunes-paneli-kacak-elektrik-cezasi.html": "0.7",
+  "rehberler.html": "0.7", "off-grid-gunes-sistemi-boyutlandirma.html": "0.7", "pwm-mppt-sarj-kontrol-farki.html": "0.7", "solar-sulama-pompasi-secimi.html": "0.7",
   "havensis-mppt-30a.html": "0.7", "havensis-mppt-60a.html": "0.7", "havensis-mppt-60a-150v.html": "0.7",
   "havensis-dcdc-30a.html": "0.7", "havensis-dcdc-40a.html": "0.7", "havensis-dcdc-40a-cift-yonlu.html": "0.7",
   "havensis-boost-dcdc-2448.html": "0.7"
@@ -1970,7 +1975,7 @@ const LLMS_GROUPS = [
   ["Yapay zekâ ürünleri", ["yapay-zeka-urunleri.html", "ai-cankurtaran-destek-sistemi.html"]],
   ["Ücretsiz araçlar", ["hesaplayici.html", "sistem-kur.html"]],
   ["Referans projeler", ["projeler.html", "proje-kemer-villa.html", "proje-manavgat-fabrika.html", "proje-manavgat-tarimsal.html"]],
-  ["Rehberler ve güncel mevzuat (yalnız Türkçe)", ["gunes-paneli-kacak-elektrik-cezasi.html"]],
+  ["Rehberler ve güncel mevzuat (yalnız Türkçe)", ["rehberler.html", "off-grid-gunes-sistemi-boyutlandirma.html", "pwm-mppt-sarj-kontrol-farki.html", "solar-sulama-pompasi-secimi.html", "gunes-paneli-kacak-elektrik-cezasi.html"]],
   ["Kurumsal ve yardım", ["hakkimizda.html", "iletisim.html", "sss.html", "sozluk.html"]]
 ];
 function pageMeta(file) {

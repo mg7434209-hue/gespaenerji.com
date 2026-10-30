@@ -3,7 +3,7 @@ title: "Havensis 60A MPPT-Laderegler 12/24V — 2500W Module | GESPA Energy"
 description: "Havensis Solar-60AMPS-100 MPPT-Laderegler: 12/24-V-Batterie, 60 A Ladestrom, 20-A-Lastausgang, 100 V Moduleingang, bis 2500 W Module, LCD-Display."
 canonical: https://www.gespaenerji.com/de/havensis-mppt-60a.html
 lang: de
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

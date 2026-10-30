@@ -1,9 +1,9 @@
 ---
-title: "GESPA Enerji — Güneş Enerjisi Ürünleri ve Anahtar Teslim GES |…"
-description: "Panel, akü, şarj cihazı ve hazır paketler Türkiye'nin her yerine kargo; Manavgat ve Antalya'da çatı, arazi ve tarımsal GES anahtar teslim."
+title: "Güneş Paneli, Akü ve Anahtar Teslim GES — Manavgat | GESPA"
+description: "Güneş paneli, akü, MPPT şarj kontrol ve hazır paketler Türkiye'ye kargo. Manavgat ve Antalya'da çatı, arazi ve tarımsal sulama GES anahtar teslim."
 canonical: https://www.gespaenerji.com/
 lang: tr
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 
@@ -41,6 +41,8 @@ Keşiften devreye almaya, bakımdan finansmana kadar tek ekip. Manavgat, Antalya
 [![Kiremit çatıya kurulu güneş enerjisi santrali — Kemer](https://www.gespaenerji.com/assets/img/projects/kemer-villa-800.webp) Çatı GESKonut, iş yeri ve sanayi çatılarında alanı verimli kullanan sistemler.](https://www.gespaenerji.com/cati-ges.html)
 [![Arazi tipi güneş enerjisi kurulumu](https://www.gespaenerji.com/assets/img/projects/kirsehir-tarimsal.webp) Arazi Tipi GESTarla ve boş arazide zemine sabit konstrüksiyonla kurulan santraller.](https://www.gespaenerji.com/arazi-ges.html)
 [![Sera çatısına kurulu tarımsal güneş enerjisi santrali — Manavgat](https://www.gespaenerji.com/assets/img/projects/manavgat-tarimsal-800.webp) Tarımsal SulamaMazot ve şebeke gideri olmadan güneşle çalışan sulama pompaları.](https://www.gespaenerji.com/tarimsal-sulama.html)
+
+Diğer hizmetler: [Enerji Depolama](https://www.gespaenerji.com/enerji-depolama.html) · [Bakım (O&M)](https://www.gespaenerji.com/bakim-izleme.html) · [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) · [Tasarruf Hesaplayıcı](https://www.gespaenerji.com/hesaplayici.html)
 
 Nasıl Çalışıyoruz?
 
@@ -139,6 +141,18 @@ Proje, izin, kurulum, devreye alma ve bakım tek elden; aracı yok, sorumluluk b
 ### Açık fiyat, yazılı teklif
 
 Mağazada fiyatlar KDV dahil; GES'te keşiften sonra kalem kalem yazılı teklif alırsınız.
+
+Rehberler
+
+## Satın almadan önce okuyun
+
+Boyutlandırma, şarj kontrol cihazı ve sulama pompası için kısa, örnekli rehberler. Hesapları sitedeki ücretsiz araçlarla aynı mantığı kullanır.
+
+[Off-grid güneş sistemi nasıl boyutlandırılır?Günlük tüketimden panel, akü ve inverter gücüne dört adımda: formüller ve örnek hesap.Rehberi oku →](https://www.gespaenerji.com/off-grid-gunes-sistemi-boyutlandirma.html)
+[PWM mi MPPT mi?Şarj kontrol cihazı farkı, hangisinin ne zaman seçileceği ve panel gerilimi/akım hesabı.Rehberi oku →](https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html)
+[Solar sulama pompası nasıl seçilir?Günlük su ve basma yüksekliğinden pompa gücü ve panel kWp hesabı.Rehberi oku →](https://www.gespaenerji.com/solar-sulama-pompasi-secimi.html)
+
+[Tüm rehberler →](https://www.gespaenerji.com/rehberler.html)
 
 Sıkça Sorulan Sorular
 

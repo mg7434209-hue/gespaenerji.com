@@ -3,7 +3,7 @@ title: "Hero LED 50 W Solar LED Aplik | GESPA Enerji"
 description: "Üstündeki güneş paneliyle gündüz şarj olup gece çalışan 50 W solar duvar apliği (HL-5181): elektrik hattı gerektirmez."
 canonical: https://www.gespaenerji.com/hero-led-aplik-50w.html
 lang: tr
-dateModified: 2026-10-27
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

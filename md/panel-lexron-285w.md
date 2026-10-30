@@ -3,7 +3,7 @@ title: "Lexron 285 W Güneş Paneli | GESPA Enerji"
 description: "Lexron 285 W Güneş Paneli: Balkon, bağ evi ve küçük off-grid sistemler Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/panel-lexron-285w.html
 lang: tr
-dateModified: 2026-10-26
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 
