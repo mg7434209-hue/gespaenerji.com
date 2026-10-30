@@ -1048,3 +1048,6 @@ sayfasının HTML adresi DEĞİL.
   müzakeresi ve AI bot sayacı). Kapsam listesi `docs/seo-aeo.md` sonunda.
 - Görsel değişiklikte tarayıcıyla (Playwright, yerel Chromium) 390 px ve
   masaüstünde bak; sunucu açılışta build çalıştırdığı için hazır olmasını bekle.
+
+## Ajan düzeni (maliyet)
+Fable yalnız `mimar` (tema/dizayn/SEO planı) ve `kritik-denetci`'de; uygulama Sonnet/Haiku ajanlarında: @docs/ajanlar.md
