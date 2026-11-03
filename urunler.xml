@@ -102,16 +102,16 @@
       </g:shipping>
     </item>
     <item>
-      <g:id>panel-lexron-285w</g:id>
-      <g:title>Lexron 285 W Güneş Paneli</g:title>
-      <g:description>Lexron 210R PowerLite TOPCon serisi 285 W monokristal güneş paneli. Voc 42,84 V · Isc 8,19 A · Vmp 35,85 V · Imp 7,95 A. Ölçü 780 × 1536 × 30 mm, ağırlık 8,5 kg. IEC 61215 / 61730 / 61701 belgeli; 12 yıl ürün ve işçilik, 30 yıl güç garantisi.</g:description>
-      <g:link>https://www.gespaenerji.com/panel-lexron-285w.html</g:link>
-      <g:image_link>https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp</g:image_link>
-      <g:availability>out of stock</g:availability>
-      <g:price>7500.00 TRY</g:price>
-      <g:brand>Lexron</g:brand>
+      <g:id>panel-360w</g:id>
+      <g:title>360 W Güneş Paneli</g:title>
+      <g:description>60 hücreli Mono-PERC güneş paneli, 360 W. Voc 42,56 V · Isc 11,37 A · Vmp 34,98 V · Imp 10,30 A. Ölçü 1660 × 1001 × 30 mm, ağırlık 19,5 kg. IP68 bağlantı kutusu, 3 bypass diyot; 1500 V sistem gerilimi.</g:description>
+      <g:link>https://www.gespaenerji.com/panel-360w.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/panel-360w.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>7200.00 TRY</g:price>
+      <g:brand>GESPA Enerji</g:brand>
       <g:condition>new</g:condition>
-      <g:mpn>GES-PNL-285</g:mpn>
+      <g:mpn>GES-PNL-360</g:mpn>
       <g:product_type>Panel</g:product_type>
       <g:shipping>
         <g:country>TR</g:country>

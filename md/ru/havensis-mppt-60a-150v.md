@@ -3,7 +3,7 @@ title: "MPPT-контроллер Havensis 60А 12–48В, 150В — 5000Вт | 
 description: "MPPT-контроллер заряда Havensis Solar-60AMPS 150|60: АКБ 12/24/36/48 В, заряд 60 А, вход панелей 150 В, до 5000 Вт панелей."
 canonical: https://www.gespaenerji.com/ru/havensis-mppt-60a-150v.html
 lang: ru
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -171,7 +171,7 @@ MPPT (отслеживание точки максимальной мощнос�
 
 | Панель | Voc (паспорт) | Макс. последовательно на этом контроллере |
 | --- | --- | --- |
-| Солнечная панель Lexron 285 Вт | 42,84 В | 3 панели (128,52 В) |
+| Солнечная панель 360 Вт | 42,56 В | 3 панели (127,68 В) |
 | Солнечная панель Lexron 655 Вт TOPCon | 50,34 В | 2 панели (100,68 В) |
 
 В холод Voc растёт; в районах, где зимой ниже −10 °C, согласуйте схему с нами. Общая мощность панелей не должна превышать 5000 Вт.
@@ -182,7 +182,7 @@ MPPT (отслеживание точки максимальной мощнос�
 
 Закажите вместе, и всё придёт одной посылкой.
 
-[![Солнечная панель Lexron 655 Вт TOPCon](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Солнечная панель Lexron 655 Вт TOPConМощная панель TOPCon; к этому контроллеру — до 2 последовательно.₺10.000 В корзину →](https://www.gespaenerji.com/ru/sepet.html?ekle=panel-lexron-655w)[![Аккумулятор TitanX 51,2 В 102 А·ч LiFePO₄](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)Аккумулятор TitanX 51,2 В 102 А·ч LiFePO₄Аккумулятор LiFePO₄ 5,22 кВт·ч для системы 48 В.₺73.400 В корзину →](https://www.gespaenerji.com/ru/sepet.html?ekle=aku-titanx-51v-102ah)[![Комплект солнечного кабеля (5 м чёрный + 5 м красный)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Комплект солнечного кабеля (5 м чёрный + 5 м красный)От панели к контроллеру: 5 м чёрного + 5 м красного.₺1.000 В корзину →](https://www.gespaenerji.com/ru/sepet.html?ekle=kablo-solar-5m)[![Комплект коннекторов MC4](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)Комплект коннекторов MC4Соединяет кабель панели с солнечным кабелем.₺100 В корзину →](https://www.gespaenerji.com/ru/sepet.html?ekle=mc4-set)
+[![Солнечная панель Lexron 655 Вт TOPCon](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Солнечная панель Lexron 655 Вт TOPConМощная панель TOPCon; к этому контроллеру — до 2 последовательно.₺10.000 Смотреть продукт →](https://www.gespaenerji.com/ru/panel-lexron-655w.html)[![Аккумулятор TitanX 51,2 В 102 А·ч LiFePO₄](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)Аккумулятор TitanX 51,2 В 102 А·ч LiFePO₄Аккумулятор LiFePO₄ 5,22 кВт·ч для системы 48 В.₺73.400 Смотреть продукт →](https://www.gespaenerji.com/ru/aku-titanx-51v-102ah.html)[![Комплект солнечного кабеля (5 м чёрный + 5 м красный)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Комплект солнечного кабеля (5 м чёрный + 5 м красный)От панели к контроллеру: 5 м чёрного + 5 м красного.₺1.000 Смотреть продукт →](https://www.gespaenerji.com/ru/kablo-solar-5m.html)[![Комплект коннекторов MC4](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)Комплект коннекторов MC4Соединяет кабель панели с солнечным кабелем.₺100 Смотреть продукт →](https://www.gespaenerji.com/ru/mc4-set.html)
 
 Частые вопросы
 
@@ -198,7 +198,7 @@ MPPT (отслеживание точки максимальной мощнос�
 
 ### Сколько панелей можно соединить последовательно?
 
-Сумма напряжений холостого хода (Voc) панелей в цепочке не должна превышать 150 В. Из наших панелей Lexron 285 Вт (Voc 42,84 В) последовательно можно соединить до 3, из Lexron 655 Вт (Voc 50,34 В) — до 2. Поскольку в холод Voc растёт, в районах, где зимой ниже −10 °C, согласуйте схему с нами.
+Сумма напряжений холостого хода (Voc) панелей в цепочке не должна превышать 150 В. Из наших панелей 360 Вт (Voc 42,56 В) последовательно можно соединить до 3, из Lexron 655 Вт (Voc 50,34 В) — до 2. Поскольку в холод Voc растёт, в районах, где зимой ниже −10 °C, согласуйте схему с нами.
 
 ### Куда подключать инвертор?
 

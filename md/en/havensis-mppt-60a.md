@@ -3,7 +3,7 @@ title: "Havensis 60A MPPT Charge Controller 12/24V — 2500W Panels"
 description: "Havensis Solar-60AMPS-100 MPPT charge controller: 12/24 V battery, 60 A charging, 20 A load output, 100 V panel input, up to 2500 W of panels, LCD display."
 canonical: https://www.gespaenerji.com/en/havensis-mppt-60a.html
 lang: en
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -176,7 +176,7 @@ The open-circuit voltages (Voc) of panels wired in series add up; the total must
 
 | Panel | Voc (datasheet) | Max. in series on this controller |
 | --- | --- | --- |
-| Lexron 285 W Solar Panel | 42.84 V | 2 panels (85.68 V) |
+| 360 W Solar Panel | 42.56 V | 2 panels (85.12 V) |
 | Lexron 655 W TOPCon Solar Panel | 50.34 V | No series: single or parallel |
 
 Voc rises in the cold; in areas that drop below −10 °C in winter, check the layout with us. Total panel power must not exceed 2500 W.
@@ -187,7 +187,7 @@ Complementary products
 
 Order them together and everything arrives in one shipment.
 
-[![Lexron 285 W Solar Panel](https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp)Lexron 285 W Solar PanelCompact TOPCon panel; up to 2 can be wired in series on this controller.₺7.500 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=panel-lexron-285w)[![Lexron 655 W TOPCon Solar Panel](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655 W TOPCon Solar PanelHigh-power TOPCon panel; connects to this controller singly or in parallel.₺10.000 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=panel-lexron-655w)[![Solar Cable Set (5 m Black + 5 m Red)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Cable Set (5 m Black + 5 m Red)Panel to controller: 5 m black + 5 m red.₺1.000 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=kablo-solar-5m)[![MC4 Connector Set](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Connector SetJoins the panel lead to the solar cable.₺100 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=mc4-set)
+[![360 W Solar Panel](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)360 W Solar Panel360 W panel; up to 2 can be wired in series on this controller.₺7.200 View the Product →](https://www.gespaenerji.com/en/panel-360w.html)[![Lexron 655 W TOPCon Solar Panel](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655 W TOPCon Solar PanelHigh-power TOPCon panel; connects to this controller singly or in parallel.₺10.000 View the Product →](https://www.gespaenerji.com/en/panel-lexron-655w.html)[![Solar Cable Set (5 m Black + 5 m Red)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Cable Set (5 m Black + 5 m Red)Panel to controller: 5 m black + 5 m red.₺1.000 View the Product →](https://www.gespaenerji.com/en/kablo-solar-5m.html)[![MC4 Connector Set](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Connector SetJoins the panel lead to the solar cable.₺100 View the Product →](https://www.gespaenerji.com/en/mc4-set.html)
 
 Frequently Asked Questions
 
@@ -203,7 +203,7 @@ With 12 V and 24 V batteries. Since all parameters are adjustable, you enter the
 
 ### How many panels can I wire in series?
 
-The sum of the open-circuit voltages (Voc) of panels in series must not exceed 100 V. Of our Lexron 285 W panels (Voc 42.84 V) up to 2 can go in series; the Lexron 655 W panel (Voc 50.34 V) is not wired in series on this controller but connected singly or in parallel. Because Voc rises in the cold, check the layout with us if your area drops below −10 °C in winter.
+The sum of the open-circuit voltages (Voc) of panels in series must not exceed 100 V. Of our 360 W panels (Voc 42.56 V) up to 2 can go in series; the Lexron 655 W panel (Voc 50.34 V) is not wired in series on this controller but connected singly or in parallel. Because Voc rises in the cold, check the layout with us if your area drops below −10 °C in winter.
 
 ### What does the dusk-to-dawn function do?
 

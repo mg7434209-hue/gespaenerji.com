@@ -3,7 +3,7 @@ title: "460-W-Half-Cut-Monokristallin-Solarmodul | GESPA Energy"
 description: "460-W-Modul mit 144 Halbzellen: 23,42 % Wirkungsgrad, Voc 51,90 V, 2095 × 1039 × 30 mm, 25 kg, IP68."
 canonical: https://www.gespaenerji.com/de/panel-460w.html
 lang: de
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -143,7 +143,7 @@ Alle Module in unserem Shop; ein Strich (—) bedeutet, dass uns der Wert nicht 
 | --- | --- | --- | --- | --- |
 | 50-W-Solarmodul | 50 W | — | — | — |
 | 240-W-Solarmodul (48 Zellen) | 240 W | 36,12 V | 1320 × 776 × 30 mm | 8 kg |
-| Lexron 285-W-Solarmodul | 285 W | 42,84 V | 780 × 1536 × 30 mm | 8,5 kg |
+| 360-W-Solarmodul | 360 W | 42,56 V | 1660 × 1001 × 30 mm | 19,5 kg |
 | 460-W-Half-Cut-Monokristallin-Solarmodul Dieses Produkt | 460 W | 51,9 V | 2095 × 1039 × 30 mm | 25 kg |
 | Arçelik 540-W-Solarmodul | 540 W | — | — | — |
 | Lexron 655-W-TOPCon-Solarmodul | 655 W | 50,34 V | 2382 × 1134 × 35 mm | 31 kg |

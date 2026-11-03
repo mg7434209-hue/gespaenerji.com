@@ -141,10 +141,10 @@
     },
     {
       k: ["paket", "urun", "hazir", "kac kwp", "kwp", "off grid", "offgrid", "tasinabilir", "karavan", "jel aku", "lityum", "lifepo", "sulama paket", "package", "kit", "portable", "caravan", "bausatz", "tragbar", "комплект", "пакет", "караван"],
-      a: ["📦 Hazır paketlerimiz: 285W tak-çalıştır kit (TV/ışık/şarj) ve 2×540W LiFePO₄ bataryalı Tam Kapsamlı sistem (buzdolabı/çamaşır/bulaşık). Detay sayfalarında fiyat, galeri ve özellikler var. (Daha büyük sistemler proje bazlı: Sistem Kurucu'yu deneyin.)",
-          "📦 Ready packages: portable off-grid lithium-battery kits (285 W – 8 kW; cabins/caravans/huts) and agricultural irrigation packages — each with clear power, panel count and approx. price. (Rooftop/on-grid systems are quoted per project.)",
-          "📦 Fertige Pakete: das 285-W-Plug-and-Play-Set (TV/Licht/Laden) und das Komplettsystem 2×540 W mit LiFePO₄-Batterie (Kühlschrank/Wasch-/Spülmaschine). Detailseiten mit Preis, Galerie und Daten. (Größere Anlagen projektbezogen: System-Builder testen.)",
-          "📦 Готовые комплекты: 285 Вт подключи-и-работай (ТВ/свет/зарядка) и полная система 2×540 Вт с батареей LiFePO₄ (холодильник/стиральная/посудомоечная). На страницах товаров — цены, галерея и характеристики."],
+      a: ["📦 Hazır paketlerimiz: 240W tak-çalıştır kit (TV/ışık/şarj) ve 2×540W LiFePO₄ bataryalı Tam Kapsamlı sistem (buzdolabı/çamaşır/bulaşık). Detay sayfalarında fiyat, galeri ve özellikler var. (Daha büyük sistemler proje bazlı: Sistem Kurucu'yu deneyin.)",
+          "📦 Ready packages: portable off-grid lithium-battery kits (240 W – 8 kW; cabins/caravans/huts) and agricultural irrigation packages — each with clear power, panel count and approx. price. (Rooftop/on-grid systems are quoted per project.)",
+          "📦 Fertige Pakete: das 240-W-Plug-and-Play-Set (TV/Licht/Laden) und das Komplettsystem 2×540 W mit LiFePO₄-Batterie (Kühlschrank/Wasch-/Spülmaschine). Detailseiten mit Preis, Galerie und Daten. (Größere Anlagen projektbezogen: System-Builder testen.)",
+          "📦 Готовые комплекты: 240 Вт подключи-и-работай (ТВ/свет/зарядка) и полная система 2×540 Вт с батареей LiFePO₄ (холодильник/стиральная/посудомоечная). На страницах товаров — цены, галерея и характеристики."],
       link: { t: ["Paket ürünler", "Solar packages", "Solar-Pakete", "Солнечные пакеты"], u: "urunler.html" }
     }
   ];

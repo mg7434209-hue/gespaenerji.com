@@ -90,10 +90,10 @@ F = {
     t("Bekçi kulübesi, elektrikli çit ve küçük DC yükler.", "Guard huts, electric fences and small DC loads.", "Wachhütten, Elektrozäune und kleine DC-Verbraucher.", "Сторожки, электроизгороди и небольшие нагрузки постоянного тока.")),
   ],
   "faq_tip": (t("PWM mi, MPPT mi seçmeliyim?", "Should I choose PWM or MPPT?", "Soll ich PWM oder MPPT wählen?", "Что выбрать: ШИМ или MPPT?"),
-              t("Panel gerilimi akü gerilimine yakınsa (örneğin 12 V aküye 12 V sınıfı panel) PWM ekonomik ve yeterlidir. Panel gerilimi akünün çok üstündeyse (mağazamızdaki 285 W ve 655 W paneller gibi) MPPT aynı panelden daha fazla enerji toplar; o durumda MPPT modellerimize bakın.",
-                "If the panel voltage is close to the battery voltage (for example a 12 V-class panel on a 12 V battery), PWM is economical and sufficient. If the panel voltage is well above the battery voltage (like the 285 W and 655 W panels in our shop), MPPT collects more energy from the same panel; in that case look at our MPPT models.",
-                "Liegt die Modulspannung nahe an der Batteriespannung (z. B. ein 12-V-Modul an einer 12-V-Batterie), ist PWM günstig und ausreichend. Liegt sie deutlich darüber (wie bei den 285-W- und 655-W-Modulen in unserem Shop), holt MPPT aus demselben Modul mehr Energie; dann sehen Sie sich unsere MPPT-Modelle an.",
-                "Если напряжение панели близко к напряжению АКБ (например, панель класса 12 В на АКБ 12 В), ШИМ экономичен и достаточен. Если напряжение панели намного выше (как у панелей 285 Вт и 655 Вт в нашем магазине), MPPT соберёт больше энергии с той же панели — тогда посмотрите наши модели MPPT.")),
+              t("Panel gerilimi akü gerilimine yakınsa (örneğin 12 V aküye 12 V sınıfı panel) PWM ekonomik ve yeterlidir. Panel gerilimi akünün çok üstündeyse (mağazamızdaki 360 W ve 655 W paneller gibi) MPPT aynı panelden daha fazla enerji toplar; o durumda MPPT modellerimize bakın.",
+                "If the panel voltage is close to the battery voltage (for example a 12 V-class panel on a 12 V battery), PWM is economical and sufficient. If the panel voltage is well above the battery voltage (like the 360 W and 655 W panels in our shop), MPPT collects more energy from the same panel; in that case look at our MPPT models.",
+                "Liegt die Modulspannung nahe an der Batteriespannung (z. B. ein 12-V-Modul an einer 12-V-Batterie), ist PWM günstig und ausreichend. Liegt sie deutlich darüber (wie bei den 360-W- und 655-W-Modulen in unserem Shop), holt MPPT aus demselben Modul mehr Energie; dann sehen Sie sich unsere MPPT-Modelle an.",
+                "Если напряжение панели близко к напряжению АКБ (например, панель класса 12 В на АКБ 12 В), ШИМ экономичен и достаточен. Если напряжение панели намного выше (как у панелей 360 Вт и 655 Вт в нашем магазине), MPPT соберёт больше энергии с той же панели — тогда посмотрите наши модели MPPT.")),
   "note": (t("Daha yüksek verim mi istiyorsunuz?", "Want higher efficiency?", "Mehr Wirkungsgrad gewünscht?", "Нужна более высокая эффективность?"),
            t("Panel gerilimi akü geriliminden yüksekse MPPT modelleri aynı panelden daha fazla enerji toplar.",
              "If the panel voltage is higher than the battery voltage, MPPT models collect more energy from the same panel.",
@@ -124,10 +124,10 @@ F = {
     t("Akülü sulama, aydınlatma ve küçük iş yerleri.", "Battery-backed irrigation, lighting and small workplaces.", "Batteriegestützte Bewässerung, Beleuchtung und kleine Betriebe.", "Полив, освещение и небольшие хозяйства с аккумулятором.")),
   ],
   "faq_tip": (t("PWM mi, MPPT mi seçmeliyim?", "Should I choose PWM or MPPT?", "Soll ich PWM oder MPPT wählen?", "Что выбрать: ШИМ или MPPT?"),
-              t("Panel gerilimi akünün çok üstündeyse (mağazamızdaki 285 W ve 655 W paneller gibi) MPPT aynı panelden daha fazla enerji toplar ve doğru seçimdir. Panel gerilimi akü gerilimine yakın küçük, bütçe öncelikli sistemlerde PWM modeller yeterlidir.",
-                "If the panel voltage is well above the battery voltage (like the 285 W and 655 W panels in our shop), MPPT collects more energy from the same panel and is the right choice. For small, budget-first systems where the panel voltage is close to the battery voltage, PWM models are enough.",
-                "Liegt die Modulspannung deutlich über der Batteriespannung (wie bei den 285-W- und 655-W-Modulen in unserem Shop), holt MPPT mehr Energie aus demselben Modul und ist die richtige Wahl. Für kleine, preisorientierte Anlagen mit Modulspannung nahe der Batteriespannung genügen PWM-Modelle.",
-                "Если напряжение панели намного выше напряжения АКБ (как у панелей 285 Вт и 655 Вт в нашем магазине), MPPT соберёт больше энергии с той же панели и будет правильным выбором. Для небольших бюджетных систем, где напряжение панели близко к напряжению АКБ, достаточно моделей ШИМ.")),
+              t("Panel gerilimi akünün çok üstündeyse (mağazamızdaki 360 W ve 655 W paneller gibi) MPPT aynı panelden daha fazla enerji toplar ve doğru seçimdir. Panel gerilimi akü gerilimine yakın küçük, bütçe öncelikli sistemlerde PWM modeller yeterlidir.",
+                "If the panel voltage is well above the battery voltage (like the 360 W and 655 W panels in our shop), MPPT collects more energy from the same panel and is the right choice. For small, budget-first systems where the panel voltage is close to the battery voltage, PWM models are enough.",
+                "Liegt die Modulspannung deutlich über der Batteriespannung (wie bei den 360-W- und 655-W-Modulen in unserem Shop), holt MPPT mehr Energie aus demselben Modul und ist die richtige Wahl. Für kleine, preisorientierte Anlagen mit Modulspannung nahe der Batteriespannung genügen PWM-Modelle.",
+                "Если напряжение панели намного выше напряжения АКБ (как у панелей 360 Вт и 655 Вт в нашем магазине), MPPT соберёт больше энергии с той же панели и будет правильным выбором. Для небольших бюджетных систем, где напряжение панели близко к напряжению АКБ, достаточно моделей ШИМ.")),
   "note": (t("Bütçe öncelikli küçük bir sistem mi?", "A small, budget-first system?", "Eine kleine, preisorientierte Anlage?", "Небольшая бюджетная система?"),
            t("Panel gerilimi akü gerilimine yakın küçük sistemlerde PWM modeller ekonomik bir çözümdür.",
              "In small systems where the panel voltage is close to the battery voltage, PWM models are an economical solution.",
@@ -176,7 +176,7 @@ TIPS = [
       "Wenn Sie eine Lithiumbatterie verwenden, schicken Sie uns vor der Bestellung deren Ladewerte.", "Если будете использовать литиевую АКБ, пришлите нам её параметры заряда до заказа."),
 ]
 XS = {
-    "p285": t("Yüksek gerilimli panel; MPPT ile en verimli kullanılır.", "A high-voltage panel; used most efficiently with MPPT.",
+    "p360": t("Yüksek gerilimli panel; MPPT ile en verimli kullanılır.", "A high-voltage panel; used most efficiently with MPPT.",
               "Ein Hochspannungsmodul; am effizientesten mit MPPT.", "Высоковольтная панель; эффективнее всего с MPPT."),
     "p655": t("Büyük sistemler için yüksek güçlü panel.", "A high-power panel for large systems.", "Ein leistungsstarkes Modul für große Anlagen.", "Мощная панель для больших систем."),
     "p50": t("Küçük 12 V sistemler için kompakt panel.", "A compact panel for small 12 V systems.", "Ein kompaktes Modul für kleine 12-V-Anlagen.", "Компактная панель для небольших систем 12 В."),
@@ -308,9 +308,9 @@ def product(pk, pid, file, fam, amp, volts, extra):
     if big:
         xs = [("panel-lexron-655w", XS["p655"]), ("aku-titanx-51v-102ah", XS["titanx"]), ("kablo-solar-5m", XS["kablo"]), ("mc4-set", XS["mc4"])]
     elif fam == "pwm":
-        xs = [("panel-50w", XS["p50"]), ("panel-lexron-285w", XS["p285"]), ("kablo-solar-5m", XS["kablo"]), ("mc4-set", XS["mc4"])]
+        xs = [("panel-50w", XS["p50"]), ("panel-360w", XS["p360"]), ("kablo-solar-5m", XS["kablo"]), ("mc4-set", XS["mc4"])]
     else:
-        xs = [("panel-lexron-285w", XS["p285"]), ("panel-lexron-655w", XS["p655"]), ("kablo-solar-5m", XS["kablo"]), ("mc4-set", XS["mc4"])]
+        xs = [("panel-360w", XS["p360"]), ("panel-lexron-655w", XS["p655"]), ("kablo-solar-5m", XS["kablo"]), ("mc4-set", XS["mc4"])]
     cmp_heads = [t("Model", "Model", "Modell", "Модель"), t("Akü gerilimi", "Battery voltage", "Batteriespannung", "Напряжение АКБ"),
                  t("Şarj akımı", "Charging current", "Ladestrom", "Ток заряда"), (YAKLASIK if fam == "mppt" else PWM_ISC)]
     cmp_p = (t("Yaklaşık panel gücü = şarj akımı × akü gerilimi (genel hesap, künye değeri değildir).",

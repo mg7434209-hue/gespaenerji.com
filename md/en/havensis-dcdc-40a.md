@@ -3,7 +3,7 @@ title: "Havensis 40A DC-DC Battery Charger — Caravan Alternator Charging"
 description: "Havensis DCDC-1224 40 A DC-DC battery charger: fast charging of the caravan house battery from the alternator."
 canonical: https://www.gespaenerji.com/en/havensis-dcdc-40a.html
 lang: en
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -173,7 +173,7 @@ Complementary products
 
 Order them together and everything arrives in one shipment.
 
-[![Havensis Solar-30AMPS MPPT Charge Controller 12/24 V 30 A](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Havensis Solar-30AMPS MPPT Charge Controller 12/24 V 30 AAdd a panel to the caravan roof and the house battery keeps charging from the sun while parked.₺6.400 View the Product →](https://www.gespaenerji.com/en/havensis-mppt-30a.html)[![Lexron 285 W Solar Panel](https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp)Lexron 285 W Solar Panel780 × 1536 mm, 8.5 kg: a compact TOPCon panel that is easy to lift onto the roof.₺7.500 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=panel-lexron-285w)[![Solar Cable Set (5 m Black + 5 m Red)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Cable Set (5 m Black + 5 m Red)Panel to controller: 5 m black + 5 m red.₺1.000 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=kablo-solar-5m)[![MC4 Connector Set](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Connector SetJoins the panel lead to the solar cable.₺100 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=mc4-set)
+[![Havensis Solar-30AMPS MPPT Charge Controller 12/24 V 30 A](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Havensis Solar-30AMPS MPPT Charge Controller 12/24 V 30 AAdd a panel to the caravan roof and the house battery keeps charging from the sun while parked.₺6.400 View the Product →](https://www.gespaenerji.com/en/havensis-mppt-30a.html)[![360 W Solar Panel](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)360 W Solar Panel1660 × 1001 mm, 19.5 kg: a mid-size panel one person can carry up to the roof.₺7.200 View the Product →](https://www.gespaenerji.com/en/panel-360w.html)[![Solar Cable Set (5 m Black + 5 m Red)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Cable Set (5 m Black + 5 m Red)Panel to controller: 5 m black + 5 m red.₺1.000 View the Product →](https://www.gespaenerji.com/en/kablo-solar-5m.html)[![MC4 Connector Set](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Connector SetJoins the panel lead to the solar cable.₺100 View the Product →](https://www.gespaenerji.com/en/mc4-set.html)
 
 Frequently Asked Questions
 

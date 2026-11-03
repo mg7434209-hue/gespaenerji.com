@@ -3,7 +3,7 @@ title: "Солнечные станции на крыше, земле и для 
 description: "Солнечные станции на крыше и на земле, солнечный полив, накопители и обслуживание в Манавгате и Анталье: обследование, проектирование, монтаж и мониторинг под…"
 canonical: https://www.gespaenerji.com/ru/hizmetler.html
 lang: ru
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 

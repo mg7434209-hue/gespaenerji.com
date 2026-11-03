@@ -3,7 +3,7 @@ title: "Зарядное BOOST DC-DC Havensis — с 12/24В на АКБ 36–72
 description: "Havensis BOOST DCDC-2448: зарядное устройство DC-DC, заряжающее блоки 36, 48, 60 и 72 В от автомобильного аккумулятора 12/24 В."
 canonical: https://www.gespaenerji.com/ru/havensis-boost-dcdc-2448.html
 lang: ru
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -145,7 +145,7 @@ Havensis BOOST DCDC-2448 — повышающее зарядное устрой�
 
 Закажите вместе, и всё придёт одной посылкой.
 
-[![Контроллер заряда MPPT Havensis Solar-60AMPS 150|60 12/24/36/48 В 60 А](https://www.gespaenerji.com/assets/img/products/havensis-s60amps150.webp)Контроллер заряда MPPT Havensis Solar-60AMPS 150|60 12/24/36/48 В 60 АMPPT со входом 150 В, чтобы заряжать блок 48 В и от солнца.₺16.200 Смотреть продукт →](https://www.gespaenerji.com/ru/havensis-mppt-60a-150v.html)[![Контроллер заряда MS Teknik BOOST MPPT 24-72 В](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)Контроллер заряда MS Teknik BOOST MPPT 24-72 ВПрямой заряд блока 24–72 В от низковольтных панелей.₺7.200 Смотреть продукт →](https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html)[![Аккумулятор TitanX 51,2 В 102 А·ч LiFePO₄](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)Аккумулятор TitanX 51,2 В 102 А·ч LiFePO₄Аккумулятор LiFePO₄ 5,22 кВт·ч для системы 48 В.₺73.400 В корзину →](https://www.gespaenerji.com/ru/sepet.html?ekle=aku-titanx-51v-102ah)
+[![Контроллер заряда MPPT Havensis Solar-60AMPS 150|60 12/24/36/48 В 60 А](https://www.gespaenerji.com/assets/img/products/havensis-s60amps150.webp)Контроллер заряда MPPT Havensis Solar-60AMPS 150|60 12/24/36/48 В 60 АMPPT со входом 150 В, чтобы заряжать блок 48 В и от солнца.₺16.200 Смотреть продукт →](https://www.gespaenerji.com/ru/havensis-mppt-60a-150v.html)[![Контроллер заряда MS Teknik BOOST MPPT 24-72 В](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)Контроллер заряда MS Teknik BOOST MPPT 24-72 ВПрямой заряд блока 24–72 В от низковольтных панелей.₺7.200 Смотреть продукт →](https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html)[![Аккумулятор TitanX 51,2 В 102 А·ч LiFePO₄](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)Аккумулятор TitanX 51,2 В 102 А·ч LiFePO₄Аккумулятор LiFePO₄ 5,22 кВт·ч для системы 48 В.₺73.400 Смотреть продукт →](https://www.gespaenerji.com/ru/aku-titanx-51v-102ah.html)
 
 Частые вопросы
 

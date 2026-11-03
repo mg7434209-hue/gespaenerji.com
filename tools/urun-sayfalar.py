@@ -10,7 +10,8 @@ Ardından: node build.js && npm test
 
 KURALLAR
 - Teknik değerler config.packages'teki metinlerdendir; onların kaynağı:
-  Lexron 285/655 W → kaynak/lexron-*.pdf künyeleri; 460 W ve 240 W →
+  Lexron 655 W → kaynak/lexron-*.pdf künyesi; 360 W → işletmenin gönderdiği künye
+  (3 Kas 2026, marka/tedarikçi YAZILMAZ, PDF repoya KONMAZ); 460 W ve 240 W →
   işletmenin gönderdiği künyeler (marka YAZILMAZ); TitanX → işletmenin
   gönderdiği ürün bilgisi (paneller.docx). Arçelik 540 W'ın künyesi YOK:
   güç/sınıf/marka dışında değer yazılmaz. 50 W panelin Voc'u yok.
@@ -45,17 +46,20 @@ def t(tr, en, de, ru):
 # ------------------------------------------------------------ katalog metinleri
 # config.packages'teki metinlerin eksik çevirileri (kart + Product şeması).
 CFG = [
- # Lexron 285 W
- ("Lexron 210R PowerLite TOPCon serisi 285 W monokristal güneş paneli. Voc 42,84 V · Isc 8,19 A · Vmp 35,85 V · Imp 7,95 A. Ölçü 780 × 1536 × 30 mm, ağırlık 8,5 kg. IEC 61215 / 61730 / 61701 belgeli; 12 yıl ürün ve işçilik, 30 yıl güç garantisi.",
-  "Lexron 210R PowerLite TOPCon series 285 W monocrystalline solar panel. Voc 42.84 V · Isc 8.19 A · Vmp 35.85 V · Imp 7.95 A. Dimensions 780 × 1536 × 30 mm, weight 8.5 kg. IEC 61215 / 61730 / 61701 certified; 12-year product and workmanship, 30-year power warranty.",
-  "Lexron 210R PowerLite TOPCon-Serie, 285-W-Monokristallin-Solarmodul. Voc 42,84 V · Isc 8,19 A · Vmp 35,85 V · Imp 7,95 A. Maße 780 × 1536 × 30 mm, Gewicht 8,5 kg. Zertifiziert nach IEC 61215 / 61730 / 61701; 12 Jahre Produkt- und Verarbeitungs-, 30 Jahre Leistungsgarantie.",
-  "Монокристаллическая солнечная панель 285 Вт серии Lexron 210R PowerLite TOPCon. Voc 42,84 В · Isc 8,19 А · Vmp 35,85 В · Imp 7,95 А. Размеры 780 × 1536 × 30 мм, вес 8,5 кг. Сертификаты IEC 61215 / 61730 / 61701; 12 лет гарантии на изделие и работу, 30 лет на мощность."),
- ("🔆 285 W TOPCon", "🔆 285 W TOPCon", "🔆 285 W TOPCon", "🔆 285 Вт TOPCon"),
- ("⚡ 42,84 V Voc", "⚡ 42.84 V Voc", "⚡ 42,84 V Voc", "⚡ Voc 42,84 В"),
- ("⚖️ 8,5 kg", "⚖️ 8.5 kg", "⚖️ 8,5 kg", "⚖️ 8,5 кг"),
- ("285 W · TOPCon monokristal hücre", "285 W · TOPCon monocrystalline cells", "285 W · TOPCon-Monokristallinzellen", "285 Вт · монокристаллические ячейки TOPCon"),
- ("Voc 42,84 V · Isc 8,19 A · Vmp 35,85 V · Imp 7,95 A", "Voc 42.84 V · Isc 8.19 A · Vmp 35.85 V · Imp 7.95 A", "Voc 42,84 V · Isc 8,19 A · Vmp 35,85 V · Imp 7,95 A", "Voc 42,84 В · Isc 8,19 А · Vmp 35,85 В · Imp 7,95 А"),
- ("780 × 1536 × 30 mm · 8,5 kg", "780 × 1536 × 30 mm · 8.5 kg", "780 × 1536 × 30 mm · 8,5 kg", "780 × 1536 × 30 мм · 8,5 кг"),
+ # 360 W Mono-PERC panel (3 Kas 2026; Lexron 285 W üretimden kalktı)
+ ("60 hücreli Mono-PERC güneş paneli, 360 W. Voc 42,56 V · Isc 11,37 A · Vmp 34,98 V · Imp 10,30 A. Ölçü 1660 × 1001 × 30 mm, ağırlık 19,5 kg. IP68 bağlantı kutusu, 3 bypass diyot; 1500 V sistem gerilimi.",
+  "60-cell Mono-PERC solar panel, 360 W. Voc 42.56 V · Isc 11.37 A · Vmp 34.98 V · Imp 10.30 A. Dimensions 1660 × 1001 × 30 mm, weight 19.5 kg. IP68 junction box, 3 bypass diodes; 1500 V system voltage.",
+  "60-Zellen-Mono-PERC-Solarmodul, 360 W. Voc 42,56 V · Isc 11,37 A · Vmp 34,98 V · Imp 10,30 A. Maße 1660 × 1001 × 30 mm, Gewicht 19,5 kg. IP68-Anschlussdose, 3 Bypass-Dioden; 1500 V Systemspannung.",
+  "Солнечная панель Mono-PERC на 60 ячеек, 360 Вт. Voc 42,56 В · Isc 11,37 А · Vmp 34,98 В · Imp 10,30 А. Размеры 1660 × 1001 × 30 мм, вес 19,5 кг. Распределительная коробка IP68, 3 байпасных диода; системное напряжение 1500 В."),
+ ("360 W Güneş Paneli", "360 W Solar Panel", "360-W-Solarmodul", "Солнечная панель 360 Вт"),
+ ("Bağ evi, karavan, çatı ve küçük off-grid sistemler", "Cabins, caravans, rooftops and small off-grid systems", "Gartenhaus, Wohnmobil, Dach und kleine Off-Grid-Anlagen", "Дача, автодом, крыша и небольшие автономные системы"),
+ ("🔆 360 W Mono-PERC", "🔆 360 W Mono-PERC", "🔆 360 W Mono-PERC", "🔆 360 Вт Mono-PERC"),
+ ("⚡ 42,56 V Voc", "⚡ 42.56 V Voc", "⚡ 42,56 V Voc", "⚡ Voc 42,56 В"),
+ ("⚖️ 19,5 kg", "⚖️ 19.5 kg", "⚖️ 19,5 kg", "⚖️ 19,5 кг"),
+ ("360 W · 60 hücre · Mono-PERC", "360 W · 60 cells · Mono-PERC", "360 W · 60 Zellen · Mono-PERC", "360 Вт · 60 ячеек · Mono-PERC"),
+ ("Voc 42,56 V · Isc 11,37 A · Vmp 34,98 V · Imp 10,30 A", "Voc 42.56 V · Isc 11.37 A · Vmp 34.98 V · Imp 10.30 A", "Voc 42,56 V · Isc 11,37 A · Vmp 34,98 V · Imp 10,30 A", "Voc 42,56 В · Isc 11,37 А · Vmp 34,98 В · Imp 10,30 А"),
+ ("1660 × 1001 × 30 mm · 19,5 kg", "1660 × 1001 × 30 mm · 19.5 kg", "1660 × 1001 × 30 mm · 19,5 kg", "1660 × 1001 × 30 мм · 19,5 кг"),
+ ("IP68 bağlantı kutusu · 3 bypass diyot · 1500 V", "IP68 junction box · 3 bypass diodes · 1500 V", "IP68-Anschlussdose · 3 Bypass-Dioden · 1500 V", "Коробка IP68 · 3 байпасных диода · 1500 В"),
  ("12 yıl ürün · 30 yıl güç garantisi", "12-year product · 30-year power warranty", "12 Jahre Produkt · 30 Jahre Leistungsgarantie", "12 лет на изделие · 30 лет на мощность"),
  # Lexron 655 W
  ("132 yarım kesim hücreli, N-type TOPCon teknolojili monokristal güneş paneli. 655 W güçte Voc 50,34 V · Vmp 42,32 V · Isc 16,53 A · Imp 15,48 A, modül verimi %24,25. Ölçü 2382 × 1134 × 35 mm, ağırlık 31 kg; 3,2 mm AR kaplamalı ısıl güçlendirilmiş cam, 35 mm anotlu alüminyum çerçeve, IP68 bağlantı kutusu. 1500 V sistem gerilimi, 2400 Pa rüzgâr ve 5400 Pa kar yükü dayanımı.",
@@ -284,7 +288,7 @@ XS = {
     "pwm": t("Küçük 12/24 V sistemler için ekonomik PWM.", "Economical PWM for small 12/24 V systems.", "Günstiger PWM für kleine 12/24-V-Anlagen.", "Экономичный ШИМ для небольших систем 12/24 В."),
     "titanx": t("48 V sistem için 5,22 kWh LiFePO₄ akü.", "5.22 kWh LiFePO₄ battery for a 48 V system.", "5,22-kWh-LiFePO₄-Akku für ein 48-V-System.", "Аккумулятор LiFePO₄ 5,22 кВт·ч для системы 48 В."),
     "p655": t("Büyük sistemler için yüksek güçlü panel.", "A high-power panel for large systems.", "Ein leistungsstarkes Modul für große Anlagen.", "Мощная панель для больших систем."),
-    "p285": t("Dar alanlar için kompakt TOPCon panel.", "A compact TOPCon panel for tight spaces.", "Ein kompaktes TOPCon-Modul für wenig Platz.", "Компактная панель TOPCon для ограниченного места."),
+    "p360": t("Orta boy panel; akülü sistemlerde ve çatıda kullanılır.", "A mid-size panel for battery systems and rooftops.", "Ein Modul mittlerer Größe für Batteriesysteme und Dächer.", "Панель среднего размера для систем с АКБ и крыш."),
     "mppt80": t("12–48 V akülerle 80 A MPPT.", "80 A MPPT for 12–48 V batteries.", "80-A-MPPT für 12–48-V-Batterien.", "MPPT 80 А для АКБ 12–48 В."),
 }
 
@@ -293,7 +297,7 @@ PANELS = [
     # id, dosya, güç, Voc (None = künye yok), ölçü, ağırlık
     ("panel-50w", "panel-50w.html", 50, None, None, None),
     ("panel-240w", "panel-240w.html", 240, 36.12, "1320 × 776 × 30 mm", "8 kg"),
-    ("panel-lexron-285w", "panel-lexron-285w.html", 285, 42.84, "780 × 1536 × 30 mm", "8,5 kg"),
+    ("panel-360w", "panel-360w.html", 360, 42.56, "1660 × 1001 × 30 mm", "19,5 kg"),
     ("panel-460w", "panel-460w.html", 460, 51.90, "2095 × 1039 × 30 mm", "25 kg"),
     ("panel-arcelik-540w", "panel-arcelik-540w.html", 540, None, None, None),
     ("panel-lexron-655w", "panel-lexron-655w.html", 655, 50.34, "2382 × 1134 × 35 mm", "31 kg"),
@@ -303,8 +307,14 @@ PANEL_SPECS = {
     "panel-50w": [("guc", "50 W"), ("hucre", "monokristal"), ("sistemv", "12 V"), ("diger", None)],
     "panel-240w": [("guc", "240 W"), ("hucre", "48"), ("voc", "36,12 V"), ("vmp", "30,23 V"), ("isc", "8,15 A"), ("imp", "7,94 A"),
                    ("sistem", "1500 V"), ("olcu", "1320 × 776 × 30 mm"), ("agirlik", "8 kg"), ("belge", "CE · IEC")],
-    "panel-lexron-285w": [("guc", "285 W"), ("hucre", "TOPCon monokristal"), ("voc", "42,84 V"), ("vmp", "35,85 V"), ("isc", "8,19 A"), ("imp", "7,95 A"),
-                          ("olcu", "780 × 1536 × 30 mm"), ("agirlik", "8,5 kg"), ("belge", "IEC 61215 / 61730 / 61701"), ("garanti", "12y/30y")],
+    # 360 W: künye SLR-MP-360 (3 Kas 2026). Modül verimi künyede %22,80 yazıyor ama
+    # ölçüden (360 W / 1,662 m²) %21,7 çıkıyor: tutarsız olduğu için YAZILMAZ.
+    # Garanti süresi künyede yok: yazılmaz (site geneli commerce.warrantyDefault).
+    # Hücre tipi: künye "60 Full Cells" der, ürün fotoğrafı yarım kesim gösterir:
+    # çelişki olduğu için "yarım/tam" denmez, yalnız "60 hücre · Mono-PERC".
+    "panel-360w": [("guc", "360 W"), ("hucre", "60 perc"), ("voc", "42,56 V"), ("vmp", "34,98 V"), ("isc", "11,37 A"), ("imp", "10,30 A"),
+                   ("tolerans", "0~+5 W"), ("sistem", "1500 V"), ("sigorta", "30 A"), ("olcu", "1660 × 1001 × 30 mm"), ("agirlik", "19,5 kg"),
+                   ("kutu", "IP68"), ("dayanim", "2400/5400/dolu"), ("sicaklik", "−0,29/700")],
     "panel-460w": [("guc", "460 W"), ("hucre", "144 yarım"), ("voc", "51,90 V"), ("vmp", "43,50 V"), ("isc", "10,84 A"), ("imp", "10,58 A"),
                    ("verim", "%23,42"), ("sistem", "1500 V"), ("olcu", "2095 × 1039 × 30 mm"), ("agirlik", "25 kg"),
                    ("kutu", "IP68"), ("dayanim", "2400/5400/dolu"), ("sicaklik", "−0,29")],
@@ -325,6 +335,7 @@ VAL = {
     "TOPCon monokristal": t("TOPCon monokristal", "TOPCon monocrystalline", "TOPCon monokristallin", "Монокристалл TOPCon"),
     "144 yarım": t("144 yarım hücre (half-cut), çoklu busbar", "144 half-cut cells, multi-busbar", "144 Halbzellen (Half-Cut), Multi-Busbar", "144 половинчатые ячейки (half-cut), multi-busbar"),
     "132 yarım TOPCon": t("132 yarım hücre, N-type TOPCon, 16 busbar", "132 half-cut cells, N-type TOPCon, 16 busbars", "132 Halbzellen, N-Type-TOPCon, 16 Busbars", "132 половинчатые ячейки, N-type TOPCon, 16 шин"),
+    "60 perc": t("60 hücre, Mono-PERC", "60 cells, Mono-PERC", "60 Zellen, Mono-PERC", "60 ячеек, Mono-PERC"),
     "12 V": t("12 V akü şarjı", "12 V battery charging", "12-V-Batterieladung", "Зарядка АКБ 12 В"),
     "A": t("A sınıf", "Grade A", "Klasse A", "Класс A"),
     "12y/30y": t("12 yıl ürün · 30 yıl güç", "12-year product · 30-year power", "12 Jahre Produkt · 30 Jahre Leistung", "12 лет на изделие · 30 лет на мощность"),
@@ -638,7 +649,7 @@ def accessory(pk, pid):
                  "A 5 m black + 5 m red solar cable set for the line between panel and charge controller.",
                  "Ein Solarkabelset aus 5 m Schwarz + 5 m Rot für die Leitung zwischen Modul und Laderegler.",
                  "Комплект солнечного кабеля 5 м чёрного + 5 м красного для линии между панелью и контроллером заряда.")
-        xs = [("mc4-set", XS["mc4"]), ("boost-mppt", XS["boost"]), ("panel-lexron-285w", XS["p285"]), ("lexron-mppt-30a", XS["mppt100"])]
+        xs = [("mc4-set", XS["mc4"]), ("boost-mppt", XS["boost"]), ("panel-360w", XS["p360"]), ("lexron-mppt-30a", XS["mppt100"])]
     else:
         sp = [(t("İçerik", "Contents", "Inhalt", "Комплектация"), t("1 erkek + 1 dişi MC4 konnektör", "1 male + 1 female MC4 connector", "1 MC4-Stecker + 1 MC4-Buchse", "1 разъём MC4 папа + 1 мама")),
               (ROW["sistemv"], t("Panel kablosu – solar kablo bağlantısı", "Panel cable – solar cable connection", "Verbindung Modulkabel – Solarkabel", "Соединение кабель панели – солнечный кабель"))]
@@ -660,7 +671,7 @@ def accessory(pk, pid):
                  "A male + female MC4 connector set that joins the panel's output cable to the solar cable.",
                  "Ein MC4-Steckerset (Stecker + Buchse), das das Modulausgangskabel mit dem Solarkabel verbindet.",
                  "Набор разъёмов MC4 папа + мама для соединения выходного кабеля панели с солнечным кабелем.")
-        xs = [("kablo-solar-5m", XS["kablo"]), ("boost-mppt", XS["boost"]), ("panel-lexron-285w", XS["p285"]), ("lexron-mppt-30a", XS["mppt100"])]
+        xs = [("kablo-solar-5m", XS["kablo"]), ("boost-mppt", XS["boost"]), ("panel-360w", XS["p360"]), ("lexron-mppt-30a", XS["mppt100"])]
     return {
         "id": pid, "file": pid + ".html", "kaynak": KAYNAK["aks"] if kablo else KAYNAK["aku"],
         "title": "%s | GESPA Enerji" % p["name"], "desc": p["desc"],

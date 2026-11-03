@@ -1905,6 +1905,13 @@ const server = http.createServer((req, res) => {
       res.writeHead(301, { Location: "/ai-cankurtaran-destek-sistemi.html" + qs });
       return res.end();
     }
+    // Lexron 285 W panel üretimden kalktı (3 Kas 2026): indekslenmiş sayfa 404 olmasın,
+    // yerine gelen 360 W panele kalıcı yönlendirilir (dil kopyaları dahil).
+    var oldPanel = /^((?:\/(?:en|de|ru))?)\/panel-lexron-285w(?:\.html)?$/.exec(urlPath);
+    if (oldPanel) {
+      res.writeHead(301, { Location: oldPanel[1] + "/panel-360w.html" + qs });
+      return res.end();
+    }
     // Yasal sayfalar artık YALNIZCA Türkçe yayınlanır (bağlayıcı metin Türkçedir;
     // build.js TR_ONLY listesine bak). Eskiden /en /de /ru kopyaları vardı ve
     // indekslenmiş olabilir — 404 yerine TR sürümüne kalıcı yönlendir ki

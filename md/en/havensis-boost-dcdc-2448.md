@@ -3,7 +3,7 @@ title: "Havensis BOOST DC-DC Charger — 12/24V to 36–72V Batteries"
 description: "Havensis BOOST DCDC-2448: a DC-DC charger that charges 36, 48, 60 and 72 V battery banks from a 12/24 V vehicle battery."
 canonical: https://www.gespaenerji.com/en/havensis-boost-dcdc-2448.html
 lang: en
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -145,7 +145,7 @@ Complementary products
 
 Order them together and everything arrives in one shipment.
 
-[![Havensis Solar-60AMPS 150|60 MPPT Charge Controller 12/24/36/48 V 60 A](https://www.gespaenerji.com/assets/img/products/havensis-s60amps150.webp)Havensis Solar-60AMPS 150|60 MPPT Charge Controller 12/24/36/48 V 60 AA 150 V input MPPT to charge the 48 V battery bank from the sun as well.₺16.200 View the Product →](https://www.gespaenerji.com/en/havensis-mppt-60a-150v.html)[![MS Teknik BOOST MPPT 24-72 V Charge Controller](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Charge ControllerDirect charging of a 24–72 V battery bank from low-voltage panels.₺7.200 View the Product →](https://www.gespaenerji.com/en/elektrikli-arac-donusum.html)[![TitanX 51.2 V 102 Ah LiFePO₄ Battery](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51.2 V 102 Ah LiFePO₄ Battery5.22 kWh LiFePO₄ battery for a 48 V system.₺73.400 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=aku-titanx-51v-102ah)
+[![Havensis Solar-60AMPS 150|60 MPPT Charge Controller 12/24/36/48 V 60 A](https://www.gespaenerji.com/assets/img/products/havensis-s60amps150.webp)Havensis Solar-60AMPS 150|60 MPPT Charge Controller 12/24/36/48 V 60 AA 150 V input MPPT to charge the 48 V battery bank from the sun as well.₺16.200 View the Product →](https://www.gespaenerji.com/en/havensis-mppt-60a-150v.html)[![MS Teknik BOOST MPPT 24-72 V Charge Controller](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Charge ControllerDirect charging of a 24–72 V battery bank from low-voltage panels.₺7.200 View the Product →](https://www.gespaenerji.com/en/elektrikli-arac-donusum.html)[![TitanX 51.2 V 102 Ah LiFePO₄ Battery](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51.2 V 102 Ah LiFePO₄ Battery5.22 kWh LiFePO₄ battery for a 48 V system.₺73.400 View the Product →](https://www.gespaenerji.com/en/aku-titanx-51v-102ah.html)
 
 Frequently Asked Questions
 

@@ -3,7 +3,7 @@ title: "460 W Half-Cut Monokristal Güneş Paneli | GESPA Enerji"
 description: "460 W Half-Cut Monokristal Güneş Paneli: Golf aracı tipi elektrikli araçlar ve küçük off-grid sistemler Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/panel-460w.html
 lang: tr
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -143,7 +143,7 @@ Mağazamızdaki tüm paneller; tire (—) olan değerin künyesi elimizde yok.
 | --- | --- | --- | --- | --- |
 | 50W Güneş Paneli | 50 W | — | — | — |
 | 240 W Güneş Paneli (48 Hücre) | 240 W | 36,12 V | 1320 × 776 × 30 mm | 8 kg |
-| Lexron 285 W Güneş Paneli | 285 W | 42,84 V | 780 × 1536 × 30 mm | 8,5 kg |
+| 360 W Güneş Paneli | 360 W | 42,56 V | 1660 × 1001 × 30 mm | 19,5 kg |
 | 460 W Half-Cut Monokristal Güneş Paneli Bu ürün | 460 W | 51,9 V | 2095 × 1039 × 30 mm | 25 kg |
 | Arçelik 540 W Güneş Paneli | 540 W | — | — | — |
 | Lexron 655 W TOPCon Güneş Paneli | 655 W | 50,34 V | 2382 × 1134 × 35 mm | 31 kg |

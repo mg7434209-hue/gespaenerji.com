@@ -41,7 +41,7 @@ const PAGES = [
   "lexron-pwm-20a.html", "lexron-pwm-30a.html", "lexron-pwm-40a.html", "lexron-pwm-60a.html",
   "lexron-mppt-20a.html", "lexron-mppt-30a.html", "lexron-mppt-40a.html", "lexron-mppt-80a-hv.html",
   // Paneller, akü, kablo, MC4 — tools/urun-sayfalar.py üretir
-  "panel-50w.html", "panel-240w.html", "panel-lexron-285w.html", "panel-460w.html", "panel-arcelik-540w.html", "panel-lexron-655w.html", "panel-700w.html",
+  "panel-50w.html", "panel-240w.html", "panel-360w.html", "panel-460w.html", "panel-arcelik-540w.html", "panel-lexron-655w.html", "panel-700w.html",
   "aku-titanx-51v-102ah.html", "kablo-solar-5m.html", "mc4-set.html",
   "hero-led-ampul-10w.html", "hero-led-solar-sokak-100w.html",
   "hero-led-aplik-50w.html", "hero-led-bahce-50w.html", "hero-led-solar-sokak-200w.html", "hero-led-solar-sokak-600w.html",
@@ -250,10 +250,10 @@ const META = {
     de: { t: "240-W-Solarmodul (48 Zellen) | GESPA Energy", d: "240-W-Solarmodul mit 48 Zellen: Voc 36,12 V, 1320 × 776 × 30 mm, 8 kg. Für Mini-Elektroautos und kleine Inselanlagen." },
     ru: { t: "Солнечная панель 240 Вт (48 ячеек) | GESPA", d: "Солнечная панель 240 Вт, 48 ячеек: Voc 36,12 В, 1320 × 776 × 30 мм, 8 кг. Для мини-электромобилей и небольших автономных систем." }
   },
-  "panel-lexron-285w.html": {
-    en: { t: "Lexron 285W TOPCon Solar Panel | GESPA Energy", d: "Lexron 210R PowerLite 285 W TOPCon panel: Voc 42.84 V, 780 × 1536 × 30 mm, 8.5 kg, 12-year product and 30-year power warranty." },
-    de: { t: "Lexron 285-W-TOPCon-Solarmodul | GESPA Energy", d: "Lexron 210R PowerLite 285-W-TOPCon-Modul: Voc 42,84 V, 780 × 1536 × 30 mm, 8,5 kg, 12 Jahre Produkt- und 30 Jahre Leistungsgarantie." },
-    ru: { t: "Солнечная панель Lexron 285 Вт TOPCon | GESPA", d: "Панель Lexron 210R PowerLite 285 Вт TOPCon: Voc 42,84 В, 780 × 1536 × 30 мм, 8,5 кг, 12 лет на изделие и 30 лет на мощность." }
+  "panel-360w.html": {
+    en: { t: "360W Mono-PERC Solar Panel | GESPA Energy", d: "360 W 60-cell Mono-PERC panel: Voc 42.56 V, 1660 × 1001 × 30 mm, 19.5 kg, IP68 junction box, 1500 V." },
+    de: { t: "360W Mono-PERC-Solarmodul | GESPA Energy", d: "360-W-Mono-PERC-Modul mit 60 Zellen: Voc 42,56 V, 1660 × 1001 × 30 mm, 19,5 kg, IP68-Anschlussdose, 1500 V." },
+    ru: { t: "Солнечная панель Mono-PERC 360 Вт | GESPA", d: "Панель Mono-PERC 360 Вт, 60 ячеек: Voc 42,56 В, 1660 × 1001 × 30 мм, 19,5 кг, коробка IP68, 1500 В." }
   },
   "panel-460w.html": {
     en: { t: "460W Half-Cut Monocrystalline Solar Panel | GESPA Energy", d: "460 W panel with 144 half-cut cells: 23.42% efficiency, Voc 51.90 V, 2095 × 1039 × 30 mm, 25 kg, IP68." },
@@ -1968,7 +1968,7 @@ const LLMS_GROUPS = [
     "havensis-mppt-30a.html", "havensis-mppt-60a.html", "havensis-mppt-60a-150v.html",
     "havensis-dcdc-30a.html", "havensis-dcdc-40a.html", "havensis-dcdc-40a-cift-yonlu.html", "havensis-boost-dcdc-2448.html",
     "lexron-pwm-20a.html", "lexron-pwm-30a.html", "lexron-pwm-40a.html", "lexron-pwm-60a.html", "lexron-mppt-20a.html", "lexron-mppt-30a.html", "lexron-mppt-40a.html", "lexron-mppt-80a-hv.html",
-    "panel-50w.html", "panel-240w.html", "panel-lexron-285w.html", "panel-460w.html", "panel-arcelik-540w.html", "panel-lexron-655w.html", "panel-700w.html", "aku-titanx-51v-102ah.html", "kablo-solar-5m.html", "mc4-set.html",
+    "panel-50w.html", "panel-240w.html", "panel-360w.html", "panel-460w.html", "panel-arcelik-540w.html", "panel-lexron-655w.html", "panel-700w.html", "aku-titanx-51v-102ah.html", "kablo-solar-5m.html", "mc4-set.html",
     "hero-led-ampul-10w.html", "hero-led-solar-sokak-100w.html",
     "hero-led-aplik-50w.html", "hero-led-bahce-50w.html", "hero-led-solar-sokak-200w.html", "hero-led-solar-sokak-600w.html",
     "su-isitici.html", "toptan.html"]],

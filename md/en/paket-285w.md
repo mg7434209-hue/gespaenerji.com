@@ -3,7 +3,7 @@ title: "240W Solar Panel Package — Plug-and-Play | GESPA"
 description: "Complete 240W solar kit for camping, caravans and small needs: panel + power box + cables. Runs a TV, lights and phone charging; 23–25 kg, plug-and-play."
 canonical: https://www.gespaenerji.com/en/paket-285w.html
 lang: en
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 

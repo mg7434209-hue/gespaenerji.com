@@ -3,7 +3,7 @@ title: "Контроллер заряда Lexron 20А ШИМ 12/24В | GESPA"
 description: "Солнечный контроллер заряда Lexron 20 А ШИМ для систем с АКБ 12/24 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции."
 canonical: https://www.gespaenerji.com/ru/lexron-pwm-20a.html
 lang: ru
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -152,7 +152,7 @@ Lexron 20 A PWM имеет ток заряда 20 А для систем с АК
 
 Закажите вместе, и всё придёт одной посылкой.
 
-[![Солнечная панель 50 Вт](https://www.gespaenerji.com/assets/img/products/panel-50w.webp)Солнечная панель 50 ВтКомпактная панель для небольших систем 12 В.₺1.750 В корзину →](https://www.gespaenerji.com/ru/sepet.html?ekle=panel-50w)[![Солнечная панель Lexron 285 Вт](https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp)Солнечная панель Lexron 285 ВтВысоковольтная панель; эффективнее всего с MPPT.₺7.500 В корзину →](https://www.gespaenerji.com/ru/sepet.html?ekle=panel-lexron-285w)[![Комплект солнечного кабеля (5 м чёрный + 5 м красный)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Комплект солнечного кабеля (5 м чёрный + 5 м красный)Для соединения панели с контроллером.₺1.000 В корзину →](https://www.gespaenerji.com/ru/sepet.html?ekle=kablo-solar-5m)[![Комплект коннекторов MC4](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)Комплект коннекторов MC4Чтобы соединить кабель панели с солнечным кабелем.₺100 В корзину →](https://www.gespaenerji.com/ru/sepet.html?ekle=mc4-set)
+[![Солнечная панель 50 Вт](https://www.gespaenerji.com/assets/img/products/panel-50w.webp)Солнечная панель 50 ВтКомпактная панель для небольших систем 12 В.₺1.750 Смотреть продукт →](https://www.gespaenerji.com/ru/panel-50w.html)[![Солнечная панель 360 Вт](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)Солнечная панель 360 ВтВысоковольтная панель; эффективнее всего с MPPT.₺7.200 Смотреть продукт →](https://www.gespaenerji.com/ru/panel-360w.html)[![Комплект солнечного кабеля (5 м чёрный + 5 м красный)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Комплект солнечного кабеля (5 м чёрный + 5 м красный)Для соединения панели с контроллером.₺1.000 Смотреть продукт →](https://www.gespaenerji.com/ru/kablo-solar-5m.html)[![Комплект коннекторов MC4](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)Комплект коннекторов MC4Чтобы соединить кабель панели с солнечным кабелем.₺100 Смотреть продукт →](https://www.gespaenerji.com/ru/mc4-set.html)
 
 Частые вопросы
 
@@ -160,7 +160,7 @@ Lexron 20 A PWM имеет ток заряда 20 А для систем с АК
 
 ### Что выбрать: ШИМ или MPPT?
 
-Если напряжение панели близко к напряжению АКБ (например, панель класса 12 В на АКБ 12 В), ШИМ экономичен и достаточен. Если напряжение панели намного выше (как у панелей 285 Вт и 655 Вт в нашем магазине), MPPT соберёт больше энергии с той же панели — тогда посмотрите наши модели MPPT.
+Если напряжение панели близко к напряжению АКБ (например, панель класса 12 В на АКБ 12 В), ШИМ экономичен и достаточен. Если напряжение панели намного выше (как у панелей 360 Вт и 655 Вт в нашем магазине), MPPT соберёт больше энергии с той же панели — тогда посмотрите наши модели MPPT.
 
 ### Какую мощность панелей можно подключить?
 

@@ -3,7 +3,7 @@ title: "Buy Solar Panels, Batteries & MPPT Controllers | GESPA"
 description: "Lexron and Arçelik solar panels, LiFePO₄ batteries, MPPT/PWM charge controllers, solar cable and ready kits. VAT-inclusive prices, shipping across Türkiye."
 canonical: https://www.gespaenerji.com/en/online-satis.html
 lang: en
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -74,6 +74,16 @@ Camping, caravans, field work and home backup power
 **₺122.800**≈ $2.495
 
 💰 By bank transfer: **₺119.100**
+
+VAT included · shipping excluded
+
+### [360 W Solar Panel](https://www.gespaenerji.com/en/panel-360w.html)
+
+Cabins, caravans, rooftops and small off-grid systems
+
+**₺7.200**≈ $146
+
+💰 By bank transfer: **₺7.000**
 
 VAT included · shipping excluded
 
@@ -400,16 +410,6 @@ Large gardens, streets, estates, car parks and factory yards
 **₺2.650**≈ $54
 
 💰 By bank transfer: **₺2.550**
-
-VAT included · shipping excluded
-
-### [Lexron 285 W Solar Panel](https://www.gespaenerji.com/en/panel-lexron-285w.html)
-
-Balconies, cabins and small off-grid systems
-
-**₺7.500**≈ $152
-
-💰 By bank transfer: **₺7.300**
 
 VAT included · shipping excluded
 

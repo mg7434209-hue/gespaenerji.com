@@ -3,7 +3,7 @@ title: "240W Solar Panel (48 Cells) | GESPA Energy"
 description: "240 W solar panel with 48 cells: Voc 36.12 V, 1320 × 776 × 30 mm, 8 kg. For mini electric cars and small off-grid systems."
 canonical: https://www.gespaenerji.com/en/panel-240w.html
 lang: en
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -140,7 +140,7 @@ All panels in our shop; a dash (—) means we do not have that value's datasheet
 | --- | --- | --- | --- | --- |
 | 50 W Solar Panel | 50 W | — | — | — |
 | 240 W Solar Panel (48 Cells) This product | 240 W | 36.12 V | 1320 × 776 × 30 mm | 8 kg |
-| Lexron 285 W Solar Panel | 285 W | 42.84 V | 780 × 1536 × 30 mm | 8.5 kg |
+| 360 W Solar Panel | 360 W | 42.56 V | 1660 × 1001 × 30 mm | 19.5 kg |
 | 460 W Half-Cut Monocrystalline Solar Panel | 460 W | 51.9 V | 2095 × 1039 × 30 mm | 25 kg |
 | Arçelik 540 W Solar Panel | 540 W | — | — | — |
 | Lexron 655 W TOPCon Solar Panel | 655 W | 50.34 V | 2382 × 1134 × 35 mm | 31 kg |

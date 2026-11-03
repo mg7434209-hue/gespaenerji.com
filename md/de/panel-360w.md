@@ -1,29 +1,29 @@
 ---
-title: "Lexron 285-W-TOPCon-Solarmodul | GESPA Energy"
-description: "Lexron 210R PowerLite 285-W-TOPCon-Modul: Voc 42,84 V, 780 × 1536 × 30 mm, 8,5 kg, 12 Jahre Produkt- und 30 Jahre Leistungsgarantie."
-canonical: https://www.gespaenerji.com/de/panel-lexron-285w.html
+title: "360W Mono-PERC-Solarmodul | GESPA Energy"
+description: "360-W-Mono-PERC-Modul mit 60 Zellen: Voc 42,56 V, 1660 × 1001 × 30 mm, 19,5 kg, IP68-Anschlussdose, 1500 V."
+canonical: https://www.gespaenerji.com/de/panel-360w.html
 lang: de
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
-[Startseite](https://www.gespaenerji.com/de/) / [Onlineshop](https://www.gespaenerji.com/de/online-satis.html) / Lexron 285-W-Solarmodul
+[Startseite](https://www.gespaenerji.com/de/) / [Onlineshop](https://www.gespaenerji.com/de/online-satis.html) / 360-W-Solarmodul
 
-![Lexron 285 W Güneş Paneli — Produktfoto](https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp)
+![360 W Güneş Paneli — Produktfoto](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)
 
 🔆 Solarmodul
 
-# Lexron 285-W-Solarmodul
+# 360-W-Solarmodul
 
-Artikelnummer: **GES-PNL-285** Ausverkauft
+Artikelnummer: **GES-PNL-360** Auf Lager / bestellbar
 
-285-W-Solarmodul — Balkon, Gartenhaus und kleine Off-Grid-Systeme.
+360-W-Solarmodul — Gartenhaus, Wohnmobil, Dach und kleine Off-Grid-Anlagen.
 
-**₺7.500** ≈ $152
+**₺7.200** ≈ $146
 
 Preis inkl. MwSt.
 
-💰 Per Überweisung: **₺7.300**
+💰 Per Überweisung: **₺7.000**
 
 💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
 
@@ -32,15 +32,15 @@ Preis inkl. MwSt.
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 
 [⚡ Jetzt kaufen](https://www.gespaenerji.com/de/sepet.html)
-[💬 Per WhatsApp fragen](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Lexron%20285%20W%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-285)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpanel-lexron-285w.html)
+[💬 Per WhatsApp fragen](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22360%20W%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-360)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpanel-360w.html)
 
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
 - 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
-- 🛡️ Garantie: **12 Jahre Produkt · 30 Jahre Leistung**
+- 🛡️ Garantie: **2 Jahre**
 - 🔒 Sichere Zahlung: iyzico / tami · Rechnung zu jeder Bestellung
 - 🔌 Laderegler und Kabel sind nicht im Lieferumfang enthalten.
 
-🔆 285 W TOPCon ⚡ 42,84 V Voc ⚖️ 8,5 kg
+🔆 360 W Mono-PERC ⚡ 42,56 V Voc ⚖️ 19,5 kg
 
 ### ✅ Geeignet für
 
@@ -54,22 +54,25 @@ Preis inkl. MwSt.
 - Geräte, deren Moduleingang unter dieser Voc liegt (siehe Tabelle)
 - Alleiniger Netzanschluss (Wechselrichter nötig)
 
-Lexron 210R PowerLite TOPCon-Serie, 285-W-Monokristallin-Solarmodul. Voc 42,84 V · Isc 8,19 A · Vmp 35,85 V · Imp 7,95 A. Maße 780 × 1536 × 30 mm, Gewicht 8,5 kg. Zertifiziert nach IEC 61215 / 61730 / 61701; 12 Jahre Produkt- und Verarbeitungs-, 30 Jahre Leistungsgarantie.
+60-Zellen-Mono-PERC-Solarmodul, 360 W. Voc 42,56 V · Isc 11,37 A · Vmp 34,98 V · Imp 10,30 A. Maße 1660 × 1001 × 30 mm, Gewicht 19,5 kg. IP68-Anschlussdose, 3 Bypass-Dioden; 1500 V Systemspannung.
 
 Ein Modul wird nie direkt an eine Batterie angeschlossen: Dazwischen sitzt ein Laderegler (Batteriesystem) oder ein Wechselrichter (Netzanlage). Unten finden Sie passende Geräte für dieses Modul und die Grenzen der Reihenschaltung.
 
-| Marke | Lexron |
+| Leistung | 360 W |
 | --- | --- |
-| Leistung | 285 W |
-| Zellen | TOPCon monokristallin |
-| Voc | 42,84 V |
-| Vmp | 35,85 V |
-| Isc | 8,19 A |
-| Imp | 7,95 A |
-| Maße | 780 × 1536 × 30 mm |
-| Gewicht | 8,5 kg |
-| Zertifikate | IEC 61215 / 61730 / 61701 |
-| Garantie | 12 Jahre Produkt · 30 Jahre Leistung |
+| Zellen | 60 Zellen, Mono-PERC |
+| Voc | 42,56 V |
+| Vmp | 34,98 V |
+| Isc | 11,37 A |
+| Imp | 10,30 A |
+| Leistungstoleranz | 0~+5 W |
+| Max. Systemspannung | 1500 V |
+| Max. Reihensicherung | 30 A |
+| Maße | 1660 × 1001 × 30 mm |
+| Gewicht | 19,5 kg |
+| Anschlussdose | IP68, 3 Bypass-Dioden |
+| Mechanische Belastbarkeit | 2400 Pa Wind · 5400 Pa Schnee · 25 mm Hagel |
+| Temperatur | Pmax −0,29 %/°C · Voc −0,25 %/°C · Isc +0,046 %/°C · NOCT 42 ± 2 °C · Betrieb −40…+85 °C |
 
 Die Werte stammen aus dem Datenblatt des Herstellers. Wenn Sie einen hier nicht aufgeführten Wert benötigen, schreiben Sie uns; wir klären ihn mit dem Hersteller.
 
@@ -118,7 +121,7 @@ Installation
 
 Das Modul wird an einen Laderegler (Batteriesystem) oder an den Moduleingang eines Wechselrichters (Netzanlage) angeschlossen.
 
-- ☀️ **Solarmodul**285 W
+- ☀️ **Solarmodul**360 W
 - 🔗 **MC4**Solarkabel
 - 📟 **Laderegler / Wechselrichter**MPPT · PWM
 - 🔋 **Batterie / Netz**je nach Anlage
@@ -141,7 +144,7 @@ Alle Module in unserem Shop; ein Strich (—) bedeutet, dass uns der Wert nicht 
 | --- | --- | --- | --- | --- |
 | 50-W-Solarmodul | 50 W | — | — | — |
 | 240-W-Solarmodul (48 Zellen) | 240 W | 36,12 V | 1320 × 776 × 30 mm | 8 kg |
-| Lexron 285-W-Solarmodul Dieses Produkt | 285 W | 42,84 V | 780 × 1536 × 30 mm | 8,5 kg |
+| 360-W-Solarmodul Dieses Produkt | 360 W | 42,56 V | 1660 × 1001 × 30 mm | 19,5 kg |
 | 460-W-Half-Cut-Monokristallin-Solarmodul | 460 W | 51,9 V | 2095 × 1039 × 30 mm | 25 kg |
 | Arçelik 540-W-Solarmodul | 540 W | — | — | — |
 | Lexron 655-W-TOPCon-Solarmodul | 655 W | 50,34 V | 2382 × 1134 × 35 mm | 31 kg |
@@ -164,7 +167,7 @@ Häufige Fragen
 
 ### Wie viele Module kann ich in Reihe schalten?
 
-Die Voc des Moduls beträgt 42,84 V. Mit 10 % Reserve für den Anstieg der Voc bei Kälte: an MPPT-Reglern mit 100-V-Moduleingang (z. B. Havensis Solar-30AMPS) höchstens 2, an 150-V-Eingängen (z. B. Havensis Solar-60AMPS 150|60) höchstens 3 Module in Reihe. Ein einzelnes Modul passt auch an den 15–60-V-Eingang des BOOST MPPT aus unseren E-Fahrzeug-Sets. Prüfen Sie den genauen Aufbau vor der Bestellung mit uns.
+Die Voc des Moduls beträgt 42,56 V. Mit 10 % Reserve für den Anstieg der Voc bei Kälte: an MPPT-Reglern mit 100-V-Moduleingang (z. B. Havensis Solar-30AMPS) höchstens 2, an 150-V-Eingängen (z. B. Havensis Solar-60AMPS 150|60) höchstens 3 Module in Reihe. Ein einzelnes Modul passt auch an den 15–60-V-Eingang des BOOST MPPT aus unseren E-Fahrzeug-Sets. Prüfen Sie den genauen Aufbau vor der Bestellung mit uns.
 
 ### Kann ich das Modul direkt an eine Batterie anschließen?
 
@@ -186,7 +189,7 @@ Kundenbewertungen
 
 Für dieses Produkt gibt es noch keine veröffentlichte Bewertung. Wenn Sie es gekauft haben, schreiben Sie uns Ihre Erfahrung; nach Prüfung erscheint sie hier.
 
-[Bewertung schreiben (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Lexron%20285%20W%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-285)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Unsere Google-Bewertungen ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
+[Bewertung schreiben (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22360%20W%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-360)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Unsere Google-Bewertungen ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Bestellen Sie das Modul noch heute
 
@@ -195,5 +198,5 @@ Für Lager & Lieferung per WhatsApp schreiben; Antwort am selben Tag.
 [🛒 In den Warenkorb & Bestellung abschließen](https://www.gespaenerji.com/de/sepet.html)
 
 ---
-Kaynak sayfa: https://www.gespaenerji.com/de/panel-lexron-285w.html · GESPA Enerji · 0543 743 42 09 · info@gespaenerji.com · Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01, Manavgat / Antalya
+Kaynak sayfa: https://www.gespaenerji.com/de/panel-360w.html · GESPA Enerji · 0543 743 42 09 · info@gespaenerji.com · Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01, Manavgat / Antalya
 Tüm sayfalar ve ürünler: https://www.gespaenerji.com/llms.txt · Ayrıntı: https://www.gespaenerji.com/llms-full.txt

@@ -3,7 +3,7 @@ title: "Зарядное DC-DC Havensis 30А — зарядка автодома
 description: "Зарядное устройство DC-DC Havensis DCDC-1224 заряжает бытовой аккумулятор автодома от генератора в пути: 30 А, 12/24 В, КПД 96,4 %, распознавание выключенного…"
 canonical: https://www.gespaenerji.com/ru/havensis-dcdc-30a.html
 lang: ru
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -173,7 +173,7 @@ Havensis DCDC-1224 — однонаправленное зарядное уст�
 
 Закажите вместе, и всё придёт одной посылкой.
 
-[![Контроллер заряда MPPT Havensis Solar-30AMPS 12/24 В 30 А](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Контроллер заряда MPPT Havensis Solar-30AMPS 12/24 В 30 АДобавьте панель на крышу автодома — бытовой аккумулятор будет заряжаться от солнца и на стоянке.₺6.400 Смотреть продукт →](https://www.gespaenerji.com/ru/havensis-mppt-30a.html)[![Солнечная панель Lexron 285 Вт](https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp)Солнечная панель Lexron 285 Вт780 × 1536 мм, 8,5 кг: компактная панель TOPCon, которую легко поднять на крышу.₺7.500 В корзину →](https://www.gespaenerji.com/ru/sepet.html?ekle=panel-lexron-285w)[![Комплект солнечного кабеля (5 м чёрный + 5 м красный)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Комплект солнечного кабеля (5 м чёрный + 5 м красный)От панели к контроллеру: 5 м чёрного + 5 м красного.₺1.000 В корзину →](https://www.gespaenerji.com/ru/sepet.html?ekle=kablo-solar-5m)[![Комплект коннекторов MC4](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)Комплект коннекторов MC4Соединяет кабель панели с солнечным кабелем.₺100 В корзину →](https://www.gespaenerji.com/ru/sepet.html?ekle=mc4-set)
+[![Контроллер заряда MPPT Havensis Solar-30AMPS 12/24 В 30 А](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Контроллер заряда MPPT Havensis Solar-30AMPS 12/24 В 30 АДобавьте панель на крышу автодома — бытовой аккумулятор будет заряжаться от солнца и на стоянке.₺6.400 Смотреть продукт →](https://www.gespaenerji.com/ru/havensis-mppt-30a.html)[![Солнечная панель 360 Вт](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)Солнечная панель 360 Вт1660 × 1001 мм, 19,5 кг: панель среднего размера, которую может поднять на крышу один человек.₺7.200 Смотреть продукт →](https://www.gespaenerji.com/ru/panel-360w.html)[![Комплект солнечного кабеля (5 м чёрный + 5 м красный)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Комплект солнечного кабеля (5 м чёрный + 5 м красный)От панели к контроллеру: 5 м чёрного + 5 м красного.₺1.000 Смотреть продукт →](https://www.gespaenerji.com/ru/kablo-solar-5m.html)[![Комплект коннекторов MC4](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)Комплект коннекторов MC4Соединяет кабель панели с солнечным кабелем.₺100 Смотреть продукт →](https://www.gespaenerji.com/ru/mc4-set.html)
 
 Частые вопросы
 

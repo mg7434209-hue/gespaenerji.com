@@ -293,13 +293,13 @@ window.GESPA.config = {
   // "Tümü" ve teknik kategoride görünür).
   shopScenarios: [
     { id: "bagevi", icon: "🏡", label: "Bağ evi & kamp", hint: "Şebekesiz küçük ev",
-      ids: ["kit-285w", "kit-2x540w", "unv-trek-pro-2500", "panel-50w", "panel-240w", "lexron-pwm-20a", "lexron-pwm-30a", "lexron-pwm-40a", "lexron-pwm-60a", "lexron-mppt-20a", "lexron-mppt-30a", "lexron-mppt-40a", "hero-led-ampul-10w", "kablo-solar-5m", "mc4-set"] },
+      ids: ["kit-285w", "kit-2x540w", "unv-trek-pro-2500", "panel-50w", "panel-240w", "panel-360w", "lexron-pwm-20a", "lexron-pwm-30a", "lexron-pwm-40a", "lexron-pwm-60a", "lexron-mppt-20a", "lexron-mppt-30a", "lexron-mppt-40a", "hero-led-ampul-10w", "kablo-solar-5m", "mc4-set"] },
     { id: "karavan", icon: "🚐", label: "Karavan & tekne", hint: "12/24 V mobil sistem",
       ids: ["unv-trek-pro-2500", "havensis-dcdc-1224-30", "havensis-dcdc-1224-40", "havensis-dcdc-1224b-40", "havensis-dcdc-2448", "panel-50w", "panel-240w", "hero-led-ampul-10w", "lexron-mppt-20a", "lexron-pwm-20a", "kablo-solar-5m", "mc4-set"] },
     { id: "arac", icon: "🛺", label: "Elektrikli araç şarjı", hint: "Triportör, golf, mini araç",
       ids: ["set-yolcu", "set-kargo", "set-golf", "set-mini", "boost-mppt", "aku-lifepo4-72v", "panel-240w", "panel-460w", "panel-700w", "kablo-solar-5m", "mc4-set"] },
     { id: "ev", icon: "🏠", label: "Ev & çatı sistemi", hint: "Büyük panel, akü, MPPT",
-      ids: ["panel-460w", "panel-arcelik-540w", "panel-lexron-655w", "panel-700w", "panel-240w", "aku-titanx-51v-102ah", "havensis-s30amps", "havensis-s60amps100", "havensis-s60amps150", "lexron-mppt-80a-hv", "lexron-pwm-60a", "kablo-solar-5m", "mc4-set"] },
+      ids: ["panel-460w", "panel-arcelik-540w", "panel-lexron-655w", "panel-700w", "panel-360w", "panel-240w", "aku-titanx-51v-102ah", "havensis-s30amps", "havensis-s60amps100", "havensis-s60amps150", "lexron-mppt-80a-hv", "lexron-pwm-60a", "kablo-solar-5m", "mc4-set"] },
     { id: "aydinlatma", icon: "💡", label: "Bahçe & sokak aydınlatması", hint: "Elektrik hattı gerektirmez",
       ids: ["hero-led-solar-sokak-100w", "hero-led-solar-sokak-200w", "hero-led-solar-sokak-600w", "hero-led-aplik-50w", "hero-led-bahce-50w", "hero-led-ampul-10w"] },
     { id: "toptan", icon: "📦", label: "Toptan & proje", hint: "Çok adet, kurumsal teklif", href: "toptan.html" }
@@ -430,18 +430,22 @@ window.GESPA.config = {
     // assets/img/products/kaynak/lexron-*.pdf. Künyede OLMAYAN değer yazılmaz.
     // DİKKAT: "240W Güneş Paneli Paketi" (kit-285w, ₺24.000; Eki 2026 öncesi 285 W panelliydi) AYRI bir üründür —
     // o komple sistem, bu tek panel. Adları karıştırma.
+    // 360 W panel (3 Kas 2026): Lexron 285 W üretimden kalktı, yerine geldi.
+    // Künye SLR-MP-360 (işletme gönderdi); MARKA/TEDARİKÇİ YAZILMAZ, PDF repoya
+    // KONMAZ. Künyede modül verimi %22,80 yazar ama ölçüden %21,7 çıkar: YAZILMAZ.
+    // Hücre: künye "60 Full Cells", fotoğraf yarım kesim görünür: "yarım/tam"
+    // denmez. Garanti süresi künyede yok: yazılmaz (commerce.warrantyDefault).
     {
-      id: "panel-lexron-285w", icon: "🔆", tag: "Panel", group: "panel",
-      url: "panel-lexron-285w.html",
-      warranty: "12 yıl ürün · 30 yıl güç",                     // sayfadaki güven satırı; künyeden
-      sku: "GES-PNL-285", brand: "Lexron",
-      img: "assets/img/products/panel-lexron-285w.webp",
-      price: 152.44, currency: "USD", stock: 0,   // 26 Eki 2026: stokta yok (satılamaz)                     // ₺7.500 @ 49,2
-      chips: ["🔆 285 W TOPCon", "⚡ 42,84 V Voc", "⚖️ 8,5 kg"],
-      for: "Balkon, bağ evi ve küçük off-grid sistemler",
-      name: "Lexron 285 W Güneş Paneli",
-      desc: "Lexron 210R PowerLite TOPCon serisi 285 W monokristal güneş paneli. Voc 42,84 V · Isc 8,19 A · Vmp 35,85 V · Imp 7,95 A. Ölçü 780 × 1536 × 30 mm, ağırlık 8,5 kg. IEC 61215 / 61730 / 61701 belgeli; 12 yıl ürün ve işçilik, 30 yıl güç garantisi.",
-      features: ["285 W · TOPCon monokristal hücre", "Voc 42,84 V · Isc 8,19 A · Vmp 35,85 V · Imp 7,95 A", "780 × 1536 × 30 mm · 8,5 kg", "12 yıl ürün · 30 yıl güç garantisi"]
+      id: "panel-360w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-360w.html",
+      sku: "GES-PNL-360",
+      img: "assets/img/products/panel-360w.webp",
+      price: 146.34, currency: "USD",                     // ₺7.200 @ 49,2
+      chips: ["🔆 360 W Mono-PERC", "⚡ 42,56 V Voc", "⚖️ 19,5 kg"],
+      for: "Bağ evi, karavan, çatı ve küçük off-grid sistemler",
+      name: "360 W Güneş Paneli",
+      desc: "60 hücreli Mono-PERC güneş paneli, 360 W. Voc 42,56 V · Isc 11,37 A · Vmp 34,98 V · Imp 10,30 A. Ölçü 1660 × 1001 × 30 mm, ağırlık 19,5 kg. IP68 bağlantı kutusu, 3 bypass diyot; 1500 V sistem gerilimi.",
+      features: ["360 W · 60 hücre · Mono-PERC", "Voc 42,56 V · Isc 11,37 A · Vmp 34,98 V · Imp 10,30 A", "1660 × 1001 × 30 mm · 19,5 kg", "IP68 bağlantı kutusu · 3 bypass diyot · 1500 V"]
     },
     {
       id: "panel-lexron-655w", icon: "🔆", tag: "Panel", group: "panel",
@@ -1086,7 +1090,7 @@ window.GESPA.config = {
       panel: [
         { id: "pnl-lexron-655", pkg: "panel-lexron-655w", w: 655 },
         { id: "pnl-arcelik-540", pkg: "panel-arcelik-540w", w: 540 },
-        { id: "pnl-lexron-285", pkg: "panel-lexron-285w", w: 285 },   // stock: 0 → kurucudan kendiliğinden düşer
+        { id: "pnl-360", pkg: "panel-360w", w: 360 },
         { id: "pnl-240", pkg: "panel-240w", w: 240 }
       ],
       battery: [

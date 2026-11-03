@@ -3,7 +3,7 @@ title: "Havensis 60A MPPT Controller 12–48V, 150V — 5000W Panels"
 description: "Havensis Solar-60AMPS 150|60 MPPT charge controller: 12/24/36/48 V battery, 60 A charging, 150 V panel input, up to 5000 W of panels."
 canonical: https://www.gespaenerji.com/en/havensis-mppt-60a-150v.html
 lang: en
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -171,7 +171,7 @@ The open-circuit voltages (Voc) of panels wired in series add up; the total must
 
 | Panel | Voc (datasheet) | Max. in series on this controller |
 | --- | --- | --- |
-| Lexron 285 W Solar Panel | 42.84 V | 3 panels (128.52 V) |
+| 360 W Solar Panel | 42.56 V | 3 panels (127.68 V) |
 | Lexron 655 W TOPCon Solar Panel | 50.34 V | 2 panels (100.68 V) |
 
 Voc rises in the cold; in areas that drop below −10 °C in winter, check the layout with us. Total panel power must not exceed 5000 W.
@@ -182,7 +182,7 @@ Complementary products
 
 Order them together and everything arrives in one shipment.
 
-[![Lexron 655 W TOPCon Solar Panel](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655 W TOPCon Solar PanelHigh-power TOPCon panel; up to 2 can be wired in series on this controller.₺10.000 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=panel-lexron-655w)[![TitanX 51.2 V 102 Ah LiFePO₄ Battery](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51.2 V 102 Ah LiFePO₄ Battery5.22 kWh LiFePO₄ battery for a 48 V system.₺73.400 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=aku-titanx-51v-102ah)[![Solar Cable Set (5 m Black + 5 m Red)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Cable Set (5 m Black + 5 m Red)Panel to controller: 5 m black + 5 m red.₺1.000 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=kablo-solar-5m)[![MC4 Connector Set](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Connector SetJoins the panel lead to the solar cable.₺100 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=mc4-set)
+[![Lexron 655 W TOPCon Solar Panel](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655 W TOPCon Solar PanelHigh-power TOPCon panel; up to 2 can be wired in series on this controller.₺10.000 View the Product →](https://www.gespaenerji.com/en/panel-lexron-655w.html)[![TitanX 51.2 V 102 Ah LiFePO₄ Battery](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51.2 V 102 Ah LiFePO₄ Battery5.22 kWh LiFePO₄ battery for a 48 V system.₺73.400 View the Product →](https://www.gespaenerji.com/en/aku-titanx-51v-102ah.html)[![Solar Cable Set (5 m Black + 5 m Red)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Cable Set (5 m Black + 5 m Red)Panel to controller: 5 m black + 5 m red.₺1.000 View the Product →](https://www.gespaenerji.com/en/kablo-solar-5m.html)[![MC4 Connector Set](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Connector SetJoins the panel lead to the solar cable.₺100 View the Product →](https://www.gespaenerji.com/en/mc4-set.html)
 
 Frequently Asked Questions
 
@@ -198,7 +198,7 @@ With 12, 24, 36 and 48 V batteries. Since all parameters are adjustable, you ent
 
 ### How many panels can I wire in series?
 
-The sum of the open-circuit voltages (Voc) of panels in series must not exceed 150 V. Of our Lexron 285 W panels (Voc 42.84 V) up to 3 can go in series, of the Lexron 655 W panels (Voc 50.34 V) up to 2. Because Voc rises in the cold, check the layout with us if your area drops below −10 °C in winter.
+The sum of the open-circuit voltages (Voc) of panels in series must not exceed 150 V. Of our 360 W panels (Voc 42.56 V) up to 3 can go in series, of the Lexron 655 W panels (Voc 50.34 V) up to 2. Because Voc rises in the cold, check the layout with us if your area drops below −10 °C in winter.
 
 ### Where do I connect the inverter?
 

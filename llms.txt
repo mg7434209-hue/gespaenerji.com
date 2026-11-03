@@ -56,7 +56,7 @@ Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş; talebe 
 - [Lexron 80 A HV MPPT Şarj Kontrol Cihazı 12/24/36/48 V](https://www.gespaenerji.com/lexron-mppt-80a-hv.html): Lexron 80 A HV (15~230 V) MPPT Şarj Kontrol Cihazı 12/24/36/48 V: 12/24/36/48 V akülü güneş sistemleri için MPPT şarj kontrol cihazı, 80 A şarj akımı. · Markdown: https://www.gespaenerji.com/md/lexron-mppt-80a-hv.md
 - [50W Güneş Paneli](https://www.gespaenerji.com/panel-50w.html): 50W Güneş Paneli: Küçük aydınlatma, kamera ve akü şarjı Türkiye'nin her yerine kargo. · Markdown: https://www.gespaenerji.com/md/panel-50w.md
 - [240 W Güneş Paneli (48 Hücre)](https://www.gespaenerji.com/panel-240w.html): 240 W Güneş Paneli (48 Hücre): Mini elektrikli otomobiller ve küçük off-grid sistemler Türkiye'nin her yerine kargo. · Markdown: https://www.gespaenerji.com/md/panel-240w.md
-- [Lexron 285 W Güneş Paneli](https://www.gespaenerji.com/panel-lexron-285w.html): Lexron 285 W Güneş Paneli: Balkon, bağ evi ve küçük off-grid sistemler Türkiye'nin her yerine kargo. · Markdown: https://www.gespaenerji.com/md/panel-lexron-285w.md
+- [360 W Güneş Paneli](https://www.gespaenerji.com/panel-360w.html): 360 W Güneş Paneli: Bağ evi, karavan, çatı ve küçük off-grid sistemler Türkiye'nin her yerine kargo. · Markdown: https://www.gespaenerji.com/md/panel-360w.md
 - [460 W Half-Cut Monokristal Güneş Paneli](https://www.gespaenerji.com/panel-460w.html): 460 W Half-Cut Monokristal Güneş Paneli: Golf aracı tipi elektrikli araçlar ve küçük off-grid sistemler Türkiye'nin her yerine kargo. · Markdown: https://www.gespaenerji.com/md/panel-460w.md
 - [Arçelik 540 W Güneş Paneli](https://www.gespaenerji.com/panel-arcelik-540w.html): Arçelik 540 W Güneş Paneli: Çatı ve arazi kurulumları, yerli marka tercih edenler Türkiye'nin her yerine kargo. · Markdown: https://www.gespaenerji.com/md/panel-arcelik-540w.md
 - [Lexron 655 W TOPCon Güneş Paneli](https://www.gespaenerji.com/panel-lexron-655w.html): Lexron 655 W TOPCon Güneş Paneli: Çatı ve arazi sistemleri, yüksek güç gerektiren kurulumlar Türkiye'nin her yerine kargo. · Markdown: https://www.gespaenerji.com/md/panel-lexron-655w.md
@@ -114,7 +114,7 @@ Manavgat, Side, Antalya, Alanya, Serik, Gazipaşa, Akseki, Gündoğmuş; talebe 
 - europlus 72 V 30 Ah LiFePO₄ Akü — Elektrikli triportör, motosiklet ve 72 V hizmet araçları · ₺28.000 (KDV dahil) · https://www.gespaenerji.com/aku-lifepo4-72v-30ah.html
 - 50W Güneş Paneli — Küçük aydınlatma, kamera ve akü şarjı · ₺1.750 (KDV dahil) · https://www.gespaenerji.com/panel-50w.html
 - UNV Trek Pro 2500 W Taşınabilir Güç İstasyonu — Kamp, karavan, saha çalışması ve ev tipi yedek güç · ₺122.800 (KDV dahil) · https://www.gespaenerji.com/unv-trek-pro-2500.html
-- Lexron 285 W Güneş Paneli — Balkon, bağ evi ve küçük off-grid sistemler · ₺7.500 (KDV dahil) · https://www.gespaenerji.com/panel-lexron-285w.html
+- 360 W Güneş Paneli — Bağ evi, karavan, çatı ve küçük off-grid sistemler · ₺7.200 (KDV dahil) · https://www.gespaenerji.com/panel-360w.html
 - Lexron 655 W TOPCon Güneş Paneli — Çatı ve arazi sistemleri, yüksek güç gerektiren kurulumlar · ₺10.000 (KDV dahil) · https://www.gespaenerji.com/panel-lexron-655w.html
 - 700 W Bifacial TOPCon Güneş Paneli — Kargo kasalı elektrikli araçlar, çatı ve arazi sistemleri · ₺8.700 (KDV dahil) · https://www.gespaenerji.com/panel-700w.html
 - 460 W Half-Cut Monokristal Güneş Paneli — Golf aracı tipi elektrikli araçlar ve küçük off-grid sistemler · ₺8.000 (KDV dahil) · https://www.gespaenerji.com/panel-460w.html
