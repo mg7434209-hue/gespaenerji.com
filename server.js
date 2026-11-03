@@ -148,8 +148,8 @@ function countVisit(req, headers) {
 // Tarayıcı main.js her sayfada /api/ev'e küçük bir olay gönderir (sayfa açıldı,
 // ürün sayfası incelendi, sepete eklendi); "Reddet" diyen ziyaretçi sayılmaz.
 // Sunucu YALNIZ günlük toplamları tutar: kişi, IP ve çerez kimliği SAKLANMAZ.
-// Şehir için yeni bir ziyaretçinin IP'si bir kez dış servise (GEO_URL) sorulur,
-// sonuç şehir adı olarak sayılır, IP atılır; ziyaretçi başına günde en çok 1 sorgu.
+// Şehir için, çerez bildiriminde "Kabul et" diyen ziyaretçinin IP'si günde bir kez dış
+// servise (GEO_URL) sorulur, sonuç şehir adı olarak sayılır, IP atılır.
 // GEO_URL="" şehri kapatır. Veri DATA_DIR/stats.json (Volume yoksa dağıtımda
 // ziyaretçi sayacıyla birlikte önceki sunucudan devralınır).
 const STATS_FILE = path.join(DATA_DIR, "stats.json");
@@ -230,8 +230,8 @@ function deviceOf(ua) {
   return "Bilgisayar";
 }
 // Şehir: ziyaretçi günde bir kez sorulur; IP yalnız bu istekte kullanılır, saklanmaz.
-const statSeen = new Set();
-let statSeenDay = "";
+const statSeen = new Set(), geoSeen = new Set();
+let statSeenDay = "", geoSeenDay = "";
 let geoDay = "", geoCount = 0;
 function geoLookup(ip, cb) {
   const day = dayKey();
@@ -287,11 +287,19 @@ function handleEvent(req, res) {
           const utm = String(b.utm || "").toLowerCase().replace(/[^a-z0-9._ \-]/g, "").slice(0, 30);
           bump(day.src, sourceOf(ref, utm, host), 60);
           bump(day.dev, deviceOf(ua), 5);
-          geoLookup(ip, (label) => {
-            try { bump(statsDay(dayKey()).city, label || "Bilinmiyor", 200); saveStats(); } catch (e) {}
-          });
         }
         saveStats();
+      } else if (b.t === "geo") {
+        // Şehir: istemci YALNIZ çerez bildiriminde "Kabul et" diyenler için gönderir
+        if (!GEO_URL) return;
+        const today = dayKey();
+        if (geoSeenDay !== today) { geoSeen.clear(); geoSeenDay = today; }
+        const gkey = ip + "|" + ua.slice(0, 80);
+        if (geoSeen.has(gkey) || geoSeen.size > 40000) return;
+        geoSeen.add(gkey);
+        geoLookup(ip, (label) => {
+          try { bump(statsDay(dayKey()).city, label || "Bilinmiyor", 200); saveStats(); } catch (e) {}
+        });
       } else if (b.t === "view" || b.t === "cart") {
         const id = String(b.id || "");
         const ok = SITE_CFG && (SITE_CFG.packages || []).some((p) => p.id === id);

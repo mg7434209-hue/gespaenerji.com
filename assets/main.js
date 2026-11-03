@@ -1799,7 +1799,7 @@
       var v = b.getAttribute("data-consent");
       try { localStorage.setItem(KEY, v); } catch (err) {}
       bar.remove();
-      if (v === "granted") loadGA();
+      if (v === "granted") { loadGA(); if (window.GESPA && GESPA.geo) GESPA.geo(); }
     });
   })();
 
@@ -2033,7 +2033,8 @@
   /* ---- Anonim kullanım sayacı — /api/ev ----
      Sayfa açıldı, ürün sayfası incelendi, sepete eklendi olaylarını sunucuya gönderir;
      sunucu YALNIZ günlük toplamları tutar (kişi/IP/çerez kimliği saklanmaz). Çerez
-     bildiriminde "Reddet" diyen ziyaretçi sayılmaz. Admin → "Ürün ilgisi ve trafik". */
+     bildiriminde "Reddet" diyen ziyaretçi sayılmaz; şehir yalnız "Kabul et" diyenlerden alınır.
+     Admin → "Ürün ilgisi ve trafik". */
   (function () {
     if (!window.fetch || /(^|\/)admin\.html$/.test(location.pathname)) return;
     try { if (localStorage.getItem("gespa-consent") === "denied") return; } catch (e) {}
@@ -2057,6 +2058,16 @@
     }
     window.GESPA = window.GESPA || {};
     GESPA.track = function (t, id) { send({ t: t, id: id }); };
+    // Şehir: IP'nin şehir servisine gitmesi YALNIZ çerez bildiriminde "Kabul et" diyenler
+    // için ve oturum başına bir kez ("Kabul et"e basıldığı anda da çağrılır).
+    GESPA.geo = function () {
+      try {
+        if (localStorage.getItem("gespa-consent") !== "granted" || sessionStorage.getItem("gespa-g")) return;
+        sessionStorage.setItem("gespa-g", "1");
+      } catch (e) { return; }
+      send({ t: "geo" });
+    };
+    GESPA.geo();
   })();
 
   /* ---- Ziyaretçi sayacı (footer rozeti) — ayarlar config.visitors ----

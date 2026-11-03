@@ -199,7 +199,7 @@
       </div>
       <p style="color:var(--muted);margin:0 0 10px;font-size:.92rem">
         Hangi ürün kaç kez incelendi, sepete eklendi, ziyaretçiler nereden ve hangi şehirden geldi.
-        Yalnız günlük toplamlar tutulur; kişi bilgisi saklanmaz. Çerez bildiriminde "Reddet" diyenler sayılmaz.
+        Yalnız günlük toplamlar tutulur; kişi bilgisi saklanmaz. Çerez bildiriminde "Reddet" diyenler sayılmaz; şehir yalnız "Kabul et" diyenlerden alınır.
         Saatler Türkiye saatidir.
       </p>
       <div id="stOut" class="adm-note info">Okunuyor…</div>
@@ -597,7 +597,7 @@
           var vt = tot(sum.src);
           html += sec("Ziyaretçiler nereden geldi") + (vt ? tbl(["Kaynak", "Ziyaret", "Pay"], share(sum.src, vt, 12)) : '<p style="margin:0;color:var(--muted)">Henüz veri yok.</p>');
           var ct = tot(sum.city), unk = sum.city["Bilinmiyor"] || 0;
-          html += sec("Şehirler") + (ct ? tbl(["Şehir", "Ziyaret", "Pay"], share(sum.city, ct, 15)) : '<p style="margin:0;color:var(--muted)">' + (j.geo ? "Henüz veri yok." : "Şehir ölçümü kapalı (GEO_URL boş).") + '</p>');
+          html += sec("Şehirler (yalnız çerezi kabul edenler)") + (ct ? tbl(["Şehir", "Ziyaret", "Pay"], share(sum.city, ct, 15)) : '<p style="margin:0;color:var(--muted)">' + (j.geo ? "Henüz veri yok." : "Şehir ölçümü kapalı (GEO_URL boş).") + '</p>');
           if (ct && unk / ct > 0.5) html += '<p style="margin:6px 0 0;font-size:.82rem;color:#b3261e">Ziyaretçilerin çoğunun şehri bulunamadı: şehir servisi yanıt vermiyor ya da günlük sorgu sınırı doldu.</p>';
           var dt = tot(sum.dev);
           html += sec("Cihaz") + (dt ? '<p style="margin:0">' + top(sum.dev, 4).map(function (k) { return esc(k) + ' <strong>' + Math.round(sum.dev[k] / dt * 100) + '%</strong>'; }).join(" · ") + '</p>' : '<p style="margin:0;color:var(--muted)">Henüz veri yok.</p>');
