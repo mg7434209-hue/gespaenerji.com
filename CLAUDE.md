@@ -874,6 +874,23 @@ Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD v
   çubuk grafik (`/api/visitors/export` kovaları, yönetici şifresiyle),
   dakikada bir yenilenir.
   Taban (`visitors.base`) artık elle taşınmaz; geçmiş taşımalar config'te.
+  ÜRÜN İLGİSİ VE TRAFİK (3 Kas 2026): main.js her sayfada `/api/ev`'e anonim olay
+  yollar (`pv` sayfa, `view` ürün sayfası, `cart` sepete ekleme; `GESPA.track`),
+  çerez bildiriminde "Reddet" diyenler sayılmaz. server.js `handleEvent()` YALNIZ
+  günlük toplamları `DATA_DIR/stats.json`'a yazar: ziyaret, sayfa, ürün incelemesi,
+  sepete ekleme, kaynak (Google/Instagram/yapay zekâ/utm…), cihaz, şehir. KİŞİ,
+  IP, çerez kimliği SAKLANMAZ; ürün kimliği config'te olmalı, sayfa yolu var olan
+  herkese açık sayfa olmalı, bot UA'sı ve IP başına dakikada 90 üstü olay atılır,
+  her sayaçta en çok 60–400 farklı anahtar tutulur. ŞEHİR: oturumun ilk sayfasında
+  IP bir kez `GEO_URL`'ye (varsayılan `https://ipwho.is/{ip}`; boş = şehir kapalı)
+  sorulur, yalnız dönen şehir adı sayılır, günde en çok `GEO_MAX_PER_DAY` (500)
+  sorgu; özel IP'ler sorulmaz. Dış servise IP gittiği için gizlilik.html bunu
+  söyler — servis ya da yöntem değişirse o metni de değiştir (hukuki danışman
+  görsün). Admin → "📊 Ürün ilgisi ve trafik" (`POST /api/stats`, yönetici
+  şifresi): aralık seçici, ürün tablosu (stok config'ten), kaynak/şehir/cihaz/
+  sayfa. Dağıtımda sayaç devriyle birlikte `/api/visitors/export` → `stats` ile
+  önceki sunucudan devralınır (120 gün tutulur); Volume yoksa devir olmadan
+  her dağıtım sıfırlar.
 - Sohbet botu `assets/chatbot.js` (main.js dinamik yükler): metinleri kendi içinde
   `[tr,en,de,ru]` dizileriyle çok dillidir (i18n DICT'e bağlı değildir); yeni yanıt
   eklerken 4 dili birlikte ekle. Footer sosyal linkleri `config.company.sameAs`'ten

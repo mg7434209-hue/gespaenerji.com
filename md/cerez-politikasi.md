@@ -13,7 +13,7 @@ publisher: "GESPA Enerji"
 
 Bu politika, gespaenerji.com sitesinde kullanılan çerezleri ve bu çerezler aracılığıyla işlenen verileri açıklar.
 
-Son güncelleme: 23.07.2026
+Son güncelleme: 03.11.2026
 
 ## 1. Çerez Nedir?
 
@@ -21,13 +21,17 @@ Son güncelleme: 23.07.2026
 
 ## 2. Kullandığımız Çerezler ve Benzeri Teknolojiler
 
-**Zorunlu / işlevsel:** Sitenin temel işlevleri için gereklidir ve onay gerektirmez. Bu sitede sunucu tarafında oturum çerezi kullanılmaz; yalnızca cihazınızdaki `localStorage` alanında şu tercihler saklanır ve hiçbir sunucuya gönderilmez:
+**Zorunlu / işlevsel:** Sitenin temel işlevleri için gereklidir ve onay gerektirmez. Cihazınızdaki `localStorage` alanında şu tercihler saklanır ve sunucuya gönderilmez:
 
 - `gespa-theme` — açık/koyu tema tercihiniz,
 - `gespa-lang` — dil tercihiniz,
 - `gespa-consent` — çerez onay tercihiniz.
 
+Ayrıca ziyaretçi sayacı için tarayıcınıza `gespa_v` adlı, 24 saat geçerli küçük bir çerez bırakılır; ziyaretçinin günde bir kez sayılmasını sağlar ve kimlik bilgisi içermez. Oturum süresince `sessionStorage` alanında tutulan `gespa-s`, `gespa-g` ve `gespa-ev-v-*` anahtarları, ilk sayfa açılışının ve ürün incelemesinin bir kez sayılması içindir ve tarayıcı sekmesi kapanınca silinir.
+
 **Performans/analitik (onaya bağlı):** Ziyaretçi davranışını ölçmek için Google Analytics kullanılabilir. Analitik çerezler yalnızca sayfa altındaki çerez bildiriminde *onay vermeniz hâlinde* yüklenir; onay vermezseniz hiçbir analitik çerez çalışmaz. Bu durumda IP adresiniz gibi sınırlı teknik veriler Google sunucularına (yurt dışı) aktarılabilir.
+
+**Site kullanım istatistikleri:** Hangi sayfa ve ürünün açıldığı, ürünün sepete eklendiği, siteye geliş kaynağı ve cihaz türü, kimliksiz günlük toplamlar olarak sunucumuzda sayılır; kişi, IP adresi veya çerez kimliği bu sayaçlarda saklanmaz. Çerez bildiriminde "Reddet" derseniz bu sayım yapılmaz. Bulunduğunuz şehrin sayılması için IP adresiniz yalnızca "Kabul et" demeniz hâlinde, oturum başına bir kez IP'den konum bulan bir hizmete (ipwho.is) gönderilir.
 
 **Üçüncü taraf içerikler:** Sitedeki yazı tipleri Google Fonts servisinden yüklenir; bu sırada IP adresiniz Google sunucularına iletilir. WhatsApp bağlantılarına tıkladığınızda WhatsApp'ın (Meta Platforms) kendi gizlilik koşulları geçerli olur.
 

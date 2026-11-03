@@ -144,6 +144,173 @@ function countVisit(req, headers) {
   } catch (e) {}
 }
 
+// ---- Ürün ilgisi, trafik kaynağı, cihaz ve şehir (ANONİM günlük sayaçlar) ----
+// Tarayıcı main.js her sayfada /api/ev'e küçük bir olay gönderir (sayfa açıldı,
+// ürün sayfası incelendi, sepete eklendi); "Reddet" diyen ziyaretçi sayılmaz.
+// Sunucu YALNIZ günlük toplamları tutar: kişi, IP ve çerez kimliği SAKLANMAZ.
+// Şehir için, çerez bildiriminde "Kabul et" diyen ziyaretçinin IP'si günde bir kez dış
+// servise (GEO_URL) sorulur, sonuç şehir adı olarak sayılır, IP atılır.
+// GEO_URL="" şehri kapatır. Veri DATA_DIR/stats.json (Volume yoksa dağıtımda
+// ziyaretçi sayacıyla birlikte önceki sunucudan devralınır).
+const STATS_FILE = path.join(DATA_DIR, "stats.json");
+const STATS_KEEP_DAYS = 120;
+const GEO_URL = process.env.GEO_URL !== undefined ? process.env.GEO_URL : "https://ipwho.is/{ip}";
+const GEO_MAX_PER_DAY = +process.env.GEO_MAX_PER_DAY || 500;
+let stats = { since: new Date().toISOString(), days: {} };
+let statsFileFound = false;
+try {
+  const sf = JSON.parse(fs.readFileSync(STATS_FILE, "utf8"));
+  if (sf && sf.days && typeof sf.days === "object") { stats = sf; statsFileFound = true; }
+} catch (e) {}
+function dayKey(t) { return new Date((t || Date.now()) + 3 * HOUR_MS).toISOString().slice(0, 10); } // Türkiye saati (UTC+3)
+function statsDay(k) {
+  const d = stats.days[k] || (stats.days[k] = { v: 0, pv: {}, view: {}, cart: {}, src: {}, dev: {}, city: {} });
+  ["pv", "view", "cart", "src", "dev", "city"].forEach((f) => { if (!d[f] || typeof d[f] !== "object") d[f] = {}; });
+  return d;
+}
+// Aynı sayaç kümesinde farklı anahtar sayısı sınırlı: istemciden gelen metinle şişirilemez.
+function bump(map, key, limit) {
+  if (!(key in map) && Object.keys(map).length >= limit) key = "Diğer";
+  map[key] = (+map[key] || 0) + 1;
+}
+function statsJson() {
+  const keep = dayKey(Date.now() - STATS_KEEP_DAYS * 24 * HOUR_MS);
+  Object.keys(stats.days).forEach((k) => { if (k < keep) delete stats.days[k]; });
+  return JSON.stringify(stats);
+}
+let statsSaveTimer = null;
+function saveStats() {
+  if (statsSaveTimer) return;
+  statsSaveTimer = setTimeout(() => {
+    statsSaveTimer = null;
+    try { fs.mkdirSync(DATA_DIR, { recursive: true }); fs.writeFileSync(STATS_FILE, statsJson()); } catch (e) {}
+  }, 5000);
+}
+// Devir: önceki sunucunun günlük toplamlarını bu sunucununkilerle toplar.
+function mergeStats(src) {
+  if (!src || typeof src.days !== "object") return;
+  Object.keys(src.days).forEach((k) => {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(k)) return;
+    const from = src.days[k] || {}, to = statsDay(k);
+    to.v += Math.max(0, Math.floor(+from.v) || 0);
+    ["pv", "view", "cart", "src", "dev", "city"].forEach((f) => {
+      const m = from[f] || {};
+      Object.keys(m).slice(0, 400).forEach((n) => {
+        const c = Math.floor(+m[n]);
+        if (c > 0 && c < 1e8) to[f][n] = (+to[f][n] || 0) + c;
+      });
+    });
+  });
+  if (src.since && src.since < stats.since) stats.since = src.since;
+  saveStats();
+}
+// Yönlendiren siteyi okunur bir kaynak adına çevirir (ref = yalnız ana makine adı).
+function sourceOf(ref, utm, ownHost) {
+  if (utm) return "utm: " + utm;
+  const h = String(ref || "").toLowerCase().replace(/^www\./, "");
+  if (!h || h === ownHost.replace(/^www\./, "")) return "Doğrudan / bilinmiyor";
+  const AI = [["chatgpt.com", "ChatGPT"], ["chat.openai.com", "ChatGPT"], ["perplexity.ai", "Perplexity"], ["claude.ai", "Claude"],
+    ["gemini.google.com", "Gemini"], ["copilot.microsoft.com", "Copilot"], ["you.com", "You.com"], ["poe.com", "Poe"], ["grok.com", "Grok"]];
+  for (const [d, n] of AI) if (h === d || h.endsWith("." + d)) return "Yapay zekâ: " + n;
+  if (/(^|\.)google\./.test(h)) return "Google";
+  if (/(^|\.)bing\.com$/.test(h)) return "Bing";
+  if (/(^|\.)yandex\./.test(h)) return "Yandex";
+  if (/(^|\.)duckduckgo\.com$/.test(h)) return "DuckDuckGo";
+  if (/(^|\.)(facebook\.com|fb\.com|instagram\.com|l\.instagram\.com|lm\.facebook\.com)$/.test(h)) return "Facebook / Instagram";
+  if (/(^|\.)(whatsapp\.com|wa\.me)$/.test(h)) return "WhatsApp";
+  if (/(^|\.)(youtube\.com|youtu\.be)$/.test(h)) return "YouTube";
+  if (/(^|\.)(t\.co|twitter\.com|x\.com)$/.test(h)) return "X (Twitter)";
+  if (/(^|\.)(sahibinden|hepsiburada|trendyol|n11)\./.test(h)) return "Pazaryeri: " + h;
+  return "Diğer: " + h.slice(0, 40);
+}
+function deviceOf(ua) {
+  ua = String(ua || "");
+  if (/iPad|Tablet|Tab\b/i.test(ua)) return "Tablet";
+  if (/Mobi|Android|iPhone|iPod/i.test(ua)) return "Telefon";
+  return "Bilgisayar";
+}
+// Şehir: ziyaretçi günde bir kez sorulur; IP yalnız bu istekte kullanılır, saklanmaz.
+const statSeen = new Set(), geoSeen = new Set();
+let statSeenDay = "", geoSeenDay = "";
+let geoDay = "", geoCount = 0;
+function geoLookup(ip, cb) {
+  const day = dayKey();
+  if (geoDay !== day) { geoDay = day; geoCount = 0; }
+  const ip4 = String(ip || "").replace(/^::ffff:/, "");
+  if (!GEO_URL || geoCount >= GEO_MAX_PER_DAY || !ip4 || ip4 === "?" ||
+      /^(10\.|127\.|192\.168\.|169\.254\.|172\.(1[6-9]|2\d|3[01])\.|::1$|f[cd][0-9a-f]{2}:|fe80:)/i.test(ip4)) return cb("");
+  geoCount++;
+  fetchJson(GEO_URL.replace("{ip}", encodeURIComponent(ip4)), null, (e, d) => {
+    if (e || !d || d.success === false) return cb("");
+    const city = String(d.city || d.region || "").trim().slice(0, 40);
+    const cc = String(d.country_code || d.countryCode || "").trim().slice(0, 3).toUpperCase();
+    if (!city) return cb(cc && cc !== "TR" ? "Yurt dışı (" + cc + ")" : "");
+    cb(cc && cc !== "TR" ? city + " (" + cc + ")" : city);
+  });
+}
+const evHits = new Map();
+const EV_PATH_RE = /^\/(?:(?:en|de|ru)\/)?[a-z0-9][a-z0-9-]*(?:\.html)?$|^\/(?:(?:en|de|ru)\/?)?$/;
+function evPage(p) {
+  p = String(p || "").slice(0, 80).toLowerCase();
+  if (!EV_PATH_RE.test(p)) return "";
+  p = p.replace(/^\/(?:en|de|ru)(?=\/|$)/, "");     // dil kopyaları aynı sayfa sayılır
+  if (p === "" || p === "/") p = "/index.html";
+  if (!/\.html$/.test(p)) p += ".html";
+  if (/^\/admin\.html$/.test(p) || !isPublicPath(p) || !fs.existsSync(path.join(ROOT, p))) return "";
+  return p;
+}
+function handleEvent(req, res) {
+  return readBody(req, 2 * 1024, (raw) => {
+    res.writeHead(204, { "Cache-Control": "no-store" }); res.end();       // istemci beklemez
+    try {
+      const ua = req.headers["user-agent"] || "";
+      if (!ua || BOT_RE.test(ua)) return;
+      const ip = clientIp(req);
+      if (recentHits(evHits, ip, 60 * 1000).length >= 90) return;       // dakikada 90 olay
+      evHits.set(ip, (evHits.get(ip) || []).concat(Date.now()));
+      let b; try { b = JSON.parse(raw); } catch (e) { return; }
+      if (!b || typeof b !== "object") return;
+      const day = statsDay(dayKey());
+      if (b.t === "pv") {
+        const pg = evPage(b.path);
+        if (!pg) return;
+        bump(day.pv, pg, 400);
+        if (b.s) {                                                        // oturumun ilk sayfası: ziyaret
+          const today = dayKey();
+          if (statSeenDay !== today) { statSeen.clear(); statSeenDay = today; }
+          const key = ip + "|" + ua.slice(0, 80);        // aynı IP'li farklı cihazlar ayrı sayılsın
+          if (statSeen.has(key) || statSeen.size > 40000) { saveStats(); return; }
+          statSeen.add(key);
+          day.v++;
+          const host = String(req.headers.host || "").toLowerCase().split(":")[0];
+          const ref = String(b.ref || "").toLowerCase().replace(/[^a-z0-9.\-]/g, "").slice(0, 60);
+          const utm = String(b.utm || "").toLowerCase().replace(/[^a-z0-9._ \-]/g, "").slice(0, 30);
+          bump(day.src, sourceOf(ref, utm, host), 60);
+          bump(day.dev, deviceOf(ua), 5);
+        }
+        saveStats();
+      } else if (b.t === "geo") {
+        // Şehir: istemci YALNIZ çerez bildiriminde "Kabul et" diyenler için gönderir
+        if (!GEO_URL) return;
+        const today = dayKey();
+        if (geoSeenDay !== today) { geoSeen.clear(); geoSeenDay = today; }
+        const gkey = ip + "|" + ua.slice(0, 80);
+        if (geoSeen.has(gkey) || geoSeen.size > 40000) return;
+        geoSeen.add(gkey);
+        geoLookup(ip, (label) => {
+          try { bump(statsDay(dayKey()).city, label || "Bilinmiyor", 200); saveStats(); } catch (e) {}
+        });
+      } else if (b.t === "view" || b.t === "cart") {
+        const id = String(b.id || "");
+        const ok = SITE_CFG && (SITE_CFG.packages || []).some((p) => p.id === id);
+        if (!ok) return;
+        day[b.t][id] = (+day[b.t][id] || 0) + 1;
+        saveStats();
+      }
+    } catch (e) {}
+  });
+}
+
 // ---- Dağıtımda sayaç devri ----
 // Volume YOKKEN Railway her dağıtımda yeni kapsayıcı açar, visitors.json
 // kaybolur ve rozet tabana döner (26 Eyl 2026'da iki güncellemede 1.269 →
@@ -161,7 +328,7 @@ function fetchJson(url, body, cb, maxBytes) {
     const u = new URL(url);
     const data = body ? JSON.stringify(body) : null;
     const rq = require(u.protocol === "http:" ? "http" : "https").request({
-      hostname: u.hostname, port: u.port || (u.protocol === "http:" ? 80 : 443), path: u.pathname, method: data ? "POST" : "GET", timeout: 4000,
+      hostname: u.hostname, port: u.port || (u.protocol === "http:" ? 80 : 443), path: u.pathname + u.search, method: data ? "POST" : "GET", timeout: 4000,
       headers: Object.assign({ "Accept": "application/json", "User-Agent": "gespa-sayac-devri/1" },
         data ? { "Content-Type": "application/json", "Content-Length": Buffer.byteLength(data) } : {})
     }, (rs) => {
@@ -188,6 +355,7 @@ function seedVisitsFromLive(done) {
     const t = Math.floor(+(d && d.total));
     if (!(t > 0 && t < 1e9)) return false;
     visitTotal += t; // devir sırasında bu sunucuda sayılan (olmamalı) korunur
+    if (d.stats) { try { mergeStats(d.stats); } catch (e) {} }
     if (d.hours && typeof d.hours === "object") {
       Object.keys(d.hours).forEach((k) => {
         const n = Math.floor(+d.hours[k]);
@@ -200,12 +368,12 @@ function seedVisitsFromLive(done) {
     return true;
   };
   fetchWithPasses(base + "/api/visitors/export", (e1, d1) => {
-    if (!e1 && take(d1)) return done("önceki sunucudan devralındı: " + visitTotal + " (saatlik kovalarla)");
+    if (!e1 && take(d1)) return done("önceki sunucudan devralındı: " + visitTotal + " (saatlik kovalarla" + (d1.stats ? ", ürün ilgisi/trafik dahil" : "") + ")");
     fetchJson(base + "/api/visitors", null, (e2, d2) => {
       if (!e2 && take(d2)) return done("önceki sunucudan devralındı: " + visitTotal + " (yalnız toplam)");
       done("devralınamadı (" + ((e2 || e1) && (e2 || e1).message) + "); sayaç 0'dan başlıyor");
     });
-  });
+  }, 2 * 1024 * 1024);   // ürün ilgisi/trafik günlükleri 64 KB'ı aşabilir
 }
 
 // ---- AI tarayıcı sayacı ----
@@ -1966,7 +2134,18 @@ const server = http.createServer((req, res) => {
         let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
         if (!adminGate(req, res, b.pass)) return;
         visitsLast24h();
-        return sendJson(res, 200, { total: visitTotal, hours: visitHours, hoursSince: visitHoursSince });
+        statsJson();   // eski günleri at
+        return sendJson(res, 200, { total: visitTotal, hours: visitHours, hoursSince: visitHoursSince, stats: stats });
+      });
+    }
+    // Ürün ilgisi / trafik olayı (anonim sayaç; main.js gönderir) ve admin okuması
+    if (urlPath === "/api/ev" && req.method === "POST") return handleEvent(req, res);
+    if (urlPath === "/api/stats" && req.method === "POST") {
+      return readBody(req, 4 * 1024, (raw) => {
+        let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
+        if (!adminGate(req, res, b.pass)) return;
+        statsJson();   // eski günleri at
+        sendJson(res, 200, { since: stats.since, today: dayKey(), geo: !!GEO_URL, days: stats.days });
       });
     }
     // AI tarayıcı sayacı — admin paneli okur (yönetici şifresiyle, adminGate)
@@ -2190,6 +2369,7 @@ startFx(() => seedVisitsFromLive((msg) => {
 function flushData() {
   try { fs.mkdirSync(DATA_DIR, { recursive: true }); fs.writeFileSync(VISIT_FILE, visitsJson()); } catch (e) {}
   try { fs.writeFileSync(AIBOT_FILE, JSON.stringify(aiBots)); } catch (e) {}
+  try { fs.writeFileSync(STATS_FILE, statsJson()); } catch (e) {}
 }
 process.on("SIGTERM", () => {
   flushData();
