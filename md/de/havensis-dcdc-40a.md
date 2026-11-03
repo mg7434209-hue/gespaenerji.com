@@ -3,7 +3,7 @@ title: "Havensis 40A DC-DC-Ladegerät — Laden über die Lichtmaschine"
 description: "Havensis DCDC-1224 40-A-DC-DC-Ladegerät: schnelles Laden der Aufbaubatterie über die Lichtmaschine."
 canonical: https://www.gespaenerji.com/de/havensis-dcdc-40a.html
 lang: de
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -173,7 +173,7 @@ Passendes Zubehör
 
 Zusammen bestellen, alles kommt in einer Sendung.
 
-[![Havensis Solar-30AMPS MPPT-Laderegler 12/24 V 30 A](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Havensis Solar-30AMPS MPPT-Laderegler 12/24 V 30 AMit einem Modul auf dem Dach lädt die Aufbaubatterie auch im Stand mit Sonnenenergie.₺6.400 Produkt ansehen →](https://www.gespaenerji.com/de/havensis-mppt-30a.html)[![Lexron 285-W-Solarmodul](https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp)Lexron 285-W-Solarmodul780 × 1536 mm, 8,5 kg: kompaktes TOPCon-Modul, leicht aufs Dach zu bringen.₺7.500 In den Warenkorb →](https://www.gespaenerji.com/de/sepet.html?ekle=panel-lexron-285w)[![Solarkabel-Set (5 m Schwarz + 5 m Rot)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solarkabel-Set (5 m Schwarz + 5 m Rot)Modul zum Regler: 5 m schwarz + 5 m rot.₺1.000 In den Warenkorb →](https://www.gespaenerji.com/de/sepet.html?ekle=kablo-solar-5m)[![MC4-Steckerset](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4-SteckersetVerbindet das Modulkabel mit dem Solarkabel.₺100 In den Warenkorb →](https://www.gespaenerji.com/de/sepet.html?ekle=mc4-set)
+[![Havensis Solar-30AMPS MPPT-Laderegler 12/24 V 30 A](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Havensis Solar-30AMPS MPPT-Laderegler 12/24 V 30 AMit einem Modul auf dem Dach lädt die Aufbaubatterie auch im Stand mit Sonnenenergie.₺6.400 Produkt ansehen →](https://www.gespaenerji.com/de/havensis-mppt-30a.html)[![360-W-Solarmodul](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)360-W-Solarmodul1660 × 1001 mm, 19,5 kg: mittelgroßes Modul, das eine Person aufs Dach tragen kann.₺7.200 Produkt ansehen →](https://www.gespaenerji.com/de/panel-360w.html)[![Solarkabel-Set (5 m Schwarz + 5 m Rot)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solarkabel-Set (5 m Schwarz + 5 m Rot)Modul zum Regler: 5 m schwarz + 5 m rot.₺1.000 Produkt ansehen →](https://www.gespaenerji.com/de/kablo-solar-5m.html)[![MC4-Steckerset](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4-SteckersetVerbindet das Modulkabel mit dem Solarkabel.₺100 Produkt ansehen →](https://www.gespaenerji.com/de/mc4-set.html)
 
 Häufige Fragen
 

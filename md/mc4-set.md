@@ -3,7 +3,7 @@ title: "MC4 Konnektör Takımı | GESPA Enerji"
 description: "Güneş paneli çıkış kablosu ile solar kabloyu birleştiren erkek-dişi MC4 konnektör takımı. Elektrikli motor güneş paketlerine 1 takım dahildir."
 canonical: https://www.gespaenerji.com/mc4-set.html
 lang: tr
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -100,7 +100,7 @@ Tamamlayıcı ürünler
 
 Aynı siparişte alın; hepsi aynı kargoyla gelsin.
 
-[![Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)Panel ile cihaz arasındaki bağlantı için.₺1.000 Ürünü İncele →](https://www.gespaenerji.com/kablo-solar-5m.html)[![MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Şarj Kontrol CihazıElektrikli araçlar için 24–72 V BOOST MPPT.₺7.200 Ürünü İncele →](https://www.gespaenerji.com/elektrikli-arac-donusum.html)[![Lexron 285 W Güneş Paneli](https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp)Lexron 285 W Güneş PaneliDar alanlar için kompakt TOPCon panel.₺7.500 Ürünü İncele →](https://www.gespaenerji.com/panel-lexron-285w.html)[![Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V](https://www.gespaenerji.com/assets/img/products/lexron-mppt-30a.webp)Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V100 V panel girişli MPPT; küçük ve orta sistemler.₺3.450 Ürünü İncele →](https://www.gespaenerji.com/lexron-mppt-30a.html)
+[![Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)Panel ile cihaz arasındaki bağlantı için.₺1.000 Ürünü İncele →](https://www.gespaenerji.com/kablo-solar-5m.html)[![MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Şarj Kontrol CihazıElektrikli araçlar için 24–72 V BOOST MPPT.₺7.200 Ürünü İncele →](https://www.gespaenerji.com/elektrikli-arac-donusum.html)[![360 W Güneş Paneli](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)360 W Güneş PaneliOrta boy panel; akülü sistemlerde ve çatıda kullanılır.₺7.200 Ürünü İncele →](https://www.gespaenerji.com/panel-360w.html)[![Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V](https://www.gespaenerji.com/assets/img/products/lexron-mppt-30a.webp)Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V100 V panel girişli MPPT; küçük ve orta sistemler.₺3.450 Ürünü İncele →](https://www.gespaenerji.com/lexron-mppt-30a.html)
 
 Sıkça Sorulan Sorular
 

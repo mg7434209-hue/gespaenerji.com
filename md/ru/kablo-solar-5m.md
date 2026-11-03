@@ -3,7 +3,7 @@ title: "Комплект солнечного кабеля 5 м чёрный + 5
 description: "Комплект солнечного кабеля 5 м чёрного + 5 м красного для соединения панели с контроллером."
 canonical: https://www.gespaenerji.com/ru/kablo-solar-5m.html
 lang: ru
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -101,7 +101,7 @@ publisher: "GESPA Enerji"
 
 Закажите вместе, и всё придёт одной посылкой.
 
-[![Комплект коннекторов MC4](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)Комплект коннекторов MC4Чтобы соединить кабель панели с солнечным кабелем.₺100 Смотреть продукт →](https://www.gespaenerji.com/ru/mc4-set.html)[![Контроллер заряда MS Teknik BOOST MPPT 24-72 В](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)Контроллер заряда MS Teknik BOOST MPPT 24-72 ВBOOST MPPT 24–72 В для электротранспорта.₺7.200 Смотреть продукт →](https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html)[![Солнечная панель Lexron 285 Вт](https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp)Солнечная панель Lexron 285 ВтКомпактная панель TOPCon для ограниченного места.₺7.500 Смотреть продукт →](https://www.gespaenerji.com/ru/panel-lexron-285w.html)[![Солнечный контроллер заряда Lexron MPPT 30 А 12/24 В](https://www.gespaenerji.com/assets/img/products/lexron-mppt-30a.webp)Солнечный контроллер заряда Lexron MPPT 30 А 12/24 ВMPPT со входом панелей 100 В; малые и средние системы.₺3.450 Смотреть продукт →](https://www.gespaenerji.com/ru/lexron-mppt-30a.html)
+[![Комплект коннекторов MC4](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)Комплект коннекторов MC4Чтобы соединить кабель панели с солнечным кабелем.₺100 Смотреть продукт →](https://www.gespaenerji.com/ru/mc4-set.html)[![Контроллер заряда MS Teknik BOOST MPPT 24-72 В](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)Контроллер заряда MS Teknik BOOST MPPT 24-72 ВBOOST MPPT 24–72 В для электротранспорта.₺7.200 Смотреть продукт →](https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html)[![Солнечная панель 360 Вт](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)Солнечная панель 360 ВтПанель среднего размера для систем с АКБ и крыш.₺7.200 Смотреть продукт →](https://www.gespaenerji.com/ru/panel-360w.html)[![Солнечный контроллер заряда Lexron MPPT 30 А 12/24 В](https://www.gespaenerji.com/assets/img/products/lexron-mppt-30a.webp)Солнечный контроллер заряда Lexron MPPT 30 А 12/24 ВMPPT со входом панелей 100 В; малые и средние системы.₺3.450 Смотреть продукт →](https://www.gespaenerji.com/ru/lexron-mppt-30a.html)
 
 Частые вопросы
 

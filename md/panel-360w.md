@@ -1,29 +1,29 @@
 ---
-title: "Lexron 285 W Güneş Paneli | GESPA Enerji"
-description: "Lexron 285 W Güneş Paneli: Balkon, bağ evi ve küçük off-grid sistemler Türkiye'nin her yerine kargo."
-canonical: https://www.gespaenerji.com/panel-lexron-285w.html
+title: "360 W Güneş Paneli | GESPA Enerji"
+description: "360 W Güneş Paneli: Bağ evi, karavan, çatı ve küçük off-grid sistemler Türkiye'nin her yerine kargo."
+canonical: https://www.gespaenerji.com/panel-360w.html
 lang: tr
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
-[Ana Sayfa](https://www.gespaenerji.com/) / [Online Satış](https://www.gespaenerji.com/online-satis.html) / Lexron 285 W Güneş Paneli
+[Ana Sayfa](https://www.gespaenerji.com/) / [Online Satış](https://www.gespaenerji.com/online-satis.html) / 360 W Güneş Paneli
 
-![Lexron 285 W Güneş Paneli — ürün fotoğrafı](https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp)
+![360 W Güneş Paneli — ürün fotoğrafı](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)
 
 🔆 Güneş Paneli
 
-# Lexron 285 W Güneş Paneli
+# 360 W Güneş Paneli
 
-Ürün kodu: **GES-PNL-285** Tükendi
+Ürün kodu: **GES-PNL-360** Stokta / tedarikte
 
-285 W güneş paneli — Balkon, bağ evi ve küçük off-grid sistemler.
+360 W güneş paneli — Bağ evi, karavan, çatı ve küçük off-grid sistemler.
 
-**₺7.500** ≈ $152
+**₺7.200** ≈ $146
 
 KDV dahil fiyattır.
 
-💰 Havale/EFT ile: **₺7.300**
+💰 Havale/EFT ile: **₺7.000**
 
 💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
 
@@ -32,15 +32,15 @@ KDV dahil fiyattır.
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
 [⚡ Hemen satın al](https://www.gespaenerji.com/sepet.html)
-[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Lexron%20285%20W%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-285)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpanel-lexron-285w.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22360%20W%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-360)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpanel-360w.html)
 
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 - 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
-- 🛡️ Garanti: **12 yıl ürün · 30 yıl güç**
+- 🛡️ Garanti: **2 yıl**
 - 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 - 🔌 Şarj kontrol cihazı ve kablo ürüne dahil değildir.
 
-🔆 285 W TOPCon ⚡ 42,84 V Voc ⚖️ 8,5 kg
+🔆 360 W Mono-PERC ⚡ 42,56 V Voc ⚖️ 19,5 kg
 
 ### ✅ Kimler için uygun
 
@@ -54,22 +54,25 @@ KDV dahil fiyattır.
 - Panel giriş gerilimi sınırını aşan cihazlar (Voc teknik tabloda)
 - Şebekeye tek başına bağlamak (inverter gerekir)
 
-Lexron 210R PowerLite TOPCon serisi 285 W monokristal güneş paneli. Voc 42,84 V · Isc 8,19 A · Vmp 35,85 V · Imp 7,95 A. Ölçü 780 × 1536 × 30 mm, ağırlık 8,5 kg. IEC 61215 / 61730 / 61701 belgeli; 12 yıl ürün ve işçilik, 30 yıl güç garantisi.
+60 hücreli Mono-PERC güneş paneli, 360 W. Voc 42,56 V · Isc 11,37 A · Vmp 34,98 V · Imp 10,30 A. Ölçü 1660 × 1001 × 30 mm, ağırlık 19,5 kg. IP68 bağlantı kutusu, 3 bypass diyot; 1500 V sistem gerilimi.
 
 Panel tek başına doğrudan aküye bağlanmaz: arada bir şarj kontrol cihazı (akülü sistem) ya da inverter (şebeke bağlantılı sistem) bulunur. Aşağıda bu panele uygun cihazları ve seri bağlama sınırlarını bulabilirsiniz.
 
-| Marka | Lexron |
+| Güç | 360 W |
 | --- | --- |
-| Güç | 285 W |
-| Hücre | TOPCon monokristal |
-| Voc | 42,84 V |
-| Vmp | 35,85 V |
-| Isc | 8,19 A |
-| Imp | 7,95 A |
-| Ölçü | 780 × 1536 × 30 mm |
-| Ağırlık | 8,5 kg |
-| Belgeler | IEC 61215 / 61730 / 61701 |
-| Garanti | 12 yıl ürün · 30 yıl güç |
+| Hücre | 60 hücre, Mono-PERC |
+| Voc | 42,56 V |
+| Vmp | 34,98 V |
+| Isc | 11,37 A |
+| Imp | 10,30 A |
+| Güç toleransı | 0~+5 W |
+| Maks. sistem gerilimi | 1500 V |
+| Maks. seri sigorta | 30 A |
+| Ölçü | 1660 × 1001 × 30 mm |
+| Ağırlık | 19,5 kg |
+| Bağlantı kutusu | IP68, 3 bypass diyot |
+| Mekanik dayanım | 2400 Pa rüzgâr · 5400 Pa kar · 25 mm dolu |
+| Sıcaklık | Pmax −0,29 %/°C · Voc −0,25 %/°C · Isc +0,046 %/°C · NOCT 42 ± 2 °C · çalışma −40…+85 °C |
 
 Değerler üreticinin teknik künyesinden alınmıştır. Künyede olmayan bir değeri merak ediyorsanız bize yazın; üreticiden teyit edelim.
 
@@ -118,7 +121,7 @@ Kurulum
 
 Panel şarj kontrol cihazına (akülü sistem) ya da inverterin panel girişine (şebeke bağlantılı sistem) bağlanır.
 
-- ☀️ **Güneş paneli**285 W
+- ☀️ **Güneş paneli**360 W
 - 🔗 **MC4**solar kablo
 - 📟 **Şarj kontrol / inverter**MPPT · PWM
 - 🔋 **Akü / şebeke**sisteme göre
@@ -141,7 +144,7 @@ Mağazamızdaki tüm paneller; tire (—) olan değerin künyesi elimizde yok.
 | --- | --- | --- | --- | --- |
 | 50W Güneş Paneli | 50 W | — | — | — |
 | 240 W Güneş Paneli (48 Hücre) | 240 W | 36,12 V | 1320 × 776 × 30 mm | 8 kg |
-| Lexron 285 W Güneş Paneli Bu ürün | 285 W | 42,84 V | 780 × 1536 × 30 mm | 8,5 kg |
+| 360 W Güneş Paneli Bu ürün | 360 W | 42,56 V | 1660 × 1001 × 30 mm | 19,5 kg |
 | 460 W Half-Cut Monokristal Güneş Paneli | 460 W | 51,9 V | 2095 × 1039 × 30 mm | 25 kg |
 | Arçelik 540 W Güneş Paneli | 540 W | — | — | — |
 | Lexron 655 W TOPCon Güneş Paneli | 655 W | 50,34 V | 2382 × 1134 × 35 mm | 31 kg |
@@ -164,7 +167,7 @@ Sıkça Sorulan Sorular
 
 ### Kaç panel seri bağlayabilirim?
 
-Panelin Voc değeri 42,84 V. Soğukta Voc yükseldiği için %10 pay bırakarak hesaplarsak: 100 V panel girişli MPPT cihazlara (ör. Havensis Solar-30AMPS) en fazla 2, 150 V girişli cihazlara (ör. Havensis Solar-60AMPS 150|60) en fazla 3 panel seri bağlanır. Tek panel, elektrikli araç paketlerimizdeki BOOST MPPT'nin 15–60 V girişine de uyar. Kesin dizilimi sipariş öncesi bizimle kontrol edin.
+Panelin Voc değeri 42,56 V. Soğukta Voc yükseldiği için %10 pay bırakarak hesaplarsak: 100 V panel girişli MPPT cihazlara (ör. Havensis Solar-30AMPS) en fazla 2, 150 V girişli cihazlara (ör. Havensis Solar-60AMPS 150|60) en fazla 3 panel seri bağlanır. Tek panel, elektrikli araç paketlerimizdeki BOOST MPPT'nin 15–60 V girişine de uyar. Kesin dizilimi sipariş öncesi bizimle kontrol edin.
 
 ### Paneli doğrudan aküye bağlayabilir miyim?
 
@@ -186,7 +189,7 @@ Müşteri yorumları
 
 Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
 
-[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Lexron%20285%20W%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-285)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22360%20W%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-360)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Paneli bugün sipariş edin
 
@@ -195,5 +198,5 @@ Stok ve teslimat için WhatsApp'tan yazın; aynı gün dönüş yapıyoruz.
 [🛒 Sepete ekle ve siparişi tamamla](https://www.gespaenerji.com/sepet.html)
 
 ---
-Kaynak sayfa: https://www.gespaenerji.com/panel-lexron-285w.html · GESPA Enerji · 0543 743 42 09 · info@gespaenerji.com · Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01, Manavgat / Antalya
+Kaynak sayfa: https://www.gespaenerji.com/panel-360w.html · GESPA Enerji · 0543 743 42 09 · info@gespaenerji.com · Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01, Manavgat / Antalya
 Tüm sayfalar ve ürünler: https://www.gespaenerji.com/llms.txt · Ayrıntı: https://www.gespaenerji.com/llms-full.txt

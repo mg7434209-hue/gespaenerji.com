@@ -1,29 +1,29 @@
 ---
-title: "Lexron 285W TOPCon Solar Panel | GESPA Energy"
-description: "Lexron 210R PowerLite 285 W TOPCon panel: Voc 42.84 V, 780 × 1536 × 30 mm, 8.5 kg, 12-year product and 30-year power warranty."
-canonical: https://www.gespaenerji.com/en/panel-lexron-285w.html
+title: "360W Mono-PERC Solar Panel | GESPA Energy"
+description: "360 W 60-cell Mono-PERC panel: Voc 42.56 V, 1660 × 1001 × 30 mm, 19.5 kg, IP68 junction box, 1500 V."
+canonical: https://www.gespaenerji.com/en/panel-360w.html
 lang: en
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
-[Home](https://www.gespaenerji.com/en/) / [Online Store](https://www.gespaenerji.com/en/online-satis.html) / Lexron 285 W Solar Panel
+[Home](https://www.gespaenerji.com/en/) / [Online Store](https://www.gespaenerji.com/en/online-satis.html) / 360 W Solar Panel
 
-![Lexron 285 W Güneş Paneli — product photo](https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp)
+![360 W Güneş Paneli — product photo](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)
 
 🔆 Solar Panel
 
-# Lexron 285 W Solar Panel
+# 360 W Solar Panel
 
-Product code: **GES-PNL-285** Out of stock
+Product code: **GES-PNL-360** In stock / available to order
 
-285 W solar panel — Balconies, cabins and small off-grid systems.
+360 W solar panel — Cabins, caravans, rooftops and small off-grid systems.
 
-**₺7.500** ≈ $152
+**₺7.200** ≈ $146
 
 Price includes VAT.
 
-💰 By bank transfer: **₺7.300**
+💰 By bank transfer: **₺7.000**
 
 💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
 
@@ -32,15 +32,15 @@ Price includes VAT.
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
 [⚡ Buy it now](https://www.gespaenerji.com/en/sepet.html)
-[💬 Ask on WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Lexron%20285%20W%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-285)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpanel-lexron-285w.html)
+[💬 Ask on WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22360%20W%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-360)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpanel-360w.html)
 
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
 - 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
-- 🛡️ Warranty: **12-year product · 30-year power**
+- 🛡️ Warranty: **2 years**
 - 🔒 Secure payment: iyzico / tami · invoice with every order
 - 🔌 Charge controller and cables are not included.
 
-🔆 285 W TOPCon ⚡ 42.84 V Voc ⚖️ 8.5 kg
+🔆 360 W Mono-PERC ⚡ 42.56 V Voc ⚖️ 19.5 kg
 
 ### ✅ Suitable for
 
@@ -54,22 +54,25 @@ Price includes VAT.
 - Devices whose panel input limit is below this Voc (see the spec table)
 - Connecting to the grid on its own (an inverter is required)
 
-Lexron 210R PowerLite TOPCon series 285 W monocrystalline solar panel. Voc 42.84 V · Isc 8.19 A · Vmp 35.85 V · Imp 7.95 A. Dimensions 780 × 1536 × 30 mm, weight 8.5 kg. IEC 61215 / 61730 / 61701 certified; 12-year product and workmanship, 30-year power warranty.
+60-cell Mono-PERC solar panel, 360 W. Voc 42.56 V · Isc 11.37 A · Vmp 34.98 V · Imp 10.30 A. Dimensions 1660 × 1001 × 30 mm, weight 19.5 kg. IP68 junction box, 3 bypass diodes; 1500 V system voltage.
 
 A panel is never connected straight to a battery: a charge controller (battery system) or an inverter (grid-tied system) sits in between. Below you'll find suitable devices for this panel and its series-wiring limits.
 
-| Brand | Lexron |
+| Power | 360 W |
 | --- | --- |
-| Power | 285 W |
-| Cells | TOPCon monocrystalline |
-| Voc | 42.84 V |
-| Vmp | 35.85 V |
-| Isc | 8.19 A |
-| Imp | 7.95 A |
-| Dimensions | 780 × 1536 × 30 mm |
-| Weight | 8.5 kg |
-| Certificates | IEC 61215 / 61730 / 61701 |
-| Warranty | 12-year product · 30-year power |
+| Cells | 60 cells, Mono-PERC |
+| Voc | 42.56 V |
+| Vmp | 34.98 V |
+| Isc | 11.37 A |
+| Imp | 10.30 A |
+| Power tolerance | 0~+5 W |
+| Max. system voltage | 1500 V |
+| Max. series fuse | 30 A |
+| Dimensions | 1660 × 1001 × 30 mm |
+| Weight | 19.5 kg |
+| Junction box | IP68, 3 bypass diodes |
+| Mechanical load | 2400 Pa wind · 5400 Pa snow · 25 mm hail |
+| Temperature | Pmax −0.29 %/°C · Voc −0.25 %/°C · Isc +0.046 %/°C · NOCT 42 ± 2 °C · operating −40…+85 °C |
 
 Values are taken from the manufacturer's datasheet. If you need a value that isn't listed, write to us and we'll confirm it with the manufacturer.
 
@@ -118,7 +121,7 @@ Installation
 
 The panel connects to a charge controller (battery system) or to an inverter's panel input (grid-tied system).
 
-- ☀️ **Solar panel**285 W
+- ☀️ **Solar panel**360 W
 - 🔗 **MC4**solar cable
 - 📟 **Charge controller / inverter**MPPT · PWM
 - 🔋 **Battery / grid**by system
@@ -141,7 +144,7 @@ All panels in our shop; a dash (—) means we do not have that value's datasheet
 | --- | --- | --- | --- | --- |
 | 50 W Solar Panel | 50 W | — | — | — |
 | 240 W Solar Panel (48 Cells) | 240 W | 36.12 V | 1320 × 776 × 30 mm | 8 kg |
-| Lexron 285 W Solar Panel This product | 285 W | 42.84 V | 780 × 1536 × 30 mm | 8.5 kg |
+| 360 W Solar Panel This product | 360 W | 42.56 V | 1660 × 1001 × 30 mm | 19.5 kg |
 | 460 W Half-Cut Monocrystalline Solar Panel | 460 W | 51.9 V | 2095 × 1039 × 30 mm | 25 kg |
 | Arçelik 540 W Solar Panel | 540 W | — | — | — |
 | Lexron 655 W TOPCon Solar Panel | 655 W | 50.34 V | 2382 × 1134 × 35 mm | 31 kg |
@@ -164,7 +167,7 @@ Frequently Asked Questions
 
 ### How many panels can I wire in series?
 
-The panel's Voc is 42.84 V. Allowing 10% for the rise of Voc in the cold: up to 2 panels in series on MPPT controllers with a 100 V panel input (e.g. Havensis Solar-30AMPS), up to 3 on 150 V inputs (e.g. Havensis Solar-60AMPS 150|60). A single panel also fits the 15–60 V input of the BOOST MPPT in our EV solar sets. Check the exact layout with us before ordering.
+The panel's Voc is 42.56 V. Allowing 10% for the rise of Voc in the cold: up to 2 panels in series on MPPT controllers with a 100 V panel input (e.g. Havensis Solar-30AMPS), up to 3 on 150 V inputs (e.g. Havensis Solar-60AMPS 150|60). A single panel also fits the 15–60 V input of the BOOST MPPT in our EV solar sets. Check the exact layout with us before ordering.
 
 ### Can I connect the panel straight to a battery?
 
@@ -186,7 +189,7 @@ Customer reviews
 
 No published reviews for this product yet. If you bought it, write about your experience; it is published here after approval.
 
-[Write a review (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Lexron%20285%20W%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-285)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Our Google reviews ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
+[Write a review (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22360%20W%20G%C3%BCne%C5%9F%20Paneli%22%20(GES-PNL-360)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Our Google reviews ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Order the panel today
 
@@ -195,5 +198,5 @@ Message us on WhatsApp for stock and delivery; we reply the same day.
 [🛒 Add to cart & complete order](https://www.gespaenerji.com/en/sepet.html)
 
 ---
-Kaynak sayfa: https://www.gespaenerji.com/en/panel-lexron-285w.html · GESPA Enerji · 0543 743 42 09 · info@gespaenerji.com · Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01, Manavgat / Antalya
+Kaynak sayfa: https://www.gespaenerji.com/en/panel-360w.html · GESPA Enerji · 0543 743 42 09 · info@gespaenerji.com · Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01, Manavgat / Antalya
 Tüm sayfalar ve ürünler: https://www.gespaenerji.com/llms.txt · Ayrıntı: https://www.gespaenerji.com/llms-full.txt

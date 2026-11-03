@@ -3,7 +3,7 @@ title: "Havensis DC-DC Akü Şarj Cihazı 40A — Karavan Alternatör Şarjı"
 description: "Havensis DCDC-1224 40 A DC-DC akü şarj cihazı: karavan yaşam aküsünü alternatörden hızlı şarj eder."
 canonical: https://www.gespaenerji.com/havensis-dcdc-40a.html
 lang: tr
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -173,7 +173,7 @@ Tamamlayıcı ürünler
 
 Aynı siparişte alın; hepsi aynı kargoyla gelsin.
 
-[![Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 A](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 AKaravan tavanına panel eklerseniz yaşam aküsü park hâlinde de güneşle dolar.₺6.400 Ürünü İncele →](https://www.gespaenerji.com/havensis-mppt-30a.html)[![Lexron 285 W Güneş Paneli](https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp)Lexron 285 W Güneş Paneli780 × 1536 mm, 8,5 kg: tavana taşınması kolay kompakt TOPCon panel.₺7.500 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=panel-lexron-285w)[![Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)Panel ile cihaz arası: 5 m siyah + 5 m kırmızı.₺1.000 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=kablo-solar-5m)[![MC4 Konnektör Takımı](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Konnektör TakımıPanel kablosunu solar kabloya bağlar.₺100 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=mc4-set)
+[![Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 A](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 AKaravan tavanına panel eklerseniz yaşam aküsü park hâlinde de güneşle dolar.₺6.400 Ürünü İncele →](https://www.gespaenerji.com/havensis-mppt-30a.html)[![360 W Güneş Paneli](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)360 W Güneş Paneli1660 × 1001 mm, 19,5 kg: tek kişinin tavana taşıyabileceği orta boy panel.₺7.200 Ürünü İncele →](https://www.gespaenerji.com/panel-360w.html)[![Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)Panel ile cihaz arası: 5 m siyah + 5 m kırmızı.₺1.000 Ürünü İncele →](https://www.gespaenerji.com/kablo-solar-5m.html)[![MC4 Konnektör Takımı](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Konnektör TakımıPanel kablosunu solar kabloya bağlar.₺100 Ürünü İncele →](https://www.gespaenerji.com/mc4-set.html)
 
 Sıkça Sorulan Sorular
 

@@ -3,7 +3,7 @@ title: "Havensis 60A MPPT-Laderegler 12/24V — 2500W Module | GESPA Energy"
 description: "Havensis Solar-60AMPS-100 MPPT-Laderegler: 12/24-V-Batterie, 60 A Ladestrom, 20-A-Lastausgang, 100 V Moduleingang, bis 2500 W Module, LCD-Display."
 canonical: https://www.gespaenerji.com/de/havensis-mppt-60a.html
 lang: de
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -176,7 +176,7 @@ Die Leerlaufspannungen (Voc) in Reihe geschalteter Module addieren sich; die Sum
 
 | Modul | Voc (Datenblatt) | Max. in Reihe an diesem Regler |
 | --- | --- | --- |
-| Lexron 285-W-Solarmodul | 42,84 V | 2 Module (85,68 V) |
+| 360-W-Solarmodul | 42,56 V | 2 Module (85,12 V) |
 | Lexron 655-W-TOPCon-Solarmodul | 50,34 V | Keine Reihenschaltung: einzeln oder parallel |
 
 Voc steigt bei Kälte; in Gegenden, in denen es im Winter unter −10 °C geht, prüfen Sie den Aufbau mit uns. Die gesamte Modulleistung darf 2500 W nicht überschreiten.
@@ -187,7 +187,7 @@ Passendes Zubehör
 
 Zusammen bestellen, alles kommt in einer Sendung.
 
-[![Lexron 285-W-Solarmodul](https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp)Lexron 285-W-SolarmodulKompaktes TOPCon-Modul; an diesem Regler bis zu 2 in Reihe.₺7.500 In den Warenkorb →](https://www.gespaenerji.com/de/sepet.html?ekle=panel-lexron-285w)[![Lexron 655-W-TOPCon-Solarmodul](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655-W-TOPCon-SolarmodulLeistungsstarkes TOPCon-Modul; an diesem Regler einzeln oder parallel.₺10.000 In den Warenkorb →](https://www.gespaenerji.com/de/sepet.html?ekle=panel-lexron-655w)[![Solarkabel-Set (5 m Schwarz + 5 m Rot)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solarkabel-Set (5 m Schwarz + 5 m Rot)Modul zum Regler: 5 m schwarz + 5 m rot.₺1.000 In den Warenkorb →](https://www.gespaenerji.com/de/sepet.html?ekle=kablo-solar-5m)[![MC4-Steckerset](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4-SteckersetVerbindet das Modulkabel mit dem Solarkabel.₺100 In den Warenkorb →](https://www.gespaenerji.com/de/sepet.html?ekle=mc4-set)
+[![360-W-Solarmodul](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)360-W-Solarmodul360-W-Modul; an diesem Regler bis zu 2 in Reihe.₺7.200 Produkt ansehen →](https://www.gespaenerji.com/de/panel-360w.html)[![Lexron 655-W-TOPCon-Solarmodul](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655-W-TOPCon-SolarmodulLeistungsstarkes TOPCon-Modul; an diesem Regler einzeln oder parallel.₺10.000 Produkt ansehen →](https://www.gespaenerji.com/de/panel-lexron-655w.html)[![Solarkabel-Set (5 m Schwarz + 5 m Rot)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solarkabel-Set (5 m Schwarz + 5 m Rot)Modul zum Regler: 5 m schwarz + 5 m rot.₺1.000 Produkt ansehen →](https://www.gespaenerji.com/de/kablo-solar-5m.html)[![MC4-Steckerset](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4-SteckersetVerbindet das Modulkabel mit dem Solarkabel.₺100 Produkt ansehen →](https://www.gespaenerji.com/de/mc4-set.html)
 
 Häufige Fragen
 
@@ -203,7 +203,7 @@ Mit 12-V- und 24-V-Batterien. Da alle Parameter einstellbar sind, geben Sie die 
 
 ### Wie viele Module kann ich in Reihe schalten?
 
-Die Summe der Leerlaufspannungen (Voc) der Module in Reihe darf 100 V nicht überschreiten. Von unseren Lexron-285-W-Modulen (Voc 42,84 V) passen bis zu 2 in Reihe; das Lexron-655-W-Modul (Voc 50,34 V) wird an diesem Regler nicht in Reihe, sondern einzeln oder parallel angeschlossen. Da Voc bei Kälte steigt, prüfen Sie den Aufbau mit uns, wenn es bei Ihnen im Winter unter −10 °C geht.
+Die Summe der Leerlaufspannungen (Voc) der Module in Reihe darf 100 V nicht überschreiten. Von unseren 360-W-Modulen (Voc 42,56 V) passen bis zu 2 in Reihe; das Lexron-655-W-Modul (Voc 50,34 V) wird an diesem Regler nicht in Reihe, sondern einzeln oder parallel angeschlossen. Da Voc bei Kälte steigt, prüfen Sie den Aufbau mit uns, wenn es bei Ihnen im Winter unter −10 °C geht.
 
 ### Was macht die Dämmerungsfunktion?
 

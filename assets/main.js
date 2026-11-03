@@ -776,7 +776,7 @@
       var shopWa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
       var items = (CFG.packages || []).filter(function (p) { return p.price != null || p.priceOnRequest; });
       // Tükenen ürün (stock: 0) listede kalır ama EN SONA iner; müşteri önce
-      // satın alabileceği ürünü görsün (27 Eki 2026, Lexron 285 W).
+      // satın alabileceği ürünü görsün (27 Eki 2026).
       items = items.filter(function (p) { return p.stock !== 0; }).concat(items.filter(function (p) { return p.stock === 0; }));
       // Kampanya: bitiş tarihi config.campaign.endsAt'ten okunur (tek kaynak).
       var camp = CFG.campaign || {};

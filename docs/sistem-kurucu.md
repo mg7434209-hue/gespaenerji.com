@@ -33,7 +33,7 @@
   ORADAN gelir; birim fiyat main.js `pkgUnit()` kuralıyla hesaplanır
   (`window.GESPA.shop` = `{pkg, unit, pct, cart}`, main.js açar).
 - `pkg`'li kaleme `price` YAZILMAZ. Eskiden kurucunun ayrı fiyat listesi
-  vardı; Lexron 285 W kurucuda ₺3.400, mağazada ₺7.500 görünüyordu. Test
+  vardı; bir panel kurucuda ₺3.400, mağazada ₺7.500 görünüyordu. Test
   (`tests/seo.test.js`) `pkg` yanında fiyat görürse düşer.
 - Admin panelinin paket fiyatı değişikliği böylece kurucuya da yansır.
 - Ürün mağazadan kaldırılırsa, fiyatı `null` olursa ya da `stock: 0` ise kalem
@@ -73,7 +73,7 @@
 - `recommend()`: ihtiyacı EN DÜŞÜK toplam tutarla karşılayan model;
   eşitlikte daha çok kapasite, sonra daha az adet. Senaryonun `prefer`'i
   önce gelir (karavan → 240 W kompakt panel, 1320 × 776 mm; 2,4 m'lik panel
-  tavana sığmaz. Lexron 285 W stokta yok, `stock: 0` olduğu için kurucudan düşer).
+  tavana sığmaz). `stock: 0` ürün kurucudan kendiliğinden düşer.
 - GERİLİM UYUMU: akü ve inverter `v` (sistem gerilimi) taşır. Lexron 6,2 ve
   11 kW için 48 V yazıldı (bu güç sınıfı 48 V'tur, işletmeden teyit
   bekleniyor). İnverter yalnız

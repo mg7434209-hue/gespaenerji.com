@@ -3,7 +3,7 @@ title: "Lexron 80A MPPT HV Charge Controller 12/24/36/48V | GESPA Energy"
 description: "Lexron 80 A MPPT HV solar charge controller for 12/24/36/48 V battery systems. Values from the product label; write to us for the full datasheet."
 canonical: https://www.gespaenerji.com/en/lexron-mppt-80a-hv.html
 lang: en
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -155,7 +155,7 @@ Complementary products
 
 Order them together and everything arrives in one shipment.
 
-[![Lexron 655 W TOPCon Solar Panel](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655 W TOPCon Solar PanelA high-power panel for large systems.₺10.000 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=panel-lexron-655w)[![TitanX 51.2 V 102 Ah LiFePO₄ Battery](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51.2 V 102 Ah LiFePO₄ BatteryA LiFePO₄ battery for a 48 V system.₺73.400 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=aku-titanx-51v-102ah)[![Solar Cable Set (5 m Black + 5 m Red)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Cable Set (5 m Black + 5 m Red)For the connection between panel and controller.₺1.000 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=kablo-solar-5m)[![MC4 Connector Set](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Connector SetTo join the panel cable to the solar cable.₺100 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=mc4-set)
+[![Lexron 655 W TOPCon Solar Panel](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655 W TOPCon Solar PanelA high-power panel for large systems.₺10.000 View the Product →](https://www.gespaenerji.com/en/panel-lexron-655w.html)[![TitanX 51.2 V 102 Ah LiFePO₄ Battery](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51.2 V 102 Ah LiFePO₄ BatteryA LiFePO₄ battery for a 48 V system.₺73.400 View the Product →](https://www.gespaenerji.com/en/aku-titanx-51v-102ah.html)[![Solar Cable Set (5 m Black + 5 m Red)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Cable Set (5 m Black + 5 m Red)For the connection between panel and controller.₺1.000 View the Product →](https://www.gespaenerji.com/en/kablo-solar-5m.html)[![MC4 Connector Set](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Connector SetTo join the panel cable to the solar cable.₺100 View the Product →](https://www.gespaenerji.com/en/mc4-set.html)
 
 Frequently Asked Questions
 
@@ -163,7 +163,7 @@ Frequently Asked Questions
 
 ### Should I choose PWM or MPPT?
 
-If the panel voltage is well above the battery voltage (like the 285 W and 655 W panels in our shop), MPPT collects more energy from the same panel and is the right choice. For small, budget-first systems where the panel voltage is close to the battery voltage, PWM models are enough.
+If the panel voltage is well above the battery voltage (like the 360 W and 655 W panels in our shop), MPPT collects more energy from the same panel and is the right choice. For small, budget-first systems where the panel voltage is close to the battery voltage, PWM models are enough.
 
 ### How much panel power can I connect?
 

@@ -3,7 +3,7 @@ title: "Häufige Fragen — Solarenergie, Bestellung und Montage"
 description: "Antworten zu Solaranlagen, Akkus, Solarumrüstung von E-Fahrzeugen, Bestellung, Versand, Zahlung und Montage an einem Ort. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/de/sss.html
 lang: de
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -605,7 +605,7 @@ Wir versenden in die ganze Türkei. In der Region Antalya bieten wir optional di
 
 ### Soll ich PWM oder MPPT wählen?
 
-Liegt die Modulspannung deutlich über der Batteriespannung (wie bei den 285-W- und 655-W-Modulen in unserem Shop), holt MPPT mehr Energie aus demselben Modul und ist die richtige Wahl. Für kleine, preisorientierte Anlagen mit Modulspannung nahe der Batteriespannung genügen PWM-Modelle.
+Liegt die Modulspannung deutlich über der Batteriespannung (wie bei den 360-W- und 655-W-Modulen in unserem Shop), holt MPPT mehr Energie aus demselben Modul und ist die richtige Wahl. Für kleine, preisorientierte Anlagen mit Modulspannung nahe der Batteriespannung genügen PWM-Modelle.
 
 ### Wie viel Modulleistung kann ich anschließen?
 
@@ -629,7 +629,7 @@ Wir versenden in die ganze Türkei. In der Region Antalya bieten wir optional di
 
 ### Soll ich PWM oder MPPT wählen?
 
-Liegt die Modulspannung nahe an der Batteriespannung (z. B. ein 12-V-Modul an einer 12-V-Batterie), ist PWM günstig und ausreichend. Liegt sie deutlich darüber (wie bei den 285-W- und 655-W-Modulen in unserem Shop), holt MPPT aus demselben Modul mehr Energie; dann sehen Sie sich unsere MPPT-Modelle an.
+Liegt die Modulspannung nahe an der Batteriespannung (z. B. ein 12-V-Modul an einer 12-V-Batterie), ist PWM günstig und ausreichend. Liegt sie deutlich darüber (wie bei den 360-W- und 655-W-Modulen in unserem Shop), holt MPPT aus demselben Modul mehr Energie; dann sehen Sie sich unsere MPPT-Modelle an.
 
 ### Wie viel Modulleistung kann ich anschließen?
 
@@ -661,7 +661,7 @@ Mit 12-V- und 24-V-Batterien. Da alle Parameter einstellbar sind, geben Sie die 
 
 ### Wie viele Module kann ich in Reihe schalten?
 
-Die Summe der Leerlaufspannungen (Voc) der Module in Reihe darf 100 V nicht überschreiten. Von unseren Lexron-285-W-Modulen (Voc 42,84 V) passen bis zu 2 in Reihe; das Lexron-655-W-Modul (Voc 50,34 V) wird an diesem Regler nicht in Reihe, sondern einzeln oder parallel angeschlossen. Da Voc bei Kälte steigt, prüfen Sie den Aufbau mit uns, wenn es bei Ihnen im Winter unter −10 °C geht.
+Die Summe der Leerlaufspannungen (Voc) der Module in Reihe darf 100 V nicht überschreiten. Von unseren 360-W-Modulen (Voc 42,56 V) passen bis zu 2 in Reihe; das Lexron-655-W-Modul (Voc 50,34 V) wird an diesem Regler nicht in Reihe, sondern einzeln oder parallel angeschlossen. Da Voc bei Kälte steigt, prüfen Sie den Aufbau mit uns, wenn es bei Ihnen im Winter unter −10 °C geht.
 
 ### Was macht die Dämmerungsfunktion?
 

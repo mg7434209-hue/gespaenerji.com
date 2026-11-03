@@ -3,7 +3,7 @@ title: "700W Bifaziales TOPCon-Solarmodul | GESPA Energy"
 description: "Bifaziales 700-W-N-Type-TOPCon-Modul: 610 Wp Vorderseite + 15 % Rückseitengewinn, 144 Halbzellen, Voc 53,27 V, 23,62 % Wirkungsgrad, 2278 × 1133 × 30 mm."
 canonical: https://www.gespaenerji.com/de/panel-700w.html
 lang: de
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -147,7 +147,7 @@ Alle Module in unserem Shop; ein Strich (—) bedeutet, dass uns der Wert nicht 
 | --- | --- | --- | --- | --- |
 | 50-W-Solarmodul | 50 W | — | — | — |
 | 240-W-Solarmodul (48 Zellen) | 240 W | 36,12 V | 1320 × 776 × 30 mm | 8 kg |
-| Lexron 285-W-Solarmodul | 285 W | 42,84 V | 780 × 1536 × 30 mm | 8,5 kg |
+| 360-W-Solarmodul | 360 W | 42,56 V | 1660 × 1001 × 30 mm | 19,5 kg |
 | 460-W-Half-Cut-Monokristallin-Solarmodul | 460 W | 51,9 V | 2095 × 1039 × 30 mm | 25 kg |
 | Arçelik 540-W-Solarmodul | 540 W | — | — | — |
 | Lexron 655-W-TOPCon-Solarmodul | 655 W | 50,34 V | 2382 × 1134 × 35 mm | 31 kg |

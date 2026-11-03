@@ -3,7 +3,7 @@ title: "Off-Grid Güneş Sistemi Nasıl Boyutlandırılır? | GESPA"
 description: "Günlük tüketimden panel, akü ve inverter gücünü hesaplayın: adım adım formüller, örnek hesap ve sık yapılan hatalar. Sistem Kurucu ile aynı mantık."
 canonical: https://www.gespaenerji.com/off-grid-gunes-sistemi-boyutlandirma.html
 lang: tr
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -40,7 +40,7 @@ Panel gücü (kWp) = günlük Wh ÷ (güneşlenme saati × sistem verimi × 1.00
 
 1.770 ÷ (4,5 × 0,75 × 1.000) = 0,52 kWp
 
-Yaklaşık 0,52 kWp gerekir; 285 W'lık 2 panel (570 Wp) bu ihtiyacı karşılar.
+Yaklaşık 0,52 kWp gerekir; 360 W'lık 2 panel (720 Wp) bu ihtiyacı karşılar.
 
 ## Adım 3: Akü kapasitesi
 

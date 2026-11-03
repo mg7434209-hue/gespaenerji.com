@@ -3,7 +3,7 @@ title: "GESPA Energy — Solarprodukte & schlüsselfertige PV | Antalya"
 description: "Solarmodule, Akkus, Laderegler und fertige Sets mit Versand in die ganze Türkei; Dach-, Freiflächen- und Agrar-PV schlüsselfertig in Manavgat/Antalya seit 2005."
 canonical: https://www.gespaenerji.com/de/
 lang: de
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 

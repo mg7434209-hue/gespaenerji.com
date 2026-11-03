@@ -3,7 +3,7 @@ title: "Frequently Asked Questions — Solar Power, Orders and Installation"
 description: "Answers about solar power plants, batteries, EV solar conversion, ordering, shipping, payment and installation in one place. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/en/sss.html
 lang: en
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -605,7 +605,7 @@ We ship anywhere in Türkiye. In the Antalya region we offer optional on-site in
 
 ### Should I choose PWM or MPPT?
 
-If the panel voltage is well above the battery voltage (like the 285 W and 655 W panels in our shop), MPPT collects more energy from the same panel and is the right choice. For small, budget-first systems where the panel voltage is close to the battery voltage, PWM models are enough.
+If the panel voltage is well above the battery voltage (like the 360 W and 655 W panels in our shop), MPPT collects more energy from the same panel and is the right choice. For small, budget-first systems where the panel voltage is close to the battery voltage, PWM models are enough.
 
 ### How much panel power can I connect?
 
@@ -629,7 +629,7 @@ We ship anywhere in Türkiye. In the Antalya region we offer optional on-site in
 
 ### Should I choose PWM or MPPT?
 
-If the panel voltage is close to the battery voltage (for example a 12 V-class panel on a 12 V battery), PWM is economical and sufficient. If the panel voltage is well above the battery voltage (like the 285 W and 655 W panels in our shop), MPPT collects more energy from the same panel; in that case look at our MPPT models.
+If the panel voltage is close to the battery voltage (for example a 12 V-class panel on a 12 V battery), PWM is economical and sufficient. If the panel voltage is well above the battery voltage (like the 360 W and 655 W panels in our shop), MPPT collects more energy from the same panel; in that case look at our MPPT models.
 
 ### How much panel power can I connect?
 
@@ -661,7 +661,7 @@ With 12 V and 24 V batteries. Since all parameters are adjustable, you enter the
 
 ### How many panels can I wire in series?
 
-The sum of the open-circuit voltages (Voc) of panels in series must not exceed 100 V. Of our Lexron 285 W panels (Voc 42.84 V) up to 2 can go in series; the Lexron 655 W panel (Voc 50.34 V) is not wired in series on this controller but connected singly or in parallel. Because Voc rises in the cold, check the layout with us if your area drops below −10 °C in winter.
+The sum of the open-circuit voltages (Voc) of panels in series must not exceed 100 V. Of our 360 W panels (Voc 42.56 V) up to 2 can go in series; the Lexron 655 W panel (Voc 50.34 V) is not wired in series on this controller but connected singly or in parallel. Because Voc rises in the cold, check the layout with us if your area drops below −10 °C in winter.
 
 ### What does the dusk-to-dawn function do?
 

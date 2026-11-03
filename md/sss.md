@@ -3,7 +3,7 @@ title: "Sıkça Sorulan Sorular — Güneş Enerjisi, Sipariş ve Kurulum"
 description: "Güneş enerjisi santrali, akü, elektrikli araç güneş dönüşümü, sipariş, kargo, ödeme ve kurulum hakkında sık sorulan soruların cevapları tek sayfada."
 canonical: https://www.gespaenerji.com/sss.html
 lang: tr
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -647,7 +647,7 @@ Türkiye'nin her yerine kargo ile gönderiyoruz. Antalya bölgesinde isteğe ba�
 
 ### PWM mi, MPPT mi seçmeliyim?
 
-Panel gerilimi akünün çok üstündeyse (mağazamızdaki 285 W ve 655 W paneller gibi) MPPT aynı panelden daha fazla enerji toplar ve doğru seçimdir. Panel gerilimi akü gerilimine yakın küçük, bütçe öncelikli sistemlerde PWM modeller yeterlidir.
+Panel gerilimi akünün çok üstündeyse (mağazamızdaki 360 W ve 655 W paneller gibi) MPPT aynı panelden daha fazla enerji toplar ve doğru seçimdir. Panel gerilimi akü gerilimine yakın küçük, bütçe öncelikli sistemlerde PWM modeller yeterlidir.
 
 ### Bu cihaza ne kadar panel bağlayabilirim?
 
@@ -671,7 +671,7 @@ Türkiye'nin her yerine kargo ile gönderiyoruz. Antalya bölgesinde isteğe ba�
 
 ### PWM mi, MPPT mi seçmeliyim?
 
-Panel gerilimi akü gerilimine yakınsa (örneğin 12 V aküye 12 V sınıfı panel) PWM ekonomik ve yeterlidir. Panel gerilimi akünün çok üstündeyse (mağazamızdaki 285 W ve 655 W paneller gibi) MPPT aynı panelden daha fazla enerji toplar; o durumda MPPT modellerimize bakın.
+Panel gerilimi akü gerilimine yakınsa (örneğin 12 V aküye 12 V sınıfı panel) PWM ekonomik ve yeterlidir. Panel gerilimi akünün çok üstündeyse (mağazamızdaki 360 W ve 655 W paneller gibi) MPPT aynı panelden daha fazla enerji toplar; o durumda MPPT modellerimize bakın.
 
 ### Bu cihaza ne kadar panel bağlayabilirim?
 
@@ -703,7 +703,7 @@ Hayır, şarj gücünü akü gerilimi ve 30 A şarj akımı belirler. 12 V akü 
 
 ### Kaç panel seri bağlayabilirim?
 
-Seri bağlı panellerin açık devre gerilimi (Voc) toplamı 100 V'u aşmamalıdır. Mağazamızdaki Lexron 285 W panelden (Voc 42,84 V) en fazla 2 tanesi seri bağlanır; Lexron 655 W panel (Voc 50,34 V) bu cihaza seri bağlanmaz, tek ya da paralel bağlanır. Voc soğukta yükseldiği için kışın −10 °C'nin altına düşen bölgelerde dizilimi bizimle kontrol edin.
+Seri bağlı panellerin açık devre gerilimi (Voc) toplamı 100 V'u aşmamalıdır. Mağazamızdaki 360 W panelden (Voc 42,56 V) en fazla 2 tanesi seri bağlanır; Lexron 655 W panel (Voc 50,34 V) bu cihaza seri bağlanmaz, tek ya da paralel bağlanır. Voc soğukta yükseldiği için kışın −10 °C'nin altına düşen bölgelerde dizilimi bizimle kontrol edin.
 
 ### Gece-gündüz fonksiyonu ne işe yarar?
 

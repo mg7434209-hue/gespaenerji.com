@@ -3,7 +3,7 @@ title: "Havensis 60A MPPT Şarj Kontrol 12–48V, 150V — 5000W Panel"
 description: "Havensis Solar-60AMPS 150|60 MPPT şarj kontrol cihazı: 12/24/36/48 V akü, 60 A şarj, 150 V panel girişi, 5000 W'a kadar panel."
 canonical: https://www.gespaenerji.com/havensis-mppt-60a-150v.html
 lang: tr
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -171,7 +171,7 @@ Seri bağlanan panellerin açık devre gerilimleri (Voc) toplanır; toplam, ciha
 
 | Panel | Voc (künye) | Bu cihazda en fazla seri |
 | --- | --- | --- |
-| Lexron 285 W Güneş Paneli | 42,84 V | 3 panel (128,52 V) |
+| 360 W Güneş Paneli | 42,56 V | 3 panel (127,68 V) |
 | Lexron 655 W TOPCon Güneş Paneli | 50,34 V | 2 panel (100,68 V) |
 
 Voc soğukta yükselir; kışın −10 °C'nin altına düşen bölgelerde dizilimi bizimle kontrol edin. Toplam panel gücü 5000 W'ı aşmamalıdır.
@@ -182,7 +182,7 @@ Tamamlayıcı ürünler
 
 Aynı siparişte alın; hepsi aynı kargoyla gelsin.
 
-[![Lexron 655 W TOPCon Güneş Paneli](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655 W TOPCon Güneş PaneliYüksek güçlü TOPCon panel; bu cihaza en fazla 2 tanesi seri bağlanır.₺10.000 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=panel-lexron-655w)[![TitanX 51,2 V 102 Ah LiFePO₄ Akü](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51,2 V 102 Ah LiFePO₄ Akü48 V sistem için 5,22 kWh LiFePO₄ akü.₺73.400 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=aku-titanx-51v-102ah)[![Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)Panel ile cihaz arası: 5 m siyah + 5 m kırmızı.₺1.000 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=kablo-solar-5m)[![MC4 Konnektör Takımı](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Konnektör TakımıPanel kablosunu solar kabloya bağlar.₺100 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=mc4-set)
+[![Lexron 655 W TOPCon Güneş Paneli](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655 W TOPCon Güneş PaneliYüksek güçlü TOPCon panel; bu cihaza en fazla 2 tanesi seri bağlanır.₺10.000 Ürünü İncele →](https://www.gespaenerji.com/panel-lexron-655w.html)[![TitanX 51,2 V 102 Ah LiFePO₄ Akü](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51,2 V 102 Ah LiFePO₄ Akü48 V sistem için 5,22 kWh LiFePO₄ akü.₺73.400 Ürünü İncele →](https://www.gespaenerji.com/aku-titanx-51v-102ah.html)[![Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)Panel ile cihaz arası: 5 m siyah + 5 m kırmızı.₺1.000 Ürünü İncele →](https://www.gespaenerji.com/kablo-solar-5m.html)[![MC4 Konnektör Takımı](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Konnektör TakımıPanel kablosunu solar kabloya bağlar.₺100 Ürünü İncele →](https://www.gespaenerji.com/mc4-set.html)
 
 Sıkça Sorulan Sorular
 
@@ -198,7 +198,7 @@ Hayır, şarj gücünü akü gerilimi ve 60 A şarj akımı belirler: 12 V siste
 
 ### Kaç panel seri bağlayabilirim?
 
-Seri bağlı panellerin açık devre gerilimi (Voc) toplamı 150 V'u aşmamalıdır. Mağazamızdaki Lexron 285 W panelden (Voc 42,84 V) en fazla 3, Lexron 655 W panelden (Voc 50,34 V) en fazla 2 tanesi seri bağlanır. Voc soğukta yükseldiği için kışın −10 °C'nin altına düşen bölgelerde dizilimi bizimle kontrol edin.
+Seri bağlı panellerin açık devre gerilimi (Voc) toplamı 150 V'u aşmamalıdır. Mağazamızdaki 360 W panelden (Voc 42,56 V) en fazla 3, Lexron 655 W panelden (Voc 50,34 V) en fazla 2 tanesi seri bağlanır. Voc soğukta yükseldiği için kışın −10 °C'nin altına düşen bölgelerde dizilimi bizimle kontrol edin.
 
 ### İnverteri nereye bağlarım?
 

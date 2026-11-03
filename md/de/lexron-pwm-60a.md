@@ -3,7 +3,7 @@ title: "Lexron 60A PWM-Laderegler 12/24/48V | GESPA Energy"
 description: "Lexron 60 A PWM-Solarladeregler für 12/24/48-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/lexron-pwm-60a.html
 lang: de
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -152,7 +152,7 @@ Passendes Zubehör
 
 Zusammen bestellen, alles kommt in einer Sendung.
 
-[![Lexron 655-W-TOPCon-Solarmodul](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655-W-TOPCon-SolarmodulEin leistungsstarkes Modul für große Anlagen.₺10.000 In den Warenkorb →](https://www.gespaenerji.com/de/sepet.html?ekle=panel-lexron-655w)[![TitanX 51,2 V 102 Ah LiFePO₄ Batterie](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51,2 V 102 Ah LiFePO₄ BatterieEin LiFePO₄-Akku für ein 48-V-System.₺73.400 In den Warenkorb →](https://www.gespaenerji.com/de/sepet.html?ekle=aku-titanx-51v-102ah)[![Solarkabel-Set (5 m Schwarz + 5 m Rot)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solarkabel-Set (5 m Schwarz + 5 m Rot)Für die Verbindung zwischen Modul und Regler.₺1.000 In den Warenkorb →](https://www.gespaenerji.com/de/sepet.html?ekle=kablo-solar-5m)[![MC4-Steckerset](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4-SteckersetUm das Modulkabel mit dem Solarkabel zu verbinden.₺100 In den Warenkorb →](https://www.gespaenerji.com/de/sepet.html?ekle=mc4-set)
+[![Lexron 655-W-TOPCon-Solarmodul](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655-W-TOPCon-SolarmodulEin leistungsstarkes Modul für große Anlagen.₺10.000 Produkt ansehen →](https://www.gespaenerji.com/de/panel-lexron-655w.html)[![TitanX 51,2 V 102 Ah LiFePO₄ Batterie](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51,2 V 102 Ah LiFePO₄ BatterieEin LiFePO₄-Akku für ein 48-V-System.₺73.400 Produkt ansehen →](https://www.gespaenerji.com/de/aku-titanx-51v-102ah.html)[![Solarkabel-Set (5 m Schwarz + 5 m Rot)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solarkabel-Set (5 m Schwarz + 5 m Rot)Für die Verbindung zwischen Modul und Regler.₺1.000 Produkt ansehen →](https://www.gespaenerji.com/de/kablo-solar-5m.html)[![MC4-Steckerset](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4-SteckersetUm das Modulkabel mit dem Solarkabel zu verbinden.₺100 Produkt ansehen →](https://www.gespaenerji.com/de/mc4-set.html)
 
 Häufige Fragen
 
@@ -160,7 +160,7 @@ Häufige Fragen
 
 ### Soll ich PWM oder MPPT wählen?
 
-Liegt die Modulspannung nahe an der Batteriespannung (z. B. ein 12-V-Modul an einer 12-V-Batterie), ist PWM günstig und ausreichend. Liegt sie deutlich darüber (wie bei den 285-W- und 655-W-Modulen in unserem Shop), holt MPPT aus demselben Modul mehr Energie; dann sehen Sie sich unsere MPPT-Modelle an.
+Liegt die Modulspannung nahe an der Batteriespannung (z. B. ein 12-V-Modul an einer 12-V-Batterie), ist PWM günstig und ausreichend. Liegt sie deutlich darüber (wie bei den 360-W- und 655-W-Modulen in unserem Shop), holt MPPT aus demselben Modul mehr Energie; dann sehen Sie sich unsere MPPT-Modelle an.
 
 ### Wie viel Modulleistung kann ich anschließen?
 

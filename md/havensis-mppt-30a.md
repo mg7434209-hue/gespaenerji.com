@@ -3,7 +3,7 @@ title: "Havensis 30A MPPT Şarj Kontrol Cihazı 12/24V — 1200W Panel"
 description: "12/24 V akülü güneş sistemleri için Havensis Solar-30AMPS MPPT şarj kontrol cihazı: 30 A şarj, 20 A yük çıkışı, 100 V panel girişi, 1200 W'a kadar panel, LCD…"
 canonical: https://www.gespaenerji.com/havensis-mppt-30a.html
 lang: tr
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -176,7 +176,7 @@ Seri bağlanan panellerin açık devre gerilimleri (Voc) toplanır; toplam, ciha
 
 | Panel | Voc (künye) | Bu cihazda en fazla seri |
 | --- | --- | --- |
-| Lexron 285 W Güneş Paneli | 42,84 V | 2 panel (85,68 V) |
+| 360 W Güneş Paneli | 42,56 V | 2 panel (85,12 V) |
 | Lexron 655 W TOPCon Güneş Paneli | 50,34 V | Seri bağlanmaz: tek ya da paralel |
 
 Voc soğukta yükselir; kışın −10 °C'nin altına düşen bölgelerde dizilimi bizimle kontrol edin. Toplam panel gücü 1200 W'ı aşmamalıdır.
@@ -187,7 +187,7 @@ Tamamlayıcı ürünler
 
 Aynı siparişte alın; hepsi aynı kargoyla gelsin.
 
-[![Lexron 285 W Güneş Paneli](https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp)Lexron 285 W Güneş PaneliKompakt TOPCon panel; bu cihaza en fazla 2 tanesi seri bağlanır.₺7.500 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=panel-lexron-285w)[![Lexron 655 W TOPCon Güneş Paneli](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655 W TOPCon Güneş PaneliYüksek güçlü TOPCon panel; bu cihaza tek ya da paralel bağlanır.₺10.000 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=panel-lexron-655w)[![Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)Panel ile cihaz arası: 5 m siyah + 5 m kırmızı.₺1.000 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=kablo-solar-5m)[![MC4 Konnektör Takımı](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Konnektör TakımıPanel kablosunu solar kabloya bağlar.₺100 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=mc4-set)
+[![360 W Güneş Paneli](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)360 W Güneş Paneli360 W panel; bu cihaza en fazla 2 tanesi seri bağlanır.₺7.200 Ürünü İncele →](https://www.gespaenerji.com/panel-360w.html)[![Lexron 655 W TOPCon Güneş Paneli](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655 W TOPCon Güneş PaneliYüksek güçlü TOPCon panel; bu cihaza tek ya da paralel bağlanır.₺10.000 Ürünü İncele →](https://www.gespaenerji.com/panel-lexron-655w.html)[![Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)Panel ile cihaz arası: 5 m siyah + 5 m kırmızı.₺1.000 Ürünü İncele →](https://www.gespaenerji.com/kablo-solar-5m.html)[![MC4 Konnektör Takımı](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Konnektör TakımıPanel kablosunu solar kabloya bağlar.₺100 Ürünü İncele →](https://www.gespaenerji.com/mc4-set.html)
 
 Sıkça Sorulan Sorular
 
@@ -203,7 +203,7 @@ Hayır, şarj gücünü akü gerilimi ve 30 A şarj akımı belirler. 12 V akü 
 
 ### Kaç panel seri bağlayabilirim?
 
-Seri bağlı panellerin açık devre gerilimi (Voc) toplamı 100 V'u aşmamalıdır. Mağazamızdaki Lexron 285 W panelden (Voc 42,84 V) en fazla 2 tanesi seri bağlanır; Lexron 655 W panel (Voc 50,34 V) bu cihaza seri bağlanmaz, tek ya da paralel bağlanır. Voc soğukta yükseldiği için kışın −10 °C'nin altına düşen bölgelerde dizilimi bizimle kontrol edin.
+Seri bağlı panellerin açık devre gerilimi (Voc) toplamı 100 V'u aşmamalıdır. Mağazamızdaki 360 W panelden (Voc 42,56 V) en fazla 2 tanesi seri bağlanır; Lexron 655 W panel (Voc 50,34 V) bu cihaza seri bağlanmaz, tek ya da paralel bağlanır. Voc soğukta yükseldiği için kışın −10 °C'nin altına düşen bölgelerde dizilimi bizimle kontrol edin.
 
 ### Gece-gündüz fonksiyonu ne işe yarar?
 

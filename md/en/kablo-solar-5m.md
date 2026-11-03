@@ -3,7 +3,7 @@ title: "Solar Cable Set 5m Black + 5m Red | GESPA Energy"
 description: "Solar cable set, 5 m black + 5 m red, for connecting the panel to the charge controller."
 canonical: https://www.gespaenerji.com/en/kablo-solar-5m.html
 lang: en
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -101,7 +101,7 @@ Complementary products
 
 Order them together and everything arrives in one shipment.
 
-[![MC4 Connector Set](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Connector SetTo join the panel cable to the solar cable.₺100 View the Product →](https://www.gespaenerji.com/en/mc4-set.html)[![MS Teknik BOOST MPPT 24-72 V Charge Controller](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Charge Controller24–72 V BOOST MPPT for electric vehicles.₺7.200 View the Product →](https://www.gespaenerji.com/en/elektrikli-arac-donusum.html)[![Lexron 285 W Solar Panel](https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp)Lexron 285 W Solar PanelA compact TOPCon panel for tight spaces.₺7.500 View the Product →](https://www.gespaenerji.com/en/panel-lexron-285w.html)[![Lexron 30 A MPPT Solar Charge Controller 12/24 V](https://www.gespaenerji.com/assets/img/products/lexron-mppt-30a.webp)Lexron 30 A MPPT Solar Charge Controller 12/24 VMPPT with 100 V panel input; small and medium systems.₺3.450 View the Product →](https://www.gespaenerji.com/en/lexron-mppt-30a.html)
+[![MC4 Connector Set](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Connector SetTo join the panel cable to the solar cable.₺100 View the Product →](https://www.gespaenerji.com/en/mc4-set.html)[![MS Teknik BOOST MPPT 24-72 V Charge Controller](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Charge Controller24–72 V BOOST MPPT for electric vehicles.₺7.200 View the Product →](https://www.gespaenerji.com/en/elektrikli-arac-donusum.html)[![360 W Solar Panel](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)360 W Solar PanelA mid-size panel for battery systems and rooftops.₺7.200 View the Product →](https://www.gespaenerji.com/en/panel-360w.html)[![Lexron 30 A MPPT Solar Charge Controller 12/24 V](https://www.gespaenerji.com/assets/img/products/lexron-mppt-30a.webp)Lexron 30 A MPPT Solar Charge Controller 12/24 VMPPT with 100 V panel input; small and medium systems.₺3.450 View the Product →](https://www.gespaenerji.com/en/lexron-mppt-30a.html)
 
 Frequently Asked Questions
 

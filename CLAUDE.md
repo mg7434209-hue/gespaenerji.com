@@ -309,7 +309,7 @@ ve sepet simgesi ekran dışında kalır.
   cihazı (**₺7.200 NET** — `noCartDiscount`, kartta da havalede de aynı tutar;
   `freeShipping`, `group:"accessory"`) +
   50W panel ₺1.750 NET (`noCartDiscount`, `group:"panel"`; Eylül kampanyası bitti, `oldPrice` kalktı) + UNV Trek Pro 2500 W taşınabilir güç
-  istasyonu ($2.495, `group:"offgrid"`) + tekil paneller Lexron 285 W ₺7.500 ·
+  istasyonu ($2.495, `group:"offgrid"`) + tekil paneller 360 W ₺7.200 ·
   Lexron 655 W TOPCon ₺10.000 · Arçelik 540 W ₺10.000 (`group:"panel"`) +
   TitanX 51,2 V 102 Ah LiFePO₄ akü ₺73.372 (`group:"storage"`) +
   solar kablo takımı 5 m siyah + 5 m kırmızı ₺1.000 · MC4 konnektör takımı
@@ -367,8 +367,8 @@ ve sepet simgesi ekran dışında kalır.
   telefonu siteye KONMAZ — MS Teknik kuralının aynısı.
   ADLANDIRMA TUZAĞI: `kit-285w` "240W Güneş Paneli Paketi" (komple sistem,
   ₺24.000; 27 Eki 2026'ya dek 285 W panelliydi, id/URL/SKU bilerek eski
-  kaldı) ile `panel-lexron-285w` "Lexron 285 W Güneş Paneli" (tek panel,
-  ₺7.500) AYRI ürünlerdir; adları kısaltıp karıştırma.
+  kaldı) ile `panel-360w` "360 W Güneş Paneli" (tek panel,
+  ₺7.200) AYRI ürünlerdir; adları kısaltıp karıştırma.
 - `group:"storage"` (enerji depolama) `panel` gibi YALNIZ online-satis.html
   kataloğunda listelenir — main.js/build.js GROUPS listelerinde YOKTUR, orada
   olsaydı urunler.html paket vitrininde de çıkardı. Katalog süzgeç etiketi
@@ -489,11 +489,21 @@ ve sepet simgesi ekran dışında kalır.
   ₺17.000). Lexron 655 W tek başına satışta kalır. Paket sayfası
   `paket-motor-kargo.html` elle yazılıdır; metinleri ve i18n.js'teki 3 dil
   karşılıkları birlikte güncellendi.
+- 360 W PANEL (`panel-360w`, 3 Kas 2026, ₺7.200): Lexron 285 W ÜRETİMDEN KALKTI
+  ve her yerden çıkarıldı (config, sayfa, sistem kurucu, çeviriler, rehberler);
+  eski adres `panel-lexron-285w[.html]` (+ /en /de /ru) server.js'te 360 W sayfaya
+  301'dir — KALDIRMA (indekslenmiş URL). Künye SLR-MP-360 (işletme gönderdi):
+  MARKA/TEDARİKÇİ YAZILMAZ, PDF repoya KONMADI, ham fotoğraf
+  `kaynak/panel-360w.jpg` (içinde "HALF-CUT" yazısı var, yayın görseli onu
+  kırpar). YAZILMAYAN: modül verimi (künyede %22,80 ama ölçüden %21,7 çıkıyor,
+  tutarsız), hücre "yarım/tam" (künye "60 Full Cells", fotoğraf yarım kesim
+  gösteriyor), garanti süresi (künyede yok). Seri bağlama: Voc 42,56 × 1,1 →
+  100 V girişte 2, 150 V girişte 3 panel. Sayfa `tools/urun-sayfalar.py` üretir.
 - TÜKENEN ÜRÜN (`stock: 0`, 26 Eki 2026): SATILAMAZ. main.js `sellable()`
   false döner (sepete girmez, eski sepetten temizlenir); ürün sayfasında
   düğmeler "⛔ Stokta yok" + "WhatsApp'tan sor", mağaza kartında pasif düğme;
   server.js checkout kalemi almaz; şema/akış OutOfStock; Sistem Kurucu
-  önermez. İlk örnek: Lexron 285 W. Stoğa girince `stock: 0`'ı SİL.
+  önermez. Stoğa girince `stock: 0`'ı SİL.
   YOLCU MOTOR PAKETİ 285 W yerine 240 W panelle (₺14.800, mini paketle aynı
   içerik ve fiyat). KOMPLE KİT de 240 W panelle (27 Eki 2026): ad "240W
   Güneş Paneli Paketi", ₺25.000 → ₺24.000 (panel farkı), günlük ~1,4 kWh
@@ -546,7 +556,7 @@ ve sepet simgesi ekran dışında kalır.
 - İÇERİK KURALI: teknik değer YALNIZ Havensis 02/2026 listesindendir; listede
   olmayan (garanti, ağırlık, IP, kutu içeriği, akü kimyası uyumu) yazılmaz,
   "bize yazın, üreticiden teyit edelim" denir. Panel dizilimi yalnız
-  künyesi olan Lexron 285 W (Voc 42,84 V) ve 655 W (Voc 50,34 V) ile
+  künyesi olan 360 W (Voc 42,56 V) ve Lexron 655 W (Voc 50,34 V) ile
   verilir; Arçelik 540 W'ın künyesi yok, önerilmez. Havensis adres/telefon/
   IBAN siteye KONMAZ.
 - Sayfa düzeni: satın alma → sekmeler (Açıklama · Teknik · Kargo) →
@@ -891,7 +901,7 @@ Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD v
   kopyalanır, `<main data-article>` → Article + FAQPage (görünen `.faq-item`) + BreadcrumbList build'de
   üretilir. İÇERİK KURALI: örnek hesaplar sitedeki araçlarla BİREBİR aynı formülü/katsayıyı kullanır
   (Sistem Kurucu `config.builder.sizing`, pompa aracı `config.calc.pump`) ve künye değerleri ürün
-  sayfalarından gelir (Lexron 285/655 W, Havensis 150|60); katsayı değişirse rehberdeki örnek rakamları
+  sayfalarından gelir (360 W, Lexron 655 W, Havensis 150|60); katsayı değişirse rehberdeki örnek rakamları
   da güncelle. Mevzuat/hibe iddiası YAZILMAZ; şebekeden de beslenen sulama kurgusu yalnız mevzuat
   rehberine bağlantıyla anılır. Ana sayfadaki `#rehberler` bölümü ve footer "Rehberler" bağlantısı
   `<!-- TR:ONLY -->` içindedir (dil kopyasından silinir). Yeni rehber = TR_ONLY + PRIORITY + LLMS_GROUPS

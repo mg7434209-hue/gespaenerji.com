@@ -3,7 +3,7 @@ title: "Havensis BOOST DC-DC Şarj Cihazı — 12/24V'tan 36–72V Aküye"
 description: "Havensis BOOST DCDC-2448: 12/24 V araç aküsünden 36, 48, 60 ve 72 V akü grubunu şarj eden DC-DC cihaz. 20 A giriş, 15 A şarj, %95 verim."
 canonical: https://www.gespaenerji.com/havensis-boost-dcdc-2448.html
 lang: tr
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -145,7 +145,7 @@ Tamamlayıcı ürünler
 
 Aynı siparişte alın; hepsi aynı kargoyla gelsin.
 
-[![Havensis Solar-60AMPS 150|60 MPPT Şarj Kontrol Cihazı 12/24/36/48 V 60 A](https://www.gespaenerji.com/assets/img/products/havensis-s60amps150.webp)Havensis Solar-60AMPS 150|60 MPPT Şarj Kontrol Cihazı 12/24/36/48 V 60 A48 V akü grubunu güneşten de şarj etmek için 150 V girişli MPPT.₺16.200 Ürünü İncele →](https://www.gespaenerji.com/havensis-mppt-60a-150v.html)[![MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Şarj Kontrol CihazıDüşük gerilimli panelden 24–72 V akü grubuna doğrudan şarj.₺7.200 Ürünü İncele →](https://www.gespaenerji.com/elektrikli-arac-donusum.html)[![TitanX 51,2 V 102 Ah LiFePO₄ Akü](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51,2 V 102 Ah LiFePO₄ Akü48 V sistem için 5,22 kWh LiFePO₄ akü.₺73.400 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=aku-titanx-51v-102ah)
+[![Havensis Solar-60AMPS 150|60 MPPT Şarj Kontrol Cihazı 12/24/36/48 V 60 A](https://www.gespaenerji.com/assets/img/products/havensis-s60amps150.webp)Havensis Solar-60AMPS 150|60 MPPT Şarj Kontrol Cihazı 12/24/36/48 V 60 A48 V akü grubunu güneşten de şarj etmek için 150 V girişli MPPT.₺16.200 Ürünü İncele →](https://www.gespaenerji.com/havensis-mppt-60a-150v.html)[![MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Şarj Kontrol CihazıDüşük gerilimli panelden 24–72 V akü grubuna doğrudan şarj.₺7.200 Ürünü İncele →](https://www.gespaenerji.com/elektrikli-arac-donusum.html)[![TitanX 51,2 V 102 Ah LiFePO₄ Akü](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51,2 V 102 Ah LiFePO₄ Akü48 V sistem için 5,22 kWh LiFePO₄ akü.₺73.400 Ürünü İncele →](https://www.gespaenerji.com/aku-titanx-51v-102ah.html)
 
 Sıkça Sorulan Sorular
 

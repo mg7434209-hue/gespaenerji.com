@@ -3,7 +3,7 @@ title: "Solarkabelset 5 m Schwarz + 5 m Rot | GESPA Energy"
 description: "Solarkabelset, 5 m Schwarz + 5 m Rot, für die Verbindung von Modul und Laderegler."
 canonical: https://www.gespaenerji.com/de/kablo-solar-5m.html
 lang: de
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -101,7 +101,7 @@ Passendes Zubehör
 
 Zusammen bestellen, alles kommt in einer Sendung.
 
-[![MC4-Steckerset](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4-SteckersetUm das Modulkabel mit dem Solarkabel zu verbinden.₺100 Produkt ansehen →](https://www.gespaenerji.com/de/mc4-set.html)[![MS Teknik BOOST MPPT 24-72 V Laderegler](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Laderegler24–72-V-BOOST-MPPT für Elektrofahrzeuge.₺7.200 Produkt ansehen →](https://www.gespaenerji.com/de/elektrikli-arac-donusum.html)[![Lexron 285-W-Solarmodul](https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp)Lexron 285-W-SolarmodulEin kompaktes TOPCon-Modul für wenig Platz.₺7.500 Produkt ansehen →](https://www.gespaenerji.com/de/panel-lexron-285w.html)[![Lexron 30 A MPPT Solar-Laderegler 12/24 V](https://www.gespaenerji.com/assets/img/products/lexron-mppt-30a.webp)Lexron 30 A MPPT Solar-Laderegler 12/24 VMPPT mit 100-V-Moduleingang; kleine und mittlere Anlagen.₺3.450 Produkt ansehen →](https://www.gespaenerji.com/de/lexron-mppt-30a.html)
+[![MC4-Steckerset](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4-SteckersetUm das Modulkabel mit dem Solarkabel zu verbinden.₺100 Produkt ansehen →](https://www.gespaenerji.com/de/mc4-set.html)[![MS Teknik BOOST MPPT 24-72 V Laderegler](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Laderegler24–72-V-BOOST-MPPT für Elektrofahrzeuge.₺7.200 Produkt ansehen →](https://www.gespaenerji.com/de/elektrikli-arac-donusum.html)[![360-W-Solarmodul](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)360-W-SolarmodulEin Modul mittlerer Größe für Batteriesysteme und Dächer.₺7.200 Produkt ansehen →](https://www.gespaenerji.com/de/panel-360w.html)[![Lexron 30 A MPPT Solar-Laderegler 12/24 V](https://www.gespaenerji.com/assets/img/products/lexron-mppt-30a.webp)Lexron 30 A MPPT Solar-Laderegler 12/24 VMPPT mit 100-V-Moduleingang; kleine und mittlere Anlagen.₺3.450 Produkt ansehen →](https://www.gespaenerji.com/de/lexron-mppt-30a.html)
 
 Häufige Fragen
 

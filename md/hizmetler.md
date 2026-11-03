@@ -3,7 +3,7 @@ title: "Çatı, Arazi ve Tarımsal Sulama GES Kurulumu | GESPA Enerji"
 description: "Manavgat ve Antalya'da çatı GES, arazi tipi GES, tarımsal sulama, enerji depolama ve bakım: keşif, mühendislik, kurulum ve izleme tek elden."
 canonical: https://www.gespaenerji.com/hizmetler.html
 lang: tr
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 

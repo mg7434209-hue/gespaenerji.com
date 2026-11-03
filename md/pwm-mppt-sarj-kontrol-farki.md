@@ -3,7 +3,7 @@ title: "PWM mi MPPT mi? Şarj Kontrol Cihazı Nasıl Seçilir | GESPA"
 description: "PWM ve MPPT şarj kontrol cihazı farkı, hangisi ne zaman seçilir, panel gerilimi ve akım hesabı, adım adım örnek. Lexron ve Havensis modelleriyle."
 canonical: https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html
 lang: tr
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -31,13 +31,13 @@ MPPT (maksimum güç noktası izleme) cihazının içinde bir DC-DC dönüştür
 
 ## Aynı panelle bir örnek
 
-Lexron 285 W panelin künye değerleri: Vmp 35,85 V, Imp 7,95 A, Isc 8,19 A ([ürün sayfası](https://www.gespaenerji.com/panel-lexron-285w.html)). Bu panelin 12 V'luk bir aküyü (şarj sırasında yaklaşık 13 V) şarj ettiğini düşünelim:
+360 W panelin künye değerleri: Vmp 34,98 V, Imp 10,30 A, Isc 11,37 A ([ürün sayfası](https://www.gespaenerji.com/panel-360w.html)). Bu panelin 12 V'luk bir aküyü (şarj sırasında yaklaşık 13 V) şarj ettiğini düşünelim:
 
 | | PWM | MPPT |
 | --- | --- | --- |
-| Panelin çalıştığı gerilim | ≈ 13 V (akü gerilimine çekilir) | ≈ 35,85 V (Vmp) |
-| Aküye giden akım | ≈ 8 A (panel akımı, Isc civarı) | ≈ 21 A (285 W × %97 ÷ 13 V) |
-| Aküye giden güç | ≈ 105 W (8 A × 13 V) | ≈ 275 W |
+| Panelin çalıştığı gerilim | ≈ 13 V (akü gerilimine çekilir) | ≈ 34,98 V (Vmp) |
+| Aküye giden akım | ≈ 11 A (panel akımı, Isc civarı) | ≈ 27 A (360 W × %97 ÷ 13 V) |
+| Aküye giden güç | ≈ 145 W (11 A × 13 V) | ≈ 350 W |
 
 Bu uç bir örnektir: büyük bir panel ile 12 V akü ve PWM nadiren doğru eşleşmedir. PWM için doğru eşleşme, Vmp'si akü gerilimine yakın küçük panellerdir; orada kayıp daha küçüktür. Ancak gösterdiği ilke geneldir: **panel gerilimi akü geriliminden ne kadar yüksekse PWM'de kayıp o kadar büyür.** Gerçek değerler ışınım, sıcaklık, kablo ve akü gerilimine göre değişir; örnek ideal koşulları varsayar.
 

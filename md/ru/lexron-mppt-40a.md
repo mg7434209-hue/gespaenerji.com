@@ -3,7 +3,7 @@ title: "Контроллер заряда Lexron 40А MPPT 12/24В | GESPA"
 description: "Солнечный контроллер заряда Lexron 40 А MPPT для систем с АКБ 12/24 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции."
 canonical: https://www.gespaenerji.com/ru/lexron-mppt-40a.html
 lang: ru
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -152,7 +152,7 @@ MPPT (отслеживание точки максимальной мощнос�
 
 Закажите вместе, и всё придёт одной посылкой.
 
-[![Солнечная панель Lexron 285 Вт](https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp)Солнечная панель Lexron 285 ВтВысоковольтная панель; эффективнее всего с MPPT.₺7.500 В корзину →](https://www.gespaenerji.com/ru/sepet.html?ekle=panel-lexron-285w)[![Солнечная панель Lexron 655 Вт TOPCon](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Солнечная панель Lexron 655 Вт TOPConМощная панель для больших систем.₺10.000 В корзину →](https://www.gespaenerji.com/ru/sepet.html?ekle=panel-lexron-655w)[![Комплект солнечного кабеля (5 м чёрный + 5 м красный)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Комплект солнечного кабеля (5 м чёрный + 5 м красный)Для соединения панели с контроллером.₺1.000 В корзину →](https://www.gespaenerji.com/ru/sepet.html?ekle=kablo-solar-5m)[![Комплект коннекторов MC4](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)Комплект коннекторов MC4Чтобы соединить кабель панели с солнечным кабелем.₺100 В корзину →](https://www.gespaenerji.com/ru/sepet.html?ekle=mc4-set)
+[![Солнечная панель 360 Вт](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)Солнечная панель 360 ВтВысоковольтная панель; эффективнее всего с MPPT.₺7.200 Смотреть продукт →](https://www.gespaenerji.com/ru/panel-360w.html)[![Солнечная панель Lexron 655 Вт TOPCon](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Солнечная панель Lexron 655 Вт TOPConМощная панель для больших систем.₺10.000 Смотреть продукт →](https://www.gespaenerji.com/ru/panel-lexron-655w.html)[![Комплект солнечного кабеля (5 м чёрный + 5 м красный)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Комплект солнечного кабеля (5 м чёрный + 5 м красный)Для соединения панели с контроллером.₺1.000 Смотреть продукт →](https://www.gespaenerji.com/ru/kablo-solar-5m.html)[![Комплект коннекторов MC4](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)Комплект коннекторов MC4Чтобы соединить кабель панели с солнечным кабелем.₺100 Смотреть продукт →](https://www.gespaenerji.com/ru/mc4-set.html)
 
 Частые вопросы
 
@@ -160,7 +160,7 @@ MPPT (отслеживание точки максимальной мощнос�
 
 ### Что выбрать: ШИМ или MPPT?
 
-Если напряжение панели намного выше напряжения АКБ (как у панелей 285 Вт и 655 Вт в нашем магазине), MPPT соберёт больше энергии с той же панели и будет правильным выбором. Для небольших бюджетных систем, где напряжение панели близко к напряжению АКБ, достаточно моделей ШИМ.
+Если напряжение панели намного выше напряжения АКБ (как у панелей 360 Вт и 655 Вт в нашем магазине), MPPT соберёт больше энергии с той же панели и будет правильным выбором. Для небольших бюджетных систем, где напряжение панели близко к напряжению АКБ, достаточно моделей ШИМ.
 
 ### Какую мощность панелей можно подключить?
 

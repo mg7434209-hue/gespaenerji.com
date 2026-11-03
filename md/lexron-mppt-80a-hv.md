@@ -3,7 +3,7 @@ title: "Lexron 80 A HV MPPT Şarj Kontrol Cihazı 12/24/36/48 V"
 description: "Lexron 80 A HV (15~230 V) MPPT Şarj Kontrol Cihazı 12/24/36/48 V: 12/24/36/48 V akülü güneş sistemleri için MPPT şarj kontrol cihazı, 80 A şarj akımı."
 canonical: https://www.gespaenerji.com/lexron-mppt-80a-hv.html
 lang: tr
-dateModified: 2026-10-30
+dateModified: 2026-11-03
 publisher: "GESPA Enerji"
 ---
 
@@ -155,7 +155,7 @@ Tamamlayıcı ürünler
 
 Aynı siparişte alın; hepsi aynı kargoyla gelsin.
 
-[![Lexron 655 W TOPCon Güneş Paneli](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655 W TOPCon Güneş PaneliBüyük sistemler için yüksek güçlü panel.₺10.000 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=panel-lexron-655w)[![TitanX 51,2 V 102 Ah LiFePO₄ Akü](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51,2 V 102 Ah LiFePO₄ Akü48 V sistem için LiFePO₄ akü.₺73.400 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=aku-titanx-51v-102ah)[![Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)Panel ile cihaz arasındaki bağlantı için.₺1.000 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=kablo-solar-5m)[![MC4 Konnektör Takımı](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Konnektör TakımıPanel kablosunu solar kabloya bağlamak için.₺100 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=mc4-set)
+[![Lexron 655 W TOPCon Güneş Paneli](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655 W TOPCon Güneş PaneliBüyük sistemler için yüksek güçlü panel.₺10.000 Ürünü İncele →](https://www.gespaenerji.com/panel-lexron-655w.html)[![TitanX 51,2 V 102 Ah LiFePO₄ Akü](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51,2 V 102 Ah LiFePO₄ Akü48 V sistem için LiFePO₄ akü.₺73.400 Ürünü İncele →](https://www.gespaenerji.com/aku-titanx-51v-102ah.html)[![Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)Panel ile cihaz arasındaki bağlantı için.₺1.000 Ürünü İncele →](https://www.gespaenerji.com/kablo-solar-5m.html)[![MC4 Konnektör Takımı](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Konnektör TakımıPanel kablosunu solar kabloya bağlamak için.₺100 Ürünü İncele →](https://www.gespaenerji.com/mc4-set.html)
 
 Sıkça Sorulan Sorular
 
@@ -163,7 +163,7 @@ Sıkça Sorulan Sorular
 
 ### PWM mi, MPPT mi seçmeliyim?
 
-Panel gerilimi akünün çok üstündeyse (mağazamızdaki 285 W ve 655 W paneller gibi) MPPT aynı panelden daha fazla enerji toplar ve doğru seçimdir. Panel gerilimi akü gerilimine yakın küçük, bütçe öncelikli sistemlerde PWM modeller yeterlidir.
+Panel gerilimi akünün çok üstündeyse (mağazamızdaki 360 W ve 655 W paneller gibi) MPPT aynı panelden daha fazla enerji toplar ve doğru seçimdir. Panel gerilimi akü gerilimine yakın küçük, bütçe öncelikli sistemlerde PWM modeller yeterlidir.
 
 ### Bu cihaza ne kadar panel bağlayabilirim?
 
