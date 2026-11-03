@@ -23,13 +23,15 @@ Bu web sitesi **Gespa Enerji Sanayi Ticaret Limited Şirketi** (“GESPA Enerji�
 
 İletişim/teklif formları, site asistanı ve bülten formu aracılığıyla paylaştığınız ad-soyad, telefon, e-posta, il ve mesaj içeriği ile; sitenin teknik işleyişi için zorunlu sınırlı teknik veriler (ör. sunucu erişim kayıtları) ve cihazınızda tutulan tercih verileri (tema, dil, çerez tercihi) işlenebilir.
 
+Site kullanımını anlamak için hangi sayfanın ve ürünün açıldığı, ürünün sepete eklenip eklenmediği, siteye geliş kaynağı, cihaz türü (telefon/bilgisayar) ve ziyaretçinin bulunduğu şehir, kişiyi tanımlamayan günlük toplamlar olarak sayılır; kişi, IP adresi veya çerez kimliği bu sayaçlarda saklanmaz. Çerez bildiriminde "Reddet" dediğinizde bu sayım yapılmaz.
+
 ## 3. Verilerin İşlenme Amacı
 
 Talebinize yanıt vermek, ücretsiz keşif/teklif sürecini yürütmek, hizmet kalitesini geliştirmek ve yasal yükümlülükleri yerine getirmek amacıyla işlenir. Amaçlar ve hukuki sebeplerin ayrıntısı için [KVKK Aydınlatma Metni](https://www.gespaenerji.com/kvkk.html)'ne bakınız.
 
 ## 4. Verilerin Aktarımı
 
-Verileriniz yasal zorunluluklar dışında üçüncü kişilerle paylaşılmaz; talebinizin yürütülmesi için yalnızca gerekli ölçüde kullanılır. İletişiminizi WhatsApp üzerinden başlatmanız hâlinde yazışma içeriği, sunucuları yurt dışında bulunan WhatsApp'a (Meta Platforms) iletilir. Sitede kullanılan Google yazı tipleri ve — onay vermeniz hâlinde — Google Analytics nedeniyle IP adresiniz gibi sınırlı teknik veriler Google sunucularına aktarılabilir.
+Verileriniz yasal zorunluluklar dışında üçüncü kişilerle paylaşılmaz; talebinizin yürütülmesi için yalnızca gerekli ölçüde kullanılır. İletişiminizi WhatsApp üzerinden başlatmanız hâlinde yazışma içeriği, sunucuları yurt dışında bulunan WhatsApp'a (Meta Platforms) iletilir. Sitede kullanılan Google yazı tipleri ve — onay vermeniz hâlinde — Google Analytics nedeniyle IP adresiniz gibi sınırlı teknik veriler Google sunucularına aktarılabilir. Şehir sayımı için IP adresiniz, ilk sayfa açılışınızda bir kez, IP adresinden konum bulan bir hizmete (ipwho.is) gönderilir; yalnız dönen şehir adı sayılır, IP adresi tarafımızda saklanmaz.
 
 ## 5. Saklama Süresi
 

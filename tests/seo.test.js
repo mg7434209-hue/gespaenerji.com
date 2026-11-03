@@ -352,6 +352,24 @@ server.stdout.on('data',async d=>{
   const ex403=await fetch('http://127.0.0.1:'+port+'/api/visitors/export',{method:'POST',body:JSON.stringify({pass:'yanlis'})});assert.equal(ex403.status,403);await ex403.text();
   const ex=await fetch('http://127.0.0.1:'+port+'/api/visitors/export',{method:'POST',body:JSON.stringify({pass:ADMIN_TEST_PASS})});
   assert.equal(ex.status,200);const exj=await ex.json();assert.ok(exj.total===vis.total&&exj.hours&&exj.hoursSince>0,'visitors export for redeploy handoff');
+  // Anonymous product-interest / traffic counters: /api/ev (public, bots and bad ids ignored) -> /api/stats (admin).
+  const EV_UA='Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) Mobile Safari/604.1',evPost=async(o,ua)=>{const r=await fetch('http://127.0.0.1:'+port+'/api/ev',{method:'POST',headers:{'User-Agent':ua||EV_UA,'Content-Type':'text/plain'},body:JSON.stringify(o)});assert.equal(r.status,204,'event accepted');await r.text();};
+  await evPost({t:'pv',path:'/index.html',s:1,ref:'www.google.com'});
+  await evPost({t:'pv',path:'/en/paket-285w.html'});
+  await evPost({t:'view',id:'kit-285w'});
+  await evPost({t:'cart',id:'kit-285w'});
+  await evPost({t:'view',id:'bu-urun-yok'});                       // unknown product id
+  await evPost({t:'pv',path:'/../server.js',s:1});                 // not a public page
+  await evPost({t:'view',id:'kit-285w'},'curl/8.0');               // bot user agent
+  const st403=await fetch('http://127.0.0.1:'+port+'/api/stats',{method:'POST',body:JSON.stringify({pass:'yanlis'})});assert.equal(st403.status,403);await st403.text();
+  const stj=await (await fetch('http://127.0.0.1:'+port+'/api/stats',{method:'POST',body:JSON.stringify({pass:ADMIN_TEST_PASS})})).json();
+  const stDay=stj.days[stj.today];
+  assert.ok(stDay&&stDay.v===1&&stDay.src['Google']===1&&stDay.dev['Telefon']===1,'stats: one visit, source Google, device phone');
+  assert.equal(stDay.pv['/index.html'],1,'stats: page views');assert.equal(stDay.pv['/paket-285w.html'],1,'stats: language copy counts as the same page');
+  assert.equal(stDay.view['kit-285w'],1,'stats: product view (bot ignored)');assert.equal(stDay.cart['kit-285w'],1,'stats: add to cart');
+  assert.ok(!stDay.view['bu-urun-yok']&&!Object.keys(stDay.pv).some(k=>/server/.test(k)),'stats: unknown ids and non-public paths rejected');
+  const ex2=await (await fetch('http://127.0.0.1:'+port+'/api/visitors/export',{method:'POST',body:JSON.stringify({pass:ADMIN_TEST_PASS})})).json();
+  assert.ok(ex2.stats&&ex2.stats.days[stj.today]&&ex2.stats.days[stj.today].v===1,'stats travel with the visitor counter on redeploy handoff');
   // Payment receipt token: the receipt opens WITHOUT a server-side order record (Railway without a
   // Volume wipes orders.json on every deploy). Format must match server.js receiptSeal():
   // 0x01 + iv(12) + GCM tag(16) + AES-256-GCM(deflateRaw(JSON)), key = HMAC(iyzico secret, label).
@@ -414,6 +432,6 @@ server.stdout.on('data',async d=>{
    r=await api('/api/admin/login',{pass:'yanlis'});assert.equal(r.status,403);await r.text();
    r=await api('/api/admin/login',{pass:ADMIN_TEST_PASS});assert.deepEqual(await r.json(),{ok:true,secure:true},'admin login is verified by the server');}
   console.log('HTTP: key pages and bot files return 200; missing page returns 404; markdown mirrors, Accept negotiation, AI crawler counter, visitor handoff, receipt tokens, the public-file allowlist and the moderated Q&A work.');
- }catch(e){console.error(e);process.exitCode=1;}finally{clearTimeout(timeout);server.kill();fs.rmSync(TEST_DATA,{recursive:true,force:true});}
+ }catch(e){console.error(e);process.exitCode=1;}finally{clearTimeout(timeout);await new Promise(r=>{const t=setTimeout(r,4000);server.once('exit',()=>{clearTimeout(t);r();});server.kill();});fs.rmSync(TEST_DATA,{recursive:true,force:true});}
 });
 server.on('error',e=>{clearTimeout(timeout);console.error(e);process.exitCode=1;});

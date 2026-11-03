@@ -186,6 +186,25 @@
       <div id="visOut" class="adm-note info">Okunuyor…</div>
     </div>
 
+    <!-- Ürün ilgisi, trafik kaynağı, şehir ve cihaz — server.js /api/stats (anonim günlük sayaçlar) -->
+    <div id="statscard" class="adm-card" hidden>
+      <div class="adm-head">
+        <h2 style="font-size:1.35rem;margin:0">📊 Ürün ilgisi ve trafik</h2>
+        <span id="stRange" style="display:flex;gap:6px;flex-wrap:wrap">
+          <button class="btn btn-sm" type="button" data-r="1">Bugün</button>
+          <button class="btn btn-sm btn-ghost" type="button" data-r="7">7 gün</button>
+          <button class="btn btn-sm btn-ghost" type="button" data-r="30">30 gün</button>
+          <button class="btn btn-sm btn-ghost" type="button" data-r="0">Tümü</button>
+        </span>
+      </div>
+      <p style="color:var(--muted);margin:0 0 10px;font-size:.92rem">
+        Hangi ürün kaç kez incelendi, sepete eklendi, ziyaretçiler nereden ve hangi şehirden geldi.
+        Yalnız günlük toplamlar tutulur; kişi bilgisi saklanmaz. Çerez bildiriminde "Reddet" diyenler sayılmaz.
+        Saatler Türkiye saatidir.
+      </p>
+      <div id="stOut" class="adm-note info">Okunuyor…</div>
+    </div>
+
     <!-- Kalıcı veri: Railway Volume bağlı mı (ziyaretçi sayacı, siparişler, dekontlar) -->
     <div id="storecard" class="adm-card" hidden>
       <div class="adm-head">
@@ -305,8 +324,8 @@
     function show() {
       $("#login").hidden = true; $("#editor").hidden = false; $("#paylink").hidden = false;
       $("#taksit").hidden = false; $("#mailtest").hidden = false; $("#aibots").hidden = false;
-      $("#storecard").hidden = false; $("#fxcard").hidden = false; $("#qacard").hidden = false; $("#viscard").hidden = false;
-      render(); payLink(); taksitAraci(); mailTest(); aiBots(); storeState(); fxState(); qaMod(); visitCard();
+      $("#storecard").hidden = false; $("#fxcard").hidden = false; $("#qacard").hidden = false; $("#viscard").hidden = false; $("#statscard").hidden = false;
+      render(); payLink(); taksitAraci(); mailTest(); aiBots(); storeState(); fxState(); qaMod(); visitCard(); statsCard();
     }
 
     // ---- Soru & Cevap moderasyonu -----------------------------------------
@@ -517,6 +536,80 @@
       if (!visTimer) visTimer = setInterval(function () { if (!document.hidden) visitCard(); }, 60000);
     }
     var visBtn = $("#visRefresh"); if (visBtn) visBtn.addEventListener("click", visitCard);
+
+    // Ürün ilgisi ve trafik — /api/stats (günlük anonim sayaçlar; yönetici şifresiyle)
+    var stRange = 7, stTimer = null;
+    function statsCard() {
+      var out = $("#stOut"); if (!out) return;
+      var esc = function (x) { return String(x).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+      var tbl = function (head, rows) {
+        return '<div style="overflow:auto"><table class="spec-table" style="min-width:0;font-size:.9rem"><thead><tr>' + head.map(function (h, i) {
+          return '<th' + (i ? ' style="text-align:right"' : '') + '>' + h + '</th>'; }).join("") + '</tr></thead><tbody>' + rows.join("") + '</tbody></table></div>';
+      };
+      var tr = function (cells) { return '<tr>' + cells.map(function (c, i) { return '<td' + (i ? ' style="text-align:right;white-space:nowrap"' : '') + '>' + c + '</td>'; }).join("") + '</tr>'; };
+      var sec = function (t) { return '<h3 style="margin:18px 0 6px;font-size:1.05rem">' + t + '</h3>'; };
+      document.querySelectorAll("#stRange button").forEach(function (b) {
+        b.classList.toggle("btn-ghost", +b.getAttribute("data-r") !== stRange);
+        if (!b._on) { b._on = 1; b.addEventListener("click", function () { stRange = +b.getAttribute("data-r"); statsCard(); }); }
+      });
+      fetch("/api/stats", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pass: sessPass() }) })
+        .then(function (r) {
+          if (r.status === 404 || r.status === 405) throw new Error("pages");
+          if (!r.ok) return r.json().then(function (j) { throw new Error((j && j.error) || ("HTTP " + r.status)); });
+          return r.json();
+        })
+        .then(function (j) {
+          var keys = Object.keys(j.days).sort();
+          var from = stRange === 0 ? "" : (function () { var d = new Date(Date.parse(j.today + "T00:00:00Z") - (stRange - 1) * 864e5); return d.toISOString().slice(0, 10); })();
+          var use = keys.filter(function (k) { return !from || k >= from; });
+          var sum = { v: 0, pv: {}, view: {}, cart: {}, src: {}, dev: {}, city: {} };
+          use.forEach(function (k) {
+            var d = j.days[k]; sum.v += +d.v || 0;
+            ["pv", "view", "cart", "src", "dev", "city"].forEach(function (f) { var m = d[f] || {}; Object.keys(m).forEach(function (n) { sum[f][n] = (sum[f][n] || 0) + m[n]; }); });
+          });
+          var tot = function (m) { return Object.keys(m).reduce(function (a, n) { return a + m[n]; }, 0); };
+          var views = tot(sum.view), carts = tot(sum.cart), pvs = tot(sum.pv);
+          var tile = function (n, l) { return '<div><div style="font-size:1.9rem;font-weight:800;line-height:1.1">' + nf.format(n) + '</div><div style="color:var(--muted);font-size:.85rem">' + l + '</div></div>'; };
+          var html = '<div style="display:flex;flex-wrap:wrap;gap:20px;margin:0 0 6px">' +
+            tile(sum.v, "ziyaret") + tile(pvs, "sayfa görüntüleme") + tile(views, "ürün incelemesi") + tile(carts, "sepete ekleme") +
+            tile(views ? Math.round(carts / views * 100) : 0, "sepet / inceleme %") + '</div>' +
+            '<p style="margin:0 0 4px;font-size:.82rem;color:var(--muted)">Sayım başlangıcı: ' + esc(new Date(j.since).toLocaleDateString("tr-TR")) + (use.length ? " · " + use.length + " günlük veri" : " · bu aralıkta veri yok") + '</p>';
+          // günlük ziyaret çubukları (son 30 gün)
+          var last = []; for (var i = 29; i >= 0; i--) { last.push(new Date(Date.parse(j.today + "T00:00:00Z") - i * 864e5).toISOString().slice(0, 10)); }
+          var mx = Math.max.apply(null, last.map(function (k) { return (j.days[k] && j.days[k].v) || 0; }).concat([1]));
+          html += sec("Günlük ziyaret (son 30 gün)") + '<div style="display:flex;align-items:flex-end;gap:2px;height:90px;border-bottom:1px solid var(--line,#ccd)" role="img" aria-label="Son 30 günün günlük ziyaret grafiği">' +
+            last.map(function (k) { var v = (j.days[k] && j.days[k].v) || 0;
+              return '<div title="' + k + ' — ' + v + ' ziyaret" style="flex:1;height:' + (v ? Math.max(4, Math.round(v / mx * 100)) : 0) + '%;background:var(--green,#1f2f78);border-radius:3px 3px 0 0"></div>'; }).join("") + '</div>';
+          // ürünler
+          var pk = (C.packages || []).filter(function (p) { return p.price != null || p.priceOnRequest; }).map(function (p) {
+            return { p: p, v: sum.view[p.id] || 0, c: sum.cart[p.id] || 0 }; })
+            .sort(function (a, b) { return b.v - a.v || b.c - a.c || String(a.p.name).localeCompare(b.p.name, "tr"); });
+          var stockCell = function (p) { return p.stock === 0 ? '<span style="color:#b3261e;font-weight:700">⛔ Tükendi</span>' : p.stock == null ? '<span style="color:var(--muted)">—</span>' : p.stock <= 3 ? '⚠️ ' + p.stock : String(p.stock); };
+          var prow = function (r) { return tr([esc(r.p.name), nf.format(r.v), nf.format(r.c), r.v ? Math.round(r.c / r.v * 100) + "%" : "—", stockCell(r.p)]); };
+          var ph = ["Ürün", "İnceleme", "Sepete", "Sepet %", "Stok"];
+          var act = pk.filter(function (r) { return r.v || r.c; }), idle = pk.filter(function (r) { return !r.v && !r.c; });
+          html += sec("Ürünler — incelenme ve sepete ekleme") + (act.length ? tbl(ph, act.map(prow)) : '<p style="margin:0;color:var(--muted)">Bu aralıkta ürün incelenmedi.</p>');
+          if (idle.length) html += '<details style="margin-top:8px"><summary style="cursor:pointer;font-weight:600">Bu aralıkta kimsenin bakmadığı ' + idle.length + ' ürün</summary>' + tbl(ph, idle.map(prow)) + '</details>';
+          html += '<p style="margin:6px 0 0;font-size:.82rem;color:var(--muted)">Stok sütunu config.js\'teki gerçek adettir ("—" = adet takip edilmiyor, ürün stokta sayılır); değiştirmek için kod güncellemesi gerekir.</p>';
+          // kaynaklar, şehir, cihaz, sayfalar
+          var top = function (m, n) { return Object.keys(m).sort(function (a, b) { return m[b] - m[a]; }).slice(0, n); };
+          var share = function (m, t, n) { return top(m, n).map(function (k) { return tr([esc(k), nf.format(m[k]), t ? Math.round(m[k] / t * 100) + "%" : ""]); }); };
+          var vt = tot(sum.src);
+          html += sec("Ziyaretçiler nereden geldi") + (vt ? tbl(["Kaynak", "Ziyaret", "Pay"], share(sum.src, vt, 12)) : '<p style="margin:0;color:var(--muted)">Henüz veri yok.</p>');
+          var ct = tot(sum.city), unk = sum.city["Bilinmiyor"] || 0;
+          html += sec("Şehirler") + (ct ? tbl(["Şehir", "Ziyaret", "Pay"], share(sum.city, ct, 15)) : '<p style="margin:0;color:var(--muted)">' + (j.geo ? "Henüz veri yok." : "Şehir ölçümü kapalı (GEO_URL boş).") + '</p>');
+          if (ct && unk / ct > 0.5) html += '<p style="margin:6px 0 0;font-size:.82rem;color:#b3261e">Ziyaretçilerin çoğunun şehri bulunamadı: şehir servisi yanıt vermiyor ya da günlük sorgu sınırı doldu.</p>';
+          var dt = tot(sum.dev);
+          html += sec("Cihaz") + (dt ? '<p style="margin:0">' + top(sum.dev, 4).map(function (k) { return esc(k) + ' <strong>' + Math.round(sum.dev[k] / dt * 100) + '%</strong>'; }).join(" · ") + '</p>' : '<p style="margin:0;color:var(--muted)">Henüz veri yok.</p>');
+          html += sec("En çok açılan sayfalar") + (pvs ? tbl(["Sayfa", "Görüntüleme", "Pay"], share(sum.pv, pvs, 15)) : '<p style="margin:0;color:var(--muted)">Henüz veri yok.</p>');
+          out.className = "adm-note ok"; out.innerHTML = html;
+        })
+        .catch(function (e) {
+          out.className = "adm-note info";
+          out.textContent = e && e.message === "pages" ? "ℹ️ Bu veri yalnız canlı sitede (Railway) tutulur; Pages aynasında yoktur." : "⚠️ " + ((e && e.message) || "Okunamadı");
+        });
+      if (!stTimer) stTimer = setInterval(function () { if (!document.hidden) statsCard(); }, 120000);
+    }
 
     // Kalıcı veri durumu — /api/pay/status `store` (server.js DATA_PERSISTENT)
     function storeState() {

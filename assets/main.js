@@ -368,13 +368,15 @@
       function read() { return clean(stored()); }
       function write(c) { try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {} badge(); }
       function count() { var c = read(), n = 0; Object.keys(c).forEach(function (k) { n += c[k]; }); return n; }
+      // Sepete ekleme olayı (anonim sayaç; GESPA.track aşağıdaki sayaç betiğinde tanımlıdır)
+      function track(id) { try { if (window.GESPA && GESPA.track) GESPA.track("cart", id); } catch (e) {} }
       function badge() { var n = count(); $$(".cart-count").forEach(function (b) { b.textContent = n; b.hidden = !n; }); }
       // Açılışta kayıt bir kez temizlenir; geçersiz satır depoda birikmesin.
       (function () { var s = stored(), c = clean(s); if (JSON.stringify(s) !== JSON.stringify(c)) { try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {} } })();
       return {
         read: read, count: count, badge: badge, pkgOf: pkgOf,
-        add: function (id, qty) { if (!sellable(id)) return; var c = read(); c[id] = Math.max(1, Math.min(99, (c[id] || 0) + (qty || 1))); write(c); },
-        setQty: function (id, qty) { var c = read(); if (qty > 0 && sellable(id)) c[id] = Math.min(99, Math.floor(qty)); else delete c[id]; write(c); },
+        add: function (id, qty) { if (!sellable(id)) return; var c = read(); c[id] = Math.max(1, Math.min(99, (c[id] || 0) + (qty || 1))); write(c); track(id); },
+        setQty: function (id, qty) { var c = read(), before = c[id] || 0; if (qty > 0 && sellable(id)) c[id] = Math.min(99, Math.floor(qty)); else delete c[id]; write(c); if (c[id] > before) track(id); },
         remove: function (id) { var c = read(); delete c[id]; write(c); }
       };
     })();
@@ -2027,6 +2029,35 @@
   } else {
     counters.forEach(animateCount);
   }
+
+  /* ---- Anonim kullanım sayacı — /api/ev ----
+     Sayfa açıldı, ürün sayfası incelendi, sepete eklendi olaylarını sunucuya gönderir;
+     sunucu YALNIZ günlük toplamları tutar (kişi/IP/çerez kimliği saklanmaz). Çerez
+     bildiriminde "Reddet" diyen ziyaretçi sayılmaz. Admin → "Ürün ilgisi ve trafik". */
+  (function () {
+    if (!window.fetch || /(^|\/)admin\.html$/.test(location.pathname)) return;
+    try { if (localStorage.getItem("gespa-consent") === "denied") return; } catch (e) {}
+    function send(o) {
+      try { fetch("/api/ev", { method: "POST", body: JSON.stringify(o), headers: { "Content-Type": "text/plain" }, keepalive: true, credentials: "omit" }).catch(function () {}); } catch (e) {}
+    }
+    var first = false;
+    try { first = !sessionStorage.getItem("gespa-s"); sessionStorage.setItem("gespa-s", "1"); } catch (e) {}
+    var o = { t: "pv", path: location.pathname };
+    if (first) {
+      o.s = 1;
+      try { o.ref = new URL(document.referrer).hostname; } catch (e) {}
+      try { var u = new URLSearchParams(location.search).get("utm_source"); if (u) o.utm = u; } catch (e) {}
+    }
+    send(o);
+    var host = $("[data-pkg-detail]");
+    if (host) {
+      var id = host.getAttribute("data-pkg-detail"), k = "gespa-ev-v-" + id, seen = false;
+      try { seen = !!sessionStorage.getItem(k); sessionStorage.setItem(k, "1"); } catch (e) {}
+      if (!seen) send({ t: "view", id: id });
+    }
+    window.GESPA = window.GESPA || {};
+    GESPA.track = function (t, id) { send({ t: t, id: id }); };
+  })();
 
   /* ---- Ziyaretçi sayacı (footer rozeti) — ayarlar config.visitors ----
      Canlı sitede server.js /api/visitors gerçek sayar; gösterilen toplam =
