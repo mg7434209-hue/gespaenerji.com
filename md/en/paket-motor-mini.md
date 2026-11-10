@@ -3,7 +3,7 @@ title: "Mini Electric Car Solar Set — 240 W | GESPA Energy"
 description: "Complete solar set for enclosed mini electric cars: 240 W panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. No guessing which part fits."
 canonical: https://www.gespaenerji.com/en/paket-motor-mini.html
 lang: en
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -42,13 +42,13 @@ Price includes VAT.
 
 🔆 240 W panel 🔌 BOOST MPPT 24–72 V 🧰 Cable + MC4 included 🚗 Fits a small roof
 
-### ✅ Suitable for
+## ✅ Suitable for
 
 - Three-wheelers, golf carts and mini cars with 24–72 V batteries
 - Vehicles whose roof fits the panel in the set
 - AGM, gel, flooded lead-acid and lithium batteries
 
-### ⛔ Not suitable for
+## ⛔ Not suitable for
 
 - Vehicles with 12 V batteries
 - Vehicles with a roof smaller than the panel

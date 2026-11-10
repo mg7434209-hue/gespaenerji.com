@@ -3,7 +3,7 @@ title: "TitanX 51,2 V 102 Ah LiFePO₄ Akü | GESPA Enerji"
 description: "TitanX 51,2 V 102 Ah (5,22 kWh) LiFePO₄ enerji depolama aküsü: dahili BMS, 6000+ çevrim, CAN/RS485, 16 adede kadar paralel. Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/aku-titanx-51v-102ah.html
 lang: tr
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -43,13 +43,13 @@ KDV dahil fiyattır.
 
 🔋 5,22 kWh ⚡ 51,2 V · 102 Ah ♻️ 6000+ çevrim
 
-### ✅ Kimler için uygun
+## ✅ Kimler için uygun
 
 - Teknik tablodaki gerilimle çalışan akülü sistemler
 - Listelenen uyumlu şarj kontrol cihazları
 - Gün içi üretimi geceye taşımak
 
-### ⛔ Uygun değil
+## ⛔ Uygun değil
 
 - Farklı gerilimli sistemler
 - Şarj kontrol cihazı olmadan doğrudan panele bağlamak

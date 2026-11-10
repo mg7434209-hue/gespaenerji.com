@@ -364,6 +364,20 @@ def series(voc, limit):
     return max(0, math.floor(limit / (voc * 1.1)))
 
 
+def panel_desc(name, fr, voc, olcu, kg):
+    """Arama açıklaması (≤160): künye değeri + kullanım + kargo; sığan en dolu sürüm seçilir."""
+    tail = "KDV dahil fiyat, Türkiye'nin her yerine kargo."
+    spec = ""
+    if voc and olcu:
+        spec = "Voc %s V, %s mm%s. " % (("%g" % voc).replace(".", ","), " × ".join(olcu.replace(" mm", "").split(" × ")[:2]), (", " + kg) if kg else "")
+    use = (fr if spec else fr[0].lower() + fr[1:]) + " için. "
+    tails = (tail, "KDV dahil, tüm Türkiye'ye kargo.", "Tüm Türkiye'ye kargo.")
+    for d in ["%s: %s%s%s" % (name, spec, use, x) for x in tails] + ["%s: %s%s" % (name, spec, tail), "%s: %s%s" % (name, use, tail)]:
+        if len(d) <= 160:
+            return d
+    return "%s: %s" % (name, tail)
+
+
 def panel_product(pk, pid, file, w, voc, olcu, kg):
     p = pk[pid]
     name = p["name"]
@@ -427,8 +441,10 @@ def panel_product(pk, pid, file, w, voc, olcu, kg):
            [("havensis-s30amps", XS["mppt100"]), ("boost-mppt", XS["boost"]), ("kablo-solar-5m", XS["kablo"]), ("mc4-set", XS["mc4"])]))
     return {
         "id": pid, "file": file, "kaynak": KAYNAK["kunye" if voc else "yok"],
-        "title": "%s | GESPA Enerji" % name,
-        "desc": "%s: %s Türkiye'nin her yerine kargo." % (name, p["for"]),
+        # Başlık: arama niyeti "… fiyatı" (≤60 karakter; uzarsa marka kısalır). Açıklama: künye
+        # değeri varsa Voc/ölçü/ağırlık + kullanım; fiyat rakamı YAZILMAZ (kura göre değişir).
+        "title": next(x for x in ("%s Fiyatı | GESPA Enerji" % name, "%s Fiyatı | GESPA" % name, "%s | GESPA" % name) if len(x) <= 60 or x.endswith("| GESPA") and "Fiyatı" not in x),
+        "desc": panel_desc(name, p["for"], voc, olcu, kg),
         "alt": t("%s — ürün fotoğrafı" % name, "%s — product photo" % name, "%s — Produktfoto" % name, "%s — фото товара" % name),
         "kicker": t("🔆 Güneş Paneli", "🔆 Solar Panel", "🔆 Solarmodul", "🔆 Солнечная панель"),
         "lead": lead,

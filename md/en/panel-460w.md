@@ -3,7 +3,7 @@ title: "460W Half-Cut Monocrystalline Solar Panel | GESPA Energy"
 description: "460 W panel with 144 half-cut cells: 23.42% efficiency, Voc 51.90 V, 2095 × 1039 × 30 mm, 25 kg, IP68."
 canonical: https://www.gespaenerji.com/en/panel-460w.html
 lang: en
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -42,13 +42,13 @@ Price includes VAT.
 
 🔆 460 W · 23.42% efficiency ✂️ 144 half-cut cells ⚖️ 25 kg
 
-### ✅ Suitable for
+## ✅ Suitable for
 
 - Battery (off-grid) systems with a charge controller
 - An additional panel for a rooftop or ground plant
 - Compatible EV solar sets
 
-### ⛔ Not suitable for
+## ⛔ Not suitable for
 
 - Connecting straight to a battery (a charge controller is required)
 - Devices whose panel input limit is below this Voc (see the spec table)

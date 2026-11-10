@@ -3,7 +3,7 @@ title: "Yolcu Kabinli Motor Güneş Paketi — 240 W | GESPA Enerji"
 description: "Kabinli elektrikli yolcu triportörü için komple güneş paketi: 240 W panel, BOOST MPPT 24–72 V şarj kontrol cihazı, solar kablo ve MC4."
 canonical: https://www.gespaenerji.com/paket-motor-yolcu.html
 lang: tr
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -42,13 +42,13 @@ KDV dahil fiyattır.
 
 🔆 240 W panel 🔌 BOOST MPPT 24–72 V 🧰 Kablo + MC4 dahil 🛺 Dar çatıya uygun
 
-### ✅ Kimler için uygun
+## ✅ Kimler için uygun
 
 - 24–72 V akülü triportör, golf aracı ve mini araçlar
 - Çatısı paketteki panelin ölçüsüne sığan araçlar
 - AGM, jel, sulu kurşun-asit ve lityum aküler
 
-### ⛔ Uygun değil
+## ⛔ Uygun değil
 
 - 12 V akülü araçlar
 - Çatısı panelden küçük araçlar

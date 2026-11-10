@@ -3,7 +3,7 @@ title: "Lexron 30A PWM-Laderegler 12/24V | GESPA Energy"
 description: "Lexron 30 A PWM-Solarladeregler für 12/24-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/lexron-pwm-30a.html
 lang: de
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -43,13 +43,13 @@ Preis inkl. MwSt.
 
 ⚡ 12/24 V · 30 A 🔆 PWM
 
-### ✅ Geeignet für
+## ✅ Geeignet für
 
 - Batteriesysteme mit den in der Tabelle genannten Spannungen
 - Modulstränge, deren Voc-Summe unter der Eingangsgrenze bleibt
 - Ferienhaus, Wohnmobil, Boot und E-Fahrzeug-Ladung
 
-### ⛔ Nicht geeignet für
+## ⛔ Nicht geeignet für
 
 - Netzgekoppelte Anlagen mit Wechselrichter
 - Reihenstränge über der Eingangsspannungsgrenze

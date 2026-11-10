@@ -3,7 +3,7 @@ title: "Solarmodule, Akkus & MPPT-Laderegler kaufen | GESPA"
 description: "Lexron- und Arçelik-Solarmodule, LiFePO₄-Akkus, MPPT/PWM-Laderegler, Solarkabel und Fertigsets. Preise inkl. MwSt., Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/online-satis.html
 lang: de
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 

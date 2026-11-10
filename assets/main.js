@@ -1855,9 +1855,10 @@
       if (!bar || !seasons.length) return;
       var mo = new Date().getMonth() + 1;
       var s = seasons.filter(function (x) { return (x.months || []).indexOf(mo) >= 0; })[0] || seasons[0];
-      var span = $("span", bar), a = $("a", bar);
+      var span = $("span", bar), a = $("a", bar), sh = $(".tb-s", bar);   // tb-s: telefonda görünen kısa metin
       var tr = function (t) { try { var d = GESPA.i18nData && GESPA.i18nData.DICT && GESPA.i18nData.DICT[(window.GESPA && GESPA.lang) || "tr"]; return (d && d[t]) || t; } catch (e) { return t; } };
       if (span && span.textContent !== tr(s.text)) span.textContent = tr(s.text);
+      if (sh && s.short && sh.textContent !== tr(s.short)) sh.textContent = tr(s.short);
       if (a) {
         if (a.textContent !== tr(s.label)) a.textContent = tr(s.label);
         if (s.wa) { a.setAttribute("data-wa-kesif", ""); a.href = kesifHref(); a.target = "_blank"; a.rel = "noopener"; }

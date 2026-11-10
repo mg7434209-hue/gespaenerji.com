@@ -103,6 +103,8 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .topbar{background:var(--green-dark);color:#dbe5f3;font-size:.88rem}
 .topbar-inner{display:flex;align-items:center;justify-content:center;gap:14px;height:38px;flex-wrap:wrap}
 .topbar-inner a{color:var(--sun-soft);font-weight:700;white-space:nowrap}
+.topbar .tb-s{display:none}
+@media(max-width:560px){.topbar .tb-s{display:inline}.topbar .tb-s~a{flex:none}.topbar .tb-l:has(~.tb-s){display:none}}
 
 /* Header */
 .site-header{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
@@ -2585,7 +2587,7 @@ html.menu-locked,html.menu-locked body{overflow:hidden}
 .pd-row span:first-of-type{color:var(--ink);font-weight:600}
 .fit{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0 0}
 .fit-col{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--bg-alt)}
-.fit-col h3{font-size:.92rem;margin:0 0 8px}
+.fit-col h2,.fit-col h3{font-size:.92rem;margin:0 0 8px;line-height:1.3}
 .fit-col ul{margin:0;padding-left:18px;font-size:.84rem;color:var(--muted);line-height:1.5}
 .fit-yes{border-color:rgba(31,47,120,.25)}
 .fit-no{background:#fff5f3;border-color:#f3cfc7}
@@ -2678,3 +2680,19 @@ html.menu-locked,html.menu-locked body{overflow:hidden}
 /* Koyu tema: beyaz sabit zeminli mobil ürün kartında yazı açık renk olup kayboluyordu */
 [data-theme="dark"] .m-prod{color:#13211c}
 [data-theme="dark"] .m-prod-price{color:#1f2f78}
+
+/* Telefon sıkılaştırma (10 Kas 2026): bölümler arası boşluk telefonda 160 px idi (80 + 80);
+   sayfa başlığı kutusu da masaüstü ölçüsündeydi. İçerik aynı, kaydırma kısalır. */
+@media(max-width:760px){
+  .section{padding:48px 0}
+  .page-hero{padding:30px 0 28px}
+  .page-hero .lead{font-size:1.02rem}
+  .section-head{margin-bottom:26px}
+  /* SSS ve sözlük içindekiler çipleri: dokunma alanı 32 → 40 px */
+  .faqhub-toc a,.gl-index a{padding:10px 14px}
+}
+/* 380 px ve altı: alt çubuk düğmeleri ("Hemen Ara", "Ücretsiz Keşif") iki satıra düşüyordu */
+@media(max-width:380px){
+  .mobile-cta{gap:6px;padding-left:8px;padding-right:8px}
+  .mcta{font-size:.84rem;gap:4px;padding-left:4px;padding-right:4px;white-space:nowrap}
+}

@@ -3,7 +3,7 @@ title: "360W Mono-PERC Solar Panel | GESPA Energy"
 description: "360 W 60-cell Mono-PERC panel: Voc 42.56 V, 1660 × 1001 × 30 mm, 19.5 kg, IP68 junction box, 1500 V."
 canonical: https://www.gespaenerji.com/en/panel-360w.html
 lang: en
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -42,13 +42,13 @@ Price includes VAT.
 
 🔆 360 W Mono-PERC ⚡ 42.56 V Voc ⚖️ 19.5 kg
 
-### ✅ Suitable for
+## ✅ Suitable for
 
 - Battery (off-grid) systems with a charge controller
 - An additional panel for a rooftop or ground plant
 - Compatible EV solar sets
 
-### ⛔ Not suitable for
+## ⛔ Not suitable for
 
 - Connecting straight to a battery (a charge controller is required)
 - Devices whose panel input limit is below this Voc (see the spec table)

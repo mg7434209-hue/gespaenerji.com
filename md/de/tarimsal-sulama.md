@@ -3,7 +3,7 @@ title: "Solare Bewässerung — Solar-Pumpsysteme | GESPA Energy"
 description: "Solarbetriebene landwirtschaftliche Bewässerung: netzunabhängige, dieselfreie PV-Lösungen für Tauch-/Oberflächenpumpen. Manavgat/Antalya und ganz Türkei."
 canonical: https://www.gespaenerji.com/de/tarimsal-sulama.html
 lang: de
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 

@@ -3,7 +3,7 @@ title: "360W Mono-PERC-Solarmodul | GESPA Energy"
 description: "360-W-Mono-PERC-Modul mit 60 Zellen: Voc 42,56 V, 1660 × 1001 × 30 mm, 19,5 kg, IP68-Anschlussdose, 1500 V."
 canonical: https://www.gespaenerji.com/de/panel-360w.html
 lang: de
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -42,13 +42,13 @@ Preis inkl. MwSt.
 
 🔆 360 W Mono-PERC ⚡ 42,56 V Voc ⚖️ 19,5 kg
 
-### ✅ Geeignet für
+## ✅ Geeignet für
 
 - Batteriesysteme (Insel) mit Laderegler
 - Zusatzmodul für eine Dach- oder Freiflächenanlage
 - Passende E-Fahrzeug-Solar-Sets
 
-### ⛔ Nicht geeignet für
+## ⛔ Nicht geeignet für
 
 - Direkter Anschluss an eine Batterie (Laderegler nötig)
 - Geräte, deren Moduleingang unter dieser Voc liegt (siehe Tabelle)

@@ -3,7 +3,7 @@ title: "PWM mi MPPT mi? Şarj Kontrol Cihazı Nasıl Seçilir | GESPA"
 description: "PWM ve MPPT şarj kontrol cihazı farkı, hangisi ne zaman seçilir, panel gerilimi ve akım hesabı, adım adım örnek. Lexron ve Havensis modelleriyle."
 canonical: https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html
 lang: tr
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 

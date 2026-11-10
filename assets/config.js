@@ -279,8 +279,8 @@ window.GESPA.config = {
   // ücretsiz keşif WhatsApp mesajıdır.
   topbar: {
     seasons: [
-      { months: [11, 12, 1, 2], text: "☀️ Yaz güneşine şimdiden hazırlanın: kışın keşif ve proje, baharda kurulum.", label: "Ücretsiz keşif →", wa: true },
-      { months: [3, 4, 5, 6, 7, 8, 9, 10], text: "☀️ Yaz faturası gelmeden çatınızı güneşe çevirin.", label: "Tasarrufunu hesapla →", href: "hesaplayici.html" }
+      { months: [11, 12, 1, 2], text: "☀️ Yaz güneşine şimdiden hazırlanın: kışın keşif ve proje, baharda kurulum.", short: "☀️ Kışın keşif, baharda kurulum", label: "Ücretsiz keşif →", wa: true },
+      { months: [3, 4, 5, 6, 7, 8, 9, 10], text: "☀️ Yaz faturası gelmeden çatınızı güneşe çevirin.", short: "☀️ Yaz faturasına güneş çözümü", label: "Tasarrufunu hesapla →", href: "hesaplayici.html" }
     ],
     // Ücretsiz keşif WhatsApp mesajı (menü düğmesi, hero, üst bant, CTA bandı)
     kesifMsg: "Merhaba GESPA, ücretsiz keşif istiyorum. İl/ilçe: ___ · Çatı / arazi / tarla: ___"

@@ -3,7 +3,7 @@ title: "50-W-Solarmodul für 12-V-Anlagen | GESPA Energy"
 description: "50-W-Monokristallin-Solarmodul für 12-V-Anlagen: Gartenbeleuchtung, Kameras und Batterieladung."
 canonical: https://www.gespaenerji.com/de/panel-50w.html
 lang: de
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -42,13 +42,13 @@ Preis inkl. MwSt.
 
 🔆 50 W monokristallin 🔋 12-V-System 📦 Einzelmodul
 
-### ✅ Geeignet für
+## ✅ Geeignet für
 
 - Batteriesysteme (Insel) mit Laderegler
 - Zusatzmodul für eine Dach- oder Freiflächenanlage
 - Passende E-Fahrzeug-Solar-Sets
 
-### ⛔ Nicht geeignet für
+## ⛔ Nicht geeignet für
 
 - Direkter Anschluss an eine Batterie (Laderegler nötig)
 - Geräte, deren Moduleingang unter dieser Voc liegt (siehe Tabelle)

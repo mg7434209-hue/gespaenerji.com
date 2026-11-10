@@ -3,7 +3,7 @@ title: "GESPA Energy — Solar Products & Turnkey PV Plants | Antalya"
 description: "Solar panels, batteries, charge controllers and ready kits shipped across Türkiye; rooftop, ground and agricultural PV plants built turnkey in…"
 canonical: https://www.gespaenerji.com/en/
 lang: en
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 

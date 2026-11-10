@@ -3,7 +3,7 @@ title: "Lexron 20A PWM Charge Controller 12/24V | GESPA Energy"
 description: "Lexron 20 A PWM solar charge controller for 12/24 V battery systems. Values from the product label; write to us for the full datasheet."
 canonical: https://www.gespaenerji.com/en/lexron-pwm-20a.html
 lang: en
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -43,13 +43,13 @@ Price includes VAT.
 
 ⚡ 12/24 V · 20 A 🔆 PWM
 
-### ✅ Suitable for
+## ✅ Suitable for
 
 - Battery systems with the voltages listed in the spec table
 - Panel strings whose total Voc stays below the input limit
 - Country houses, caravans, boats and EV charging
 
-### ⛔ Not suitable for
+## ⛔ Not suitable for
 
 - Grid-tied systems with an inverter
 - Series strings exceeding the input voltage limit

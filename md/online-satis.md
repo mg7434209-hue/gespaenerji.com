@@ -3,7 +3,7 @@ title: "Güneş Paneli, Akü ve MPPT Şarj Kontrol Satın Al | GESPA"
 description: "Lexron ve Arçelik güneş panelleri, LiFePO₄ akü, MPPT/PWM şarj kontrol cihazı, solar kablo ve hazır paketler. KDV dahil açık fiyat, Türkiye'ye kargo."
 canonical: https://www.gespaenerji.com/online-satis.html
 lang: tr
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 

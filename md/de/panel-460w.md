@@ -3,7 +3,7 @@ title: "460-W-Half-Cut-Monokristallin-Solarmodul | GESPA Energy"
 description: "460-W-Modul mit 144 Halbzellen: 23,42 % Wirkungsgrad, Voc 51,90 V, 2095 × 1039 × 30 mm, 25 kg, IP68."
 canonical: https://www.gespaenerji.com/de/panel-460w.html
 lang: de
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -42,13 +42,13 @@ Preis inkl. MwSt.
 
 🔆 460 W · 23,42 % Wirkungsgrad ✂️ 144 Halbzellen ⚖️ 25 kg
 
-### ✅ Geeignet für
+## ✅ Geeignet für
 
 - Batteriesysteme (Insel) mit Laderegler
 - Zusatzmodul für eine Dach- oder Freiflächenanlage
 - Passende E-Fahrzeug-Solar-Sets
 
-### ⛔ Nicht geeignet für
+## ⛔ Nicht geeignet für
 
 - Direkter Anschluss an eine Batterie (Laderegler nötig)
 - Geräte, deren Moduleingang unter dieser Voc liegt (siehe Tabelle)

@@ -3,7 +3,7 @@ title: "Buy Solar Panels, Batteries & MPPT Controllers | GESPA"
 description: "Lexron and Arçelik solar panels, LiFePO₄ batteries, MPPT/PWM charge controllers, solar cable and ready kits. VAT-inclusive prices, shipping across Türkiye."
 canonical: https://www.gespaenerji.com/en/online-satis.html
 lang: en
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 

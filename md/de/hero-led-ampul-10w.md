@@ -3,7 +3,7 @@ title: "Hero LED 10W 12V DC LED-Lampe (12–60V AC/DC) | GESPA Energy"
 description: "Hero LED 10-W-LED-Lampe für 12–60 V AC/DC: 850 lm, 6500 K weißes Licht. Läuft direkt an der Batterie in Wohnmobilen, Booten und solaren Batterieanlagen."
 canonical: https://www.gespaenerji.com/de/hero-led-ampul-10w.html
 lang: de
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -42,13 +42,13 @@ Preis inkl. MwSt.
 
 💡 10 W · 850 lm ⚡ 12–60 V AC/DC ⚪ 6500 K weiß
 
-### ✅ Geeignet für
+## ✅ Geeignet für
 
 - Gärten, Straßen, Wohnanlagen und Parkplätze ohne Stromleitung
 - Montageorte mit ganztägiger Sonne
 - Bereiche, die bei Bewegung leuchten sollen
 
-### ⛔ Nicht geeignet für
+## ⛔ Nicht geeignet für
 
 - Dauerhaft schattige Orte
 - Innenbeleuchtung

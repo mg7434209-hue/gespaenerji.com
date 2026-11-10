@@ -3,7 +3,7 @@ title: "Güneş Enerjisi Rehberleri — Hesap, Seçim ve Kurulum | GESPA"
 description: "Güneş enerjisi rehberleri: off-grid sistem boyutlandırma, PWM–MPPT şarj kontrol seçimi, solar sulama pompası ve güneş paneli mevzuatı. Örnekli, adım adım."
 canonical: https://www.gespaenerji.com/rehberler.html
 lang: tr
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 

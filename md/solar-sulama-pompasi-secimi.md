@@ -3,7 +3,7 @@ title: "Solar Sulama Pompası Seçimi: Debi, Yükseklik, Panel | GESPA"
 description: "Güneş enerjili sulama pompası nasıl seçilir? Günlük su ve basma yüksekliğinden pompa gücü ile panel kWp hesabı, örnek ve dikkat edilecekler."
 canonical: https://www.gespaenerji.com/solar-sulama-pompasi-secimi.html
 lang: tr
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 

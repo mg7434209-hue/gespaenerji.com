@@ -3,7 +3,7 @@ title: "Havensis BOOST DC-DC Charger — 12/24V to 36–72V Batteries"
 description: "Havensis BOOST DCDC-2448: a DC-DC charger that charges 36, 48, 60 and 72 V battery banks from a 12/24 V vehicle battery."
 canonical: https://www.gespaenerji.com/en/havensis-boost-dcdc-2448.html
 lang: en
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -43,13 +43,13 @@ Price includes VAT.
 
 🔋 36/48/60/72 V battery ⚡ 12/24 V input ⬆️ 20 A input · 15 A charge ⚙️ 95% efficiency 🏭 Made in Türkiye
 
-### ✅ Suitable for
+## ✅ Suitable for
 
 - Battery systems with the voltages listed in the spec table
 - Panel strings whose total Voc stays below the input limit
 - Country houses, caravans, boats and EV charging
 
-### ⛔ Not suitable for
+## ⛔ Not suitable for
 
 - Grid-tied systems with an inverter
 - Series strings exceeding the input voltage limit

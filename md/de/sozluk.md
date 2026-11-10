@@ -3,7 +3,7 @@ title: "Solar-Glossar — Begriffe zu PV, Akku und Wechselrichter"
 description: "kWp, MPPT, TOPCon, LiFePO₄, DoD, Saldierung und mehr: kurze, verständliche Erklärungen zu Solar-, Akku- und E-Fahrzeug-Begriffen."
 canonical: https://www.gespaenerji.com/de/sozluk.html
 lang: de
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 

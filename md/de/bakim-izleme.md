@@ -3,7 +3,7 @@ title: "PV-Wartung und Leistungsüberwachung | GESPA Enerji"
 description: "PV-Wartung und Monitoring: geplante Kontrollen, Analyse von Ertragsverlusten und Störungsbehebung. Umfang je nach Anlage und Betrieb."
 canonical: https://www.gespaenerji.com/de/bakim-izleme.html
 lang: de
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 

@@ -3,7 +3,7 @@ title: "Off-Grid Güneş Sistemi Nasıl Boyutlandırılır? | GESPA"
 description: "Günlük tüketimden panel, akü ve inverter gücünü hesaplayın: adım adım formüller, örnek hesap ve sık yapılan hatalar. Sistem Kurucu ile aynı mantık."
 canonical: https://www.gespaenerji.com/off-grid-gunes-sistemi-boyutlandirma.html
 lang: tr
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 

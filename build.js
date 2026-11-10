@@ -559,7 +559,8 @@ function hydrateTopbar(html, cfg) {
   const a = s.wa ? '<a href="' + esc(href) + '" data-wa-kesif target="_blank" rel="noopener">' + esc(s.label) + "</a>"
                  : '<a href="' + esc(href) + '">' + esc(s.label) + "</a>";
   return html.replace(/<div class="topbar" data-topbar><div class="container topbar-inner">[\s\S]*?<\/div><\/div>/,
-    '<div class="topbar" data-topbar><div class="container topbar-inner"><span>' + esc(s.text) + "</span>" + a + "</div></div>");
+    '<div class="topbar" data-topbar><div class="container topbar-inner"><span class="tb-l">' + esc(s.text) + "</span>" +
+    (s.short ? '<span class="tb-s">' + esc(s.short) + "</span>" : "") + a + "</div></div>");
 }
 
 // ---- ÜRÜN SAYFASI ŞABLONU (CRO FAZ 2, 26 Eki 2026) ----
@@ -629,8 +630,8 @@ function hydrateProductTemplate(html, cfg, p) {
   html = html.replace(/\s*<div class="fit"><!-- FIT:STATIC -->[\s\S]*?<!-- \/FIT:STATIC --><\/div>/, "");
   if (g) {
     const [yes, no] = FIT[g];
-    const box = '\n            <div class="fit"><!-- FIT:STATIC --><div class="fit-col fit-yes"><h3>✅ Kimler için uygun</h3><ul>' +
-      yes.map(x => "<li>" + esc(x) + "</li>").join("") + '</ul></div><div class="fit-col fit-no"><h3>⛔ Uygun değil</h3><ul>' +
+    const box = '\n            <div class="fit"><!-- FIT:STATIC --><div class="fit-col fit-yes"><h2>✅ Kimler için uygun</h2><ul>' +
+      yes.map(x => "<li>" + esc(x) + "</li>").join("") + '</ul></div><div class="fit-col fit-no"><h2>⛔ Uygun değil</h2><ul>' +
       no.map(x => "<li>" + esc(x) + "</li>").join("") + "</ul></div><!-- /FIT:STATIC --></div>";
     html = html.replace(/(<div class="prod-chips">[\s\S]*?<\/div>)/, "$1" + box);
   }
@@ -831,7 +832,7 @@ const AI_BOTS = [
   "GPTBot", "OAI-SearchBot", "ChatGPT-User",                        // OpenAI
   "ClaudeBot", "Claude-SearchBot", "Claude-User", "anthropic-ai",   // Anthropic
   "PerplexityBot", "Perplexity-User",                               // Perplexity
-  "Google-Extended",                                                // Gemini
+  "Google-Extended", "Google-CloudVertexBot", "Gemini-Deep-Research", "Google-NotebookLM",   // Google (Gemini, Vertex, NotebookLM)
   "Applebot", "Applebot-Extended",                                  // Apple
   "Amazonbot", "CCBot", "meta-externalagent", "Meta-ExternalFetcher",
   "DuckAssistBot", "YouBot", "Bytespider", "PetalBot",
@@ -2339,6 +2340,25 @@ function writeProductFeed(cfg) {
   return items.length;
 }
 
+// llms-full.txt "Rehberler" bölümü: rehber sayfalarının başındaki "Kısaca" kutusu
+// (.art-note) özet olarak alınır; yanıt motorları formülü ve bağlantıyı tek yerde bulur.
+// Kaynak sayfanın kendisidir; rehber eklenince LLMS_GROUPS'taki listeden kendiliğinden gelir.
+function guideSummaries() {
+  const grp = LLMS_GROUPS.filter(g => /^Rehberler/.test(g[0]))[0];
+  if (!grp) return "";
+  const dec = t => t.replace(/<[^>]+>/g, "").replace(/&quot;/g, '"').replace(/&amp;/g, "&").replace(/&#39;/g, "'").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
+  const out = [];
+  grp[1].forEach(f => {
+    let h; try { h = fs.readFileSync(path.join(ROOT, f), "utf8"); } catch (e) { return; }
+    if (!/<main[^>]*data-article/.test(h)) return;
+    const h1 = (h.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1];
+    const note = (h.match(/<div class="art-note"><p>([\s\S]*?)<\/p>/) || [])[1];
+    if (!h1 || !note) return;
+    out.push("### " + dec(h1) + " (" + ORIGIN + "/" + f + ")\n" + dec(note).replace(/^Kısaca:\s*/, ""));
+  });
+  return out.length ? "## Rehberler (yalnız Türkçe)\n" + out.join("\n\n") + "\n\n" : "";
+}
+
 function writeLlmsFull(cfg) {
   const nf = n => new Intl.NumberFormat("tr-TR").format(Math.round(n));
   const COST = cfg.calc.costPerKwp;
@@ -2476,7 +2496,7 @@ gerekli panel gücü (kWp), akü kapasitesi (kWh, model DoD'una göre) ve invert
 3. Anahtar teslim kurulum (sertifikalı ekip, A-marka ekipman)
 4. Devreye alma, izleme ve bakım (O&M)
 
-## Sık Sorulan Sorular (özet)
+${guideSummaries()}## Sık Sorulan Sorular (özet)
 - GES yatırımı tipik olarak 3–6 yılda amorti olur (tüketim, bölge ve elektrik
   fiyatına göre değişir).
 - Güneş enerjili tarımsal sulamada tipik geri ödeme 2–4 yıldır; mazot maliyeti
