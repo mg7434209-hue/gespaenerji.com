@@ -695,6 +695,17 @@ sunucusudur; zamanlanmış iş gerekirse ayrı servis açılır.
   bulunulan aya göre seçer (`data-topbar` taşıyan sayfalar), main.js dil ve
   ay değişiminde yeniler. Kampanya/teşvik iddiası YAZILMAZ. Hesaplayıcı
   sayfalarının kendi uyarı bandı vardır (data-topbar yok).
+- ÜST BANT TELEFONDA (10 Kas 2026): `seasons[].short` kısa metni ≤560 px'te uzun
+  metnin yerine görünür (`.tb-l` / `.tb-s`; uzun metin "…" ile kesiliyordu). Kısa
+  metnin EN/DE/RU karşılığı i18n.js'te; 320–360 px'te bağlantı etiketiyle birlikte
+  sığacak kadar kısa tut (≈20 karakter). Aynı gün: telefonda `.section` 80 → 48 px,
+  `.page-hero` 56 → 30 px, alt çubuk düğmeleri ≤380 px'te tek satır.
+- PANEL SAYFASI BAŞLIK/AÇIKLAMA (10 Kas 2026, `tools/urun-sayfalar.py`): başlık
+  "<ad> Fiyatı | GESPA Enerji" (≤60, uzarsa marka kısalır); açıklama `panel_desc()`:
+  künye varsa Voc + ölçü + ağırlık, kullanım alanı, kargo; ≤160'a sığan en dolu sürüm.
+  Fiyat RAKAMI başlık/açıklamaya yazılmaz (kura göre değişir). FIT kutusu başlıkları
+  h2'dir (h1 → h3 atlaması vardı). llms-full.txt "Rehberler" bölümü rehber sayfalarının
+  ilk `.art-note` ("Kısaca") kutusundan üretilir (`guideSummaries()`).
 - ANA SAYFA SIRASI: tek hero (karusel KALKTI) → güven şeridi → 4 kutu (Mağaza
   önce) → öne çıkan ürünler → Hizmetlerimiz (3 kart + 4 adım + CTA) →
   elektrikli araç bandı (4 paket, fiyat config'ten) → finansman → referanslar

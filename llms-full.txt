@@ -156,6 +156,19 @@ gerekli panel gücü (kWp), akü kapasitesi (kWh, model DoD'una göre) ve invert
 3. Anahtar teslim kurulum (sertifikalı ekip, A-marka ekipman)
 4. Devreye alma, izleme ve bakım (O&M)
 
+## Rehberler (yalnız Türkçe)
+### Off-Grid Güneş Enerjisi Sistemi Nasıl Boyutlandırılır? Panel, Akü ve İnverter Hesabı (https://www.gespaenerji.com/off-grid-gunes-sistemi-boyutlandirma.html)
+Off-grid sistemin boyutu günlük enerji ihtiyacından (Wh) çıkar. Panel gücü, günlük ihtiyaç ÷ (kış güneşlenme saati × sistem verimi); akü kapasitesi, günlük ihtiyaç × özerklik günü ÷ (kullanılabilir derinlik × inverter verimi); inverter gücü ise eş zamanlı yük ile en büyük kalkış payına güvenlik çarpanı uygulanarak bulunur. Aşağıdaki örnek hesap, sitemizdeki Sistem Kurucu ile aynı varsayımları kullanır.
+
+### PWM mi MPPT mi? Güneş Paneli Şarj Kontrol Cihazı Seçim Rehberi (https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html)
+PWM, panelin gerilimini akü gerilimine "çeker"; panel gerilimi akü geriliminden ne kadar yüksekse o kadar enerji kullanılamaz. MPPT ise paneli en verimli noktasında çalıştırır ve fazla gerilimi akıma çevirerek aküye aktarır. Panel gerilimi akü gerilimine zaten yakınsa (küçük, nominal 12 V'luk panel ve 12 V akü) PWM yeterlidir; 60/72 hücreli büyük paneller, 24/48 V akü grupları ve seri bağlı diziler için MPPT seçilir.
+
+### Güneş Enerjili Sulama Pompası Nasıl Seçilir? Debi, Basma Yüksekliği ve Panel Gücü (https://www.gespaenerji.com/solar-sulama-pompasi-secimi.html)
+Debi = günlük su ÷ pompalama saati. Hidrolik güç (kW) = debi (m³/saat) × toplam yükseklik (m) × 0,002725. Pompanın elektrik gücü hidrolik gücün toplam verime bölünmesiyle, panel gücü ise pompa gücünün yaklaşık 1,3 katı alınarak bulunur. Aynı hesabı Solar Sulama Pompası Seçimi aracı da yapar.
+
+### Güneş Paneline Kaçak Elektrik Cezası: Neden Yazılıyor, Kime Yazılıyor, Ne Yapmalı? (https://www.gespaenerji.com/gunes-paneli-kacak-elektrik-cezasi.html)
+En yaygın yanlışı düzeltelim: "Artık güneş enerjisi ile şebeke elektriği aynı anda kullanılamıyor" diye bir kural yoktur. Şebekeye bağlı (on-grid) bir sistemde panelleriniz üretim yaparken şebekeden de elektrik çekersiniz; sistemin çalışma prensibi zaten budur. Ceza bu yüzden yazılmıyor.
+
 ## Sık Sorulan Sorular (özet)
 - GES yatırımı tipik olarak 3–6 yılda amorti olur (tüketim, bölge ve elektrik
   fiyatına göre değişir).

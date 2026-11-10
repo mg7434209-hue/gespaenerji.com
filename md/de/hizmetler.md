@@ -3,7 +3,7 @@ title: "Aufdach-, Freiflächen- & Solar-Bewässerung | GESPA"
 description: "Aufdach-PV, Freiflächen-PV, solare Bewässerung, Energiespeicher und Wartung in Manavgat und Antalya: Begutachtung, Planung, Montage und Monitoring aus einer…"
 canonical: https://www.gespaenerji.com/de/hizmetler.html
 lang: de
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 

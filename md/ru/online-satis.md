@@ -3,7 +3,7 @@ title: "Купить солнечные панели, АКБ и MPPT-контр�
 description: "Солнечные панели Lexron и Arçelik, LiFePO₄ АКБ, MPPT/PWM-контроллеры, кабель и готовые комплекты. Цены с НДС, доставка по Турции."
 canonical: https://www.gespaenerji.com/ru/online-satis.html
 lang: ru
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 

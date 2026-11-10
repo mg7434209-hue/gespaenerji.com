@@ -1,9 +1,9 @@
 ---
-title: "50W Güneş Paneli | GESPA Enerji"
-description: "50W Güneş Paneli: Küçük aydınlatma, kamera ve akü şarjı Türkiye'nin her yerine kargo."
+title: "50W Güneş Paneli Fiyatı | GESPA Enerji"
+description: "50W Güneş Paneli: küçük aydınlatma, kamera ve akü şarjı için. KDV dahil fiyat, Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/panel-50w.html
 lang: tr
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -42,13 +42,13 @@ KDV dahil fiyattır.
 
 🔆 50 W monokristal 🔋 12 V sistem 📦 Tek panel
 
-### ✅ Kimler için uygun
+## ✅ Kimler için uygun
 
 - Şarj kontrol cihazlı akülü (off-grid) sistemler
 - Çatı veya arazi santraline ek panel
 - Uyumlu elektrikli araç güneş paketleri
 
-### ⛔ Uygun değil
+## ⛔ Uygun değil
 
 - Doğrudan aküye bağlamak (şarj kontrol cihazı şart)
 - Panel giriş gerilimi sınırını aşan cihazlar (Voc teknik tabloda)

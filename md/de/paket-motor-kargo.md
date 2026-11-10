@@ -3,7 +3,7 @@ title: "Solar-Set für Lasten-Dreirad — 700 W | GESPA Energy"
 description: "Komplettset für Lasten-Dreiräder: bifaziales 700-W-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Maximaler Ertrag für große Dachflächen."
 canonical: https://www.gespaenerji.com/de/paket-motor-kargo.html
 lang: de
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -42,13 +42,13 @@ Preis inkl. MwSt.
 
 🔆 700-W-Bifazial-TOPCon-Modul 🔌 BOOST MPPT 24–72 V 🧰 Kabel + MC4 inklusive 🚚 Für breite Dächer
 
-### ✅ Geeignet für
+## ✅ Geeignet für
 
 - Dreiräder, Golfcarts und Minifahrzeuge mit 24–72-V-Batterie
 - Fahrzeuge, auf deren Dach das Modul des Sets passt
 - AGM-, Gel-, Nass- und Lithium-Batterien
 
-### ⛔ Nicht geeignet für
+## ⛔ Nicht geeignet für
 
 - Fahrzeuge mit 12-V-Batterie
 - Fahrzeuge mit kleinerem Dach als das Modul

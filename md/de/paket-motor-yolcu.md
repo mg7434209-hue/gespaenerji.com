@@ -3,7 +3,7 @@ title: "Solar-Set für Fahrgast-Dreirad — 240 W | GESPA Energy"
 description: "Komplettset für geschlossene Fahrgast-Dreiräder: 240-W-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt."
 canonical: https://www.gespaenerji.com/de/paket-motor-yolcu.html
 lang: de
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -42,13 +42,13 @@ Preis inkl. MwSt.
 
 🔆 240-W-Modul 🔌 BOOST MPPT 24–72 V 🧰 Kabel + MC4 inklusive 🛺 Für schmale Dächer
 
-### ✅ Geeignet für
+## ✅ Geeignet für
 
 - Dreiräder, Golfcarts und Minifahrzeuge mit 24–72-V-Batterie
 - Fahrzeuge, auf deren Dach das Modul des Sets passt
 - AGM-, Gel-, Nass- und Lithium-Batterien
 
-### ⛔ Nicht geeignet für
+## ⛔ Nicht geeignet für
 
 - Fahrzeuge mit 12-V-Batterie
 - Fahrzeuge mit kleinerem Dach als das Modul

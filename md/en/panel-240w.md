@@ -3,7 +3,7 @@ title: "240W Solar Panel (48 Cells) | GESPA Energy"
 description: "240 W solar panel with 48 cells: Voc 36.12 V, 1320 × 776 × 30 mm, 8 kg. For mini electric cars and small off-grid systems."
 canonical: https://www.gespaenerji.com/en/panel-240w.html
 lang: en
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -42,13 +42,13 @@ Price includes VAT.
 
 🔆 240 W 🔢 48 cells ⚖️ 8 kg
 
-### ✅ Suitable for
+## ✅ Suitable for
 
 - Battery (off-grid) systems with a charge controller
 - An additional panel for a rooftop or ground plant
 - Compatible EV solar sets
 
-### ⛔ Not suitable for
+## ⛔ Not suitable for
 
 - Connecting straight to a battery (a charge controller is required)
 - Devices whose panel input limit is below this Voc (see the spec table)

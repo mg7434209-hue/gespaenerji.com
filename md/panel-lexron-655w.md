@@ -1,9 +1,9 @@
 ---
-title: "Lexron 655 W TOPCon Güneş Paneli | GESPA Enerji"
-description: "Lexron 655 W TOPCon Güneş Paneli: Çatı ve arazi sistemleri, yüksek güç gerektiren kurulumlar Türkiye'nin her yerine kargo."
+title: "Lexron 655 W TOPCon Güneş Paneli Fiyatı | GESPA Enerji"
+description: "Lexron 655 W TOPCon Güneş Paneli: Voc 50,34 V, 2382 × 1134 mm, 31 kg. Çatı ve arazi sistemleri, yüksek güç gerektiren kurulumlar için. Tüm Türkiye'ye kargo."
 canonical: https://www.gespaenerji.com/panel-lexron-655w.html
 lang: tr
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -42,13 +42,13 @@ KDV dahil fiyattır.
 
 🔆 655 W N-type TOPCon 📈 %24,25 verim 🛡️ 30 yıl güç garantisi
 
-### ✅ Kimler için uygun
+## ✅ Kimler için uygun
 
 - Şarj kontrol cihazlı akülü (off-grid) sistemler
 - Çatı veya arazi santraline ek panel
 - Uyumlu elektrikli araç güneş paketleri
 
-### ⛔ Uygun değil
+## ⛔ Uygun değil
 
 - Doğrudan aküye bağlamak (şarj kontrol cihazı şart)
 - Panel giriş gerilimi sınırını aşan cihazlar (Voc teknik tabloda)

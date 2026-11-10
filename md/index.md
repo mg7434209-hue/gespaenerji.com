@@ -3,7 +3,7 @@ title: "Güneş Paneli, Akü ve Anahtar Teslim GES — Manavgat | GESPA"
 description: "Güneş paneli, akü, MPPT şarj kontrol ve hazır paketler Türkiye'ye kargo. Manavgat ve Antalya'da çatı, arazi ve tarımsal sulama GES anahtar teslim."
 canonical: https://www.gespaenerji.com/
 lang: tr
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 

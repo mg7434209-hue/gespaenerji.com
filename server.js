@@ -384,7 +384,7 @@ function seedVisitsFromLive(done) {
 // amaçlıdır). Admin panelindeki "🤖 AI tarayıcı ziyaretleri" kartı okur.
 const AIBOT_FILE = path.join(DATA_DIR, "aibots.json");
 const AI_BOT_NAMES = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User",
-  "anthropic-ai", "PerplexityBot", "Perplexity-User", "Applebot-Extended", "Applebot", "Amazonbot", "CCBot",
+  "anthropic-ai", "PerplexityBot", "Perplexity-User", "Google-CloudVertexBot", "Gemini-Deep-Research", "Google-NotebookLM", "Applebot-Extended", "Applebot", "Amazonbot", "CCBot",
   "meta-externalagent", "Meta-ExternalFetcher", "DuckAssistBot", "YouBot", "Bytespider", "PetalBot",
   "MistralAI-User", "cohere-ai", "AI2Bot", "Diffbot"];
 const SEARCH_BOT_NAMES = ["Googlebot", "bingbot", "YandexBot", "DuckDuckBot", "Baiduspider", "Slurp", "SeznamBot"];

@@ -3,7 +3,7 @@ title: "Hero LED 100 W Solar Sokak Armatürü | GESPA Enerji"
 description: "Güneş paneliyle şarj olup gece çalışan 100 W solar sokak armatürü (HL-5151): elektrik hattı çekmeden aydınlatma sağlar."
 canonical: https://www.gespaenerji.com/hero-led-solar-sokak-100w.html
 lang: tr
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -42,13 +42,13 @@ KDV dahil fiyattır.
 
 ☀️ Güneş panelli 🚶 Hareket sensörü 💧 IP65
 
-### ✅ Kimler için uygun
+## ✅ Kimler için uygun
 
 - Elektrik hattı olmayan bahçe, sokak, site ve otopark
 - Gün boyu güneş gören montaj yerleri
 - Hareketle yanması istenen alanlar
 
-### ⛔ Uygun değil
+## ⛔ Uygun değil
 
 - Sürekli gölgede kalan yerler
 - İç mekân aydınlatması

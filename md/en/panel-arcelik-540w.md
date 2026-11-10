@@ -3,7 +3,7 @@ title: "Arçelik 540W Solar Panel | GESPA Energy"
 description: "Arçelik 540 W grade-A monocrystalline solar panel for rooftop and ground systems; pallet shipments available."
 canonical: https://www.gespaenerji.com/en/panel-arcelik-540w.html
 lang: en
-dateModified: 2026-11-03
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -42,13 +42,13 @@ Price includes VAT.
 
 🔆 540 W 🏷️ Grade A 🇹🇷 Arçelik
 
-### ✅ Suitable for
+## ✅ Suitable for
 
 - Battery (off-grid) systems with a charge controller
 - An additional panel for a rooftop or ground plant
 - Compatible EV solar sets
 
-### ⛔ Not suitable for
+## ⛔ Not suitable for
 
 - Connecting straight to a battery (a charge controller is required)
 - Devices whose panel input limit is below this Voc (see the spec table)
