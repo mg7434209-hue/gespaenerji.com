@@ -144,6 +144,173 @@ function countVisit(req, headers) {
   } catch (e) {}
 }
 
+// ---- Ürün ilgisi, trafik kaynağı, cihaz ve şehir (ANONİM günlük sayaçlar) ----
+// Tarayıcı main.js her sayfada /api/ev'e küçük bir olay gönderir (sayfa açıldı,
+// ürün sayfası incelendi, sepete eklendi); "Reddet" diyen ziyaretçi sayılmaz.
+// Sunucu YALNIZ günlük toplamları tutar: kişi, IP ve çerez kimliği SAKLANMAZ.
+// Şehir için, çerez bildiriminde "Kabul et" diyen ziyaretçinin IP'si günde bir kez dış
+// servise (GEO_URL) sorulur, sonuç şehir adı olarak sayılır, IP atılır.
+// GEO_URL="" şehri kapatır. Veri DATA_DIR/stats.json (Volume yoksa dağıtımda
+// ziyaretçi sayacıyla birlikte önceki sunucudan devralınır).
+const STATS_FILE = path.join(DATA_DIR, "stats.json");
+const STATS_KEEP_DAYS = 120;
+const GEO_URL = process.env.GEO_URL !== undefined ? process.env.GEO_URL : "https://ipwho.is/{ip}";
+const GEO_MAX_PER_DAY = +process.env.GEO_MAX_PER_DAY || 500;
+let stats = { since: new Date().toISOString(), days: {} };
+let statsFileFound = false;
+try {
+  const sf = JSON.parse(fs.readFileSync(STATS_FILE, "utf8"));
+  if (sf && sf.days && typeof sf.days === "object") { stats = sf; statsFileFound = true; }
+} catch (e) {}
+function dayKey(t) { return new Date((t || Date.now()) + 3 * HOUR_MS).toISOString().slice(0, 10); } // Türkiye saati (UTC+3)
+function statsDay(k) {
+  const d = stats.days[k] || (stats.days[k] = { v: 0, pv: {}, view: {}, cart: {}, src: {}, dev: {}, city: {} });
+  ["pv", "view", "cart", "src", "dev", "city"].forEach((f) => { if (!d[f] || typeof d[f] !== "object") d[f] = {}; });
+  return d;
+}
+// Aynı sayaç kümesinde farklı anahtar sayısı sınırlı: istemciden gelen metinle şişirilemez.
+function bump(map, key, limit) {
+  if (!(key in map) && Object.keys(map).length >= limit) key = "Diğer";
+  map[key] = (+map[key] || 0) + 1;
+}
+function statsJson() {
+  const keep = dayKey(Date.now() - STATS_KEEP_DAYS * 24 * HOUR_MS);
+  Object.keys(stats.days).forEach((k) => { if (k < keep) delete stats.days[k]; });
+  return JSON.stringify(stats);
+}
+let statsSaveTimer = null;
+function saveStats() {
+  if (statsSaveTimer) return;
+  statsSaveTimer = setTimeout(() => {
+    statsSaveTimer = null;
+    try { fs.mkdirSync(DATA_DIR, { recursive: true }); fs.writeFileSync(STATS_FILE, statsJson()); } catch (e) {}
+  }, 5000);
+}
+// Devir: önceki sunucunun günlük toplamlarını bu sunucununkilerle toplar.
+function mergeStats(src) {
+  if (!src || typeof src.days !== "object") return;
+  Object.keys(src.days).forEach((k) => {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(k)) return;
+    const from = src.days[k] || {}, to = statsDay(k);
+    to.v += Math.max(0, Math.floor(+from.v) || 0);
+    ["pv", "view", "cart", "src", "dev", "city"].forEach((f) => {
+      const m = from[f] || {};
+      Object.keys(m).slice(0, 400).forEach((n) => {
+        const c = Math.floor(+m[n]);
+        if (c > 0 && c < 1e8) to[f][n] = (+to[f][n] || 0) + c;
+      });
+    });
+  });
+  if (src.since && src.since < stats.since) stats.since = src.since;
+  saveStats();
+}
+// Yönlendiren siteyi okunur bir kaynak adına çevirir (ref = yalnız ana makine adı).
+function sourceOf(ref, utm, ownHost) {
+  if (utm) return "utm: " + utm;
+  const h = String(ref || "").toLowerCase().replace(/^www\./, "");
+  if (!h || h === ownHost.replace(/^www\./, "")) return "Doğrudan / bilinmiyor";
+  const AI = [["chatgpt.com", "ChatGPT"], ["chat.openai.com", "ChatGPT"], ["perplexity.ai", "Perplexity"], ["claude.ai", "Claude"],
+    ["gemini.google.com", "Gemini"], ["copilot.microsoft.com", "Copilot"], ["you.com", "You.com"], ["poe.com", "Poe"], ["grok.com", "Grok"]];
+  for (const [d, n] of AI) if (h === d || h.endsWith("." + d)) return "Yapay zekâ: " + n;
+  if (/(^|\.)google\./.test(h)) return "Google";
+  if (/(^|\.)bing\.com$/.test(h)) return "Bing";
+  if (/(^|\.)yandex\./.test(h)) return "Yandex";
+  if (/(^|\.)duckduckgo\.com$/.test(h)) return "DuckDuckGo";
+  if (/(^|\.)(facebook\.com|fb\.com|instagram\.com|l\.instagram\.com|lm\.facebook\.com)$/.test(h)) return "Facebook / Instagram";
+  if (/(^|\.)(whatsapp\.com|wa\.me)$/.test(h)) return "WhatsApp";
+  if (/(^|\.)(youtube\.com|youtu\.be)$/.test(h)) return "YouTube";
+  if (/(^|\.)(t\.co|twitter\.com|x\.com)$/.test(h)) return "X (Twitter)";
+  if (/(^|\.)(sahibinden|hepsiburada|trendyol|n11)\./.test(h)) return "Pazaryeri: " + h;
+  return "Diğer: " + h.slice(0, 40);
+}
+function deviceOf(ua) {
+  ua = String(ua || "");
+  if (/iPad|Tablet|Tab\b/i.test(ua)) return "Tablet";
+  if (/Mobi|Android|iPhone|iPod/i.test(ua)) return "Telefon";
+  return "Bilgisayar";
+}
+// Şehir: ziyaretçi günde bir kez sorulur; IP yalnız bu istekte kullanılır, saklanmaz.
+const statSeen = new Set(), geoSeen = new Set();
+let statSeenDay = "", geoSeenDay = "";
+let geoDay = "", geoCount = 0;
+function geoLookup(ip, cb) {
+  const day = dayKey();
+  if (geoDay !== day) { geoDay = day; geoCount = 0; }
+  const ip4 = String(ip || "").replace(/^::ffff:/, "");
+  if (!GEO_URL || geoCount >= GEO_MAX_PER_DAY || !ip4 || ip4 === "?" ||
+      /^(10\.|127\.|192\.168\.|169\.254\.|172\.(1[6-9]|2\d|3[01])\.|::1$|f[cd][0-9a-f]{2}:|fe80:)/i.test(ip4)) return cb("");
+  geoCount++;
+  fetchJson(GEO_URL.replace("{ip}", encodeURIComponent(ip4)), null, (e, d) => {
+    if (e || !d || d.success === false) return cb("");
+    const city = String(d.city || d.region || "").trim().slice(0, 40);
+    const cc = String(d.country_code || d.countryCode || "").trim().slice(0, 3).toUpperCase();
+    if (!city) return cb(cc && cc !== "TR" ? "Yurt dışı (" + cc + ")" : "");
+    cb(cc && cc !== "TR" ? city + " (" + cc + ")" : city);
+  });
+}
+const evHits = new Map();
+const EV_PATH_RE = /^\/(?:(?:en|de|ru)\/)?[a-z0-9][a-z0-9-]*(?:\.html)?$|^\/(?:(?:en|de|ru)\/?)?$/;
+function evPage(p) {
+  p = String(p || "").slice(0, 80).toLowerCase();
+  if (!EV_PATH_RE.test(p)) return "";
+  p = p.replace(/^\/(?:en|de|ru)(?=\/|$)/, "");     // dil kopyaları aynı sayfa sayılır
+  if (p === "" || p === "/") p = "/index.html";
+  if (!/\.html$/.test(p)) p += ".html";
+  if (/^\/admin\.html$/.test(p) || !isPublicPath(p) || !fs.existsSync(path.join(ROOT, p))) return "";
+  return p;
+}
+function handleEvent(req, res) {
+  return readBody(req, 2 * 1024, (raw) => {
+    res.writeHead(204, { "Cache-Control": "no-store" }); res.end();       // istemci beklemez
+    try {
+      const ua = req.headers["user-agent"] || "";
+      if (!ua || BOT_RE.test(ua)) return;
+      const ip = clientIp(req);
+      if (recentHits(evHits, ip, 60 * 1000).length >= 90) return;       // dakikada 90 olay
+      evHits.set(ip, (evHits.get(ip) || []).concat(Date.now()));
+      let b; try { b = JSON.parse(raw); } catch (e) { return; }
+      if (!b || typeof b !== "object") return;
+      const day = statsDay(dayKey());
+      if (b.t === "pv") {
+        const pg = evPage(b.path);
+        if (!pg) return;
+        bump(day.pv, pg, 400);
+        if (b.s) {                                                        // oturumun ilk sayfası: ziyaret
+          const today = dayKey();
+          if (statSeenDay !== today) { statSeen.clear(); statSeenDay = today; }
+          const key = ip + "|" + ua.slice(0, 80);        // aynı IP'li farklı cihazlar ayrı sayılsın
+          if (statSeen.has(key) || statSeen.size > 40000) { saveStats(); return; }
+          statSeen.add(key);
+          day.v++;
+          const host = String(req.headers.host || "").toLowerCase().split(":")[0];
+          const ref = String(b.ref || "").toLowerCase().replace(/[^a-z0-9.\-]/g, "").slice(0, 60);
+          const utm = String(b.utm || "").toLowerCase().replace(/[^a-z0-9._ \-]/g, "").slice(0, 30);
+          bump(day.src, sourceOf(ref, utm, host), 60);
+          bump(day.dev, deviceOf(ua), 5);
+        }
+        saveStats();
+      } else if (b.t === "geo") {
+        // Şehir: istemci YALNIZ çerez bildiriminde "Kabul et" diyenler için gönderir
+        if (!GEO_URL) return;
+        const today = dayKey();
+        if (geoSeenDay !== today) { geoSeen.clear(); geoSeenDay = today; }
+        const gkey = ip + "|" + ua.slice(0, 80);
+        if (geoSeen.has(gkey) || geoSeen.size > 40000) return;
+        geoSeen.add(gkey);
+        geoLookup(ip, (label) => {
+          try { bump(statsDay(dayKey()).city, label || "Bilinmiyor", 200); saveStats(); } catch (e) {}
+        });
+      } else if (b.t === "view" || b.t === "cart") {
+        const id = String(b.id || "");
+        const ok = SITE_CFG && (SITE_CFG.packages || []).some((p) => p.id === id);
+        if (!ok) return;
+        day[b.t][id] = (+day[b.t][id] || 0) + 1;
+        saveStats();
+      }
+    } catch (e) {}
+  });
+}
+
 // ---- Dağıtımda sayaç devri ----
 // Volume YOKKEN Railway her dağıtımda yeni kapsayıcı açar, visitors.json
 // kaybolur ve rozet tabana döner (26 Eyl 2026'da iki güncellemede 1.269 →
@@ -161,7 +328,7 @@ function fetchJson(url, body, cb, maxBytes) {
     const u = new URL(url);
     const data = body ? JSON.stringify(body) : null;
     const rq = require(u.protocol === "http:" ? "http" : "https").request({
-      hostname: u.hostname, port: u.port || (u.protocol === "http:" ? 80 : 443), path: u.pathname, method: data ? "POST" : "GET", timeout: 4000,
+      hostname: u.hostname, port: u.port || (u.protocol === "http:" ? 80 : 443), path: u.pathname + u.search, method: data ? "POST" : "GET", timeout: 4000,
       headers: Object.assign({ "Accept": "application/json", "User-Agent": "gespa-sayac-devri/1" },
         data ? { "Content-Type": "application/json", "Content-Length": Buffer.byteLength(data) } : {})
     }, (rs) => {
@@ -188,6 +355,7 @@ function seedVisitsFromLive(done) {
     const t = Math.floor(+(d && d.total));
     if (!(t > 0 && t < 1e9)) return false;
     visitTotal += t; // devir sırasında bu sunucuda sayılan (olmamalı) korunur
+    if (d.stats) { try { mergeStats(d.stats); } catch (e) {} }
     if (d.hours && typeof d.hours === "object") {
       Object.keys(d.hours).forEach((k) => {
         const n = Math.floor(+d.hours[k]);
@@ -200,12 +368,12 @@ function seedVisitsFromLive(done) {
     return true;
   };
   fetchWithPasses(base + "/api/visitors/export", (e1, d1) => {
-    if (!e1 && take(d1)) return done("önceki sunucudan devralındı: " + visitTotal + " (saatlik kovalarla)");
+    if (!e1 && take(d1)) return done("önceki sunucudan devralındı: " + visitTotal + " (saatlik kovalarla" + (d1.stats ? ", ürün ilgisi/trafik dahil" : "") + ")");
     fetchJson(base + "/api/visitors", null, (e2, d2) => {
       if (!e2 && take(d2)) return done("önceki sunucudan devralındı: " + visitTotal + " (yalnız toplam)");
       done("devralınamadı (" + ((e2 || e1) && (e2 || e1).message) + "); sayaç 0'dan başlıyor");
     });
-  });
+  }, 2 * 1024 * 1024);   // ürün ilgisi/trafik günlükleri 64 KB'ı aşabilir
 }
 
 // ---- AI tarayıcı sayacı ----
@@ -216,7 +384,7 @@ function seedVisitsFromLive(done) {
 // amaçlıdır). Admin panelindeki "🤖 AI tarayıcı ziyaretleri" kartı okur.
 const AIBOT_FILE = path.join(DATA_DIR, "aibots.json");
 const AI_BOT_NAMES = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User",
-  "anthropic-ai", "PerplexityBot", "Perplexity-User", "Applebot-Extended", "Applebot", "Amazonbot", "CCBot",
+  "anthropic-ai", "PerplexityBot", "Perplexity-User", "Google-CloudVertexBot", "Gemini-Deep-Research", "Google-NotebookLM", "Applebot-Extended", "Applebot", "Amazonbot", "CCBot",
   "meta-externalagent", "Meta-ExternalFetcher", "DuckAssistBot", "YouBot", "Bytespider", "PetalBot",
   "MistralAI-User", "cohere-ai", "AI2Bot", "Diffbot"];
 const SEARCH_BOT_NAMES = ["Googlebot", "bingbot", "YandexBot", "DuckDuckBot", "Baiduspider", "Slurp", "SeznamBot"];
@@ -291,6 +459,35 @@ function loadSiteConfig() {
 }
 let SITE_CFG = null;
 try { SITE_CFG = loadSiteConfig(); } catch (e) { console.warn("config yüklenemedi:", e && e.message); }
+
+// ---- Kart sağlayıcısı: iyzico ya da tami (Garanti BBVA) — ADMIN ANAHTARI ----
+// Aynı anda YALNIZ BİRİ müşteriye açılır. Seçim: CARD_PROVIDER ortam değişkeni
+// (Railway'den kod değiştirmeden hızlı geçiş) > config.commerce.cardProvider >
+// "iyzico". Seçilenin anahtarları yoksa öteki (tanımlıysa) kullanılır; kart
+// ödemesi kapanmasın. tami istemcisi tami.js (gesmarketim1 ile aynı dosya).
+const tami = require("./tami");
+const iyzReady = () => !!(IYZ.apiKey && IYZ.secret);
+function cardProviderWanted() {
+  const env = String(process.env.CARD_PROVIDER || "").trim().toLowerCase();
+  if (env === "tami" || env === "iyzico") return env;
+  const c = ((SITE_CFG || {}).commerce || {}).cardProvider;
+  return c === "tami" ? "tami" : "iyzico";
+}
+function cardProvider() {
+  const want = cardProviderWanted();
+  if (want === "tami" && tami.ready()) return "tami";
+  if (iyzReady()) return "iyzico";
+  return tami.ready() ? "tami" : null;
+}
+// tami taksit ayarı (config.commerce.tamiTaksit): seçenekler + tami
+// komisyonları; vade farkı tami.farkPct() ile türetilir (işletmenin net'i
+// tek çekim net'ine eşit kalır).
+function tamiTaksitCfg() { return ((SITE_CFG || {}).commerce || {}).tamiTaksit || null; }
+console.log("tami:", tami.ready()
+  ? "anahtarlar tanımlı · base=" + tami.cfg.base + (/sandbox/.test(tami.cfg.base) ? " (TEST ORTAMI — para geçmez)" : " (CANLI)")
+  : "anahtar YOK");
+console.log("kart sağlayıcısı:", cardProvider() || "yok (kart ödemesi kapalı)",
+  cardProvider() && cardProvider() !== cardProviderWanted() ? "— seçilen " + cardProviderWanted() + " hazır değil, yedeğe düşüldü" : "");
 // Serbest tutar / link ödemesi sınırları (₺) — tek kaynak config.commerce.
 // iyzico hesabının kendi tek işlem limiti ve kart limiti AYRICA geçerlidir.
 function payLimits() {
@@ -627,9 +824,13 @@ function writeOrder(token, data) {
 
 // Birim TL fiyat — assets/main.js pkgUnit ile AYNI kural (liste fiyatı).
 // Kart ödemesinde havale indirimi uygulanmaz; liste fiyatı tahsil edilir.
-function pkgListTL(p, cfg) {
+// qty: sepetteki adet — `bulk: {min, price}` olan üründe adet min'e ulaşınca
+// birim fiyat bulk.price olur (main.js pkgUnit(p, qty) ile AYNI kural).
+function pkgListTL(p, cfg, qty) {
   const RATE = cfg.usdTry || 0;                  // canlı kur açıksa FX.rate (aşağıda)
-  return p.currency === "USD" ? kur.tlRound(p.price * RATE) : p.price;
+  const bulk = p.bulk && p.bulk.price != null && qty >= (p.bulk.min || 0);
+  const base = bulk ? p.bulk.price : p.price;
+  return p.currency === "USD" ? kur.tlRound(base * RATE) : base;
 }
 
 // Fiyat biçimi — resmî SDK ile aynı: tam sayıya ".0" eklenir ("50" -> "50.0").
@@ -1098,8 +1299,55 @@ function qaAdmin(req, res) {
   });
 }
 
+// ---- GES KEŞİF TALEBİ (lead) — hesaplayıcı sonuç formu (CRO, 26 Eki 2026) ----
+// POST /api/lead {ad, tel, ilce, kwp, panels, save, cost, payback, lang, path, ms, website}
+// Kayıt DATA_DIR/leads.json (son 2000); SMTP açıksa işletmeye e-posta. KVKK:
+// telefon LOG'A YAZILMAZ; yalnız dosyada ve e-postada. Bal küpü `website`,
+// 3 sn kuralı ve IP başına sınır (10 dk'da 3, günde 10) soru-cevapla aynı.
+const leadHits = new Map();
+const LEADS_FILE = path.join(DATA_DIR, "leads.json");
+function leadSubmit(req, res) {
+  readBody(req, 4 * 1024, (raw) => {
+    let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
+    if (String(b.website || "").trim()) return sendJson(res, 200, { ok: true });
+    if (!(+b.ms >= 3000)) return sendJson(res, 400, { error: "Lütfen birkaç saniye sonra tekrar deneyin.", retry: true });
+    const ad = qaClean(b.ad, 60).replace(/\n/g, " ");
+    const tel = String(b.tel || "").replace(/[^\d+ ]/g, "").trim().slice(0, 20);
+    if (ad.length < 2 || tel.replace(/\D/g, "").length < 10) return sendJson(res, 400, { error: "Ad ve telefon gerekli.", retry: true });
+    const ip = clientIp(req);
+    const day = recentHits(leadHits, ip, 24 * 60 * 60 * 1000);
+    if (day.filter((t) => Date.now() - t < 10 * 60 * 1000).length >= 3 || day.length >= 10) {
+      return sendJson(res, 429, { error: "Kısa sürede çok fazla gönderim; biraz sonra tekrar deneyin.", retry: true });
+    }
+    leadHits.set(ip, day.concat(Date.now()));
+    const lead = {
+      at: new Date().toISOString(), ad, tel, ilce: qaClean(b.ilce, 60), kwp: qaClean(b.kwp, 12), panels: qaClean(b.panels, 8),
+      save: qaClean(b.save, 16), cost: qaClean(b.cost, 16), payback: qaClean(b.payback, 16), lang: qaClean(b.lang, 2), path: qaClean(b.path, 80)
+    };
+    try {
+      let arr = []; try { arr = JSON.parse(fs.readFileSync(LEADS_FILE, "utf8")); } catch (e) {}
+      if (!Array.isArray(arr)) arr = [];
+      arr.push(lead); if (arr.length > 2000) arr = arr.slice(-2000);
+      fs.mkdirSync(path.dirname(LEADS_FILE), { recursive: true });
+      fs.writeFileSync(LEADS_FILE, JSON.stringify(arr));
+    } catch (e) { console.warn("lead kaydedilemedi: " + e.message); }
+    if (mailReady()) {
+      const L = ["YENİ GES KEŞİF TALEBİ (hesaplayıcı)", "",
+        "Ad        : " + ad, "Telefon   : " + tel, "İl/İlçe   : " + (lead.ilce || "-"), "",
+        "Sistem    : " + (lead.kwp || "-") + " kWp (" + (lead.panels || "-") + " panel)",
+        "Yıllık tas: ₺" + (lead.save || "-"), "Yatırım   : ₺" + (lead.cost || "-"), "Geri ödeme: " + (lead.payback || "-"), "",
+        "Dil/sayfa : " + (lead.lang || "tr") + " " + (lead.path || ""), "Tarih     : " + trTime(lead.at),
+        "", "Müşteri aynı anda WhatsApp'tan da yazmış olabilir; en kısa sürede arayın."];
+      try { sendMail(SMTP.to || SMTP.user, "GES keşif talebi — " + ad + (lead.ilce ? " · " + lead.ilce : ""), L.join("\n"), () => {}); } catch (e) {}
+    }
+    console.log("lead: yeni keşif talebi (" + (lead.ilce || "ilçe yok") + ")");
+    sendJson(res, 200, { ok: true });
+  });
+}
+
 function handleQaRoutes(req, res, urlPath) {
   if (req.method !== "POST") return false;
+  if (urlPath === "/api/lead") return leadSubmit(req, res), true;
   if (urlPath === "/api/qa/ask") return qaSubmit(req, res, "q"), true;
   if (urlPath === "/api/qa/reply") return qaSubmit(req, res, "a"), true;
   if (urlPath === "/api/qa/admin") return qaAdmin(req, res), true;
@@ -1245,7 +1493,10 @@ function serveQaPage(req, res, filePath, stat, headers, page) {
 // Belirteç adresin #k= parçasına (fragment) yazılır: sunucuya yalnız dekont
 // isteğinin GÖVDESİNDE gelir, log'lara ve Referer başlığına düşmez.
 function receiptKey() {
-  return IYZ.secret ? crypto.createHmac("sha256", IYZ.secret).update("gespa-dekont-v1").digest() : null;
+  // iyzico anahtarı ESASTIR (eski dekontlar onunla açılır); yalnız iyzico
+  // hiç tanımlı değilse tami gizli anahtarından türetilir.
+  const sec = IYZ.secret || tami.cfg.secret;
+  return sec ? crypto.createHmac("sha256", sec).update("gespa-dekont-v1").digest() : null;
 }
 function receiptSeal(data) {
   const key = receiptKey();
@@ -1271,9 +1522,25 @@ function receiptOpen(tok) {
 // taşır. Sipariş kaydı eksikse (ör. dağıtımda silinmiş bekleyen kayıt) iyzico
 // yanıtındaki tutar, ödeme no ve sepet no kullanılır.
 // KVKK: T.C. kimlik/vergi no, açık adres, telefon ve e-posta BURADA YOKTUR.
+// Taksit sayısı: iyzico'nun ödeme sonucundaki `installment` (müşterinin
+// SEÇTİĞİ), yoksa link ödemesinde zorunlu tutulan sayı (`taksit`). 1 = tek
+// çekim; bilinmiyorsa (eski kayıt) alan hiç yazılmaz.
+function installmentOf(o, x) {
+  const n = Math.round(+((o && (o.installment || o.taksit)) || (x && x.installment) || 0));
+  return n >= 1 && n <= 12 ? n : undefined;
+}
+// Taksit satırı (e-postalar ve dekont için aynı biçim): "6 taksit · 6 × ₺49.999,44",
+// taksit yoksa "Tek çekim".
+function installmentLine(o) {
+  const n = installmentOf(o), tot = +(o.paidPrice || o.totalTL || 0);
+  if (n >= 2) return n + " taksit · " + n + " × ₺" + money(Math.floor(Math.round(tot * 100) / n) / 100);
+  // Taksit yoksa tek çekim; sayısı bilinmeyen eski kayıtta vade farkı varsa taksitlidir.
+  return (!n && o.totalTL && +o.paidPrice - +o.totalTL >= 0.01) ? "Taksitli" : "Tek çekim";
+}
 function receiptData(ord, out) {
   const o = ord || {}, x = out || {}, b = o.buyer || {};
   return {
+    taksit: installmentOf(o, x),
     no: o.conversationId || x.basketId || "",
     date: o.resolvedAt || o.createdAt || new Date().toISOString(),
     amount: +(o.paidPrice || x.paidPrice || o.totalTL || 0),
@@ -1302,8 +1569,12 @@ function orderMailBody(o, rid, rk) {
     // gönderdiğimizden büyük olur. İkisini de yaz ki faturada şaşırılmasın.
     L.push("Gönderilen    : ₺" + money(o.totalTL) + "  (fark: ₺" + money(+o.paidPrice - +o.totalTL) + " — taksit vade farkı)");
   }
+  L.push("Taksit        : " + installmentLine(o));
   L.push("Sipariş no    : " + (o.conversationId || "-"));
-  L.push("iyzico ödeme  : " + (o.paymentId || "-"));
+  if (o.provider === "tami") {
+    L.push("tami ref no   : " + (o.paymentId || "-") + (o.tami && o.tami.bankAuthCode ? "  (onay kodu " + o.tami.bankAuthCode + ")" : ""));
+    if (o.tami && o.tami.maskedNumber) L.push("Kart          : " + o.tami.maskedNumber + (o.tami.cardBrand ? " · " + o.tami.cardBrand : ""));
+  } else L.push("iyzico ödeme  : " + (o.paymentId || "-"));
   L.push("Tarih         : " + trTime(o.resolvedAt));
   if (o.desc) L.push("Açıklama      : " + o.desc);
   if (o.ref) L.push("Referans      : " + o.ref);
@@ -1324,6 +1595,7 @@ function orderMailBody(o, rid, rk) {
   L.push("E-posta       : " + (b.eposta || "-"));
   L.push("İl / İlçe     : " + (b.il || "-"));
   L.push("Adres         : " + (b.adres || "-"));
+  if (o.kargo) L.push("Kargo         : " + o.kargo);
   const lines = orderLines(o);
   if (lines.length) {
     L.push("");
@@ -1335,7 +1607,7 @@ function orderMailBody(o, rid, rk) {
   }
   if (rid) { L.push(""); L.push("Dekont (yazdırılabilir): " + receiptUrl(rid, rk)); }
   L.push("");
-  L.push("Kargodan ÖNCE tutarı iyzico panelinden doğrulayın.");
+  L.push("Kargodan ÖNCE tutarı " + (o.provider === "tami" ? "tami (portal.tami.com.tr)" : "iyzico") + " panelinden doğrulayın.");
   return L.join("\n");
 }
 
@@ -1349,9 +1621,10 @@ function customerMailBody(o, rid, rk) {
   const L = [];
   L.push("Sayın " + (b.ad || "müşterimiz") + ",");
   L.push("");
-  L.push("Ödemeniz iyzico güvencesiyle başarıyla alındı. Teşekkür ederiz.");
+  L.push("Ödemeniz " + (o.provider === "tami" ? "Garanti BBVA tami" : "iyzico") + " güvencesiyle başarıyla alındı. Teşekkür ederiz.");
   L.push("");
   L.push("Tahsil edilen : ₺" + money(o.paidPrice || o.totalTL));
+  L.push("Taksit        : " + installmentLine(o));
   L.push("Sipariş no    : " + (o.conversationId || "-"));
   L.push("Ödeme no      : " + (o.paymentId || "-"));
   L.push("Tarih         : " + trTime(o.resolvedAt));
@@ -1405,13 +1678,129 @@ function siteOrigin(req) {
   return proto + "://" + host;
 }
 
+// Ödeme sonucunu kaydeder, dekont belirtecini üretir, müşteriyi sonuç sayfasına
+// yönlendirir ve (başarılıysa) iki e-postayı gönderir. iyzico ve tami dönüşleri
+// AYNI fonksiyonu kullanır; sağlayıcıya özel alanlar `fields` ile gelir.
+// key = sipariş kaydının anahtarı (iyzico token'ı / tami orderId).
+function settleOrder(res, key, ok, fields, out) {
+  // Dekont kimliği: ödeme anahtarı yerine RASTGELE bir anahtar üretilir.
+  // Token/orderId adres çubuğuna ve tarayıcı geçmişine düşmesin diye.
+  const rid = ok ? crypto.randomBytes(12).toString("hex") : undefined;
+  writeOrder(key, Object.assign({
+    status: ok ? "paid" : "failed", resolvedAt: new Date().toISOString(), rid: rid
+  }, fields));
+  // Dekont belirteci: dekont bilgisi bağlantının içinde, şifreli taşınır;
+  // orders.json dağıtımda silinse de dekont açılır (receiptSeal).
+  // Burası ödeme isteğinin geri çağrısıdır — ana try/catch'in DIŞINDADIR;
+  // korumasız bir istisna sunucu sürecini düşürürdü.
+  let ord = {}, rk = "";
+  if (ok) {
+    try {
+      ord = readOrders()[key] || {};
+      rk = receiptSeal(receiptData(ord, out));
+    } catch (e) { console.warn("dekont belirteci üretilemedi:", e && e.message); }
+  }
+  // ÖNCE yönlendir, e-postalar arkadan gitsin: müşteri SMTP'yi beklemez
+  // ve e-posta kodundaki bir istisna ödemeyi etkilemez.
+  res.writeHead(302, { Location: ok ? "/odeme-sonuc.html?d=ok" + (rid ? "&r=" + rid : "") + (rk ? "#k=" + rk : "") : "/odeme-sonuc.html?d=hata" });
+  res.end();
+  try {
+    if (ok) {
+      const who = (ord.buyer && ord.buyer.ad) || "müşteri";
+      // 1) İşletmeye tam döküm (fatura için TCKN dahil).
+      sendMail(SMTP.to || SMTP.user,
+        "Yeni sipariş ₺" + money(ord.paidPrice || ord.totalTL) + " — " + who,
+        orderMailBody(ord, rid, rk), (e) => {
+          if (e) { console.warn("sipariş e-postası gönderilemedi:", e.message); writeOrder(key, { mailErr: e.message }); }
+          else console.log("sipariş e-postası gönderildi:", ord.conversationId);
+          // 2) Müşteriye ödeme onayı + dekont bağlantısı. Aynı geri
+          // çağrıda ARDIŞIK gönderilir — iki eşzamanlı SMTP oturumu
+          // açılmasın. Adres yoksa ya da yedek adrese düşmüşse atlanır.
+          const cmail = String((ord.buyer && ord.buyer.eposta) || "").trim();
+          if (!cmail || cmail.toLowerCase() === "info@gespaenerji.com") return;
+          sendMail(cmail, "Ödemeniz alındı — sipariş " + (ord.conversationId || ""),
+            customerMailBody(ord, rid, rk),
+            (e2) => { if (e2) console.warn("müşteri e-postası gönderilemedi:", e2.message); else console.log("müşteri e-postası gönderildi"); });
+        });
+    }
+  } catch (e) { console.warn("sipariş e-postası kurulamadı:", e && e.message); }
+}
+
+// ---- tami 3D ödeme ----
+// tami'nin döndürdüğü 3D sayfası (bankaya kendiliğinden giden form) sitenin
+// HTML sayfasına YAZILAMAZ: sayfalardaki CSP "form-action 'self'" bankaya
+// gönderimi engeller. Sayfa bu yüzden tek kullanımlık, .html OLMAYAN bir
+// adresten (CSP'siz) verilir. İçinde kart numarası bulunduğu için YALNIZ
+// bellekte, en çok 2 dk tutulur, ilk açılışta silinir; diske/log'a yazılmaz.
+const TAMI_3D = new Map();
+function tami3dUrl(html) {
+  const now = Date.now();
+  for (const [k, v] of TAMI_3D) if (v.exp < now) TAMI_3D.delete(k);
+  const t = crypto.randomBytes(18).toString("hex");
+  TAMI_3D.set(t, { html: html, exp: now + 120000 });
+  return "/api/pay/tami/3d/" + t;
+}
+// Ortak tami başlatma (sepet + link ödemesi). o: { key, total, card, taksit
+// (müşterinin seçtiği: istekte `tkTaksit`; `taksit` link ödemesinde tks=N'dir),
+// only (1 | N: link ödemesinin sabitlediği taksit), lines, buyer, record }.
+// Kart verisi yalnız bu istekte kullanılır; kayda maskeli numara girer.
+function tamiStart(req, res, o) {
+  const k = tami.checkCard(o.card);
+  if (k.error) return sendJson(res, 400, { error: k.error });
+  const n = parseInt(o.taksit, 10) || 1;
+  if (o.only && n !== o.only) return sendJson(res, 400, { error: o.only === 1 ? "Bu ödeme tek çekim olarak düzenlenmiştir." : "Bu ödeme " + o.only + " taksit olarak düzenlenmiştir." });
+  const tk = tami.taksitTutar(o.total, n, tamiTaksitCfg());
+  if (!tk) return sendJson(res, 400, { error: "Bu taksit seçeneği sunulmuyor." });
+  const ip = String(req.headers["x-forwarded-for"] || req.socket.remoteAddress || "").split(",")[0].trim() || "127.0.0.1";
+  const body = tami.authBody(Object.assign({ no: o.key, total: o.total, items: o.lines }, o.buyer), k.card,
+    { orderId: o.key, ip: ip, callbackUrl: siteOrigin(req) + "/api/pay/tami/callback", taksit: tk });
+  if (!body) return sendJson(res, 500, { error: "Sipariş tutarı doğrulanamadı." });
+  body.securityHash = tami.securityHash(body);
+  // Taksitliyse kartın taksit yapabildiğini SUNUCUDA tami'ye sor
+  const onay = (next) => {
+    if (tk.n === 1) return next();
+    const sor = { binNumber: k.card.number.slice(0, 8) };
+    sor.securityHash = tami.securityHash(sor);
+    tami.post(tami.PATHS.installment, sor, (j, meta) => {
+      const bi = tami.taksitBilgi(j);
+      if (!bi) { console.warn("tami taksit sorgu hatası:", o.key, tami.hataOzet(j, meta)); return sendJson(res, 502, { error: "Taksit bilgisi alınamadı. Tek çekim deneyin." }); }
+      if (!bi.taksit) return sendJson(res, 400, { error: "Bu kartla taksit yapılamıyor. Tek çekim seçin." });
+      next();
+    });
+  };
+  onay(() => tami.post(tami.PATHS.auth, body, (j, meta) => {
+    if (!j || !tami.truthy(j.success) || !j.threeDSHtmlContent) {
+      console.warn("tami 3D başlatma hatası:", o.key, tami.hataOzet(j, meta));
+      return sendJson(res, 502, { error: (j && j.errorMessage) ? j.errorMessage + (j.errorCode ? " (kod: " + j.errorCode + ")" : "") : "Ödeme başlatılamadı; lütfen tekrar deneyin." });
+    }
+    let html = "";
+    try { html = Buffer.from(String(j.threeDSHtmlContent), "base64").toString("utf8"); } catch (e) {}
+    if (!html) return sendJson(res, 502, { error: "Ödeme başlatılamadı; lütfen tekrar deneyin." });
+    const c = j.card || {};
+    writeOrder(o.key, Object.assign({}, o.record, {
+      provider: "tami", status: "pending", createdAt: new Date().toISOString(), totalTL: o.total,
+      tami: { orderId: o.key, amount: body.amount, currency: "TRY", installmentCount: tk.n, vadeFarki: tk.fark,
+        maskedNumber: c.maskedNumber || "", cardBrand: c.cardBrand || "", cardOrganization: c.cardOrganization || "", cardType: c.cardType || "" }
+    }));
+    console.log("tami 3D başlatıldı:", o.key, tk.n > 1 ? tk.n + " taksit" : "tek çekim");
+    sendJson(res, 200, { url: tami3dUrl(html) });
+  }));
+}
+
 function handlePayRoutes(req, res, urlPath) {
   if (urlPath === "/api/pay/status") {
     // mail: sipariş bildirim e-postasının AÇIK olup olmadığı. Yalnız boolean —
     // SMTP sunucusu, kullanıcı ve parola DIŞARI VERİLMEZ. Sipariş e-postası
     // gelmediğinde ilk bakılacak yer burasıdır (false = Railway değişkenleri yok).
     // store: veri klasörü kalıcı mı (Railway Volume). Yalnız boolean — yol dışarı verilmez.
-    return sendJson(res, 200, { enabled: !!(IYZ.apiKey && IYZ.secret), mail: mailReady(), store: DATA_PERSISTENT }), true;
+    // provider: hangi kart sağlayıcısı açık (iyzico | tami). tami'de taksit
+    // seçenekleri ve hesaplanmış vade farkı % gider (komisyonun kendisi değil).
+    const prov = cardProvider();
+    const tk = prov === "tami" ? tamiTaksitCfg() : null;
+    return sendJson(res, 200, {
+      enabled: !!prov, provider: prov || undefined, mail: mailReady(), store: DATA_PERSISTENT,
+      taksit: tk ? { secenekler: tk.secenekler || [], farkPct: Object.fromEntries((tk.secenekler || []).map((n) => [n, tami.farkPct(n, tk)])) } : undefined
+    }), true;
   }
   // Dekont (ödeme makbuzu) — müşteri ve işletme yazdırabilsin diye.
   // Anahtar sipariş kaydındaki RASTGELE rid'dir; iyzico token'ı dışarı ÇIKMAZ.
@@ -1506,7 +1895,8 @@ function handlePayRoutes(req, res, urlPath) {
     return true;
   }
   if (urlPath === "/api/pay/checkout" && req.method === "POST") {
-    if (!(IYZ.apiKey && IYZ.secret)) return sendJson(res, 503, { error: "Kart ödemesi şu anda kapalı." }), true;
+    const prov = cardProvider();
+    if (!prov) return sendJson(res, 503, { error: "Kart ödemesi şu anda kapalı." }), true;
     readBody(req, 64 * 1024, (raw) => {
       let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
       let cfg; try { cfg = SITE_CFG || (SITE_CFG = loadSiteConfig()); } catch (e) { return sendJson(res, 500, { error: "Sunucu yapılandırması okunamadı." }); }
@@ -1516,9 +1906,14 @@ function handlePayRoutes(req, res, urlPath) {
       items.forEach((it) => {
         const p = (cfg.packages || []).find((x) => x.id === it.id);
         const qty = Math.max(1, Math.min(99, parseInt(it.qty, 10) || 0));
-        if (p && p.price != null && qty) lines.push({ p, qty, unit: pkgListTL(p, cfg) });
+        // stock:0 = tükendi: eski bir sepetten gelse bile tahsil edilmez.
+        if (p && p.price != null && p.stock !== 0 && qty) lines.push({ p, qty, unit: pkgListTL(p, cfg, qty) });
       });
       if (!lines.length) return sendJson(res, 400, { error: "Sepet boş veya ürünler tanınamadı." });
+      // Kargo (23 Eki 2026): ücretsiz kargolu olmayan kalem varsa ALICI ÖDEMELİ;
+      // müşterinin sepetteki onay kutusu kayda ve işletme e-postasına yazılır.
+      const kargo = lines.every((l) => l.p.freeShipping) ? "Ücretsiz (fiyata dahil)"
+        : "Alıcı ödemeli — teslimatta" + (buyer.kargoOnay ? " (müşteri sepette onayladı)" : "");
       const nm = String(buyer.ad || "").trim().split(/\s+/);
       const surname = nm.length > 1 ? nm.pop() : "-";
       const name = nm.join(" ") || "-";
@@ -1538,9 +1933,22 @@ function handlePayRoutes(req, res, urlPath) {
         return sendJson(res, 409, { reload: true, totalTL: total,
           error: "Fiyatlar güncel döviz kuruna göre değişti. Sayfa yenileniyor; lütfen yeni tutarı kontrol edip tekrar deneyin." });
       }
+      const convId = "GES" + Date.now().toString(36).toUpperCase();
+      if (prov === "tami") {
+        return tamiStart(req, res, {
+          key: convId, total: total, card: b.card, taksit: b.tkTaksit,
+          lines: lines.map((l) => ({ id: l.p.id, name: l.p.name, qty: l.qty, tl: l.unit })),
+          buyer: { name: (name + " " + surname).trim(), phone: tel, email: email, city: il.split("/")[0].trim(), addr: adres + " " + il, company: inv.firma },
+          record: {
+            conversationId: convId, items: lines.map((l) => ({ id: l.p.id, qty: l.qty, unitTL: l.unit })),
+            buyer: { ad: buyer.ad, tel: tel, eposta: email, tckn: inv.tckn, vkn: inv.vkn, vd: inv.vd, firma: inv.firma, il: il, adres: adres },
+            kargo: kargo
+          }
+        });
+      }
+      // iyzico HESABININ tek işlem limiti — tami'ye uygulanmaz.
       const cardErr = cardLimitError(total);
       if (cardErr) return sendJson(res, 400, { error: cardErr });
-      const convId = "GES" + Date.now().toString(36).toUpperCase();
       const ip = String(req.headers["x-forwarded-for"] || req.socket.remoteAddress || "").split(",")[0].trim() || "85.34.78.112";
       const addr = {
         contactName: (name + " " + surname).trim(), city: il.split("/")[0].trim() || "Antalya",
@@ -1572,7 +1980,8 @@ function handlePayRoutes(req, res, urlPath) {
           totalTL: total, items: lines.map((l) => ({ id: l.p.id, qty: l.qty, unitTL: l.unit })),
           // tckn / vkn + vd + firma FATURA için saklanır (e-arşiv/e-fatura alanları).
           // KVKK: yalnız sunucuda tutulur, log'a ASLA yazılmaz.
-          buyer: { ad: buyer.ad, tel: tel, eposta: email, tckn: inv.tckn, vkn: inv.vkn, vd: inv.vd, firma: inv.firma, il: il, adres: adres }
+          buyer: { ad: buyer.ad, tel: tel, eposta: email, tckn: inv.tckn, vkn: inv.vkn, vd: inv.vd, firma: inv.firma, il: il, adres: adres },
+            kargo: kargo
         });
         sendJson(res, 200, { url: out.paymentPageUrl || out.payWithIyzicoPageUrl });
       });
@@ -1584,7 +1993,8 @@ function handlePayRoutes(req, res, urlPath) {
   // uygulanır ve sipariş kaydına yazılır — kargo ÖNCESİ tutar mutlaka
   // orders.json/iyzico panelinden doğrulanmalıdır.
   if (urlPath === "/api/pay/custom" && req.method === "POST") {
-    if (!(IYZ.apiKey && IYZ.secret)) return sendJson(res, 503, { error: "Kart ödemesi şu anda kapalı." }), true;
+    const prov = cardProvider();
+    if (!prov) return sendJson(res, 503, { error: "Kart ödemesi şu anda kapalı." }), true;
     readBody(req, 32 * 1024, (raw) => {
       let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
       // Kuruş kabul edilir: taksit vade farkı geri hesaplanınca gönderilecek
@@ -1618,9 +2028,23 @@ function handlePayRoutes(req, res, urlPath) {
       // zorunlu kimlik alanına yedek değer yazılır.
       const given = invoiceId(buyer);
       const inv = given.error ? { identity: IYZ_ID_FALLBACK } : given;
+      const convId = "GMK" + Date.now().toString(36).toUpperCase();
+      if (prov === "tami") {
+        // tek=1 → yalnız tek çekim; taksit=N → yalnız N taksit (link sabitler).
+        return tamiStart(req, res, {
+          key: convId, total: amount, card: b.card, taksit: b.tkTaksit,
+          only: tekCekim ? 1 : ((taksitN >= 2 && taksitN <= 12) ? taksitN : 0),
+          lines: [{ id: "gesmarketim", name: desc, qty: 1, tl: amount }],
+          buyer: { name: (name + " " + surname).trim(), phone: tel, email: email, city: il.split("/")[0].trim(), addr: adres + " " + il },
+          record: {
+            conversationId: convId, source: "gesmarketim", desc: desc, ref: ref || undefined,
+            tek: tekCekim || undefined, taksit: (!tekCekim && taksitN >= 2 && taksitN <= 12) ? taksitN : undefined,
+            buyer: { ad: buyer.ad, tel: tel, eposta: email, il: il, adres: adres }
+          }
+        });
+      }
       const cardErr = cardLimitError(amount);
       if (cardErr) return sendJson(res, 400, { error: cardErr });
-      const convId = "GMK" + Date.now().toString(36).toUpperCase();
       const ip = String(req.headers["x-forwarded-for"] || req.socket.remoteAddress || "").split(",")[0].trim() || "85.34.78.112";
       const addr = { contactName: (name + " " + surname).trim(), city: il.split("/")[0].trim() || "Antalya", country: "Turkey", address: adres + " " + il };
       const payload = {
@@ -1677,52 +2101,80 @@ function handlePayRoutes(req, res, urlPath) {
             errorMessage: (out && out.errorMessage) || (err && err.message)
           }));
         }
-        // Dekont kimliği: iyzico token'ı yerine RASTGELE bir anahtar üretilir.
-        // Token adres çubuğuna ve tarayıcı geçmişine düşmesin diye.
-        const rid = ok ? crypto.randomBytes(12).toString("hex") : undefined;
-        writeOrder(token, {
-          status: ok ? "paid" : "failed", resolvedAt: new Date().toISOString(),
-          rid: rid,
+        settleOrder(res, token, ok, {
           paymentId: out && out.paymentId, paidPrice: out && out.paidPrice,
+          installment: (ok && out && +out.installment) || undefined,
           mdStatus: (!ok && out && out.mdStatus) || undefined,
           errorCode: (!ok && out && out.errorCode) || undefined,
           errorMessage: (!ok && out && out.errorMessage) || undefined
-        });
-        // Dekont belirteci: dekont bilgisi bağlantının içinde, şifreli taşınır;
-        // orders.json dağıtımda silinse de dekont açılır (receiptSeal).
-        // Burası iyzRequest geri çağrısıdır — ana try/catch'in DIŞINDADIR;
-        // korumasız bir istisna sunucu sürecini düşürürdü.
-        let ord = {}, rk = "";
-        if (ok) {
-          try {
-            ord = readOrders()[token] || {};
-            rk = receiptSeal(receiptData(ord, out));
-          } catch (e) { console.warn("dekont belirteci üretilemedi:", e && e.message); }
-        }
-        // ÖNCE yönlendir, e-postalar arkadan gitsin: müşteri SMTP'yi beklemez
-        // ve e-posta kodundaki bir istisna ödemeyi etkilemez.
-        res.writeHead(302, { Location: ok ? "/odeme-sonuc.html?d=ok" + (rid ? "&r=" + rid : "") + (rk ? "#k=" + rk : "") : "/odeme-sonuc.html?d=hata" });
-        res.end();
-        try {
-          if (ok) {
-            const who = (ord.buyer && ord.buyer.ad) || "müşteri";
-            // 1) İşletmeye tam döküm (fatura için TCKN dahil).
-            sendMail(SMTP.to || SMTP.user,
-              "Yeni sipariş ₺" + money(ord.paidPrice || ord.totalTL) + " — " + who,
-              orderMailBody(ord, rid, rk), (e) => {
-                if (e) { console.warn("sipariş e-postası gönderilemedi:", e.message); writeOrder(token, { mailErr: e.message }); }
-                else console.log("sipariş e-postası gönderildi:", ord.conversationId);
-                // 2) Müşteriye ödeme onayı + dekont bağlantısı. Aynı geri
-                // çağrıda ARDIŞIK gönderilir — iki eşzamanlı SMTP oturumu
-                // açılmasın. Adres yoksa ya da yedek adrese düşmüşse atlanır.
-                const cmail = String((ord.buyer && ord.buyer.eposta) || "").trim();
-                if (!cmail || cmail.toLowerCase() === "info@gespaenerji.com") return;
-                sendMail(cmail, "Ödemeniz alındı — sipariş " + (ord.conversationId || ""),
-                  customerMailBody(ord, rid, rk),
-                  (e2) => { if (e2) console.warn("müşteri e-postası gönderilemedi:", e2.message); else console.log("müşteri e-postası gönderildi"); });
-              });
-          }
-        } catch (e) { console.warn("sipariş e-postası kurulamadı:", e && e.message); }
+        }, out);
+      });
+    });
+    return true;
+  }
+  // tami: kartın ilk 8 hanesiyle taksit yapılabilirliği (installment-info).
+  // Kart numarası ALINMAZ, yalnız BIN.
+  if (urlPath === "/api/pay/tami/taksit" && req.method === "POST") {
+    if (cardProvider() !== "tami") return sendJson(res, 503, { error: "kapalı" }), true;
+    readBody(req, 1024, (raw) => {
+      let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
+      const bin = String(b.bin || "");
+      if (!/^\d{8}$/.test(bin)) return sendJson(res, 400, { error: "bin" });
+      const istek = { binNumber: bin };
+      istek.securityHash = tami.securityHash(istek);
+      tami.post(tami.PATHS.installment, istek, (j, meta) => {
+        const bi = tami.taksitBilgi(j);
+        if (!bi) { console.warn("tami taksit sorgu hatası:", tami.hataOzet(j, meta)); return sendJson(res, 502, { error: "taksit_sorgu" }); }
+        sendJson(res, 200, Object.assign({ ok: true }, bi));
+      });
+    });
+    return true;
+  }
+  // tami 3D sayfası — tek kullanımlık (tami3dUrl). CSP'siz, önbelleğe alınmaz.
+  const m3d = /^\/api\/pay\/tami\/3d\/([a-f0-9]{36})$/.exec(urlPath);
+  if (m3d && req.method === "GET") {
+    const e = TAMI_3D.get(m3d[1]);
+    TAMI_3D.delete(m3d[1]);
+    if (!e || e.exp < Date.now()) { res.writeHead(302, { Location: "/odeme-sonuc.html?d=hata" }); res.end(); return true; }
+    res.writeHead(200, { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store",
+      "Referrer-Policy": "no-referrer", "X-Frame-Options": "DENY", "X-Content-Type-Options": "nosniff" });
+    res.end(e.html);
+    return true;
+  }
+  // tami dönüşü: banka 3D doğrulamasından sonra tarayıcı buraya gelir.
+  // hashedData HMAC-SHA256(secretKey) ile DOĞRULANIR (sahte dönüşte tami'ye
+  // hiç gidilmez), sonra satış complete-3ds ile kesinleştirilir; yanıt başarılı
+  // VE tutar kayıtla aynıysa sipariş ödendi sayılır.
+  if (urlPath === "/api/pay/tami/callback") {
+    readBody(req, 16 * 1024, (raw) => {
+      let f = {};
+      try { f = String(raw || "").trim().startsWith("{") ? JSON.parse(raw) : Object.fromEntries(new URLSearchParams(raw || "")); } catch (e) { f = {}; }
+      if (!f.orderId) f = Object.fromEntries(new URL(req.url, "http://x").searchParams);
+      const fail = () => { res.writeHead(302, { Location: "/odeme-sonuc.html?d=hata" }); res.end(); };
+      const key = String(f.orderId || "");
+      const ord = key && readOrders()[key];
+      if (!ord || ord.provider !== "tami" || !ord.tami) { console.warn("tami dönüşü: sipariş bulunamadı"); return fail(); }
+      if (ord.status === "paid") { res.writeHead(302, { Location: "/odeme-sonuc.html?d=ok" + (ord.rid ? "&r=" + ord.rid : "") }); res.end(); return; }
+      if (!tami.verifyCallback(f, ord.tami)) {
+        console.warn("tami dönüşü: hashedData DOĞRULANAMADI", key);
+        return settleOrder(res, key, false, { errorMessage: "hashedData doğrulanamadı" });
+      }
+      if (!tami.truthy(f.success)) {
+        console.warn("tami 3D doğrulama başarısız:", key, "mdStatus:", f.mdStatus);
+        return settleOrder(res, key, false, { mdStatus: f.mdStatus || undefined, errorCode: f.errorCode || undefined, errorMessage: f.errorMessage || "3D doğrulama başarısız" });
+      }
+      const istek = { orderId: key };
+      istek.securityHash = tami.securityHash(istek);
+      tami.post(tami.PATHS.complete, istek, (j, meta) => {
+        const ok = !!(j && tami.truthy(j.success) && j.orderId === key &&
+          Math.abs(Number(j.amount) - Number(ord.tami.amount)) < 0.01);
+        if (!ok) console.warn("tami tamamlama başarısız:", key, tami.hataOzet(j, meta), j ? "tutar:" + j.amount : "");
+        else console.log("tami ÖDENDİ:", key, "ref:", j.bankReferenceNumber || "-");
+        settleOrder(res, key, ok, ok ? {
+          paymentId: String(j.bankReferenceNumber || key), paidPrice: Number(j.amount),
+          installment: Number(j.installmentCount) || ord.tami.installmentCount,
+          tami: Object.assign({}, ord.tami, { bankAuthCode: String(j.bankAuthCode || ""), bankReferenceNumber: String(j.bankReferenceNumber || "") })
+        } : { errorCode: (j && j.errorCode) || undefined, errorMessage: (j && j.errorMessage) || "tamamlama başarısız" }, { paidPrice: j && j.amount, paymentId: j && j.bankReferenceNumber });
       });
     });
     return true;
@@ -1767,6 +2219,13 @@ const server = http.createServer((req, res) => {
       res.writeHead(301, { Location: "/ai-cankurtaran-destek-sistemi.html" + qs });
       return res.end();
     }
+    // Lexron 285 W panel üretimden kalktı (3 Kas 2026): indekslenmiş sayfa 404 olmasın,
+    // yerine gelen 360 W panele kalıcı yönlendirilir (dil kopyaları dahil).
+    var oldPanel = /^((?:\/(?:en|de|ru))?)\/panel-lexron-285w(?:\.html)?$/.exec(urlPath);
+    if (oldPanel) {
+      res.writeHead(301, { Location: oldPanel[1] + "/panel-360w.html" + qs });
+      return res.end();
+    }
     // Yasal sayfalar artık YALNIZCA Türkçe yayınlanır (bağlayıcı metin Türkçedir;
     // build.js TR_ONLY listesine bak). Eskiden /en /de /ru kopyaları vardı ve
     // indekslenmiş olabilir — 404 yerine TR sürümüne kalıcı yönlendir ki
@@ -1783,7 +2242,7 @@ const server = http.createServer((req, res) => {
       res.writeHead(404); return res.end("Not found");
     }
     // Soru & Cevap (ziyaretçi gönderisi, moderasyon, devir) ve admin girişi
-    if (urlPath.startsWith("/api/qa/") || urlPath === "/api/admin/login") {
+    if (urlPath.startsWith("/api/qa/") || urlPath === "/api/admin/login" || urlPath === "/api/lead") {
       if (handleQaRoutes(req, res, urlPath)) return;
       res.writeHead(404); return res.end("Not found");
     }
@@ -1812,7 +2271,15 @@ const server = http.createServer((req, res) => {
       // day: son 24 saatte sayılan tekil ziyaretçi; 24 saatlik kesintisiz veri
       // yoksa null (rozet o parçayı göstermez)
       const day = Date.now() - visitHoursSince >= 24 * HOUR_MS ? visitsLast24h() : null;
-      return res.end(JSON.stringify({ total: visitTotal, online: onlineCount(), day: day }));
+      // recent/recentHours: veri 24 saatten kısaysa (dağıtım devri başarısız,
+      // kesinti) rozet "son N saatte X" yazar; süre AÇIKÇA yazıldığı için
+      // eksik veri "24 saat" diye sunulmaz. day doluyken ikisi de gönderilmez.
+      const out = { total: visitTotal, online: onlineCount(), day: day };
+      if (day === null) {
+        out.recent = visitsLast24h();
+        out.recentHours = Math.max(1, Math.min(24, Math.ceil((Date.now() - visitHoursSince) / HOUR_MS)));
+      }
+      return res.end(JSON.stringify(out));
     }
     // Sayaç devri: yeni sunucu açılırken bunu çağırır (seedVisitsFromLive).
     // Yalnız toplam sayılar döner; parola yönetici şifresi (adminGate, /api/aibots gibi).
@@ -1821,7 +2288,18 @@ const server = http.createServer((req, res) => {
         let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
         if (!adminGate(req, res, b.pass)) return;
         visitsLast24h();
-        return sendJson(res, 200, { total: visitTotal, hours: visitHours, hoursSince: visitHoursSince });
+        statsJson();   // eski günleri at
+        return sendJson(res, 200, { total: visitTotal, hours: visitHours, hoursSince: visitHoursSince, stats: stats });
+      });
+    }
+    // Ürün ilgisi / trafik olayı (anonim sayaç; main.js gönderir) ve admin okuması
+    if (urlPath === "/api/ev" && req.method === "POST") return handleEvent(req, res);
+    if (urlPath === "/api/stats" && req.method === "POST") {
+      return readBody(req, 4 * 1024, (raw) => {
+        let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
+        if (!adminGate(req, res, b.pass)) return;
+        statsJson();   // eski günleri at
+        sendJson(res, 200, { since: stats.since, today: dayKey(), geo: !!GEO_URL, days: stats.days });
       });
     }
     // AI tarayıcı sayacı — admin paneli okur (yönetici şifresiyle, adminGate)
@@ -1829,12 +2307,19 @@ const server = http.createServer((req, res) => {
       return readBody(req, 4 * 1024, (raw) => {
         let b; try { b = JSON.parse(raw); } catch (e) { return sendJson(res, 400, { error: "Geçersiz istek." }); }
         if (!adminGate(req, res, b.pass)) return;
-        const bots = Object.keys(aiBots.bots).map(n => {
-          const r = aiBots.bots[n];
-          const top = Object.keys(r.paths).sort((a, c) => r.paths[c] - r.paths[a]).slice(0, 5).map(k => ({ path: k, n: r.paths[k] }));
-          return { name: n, kind: r.kind, count: r.count, last: r.last, top: top };
-        }).sort((a, c) => c.count - a.count);
-        sendJson(res, 200, { since: aiBots.since, bots: bots });
+        // Eksik alanlı eski kayıt (paths yok vb.) isteği düşürmesin: bu geri
+        // çağrı ana try/catch'in DIŞINDA, istisna yanıtsız askıda bırakırdı.
+        try {
+          const bots = Object.keys(aiBots.bots || {}).map(n => {
+            const r = aiBots.bots[n] || {};
+            const paths = r.paths || {};
+            const top = Object.keys(paths).sort((a, c) => paths[c] - paths[a]).slice(0, 5).map(k => ({ path: k, n: paths[k] }));
+            return { name: n, kind: r.kind || "ai", count: +r.count || 0, last: r.last || null, top: top };
+          }).sort((a, c) => c.count - a.count);
+          sendJson(res, 200, { since: aiBots.since, bots: bots });
+        } catch (e) {
+          sendJson(res, 500, { error: "AI tarayıcı sayacı okunamadı: " + (e && e.message) });
+        }
       });
     }
     // AI ajanları için içerik müzakeresi: `Accept: text/markdown` ile istenen
@@ -1915,9 +2400,14 @@ const server = http.createServer((req, res) => {
       // (no-cache = önbelleğe alınır ama her seferinde doğrulanır → güncellemeler
       // anında görünür). Görsel/font/favicon uzun süre önbelleğe alınır.
       var fresh = /^\.(html|css|js|json|xml|txt|webmanifest)$/.test(ext);
-      headers["Cache-Control"] = fresh
-        ? "no-cache"
-        : "public, max-age=2592000, stale-while-revalidate=86400";
+      // Sürümlü CSS/JS (`?v=` — build.js versionAssets): içerik değişince adres
+      // de değiştiği için 1 yıl, yeniden doğrulamasız önbellek.
+      var versioned = (ext === ".css" || ext === ".js") && /[?&]v=[0-9a-f]{6,}/.test(qs || "");
+      headers["Cache-Control"] = versioned
+        ? "public, max-age=31536000, immutable"
+        : fresh
+          ? "no-cache"
+          : "public, max-age=2592000, stale-while-revalidate=86400";
 
       // Soru-cevaplı sayfa: yayındaki gönderiler sunarken HTML'e basılır;
       // ön-sıkıştırılmış .br/.gz kopyaları bu yüzden KULLANILMAZ.
@@ -2039,6 +2529,7 @@ startFx(() => seedVisitsFromLive((msg) => {
 function flushData() {
   try { fs.mkdirSync(DATA_DIR, { recursive: true }); fs.writeFileSync(VISIT_FILE, visitsJson()); } catch (e) {}
   try { fs.writeFileSync(AIBOT_FILE, JSON.stringify(aiBots)); } catch (e) {}
+  try { fs.writeFileSync(STATS_FILE, statsJson()); } catch (e) {}
 }
 process.on("SIGTERM", () => {
   flushData();

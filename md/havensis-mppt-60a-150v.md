@@ -1,9 +1,9 @@
 ---
-title: "Havensis 60A MPPT Şarj Kontrol 12–48V, 150V — 5000W Panel | GESPA Enerji"
-description: "Havensis Solar-60AMPS 150|60 MPPT şarj kontrol cihazı: 12/24/36/48 V akü, 60 A şarj, 150 V panel girişi, 5000 W'a kadar panel. 48 V off-grid sistemler için yerli üretim."
+title: "Havensis 60A MPPT Şarj Kontrol 12–48V, 150V — 5000W Panel"
+description: "Havensis Solar-60AMPS 150|60 MPPT şarj kontrol cihazı: 12/24/36/48 V akü, 60 A şarj, 150 V panel girişi, 5000 W'a kadar panel."
 canonical: https://www.gespaenerji.com/havensis-mppt-60a-150v.html
 lang: tr
-dateModified: 2026-09-30
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -25,18 +25,35 @@ KDV dahil fiyattır.
 
 💰 Havale/EFT ile: **₺15.700**
 
+💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
+
+🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
 [⚡ Hemen satın al](https://www.gespaenerji.com/sepet.html)
-[💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20Solar-60AMPS%20150%7C60%20MPPT%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%2012%2F24%2F36%2F48%20V%2060%20A%22%20(S60AMPS)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fhavensis-mppt-60a-150v.html)
 
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
-- 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
+- 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🛡️ Garanti: **2 yıl**
+- 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 - ☀️ Panel ve akü ürüne dahil değildir.
 - 🏭 Yerli üretim · Havensis
 
 ⚡ 12/24/36/48 V · 60 A ☀️ 150 V · 5000 W panel 📈 %99,6 MPP izleme 📟 LCD ekran 🏭 Yerli üretim
+
+## ✅ Kimler için uygun
+
+- Teknik tablodaki akü gerilimlerine sahip akülü sistemler
+- Panel Voc toplamı giriş sınırının altında kalan diziler
+- Bağ evi, karavan, tekne ve elektrikli araç şarjı
+
+## ⛔ Uygun değil
+
+- Şebekeye bağlı inverterli sistemler
+- Giriş gerilimi sınırını aşan seri panel dizileri
+- Teknik tabloda yazmayan akü tipi veya gerilimi
 
 Havensis Solar-60AMPS 150|60, MPPT serisinin (MPS) 12–48 V akülerle çalışan 60 A'lik modelidir. Model kodundaki 150|60, cihazın en fazla 150 V panel girişi ve 60 A şarj akımıyla çalıştığını anlatır. 12, 24, 36 ve 48 V akülerle kullanılır; 5000 W'a kadar güneş paneli bağlanabilir.
 
@@ -154,7 +171,7 @@ Seri bağlanan panellerin açık devre gerilimleri (Voc) toplanır; toplam, ciha
 
 | Panel | Voc (künye) | Bu cihazda en fazla seri |
 | --- | --- | --- |
-| Lexron 285 W Güneş Paneli | 42,84 V | 3 panel (128,52 V) |
+| 360 W Güneş Paneli | 42,56 V | 3 panel (127,68 V) |
 | Lexron 655 W TOPCon Güneş Paneli | 50,34 V | 2 panel (100,68 V) |
 
 Voc soğukta yükselir; kışın −10 °C'nin altına düşen bölgelerde dizilimi bizimle kontrol edin. Toplam panel gücü 5000 W'ı aşmamalıdır.
@@ -165,7 +182,7 @@ Tamamlayıcı ürünler
 
 Aynı siparişte alın; hepsi aynı kargoyla gelsin.
 
-[![Lexron 655 W TOPCon Güneş Paneli](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655 W TOPCon Güneş PaneliYüksek güçlü TOPCon panel; bu cihaza en fazla 2 tanesi seri bağlanır.₺10.000 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=panel-lexron-655w)[![TitanX 51,2 V 102 Ah LiFePO₄ Akü](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51,2 V 102 Ah LiFePO₄ Akü48 V sistem için 5,22 kWh LiFePO₄ akü.₺73.400 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=aku-titanx-51v-102ah)[![Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)Panel ile cihaz arası: 5 m siyah + 5 m kırmızı.₺1.000 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=kablo-solar-5m)[![MC4 Konnektör Takımı](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Konnektör TakımıPanel kablosunu solar kabloya bağlar.₺100 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=mc4-set)
+[![Lexron 655 W TOPCon Güneş Paneli](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655 W TOPCon Güneş PaneliYüksek güçlü TOPCon panel; bu cihaza en fazla 2 tanesi seri bağlanır.₺10.000 Ürünü İncele →](https://www.gespaenerji.com/panel-lexron-655w.html)[![TitanX 51,2 V 102 Ah LiFePO₄ Akü](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51,2 V 102 Ah LiFePO₄ Akü48 V sistem için 5,22 kWh LiFePO₄ akü.₺73.400 Ürünü İncele →](https://www.gespaenerji.com/aku-titanx-51v-102ah.html)[![Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)Panel ile cihaz arası: 5 m siyah + 5 m kırmızı.₺1.000 Ürünü İncele →](https://www.gespaenerji.com/kablo-solar-5m.html)[![MC4 Konnektör Takımı](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Konnektör TakımıPanel kablosunu solar kabloya bağlar.₺100 Ürünü İncele →](https://www.gespaenerji.com/mc4-set.html)
 
 Sıkça Sorulan Sorular
 
@@ -181,7 +198,7 @@ Hayır, şarj gücünü akü gerilimi ve 60 A şarj akımı belirler: 12 V siste
 
 ### Kaç panel seri bağlayabilirim?
 
-Seri bağlı panellerin açık devre gerilimi (Voc) toplamı 150 V'u aşmamalıdır. Mağazamızdaki Lexron 285 W panelden (Voc 42,84 V) en fazla 3, Lexron 655 W panelden (Voc 50,34 V) en fazla 2 tanesi seri bağlanır. Voc soğukta yükseldiği için kışın −10 °C'nin altına düşen bölgelerde dizilimi bizimle kontrol edin.
+Seri bağlı panellerin açık devre gerilimi (Voc) toplamı 150 V'u aşmamalıdır. Mağazamızdaki 360 W panelden (Voc 42,56 V) en fazla 3, Lexron 655 W panelden (Voc 50,34 V) en fazla 2 tanesi seri bağlanır. Voc soğukta yükseldiği için kışın −10 °C'nin altına düşen bölgelerde dizilimi bizimle kontrol edin.
 
 ### İnverteri nereye bağlarım?
 
@@ -204,6 +221,14 @@ Türkiye'nin her yerine kargo ile gönderiyoruz; cihazı bir elektrikçi bağlay
 Alternatörden yaşam aküsüne şarj için DC-DC akü şarj cihazlarımıza bakın.
 
 [DC-DC akü şarj cihazları →](https://www.gespaenerji.com/havensis-dcdc-30a.html)
+
+Müşteri yorumları
+
+## Bu ürünü alanlar ne diyor?
+
+Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
+
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20Solar-60AMPS%20150%7C60%20MPPT%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%2012%2F24%2F36%2F48%20V%2060%20A%22%20(S60AMPS)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Şarj kontrol cihazınızı bugün sipariş edin
 

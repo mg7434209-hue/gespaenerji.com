@@ -1,60 +1,77 @@
 ---
-title: "285-W-Solarmodul-Paket — Plug-and-Play | GESPA Energy"
-description: "Komplettes 285-W-Solarset für Camping, Wohnmobil und kleine Verbraucher: Modul + Power-Box + Kabel. Betreibt TV, Licht und Handy-Ladung; 23–25 kg, Plug-and-Play."
+title: "240-W-Solarmodul-Paket — Plug-and-Play | GESPA Energy"
+description: "Komplettes 240-W-Solarset für Camping, Wohnmobil und kleine Verbraucher: Modul + Power-Box + Kabel. Betreibt TV, Licht und Handy-Ladung;"
 canonical: https://www.gespaenerji.com/de/paket-285w.html
 lang: de
-dateModified: 2026-09-30
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
-[Startseite](https://www.gespaenerji.com/de/) / [Produkte](https://www.gespaenerji.com/de/urunler.html) / 285-W-Solarmodul-Paket
+[Startseite](https://www.gespaenerji.com/de/) / [Produkte](https://www.gespaenerji.com/de/urunler.html) / 240-W-Solarmodul-Paket
 
-![285W komple güneş paneli paketi](https://www.gespaenerji.com/assets/img/products/kit-285w.webp)
+![240W komple güneş paneli paketi](https://www.gespaenerji.com/assets/img/products/kit-285w.webp)
 
 📦 Komplettsystem
 
-# 285-W-Solarmodul-Paket
+# 240-W-Solarmodul-Paket
 
 Artikelnummer: **GES-KIT-285** Auf Lager / bestellbar
 
 Strom für Camping, Wohnmobile und Ferienhäuser: Modul, Power-Box und Kabel in einem Set. Aufstellen, anschließen und TV, Licht und Handy netzunabhängig nutzen.
 
-**₺25.000** ≈ $508
+**₺24.000** ≈ $488
 
 Preis inkl. MwSt.
 
-💰 Per Überweisung: **₺24.250**
+💰 Per Überweisung: **₺23.300**
+
+💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
+
+🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
 
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 
-[💬 Per WhatsApp fragen](https://www.gespaenerji.com/de/iletisim.html)
+[💬 Per WhatsApp fragen](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22240W%20G%C3%BCne%C5%9F%20Paneli%20Paketi%22%20(GES-KIT-285)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpaket-285w.html)
 [🧮 Passt es zu mir?](https://www.gespaenerji.com/de/hesaplayici.html)
 
-- 🚚 Versand per Spedition in die ganze Türkei.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
-- 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendekosten trägt der Käufer.
+- 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
+- 🛡️ Garantie: **2 Jahre**
+- 🔒 Sichere Zahlung: iyzico / tami · Rechnung zu jeder Bestellung
 - 🔧 Optionale Vor-Ort-Montage und Einweisung in der Region Antalya.
 
-⚡ 1× 285 W panel ☀️ Etwa 1,7 kWh Tagesertrag ⚖️ 23–25 kg — tragbar 🔌 Plug-and-Play
+⚡ 1× 240 W panel ☀️ Etwa 1,4 kWh Tagesertrag ⚖️ 23–25 kg — tragbar 🔌 Plug-and-Play
+
+## ✅ Geeignet für
+
+- TV, Licht und Laden in Ferienhaus, Camp und Wohnmobil
+- Orte ohne Netzstrom
+- Wer eine Plug-and-play-Lösung möchte
+
+## ⛔ Nicht geeignet für
+
+- Leistungsstarke Geräte wie Klimaanlage oder Backofen
+- Einspeisung ins Netz (On-Grid)
+- Tagesverbrauch über der Kapazität in der Tabelle
 
 Kein Teile-Suchen: jede Komponente von Modul bis Kabel kommt aufeinander abgestimmt in einem Paket.
 
-Mit einem 285-W-Monokristallmodul und einer Power-Box mit Steckdose betreiben Sie Fernseher, LED-Licht und Handyladung ohne Netz. Mit 23–25 kg passt das Set in den Kofferraum und ist auf dem Campingplatz, im Wohnmobil und im Gartenhaus gleich einfach zu nutzen.
+Mit einem 240-W-Monokristallmodul und einer Power-Box mit Steckdose betreiben Sie Fernseher, LED-Licht und Handyladung ohne Netz. Mit 23–25 kg passt das Set in den Kofferraum und ist auf dem Campingplatz, im Wohnmobil und im Gartenhaus gleich einfach zu nutzen.
 
 Der Aufbau erfordert kein Fachwissen: Modul schattenfrei aufstellen, farbcodierte MC4-Kabel anschließen, Gerät in die Steckdose der Power-Box stecken.
 
 | Menge | Komponente |
 | --- | --- |
-| 1 × | 285-W-Monokristall-Solarmodul |
+| 1 × | 240-W-Monokristall-Solarmodul |
 | 1 × | Power-Box mit Steckdose (mit Display) |
 | 1 Satz | MC4-Anschlusskabel (farbcodiert) |
 | — | Kostenlose Beratung vor der Bestellung |
 
 Der Lieferumfang kommt in einem Karton, alle Teile aufeinander abgestimmt.
 
-| Solarmodul | 1× 285 W monokristallin |
+| Solarmodul | 1× 240 W monokristallin |
 | --- | --- |
-| Tagesertrag | ~1,7 kWh (je nach Region) |
+| Tagesertrag | ~1,4 kWh (je nach Region) |
 | Power-Box | Mit Steckdose und Display — sofort einsatzbereit |
 | Anschluss | MC4-Kabel inklusive, farbcodiert |
 | Gewicht | 23–25 kg (komplettes Set) |
@@ -164,6 +181,14 @@ Die Produkte werden in modernen Anlagen eines Herstellers mit über 15 Jahren Er
 **🎒 Mehr Leistung nötig?**
 
 Um auch Kühlschrank, Wasch- und Spülmaschine zu betreiben, [Komplettes Solarsystem (2×540 W) ansehen →](https://www.gespaenerji.com/de/paket-2x540w.html)
+
+Kundenbewertungen
+
+## Was sagen Käufer dieses Produkts?
+
+Für dieses Produkt gibt es noch keine veröffentlichte Bewertung. Wenn Sie es gekauft haben, schreiben Sie uns Ihre Erfahrung; nach Prüfung erscheint sie hier.
+
+[Bewertung schreiben (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22240W%20G%C3%BCne%C5%9F%20Paneli%20Paketi%22%20(GES-KIT-285)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Unsere Google-Bewertungen ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Heute bestellen, morgen Sonne ernten
 

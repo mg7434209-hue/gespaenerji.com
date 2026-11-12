@@ -31,12 +31,20 @@ const PAGES = [
   "yapay-zeka-urunleri.html", "ai-cankurtaran-destek-sistemi.html", "sistem-kur.html",
   "elektrikli-arac-donusum.html",
   "paket-285w.html", "paket-2x540w.html", "unv-trek-pro-2500.html", "toptan.html",
-  "paket-motor-yolcu.html", "paket-motor-kargo.html",
+  "paket-motor-yolcu.html", "paket-motor-kargo.html", "paket-motor-golf.html", "paket-motor-mini.html",
   "aku-lifepo4-72v-30ah.html",
   // Havensis ürün sayfaları — tools/havensis-sayfalar.py üretir
   "havensis-mppt-30a.html", "havensis-mppt-60a.html", "havensis-mppt-60a-150v.html",
   "havensis-dcdc-30a.html", "havensis-dcdc-40a.html", "havensis-dcdc-40a-cift-yonlu.html",
   "havensis-boost-dcdc-2448.html",
+  // Lexron şarj kontrol sayfaları — tools/lexron-sayfalar.py üretir
+  "lexron-pwm-20a.html", "lexron-pwm-30a.html", "lexron-pwm-40a.html", "lexron-pwm-60a.html",
+  "lexron-mppt-20a.html", "lexron-mppt-30a.html", "lexron-mppt-40a.html", "lexron-mppt-80a-hv.html",
+  // Paneller, akü, kablo, MC4 — tools/urun-sayfalar.py üretir
+  "panel-50w.html", "panel-240w.html", "panel-360w.html", "panel-460w.html", "panel-arcelik-540w.html", "panel-lexron-655w.html", "panel-700w.html",
+  "aku-titanx-51v-102ah.html", "kablo-solar-5m.html", "mc4-set.html",
+  "hero-led-ampul-10w.html", "hero-led-solar-sokak-100w.html",
+  "hero-led-aplik-50w.html", "hero-led-bahce-50w.html", "hero-led-solar-sokak-200w.html", "hero-led-solar-sokak-600w.html",
   "sepet.html"   // noindex; sitemap'e girmez (NOSITEMAP)
 ];
 
@@ -55,10 +63,14 @@ const PAGES = [
 const TR_ONLY = [
   "kvkk.html", "gizlilik.html", "cerez-politikasi.html",
   "mesafeli-satis-sozlesmesi.html", "iade-teslimat.html",
-  "gunes-paneli-kacak-elektrik-cezasi.html"
+  "gunes-paneli-kacak-elektrik-cezasi.html",
+  // Mühendislik rehberleri (yalnız Türkçe; <main data-article>) + merkez sayfası
+  "rehberler.html", "off-grid-gunes-sistemi-boyutlandirma.html", "pwm-mppt-sarj-kontrol-farki.html", "solar-sulama-pompasi-secimi.html"
 ];
 // Mevzuat rehberi — footer "Kurumsal" sütununda yalnız TR sayfalarda görünür
 const GUIDE = { file: "gunes-paneli-kacak-elektrik-cezasi.html", label: "Güneş Paneli Cezası Rehberi" };
+// Rehberler merkezi (yalnız TR, TR_ONLY) — footer "Kurumsal" sütununda mevzuat rehberinin yanında
+const GUIDE_HUB = { file: "rehberler.html", label: "Rehberler" };
 const TR_ONLY_RE = /<!-- TR:ONLY -->[\s\S]*?<!-- \/TR:ONLY -->/g;
 
 PAGES.push(...seo.pages.map(p => p.file));
@@ -69,36 +81,36 @@ PAGES.push("sozluk.html", "sss.html");
 // Sayfa başına dil-özel <title> ve meta description (en kritik SEO sinyalleri)
 const META = {
   "index.html": {
-    en: { t: "GESPA Energy — Solar Power Plants (PV) | Turnkey Solutions",
-          d: "GESPA Energy: turnkey installation, engineering, financing and maintenance for rooftop and ground-mounted solar power plants (PV). Manavgat / Antalya, Türkiye." },
-    de: { t: "GESPA Energy — Schlüsselfertige Solaranlagen (PV)",
-          d: "GESPA Energy: schlüsselfertige Installation, Engineering, Finanzierung und Wartung für Aufdach- und Freiflächen-Solaranlagen. Manavgat / Antalya, Türkei." },
+    en: { t: "GESPA Energy — Solar Products & Turnkey PV Plants | Antalya",
+          d: "Solar panels, batteries, charge controllers and ready kits shipped across Türkiye; rooftop, ground and agricultural PV plants built turnkey in Manavgat/Antalya since 2005." },
+    de: { t: "GESPA Energy — Solarprodukte & schlüsselfertige PV | Antalya",
+          d: "Solarmodule, Akkus, Laderegler und fertige Sets mit Versand in die ganze Türkei; Dach-, Freiflächen- und Agrar-PV schlüsselfertig in Manavgat/Antalya seit 2005." },
     ru: { t: "GESPA Energy — Солнечные электростанции | Решения под ключ",
           d: "GESPA Energy: монтаж под ключ, инжиниринг, финансирование и обслуживание солнечных электростанций на крыше и на земле. Манавгат / Анталья, Турция." }
   },
   "hizmetler.html": {
-    en: { t: "Services — Rooftop & Ground Solar, Storage | GESPA",
-          d: "Rooftop PV, ground-mounted PV, energy storage, engineering, financing and maintenance (O&M). Turnkey solar energy solutions — GESPA Energy." },
-    de: { t: "Leistungen — Aufdach- & Freiflächen-PV | GESPA Energy",
-          d: "Aufdach-PV, Freiflächen-PV, Energiespeicher, Engineering, Finanzierung und Wartung (O&M). Schlüsselfertige Solarlösungen — GESPA Energy." },
-    ru: { t: "Услуги — солнечные станции и накопители | GESPA",
-          d: "Солнечные станции на крыше и на земле, накопители энергии, инжиниринг, финансирование и обслуживание (O&M). Решения под ключ — GESPA Energy." }
+    en: { t: "Rooftop, Ground-Mount & Solar Irrigation PV | GESPA",
+          d: "Rooftop PV, ground-mounted PV, solar irrigation, energy storage and maintenance in Manavgat and Antalya: survey, engineering, installation and monitoring in one hand." },
+    de: { t: "Aufdach-, Freiflächen- & Solar-Bewässerung | GESPA",
+          d: "Aufdach-PV, Freiflächen-PV, solare Bewässerung, Energiespeicher und Wartung in Manavgat und Antalya: Begutachtung, Planung, Montage und Monitoring aus einer Hand." },
+    ru: { t: "Солнечные станции на крыше, земле и для полива | GESPA",
+          d: "Солнечные станции на крыше и на земле, солнечный полив, накопители и обслуживание в Манавгате и Анталье: обследование, проектирование, монтаж и мониторинг под ключ." }
   },
   "online-satis.html": {
-    en: { t: "Online Store — Solar Products and Equipment | GESPA Energy",
-          d: "All products on sale in one place: ready-made solar kits, MPPT charge controllers and equipment. Transparent prices, VAT included, shipping across Türkiye." },
-    de: { t: "Onlineshop — Solarprodukte und Ausrüstung | GESPA Energy",
-          d: "Alle Verkaufsprodukte auf einer Seite: Solar-Fertigsets, MPPT-Laderegler und Zubehör. Transparente Preise inkl. MwSt., Versand in die ganze Türkei." },
-    ru: { t: "Интернет-магазин солнечного оборудования | GESPA",
-          d: "Все товары в продаже на одной странице: готовые солнечные комплекты, MPPT-контроллеры и оборудование. Прозрачные цены с НДС, доставка по Турции." }
+    en: { t: "Buy Solar Panels, Batteries & MPPT Controllers | GESPA",
+          d: "Lexron and Arçelik solar panels, LiFePO₄ batteries, MPPT/PWM charge controllers, solar cable and ready kits. VAT-inclusive prices, shipping across Türkiye." },
+    de: { t: "Solarmodule, Akkus & MPPT-Laderegler kaufen | GESPA",
+          d: "Lexron- und Arçelik-Solarmodule, LiFePO₄-Akkus, MPPT/PWM-Laderegler, Solarkabel und Fertigsets. Preise inkl. MwSt., Versand in die ganze Türkei." },
+    ru: { t: "Купить солнечные панели, АКБ и MPPT-контроллеры | GESPA",
+          d: "Солнечные панели Lexron и Arçelik, LiFePO₄ АКБ, MPPT/PWM-контроллеры, кабель и готовые комплекты. Цены с НДС, доставка по Турции." }
   },
   "urunler.html": {
     en: { t: "Solar Packages — Off-Grid & Irrigation | GESPA Energy",
-          d: "285 W and 2×540 W solar kits for camping, caravans and cottages. Compare panels, power boxes and cables; shipping across Türkiye — GESPA Enerji." },
+          d: "240 W and 2×540 W solar kits for camping, caravans and cottages. Compare panels, power boxes and cables; shipping across Türkiye — GESPA Enerji." },
     de: { t: "Solar-Pakete — Off-Grid & Bewässerung | GESPA Energy",
-          d: "285-W- und 2×540-W-Solarsets für Camping, Wohnmobile und Ferienhäuser. Module, Power-Box und Kabel vergleichen; Versand in die ganze Türkei." },
+          d: "240-W- und 2×540-W-Solarsets für Camping, Wohnmobile und Ferienhäuser. Module, Power-Box und Kabel vergleichen; Versand in die ganze Türkei." },
     ru: { t: "Солнечные пакеты — off-grid и полив | GESPA",
-          d: "Комплекты 285 Вт и 2×540 Вт для кемпинга, автодомов и дач. Панели, блок питания и кабели; доставка по всей Турции." }
+          d: "Комплекты 240 Вт и 2×540 Вт для кемпинга, автодомов и дач. Панели, блок питания и кабели; доставка по всей Турции." }
   },
   "elektrikli-arac-donusum.html": {
     en: { t: "Solar Conversion for EVs — BOOST MPPT | GESPA Energy",
@@ -125,28 +137,188 @@ const META = {
           d: "2500 Вт, АКБ 2496 Вт·ч, 4 розетки 230 В чистый синус, ИБП 30 мс. Портативная электростанция для кемпинга, автодома и резервного питания." }
   },
   "paket-285w.html": {
-    en: { t: "285W Solar Panel Package — Plug-and-Play | GESPA",
-          d: "Complete 285W solar kit for camping, caravans and small needs: panel + power box + cables. Runs a TV, lights and phone charging; 23–25 kg, plug-and-play." },
-    de: { t: "285-W-Solarmodul-Paket — Plug-and-Play | GESPA Energy",
-          d: "Komplettes 285-W-Solarset für Camping, Wohnmobil und kleine Verbraucher: Modul + Power-Box + Kabel. Betreibt TV, Licht und Handy-Ladung; 23–25 kg, Plug-and-Play." },
-    ru: { t: "Пакет с панелью 285 Вт — подключи и работай | GESPA",
-          d: "Полный солнечный комплект 285 Вт для кемпинга и караванов: панель + блок питания + кабели. Питает ТВ, свет и зарядку телефона; 23–25 кг." }
+    en: { t: "240W Solar Panel Package — Plug-and-Play | GESPA",
+          d: "Complete 240W solar kit for camping, caravans and small needs: panel + power box + cables. Runs a TV, lights and phone charging; 23–25 kg, plug-and-play." },
+    de: { t: "240-W-Solarmodul-Paket — Plug-and-Play | GESPA Energy",
+          d: "Komplettes 240-W-Solarset für Camping, Wohnmobil und kleine Verbraucher: Modul + Power-Box + Kabel. Betreibt TV, Licht und Handy-Ladung; 23–25 kg, Plug-and-Play." },
+    ru: { t: "Пакет с панелью 240 Вт — подключи и работай | GESPA",
+          d: "Полный солнечный комплект 240 Вт для кемпинга и караванов: панель + блок питания + кабели. Питает ТВ, свет и зарядку телефона; 23–25 кг." }
   },
   "paket-motor-yolcu.html": {
-    en: { t: "Passenger E-Trike Solar Set — 285 W | GESPA Energy",
-          d: "Complete solar set for enclosed passenger e-trikes: 285 W TOPCon panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. No guessing which part fits." },
-    de: { t: "Solar-Set für Fahrgast-Dreirad — 285 W | GESPA Energy",
-          d: "Komplettset für geschlossene Fahrgast-Dreiräder: 285-W-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt." },
-    ru: { t: "Солнечный комплект для пассажирского трицикла — 285 Вт | GESPA",
-          d: "Готовый комплект для закрытых пассажирских трициклов: панель 285 Вт TOPCon, контроллер BOOST MPPT 24–72 В, кабель и MC4." }
+    en: { t: "Passenger E-Trike Solar Set — 240 W | GESPA Energy",
+          d: "Complete solar set for enclosed passenger e-trikes: 240 W panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. No guessing which part fits." },
+    de: { t: "Solar-Set für Fahrgast-Dreirad — 240 W | GESPA Energy",
+          d: "Komplettset für geschlossene Fahrgast-Dreiräder: 240-W-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt." },
+    ru: { t: "Солнечный комплект для пассажирского трицикла — 240 Вт | GESPA",
+          d: "Готовый комплект для закрытых пассажирских трициклов: панель 240 Вт, контроллер BOOST MPPT 24–72 В, кабель и MC4." }
   },
   "paket-motor-kargo.html": {
-    en: { t: "Cargo E-Trike Solar Set — 655 W | GESPA Energy",
-          d: "Complete solar set for cargo-bed e-trikes: 655 W N-type TOPCon panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. The most output a wide roof can carry." },
-    de: { t: "Solar-Set für Lasten-Dreirad — 655 W | GESPA Energy",
-          d: "Komplettset für Lasten-Dreiräder: 655-W-N-Type-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Maximaler Ertrag für große Dachflächen." },
-    ru: { t: "Солнечный комплект для грузового трицикла — 655 Вт | GESPA",
-          d: "Готовый комплект для грузовых трициклов: панель 655 Вт N-type TOPCon, контроллер BOOST MPPT 24–72 В, кабель и MC4." }
+    en: { t: "Cargo E-Trike Solar Set — 700 W | GESPA Energy",
+          d: "Complete solar set for cargo-bed e-trikes: 700 W bifacial TOPCon panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. The most output a wide roof can carry." },
+    de: { t: "Solar-Set für Lasten-Dreirad — 700 W | GESPA Energy",
+          d: "Komplettset für Lasten-Dreiräder: bifaziales 700-W-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Maximaler Ertrag für große Dachflächen." },
+    ru: { t: "Солнечный комплект для грузового трицикла — 700 Вт | GESPA",
+          d: "Готовый комплект для грузовых трициклов: двусторонняя панель TOPCon 700 Вт, контроллер BOOST MPPT 24–72 В, кабель и MC4." }
+  },
+  "paket-motor-golf.html": {
+    en: { t: "Golf-Cart-Type EV Solar Set — 460 W | GESPA Energy",
+          d: "Complete solar set for roofed golf-cart-type electric passenger vehicles: 460 W half-cut monocrystalline panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. No guessing which part fits." },
+    de: { t: "Solar-Set für Golfcart-Fahrzeuge — 460 W | GESPA Energy",
+          d: "Komplettset für überdachte Elektrofahrzeuge im Golfcart-Stil: 460-W-Half-Cut-Monomodul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt." },
+    ru: { t: "Солнечный комплект для электрокара типа гольф-кар — 460 Вт | GESPA",
+          d: "Готовый комплект для электромобилей типа гольф-кар с крышей: монокристаллическая панель half-cut 460 Вт, контроллер BOOST MPPT 24–72 В, кабель и MC4." }
+  },
+  "paket-motor-mini.html": {
+    en: { t: "Mini Electric Car Solar Set — 240 W | GESPA Energy",
+          d: "Complete solar set for enclosed mini electric cars: 240 W panel, BOOST MPPT 24–72 V charge controller, solar cable and MC4. No guessing which part fits." },
+    de: { t: "Solar-Set für Mini-Elektroauto — 240 W | GESPA Energy",
+          d: "Komplettset für geschlossene Mini-Elektroautos: 240-W-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt." },
+    ru: { t: "Солнечный комплект для мини-электромобиля — 240 Вт | GESPA",
+          d: "Готовый комплект для закрытых мини-электромобилей: панель 240 Вт, контроллер BOOST MPPT 24–72 В, кабель и MC4." }
+  },
+  "lexron-pwm-20a.html": {
+    en: { t: "Lexron 20A PWM Charge Controller 12/24V | GESPA Energy",
+          d: "Lexron 20 A PWM solar charge controller for 12/24 V battery systems. Values from the product label; write to us for the full datasheet. Shipped anywhere in Türkiye." },
+    de: { t: "Lexron 20A PWM-Laderegler 12/24V | GESPA Energy",
+          d: "Lexron 20 A PWM-Solarladeregler für 12/24-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei." },
+    ru: { t: "Контроллер заряда Lexron 20А ШИМ 12/24В | GESPA",
+          d: "Солнечный контроллер заряда Lexron 20 А ШИМ для систем с АКБ 12/24 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции." }
+  },
+  "lexron-pwm-30a.html": {
+    en: { t: "Lexron 30A PWM Charge Controller 12/24V | GESPA Energy",
+          d: "Lexron 30 A PWM solar charge controller for 12/24 V battery systems. Values from the product label; write to us for the full datasheet. Shipped anywhere in Türkiye." },
+    de: { t: "Lexron 30A PWM-Laderegler 12/24V | GESPA Energy",
+          d: "Lexron 30 A PWM-Solarladeregler für 12/24-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei." },
+    ru: { t: "Контроллер заряда Lexron 30А ШИМ 12/24В | GESPA",
+          d: "Солнечный контроллер заряда Lexron 30 А ШИМ для систем с АКБ 12/24 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции." }
+  },
+  "lexron-pwm-40a.html": {
+    en: { t: "Lexron 40A PWM Charge Controller 12/24V | GESPA Energy",
+          d: "Lexron 40 A PWM solar charge controller for 12/24 V battery systems. Values from the product label; write to us for the full datasheet. Shipped anywhere in Türkiye." },
+    de: { t: "Lexron 40A PWM-Laderegler 12/24V | GESPA Energy",
+          d: "Lexron 40 A PWM-Solarladeregler für 12/24-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei." },
+    ru: { t: "Контроллер заряда Lexron 40А ШИМ 12/24В | GESPA",
+          d: "Солнечный контроллер заряда Lexron 40 А ШИМ для систем с АКБ 12/24 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции." }
+  },
+  "lexron-pwm-60a.html": {
+    en: { t: "Lexron 60A PWM Charge Controller 12/24/48V | GESPA Energy",
+          d: "Lexron 60 A PWM solar charge controller for 12/24/48 V battery systems. Values from the product label; write to us for the full datasheet. Shipped anywhere in Türkiye." },
+    de: { t: "Lexron 60A PWM-Laderegler 12/24/48V | GESPA Energy",
+          d: "Lexron 60 A PWM-Solarladeregler für 12/24/48-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei." },
+    ru: { t: "Контроллер заряда Lexron 60А ШИМ 12/24/48В | GESPA",
+          d: "Солнечный контроллер заряда Lexron 60 А ШИМ для систем с АКБ 12/24/48 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции." }
+  },
+  "lexron-mppt-20a.html": {
+    en: { t: "Lexron 20A MPPT Charge Controller 12/24V | GESPA Energy",
+          d: "Lexron 20 A MPPT solar charge controller for 12/24 V battery systems. Values from the product label; write to us for the full datasheet. Shipped anywhere in Türkiye." },
+    de: { t: "Lexron 20A MPPT-Laderegler 12/24V | GESPA Energy",
+          d: "Lexron 20 A MPPT-Solarladeregler für 12/24-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei." },
+    ru: { t: "Контроллер заряда Lexron 20А MPPT 12/24В | GESPA",
+          d: "Солнечный контроллер заряда Lexron 20 А MPPT для систем с АКБ 12/24 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции." }
+  },
+  "lexron-mppt-30a.html": {
+    en: { t: "Lexron 30A MPPT Charge Controller 12/24V | GESPA Energy",
+          d: "Lexron 30 A MPPT solar charge controller for 12/24 V battery systems. Values from the product label; write to us for the full datasheet. Shipped anywhere in Türkiye." },
+    de: { t: "Lexron 30A MPPT-Laderegler 12/24V | GESPA Energy",
+          d: "Lexron 30 A MPPT-Solarladeregler für 12/24-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei." },
+    ru: { t: "Контроллер заряда Lexron 30А MPPT 12/24В | GESPA",
+          d: "Солнечный контроллер заряда Lexron 30 А MPPT для систем с АКБ 12/24 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции." }
+  },
+  "lexron-mppt-40a.html": {
+    en: { t: "Lexron 40A MPPT Charge Controller 12/24V | GESPA Energy",
+          d: "Lexron 40 A MPPT solar charge controller for 12/24 V battery systems. Values from the product label; write to us for the full datasheet. Shipped anywhere in Türkiye." },
+    de: { t: "Lexron 40A MPPT-Laderegler 12/24V | GESPA Energy",
+          d: "Lexron 40 A MPPT-Solarladeregler für 12/24-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei." },
+    ru: { t: "Контроллер заряда Lexron 40А MPPT 12/24В | GESPA",
+          d: "Солнечный контроллер заряда Lexron 40 А MPPT для систем с АКБ 12/24 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции." }
+  },
+  "lexron-mppt-80a-hv.html": {
+    en: { t: "Lexron 80A MPPT HV Charge Controller 12/24/36/48V | GESPA Energy",
+          d: "Lexron 80 A MPPT HV solar charge controller for 12/24/36/48 V battery systems. Values from the product label; write to us for the full datasheet. Shipped anywhere in Türkiye." },
+    de: { t: "Lexron 80A MPPT HV-Laderegler 12/24/36/48V | GESPA Energy",
+          d: "Lexron 80 A MPPT HV-Solarladeregler für 12/24/36/48-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei." },
+    ru: { t: "Контроллер заряда Lexron 80А MPPT HV 12/24/36/48В | GESPA",
+          d: "Солнечный контроллер заряда Lexron 80 А MPPT HV для систем с АКБ 12/24/36/48 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции." }
+  },
+  "panel-50w.html": {
+    en: { t: "50W Solar Panel for 12V Systems | GESPA Energy", d: "50 W monocrystalline solar panel for 12 V systems: garden lights, cameras and battery charging." },
+    de: { t: "50-W-Solarmodul für 12-V-Anlagen | GESPA Energy", d: "50-W-Monokristallin-Solarmodul für 12-V-Anlagen: Gartenbeleuchtung, Kameras und Batterieladung." },
+    ru: { t: "Солнечная панель 50 Вт для систем 12 В | GESPA", d: "Монокристаллическая панель 50 Вт для систем 12 В: садовое освещение, камеры и зарядка АКБ." }
+  },
+  "panel-240w.html": {
+    en: { t: "240W Solar Panel (48 Cells) | GESPA Energy", d: "240 W solar panel with 48 cells: Voc 36.12 V, 1320 × 776 × 30 mm, 8 kg. For mini electric cars and small off-grid systems." },
+    de: { t: "240-W-Solarmodul (48 Zellen) | GESPA Energy", d: "240-W-Solarmodul mit 48 Zellen: Voc 36,12 V, 1320 × 776 × 30 mm, 8 kg. Für Mini-Elektroautos und kleine Inselanlagen." },
+    ru: { t: "Солнечная панель 240 Вт (48 ячеек) | GESPA", d: "Солнечная панель 240 Вт, 48 ячеек: Voc 36,12 В, 1320 × 776 × 30 мм, 8 кг. Для мини-электромобилей и небольших автономных систем." }
+  },
+  "panel-360w.html": {
+    en: { t: "360W Mono-PERC Solar Panel | GESPA Energy", d: "360 W 60-cell Mono-PERC panel: Voc 42.56 V, 1660 × 1001 × 30 mm, 19.5 kg, IP68 junction box, 1500 V." },
+    de: { t: "360W Mono-PERC-Solarmodul | GESPA Energy", d: "360-W-Mono-PERC-Modul mit 60 Zellen: Voc 42,56 V, 1660 × 1001 × 30 mm, 19,5 kg, IP68-Anschlussdose, 1500 V." },
+    ru: { t: "Солнечная панель Mono-PERC 360 Вт | GESPA", d: "Панель Mono-PERC 360 Вт, 60 ячеек: Voc 42,56 В, 1660 × 1001 × 30 мм, 19,5 кг, коробка IP68, 1500 В." }
+  },
+  "panel-460w.html": {
+    en: { t: "460W Half-Cut Monocrystalline Solar Panel | GESPA Energy", d: "460 W panel with 144 half-cut cells: 23.42% efficiency, Voc 51.90 V, 2095 × 1039 × 30 mm, 25 kg, IP68." },
+    de: { t: "460-W-Half-Cut-Monokristallin-Solarmodul | GESPA Energy", d: "460-W-Modul mit 144 Halbzellen: 23,42 % Wirkungsgrad, Voc 51,90 V, 2095 × 1039 × 30 mm, 25 kg, IP68." },
+    ru: { t: "Монокристаллическая панель half-cut 460 Вт | GESPA", d: "Панель 460 Вт, 144 ячейки half-cut: КПД 23,42 %, Voc 51,90 В, 2095 × 1039 × 30 мм, 25 кг, IP68." }
+  },
+  "panel-arcelik-540w.html": {
+    en: { t: "Arçelik 540W Solar Panel | GESPA Energy", d: "Arçelik 540 W grade-A monocrystalline solar panel for rooftop and ground systems; pallet shipments available." },
+    de: { t: "Arçelik 540-W-Solarmodul | GESPA Energy", d: "Arçelik 540-W-Monokristallin-Solarmodul Klasse A für Dach- und Freiflächenanlagen; palettenweise Lieferung möglich." },
+    ru: { t: "Солнечная панель Arçelik 540 Вт | GESPA", d: "Монокристаллическая панель Arçelik 540 Вт класса A для крышных и наземных систем; поставки паллетами." }
+  },
+  "panel-700w.html": {
+    en: { t: "700W Bifacial TOPCon Solar Panel | GESPA Energy", d: "700 W bifacial N-type TOPCon panel: 610 Wp front side + 15% rear-side gain, 144 half-cut cells, Voc 53.27 V, 23.62% efficiency, 2278 × 1133 × 30 mm." },
+    de: { t: "700W Bifaziales TOPCon-Solarmodul | GESPA Energy", d: "Bifaziales 700-W-N-Type-TOPCon-Modul: 610 Wp Vorderseite + 15 % Rückseitengewinn, 144 Halbzellen, Voc 53,27 V, 23,62 % Wirkungsgrad, 2278 × 1133 × 30 mm." },
+    ru: { t: "Двусторонняя солнечная панель TOPCon 700 Вт | GESPA", d: "Двусторонняя панель N-type TOPCon 700 Вт: 610 Вт лицевая сторона + 15 % тыльная, 144 половинчатые ячейки, Voc 53,27 В, КПД 23,62 %, 2278 × 1133 × 30 мм." }
+  },
+  "panel-lexron-655w.html": {
+    en: { t: "Lexron 655W N-type TOPCon Solar Panel | GESPA Energy", d: "Lexron 655 W N-type TOPCon panel: 24.25% efficiency, Voc 50.34 V, 2382 × 1134 × 35 mm, 31 kg, IP68, 30-year power warranty." },
+    de: { t: "Lexron 655-W-N-Type-TOPCon-Solarmodul | GESPA Energy", d: "Lexron 655-W-N-Type-TOPCon-Modul: 24,25 % Wirkungsgrad, Voc 50,34 V, 2382 × 1134 × 35 mm, 31 kg, IP68, 30 Jahre Leistungsgarantie." },
+    ru: { t: "Солнечная панель Lexron 655 Вт N-type TOPCon | GESPA", d: "Панель Lexron 655 Вт N-type TOPCon: КПД 24,25 %, Voc 50,34 В, 2382 × 1134 × 35 мм, 31 кг, IP68, 30 лет на мощность." }
+  },
+  "aku-titanx-51v-102ah.html": {
+    en: { t: "TitanX 51.2V 102Ah LiFePO4 Battery (5.22 kWh) | GESPA Energy", d: "TitanX 51.2 V 102 Ah (5.22 kWh) LiFePO₄ storage battery: built-in BMS, 6000+ cycles, CAN/RS485, up to 16 in parallel." },
+    de: { t: "TitanX 51,2V 102Ah LiFePO4-Akku (5,22 kWh) | GESPA Energy", d: "TitanX 51,2 V 102 Ah (5,22 kWh) LiFePO₄-Speicherakku: integriertes BMS, über 6000 Zyklen, CAN/RS485, bis zu 16 parallel." },
+    ru: { t: "Аккумулятор TitanX 51,2 В 102 А·ч LiFePO4 (5,22 кВт·ч) | GESPA", d: "Аккумулятор TitanX 51,2 В 102 А·ч (5,22 кВт·ч) LiFePO₄: встроенная BMS, 6000+ циклов, CAN/RS485, до 16 параллельно." }
+  },
+  "kablo-solar-5m.html": {
+    en: { t: "Solar Cable Set 5m Black + 5m Red | GESPA Energy", d: "Solar cable set, 5 m black + 5 m red, for connecting the panel to the charge controller." },
+    de: { t: "Solarkabelset 5 m Schwarz + 5 m Rot | GESPA Energy", d: "Solarkabelset, 5 m Schwarz + 5 m Rot, für die Verbindung von Modul und Laderegler." },
+    ru: { t: "Комплект солнечного кабеля 5 м чёрный + 5 м красный | GESPA", d: "Комплект солнечного кабеля 5 м чёрного + 5 м красного для соединения панели с контроллером." }
+  },
+  "mc4-set.html": {
+    en: { t: "MC4 Connector Set | GESPA Energy", d: "Male + female MC4 connector set for joining the panel cable to the solar cable." },
+    de: { t: "MC4-Steckerset | GESPA Energy", d: "MC4-Steckerset (Stecker + Buchse) zur Verbindung von Modulkabel und Solarkabel." },
+    ru: { t: "Набор разъёмов MC4 | GESPA", d: "Набор разъёмов MC4 папа + мама для соединения кабеля панели с солнечным кабелем." }
+  },
+  "hero-led-ampul-10w.html": {
+    en: { t: "Hero LED 10W 12V DC LED Bulb (12–60V AC/DC) | GESPA Energy", d: "Hero LED 10 W LED bulb for 12–60 V AC/DC: 850 lm, 6500 K white light. Runs straight from the battery in caravans, boats and solar battery systems." },
+    de: { t: "Hero LED 10W 12V DC LED-Lampe (12–60V AC/DC) | GESPA Energy", d: "Hero LED 10-W-LED-Lampe für 12–60 V AC/DC: 850 lm, 6500 K weißes Licht. Läuft direkt an der Batterie in Wohnmobilen, Booten und solaren Batterieanlagen." },
+    ru: { t: "Лампа Hero LED 10 Вт 12 В DC (12–60 В AC/DC) | GESPA", d: "Светодиодная лампа Hero LED 10 Вт для 12–60 В AC/DC: 850 лм, белый свет 6500 K. Работает прямо от аккумулятора в автодомах, лодках и солнечных системах." }
+  },
+  "hero-led-solar-sokak-100w.html": {
+    en: { t: "Hero LED 100W Solar Street Light with Sensor | GESPA Energy", d: "Hero LED 100 W solar street light (HL-5151): solar panel, motion sensor, remote control, IP65, 30,000 h. No power line needed." },
+    de: { t: "Hero LED 100W Solar-Straßenleuchte mit Sensor | GESPA Energy", d: "Hero LED 100 W Solar-Straßenleuchte (HL-5151): Solarmodul, Bewegungssensor, Fernbedienung, IP65, 30.000 h. Keine Stromleitung nötig." },
+    ru: { t: "Солнечный уличный светильник Hero LED 100 Вт с датчиком | GESPA", d: "Солнечный уличный светильник Hero LED 100 Вт (HL-5151): солнечная панель, датчик движения, пульт, IP65, 30 000 ч. Электролиния не нужна." }
+  },
+  "hero-led-aplik-50w.html": {
+    en: { t: "Hero LED 50W Solar LED Wall Light, 3 Colours + RGB | GESPA Energy", d: "Hero LED 50 W solar wall light (HL-5181): 4000 lm, 3200/4000/6500 K + RGB, remote control, IP65, 15,000 h. Lower unit price for 5 or more." },
+    de: { t: "Hero LED 50W Solar-LED-Wandleuchte, 3 Farben + RGB | GESPA Energy", d: "Hero LED 50 W Solar-Wandleuchte (HL-5181): 4000 lm, 3200/4000/6500 K + RGB, Fernbedienung, IP65, 15.000 h. Günstigerer Stückpreis ab 5 Stück." },
+    ru: { t: "Солнечный настенный светильник Hero LED 50 Вт, 3 цвета + RGB | GESPA", d: "Солнечный настенный светильник Hero LED 50 Вт (HL-5181): 4000 лм, 3200/4000/6500 K + RGB, пульт, IP65, 15 000 ч. Цена ниже от 5 штук." }
+  },
+  "hero-led-bahce-50w.html": {
+    en: { t: "Hero LED 50W Solar Pillar-Top Garden Light | GESPA Energy", d: "Hero LED 50 W solar garden light for pillars, ledges and walls (HL-5180): 4000 lm, 3 colours + RGB, remote, IP65. Lower unit price for 5 or more." },
+    de: { t: "Hero LED 50W Solar-Pfeilerleuchte für den Garten | GESPA Energy", d: "Hero LED 50 W Solar-Gartenleuchte für Pfeiler, Sockel und Wand (HL-5180): 4000 lm, 3 Farben + RGB, Fernbedienung, IP65. Günstigerer Stückpreis ab 5 Stück." },
+    ru: { t: "Садовый солнечный светильник на столб Hero LED 50 Вт | GESPA", d: "Солнечный садовый светильник Hero LED 50 Вт на столб, бордюр и стену (HL-5180): 4000 лм, 3 цвета + RGB, пульт, IP65. Цена ниже от 5 штук." }
+  },
+  "hero-led-solar-sokak-200w.html": {
+    en: { t: "Hero LED 200W Solar Street Light with Sensor | GESPA Energy", d: "Hero LED 200 W solar street light (HL-5153): solar panel, motion sensor, fixed-on timer, remote, IP65, 30,000 h. Lower unit price for 5 or more." },
+    de: { t: "Hero LED 200W Solar-Straßenleuchte mit Sensor | GESPA Energy", d: "Hero LED 200 W Solar-Straßenleuchte (HL-5153): Solarmodul, Bewegungssensor, Dauerlicht-Timer, Fernbedienung, IP65, 30.000 h. Günstigerer Stückpreis ab 5 Stück." },
+    ru: { t: "Солнечный уличный светильник Hero LED 200 Вт с датчиком | GESPA", d: "Солнечный уличный светильник Hero LED 200 Вт (HL-5153): панель, датчик движения, таймер, пульт, IP65, 30 000 ч. Цена ниже от 5 штук." }
+  },
+  "hero-led-solar-sokak-600w.html": {
+    en: { t: "Hero LED 600W Solar Street Light with Radar Sensor | GESPA Energy", d: "Hero LED 600 W solar street light for large areas (HL-5157): separate solar panel, radar sensor, remote, IP65, 30,000 h. Lower unit price for 5 or more." },
+    de: { t: "Hero LED 600W Solar-Straßenleuchte mit Radarsensor | GESPA Energy", d: "Hero LED 600 W Solar-Straßenleuchte für große Flächen (HL-5157): separates Solarmodul, Radarsensor, Fernbedienung, IP65, 30.000 h. Günstigerer Stückpreis ab 5 Stück." },
+    ru: { t: "Солнечный уличный светильник Hero LED 600 Вт с радаром | GESPA", d: "Солнечный уличный светильник Hero LED 600 Вт для больших площадей (HL-5157): отдельная панель, радарный датчик, пульт, IP65, 30 000 ч. Цена ниже от 5 штук." }
   },
   "sss.html": {
     en: { t: "Frequently Asked Questions — Solar Power, Orders and Installation | GESPA Energy",
@@ -370,6 +542,113 @@ function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;"
 // Kardeş site bağlantıları (config.company.sisterSites) — footer "Kurumsal"
 // sütununda GES Marketim bağlantısının ardına basılır. İşaretçi arasında
 // tutulur, böylece her build'de yeniden yazılır ve çoğalmaz.
+function kesifWaUrl(c) {
+  const cfg = loadConfig();
+  const msg = (cfg.topbar && cfg.topbar.kesifMsg) || "";
+  return c && c.phone && c.phone.wa ? "https://wa.me/" + c.phone.wa + (msg ? "?text=" + encodeURIComponent(msg) : "") : "";
+}
+// ÜST BANT (mevsimlik): `<div class="topbar" data-topbar>` taşıyan sayfalarda
+// bulunulan aya göre config.topbar.seasons'tan seçilir. main.js aynı seçimi
+// çalışma zamanında yineler (build ile ay değişmişse). Hesaplayıcı sayfaları
+// kendi uyarı bandını taşır, data-topbar yoktur, dokunulmaz.
+function hydrateTopbar(html, cfg) {
+  const t = cfg.topbar; if (!t || !t.seasons || !/<div class="topbar" data-topbar>/.test(html)) return html;
+  const mo = new Date().getMonth() + 1;
+  const s = t.seasons.filter(x => (x.months || []).includes(mo))[0] || t.seasons[0];
+  const href = s.wa ? kesifWaUrl(cfg.company) : (s.href || "iletisim.html");
+  const a = s.wa ? '<a href="' + esc(href) + '" data-wa-kesif target="_blank" rel="noopener">' + esc(s.label) + "</a>"
+                 : '<a href="' + esc(href) + '">' + esc(s.label) + "</a>";
+  return html.replace(/<div class="topbar" data-topbar><div class="container topbar-inner">[\s\S]*?<\/div><\/div>/,
+    '<div class="topbar" data-topbar><div class="container topbar-inner"><span class="tb-l">' + esc(s.text) + "</span>" +
+    (s.short ? '<span class="tb-s">' + esc(s.short) + "</span>" : "") + a + "</div></div>");
+}
+
+// ---- ÜRÜN SAYFASI ŞABLONU (CRO FAZ 2, 26 Eki 2026) ----
+// Tüm data-pkg-detail sayfalarına aynı bloklar statik basılır (işaretli,
+// yeniden çalıştırılabilir): fiyat kutusunda taksit + kargo satırları
+// (PRICEROWS), güven satırı (TRUST: garanti · güvenli ödeme), "kimler için
+// uygun / uygun değil" kutusu (FIT, ürün grubuna göre), yorum alanı (REVIEWS)
+// ve ürün adlı WhatsApp bağlantısı. Metinler DICT ile çevrilir (CRO:DICT).
+// Garanti yalnız config'te `warranty` yazan üründe çıkar — UYDURULMAZ.
+const FIT = {
+  panel: [["Şarj kontrol cihazlı akülü (off-grid) sistemler", "Çatı veya arazi santraline ek panel", "Uyumlu elektrikli araç güneş paketleri"],
+          ["Doğrudan aküye bağlamak (şarj kontrol cihazı şart)", "Panel giriş gerilimi sınırını aşan cihazlar (Voc teknik tabloda)", "Şebekeye tek başına bağlamak (inverter gerekir)"]],
+  charge: [["Teknik tablodaki akü gerilimlerine sahip akülü sistemler", "Panel Voc toplamı giriş sınırının altında kalan diziler", "Bağ evi, karavan, tekne ve elektrikli araç şarjı"],
+           ["Şebekeye bağlı inverterli sistemler", "Giriş gerilimi sınırını aşan seri panel dizileri", "Teknik tabloda yazmayan akü tipi veya gerilimi"]],
+  lighting: [["Elektrik hattı olmayan bahçe, sokak, site ve otopark", "Gün boyu güneş gören montaj yerleri", "Hareketle yanması istenen alanlar"],
+             ["Sürekli gölgede kalan yerler", "İç mekân aydınlatması", "Şebekeden beslenmesi istenen armatür"]],
+  storage: [["Teknik tablodaki gerilimle çalışan akülü sistemler", "Listelenen uyumlu şarj kontrol cihazları", "Gün içi üretimi geceye taşımak"],
+            ["Farklı gerilimli sistemler", "Şarj kontrol cihazı olmadan doğrudan panele bağlamak", "Teknik tabloda yazmayan şarj akımı"]],
+  evset: [["24–72 V akülü triportör, golf aracı ve mini araçlar", "Çatısı paketteki panelin ölçüsüne sığan araçlar", "AGM, jel, sulu kurşun-asit ve lityum aküler"],
+          ["12 V akülü araçlar", "Çatısı panelden küçük araçlar", "Gün boyu kapalı veya gölgede park eden araçlar"]],
+  offgrid: [["Bağ evi, kamp ve karavanda TV, aydınlatma ve şarj", "Şebekenin olmadığı yerler", "Tak-çalıştır kurulum isteyenler"],
+            ["Klima, fırın gibi yüksek güçlü cihazlar", "Şebekeye satış (on-grid) amacı", "Teknik tablodaki kapasitenin üstünde günlük tüketim"]],
+};
+function fitGroupOf(p) {
+  if (!p) return null;
+  if (/^(boost-mppt|havensis-|lexron-)/.test(p.id)) return "charge";
+  if (p.group === "accessory") return null;
+  if (p.group === "offgrid") return "offgrid";
+  return FIT[p.group] ? p.group : null;
+}
+function hydrateProductTemplate(html, cfg, p) {
+  if (!p) return html;
+  const c = cfg.company || {};
+  const wa = c.phone && c.phone.wa;
+  const url = (c.web || "") + "/" + (p.url || "");
+  // 1) WhatsApp'tan sor: ürün adlı ön-dolu bağlantı (statik; main.js dil/adet ile yeniler)
+  if (wa) {
+    const msg = 'Merhaba GESPA, "' + p.name + '"' + (p.sku ? " (" + p.sku + ")" : "") + " hakkında bilgi almak istiyorum. Adet: 1. " + url;
+    html = html.replace(/<a\b([^>]*)\bdata-pkg-wa\b([^>]*)>/g, (m, a1, a2) => {
+      let t = "<a" + a1 + "data-pkg-wa" + a2 + ">";
+      t = t.replace(/href="[^"]*"/, 'href="https://wa.me/' + wa + "?text=" + encodeURIComponent(msg) + '"');
+      if (!/target=/.test(t)) t = t.replace(/>$/, ' target="_blank" rel="noopener">');
+      return t;
+    });
+  }
+  // 2) Fiyat kutusu satırları
+  const com = cfg.commerce || {};
+  const days = com.shipDays || "2–5";
+  const kargo = p.freeShipping
+    ? '<p class="pd-row">🚚 <span>Kargo ücretsiz — fiyata dahil</span> · <span>' + esc(days) + ' iş günü</span></p>'
+    : '<p class="pd-row">🚚 <span>Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir</span> · <span>' + esc(days) + ' iş günü</span></p>';
+  const rows = '<!-- PRICEROWS:STATIC --><div class="pd-rows">' +
+    (com.taksitMax ? '<p class="pd-row pd-taksit" data-pay-taksit>💳 <span>' + esc("Kredi kartına " + com.taksitMax + " aya kadar taksit" + (com.taksitVadeFarki ? " (vade farkı uygulanır)" : "") + " — ödeme sayfasında seçilir") + "</span></p>"
+                   : '<p class="pd-row pd-taksit" data-pay-taksit hidden>💳 <span>Kredi kartına taksit — ödeme sayfasında seçilir</span></p>') + kargo +
+    "</div><!-- /PRICEROWS:STATIC -->";
+  if (/<!-- PRICEROWS:STATIC -->/.test(html)) html = html.replace(/<!-- PRICEROWS:STATIC -->[\s\S]*?<!-- \/PRICEROWS:STATIC -->/, rows);
+  else html = html.replace(/(<p class="pd-havale">[\s\S]*?<\/p>)/, "$1\n              " + rows);
+  // 3) Güven satırı: kargo satırı fiyat kutusuna taşındı; garanti (varsa) + güvenli ödeme
+  html = html.replace(/\s*<li>🚚 <span data-pkg-ship>[^<]*<\/span><\/li>/, "");
+  const trust = "<!-- TRUST:STATIC -->" +
+    ((p.warranty || com.warrantyDefault) ? "<li>🛡️ <span>Garanti: <b>" + esc(p.warranty || com.warrantyDefault) + "</b></span></li>" : "") +
+    "<li>🔒 <span>Güvenli ödeme: iyzico / tami · her siparişe fatura</span></li><!-- /TRUST:STATIC -->";
+  if (/<!-- TRUST:STATIC -->/.test(html)) html = html.replace(/<!-- TRUST:STATIC -->[\s\S]*?<!-- \/TRUST:STATIC -->/, trust);
+  else html = html.replace(/(<li>🔄 <span>[\s\S]*?<\/span><\/li>)/, "$1" + trust);
+  // 4) Uygun / uygun değil
+  const g = fitGroupOf(p);
+  html = html.replace(/\s*<div class="fit"><!-- FIT:STATIC -->[\s\S]*?<!-- \/FIT:STATIC --><\/div>/, "");
+  if (g) {
+    const [yes, no] = FIT[g];
+    const box = '\n            <div class="fit"><!-- FIT:STATIC --><div class="fit-col fit-yes"><h2>✅ Kimler için uygun</h2><ul>' +
+      yes.map(x => "<li>" + esc(x) + "</li>").join("") + '</ul></div><div class="fit-col fit-no"><h2>⛔ Uygun değil</h2><ul>' +
+      no.map(x => "<li>" + esc(x) + "</li>").join("") + "</ul></div><!-- /FIT:STATIC --></div>";
+    html = html.replace(/(<div class="prod-chips">[\s\S]*?<\/div>)/, "$1" + box);
+  }
+  // 5) Yorum alanı (gerçek yorum yok → uydurma yok; WhatsApp ile yorum + Google yorumları)
+  const rmsg = 'Merhaba GESPA, "' + p.name + '"' + (p.sku ? " (" + p.sku + ")" : "") + " ürünü için yorumum: ";
+  const rev = '<section class="section reviews-sec"><div class="container narrow"><!-- REVIEWS:STATIC -->' +
+    '<div class="section-head"><span class="kicker">Müşteri yorumları</span><h2>Bu ürünü alanlar ne diyor?</h2></div>' +
+    '<div class="reviews-empty"><p>Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.</p>' +
+    '<p class="reviews-btns">' + (wa ? '<a class="btn btn-ghost" href="https://wa.me/' + wa + "?text=" + encodeURIComponent(rmsg) + '" data-pkg-review target="_blank" rel="noopener">Yorum yazın (WhatsApp)</a>' : "") +
+    (c.googleReview ? '<a class="btn btn-ghost" href="' + esc(c.googleReview) + '" target="_blank" rel="noopener">Google yorumlarımız ↗</a>' : "") +
+    "</p></div><!-- /REVIEWS:STATIC --></div></section>";
+  if (/<!-- REVIEWS:STATIC -->/.test(html)) html = html.replace(/<section class="section reviews-sec">[\s\S]*?<!-- \/REVIEWS:STATIC --><\/div><\/section>/, rev);
+  else if (/<section class="cta-band"/.test(html)) html = html.replace(/(\s*)(<section class="cta-band")/, "$1" + rev + "$1$2");
+  else html = html.replace(/(\s*<\/main>)/, "\n" + rev + "$1");
+  return html;
+}
+
 function hydrateSisterSites(html, c) {
   const sites = (c.sisterSites || []).filter(x => x && x.url && x.label);
   const block = sites.map(x =>
@@ -429,7 +708,7 @@ function faqItemHtml(q, a, link) {
 }
 function hydrateHelp(html, file) {
   const help = '<!-- HELP:STATIC --><a href="sss.html">' + esc(HELP.labels.title[0]) + '</a><a href="sozluk.html">'
-    + esc(GLOSSARY.labels.title[0]) + '</a><!-- TR:ONLY --><a href="' + GUIDE.file + '">' + esc(GUIDE.label)
+    + esc(GLOSSARY.labels.title[0]) + '</a><!-- TR:ONLY --><a href="' + GUIDE_HUB.file + '">' + esc(GUIDE_HUB.label) + '</a><a href="' + GUIDE.file + '">' + esc(GUIDE.label)
     + '</a><!-- /TR:ONLY --><!-- /HELP:STATIC -->';
   if (/<!-- HELP:STATIC -->/.test(html)) html = html.replace(/<!-- HELP:STATIC -->[\s\S]*?<!-- \/HELP:STATIC -->/g, () => help);
   else html = html.replace(/(<!-- \/SISTER:STATIC -->)/, m => m + help);
@@ -488,7 +767,37 @@ function glossaryLd(cfg) {
 // küçük çıkar. noindex sayfalara DOKUNULMAZ (kendi robots etiketleri var).
 // og:locale:alternate yalnız dil kopyası olan sayfalara yazılır (TR_ONLY hariç);
 // transform() dil kopyasında kümeyi "geçerli dil hariç diğerleri" yapar.
+// SERP uzunlukları (27 Eki 2026): başlık ≤ 65, açıklama ≤ 160 karakter.
+// Üretici betikleri ürün adını olduğu gibi başlık yapar ("…(Kumandalı, 3 Renk +
+// RGB) | GESPA Enerji" 84 karakter) ve ürün açıklamasını meta description'a
+// koyar (300+). Burada: önce parantez içi atılır, sonra "| GESPA …" eki,
+// yine uzunsa kelime sınırında kesilir. Açıklama cümle sonunda kesilir.
+// Kaynak sayfa YENİDEN YAZILIR (idempotent). Dil META'sına da uygulanır.
+function tidyTitle(t) {
+  t = String(t || "").replace(/\s+/g, " ").trim();
+  if (t.length <= 65) return t;
+  const m = /^(.*?)(\s\|\s(GESPA[^|]*))$/.exec(t);
+  let core = (m ? m[1] : t).replace(/\s*\([^)]*\)/g, "").replace(/\s+/g, " ").trim();
+  const suffix = m ? m[2] : "";
+  if ((core + suffix).length <= 65) return core + suffix;
+  if (core.length <= 65) return core;
+  core = core.slice(0, 63); core = core.slice(0, core.lastIndexOf(" ") > 40 ? core.lastIndexOf(" ") : 63);
+  return core.replace(/[\s,;:·—-]+$/, "") + "…";
+}
+function tidyDesc(d) {
+  d = String(d || "").replace(/\s+/g, " ").trim();
+  if (d.length <= 160) return d;
+  const head = d.slice(0, 159);
+  let cut = Math.max(head.lastIndexOf(". "), head.lastIndexOf("; "), head.lastIndexOf("! "));
+  if (cut >= 90) return head.slice(0, cut + 1);
+  cut = head.lastIndexOf(" ");
+  return head.slice(0, cut > 100 ? cut : 157).replace(/[\s,;:·—-]+$/, "") + "…";
+}
 function hydrateHead(html, file) {
+  html = html.replace(/<title>([\s\S]*?)<\/title>/, (m, t) => "<title>" + esc(tidyTitle(unesc(t))) + "</title>");
+  html = html.replace(/<meta name="description" content="([^"]*)"/, (m, d) => '<meta name="description" content="' + esc(tidyDesc(unesc(d))) + '"');
+  html = html.replace(/<meta property="og:title" content="([^"]*)"/, (m, t) => '<meta property="og:title" content="' + esc(tidyTitle(unesc(t))) + '"');
+  html = html.replace(/<meta property="og:description" content="([^"]*)"/, (m, d) => '<meta property="og:description" content="' + esc(tidyDesc(unesc(d))) + '"');
   // Dil demeti: TR kaynak sayfa sözlüksüz i18n.tr.js yükler; transform() dil
   // kopyasında /assets/i18n.<dil>.js yapar (kaynak i18n.js'i sayfalar YÜKLEMEZ).
   html = html.replace(/(<script defer src=")assets\/i18n(?:\.[a-z]{2})?\.js(">)/, "$1assets/i18n.tr.js$2");
@@ -523,7 +832,7 @@ const AI_BOTS = [
   "GPTBot", "OAI-SearchBot", "ChatGPT-User",                        // OpenAI
   "ClaudeBot", "Claude-SearchBot", "Claude-User", "anthropic-ai",   // Anthropic
   "PerplexityBot", "Perplexity-User",                               // Perplexity
-  "Google-Extended",                                                // Gemini
+  "Google-Extended", "Google-CloudVertexBot", "Gemini-Deep-Research", "Google-NotebookLM",   // Google (Gemini, Vertex, NotebookLM)
   "Applebot", "Applebot-Extended",                                  // Apple
   "Amazonbot", "CCBot", "meta-externalagent", "Meta-ExternalFetcher",
   "DuckAssistBot", "YouBot", "Bytespider", "PetalBot",
@@ -632,12 +941,21 @@ function firstModOf(file) {
 
 // Sitemap'e girecek sayfa görselleri: <main> içindeki <img src="assets/…">
 // (svg/ikon hariç, tekrarsız, en çok 30). Başlık = alt metni.
+// Galeri küçük resimleri `-k.webp` önizlemesini kullanır (tools/kucuk-resim.py
+// üretir). Tam boy dosya bağlantıda (`href`) kalır: tıklanınca o açılır, Product
+// şeması ve sitemap de tam boyu okur. Önizleme dosyası yoksa dokunulmaz.
+function thumbify(html) {
+  return html.replace(/<div class="prod-thumbs[^"]*">[\s\S]*?<\/div>/g, block =>
+    block.replace(/(<img\b[^>]*\bsrc=")(assets\/[^"]+?)(\.webp")/g, (m, a, stem, ext) =>
+      !/-k$/.test(stem) && fs.existsSync(path.join(ROOT, stem + "-k.webp")) ? a + stem + "-k" + ext : m));
+}
 function pageImages(html) {
   const main = (html.match(/<main\b[\s\S]*?<\/main>/) || [html])[0];
   const seen = new Set(), out = [];
   const re = /<img\b([^>]*)>/g; let m;
   while ((m = re.exec(main)) !== null) {
-    const src = (m[1].match(/\bsrc="([^"]+)"/) || [])[1];
+    // Galeri önizlemesi (-k.webp) yerine tam boy görsel haritaya girer.
+    const src = ((m[1].match(/\bsrc="([^"]+)"/) || [])[1] || "").replace(/-k\.webp$/, ".webp") || undefined;
     if (!src || !/^assets\//.test(src) || /\.svg$/i.test(src) || /favicon|gespa-icon/.test(src)) continue;
     if (seen.has(src)) continue;
     seen.add(src);
@@ -882,10 +1200,11 @@ function vatNote(p) {
 function shipNote(p) {
   return p && p.freeShipping
     ? "Türkiye'nin her yerine ücretsiz kargo ile gönderilir; kargo ücreti fiyata dahildir."
-    : "Türkiye'nin her yerine kargo ile gönderilir.";
+    : "Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.";
 }
 function havaleTL(p, tl, pct) {
-  return p.noCartDiscount ? tl : Math.round(tl * (100 - pct) / 100 / 50) * 50;
+  // main.js pkgUnit ile AYNI: havale hiçbir zaman liste fiyatını geçmez.
+  return p.noCartDiscount ? tl : Math.min(tl, Math.round(tl * (100 - pct) / 100 / 50) * 50);
 }
 
 // `parts` listesi olan paket ürünlerin (hazır set) fiyatını DENETLER.
@@ -998,6 +1317,11 @@ function packageProductLd(cfg, p, html) {
       }
     };
     ld.offers.priceValidUntil = priceValidUntil(cfg, p);
+    // Garanti: config `warranty` (ürün) ya da commerce.warrantyDefault; yalnız
+    // "N yıl" biçimi şemaya girer (paneldeki "12 yıl ürün · 30 yıl güç" metni
+    // sayfada kalır, şemaya tek sayı uydurulmaz).
+    const wy = /^(\d+) yıl$/.exec(String(p.warranty || com.warrantyDefault || ""));
+    if (wy) ld.offers.warranty = { "@type": "WarrantyPromise", durationOfWarranty: { "@type": "QuantitativeValue", value: +wy[1], unitCode: "ANN" } };
     if (com.returnDays) {
       ld.offers.hasMerchantReturnPolicy = {
         "@type": "MerchantReturnPolicy",
@@ -1358,7 +1682,9 @@ function hydrateExtras(html, file, cfg) {
   // Online satış kataloğu — JS'siz ortam/AI botları için statik ürün listesi
   if (file === "online-satis.html" && cfg.packages) {
     const RATE = cfg.usdTry || 0;
-    const rows = cfg.packages.filter(p => p.price != null || p.priceOnRequest).map(p => {
+    // Tükenen ürün (stock: 0) en sona iner — main.js mağaza listesiyle aynı sıra
+    const shopList = cfg.packages.filter(p => p.price != null || p.priceOnRequest);
+    const rows = shopList.filter(p => p.stock !== 0).concat(shopList.filter(p => p.stock === 0)).map(p => {
       const PCT = pctOf(cfg, p);                       // ürüne özel oran
       const tl = priceTRY(cfg, p.price, p.currency);
       const usd = p.currency === "USD" ? p.price : (RATE ? Math.round(p.price / RATE) : 0);
@@ -1450,6 +1776,7 @@ function hydrateExtras(html, file, cfg) {
     // Kargo alıcıya mı ait? config'teki freeShipping tek kaynaktır.
     setMark("data-pkg-vat", p && p.freeShipping ? "KDV ve kargo dahil fiyattır." : "KDV dahil fiyattır.");
     setMark("data-pkg-ship", shipNote(p));
+    html = hydrateProductTemplate(html, cfg, p);
   }
   // Çapraz satış kartları: data-pkg-list="<id>" → o ürünün LİSTE fiyatı
   // (ürün sayfalarındaki "Sistemi tamamlayın" şeridi). main.js istemcide
@@ -1620,6 +1947,7 @@ const PRIORITY = {
   "kvkk.html": "0.3", "gizlilik.html": "0.3", "cerez-politikasi.html": "0.3",
   "mesafeli-satis-sozlesmesi.html": "0.4", "iade-teslimat.html": "0.4",
   "sss.html": "0.7", "sozluk.html": "0.6", "gunes-paneli-kacak-elektrik-cezasi.html": "0.7",
+  "rehberler.html": "0.7", "off-grid-gunes-sistemi-boyutlandirma.html": "0.7", "pwm-mppt-sarj-kontrol-farki.html": "0.7", "solar-sulama-pompasi-secimi.html": "0.7",
   "havensis-mppt-30a.html": "0.7", "havensis-mppt-60a.html": "0.7", "havensis-mppt-60a-150v.html": "0.7",
   "havensis-dcdc-30a.html": "0.7", "havensis-dcdc-40a.html": "0.7", "havensis-dcdc-40a-cift-yonlu.html": "0.7",
   "havensis-boost-dcdc-2448.html": "0.7"
@@ -1636,14 +1964,19 @@ const LLMS_GROUPS = [
   ["Ana sayfa", ["index.html"]],
   ["Hizmetler", ["hizmetler.html", "cati-ges.html", "arazi-ges.html", "enerji-depolama.html", "bakim-izleme.html", "tarimsal-sulama.html"]],
   ["Mağaza ve ürünler", ["online-satis.html", "urunler.html", "paket-285w.html", "paket-2x540w.html", "unv-trek-pro-2500.html",
-    "elektrikli-arac-donusum.html", "paket-motor-yolcu.html", "paket-motor-kargo.html", "aku-lifepo4-72v-30ah.html",
+    "elektrikli-arac-donusum.html", "paket-motor-yolcu.html", "paket-motor-kargo.html", "paket-motor-golf.html", "paket-motor-mini.html",
+    "aku-lifepo4-72v-30ah.html",
     "havensis-mppt-30a.html", "havensis-mppt-60a.html", "havensis-mppt-60a-150v.html",
     "havensis-dcdc-30a.html", "havensis-dcdc-40a.html", "havensis-dcdc-40a-cift-yonlu.html", "havensis-boost-dcdc-2448.html",
+    "lexron-pwm-20a.html", "lexron-pwm-30a.html", "lexron-pwm-40a.html", "lexron-pwm-60a.html", "lexron-mppt-20a.html", "lexron-mppt-30a.html", "lexron-mppt-40a.html", "lexron-mppt-80a-hv.html",
+    "panel-50w.html", "panel-240w.html", "panel-360w.html", "panel-460w.html", "panel-arcelik-540w.html", "panel-lexron-655w.html", "panel-700w.html", "aku-titanx-51v-102ah.html", "kablo-solar-5m.html", "mc4-set.html",
+    "hero-led-ampul-10w.html", "hero-led-solar-sokak-100w.html",
+    "hero-led-aplik-50w.html", "hero-led-bahce-50w.html", "hero-led-solar-sokak-200w.html", "hero-led-solar-sokak-600w.html",
     "su-isitici.html", "toptan.html"]],
   ["Yapay zekâ ürünleri", ["yapay-zeka-urunleri.html", "ai-cankurtaran-destek-sistemi.html"]],
   ["Ücretsiz araçlar", ["hesaplayici.html", "sistem-kur.html"]],
   ["Referans projeler", ["projeler.html", "proje-kemer-villa.html", "proje-manavgat-fabrika.html", "proje-manavgat-tarimsal.html"]],
-  ["Rehberler ve güncel mevzuat (yalnız Türkçe)", ["gunes-paneli-kacak-elektrik-cezasi.html"]],
+  ["Rehberler ve güncel mevzuat (yalnız Türkçe)", ["rehberler.html", "off-grid-gunes-sistemi-boyutlandirma.html", "pwm-mppt-sarj-kontrol-farki.html", "solar-sulama-pompasi-secimi.html", "gunes-paneli-kacak-elektrik-cezasi.html"]],
   ["Kurumsal ve yardım", ["hakkimizda.html", "iletisim.html", "sss.html", "sozluk.html"]]
 ];
 function pageMeta(file) {
@@ -1755,6 +2088,7 @@ function htmlToMd(mainHtml, base) {
   // SSS soruları önce başlığa çevrilir (ardından tüm düğmeler silinir)
   h = h.replace(/<button class="faq-q"[^>]*>([\s\S]*?)<\/button>/g, (m, q) => "<h3>" + text(q.replace(/<span class="faq-ico"[^>]*>[\s\S]*?<\/span>/, "")) + "</h3>");
   h = h.replace(/<\/span>/gi, "</span> ");   // yan yana çipler/etiketler yapışmasın
+  h = h.replace(/<\/span> ([,.;:!?])/g, "</span>$1");   // ama noktalama işaretinden önce boşluk kalmasın ("stoktan ,")
   h = h.replace(/<(script|style|svg|form|select|noscript|template|video|audio|iframe|textarea)\b[\s\S]*?<\/\1>/gi, "");
   h = h.replace(/<(input|meta|link|source|track)\b[^>]*>/gi, "");
   h = stripBalanced(h, /<(div|section|p|span|a|ul|ol|li|aside|article|figure|nav|details|button)\b[^>]*?(?:\shidden(?:=|\s|>)|display:\s*none)[^>]*>/);
@@ -1868,6 +2202,41 @@ function writeSitemap(i18n) {
   fs.writeFileSync(path.join(ROOT, "sitemap.xml"), xml);
 }
 
+// ---- Varlık sürümleme (24 Eki 2026) ----
+// HTML'deki assets/*.css|js adreslerine `?v=<içerik özeti>` eklenir; server.js
+// `?v=` taşıyan isteğe 1 yıllık `immutable` önbellek verir. Böylece tarayıcı her
+// sayfa geçişinde 5 dosyayı yeniden SORMAZ (her biri sunucuya bir gidiş-dönüş;
+// ABD'deki sunucuda sayfa başına ~0,25 sn). Dosya değişince özet değişir, yeni
+// adres hemen indirilir — eski önbellek sorun çıkarmaz.
+// YALNIZ YAYIN ORTAMINDA (Railway/Render ya da ASSET_VERSION=1) çalışır: repodaki
+// HTML'e yazılsaydı her CSS/JS değişikliğinde TÜM sayfalar "değişti" görünür,
+// sitemap lastmod / dateModified tarihleri anlamını yitirirdi. Bu yüzden tarih
+// hesabından sonra, ön-sıkıştırmadan önce çağrılır.
+// config.js SÜRÜMLENMEZ: canlı kur açıkken içeriği dosyadan bağımsız değişir.
+function versionAssets() {
+  const on = process.env.ASSET_VERSION === "1" || !!(process.env.RAILWAY_ENVIRONMENT_NAME ||
+    process.env.RAILWAY_DEPLOYMENT_ID || process.env.RENDER);
+  if (!on) return 0;
+  const crypto = require("crypto");
+  const h = crypto.createHash("sha1");
+  const files = fs.readdirSync(path.join(ROOT, "assets")).filter(f => /\.(css|js)$/.test(f) && f !== "config.js").sort();
+  files.forEach(f => h.update(f).update(fs.readFileSync(path.join(ROOT, "assets", f))));
+  const v = h.digest("hex").slice(0, 10);
+  const re = /((?:src|href)="(?:\/|\.\.\/)?assets\/(?!config\.js)[A-Za-z0-9_.-]+\.(?:css|js))(?:\?v=[0-9a-f]+)?"/g;
+  let n = 0;
+  const dirs = [ROOT].concat(LANGS.map(l => path.join(ROOT, l)).filter(d => fs.existsSync(d)));
+  for (const d of dirs) {
+    for (const f of fs.readdirSync(d)) {
+      if (!/\.html$/.test(f)) continue;
+      const p = path.join(d, f), src = fs.readFileSync(p, "utf8");
+      const out = src.replace(re, (m, a) => a + "?v=" + v + '"');
+      if (out !== src) { fs.writeFileSync(p, out); n++; }
+    }
+  }
+  console.log("varlık sürümü v=" + v + " · " + n + " sayfa");
+  return n;
+}
+
 // Metin varlıklarını ön-sıkıştır (.br + .gz) — server.js hazır dosyayı servis eder.
 // Çıktılar .gitignore'dadır; her build'de yeniden üretilir (Railway start'ta da çalışır).
 function precompress() {
@@ -1908,6 +2277,10 @@ function hydrateContact(html, c) {
   html = html.replace(/<a\b[^>]*\bdata-c-mailto\b[^>]*>/g, t => setHref(t, "mailto:" + c.email));
   html = html.replace(/<a\b[^>]*\bdata-c-wa\b[^>]*>/g, t => setHref(t, "https://wa.me/" + c.phone.wa));
   if (c.googleReview) html = html.replace(/<a\b[^>]*\bdata-c-review\b[^>]*>/g, t => setHref(t, c.googleReview));
+  // Ücretsiz keşif WhatsApp düğmeleri (menü, hero, üst bant, CTA bandı):
+  // mesaj config.topbar.kesifMsg; main.js dil değişince yeniden yazar.
+  const kesif = kesifWaUrl(c);
+  if (kesif) html = html.replace(/<a\b[^>]*\bdata-wa-kesif\b[^>]*>/g, t => setHref(t, kesif));
   return html;
 }
 
@@ -1967,6 +2340,25 @@ function writeProductFeed(cfg) {
   return items.length;
 }
 
+// llms-full.txt "Rehberler" bölümü: rehber sayfalarının başındaki "Kısaca" kutusu
+// (.art-note) özet olarak alınır; yanıt motorları formülü ve bağlantıyı tek yerde bulur.
+// Kaynak sayfanın kendisidir; rehber eklenince LLMS_GROUPS'taki listeden kendiliğinden gelir.
+function guideSummaries() {
+  const grp = LLMS_GROUPS.filter(g => /^Rehberler/.test(g[0]))[0];
+  if (!grp) return "";
+  const dec = t => t.replace(/<[^>]+>/g, "").replace(/&quot;/g, '"').replace(/&amp;/g, "&").replace(/&#39;/g, "'").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
+  const out = [];
+  grp[1].forEach(f => {
+    let h; try { h = fs.readFileSync(path.join(ROOT, f), "utf8"); } catch (e) { return; }
+    if (!/<main[^>]*data-article/.test(h)) return;
+    const h1 = (h.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1];
+    const note = (h.match(/<div class="art-note"><p>([\s\S]*?)<\/p>/) || [])[1];
+    if (!h1 || !note) return;
+    out.push("### " + dec(h1) + " (" + ORIGIN + "/" + f + ")\n" + dec(note).replace(/^Kısaca:\s*/, ""));
+  });
+  return out.length ? "## Rehberler (yalnız Türkçe)\n" + out.join("\n\n") + "\n\n" : "";
+}
+
 function writeLlmsFull(cfg) {
   const nf = n => new Intl.NumberFormat("tr-TR").format(Math.round(n));
   const COST = cfg.calc.costPerKwp;
@@ -1985,7 +2377,11 @@ function writeLlmsFull(cfg) {
       ? (PCT && hav < tl ? ` liste (KDV dahil) · havale/EFT ile ₺${nf(hav)} (%${PCT} indirimli)` : " (KDV dahil, net fiyat)")
       : " (yaklaşık, keşifle netleşir)";
     const ship = p.freeShipping ? " · kargo fiyata DAHİL" : "";
-    return `- ${p.name} — ${lead}${p.for} · ₺${nf(tl)}${usd ? ` (≈ $${nf(usd)})` : ""}${tag}${ship}`;
+    // 5'li (bulk) adet fiyatı — sepet ve ödeme aynı kuralı uygular (main.js
+    // pkgUnit(p, qty) · server.js pkgListTL(p, cfg, qty)).
+    const bulk = p.bulk && p.bulk.price != null
+      ? ` · ${p.bulk.min} adet ve üzeri alımda adet fiyatı ₺${nf(priceTRY(cfg, p.bulk.price, p.currency))}` : "";
+    return `- ${p.name} — ${lead}${p.for} · ₺${nf(tl)}${usd ? ` (≈ $${nf(usd)})` : ""}${tag}${ship}${bulk}`;
   }).join("\n");
   const showHeaterPrice = cfg.heater.showPrices !== false;
   const heaterLines = cfg.heater.models.map(m =>
@@ -1999,7 +2395,7 @@ function writeLlmsFull(cfg) {
     const ps = (pk.parts || []).map(m => (cfg.packages || []).filter(x => x.id === m)[0]).filter(Boolean);
     const web = (cfg.company && cfg.company.web) || "";
     return `- ${pk.name} — ${st.hint}. İçindekiler: ` + ps.map(m => m.name).join(" + ")
-      + ` = ₺${nf(pk.price)} (ürün kodu ${pk.sku})`
+      + ` = ₺${nf(priceTRY(cfg, pk.price, pk.currency))} (ürün kodu ${pk.sku})`
       + ` · ürün sayfası: ${web}/${pk.url}`
       + ` · tek tıkla sepete: ${web}/sepet.html?ekle=${pk.id}`;
   }).filter(Boolean).join("\n");
@@ -2045,9 +2441,13 @@ Markalar — panel: ${cfg.brands.panel.join(", ")} · inverter: ${cfg.brands.inv
 ${pkgLines}
 ${cfg.fx && cfg.fx.auto ? "Fiyat ve kur: katalog fiyatları USD bazlıdır; ₺ karşılığı TCMB döviz satış kuruyla günlük güncellenir (kur, işletmenin belirlediği asgari kurun altına inmez). Bu dosyadaki ₺ tutarlar 1 USD = " + String(cfg.usdTry).replace(".", ",") + " ₺ ile hesaplandı; güncel fiyat sitededir.\n" : ""}Kargo & iade: Paketler TÜRKİYE'NİN HER İLİNE anlaşmalı kargo ile gönderilir (teslimat
 Antalya ile sınırlı değildir). Sipariş onayından sonra tahmini teslim ${(cfg.commerce || {}).shipDays || "2–5"} iş günü;
-kargo ücreti alıcıya aittir (yukarıda "kargo fiyata DAHİL" yazan ürünler hariç),
-fiyatlara KDV dahildir. Mesafeli satışta ${(cfg.commerce || {}).returnDays || 14} gün cayma
-hakkı vardır (sorunsuz teslimde iade kargosu alıcıya ait; hasarlı/ayıplı üründe satıcıya).
+kargo ücreti alıcıya aittir ve paket teslim alınırken kargo firmasına ödenir (yukarıda "kargo
+fiyata DAHİL" yazan ürünler hariç); fiyatlara KDV dahildir. Mesafeli satışta ${(cfg.commerce || {}).returnDays || 14} gün cayma
+hakkı vardır; anlaşmalı kargomuzla yapılan iadede iade kargosu ÜCRETSİZDİR (başka kargo firması
+seçilirse alıcıya aittir); hasarlı/ayıplı üründe tüm masraflar satıcıya aittir.
+Taksit: kredi kartına ${(cfg.commerce || {}).taksitMax || 12} aya kadar taksit, vade farkı müşteriye aittir (ödeme sayfasında seçilir).
+Garanti: mağaza ürünlerinde ${(cfg.commerce || {}).warrantyDefault || "2 yıl"}; ürün sayfasında farklı yazıyorsa o geçerlidir (ör. paneller 12 yıl ürün / 30 yıl güç).
+Mağaza kullanım senaryoları (${c.web}/online-satis.html?senaryo=<id>): ${(cfg.shopScenarios || []).filter(s => !s.href).map(s => s.label + " [" + s.id + "]").join(" · ")}.
 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi verilir.
 Ödeme: havale/EFT'te indirim uygulanır (oran ürüne göre değişir; her ürünün indirimli tutarı yukarıdaki listede yazılıdır). Kart ödemesinde indirim UYGULANMAZ, liste fiyatı geçerlidir.
 
@@ -2085,7 +2485,8 @@ gerekli panel gücü (kWp), akü kapasitesi (kWh, model DoD'una göre) ve invert
 - Solar sulama pompası seçimi (${c.web}/tarimsal-sulama.html).
 
 ## Garanti & Güvence
-- A-marka panellerde 25 yıla varan üretim performans garantisi; inverterlerde 5–12 yıl ürün garantisi.
+- Mağaza ürünlerinde ${(cfg.commerce || {}).warrantyDefault || "2 yıl"} garanti; panellerde üreticinin ürün/güç garantisi ürün sayfasında yazılıdır (Lexron 12 yıl ürün / 30 yıl güç, 700 W bifacial 30 yıl güç). Anahtar teslim GES'te ekipman garantileri teklifte kalem kalem yazılır.
+- Keşif taleplerine ${(cfg.commerce || {}).leadReplyDays || "1–3"} gün içinde dönülür; keşif ve teklif ücretsizdir.
 - Anahtar teslim teslimat: keşif → projelendirme → kurulum → devreye alma; bakım (O&M) hizmeti sürer.
 - Ücretsiz keşif ve tasarruf analizi tüm hizmetlerde standarttır.
 
@@ -2095,7 +2496,7 @@ gerekli panel gücü (kWp), akü kapasitesi (kWh, model DoD'una göre) ve invert
 3. Anahtar teslim kurulum (sertifikalı ekip, A-marka ekipman)
 4. Devreye alma, izleme ve bakım (O&M)
 
-## Sık Sorulan Sorular (özet)
+${guideSummaries()}## Sık Sorulan Sorular (özet)
 - GES yatırımı tipik olarak 3–6 yılda amorti olur (tüketim, bölge ve elektrik
   fiyatına göre değişir).
 - Güneş enerjili tarımsal sulamada tipik geri ödeme 2–4 yıldır; mazot maliyeti
@@ -2112,7 +2513,8 @@ KVKK aydınlatma metni: ${c.web}/kvkk.html · Gizlilik: ${c.web}/gizlilik.html �
 }
 
 function transform(html, lang, file, i18n) {
-  const m = META[file] && META[file][lang];
+  const m0 = META[file] && META[file][lang];
+  const m = m0 ? { t: tidyTitle(m0.t), d: tidyDesc(m0.d) } : m0;
   const canonical = ORIGIN + "/" + lang + "/" + (file === "index.html" ? "" : file);
   let out = html;
   // WebPage şemasındaki ad/açıklama TR <title>/description ile aynı metindir;
@@ -2237,7 +2639,9 @@ function run() {
     let html = fs.readFileSync(p, "utf8");
     const before = html;
     html = hydrateHead(html, file);
+    html = thumbify(html);
     html = hydrateHelp(html, file);
+    html = hydrateTopbar(html, cfg);
     html = hydrateContact(html, cfg.company);
     html = hydrateSisterSites(html, cfg.company);
     html = hydrateExtras(html, file, cfg);
@@ -2274,6 +2678,8 @@ function run() {
       count++;
     }
   }
+  // Yayın ortamında CSS/JS adreslerine sürüm etiketi (tarih hesabından SONRA)
+  versionAssets();
   // Tüm çıktılar yazıldıktan SONRA ön-sıkıştır (dil sayfaları dahil)
   precompress();
   return count;

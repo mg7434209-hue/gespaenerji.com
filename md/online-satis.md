@@ -1,9 +1,9 @@
 ---
-title: "Online Satış — Güneş Enerjisi Ürünleri | GESPA Enerji"
-description: "GESPA Enerji online satış: hazır güneş enerjisi paketleri, şarj kontrol cihazları ve solar ekipman. Şeffaf fiyat, KDV dahil, Türkiye'nin her yerine kargo."
+title: "Güneş Paneli, Akü ve MPPT Şarj Kontrol Satın Al | GESPA"
+description: "Lexron ve Arçelik güneş panelleri, LiFePO₄ akü, MPPT/PWM şarj kontrol cihazı, solar kablo ve hazır paketler. KDV dahil açık fiyat, Türkiye'ye kargo."
 canonical: https://www.gespaenerji.com/online-satis.html
 lang: tr
-dateModified: 2026-09-30
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -11,7 +11,7 @@ publisher: "GESPA Enerji"
 
 🛒 E-Ticaret
 
-# Online Satış
+# Güneş Paneli ve Solar Ekipman Mağazası
 
 Satıştaki tüm ürünler tek sayfada: hazır güneş enerjisi paketleri, şarj kontrol cihazları ve solar ekipman. Fiyatlar KDV dahildir, kargo Türkiye'nin her yerine yapılır.
 
@@ -21,13 +21,13 @@ Mağaza
 - 💰 Havale/EFT'te indirim
 - 🔒 iyzico ile güvenli ödeme
 
-### [285W Güneş Paneli Paketi](https://www.gespaenerji.com/paket-285w.html)
+### [240W Güneş Paneli Paketi](https://www.gespaenerji.com/paket-285w.html)
 
 Kamp, karavan ve küçük ihtiyaçlar
 
-**₺25.000**≈ $508
+**₺24.000**≈ $488
 
-💰 Havale/EFT ile: **₺24.250**
+💰 Havale/EFT ile: **₺23.300**
 
 KDV dahil · kargo hariç
 
@@ -59,11 +59,11 @@ Elektrikli triportör, motosiklet ve 72 V hizmet araçları
 
 KDV dahil · kargo hariç
 
-### 50W Güneş Paneli
+### [50W Güneş Paneli](https://www.gespaenerji.com/panel-50w.html)
 
 Küçük aydınlatma, kamera ve akü şarjı
 
-**₺1.250**≈ $25
+**₺1.750**≈ $36
 
 KDV dahil · kargo hariç
 
@@ -77,17 +77,17 @@ Kamp, karavan, saha çalışması ve ev tipi yedek güç
 
 KDV dahil · kargo hariç
 
-### Lexron 285 W Güneş Paneli
+### [360 W Güneş Paneli](https://www.gespaenerji.com/panel-360w.html)
 
-Balkon, bağ evi ve küçük off-grid sistemler
+Bağ evi, karavan, çatı ve küçük off-grid sistemler
 
-**₺7.500**≈ $152
+**₺7.200**≈ $146
 
-💰 Havale/EFT ile: **₺7.300**
+💰 Havale/EFT ile: **₺7.000**
 
 KDV dahil · kargo hariç
 
-### Lexron 655 W TOPCon Güneş Paneli
+### [Lexron 655 W TOPCon Güneş Paneli](https://www.gespaenerji.com/panel-lexron-655w.html)
 
 Çatı ve arazi sistemleri, yüksek güç gerektiren kurulumlar
 
@@ -97,7 +97,37 @@ KDV dahil · kargo hariç
 
 KDV dahil · kargo hariç
 
-### Arçelik 540 W Güneş Paneli
+### [700 W Bifacial TOPCon Güneş Paneli](https://www.gespaenerji.com/panel-700w.html)
+
+Kargo kasalı elektrikli araçlar, çatı ve arazi sistemleri
+
+**₺8.700**≈ $177
+
+💰 Havale/EFT ile: **₺8.450**
+
+KDV dahil · kargo hariç
+
+### [460 W Half-Cut Monokristal Güneş Paneli](https://www.gespaenerji.com/panel-460w.html)
+
+Golf aracı tipi elektrikli araçlar ve küçük off-grid sistemler
+
+**₺8.000**≈ $163
+
+💰 Havale/EFT ile: **₺7.750**
+
+KDV dahil · kargo hariç
+
+### [240 W Güneş Paneli (48 Hücre)](https://www.gespaenerji.com/panel-240w.html)
+
+Mini elektrikli otomobiller ve küçük off-grid sistemler
+
+**₺6.500**≈ $132
+
+💰 Havale/EFT ile: **₺6.300**
+
+KDV dahil · kargo hariç
+
+### [Arçelik 540 W Güneş Paneli](https://www.gespaenerji.com/panel-arcelik-540w.html)
 
 Çatı ve arazi kurulumları, yerli marka tercih edenler
 
@@ -107,7 +137,7 @@ KDV dahil · kargo hariç
 
 KDV dahil · kargo hariç
 
-### TitanX 51,2 V 102 Ah LiFePO₄ Akü
+### [TitanX 51,2 V 102 Ah LiFePO₄ Akü](https://www.gespaenerji.com/aku-titanx-51v-102ah.html)
 
 Ev ve işyeri enerji depolama, off-grid ve yedek güç
 
@@ -187,7 +217,87 @@ KDV dahil · kargo hariç
 
 KDV dahil · kargo hariç
 
-### Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)
+### [Lexron 20 A PWM Şarj Kontrol Cihazı 12/24 V](https://www.gespaenerji.com/lexron-pwm-20a.html)
+
+12/24 V akülü küçük güneş sistemleri
+
+**₺730**≈ $15
+
+💰 Havale/EFT ile: **₺700**
+
+KDV dahil · kargo hariç
+
+### [Lexron 30 A PWM Şarj Kontrol Cihazı 12/24 V](https://www.gespaenerji.com/lexron-pwm-30a.html)
+
+12/24 V akülü küçük güneş sistemleri
+
+**₺820**≈ $17
+
+💰 Havale/EFT ile: **₺800**
+
+KDV dahil · kargo hariç
+
+### [Lexron 40 A PWM Şarj Kontrol Cihazı 12/24 V](https://www.gespaenerji.com/lexron-pwm-40a.html)
+
+12/24 V akülü küçük güneş sistemleri
+
+**₺1.050**≈ $21
+
+💰 Havale/EFT ile: **₺1.000**
+
+KDV dahil · kargo hariç
+
+### [Lexron 60 A PWM Şarj Kontrol Cihazı 12/24/48 V](https://www.gespaenerji.com/lexron-pwm-60a.html)
+
+12/24/48 V akülü güneş sistemleri
+
+**₺2.200**≈ $44
+
+💰 Havale/EFT ile: **₺2.150**
+
+KDV dahil · kargo hariç
+
+### [Lexron 20 A MPPT Şarj Kontrol Cihazı 12/24 V](https://www.gespaenerji.com/lexron-mppt-20a.html)
+
+12/24 V akülü güneş sistemleri · yüksek verim
+
+**₺3.150**≈ $64
+
+💰 Havale/EFT ile: **₺3.050**
+
+KDV dahil · kargo hariç
+
+### [Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V](https://www.gespaenerji.com/lexron-mppt-30a.html)
+
+12/24 V akülü güneş sistemleri · yüksek verim
+
+**₺3.450**≈ $71
+
+💰 Havale/EFT ile: **₺3.350**
+
+KDV dahil · kargo hariç
+
+### [Lexron 40 A MPPT Şarj Kontrol Cihazı 12/24 V](https://www.gespaenerji.com/lexron-mppt-40a.html)
+
+12/24 V akülü güneş sistemleri · yüksek verim
+
+**₺3.800**≈ $77
+
+💰 Havale/EFT ile: **₺3.700**
+
+KDV dahil · kargo hariç
+
+### [Lexron 80 A HV (15~230 V) MPPT Şarj Kontrol Cihazı 12/24/36/48 V](https://www.gespaenerji.com/lexron-mppt-80a-hv.html)
+
+12/24/36/48 V akülü büyük güneş sistemleri
+
+**₺10.100**≈ $205
+
+💰 Havale/EFT ile: **₺9.800**
+
+KDV dahil · kargo hariç
+
+### [Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)](https://www.gespaenerji.com/kablo-solar-5m.html)
 
 Panel ile şarj kontrol cihazı arası bağlantı
 
@@ -197,31 +307,109 @@ Panel ile şarj kontrol cihazı arası bağlantı
 
 KDV dahil · kargo hariç
 
-### [Yolcu Kabinli Motor Güneş Paketi — 285 W](https://www.gespaenerji.com/paket-motor-yolcu.html)
+### [Yolcu Kabinli Motor Güneş Paketi — 240 W](https://www.gespaenerji.com/paket-motor-yolcu.html)
 
 Kabinli, 2–4 kişilik yolcu triportörleri — çatı alanı dar
 
-**₺15.800**≈ $321
+**₺14.800**≈ $301
 
-💰 Havale/EFT ile: **₺15.350**
+💰 Havale/EFT ile: **₺14.350**
 
 KDV dahil · kargo hariç
 
-### [Kargo Kasalı Motor Güneş Paketi — 655 W](https://www.gespaenerji.com/paket-motor-kargo.html)
+### [Kargo Kasalı Motor Güneş Paketi — 700 W](https://www.gespaenerji.com/paket-motor-kargo.html)
 
 Açık kasa veya tenteli yük triportörleri — çatı alanı geniş
 
-**₺18.300**≈ $372
+**₺17.000**≈ $346
 
-💰 Havale/EFT ile: **₺17.750**
+💰 Havale/EFT ile: **₺16.500**
 
 KDV dahil · kargo hariç
 
-### MC4 Konnektör Takımı
+### [Golf Aracı Tipi Motor Güneş Paketi — 460 W](https://www.gespaenerji.com/paket-motor-golf.html)
+
+Tavanlı, golf aracı tipi elektrikli yolcu araçları
+
+**₺16.300**≈ $331
+
+💰 Havale/EFT ile: **₺15.800**
+
+KDV dahil · kargo hariç
+
+### [Mini Elektrikli Otomobil Güneş Paketi — 240 W](https://www.gespaenerji.com/paket-motor-mini.html)
+
+Kapalı kabinli mini elektrikli otomobiller — tavan alanı küçük
+
+**₺14.800**≈ $301
+
+💰 Havale/EFT ile: **₺14.350**
+
+KDV dahil · kargo hariç
+
+### [MC4 Konnektör Takımı](https://www.gespaenerji.com/mc4-set.html)
 
 Panel kablosu ile solar kablonun birleştirilmesi
 
 **₺100**≈ $2
+
+KDV dahil · kargo hariç
+
+### [Hero LED 10 W 12 V DC LED Ampul (12–60 V AC/DC)](https://www.gespaenerji.com/hero-led-ampul-10w.html)
+
+Karavan, tekne, bağ evi ve akülü güneş sistemleri
+
+**₺130**≈ $3
+
+KDV dahil · kargo hariç
+
+### [Hero LED 100 W Solar Sokak Armatürü (Sensörlü, Kumandalı)](https://www.gespaenerji.com/hero-led-solar-sokak-100w.html)
+
+Bahçe, sokak, site, otopark ve fabrika aydınlatması
+
+**₺1.200**≈ $25
+
+💰 Havale/EFT ile: **₺1.150**
+
+KDV dahil · kargo hariç
+
+### [Hero LED 50 W Solar LED Aplik (Kumandalı, 3 Renk + RGB)](https://www.gespaenerji.com/hero-led-aplik-50w.html)
+
+Duvar, giriş kapısı, bahçe duvarı ve teras aydınlatması
+
+**₺830**≈ $17
+
+💰 Havale/EFT ile: **₺800**
+
+KDV dahil · kargo hariç
+
+### [Hero LED 50 W Solar Set Üstü Bahçe Armatürü (Kumandalı, 3 Renk + RGB)](https://www.gespaenerji.com/hero-led-bahce-50w.html)
+
+Bahçe duvarı, set, kolon başı ve giriş aydınlatması
+
+**₺780**≈ $16
+
+💰 Havale/EFT ile: **₺750**
+
+KDV dahil · kargo hariç
+
+### [Hero LED 200 W Solar Sokak Armatürü (Sensörlü, Kumandalı)](https://www.gespaenerji.com/hero-led-solar-sokak-200w.html)
+
+Bahçe, sokak, site, otopark ve fabrika aydınlatması
+
+**₺2.250**≈ $45
+
+💰 Havale/EFT ile: **₺2.200**
+
+KDV dahil · kargo hariç
+
+### [Hero LED 600 W Solar Sokak Armatürü (Radar Sensörlü, Kumandalı)](https://www.gespaenerji.com/hero-led-solar-sokak-600w.html)
+
+Geniş bahçe, sokak, site, otopark ve fabrika sahası
+
+**₺2.650**≈ $54
+
+💰 Havale/EFT ile: **₺2.550**
 
 KDV dahil · kargo hariç
 
@@ -241,7 +429,7 @@ Kredi kartıyla (iyzico güvenli ödeme) ya da havale/EFT ile ödeyebilirsiniz. 
 
 ### İade ve cayma hakkı nasıl işler?
 
-Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
+Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
 
 Hasarlı veya ayıplı üründe tüm masraflar bize aittir — kargoyu teslim alırken paketi görevli önünde kontrol edin.
 

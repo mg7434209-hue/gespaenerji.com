@@ -1,9 +1,9 @@
 ---
-title: "Häufige Fragen — Solarenergie, Bestellung und Montage | GESPA Energy"
+title: "Häufige Fragen — Solarenergie, Bestellung und Montage"
 description: "Antworten zu Solaranlagen, Akkus, Solarumrüstung von E-Fahrzeugen, Bestellung, Versand, Zahlung und Montage an einem Ort. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/de/sss.html
 lang: de
-dateModified: 2026-10-01
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -49,21 +49,29 @@ Legen Sie das Produkt im Onlineshop in den Warenkorb und bezahlen Sie per Kredit
 
 ## Einstieg in die Solarenergie
 
-### Wie wählt man in Manavgat eine zuverlässige Solarfirma (PV)?
+### In wie vielen Jahren amortisiert sich die Investition?
 
-Wählen Sie Firmen, die schlüsselfertig liefern (Engineering, Installation, Finanzierung und Wartung aus einer Hand), eine kostenlose Vor-Ort-Analyse bieten, Markengarantien auf Module und Wechselrichter geben und Referenzprojekte mit lokalem Team vorweisen. GESPA Enerji aus Manavgat/Antalya bietet all das schlüsselfertig.
+Das hängt von Verbrauch, Dachausrichtung und Stromtarif ab. Der Rechner liefert einen ersten Wert; die genaue Dauer ergibt sich aus Planung und Angebot nach der kostenlosen Besichtigung.
 
-### Welche Regionen bedient GESPA Enerji?
+### Funktioniert die Anlage im Winter und bei bewölktem Himmel?
 
-Mit Sitz in Manavgat bedienen wir Side, Antalya, Alanya, Serik, Gazipaşa und Umgebung; auf Anfrage Aufdach-PV, Freiflächen-PV und Solarbewässerung in der ganzen Türkei.
+Ja; der Ertrag sinkt bei weniger Sonne, hört aber nicht auf. Gerechnet wird mit der Jahressumme, und in Antalya tragen auch die Wintermonate bei.
 
-### In wie vielen Jahren amortisiert sich eine Solarinvestition?
+### Trägt mein Dach die Module, und wird es undicht?
 
-Typisch 3–6 Jahre je nach Verbrauchsprofil, Region und Strompreis. Schätzen Sie Ihre dachspezifische Amortisation in Sekunden mit unserem kostenlosen Online-Rechner.
+Bei der Besichtigung prüfen wir Tragfähigkeit und Eindeckung; montiert wird mit zum Dach passenden Halterungen, die Abdichtung bleibt erhalten.
 
-### Was muss ich tun, um in Manavgat Solarmodule auf meinem Dach zu installieren?
+### Läuft mein Haus bei Stromausfall weiter?
 
-Fordern Sie einfach eine kostenlose Vor-Ort-Analyse an. Ein klares Angebot mit Begehung, Ertragssimulation und Amortisation wird erstellt; danach folgt die schlüsselfertige Installation.
+Eine netzgekoppelte Anlage schaltet bei Ausfall aus Sicherheitsgründen ab. Soll es auch dann Strom geben, wird eine Batterie- oder Hybridanlage geplant; das entscheiden wir gemeinsam bei der Besichtigung.
+
+### Wer kümmert sich um Genehmigung und Netzanschluss?
+
+Wir. Planung, Antrag und Schriftverkehr mit dem Netzbetreiber übernehmen wir; Sie unterschreiben nur die nötigen Unterlagen.
+
+### Ich habe kein Geld für die Vorauszahlung — geht es trotzdem?
+
+Ja. Mit Bankkredit und Leasing lässt sich die Investition aus der erzielten Ersparnis finanzieren. Die monatliche Rate berechnen wir bei der Besichtigung gemeinsam anhand Ihres Verbrauchs.
 
 [Zur Seite →](https://www.gespaenerji.com/de/)
 
@@ -253,7 +261,7 @@ Sie können per Kreditkarte (sichere Zahlung über iyzico) oder per Überweisung
 
 ### Wie funktionieren Rückgabe und Widerruf?
 
-Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendekosten trägt der Käufer.
+Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
 
 Bei beschädigter oder mangelhafter Ware tragen wir alle Kosten — bitte prüfen Sie das Paket bei der Übergabe vor dem Zusteller.
 
@@ -285,7 +293,7 @@ Nutzen Sie unseren kostenlosen Rechner anhand Rechnung oder Verbrauch; sehen Sie
 
 [Zur Seite →](https://www.gespaenerji.com/de/urunler.html)
 
-## Plug-and-Play-Set 285 W
+## Plug-and-Play-Set 240 W
 
 ### Kurulumu zor mu?
 
@@ -421,7 +429,7 @@ Die Garantiebedingungen der Hersteller unterscheiden sich je nach Marke. Vor der
 
 [Zur Seite →](https://www.gespaenerji.com/de/elektrikli-arac-donusum.html)
 
-## Solar-Set für Fahrgast-Dreirad (285 W)
+## Solar-Set für Fahrgast-Dreirad (240 W)
 
 ### Mein Akkupack hat 60 V — passt das?
 
@@ -437,21 +445,25 @@ Je nach Lagerbestand liefern wir 4 mm² oder 6 mm²; beides ist für diese Syste
 
 ### Mein Fahrzeug hat eine Ladefläche — ist das das richtige Paket?
 
-Fahrzeuge mit Ladefläche haben eine breitere Dachfläche; für sie ist das 655-W-Paket ertragreicher.
+Fahrzeuge mit Ladefläche haben eine breitere Dachfläche; für sie ist das 700-W-Paket ertragreicher.
 
 [Werfen Sie einen Blick auf das Solar-Set für Dreirad mit Ladefläche →](https://www.gespaenerji.com/de/paket-motor-kargo.html)
 
 [Zur Seite →](https://www.gespaenerji.com/de/paket-motor-yolcu.html)
 
-## Solar-Set für Lasten-Dreirad (655 W)
+## Solar-Set für Lasten-Dreirad (700 W)
 
 ### Mein Akkupack hat 72 V — passt das?
 
 Ja. Der im Paket enthaltene BOOST-MPPT-Regler wird für 24-, 36-, 48-, 60- und 72-V-Akkupacks konfiguriert.
 
-### Ist ein 655-W-Modul zu schwer für die Ladefläche?
+### Passt ein 700-W-Modul auf die Ladefläche?
 
-Das Modul wiegt rund 31 kg; die Unterkonstruktion verteilt die Last auf den Rahmen der Ladefläche. Die Struktur Ihres Fahrzeugs prüfen wir vor der Bestellung gemeinsam.
+Das Modul misst 2278 × 1133 × 30 mm; die Unterkonstruktion verteilt die Last auf den Rahmen der Ladefläche. Maße und Struktur Ihres Fahrzeugs prüfen wir vor der Bestellung gemeinsam.
+
+### Was bringt ein bifaziales Modul am Fahrzeug?
+
+Auch die Rückseite des Moduls sammelt Licht. Der 700-W-Wert ergibt sich aus der Vorderseitenleistung von 610 Wp plus 15 % Rückseitengewinn. Dieser Gewinn hängt vom Licht ab, das unter das Modul reflektiert wird, und sinkt bei Montage nahe am Ladeflächen- oder Planendach; der Ertrag sollte daher mit der Vorderseitenleistung (610 Wp) gerechnet werden.
 
 ### Welchen Querschnitt hat das Kabel?
 
@@ -459,11 +471,51 @@ Je nach Lagerbestand liefern wir 4 mm² oder 6 mm²; beides ist für diese Syste
 
 ### Mein Fahrzeug ist ein geschlossenes Fahrgastmodell — ist das das richtige Paket?
 
-Geschlossene Fahrgastfahrzeuge haben ein schmales Dach; für sie passt das 285-W-Paket besser.
+Geschlossene Fahrgastfahrzeuge haben ein schmales Dach; für sie passt das 240-W-Paket besser.
 
 [Werfen Sie einen Blick auf das Solar-Set für Dreirad mit Fahrgastkabine →](https://www.gespaenerji.com/de/paket-motor-yolcu.html)
 
 [Zur Seite →](https://www.gespaenerji.com/de/paket-motor-kargo.html)
+
+## Solar-Set für Golfcart-Fahrzeug (460 W)
+
+### Mein Akkupack hat 60 V — passt das?
+
+Ja. Der im Paket enthaltene BOOST-MPPT-Regler wird für 24-, 36-, 48-, 60- und 72-V-Akkupacks konfiguriert.
+
+### Wie wird das Modul am Dach befestigt?
+
+Die Unterkonstruktion richtet sich nach der Dachstruktur des Fahrzeugs. In der Region Antalya bieten wir optional die Montage vor Ort an; in anderen Provinzen liefern wir den Montageplan und telefonischen Support.
+
+### Welchen Querschnitt hat das Kabel?
+
+Je nach Lagerbestand liefern wir 4 mm² oder 6 mm²; beides ist für diese Systeme geeignet.
+
+### Passt ein 460-W-Modul auf mein Fahrzeugdach?
+
+Das Modul misst 2095 × 1039 × 30 mm und wiegt 25 kg; das flache Dach von Golfcart-Fahrzeugen reicht dafür meist aus. Schicken Sie uns vor der Bestellung Ihre Dachmaße per WhatsApp, dann prüfen wir die Passform gemeinsam.
+
+[Zur Seite →](https://www.gespaenerji.com/de/paket-motor-golf.html)
+
+## Solar-Set für Mini-Elektroauto (240 W)
+
+### Mein Akkupack hat 60 V — passt das?
+
+Ja. Der im Paket enthaltene BOOST-MPPT-Regler wird für 24-, 36-, 48-, 60- und 72-V-Akkupacks konfiguriert.
+
+### Wie wird das Modul am Dach befestigt?
+
+Die Unterkonstruktion richtet sich nach der Dachstruktur des Fahrzeugs. In der Region Antalya bieten wir optional die Montage vor Ort an; in anderen Provinzen liefern wir den Montageplan und telefonischen Support.
+
+### Welchen Querschnitt hat das Kabel?
+
+Je nach Lagerbestand liefern wir 4 mm² oder 6 mm²; beides ist für diese Systeme geeignet.
+
+### Passt ein 240-W-Modul auf mein Fahrzeugdach?
+
+Das Modul misst 1320 × 776 × 30 mm und wiegt 8 kg. Schicken Sie uns vor der Bestellung Ihre Dachmaße per WhatsApp, dann prüfen wir die Passform gemeinsam.
+
+[Zur Seite →](https://www.gespaenerji.com/de/paket-motor-mini.html)
 
 ## 72-V-LiFePO₄-Traktionsakku
 
@@ -505,6 +557,98 @@ Ja. Zum Laden eines 72-V-Akkusatzes direkt vom Modul setzen wir den BOOST-MPPT-L
 
 [Zur Seite →](https://www.gespaenerji.com/de/aku-lifepo4-72v-30ah.html)
 
+## Solarmodule
+
+### Wie viele Module kann ich in Reihe schalten?
+
+Die Voc des Moduls beträgt 50,34 V. Mit 10 % Reserve für den Anstieg der Voc bei Kälte: an MPPT-Reglern mit 100-V-Moduleingang (z. B. Havensis Solar-30AMPS) höchstens 1, an 150-V-Eingängen (z. B. Havensis Solar-60AMPS 150|60) höchstens 2 Module in Reihe. Ein einzelnes Modul passt auch an den 15–60-V-Eingang des BOOST MPPT aus unseren E-Fahrzeug-Sets. Prüfen Sie den genauen Aufbau vor der Bestellung mit uns.
+
+### Kann ich das Modul direkt an eine Batterie anschließen?
+
+Nein. Zwischen Modul und Batterie gehört immer ein Laderegler, sonst wird die Batterie überladen. Liegt die Modulspannung deutlich über der Batteriespannung, wählen Sie MPPT, liegt sie nahe daran, PWM.
+
+### Wie werden große Module versandt?
+
+Große Module werden bruchsicher verpackt per Paketdienst oder Spedition versandt. Prüfen Sie das Paket bei der Übergabe vor dem Zusteller; bei beschädigter Ware tragen wir alle Kosten. Für palettenweise Großhandelslieferungen schreiben Sie uns.
+
+### Wer installiert es, und liefern Sie auch außerhalb von Antalya?
+
+Wir versenden in die ganze Türkei. In der Region Antalya bieten wir optional die Montage vor Ort an; anderswo planen wir den Anschluss telefonisch mit Ihnen.
+
+[Zur Seite →](https://www.gespaenerji.com/de/panel-lexron-655w.html)
+
+## TitanX LiFePO₄-Akku (5,22 kWh)
+
+### Mit welchen Wechselrichtern arbeitet er?
+
+Er arbeitet mit Wechselrichtern mit 48-V-Batterieeingang. Bei Wechselrichtern mit CAN / RS485 werden die Batteriedaten geteilt; schicken Sie uns Ihr Wechselrichtermodell, wir prüfen die Kompatibilität vor der Bestellung.
+
+### Kann ich die Kapazität erweitern?
+
+Ja, bis zu 16 Einheiten lassen sich parallel schalten. Jede Batterie bringt 5,22 kWh, also speichern z. B. 2 Batterien etwa 10,4 kWh und 4 Batterien etwa 20,9 kWh.
+
+### Wie stelle ich mein Ladegerät ein?
+
+Die maximale Ladespannung beträgt 58,4 V, die Entladeschlussspannung 40 V und der maximale Ladestrom 100 A. Stellen Sie Laderegler oder Wechselrichter so ein, dass diese Werte eingehalten werden.
+
+### Wo sollte er aufgestellt werden?
+
+Stellen Sie ihn an einem trockenen, belüfteten Ort im Innenbereich auf; die Schutzart ist IP20, für draußen ist er nicht geeignet. Geladen werden darf zwischen 0 und 50 °C.
+
+### Wer installiert es, und liefern Sie auch außerhalb von Antalya?
+
+Wir versenden in die ganze Türkei. In der Region Antalya bieten wir optional die Montage vor Ort an; anderswo planen wir den Anschluss telefonisch mit Ihnen.
+
+[Zur Seite →](https://www.gespaenerji.com/de/aku-titanx-51v-102ah.html)
+
+## MPPT-Laderegler (Lexron)
+
+### Soll ich PWM oder MPPT wählen?
+
+Liegt die Modulspannung deutlich über der Batteriespannung (wie bei den 360-W- und 655-W-Modulen in unserem Shop), holt MPPT mehr Energie aus demselben Modul und ist die richtige Wahl. Für kleine, preisorientierte Anlagen mit Modulspannung nahe der Batteriespannung genügen PWM-Modelle.
+
+### Wie viel Modulleistung kann ich anschließen?
+
+Faustregel: Ladestrom × Batteriespannung. Für 30 A ergibt das etwa 360 W bei 12 V, etwa 720 W bei 24 V. Das ist ein Richtwert, kein Datenblattwert; schreiben Sie uns für die vom Hersteller zugelassene maximale Modulleistung und -spannung.
+
+### Wie viele Module kann ich in Reihe schalten?
+
+Bei Reihenschaltung bestimmt die maximale Moduleingangsspannung des Reglers die Grenze; dieser Wert fehlt in unseren Produktinformationen. Schicken Sie uns die Voc Ihres Moduls; wir prüfen den Aufbau vor der Bestellung gemeinsam.
+
+### Kann ich ihn mit einer Lithiumbatterie verwenden?
+
+Die Einstellungen für den Batterietyp stehen im Herstellerdatenblatt, nicht in unseren Produktinformationen. Schicken Sie uns Batterietyp und Ladewerte; wir klären es vor der Bestellung mit dem Hersteller.
+
+### Wer installiert es, und liefern Sie auch außerhalb von Antalya?
+
+Wir versenden in die ganze Türkei. In der Region Antalya bieten wir optional die Montage vor Ort an; anderswo planen wir den Anschluss telefonisch mit Ihnen.
+
+[Zur Seite →](https://www.gespaenerji.com/de/lexron-mppt-30a.html)
+
+## PWM-Laderegler (Lexron)
+
+### Soll ich PWM oder MPPT wählen?
+
+Liegt die Modulspannung nahe an der Batteriespannung (z. B. ein 12-V-Modul an einer 12-V-Batterie), ist PWM günstig und ausreichend. Liegt sie deutlich darüber (wie bei den 360-W- und 655-W-Modulen in unserem Shop), holt MPPT aus demselben Modul mehr Energie; dann sehen Sie sich unsere MPPT-Modelle an.
+
+### Wie viel Modulleistung kann ich anschließen?
+
+Bei PWM begrenzt der Kurzschlussstrom (Isc) der Module. Die Grundregel ist 25 % Reserve: Bei einem 20-A-Regler sollte die Gesamt-Isc der Module höchstens etwa 16 A betragen. Die Modulspannung sollte nahe an der Batteriespannung liegen; bei Hochspannungsmodulen wählen Sie MPPT.
+
+### Wie viele Module kann ich in Reihe schalten?
+
+Bei Reihenschaltung bestimmt die maximale Moduleingangsspannung des Reglers die Grenze; dieser Wert fehlt in unseren Produktinformationen. Schicken Sie uns die Voc Ihres Moduls; wir prüfen den Aufbau vor der Bestellung gemeinsam.
+
+### Kann ich ihn mit einer Lithiumbatterie verwenden?
+
+Die Einstellungen für den Batterietyp stehen im Herstellerdatenblatt, nicht in unseren Produktinformationen. Schicken Sie uns Batterietyp und Ladewerte; wir klären es vor der Bestellung mit dem Hersteller.
+
+### Wer installiert es, und liefern Sie auch außerhalb von Antalya?
+
+Wir versenden in die ganze Türkei. In der Region Antalya bieten wir optional die Montage vor Ort an; anderswo planen wir den Anschluss telefonisch mit Ihnen.
+
+[Zur Seite →](https://www.gespaenerji.com/de/lexron-pwm-20a.html)
+
 ## MPPT-Laderegler (Havensis)
 
 ### Lädt der Regler mit 1200 W, wenn ich 1200 W Module anschließe?
@@ -517,7 +661,7 @@ Mit 12-V- und 24-V-Batterien. Da alle Parameter einstellbar sind, geben Sie die 
 
 ### Wie viele Module kann ich in Reihe schalten?
 
-Die Summe der Leerlaufspannungen (Voc) der Module in Reihe darf 100 V nicht überschreiten. Von unseren Lexron-285-W-Modulen (Voc 42,84 V) passen bis zu 2 in Reihe; das Lexron-655-W-Modul (Voc 50,34 V) wird an diesem Regler nicht in Reihe, sondern einzeln oder parallel angeschlossen. Da Voc bei Kälte steigt, prüfen Sie den Aufbau mit uns, wenn es bei Ihnen im Winter unter −10 °C geht.
+Die Summe der Leerlaufspannungen (Voc) der Module in Reihe darf 100 V nicht überschreiten. Von unseren 360-W-Modulen (Voc 42,56 V) passen bis zu 2 in Reihe; das Lexron-655-W-Modul (Voc 50,34 V) wird an diesem Regler nicht in Reihe, sondern einzeln oder parallel angeschlossen. Da Voc bei Kälte steigt, prüfen Sie den Aufbau mit uns, wenn es bei Ihnen im Winter unter −10 °C geht.
 
 ### Was macht die Dämmerungsfunktion?
 

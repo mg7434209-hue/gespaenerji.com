@@ -15,7 +15,7 @@ KURALLAR
   "bize yazın, üreticiden teyit edelim" denir.
 - Bağlantı önerileri üreticinin şemalarından gelir (alternatör → marş aküsü →
   DC-DC → yaşam aküsü). Panel dizilimi yalnız elimizdeki künyelerle yazılır:
-  Lexron 285 W Voc 42,84 V, Lexron 655 W Voc 50,34 V. Arçelik 540 W'ın künyesi
+  360 W Voc 42,56 V, Lexron 655 W Voc 50,34 V. Arçelik 540 W'ın künyesi
   yok, bu yüzden önerilmez.
 - Sayfa iskeleti (head/nav/footer) şablon ürün sayfasından alınır, <main> bu
   betikte üretilir. Fiyat, stok, JSON-LD, SSS şeması ve tarihler build.js'indir.
@@ -92,7 +92,7 @@ TXT_BUY = {
     "add": "🛒 Sepete ekle", "buy": "⚡ Hemen satın al", "wa": "💬 WhatsApp'tan sor",
     "ship": "Türkiye'nin her yerine kargo ile gönderilir.",
     "eta": "Sipariş onayından sonra tahmini teslim:", "days": "iş günü.",
-    "ret": "Cayma hakkı (mesafeli satış):", "retd": "gün — iade kargosu alıcıya aittir.",
+    "ret": "Cayma hakkı (mesafeli satış):", "retd": "gün — anlaşmalı kargomuzla iade ücretsizdir.",
 }
 KARGO = [
     "Ürünler Türkiye'nin her iline anlaşmalı kargo ile gönderilir; teslimat için Antalya şartı yoktur.",
@@ -693,8 +693,8 @@ C_Q = [
 
 # Çapraz satış gerekçeleri
 X = {
-    "p285_2": t("Kompakt TOPCon panel; bu cihaza en fazla 2 tanesi seri bağlanır.", "Compact TOPCon panel; up to 2 can be wired in series on this controller.",
-                "Kompaktes TOPCon-Modul; an diesem Regler bis zu 2 in Reihe.", "Компактная панель TOPCon; к этому контроллеру — до 2 последовательно."),
+    "p360_2": t("360 W panel; bu cihaza en fazla 2 tanesi seri bağlanır.", "360 W panel; up to 2 can be wired in series on this controller.",
+                "360-W-Modul; an diesem Regler bis zu 2 in Reihe.", "Панель 360 Вт; к этому контроллеру — до 2 последовательно."),
     "p655_1": t("Yüksek güçlü TOPCon panel; bu cihaza tek ya da paralel bağlanır.", "High-power TOPCon panel; connects to this controller singly or in parallel.",
                 "Leistungsstarkes TOPCon-Modul; an diesem Regler einzeln oder parallel.", "Мощная панель TOPCon; к этому контроллеру — одна или параллельно."),
     "p655_2": t("Yüksek güçlü TOPCon panel; bu cihaza en fazla 2 tanesi seri bağlanır.", "High-power TOPCon panel; up to 2 can be wired in series on this controller.",
@@ -709,10 +709,10 @@ X = {
                 "Add a panel to the caravan roof and the house battery keeps charging from the sun while parked.",
                 "Mit einem Modul auf dem Dach lädt die Aufbaubatterie auch im Stand mit Sonnenenergie.",
                 "Добавьте панель на крышу автодома — бытовой аккумулятор будет заряжаться от солнца и на стоянке."),
-    "p285_rv": t("780 × 1536 mm, 8,5 kg: tavana taşınması kolay kompakt TOPCon panel.",
-                 "780 × 1536 mm, 8.5 kg: a compact TOPCon panel that is easy to lift onto the roof.",
-                 "780 × 1536 mm, 8,5 kg: kompaktes TOPCon-Modul, leicht aufs Dach zu bringen.",
-                 "780 × 1536 мм, 8,5 кг: компактная панель TOPCon, которую легко поднять на крышу."),
+    "p360_rv": t("1660 × 1001 mm, 19,5 kg: tek kişinin tavana taşıyabileceği orta boy panel.",
+                 "1660 × 1001 mm, 19.5 kg: a mid-size panel one person can carry up to the roof.",
+                 "1660 × 1001 mm, 19,5 kg: mittelgroßes Modul, das eine Person aufs Dach tragen kann.",
+                 "1660 × 1001 мм, 19,5 кг: панель среднего размера, которую может поднять на крышу один человек."),
     "mppt150": t("48 V akü grubunu güneşten de şarj etmek için 150 V girişli MPPT.",
                  "A 150 V input MPPT to charge the 48 V battery bank from the sun as well.",
                  "MPPT mit 150-V-Eingang, um die 48-V-Batteriebank auch mit Sonnenenergie zu laden.",
@@ -749,9 +749,9 @@ DCDC_ROWS = [
 def mppt_fit(big):
     hi = "150" if big else "100"
     rows = [
-        ["Lexron 285 W Güneş Paneli", u("42,84 V"),
-         t("3 panel (128,52 V)", "3 panels (128.52 V)", "3 Module (128,52 V)", "3 панели (128,52 В)") if big else
-         t("2 panel (85,68 V)", "2 panels (85.68 V)", "2 Module (85,68 V)", "2 панели (85,68 В)")],
+        ["360 W Güneş Paneli", u("42,56 V"),
+         t("3 panel (127,68 V)", "3 panels (127.68 V)", "3 Module (127,68 V)", "3 панели (127,68 В)") if big else
+         t("2 panel (85,12 V)", "2 panels (85.12 V)", "2 Module (85,12 V)", "2 панели (85,12 В)")],
         ["Lexron 655 W TOPCon Güneş Paneli", u("50,34 V"),
          t("2 panel (100,68 V)", "2 panels (100.68 V)", "2 Module (100,68 V)", "2 панели (100,68 В)") if big else
          t("Seri bağlanmaz: tek ya da paralel", "No series: single or parallel", "Keine Reihenschaltung: einzeln oder parallel",
@@ -794,14 +794,14 @@ Q_AKU_BIG = (Q_AKU_H, t("12, 24, 36 ve 48 V akülerle. Tüm parametreler ayarlan
                         "With 12, 24, 36 and 48 V batteries. Since all parameters are adjustable, you enter the charging values given by your battery's manufacturer. For a 48 V system we also sell the TitanX 51.2 V 102 Ah LiFePO₄ battery; set the charging values according to its datasheet.",
                         "Mit 12-, 24-, 36- und 48-V-Batterien. Da alle Parameter einstellbar sind, geben Sie die Ladewerte des Batterieherstellers ein. Für ein 48-V-System führen wir auch den TitanX 51,2 V 102 Ah LiFePO₄-Akku; stellen Sie die Ladewerte nach dessen Datenblatt ein.",
                         "С аккумуляторами 12, 24, 36 и 48 В. Поскольку все параметры настраиваются, вводятся значения заряда от производителя вашего аккумулятора. Для системы 48 В у нас есть аккумулятор TitanX 51,2 В 102 А·ч LiFePO₄; настройте заряд по его паспорту."))
-Q_SERI_SMALL = (Q_SERI_H, t("Seri bağlı panellerin açık devre gerilimi (Voc) toplamı 100 V'u aşmamalıdır. Mağazamızdaki Lexron 285 W panelden (Voc 42,84 V) en fazla 2 tanesi seri bağlanır; Lexron 655 W panel (Voc 50,34 V) bu cihaza seri bağlanmaz, tek ya da paralel bağlanır. Voc soğukta yükseldiği için kışın −10 °C'nin altına düşen bölgelerde dizilimi bizimle kontrol edin.",
-                            "The sum of the open-circuit voltages (Voc) of panels in series must not exceed 100 V. Of our Lexron 285 W panels (Voc 42.84 V) up to 2 can go in series; the Lexron 655 W panel (Voc 50.34 V) is not wired in series on this controller but connected singly or in parallel. Because Voc rises in the cold, check the layout with us if your area drops below −10 °C in winter.",
-                            "Die Summe der Leerlaufspannungen (Voc) der Module in Reihe darf 100 V nicht überschreiten. Von unseren Lexron-285-W-Modulen (Voc 42,84 V) passen bis zu 2 in Reihe; das Lexron-655-W-Modul (Voc 50,34 V) wird an diesem Regler nicht in Reihe, sondern einzeln oder parallel angeschlossen. Da Voc bei Kälte steigt, prüfen Sie den Aufbau mit uns, wenn es bei Ihnen im Winter unter −10 °C geht.",
-                            "Сумма напряжений холостого хода (Voc) панелей в цепочке не должна превышать 100 В. Из наших панелей Lexron 285 Вт (Voc 42,84 В) последовательно можно соединить не более 2; панель Lexron 655 Вт (Voc 50,34 В) к этому контроллеру последовательно не подключается — только одна или параллельно. Поскольку в холод Voc растёт, в районах, где зимой ниже −10 °C, согласуйте схему с нами."))
-Q_SERI_BIG = (Q_SERI_H, t("Seri bağlı panellerin açık devre gerilimi (Voc) toplamı 150 V'u aşmamalıdır. Mağazamızdaki Lexron 285 W panelden (Voc 42,84 V) en fazla 3, Lexron 655 W panelden (Voc 50,34 V) en fazla 2 tanesi seri bağlanır. Voc soğukta yükseldiği için kışın −10 °C'nin altına düşen bölgelerde dizilimi bizimle kontrol edin.",
-                          "The sum of the open-circuit voltages (Voc) of panels in series must not exceed 150 V. Of our Lexron 285 W panels (Voc 42.84 V) up to 3 can go in series, of the Lexron 655 W panels (Voc 50.34 V) up to 2. Because Voc rises in the cold, check the layout with us if your area drops below −10 °C in winter.",
-                          "Die Summe der Leerlaufspannungen (Voc) der Module in Reihe darf 150 V nicht überschreiten. Von unseren Lexron-285-W-Modulen (Voc 42,84 V) passen bis zu 3 in Reihe, von den Lexron-655-W-Modulen (Voc 50,34 V) bis zu 2. Da Voc bei Kälte steigt, prüfen Sie den Aufbau mit uns, wenn es bei Ihnen im Winter unter −10 °C geht.",
-                          "Сумма напряжений холостого хода (Voc) панелей в цепочке не должна превышать 150 В. Из наших панелей Lexron 285 Вт (Voc 42,84 В) последовательно можно соединить до 3, из Lexron 655 Вт (Voc 50,34 В) — до 2. Поскольку в холод Voc растёт, в районах, где зимой ниже −10 °C, согласуйте схему с нами."))
+Q_SERI_SMALL = (Q_SERI_H, t("Seri bağlı panellerin açık devre gerilimi (Voc) toplamı 100 V'u aşmamalıdır. Mağazamızdaki 360 W panelden (Voc 42,56 V) en fazla 2 tanesi seri bağlanır; Lexron 655 W panel (Voc 50,34 V) bu cihaza seri bağlanmaz, tek ya da paralel bağlanır. Voc soğukta yükseldiği için kışın −10 °C'nin altına düşen bölgelerde dizilimi bizimle kontrol edin.",
+                            "The sum of the open-circuit voltages (Voc) of panels in series must not exceed 100 V. Of our 360 W panels (Voc 42.56 V) up to 2 can go in series; the Lexron 655 W panel (Voc 50.34 V) is not wired in series on this controller but connected singly or in parallel. Because Voc rises in the cold, check the layout with us if your area drops below −10 °C in winter.",
+                            "Die Summe der Leerlaufspannungen (Voc) der Module in Reihe darf 100 V nicht überschreiten. Von unseren 360-W-Modulen (Voc 42,56 V) passen bis zu 2 in Reihe; das Lexron-655-W-Modul (Voc 50,34 V) wird an diesem Regler nicht in Reihe, sondern einzeln oder parallel angeschlossen. Da Voc bei Kälte steigt, prüfen Sie den Aufbau mit uns, wenn es bei Ihnen im Winter unter −10 °C geht.",
+                            "Сумма напряжений холостого хода (Voc) панелей в цепочке не должна превышать 100 В. Из наших панелей 360 Вт (Voc 42,56 В) последовательно можно соединить не более 2; панель Lexron 655 Вт (Voc 50,34 В) к этому контроллеру последовательно не подключается — только одна или параллельно. Поскольку в холод Voc растёт, в районах, где зимой ниже −10 °C, согласуйте схему с нами."))
+Q_SERI_BIG = (Q_SERI_H, t("Seri bağlı panellerin açık devre gerilimi (Voc) toplamı 150 V'u aşmamalıdır. Mağazamızdaki 360 W panelden (Voc 42,56 V) en fazla 3, Lexron 655 W panelden (Voc 50,34 V) en fazla 2 tanesi seri bağlanır. Voc soğukta yükseldiği için kışın −10 °C'nin altına düşen bölgelerde dizilimi bizimle kontrol edin.",
+                          "The sum of the open-circuit voltages (Voc) of panels in series must not exceed 150 V. Of our 360 W panels (Voc 42.56 V) up to 3 can go in series, of the Lexron 655 W panels (Voc 50.34 V) up to 2. Because Voc rises in the cold, check the layout with us if your area drops below −10 °C in winter.",
+                          "Die Summe der Leerlaufspannungen (Voc) der Module in Reihe darf 150 V nicht überschreiten. Von unseren 360-W-Modulen (Voc 42,56 V) passen bis zu 3 in Reihe, von den Lexron-655-W-Modulen (Voc 50,34 V) bis zu 2. Da Voc bei Kälte steigt, prüfen Sie den Aufbau mit uns, wenn es bei Ihnen im Winter unter −10 °C geht.",
+                          "Сумма напряжений холостого хода (Voc) панелей в цепочке не должна превышать 150 В. Из наших панелей 360 Вт (Voc 42,56 В) последовательно можно соединить до 3, из Lexron 655 Вт (Voc 50,34 В) — до 2. Поскольку в холод Voc растёт, в районах, где зимой ниже −10 °C, согласуйте схему с нами."))
 
 
 def mppt_product(pid, file, model, amp, watt, dims, eff, big, title, desc, alt, lead, intro, lead_extra_chip):
@@ -845,7 +845,7 @@ def mppt_product(pid, file, model, amp, watt, dims, eff, big, title, desc, alt, 
         faq += [Q_INV_150]
     faq += [Q_AKUSUZ, Q_TEL, Q_KUR_A]
     xs = ([("panel-lexron-655w", X["p655_2"]), ("aku-titanx-51v-102ah", X["titanx"]), ("kablo-solar-5m", X["kablo"]), ("mc4-set", X["mc4"])] if big else
-          [("panel-lexron-285w", X["p285_2"]), ("panel-lexron-655w", X["p655_1"]), ("kablo-solar-5m", X["kablo"]), ("mc4-set", X["mc4"])])
+          [("panel-360w", X["p360_2"]), ("panel-lexron-655w", X["p655_1"]), ("kablo-solar-5m", X["kablo"]), ("mc4-set", X["mc4"])])
     return {
         "id": pid, "file": file, "fam": "mppt", "title": title, "desc": desc, "alt": alt,
         "kicker": A["kicker"], "lead": lead,
@@ -915,7 +915,7 @@ def dcdc_product(pid, file, model, amp, dims, bidir, title, desc, alt, lead, int
         "tips": [B["tip_yer"], B["tip_kesit"], B["tip_alt"], B["tip_oto"]],
         "fit": None,
         "cmp": {"p": B["cmp_p"], "heads": B["cmp_heads"], "rows": DCDC_ROWS, "tips": B["cmp_tips"]},
-        "xsell": [("havensis-s30amps", X["mppt30"]), ("panel-lexron-285w", X["p285_rv"]),
+        "xsell": [("havensis-s30amps", X["mppt30"]), ("panel-360w", X["p360_rv"]),
                   ("kablo-solar-5m", X["kablo"]), ("mc4-set", X["mc4"])],
         "faq": faq,
         "note": (B["note_h"], B["note_p"], "havensis-boost-dcdc-2448.html", B["note_link"]),

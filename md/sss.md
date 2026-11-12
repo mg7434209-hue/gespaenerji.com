@@ -1,9 +1,9 @@
 ---
-title: "Sıkça Sorulan Sorular — Güneş Enerjisi, Sipariş ve Kurulum | GESPA Enerji"
-description: "Güneş enerjisi santrali, akü, elektrikli araç güneş dönüşümü, sipariş, kargo, ödeme ve kurulum hakkında sık sorulan soruların cevapları tek sayfada. GESPA Enerji, Manavgat / Antalya."
+title: "Sıkça Sorulan Sorular — Güneş Enerjisi, Sipariş ve Kurulum"
+description: "Güneş enerjisi santrali, akü, elektrikli araç güneş dönüşümü, sipariş, kargo, ödeme ve kurulum hakkında sık sorulan soruların cevapları tek sayfada."
 canonical: https://www.gespaenerji.com/sss.html
 lang: tr
-dateModified: 2026-10-01
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -49,21 +49,29 @@ Online Satış sayfasında ürünü sepete ekleyip kredi kartıyla ya da havale/
 
 ## Güneş enerjisine başlarken
 
-### Manavgat'ta güvenilir bir güneş enerjisi (GES) firması nasıl seçilir?
+### Yatırım kaç yılda kendini öder?
 
-Anahtar teslim (mühendislik, kurulum, finansman ve bakımı tek elden veren), ücretsiz keşif sunan, panel ve inverterde marka garantisi veren, referans projeleri ve yerel saha ekibi olan firmalar tercih edilmelidir. GESPA Enerji, Manavgat/Antalya merkezli olarak bu hizmetlerin tamamını anahtar teslim sunar.
+Tüketiminize, çatı yönüne ve elektrik tarifesine bağlıdır. Hesaplayıcı ön rakamı verir; kesin süre ücretsiz keşifte çıkan proje ve teklifle netleşir.
 
-### GESPA Enerji hangi bölgelerde hizmet veriyor?
+### Kışın ve bulutlu havada sistem çalışır mı?
 
-Manavgat merkezli olarak Side, Antalya, Alanya, Serik, Gazipaşa ve çevresinde; talebe göre tüm Türkiye'de çatı GES, arazi tipi GES ve güneş enerjili tarımsal sulama hizmeti verir.
+Çalışır; üretim güneşlenmeyle azalır ama durmaz. Hesaplamalar yıllık toplam üzerinden yapılır, Antalya'da kış ayları da üretime katkı verir.
 
-### GES yatırımı kaç yılda amorti olur?
+### Çatım panelleri taşır mı, su sızdırır mı?
 
-Tüketim profili, bölge ve elektrik fiyatına göre tipik olarak 3–6 yıl arasında değişir. Ücretsiz online hesaplayıcımızla çatınıza özel geri ödeme süresini saniyeler içinde tahmin edebilirsiniz.
+Keşifte çatının taşıma kapasitesi ve kaplaması incelenir; montaj çatının yapısına uygun aparatlarla yapılır, su yalıtımı korunur.
 
-### Manavgat'ta çatıma güneş paneli kurulumu için ne yapmalıyım?
+### Elektrik kesildiğinde evim çalışmaya devam eder mi?
 
-Ücretsiz keşif talep etmeniz yeterli. Saha incelemesi, üretim simülasyonu ve geri ödeme süresiyle net bir teklif hazırlanır; ardından anahtar teslim kurulum yapılır.
+Şebeke bağlantılı sistem güvenlik gereği kesintide durur. Kesintide de çalışmak istiyorsanız akülü ya da hibrit sistem planlanır; keşifte birlikte karar verilir.
+
+### İzin ve bağlantı işlemleriyle kim ilgileniyor?
+
+Biz. Proje, başvuru ve dağıtım şirketiyle yazışmalar tarafımızdan yürütülür; siz yalnız gerekli belgeleri imzalarsınız.
+
+### Peşin param yok, yine de kurabilir miyim?
+
+Evet. Banka kredisi ve leasing seçenekleriyle yatırım, elde edilen tasarrufla finanse edilebilir. Aylık tutarı keşifte tüketiminize göre birlikte hesaplarız.
 
 [Sayfaya git →](https://www.gespaenerji.com/)
 
@@ -295,7 +303,7 @@ Kredi kartıyla (iyzico güvenli ödeme) ya da havale/EFT ile ödeyebilirsiniz. 
 
 ### İade ve cayma hakkı nasıl işler?
 
-Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
+Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
 
 Hasarlı veya ayıplı üründe tüm masraflar bize aittir — kargoyu teslim alırken paketi görevli önünde kontrol edin.
 
@@ -327,7 +335,7 @@ Faturanıza veya tüketiminize göre ücretsiz hesaplayıcımızı kullanın; uy
 
 [Sayfaya git →](https://www.gespaenerji.com/urunler.html)
 
-## Tak-çalıştır 285 W paket
+## Tak-çalıştır 240 W paket
 
 ### Kurulumu zor mu?
 
@@ -463,7 +471,7 @@ Araç üreticisinin garanti koşulları markadan markaya değişir. Kurulum önc
 
 [Sayfaya git →](https://www.gespaenerji.com/elektrikli-arac-donusum.html)
 
-## Yolcu kabinli motor paketi (285 W)
+## Yolcu kabinli motor paketi (240 W)
 
 ### Aracımın aküsü 60 V, uyar mı?
 
@@ -479,21 +487,25 @@ Stok durumuna göre 4 mm² veya 6 mm² gönderilir; bu sistemlerde ikisi de uygu
 
 ### Aracım kargo kasalı, bu paket olur mu?
 
-Kasalı araçların çatı alanı daha geniştir; onlar için 655 W'lık paket daha verimlidir.
+Kasalı araçların çatı alanı daha geniştir; onlar için 700 W'lık paket daha verimlidir.
 
 [Kargo Kasalı Motor Güneş Paketi'ne göz atın →](https://www.gespaenerji.com/paket-motor-kargo.html)
 
 [Sayfaya git →](https://www.gespaenerji.com/paket-motor-yolcu.html)
 
-## Kargo kasalı motor paketi (655 W)
+## Kargo kasalı motor paketi (700 W)
 
 ### Aracımın aküsü 72 V, uyar mı?
 
 Uyar. Pakete dahil BOOST MPPT cihazı 24, 36, 48, 60 ve 72 V akü gruplarıyla çalışacak şekilde yapılandırılır.
 
-### 655 W panel kasaya ağır gelir mi?
+### 700 W panel kasaya sığar mı?
 
-Panel yaklaşık 31 kg'dır ve yükü konstrüksiyonla kasa şasisine dağıtılır. Aracınızın yapısını sipariş öncesi birlikte değerlendiriyoruz.
+Panel 2278 × 1133 × 30 mm'dir; yükü konstrüksiyonla kasa şasisine dağıtılır. Aracınızın ölçüsünü ve yapısını sipariş öncesi birlikte değerlendiriyoruz.
+
+### Bifacial (çift yüzlü) panel araçta ne kazandırır?
+
+Panelin arka yüzü de ışık toplar. 700 W değeri, ön yüzün 610 Wp gücüne arka yüzden gelen %15 ek kazancın eklenmesiyle bulunan değerdir. Arka yüz kazancı panelin altına yansıyan ışığa bağlıdır; kasa ya da tente çatısına yakın montajda düşer, bu yüzden üretim hesabında ön yüz gücü (610 Wp) esas alınmalıdır.
 
 ### Kablo kesiti kaç mm²?
 
@@ -501,11 +513,51 @@ Stok durumuna göre 4 mm² veya 6 mm² gönderilir; bu sistemlerde ikisi de uygu
 
 ### Aracım kabinli yolcu tipi, bu paket olur mu?
 
-Kabinli yolcu araçlarında çatı dardır; onlar için 285 W'lık paket daha uygundur.
+Kabinli yolcu araçlarında çatı dardır; onlar için 240 W'lık paket daha uygundur.
 
 [Yolcu Kabinli Motor Güneş Paketi'ne göz atın →](https://www.gespaenerji.com/paket-motor-yolcu.html)
 
 [Sayfaya git →](https://www.gespaenerji.com/paket-motor-kargo.html)
+
+## Golf aracı tipi motor paketi (460 W)
+
+### Aracımın aküsü 60 V, uyar mı?
+
+Uyar. Pakete dahil BOOST MPPT cihazı 24, 36, 48, 60 ve 72 V akü gruplarıyla çalışacak şekilde yapılandırılır.
+
+### Panel çatıya nasıl sabitleniyor?
+
+Aracın çatı yapısına göre konstrüksiyon belirlenir. Antalya bölgesinde isteğe bağlı yerinde montaj yapıyoruz; diğer illerde montaj şeması ve telefonla destek veriyoruz.
+
+### Kablo kesiti kaç mm²?
+
+Stok durumuna göre 4 mm² veya 6 mm² gönderilir; bu sistemlerde ikisi de uygundur.
+
+### 460 W panel aracımın tavanına sığar mı?
+
+Panelin ölçüsü 2095 × 1039 × 30 mm, ağırlığı 25 kg'dır; golf aracı tipi araçların düz tavanı bu ölçü için genellikle yeterlidir. Sipariş öncesi tavan ölçünüzü WhatsApp'tan gönderin, uygunluğu birlikte kontrol edelim.
+
+[Sayfaya git →](https://www.gespaenerji.com/paket-motor-golf.html)
+
+## Mini elektrikli otomobil paketi (240 W)
+
+### Aracımın aküsü 60 V, uyar mı?
+
+Uyar. Pakete dahil BOOST MPPT cihazı 24, 36, 48, 60 ve 72 V akü gruplarıyla çalışacak şekilde yapılandırılır.
+
+### Panel çatıya nasıl sabitleniyor?
+
+Aracın çatı yapısına göre konstrüksiyon belirlenir. Antalya bölgesinde isteğe bağlı yerinde montaj yapıyoruz; diğer illerde montaj şeması ve telefonla destek veriyoruz.
+
+### Kablo kesiti kaç mm²?
+
+Stok durumuna göre 4 mm² veya 6 mm² gönderilir; bu sistemlerde ikisi de uygundur.
+
+### 240 W panel aracımın tavanına sığar mı?
+
+Panelin ölçüsü 1320 × 776 × 30 mm, ağırlığı 8 kg'dır. Sipariş öncesi tavan ölçünüzü WhatsApp'tan gönderin, uygunluğu birlikte kontrol edelim.
+
+[Sayfaya git →](https://www.gespaenerji.com/paket-motor-mini.html)
 
 ## 72 V LiFePO₄ çekiş aküsü
 
@@ -547,6 +599,98 @@ Evet. Panelden 72 V akü grubuna doğrudan şarj için BOOST MPPT 24–72 V şar
 
 [Sayfaya git →](https://www.gespaenerji.com/aku-lifepo4-72v-30ah.html)
 
+## Güneş panelleri
+
+### Kaç panel seri bağlayabilirim?
+
+Panelin Voc değeri 50,34 V. Soğukta Voc yükseldiği için %10 pay bırakarak hesaplarsak: 100 V panel girişli MPPT cihazlara (ör. Havensis Solar-30AMPS) en fazla 1, 150 V girişli cihazlara (ör. Havensis Solar-60AMPS 150|60) en fazla 2 panel seri bağlanır. Tek panel, elektrikli araç paketlerimizdeki BOOST MPPT'nin 15–60 V girişine de uyar. Kesin dizilimi sipariş öncesi bizimle kontrol edin.
+
+### Paneli doğrudan aküye bağlayabilir miyim?
+
+Hayır. Panel ile akü arasında mutlaka bir şarj kontrol cihazı bulunur; aksi hâlde akü aşırı şarj olur. Panel gerilimi akü geriliminin çok üstündeyse MPPT, yakınsa PWM cihaz seçin.
+
+### Büyük paneller nasıl gönderiliyor?
+
+Büyük paneller kırılmaya karşı korumalı paketle kargo ya da ambarla gönderilir. Teslim alırken paketi görevli önünde kontrol edin; hasarlı üründe tüm masraflar bize aittir. Palet bazında toptan sevkiyat için bize yazın.
+
+### Kurulumu kim yapar, Antalya dışına gönderiyor musunuz?
+
+Türkiye'nin her yerine kargo ile gönderiyoruz. Antalya bölgesinde isteğe bağlı yerinde kurulum yapıyoruz; diğer illerde bağlantıyı telefonla birlikte planlıyoruz.
+
+[Sayfaya git →](https://www.gespaenerji.com/panel-lexron-655w.html)
+
+## TitanX LiFePO₄ akü (5,22 kWh)
+
+### Hangi inverterle çalışır?
+
+48 V akü girişli inverterlerle çalışır. CAN / RS485 haberleşmesi olan inverterlerde akü bilgisi inverterle paylaşılır; inverterinizin modelini bize yazın, uyumu sipariş öncesi kontrol edelim.
+
+### Kapasiteyi artırabilir miyim?
+
+Evet, 16 adede kadar paralel bağlanabilir. Her akü 5,22 kWh eklediği için örneğin 2 akü yaklaşık 10,4 kWh, 4 akü yaklaşık 20,9 kWh depolar.
+
+### Şarj cihazımı nasıl ayarlamalıyım?
+
+Maksimum şarj gerilimi 58,4 V, deşarj kesme gerilimi 40 V, maksimum şarj akımı 100 A'dir. Şarj kontrol cihazınızı ya da inverterinizi bu değerlerin içinde kalacak şekilde ayarlayın.
+
+### Nereye yerleştirilmeli?
+
+Kuru, havadar ve kapalı bir yere yerleştirin; koruma sınıfı IP20'dir, açık havaya uygun değildir. Şarj 0~50 °C aralığında yapılmalıdır.
+
+### Kurulumu kim yapar, Antalya dışına gönderiyor musunuz?
+
+Türkiye'nin her yerine kargo ile gönderiyoruz. Antalya bölgesinde isteğe bağlı yerinde kurulum yapıyoruz; diğer illerde bağlantıyı telefonla birlikte planlıyoruz.
+
+[Sayfaya git →](https://www.gespaenerji.com/aku-titanx-51v-102ah.html)
+
+## MPPT şarj kontrol cihazları (Lexron)
+
+### PWM mi, MPPT mi seçmeliyim?
+
+Panel gerilimi akünün çok üstündeyse (mağazamızdaki 360 W ve 655 W paneller gibi) MPPT aynı panelden daha fazla enerji toplar ve doğru seçimdir. Panel gerilimi akü gerilimine yakın küçük, bütçe öncelikli sistemlerde PWM modeller yeterlidir.
+
+### Bu cihaza ne kadar panel bağlayabilirim?
+
+Genel hesap: şarj akımı × akü gerilimi. 30 A için 12 V'ta yaklaşık 360 W, 24 V'ta yaklaşık 720 W eder. Bu yaklaşık değerdir, künye değeri değildir; üreticinin izin verdiği en yüksek panel gücü ve gerilimi için bize yazın.
+
+### Kaç panel seri bağlayabilirim?
+
+Seri bağlamada sınırı cihazın en yüksek panel giriş gerilimi belirler; bu değer elimizdeki ürün bilgisinde yok. Kullanacağınız panelin Voc değerini bize yazın, dizilimi sipariş öncesi birlikte kontrol edelim.
+
+### Lityum akü ile kullanabilir miyim?
+
+Akü tipi ayarları üreticinin künyesinde yer alır; elimizdeki ürün bilgisinde yazmıyor. Akünüzün tipini ve şarj değerlerini bize gönderin, sipariş öncesi üreticiden teyit edelim.
+
+### Kurulumu kim yapar, Antalya dışına gönderiyor musunuz?
+
+Türkiye'nin her yerine kargo ile gönderiyoruz. Antalya bölgesinde isteğe bağlı yerinde kurulum yapıyoruz; diğer illerde bağlantıyı telefonla birlikte planlıyoruz.
+
+[Sayfaya git →](https://www.gespaenerji.com/lexron-mppt-30a.html)
+
+## PWM şarj kontrol cihazları (Lexron)
+
+### PWM mi, MPPT mi seçmeliyim?
+
+Panel gerilimi akü gerilimine yakınsa (örneğin 12 V aküye 12 V sınıfı panel) PWM ekonomik ve yeterlidir. Panel gerilimi akünün çok üstündeyse (mağazamızdaki 360 W ve 655 W paneller gibi) MPPT aynı panelden daha fazla enerji toplar; o durumda MPPT modellerimize bakın.
+
+### Bu cihaza ne kadar panel bağlayabilirim?
+
+PWM'de sınırı panellerin kısa devre akımı (Isc) belirler. Genel kural %25 pay bırakmaktır: 20 A cihazda panellerin toplam Isc'si en fazla yaklaşık 16 A olmalı. Panel gerilimi akü gerilimine yakın olmalıdır; yüksek gerilimli panellerde MPPT seçin.
+
+### Kaç panel seri bağlayabilirim?
+
+Seri bağlamada sınırı cihazın en yüksek panel giriş gerilimi belirler; bu değer elimizdeki ürün bilgisinde yok. Kullanacağınız panelin Voc değerini bize yazın, dizilimi sipariş öncesi birlikte kontrol edelim.
+
+### Lityum akü ile kullanabilir miyim?
+
+Akü tipi ayarları üreticinin künyesinde yer alır; elimizdeki ürün bilgisinde yazmıyor. Akünüzün tipini ve şarj değerlerini bize gönderin, sipariş öncesi üreticiden teyit edelim.
+
+### Kurulumu kim yapar, Antalya dışına gönderiyor musunuz?
+
+Türkiye'nin her yerine kargo ile gönderiyoruz. Antalya bölgesinde isteğe bağlı yerinde kurulum yapıyoruz; diğer illerde bağlantıyı telefonla birlikte planlıyoruz.
+
+[Sayfaya git →](https://www.gespaenerji.com/lexron-pwm-20a.html)
+
 ## MPPT şarj kontrol cihazları (Havensis)
 
 ### 1200 W panel bağlarsam cihaz 1200 W şarj eder mi?
@@ -559,7 +703,7 @@ Hayır, şarj gücünü akü gerilimi ve 30 A şarj akımı belirler. 12 V akü 
 
 ### Kaç panel seri bağlayabilirim?
 
-Seri bağlı panellerin açık devre gerilimi (Voc) toplamı 100 V'u aşmamalıdır. Mağazamızdaki Lexron 285 W panelden (Voc 42,84 V) en fazla 2 tanesi seri bağlanır; Lexron 655 W panel (Voc 50,34 V) bu cihaza seri bağlanmaz, tek ya da paralel bağlanır. Voc soğukta yükseldiği için kışın −10 °C'nin altına düşen bölgelerde dizilimi bizimle kontrol edin.
+Seri bağlı panellerin açık devre gerilimi (Voc) toplamı 100 V'u aşmamalıdır. Mağazamızdaki 360 W panelden (Voc 42,56 V) en fazla 2 tanesi seri bağlanır; Lexron 655 W panel (Voc 50,34 V) bu cihaza seri bağlanmaz, tek ya da paralel bağlanır. Voc soğukta yükseldiği için kışın −10 °C'nin altına düşen bölgelerde dizilimi bizimle kontrol edin.
 
 ### Gece-gündüz fonksiyonu ne işe yarar?
 

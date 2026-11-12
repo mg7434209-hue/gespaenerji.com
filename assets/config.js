@@ -218,7 +218,13 @@ window.GESPA.config = {
   commerce: {
     stockLabel: "Stokta / tedarikte",   // ürün sayfasındaki durum rozeti
     shipCountry: "Türkiye",             // gönderim yapılan ülke (tüm iller)
-    shipDays: "2–5",                    // teslim süresi (gün sayısı; birim metinde yazılı)
+    shipDays: "2–5",
+    // İşletme bilgisi (26 Eki 2026): kart ödemesinde 12 aya kadar taksit, vade
+    // farkı MÜŞTERİYE; tüm ürünlerde 2 yıl garanti (üründe `warranty` yazılıysa
+    // o geçerli: paneller 12/30 yıl); keşif taleplerine 1–3 gün içinde dönüş.
+    taksitMax: 12, taksitVadeFarki: true,
+    warrantyDefault: "2 yıl",
+    leadReplyDays: "1–3",                    // teslim süresi (gün sayısı; birim metinde yazılı)
     returnDays: 14,                     // cayma hakkı süresi (mesafeli satış)
     // Kabul edilen ödeme yolları — LocalBusiness.paymentAccepted buradan basılır;
     // sepetteki seçeneklerle AYNI tutulur (kart = iyzico, havale/EFT).
@@ -237,7 +243,25 @@ window.GESPA.config = {
     // link) buna göre ÖNCEDEN reddedip havale/EFT'yi önerir; admin bağlantı
     // aracı da bunu üst sınır alır. iyzico limitinizi değiştirince SADECE
     // bunu güncelleyin. 0 = sınır yok.
-    cardMaxTL: 350000
+    cardMaxTL: 350000,
+    // KART SAĞLAYICISI — admin anahtarı: "iyzico" ya da "tami" (Garanti BBVA).
+    // Aynı anda YALNIZ BİRİ müşteriye açılır (sepet + odeme.html). Railway'de
+    // CARD_PROVIDER ortam değişkeni verilirse bunu ezer (kod değiştirmeden
+    // geçiş). Seçilenin anahtarları yoksa öteki kullanılır. tami anahtarları
+    // yalnız Railway env: TAMI_MERCHANT_NUMBER · TAMI_TERMINAL_NUMBER ·
+    // TAMI_SECRET_KEY · TAMI_KID · TAMI_K · TAMI_BASE_URL.
+    cardProvider: "iyzico",
+    // tami taksit: seçenekler + tami paneli (İş Yerim) komisyonları AYNEN
+    // (1 = tek çekim). Vade farkı MÜŞTERİYE yansır ve koddan türetilir:
+    //   fark% = ((1 − kom[1]) / (1 − kom[n]) − 1) × 100, kuruşa yukarı
+    // → işletmenin n taksitteki net'i tek çekim net'ine eşit kalır (tami.js
+    // farkPct). iyzico'nun vade farkını iyzico kendi hesaplar; bu tablo yalnız
+    // tami içindir. Oranlar: tami paneli, 8 Eki 2026.
+    tamiTaksit: {
+      secenekler: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      komisyonPct: { 1: 2.85, 2: 5.89, 3: 7.95, 4: 9.88, 5: 11.72, 6: 13.47,
+        7: 15.39, 8: 17.23, 9: 18.97, 10: 20.85, 11: 22.71, 12: 24.32 }
+    }
   },
 
   // ============================================================
@@ -249,6 +273,38 @@ window.GESPA.config = {
   // NOT: "önceki fiyat" olarak gösterilen tutar, mevzuat gereği indirimden
   // önceki 30 gün içinde uygulanan EN DÜŞÜK fiyat olmalıdır.
   // ============================================================
+  // ÜST BANT (mevsimlik, 26 Eki 2026): build.js ve main.js içinde bulunulan
+  // aya göre seçer. Kampanya/teşvik iddiası YAZILMAZ (doğrulanamıyor);
+  // metinler her zaman doğru mevsim çağrılarıdır. `wa: true` → bağlantı
+  // ücretsiz keşif WhatsApp mesajıdır.
+  topbar: {
+    seasons: [
+      { months: [11, 12, 1, 2], text: "☀️ Yaz güneşine şimdiden hazırlanın: kışın keşif ve proje, baharda kurulum.", short: "☀️ Kışın keşif, baharda kurulum", label: "Ücretsiz keşif →", wa: true },
+      { months: [3, 4, 5, 6, 7, 8, 9, 10], text: "☀️ Yaz faturası gelmeden çatınızı güneşe çevirin.", short: "☀️ Yaz faturasına güneş çözümü", label: "Tasarrufunu hesapla →", href: "hesaplayici.html" }
+    ],
+    // Ücretsiz keşif WhatsApp mesajı (menü düğmesi, hero, üst bant, CTA bandı)
+    kesifMsg: "Merhaba GESPA, ücretsiz keşif istiyorum. İl/ilçe: ___ · Çatı / arazi / tarla: ___"
+  },
+  // MAĞAZA KULLANIM SENARYOLARI (CRO FAZ 1-e, 26 Eki 2026): müşteri "MPPT mi
+  // PWM mi" değil "karavanıma ne lazım" diye arar. online-satis.html'de
+  // teknik kategorilerin ÜSTÜNDE senaryo kartları; bir ürün birden çok
+  // senaryoda olabilir. `href` olan kart ürün değil sayfa bağlantısıdır.
+  // Yeni ürün eklenince ilgili senaryoya id'sini yaz (yazmazsan yalnız
+  // "Tümü" ve teknik kategoride görünür).
+  shopScenarios: [
+    { id: "bagevi", icon: "🏡", label: "Bağ evi & kamp", hint: "Şebekesiz küçük ev",
+      ids: ["kit-285w", "kit-2x540w", "unv-trek-pro-2500", "panel-50w", "panel-240w", "panel-360w", "lexron-pwm-20a", "lexron-pwm-30a", "lexron-pwm-40a", "lexron-pwm-60a", "lexron-mppt-20a", "lexron-mppt-30a", "lexron-mppt-40a", "hero-led-ampul-10w", "kablo-solar-5m", "mc4-set"] },
+    { id: "karavan", icon: "🚐", label: "Karavan & tekne", hint: "12/24 V mobil sistem",
+      ids: ["unv-trek-pro-2500", "havensis-dcdc-1224-30", "havensis-dcdc-1224-40", "havensis-dcdc-1224b-40", "havensis-dcdc-2448", "panel-50w", "panel-240w", "hero-led-ampul-10w", "lexron-mppt-20a", "lexron-pwm-20a", "kablo-solar-5m", "mc4-set"] },
+    { id: "arac", icon: "🛺", label: "Elektrikli araç şarjı", hint: "Triportör, golf, mini araç",
+      ids: ["set-yolcu", "set-kargo", "set-golf", "set-mini", "boost-mppt", "aku-lifepo4-72v", "panel-240w", "panel-460w", "panel-700w", "kablo-solar-5m", "mc4-set"] },
+    { id: "ev", icon: "🏠", label: "Ev & çatı sistemi", hint: "Büyük panel, akü, MPPT",
+      ids: ["panel-460w", "panel-arcelik-540w", "panel-lexron-655w", "panel-700w", "panel-360w", "panel-240w", "aku-titanx-51v-102ah", "havensis-s30amps", "havensis-s60amps100", "havensis-s60amps150", "lexron-mppt-80a-hv", "lexron-pwm-60a", "kablo-solar-5m", "mc4-set"] },
+    { id: "aydinlatma", icon: "💡", label: "Bahçe & sokak aydınlatması", hint: "Elektrik hattı gerektirmez",
+      ids: ["hero-led-solar-sokak-100w", "hero-led-solar-sokak-200w", "hero-led-solar-sokak-600w", "hero-led-aplik-50w", "hero-led-bahce-50w", "hero-led-ampul-10w"] },
+    { id: "toptan", icon: "📦", label: "Toptan & proje", hint: "Çok adet, kurumsal teklif", href: "toptan.html" }
+  ],
+
   campaign: {
     endsAt: "2026-09-20T23:59:59+03:00",
     title: "İndirimli Ürünler",
@@ -263,13 +319,13 @@ window.GESPA.config = {
     {
       id: "kit-285w", icon: "🧰", tag: "Taşınabilir", group: "offgrid", kit: true,
       url: "paket-285w.html", sku: "GES-KIT-285",
-      kwp: 0.285, panelW: 285, panelCount: 1, portable: true, dailyKwh: 1.7,
+      kwp: 0.24, panelW: 240, panelCount: 1, portable: true, dailyKwh: 1.4,
       img: "assets/img/products/kit-285w.webp",
-      price: 508.13, currency: "USD",                     // ₺25.000 @ 49,2
+      price: 487.8, currency: "USD",                      // ₺24.000 @ 49,2 (27 Eki 2026: 285 W stokta yok → 240 W panel, panel farkı ₺1.000 düşüldü)
       for: "Kamp, karavan ve küçük ihtiyaçlar",
-      name: "285W Güneş Paneli Paketi",
-      desc: "Komple sistem: 285 W panel, güç kutusu ve bağlantı kabloları dahil tak-çalıştır mobil kit. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg.",
-      features: ["TV, lambalar ve telefon şarjı çalıştırır", "Günlük ~1,7 kWh güneş üretimi", "23–25 kg — mobil taşınabilir", "Güç kutusu ve kablolar dahil"]
+      name: "240W Güneş Paneli Paketi",
+      desc: "Komple sistem: 240 W panel, güç kutusu ve bağlantı kabloları dahil tak-çalıştır mobil kit. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg.",
+      features: ["TV, lambalar ve telefon şarjı çalıştırır", "Günlük ~1,4 kWh güneş üretimi", "23–25 kg — mobil taşınabilir", "Güç kutusu ve kablolar dahil"]
     },
     {
       id: "kit-2x540w", icon: "🎒", tag: "Taşınabilir", group: "offgrid", kit: true,
@@ -288,6 +344,7 @@ window.GESPA.config = {
     {
       id: "boost-mppt", icon: "🔌", tag: "Elektrikli Araç", group: "accessory",
       url: "elektrikli-arac-donusum.html", sku: "GES-EV-BOOST",
+      warranty: "2 yıl",                     // sayfadaki güven satırı; künyeden
       img: "assets/img/products/ev/boost-mppt-on.webp",
       // ₺7.200 NET: noCartDiscount ile havale/EFT indirimi BİNMEZ — kartla da
       // havaleyle de aynı tutar tahsil edilir, havale satırı hiçbir yerde
@@ -331,11 +388,13 @@ window.GESPA.config = {
     // img: gerçek 50 W panel fotoğrafı gelince doldurulacak (şu an yer tutucu).
     {
       id: "panel-50w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-50w.html",
       sku: "GES-PNL-50",
       img: "assets/img/products/panel-50w.webp",
-      price: 25.41, currency: "USD", oldPrice: 50.81,     // ₺1.250 · eski fiyat ₺2.500 @ 49,2
-      // Kampanya fiyatı NET: zaten %50 indirimli, üstüne havale/EFT indirimi
-      // uygulanmaz. Müşterinin ödeyeceği son tutar ₺1.250'dir.
+      price: 35.57, currency: "USD",     // ₺1.750 @ 49,2 (işletme, 5 Eki 2026)
+      // Fiyat NET: havale/EFT indirimi uygulanmaz, son tutar ₺1.750.
+      // Eylül kampanyasının oldPrice'ı (₺2.500) KALDIRILDI: son 30 günde
+      // ₺1.250'ye satıldığı için ₺2.500 "önceki fiyat" olarak gösterilemez.
       noCartDiscount: true,
       chips: ["🔆 50 W monokristal", "🔋 12 V sistem", "📦 Tek panel"],
       for: "Küçük aydınlatma, kamera ve akü şarjı",
@@ -369,21 +428,29 @@ window.GESPA.config = {
 
     // —— Tekil paneller —— TEKNİK DEĞERLER üreticinin künyesinden gelir:
     // assets/img/products/kaynak/lexron-*.pdf. Künyede OLMAYAN değer yazılmaz.
-    // DİKKAT: "285W Güneş Paneli Paketi" (kit-285w, ₺25.000) AYRI bir üründür —
+    // DİKKAT: "240W Güneş Paneli Paketi" (kit-285w, ₺24.000; Eki 2026 öncesi 285 W panelliydi) AYRI bir üründür —
     // o komple sistem, bu tek panel. Adları karıştırma.
+    // 360 W panel (3 Kas 2026): Lexron 285 W üretimden kalktı, yerine geldi.
+    // Künye SLR-MP-360 (işletme gönderdi); MARKA/TEDARİKÇİ YAZILMAZ, PDF repoya
+    // KONMAZ. Künyede modül verimi %22,80 yazar ama ölçüden %21,7 çıkar: YAZILMAZ.
+    // Hücre: künye "60 Full Cells", fotoğraf yarım kesim görünür: "yarım/tam"
+    // denmez. Garanti süresi künyede yok: yazılmaz (commerce.warrantyDefault).
     {
-      id: "panel-lexron-285w", icon: "🔆", tag: "Panel", group: "panel",
-      sku: "GES-PNL-285", brand: "Lexron",
-      img: "assets/img/products/panel-lexron-285w.webp",
-      price: 152.44, currency: "USD",                     // ₺7.500 @ 49,2
-      chips: ["🔆 285 W TOPCon", "⚡ 42,84 V Voc", "⚖️ 8,5 kg"],
-      for: "Balkon, bağ evi ve küçük off-grid sistemler",
-      name: "Lexron 285 W Güneş Paneli",
-      desc: "Lexron 210R PowerLite TOPCon serisi 285 W monokristal güneş paneli. Voc 42,84 V · Isc 8,19 A · Vmp 35,85 V · Imp 7,95 A. Ölçü 780 × 1536 × 30 mm, ağırlık 8,5 kg. IEC 61215 / 61730 / 61701 belgeli; 12 yıl ürün ve işçilik, 30 yıl güç garantisi.",
-      features: ["285 W · TOPCon monokristal hücre", "Voc 42,84 V · Isc 8,19 A · Vmp 35,85 V · Imp 7,95 A", "780 × 1536 × 30 mm · 8,5 kg", "12 yıl ürün · 30 yıl güç garantisi"]
+      id: "panel-360w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-360w.html",
+      sku: "GES-PNL-360",
+      img: "assets/img/products/panel-360w.webp",
+      price: 146.34, currency: "USD",                     // ₺7.200 @ 49,2
+      chips: ["🔆 360 W Mono-PERC", "⚡ 42,56 V Voc", "⚖️ 19,5 kg"],
+      for: "Bağ evi, karavan, çatı ve küçük off-grid sistemler",
+      name: "360 W Güneş Paneli",
+      desc: "60 hücreli Mono-PERC güneş paneli, 360 W. Voc 42,56 V · Isc 11,37 A · Vmp 34,98 V · Imp 10,30 A. Ölçü 1660 × 1001 × 30 mm, ağırlık 19,5 kg. IP68 bağlantı kutusu, 3 bypass diyot; 1500 V sistem gerilimi.",
+      features: ["360 W · 60 hücre · Mono-PERC", "Voc 42,56 V · Isc 11,37 A · Vmp 34,98 V · Imp 10,30 A", "1660 × 1001 × 30 mm · 19,5 kg", "IP68 bağlantı kutusu · 3 bypass diyot · 1500 V"]
     },
     {
       id: "panel-lexron-655w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-lexron-655w.html",
+      warranty: "12 yıl ürün · 30 yıl güç",                     // sayfadaki güven satırı; künyeden
       sku: "GES-PNL-655", brand: "Lexron",
       img: "assets/img/products/panel-lexron-655w.webp",
       price: 203.25, currency: "USD",                     // ₺10.000 @ 49,2
@@ -393,10 +460,65 @@ window.GESPA.config = {
       desc: "132 yarım kesim hücreli, N-type TOPCon teknolojili monokristal güneş paneli. 655 W güçte Voc 50,34 V · Vmp 42,32 V · Isc 16,53 A · Imp 15,48 A, modül verimi %24,25. Ölçü 2382 × 1134 × 35 mm, ağırlık 31 kg; 3,2 mm AR kaplamalı ısıl güçlendirilmiş cam, 35 mm anotlu alüminyum çerçeve, IP68 bağlantı kutusu. 1500 V sistem gerilimi, 2400 Pa rüzgâr ve 5400 Pa kar yükü dayanımı.",
       features: ["655 W · N-type TOPCon · 132 yarım kesim hücre", "Modül verimi %24,25 · 16 busbar · 0~+5 W tolerans", "Voc 50,34 V · Vmp 42,32 V · Isc 16,53 A · Imp 15,48 A", "2382 × 1134 × 35 mm · 31 kg · IP68 · 1500 V", "2400 Pa rüzgâr · 5400 Pa kar yükü dayanımı", "12 yıl ürün · 30 yıl güç garantisi (yıllık %0,45 kayıp)"]
     },
+    // 700 W bifacial (21 Eki 2026): işletmenin gönderdiği künye PDF'i
+    // (700W.pdf). MARKA YAZILMAZ, PDF repoya KONMAZ (tedarikçi adı var).
+    // DİKKAT: künyedeki STC tablosu 590–610 W'tır; "700 W" = 610 Wp ön yüz
+    // + %15 arka yüz kazancı (701,5 W). Ad işletme kararıyla "700 W
+    // Bifacial"; 610 Wp açıklamada ve teknik tabloda AÇIKÇA yazılır.
+    // Ağırlık, cam ve hücre üreticisi künyede yok — YAZILMAZ.
+    // Kargo motor paketinin panelidir (655 W'ın yerine, 21 Eki 2026).
+    {
+      id: "panel-700w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-700w.html",
+      warranty: "30 yıl güç (30. yılda %87,4)",                     // sayfadaki güven satırı; künyeden
+      sku: "GES-PNL-700",
+      img: "assets/img/products/panel-700w.webp",
+      price: 176.83, currency: "USD",                     // ₺8.700 @ 49,2
+      chips: ["🔆 700 W bifacial", "☀️ Ön yüz 610 Wp", "✂️ 144 yarım hücre"],
+      for: "Kargo kasalı elektrikli araçlar, çatı ve arazi sistemleri",
+      name: "700 W Bifacial TOPCon Güneş Paneli",
+      desc: "144 yarım hücreli, N-type TOPCon teknolojili çift yüzlü (bifacial) güneş paneli. Ön yüz STC gücü 610 Wp; arka yüzden %15 ek kazançla 701,5 W'a ulaşır (%10'da 671 W, %20'de 732 W). Ön yüzde Voc 53,27 V · Vmp 44,51 V · Isc 14,34 A · Imp 13,71 A, modül verimi %23,62. Ölçü 2278 × 1133 × 30 mm; 1500 V sistem gerilimi, 0~+5 W güç toleransı. Kargo kasalı motor güneş paketimizin panelidir; tek başına da satılır.",
+      features: ["700 W bifacial · ön yüz 610 Wp + %15 arka yüz kazancı", "N-type TOPCon · 144 yarım hücre · modül verimi %23,62", "Voc 53,27 V · Vmp 44,51 V · Isc 14,34 A · Imp 13,71 A", "2278 × 1133 × 30 mm · 1500 V · 0~+5 W tolerans", "Sıcaklık katsayısı Pmax −0,29 %/°C · çalışma −40…+85 °C"]
+    },
+    // 460 W ve 240 W: 3. ve 4. motor güneş paketlerinin panelleri (9 Eki
+    // 2026). TEKNİK DEĞERLER üretici künyesinden (işletmenin gönderdiği iki
+    // PDF, 9 Eki 2026). MARKA YAZILMAZ — işletme kararı; künye PDF'leri de bu
+    // yüzden repoya KONMADI (tedarikçi adı/adresi içeriyor). 460 W
+    // künyesinde ürün garantisi yılı yok, yazılmaz. 240 W: aşağıdaki nota bak.
+    // Fotoğraflar kaynak/panel-*.png → tools/foto-hazirla.py.
+    {
+      id: "panel-460w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-460w.html",
+      sku: "GES-PNL-460",
+      img: "assets/img/products/panel-460w.webp",
+      price: 162.6, currency: "USD",                      // ₺8.000 @ 49,2
+      chips: ["🔆 460 W · %23,42 verim", "✂️ 144 yarım hücre", "⚖️ 25 kg"],
+      for: "Golf aracı tipi elektrikli araçlar ve küçük off-grid sistemler",
+      name: "460 W Half-Cut Monokristal Güneş Paneli",
+      desc: "144 yarım hücreli (half-cut), çoklu busbar teknolojili 460 W monokristal güneş paneli. Voc 51,90 V · Isc 10,84 A · Vmp 43,50 V · Imp 10,58 A, modül verimi %23,42. Ölçü 2095 × 1039 × 30 mm, ağırlık 25 kg; yansıma önleyici kaplamalı temperli cam, 30 mm anotlu alüminyum çerçeve, IP68 bağlantı kutusu (3 bypass diyot), MC4 uyumlu konnektör. 1500 V sistem gerilimi, 2400 Pa rüzgâr ve 5400 Pa kar yükü dayanımı. Golf aracı tipi motor güneş paketimizin panelidir; tek başına da satılır.",
+      features: ["460 W · 144 yarım hücre (half-cut) · çoklu busbar", "Modül verimi %23,42 · 0~+5 W güç toleransı", "Voc 51,90 V · Vmp 43,50 V · Isc 10,84 A · Imp 10,58 A", "2095 × 1039 × 30 mm · 25 kg · IP68 · 1500 V", "2400 Pa rüzgâr · 5400 Pa kar yükü · 25 mm dolu dayanımı", "Sıcaklık katsayısı Pmax −0,29 %/°C · çalışma −40…+85 °C"]
+    },
+    {
+      // 240 W (12 Eki 2026): işletmenin gönderdiği paneller.docx fotoğrafı ve
+      // 48 hücreli panelin künye ekranı esastır (776 × 1320 mm). Daha önce
+      // yazılan 1575 × 705 mm'lik panelin değerleri BAŞKA bir panele aitti,
+      // kaldırıldı. Hücre tipi künyede yok — "TOPCon"/"mono" YAZILMAZ.
+      id: "panel-240w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-240w.html",
+      sku: "GES-PNL-240",
+      img: "assets/img/products/panel-240w.webp",
+      price: 132.11, currency: "USD",                     // ₺6.500 @ 49,2
+      chips: ["🔆 240 W", "🔢 48 hücre", "⚖️ 8 kg"],
+      for: "Mini elektrikli otomobiller ve küçük off-grid sistemler",
+      name: "240 W Güneş Paneli (48 Hücre)",
+      desc: "48 hücreli 240 W güneş paneli. Voc 36,12 V · Isc 8,15 A · Vmp 30,23 V · Imp 7,94 A; maksimum sistem gerilimi 1500 V. Ölçü 1320 × 776 × 30 mm, ağırlık 8 kg; CE ve IEC belgeli. Mini elektrikli otomobil güneş paketimizin panelidir; tek başına da satılır.",
+      features: ["240 W · 48 hücre", "Voc 36,12 V · Vmp 30,23 V · Isc 8,15 A · Imp 7,94 A", "1320 × 776 × 30 mm · 8 kg · 1500 V", "CE · IEC belgeli"]
+    },
     // Arçelik 540 W: elimizde ÜRETİCİ KÜNYESİ YOK — güç, sınıf ve marka dışında
     // teknik değer YAZILMAZ. Künye gelirse buradan genişlet.
     {
       id: "panel-arcelik-540w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-arcelik-540w.html",
       sku: "GES-PNL-540", brand: "Arçelik",
       img: "assets/img/products/panel-arcelik-540w.webp",
       price: 203.25, currency: "USD",                     // ₺10.000 @ 49,2
@@ -411,6 +533,7 @@ window.GESPA.config = {
     // listelenir (urunler.html GROUPS listesinde yoktur).
     {
       id: "aku-titanx-51v-102ah", icon: "🔋", tag: "Enerji Depolama", group: "storage",
+      url: "aku-titanx-51v-102ah.html",
       sku: "GES-AKU-102", brand: "TitanX",
       img: "assets/img/products/aku-titanx-51v-102ah.webp",
       price: 1491.3, currency: "USD",                     // ₺73.400 (eski ₺73.372) @ 49,2
@@ -514,6 +637,111 @@ window.GESPA.config = {
       features: ["12/24 V girişle 36/48/60/72 V akü şarjı", "12–32 V giriş · maks. 20 A giriş, 15 A şarj akımı", "%95 dönüştürücü verimi · gelişmiş koruma devreleri", "Dijital ekran bağlantısı ve 5 m uzatma kablosu", "İsteğe bağlı dahili Bluetooth (siparişte belirtin)", "162 × 210 × 70 mm · yerli üretim"]
     },
 
+    // —— Lexron şarj kontrol cihazları —— GES Marketim kataloğundan (gesmarketim1
+    // data/catalog.json, 10.08.2026 Lexron listesi) aktarıldı, 5 Eki 2026.
+    // price = GES Marketim'in KDV dahil saleUsd'si × 1,10 (6 Eki 2026, sahibin
+    // kararı: gespaenerji'de %10 üstü fiyat).
+    // Tedarikçi adı ve maliyet AKTARILMAZ. Akü gerilimleri ürün görselindeki
+    // üretici etiketinden; panel girişi, yük çıkışı, koruma gibi değerler elimizde
+    // YOK — yazılmaz, "bize yazın" denir (Havensis kuralı). Detay sayfaları
+    // lexron-*.html: tools/lexron-sayfalar.py ÜRETİR (12 Eki 2026). 10 A PWM stokta olmadığı için alınmadı.
+    {
+      id: "lexron-pwm-20a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      url: "lexron-pwm-20a.html",
+      sku: "GM-20APWMSARJKONT", brand: "Lexron",
+      img: "assets/img/products/lexron-pwm-20a.webp",
+      price: 14.77, currency: "USD",
+      chips: ["⚡ 12/24 V · 20 A", "🔆 PWM"],
+      for: "12/24 V akülü küçük güneş sistemleri",
+      name: "Lexron 20 A PWM Şarj Kontrol Cihazı 12/24 V",
+      desc: "Lexron PWM güneş şarj kontrol cihazı: 12/24 V akü sistemlerinde panelden aküye şarjı düzenler ve aküyü aşırı şarja karşı korur. PWM teknolojisi, panel gerilimi akü gerilimine yakın küçük sistemler (bağ evi, aydınlatma, kamera) için ekonomik bir çözümdür. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.",
+      features: ["12/24 V akü sistemleri", "PWM şarj teknolojisi", "Ekonomik küçük sistem çözümü", "Teknik künye için bize yazın"]
+    },
+    {
+      id: "lexron-pwm-30a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      url: "lexron-pwm-30a.html",
+      sku: "GM-30APWMSARJKONT", brand: "Lexron",
+      img: "assets/img/products/lexron-pwm-30a.webp",
+      price: 16.58, currency: "USD",
+      chips: ["⚡ 12/24 V · 30 A", "🔆 PWM"],
+      for: "12/24 V akülü küçük güneş sistemleri",
+      name: "Lexron 30 A PWM Şarj Kontrol Cihazı 12/24 V",
+      desc: "Lexron PWM güneş şarj kontrol cihazı: 12/24 V akü sistemlerinde panelden aküye şarjı düzenler ve aküyü aşırı şarja karşı korur. PWM teknolojisi, panel gerilimi akü gerilimine yakın küçük sistemler (bağ evi, aydınlatma, kamera) için ekonomik bir çözümdür. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.",
+      features: ["12/24 V akü sistemleri", "PWM şarj teknolojisi", "Ekonomik küçük sistem çözümü", "Teknik künye için bize yazın"]
+    },
+    {
+      id: "lexron-pwm-40a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      url: "lexron-pwm-40a.html",
+      sku: "GM-40APWMSARJKONT", brand: "Lexron",
+      img: "assets/img/products/lexron-pwm-40a.webp",
+      price: 21.34, currency: "USD",
+      chips: ["⚡ 12/24 V · 40 A", "🔆 PWM"],
+      for: "12/24 V akülü küçük güneş sistemleri",
+      name: "Lexron 40 A PWM Şarj Kontrol Cihazı 12/24 V",
+      desc: "Lexron PWM güneş şarj kontrol cihazı: 12/24 V akü sistemlerinde panelden aküye şarjı düzenler ve aküyü aşırı şarja karşı korur. PWM teknolojisi, panel gerilimi akü gerilimine yakın küçük sistemler (bağ evi, aydınlatma, kamera) için ekonomik bir çözümdür. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.",
+      features: ["12/24 V akü sistemleri", "PWM şarj teknolojisi", "Ekonomik küçük sistem çözümü", "Teknik künye için bize yazın"]
+    },
+    {
+      id: "lexron-pwm-60a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      url: "lexron-pwm-60a.html",
+      sku: "GM-60APWMSARJKONT", brand: "Lexron",
+      img: "assets/img/products/lexron-pwm-60a.webp",
+      price: 44.31, currency: "USD",
+      chips: ["⚡ 12/24/48 V · 60 A", "🔆 PWM"],
+      for: "12/24/48 V akülü güneş sistemleri",
+      name: "Lexron 60 A PWM Şarj Kontrol Cihazı 12/24/48 V",
+      desc: "Lexron PWM güneş şarj kontrol cihazı: 12/24/48 V akü sistemlerinde panelden aküye şarjı düzenler ve aküyü aşırı şarja karşı korur. 60 A şarj akımıyla daha büyük panel gücüne sahip PWM sistemler içindir. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.",
+      features: ["12/24/48 V akü sistemleri", "PWM şarj teknolojisi", "60 A şarj akımı", "Teknik künye için bize yazın"]
+    },
+    {
+      id: "lexron-mppt-20a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      url: "lexron-mppt-20a.html",
+      sku: "GM-20AMPPTSARJKON", brand: "Lexron",
+      img: "assets/img/products/lexron-mppt-20a.webp",
+      price: 64, currency: "USD",
+      chips: ["⚡ 12/24 V · 20 A", "🔆 MPPT"],
+      for: "12/24 V akülü güneş sistemleri · yüksek verim",
+      name: "Lexron 20 A MPPT Şarj Kontrol Cihazı 12/24 V",
+      desc: "Lexron MPPT güneş şarj kontrol cihazı: panelin maksimum güç noktasını izler; panel gerilimi akü geriliminden yüksek olduğunda PWM'e göre aküye daha fazla enerji aktarır. 12/24 V akü sistemleri için uygundur. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.",
+      features: ["12/24 V akü sistemleri", "MPPT şarj teknolojisi", "PWM'e göre daha yüksek verim", "Teknik künye için bize yazın"]
+    },
+    {
+      id: "lexron-mppt-30a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      url: "lexron-mppt-30a.html",
+      sku: "GM-30AMPPTSARJKON", brand: "Lexron",
+      img: "assets/img/products/lexron-mppt-30a.webp",
+      price: 70.57, currency: "USD",
+      chips: ["⚡ 12/24 V · 30 A", "🔆 MPPT"],
+      for: "12/24 V akülü güneş sistemleri · yüksek verim",
+      name: "Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V",
+      desc: "Lexron MPPT güneş şarj kontrol cihazı: panelin maksimum güç noktasını izler; panel gerilimi akü geriliminden yüksek olduğunda PWM'e göre aküye daha fazla enerji aktarır. 12/24 V akü sistemleri için uygundur. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.",
+      features: ["12/24 V akü sistemleri", "MPPT şarj teknolojisi", "PWM'e göre daha yüksek verim", "Teknik künye için bize yazın"]
+    },
+    {
+      id: "lexron-mppt-40a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      url: "lexron-mppt-40a.html",
+      sku: "GM-40AMPPTSARJKON", brand: "Lexron",
+      img: "assets/img/products/lexron-mppt-40a.webp",
+      price: 77.14, currency: "USD",
+      chips: ["⚡ 12/24 V · 40 A", "🔆 MPPT"],
+      for: "12/24 V akülü güneş sistemleri · yüksek verim",
+      name: "Lexron 40 A MPPT Şarj Kontrol Cihazı 12/24 V",
+      desc: "Lexron MPPT güneş şarj kontrol cihazı: panelin maksimum güç noktasını izler; panel gerilimi akü geriliminden yüksek olduğunda PWM'e göre aküye daha fazla enerji aktarır. 12/24 V akü sistemleri için uygundur. Panel giriş gerilimi ve yük çıkışı gibi ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.",
+      features: ["12/24 V akü sistemleri", "MPPT şarj teknolojisi", "PWM'e göre daha yüksek verim", "Teknik künye için bize yazın"]
+    },
+    {
+      id: "lexron-mppt-80a-hv", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      url: "lexron-mppt-80a-hv.html",
+      sku: "GM-80AHV15230VMPP", brand: "Lexron",
+      img: "assets/img/products/lexron-mppt-80a-hv.webp",
+      price: 205.14, currency: "USD",
+      chips: ["⚡ 12/24/36/48 V · 80 A", "🔆 MPPT · HV"],
+      for: "12/24/36/48 V akülü büyük güneş sistemleri",
+      name: "Lexron 80 A HV (15~230 V) MPPT Şarj Kontrol Cihazı 12/24/36/48 V",
+      desc: "Lexron 80 A HV (15~230 V) MPPT güneş şarj kontrol cihazı: 12/24/36/48 V akü sistemleri için yüksek akımlı MPPT modeli. MPPT teknolojisi panelin maksimum güç noktasını izleyerek enerjiyi aküye verimli aktarır. Ayrıntılı teknik değerler için bize yazın; üreticiden teyit edelim.",
+      features: ["12/24/36/48 V akü sistemleri", "80 A şarj akımı", "MPPT şarj teknolojisi", "Teknik künye için bize yazın"]
+    },
+
     // —— Bağlantı malzemeleri —— elektrikli motor paketlerinin (evSets)
     // tamamlayıcı kalemleri. group:"cable" YALNIZ online-satis.html
     // kataloğunda listelenir; urunler.html paket vitrininde ÇIKMAZ.
@@ -527,6 +755,7 @@ window.GESPA.config = {
       // Belirli bir kesit yazmak teslimatla çelişirdi; durum açıklamada
       // olduğu gibi söylenir.
       id: "kablo-solar-5m", icon: "🔌", tag: "Kablo", group: "cable",
+      url: "kablo-solar-5m.html",
       sku: "GES-KBL-5M",
       img: "assets/img/products/kablo-solar-5m.webp",
       price: 20.33, currency: "USD",                      // ₺1.000 @ 49,2
@@ -548,30 +777,61 @@ window.GESPA.config = {
       url: "paket-motor-yolcu.html",
       sku: "GES-SET-YOLCU",
       img: "assets/img/products/ev/motor-yolcu.webp",
-      price: 321.14, currency: "USD",                     // ₺15.800 @ 49,2
-      parts: ["panel-lexron-285w", "boost-mppt", "kablo-solar-5m", "mc4-set"],
-      chips: ["🔆 285 W TOPCon panel", "🔌 BOOST MPPT 24–72 V", "🧰 Kablo + MC4 dahil"],
+      price: 300.81, currency: "USD",                     // ₺14.800 @ 49,2 (26 Eki 2026: 285 W stokta yok → 240 W)
+      parts: ["panel-240w", "boost-mppt", "kablo-solar-5m", "mc4-set"],
+      chips: ["🔆 240 W panel", "🔌 BOOST MPPT 24–72 V", "🧰 Kablo + MC4 dahil"],
       for: "Kabinli, 2–4 kişilik yolcu triportörleri — çatı alanı dar",
-      name: "Yolcu Kabinli Motor Güneş Paketi — 285 W",
-      desc: "Kabinli elektrikli yolcu triportörünü güneşle şarj etmek için hazırlanmış komple paket: 285 W TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Dar çatı alanına sığan panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.",
-      features: ["285 W TOPCon güneş paneli (dar çatıya uygun ölçü)", "BOOST MPPT 24–72 V şarj kontrol cihazı — tüm akü tipleriyle", "5 m siyah + 5 m kırmızı solar kablo", "MC4 konnektör takımı (erkek + dişi)", "Panel, cihaz ve kablolama birbiriyle uyumlu seçilmiştir"]
+      name: "Yolcu Kabinli Motor Güneş Paketi — 240 W",
+      desc: "Kabinli elektrikli yolcu triportörünü güneşle şarj etmek için hazırlanmış komple paket: 240 W (48 hücre) güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Dar çatı alanına sığan panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.",
+      features: ["240 W güneş paneli (1320 × 776 mm, dar çatıya uygun)", "BOOST MPPT 24–72 V şarj kontrol cihazı — tüm akü tipleriyle", "5 m siyah + 5 m kırmızı solar kablo", "MC4 konnektör takımı (erkek + dişi)", "Panel, cihaz ve kablolama birbiriyle uyumlu seçilmiştir"]
     },
     {
       id: "set-kargo", icon: "🚚", tag: "Hazır Paket", group: "evset",
       url: "paket-motor-kargo.html",
       sku: "GES-SET-KARGO",
       img: "assets/img/products/ev/motor-kargo.webp",
-      price: 371.95, currency: "USD",                     // ₺18.300 @ 49,2
-      parts: ["panel-lexron-655w", "boost-mppt", "kablo-solar-5m", "mc4-set"],
-      chips: ["🔆 655 W TOPCon panel", "🔌 BOOST MPPT 24–72 V", "🧰 Kablo + MC4 dahil"],
+      price: 345.53, currency: "USD",                     // ₺17.000 @ 49,2 (21 Eki 2026: 655 W → 700 W)
+      parts: ["panel-700w", "boost-mppt", "kablo-solar-5m", "mc4-set"],
+      chips: ["🔆 700 W bifacial TOPCon panel", "🔌 BOOST MPPT 24–72 V", "🧰 Kablo + MC4 dahil"],
       for: "Açık kasa veya tenteli yük triportörleri — çatı alanı geniş",
-      name: "Kargo Kasalı Motor Güneş Paketi — 655 W",
-      desc: "Kargo kasalı elektrikli triportörü güneşle şarj etmek için hazırlanmış komple paket: 655 W N-type TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Geniş kasa/tente çatısının kaldırabileceği en verimli panel gücü seçilmiştir.",
-      features: ["655 W N-type TOPCon güneş paneli (geniş çatı için)", "BOOST MPPT 24–72 V şarj kontrol cihazı — tüm akü tipleriyle", "5 m siyah + 5 m kırmızı solar kablo", "MC4 konnektör takımı (erkek + dişi)", "Panel, cihaz ve kablolama birbiriyle uyumlu seçilmiştir"]
+      name: "Kargo Kasalı Motor Güneş Paketi — 700 W",
+      desc: "Kargo kasalı elektrikli triportörü güneşle şarj etmek için hazırlanmış komple paket: 700 W bifacial (çift yüzlü) N-type TOPCon güneş paneli (ön yüz 610 Wp), BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Geniş kasa/tente çatısının kaldırabileceği en verimli panel gücü seçilmiştir.",
+      features: ["700 W bifacial TOPCon güneş paneli (ön yüz 610 Wp, geniş çatı için)", "BOOST MPPT 24–72 V şarj kontrol cihazı — tüm akü tipleriyle", "5 m siyah + 5 m kırmızı solar kablo", "MC4 konnektör takımı (erkek + dişi)", "Panel, cihaz ve kablolama birbiriyle uyumlu seçilmiştir"]
+    },
+
+    // 3. ve 4. paketler (9 Eki 2026, elektrikli_motor.docx): belgedeki
+    // toplamlar MC4'süzdür (₺16.200 / ₺14.700); 1. ve 2. paketlerdeki gibi
+    // MC4 takımı (₺100) eklendi → ₺16.300 / ₺14.800.
+    {
+      id: "set-golf", icon: "🚙", tag: "Hazır Paket", group: "evset",
+      url: "paket-motor-golf.html",
+      sku: "GES-SET-GOLF",
+      img: "assets/img/products/ev/motor-golf.webp",
+      price: 331.3, currency: "USD",                      // ₺16.300 @ 49,2
+      parts: ["panel-460w", "boost-mppt", "kablo-solar-5m", "mc4-set"],
+      chips: ["🔆 460 W half-cut panel", "🔌 BOOST MPPT 24–72 V", "🧰 Kablo + MC4 dahil"],
+      for: "Tavanlı, golf aracı tipi elektrikli yolcu araçları",
+      name: "Golf Aracı Tipi Motor Güneş Paketi — 460 W",
+      desc: "Tavanlı, golf aracı tipi elektrikli yolcu aracını güneşle şarj etmek için hazırlanmış komple paket: 460 W yarım hücre (half-cut) monokristal güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Panel, bu araçların düz tavanına göre seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.",
+      features: ["460 W yarım hücre (half-cut) monokristal güneş paneli", "BOOST MPPT 24–72 V şarj kontrol cihazı — tüm akü tipleriyle", "5 m siyah + 5 m kırmızı solar kablo", "MC4 konnektör takımı (erkek + dişi)", "Panel, cihaz ve kablolama birbiriyle uyumlu seçilmiştir"]
+    },
+    {
+      id: "set-mini", icon: "🚗", tag: "Hazır Paket", group: "evset",
+      url: "paket-motor-mini.html",
+      sku: "GES-SET-MINI",
+      img: "assets/img/products/ev/motor-mini.webp",
+      price: 300.81, currency: "USD",                     // ₺14.800 @ 49,2
+      parts: ["panel-240w", "boost-mppt", "kablo-solar-5m", "mc4-set"],
+      chips: ["🔆 240 W panel", "🔌 BOOST MPPT 24–72 V", "🧰 Kablo + MC4 dahil"],
+      for: "Kapalı kabinli mini elektrikli otomobiller — tavan alanı küçük",
+      name: "Mini Elektrikli Otomobil Güneş Paketi — 240 W",
+      desc: "Kapalı kabinli mini elektrikli otomobili güneşle şarj etmek için hazırlanmış komple paket: 240 W (48 hücre) güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Küçük tavan alanına göre panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.",
+      features: ["240 W güneş paneli (48 hücre, küçük tavana uygun)", "BOOST MPPT 24–72 V şarj kontrol cihazı — tüm akü tipleriyle", "5 m siyah + 5 m kırmızı solar kablo", "MC4 konnektör takımı (erkek + dişi)", "Panel, cihaz ve kablolama birbiriyle uyumlu seçilmiştir"]
     },
 
     {
       id: "mc4-set", icon: "🔗", tag: "Konnektör", group: "cable",
+      url: "mc4-set.html",
       sku: "GES-MC4-1",
       img: "assets/img/products/mc4-set.webp",
       price: 2.03, currency: "USD",                       // ₺100 @ 49,2
@@ -580,6 +840,100 @@ window.GESPA.config = {
       name: "MC4 Konnektör Takımı",
       desc: "Güneş paneli çıkış kablosu ile solar kabloyu birleştiren erkek-dişi MC4 konnektör takımı. Elektrikli motor güneş paketlerine 1 takım dahildir.",
       features: ["1 takım erkek + dişi MC4 konnektör", "Panel kablosu – solar kablo bağlantısı", "Elektrikli motor güneş paketlerine dahildir"]
+    },
+
+    // —— Aydınlatma —— Hero LED (16 Eki 2026, işletmenin gönderdiği
+    // aydinlatma_2.rtf). Değerler üreticinin ürün afişlerinden; afişte
+    // olmayan değer (duy tipi, akü kapasitesi, şarj süresi) YAZILMAZ.
+    // HERO LED gerçek üretici markasıdır, fotoğraftaki logo SİLİNMEZ.
+    // FİYAT: belgede ₺130 ve ₺1.215. ₺1.215, ≥₺1.000 tutarlar 50'ye
+    // yuvarlandığı için yazılamaz; en yakın ₺1.200 seçildi.
+    {
+      id: "hero-led-ampul-10w", icon: "💡", tag: "Aydınlatma", group: "lighting",
+      url: "hero-led-ampul-10w.html",
+      sku: "HL-7020", brand: "Hero LED",
+      img: "assets/img/products/hero-led-ampul-10w.webp",
+      price: 2.64, currency: "USD",                       // ₺130 @ 49,2
+      // %3 havale indirimi 50'ye yuvarlanınca ₺130'da sıfırlanıyor; rozet
+      // "indirim" deyip indirim vermesin diye fiyat NET tutulur.
+      noCartDiscount: true,
+      chips: ["💡 10 W · 850 lm", "⚡ 12–60 V AC/DC", "⚪ 6500 K beyaz"],
+      for: "Karavan, tekne, bağ evi ve akülü güneş sistemleri",
+      name: "Hero LED 10 W 12 V DC LED Ampul (12–60 V AC/DC)",
+      desc: "12–60 V AC/DC geniş gerilim aralığında çalışan 10 W LED ampul: 850 lümen, 6500 K beyaz ışık. 12 V ve 24 V akülü güneş sistemlerinde, karavanda, teknede ve bağ evinde doğrudan aküden çalışır. Ölçü 60 × 118 mm, çalışma sıcaklığı −20 ~ +55 °C, enerji sınıfı F (10 kWh/1000 saat); ultraviyole ışın içermez.",
+      features: ["10 W · 850 lümen · 6500 K beyaz ışık", "12–60 V AC/DC geniş gerilim aralığı", "12 V / 24 V akü sistemlerinde doğrudan kullanım", "60 × 118 mm · −20 ~ +55 °C", "Enerji sınıfı F · 10 kWh/1000 saat · UV içermez"]
+    },
+    {
+      id: "hero-led-solar-sokak-100w", icon: "🌙", tag: "Aydınlatma", group: "lighting",
+      url: "hero-led-solar-sokak-100w.html",
+      sku: "HL-5151", brand: "Hero LED",
+      img: "assets/img/products/hero-led-solar-sokak-100w.webp",
+      price: 24.7, currency: "USD",                       // ₺1.200 @ 49,2
+      chips: ["☀️ Güneş panelli", "🚶 Hareket sensörü", "💧 IP65"],
+      for: "Bahçe, sokak, site, otopark ve fabrika aydınlatması",
+      name: "Hero LED 100 W Solar Sokak Armatürü (Sensörlü, Kumandalı)",
+      desc: "Güneş paneliyle şarj olup gece çalışan 100 W solar sokak armatürü (HL-5151): elektrik hattı çekmeden aydınlatma sağlar. SMD LED, 6500 K beyaz ışık, hareket sensörüyle otomatik yanma, uzaktan kumanda, IP65 suya dayanıklılık ve 30.000 saat ömür. Bahçe, sokak, site, otopark ve fabrika aydınlatması için.",
+      features: ["Güneş panelli — elektrik hattı gerektirmez", "SMD LED · 6500 K beyaz ışık", "Hareket sensörüyle otomatik yanma", "Uzaktan kumanda", "IP65 suya dayanıklı · 30.000 saat ömür"]
+    },
+
+    // —— 5'Lİ ALIM FİYATLI Hero LED ürünleri (16 Eki 2026; aydinlatma.rtf,
+    // aydinlatma3.rtf, aydin4.rtf, aydin5.rtf). Belgedeki fiyat 5 adet ve
+    // üzeri alımın ADET fiyatıdır (`bulk`); tek alımda %10 fazlası (`price`).
+    // Kural main.js pkgUnit(p, qty) ve server.js pkgListTL(p, cfg, qty)'de
+    // AYNIDIR. Belge → site (yuvarlama): aplik ₺755 → ₺760 / tekli ₺830;
+    // bahçe ₺705 → ₺710 / ₺780; 200 W ₺2.025 → ₺2.050 / ₺2.250;
+    // 600 W ₺2.430 → ₺2.450 / ₺2.650.
+    {
+      id: "hero-led-aplik-50w", icon: "🏮", tag: "Aydınlatma", group: "lighting",
+      url: "hero-led-aplik-50w.html",
+      sku: "HL-5181", brand: "Hero LED",
+      img: "assets/img/products/hero-led-aplik-50w.webp",
+      price: 16.88, currency: "USD",                      // ₺830 @ 49,2 (tekli)
+      bulk: { min: 5, price: 15.35 },                     // ₺760 @ 49,2 (5+ adet)
+      chips: ["☀️ Güneş enerjili", "🌈 3 renk + RGB", "💧 IP65"],
+      for: "Duvar, giriş kapısı, bahçe duvarı ve teras aydınlatması",
+      name: "Hero LED 50 W Solar LED Aplik (Kumandalı, 3 Renk + RGB)",
+      desc: "Üstündeki güneş paneliyle gündüz şarj olup gece çalışan 50 W solar duvar apliği (HL-5181): elektrik hattı gerektirmez. 4000 lümen, 3200 K / 4000 K / 6500 K ve RGB ışık seçeneği, 60° ışık açısı, uzaktan kumanda, IP65 suya dayanıklılık ve 15.000 saat ömür. Şarj süresi 6 saat, çalışma süresi 8 saat; ölçü 160 × 160 × 213 mm.",
+      features: ["Güneş enerjili — elektrik hattı gerektirmez", "50 W · 4000 lümen · 60° ışık açısı", "3200 K / 4000 K / 6500 K + RGB ışık seçeneği", "Uzaktan kumanda · duvar tipi montaj", "IP65 suya dayanıklı · 15.000 saat ömür", "Şarj 6 saat · çalışma 8 saat"]
+    },
+    {
+      id: "hero-led-bahce-50w", icon: "🏡", tag: "Aydınlatma", group: "lighting",
+      url: "hero-led-bahce-50w.html",
+      sku: "HL-5180", brand: "Hero LED",
+      img: "assets/img/products/hero-led-bahce-50w.webp",
+      price: 15.76, currency: "USD",                      // ₺780 @ 49,2 (tekli)
+      bulk: { min: 5, price: 14.33 },                     // ₺710 @ 49,2 (5+ adet)
+      chips: ["☀️ Güneş enerjili", "🌈 3 renk + RGB", "💧 IP65"],
+      for: "Bahçe duvarı, set, kolon başı ve giriş aydınlatması",
+      name: "Hero LED 50 W Solar Set Üstü Bahçe Armatürü (Kumandalı, 3 Renk + RGB)",
+      desc: "Bahçe duvarı, set ve kolon başına takılan 50 W solar bahçe armatürü (HL-5180); duvara da monte edilebilir. Üstündeki güneş paneliyle şarj olur, elektrik hattı gerektirmez. 4000 lümen, 3200 K / 4000 K / 6500 K ve RGB ışık seçeneği, 60° ışık açısı, uzaktan kumanda, IP65 suya dayanıklılık ve 15.000 saat ömür. Şarj süresi 6 saat, çalışma süresi 8 saat; ölçü 160 × 160 × 213 mm.",
+      features: ["Güneş enerjili — elektrik hattı gerektirmez", "50 W · 4000 lümen · 60° ışık açısı", "3200 K / 4000 K / 6500 K + RGB ışık seçeneği", "Uzaktan kumanda · set üstü / duvar tipi montaj", "IP65 suya dayanıklı · 15.000 saat ömür", "Şarj 6 saat · çalışma 8 saat"]
+    },
+    {
+      id: "hero-led-solar-sokak-200w", icon: "🌙", tag: "Aydınlatma", group: "lighting",
+      url: "hero-led-solar-sokak-200w.html",
+      sku: "HL-5153", brand: "Hero LED",
+      img: "assets/img/products/hero-led-solar-sokak-200w.webp",
+      price: 45.27, currency: "USD",                      // ₺2.250 @ 49,2 (tekli)
+      bulk: { min: 5, price: 41.16 },                     // ₺2.050 @ 49,2 (5+ adet)
+      chips: ["☀️ Güneş panelli", "🚶 Hareket sensörü", "💧 IP65"],
+      for: "Bahçe, sokak, site, otopark ve fabrika aydınlatması",
+      name: "Hero LED 200 W Solar Sokak Armatürü (Sensörlü, Kumandalı)",
+      desc: "Güneş paneliyle şarj olup gece çalışan 200 W solar sokak armatürü (HL-5153): elektrik hattı çekmeden aydınlatma sağlar. SMD LED, 6500 K beyaz ışık, hareket sensörüyle otomatik yanma, sabit yanma zaman ayarı, uzaktan kumanda, IP65 suya dayanıklılık ve 30.000 saat ömür. Armatür ölçüsü 188 × 586 mm. Bahçe, sokak, site, otopark ve fabrika aydınlatması için.",
+      features: ["Güneş panelli — elektrik hattı gerektirmez", "SMD LED · 6500 K beyaz ışık", "Hareket sensörü · sabit yanma zaman ayarı", "Uzaktan kumanda", "IP65 suya dayanıklı · 30.000 saat ömür", "Armatür 188 × 586 mm"]
+    },
+    {
+      id: "hero-led-solar-sokak-600w", icon: "🌙", tag: "Aydınlatma", group: "lighting",
+      url: "hero-led-solar-sokak-600w.html",
+      sku: "HL-5157", brand: "Hero LED",
+      img: "assets/img/products/hero-led-solar-sokak-600w.webp",
+      price: 54.33, currency: "USD",                      // ₺2.650 @ 49,2 (tekli)
+      bulk: { min: 5, price: 49.39 },                     // ₺2.450 @ 49,2 (5+ adet)
+      chips: ["☀️ Güneş panelli", "📡 Radar sensör", "💧 IP65"],
+      for: "Geniş bahçe, sokak, site, otopark ve fabrika sahası",
+      name: "Hero LED 600 W Solar Sokak Armatürü (Radar Sensörlü, Kumandalı)",
+      desc: "Geniş alanlar için 600 W solar sokak armatürü (HL-5157): ayrı güneş paneliyle şarj olur, elektrik hattı ve elektrik faturası gerektirmez. SMD LED, 6500 K beyaz ışık, radar hareket sensörü, sabit yanma zaman ayarı, uzaktan kumanda, IP65 suya dayanıklılık ve 30.000 saat ömür. Kutu bilgisine göre sensör modunda 24–36 saat, sabit yanmada 6–8 saat çalışır. Armatür ölçüsü 29,8 × 46,5 cm.",
+      features: ["Ayrı güneş paneli — elektrik hattı gerektirmez", "SMD LED · 6500 K beyaz ışık", "Radar hareket sensörü · sabit yanma zaman ayarı", "Sensör modunda 24–36 saat · sabit yanmada 6–8 saat", "Uzaktan kumanda · IP65 · 30.000 saat ömür", "Armatür 29,8 × 46,5 cm"]
     },
 
   ],
@@ -592,7 +946,7 @@ window.GESPA.config = {
   // config.packages'teki GERÇEK ÜRÜNE bağlanır (fiyat, içerik ve detay
   // sayfası oradan gelir). Böylece paketin kendi kartı, kendi adresi ve
   // sepette kendi satırı olur.
-  // GÖRSELLER: araçlar BAŞKA ÜRETİCİLERE aittir (CSN, SFM). Marka
+  // GÖRSELLER: araçlar BAŞKA ÜRETİCİLERE aittir (CSN, SFM, ARORA). Marka
   // yazıları SİLİNMEZ (UNV kuralının aynısı) ve sayfada "araç tipi
   // örneği" diye etiketlenir — o araçları biz satmıyoruz.
   evSets: [
@@ -614,6 +968,24 @@ window.GESPA.config = {
       title: "Kargo kasalı triportör",
       hint: "Açık kasa veya tenteli yük araçları — çatı alanı geniş",
       pkg: "set-kargo"
+    },
+    {
+      id: "golf",
+      img: "assets/img/products/ev/motor-golf.webp",
+      proof: "assets/img/products/ev/motor-golf-kurulum.webp",
+      title: "Golf aracı tipi",
+      hint: "Tavanlı, golf aracı tipi yolcu araçları — düz tavan",
+      pkg: "set-golf"
+    },
+    {
+      id: "mini",
+      img: "assets/img/products/ev/motor-mini.webp",
+      // Panelli kurulum fotoğrafı YOK: sol görsel aracın yan görünüşüdür,
+      // seçici altyazısı "Araç tipi örneği" olur (main.js proofKind).
+      proof: "assets/img/products/ev/motor-mini-kurulum.webp", proofKind: "vehicle",
+      title: "Mini elektrikli otomobil",
+      hint: "Kapalı kabinli mini otomobiller — tavan alanı küçük",
+      pkg: "set-mini"
     }
   ],
   // Sette `proof` yoksa kullanılacak yedek görsel.
@@ -659,7 +1031,7 @@ window.GESPA.config = {
         items: { buzdolabi: 1, tv: 1, led: 6, telefon: 2, wifi: 1, su_pompasi: 1 } },
       { id: "karavan", icon: "🚐", label: "Karavan / Kamp", desc: "Mobil kullanım, düşük tüketim",
         items: { buzdolabi_mini: 1, led: 4, telefon: 2, laptop: 1 },
-        prefer: { panel: "pnl-lexron-285" } },
+        prefer: { panel: "pnl-240" } },
       { id: "mustakil", icon: "🏠", label: "Müstakil Ev", desc: "Tam zamanlı yaşam",
         items: { buzdolabi: 1, tv: 2, led: 12, telefon: 4, wifi: 1, camasir: 1, bulasik: 1, su_pompasi: 1, klima: 1 } },
       { id: "tarla", icon: "🌾", label: "Tarla / Sulama", desc: "Pompa ağırlıklı sezonluk",
@@ -718,7 +1090,8 @@ window.GESPA.config = {
       panel: [
         { id: "pnl-lexron-655", pkg: "panel-lexron-655w", w: 655 },
         { id: "pnl-arcelik-540", pkg: "panel-arcelik-540w", w: 540 },
-        { id: "pnl-lexron-285", pkg: "panel-lexron-285w", w: 285 }
+        { id: "pnl-360", pkg: "panel-360w", w: 360 },
+        { id: "pnl-240", pkg: "panel-240w", w: 240 }
       ],
       battery: [
         { id: "bat-titanx-51-102", pkg: "aku-titanx-51v-102ah", kwh: 5.22, dod: 0.9, v: 48 }

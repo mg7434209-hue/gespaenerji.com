@@ -120,7 +120,7 @@ for(const pre of ['','en/','de/','ru/']){
 }
 for(const f of fs.readdirSync(root).filter(f=>f.endsWith('.html'))){
  const h=fs.readFileSync(path.join(root,f),'utf8');
- if(h.includes('<!-- /SISTER:STATIC -->'))assert.ok(/<!-- HELP:STATIC --><a href="sss.html">[^<]+<\/a><a href="sozluk.html">[^<]+<\/a><!-- TR:ONLY --><a href="gunes-paneli-kacak-elektrik-cezasi.html">[^<]+<\/a><!-- \/TR:ONLY --><!-- \/HELP:STATIC -->/.test(h),f+': footer help links');
+ if(h.includes('<!-- /SISTER:STATIC -->'))assert.ok(/<!-- HELP:STATIC --><a href="sss.html">[^<]+<\/a><a href="sozluk.html">[^<]+<\/a><!-- TR:ONLY --><a href="rehberler.html">[^<]+<\/a><a href="gunes-paneli-kacak-elektrik-cezasi.html">[^<]+<\/a><!-- \/TR:ONLY --><!-- \/HELP:STATIC -->/.test(h),f+': footer help links');
 }
 // TR-only blocks (links to the Turkish-only regulation guide) never reach a language copy or its Markdown mirror.
 for(const d of ['en','de','ru','md/en','md/de','md/ru'])for(const f of fs.readdirSync(path.join(root,d)).filter(f=>/\.(html|md)$/.test(f))){
@@ -205,19 +205,24 @@ assert.ok(/location\.hash/.test(fs.readFileSync(path.join(root,'odeme-sonuc.html
  for(const pg of sbq.window.GESPA.config.qa.pages){const h=fs.readFileSync(path.join(root,pg+'.html'),'utf8');
   assert.ok(/<!-- QA:STATIC -->[\s\S]*?<!-- \/QA:STATIC -->/.test(h)&&h.includes('data-qa-page="'+pg+'"')&&h.includes('src="assets/qa.js"'),pg+': Q&A markers and script');
   assert.ok(!/qa-thread/.test(h),pg+': no visitor content committed to the page');}}
-// Top menu (30 Sep 2026): "Solar Sistemler" was removed (the home page presents solar), "Yapay Zekâ
-// Ürünleri" is a plain link to the hub, Araçlar is the only dropdown (tools/menu-uret.py writes every
-// page). The services hub keeps a link from every page through the footer "Hizmetler" column.
+// Top menu (26 Oct 2026, CRO decision): Mağaza · Çatı & Arazi GES · Tarımsal Sulama · Elektrikli Araç ·
+// Referanslar · Hakkımızda · "Ücretsiz Keşif" WhatsApp button (data-wa-kesif). No dropdown, no AI-products
+// item: the AI hub and the tools stay reachable from the footer "Kurumsal" column (tools/menu-uret.py
+// writes every page). The services hub keeps a link from every page through the footer "Hizmetler" column.
 // The AI hub lists its products from the visible cards (ItemList of Service, not Product: no price) and
 // keeps the safety notes on fire and fall detection.
 {let navs=0;
  for(const f of fs.readdirSync(root).filter(x=>x.endsWith('.html'))){const h=fs.readFileSync(path.join(root,f),'utf8'),m=h.match(/<nav class="menu" id="menu"[\s\S]*?<\/nav>/);if(!m)continue;navs++;
-  assert.ok(!m[0].includes('Solar Sistemler'),f+': no Solar Sistemler item in the menu');
-  assert.ok(/<a href="yapay-zeka-urunleri\.html"( class="active")?>Yapay Zekâ Ürünleri<\/a>/.test(m[0]),f+': AI products link to the hub');
-  assert.equal((m[0].match(/class="menu-group/g)||[]).length,1,f+': only Araçlar is a dropdown');
+  assert.ok(!m[0].includes('Solar Sistemler')&&!m[0].includes('Yapay Zekâ Ürünleri'),f+': no Solar Sistemler / AI item in the menu');
+  assert.ok(/^<nav[^>]*>\s*<a href="online-satis\.html"( class="active")?>Mağaza<\/a>/.test(m[0]),f+': Mağaza is the first menu item');
+  assert.ok(/<a href="hizmetler\.html"( class="active")?>Çatı &amp; Arazi GES<\/a>/.test(m[0]),f+': services hub in the menu');
+  assert.ok(/<a href="https:\/\/wa\.me\/\d+\?text=[^"]+" class="btn btn-sm" data-wa-kesif target="_blank" rel="noopener">Ücretsiz Keşif<\/a>/.test(m[0]),f+': free-survey WhatsApp button');
+  assert.equal((m[0].match(/class="menu-group/g)||[]).length,0,f+': no dropdown in the menu');
+  assert.ok(/<a href="yapay-zeka-urunleri\.html">Yapay Zekâ Ürünleri<\/a>/.test(h),f+': footer links the AI hub');
   assert.ok(/<div class="footer-col"><h4>Hizmetler<\/h4>(?:(?!<\/div>)[\s\S])*href="hizmetler\.html"/.test(h),f+': footer links the services hub');}
  assert.ok(navs>=40,'menus checked: '+navs);
- assert.ok(/<nav class="menu"[\s\S]*?<a href="projeler\.html" class="active">/.test(fs.readFileSync(path.join(root,'proje-kemer-villa.html'),'utf8')),'project pages mark Projeler active');
+ assert.ok(/<nav class="menu"[\s\S]*?<a href="projeler\.html" class="active">/.test(fs.readFileSync(path.join(root,'proje-kemer-villa.html'),'utf8')),'project pages mark Referanslar active');
+ assert.ok(/<nav class="menu"[\s\S]*?<a href="online-satis\.html" class="active">/.test(fs.readFileSync(path.join(root,'panel-700w.html'),'utf8')),'product pages mark Mağaza active');
  const hub=fs.readFileSync(path.join(root,'yapay-zeka-urunleri.html'),'utf8');
  const art=id=>(hub.match(new RegExp('<article[^>]*\\bid="'+id+'"[\\s\\S]*?<\\/article>'))||[''])[0];
  const cards=(hub.match(/<article class="ai-(?:feature|card)[^"]*"[^>]*\bid="/g)||[]).length+(hub.includes('id="yazilim"')?1:0);
@@ -316,7 +321,8 @@ const ingest=require('node:http').createServer((q,r)=>{let b='';q.on('data',c=>b
 ingest.listen(4318,'127.0.0.1');
 const port=4317,server=spawn(process.execPath,['server.js'],{cwd:root,env:{...process.env,PORT:String(port),IYZIPAY_API_KEY:'',IYZICO_API_KEY:'',IYZIPAY_SECRET_KEY:RECEIPT_TEST_SECRET,FX_AUTO:'0',ADMIN_PASS:ADMIN_TEST_PASS,DATA_DIR:TEST_DATA,OS_TOKEN:OS_TEST_TOKEN,OS_INGEST_URL:'http://127.0.0.1:4318',OS_INGEST_TOKEN:INGEST_TOKEN,OS_SYNC_EVERY_MS:'400'}});
 let logs='',started=false;
-const timeout=setTimeout(()=>{server.kill();console.error(logs);process.exitCode=1;},25000);
+// Sunucu dinlemeden önce build çalıştırır; 238 sayfada bu ~25 s sürüyor (railway.json healthcheckTimeout 300 s).
+const timeout=setTimeout(()=>{server.kill();console.error(logs);process.exitCode=1;},90000);
 server.stderr.on('data',d=>logs+=d);
 server.stdout.on('data',async d=>{
  logs+=d;if(started||!logs.includes('adresinde yayında'))return;started=true;
@@ -372,9 +378,28 @@ server.stdout.on('data',async d=>{
   const rj=JSON.parse(fs.readFileSync(path.join(root,'railway.json'),'utf8'));assert.equal(rj.deploy.healthcheckPath,'/api/health','railway healthcheck path');
   const vis=await (await fetch('http://127.0.0.1:'+port+'/api/visitors')).json();
   assert.ok(Number.isFinite(vis.total)&&'day' in vis&&(vis.day===null||Number.isFinite(vis.day)),'visitors api: total + day');
+  if(vis.day===null)assert.ok(Number.isFinite(vis.recent)&&vis.recentHours>=1&&vis.recentHours<=24,'visitors api: partial window states its hours');
   const ex403=await fetch('http://127.0.0.1:'+port+'/api/visitors/export',{method:'POST',body:JSON.stringify({pass:'yanlis'})});assert.equal(ex403.status,403);await ex403.text();
   const ex=await fetch('http://127.0.0.1:'+port+'/api/visitors/export',{method:'POST',body:JSON.stringify({pass:ADMIN_TEST_PASS})});
   assert.equal(ex.status,200);const exj=await ex.json();assert.ok(exj.total===vis.total&&exj.hours&&exj.hoursSince>0,'visitors export for redeploy handoff');
+  // Anonymous product-interest / traffic counters: /api/ev (public, bots and bad ids ignored) -> /api/stats (admin).
+  const EV_UA='Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) Mobile Safari/604.1',evPost=async(o,ua)=>{const r=await fetch('http://127.0.0.1:'+port+'/api/ev',{method:'POST',headers:{'User-Agent':ua||EV_UA,'Content-Type':'text/plain'},body:JSON.stringify(o)});assert.equal(r.status,204,'event accepted');await r.text();};
+  await evPost({t:'pv',path:'/index.html',s:1,ref:'www.google.com'});
+  await evPost({t:'pv',path:'/en/paket-285w.html'});
+  await evPost({t:'view',id:'kit-285w'});
+  await evPost({t:'cart',id:'kit-285w'});
+  await evPost({t:'view',id:'bu-urun-yok'});                       // unknown product id
+  await evPost({t:'pv',path:'/../server.js',s:1});                 // not a public page
+  await evPost({t:'view',id:'kit-285w'},'curl/8.0');               // bot user agent
+  const st403=await fetch('http://127.0.0.1:'+port+'/api/stats',{method:'POST',body:JSON.stringify({pass:'yanlis'})});assert.equal(st403.status,403);await st403.text();
+  const stj=await (await fetch('http://127.0.0.1:'+port+'/api/stats',{method:'POST',body:JSON.stringify({pass:ADMIN_TEST_PASS})})).json();
+  const stDay=stj.days[stj.today];
+  assert.ok(stDay&&stDay.v===1&&stDay.src['Google']===1&&stDay.dev['Telefon']===1,'stats: one visit, source Google, device phone');
+  assert.equal(stDay.pv['/index.html'],1,'stats: page views');assert.equal(stDay.pv['/paket-285w.html'],1,'stats: language copy counts as the same page');
+  assert.equal(stDay.view['kit-285w'],1,'stats: product view (bot ignored)');assert.equal(stDay.cart['kit-285w'],1,'stats: add to cart');
+  assert.ok(!stDay.view['bu-urun-yok']&&!Object.keys(stDay.pv).some(k=>/server/.test(k)),'stats: unknown ids and non-public paths rejected');
+  const ex2=await (await fetch('http://127.0.0.1:'+port+'/api/visitors/export',{method:'POST',body:JSON.stringify({pass:ADMIN_TEST_PASS})})).json();
+  assert.ok(ex2.stats&&ex2.stats.days[stj.today]&&ex2.stats.days[stj.today].v===1,'stats travel with the visitor counter on redeploy handoff');
   // Payment receipt token: the receipt opens WITHOUT a server-side order record (Railway without a
   // Volume wipes orders.json on every deploy). Format must match server.js receiptSeal():
   // 0x01 + iv(12) + GCM tag(16) + AES-256-GCM(deflateRaw(JSON)), key = HMAC(iyzico secret, label).
@@ -437,6 +462,6 @@ server.stdout.on('data',async d=>{
    r=await api('/api/admin/login',{pass:'yanlis'});assert.equal(r.status,403);await r.text();
    r=await api('/api/admin/login',{pass:ADMIN_TEST_PASS});assert.deepEqual(await r.json(),{ok:true,secure:true},'admin login is verified by the server');}
   console.log('HTTP: key pages and bot files return 200; missing page returns 404; markdown mirrors, Accept negotiation, AI crawler counter, visitor handoff, receipt tokens, the public-file allowlist and the moderated Q&A work.');
- }catch(e){console.error(e);process.exitCode=1;}finally{clearTimeout(timeout);server.kill();fs.rmSync(TEST_DATA,{recursive:true,force:true});}
+ }catch(e){console.error(e);process.exitCode=1;}finally{clearTimeout(timeout);await new Promise(r=>{const t=setTimeout(r,4000);server.once('exit',()=>{clearTimeout(t);r();});server.kill();});fs.rmSync(TEST_DATA,{recursive:true,force:true});}
 });
 server.on('error',e=>{clearTimeout(timeout);console.error(e);process.exitCode=1;});

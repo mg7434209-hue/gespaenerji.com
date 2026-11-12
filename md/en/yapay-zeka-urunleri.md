@@ -3,7 +3,7 @@ title: "AI Products — Video Analytics and Safety | GESPA Energy"
 description: "AI Lifeguard, AI fire and smoke detection, perimeter security, hard hat and vest checks, and fall detection. Site survey, installation and custom software."
 canonical: https://www.gespaenerji.com/en/yapay-zeka-urunleri.html
 lang: en
-dateModified: 2026-09-30
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 

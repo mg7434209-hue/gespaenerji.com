@@ -1,43 +1,60 @@
 ---
-title: "Kargo Kasalı Motor Güneş Paketi — 655 W | GESPA Enerji"
-description: "Kargo kasalı elektrikli triportör için komple güneş paketi: 655 W N-type TOPCon panel, BOOST MPPT 24–72 V şarj kontrol cihazı, solar kablo ve MC4. Geniş çatı için en verimli güç."
+title: "Kargo Kasalı Motor Güneş Paketi — 700 W | GESPA Enerji"
+description: "Kargo kasalı elektrikli triportör için komple güneş paketi: 700 W bifacial TOPCon panel, BOOST MPPT 24–72 V şarj kontrol cihazı, solar kablo ve MC4."
 canonical: https://www.gespaenerji.com/paket-motor-kargo.html
 lang: tr
-dateModified: 2026-09-30
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
-[Ana Sayfa](https://www.gespaenerji.com/) / [Ürünler](https://www.gespaenerji.com/urunler.html) / Kargo Kasalı Motor Güneş Paketi — 655 W
+[Ana Sayfa](https://www.gespaenerji.com/) / [Ürünler](https://www.gespaenerji.com/urunler.html) / Kargo Kasalı Motor Güneş Paketi — 700 W
 
 ![Kargo kasalı elektrikli triportör](https://www.gespaenerji.com/assets/img/products/ev/motor-kargo.webp)
 
 🚚 Hazır Paket
 
-# Kargo Kasalı Motor Güneş Paketi — 655 W
+# Kargo Kasalı Motor Güneş Paketi — 700 W
 
 Ürün kodu: **GES-SET-KARGO** Stokta / tedarikte
 
 Kargo kasalı elektrikli triportörünüzü güneşle şarj edin. Geniş kasa çatısının kaldırabileceği en verimli panel gücü seçildi; şarj kontrol cihazı, kablo ve MC4 pakete dahil.
 
-**₺18.300** ≈ $372
+**₺17.000** ≈ $346
 
 KDV dahil fiyattır.
 
-💰 Havale/EFT ile: **₺17.750**
+💰 Havale/EFT ile: **₺16.500**
+
+💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
+
+🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
 [⚡ Hemen satın al](https://www.gespaenerji.com/sepet.html)
-[💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Kargo%20Kasal%C4%B1%20Motor%20G%C3%BCne%C5%9F%20Paketi%20%E2%80%94%20700%20W%22%20(GES-SET-KARGO)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpaket-motor-kargo.html)
 
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
-- 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
+- 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🛡️ Garanti: **2 yıl**
+- 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 - 🔧 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi.
 
-🔆 655 W TOPCon panel 🔌 BOOST MPPT 24–72 V 🧰 Kablo + MC4 dahil 🚚 Geniş çatıya uygun
+🔆 700 W bifacial TOPCon panel 🔌 BOOST MPPT 24–72 V 🧰 Kablo + MC4 dahil 🚚 Geniş çatıya uygun
 
-Kargo kasalı elektrikli triportörlerde çatı ya da tente alanı geniştir; bu alanı küçük bir panelle harcamak günlük üretimden kaybetmek demektir. 655 W N-type TOPCon panel, bu araçlarda alanın karşılığını en iyi veren ölçüdür.
+## ✅ Kimler için uygun
+
+- 24–72 V akülü triportör, golf aracı ve mini araçlar
+- Çatısı paketteki panelin ölçüsüne sığan araçlar
+- AGM, jel, sulu kurşun-asit ve lityum aküler
+
+## ⛔ Uygun değil
+
+- 12 V akülü araçlar
+- Çatısı panelden küçük araçlar
+- Gün boyu kapalı veya gölgede park eden araçlar
+
+Kargo kasalı elektrikli triportörlerde çatı ya da tente alanı geniştir; bu alanı küçük bir panelle harcamak günlük üretimden kaybetmek demektir. 700 W bifacial (çift yüzlü) N-type TOPCon panel 2278 × 1133 mm ölçüsüyle bu alana sığar; ön yüz gücü 610 Wp'tir.
 
 Pakette panelin yanında BOOST MPPT 24–72 V şarj kontrol cihazı vardır: aracınızın akü grubu 24, 36, 48, 60 ya da 72 V olabilir; AGM, jel, sulu kurşun-asit ve lityum akülerin hepsiyle çalışır. Panelden gelen gerilimi akünün ihtiyacına yükselterek doğrudan şarj eder.
 
@@ -45,7 +62,7 @@ Bağlantı için 5 metre siyah + 5 metre kırmızı solar kablo ve MC4 konnektö
 
 | Adet | Bileşen |
 | --- | --- |
-| 1 × | Lexron 655 W TOPCon Güneş Paneli |
+| 1 × | 700 W Bifacial TOPCon Güneş Paneli |
 | 1 × | MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı |
 | 1 × | Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) |
 | 1 × | MC4 Konnektör Takımı |
@@ -72,7 +89,7 @@ Panel gücü aracınızın çatı alanına, şarj cihazı akü gerilimine göre 
 
 ### Geniş çatının karşılığı
 
-655 W panel, kasa/tente çatısındaki alanı verimli kullanır; günlük üretim 285 W'lık pakete göre belirgin biçimde yüksektir.
+700 W bifacial panel (ön yüz 610 Wp), kasa/tente çatısındaki alanı verimli kullanır; günlük üretim 240 W'lık pakete göre belirgin biçimde yüksektir.
 
 ✅
 
@@ -102,9 +119,13 @@ Sıkça Sorulan Sorular
 
 Uyar. Pakete dahil BOOST MPPT cihazı 24, 36, 48, 60 ve 72 V akü gruplarıyla çalışacak şekilde yapılandırılır.
 
-### 655 W panel kasaya ağır gelir mi?
+### 700 W panel kasaya sığar mı?
 
-Panel yaklaşık 31 kg'dır ve yükü konstrüksiyonla kasa şasisine dağıtılır. Aracınızın yapısını sipariş öncesi birlikte değerlendiriyoruz.
+Panel 2278 × 1133 × 30 mm'dir; yükü konstrüksiyonla kasa şasisine dağıtılır. Aracınızın ölçüsünü ve yapısını sipariş öncesi birlikte değerlendiriyoruz.
+
+### Bifacial (çift yüzlü) panel araçta ne kazandırır?
+
+Panelin arka yüzü de ışık toplar. 700 W değeri, ön yüzün 610 Wp gücüne arka yüzden gelen %15 ek kazancın eklenmesiyle bulunan değerdir. Arka yüz kazancı panelin altına yansıyan ışığa bağlıdır; kasa ya da tente çatısına yakın montajda düşer, bu yüzden üretim hesabında ön yüz gücü (610 Wp) esas alınmalıdır.
 
 ### Kablo kesiti kaç mm²?
 
@@ -112,15 +133,23 @@ Stok durumuna göre 4 mm² veya 6 mm² gönderilir; bu sistemlerde ikisi de uygu
 
 ### Aracım kabinli yolcu tipi, bu paket olur mu?
 
-Kabinli yolcu araçlarında çatı dardır; onlar için 285 W'lık paket daha uygundur.
+Kabinli yolcu araçlarında çatı dardır; onlar için 240 W'lık paket daha uygundur.
 
 [Yolcu Kabinli Motor Güneş Paketi'ne göz atın →](https://www.gespaenerji.com/paket-motor-yolcu.html)
 
 **Aracınız kabinli yolcu tipi mi?**
 
-Çatı alanı dar olan kabinli yolcu araçları için 285 W'lık paket daha uygundur.
+Çatı alanı dar olan kabinli yolcu araçları için 240 W'lık paket daha uygundur.
 
 [Yolcu Kabinli Motor Güneş Paketi'ne göz atın →](https://www.gespaenerji.com/paket-motor-yolcu.html)
+
+Müşteri yorumları
+
+## Bu ürünü alanlar ne diyor?
+
+Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
+
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Kargo%20Kasal%C4%B1%20Motor%20G%C3%BCne%C5%9F%20Paketi%20%E2%80%94%20700%20W%22%20(GES-SET-KARGO)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Paketi bugün sipariş edin
 

@@ -55,14 +55,17 @@ Modeller ve fiyatlar (KDV dahil, ₺):
 
 ## Paket Ürünler (https://www.gespaenerji.com/urunler.html)
 Markalar — panel: Arçelik, Lexron, Bakırlar · inverter: Tescom, Mexxsun, Lexron, Arçelik, Deye, TitanX · MPPT/DC-DC: Havensis, MS Teknik · akü: Orbus, TitanX · kendi markamız: GESPA
-- 285W Güneş Paneli Paketi — 0.285 kWp · Kamp, karavan ve küçük ihtiyaçlar · ₺25.000 (≈ $508) liste (KDV dahil) · havale/EFT ile ₺24.250 (%3 indirimli)
+- 240W Güneş Paneli Paketi — 0.24 kWp · Kamp, karavan ve küçük ihtiyaçlar · ₺24.000 (≈ $488) liste (KDV dahil) · havale/EFT ile ₺23.300 (%3 indirimli)
 - Tam Kapsamlı Güneş Enerjisi Sistemi — 1.08 kWp · Karavan, kamp ve bağ evi · ₺108.200 (≈ $2.200) liste (KDV dahil) · havale/EFT ile ₺104.950 (%3 indirimli)
 - MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı — GES-EV-BOOST · Golf aracı, hizmet aracı ve elektrikli platformlar · ₺7.200 (≈ $146) (KDV dahil, net fiyat) · kargo fiyata DAHİL
 - europlus 72 V 30 Ah LiFePO₄ Akü — GES-EV-AKU-72V · Elektrikli triportör, motosiklet ve 72 V hizmet araçları · ₺28.000 (≈ $569) liste (KDV dahil) · havale/EFT ile ₺27.150 (%3 indirimli)
-- 50W Güneş Paneli — GES-PNL-50 · Küçük aydınlatma, kamera ve akü şarjı · ₺1.250 (≈ $25) (KDV dahil, net fiyat)
+- 50W Güneş Paneli — GES-PNL-50 · Küçük aydınlatma, kamera ve akü şarjı · ₺1.750 (≈ $36) (KDV dahil, net fiyat)
 - UNV Trek Pro 2500 W Taşınabilir Güç İstasyonu — ES-E2500-A2 · Kamp, karavan, saha çalışması ve ev tipi yedek güç · ₺122.800 (≈ $2.495) liste (KDV dahil) · havale/EFT ile ₺119.100 (%3 indirimli)
-- Lexron 285 W Güneş Paneli — GES-PNL-285 · Balkon, bağ evi ve küçük off-grid sistemler · ₺7.500 (≈ $152) liste (KDV dahil) · havale/EFT ile ₺7.300 (%3 indirimli)
+- 360 W Güneş Paneli — GES-PNL-360 · Bağ evi, karavan, çatı ve küçük off-grid sistemler · ₺7.200 (≈ $146) liste (KDV dahil) · havale/EFT ile ₺7.000 (%3 indirimli)
 - Lexron 655 W TOPCon Güneş Paneli — GES-PNL-655 · Çatı ve arazi sistemleri, yüksek güç gerektiren kurulumlar · ₺10.000 (≈ $203) liste (KDV dahil) · havale/EFT ile ₺9.700 (%3 indirimli)
+- 700 W Bifacial TOPCon Güneş Paneli — GES-PNL-700 · Kargo kasalı elektrikli araçlar, çatı ve arazi sistemleri · ₺8.700 (≈ $177) liste (KDV dahil) · havale/EFT ile ₺8.450 (%3 indirimli)
+- 460 W Half-Cut Monokristal Güneş Paneli — GES-PNL-460 · Golf aracı tipi elektrikli araçlar ve küçük off-grid sistemler · ₺8.000 (≈ $163) liste (KDV dahil) · havale/EFT ile ₺7.750 (%3 indirimli)
+- 240 W Güneş Paneli (48 Hücre) — GES-PNL-240 · Mini elektrikli otomobiller ve küçük off-grid sistemler · ₺6.500 (≈ $132) liste (KDV dahil) · havale/EFT ile ₺6.300 (%3 indirimli)
 - Arçelik 540 W Güneş Paneli — GES-PNL-540 · Çatı ve arazi kurulumları, yerli marka tercih edenler · ₺10.000 (≈ $203) liste (KDV dahil) · havale/EFT ile ₺9.700 (%3 indirimli)
 - TitanX 51,2 V 102 Ah LiFePO₄ Akü — GES-AKU-102 · Ev ve işyeri enerji depolama, off-grid ve yedek güç · ₺73.400 (≈ $1.491) liste (KDV dahil) · havale/EFT ile ₺71.200 (%3 indirimli)
 - Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 A — S30AMPS · 12/24 V akülü güneş sistemleri · 1200 W panele kadar · ₺6.400 (≈ $130) liste (KDV dahil) · havale/EFT ile ₺6.200 (%3 indirimli)
@@ -72,23 +75,45 @@ Markalar — panel: Arçelik, Lexron, Bakırlar · inverter: Tescom, Mexxsun, Le
 - Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A — DCDC-1224-40 · Karavan: alternatörden yaşam aküsüne şarj · 12/24 V · ₺11.800 (≈ $240) liste (KDV dahil) · havale/EFT ile ₺11.450 (%3 indirimli)
 - Havensis DCDC-1224B Çift Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A — DCDC-1224B-40 · Karavan: çift yönlü akü şarjı (takviye modu) · 12/24 V · ₺13.600 (≈ $276) liste (KDV dahil) · havale/EFT ile ₺13.200 (%3 indirimli)
 - Havensis BOOST DCDC-2448 DC-DC Akü Şarj Cihazı 36/48/60/72 V — DCDC-2472-20 · 12/24 V girişten 36–72 V aküye şarj · karavan ve tekne · ₺8.250 (≈ $168) liste (KDV dahil) · havale/EFT ile ₺8.000 (%3 indirimli)
+- Lexron 20 A PWM Şarj Kontrol Cihazı 12/24 V — GM-20APWMSARJKONT · 12/24 V akülü küçük güneş sistemleri · ₺730 (≈ $15) liste (KDV dahil) · havale/EFT ile ₺700 (%3 indirimli)
+- Lexron 30 A PWM Şarj Kontrol Cihazı 12/24 V — GM-30APWMSARJKONT · 12/24 V akülü küçük güneş sistemleri · ₺820 (≈ $17) liste (KDV dahil) · havale/EFT ile ₺800 (%3 indirimli)
+- Lexron 40 A PWM Şarj Kontrol Cihazı 12/24 V — GM-40APWMSARJKONT · 12/24 V akülü küçük güneş sistemleri · ₺1.050 (≈ $21) liste (KDV dahil) · havale/EFT ile ₺1.000 (%3 indirimli)
+- Lexron 60 A PWM Şarj Kontrol Cihazı 12/24/48 V — GM-60APWMSARJKONT · 12/24/48 V akülü güneş sistemleri · ₺2.200 (≈ $44) liste (KDV dahil) · havale/EFT ile ₺2.150 (%3 indirimli)
+- Lexron 20 A MPPT Şarj Kontrol Cihazı 12/24 V — GM-20AMPPTSARJKON · 12/24 V akülü güneş sistemleri · yüksek verim · ₺3.150 (≈ $64) liste (KDV dahil) · havale/EFT ile ₺3.050 (%3 indirimli)
+- Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V — GM-30AMPPTSARJKON · 12/24 V akülü güneş sistemleri · yüksek verim · ₺3.450 (≈ $71) liste (KDV dahil) · havale/EFT ile ₺3.350 (%3 indirimli)
+- Lexron 40 A MPPT Şarj Kontrol Cihazı 12/24 V — GM-40AMPPTSARJKON · 12/24 V akülü güneş sistemleri · yüksek verim · ₺3.800 (≈ $77) liste (KDV dahil) · havale/EFT ile ₺3.700 (%3 indirimli)
+- Lexron 80 A HV (15~230 V) MPPT Şarj Kontrol Cihazı 12/24/36/48 V — GM-80AHV15230VMPP · 12/24/36/48 V akülü büyük güneş sistemleri · ₺10.100 (≈ $205) liste (KDV dahil) · havale/EFT ile ₺9.800 (%3 indirimli)
 - Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) — GES-KBL-5M · Panel ile şarj kontrol cihazı arası bağlantı · ₺1.000 (≈ $20) liste (KDV dahil) · havale/EFT ile ₺950 (%3 indirimli)
-- Yolcu Kabinli Motor Güneş Paketi — 285 W — GES-SET-YOLCU · Kabinli, 2–4 kişilik yolcu triportörleri — çatı alanı dar · ₺15.800 (≈ $321) liste (KDV dahil) · havale/EFT ile ₺15.350 (%3 indirimli)
-- Kargo Kasalı Motor Güneş Paketi — 655 W — GES-SET-KARGO · Açık kasa veya tenteli yük triportörleri — çatı alanı geniş · ₺18.300 (≈ $372) liste (KDV dahil) · havale/EFT ile ₺17.750 (%3 indirimli)
+- Yolcu Kabinli Motor Güneş Paketi — 240 W — GES-SET-YOLCU · Kabinli, 2–4 kişilik yolcu triportörleri — çatı alanı dar · ₺14.800 (≈ $301) liste (KDV dahil) · havale/EFT ile ₺14.350 (%3 indirimli)
+- Kargo Kasalı Motor Güneş Paketi — 700 W — GES-SET-KARGO · Açık kasa veya tenteli yük triportörleri — çatı alanı geniş · ₺17.000 (≈ $346) liste (KDV dahil) · havale/EFT ile ₺16.500 (%3 indirimli)
+- Golf Aracı Tipi Motor Güneş Paketi — 460 W — GES-SET-GOLF · Tavanlı, golf aracı tipi elektrikli yolcu araçları · ₺16.300 (≈ $331) liste (KDV dahil) · havale/EFT ile ₺15.800 (%3 indirimli)
+- Mini Elektrikli Otomobil Güneş Paketi — 240 W — GES-SET-MINI · Kapalı kabinli mini elektrikli otomobiller — tavan alanı küçük · ₺14.800 (≈ $301) liste (KDV dahil) · havale/EFT ile ₺14.350 (%3 indirimli)
 - MC4 Konnektör Takımı — GES-MC4-1 · Panel kablosu ile solar kablonun birleştirilmesi · ₺100 (≈ $2) (KDV dahil, net fiyat)
+- Hero LED 10 W 12 V DC LED Ampul (12–60 V AC/DC) — HL-7020 · Karavan, tekne, bağ evi ve akülü güneş sistemleri · ₺130 (≈ $3) (KDV dahil, net fiyat)
+- Hero LED 100 W Solar Sokak Armatürü (Sensörlü, Kumandalı) — HL-5151 · Bahçe, sokak, site, otopark ve fabrika aydınlatması · ₺1.200 (≈ $25) liste (KDV dahil) · havale/EFT ile ₺1.150 (%3 indirimli)
+- Hero LED 50 W Solar LED Aplik (Kumandalı, 3 Renk + RGB) — HL-5181 · Duvar, giriş kapısı, bahçe duvarı ve teras aydınlatması · ₺830 (≈ $17) liste (KDV dahil) · havale/EFT ile ₺800 (%3 indirimli) · 5 adet ve üzeri alımda adet fiyatı ₺760
+- Hero LED 50 W Solar Set Üstü Bahçe Armatürü (Kumandalı, 3 Renk + RGB) — HL-5180 · Bahçe duvarı, set, kolon başı ve giriş aydınlatması · ₺780 (≈ $16) liste (KDV dahil) · havale/EFT ile ₺750 (%3 indirimli) · 5 adet ve üzeri alımda adet fiyatı ₺710
+- Hero LED 200 W Solar Sokak Armatürü (Sensörlü, Kumandalı) — HL-5153 · Bahçe, sokak, site, otopark ve fabrika aydınlatması · ₺2.250 (≈ $45) liste (KDV dahil) · havale/EFT ile ₺2.200 (%3 indirimli) · 5 adet ve üzeri alımda adet fiyatı ₺2.050
+- Hero LED 600 W Solar Sokak Armatürü (Radar Sensörlü, Kumandalı) — HL-5157 · Geniş bahçe, sokak, site, otopark ve fabrika sahası · ₺2.650 (≈ $54) liste (KDV dahil) · havale/EFT ile ₺2.550 (%3 indirimli) · 5 adet ve üzeri alımda adet fiyatı ₺2.450
 Fiyat ve kur: katalog fiyatları USD bazlıdır; ₺ karşılığı TCMB döviz satış kuruyla günlük güncellenir (kur, işletmenin belirlediği asgari kurun altına inmez). Bu dosyadaki ₺ tutarlar 1 USD = 49,2 ₺ ile hesaplandı; güncel fiyat sitededir.
 Kargo & iade: Paketler TÜRKİYE'NİN HER İLİNE anlaşmalı kargo ile gönderilir (teslimat
 Antalya ile sınırlı değildir). Sipariş onayından sonra tahmini teslim 2–5 iş günü;
-kargo ücreti alıcıya aittir (yukarıda "kargo fiyata DAHİL" yazan ürünler hariç),
-fiyatlara KDV dahildir. Mesafeli satışta 14 gün cayma
-hakkı vardır (sorunsuz teslimde iade kargosu alıcıya ait; hasarlı/ayıplı üründe satıcıya).
+kargo ücreti alıcıya aittir ve paket teslim alınırken kargo firmasına ödenir (yukarıda "kargo
+fiyata DAHİL" yazan ürünler hariç); fiyatlara KDV dahildir. Mesafeli satışta 14 gün cayma
+hakkı vardır; anlaşmalı kargomuzla yapılan iadede iade kargosu ÜCRETSİZDİR (başka kargo firması
+seçilirse alıcıya aittir); hasarlı/ayıplı üründe tüm masraflar satıcıya aittir.
+Taksit: kredi kartına 12 aya kadar taksit, vade farkı müşteriye aittir (ödeme sayfasında seçilir).
+Garanti: mağaza ürünlerinde 2 yıl; ürün sayfasında farklı yazıyorsa o geçerlidir (ör. paneller 12 yıl ürün / 30 yıl güç).
+Mağaza kullanım senaryoları (https://www.gespaenerji.com/online-satis.html?senaryo=<id>): Bağ evi & kamp [bagevi] · Karavan & tekne [karavan] · Elektrikli araç şarjı [arac] · Ev & çatı sistemi [ev] · Bahçe & sokak aydınlatması [aydinlatma].
 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi verilir.
 Ödeme: havale/EFT'te indirim uygulanır (oran ürüne göre değişir; her ürünün indirimli tutarı yukarıdaki listede yazılıdır). Kart ödemesinde indirim UYGULANMAZ, liste fiyatı geçerlidir.
 
 ## Elektrikli Motor (Triportör) Güneş Paketleri (https://www.gespaenerji.com/elektrikli-arac-donusum.html#paketler)
 Müşteri aracına hangi panelin uyduğunu bilmiyorsa araç tipini seçer, paket hazır çıkar.
-- Yolcu Kabinli Motor Güneş Paketi — 285 W — Kabinli, 2–4 kişilik yolcu araçları — çatı alanı dar. İçindekiler: Lexron 285 W Güneş Paneli + MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı + Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) + MC4 Konnektör Takımı = ₺321 (ürün kodu GES-SET-YOLCU) · ürün sayfası: https://www.gespaenerji.com/paket-motor-yolcu.html · tek tıkla sepete: https://www.gespaenerji.com/sepet.html?ekle=set-yolcu
-- Kargo Kasalı Motor Güneş Paketi — 655 W — Açık kasa veya tenteli yük araçları — çatı alanı geniş. İçindekiler: Lexron 655 W TOPCon Güneş Paneli + MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı + Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) + MC4 Konnektör Takımı = ₺372 (ürün kodu GES-SET-KARGO) · ürün sayfası: https://www.gespaenerji.com/paket-motor-kargo.html · tek tıkla sepete: https://www.gespaenerji.com/sepet.html?ekle=set-kargo
+- Yolcu Kabinli Motor Güneş Paketi — 240 W — Kabinli, 2–4 kişilik yolcu araçları — çatı alanı dar. İçindekiler: 240 W Güneş Paneli (48 Hücre) + MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı + Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) + MC4 Konnektör Takımı = ₺14.800 (ürün kodu GES-SET-YOLCU) · ürün sayfası: https://www.gespaenerji.com/paket-motor-yolcu.html · tek tıkla sepete: https://www.gespaenerji.com/sepet.html?ekle=set-yolcu
+- Kargo Kasalı Motor Güneş Paketi — 700 W — Açık kasa veya tenteli yük araçları — çatı alanı geniş. İçindekiler: 700 W Bifacial TOPCon Güneş Paneli + MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı + Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) + MC4 Konnektör Takımı = ₺17.000 (ürün kodu GES-SET-KARGO) · ürün sayfası: https://www.gespaenerji.com/paket-motor-kargo.html · tek tıkla sepete: https://www.gespaenerji.com/sepet.html?ekle=set-kargo
+- Golf Aracı Tipi Motor Güneş Paketi — 460 W — Tavanlı, golf aracı tipi yolcu araçları — düz tavan. İçindekiler: 460 W Half-Cut Monokristal Güneş Paneli + MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı + Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) + MC4 Konnektör Takımı = ₺16.300 (ürün kodu GES-SET-GOLF) · ürün sayfası: https://www.gespaenerji.com/paket-motor-golf.html · tek tıkla sepete: https://www.gespaenerji.com/sepet.html?ekle=set-golf
+- Mini Elektrikli Otomobil Güneş Paketi — 240 W — Kapalı kabinli mini otomobiller — tavan alanı küçük. İçindekiler: 240 W Güneş Paneli (48 Hücre) + MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı + Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) + MC4 Konnektör Takımı = ₺14.800 (ürün kodu GES-SET-MINI) · ürün sayfası: https://www.gespaenerji.com/paket-motor-mini.html · tek tıkla sepete: https://www.gespaenerji.com/sepet.html?ekle=set-mini
 Paketin kendi fiyatı yoktur; toplam içindeki ürünlerin liste fiyatlarından gelir.
 Sayfadaki araç fotoğrafları yalnızca TİP ÖRNEĞİDİR (başka üreticilerin araçları);
 satışa konu olan yukarıda listelenen ürünlerdir — ARAÇ SATILMAZ.
@@ -120,7 +145,8 @@ gerekli panel gücü (kWp), akü kapasitesi (kWh, model DoD'una göre) ve invert
 - Solar sulama pompası seçimi (https://www.gespaenerji.com/tarimsal-sulama.html).
 
 ## Garanti & Güvence
-- A-marka panellerde 25 yıla varan üretim performans garantisi; inverterlerde 5–12 yıl ürün garantisi.
+- Mağaza ürünlerinde 2 yıl garanti; panellerde üreticinin ürün/güç garantisi ürün sayfasında yazılıdır (Lexron 12 yıl ürün / 30 yıl güç, 700 W bifacial 30 yıl güç). Anahtar teslim GES'te ekipman garantileri teklifte kalem kalem yazılır.
+- Keşif taleplerine 1–3 gün içinde dönülür; keşif ve teklif ücretsizdir.
 - Anahtar teslim teslimat: keşif → projelendirme → kurulum → devreye alma; bakım (O&M) hizmeti sürer.
 - Ücretsiz keşif ve tasarruf analizi tüm hizmetlerde standarttır.
 
@@ -129,6 +155,19 @@ gerekli panel gücü (kWp), akü kapasitesi (kWh, model DoD'una göre) ve invert
 2. Projelendirme ve net teklif (üretim simülasyonu, geri ödeme planı)
 3. Anahtar teslim kurulum (sertifikalı ekip, A-marka ekipman)
 4. Devreye alma, izleme ve bakım (O&M)
+
+## Rehberler (yalnız Türkçe)
+### Off-Grid Güneş Enerjisi Sistemi Nasıl Boyutlandırılır? Panel, Akü ve İnverter Hesabı (https://www.gespaenerji.com/off-grid-gunes-sistemi-boyutlandirma.html)
+Off-grid sistemin boyutu günlük enerji ihtiyacından (Wh) çıkar. Panel gücü, günlük ihtiyaç ÷ (kış güneşlenme saati × sistem verimi); akü kapasitesi, günlük ihtiyaç × özerklik günü ÷ (kullanılabilir derinlik × inverter verimi); inverter gücü ise eş zamanlı yük ile en büyük kalkış payına güvenlik çarpanı uygulanarak bulunur. Aşağıdaki örnek hesap, sitemizdeki Sistem Kurucu ile aynı varsayımları kullanır.
+
+### PWM mi MPPT mi? Güneş Paneli Şarj Kontrol Cihazı Seçim Rehberi (https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html)
+PWM, panelin gerilimini akü gerilimine "çeker"; panel gerilimi akü geriliminden ne kadar yüksekse o kadar enerji kullanılamaz. MPPT ise paneli en verimli noktasında çalıştırır ve fazla gerilimi akıma çevirerek aküye aktarır. Panel gerilimi akü gerilimine zaten yakınsa (küçük, nominal 12 V'luk panel ve 12 V akü) PWM yeterlidir; 60/72 hücreli büyük paneller, 24/48 V akü grupları ve seri bağlı diziler için MPPT seçilir.
+
+### Güneş Enerjili Sulama Pompası Nasıl Seçilir? Debi, Basma Yüksekliği ve Panel Gücü (https://www.gespaenerji.com/solar-sulama-pompasi-secimi.html)
+Debi = günlük su ÷ pompalama saati. Hidrolik güç (kW) = debi (m³/saat) × toplam yükseklik (m) × 0,002725. Pompanın elektrik gücü hidrolik gücün toplam verime bölünmesiyle, panel gücü ise pompa gücünün yaklaşık 1,3 katı alınarak bulunur. Aynı hesabı Solar Sulama Pompası Seçimi aracı da yapar.
+
+### Güneş Paneline Kaçak Elektrik Cezası: Neden Yazılıyor, Kime Yazılıyor, Ne Yapmalı? (https://www.gespaenerji.com/gunes-paneli-kacak-elektrik-cezasi.html)
+En yaygın yanlışı düzeltelim: "Artık güneş enerjisi ile şebeke elektriği aynı anda kullanılamıyor" diye bir kural yoktur. Şebekeye bağlı (on-grid) bir sistemde panelleriniz üretim yaparken şebekeden de elektrik çekersiniz; sistemin çalışma prensibi zaten budur. Ceza bu yüzden yazılmıyor.
 
 ## Sık Sorulan Sorular (özet)
 - GES yatırımı tipik olarak 3–6 yılda amorti olur (tüketim, bölge ve elektrik

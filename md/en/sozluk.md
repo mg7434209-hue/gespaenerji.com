@@ -1,9 +1,9 @@
 ---
-title: "Solar Glossary — PV, Battery and Inverter Terms Explained | GESPA Energy"
+title: "Solar Glossary — PV, Battery and Inverter Terms Explained"
 description: "kWp, MPPT, TOPCon, LiFePO₄, DoD, net metering and more: short, plain-language explanations of solar, battery and EV conversion terms."
 canonical: https://www.gespaenerji.com/en/sozluk.html
 lang: en
-dateModified: 2026-09-30
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 

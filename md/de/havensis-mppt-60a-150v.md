@@ -1,9 +1,9 @@
 ---
 title: "Havensis 60A MPPT-Regler 12–48V, 150V — 5000W | GESPA Energy"
-description: "Havensis Solar-60AMPS 150|60 MPPT-Laderegler: 12/24/36/48-V-Batterie, 60 A Ladestrom, 150 V Moduleingang, bis 5000 W Module. Hergestellt in der Türkei, für 48-V-Inselanlagen."
+description: "Havensis Solar-60AMPS 150|60 MPPT-Laderegler: 12/24/36/48-V-Batterie, 60 A Ladestrom, 150 V Moduleingang, bis 5000 W Module."
 canonical: https://www.gespaenerji.com/de/havensis-mppt-60a-150v.html
 lang: de
-dateModified: 2026-09-30
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -25,18 +25,35 @@ Preis inkl. MwSt.
 
 💰 Per Überweisung: **₺15.700**
 
+💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
+
+🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 
 [⚡ Jetzt kaufen](https://www.gespaenerji.com/de/sepet.html)
-[💬 Per WhatsApp fragen](https://www.gespaenerji.com/de/iletisim.html)
+[💬 Per WhatsApp fragen](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20Solar-60AMPS%20150%7C60%20MPPT%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%2012%2F24%2F36%2F48%20V%2060%20A%22%20(S60AMPS)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fhavensis-mppt-60a-150v.html)
 
-- 🚚 Versand per Spedition in die ganze Türkei.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
-- 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendekosten trägt der Käufer.
+- 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
+- 🛡️ Garantie: **2 Jahre**
+- 🔒 Sichere Zahlung: iyzico / tami · Rechnung zu jeder Bestellung
 - ☀️ Module und Batterie sind nicht im Lieferumfang enthalten.
 - 🏭 Hergestellt in der Türkei · Havensis
 
 ⚡ 12/24/36/48 V · 60 A ☀️ 150 V · 5000 W Module 📈 99,6 % MPP-Tracking 📟 LCD-Display 🏭 Hergestellt in der Türkei
+
+## ✅ Geeignet für
+
+- Batteriesysteme mit den in der Tabelle genannten Spannungen
+- Modulstränge, deren Voc-Summe unter der Eingangsgrenze bleibt
+- Ferienhaus, Wohnmobil, Boot und E-Fahrzeug-Ladung
+
+## ⛔ Nicht geeignet für
+
+- Netzgekoppelte Anlagen mit Wechselrichter
+- Reihenstränge über der Eingangsspannungsgrenze
+- Batterietypen oder Spannungen, die nicht in der Tabelle stehen
 
 Der Havensis Solar-60AMPS 150|60 ist das 60-A-Modell der MPPT-Serie (MPS) für 12–48-V-Batterien. Die Angabe 150|60 im Modellcode steht für bis zu 150 V Moduleingang und bis zu 60 A Ladestrom. Er arbeitet mit 12-, 24-, 36- und 48-V-Batterien; bis zu 5000 W Solarmodule lassen sich anschließen.
 
@@ -154,7 +171,7 @@ Die Leerlaufspannungen (Voc) in Reihe geschalteter Module addieren sich; die Sum
 
 | Modul | Voc (Datenblatt) | Max. in Reihe an diesem Regler |
 | --- | --- | --- |
-| Lexron 285-W-Solarmodul | 42,84 V | 3 Module (128,52 V) |
+| 360-W-Solarmodul | 42,56 V | 3 Module (127,68 V) |
 | Lexron 655-W-TOPCon-Solarmodul | 50,34 V | 2 Module (100,68 V) |
 
 Voc steigt bei Kälte; in Gegenden, in denen es im Winter unter −10 °C geht, prüfen Sie den Aufbau mit uns. Die gesamte Modulleistung darf 5000 W nicht überschreiten.
@@ -165,7 +182,7 @@ Passendes Zubehör
 
 Zusammen bestellen, alles kommt in einer Sendung.
 
-[![Lexron 655-W-TOPCon-Solarmodul](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655-W-TOPCon-SolarmodulLeistungsstarkes TOPCon-Modul; an diesem Regler bis zu 2 in Reihe.₺10.000 In den Warenkorb →](https://www.gespaenerji.com/de/sepet.html?ekle=panel-lexron-655w)[![TitanX 51,2 V 102 Ah LiFePO₄ Batterie](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51,2 V 102 Ah LiFePO₄ Batterie5,22-kWh-LiFePO₄-Akku für ein 48-V-System.₺73.400 In den Warenkorb →](https://www.gespaenerji.com/de/sepet.html?ekle=aku-titanx-51v-102ah)[![Solarkabel-Set (5 m Schwarz + 5 m Rot)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solarkabel-Set (5 m Schwarz + 5 m Rot)Modul zum Regler: 5 m schwarz + 5 m rot.₺1.000 In den Warenkorb →](https://www.gespaenerji.com/de/sepet.html?ekle=kablo-solar-5m)[![MC4-Steckerset](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4-SteckersetVerbindet das Modulkabel mit dem Solarkabel.₺100 In den Warenkorb →](https://www.gespaenerji.com/de/sepet.html?ekle=mc4-set)
+[![Lexron 655-W-TOPCon-Solarmodul](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655-W-TOPCon-SolarmodulLeistungsstarkes TOPCon-Modul; an diesem Regler bis zu 2 in Reihe.₺10.000 Produkt ansehen →](https://www.gespaenerji.com/de/panel-lexron-655w.html)[![TitanX 51,2 V 102 Ah LiFePO₄ Batterie](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51,2 V 102 Ah LiFePO₄ Batterie5,22-kWh-LiFePO₄-Akku für ein 48-V-System.₺73.400 Produkt ansehen →](https://www.gespaenerji.com/de/aku-titanx-51v-102ah.html)[![Solarkabel-Set (5 m Schwarz + 5 m Rot)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solarkabel-Set (5 m Schwarz + 5 m Rot)Modul zum Regler: 5 m schwarz + 5 m rot.₺1.000 Produkt ansehen →](https://www.gespaenerji.com/de/kablo-solar-5m.html)[![MC4-Steckerset](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4-SteckersetVerbindet das Modulkabel mit dem Solarkabel.₺100 Produkt ansehen →](https://www.gespaenerji.com/de/mc4-set.html)
 
 Häufige Fragen
 
@@ -181,7 +198,7 @@ Mit 12-, 24-, 36- und 48-V-Batterien. Da alle Parameter einstellbar sind, geben 
 
 ### Wie viele Module kann ich in Reihe schalten?
 
-Die Summe der Leerlaufspannungen (Voc) der Module in Reihe darf 150 V nicht überschreiten. Von unseren Lexron-285-W-Modulen (Voc 42,84 V) passen bis zu 3 in Reihe, von den Lexron-655-W-Modulen (Voc 50,34 V) bis zu 2. Da Voc bei Kälte steigt, prüfen Sie den Aufbau mit uns, wenn es bei Ihnen im Winter unter −10 °C geht.
+Die Summe der Leerlaufspannungen (Voc) der Module in Reihe darf 150 V nicht überschreiten. Von unseren 360-W-Modulen (Voc 42,56 V) passen bis zu 3 in Reihe, von den Lexron-655-W-Modulen (Voc 50,34 V) bis zu 2. Da Voc bei Kälte steigt, prüfen Sie den Aufbau mit uns, wenn es bei Ihnen im Winter unter −10 °C geht.
 
 ### Wo schließe ich den Wechselrichter an?
 
@@ -204,6 +221,14 @@ Wir versenden in die ganze Türkei; jeder Elektriker kann das Gerät anschließe
 Zum Laden der Aufbaubatterie über die Lichtmaschine sehen Sie sich unsere DC-DC-Ladegeräte an.
 
 [DC-DC-Batterieladegeräte →](https://www.gespaenerji.com/de/havensis-dcdc-30a.html)
+
+Kundenbewertungen
+
+## Was sagen Käufer dieses Produkts?
+
+Für dieses Produkt gibt es noch keine veröffentlichte Bewertung. Wenn Sie es gekauft haben, schreiben Sie uns Ihre Erfahrung; nach Prüfung erscheint sie hier.
+
+[Bewertung schreiben (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20Solar-60AMPS%20150%7C60%20MPPT%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%2012%2F24%2F36%2F48%20V%2060%20A%22%20(S60AMPS)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Unsere Google-Bewertungen ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Bestellen Sie Ihren Laderegler noch heute
 

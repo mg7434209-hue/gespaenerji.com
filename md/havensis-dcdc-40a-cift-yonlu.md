@@ -1,9 +1,9 @@
 ---
-title: "Havensis Çift Yönlü DC-DC Akü Şarj Cihazı 40A — Takviye Modlu | GESPA Enerji"
-description: "Havensis DCDC-1224B çift yönlü DC-DC akü şarj cihazı: yaşam aküsüne 40 A şarj, takviye modunda marş aküsüne 10 A. Karavanlar için 12/24 V, %96,4 verim, yerli üretim."
+title: "Havensis Çift Yönlü DC-DC Akü Şarj Cihazı 40A — Takviye Modlu"
+description: "Havensis DCDC-1224B çift yönlü DC-DC akü şarj cihazı: yaşam aküsüne 40 A şarj, takviye modunda marş aküsüne 10 A."
 canonical: https://www.gespaenerji.com/havensis-dcdc-40a-cift-yonlu.html
 lang: tr
-dateModified: 2026-09-30
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -25,18 +25,35 @@ KDV dahil fiyattır.
 
 💰 Havale/EFT ile: **₺13.200**
 
+💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
+
+🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
 [⚡ Hemen satın al](https://www.gespaenerji.com/sepet.html)
-[💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20DCDC-1224B%20%C3%87ift%20Y%C3%B6nl%C3%BC%20DC-DC%20Ak%C3%BC%20%C5%9Earj%20Cihaz%C4%B1%2012%2F24%20V%2040%20A%22%20(DCDC-1224B-40)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fhavensis-dcdc-40a-cift-yonlu.html)
 
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
-- 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
+- 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🛡️ Garanti: **2 yıl**
+- 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 - 🔋 Akü ürüne dahil değildir.
 - 🏭 Yerli üretim · Havensis
 
 🔋 12/24 V · 40 A 🔁 Çift yönlü · 10 A takviye 🚐 Alternatörden şarj ⚙️ %96,4 verim 🏭 Yerli üretim
+
+## ✅ Kimler için uygun
+
+- Teknik tablodaki akü gerilimlerine sahip akülü sistemler
+- Panel Voc toplamı giriş sınırının altında kalan diziler
+- Bağ evi, karavan, tekne ve elektrikli araç şarjı
+
+## ⛔ Uygun değil
+
+- Şebekeye bağlı inverterli sistemler
+- Giriş gerilimi sınırını aşan seri panel dizileri
+- Teknik tabloda yazmayan akü tipi veya gerilimi
 
 Havensis DCDC-1224B, karavanlar için özel tasarlanmış çift yönlü DC-DC akü şarj cihazıdır. Yaşam aküsünü 40 A ile şarj eder, takviye modunda ters yönde 10 A verir; 10–35 V girişi kabul eder, 12–32 V çıkış verir ve %96,4 dönüştürücü verimine sahiptir.
 
@@ -160,7 +177,7 @@ Tamamlayıcı ürünler
 
 Aynı siparişte alın; hepsi aynı kargoyla gelsin.
 
-[![Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 A](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 AKaravan tavanına panel eklerseniz yaşam aküsü park hâlinde de güneşle dolar.₺6.400 Ürünü İncele →](https://www.gespaenerji.com/havensis-mppt-30a.html)[![Lexron 285 W Güneş Paneli](https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp)Lexron 285 W Güneş Paneli780 × 1536 mm, 8,5 kg: tavana taşınması kolay kompakt TOPCon panel.₺7.500 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=panel-lexron-285w)[![Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)Panel ile cihaz arası: 5 m siyah + 5 m kırmızı.₺1.000 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=kablo-solar-5m)[![MC4 Konnektör Takımı](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Konnektör TakımıPanel kablosunu solar kabloya bağlar.₺100 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=mc4-set)
+[![Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 A](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 AKaravan tavanına panel eklerseniz yaşam aküsü park hâlinde de güneşle dolar.₺6.400 Ürünü İncele →](https://www.gespaenerji.com/havensis-mppt-30a.html)[![360 W Güneş Paneli](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)360 W Güneş Paneli1660 × 1001 mm, 19,5 kg: tek kişinin tavana taşıyabileceği orta boy panel.₺7.200 Ürünü İncele →](https://www.gespaenerji.com/panel-360w.html)[![Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)Panel ile cihaz arası: 5 m siyah + 5 m kırmızı.₺1.000 Ürünü İncele →](https://www.gespaenerji.com/kablo-solar-5m.html)[![MC4 Konnektör Takımı](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Konnektör TakımıPanel kablosunu solar kabloya bağlar.₺100 Ürünü İncele →](https://www.gespaenerji.com/mc4-set.html)
 
 Sıkça Sorulan Sorular
 
@@ -211,6 +228,14 @@ Türkiye'nin her yerine kargo ile gönderiyoruz; kurulumu bir oto elektrikçisi 
 12/24 V araç aküsünden yüksek gerilimli akü grubunu şarj etmek için BOOST DC-DC şarj cihazımıza bakın.
 
 [BOOST DC-DC şarj cihazı →](https://www.gespaenerji.com/havensis-boost-dcdc-2448.html)
+
+Müşteri yorumları
+
+## Bu ürünü alanlar ne diyor?
+
+Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
+
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20DCDC-1224B%20%C3%87ift%20Y%C3%B6nl%C3%BC%20DC-DC%20Ak%C3%BC%20%C5%9Earj%20Cihaz%C4%B1%2012%2F24%20V%2040%20A%22%20(DCDC-1224B-40)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Yaşam akünüzü yolda doldurun
 

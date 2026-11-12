@@ -1,9 +1,9 @@
 ---
-title: "Havensis 30A DC-DC Battery Charger — Caravan Alternator Charging | GESPA Energy"
-description: "Havensis DCDC-1224 DC-DC battery charger that charges the caravan house battery from the alternator on the road: 30 A, 12/24 V, 96.4% efficiency, engine-off detection, display on a 5 m cable."
+title: "Havensis 30A DC-DC Battery Charger — Caravan Alternator Charging"
+description: "Havensis DCDC-1224 DC-DC battery charger that charges the caravan house battery from the alternator on the road: 30 A, 12/24 V, 96.4% efficiency, engine-off…"
 canonical: https://www.gespaenerji.com/en/havensis-dcdc-30a.html
 lang: en
-dateModified: 2026-09-30
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -25,18 +25,35 @@ Price includes VAT.
 
 💰 By bank transfer: **₺9.450**
 
+💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
+
+🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
 [⚡ Buy it now](https://www.gespaenerji.com/en/sepet.html)
-[💬 Ask on WhatsApp](https://www.gespaenerji.com/en/iletisim.html)
+[💬 Ask on WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20DCDC-1224%20Tek%20Y%C3%B6nl%C3%BC%20DC-DC%20Ak%C3%BC%20%C5%9Earj%20Cihaz%C4%B1%2012%2F24%20V%2030%20A%22%20(DCDC-1224-30)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fhavensis-dcdc-30a.html)
 
-- 🚚 Shipped by courier to anywhere in Türkiye.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
-- 🔄 Right of withdrawal (distance sales): **14** days — return shipping is paid by the buyer.
+- 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
+- 🛡️ Warranty: **2 years**
+- 🔒 Secure payment: iyzico / tami · invoice with every order
 - 🔋 Batteries are not included.
 - 🏭 Made in Türkiye · Havensis
 
 🔋 12/24 V · 30 A 🚐 Charging from the alternator 🔁 12-12 · 12-24 · 24-12 · 24-24 V ⚙️ 96.4% efficiency 🏭 Made in Türkiye
+
+## ✅ Suitable for
+
+- Battery systems with the voltages listed in the spec table
+- Panel strings whose total Voc stays below the input limit
+- Country houses, caravans, boats and EV charging
+
+## ⛔ Not suitable for
+
+- Grid-tied systems with an inverter
+- Series strings exceeding the input voltage limit
+- Battery types or voltages not listed in the spec table
 
 The Havensis DCDC-1224 is a one-way DC-DC battery charger designed especially for caravans. This model works with a 30 A charging current; it accepts a 10–35 V input, delivers a 12–32 V output and has a conversion efficiency of 96.4%.
 
@@ -156,7 +173,7 @@ Complementary products
 
 Order them together and everything arrives in one shipment.
 
-[![Havensis Solar-30AMPS MPPT Charge Controller 12/24 V 30 A](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Havensis Solar-30AMPS MPPT Charge Controller 12/24 V 30 AAdd a panel to the caravan roof and the house battery keeps charging from the sun while parked.₺6.400 View the Product →](https://www.gespaenerji.com/en/havensis-mppt-30a.html)[![Lexron 285 W Solar Panel](https://www.gespaenerji.com/assets/img/products/panel-lexron-285w.webp)Lexron 285 W Solar Panel780 × 1536 mm, 8.5 kg: a compact TOPCon panel that is easy to lift onto the roof.₺7.500 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=panel-lexron-285w)[![Solar Cable Set (5 m Black + 5 m Red)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Cable Set (5 m Black + 5 m Red)Panel to controller: 5 m black + 5 m red.₺1.000 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=kablo-solar-5m)[![MC4 Connector Set](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Connector SetJoins the panel lead to the solar cable.₺100 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=mc4-set)
+[![Havensis Solar-30AMPS MPPT Charge Controller 12/24 V 30 A](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Havensis Solar-30AMPS MPPT Charge Controller 12/24 V 30 AAdd a panel to the caravan roof and the house battery keeps charging from the sun while parked.₺6.400 View the Product →](https://www.gespaenerji.com/en/havensis-mppt-30a.html)[![360 W Solar Panel](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)360 W Solar Panel1660 × 1001 mm, 19.5 kg: a mid-size panel one person can carry up to the roof.₺7.200 View the Product →](https://www.gespaenerji.com/en/panel-360w.html)[![Solar Cable Set (5 m Black + 5 m Red)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Cable Set (5 m Black + 5 m Red)Panel to controller: 5 m black + 5 m red.₺1.000 View the Product →](https://www.gespaenerji.com/en/kablo-solar-5m.html)[![MC4 Connector Set](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Connector SetJoins the panel lead to the solar cable.₺100 View the Product →](https://www.gespaenerji.com/en/mc4-set.html)
 
 Frequently Asked Questions
 
@@ -207,6 +224,14 @@ We ship anywhere in Türkiye; an auto electrician can do the installation. In th
 To charge a high-voltage battery bank from a 12/24 V vehicle battery, see our BOOST DC-DC charger.
 
 [BOOST DC-DC charger →](https://www.gespaenerji.com/en/havensis-boost-dcdc-2448.html)
+
+Customer reviews
+
+## What do buyers of this product say?
+
+No published reviews for this product yet. If you bought it, write about your experience; it is published here after approval.
+
+[Write a review (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20DCDC-1224%20Tek%20Y%C3%B6nl%C3%BC%20DC-DC%20Ak%C3%BC%20%C5%9Earj%20Cihaz%C4%B1%2012%2F24%20V%2030%20A%22%20(DCDC-1224-30)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Our Google reviews ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Charge your house battery on the road
 

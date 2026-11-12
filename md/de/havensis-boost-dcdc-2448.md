@@ -1,9 +1,9 @@
 ---
 title: "Havensis BOOST DC-DC-Ladegerät — 12/24V auf 36–72V | GESPA Energy"
-description: "Havensis BOOST DCDC-2448: DC-DC-Ladegerät, das 36-, 48-, 60- und 72-V-Batteriebänke aus einer 12/24-V-Fahrzeugbatterie lädt. 20 A Eingang, 15 A Laden, 95 % Wirkungsgrad. Für Wohnmobile und Boote."
+description: "Havensis BOOST DCDC-2448: DC-DC-Ladegerät, das 36-, 48-, 60- und 72-V-Batteriebänke aus einer 12/24-V-Fahrzeugbatterie lädt."
 canonical: https://www.gespaenerji.com/de/havensis-boost-dcdc-2448.html
 lang: de
-dateModified: 2026-09-30
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -25,18 +25,35 @@ Preis inkl. MwSt.
 
 💰 Per Überweisung: **₺8.000**
 
+💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
+
+🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 
 [⚡ Jetzt kaufen](https://www.gespaenerji.com/de/sepet.html)
-[💬 Per WhatsApp fragen](https://www.gespaenerji.com/de/iletisim.html)
+[💬 Per WhatsApp fragen](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20BOOST%20DCDC-2448%20DC-DC%20Ak%C3%BC%20%C5%9Earj%20Cihaz%C4%B1%2036%2F48%2F60%2F72%20V%22%20(DCDC-2472-20)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fhavensis-boost-dcdc-2448.html)
 
-- 🚚 Versand per Spedition in die ganze Türkei.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
-- 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendekosten trägt der Käufer.
+- 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
+- 🛡️ Garantie: **2 Jahre**
+- 🔒 Sichere Zahlung: iyzico / tami · Rechnung zu jeder Bestellung
 - 🔋 Batterien sind nicht im Lieferumfang enthalten.
 - 🏭 Hergestellt in der Türkei · Havensis
 
 🔋 36/48/60/72-V-Batterie ⚡ 12/24 V Eingang ⬆️ 20 A Eingang · 15 A Laden ⚙️ 95 % Wirkungsgrad 🏭 Hergestellt in der Türkei
+
+## ✅ Geeignet für
+
+- Batteriesysteme mit den in der Tabelle genannten Spannungen
+- Modulstränge, deren Voc-Summe unter der Eingangsgrenze bleibt
+- Ferienhaus, Wohnmobil, Boot und E-Fahrzeug-Ladung
+
+## ⛔ Nicht geeignet für
+
+- Netzgekoppelte Anlagen mit Wechselrichter
+- Reihenstränge über der Eingangsspannungsgrenze
+- Batterietypen oder Spannungen, die nicht in der Tabelle stehen
 
 Der Havensis BOOST DCDC-2448 ist ein aufwärtswandelndes DC-DC-Ladegerät, das 12–32 V am Eingang anhebt und als Ladestrom an eine 36-, 48-, 60- oder 72-V-Batteriebank abgibt. Es ist speziell für Wohnmobile und Boote entwickelt.
 
@@ -128,7 +145,7 @@ Passendes Zubehör
 
 Zusammen bestellen, alles kommt in einer Sendung.
 
-[![Havensis Solar-60AMPS 150|60 MPPT-Laderegler 12/24/36/48 V 60 A](https://www.gespaenerji.com/assets/img/products/havensis-s60amps150.webp)Havensis Solar-60AMPS 150|60 MPPT-Laderegler 12/24/36/48 V 60 AMPPT mit 150-V-Eingang, um die 48-V-Batteriebank auch mit Sonnenenergie zu laden.₺16.200 Produkt ansehen →](https://www.gespaenerji.com/de/havensis-mppt-60a-150v.html)[![MS Teknik BOOST MPPT 24-72 V Laderegler](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V LadereglerDirektes Laden einer 24–72-V-Batteriebank aus Niedervolt-Modulen.₺7.200 Produkt ansehen →](https://www.gespaenerji.com/de/elektrikli-arac-donusum.html)[![TitanX 51,2 V 102 Ah LiFePO₄ Batterie](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51,2 V 102 Ah LiFePO₄ Batterie5,22-kWh-LiFePO₄-Akku für ein 48-V-System.₺73.400 In den Warenkorb →](https://www.gespaenerji.com/de/sepet.html?ekle=aku-titanx-51v-102ah)
+[![Havensis Solar-60AMPS 150|60 MPPT-Laderegler 12/24/36/48 V 60 A](https://www.gespaenerji.com/assets/img/products/havensis-s60amps150.webp)Havensis Solar-60AMPS 150|60 MPPT-Laderegler 12/24/36/48 V 60 AMPPT mit 150-V-Eingang, um die 48-V-Batteriebank auch mit Sonnenenergie zu laden.₺16.200 Produkt ansehen →](https://www.gespaenerji.com/de/havensis-mppt-60a-150v.html)[![MS Teknik BOOST MPPT 24-72 V Laderegler](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V LadereglerDirektes Laden einer 24–72-V-Batteriebank aus Niedervolt-Modulen.₺7.200 Produkt ansehen →](https://www.gespaenerji.com/de/elektrikli-arac-donusum.html)[![TitanX 51,2 V 102 Ah LiFePO₄ Batterie](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51,2 V 102 Ah LiFePO₄ Batterie5,22-kWh-LiFePO₄-Akku für ein 48-V-System.₺73.400 Produkt ansehen →](https://www.gespaenerji.com/de/aku-titanx-51v-102ah.html)
 
 Häufige Fragen
 
@@ -165,6 +182,14 @@ Wir versenden in die ganze Türkei; die Montage kann eine Kfz-Elektrikwerkstatt 
 Um eine 12/24-V-Aufbaubatterie über die Lichtmaschine zu laden, sehen Sie sich unsere DCDC-1224-Ladegeräte an.
 
 [DC-DC-Batterieladegeräte →](https://www.gespaenerji.com/de/havensis-dcdc-30a.html)
+
+Kundenbewertungen
+
+## Was sagen Käufer dieses Produkts?
+
+Für dieses Produkt gibt es noch keine veröffentlichte Bewertung. Wenn Sie es gekauft haben, schreiben Sie uns Ihre Erfahrung; nach Prüfung erscheint sie hier.
+
+[Bewertung schreiben (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20BOOST%20DCDC-2448%20DC-DC%20Ak%C3%BC%20%C5%9Earj%20Cihaz%C4%B1%2036%2F48%2F60%2F72%20V%22%20(DCDC-2472-20)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Unsere Google-Bewertungen ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Laden Sie Ihre Hochvolt-Batterie unterwegs
 

@@ -8,23 +8,23 @@
 .skip-link:focus{left:0}
 
 :root{
-  --green:#0a6e4f;
-  --green-dark:#075138;
-  --green-light:#1b9c73;
+  --green:#1f2f78;          /* parlament mavisi (25 Eki 2026, işletme kararı) */
+  --green-dark:#16215a;
+  --green-light:#3a52a8;
   --sun:#f7b500;
   --sun-soft:#ffe27a;
 
   --ink:#13211c;
   --muted:#5c6b64;
   --bg:#ffffff;
-  --bg-alt:#f3f7f4;
+  --bg-alt:#f2f5fa;
   --card:#ffffff;
-  --line:#e2eae5;
+  --line:#dfe6f0;
 
   --radius:16px;
   --radius-lg:24px;
-  --shadow:0 10px 30px rgba(10,110,79,.10);
-  --shadow-lg:0 24px 60px rgba(10,110,79,.16);
+  --shadow:0 10px 30px rgba(31,47,120,.12);
+  --shadow-lg:0 24px 60px rgba(31,47,120,.18);
   --maxw:1160px;
   --font:'Plus Jakarta Sans','Segoe UI',system-ui,-apple-system,sans-serif;
   --font-body:'Inter','Segoe UI',system-ui,sans-serif;
@@ -100,9 +100,11 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .btn-block{width:100%}
 
 /* Topbar */
-.topbar{background:var(--green-dark);color:#dff5ec;font-size:.88rem}
+.topbar{background:var(--green-dark);color:#dbe5f3;font-size:.88rem}
 .topbar-inner{display:flex;align-items:center;justify-content:center;gap:14px;height:38px;flex-wrap:wrap}
 .topbar-inner a{color:var(--sun-soft);font-weight:700;white-space:nowrap}
+.topbar .tb-s{display:none}
+@media(max-width:560px){.topbar .tb-s{display:inline}.topbar .tb-s~a{flex:none}.topbar .tb-l:has(~.tb-s){display:none}}
 
 /* Header */
 .site-header{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
@@ -321,7 +323,7 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .project.hide{display:none}
 
 /* Gradient placeholders (for project/post images) */
-.grad-1{background:linear-gradient(135deg,#0a6e4f,#1b9c73)}
+.grad-1{background:linear-gradient(135deg,#1f2f78,#3a52a8)}
 
 /* ---- Paket ürünler (urunler.html) ---- */
 .pkg-group{margin-top:56px}
@@ -416,6 +418,10 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .ord-grid input,.ord-grid textarea{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--bg-alt);color:var(--ink)}
 .ord-grid input:focus,.ord-grid textarea:focus{outline:none;border-color:var(--green)}
 .ord-consent{font-size:.82rem;color:var(--muted);margin:14px 0}
+/* Kargo alıcı ödemeli onayı (sepet, 23 Eki 2026) */
+.ord-ship-ok{display:flex;gap:10px;align-items:flex-start;margin:14px 0 0;padding:12px 14px;border:1px solid var(--line, rgba(0,0,0,.12));border-left:4px solid #e6a700;border-radius:10px;background:rgba(230,167,0,.08);font-size:.86rem;font-weight:600;line-height:1.45;cursor:pointer}
+.ord-ship-ok input{margin-top:3px;flex:none;width:18px;height:18px;accent-color:var(--green)}
+.ord-ship-ok[hidden]{display:none}
 .ord-consent a{color:var(--green);font-weight:700}
 @media(max-width:640px){.ord-grid{grid-template-columns:1fr}}
 .pkg-price-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
@@ -562,23 +568,23 @@ html,body{overflow-x:clip}   /* olası taşmalar sayfayı yana kaydırmasın (mo
 .socials a:hover{background:var(--green);color:#fff}
 
 /* Footer */
-.site-footer{background:#0a1512;color:#aebfb8;padding:56px 0 24px}
-[data-theme="dark"] .site-footer{background:#08110e}
+.site-footer{background:#1f2f78;color:#d3deee;padding:56px 0 24px}
+[data-theme="dark"] .site-footer{background:#16215a}
 .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.4fr;gap:30px}
 .footer-brand{color:#fff;font-size:1.3rem}
 .footer-brand strong{color:var(--sun)}
-.footer-brand-col p{margin:10px 0 14px;color:#8ca39a;font-size:.94rem}
+.footer-brand-col p{margin:10px 0 14px;color:#c3d1e6;font-size:.94rem}
 .footer-contact{list-style:none;padding:0;margin:0 0 16px;display:grid;gap:8px}
-.footer-contact li{color:#8ca39a;font-size:.9rem}
-.footer-contact a{color:#8ca39a;transition:.2s}
+.footer-contact li{color:#c3d1e6;font-size:.9rem}
+.footer-contact a{color:#c3d1e6;transition:.2s}
 .footer-contact a:hover{color:var(--sun)}
 .footer-col h4{color:#fff;font-size:1rem;margin-bottom:14px;font-family:var(--font)}
-.footer-col a{display:block;color:#8ca39a;padding:5px 0;font-size:.94rem;transition:.2s}
+.footer-col a{display:block;color:#c3d1e6;padding:5px 0;font-size:.94rem;transition:.2s}
 .footer-col a:hover{color:var(--sun)}
 .news-form{display:flex;gap:8px;margin-top:10px}
-.news-form input{flex:1;padding:11px 12px;border-radius:10px;border:1px solid #20342d;background:#0f1d18;color:#e8f0ec}
+.news-form input{flex:1;padding:11px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#fff}
 .news-note{font-size:.85rem;color:var(--sun);margin:8px 0 0;min-height:1em}
-.footer-bottom{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;border-top:1px solid #16261f;margin-top:36px;padding-top:20px;font-size:.86rem;color:#7a8f87}
+.footer-bottom{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.14);margin-top:36px;padding-top:20px;font-size:.86rem;color:#b4c4dc}
 .footer-bottom a:hover{color:var(--sun)}
 /* parçalar kendi içinde kırılmaz; dar ekranda parça parça alt satıra iner */
 .visit-counter{margin:0}
@@ -1682,7 +1688,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
 .hero-shop-art{display:flex;align-items:center;justify-content:center;height:clamp(260px,42vw,460px);
   border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);font-size:5.4rem;
-  background:linear-gradient(135deg,#0a6e4f,#0d8a63 55%,#f0a500 165%)}
+  background:linear-gradient(135deg,#1f2f78,#3a52a8 55%,#f0a500 165%)}
 .hero-dots{position:absolute;left:0;right:0;bottom:-24px;display:flex;justify-content:center;gap:8px}
 .hero-dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:var(--line);cursor:pointer;transition:transform .18s,background .18s}
 .hero-dots button.is-on{background:var(--green);transform:scale(1.3)}
@@ -1692,11 +1698,11 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
 /* Slaytlar tek grid hücresinde üst üste durur: bölüm yüksekliği EN UZUN slayta
    göre sabitlenir, döngü ilerlerken sayfa zıplamaz (dile göre metin uzunluğu
    değiştiği için TR dışında görünür bir kaymaydı). */
-.hero2{position:relative;display:grid;min-height:clamp(520px,72vh,680px);overflow:hidden;background:#07301f}
+.hero2{position:relative;display:grid;min-height:clamp(520px,72vh,680px);overflow:hidden;background:#121a4a}
 .hero2-slide{grid-area:1/1;position:relative;opacity:0;visibility:hidden;transition:opacity .7s ease;display:flex;align-items:center}
 .hero2-slide.is-on{opacity:1;visibility:visible}
 .hero2-bg,.hero2-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero2-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,26,18,.88) 0%,rgba(4,26,18,.62) 44%,rgba(4,26,18,.18) 100%)}
+.hero2-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,24,70,.9) 0%,rgba(16,24,70,.62) 44%,rgba(16,24,70,.18) 100%)}
 .hero2-inner{position:relative;z-index:2;padding:72px 24px;max-width:1200px;color:#fff}
 .hero2-kicker{display:inline-block;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);
   backdrop-filter:blur(4px);border-radius:999px;padding:7px 16px;font-size:.8rem;font-weight:800;
@@ -1710,9 +1716,9 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
 .btn-light2:hover{background:rgba(255,255,255,.26)}
 .hero2-stats{list-style:none;display:flex;flex-wrap:wrap;gap:34px;padding:0;margin:34px 0 0}
 .hero2-stats strong{display:block;font-family:var(--font);font-size:1.7rem;font-weight:800;color:#ffd76a}
-.hero2-stats span{font-size:.84rem;color:#c9dcd2}
+.hero2-stats span{font-size:.84rem;color:#c8d6ea}
 .hero2-shopbg{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-end;
-  padding-right:8vw;background:linear-gradient(120deg,#0a6e4f,#0d8a63 55%,#f0a500 175%);font-size:clamp(7rem,20vw,15rem);opacity:.95}
+  padding-right:8vw;background:linear-gradient(120deg,#1f2f78,#3a52a8 55%,#f0a500 175%);font-size:clamp(7rem,20vw,15rem);opacity:.95}
 .hero2-shopbg span{filter:drop-shadow(0 12px 30px rgba(0,0,0,.25))}
 .hero2-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:46px;height:46px;border-radius:50%;
   border:1px solid rgba(255,255,255,.35);background:rgba(4,26,18,.45);color:#fff;font-size:1.5rem;line-height:1;
@@ -1772,7 +1778,7 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
   .hero2-inner{padding:56px 18px 64px}
   .hero2-arrow{display:none}
   .hero2-stats{gap:22px}
-  .hero2-shade{background:linear-gradient(180deg,rgba(4,26,18,.55),rgba(4,26,18,.82))}
+  .hero2-shade{background:linear-gradient(180deg,rgba(16,24,70,.55),rgba(16,24,70,.85))}
   .hero2-shopbg{justify-content:center;padding-right:0;opacity:.5}
 }
 
@@ -1975,6 +1981,20 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
 /* Vergi no (10 hane) girilince açılan şirket alanları */
 .ord-corp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
 @media(max-width:560px){.ord-corp{grid-template-columns:1fr}}
+/* tami kart formu (sepet + odeme.html; main.js tamiCard). Alanlar .ord-tckn
+   stilini kullanır; taksit satırları .ord-pay seçenek kutusu stilini SIFIRLAR. */
+.ord-card{margin:10px 0 6px}
+.ord-card input{margin-bottom:8px}
+.ord-card-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:end}
+.ord-taksit-info{font-size:.8rem;color:var(--muted);margin:2px 0 6px}
+.ord-taksit{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:0 0 8px}
+.ord-pay .ord-taksit label,.ord-taksit label{display:flex;align-items:center;gap:8px;margin:0;border:0;border-top:1px solid var(--line);border-radius:0;padding:8px 10px;font-size:.88rem;color:var(--ink);cursor:pointer;min-height:44px}
+.ord-taksit label:first-child{border-top:0}
+.ord-taksit label:has(input:checked){background:color-mix(in srgb,var(--green) 8%,transparent)}
+.ord-taksit input{margin:0;width:auto;padding:0;border:0;accent-color:var(--green)}
+.ord-taksit .tk-sum{margin-left:auto;text-align:right;white-space:nowrap}
+.ord-taksit .tk-sum small{display:inline;color:var(--muted);font-size:.78rem}
+.ord-card-note{margin:4px 0 0;font-size:.8rem}
 .ord-pay label.pay-enabled{opacity:1}
 
 /* Ana sayfa su ısıtıcı şeridi — montaj şeması görseli (SVG yerine gerçek çizim) */
@@ -2320,3 +2340,359 @@ a.hero-slide:hover .hero-slide-btn{filter:brightness(1.12)}
 @media(max-width:900px){.ai-feature,.ai-dev{grid-template-columns:1fr}.ai-feature-media{min-height:0;aspect-ratio:16/9}}
 @media(max-width:700px){.ai-grid{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.ai-svg *{animation:none!important}.ai-card,.ai-card:hover{transition:none;transform:none}}
+
+/* ==== Mobil iyileştirmeler — kategori gezintisi, menü, dokunma alanları ====
+   Ölçümle bulunan sorunlar (375×667 / 360×640 telefonda):
+   - Kategori çipleri 6 satıra dökülüp ~280 px yer kaplıyordu; ilk ürün ikinci
+     ekranda başlıyor, aşağıda çip değiştirmek için yukarı kaydırmak gerekiyordu.
+   - Ürün kartı ~555 px (≈ bir ekran); 21 ürün 12.000+ px kaydırma.
+   - Hamburger menü kaydırılamıyordu; "Teklif Al" küçük telefonda ekran dışıydı.
+   - Dokunmatikte :hover "yapışıyor", dokunulan çip seçili gibi kalıyordu.
+   - Yer yer 11 px yazı, 34–38 px dokunma alanı (hedef ≥44 px). */
+
+/* Okunabilirlik: rozet/etiket yazıları 12 px altına inmesin (tüm ekranlar) */
+.sh-tag,.t-tag,.pkg-disc,.shop-side-head{font-size:.75rem}
+.sh-vat{font-size:.78rem}
+
+/* Dokunmatik cihazda vurgu efekti yalnız fareli cihazlarda çalışsın */
+@media (hover:none){
+  .sh-chip:not(.is-on):hover{color:var(--muted);border-color:var(--line)}
+  .sh-chip-go:hover span{transform:none}
+  .sh-card:hover{transform:none;box-shadow:none;border-color:var(--line)}
+}
+
+/* Mağaza: kategori şeridi tek satır, kaydırmalı ve başlığın altında YAPIŞKAN.
+   --hdr-h main.js'ten gelir (başlık yüksekliği). Sağdaki solma maskesi
+   "kaydırılabilir" ipucu; padding-right son çipin maske dışına çıkmasını sağlar. */
+@media (max-width:900px){
+  .sh-bar{position:sticky;top:var(--hdr-h,64px);z-index:40;margin:0 -20px 14px;padding:8px 0 8px 20px;
+    background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line)}
+  .sh-filters{flex-wrap:nowrap;overflow-x:auto;padding-right:36px;scroll-snap-type:x proximity;
+    scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;
+    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent);
+            mask-image:linear-gradient(90deg,#000 calc(100% - 32px),transparent)}
+  .sh-filters::-webkit-scrollbar{display:none}
+  .sh-chip{flex:0 0 auto;min-height:44px;white-space:nowrap;scroll-snap-align:start;
+    display:inline-flex;align-items:center}
+  /* Mağaza bölümleri şeridi: aynı kaydırma ipucu ve 44 px dokunma alanı */
+  .shop-side-nav{padding-right:32px;
+    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);
+            mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}
+  .shop-side .slink{min-height:44px}
+}
+
+/* Ürün kartları: telefonda 2 sütun (Trendyol/Amazon düzeni) — aynı ekranda
+   1 yerine 4 ürün; kategori içinde gezinmek 3 kat daha kısa. */
+@media (max-width:520px){
+  .sh-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .sh-tag{top:6px;left:6px;padding:3px 8px;letter-spacing:0;text-transform:none}
+  .sh-body{padding:10px 10px 12px}
+  .sh-body h3{font-size:.88rem;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+  .sh-for{font-size:.78rem;margin-bottom:8px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+  .sh-price{gap:2px 6px}
+  .sh-price strong{font-size:1.1rem}
+  .sh-price strong.sh-poa{font-size:.95rem}
+  .sh-usd{font-size:.75rem}
+  .sh-hav{font-size:.75rem;padding:5px 7px}
+  .sh-vat{font-size:.75rem;margin-top:6px}
+  .sh-act{flex-direction:column;gap:6px;margin-top:10px}
+  .sh-act .btn{min-height:44px;padding:8px;font-size:.82rem}
+  /* "Detay" düğmesi dar kartta ikinci satır açıyordu; görsel ve başlık zaten
+     aynı ürün sayfasına gider. Sepete ekle / Fiyat sor (birincil) kalır. */
+  .sh-act .btn-ghost{display:none}
+}
+@media (max-width:339px){.sh-grid{grid-template-columns:1fr}}
+
+/* Hamburger menü: ekrana sığmayınca KENDİ İÇİNDE kaydırılır (--menu-top
+   main.js'ten). "Araçlar" grup başlığı küçük etiket olarak görünür; iki araç
+   başlıksız kalmasın. Teklif Al tam genişlik birincil buton. */
+@media (max-width:1260px){
+  .menu{max-height:calc(100vh - var(--menu-top,70px));max-height:calc(100dvh - var(--menu-top,70px));
+    overflow-y:auto;overscroll-behavior:contain;padding-bottom:24px}
+  .menu .menu-tools .menu-parent{display:flex;pointer-events:none;margin-top:4px;
+    font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .menu .menu-tools .menu-parent .caret{display:none}
+  .menu > .btn{justify-content:center;min-height:48px;margin-top:6px}
+}
+html.menu-locked,html.menu-locked body{overflow:hidden}
+
+/* Başlık düğmeleri ve çekmecedeki dil seçici: ≥42–44 px dokunma alanı */
+@media (max-width:560px){
+  .cart-btn,.theme-toggle{width:42px;height:42px}
+  .hamburger{min-width:44px;min-height:44px;padding:10px 8px;justify-content:center;align-items:center}
+  .menu .menu-lang button{min-height:44px;min-width:52px}
+}
+/* Alt bilgi bağlantıları: alt alta dizili metin bağlantıları ~36 → ~42 px */
+@media (max-width:760px){
+  .footer-col a{padding:9px 0}
+}
+@media (max-width:380px){
+  .cart-btn,.theme-toggle{width:40px;height:40px}
+}
+
+/* Çerez bandı telefonda kompakt (157 → ~115 px); bant açıkken sohbet
+   düğmesi bandın arkasında kalıyordu — bant kapanana kadar gizli. */
+@media (max-width:760px){
+  .cookie-bar{left:8px;right:8px;padding:10px 12px;gap:8px;font-size:.84rem}
+  .cookie-bar p{flex-basis:100%;line-height:1.45}
+  .cookie-actions{width:100%;flex-wrap:nowrap}
+  .cookie-actions .btn{flex:1 1 0;min-height:44px;padding:8px 12px;justify-content:center}
+  body:has(.cookie-bar) .gchat-fab{opacity:0;pointer-events:none}
+}
+
+/* Admin fiyat önizlemesi uyarısı (main.js applyPriceOverrides) — yalnız
+   admin panelinde "Kaydet" yapılmış tarayıcıda görünür; müşteride hiç çıkmaz. */
+.price-ov-bar{position:relative;z-index:130;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;
+  justify-content:center;padding:9px 14px;background:#b45309;color:#fff;font-size:.86rem;font-weight:600;text-align:center}
+.price-ov-bar button{background:#fff;color:#b45309;border:0;border-radius:999px;padding:8px 14px;min-height:36px;
+  font:inherit;font-weight:800;cursor:pointer}
+@media print{.price-ov-bar{display:none}}
+
+/* Adet (5'li) fiyatı — config.packages[].bulk (16 Eki 2026) */
+.sh-bulk{margin:6px 0 0;font-size:.8rem;color:var(--green);font-weight:600}
+.sh-bulk b{font-weight:800}
+.pd-bulk{margin:-4px 0 10px;font-size:.92rem;font-weight:700;color:var(--green)}
+.pd-bulk.is-on::after{content:" ✔"}
+.cart-item-bulk{margin:-6px 0 10px;font-size:.8rem;font-weight:600;color:var(--green)}
+
+/* ---- Mobil hız ve kullanılabilirlik (24 Eki 2026) ----
+   1) İlk ekrandaki bölümler `.reveal` animasyonunu BEKLEMEZ: opaklık 0'dan
+      başlayıp main.js'in çalışmasını beklediği için ürün fotoğrafı/fiyat ve
+      sayfa başlığı (LCP) ~1 sn geç görünüyordu. */
+.page-hero .reveal,.page-hero.reveal,.prod-sec .reveal,.shop-head.reveal,.shop-side.reveal,.sh-bar.reveal,.hero2 .reveal{opacity:1;transform:none;transition:none}
+/* 2) Dokunma alanları: slayt noktaları 9 px idi; görünüm aynı, dokunulan alan ~33 px. */
+.hero-dots button{position:relative}
+.hero-dots button::after{content:"";position:absolute;inset:-12px}
+@media (max-width:760px){
+  /* Adet (− n +) düğmeleri 21 px yüksekti; parmakla rahat basılsın. */
+  .qbox button,.qbox input{min-height:40px}
+  /* Üst duyuru şeridi telefonda tek satır (iki satıra taşıp ekranın %7'sini alıyordu). */
+  .topbar-inner{height:auto;min-height:34px;flex-wrap:nowrap;gap:10px;padding-top:6px;padding-bottom:6px}
+  .topbar-inner>span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  /* Ürün sayfası: fotoğraf ilk ekranı tek başına doldurmasın; ad ve fiyat yukarı gelsin. */
+  .prod-main img{max-height:36vh}
+}
+
+/* ---- Telefon ana sayfası (24 Eki 2026) ----
+   ≤760 px: banner + hızlı menü kutuları + 4 öne çıkan ürün + kısa CTA.
+   Uzun tanıtım bölümleri (.m-hide: markalar, hizmetler, projeler, fatura,
+   finansman, ürün şeritleri, SSS) telefonda GİZLİ; HTML'de durur (bilgisayar
+   ve arama motorları için). Bilgisayarda .m-hub görünmez. */
+.m-hub{display:block;padding:28px 0 8px;background:var(--bg)}
+.m-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.m-tile{display:flex;flex-direction:column;gap:2px;min-height:110px;padding:18px 16px;border:1px solid var(--line);border-radius:18px;background:var(--bg-alt);color:var(--ink);text-decoration:none;box-shadow:var(--shadow);transition:transform .15s}
+.m-tile:hover{transform:translateY(-3px)}
+.m-tile-ico{font-size:1.7rem;line-height:1}
+.m-tile strong{font-size:1.05rem;margin-top:8px}
+.m-tile small{font-size:.82rem;color:var(--muted);line-height:1.35}
+.m-hub-title{font-family:var(--font);font-size:1.3rem;font-weight:800;margin:0 0 14px;color:var(--ink)}
+.m-feat-head{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 14px}
+.m-feat-head a{font-weight:700;color:var(--green)}
+.m-prods{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.m-prod{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;color:var(--ink);text-decoration:none;box-shadow:var(--shadow)}
+.m-prod img{width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;background:#fff}
+.m-prod-name{font-size:.9rem;font-weight:600;line-height:1.3;padding:10px 12px 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.m-prod-price{font-weight:800;color:var(--green);padding:6px 12px 12px;margin-top:auto;font-size:1.05rem}
+.m-hide{}
+@media (max-width:760px){
+  .m-hub{padding:22px 0 8px}
+  .m-hub-title{font-family:var(--font);font-size:1.15rem;font-weight:800;margin:0 0 12px;color:var(--ink)}
+  .m-tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .m-tile{display:flex;flex-direction:column;gap:2px;min-height:92px;padding:14px 12px;border:1px solid var(--line);
+    border-radius:16px;background:var(--bg-alt);color:var(--ink);text-decoration:none;box-shadow:var(--shadow)}
+  .m-tile:active{transform:scale(.98)}
+  .m-tile-ico{font-size:1.5rem;line-height:1}
+  .m-tile strong{font-size:.98rem;margin-top:6px}
+  .m-tile small{font-size:.78rem;color:var(--muted);line-height:1.3}
+  .m-feat-head{display:flex;justify-content:space-between;align-items:baseline;margin:24px 0 0}
+  .m-feat-head a{font-weight:700;color:var(--green);font-size:.9rem;padding:8px 0}
+  .m-prods{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .m-prod{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;color:var(--ink);text-decoration:none}
+  .m-prod img{width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;background:#fff}
+  .m-prod-name{font-size:.8rem;font-weight:600;line-height:1.3;padding:8px 10px 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .m-prod-price{font-weight:800;color:var(--green);padding:4px 10px 10px;margin-top:auto}
+  .m-about{margin:20px 0 0;font-size:.88rem;color:var(--muted);text-align:center;line-height:2}
+  .m-about a{color:var(--green);font-weight:700;padding:6px 2px}
+  /* Banner telefonda kısa: istatistikler gizli */
+  .hero2{min-height:clamp(420px,62vh,560px)}
+  .hero2-stats{display:none}
+}
+/* Footer bağlantıları telefonda alt alta (inline-block + boşluksuz HTML yüzünden
+   "Çatı GESArazi Tipi GES" gibi bitişik görünüyordu). */
+@media (max-width:760px){.footer-col a{display:block}}
+/* Telefon banner'ı kısa: menü kutuları ilk ekranda görünsün. Üst etiket ve
+   2. düğme (hesaplayıcı — hızlı menüde zaten kutusu var) gizli. */
+@media (max-width:760px){
+  .hero2{min-height:0}
+  .hero2-inner{padding:30px 18px 44px}
+  .hero2-kicker{display:none}
+  .hero2-sub{margin-bottom:16px;font-size:.95rem;line-height:1.55}
+}
+
+/* Tükenen ürün (config stock:0) — satın alma düğmeleri pasif */
+.btn.is-soldout{background:#9aa3ad !important;color:#fff !important;border-color:#9aa3ad !important;cursor:not-allowed;box-shadow:none}
+
+/* ---- Ana sayfa CRO düzeni (26 Eki 2026) ---- */
+.trust2{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-alt)}
+.trust2-inner{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 34px;padding:14px 0;font-size:.9rem;font-weight:700;color:var(--ink)}
+.trust2-inner span{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.steps-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:26px}
+.fin-band{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px 34px;box-shadow:var(--shadow)}
+.fin-band h2{margin:0 0 10px}
+.fin-band p{margin:0 0 8px;color:var(--muted)}
+.fin-band .fin-note{font-size:.9rem}
+.why-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:28px;align-items:center}
+.why-grid img{width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg)}
+.why-grid .cards{grid-template-columns:1fr;gap:14px}
+.why-grid .card{padding:18px 20px}
+@media (max-width:980px){.m-tiles,.m-prods{grid-template-columns:repeat(2,1fr)}.fin-band,.why-grid{grid-template-columns:1fr}.why-grid img{max-height:260px}}
+@media (max-width:760px){
+  .trust2-inner{gap:8px 18px;font-size:.82rem;padding:12px 0}
+  .hero2-cta{flex-direction:column}.hero2-cta .btn{width:100%;justify-content:center}
+  .fin-band{padding:22px 18px}
+}
+
+/* Elektrikli araç bandı (ana sayfa) */
+.ev-band{display:grid;grid-template-columns:1fr 1.3fr;gap:30px;align-items:center}
+.ev-media img{width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg)}
+.ev-text h2{margin:6px 0 10px}
+.ev-text>p{color:var(--muted);margin:0 0 16px}
+.ev-sets{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 18px}
+.ev-set{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);color:var(--ink);text-decoration:none;font-size:.8rem;line-height:1.3}
+.ev-set img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.ev-set span{padding:8px 10px 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-weight:600}
+.ev-set b{padding:4px 10px 10px;color:var(--green);margin-top:auto;font-size:.95rem}
+@media (max-width:980px){.ev-band{grid-template-columns:1fr}.ev-sets{grid-template-columns:repeat(2,1fr)}.ev-media img{max-height:260px}}
+
+/* Telefonda ana sayfa kısa (26 Eki 2026): hizmet kartları satır, adımlar 2 sütun,
+   referanslarda ilk kart, görseller gizli. Bilgisayar düzeni değişmez. */
+@media (max-width:760px){
+  .svc-cards{gap:10px}
+  .svc-card{flex-direction:row;align-items:center;gap:12px}
+  .svc-card .svc-media{flex:0 0 108px;aspect-ratio:1;border-radius:12px;margin:10px 0 10px 10px}
+  .svc-card .svc-body{padding:10px 12px 10px 0}
+  .svc-card .svc-body h3{font-size:1rem;margin:0 0 4px}.svc-card .svc-body p{font-size:.84rem;margin:0}
+  #hizmetlerimiz .steps{grid-template-columns:1fr 1fr;gap:10px}
+  #hizmetlerimiz .steps li{padding:14px}#hizmetlerimiz .steps h3{font-size:.95rem}#hizmetlerimiz .steps p{font-size:.82rem;margin:0}
+  #hizmetlerimiz .step-no{width:32px;height:32px;margin-bottom:8px}
+  .ev-media{display:none}
+  .why-grid img{display:none}
+  .projects .project:nth-child(n+2){display:none}
+}
+
+/* ---- Ürün sayfası şablonu (CRO FAZ 2, 26 Eki 2026) ---- */
+.pd-rows{display:grid;gap:4px;margin:2px 0 12px}
+.pd-row{margin:0;font-size:.86rem;color:var(--muted);line-height:1.45}
+.pd-row span:first-of-type{color:var(--ink);font-weight:600}
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0 0}
+.fit-col{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--bg-alt)}
+.fit-col h2,.fit-col h3{font-size:.92rem;margin:0 0 8px;line-height:1.3}
+.fit-col ul{margin:0;padding-left:18px;font-size:.84rem;color:var(--muted);line-height:1.5}
+.fit-yes{border-color:rgba(31,47,120,.25)}
+.fit-no{background:#fff5f3;border-color:#f3cfc7}
+[data-theme="dark"] .fit-no{background:#2a1a17;border-color:#5a2f27}
+.reviews-sec{padding-top:0}
+.reviews-empty{border:1px dashed var(--line);border-radius:16px;padding:20px 22px;text-align:center;color:var(--muted)}
+.reviews-empty p{margin:0 0 12px}
+.reviews-btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+@media (max-width:760px){
+  .fit{grid-template-columns:1fr}
+  .mobile-cta-prod{align-items:center}
+  .mcta-price{flex:0 0 auto;font-family:var(--font);font-weight:800;font-size:1.15rem;color:var(--green);padding:0 6px}
+  .mcta-ico{flex:0 0 52px}
+  .mobile-cta-prod .mcta-quote{flex:1}
+}
+
+/* ---- Lead formu (hesaplayıcı) ve mağaza senaryo kartları (26 Eki 2026) ---- */
+.lead-form{border:1px solid var(--line);border-radius:18px;padding:18px;background:var(--bg-alt);margin:0 0 12px;text-align:left}
+.lead-form h3{margin:0 0 6px;font-size:1.1rem}
+.lead-note{margin:0 0 12px;font-size:.86rem;color:var(--muted)}
+.lead-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:0 0 10px}
+.lead-grid input{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--card);color:var(--ink);min-height:46px}
+.lead-kvkk{display:flex;gap:8px;align-items:flex-start;font-size:.84rem;color:var(--muted);margin:0 0 12px;line-height:1.4}
+.lead-kvkk input{margin-top:2px;width:18px;height:18px;flex:none;accent-color:var(--green)}
+.lead-kvkk a{color:var(--green);font-weight:700}
+.lead-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.lead-done{margin:12px 0 0;font-size:.9rem;font-weight:600;color:var(--green)}
+.lead-done.is-warn{color:#c0392b}
+@media (max-width:760px){.lead-grid{grid-template-columns:1fr}}
+.sh-scen{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin:0 0 18px}
+.sh-scard{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);text-decoration:none;cursor:pointer;font:inherit;text-align:left;transition:border-color .15s,transform .15s}
+.sh-scard:hover{transform:translateY(-2px)}
+.sh-scard.is-on{border-color:var(--green);box-shadow:inset 0 0 0 1px var(--green);background:var(--bg-alt)}
+.sh-scard-ico{font-size:1.4rem;line-height:1}
+.sh-scard b{font-size:.86rem;margin-top:4px}
+.sh-scard small{font-size:.74rem;color:var(--muted);line-height:1.3}
+@media (max-width:1100px){.sh-scen{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:760px){.sh-scen{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none;margin:0 -16px 14px;padding-left:16px;padding-right:16px}.sh-scen::-webkit-scrollbar{display:none}.sh-scard{flex:0 0 150px;min-height:44px}}
+
+/* Ana sayfa referanslar: gerçek saha fotoğrafı şeridi (projeler.html#galeri) */
+.home-gal{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}
+.home-gal img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px;display:block;box-shadow:var(--shadow)}
+@media (max-width:760px){.home-gal{grid-template-columns:repeat(2,1fr)}}
+
+/* Telefonda dokunma alanları ≥ 40 px (27 Eki 2026 denetimi) */
+@media (max-width:760px){
+  .footer-bottom a{padding:10px 6px}
+  .crumbs a{padding:8px 0}
+  .topbar-inner a{padding:7px 0;display:inline-block}
+  .cart-remove{min-height:40px;padding:8px 6px}
+  input[type="checkbox"]{width:18px;height:18px}
+  .m-feat-head a{padding:10px 0}
+  .sh-bar .sh-chip{min-height:40px}
+}
+@media (max-width:760px){
+  .ord-pay input[type="radio"]{width:20px;height:20px}
+  .iban-copy{min-height:40px;padding:8px 10px}
+}
+
+
+/* ---- Rehberler (TR) · ana sayfa "diğer hizmetler" satırı ---- */
+.svc-more{text-align:center;margin:24px 0 0;color:var(--muted);font-size:.98rem}
+.svc-more a{color:var(--green);font-weight:700;text-decoration:none}
+.svc-more a:hover{text-decoration:underline}
+.guide-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.guide-card{display:block;padding:22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);color:inherit;text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s}
+.guide-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--green)}
+.guide-card h3{margin:0 0 8px;font-size:1.08rem;line-height:1.35}
+.guide-card p{margin:0;color:var(--muted);font-size:.95rem}
+.guide-card .guide-go{display:inline-block;margin-top:12px;font-weight:700;color:var(--green);font-size:.92rem}
+.guide-more{text-align:center;margin-top:22px}
+@media(max-width:900px){.guide-cards{grid-template-columns:1fr}}
+@media(hover:none){.guide-card:hover{transform:none;box-shadow:none;border-color:var(--line)}}
+
+/* Makale içi tablo (rehber sayfaları) */
+.art-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin:16px 0 20px;-webkit-overflow-scrolling:touch}
+.art-table{width:100%;border-collapse:collapse;font-size:.95rem;line-height:1.5;min-width:520px}
+.art-table th,.art-table td{padding:11px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.art-table thead th{background:var(--bg-alt);font-weight:700;font-family:var(--font);color:var(--ink)}
+.art-table tbody tr:last-child td{border-bottom:0}
+.art-table td:first-child{font-weight:700}
+.art-table td.num,.art-table th.num{text-align:right;white-space:nowrap}
+.art-formula{margin:12px 0 16px;padding:12px 16px;border-left:4px solid var(--green);background:var(--bg-alt);border-radius:0 10px 10px 0;font-family:var(--font);font-weight:600;line-height:1.6;overflow-x:auto}
+
+/* Koyu tema: lacivert vurgu (--green) koyu zeminde okunmuyordu (kontrast 1,2–1,5:1: fiyat, aktif menü,
+   "Reddet" düğmesi). Yalnız koyu temada açık tonlara çekilir: koyu zeminde ≥5:1, üzerindeki beyaz yazıda ≥3,6:1. */
+[data-theme="dark"]{--green:#6a7fe8;--green-dark:#5469d6;--green-light:#8fa1f5}
+.guide-more a{font-weight:700;color:var(--green);text-decoration:none}
+.guide-more a:hover{text-decoration:underline}
+/* Koyu tema: beyaz sabit zeminli mobil ürün kartında yazı açık renk olup kayboluyordu */
+[data-theme="dark"] .m-prod{color:#13211c}
+[data-theme="dark"] .m-prod-price{color:#1f2f78}
+
+/* Telefon sıkılaştırma (10 Kas 2026): bölümler arası boşluk telefonda 160 px idi (80 + 80);
+   sayfa başlığı kutusu da masaüstü ölçüsündeydi. İçerik aynı, kaydırma kısalır. */
+@media(max-width:760px){
+  .section{padding:48px 0}
+  .page-hero{padding:30px 0 28px}
+  .page-hero .lead{font-size:1.02rem}
+  .section-head{margin-bottom:26px}
+  /* SSS ve sözlük içindekiler çipleri: dokunma alanı 32 → 40 px */
+  .faqhub-toc a,.gl-index a{padding:10px 14px}
+}
+/* 380 px ve altı: alt çubuk düğmeleri ("Hemen Ara", "Ücretsiz Keşif") iki satıra düşüyordu */
+@media(max-width:380px){
+  .mobile-cta{gap:6px;padding-left:8px;padding-right:8px}
+  .mcta{font-size:.84rem;gap:4px;padding-left:4px;padding-right:4px;white-space:nowrap}
+}

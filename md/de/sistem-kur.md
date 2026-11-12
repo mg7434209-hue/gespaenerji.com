@@ -1,9 +1,9 @@
 ---
 title: "Systemkonfigurator — Solaranlage auslegen | GESPA"
-description: "Wählen Sie Ihre Geräte und sehen Sie sofort benötigte PV-Leistung, Batteriekapazität und Wechselrichtergröße. Marken und Modelle wählen und Bestellung erstellen."
+description: "Wählen Sie Ihre Geräte und sehen Sie sofort benötigte PV-Leistung, Batteriekapazität und Wechselrichtergröße."
 canonical: https://www.gespaenerji.com/de/sistem-kur.html
 lang: de
-dateModified: 2026-09-30
+dateModified: 2026-10-30
 publisher: "GESPA Enerji"
 ---
 

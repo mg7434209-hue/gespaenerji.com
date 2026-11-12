@@ -1,9 +1,9 @@
 ---
-title: "Frequently Asked Questions — Solar Power, Orders and Installation | GESPA Energy"
+title: "Frequently Asked Questions — Solar Power, Orders and Installation"
 description: "Answers about solar power plants, batteries, EV solar conversion, ordering, shipping, payment and installation in one place. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/en/sss.html
 lang: en
-dateModified: 2026-10-01
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -49,21 +49,29 @@ Add the product to your cart on the Online Store page and pay by credit card or 
 
 ## Getting started with solar
 
-### How do you choose a reliable solar (PV) company in Manavgat?
+### How many years until the investment pays back?
 
-Choose companies that deliver turnkey (engineering, installation, financing and maintenance from one source), offer a free site survey, provide brand warranties on panels and inverters, and have reference projects with a local field team. GESPA Enerji, based in Manavgat/Antalya, provides all of these turnkey.
+It depends on your consumption, roof orientation and electricity tariff. The calculator gives a first figure; the exact period is set by the design and quote from the free survey.
 
-### Which regions does GESPA Enerji serve?
+### Does the system work in winter and on cloudy days?
 
-Based in Manavgat, we serve Side, Antalya, Alanya, Serik, Gazipaşa and the region; rooftop solar, ground-mounted solar and solar irrigation across Türkiye on request.
+Yes; output drops with less sunshine but does not stop. Calculations use the annual total, and in Antalya the winter months still contribute.
 
-### How many years does a solar investment take to pay back?
+### Can my roof carry the panels, and will it leak?
 
-Typically 3–6 years depending on consumption profile, region and electricity price. Estimate your roof-specific payback in seconds with our free online calculator.
+At the survey we check the roof's load capacity and covering; mounting uses hardware suited to the roof type, and the waterproofing is preserved.
 
-### What should I do to install solar panels on my roof in Manavgat?
+### Does my home keep running during a power cut?
 
-Just request a free site survey. A clear offer is prepared with field inspection, production simulation and payback period; then turnkey installation follows.
+A grid-tied system shuts down during an outage for safety. If you want power during cuts, a battery or hybrid system is planned; we decide together at the survey.
+
+### Who handles the permits and grid connection?
+
+We do. The design, the application and the correspondence with the grid company are handled by us; you only sign the required documents.
+
+### I have no cash up front — can I still install?
+
+Yes. With bank loans and leasing the investment can be financed from the savings it produces. We work out the monthly amount together at the survey, based on your consumption.
 
 [Go to page →](https://www.gespaenerji.com/en/)
 
@@ -253,7 +261,7 @@ You can pay by credit card (secure payment via iyzico) or by bank transfer/EFT. 
 
 ### How do returns and the right of withdrawal work?
 
-Right of withdrawal (distance sales): **14** days — return shipping is paid by the buyer.
+Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
 
 For damaged or defective goods all costs are ours — please inspect the parcel in front of the courier on delivery.
 
@@ -285,7 +293,7 @@ Use our free calculator based on your bill or consumption; see the suitable syst
 
 [Go to page →](https://www.gespaenerji.com/en/urunler.html)
 
-## Plug-and-play 285 W kit
+## Plug-and-play 240 W kit
 
 ### Kurulumu zor mu?
 
@@ -421,7 +429,7 @@ Manufacturers' warranty terms differ from brand to brand. We review your vehicle
 
 [Go to page →](https://www.gespaenerji.com/en/elektrikli-arac-donusum.html)
 
-## Passenger-cab e-trike set (285 W)
+## Passenger-cab e-trike set (240 W)
 
 ### My battery pack is 60 V — will it work?
 
@@ -437,21 +445,25 @@ Depending on stock we ship 4 mm² or 6 mm²; both are suitable for these systems
 
 ### My vehicle has a cargo bed — is this the right package?
 
-Bed vehicles have a wider roof area; the 655 W package is more productive for them.
+Bed vehicles have a wider roof area; the 700 W package is more productive for them.
 
 [Take a look at the Cargo-Bed E-Trike Solar Set →](https://www.gespaenerji.com/en/paket-motor-kargo.html)
 
 [Go to page →](https://www.gespaenerji.com/en/paket-motor-yolcu.html)
 
-## Cargo-bed e-trike set (655 W)
+## Cargo-bed e-trike set (700 W)
 
 ### My battery pack is 72 V — will it work?
 
 Yes. The BOOST MPPT unit in the package is configured to work with 24, 36, 48, 60 and 72 V battery packs.
 
-### Is a 655 W panel too heavy for the bed?
+### Will a 700 W panel fit on the bed?
 
-The panel weighs about 31 kg and the mounting frame spreads the load onto the bed chassis. We assess your vehicle's structure together with you before the order.
+The panel measures 2278 × 1133 × 30 mm; the mounting frame spreads the load onto the bed chassis. We check your vehicle's size and structure together with you before the order.
+
+### What does a bifacial panel gain on a vehicle?
+
+The rear side of the panel also collects light. The 700 W rating is the 610 Wp front-side power plus a 15% rear-side gain. The rear gain depends on light reflected under the panel and drops when it is mounted close to the bed or canopy roof, so yield should be estimated from the front-side power (610 Wp).
 
 ### What is the cable cross-section?
 
@@ -459,11 +471,51 @@ Depending on stock we ship 4 mm² or 6 mm²; both are suitable for these systems
 
 ### My vehicle is an enclosed passenger type — is this the right package?
 
-Enclosed passenger vehicles have a narrow roof; the 285 W package suits them better.
+Enclosed passenger vehicles have a narrow roof; the 240 W package suits them better.
 
 [Take a look at the Passenger-Cab E-Trike Solar Set →](https://www.gespaenerji.com/en/paket-motor-yolcu.html)
 
 [Go to page →](https://www.gespaenerji.com/en/paket-motor-kargo.html)
+
+## Golf-cart-type EV set (460 W)
+
+### My battery pack is 60 V — will it work?
+
+Yes. The BOOST MPPT unit in the package is configured to work with 24, 36, 48, 60 and 72 V battery packs.
+
+### How is the panel fixed to the roof?
+
+The mounting frame is chosen to suit the vehicle's roof structure. In the Antalya region we offer optional on-site installation; in other provinces we provide the mounting diagram and phone support.
+
+### What is the cable cross-section?
+
+Depending on stock we ship 4 mm² or 6 mm²; both are suitable for these systems.
+
+### Will a 460 W panel fit my vehicle's roof?
+
+The panel measures 2095 × 1039 × 30 mm and weighs 25 kg; the flat roof of golf-cart-type vehicles is usually large enough for it. Send us your roof dimensions on WhatsApp before ordering and we will check the fit together.
+
+[Go to page →](https://www.gespaenerji.com/en/paket-motor-golf.html)
+
+## Mini electric car set (240 W)
+
+### My battery pack is 60 V — will it work?
+
+Yes. The BOOST MPPT unit in the package is configured to work with 24, 36, 48, 60 and 72 V battery packs.
+
+### How is the panel fixed to the roof?
+
+The mounting frame is chosen to suit the vehicle's roof structure. In the Antalya region we offer optional on-site installation; in other provinces we provide the mounting diagram and phone support.
+
+### What is the cable cross-section?
+
+Depending on stock we ship 4 mm² or 6 mm²; both are suitable for these systems.
+
+### Will a 240 W panel fit my vehicle's roof?
+
+The panel measures 1320 × 776 × 30 mm and weighs 8 kg. Send us your roof dimensions on WhatsApp before ordering and we will check the fit together.
+
+[Go to page →](https://www.gespaenerji.com/en/paket-motor-mini.html)
 
 ## 72 V LiFePO₄ traction battery
 
@@ -505,6 +557,98 @@ Yes. For charging a 72 V pack straight from a panel we use the BOOST MPPT 24–7
 
 [Go to page →](https://www.gespaenerji.com/en/aku-lifepo4-72v-30ah.html)
 
+## Solar panels
+
+### How many panels can I wire in series?
+
+The panel's Voc is 50.34 V. Allowing 10% for the rise of Voc in the cold: up to 1 panels in series on MPPT controllers with a 100 V panel input (e.g. Havensis Solar-30AMPS), up to 2 on 150 V inputs (e.g. Havensis Solar-60AMPS 150|60). A single panel also fits the 15–60 V input of the BOOST MPPT in our EV solar sets. Check the exact layout with us before ordering.
+
+### Can I connect the panel straight to a battery?
+
+No. There must always be a charge controller between the panel and the battery; otherwise the battery gets overcharged. If the panel voltage is well above the battery voltage choose MPPT, if it is close choose PWM.
+
+### How are large panels shipped?
+
+Large panels are shipped by courier or freight in breakage-protected packaging. Check the package in front of the courier on delivery; for damaged goods all costs are ours. For wholesale shipment by the pallet, write to us.
+
+### Who installs it, and do you ship outside Antalya?
+
+We ship anywhere in Türkiye. In the Antalya region we offer optional on-site installation; elsewhere we plan the wiring with you by phone.
+
+[Go to page →](https://www.gespaenerji.com/en/panel-lexron-655w.html)
+
+## TitanX LiFePO₄ battery (5.22 kWh)
+
+### Which inverters does it work with?
+
+It works with inverters that have a 48 V battery input. With inverters that support CAN / RS485, battery data is shared with the inverter; send us your inverter model and we'll check compatibility before you order.
+
+### Can I add capacity later?
+
+Yes, up to 16 units can be connected in parallel. Each battery adds 5.22 kWh, so for example 2 batteries store about 10.4 kWh and 4 batteries about 20.9 kWh.
+
+### How should I set my charger?
+
+The maximum charging voltage is 58.4 V, the discharge cut-off voltage 40 V and the maximum charging current 100 A. Set your charge controller or inverter to stay within these values.
+
+### Where should it be installed?
+
+Install it in a dry, ventilated indoor place; its protection class is IP20, so it is not suitable for outdoors. Charging must take place between 0 and 50 °C.
+
+### Who installs it, and do you ship outside Antalya?
+
+We ship anywhere in Türkiye. In the Antalya region we offer optional on-site installation; elsewhere we plan the wiring with you by phone.
+
+[Go to page →](https://www.gespaenerji.com/en/aku-titanx-51v-102ah.html)
+
+## MPPT charge controllers (Lexron)
+
+### Should I choose PWM or MPPT?
+
+If the panel voltage is well above the battery voltage (like the 360 W and 655 W panels in our shop), MPPT collects more energy from the same panel and is the right choice. For small, budget-first systems where the panel voltage is close to the battery voltage, PWM models are enough.
+
+### How much panel power can I connect?
+
+Rule of thumb: charging current × battery voltage. For 30 A that is about 360 W at 12 V, about 720 W at 24 V. This is an estimate, not a datasheet value; write to us for the maximum panel power and voltage the manufacturer allows.
+
+### How many panels can I wire in series?
+
+In series wiring the limit is set by the controller's maximum panel input voltage, which is not in the product information we have. Send us the Voc of the panel you will use and we'll check the layout together before you order.
+
+### Can I use it with a lithium battery?
+
+Battery-type settings are in the manufacturer's datasheet and are not in the product information we have. Send us your battery type and charging values and we'll confirm with the manufacturer before you order.
+
+### Who installs it, and do you ship outside Antalya?
+
+We ship anywhere in Türkiye. In the Antalya region we offer optional on-site installation; elsewhere we plan the wiring with you by phone.
+
+[Go to page →](https://www.gespaenerji.com/en/lexron-mppt-30a.html)
+
+## PWM charge controllers (Lexron)
+
+### Should I choose PWM or MPPT?
+
+If the panel voltage is close to the battery voltage (for example a 12 V-class panel on a 12 V battery), PWM is economical and sufficient. If the panel voltage is well above the battery voltage (like the 360 W and 655 W panels in our shop), MPPT collects more energy from the same panel; in that case look at our MPPT models.
+
+### How much panel power can I connect?
+
+With PWM the limit is the panels' short-circuit current (Isc). The general rule is to leave 25% headroom: on a 20 A controller the panels' total Isc should be at most about 16 A. The panel voltage should be close to the battery voltage; for high-voltage panels choose MPPT.
+
+### How many panels can I wire in series?
+
+In series wiring the limit is set by the controller's maximum panel input voltage, which is not in the product information we have. Send us the Voc of the panel you will use and we'll check the layout together before you order.
+
+### Can I use it with a lithium battery?
+
+Battery-type settings are in the manufacturer's datasheet and are not in the product information we have. Send us your battery type and charging values and we'll confirm with the manufacturer before you order.
+
+### Who installs it, and do you ship outside Antalya?
+
+We ship anywhere in Türkiye. In the Antalya region we offer optional on-site installation; elsewhere we plan the wiring with you by phone.
+
+[Go to page →](https://www.gespaenerji.com/en/lexron-pwm-20a.html)
+
 ## MPPT charge controllers (Havensis)
 
 ### If I connect 1200 W of panels, will it charge at 1200 W?
@@ -517,7 +661,7 @@ With 12 V and 24 V batteries. Since all parameters are adjustable, you enter the
 
 ### How many panels can I wire in series?
 
-The sum of the open-circuit voltages (Voc) of panels in series must not exceed 100 V. Of our Lexron 285 W panels (Voc 42.84 V) up to 2 can go in series; the Lexron 655 W panel (Voc 50.34 V) is not wired in series on this controller but connected singly or in parallel. Because Voc rises in the cold, check the layout with us if your area drops below −10 °C in winter.
+The sum of the open-circuit voltages (Voc) of panels in series must not exceed 100 V. Of our 360 W panels (Voc 42.56 V) up to 2 can go in series; the Lexron 655 W panel (Voc 50.34 V) is not wired in series on this controller but connected singly or in parallel. Because Voc rises in the cold, check the layout with us if your area drops below −10 °C in winter.
 
 ### What does the dusk-to-dawn function do?
 

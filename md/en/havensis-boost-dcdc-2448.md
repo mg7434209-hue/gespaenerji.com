@@ -1,9 +1,9 @@
 ---
-title: "Havensis BOOST DC-DC Charger — 12/24V to 36–72V Batteries | GESPA Energy"
-description: "Havensis BOOST DCDC-2448: a DC-DC charger that charges 36, 48, 60 and 72 V battery banks from a 12/24 V vehicle battery. 20 A input, 15 A charging, 95% efficiency. For caravans and boats."
+title: "Havensis BOOST DC-DC Charger — 12/24V to 36–72V Batteries"
+description: "Havensis BOOST DCDC-2448: a DC-DC charger that charges 36, 48, 60 and 72 V battery banks from a 12/24 V vehicle battery."
 canonical: https://www.gespaenerji.com/en/havensis-boost-dcdc-2448.html
 lang: en
-dateModified: 2026-09-30
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -25,18 +25,35 @@ Price includes VAT.
 
 💰 By bank transfer: **₺8.000**
 
+💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
+
+🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
 [⚡ Buy it now](https://www.gespaenerji.com/en/sepet.html)
-[💬 Ask on WhatsApp](https://www.gespaenerji.com/en/iletisim.html)
+[💬 Ask on WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20BOOST%20DCDC-2448%20DC-DC%20Ak%C3%BC%20%C5%9Earj%20Cihaz%C4%B1%2036%2F48%2F60%2F72%20V%22%20(DCDC-2472-20)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fhavensis-boost-dcdc-2448.html)
 
-- 🚚 Shipped by courier to anywhere in Türkiye.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
-- 🔄 Right of withdrawal (distance sales): **14** days — return shipping is paid by the buyer.
+- 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
+- 🛡️ Warranty: **2 years**
+- 🔒 Secure payment: iyzico / tami · invoice with every order
 - 🔋 Batteries are not included.
 - 🏭 Made in Türkiye · Havensis
 
 🔋 36/48/60/72 V battery ⚡ 12/24 V input ⬆️ 20 A input · 15 A charge ⚙️ 95% efficiency 🏭 Made in Türkiye
+
+## ✅ Suitable for
+
+- Battery systems with the voltages listed in the spec table
+- Panel strings whose total Voc stays below the input limit
+- Country houses, caravans, boats and EV charging
+
+## ⛔ Not suitable for
+
+- Grid-tied systems with an inverter
+- Series strings exceeding the input voltage limit
+- Battery types or voltages not listed in the spec table
 
 The Havensis BOOST DCDC-2448 is a step-up DC-DC charger that raises a 12–32 V input and delivers it as charging current to a 36, 48, 60 or 72 V battery bank. It is designed especially for caravans and boats.
 
@@ -128,7 +145,7 @@ Complementary products
 
 Order them together and everything arrives in one shipment.
 
-[![Havensis Solar-60AMPS 150|60 MPPT Charge Controller 12/24/36/48 V 60 A](https://www.gespaenerji.com/assets/img/products/havensis-s60amps150.webp)Havensis Solar-60AMPS 150|60 MPPT Charge Controller 12/24/36/48 V 60 AA 150 V input MPPT to charge the 48 V battery bank from the sun as well.₺16.200 View the Product →](https://www.gespaenerji.com/en/havensis-mppt-60a-150v.html)[![MS Teknik BOOST MPPT 24-72 V Charge Controller](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Charge ControllerDirect charging of a 24–72 V battery bank from low-voltage panels.₺7.200 View the Product →](https://www.gespaenerji.com/en/elektrikli-arac-donusum.html)[![TitanX 51.2 V 102 Ah LiFePO₄ Battery](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51.2 V 102 Ah LiFePO₄ Battery5.22 kWh LiFePO₄ battery for a 48 V system.₺73.400 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=aku-titanx-51v-102ah)
+[![Havensis Solar-60AMPS 150|60 MPPT Charge Controller 12/24/36/48 V 60 A](https://www.gespaenerji.com/assets/img/products/havensis-s60amps150.webp)Havensis Solar-60AMPS 150|60 MPPT Charge Controller 12/24/36/48 V 60 AA 150 V input MPPT to charge the 48 V battery bank from the sun as well.₺16.200 View the Product →](https://www.gespaenerji.com/en/havensis-mppt-60a-150v.html)[![MS Teknik BOOST MPPT 24-72 V Charge Controller](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Charge ControllerDirect charging of a 24–72 V battery bank from low-voltage panels.₺7.200 View the Product →](https://www.gespaenerji.com/en/elektrikli-arac-donusum.html)[![TitanX 51.2 V 102 Ah LiFePO₄ Battery](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51.2 V 102 Ah LiFePO₄ Battery5.22 kWh LiFePO₄ battery for a 48 V system.₺73.400 View the Product →](https://www.gespaenerji.com/en/aku-titanx-51v-102ah.html)
 
 Frequently Asked Questions
 
@@ -165,6 +182,14 @@ We ship anywhere in Türkiye; an auto electrician can do the installation. In th
 To charge a 12/24 V house battery from the alternator, see our DCDC-1224 battery chargers.
 
 [DC-DC battery chargers →](https://www.gespaenerji.com/en/havensis-dcdc-30a.html)
+
+Customer reviews
+
+## What do buyers of this product say?
+
+No published reviews for this product yet. If you bought it, write about your experience; it is published here after approval.
+
+[Write a review (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20BOOST%20DCDC-2448%20DC-DC%20Ak%C3%BC%20%C5%9Earj%20Cihaz%C4%B1%2036%2F48%2F60%2F72%20V%22%20(DCDC-2472-20)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Our Google reviews ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Charge your high-voltage battery on the road
 

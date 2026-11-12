@@ -1,4 +1,4 @@
-# Ödeme (iyzico), sipariş e-postaları ve dekont
+# Ödeme (iyzico / tami), sipariş e-postaları ve dekont
 
 > CLAUDE.md "Ödeme" bölümünden `@` ile içe aktarılır.
 > Sunucu `server.js` · sepet `sepet.html` + main.js sepet IIFE'si ·
@@ -189,3 +189,55 @@ YOKTUR, adresi elle yazılır.
   e-postasıdır.
   Volume bağlanınca `RAILWAY_VOLUME_MOUNT_PATH` otomatik kullanılır; durum
   admin "💾 Kalıcı veri" kartında (CLAUDE.md "Ziyaretçi sayacı").
+
+
+## tami (Garanti BBVA) — ikinci kart sağlayıcısı (8 Eki 2026)
+Sebep: tami hak edişi ertesi iş günü, iyzico 14 gün. İkisi de kurulu kalır;
+hangisinin müşteriye açık olduğunu ADMIN ANAHTARI seçer (müşteri seçmez).
+
+- ANAHTAR: `config.commerce.cardProvider` ("iyzico" | "tami") — Railway'de
+  `CARD_PROVIDER` env'i verilirse onu ezer (kod değiştirmeden geçiş).
+  server.js `cardProvider()`: seçilenin anahtarı yoksa öteki kullanılır,
+  ikisi de yoksa kart kapalı. Açılış log'u hangisinin çalıştığını yazar.
+  `/api/pay/status` → `provider` (+ tami'de `taksit`).
+- ANAHTARLAR yalnız env: TAMI_MERCHANT_NUMBER · TAMI_TERMINAL_NUMBER ·
+  TAMI_SECRET_KEY · TAMI_KID · TAMI_K · TAMI_BASE_URL (canlı
+  https://paymentapi.tami.com.tr, test https://sandbox-paymentapi.tami.com.tr).
+  tami portalı → İşyeri Ayarları → POS Yönetimi (API terminali).
+- İSTEMCİ `tami.js` (gesmarketim1'de önce yazıldı, AYNI dosya): PG-Auth-Token
+  = m:t:base64(sha256(m+t+secret)); istek securityHash = JWS HS512 (kid + k,
+  payload = securityHash HARİÇ gövde JSON'u); dönüşte hashedData =
+  base64(HMAC-SHA256(secret, cardOrg+cardBrand+cardType+masked+taksit+TRY+
+  tutar+orderId+systemTime+success)). Tutar/para birimi yazımı belgede yok,
+  olası biçimler denenir (gizli anahtarsız üretilemez, güvenliği zayıflatmaz).
+- AKIŞ: sepet `/api/pay/checkout` ve link `/api/pay/custom` aynı uçtur;
+  tami'de istek `card` + `tkTaksit` (müşterinin seçtiği) taşır — `taksit`
+  link ödemesinde tks=N'dir, KARIŞTIRMA. server.js `tamiStart()` →
+  `/payment/auth` → dönen 3D HTML tek kullanımlık
+  `/api/pay/tami/3d/<36 hex>` adresinden verilir (yalnız bellek, 2 dk, ilk
+  açılışta silinir; içinde kart no var). NEDEN: HTML sayfalarının CSP'si
+  `form-action 'self'`; 3D formu sayfaya yazılsa banka gönderimi engellenir.
+  Dönüş `/api/pay/tami/callback`: hashedData doğrulanır (sahte dönüşte
+  tami'ye gidilmez) → `/payment/complete-3ds` → başarılı VE tutar kayıtla
+  aynıysa `settleOrder()` (iyzico ile ORTAK: kayıt, dekont belirteci,
+  yönlendirme, iki e-posta).
+- KAYIT: anahtar = tami orderId (= conversationId, GES…/GMK…), `provider:
+  "tami"`, `tami: {amount, installmentCount, vadeFarki, maskedNumber,
+  cardBrand, bankAuthCode, bankReferenceNumber}`; paymentId =
+  bankReferenceNumber. KART NO / SKT / CVV hiçbir yere YAZILMAZ (test).
+- TAKSİT: `config.commerce.tamiTaksit` = seçenekler + tami panelindeki
+  komisyonlar AYNEN. Vade farkı MÜŞTERİYE: fark% = ((1−kom1)/(1−komN)−1)×100,
+  kuruşa yukarı (tami.js `farkPct`) → işletmenin net'i tek çekim net'ine
+  eşit. Tarayıcıya yalnız hesaplanmış fark% gider. Kart no'nun ilk 8 hanesiyle
+  `/api/pay/tami/taksit` (installment-info) sorulur; başlatmada sunucu
+  YENİDEN sorar. Link ödemesinde tek=1 → yalnız tek çekim, tks=N → yalnız N.
+- `cardMaxTL` iyzico HESABININ limitidir; tami'ye UYGULANMAZ (sepet uyarısı
+  ve odeme.html ipucu tami'de gizlenir).
+- Dekont anahtarı iyzico gizli anahtarından türer (eski dekontlar açılsın);
+  iyzico hiç tanımlı değilse tami secret'tan.
+- E-postalar sağlayıcıyı yazar ("tami ref no", maskeli kart, onay kodu;
+  "Kargodan ÖNCE tutarı tami panelinden doğrulayın").
+- HATA TEŞHİSİ: log satırı "tami … hatası: HTTP · kod · grup · mesaj ·
+  cid=GM…"; cid = correlationId, tami destek isteği bununla bulur.
+  9011 ("Şu anda işlemini gerçekleştiremiyoruz"): gesmarketim.com'dan
+  denendiğinde alındı; tami'de kayıtlı site gespaenerji.com'dur.

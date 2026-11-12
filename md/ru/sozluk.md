@@ -1,9 +1,9 @@
 ---
-title: "Словарь солнечной энергетики — термины PV, аккумуляторов и инверторов | GESPA"
+title: "Словарь солнечной энергетики — термины PV, аккумуляторов и…"
 description: "kWp, MPPT, TOPCon, LiFePO₄, DoD, взаимозачёт и другое: краткие и понятные объяснения терминов солнечной энергетики и аккумуляторов."
 canonical: https://www.gespaenerji.com/ru/sozluk.html
 lang: ru
-dateModified: 2026-09-30
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 

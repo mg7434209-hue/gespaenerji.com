@@ -3,7 +3,7 @@ title: "Elektrikli Araç Güneş Dönüşümü — BOOST MPPT | GESPA"
 description: "Golf ve hizmet araçlarına güneş paneli dönüşümü. MS Teknik BOOST MPPT 24-72 V: AGM, jel, kurşun-asit ve lityum akü desteği, Bluetooth ile ayar."
 canonical: https://www.gespaenerji.com/elektrikli-arac-donusum.html
 lang: tr
-dateModified: 2026-09-30
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -27,17 +27,34 @@ KDV ve kargo dahil fiyattır.
 
 💰 Havale/EFT ile: **₺7.200**
 
+💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
+
+🚚 Kargo ücretsiz — fiyata dahil · 2–5 iş günü
+
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
-[💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22MS%20Teknik%20BOOST%20MPPT%2024-72%20V%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%22%20(GES-EV-BOOST)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Felektrikli-arac-donusum.html)
 [❓ Aracıma uygun mu?](#sss)
 
-- 🚚 Türkiye'nin her yerine ücretsiz kargo ile gönderilir; kargo ücreti fiyata dahildir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
-- 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
+- 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🛡️ Garanti: **2 yıl**
+- 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 - 🔧 Antalya bölgesinde isteğe bağlı yerinde kurulum: panel montajı, kablolama ve cihaz ayarı ekibimizce yapılır.
 
 ⚙️ 24 – 72 V akü 🔋 AGM · jel · kurşun-asit · lityum 📶 Bluetooth ile ayar ⚡ 15 A sürekli çıkış 🛡️ IP22 · 2 yıl garanti
+
+## ✅ Kimler için uygun
+
+- Teknik tablodaki akü gerilimlerine sahip akülü sistemler
+- Panel Voc toplamı giriş sınırının altında kalan diziler
+- Bağ evi, karavan, tekne ve elektrikli araç şarjı
+
+## ⛔ Uygun değil
+
+- Şebekeye bağlı inverterli sistemler
+- Giriş gerilimi sınırını aşan seri panel dizileri
+- Teknik tabloda yazmayan akü tipi veya gerilimi
 
 🔋
 
@@ -63,31 +80,57 @@ Motorunu Seç
 
 Çoğu müşteri hangi panelin aracına sığacağını bilmiyor. Aracınızın tipini seçin; uygun panel, şarj kontrol cihazı ve bağlantı malzemeleri hazır paket olarak çıksın.
 
-### Yolcu Kabinli Motor Güneş Paketi — 285 W
+### Yolcu Kabinli Motor Güneş Paketi — 240 W
 
 Kabinli, 2–4 kişilik yolcu araçları — çatı alanı dar
 
-- Lexron 285 W Güneş Paneli
+- 240 W Güneş Paneli (48 Hücre)
 - MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı
 - Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)
 - MC4 Konnektör Takımı
 
-Set toplamı : **₺15.800** · KDV dahil · kargo hariç
+Set toplamı: **₺14.800** · KDV dahil · kargo hariç
 
 [Ürün sayfası](https://www.gespaenerji.com/paket-motor-yolcu.html)
 
-### Kargo Kasalı Motor Güneş Paketi — 655 W
+### Kargo Kasalı Motor Güneş Paketi — 700 W
 
 Açık kasa veya tenteli yük araçları — çatı alanı geniş
 
-- Lexron 655 W TOPCon Güneş Paneli
+- 700 W Bifacial TOPCon Güneş Paneli
 - MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı
 - Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)
 - MC4 Konnektör Takımı
 
-Set toplamı : **₺18.300** · KDV dahil · kargo hariç
+Set toplamı: **₺17.000** · KDV dahil · kargo hariç
 
 [Ürün sayfası](https://www.gespaenerji.com/paket-motor-kargo.html)
+
+### Golf Aracı Tipi Motor Güneş Paketi — 460 W
+
+Tavanlı, golf aracı tipi yolcu araçları — düz tavan
+
+- 460 W Half-Cut Monokristal Güneş Paneli
+- MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı
+- Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)
+- MC4 Konnektör Takımı
+
+Set toplamı: **₺16.300** · KDV dahil · kargo hariç
+
+[Ürün sayfası](https://www.gespaenerji.com/paket-motor-golf.html)
+
+### Mini Elektrikli Otomobil Güneş Paketi — 240 W
+
+Kapalı kabinli mini otomobiller — tavan alanı küçük
+
+- 240 W Güneş Paneli (48 Hücre)
+- MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı
+- Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)
+- MC4 Konnektör Takımı
+
+Set toplamı: **₺14.800** · KDV dahil · kargo hariç
+
+[Ürün sayfası](https://www.gespaenerji.com/paket-motor-mini.html)
 
 Teknik Özellikler
 
@@ -233,6 +276,14 @@ Panel ışık aldığı sürece üretim yapar; sistem hem park hâlinde hem hare
 ### Kurulum aracın garantisini etkiler mi?
 
 Araç üreticisinin garanti koşulları markadan markaya değişir. Kurulum öncesinde aracınızın garanti durumunu birlikte değerlendiriyoruz; sizinle netleştirmeden işlem yapmıyoruz.
+
+Müşteri yorumları
+
+## Bu ürünü alanlar ne diyor?
+
+Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
+
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22MS%20Teknik%20BOOST%20MPPT%2024-72%20V%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%22%20(GES-EV-BOOST)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Aracınıza uygun mu, birlikte bakalım
 

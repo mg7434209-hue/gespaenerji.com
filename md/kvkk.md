@@ -3,7 +3,7 @@ title: "KVKK Aydınlatma Metni | GESPA Enerji"
 description: "6698 sayılı KVKK kapsamında GESPA Enerji aydınlatma metni: kişisel verilerin işlenme amaçları, hukuki sebepleri ve ilgili kişinin hakları."
 canonical: https://www.gespaenerji.com/kvkk.html
 lang: tr
-dateModified: 2026-09-30
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -13,7 +13,7 @@ publisher: "GESPA Enerji"
 
 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) kapsamında, veri sorumlusu sıfatıyla kişisel verilerinizin işlenmesine ilişkin aydınlatma metni.
 
-Son güncelleme: 23.07.2026
+Son güncelleme: 03.11.2026
 
 ## 1. Veri Sorumlusu
 
@@ -28,6 +28,7 @@ Son güncelleme: 23.07.2026
 - **Müşteri işlem bilgileri:** talep ve teklif içeriği; formlarda ilettiğiniz proje tipi, tüketim, çatı/arazi ve sulama bilgileri; keşif ve görüşme kayıtları.
 - **İşlem güvenliği bilgileri:** sitenin çalışması için zorunlu sınırlı teknik kayıtlar (ör. sunucu erişim kayıtlarındaki IP adresi ve tarih/saat bilgisi).
 - **Pazarlama bilgileri (isteğe bağlı):** bültene abone olmanız hâlinde e-posta adresiniz.
+- **Site kullanım istatistikleri (kimliksiz):** açılan sayfa ve ürün, ürünün sepete eklenmesi, siteye geliş kaynağı, cihaz türü (telefon/bilgisayar) ve — yalnızca çerez bildiriminde "Kabul et" derseniz — bulunduğunuz şehir. Bunlar kişiyi tanımlamayan günlük toplamlar olarak tutulur; ad, IP adresi veya çerez kimliği bu kayıtlara yazılmaz.
 
 Şirket, özel nitelikli kişisel veri (sağlık, din, biyometrik veri vb.) talep etmez; lütfen formlar ve mesajlar aracılığıyla bu nitelikte veri iletmeyiniz.
 
@@ -38,7 +39,8 @@ Son güncelleme: 23.07.2026
 - Sözleşme öncesi görüşmelerin ve kurulacak sözleşmenin ifasının yönetilmesi,
 - Satış sonrası destek, bakım (O&M) ve müşteri ilişkilerinin yürütülmesi,
 - Yasal yükümlülüklerin yerine getirilmesi ve yetkili kurum taleplerinin karşılanması,
-- Açık rızanız bulunması hâlinde bülten/tanıtım iletilerinin gönderilmesi.
+- Açık rızanız bulunması hâlinde bülten/tanıtım iletilerinin gönderilmesi,
+- Hangi ürün ve sayfaların ilgi gördüğünün, ziyaretçilerin hangi kaynaktan ve bölgeden geldiğinin kimliksiz toplamlarla ölçülmesi ve site ile ürün seçkisinin iyileştirilmesi.
 
 ## 4. İşlemenin Hukuki Sebepleri
 
@@ -47,8 +49,8 @@ Kişisel verileriniz KVKK m.5'te yer alan aşağıdaki hukuki sebeplere dayanıl
 - **Sözleşmenin kurulması veya ifası** (m.5/2-c): teklif, keşif ve kurulum süreçleri,
 - **Hukuki yükümlülüğün yerine getirilmesi** (m.5/2-ç): vergi, ticaret ve tüketici mevzuatı,
 - **Bir hakkın tesisi, kullanılması veya korunması** (m.5/2-e),
-- **Meşru menfaat** (m.5/2-f): taleplerin yanıtlanması, hizmet kalitesinin iyileştirilmesi,
-- **Açık rıza** (m.5/1): bülten aboneliği, ticari elektronik ileti (6563 sayılı Kanun kapsamındaki onay) ve onaya bağlı analitik çerezler gibi yukarıdaki sebeplerin kapsamına girmeyen hâller.
+- **Meşru menfaat** (m.5/2-f): taleplerin yanıtlanması, hizmet kalitesinin iyileştirilmesi ve kimliksiz site kullanım toplamlarının (sayfa/ürün ilgisi, geliş kaynağı, cihaz türü) tutulması; çerez bildiriminde "Reddet" seçerseniz bu sayım yapılmaz,
+- **Açık rıza** (m.5/1): bülten aboneliği, ticari elektronik ileti (6563 sayılı Kanun kapsamındaki onay), onaya bağlı analitik çerezler ve şehir bilgisinin IP adresinden belirlenmesi gibi yukarıdaki sebeplerin kapsamına girmeyen hâller.
 
 ## 5. Kişisel Verilerin Toplanma Yöntemi
 
@@ -59,7 +61,7 @@ Verileriniz; web sitesindeki iletişim/teklif formları, site asistanı (sohbet 
 Kişisel verileriniz, yukarıdaki amaçlarla sınırlı ve ölçülü olmak üzere:
 
 - **Yurt içinde**: kurulum, finansman ve lojistik süreçlerinde birlikte çalıştığımız iş ortakları ve tedarikçilere (yalnızca gerekli olduğu ölçüde) ve hukuken yetkili kamu kurum ve kuruluşlarına (talep hâlinde) aktarılabilir.
-- **Yurt dışına**: iletişiminizi WhatsApp üzerinden başlatmanız veya sürdürmeniz hâlinde yazışma içeriği, sunucuları yurt dışında bulunan WhatsApp'a (Meta Platforms) iletilir. Sitede kullanılan Google yazı tipleri ve — onay vermeniz hâlinde — Google Analytics nedeniyle IP adresiniz gibi sınırlı teknik veriler Google sunucularına aktarılabilir. Bu aktarımlar KVKK m.9 kapsamında, ilgili hizmeti kullanma yönündeki tercihiniz/açık rızanız çerçevesinde gerçekleşir.
+- **Yurt dışına**: iletişiminizi WhatsApp üzerinden başlatmanız veya sürdürmeniz hâlinde yazışma içeriği, sunucuları yurt dışında bulunan WhatsApp'a (Meta Platforms) iletilir. Sitede kullanılan Google yazı tipleri ve — onay vermeniz hâlinde — Google Analytics nedeniyle IP adresiniz gibi sınırlı teknik veriler Google sunucularına aktarılabilir. Çerez bildiriminde "Kabul et" demeniz hâlinde, bulunduğunuz şehrin kimliksiz olarak sayılabilmesi için IP adresiniz oturum başına bir kez, IP adresinden konum bulan bir hizmete (ipwho.is) gönderilir; bu hizmetin sunucuları yurt dışında olabilir. Dönen şehir adı dışında hiçbir bilgi tarafımızda saklanmaz. Bu aktarımlar KVKK m.9 kapsamında, ilgili hizmeti kullanma yönündeki tercihiniz/açık rızanız çerçevesinde gerçekleşir.
 
 ## 7. Saklama Süreleri
 

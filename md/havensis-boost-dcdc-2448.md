@@ -1,9 +1,9 @@
 ---
-title: "Havensis BOOST DC-DC Şarj Cihazı — 12/24V'tan 36–72V Aküye | GESPA Enerji"
-description: "Havensis BOOST DCDC-2448: 12/24 V araç aküsünden 36, 48, 60 ve 72 V akü grubunu şarj eden DC-DC cihaz. 20 A giriş, 15 A şarj, %95 verim. Karavan ve tekneler için."
+title: "Havensis BOOST DC-DC Şarj Cihazı — 12/24V'tan 36–72V Aküye"
+description: "Havensis BOOST DCDC-2448: 12/24 V araç aküsünden 36, 48, 60 ve 72 V akü grubunu şarj eden DC-DC cihaz. 20 A giriş, 15 A şarj, %95 verim."
 canonical: https://www.gespaenerji.com/havensis-boost-dcdc-2448.html
 lang: tr
-dateModified: 2026-09-30
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -25,18 +25,35 @@ KDV dahil fiyattır.
 
 💰 Havale/EFT ile: **₺8.000**
 
+💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
+
+🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
 [⚡ Hemen satın al](https://www.gespaenerji.com/sepet.html)
-[💬 WhatsApp'tan sor](https://www.gespaenerji.com/iletisim.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20BOOST%20DCDC-2448%20DC-DC%20Ak%C3%BC%20%C5%9Earj%20Cihaz%C4%B1%2036%2F48%2F60%2F72%20V%22%20(DCDC-2472-20)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fhavensis-boost-dcdc-2448.html)
 
-- 🚚 Türkiye'nin her yerine kargo ile gönderilir.
 - ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
-- 🔄 Cayma hakkı (mesafeli satış): **14** gün — iade kargosu alıcıya aittir.
+- 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🛡️ Garanti: **2 yıl**
+- 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
 - 🔋 Akü ürüne dahil değildir.
 - 🏭 Yerli üretim · Havensis
 
 🔋 36/48/60/72 V akü ⚡ 12/24 V giriş ⬆️ 20 A giriş · 15 A şarj ⚙️ %95 verim 🏭 Yerli üretim
+
+## ✅ Kimler için uygun
+
+- Teknik tablodaki akü gerilimlerine sahip akülü sistemler
+- Panel Voc toplamı giriş sınırının altında kalan diziler
+- Bağ evi, karavan, tekne ve elektrikli araç şarjı
+
+## ⛔ Uygun değil
+
+- Şebekeye bağlı inverterli sistemler
+- Giriş gerilimi sınırını aşan seri panel dizileri
+- Teknik tabloda yazmayan akü tipi veya gerilimi
 
 Havensis BOOST DCDC-2448, 12–32 V girişi yükselterek 36, 48, 60 ya da 72 V akü grubuna şarj akımı olarak aktaran yükseltici DC-DC şarj cihazıdır. Karavan ve tekneler için özel tasarlanmıştır.
 
@@ -128,7 +145,7 @@ Tamamlayıcı ürünler
 
 Aynı siparişte alın; hepsi aynı kargoyla gelsin.
 
-[![Havensis Solar-60AMPS 150|60 MPPT Şarj Kontrol Cihazı 12/24/36/48 V 60 A](https://www.gespaenerji.com/assets/img/products/havensis-s60amps150.webp)Havensis Solar-60AMPS 150|60 MPPT Şarj Kontrol Cihazı 12/24/36/48 V 60 A48 V akü grubunu güneşten de şarj etmek için 150 V girişli MPPT.₺16.200 Ürünü İncele →](https://www.gespaenerji.com/havensis-mppt-60a-150v.html)[![MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Şarj Kontrol CihazıDüşük gerilimli panelden 24–72 V akü grubuna doğrudan şarj.₺7.200 Ürünü İncele →](https://www.gespaenerji.com/elektrikli-arac-donusum.html)[![TitanX 51,2 V 102 Ah LiFePO₄ Akü](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51,2 V 102 Ah LiFePO₄ Akü48 V sistem için 5,22 kWh LiFePO₄ akü.₺73.400 Sepete ekle →](https://www.gespaenerji.com/sepet.html?ekle=aku-titanx-51v-102ah)
+[![Havensis Solar-60AMPS 150|60 MPPT Şarj Kontrol Cihazı 12/24/36/48 V 60 A](https://www.gespaenerji.com/assets/img/products/havensis-s60amps150.webp)Havensis Solar-60AMPS 150|60 MPPT Şarj Kontrol Cihazı 12/24/36/48 V 60 A48 V akü grubunu güneşten de şarj etmek için 150 V girişli MPPT.₺16.200 Ürünü İncele →](https://www.gespaenerji.com/havensis-mppt-60a-150v.html)[![MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Şarj Kontrol CihazıDüşük gerilimli panelden 24–72 V akü grubuna doğrudan şarj.₺7.200 Ürünü İncele →](https://www.gespaenerji.com/elektrikli-arac-donusum.html)[![TitanX 51,2 V 102 Ah LiFePO₄ Akü](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51,2 V 102 Ah LiFePO₄ Akü48 V sistem için 5,22 kWh LiFePO₄ akü.₺73.400 Ürünü İncele →](https://www.gespaenerji.com/aku-titanx-51v-102ah.html)
 
 Sıkça Sorulan Sorular
 
@@ -165,6 +182,14 @@ Türkiye'nin her yerine kargo ile gönderiyoruz; kurulumu bir oto elektrikçisi 
 12/24 V yaşam aküsünü alternatörden şarj etmek için DCDC-1224 akü şarj cihazlarımıza bakın.
 
 [DC-DC akü şarj cihazları →](https://www.gespaenerji.com/havensis-dcdc-30a.html)
+
+Müşteri yorumları
+
+## Bu ürünü alanlar ne diyor?
+
+Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
+
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20BOOST%20DCDC-2448%20DC-DC%20Ak%C3%BC%20%C5%9Earj%20Cihaz%C4%B1%2036%2F48%2F60%2F72%20V%22%20(DCDC-2472-20)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Yüksek gerilimli akünüzü yolda doldurun
 

@@ -1,9 +1,9 @@
 ---
-title: "Online Store — Solar Products and Equipment | GESPA Energy"
-description: "All products on sale in one place: ready-made solar kits, MPPT charge controllers and equipment. Transparent prices, VAT included, shipping across Türkiye."
+title: "Buy Solar Panels, Batteries & MPPT Controllers | GESPA"
+description: "Lexron and Arçelik solar panels, LiFePO₄ batteries, MPPT/PWM charge controllers, solar cable and ready kits. VAT-inclusive prices, shipping across Türkiye."
 canonical: https://www.gespaenerji.com/en/online-satis.html
 lang: en
-dateModified: 2026-09-30
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -11,7 +11,7 @@ publisher: "GESPA Enerji"
 
 🛒 E-Commerce
 
-# Online Store
+# Solar Panel & Equipment Store
 
 Every product on sale in one place: ready-made solar kits, charge controllers and solar equipment. Prices include VAT and we ship across Türkiye.
 
@@ -21,13 +21,13 @@ Store
 - 💰 Discount by bank transfer
 - 🔒 Secure payment via iyzico
 
-### [285W Solar Panel Package](https://www.gespaenerji.com/en/paket-285w.html)
+### [240W Solar Panel Package](https://www.gespaenerji.com/en/paket-285w.html)
 
 Camping, caravans and small needs
 
-**₺25.000**≈ $508
+**₺24.000**≈ $488
 
-💰 By bank transfer: **₺24.250**
+💰 By bank transfer: **₺23.300**
 
 VAT included · shipping excluded
 
@@ -59,11 +59,11 @@ E-trikes, motorcycles and 72 V utility vehicles
 
 VAT included · shipping excluded
 
-### 50 W Solar Panel
+### [50 W Solar Panel](https://www.gespaenerji.com/en/panel-50w.html)
 
 Small lighting, cameras and battery charging
 
-**₺1.250**≈ $25
+**₺1.750**≈ $36
 
 VAT included · shipping excluded
 
@@ -77,17 +77,17 @@ Camping, caravans, field work and home backup power
 
 VAT included · shipping excluded
 
-### Lexron 285 W Solar Panel
+### [360 W Solar Panel](https://www.gespaenerji.com/en/panel-360w.html)
 
-Balconies, cabins and small off-grid systems
+Cabins, caravans, rooftops and small off-grid systems
 
-**₺7.500**≈ $152
+**₺7.200**≈ $146
 
-💰 By bank transfer: **₺7.300**
+💰 By bank transfer: **₺7.000**
 
 VAT included · shipping excluded
 
-### Lexron 655 W TOPCon Solar Panel
+### [Lexron 655 W TOPCon Solar Panel](https://www.gespaenerji.com/en/panel-lexron-655w.html)
 
 Rooftop and ground-mount systems, high-power installations
 
@@ -97,7 +97,37 @@ Rooftop and ground-mount systems, high-power installations
 
 VAT included · shipping excluded
 
-### Arçelik 540 W Solar Panel
+### [700 W Bifacial TOPCon Solar Panel](https://www.gespaenerji.com/en/panel-700w.html)
+
+Cargo-bed electric vehicles, rooftop and ground systems
+
+**₺8.700**≈ $177
+
+💰 By bank transfer: **₺8.450**
+
+VAT included · shipping excluded
+
+### [460 W Half-Cut Monocrystalline Solar Panel](https://www.gespaenerji.com/en/panel-460w.html)
+
+Golf-cart-type electric vehicles and small off-grid systems
+
+**₺8.000**≈ $163
+
+💰 By bank transfer: **₺7.750**
+
+VAT included · shipping excluded
+
+### [240 W Solar Panel (48 Cells)](https://www.gespaenerji.com/en/panel-240w.html)
+
+Mini electric cars and small off-grid systems
+
+**₺6.500**≈ $132
+
+💰 By bank transfer: **₺6.300**
+
+VAT included · shipping excluded
+
+### [Arçelik 540 W Solar Panel](https://www.gespaenerji.com/en/panel-arcelik-540w.html)
 
 Rooftop and ground installations, for those who prefer a Turkish brand
 
@@ -107,7 +137,7 @@ Rooftop and ground installations, for those who prefer a Turkish brand
 
 VAT included · shipping excluded
 
-### TitanX 51.2 V 102 Ah LiFePO₄ Battery
+### [TitanX 51.2 V 102 Ah LiFePO₄ Battery](https://www.gespaenerji.com/en/aku-titanx-51v-102ah.html)
 
 Home and business energy storage, off-grid and backup power
 
@@ -187,7 +217,87 @@ Charges 36–72 V batteries from a 12/24 V input · caravans and boats
 
 VAT included · shipping excluded
 
-### Solar Cable Set (5 m Black + 5 m Red)
+### [Lexron 20 A PWM Solar Charge Controller 12/24 V](https://www.gespaenerji.com/en/lexron-pwm-20a.html)
+
+Small 12/24 V battery-based solar systems
+
+**₺730**≈ $15
+
+💰 By bank transfer: **₺700**
+
+VAT included · shipping excluded
+
+### [Lexron 30 A PWM Solar Charge Controller 12/24 V](https://www.gespaenerji.com/en/lexron-pwm-30a.html)
+
+Small 12/24 V battery-based solar systems
+
+**₺820**≈ $17
+
+💰 By bank transfer: **₺800**
+
+VAT included · shipping excluded
+
+### [Lexron 40 A PWM Solar Charge Controller 12/24 V](https://www.gespaenerji.com/en/lexron-pwm-40a.html)
+
+Small 12/24 V battery-based solar systems
+
+**₺1.050**≈ $21
+
+💰 By bank transfer: **₺1.000**
+
+VAT included · shipping excluded
+
+### [Lexron 60 A PWM Solar Charge Controller 12/24/48 V](https://www.gespaenerji.com/en/lexron-pwm-60a.html)
+
+12/24/48 V battery-based solar systems
+
+**₺2.200**≈ $44
+
+💰 By bank transfer: **₺2.150**
+
+VAT included · shipping excluded
+
+### [Lexron 20 A MPPT Solar Charge Controller 12/24 V](https://www.gespaenerji.com/en/lexron-mppt-20a.html)
+
+12/24 V battery-based solar systems · high efficiency
+
+**₺3.150**≈ $64
+
+💰 By bank transfer: **₺3.050**
+
+VAT included · shipping excluded
+
+### [Lexron 30 A MPPT Solar Charge Controller 12/24 V](https://www.gespaenerji.com/en/lexron-mppt-30a.html)
+
+12/24 V battery-based solar systems · high efficiency
+
+**₺3.450**≈ $71
+
+💰 By bank transfer: **₺3.350**
+
+VAT included · shipping excluded
+
+### [Lexron 40 A MPPT Solar Charge Controller 12/24 V](https://www.gespaenerji.com/en/lexron-mppt-40a.html)
+
+12/24 V battery-based solar systems · high efficiency
+
+**₺3.800**≈ $77
+
+💰 By bank transfer: **₺3.700**
+
+VAT included · shipping excluded
+
+### [Lexron 80 A HV (15~230 V) MPPT Solar Charge Controller 12/24/36/48 V](https://www.gespaenerji.com/en/lexron-mppt-80a-hv.html)
+
+Large 12/24/36/48 V battery-based solar systems
+
+**₺10.100**≈ $205
+
+💰 By bank transfer: **₺9.800**
+
+VAT included · shipping excluded
+
+### [Solar Cable Set (5 m Black + 5 m Red)](https://www.gespaenerji.com/en/kablo-solar-5m.html)
 
 Connection between panel and charge controller
 
@@ -197,31 +307,109 @@ Connection between panel and charge controller
 
 VAT included · shipping excluded
 
-### [Passenger-Cab E-Trike Solar Set — 285 W](https://www.gespaenerji.com/en/paket-motor-yolcu.html)
+### [Passenger-Cab E-Trike Solar Set — 240 W](https://www.gespaenerji.com/en/paket-motor-yolcu.html)
 
 Enclosed 2–4 seater passenger three-wheelers — narrow roof area
 
-**₺15.800**≈ $321
+**₺14.800**≈ $301
 
-💰 By bank transfer: **₺15.350**
+💰 By bank transfer: **₺14.350**
 
 VAT included · shipping excluded
 
-### [Cargo-Bed E-Trike Solar Set — 655 W](https://www.gespaenerji.com/en/paket-motor-kargo.html)
+### [Cargo-Bed E-Trike Solar Set — 700 W](https://www.gespaenerji.com/en/paket-motor-kargo.html)
 
 Open-bed or canopied cargo three-wheelers — wide roof area
 
-**₺18.300**≈ $372
+**₺17.000**≈ $346
 
-💰 By bank transfer: **₺17.750**
+💰 By bank transfer: **₺16.500**
 
 VAT included · shipping excluded
 
-### MC4 Connector Set
+### [Golf-Cart-Type EV Solar Set — 460 W](https://www.gespaenerji.com/en/paket-motor-golf.html)
+
+Roofed golf-cart-type electric passenger vehicles
+
+**₺16.300**≈ $331
+
+💰 By bank transfer: **₺15.800**
+
+VAT included · shipping excluded
+
+### [Mini Electric Car Solar Set — 240 W](https://www.gespaenerji.com/en/paket-motor-mini.html)
+
+Enclosed mini electric cars — small roof area
+
+**₺14.800**≈ $301
+
+💰 By bank transfer: **₺14.350**
+
+VAT included · shipping excluded
+
+### [MC4 Connector Set](https://www.gespaenerji.com/en/mc4-set.html)
 
 Joining the panel lead to the solar cable
 
 **₺100**≈ $2
+
+VAT included · shipping excluded
+
+### [Hero LED 10 W 12 V DC LED Bulb (12–60 V AC/DC)](https://www.gespaenerji.com/en/hero-led-ampul-10w.html)
+
+Caravans, boats, country houses and solar battery systems
+
+**₺130**≈ $3
+
+VAT included · shipping excluded
+
+### [Hero LED 100 W Solar Street Light (Sensor, Remote)](https://www.gespaenerji.com/en/hero-led-solar-sokak-100w.html)
+
+Garden, street, estate, car park and factory lighting
+
+**₺1.200**≈ $25
+
+💰 By bank transfer: **₺1.150**
+
+VAT included · shipping excluded
+
+### [Hero LED 50 W Solar LED Wall Light (Remote, 3 Colours + RGB)](https://www.gespaenerji.com/en/hero-led-aplik-50w.html)
+
+Wall, entrance, garden wall and terrace lighting
+
+**₺830**≈ $17
+
+💰 By bank transfer: **₺800**
+
+VAT included · shipping excluded
+
+### [Hero LED 50 W Solar Pillar-Top Garden Light (Remote, 3 Colours + RGB)](https://www.gespaenerji.com/en/hero-led-bahce-50w.html)
+
+Garden wall, ledge, pillar-top and entrance lighting
+
+**₺780**≈ $16
+
+💰 By bank transfer: **₺750**
+
+VAT included · shipping excluded
+
+### [Hero LED 200 W Solar Street Light (Sensor, Remote)](https://www.gespaenerji.com/en/hero-led-solar-sokak-200w.html)
+
+Garden, street, estate, car park and factory lighting
+
+**₺2.250**≈ $45
+
+💰 By bank transfer: **₺2.200**
+
+VAT included · shipping excluded
+
+### [Hero LED 600 W Solar Street Light (Radar Sensor, Remote)](https://www.gespaenerji.com/en/hero-led-solar-sokak-600w.html)
+
+Large gardens, streets, estates, car parks and factory yards
+
+**₺2.650**≈ $54
+
+💰 By bank transfer: **₺2.550**
 
 VAT included · shipping excluded
 
@@ -241,7 +429,7 @@ You can pay by credit card (secure payment via iyzico) or by bank transfer/EFT. 
 
 ### How do returns and the right of withdrawal work?
 
-Right of withdrawal (distance sales): **14** days — return shipping is paid by the buyer.
+Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
 
 For damaged or defective goods all costs are ours — please inspect the parcel in front of the courier on delivery.
 

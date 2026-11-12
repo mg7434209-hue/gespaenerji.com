@@ -4,11 +4,104 @@
 (function () {
   "use strict";
   var doc = document;
+  // Sayfanın main.js adresindeki sürüm (`?v=`, build.js versionAssets) —
+  // sonradan yüklenen chatbot.js de aynı sürümle istenir (uzun önbellek).
+  var ASSET_V = (function () { try { var m = /[?&]v=([0-9a-f]+)/.exec(doc.currentScript.src); return m ? m[1] : ""; } catch (e) { return ""; } })();
   var REDUCED = false;
   try { REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
   var $ = function (s, c) { return (c || doc).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || doc).querySelectorAll(s)); };
   function L(tr, en, de, ru) { var l = (window.GESPA && GESPA.lang) || "tr"; return l === "en" ? en : (l === "de" ? de : (l === "ru" ? ru : tr)); }
+
+  // ---- tami kart formu + taksit tablosu (sepet ve odeme.html ORTAK) ----
+  // Kart sağlayıcısı tami iken (/api/pay/status → provider) kart bu sitede
+  // alınır ve sunucuya yalnız ödeme isteğinde gider (server.js tamiStart);
+  // hiçbir yerde saklanmaz. Kartın ilk 8 hanesiyle taksit yapılabilirliği
+  // sorulur. Vade farkı % sunucudan gelir (status.taksit.farkPct); tutar
+  // formülü server.js → tami.js taksitTutar ile AYNI (kuruşa yuvarlı).
+  // o: { total: fn → taksitsiz ₺, cfg: {secenekler, farkPct}, only: 0 | 1 | N }
+  function tamiCard(host, o) {
+    var cfg = o.cfg || { secenekler: [], farkPct: {} };
+    var only = +o.only || 0;
+    var st = { bin: "", info: null, n: only > 1 ? only : 1, busy: false };
+    var money = function (n) { return "₺" + Number(n).toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+    var tutar = function (n) {
+      var base = +o.total() || 0, pct = n > 1 ? (+(cfg.farkPct || {})[n] || 0) : 0;
+      var fark = Math.round(base * pct) / 100;
+      return Math.round((base + fark) * 100) / 100;
+    };
+    host.className = "ord-tckn ord-card";
+    host.innerHTML =
+      '<label for="tkAd"></label><input id="tkAd" maxlength="30" autocomplete="cc-name" />' +
+      '<label for="tkNo"></label><input id="tkNo" inputmode="numeric" maxlength="23" autocomplete="cc-number" placeholder="0000 0000 0000 0000" />' +
+      '<div class="ord-card-row"><div><label for="tkSkt"></label><input id="tkSkt" inputmode="numeric" maxlength="7" autocomplete="cc-exp" /></div>' +
+      '<div><label for="tkCvv">CVV *</label><input id="tkCvv" inputmode="numeric" maxlength="4" autocomplete="cc-csc" placeholder="123" /></div></div>' +
+      '<div class="ord-taksit-info" hidden></div><div class="ord-taksit" hidden></div>' +
+      '<p class="pd-note ord-card-note"></p>';
+    var q = function (s) { return host.querySelector(s); };
+    var ad = q("#tkAd"), no = q("#tkNo"), skt = q("#tkSkt"), cvv = q("#tkCvv");
+    var box = q(".ord-taksit"), info = q(".ord-taksit-info");
+    function texts() {
+      q('label[for="tkAd"]').textContent = L("Kart üzerindeki ad *", "Name on card *", "Name auf der Karte *", "Имя на карте *");
+      q('label[for="tkNo"]').textContent = L("Kart numarası *", "Card number *", "Kartennummer *", "Номер карты *");
+      q('label[for="tkSkt"]').textContent = L("Son kullanma *", "Expiry *", "Gültig bis *", "Срок действия *");
+      skt.placeholder = L("AA/YY", "MM/YY", "MM/JJ", "ММ/ГГ");
+      q(".ord-card-note").textContent = "🔒 " + L("Kart bilgileriniz saklanmaz; yalnız ödeme için bankaya iletilir. Ödeme bankanızın 3D Secure onayıyla tamamlanır.",
+        "Your card details are not stored; they are only sent to the bank for this payment. The payment is completed with your bank's 3D Secure approval.",
+        "Ihre Kartendaten werden nicht gespeichert; sie werden nur für diese Zahlung an die Bank übermittelt. Die Zahlung wird mit 3D Secure Ihrer Bank abgeschlossen.",
+        "Данные карты не сохраняются; они передаются в банк только для этого платежа. Оплата подтверждается через 3D Secure вашего банка.");
+    }
+    function render() {
+      texts();
+      var bin8 = no.value.replace(/\D/g, "").slice(0, 8);
+      if (bin8.length < 8 || !cfg.secenekler || !cfg.secenekler.length && only < 2) { box.hidden = true; info.hidden = true; return; }
+      info.hidden = false;
+      if (st.busy) { info.textContent = L("Taksit seçenekleri sorgulanıyor…", "Checking instalment options…", "Ratenoptionen werden geprüft…", "Проверяем варианты рассрочки…"); box.hidden = true; return; }
+      if (!st.info) { info.textContent = L("Taksit bilgisi alınamadı; tek çekim ödenir.", "Instalment info unavailable; single payment.", "Rateninfo nicht verfügbar; Einmalzahlung.", "Нет данных о рассрочке; разовый платёж."); box.hidden = true; return; }
+      var head = [st.info.banka, st.info.program, st.info.tip].filter(Boolean).join(" · ");
+      if (!st.info.taksit) {
+        info.textContent = (head ? head + " — " : "") + L("bu kartla taksit yapılamıyor; tek çekim.", "no instalments with this card; single payment.", "mit dieser Karte keine Raten; Einmalzahlung.", "рассрочка по этой карте недоступна; разовый платёж.");
+        box.hidden = true; return;
+      }
+      info.textContent = head;
+      var list = only ? [only] : [1].concat(cfg.secenekler || []);
+      box.innerHTML = list.map(function (n) {
+        var t = tutar(n);
+        return '<label><input type="radio" name="tkTaksit" value="' + n + '"' + (st.n === n ? " checked" : "") + " />" +
+          "<span>" + (n === 1 ? L("Tek çekim", "Single payment", "Einmalzahlung", "Разовый платёж") : n + " " + L("taksit", "instalments", "Raten", "платежей")) + "</span>" +
+          '<span class="tk-sum">' + (n > 1 ? "<small>" + n + " × " + money(Math.floor(t / n * 100) / 100) + " = </small>" : "") + "<b>" + money(t) + "</b></span></label>";
+      }).join("");
+      box.hidden = false;
+    }
+    box.addEventListener("change", function (e) { if (e.target.name === "tkTaksit") { st.n = +e.target.value || 1; render(); } });
+    no.addEventListener("input", function () {
+      var bin8 = no.value.replace(/\D/g, "").slice(0, 8);
+      if (bin8.length < 8) { st.bin = ""; st.info = null; st.n = only > 1 ? only : 1; render(); return; }
+      if (bin8 === st.bin) return;
+      st.bin = bin8; st.info = null; st.busy = true; st.n = only > 1 ? only : 1; render();
+      fetch("/api/pay/tami/taksit", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ bin: bin8 }) })
+        .then(function (r) { return r.json(); }).catch(function () { return null; })
+        .then(function (j) { if (st.bin !== bin8) return; st.busy = false; st.info = j && j.ok ? j : null; render(); });
+    });
+    render();
+    return {
+      active: function (on) { host.hidden = !on; [ad, no, skt, cvv].forEach(function (i) { i.required = !!on; }); },
+      refresh: render,
+      // → { card, taksit } ya da { error, el }
+      read: function () {
+        var num = no.value.replace(/\D/g, ""), m = /^\s*(\d{1,2})\s*\/?\s*(\d{2}|\d{4})\s*$/.exec(skt.value);
+        if (ad.value.trim().length < 3) return { el: ad, error: L("Kart üzerindeki adı yazın.", "Enter the name on the card.", "Geben Sie den Namen auf der Karte ein.", "Введите имя на карте.") };
+        if (num.length < 12 || num.length > 19) return { el: no, error: L("Kart numarasını kontrol edin.", "Check the card number.", "Prüfen Sie die Kartennummer.", "Проверьте номер карты.") };
+        if (!m) return { el: skt, error: L("Son kullanma tarihini AA/YY biçiminde yazın.", "Enter the expiry date as MM/YY.", "Ablaufdatum als MM/JJ eingeben.", "Введите срок действия в формате ММ/ГГ.") };
+        if (!/^\d{3,4}$/.test(cvv.value.trim())) return { el: cvv, error: L("CVV'yi kontrol edin (kartın arkasındaki 3 hane).", "Check the CVV (3 digits on the back).", "Prüfen Sie die CVV (3 Ziffern auf der Rückseite).", "Проверьте CVV (3 цифры на обороте).") };
+        if (st.n > 1 && !(st.info && st.info.taksit)) return { el: no, error: L("Bu kartla taksit yapılamıyor.", "Instalments are not available with this card.", "Mit dieser Karte sind keine Raten möglich.", "Рассрочка по этой карте недоступна.") };
+        return { taksit: st.n, total: tutar(st.n), card: { holderName: ad.value.trim(), number: num, expireMonth: +m[1], expireYear: +m[2], cvv: cvv.value.trim() } };
+      },
+      clear: function () { [ad, no, skt, cvv].forEach(function (i) { i.value = ""; }); st.bin = ""; st.info = null; render(); }
+    };
+  }
+  window.GESPA = window.GESPA || {};
+  window.GESPA.tamiCard = tamiCard;
 
   /* ---- Yıl ---- */
   var yil = $("#yil");
@@ -45,8 +138,32 @@
   (function applyPriceOverrides() {
     var ov; try { ov = JSON.parse(localStorage.getItem("gespa-prices-usd") || "null"); } catch (e) { ov = null; }
     if (!ov) return;
-    if (ov.packages && CFG.packages) CFG.packages.forEach(function (p) { if (ov.packages[p.id] != null && ov.packages[p.id] !== "") { p.price = +ov.packages[p.id]; PRICE_OV = true; } });
-    if (ov.heater && CFG.heater && CFG.heater.models) CFG.heater.models.forEach(function (m) { if (ov.heater[m.cap] != null && ov.heater[m.cap] !== "") m.price = +ov.heater[m.cap]; });
+    var any = false;
+    if (ov.packages && CFG.packages) CFG.packages.forEach(function (p) { if (ov.packages[p.id] != null && ov.packages[p.id] !== "") { p.price = +ov.packages[p.id]; PRICE_OV = true; any = true; } });
+    if (ov.heater && CFG.heater && CFG.heater.models) CFG.heater.models.forEach(function (m) { if (ov.heater[m.cap] != null && ov.heater[m.cap] !== "") { m.price = +ov.heater[m.cap]; any = true; } });
+    // Önizleme açıkken bunu SAYFADA söyle: admin "Kaydet" yalnız bu tarayıcıya
+    // yazar; masaüstünde yeni, telefonda (ve tüm müşterilerde) eski fiyat
+    // görünüyordu ve fiyat yayınlanmış sanıldı (4 Eki 2026).
+    if (!any || !doc.body) return;
+    var bar = doc.createElement("div");
+    bar.className = "price-ov-bar";
+    bar.setAttribute("role", "status");
+    bar.innerHTML = "<span>⚠️ " + L(
+      "Fiyat ÖNİZLEMESİ: yalnız bu cihazda. Müşteriler ve ödeme yayındaki fiyatı görür.",
+      "Price PREVIEW: this device only. Customers and checkout see the published price.",
+      "Preis-VORSCHAU: nur dieses Gerät. Kunden und Kasse sehen den veröffentlichten Preis.",
+      "ПРЕДПРОСМОТР цен: только это устройство. Покупатели и оплата видят опубликованную цену.") +
+      '</span><button type="button">' + L("Önizlemeyi kapat", "Close preview", "Vorschau beenden", "Закрыть просмотр") + "</button>";
+    bar.querySelector("button").addEventListener("click", function () {
+      try { localStorage.removeItem("gespa-prices-usd"); } catch (e) {}
+      location.reload();
+    });
+    // Sayfa en üstteyken ekle ve en üstte kal: tarayıcının kaydırma
+    // sabitlemesi (scroll anchoring) aksi hâlde sayfayı şerit kadar aşağı
+    // itip uyarıyı ekran dışında bırakıyordu.
+    var atTop = (window.pageYOffset || 0) === 0;
+    doc.body.insertBefore(bar, doc.body.firstChild);
+    if (atTop) window.scrollTo(0, 0);
   })();
   (function fillFromConfig() {
     var c = CFG.company;
@@ -201,20 +318,34 @@
     function tlRound(v) { var s = v >= 10000 ? 100 : v >= 1000 ? 50 : 10; return Math.round(v / s) * s; }
     function usdToTl(v) { return tlRound((+v || 0) * (CFG.usdTry || 0)); }
     // Birim fiyatlar (₺): list = liste, cart = havale/EFT, usd = yaklaşık $
-    function pkgUnit(p) {
+    // ADET FİYATI (`bulk: {min, price}`): sepetteki adet `min`'e ulaşınca
+    // birim fiyat `bulk.price` olur (ör. 5'li alım). qty verilmezse tekli
+    // fiyat döner — kart, ürün sayfası ve akış tekli fiyatı gösterir.
+    // server.js pkgListTL(p, cfg, qty) ile AYNI kural.
+    function bulkOn(p, qty) { return !!(p.bulk && p.bulk.price != null && qty >= (p.bulk.min || 0)); }
+    function pkgUnit(p, qty) {
       var RATE = CFG.usdTry || 0, pct = pkgPct(p);
       // priceOnRequest: fiyat girilmemis urun — tutar URETILMEZ, cagiran
       // "Teklif alin" gosterir ve urun sepete eklenmez.
       if (p.price == null) return { list: null, cart: null, usd: 0, poa: true };
-      var tl = p.currency === "USD" ? usdToTl(p.price) : p.price;
+      var base = bulkOn(p, qty) ? p.bulk.price : p.price;
+      var tl = p.currency === "USD" ? usdToTl(base) : base;
       return {
         list: tl,
         // noCartDiscount: fiyat zaten net (ör. kampanya fiyatı) — üstüne
         // havale/EFT indirimi BİNMEZ. TÜM fiyat noktaları bu kuralı izler.
-        cart: p.noCartDiscount ? tl : Math.round(tl * (100 - pct) / 100 / 50) * 50,
+        // Min(): ucuz üründe 50'ye yuvarlama havale fiyatını listenin ÜSTÜNE
+        // çıkarabiliyordu (₺130 → ₺150). Havale hiçbir zaman listeyi geçmez.
+        cart: p.noCartDiscount ? tl : Math.min(tl, Math.round(tl * (100 - pct) / 100 / 50) * 50),
         // yalnız "≈ $" gösterimi için; kuruşlu USD fiyat (KDV'li) yuvarlanır
-        usd: p.currency === "USD" ? Math.round(p.price) : (RATE ? Math.round(p.price / RATE) : 0)
+        usd: p.currency === "USD" ? Math.round(base) : (RATE ? Math.round(base / RATE) : 0),
+        bulk: bulkOn(p, qty)
       };
+    }
+    // Ürünün 5'li (bulk) birim fiyatı ₺; yoksa null.
+    function bulkTL(p) {
+      if (!p.bulk || p.bulk.price == null) return null;
+      return p.currency === "USD" ? usdToTl(p.bulk.price) : p.bulk.price;
     }
     var cart = (function () {
       var KEY = "gespa-cart";
@@ -224,7 +355,7 @@
       // kimliği kalabiliyordu (kaldırılan paketler, eski "set:<id>" anahtarı):
       // sepet listesi onu göstermiyor ama üst menü rozeti sayıyordu, 1 ürünlü
       // sepette "2" yazıyordu. Rozet, liste ve ödeme artık AYNI süzgeci okur.
-      function sellable(id) { var p = pkgOf(id); return !!(p && p.price != null); }
+      function sellable(id) { var p = pkgOf(id); return !!(p && p.price != null && p.stock !== 0); }   // stock:0 = tükendi, satılamaz
       function clean(c) {
         var out = {};
         if (c && typeof c === "object" && !Array.isArray(c)) Object.keys(c).forEach(function (id) {
@@ -237,13 +368,15 @@
       function read() { return clean(stored()); }
       function write(c) { try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {} badge(); }
       function count() { var c = read(), n = 0; Object.keys(c).forEach(function (k) { n += c[k]; }); return n; }
+      // Sepete ekleme olayı (anonim sayaç; GESPA.track aşağıdaki sayaç betiğinde tanımlıdır)
+      function track(id) { try { if (window.GESPA && GESPA.track) GESPA.track("cart", id); } catch (e) {} }
       function badge() { var n = count(); $$(".cart-count").forEach(function (b) { b.textContent = n; b.hidden = !n; }); }
       // Açılışta kayıt bir kez temizlenir; geçersiz satır depoda birikmesin.
       (function () { var s = stored(), c = clean(s); if (JSON.stringify(s) !== JSON.stringify(c)) { try { localStorage.setItem(KEY, JSON.stringify(c)); } catch (e) {} } })();
       return {
         read: read, count: count, badge: badge, pkgOf: pkgOf,
-        add: function (id, qty) { if (!sellable(id)) return; var c = read(); c[id] = Math.max(1, Math.min(99, (c[id] || 0) + (qty || 1))); write(c); },
-        setQty: function (id, qty) { var c = read(); if (qty > 0 && sellable(id)) c[id] = Math.min(99, Math.floor(qty)); else delete c[id]; write(c); },
+        add: function (id, qty) { if (!sellable(id)) return; var c = read(); c[id] = Math.max(1, Math.min(99, (c[id] || 0) + (qty || 1))); write(c); track(id); },
+        setQty: function (id, qty) { var c = read(), before = c[id] || 0; if (qty > 0 && sellable(id)) c[id] = Math.min(99, Math.floor(qty)); else delete c[id]; write(c); if (c[id] > before) track(id); },
         remove: function (id) { var c = read(); delete c[id]; write(c); }
       };
     })();
@@ -295,6 +428,21 @@
       var usdOf = function (v) { return p.currency === "USD" ? Math.round(v) : (RATE ? Math.round(v / RATE) : 0); };
       // Birim tutarlar (adet ile çarpılır) — kural sepet/vitrinle AYNI (pkgUnit)
       var unit = pkgUnit(p);
+      // 5'li (bulk) adet fiyatı satırı: `[data-pkg-bulk]` ürün sayfası betiğinin
+      // bıraktığı boş yer tutucudur; dil değişince yeniden yazılır.
+      var bulkEl = document.querySelector("[data-pkg-bulk]");
+      var bT = bulkTL(p);
+      var applyBulk = function () {
+        if (!bulkEl || bT == null) return;
+        var n = p.bulk.min;
+        bulkEl.textContent = "📦 " + L(n + " adet ve üzeri alımda adet fiyatı ₺" + nf.format(bT),
+          "Buy " + n + " or more: ₺" + nf.format(bT) + " per unit",
+          "Ab " + n + " Stück: ₺" + nf.format(bT) + " pro Stück",
+          "От " + n + " шт.: ₺" + nf.format(bT) + " за штуку");
+        bulkEl.hidden = false;
+      };
+      applyBulk();
+      document.addEventListener("gespa:lang", applyBulk);
       var unitList = unit.list, unitCart = unit.cart;
       var qty = 1;                                                          // adet (adet kutusu değiştirir)
       var set = function (sel, txt) { document.querySelectorAll(sel).forEach(function (el) { el.textContent = txt; }); };
@@ -331,8 +479,8 @@
               "Free shipping to anywhere in Türkiye; shipping is included in the price.",
               "Kostenloser Versand in die ganze Türkei; der Versand ist im Preis enthalten.",
               "Бесплатная доставка по всей Турции; доставка включена в цену.")
-          : L("Türkiye'nin her yerine kargo ile gönderilir.", "Ships to anywhere in Türkiye.",
-              "Versand in die ganze Türkei.", "Доставка по всей Турции."));
+          : L("Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.", "Ships to anywhere in Türkiye; shipping is paid by the buyer.",
+              "Versand in die ganze Türkei; die Versandkosten trägt der Käufer.", "Доставка по всей Турции; доставку оплачивает покупатель."));
       };
       applyShip();
       document.addEventListener("gespa:lang", applyShip);
@@ -342,30 +490,78 @@
         set("[data-pkg-havale]", "₺" + nf.format(unitCart));
         set("[data-pkg-cta]", "🛒 " + L("Sepete ekle — %" + pct + " indirimle al", "Add to cart — get " + pct + "% off", "In den Warenkorb — " + pct + " % sparen", "В корзину — скидка " + pct + " %"));
       }
-      // WhatsApp bilgi linkleri
+      // WhatsApp bilgi linkleri — ürün adı + kod + adet + sayfa adresi (CRO FAZ 2)
       var wa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
       var waHref = function (msg) { return "https://wa.me/" + wa + "?text=" + encodeURIComponent(msg); };
-      if (wa) {
+      var pageUrl = ((CFG.company && CFG.company.web) || "") + "/" + (p.url || "");
+      var applyWa = function () {
+        if (!wa) return;
+        var tag = p.sku ? " (" + p.sku + ")" : "";
         document.querySelectorAll("[data-pkg-wa]").forEach(function (el) {
-          el.href = waHref(L("Merhaba, \"" + p.name + "\" paketi hakkında bilgi almak istiyorum.",
-            "Hello, I would like information about the \"" + p.name + "\" package.",
-            "Hallo, ich interessiere mich für das Paket \"" + p.name + "\".",
-            "Здравствуйте, интересует пакет «" + p.name + "»."));
+          el.href = waHref(L("Merhaba GESPA, \"" + p.name + "\"" + tag + " hakkında bilgi almak istiyorum. Adet: " + qty + ". " + pageUrl,
+            "Hello GESPA, I would like information about \"" + p.name + "\"" + tag + ". Quantity: " + qty + ". " + pageUrl,
+            "Hallo GESPA, ich interessiere mich für \"" + p.name + "\"" + tag + ". Menge: " + qty + ". " + pageUrl,
+            "Здравствуйте, GESPA, интересует «" + p.name + "»" + tag + ". Количество: " + qty + ". " + pageUrl));
           el.target = "_blank"; el.rel = "noopener";
         });
-      }
+        document.querySelectorAll("[data-pkg-review]").forEach(function (el) {
+          el.href = waHref(L("Merhaba GESPA, \"" + p.name + "\"" + tag + " ürünü için yorumum: ",
+            "Hello GESPA, my review of \"" + p.name + "\"" + tag + ": ",
+            "Hallo GESPA, meine Bewertung zu \"" + p.name + "\"" + tag + ": ",
+            "Здравствуйте, GESPA, мой отзыв о «" + p.name + "»" + tag + ": "));
+        });
+      };
+      applyWa();
+      document.addEventListener("gespa:lang", applyWa);
+      // Taksit satırı: kart ödemesi açıksa görünür; tami'de en yüksek taksit sayısı yazılır.
+      var tkEl = document.querySelector("[data-pay-taksit]");
+      if (tkEl) fetch("/api/pay/status").then(function (r) { return r.json(); }).then(function (st) {
+        if (!st || !st.enabled) { tkEl.hidden = true; return; }
+        if (tkEl.textContent.trim().length > 10 && (CFG.commerce || {}).taksitMax) return;   // statik metin (config) yeterli
+        var n = st.taksit && st.taksit.secenekler && st.taksit.secenekler.length ? Math.max.apply(null, st.taksit.secenekler) : 0;
+        var sp = tkEl.querySelector("span");
+        var write = function () {
+          if (sp) sp.textContent = n
+            ? L("Kredi kartına " + n + " taksite kadar — ödeme sayfasında seçilir", "Up to " + n + " instalments by card — chosen on the payment page", "Bis zu " + n + " Raten per Karte — auf der Zahlungsseite wählbar", "До " + n + " платежей картой — выбирается на странице оплаты")
+            : L("Kredi kartına taksit — ödeme sayfasında seçilir", "Card instalments — chosen on the payment page", "Ratenzahlung per Karte — auf der Zahlungsseite wählbar", "Рассрочка картой — выбирается на странице оплаты");
+        };
+        write(); tkEl.hidden = false; document.addEventListener("gespa:lang", write);
+      }).catch(function () {});
       // Adet kutusu (− n +) — seçilen adet "Sepete ekle" ile sepete geçer
       var qtyIn = document.querySelector("[data-qty-input]");
       // Üst sınır stoktur: stokta 1 varsa müşteri 5 adet sipariş edemez.
-      var setQty = function (n) { qty = Math.max(1, Math.min(maxQty || 1, Math.round(n) || 1)); if (qtyIn) qtyIn.value = qty; };
+      // 5'li (bulk) üründe adet `bulk.min`'e ulaşınca fiyat ve havale tutarı
+      // adet fiyatına döner; sepet aynı kuralı pkgUnit(p, qty) ile uygular.
+      var showUnit = function () {
+        if (bT == null) return;
+        var uq = pkgUnit(p, qty);
+        set("[data-pkg-price]", "₺" + nf.format(uq.list));
+        if (pct) set("[data-pkg-havale]", "₺" + nf.format(uq.cart));
+        if (bulkEl) bulkEl.classList.toggle("is-on", !!uq.bulk);
+      };
+      var setQty = function (n) { qty = Math.max(1, Math.min(maxQty || 1, Math.round(n) || 1)); if (qtyIn) qtyIn.value = qty; showUnit(); applyWa(); };
       document.querySelectorAll(".buy-row [data-q]").forEach(function (b) {
         b.addEventListener("click", function () { setQty(qty + (+b.getAttribute("data-q"))); });
       });
       if (qtyIn) qtyIn.addEventListener("input", function () { setQty(parseInt(qtyIn.value, 10)); });
+      // TÜKENDİ (stock: 0): satın alma düğmeleri kapanır, müşteri WhatsApp'tan sorabilir.
+      var soldOut = p.stock === 0;
+      if (soldOut) {
+        var markSold = function () {
+          document.querySelectorAll("[data-add-cart], [data-add-cart-go]").forEach(function (b) {
+            b.setAttribute("aria-disabled", "true"); b.classList.add("is-soldout");
+            b.textContent = b.hasAttribute("data-add-cart")
+              ? "⛔ " + L("Stokta yok", "Out of stock", "Nicht vorrätig", "Нет в наличии")
+              : L("Stok bilgisi için WhatsApp →", "Ask on WhatsApp →", "Per WhatsApp anfragen →", "Спросить в WhatsApp →");
+          });
+        };
+        markSold(); document.addEventListener("gespa:lang", markSold);
+      }
       // "Sepete ekle": ürünü ekler, onay penceresi açar (Sepete git / Alışverişe devam)
       document.querySelectorAll("[data-add-cart]").forEach(function (btn) {
         btn.addEventListener("click", function (e) {
           e.preventDefault();
+          if (soldOut) return;
           cart.add(p.id, qty);
           cartPop(p.name);
         });
@@ -374,6 +570,7 @@
       document.querySelectorAll("[data-add-cart-go]").forEach(function (btn) {
         btn.addEventListener("click", function (e) {
           e.preventDefault();
+          if (soldOut) { var w = document.querySelector("[data-pkg-wa]"); if (w && w.href) window.open(w.href, "_blank"); return; }
           if (!cart.read()[p.id]) cart.add(p.id, qty);
           location.href = "sepet.html";
         });
@@ -454,14 +651,19 @@
         var d = sets[secili];
         h += '<div class="mset-detail">';
         // Sol görsel SEÇİLEN ARACIN kurulum kadrajıdır; sette yoksa yedeğe düşer.
+        // `proofKind: "vehicle"`: elimizde panelli kurulum fotoğrafı yoksa sol
+        // görsel aracın kendisidir; "Panel montaj örneği" demek yanıltırdı.
         var proof = d.st.proof || CFG.evSetProof;
+        var aracFoto = d.st.proof && d.st.proofKind === "vehicle";
         if (proof) {
           h += '<div class="mset-proof"><img src="' + esc(proof) + '" alt="'
-            + esc(T(d.st.title)) + " — "
-            + esc(L("çatıya monte güneş paneli", "solar panel mounted on the roof",
-                    "auf dem Dach montiertes Solarmodul", "солнечная панель на крыше"))
+            + esc(T(d.st.title))
+            + (aracFoto ? "" : " — " + esc(L("çatıya monte güneş paneli", "solar panel mounted on the roof",
+                    "auf dem Dach montiertes Solarmodul", "солнечная панель на крыше")))
             + '" width="408" height="306" loading="lazy" data-zoom /><span>'
-            + L("Panel montaj örneği", "Panel mounting example", "Beispiel für die Modulmontage", "Пример монтажа панели") + "</span></div>";
+            + (aracFoto
+              ? L("Araç tipi örneği", "Vehicle type example", "Fahrzeugtyp-Beispiel", "Пример типа транспорта")
+              : L("Panel montaj örneği", "Panel mounting example", "Beispiel für die Modulmontage", "Пример монтажа панели")) + "</span></div>";
         }
         h += '<div class="mset-body"><h3>' + esc(TD(d.pk.name)) + "</h3>";
         h += '<ul class="mset-items">';
@@ -575,6 +777,9 @@
       var nf = new Intl.NumberFormat("tr-TR");
       var shopWa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
       var items = (CFG.packages || []).filter(function (p) { return p.price != null || p.priceOnRequest; });
+      // Tükenen ürün (stock: 0) listede kalır ama EN SONA iner; müşteri önce
+      // satın alabileceği ürünü görsün (27 Eki 2026).
+      items = items.filter(function (p) { return p.stock !== 0; }).concat(items.filter(function (p) { return p.stock === 0; }));
       // Kampanya: bitiş tarihi config.campaign.endsAt'ten okunur (tek kaynak).
       var camp = CFG.campaign || {};
       var campEnd = camp.endsAt ? new Date(camp.endsAt).getTime() : 0;
@@ -590,9 +795,17 @@
           cable: L("Kablo & Bağlantı", "Cable & Wiring", "Kabel & Anschluss", "Кабели и подключение"),
           evset: L("Elektrikli Motor Paketleri", "E-Vehicle Solar Sets", "Solar-Sets für E-Fahrzeuge", "Комплекты для электротранспорта"),
           storage: L("Enerji Depolama", "Energy Storage", "Energiespeicher", "Накопители энергии"),
-          charge: L("Şarj Kontrol & DC-DC", "Charge Controllers & DC-DC", "Laderegler & DC-DC", "Контроллеры заряда и DC-DC")
+          charge: L("Şarj Kontrol & DC-DC", "Charge Controllers & DC-DC", "Laderegler & DC-DC", "Контроллеры заряда и DC-DC"),
+          lighting: L("Aydınlatma", "Lighting", "Beleuchtung", "Освещение")
         })[g] || g;
       }
+      // Katalog süzgecinde üst kategoriye katılan gruplar. config.packages[].group
+      // DEĞİŞMEZ: urunler.html vitrininde "evset" kendi başlığıyla ayrı kalır;
+      // birleştirme yalnız bu sayfanın çiplerinde ve süzmesinde geçerlidir.
+      // Elektrikli motor güneş paketleri müşterinin aradığı "Elektrikli Araç"
+      // ürünleridir; ayrı çip aynı ihtiyacı ikiye bölüyordu (3 Eki 2026).
+      var CAT_MERGE = { evset: "accessory" };
+      function catOf(p) { var g = p.group || "ongrid"; return CAT_MERGE[g] || g; }
       function tName(t) {
         var lang = (window.GESPA && GESPA.lang) || "tr";
         if (lang === "tr") return t;
@@ -637,6 +850,8 @@
                 (usd ? '<span class="sh-usd">≈ $' + nf.format(usd) + "</span>" : "") + "</div>" +
               (cardPct && u.cart < u.list ? '<p class="sh-hav">💰 ' + L("Havale/EFT ile:", "By bank transfer:", "Per Überweisung:", "Банковским переводом:") +
                 " <b>₺" + nf.format(u.cart) + "</b></p>" : "") +
+              (bulkTL(p) != null ? '<p class="sh-bulk">📦 ' + L(p.bulk.min + "+ adet:", p.bulk.min + "+ pcs:", "ab " + p.bulk.min + " Stk.:", "от " + p.bulk.min + " шт.:") +
+                " <b>₺" + nf.format(bulkTL(p)) + "</b> " + L("/adet", "/unit", "/Stk.", "/шт.") + "</p>" : "") +
               '<p class="sh-vat">' + vatNote(p) + "</p>") +
             '<div class="sh-act">' +
               (href ? '<a class="btn btn-ghost btn-sm" href="' + href + '">' +
@@ -650,7 +865,9 @@
                       "Здравствуйте, хочу получить цену на «" + p.name + "».")) +
                     '" target="_blank" rel="noopener">💬 ' +
                     L("Fiyat sor", "Ask for price", "Preis anfragen", "Узнать цену") + "</a>" : "")
-                : '<button class="btn btn-sm" type="button" data-sh-add="' + p.id + '">🛒 ' +
+                : p.stock === 0
+                  ? '<button class="btn btn-sm is-soldout" type="button" disabled>⛔ ' + L("Stokta yok", "Out of stock", "Nicht vorrätig", "Нет в наличии") + "</button>"
+                  : '<button class="btn btn-sm" type="button" data-sh-add="' + p.id + '">🛒 ' +
                   L("Sepete ekle", "Add to cart", "In den Warenkorb", "В корзину") + "</button>") +
             "</div>" +
           "</div></article>";
@@ -695,10 +912,14 @@
         el.textContent = (d ? d + L("g ", "d ", "T ", "д ") : "") + two(h) + ":" + two(m) + ":" + two(s2);
       }
 
+      // Kullanım senaryosu (config.shopScenarios): kategori süzgecinin üstünde,
+      // ikisi birlikte çalışır (senaryo → sonra teknik kategori).
+      var SCEN = CFG.shopScenarios || [], scen = "all";
+      function inScen(p) { if (scen === "all") return true; var s = SCEN.filter(function (x) { return x.id === scen; })[0]; return !!(s && (s.ids || []).indexOf(p.id) >= 0); }
       function render(filter) {
-        var list = filter && filter !== "all"
-          ? items.filter(function (p) { return (p.group || "ongrid") === filter; })
-          : items;
+        var list = (filter && filter !== "all"
+          ? items.filter(function (p) { return catOf(p) === filter; })
+          : items).filter(inScen);
         grid.innerHTML = list.length
           ? list.map(tile).join("")
           : '<p class="sh-empty">' + L("Bu kategoride şu an ürün yok.", "No products in this category yet.",
@@ -713,7 +934,27 @@
       var bar = $("#shopFilters");
       var active = "all";
       var seen = [];
-      items.forEach(function (p) { var g = p.group || "ongrid"; if (seen.indexOf(g) < 0) seen.push(g); });
+      items.forEach(function (p) { var g = catOf(p); if (seen.indexOf(g) < 0) seen.push(g); });
+      // PAYLAŞILABİLİR KATEGORİ ADRESİ: çip seçilince adres
+      // `online-satis.html?kategori=aydinlatma` olur (replaceState: sayfa
+      // yenilenmez, geri tuşu geçmişi şişmez); bu adresle açılınca kategori
+      // seçili gelir. "Tümü" parametreyi siler. Slug yoksa grup anahtarı.
+      var CAT_SLUG = { offgrid: "tasinabilir", ongrid: "cati", irrigation: "sulama", accessory: "elektrikli-arac",
+        panel: "panel", cable: "kablo", evset: "motor-paketleri", storage: "enerji-depolama",
+        charge: "sarj-kontrol", lighting: "aydinlatma" };
+      var slugOf = function (g) { return CAT_SLUG[g] || g; };
+      var catParam = function () { try { return new URLSearchParams(location.search).get("kategori"); } catch (e) { return null; } };
+      (function () {
+        var want = catParam(); if (!want) return;
+        seen.forEach(function (g) { if (slugOf(g) === want || g === want) active = g; });
+      })();
+      var setCatUrl = function (g) {
+        try {
+          var u = new URL(location.href);
+          if (g === "all") u.searchParams.delete("kategori"); else u.searchParams.set("kategori", slugOf(g));
+          history.replaceState(history.state, "", u.pathname + u.search + u.hash);
+        } catch (e) { /* eski tarayıcı: adres değişmez, süzgeç yine çalışır */ }
+      };
       function buildFilters() {
         if (!bar) return;
         var html = '<button type="button" class="sh-chip' + (active === "all" ? " is-on" : "") + '" data-f="all">' +
@@ -723,7 +964,7 @@
           // BAĞLANTIDIR: tek kartlık ara ızgarayı atlar, doğrudan ürün
           // sayfasına götürür (orada galeri, künye ve paketler var).
           // Kategoriye ikinci ürün girdiğinde kendiliğinden süzgece döner.
-          var inG = items.filter(function (p) { return (p.group || "ongrid") === g; });
+          var inG = items.filter(function (p) { return catOf(p) === g; });
           var solo = inG.length === 1 && inG[0].url ? inG[0] : null;
           if (solo) {
             html += '<a class="sh-chip sh-chip-go" href="' + String(solo.url).replace(/"/g, "&quot;") + '">' +
@@ -740,10 +981,49 @@
         active = b.getAttribute("data-f");
         $$(".sh-chip", bar).forEach(function (x) { x.classList.toggle("is-on", x === b); });
         render(active);
+        setCatUrl(active);
+        // Mobilde çip şeridi tek satır kayar: seçilen çip görünür alana gelsin.
+        // scrollBy yalnız şeridi kaydırır (scrollIntoView sayfayı da oynatırdı).
+        if (bar.scrollWidth > bar.clientWidth) {
+          var br = b.getBoundingClientRect(), fr = bar.getBoundingClientRect();
+          bar.scrollBy({ left: (br.left + br.width / 2) - (fr.left + fr.width / 2), behavior: "smooth" });
+        }
+        // Liste ortasından süzüldüyse yeni listenin başına dön — yapışkan
+        // şeridin altında kalmasın diye şerit + başlık yüksekliği kadar pay bırakılır.
+        var stick = bar.closest(".sh-bar");
+        var gap = (stick && getComputedStyle(stick).position === "sticky" ? stick.offsetHeight : 0) +
+          (parseFloat(getComputedStyle(doc.documentElement).getPropertyValue("--hdr-h")) || 0) + 8;
+        var gTop = grid.getBoundingClientRect().top;
+        if (gTop < gap) window.scrollTo({ top: window.pageYOffset + gTop - gap, behavior: "smooth" });
       });
+      // Senaryo kartları
+      var scenBar = $("#shopScenarios");
+      var scenParam = function () { try { return new URLSearchParams(location.search).get("senaryo"); } catch (e) { return null; } };
+      function buildScen() {
+        if (!scenBar || !SCEN.length) return;
+        var html = '<button type="button" class="sh-scard' + (scen === "all" ? " is-on" : "") + '" data-s="all"><span class="sh-scard-ico" aria-hidden="true">🧰</span><b>' + L("Tüm ürünler", "All products", "Alle Produkte", "Все товары") + "</b><small>" + items.length + " " + L("ürün", "products", "Produkte", "товаров") + "</small></button>";
+        SCEN.forEach(function (s) {
+          var n = s.href ? 0 : items.filter(function (p) { return (s.ids || []).indexOf(p.id) >= 0; }).length;
+          if (!s.href && !n) return;
+          var inner = '<span class="sh-scard-ico" aria-hidden="true">' + s.icon + "</span><b>" + tName(s.label) + "</b><small>" + (s.href ? tName(s.hint) : tName(s.hint)) + "</small>";
+          html += s.href ? '<a class="sh-scard sh-scard-go" href="' + s.href + '">' + inner + "</a>"
+                         : '<button type="button" class="sh-scard' + (scen === s.id ? " is-on" : "") + '" data-s="' + s.id + '">' + inner + "</button>";
+        });
+        scenBar.innerHTML = html;
+      }
+      (function () { var w = scenParam(); if (w && SCEN.some(function (s) { return s.id === w && !s.href; })) scen = w; })();
+      if (scenBar) scenBar.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-s]"); if (!b) return;
+        scen = b.getAttribute("data-s");
+        $$(".sh-scard", scenBar).forEach(function (x) { x.classList.toggle("is-on", x === b); });
+        render(active);
+        try { var u = new URL(location.href); if (scen === "all") u.searchParams.delete("senaryo"); else u.searchParams.set("senaryo", scen); history.replaceState(history.state, "", u.pathname + u.search + u.hash); } catch (err) {}
+      });
+      buildScen();
       buildFilters();
       renderSale();
       render(active);
+      doc.addEventListener("gespa:lang", function () { buildScen(); });
       // sepete ekle — onay penceresi paket sayfalarıyla ortak
       function bindAdd(root) {
         if (!root) return;
@@ -807,10 +1087,15 @@
         Object.keys(c).forEach(function (id) {
           var p = cart.pkgOf(id);
           if (!p || p.price == null || !c[id]) return;
-          var u = pkgUnit(p);
+          var u = pkgUnit(p, c[id]);
           out.push({ p: p, qty: c[id], unit: u, sumList: u.list * c[id], sumCart: u.cart * c[id] });
         });
         return out;
+      }
+      function submitLabel(method) {
+        return method === "kart"
+          ? L("💳 Güvenli ödemeye geç", "💳 Proceed to secure payment", "💳 Weiter zur sicheren Zahlung", "💳 Перейти к безопасной оплате")
+          : L("🛒 Siparişi WhatsApp ile tamamla", "🛒 Complete order via WhatsApp", "🛒 Bestellung per WhatsApp abschließen", "🛒 Завершить заказ в WhatsApp");
       }
       function totals() {
         var ls = lines(), listT = 0, cartT = 0;
@@ -838,8 +1123,23 @@
         // iyzico hesabının tek işlem limiti (commerce.cardMaxTL): kartla
         // liste fiyatı çekilir, toplam limiti aşarsa iyzico reddeder. Müşteri
         // formu doldurmadan önce burada uyarılır; sunucu da aynı sınırı uygular.
+        // tami'ye uygulanmaz: o iyzico hesabının limitidir.
         var cardMax = +((CFG.commerce || {}).cardMaxTL) || 0;
-        var overCard = method === "kart" && cardMax > 0 && listT > cardMax;
+        var overCard = method === "kart" && cardMax > 0 && listT > cardMax && payProv !== "tami";
+        lastListT = listT;
+        if (tamiForm) tamiForm.refresh();
+        // KARGO (23 Eki 2026): ücretsiz kargolu olmayan ürün varsa kargo ALICI
+        // ÖDEMELİDİR; müşteri bunu kutucukla onaylar (kapıda "ödemem" diyip
+        // paketi geri çevirmesin diye). Hepsi `freeShipping` ise kutu gizlenir.
+        var allFree = ls.length > 0 && ls.every(function (l) { return !!l.p.freeShipping; });
+        set("[data-ord-ship]", allFree
+          ? L("Ücretsiz — fiyata dahil", "Free — included in the price", "Kostenlos — im Preis enthalten", "Бесплатно — включено в цену")
+          : L("Alıcı ödemeli — teslimatta ödenir", "Paid by the buyer on delivery", "Vom Käufer bei Zustellung zu zahlen", "Оплачивает покупатель при получении"));
+        var shipOk = $("#ordShipOk");
+        if (shipOk) {
+          shipOk.hidden = allFree;
+          var sbox = shipOk.querySelector("input"); if (sbox) sbox.required = !allFree;
+        }
         var cmEl = $("#payCardMax");
         if (cmEl) {
           cmEl.hidden = !overCard;
@@ -851,7 +1151,11 @@
               "Оплата картой ограничена суммой " + lim + " за одну операцию. Для этой корзины выберите банковский перевод или свяжитесь с нами.");
           }
         }
-        return { ls: ls, listT: listT, cartT: cartT, method: method, overCard: overCard };
+        // Gönder düğmesi seçilen yönteme göre yazar: kartta WhatsApp'a değil
+        // güvenli ödemeye gidilir (eskiden kartta da "WhatsApp ile" yazıyordu).
+        var sb = form && form.querySelector('button[type="submit"]');
+        if (sb && !ordSending) sb.textContent = submitLabel(method);
+        return { ls: ls, listT: listT, cartT: cartT, method: method, overCard: overCard, allFree: allFree };
       }
       function render() {
         var ls = lines();
@@ -874,6 +1178,13 @@
               '<p class="cart-item-name"><a href="' + (l.p.url || "urunler.html") + '">' + l.p.name + "</a></p>" +
               icerik +
               '<p class="cart-item-unit">₺' + nf.format(l.unit.list) + (l.unit.usd ? " (≈ $" + nf.format(l.unit.usd) + ")" : "") + " × " + l.qty + " " + L("adet", "pcs", "Stk.", "шт.") + "</p>" +
+              // 5'li fiyat: uygulandıysa rozet, uygulanmadıysa kaç adet eksik olduğunu söyler.
+              (bulkTL(l.p) != null
+                ? '<p class="cart-item-bulk">' + (l.unit.bulk
+                    ? "📦 " + L(l.p.bulk.min + "'li alım fiyatı uygulandı", l.p.bulk.min + "-unit price applied", l.p.bulk.min + "er-Preis angewendet", "Применена цена от " + l.p.bulk.min + " шт.")
+                    : "📦 " + L(l.p.bulk.min + " adet ve üzeri: ₺" + nf.format(bulkTL(l.p)) + "/adet", l.p.bulk.min + "+ pcs: ₺" + nf.format(bulkTL(l.p)) + "/unit",
+                                "ab " + l.p.bulk.min + " Stk.: ₺" + nf.format(bulkTL(l.p)) + "/Stk.", "от " + l.p.bulk.min + " шт.: ₺" + nf.format(bulkTL(l.p)) + "/шт.")) + "</p>"
+                : "") +
               '<div class="qbox"><button type="button" data-q="-1" aria-label="' + L("Adet azalt", "Decrease quantity", "Menge verringern", "Уменьшить количество") + '">−</button>' +
               '<input type="text" inputmode="numeric" value="' + l.qty + '" aria-label="' + L("Adet", "Quantity", "Menge", "Количество") + '" />' +
               '<button type="button" data-q="1" aria-label="' + L("Adet artır", "Increase quantity", "Menge erhöhen", "Увеличить количество") + '">+</button></div>' +
@@ -903,6 +1214,9 @@
         // Kart ödemesi (iyzico): sunucuda anahtar tanımlıysa seçenek açılır.
         // API yoksa (GitHub Pages) veya kapalıysa "çok yakında" olarak kalır.
         var cardOpt = document.getElementById("payCardOpt");
+        // Kart sağlayıcısı (iyzico | tami) /api/pay/status'tan gelir; tami'de
+        // kart formu (tamiForm) bu sayfada açılır.
+        var payProv = "", tamiForm = null, lastListT = 0;
         var tcknRow = document.getElementById("payTcknRow");
         var epostaHint = document.getElementById("epostaHint");
         // Kart ödemesinde TCKN (fatura) ve E-POSTA zorunludur: ödeme onayı ve
@@ -921,6 +1235,7 @@
         if (form.tckn) form.tckn.addEventListener("input", syncCorp);
         function syncTckn() {
           var isCard = form.odeme && form.odeme.value === "kart";
+          if (tamiForm) tamiForm.active(isCard);
           if (tcknRow) { tcknRow.hidden = !isCard; var inp = tcknRow.querySelector("input"); if (inp) inp.required = isCard; }
           syncCorp();
           if (form.eposta) form.eposta.required = isCard;
@@ -934,7 +1249,20 @@
         if (cardOpt) {
           fetch("/api/pay/status").then(function (r) { return r.json(); }).then(function (st) {
             if (!st || !st.enabled) return;
+            payProv = st.provider || "iyzico";
             cardOpt.classList.remove("ord-soon"); cardOpt.classList.add("pay-enabled");
+            // tami: kart bu sayfada alınır (3D Secure); kutu TCKN satırının altına.
+            if (payProv === "tami" && window.GESPA.tamiCard && tcknRow) {
+              var host = document.createElement("div");
+              tcknRow.parentNode.insertBefore(host, tcknRow.nextSibling);
+              tamiForm = window.GESPA.tamiCard(host, { total: function () { return lastListT; }, cfg: st.taksit });
+              var onTxt = cardOpt.querySelector(".pay-card-on");
+              if (onTxt) onTxt.textContent = L("Garanti BBVA tami güvencesiyle kart ve taksit (3D Secure); liste fiyatı uygulanır.",
+                "Card and instalments secured by Garanti BBVA tami (3D Secure); list price applies.",
+                "Karte und Raten über Garanti BBVA tami (3D Secure); es gilt der Listenpreis.",
+                "Карта и рассрочка через Garanti BBVA tami (3D Secure); действует прайс-цена.");
+              syncTckn(); totals();
+            }
             var radio = cardOpt.querySelector("input"); if (radio) radio.disabled = false;
             var soon = cardOpt.querySelector(".pay-card-soon"), on = cardOpt.querySelector(".pay-card-on");
             if (soon) soon.hidden = true;
@@ -998,6 +1326,15 @@
             return;
           }
           var warnEl = $("#ordWarn");
+          var kart = null;
+          if (t.method === "kart" && tamiForm) {
+            kart = tamiForm.read();
+            if (kart.error) {
+              if (warnEl) { warnEl.hidden = false; warnEl.textContent = kart.error; }
+              if (kart.el) { kart.el.scrollIntoView({ block: "center", behavior: "smooth" }); try { kart.el.focus({ preventScroll: true }); } catch (err) {} }
+              return;
+            }
+          }
           if (warnEl) warnEl.hidden = true;
           ordSending = true;
           if (t.method === "kart") {
@@ -1011,11 +1348,14 @@
                 // Görülen tutar: sunucu kendi hesabıyla kıyaslar; kur bu arada
                 // değiştiyse ödemeyi başlatmaz, sayfa güncel fiyatla yenilenir.
                 expectTL: PRICE_OV ? 0 : t.listT,
-                buyer: { ad: v("ad"), tel: v("tel"), eposta: v("eposta"), il: v("il"), adres: v("adres"), tckn: v("tckn"), firma: v("firma"), vd: v("vd") }
+                buyer: { ad: v("ad"), tel: v("tel"), eposta: v("eposta"), il: v("il"), adres: v("adres"), tckn: v("tckn"), firma: v("firma"), vd: v("vd"),
+                  kargoOnay: !!(form.kargoOnay && form.kargoOnay.checked) },
+                // tami: kart + taksit (iyzico'da yok; kart iyzico sayfasında girilir)
+                card: kart ? kart.card : undefined, tkTaksit: kart ? kart.taksit : undefined
               })
             }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
               .then(function (out) {
-                if (out.ok && out.j && out.j.url) { location.href = out.j.url; return; }
+                if (out.ok && out.j && out.j.url) { if (tamiForm) tamiForm.clear(); location.href = out.j.url; return; }
                 if (out.j && out.j.reload) {
                   if (doneEl) { doneEl.hidden = false; doneEl.textContent = L("Fiyatlar güncel döviz kuruna göre değişti. Sayfa yenileniyor; lütfen yeni tutarı kontrol edip tekrar deneyin.",
                     "Prices were updated to the current exchange rate. Reloading; please check the new total and try again.",
@@ -1025,12 +1365,12 @@
                   return;
                 }
                 ordSending = false;
-                if (btn) { btn.disabled = false; btn.textContent = L("🛒 Siparişi tamamla", "🛒 Complete your order", "🛒 Bestellung abschließen", "🛒 Завершить заказ"); }
+                if (btn) { btn.disabled = false; btn.textContent = submitLabel("kart"); }
                 if (doneEl) { doneEl.hidden = false; doneEl.textContent = (out.j && out.j.error) || L("Ödeme başlatılamadı; lütfen tekrar deneyin.", "Payment could not be started; please try again.", "Zahlung konnte nicht gestartet werden; bitte erneut versuchen.", "Не удалось начать оплату; попробуйте ещё раз."); }
               })
               .catch(function () {
                 ordSending = false;
-                if (btn) { btn.disabled = false; btn.textContent = L("🛒 Siparişi tamamla", "🛒 Complete your order", "🛒 Bestellung abschließen", "🛒 Завершить заказ"); }
+                if (btn) { btn.disabled = false; btn.textContent = submitLabel("kart"); }
                 if (doneEl) { doneEl.hidden = false; doneEl.textContent = L("Bağlantı hatası; lütfen tekrar deneyin.", "Connection error; please try again.", "Verbindungsfehler; bitte erneut versuchen.", "Ошибка соединения; попробуйте ещё раз."); }
               });
             return;
@@ -1049,6 +1389,7 @@
           msg.push("Ödeme: Havale/EFT" + (uniqPct != null ? " (sepette %" + uniqPct + " indirim)" : " (indirimli)"));
           msg.push("Ödenecek: ₺" + nf.format(t.cartT));
           if (CFG.company && CFG.company.bank) msg.push("Hesap: " + CFG.company.bank.accountHolder + " · " + CFG.company.bank.iban);
+          msg.push(t.allFree ? "Kargo: Ücretsiz (fiyata dahil)" : "Kargo: Alıcı ödemeli — teslimatta ödenir (müşteri onayladı)");
           msg.push("— Teslimat —", "Ad: " + v("ad"), "Tel: " + v("tel"));
           if (v("eposta")) msg.push("E-posta: " + v("eposta"));
           msg.push("İl/İlçe: " + v("il"), "Adres: " + v("adres"));
@@ -1065,6 +1406,8 @@
         });
       }
       render();
+      // Dil değişince özet satırları (kargo, indirim) yeni dilde yeniden yazılır.
+      document.addEventListener("gespa:lang", function () { totals(); });
     })();
 
     // ---- Toptan / B2B (toptan.html) — kartlar build'de statik basılır;
@@ -1241,7 +1584,7 @@
         if (price != null) {
           var listTL = tlOf(price);
           var netPrice = !!p.noCartDiscount;                       // fiyat zaten net
-          var havTL = netPrice ? listTL : Math.round(listTL * (100 - cartPct) / 100 / 50) * 50;
+          var havTL = netPrice ? listTL : Math.min(listTL, Math.round(listTL * (100 - cartPct) / 100 / 50) * 50);
           var showHav = cartPct && !netPrice;
           priceHtml = '<div class="pkg-price"><span class="pkg-price-lbl">' + priceLbl +
             (showHav ? ' <em class="pkg-disc">🛒 ' + L("Sepette %" + cartPct + " indirim", cartPct + "% off in cart", cartPct + " % Rabatt im Warenkorb", "−" + cartPct + " % в корзине") + "</em>" : "") + "</span>" +
@@ -1456,7 +1799,7 @@
       var v = b.getAttribute("data-consent");
       try { localStorage.setItem(KEY, v); } catch (err) {}
       bar.remove();
-      if (v === "granted") loadGA();
+      if (v === "granted") { loadGA(); if (window.GESPA && GESPA.geo) GESPA.geo(); }
     });
   })();
 
@@ -1467,11 +1810,63 @@
     var bar = doc.createElement("div");
     bar.className = "mobile-cta";
     bar.setAttribute("aria-label", L("Hızlı iletişim", "Quick contact", "Schnellkontakt", "Быстрая связь"));
+    // ÜRÜN SAYFASINDA (CRO FAZ 2): fiyat + Sepete ekle + WhatsApp. "Ücretsiz Keşif"
+    // satışı GES hunisine saptırıyordu. Tükenen üründe WhatsApp'tan sor.
+    var host = $("[data-pkg-detail]"), shop = window.GESPA && GESPA.shop;
+    var pp = host && shop && shop.pkg(host.getAttribute("data-pkg-detail"));
+    if (pp && pp.price != null) {
+      var nf = new Intl.NumberFormat("tr-TR"), u = shop.unit(pp);
+      var waEl = $("[data-pkg-wa]");
+      bar.classList.add("mobile-cta-prod");
+      bar.innerHTML = '<span class="mcta-price">₺' + nf.format(u.list) + "</span>" +
+        (pp.stock === 0
+          ? '<a class="mcta mcta-quote" href="' + (waEl ? waEl.href : "https://wa.me/" + c.phone.wa) + '" target="_blank" rel="noopener">💬 ' + L("Stok için sor", "Ask about stock", "Verfügbarkeit anfragen", "Спросить о наличии") + "</a>"
+          : '<button type="button" class="mcta mcta-quote" data-mcta-add>🛒 ' + L("Sepete ekle", "Add to cart", "In den Warenkorb", "В корзину") + "</button>") +
+        '<a class="mcta mcta-wa mcta-ico" href="' + (waEl ? waEl.href : "https://wa.me/" + c.phone.wa) + '" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>';
+      doc.body.appendChild(bar);
+      bar.addEventListener("click", function (e) {
+        if (e.target.closest("[data-mcta-add]")) { var btn = $(".buy-box [data-add-cart]"); if (btn) btn.click(); }
+      });
+      return;
+    }
     bar.innerHTML =
       '<a class="mcta mcta-call" href="tel:' + c.phone.tel + '">📞 ' + L("Hemen Ara", "Call now", "Anrufen", "Позвонить") + '</a>' +
       '<a class="mcta mcta-wa" href="https://wa.me/' + c.phone.wa + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
-      '<a class="mcta mcta-quote" href="iletisim.html">' + L("Ücretsiz Keşif", "Free Survey", "Beratung", "Бесплатно") + '</a>';
+      '<a class="mcta mcta-quote" href="iletisim.html" data-wa-kesif target="_blank" rel="noopener">' + L("Ücretsiz Keşif", "Free Survey", "Beratung", "Бесплатно") + '</a>';
     doc.body.appendChild(bar);
+  })();
+
+  /* ---- Ücretsiz keşif WhatsApp düğmeleri + mevsimlik üst bant (26 Eki 2026) ----
+     [data-wa-kesif] bağlantıları config.topbar.kesifMsg ile (dil değişince o
+     dilde) yazılır. Üst bant: build'in seçtiği mevsim ay değişince burada
+     yenilenir. */
+  (function () {
+    var tb = CFG.topbar || {}, wa = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
+    function kesifHref() {
+      var msg = L(tb.kesifMsg || "Merhaba GESPA, ücretsiz keşif istiyorum.",
+        "Hello GESPA, I would like a free site survey. City/district: ___ · Roof / land / field: ___",
+        "Hallo GESPA, ich möchte eine kostenlose Besichtigung. Stadt/Bezirk: ___ · Dach / Grundstück / Feld: ___",
+        "Здравствуйте, GESPA, хочу бесплатный осмотр. Город/район: ___ · Крыша / участок / поле: ___");
+      return wa ? "https://wa.me/" + wa + "?text=" + encodeURIComponent(msg) : "iletisim.html";
+    }
+    function applyKesif() { $$("[data-wa-kesif]").forEach(function (a) { a.href = kesifHref(); }); }
+    function applyTopbar() {
+      var bar = $(".topbar[data-topbar]"), seasons = tb.seasons || [];
+      if (!bar || !seasons.length) return;
+      var mo = new Date().getMonth() + 1;
+      var s = seasons.filter(function (x) { return (x.months || []).indexOf(mo) >= 0; })[0] || seasons[0];
+      var span = $("span", bar), a = $("a", bar), sh = $(".tb-s", bar);   // tb-s: telefonda görünen kısa metin
+      var tr = function (t) { try { var d = GESPA.i18nData && GESPA.i18nData.DICT && GESPA.i18nData.DICT[(window.GESPA && GESPA.lang) || "tr"]; return (d && d[t]) || t; } catch (e) { return t; } };
+      if (span && span.textContent !== tr(s.text)) span.textContent = tr(s.text);
+      if (sh && s.short && sh.textContent !== tr(s.short)) sh.textContent = tr(s.short);
+      if (a) {
+        if (a.textContent !== tr(s.label)) a.textContent = tr(s.label);
+        if (s.wa) { a.setAttribute("data-wa-kesif", ""); a.href = kesifHref(); a.target = "_blank"; a.rel = "noopener"; }
+        else { a.removeAttribute("data-wa-kesif"); a.href = s.href || "iletisim.html"; a.removeAttribute("target"); }
+      }
+    }
+    applyTopbar(); applyKesif();
+    doc.addEventListener("gespa:lang", function () { applyTopbar(); applyKesif(); });
   })();
 
   /* ---- Akıllı asistan (sohbet botu) yükle ---- */
@@ -1479,7 +1874,7 @@
     if (window.__gchatLoaded) return;
     var sub = /^\/(en|de|ru)\//.test(location.pathname);
     var s = doc.createElement("script"); s.defer = true;
-    s.src = (sub ? "/assets/" : "assets/") + "chatbot.js";
+    s.src = (sub ? "/assets/" : "assets/") + "chatbot.js" + (ASSET_V ? "?v=" + ASSET_V : "");
     doc.body.appendChild(s);
   })();
 
@@ -1512,18 +1907,41 @@
     langCopy.classList.add("menu-lang");
     menu.insertBefore(langCopy, menu.firstChild);
   }
+  // Başlık yüksekliği → --hdr-h (mobilde yapışkan kategori şeridi bunun
+  // hemen altına yapışır; başlık yüksekliği ekran genişliğine göre değişir).
+  var siteHeader = $(".site-header");
+  function setHdrH() {
+    if (siteHeader) doc.documentElement.style.setProperty("--hdr-h", siteHeader.offsetHeight + "px");
+  }
+  setHdrH();
+  window.addEventListener("resize", setHdrH);
   if (hamburger && menu) {
-    hamburger.addEventListener("click", function () {
-      var open = menu.classList.toggle("open");
+    // Çekmece başlığın içinde konumlanır (backdrop-filter kapsayıcı blok
+    // oluşturur): ekrandaki üst kenarı = başlığın üstü + menünün `top` değeri.
+    // --menu-top ile max-height ekrana sığar, uzun menü kendi içinde kayar.
+    var setMenuTop = function () {
+      var top = (siteHeader ? siteHeader.getBoundingClientRect().top : 0) + (parseFloat(getComputedStyle(menu).top) || 0);
+      doc.documentElement.style.setProperty("--menu-top", Math.max(0, Math.round(top)) + "px");
+    };
+    var setMenu = function (open) {
+      if (open) setMenuTop();
+      menu.classList.toggle("open", open);
       hamburger.classList.toggle("open", open);
       hamburger.setAttribute("aria-expanded", open ? "true" : "false");
-    });
+      doc.documentElement.classList.toggle("menu-locked", open);   // arka sayfa kaymasın
+    };
+    hamburger.addEventListener("click", function () { setMenu(!menu.classList.contains("open")); });
     $$("a", menu).forEach(function (a) {
-      a.addEventListener("click", function () {
-        menu.classList.remove("open");
-        hamburger.classList.remove("open");
-        hamburger.setAttribute("aria-expanded", "false");
-      });
+      a.addEventListener("click", function () { setMenu(false); });
+    });
+    doc.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.classList.contains("open")) { setMenu(false); hamburger.focus(); }
+    });
+    // Telefon yan çevrilince çekmece açıksa yüksekliği yeniden hesapla;
+    // masaüstü genişliğine geçilirse kilit kalmasın.
+    window.addEventListener("resize", function () {
+      if (!menu.classList.contains("open")) return;
+      if (getComputedStyle(hamburger).display === "none") setMenu(false); else setMenuTop();
     });
   }
 
@@ -1613,6 +2031,46 @@
     counters.forEach(animateCount);
   }
 
+  /* ---- Anonim kullanım sayacı — /api/ev ----
+     Sayfa açıldı, ürün sayfası incelendi, sepete eklendi olaylarını sunucuya gönderir;
+     sunucu YALNIZ günlük toplamları tutar (kişi/IP/çerez kimliği saklanmaz). Çerez
+     bildiriminde "Reddet" diyen ziyaretçi sayılmaz; şehir yalnız "Kabul et" diyenlerden alınır.
+     Admin → "Ürün ilgisi ve trafik". */
+  (function () {
+    if (!window.fetch || /(^|\/)admin\.html$/.test(location.pathname)) return;
+    try { if (localStorage.getItem("gespa-consent") === "denied") return; } catch (e) {}
+    function send(o) {
+      try { fetch("/api/ev", { method: "POST", body: JSON.stringify(o), headers: { "Content-Type": "text/plain" }, keepalive: true, credentials: "omit" }).catch(function () {}); } catch (e) {}
+    }
+    var first = false;
+    try { first = !sessionStorage.getItem("gespa-s"); sessionStorage.setItem("gespa-s", "1"); } catch (e) {}
+    var o = { t: "pv", path: location.pathname };
+    if (first) {
+      o.s = 1;
+      try { o.ref = new URL(document.referrer).hostname; } catch (e) {}
+      try { var u = new URLSearchParams(location.search).get("utm_source"); if (u) o.utm = u; } catch (e) {}
+    }
+    send(o);
+    var host = $("[data-pkg-detail]");
+    if (host) {
+      var id = host.getAttribute("data-pkg-detail"), k = "gespa-ev-v-" + id, seen = false;
+      try { seen = !!sessionStorage.getItem(k); sessionStorage.setItem(k, "1"); } catch (e) {}
+      if (!seen) send({ t: "view", id: id });
+    }
+    window.GESPA = window.GESPA || {};
+    GESPA.track = function (t, id) { send({ t: t, id: id }); };
+    // Şehir: IP'nin şehir servisine gitmesi YALNIZ çerez bildiriminde "Kabul et" diyenler
+    // için ve oturum başına bir kez ("Kabul et"e basıldığı anda da çağrılır).
+    GESPA.geo = function () {
+      try {
+        if (localStorage.getItem("gespa-consent") !== "granted" || sessionStorage.getItem("gespa-g")) return;
+        sessionStorage.setItem("gespa-g", "1");
+      } catch (e) { return; }
+      send({ t: "geo" });
+    };
+    GESPA.geo();
+  })();
+
   /* ---- Ziyaretçi sayacı (footer rozeti) — ayarlar config.visitors ----
      Canlı sitede server.js /api/visitors gerçek sayar; gösterilen toplam =
      base + sunucu sayacı. API yoksa (statik yayın) base + günlük tahmin. */
@@ -1625,14 +2083,16 @@
     var p = doc.createElement("p");
     p.className = "visit-counter";
     host.appendChild(p);
-    // day: son 24 saatteki tekil ziyaretçi — sunucu 24 saatlik kesintisiz veri
-    // biriktirmeden göndermez (null), o zamana kadar parça görünmez
-    function render(total, online, day) {
+    // day: son 24 saatteki tekil ziyaretçi. Sunucu 24 saatlik kesintisiz veri
+    // biriktirmeden day=null + recent/recentHours gönderir; rozet o zaman
+    // "son N saatte X" yazar (süre açık, eksik veri "24 saat" diye sunulmaz)
+    // hours: day'in kapsadığı saat (24 ya da veri kısaysa 1–23, "son N saatte")
+    function render(total, online, day, hours) {
       var html = '<span class="visit-total"><span aria-hidden="true">👥</span> <b>' + nf.format(total) + "</b> " +
         L("ziyaretçi", "visitors", "Besucher", "посетителей") + "</span>";
       if (day > 0) {
-        var d = "<b>" + nf.format(day) + "</b>";
-        html += ' <span class="visit-day">· ' + L("son 24 saatte " + d, d + " in the last 24 h", d + " in den letzten 24 Std.", d + " за последние 24 ч") + "</span>";
+        var d = "<b>" + nf.format(day) + "</b>", h = hours || 24;
+        html += ' <span class="visit-day">· ' + L("son " + h + " saatte " + d, d + " in the last " + h + " h", d + " in den letzten " + h + " Std.", d + " за последние " + h + " ч") + "</span>";
       }
       if (v.showOnline && online > 0) {
         html += ' <span class="visit-online">· <span class="visit-dot" aria-hidden="true"></span> ' + nf.format(online) + " " +
@@ -1649,7 +2109,10 @@
     try {
       fetch("/api/visitors", { cache: "no-store" })
         .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-        .then(function (d) { render((v.base || 0) + (+d.total || 0), +d.online || 0, +d.day || 0); })
+        .then(function (d) {
+          var full = d.day != null;   // 24 saatlik kesintisiz veri var mı
+          render((v.base || 0) + (+d.total || 0), +d.online || 0, full ? +d.day || 0 : +d.recent || 0, full ? 24 : +d.recentHours || 0);
+        })
         .catch(function () {});
     } catch (e) {}
   })();
@@ -1689,6 +2152,7 @@
     var DEG = (k.degradation || 0) / 100;            // yıllık verim kaybı
     var CO2_PER_CAR_KM = k.co2PerCarKm || 0.12;      // kg CO2 / km
     var chartEl = $("#calcChart"), chartNote = $("#chartNote"), waBtn = $("#calcWa");
+    var lastCalc = null, leadOpened = Date.now();
     var WA = (CFG.company && CFG.company.phone && CFG.company.phone.wa) || "";
     var selfEl = $("#self"), batteryEl = $("#battery"), printBtn = $("#calcPrint");
     var FEED = k.feedInFactor != null ? k.feedInFactor : 0.5;
@@ -1801,6 +2265,7 @@
               "With these values it doesn't pay back within 25 years; adjust the inputs.",
               "Mit diesen Werten amortisiert sich die Anlage nicht in 25 Jahren; bitte Eingaben anpassen.",
               "При этих значениях окупаемость не достигается за 25 лет; измените параметры.");
+        lastCalc = { kwp: fmt1(kwp), panels: fmt(panels), save: fmt(save), cost: fmt(cost), pb: payback > 0 ? fmt1(payback) + " " + (u.yil || "yıl") : (u.yilPlus || "25+ yıl") };
         if (waBtn && WA) {
           var pb = payback > 0 ? fmt1(payback) + " " + (u.yil || "yıl") : (u.yilPlus || "25+ yıl");
           var msg = L(
@@ -1822,6 +2287,47 @@
     if (orient) orient.addEventListener("change", calc);
     if (batteryEl) batteryEl.addEventListener("change", calc);
     if (printBtn) printBtn.addEventListener("click", function () { window.print(); });
+    // LEAD HUNİSİ (CRO FAZ 1-d, 26 Eki 2026): sonuç → ad/telefon/ilçe → sunucuya
+    // kayıt (/api/lead: leads.json + işletme e-postası) → WhatsApp ön-dolu mesaj
+    // → teşekkür. Sunucu yoksa/hata verirse WhatsApp yine açılır (lead kaybolmasın).
+    var leadForm = $("#leadForm");
+    if (leadForm) leadForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var v = function (n) { return (leadForm[n] && String(leadForm[n].value || "").trim()) || ""; };
+      var done = $("#leadDone"), btn = $("#leadSend");
+      var warn = function (t) { if (done) { done.hidden = false; done.className = "lead-done is-warn"; done.textContent = t; } };
+      if (!lastCalc) return warn(L("Önce yukarıdaki alanlara değerlerinizi girin.", "Enter your values above first.", "Bitte zuerst oben Ihre Werte eingeben.", "Сначала введите значения выше."));
+      if (v("ad").length < 2 || v("tel").replace(/\D/g, "").length < 10 || !(leadForm.kvkk && leadForm.kvkk.checked)) {
+        if (leadForm.reportValidity) leadForm.reportValidity();
+        return warn(L("Ad, telefon ve onay kutusu gerekli.", "Name, phone and the consent box are required.", "Name, Telefon und Zustimmung sind erforderlich.", "Нужны имя, телефон и согласие."));
+      }
+      var ilce = v("ilce");
+      var msg = L("Merhaba GESPA, hesaplayıcı sonucum: " + lastCalc.kwp + " kWp · yıllık ≈ ₺" + lastCalc.save + " · geri ödeme " + lastCalc.pb + (ilce ? " · " + ilce : "") + ". Ücretsiz keşif istiyorum. Adım: " + v("ad"),
+        "Hello GESPA, my calculator result: " + lastCalc.kwp + " kWp · ≈ ₺" + lastCalc.save + "/year · payback " + lastCalc.pb + (ilce ? " · " + ilce : "") + ". I would like a free site survey. Name: " + v("ad"),
+        "Hallo GESPA, mein Rechner-Ergebnis: " + lastCalc.kwp + " kWp · ≈ ₺" + lastCalc.save + "/Jahr · Amortisation " + lastCalc.pb + (ilce ? " · " + ilce : "") + ". Ich möchte eine kostenlose Besichtigung. Name: " + v("ad"),
+        "Здравствуйте, GESPA, мой результат: " + lastCalc.kwp + " кВт · ≈ ₺" + lastCalc.save + "/год · окупаемость " + lastCalc.pb + (ilce ? " · " + ilce : "") + ". Хочу бесплатный осмотр. Имя: " + v("ad"));
+      var openWa = function () { if (WA) window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(msg), "_blank"); };
+      var thanks = function () {
+        if (done) { done.hidden = false; done.className = "lead-done";
+          var rd = (CFG.commerce && CFG.commerce.leadReplyDays) || "1–3";
+          done.textContent = L("Aldık, " + v("ad") + ". " + rd + " gün içinde " + v("tel") + " numaranızı arayacağız. WhatsApp penceresi açılmadıysa alttaki yeşil düğmeyi kullanın.",
+            "Thank you, " + v("ad") + ". We will call " + v("tel") + " within " + rd + " days. If WhatsApp did not open, use the green button below.",
+            "Danke, " + v("ad") + ". Wir rufen Sie innerhalb von " + rd + " Tagen unter " + v("tel") + " an. Falls WhatsApp nicht geöffnet wurde, nutzen Sie den grünen Button unten.",
+            "Спасибо, " + v("ad") + ". Мы позвоним на " + v("tel") + " в течение " + rd + " дней. Если WhatsApp не открылся, используйте зелёную кнопку ниже."); }
+        if (btn) { btn.disabled = true; btn.textContent = L("Gönderildi ✓", "Sent ✓", "Gesendet ✓", "Отправлено ✓"); }
+        try { if (window.gtag) { gtag("event", "lead_form", { page_path: location.pathname }); gtag("event", "lead_whatsapp", { page_path: location.pathname }); } } catch (err) {}
+      };
+      if (btn) { btn.disabled = true; btn.textContent = L("Gönderiliyor…", "Sending…", "Wird gesendet…", "Отправка…"); }
+      var body = { ad: v("ad"), tel: v("tel"), ilce: ilce, kwp: lastCalc.kwp, panels: lastCalc.panels, save: lastCalc.save, cost: lastCalc.cost, payback: lastCalc.pb,
+        lang: (window.GESPA && GESPA.lang) || "tr", path: location.pathname, ms: Date.now() - leadOpened, website: v("website") };
+      var finish = function () { openWa(); thanks(); };
+      try {
+        fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })
+          .then(function (r) { return r.json().catch(function () { return {}; }); })
+          .then(function (j) { if (j && j.error && j.retry) { if (btn) { btn.disabled = false; btn.textContent = L("Sonucu WhatsApp'a gönder, keşif planla", "Send result to WhatsApp, plan a survey", "Ergebnis per WhatsApp senden, Besichtigung planen", "Отправить результат в WhatsApp, запланировать осмотр"); } return warn(j.error); } finish(); })
+          .catch(finish);
+      } catch (err) { finish(); }
+    });
     document.addEventListener("gespa:lang", calc);
     // URL ile yöntem seçimi (ör. hesaplayici.html#tarim)
     var hashM = (location.hash || "").replace("#", "");
@@ -2284,6 +2790,18 @@
   (function () {
     var show = $("#heroShow"); if (!show) return;
     var slides = $$(".hero2-slide, .hero-slide", show);
+    // HIZ (24 Eki 2026): 2.+ slaytların görselleri `data-src`/`data-srcset`
+    // ile ertelenir — gizli slaytlar da ekranın içinde sayıldığı için
+    // loading="lazy" onları durdurmuyordu ve açılışta ~700 KB iniyordu.
+    // Sayfa yüklendikten sonra boşta indirilir; slayt gösterilmeden önce de.
+    function loadSlide(s) {
+      if (!s) return;
+      $$("[data-srcset]", s).forEach(function (el) { el.srcset = el.getAttribute("data-srcset"); el.removeAttribute("data-srcset"); });
+      $$("[data-src]", s).forEach(function (el) { el.src = el.getAttribute("data-src"); el.removeAttribute("data-src"); });
+    }
+    function loadAll() { slides.forEach(loadSlide); }
+    if (doc.readyState === "complete") setTimeout(loadAll, 1500);
+    else window.addEventListener("load", function () { setTimeout(loadAll, 1500); });
     var dotsWrap = $(".hero-dots", show);
     if (slides.length < 2 || !dotsWrap) return;
     // Azaltılmış harekette SMIL simülasyonu da durdurulur
@@ -2300,6 +2818,7 @@
     var dots = $$("button", dotsWrap);
     function go(i) {
       idx = (i + slides.length) % slides.length;
+      loadSlide(slides[idx]);
       slides.forEach(function (s, j) { s.classList.toggle("is-on", j === idx); });
       dots.forEach(function (d, j) { d.classList.toggle("is-on", j === idx); });
     }

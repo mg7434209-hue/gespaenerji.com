@@ -1,43 +1,60 @@
 ---
-title: "Solar-Set für Fahrgast-Dreirad — 285 W | GESPA Energy"
-description: "Komplettset für geschlossene Fahrgast-Dreiräder: 285-W-TOPCon-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt."
+title: "Solar-Set für Fahrgast-Dreirad — 240 W | GESPA Energy"
+description: "Komplettset für geschlossene Fahrgast-Dreiräder: 240-W-Modul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4. Kein Rätselraten, welches Teil passt."
 canonical: https://www.gespaenerji.com/de/paket-motor-yolcu.html
 lang: de
-dateModified: 2026-09-30
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
-[Startseite](https://www.gespaenerji.com/de/) / [Produkte](https://www.gespaenerji.com/de/urunler.html) / Solar-Set für Dreirad mit Fahrgastkabine — 285 W
+[Startseite](https://www.gespaenerji.com/de/) / [Produkte](https://www.gespaenerji.com/de/urunler.html) / Solar-Set für Dreirad mit Fahrgastkabine — 240 W
 
 ![Yolcu kabinli elektrikli triportör](https://www.gespaenerji.com/assets/img/products/ev/motor-yolcu.webp)
 
 🛺 Komplettset
 
-# Solar-Set für Dreirad mit Fahrgastkabine — 285 W
+# Solar-Set für Dreirad mit Fahrgastkabine — 240 W
 
 Artikelnummer: **GES-SET-YOLCU** Auf Lager / bestellbar
 
 Laden Sie Ihr geschlossenes Elektro-Fahrgastdreirad mit Sonnenstrom. Modul, Laderegler, Kabel und MC4-Stecker kommen aufeinander abgestimmt in einem Paket — Sie müssen nicht recherchieren, welches Modul zu Ihrem Fahrzeug passt.
 
-**₺15.800** ≈ $321
+**₺14.800** ≈ $301
 
 Preis inkl. MwSt.
 
-💰 Per Überweisung: **₺15.350**
+💰 Per Überweisung: **₺14.350**
+
+💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
+
+🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
 
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 
 [⚡ Jetzt kaufen](https://www.gespaenerji.com/de/sepet.html)
-[💬 Per WhatsApp fragen](https://www.gespaenerji.com/de/iletisim.html)
+[💬 Per WhatsApp fragen](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Yolcu%20Kabinli%20Motor%20G%C3%BCne%C5%9F%20Paketi%20%E2%80%94%20240%20W%22%20(GES-SET-YOLCU)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpaket-motor-yolcu.html)
 
-- 🚚 Versand per Spedition in die ganze Türkei.
 - ⏱️ Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
-- 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendekosten trägt der Käufer.
+- 🔄 Widerrufsrecht (Fernabsatz): **14** Tage — Rücksendung über unseren Vertragskurier ist kostenlos.
+- 🛡️ Garantie: **2 Jahre**
+- 🔒 Sichere Zahlung: iyzico / tami · Rechnung zu jeder Bestellung
 - 🔧 Optionale Vor-Ort-Montage und Einweisung in der Region Antalya.
 
-🔆 285-W-TOPCon-Modul 🔌 BOOST MPPT 24–72 V 🧰 Kabel + MC4 inklusive 🛺 Für schmale Dächer
+🔆 240-W-Modul 🔌 BOOST MPPT 24–72 V 🧰 Kabel + MC4 inklusive 🛺 Für schmale Dächer
 
-Die Frage, an der Besitzer von Elektro-Dreirädern hängen bleiben, lautet: „Welches Modul passt auf mein Fahrzeug?“ Bei geschlossenen Fahrgastfahrzeugen mit schmalem Dach liefert ein 285-W-TOPCon-Modul den höchsten Tagesertrag, ohne überzustehen.
+## ✅ Geeignet für
+
+- Dreiräder, Golfcarts und Minifahrzeuge mit 24–72-V-Batterie
+- Fahrzeuge, auf deren Dach das Modul des Sets passt
+- AGM-, Gel-, Nass- und Lithium-Batterien
+
+## ⛔ Nicht geeignet für
+
+- Fahrzeuge mit 12-V-Batterie
+- Fahrzeuge mit kleinerem Dach als das Modul
+- Fahrzeuge, die ganztägig in Halle oder Schatten stehen
+
+Die Frage, an der Besitzer von Elektro-Dreirädern hängen bleiben, lautet: „Welches Modul passt auf mein Fahrzeug?“ Bei geschlossenen Fahrgastfahrzeugen mit schmalem Dach passt das 240-W-Modul mit 1320 × 776 mm, ohne überzustehen.
 
 Neben dem Modul enthält das Paket einen BOOST-MPPT-Laderegler für 24–72 V: Ihr Akkupack kann 24, 36, 48, 60 oder 72 V haben, und er arbeitet mit AGM-, Gel-, Nassblei- und Lithiumakkus gleichermaßen. Er hebt die Modulspannung auf den Bedarf des Akkus an und lädt direkt.
 
@@ -45,7 +62,7 @@ Fünf Meter schwarzes und fünf Meter rotes Solarkabel sowie ein MC4-Steckerset 
 
 | Menge | Komponente |
 | --- | --- |
-| 1 × | Lexron 285-W-Solarmodul |
+| 1 × | 240-W-Solarmodul (48 Zellen) |
 | 1 × | MS Teknik BOOST MPPT 24-72 V Laderegler |
 | 1 × | Solarkabel-Set (5 m Schwarz + 5 m Rot) |
 | 1 × | MC4-Steckerset |
@@ -72,7 +89,7 @@ Die Modulleistung richtet sich nach der Dachfläche Ihres Fahrzeugs, der Ladereg
 
 ### Leistung für ein schmales Dach
 
-Ein 285-W-Modul passt auf das Dach geschlossener Fahrgast-Dreiräder; ein größeres Modul steht über und verursacht Windprobleme.
+Das 240-W-Modul (1320 × 776 mm) passt auf das Dach geschlossener Fahrgast-Dreiräder; ein größeres Modul steht über und verursacht Windprobleme.
 
 ✅
 
@@ -112,15 +129,23 @@ Je nach Lagerbestand liefern wir 4 mm² oder 6 mm²; beides ist für diese Syste
 
 ### Mein Fahrzeug hat eine Ladefläche — ist das das richtige Paket?
 
-Fahrzeuge mit Ladefläche haben eine breitere Dachfläche; für sie ist das 655-W-Paket ertragreicher.
+Fahrzeuge mit Ladefläche haben eine breitere Dachfläche; für sie ist das 700-W-Paket ertragreicher.
 
 [Werfen Sie einen Blick auf das Solar-Set für Dreirad mit Ladefläche →](https://www.gespaenerji.com/de/paket-motor-kargo.html)
 
 **Hat Ihr Fahrzeug eine Ladefläche?**
 
-Fahrzeuge mit offener Ladefläche oder Plane haben eine breitere Dachfläche; für mehr Ertrag passt das 655-W-Paket besser.
+Fahrzeuge mit offener Ladefläche oder Plane haben eine breitere Dachfläche; für mehr Ertrag passt das 700-W-Paket besser.
 
 [Werfen Sie einen Blick auf das Solar-Set für Dreirad mit Ladefläche →](https://www.gespaenerji.com/de/paket-motor-kargo.html)
+
+Kundenbewertungen
+
+## Was sagen Käufer dieses Produkts?
+
+Für dieses Produkt gibt es noch keine veröffentlichte Bewertung. Wenn Sie es gekauft haben, schreiben Sie uns Ihre Erfahrung; nach Prüfung erscheint sie hier.
+
+[Bewertung schreiben (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Yolcu%20Kabinli%20Motor%20G%C3%BCne%C5%9F%20Paketi%20%E2%80%94%20240%20W%22%20(GES-SET-YOLCU)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Unsere Google-Bewertungen ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Bestellen Sie Ihr Paket noch heute
 

@@ -1,9 +1,9 @@
 ---
 title: "Hazır Solar Paketler — Off-Grid & Sulama | GESPA Enerji"
-description: "285 W ve 2×540 W hazır güneş enerjisi paketleri: kamp, karavan ve bağ evi için panel, güç kutusu ve kablo içeriği. Türkiye geneli gönderim — GESPA Enerji."
+description: "240 W ve 2×540 W hazır güneş enerjisi paketleri: kamp, karavan ve bağ evi için panel, güç kutusu ve kablo içeriği. Türkiye geneli gönderim — GESPA Enerji."
 canonical: https://www.gespaenerji.com/urunler.html
 lang: tr
-dateModified: 2026-09-30
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -19,12 +19,14 @@ Hazır güneş enerjisi paketleri — net içerik, şeffaf fiyat, Türkiye'nin h
 
 ## Elektrikli Motor Güneş Paketleri
 
-- **Yolcu Kabinli Motor Güneş Paketi — 285 W** — GES-SET-YOLCU · Kabinli, 2–4 kişilik yolcu triportörleri — çatı alanı dar · ₺15.800 (≈ $321) liste · havale/EFT ile ₺15.350 (%3 indirimli, KDV dahil ). Kabinli elektrikli yolcu triportörünü güneşle şarj etmek için hazırlanmış komple paket: 285 W TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Dar çatı alanına sığan panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.
-- **Kargo Kasalı Motor Güneş Paketi — 655 W** — GES-SET-KARGO · Açık kasa veya tenteli yük triportörleri — çatı alanı geniş · ₺18.300 (≈ $372) liste · havale/EFT ile ₺17.750 (%3 indirimli, KDV dahil ). Kargo kasalı elektrikli triportörü güneşle şarj etmek için hazırlanmış komple paket: 655 W N-type TOPCon güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Geniş kasa/tente çatısının kaldırabileceği en verimli panel gücü seçilmiştir.
+- **Yolcu Kabinli Motor Güneş Paketi — 240 W** — GES-SET-YOLCU · Kabinli, 2–4 kişilik yolcu triportörleri — çatı alanı dar · ₺14.800 (≈ $301) liste · havale/EFT ile ₺14.350 (%3 indirimli, KDV dahil ). Kabinli elektrikli yolcu triportörünü güneşle şarj etmek için hazırlanmış komple paket: 240 W (48 hücre) güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Dar çatı alanına sığan panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.
+- **Kargo Kasalı Motor Güneş Paketi — 700 W** — GES-SET-KARGO · Açık kasa veya tenteli yük triportörleri — çatı alanı geniş · ₺17.000 (≈ $346) liste · havale/EFT ile ₺16.500 (%3 indirimli, KDV dahil ). Kargo kasalı elektrikli triportörü güneşle şarj etmek için hazırlanmış komple paket: 700 W bifacial (çift yüzlü) N-type TOPCon güneş paneli (ön yüz 610 Wp), BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Geniş kasa/tente çatısının kaldırabileceği en verimli panel gücü seçilmiştir.
+- **Golf Aracı Tipi Motor Güneş Paketi — 460 W** — GES-SET-GOLF · Tavanlı, golf aracı tipi elektrikli yolcu araçları · ₺16.300 (≈ $331) liste · havale/EFT ile ₺15.800 (%3 indirimli, KDV dahil ). Tavanlı, golf aracı tipi elektrikli yolcu aracını güneşle şarj etmek için hazırlanmış komple paket: 460 W yarım hücre (half-cut) monokristal güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Panel, bu araçların düz tavanına göre seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.
+- **Mini Elektrikli Otomobil Güneş Paketi — 240 W** — GES-SET-MINI · Kapalı kabinli mini elektrikli otomobiller — tavan alanı küçük · ₺14.800 (≈ $301) liste · havale/EFT ile ₺14.350 (%3 indirimli, KDV dahil ). Kapalı kabinli mini elektrikli otomobili güneşle şarj etmek için hazırlanmış komple paket: 240 W (48 hücre) güneş paneli, BOOST MPPT 24–72 V şarj kontrol cihazı, 5 m siyah + 5 m kırmızı solar kablo ve MC4 konnektör takımı. Küçük tavan alanına göre panel gücü seçilmiştir; hangi parçanın uyduğunu araştırmanıza gerek kalmaz.
 
 ## Taşınabilir & Off-Grid Paketler
 
-- **285W Güneş Paneli Paketi** — 0.285 kWp · Kamp, karavan ve küçük ihtiyaçlar · ₺25.000 (≈ $508) liste · havale/EFT ile ₺24.250 (%3 indirimli, KDV dahil ). Komple sistem: 285 W panel, güç kutusu ve bağlantı kabloları dahil tak-çalıştır mobil kit. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg.
+- **240W Güneş Paneli Paketi** — 0.24 kWp · Kamp, karavan ve küçük ihtiyaçlar · ₺24.000 (≈ $488) liste · havale/EFT ile ₺23.300 (%3 indirimli, KDV dahil ). Komple sistem: 240 W panel, güç kutusu ve bağlantı kabloları dahil tak-çalıştır mobil kit. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg.
 - **Tam Kapsamlı Güneş Enerjisi Sistemi** — 1.08 kWp · Karavan, kamp ve bağ evi · ₺108.200 (≈ $2.200) liste · havale/EFT ile ₺104.950 (%3 indirimli, KDV dahil ). 2× 540 W güneş paneli dahil komple mobil sistem: LiFePO₄ lityum batarya ve büyük güç kutusuyla buzdolabı, TV, çamaşır ve bulaşık makinesini çalıştırır.
 - **UNV Trek Pro 2500 W Taşınabilir Güç İstasyonu** — ES-E2500-A2 · Kamp, karavan, saha çalışması ve ev tipi yedek güç · ₺122.800 (≈ $2.495) liste · havale/EFT ile ₺119.100 (%3 indirimli, KDV dahil ). 2496 Wh kapasiteli, 2500 W sürekli çıkış veren taşınabilir güç istasyonu. Dört adet 230 V saf sinüs AC prizi, USB ve Type-C çıkışlarıyla aynı anda 14 cihaza kadar besleme yapar; 30 ms tepki süresiyle kesintisiz güç kaynağı (UPS) olarak da çalışır. Güneş paneli ürüne dahil değildir.
 

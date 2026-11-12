@@ -1,0 +1,158 @@
+---
+title: "Golf Aracı Tipi Motor Güneş Paketi — 460 W | GESPA Enerji"
+description: "Tavanlı, golf aracı tipi elektrikli yolcu aracı için komple güneş paketi: 460 W half-cut monokristal panel, BOOST MPPT 24–72 V şarj kontrol cihazı, solar…"
+canonical: https://www.gespaenerji.com/paket-motor-golf.html
+lang: tr
+dateModified: 2026-11-10
+publisher: "GESPA Enerji"
+---
+
+[Ana Sayfa](https://www.gespaenerji.com/) / [Ürünler](https://www.gespaenerji.com/urunler.html) / Golf Aracı Tipi Motor Güneş Paketi — 460 W
+
+![Tavanına güneş paneli takılmış golf aracı tipi elektrikli araç](https://www.gespaenerji.com/assets/img/products/ev/motor-golf.webp)
+
+🚙 Hazır Paket
+
+# Golf Aracı Tipi Motor Güneş Paketi — 460 W
+
+Ürün kodu: **GES-SET-GOLF** Stokta / tedarikte
+
+Golf aracı tipi elektrikli yolcu aracınızı güneşle şarj edin. Panel, şarj kontrol cihazı, kablo ve MC4 birbiriyle uyumlu seçilmiş hâlde tek pakette gelir — hangi panelin tavana uyacağını araştırmanıza gerek yok.
+
+**₺16.300** ≈ $331
+
+KDV dahil fiyattır.
+
+💰 Havale/EFT ile: **₺15.800**
+
+💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
+
+🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+
+[🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
+
+[⚡ Hemen satın al](https://www.gespaenerji.com/sepet.html)
+[💬 WhatsApp'tan sor](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Golf%20Arac%C4%B1%20Tipi%20Motor%20G%C3%BCne%C5%9F%20Paketi%20%E2%80%94%20460%20W%22%20(GES-SET-GOLF)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fpaket-motor-golf.html)
+
+- ⏱️ Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
+- 🔄 Cayma hakkı (mesafeli satış): **14** gün — anlaşmalı kargomuzla iade ücretsizdir.
+- 🛡️ Garanti: **2 yıl**
+- 🔒 Güvenli ödeme: iyzico / tami · her siparişe fatura
+- 🔧 Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi.
+
+🔆 460 W half-cut panel 🔌 BOOST MPPT 24–72 V 🧰 Kablo + MC4 dahil 🚙 Golf aracı tavanına uygun
+
+## ✅ Kimler için uygun
+
+- 24–72 V akülü triportör, golf aracı ve mini araçlar
+- Çatısı paketteki panelin ölçüsüne sığan araçlar
+- AGM, jel, sulu kurşun-asit ve lityum aküler
+
+## ⛔ Uygun değil
+
+- 12 V akülü araçlar
+- Çatısı panelden küçük araçlar
+- Gün boyu kapalı veya gölgede park eden araçlar
+
+Golf aracı tipi elektrikli araçların düz ve geniş bir tavanı vardır; bu alanı küçük bir panelle harcamak günlük üretimden kaybetmek demektir. Pakette bu tavan için seçilmiş 460 W yarım hücre (half-cut) monokristal güneş paneli bulunur.
+
+Panelin ölçüsü 2095 × 1039 × 30 mm, ağırlığı 25 kg'dır. Açık devre gerilimi (Voc 51,90 V) pakete dahil BOOST MPPT cihazının 15–60 V panel giriş aralığındadır.
+
+Pakette panelin yanında BOOST MPPT 24–72 V şarj kontrol cihazı vardır: aracınızın akü grubu 24, 36, 48, 60 ya da 72 V olabilir; AGM, jel, sulu kurşun-asit ve lityum akülerin hepsiyle çalışır. Panelden gelen gerilimi akünün ihtiyacına yükselterek doğrudan şarj eder.
+
+Bağlantı için 5 metre siyah + 5 metre kırmızı solar kablo ve MC4 konnektör takımı da pakete dahildir. Yani kutuyu açtığınızda panel ile cihaz arasındaki hattı kurmak için ayrıca bir şey almanız gerekmez.
+
+| Adet | Bileşen |
+| --- | --- |
+| 1 × | 460 W Half-Cut Monokristal Güneş Paneli |
+| 1 × | MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı |
+| 1 × | Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) |
+| 1 × | MC4 Konnektör Takımı |
+| — | Sipariş öncesi ücretsiz danışmanlık |
+
+Paket içeriği birbiriyle uyumlu seçilmiş hâlde gönderilir; ayrıca parça almanız gerekmez.
+
+BOOST MPPT ve MC4 nedir? [GES Sözlüğü →](https://www.gespaenerji.com/sozluk.html#boost-mppt)
+
+- Ürünler Türkiye'nin her iline anlaşmalı kargo ile gönderilir; teslimat için Antalya şartı yoktur.
+- Sipariş onayından sonra tahmini teslim süresi 2–5 iş günüdür; kargo takip numarası WhatsApp'tan iletilir.
+- Kargo ücreti alıcıya aittir ve sipariş onayında net olarak bildirilir. Fiyatlara KDV dahildir.
+- Mesafeli satış mevzuatı gereği teslim tarihinden itibaren 14 gün içinde cayma hakkınız vardır; sorunsuz teslim edilen üründe iade kargo ücreti alıcıya aittir.
+- Hasarlı veya ayıplı üründe tüm masraflar bize aittir — kargoyu teslim alırken paketi görevli önünde kontrol edin.
+- Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi sunulur.
+
+Neden Bu Paket?
+
+## Aracınıza göre seçilmiş bileşenler
+
+Panel gücü aracınızın çatı alanına, şarj cihazı akü gerilimine göre belirlendi.
+
+✅
+
+### Düz tavana göre seçilmiş güç
+
+460 W panel, golf aracı tipi araçların düz tavanını verimli kullanır; araç park hâlindeyken de aküyü besler.
+
+✅
+
+### Aracınızın gerilimi ne olursa olsun
+
+BOOST MPPT 24 V'tan 72 V'a kadar akü gruplarıyla çalışır; akü tipi AGM, jel, kurşun-asit ya da lityum olabilir.
+
+✅
+
+### Eksik parça aramazsınız
+
+Panel, cihaz, kablo ve konnektör tek pakette ve birbiriyle uyumlu.
+
+Emin Değil misiniz?
+
+## Aracınıza hangi paket uyar?
+
+Araç tipini seçin, uygun paketi yan yana karşılaştırın.
+
+[🛺 Motorunu seç, paketini gör](https://www.gespaenerji.com/elektrikli-arac-donusum.html#paketler)
+
+Sıkça Sorulan Sorular
+
+## Merak edilenler
+
+### Aracımın aküsü 60 V, uyar mı?
+
+Uyar. Pakete dahil BOOST MPPT cihazı 24, 36, 48, 60 ve 72 V akü gruplarıyla çalışacak şekilde yapılandırılır.
+
+### Panel çatıya nasıl sabitleniyor?
+
+Aracın çatı yapısına göre konstrüksiyon belirlenir. Antalya bölgesinde isteğe bağlı yerinde montaj yapıyoruz; diğer illerde montaj şeması ve telefonla destek veriyoruz.
+
+### Kablo kesiti kaç mm²?
+
+Stok durumuna göre 4 mm² veya 6 mm² gönderilir; bu sistemlerde ikisi de uygundur.
+
+### 460 W panel aracımın tavanına sığar mı?
+
+Panelin ölçüsü 2095 × 1039 × 30 mm, ağırlığı 25 kg'dır; golf aracı tipi araçların düz tavanı bu ölçü için genellikle yeterlidir. Sipariş öncesi tavan ölçünüzü WhatsApp'tan gönderin, uygunluğu birlikte kontrol edelim.
+
+**Aracınız kapalı kabinli mini otomobil mi?**
+
+Kapalı kabinli mini elektrikli otomobillerin tavanı küçüktür; onlar için 240 W'lık paket daha uygundur.
+
+[Mini Elektrikli Otomobil Güneş Paketi'ne göz atın →](https://www.gespaenerji.com/paket-motor-mini.html)
+
+Müşteri yorumları
+
+## Bu ürünü alanlar ne diyor?
+
+Bu ürün için henüz yayınlanmış yorum yok. Satın aldıysanız deneyiminizi yazın; onaydan sonra burada yayınlanır.
+
+[Yorum yazın (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Golf%20Arac%C4%B1%20Tipi%20Motor%20G%C3%BCne%C5%9F%20Paketi%20%E2%80%94%20460%20W%22%20(GES-SET-GOLF)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Google yorumlarımız ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
+
+## Paketi bugün sipariş edin
+
+Stok ve teslimat için WhatsApp'tan yazın; aynı gün dönüş yapıyoruz.
+
+[🛒 Sepete ekle ve siparişi tamamla](https://www.gespaenerji.com/sepet.html)
+
+---
+Kaynak sayfa: https://www.gespaenerji.com/paket-motor-golf.html · GESPA Enerji · 0543 743 42 09 · info@gespaenerji.com · Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01, Manavgat / Antalya
+Tüm sayfalar ve ürünler: https://www.gespaenerji.com/llms.txt · Ayrıntı: https://www.gespaenerji.com/llms-full.txt

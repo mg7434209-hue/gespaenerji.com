@@ -1,9 +1,9 @@
 ---
 title: "Зарядное BOOST DC-DC Havensis — с 12/24В на АКБ 36–72В | GESPA"
-description: "Havensis BOOST DCDC-2448: зарядное устройство DC-DC, заряжающее блоки 36, 48, 60 и 72 В от автомобильного аккумулятора 12/24 В. Вход 20 А, заряд 15 А, КПД 95 %. Для автодомов и лодок."
+description: "Havensis BOOST DCDC-2448: зарядное устройство DC-DC, заряжающее блоки 36, 48, 60 и 72 В от автомобильного аккумулятора 12/24 В."
 canonical: https://www.gespaenerji.com/ru/havensis-boost-dcdc-2448.html
 lang: ru
-dateModified: 2026-09-30
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -25,18 +25,35 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺8.000**
 
+💳 До 12 ежемесячных платежей картой (с процентами) — выбирается на странице оплаты
+
+🚚 Доставку оплачивает покупатель — курьеру при получении · 2–5 рабочих дней
+
 [🛒 В корзину](https://www.gespaenerji.com/ru/sepet.html)
 
 [⚡ Купить сейчас](https://www.gespaenerji.com/ru/sepet.html)
-[💬 Спросить в WhatsApp](https://www.gespaenerji.com/ru/iletisim.html)
+[💬 Спросить в WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20BOOST%20DCDC-2448%20DC-DC%20Ak%C3%BC%20%C5%9Earj%20Cihaz%C4%B1%2036%2F48%2F60%2F72%20V%22%20(DCDC-2472-20)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fhavensis-boost-dcdc-2448.html)
 
-- 🚚 Доставка транспортной компанией по всей Турции.
 - ⏱️ Ориентировочная доставка после подтверждения заказа: **2–5** рабочих дня.
-- 🔄 Право на отказ (дистанционная продажа): **14** дней — обратную доставку оплачивает покупатель.
+- 🔄 Право на отказ (дистанционная продажа): **14** дней — возврат через нашу договорную службу доставки бесплатный.
+- 🛡️ Гарантия: **2 года**
+- 🔒 Безопасная оплата: iyzico / tami · счёт-фактура к каждому заказу
 - 🔋 Аккумуляторы в комплект не входят.
 - 🏭 Произведено в Турции · Havensis
 
 🔋 АКБ 36/48/60/72 В ⚡ Вход 12/24 В ⬆️ Вход 20 А · заряд 15 А ⚙️ КПД 95 % 🏭 Сделано в Турции
+
+## ✅ Подходит для
+
+- Системы с АКБ с напряжениями из таблицы характеристик
+- Цепочки панелей, сумма Voc которых ниже предела входа
+- Дачи, автодома, лодки и зарядка электротранспорта
+
+## ⛔ Не подходит для
+
+- Сетевые системы с инвертором
+- Последовательные цепочки выше предела входного напряжения
+- Типы или напряжения АКБ, не указанные в таблице
 
 Havensis BOOST DCDC-2448 — повышающее зарядное устройство DC-DC: поднимает входное напряжение 12–32 В и отдаёт его как ток заряда в батарейный блок 36, 48, 60 или 72 В. Разработано специально для автодомов и лодок.
 
@@ -128,7 +145,7 @@ Havensis BOOST DCDC-2448 — повышающее зарядное устрой�
 
 Закажите вместе, и всё придёт одной посылкой.
 
-[![Контроллер заряда MPPT Havensis Solar-60AMPS 150|60 12/24/36/48 В 60 А](https://www.gespaenerji.com/assets/img/products/havensis-s60amps150.webp)Контроллер заряда MPPT Havensis Solar-60AMPS 150|60 12/24/36/48 В 60 АMPPT со входом 150 В, чтобы заряжать блок 48 В и от солнца.₺16.200 Смотреть продукт →](https://www.gespaenerji.com/ru/havensis-mppt-60a-150v.html)[![Контроллер заряда MS Teknik BOOST MPPT 24-72 В](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)Контроллер заряда MS Teknik BOOST MPPT 24-72 ВПрямой заряд блока 24–72 В от низковольтных панелей.₺7.200 Смотреть продукт →](https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html)[![Аккумулятор TitanX 51,2 В 102 А·ч LiFePO₄](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)Аккумулятор TitanX 51,2 В 102 А·ч LiFePO₄Аккумулятор LiFePO₄ 5,22 кВт·ч для системы 48 В.₺73.400 В корзину →](https://www.gespaenerji.com/ru/sepet.html?ekle=aku-titanx-51v-102ah)
+[![Контроллер заряда MPPT Havensis Solar-60AMPS 150|60 12/24/36/48 В 60 А](https://www.gespaenerji.com/assets/img/products/havensis-s60amps150.webp)Контроллер заряда MPPT Havensis Solar-60AMPS 150|60 12/24/36/48 В 60 АMPPT со входом 150 В, чтобы заряжать блок 48 В и от солнца.₺16.200 Смотреть продукт →](https://www.gespaenerji.com/ru/havensis-mppt-60a-150v.html)[![Контроллер заряда MS Teknik BOOST MPPT 24-72 В](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)Контроллер заряда MS Teknik BOOST MPPT 24-72 ВПрямой заряд блока 24–72 В от низковольтных панелей.₺7.200 Смотреть продукт →](https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html)[![Аккумулятор TitanX 51,2 В 102 А·ч LiFePO₄](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)Аккумулятор TitanX 51,2 В 102 А·ч LiFePO₄Аккумулятор LiFePO₄ 5,22 кВт·ч для системы 48 В.₺73.400 Смотреть продукт →](https://www.gespaenerji.com/ru/aku-titanx-51v-102ah.html)
 
 Частые вопросы
 
@@ -165,6 +182,14 @@ Havensis BOOST DCDC-2448 — повышающее зарядное устрой�
 Чтобы заряжать бытовой аккумулятор 12/24 В от генератора, посмотрите наши зарядные устройства DCDC-1224.
 
 [Зарядные устройства DC-DC →](https://www.gespaenerji.com/ru/havensis-dcdc-30a.html)
+
+Отзывы покупателей
+
+## Что говорят покупатели этого товара?
+
+Опубликованных отзывов об этом товаре пока нет. Если вы его купили, напишите о своём опыте; после проверки он появится здесь.
+
+[Написать отзыв (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20BOOST%20DCDC-2448%20DC-DC%20Ak%C3%BC%20%C5%9Earj%20Cihaz%C4%B1%2036%2F48%2F60%2F72%20V%22%20(DCDC-2472-20)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Наши отзывы в Google ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Заряжайте высоковольтный аккумулятор в пути
 

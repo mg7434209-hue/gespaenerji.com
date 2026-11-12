@@ -1,9 +1,9 @@
 ---
-title: "Havensis 60A MPPT Controller 12–48V, 150V — 5000W Panels | GESPA Energy"
-description: "Havensis Solar-60AMPS 150|60 MPPT charge controller: 12/24/36/48 V battery, 60 A charging, 150 V panel input, up to 5000 W of panels. Made in Türkiye, for 48 V off-grid systems."
+title: "Havensis 60A MPPT Controller 12–48V, 150V — 5000W Panels"
+description: "Havensis Solar-60AMPS 150|60 MPPT charge controller: 12/24/36/48 V battery, 60 A charging, 150 V panel input, up to 5000 W of panels."
 canonical: https://www.gespaenerji.com/en/havensis-mppt-60a-150v.html
 lang: en
-dateModified: 2026-09-30
+dateModified: 2026-11-10
 publisher: "GESPA Enerji"
 ---
 
@@ -25,18 +25,35 @@ Price includes VAT.
 
 💰 By bank transfer: **₺15.700**
 
+💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
+
+🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
 [⚡ Buy it now](https://www.gespaenerji.com/en/sepet.html)
-[💬 Ask on WhatsApp](https://www.gespaenerji.com/en/iletisim.html)
+[💬 Ask on WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20Solar-60AMPS%20150%7C60%20MPPT%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%2012%2F24%2F36%2F48%20V%2060%20A%22%20(S60AMPS)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fhavensis-mppt-60a-150v.html)
 
-- 🚚 Shipped by courier to anywhere in Türkiye.
 - ⏱️ Estimated delivery after order confirmation: **2–5** business days.
-- 🔄 Right of withdrawal (distance sales): **14** days — return shipping is paid by the buyer.
+- 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
+- 🛡️ Warranty: **2 years**
+- 🔒 Secure payment: iyzico / tami · invoice with every order
 - ☀️ Panels and batteries are not included.
 - 🏭 Made in Türkiye · Havensis
 
 ⚡ 12/24/36/48 V · 60 A ☀️ 150 V · 5000 W of panels 📈 99.6% MPP tracking 📟 LCD display 🏭 Made in Türkiye
+
+## ✅ Suitable for
+
+- Battery systems with the voltages listed in the spec table
+- Panel strings whose total Voc stays below the input limit
+- Country houses, caravans, boats and EV charging
+
+## ⛔ Not suitable for
+
+- Grid-tied systems with an inverter
+- Series strings exceeding the input voltage limit
+- Battery types or voltages not listed in the spec table
 
 The Havensis Solar-60AMPS 150|60 is the 60 A model of the MPPT series (MPS) for 12–48 V batteries. The 150|60 in the model code means it takes up to 150 V of panel input and charges at up to 60 A. It works with 12, 24, 36 and 48 V batteries, and up to 5000 W of solar panels can be connected.
 
@@ -154,7 +171,7 @@ The open-circuit voltages (Voc) of panels wired in series add up; the total must
 
 | Panel | Voc (datasheet) | Max. in series on this controller |
 | --- | --- | --- |
-| Lexron 285 W Solar Panel | 42.84 V | 3 panels (128.52 V) |
+| 360 W Solar Panel | 42.56 V | 3 panels (127.68 V) |
 | Lexron 655 W TOPCon Solar Panel | 50.34 V | 2 panels (100.68 V) |
 
 Voc rises in the cold; in areas that drop below −10 °C in winter, check the layout with us. Total panel power must not exceed 5000 W.
@@ -165,7 +182,7 @@ Complementary products
 
 Order them together and everything arrives in one shipment.
 
-[![Lexron 655 W TOPCon Solar Panel](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655 W TOPCon Solar PanelHigh-power TOPCon panel; up to 2 can be wired in series on this controller.₺10.000 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=panel-lexron-655w)[![TitanX 51.2 V 102 Ah LiFePO₄ Battery](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51.2 V 102 Ah LiFePO₄ Battery5.22 kWh LiFePO₄ battery for a 48 V system.₺73.400 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=aku-titanx-51v-102ah)[![Solar Cable Set (5 m Black + 5 m Red)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Cable Set (5 m Black + 5 m Red)Panel to controller: 5 m black + 5 m red.₺1.000 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=kablo-solar-5m)[![MC4 Connector Set](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Connector SetJoins the panel lead to the solar cable.₺100 Add to cart →](https://www.gespaenerji.com/en/sepet.html?ekle=mc4-set)
+[![Lexron 655 W TOPCon Solar Panel](https://www.gespaenerji.com/assets/img/products/panel-lexron-655w.webp)Lexron 655 W TOPCon Solar PanelHigh-power TOPCon panel; up to 2 can be wired in series on this controller.₺10.000 View the Product →](https://www.gespaenerji.com/en/panel-lexron-655w.html)[![TitanX 51.2 V 102 Ah LiFePO₄ Battery](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51.2 V 102 Ah LiFePO₄ Battery5.22 kWh LiFePO₄ battery for a 48 V system.₺73.400 View the Product →](https://www.gespaenerji.com/en/aku-titanx-51v-102ah.html)[![Solar Cable Set (5 m Black + 5 m Red)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Cable Set (5 m Black + 5 m Red)Panel to controller: 5 m black + 5 m red.₺1.000 View the Product →](https://www.gespaenerji.com/en/kablo-solar-5m.html)[![MC4 Connector Set](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Connector SetJoins the panel lead to the solar cable.₺100 View the Product →](https://www.gespaenerji.com/en/mc4-set.html)
 
 Frequently Asked Questions
 
@@ -181,7 +198,7 @@ With 12, 24, 36 and 48 V batteries. Since all parameters are adjustable, you ent
 
 ### How many panels can I wire in series?
 
-The sum of the open-circuit voltages (Voc) of panels in series must not exceed 150 V. Of our Lexron 285 W panels (Voc 42.84 V) up to 3 can go in series, of the Lexron 655 W panels (Voc 50.34 V) up to 2. Because Voc rises in the cold, check the layout with us if your area drops below −10 °C in winter.
+The sum of the open-circuit voltages (Voc) of panels in series must not exceed 150 V. Of our 360 W panels (Voc 42.56 V) up to 3 can go in series, of the Lexron 655 W panels (Voc 50.34 V) up to 2. Because Voc rises in the cold, check the layout with us if your area drops below −10 °C in winter.
 
 ### Where do I connect the inverter?
 
@@ -204,6 +221,14 @@ We ship anywhere in Türkiye; any electrician can connect the unit. In the Antal
 For charging the house battery from the alternator, see our DC-DC battery chargers.
 
 [DC-DC battery chargers →](https://www.gespaenerji.com/en/havensis-dcdc-30a.html)
+
+Customer reviews
+
+## What do buyers of this product say?
+
+No published reviews for this product yet. If you bought it, write about your experience; it is published here after approval.
+
+[Write a review (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20Solar-60AMPS%20150%7C60%20MPPT%20%C5%9Earj%20Kontrol%20Cihaz%C4%B1%2012%2F24%2F36%2F48%20V%2060%20A%22%20(S60AMPS)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Our Google reviews ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
 
 ## Order your charge controller today
 

@@ -54,6 +54,13 @@ olur — tek kartlık ara ızgara boşuna bir tıklamaydı. Gruba ikinci ürün
 girince kendiliğinden süzgece döner. "Tümü" çipindeki `#shopCount` HER
 ZAMAN toplam ürün sayısıdır; süzülmüş sayıyı yazmak "Tümü (1)" gibi
 kendisiyle çelişen etiket üretiyordu.
+KATEGORİ ADRESİ (17 Eki 2026): çip seçilince adres
+`online-satis.html?kategori=<slug>` olur (`history.replaceState`, sayfa
+yenilenmez); bu adresle açılınca kategori seçili gelir, geçersiz slug
+"Tümü"ye düşer, "Tümü" parametreyi siler. Slug'lar main.js `CAT_SLUG`
+(aydinlatma, panel, kablo, sarj-kontrol, enerji-depolama…); yeni grupta
+slug yazılmazsa grup anahtarı kullanılır. Yayınlanmış slug DEĞİŞTİRİLMEZ
+(paylaşılan bağlantılar kırılır). canonical parametresiz kalır.
 JS'siz ortam ve AI botları için `SHOP:STATIC` listesi build'de basılır;
 ItemList JSON-LD de bu sayfada üretilir. DİKKAT: kartlara `.reveal` KOYMA —
 süzgeç her tıklamada ızgarayı yeniden çizer, yeni düğümler
@@ -68,8 +75,8 @@ kargo-iade. Fiyat/kod/stok hem build'de statik basılır hem main.js'te
 `data-pkg-*` ile tazelenir. Satın alma sepet üzerinden: `data-add-cart` =
 sepete ekle + onay penceresi (Sepete git / Alışverişe devam), `data-add-cart-go`
 = ekle ve sepete git) ·
-`paket-motor-yolcu.html` `paket-motor-kargo.html` (elektrikli motor güneş
-paketlerinin ürün sayfaları — paket-*.html düzeni + `data-add-cart-go`
+`paket-motor-yolcu.html` `paket-motor-kargo.html` `paket-motor-golf.html`
+`paket-motor-mini.html` (elektrikli motor güneş paketlerinin ürün sayfaları — paket-*.html düzeni + `data-add-cart-go`
 "⚡ Hemen satın al"; ayrıntı "Motor güneş paketleri" bölümünde) ·
 `havensis-*.html` (7 Havensis ürün sayfası: `havensis-mppt-30a` ·
 `-mppt-60a` · `-mppt-60a-150v` · `-dcdc-30a` · `-dcdc-40a` ·
@@ -298,11 +305,11 @@ ve sepet simgesi ekran dışında kalır.
   kullanır — yeni grup eklersen İKİSİNE de yaz.
 
 ### Ürünler & fiyatlar (config.packages · config.heater · config.admin)
-- `packages[]`: 2 komple kit (285W ₺ · 2x540W USD) + BOOST MPPT şarj kontrol
+- `packages[]`: 2 komple kit (240W ₺ · 2x540W USD) + BOOST MPPT şarj kontrol
   cihazı (**₺7.200 NET** — `noCartDiscount`, kartta da havalede de aynı tutar;
   `freeShipping`, `group:"accessory"`) +
-  50W panel (kampanya, `group:"panel"`) + UNV Trek Pro 2500 W taşınabilir güç
-  istasyonu ($2.495, `group:"offgrid"`) + tekil paneller Lexron 285 W ₺7.500 ·
+  50W panel ₺1.750 NET (`noCartDiscount`, `group:"panel"`; Eylül kampanyası bitti, `oldPrice` kalktı) + UNV Trek Pro 2500 W taşınabilir güç
+  istasyonu ($2.495, `group:"offgrid"`) + tekil paneller 360 W ₺7.200 ·
   Lexron 655 W TOPCon ₺10.000 · Arçelik 540 W ₺10.000 (`group:"panel"`) +
   TitanX 51,2 V 102 Ah LiFePO₄ akü ₺73.372 (`group:"storage"`) +
   solar kablo takımı 5 m siyah + 5 m kırmızı ₺1.000 · MC4 konnektör takımı
@@ -311,8 +318,15 @@ ve sepet simgesi ekran dışında kalır.
   online-satis.html). KABLO KESİTİ
   (mm2) YAZILMAZ: stoğa göre 4 ya da 6 mm2 geliyor, ikisi de uygun. +
   2 elektrikli motor güneş paketi: `set-yolcu` ₺15.800 (285 W) ·
-  `set-kargo` ₺18.300 (655 W), ikisi de `group:"evset"` ve `parts` listeli
-  — ayrıntısı "Motor güneş paketleri" bölümünde. +
+  `set-kargo` ₺18.300 (655 W), `set-golf` ₺16.300 (460 W, golf aracı
+  tipi) · `set-mini` ₺14.800 (240 W, kapalı kabinli mini otomobil) — hepsi
+  `group:"evset"` ve `parts` listeli; ayrıntısı "Motor güneş paketleri"
+  bölümünde. 3. ve 4. paketin panelleri `panel-460w` ₺8.000 · `panel-240w`
+  ₺6.500 (`group:"panel"`). Değerler üretici künyesinden; MARKA YAZILMAZ
+  (işletme kararı, künye PDF'leri bu yüzden repoya konmadı). 240 W = 48
+  hücreli, 1320 × 776 × 30 mm, 8 kg panel (12 Eki 2026, paneller.docx
+  fotoğrafı + künye ekranı); 1575 × 705'lik panelin değerleri başka panele
+  aitti, kaldırıldı. Hücre tipi künyede yok, yazılmaz. +
   europlus 72 V 30 Ah LiFePO₄ çekiş aküsü ₺28.000 (`aku-lifepo4-72v`,
   `group:"accessory"` — BOOST MPPT ile AYNI grupta, "Elektrikli Araç" çipi
   böylece tek ürünlü doğrudan bağlantı olmaktan çıkıp gerçek süzgece döndü). +
@@ -322,7 +336,21 @@ ve sepet simgesi ekran dışında kalır.
   Havensis 02/2026 fiyat listesi (USD, KDV HARİÇ); FİYAT KURALI işletme
   kararı: liste AYNEN + %20 KDV, `price` = liste × 1,20 (100 USD → 120 USD),
   kâr payı EKLENMEZ; satır yanında liste fiyatı yazılı. Havensis gerçek
-  üreticidir, foto logosu SİLİNMEZ.
+  üreticidir, foto logosu SİLİNMEZ. +
+  8 Lexron şarj kontrol cihazı (`lexron-pwm-20a/30a/40a/60a`,
+  `lexron-mppt-20a/30a/40a/80a-hv`; `group:"charge"`, detay sayfaları
+  `lexron-*.html` — `tools/lexron-sayfalar.py` ÜRETİR, elle düzenlenmez;
+  Havensis betiğinin HTML bloklarını kullanır, sözlüğü `LEXRONPAGE:DICT`.
+  KÜNYE YOK: sayfada yalnız tür/akım/akü gerilimi (etiket) ve 80 A'da adındaki
+  HV (15~230 V); "yaklaşık panel gücü" = akım × akü gerilimi, "künye değeri
+  değil" diye yazılır):
+  GES Marketim kataloğundan (repo gesmarketim1 `data/catalog.json`) aktarıldı
+  (5 Eki 2026). `price` = oradaki KDV dahil `saleUsd` × 1,10 — sahibin kararı
+  (6 Eki 2026): gespaenerji fiyatı GES Marketim'in %10 üstüdür. Eşitlerken
+  GES Marketim saleUsd'sini 1,10 ile çarp, 2 haneye yuvarla. Tedarikçi/maliyet
+  AKTARILMAZ. Akü gerilimi ürün görselindeki etiketten; diğer teknik değerler
+  "bize yazın". Çeviriler i18n.js `LEXRON:DICT`. GES Marketim'de fiyat
+  değişirse burası KENDİLİĞİNDEN değişmez, elle eşitlenir.
   — `url` detay sayfası, `img` gerçek foto,
   `oldPrice` indirim rozeti, `currency:"USD"` dolar, `dailyKwh` günlük üretim.
   TÜM ÜRÜNLER USD TUTULUR (29 Eyl 2026): ₺ fiyat = USD × kur, kura göre
@@ -337,13 +365,20 @@ ve sepet simgesi ekran dışında kalır.
   Arçelik 540 W'ın künyesi elimizde YOK, bu yüzden güç/sınıf/marka dışında
   iddia taşımaz. Künyelerin alt bilgisindeki tedarikçi (ACS ENERJİ) adres ve
   telefonu siteye KONMAZ — MS Teknik kuralının aynısı.
-  ADLANDIRMA TUZAĞI: `kit-285w` "285W Güneş Paneli Paketi" (komple sistem,
-  ₺25.000) ile `panel-lexron-285w` "Lexron 285 W Güneş Paneli" (tek panel,
-  ₺7.500) AYRI ürünlerdir; adları kısaltıp karıştırma.
+  ADLANDIRMA TUZAĞI: `kit-285w` "240W Güneş Paneli Paketi" (komple sistem,
+  ₺24.000; 27 Eki 2026'ya dek 285 W panelliydi, id/URL/SKU bilerek eski
+  kaldı) ile `panel-360w` "360 W Güneş Paneli" (tek panel,
+  ₺7.200) AYRI ürünlerdir; adları kısaltıp karıştırma.
 - `group:"storage"` (enerji depolama) `panel` gibi YALNIZ online-satis.html
   kataloğunda listelenir — main.js/build.js GROUPS listelerinde YOKTUR, orada
   olsaydı urunler.html paket vitrininde de çıkardı. Katalog süzgeç etiketi
   main.js `groupLabel()` içindedir; yeni grup eklerken oraya satır ekle.
+  KATALOG BİRLEŞTİRME: main.js `CAT_MERGE` bir grubu katalog çipinde başka
+  grubun altına alır, config'teki `group` DEĞİŞMEZ. Şu an `evset` →
+  `accessory`: motor güneş paketleri "Elektrikli Araç" çipinde listelenir
+  (3 Eki 2026, kullanıcı kararı), urunler.html vitrininde ise "Elektrikli
+  Motor Güneş Paketleri" başlığıyla AYRI kalır. Süzme, çip listesi ve tek
+  ürünlü çip kontrolü `catOf()` kullanır; `p.group`'u doğrudan okuma.
 - kWp'si OLMAYAN ürünlerde (cihaz/aksesuar) `kwp`/`panelW`/`panelCount` YAZILMAZ;
   kart çipleri `chips: [...]` ile elle verilir. main.js `card()`/`chipsOf()`,
   build.js `PKG:STATIC` ve llms-full.txt bu durumda güç yerine ürün kodunu yazar,
@@ -425,6 +460,70 @@ ve sepet simgesi ekran dışında kalır.
   "kargo fiyata DAHİL" eklenir. Liste fiyatı kargoyu İÇERDİĞİ için kart
   ödemesinde de ek kargo alınmaz. Tek kural main.js `vatNote()` ve build.js
   `vatNote()`/`shipNote()` — yeni bir kargo notu eklersen oraya bağla.
+- HER KATALOG ÜRÜNÜNÜN DETAY SAYFASI VAR (13 Eki 2026, kullanıcı isteği):
+  paneller, TitanX, kablo ve MC4 sayfaları `tools/urun-sayfalar.py` ÜRETİR
+  (`panel-*.html`, `aku-titanx-51v-102ah.html`, `kablo-solar-5m.html`,
+  `mc4-set.html`; sözlük `URUNPAGE:DICT`, katalog kartı metinlerinin eksik
+  çevirileri de orada). Elle düzenlenmez. Panel sayfasındaki seri bağlama
+  sayısı Voc × 1,1 ile hesaplanır. YENİ ÜRÜN EKLERKEN detay sayfasını da
+  üret (ilgili betiğe ekle ya da paket-*.html kopyala); `url`'siz ürün
+  kalmasın.
+- AYDINLATMA (`group:"lighting"`, 16 Eki 2026): Hero LED 10 W 12 V DC ampul
+  (₺130 NET, `noCartDiscount` — %3 havale 50'ye yuvarlanınca sıfırlanıyordu)
+  ve Hero LED 100 W solar sokak armatürü HL-5151 (₺1.200; belgedeki ₺1.215
+  ≥₺1.000 yuvarlamasıyla yazılamadığı için). Kaynak `aydinlatma_2.rtf`;
+  değerler üretici afişlerinden, afişte olmayan (duy, akü kapasitesi, şarj
+  süresi) YAZILMAZ. HERO LED gerçek marka, logo SİLİNMEZ. Sayfaları
+  `tools/urun-sayfalar.py` üretir (galeri `GALLERY`).
+  Ek 4 ürün (aynı gün; aydinlatma/aydinlatma3/aydin4/aydin5.rtf): 50 W solar
+  aplik HL-5181, 50 W set üstü bahçe HL-5180, 200 W sokak HL-5153, 600 W
+  sokak HL-5157 (`lighting2()`). Belgedeki fiyat 5'Lİ ALIMIN adet fiyatıdır.
+- 700 W BIFACIAL PANEL (21 Eki 2026, `panel-700w`, ₺8.700): künye PDF'i
+  repoya KONMADI, marka YAZILMAZ. Künyenin STC tablosu 590–610 W'tır;
+  "700 W" = 610 Wp ön yüz + %15 arka yüz kazancı. Ad işletme kararıyla
+  "700 W Bifacial TOPCon Güneş Paneli"; 610 Wp açıklamada, çipte, teknik
+  tabloda ve kargo paketi SSS'inde AÇIKÇA yazılır (araç tavanında arka yüz
+  kazancı düşer). Ağırlık künyede yok, yazılmaz. Seri bağlama hesabı ön yüz
+  Voc 53,27 V ile (×1,1 = 58,6 V < BOOST 60 V girişi).
+  KARGO MOTOR PAKETİ artık bu paneli içerir (655 W yerine; ₺18.300 →
+  ₺17.000). Lexron 655 W tek başına satışta kalır. Paket sayfası
+  `paket-motor-kargo.html` elle yazılıdır; metinleri ve i18n.js'teki 3 dil
+  karşılıkları birlikte güncellendi.
+- 360 W PANEL (`panel-360w`, 3 Kas 2026, ₺7.200): Lexron 285 W ÜRETİMDEN KALKTI
+  ve her yerden çıkarıldı (config, sayfa, sistem kurucu, çeviriler, rehberler);
+  eski adres `panel-lexron-285w[.html]` (+ /en /de /ru) server.js'te 360 W sayfaya
+  301'dir — KALDIRMA (indekslenmiş URL). Künye SLR-MP-360 (işletme gönderdi):
+  MARKA/TEDARİKÇİ YAZILMAZ, PDF repoya KONMADI, ham fotoğraf
+  `kaynak/panel-360w.jpg` (içinde "HALF-CUT" yazısı var, yayın görseli onu
+  kırpar). YAZILMAYAN: modül verimi (künyede %22,80 ama ölçüden %21,7 çıkıyor,
+  tutarsız), hücre "yarım/tam" (künye "60 Full Cells", fotoğraf yarım kesim
+  gösteriyor), garanti süresi (künyede yok). Seri bağlama: Voc 42,56 × 1,1 →
+  100 V girişte 2, 150 V girişte 3 panel. Sayfa `tools/urun-sayfalar.py` üretir.
+- TÜKENEN ÜRÜN (`stock: 0`, 26 Eki 2026): SATILAMAZ. main.js `sellable()`
+  false döner (sepete girmez, eski sepetten temizlenir); ürün sayfasında
+  düğmeler "⛔ Stokta yok" + "WhatsApp'tan sor", mağaza kartında pasif düğme;
+  server.js checkout kalemi almaz; şema/akış OutOfStock; Sistem Kurucu
+  önermez. Stoğa girince `stock: 0`'ı SİL.
+  YOLCU MOTOR PAKETİ 285 W yerine 240 W panelle (₺14.800, mini paketle aynı
+  içerik ve fiyat). KOMPLE KİT de 240 W panelle (27 Eki 2026): ad "240W
+  Güneş Paneli Paketi", ₺25.000 → ₺24.000 (panel farkı), günlük ~1,4 kWh
+  (1,7 × 240/285). Görseldeki "285W" yazıları 240W'a çevrildi
+  (kit-285w.webp/.jpg/-k). Sistem Kurucu karavan önerisi `pnl-240`.
+  Tükenen ürün mağaza listesinde EN SONA iner (main.js + build.js statik liste).
+- CAYMA / İADE KARGOSU: ürün sayfalarındaki satır "14 gün — anlaşmalı
+  kargomuzla iade ücretsizdir" (sözleşme ve Mesafeli Sözleşmeler
+  Yönetmeliği ile aynı). "iade kargosu alıcıya aittir" YAZILMAZ.
+- 5'Lİ (ADET) FİYAT: `bulk: { min: 5, price }` → sepette adet ≥ `min` olunca
+  birim fiyat `bulk.price`, altında `price` (tekli = 5'li × 1,10, işletme
+  kararı). Kural main.js `pkgUnit(p, qty)` ve server.js `pkgListTL(p, cfg,
+  qty)`'de AYNIDIR; birini değiştirirsen ötekini de değiştir. Ürün sayfasında
+  `[data-pkg-bulk]` satırı (betik `add_bulk()` basar) ve adet 5'e çıkınca
+  fiyat/havale tutarı adet fiyatına döner; kartta `.sh-bulk`, sepette
+  `.cart-item-bulk`; llms-full.txt'te "5 adet ve üzeri…" eki. Şema, ürün akışı
+  ve vitrin TEKLİ fiyatı gösterir.
+- HAVALE ≤ LİSTE: 50'ye yuvarlama ucuz üründe havaleyi listenin ÜSTÜNE
+  çıkarıyordu (₺130 → ₺150). main.js `pkgUnit()`/vitrin ve build.js
+  `havaleTL()` artık `Math.min(liste, …)` kullanır.
 - `img` boşsa kart nötr yer tutucu (`.sh-noimg`) gösterir; BAŞKA ürünün
   fotoğrafı kullanılmaz. `url` boşsa "Detay" düğmesi ve bağlantılar basılmaz.
 - Yönetici şifresi YALNIZ Railway ortam değişkeni `ADMIN_PASS`'tır; config'e
@@ -434,6 +533,10 @@ ve sepet simgesi ekran dışında kalır.
   ŞİFRE DEĞİŞTİRME: yeni değeri `ADMIN_PASS`'a, eskisini `ADMIN_PASS_PREV`'e
   yaz; devir (sayaç + soru-cevap) eski sunucuya önceki şifreyle sorulur.
   Yeni şifreyle bir dağıtım bitince `ADMIN_PASS_PREV` silinir.
+- Önizleme açık tarayıcıda her sayfanın başında turuncu `.price-ov-bar`
+  uyarısı çıkar ("yalnız bu cihazda"), "Önizlemeyi kapat" anahtarı siler.
+  Sebep (4 Eki 2026): işletme "Kaydet"ten sonra fiyatı yayınlandı sandı;
+  masaüstünde yeni, telefonda ve tüm müşterilerde eski fiyat görünüyordu.
 - Admin paneli fiyatları localStorage'da override eder (yalnız o cihaz);
   kalıcı/herkese yayın = değerleri bu dosyaya işleyip commit'lemek.
   Anahtar `gespa-prices-usd` (değerler USD): eski `gespa-prices` TL idi,
@@ -453,7 +556,7 @@ ve sepet simgesi ekran dışında kalır.
 - İÇERİK KURALI: teknik değer YALNIZ Havensis 02/2026 listesindendir; listede
   olmayan (garanti, ağırlık, IP, kutu içeriği, akü kimyası uyumu) yazılmaz,
   "bize yazın, üreticiden teyit edelim" denir. Panel dizilimi yalnız
-  künyesi olan Lexron 285 W (Voc 42,84 V) ve 655 W (Voc 50,34 V) ile
+  künyesi olan 360 W (Voc 42,56 V) ve Lexron 655 W (Voc 50,34 V) ile
   verilir; Arçelik 540 W'ın künyesi yok, önerilmez. Havensis adres/telefon/
   IBAN siteye KONMAZ.
 - Sayfa düzeni: satın alma → sekmeler (Açıklama · Teknik · Kargo) →
@@ -548,9 +651,19 @@ işe yaramıyordu.
   ŞARJ CİHAZI ÜRÜNE DAHİL DEĞİLDİR (LiFePO₄ CC/CV, 87,6 V, 6–10 A önerilir).
   Künyenin alındığı satıcı bağlantısı siteye KONMAZ — MS Teknik / ACS
   ENERJİ kuralının aynısı.
+- 3. ve 4. PAKET (9 Eki 2026, kaynak `elektrikli_motor.docx`): belgedeki
+  toplamlar MC4'süzdü (₺16.200 / ₺14.700); 1-2. paketlerdeki gibi MC4
+  (₺100) eklendi. Mini otomobilin panelli kurulum fotoğrafı YOK: seçicide
+  sol görsel aracın yan görünüşüdür ve `proofKind: "vehicle"` ile altyazısı
+  "Araç tipi örneği" olur ("Panel montaj örneği" demek yanıltırdı).
+- TEDARİKÇİ YAZISI: golf aracı fotoğrafında panel çerçevesinde "M.S.
+  TECHNIK - 0533 …" yazıyordu; `tools/yazi-sil.py` (OpenCV inpaint) ile
+  silindi ve kaynak klasöre SİLİNMİŞ hâli kondu. Yeni fotoğrafta aynı
+  yazıyı ara; MS Teknik iletişimi siteye ve repoya girmez.
 - GÖRSELLER: `assets/img/products/ev/motor-*.webp`, kaynakları
-  `.../ev/kaynak/` altında + `tools/motor-foto.py` (DRY-RUN / `--uygula`).
-  Araçlar BAŞKA ÜRETİCİLERE aittir (CSN, SFM) — marka yazıları SİLİNMEZ
+  `.../ev/kaynak/` altında + `tools/motor-foto.py` (DRY-RUN / `--uygula`;
+  `canvas` işi dikey fotoğrafı kenar sütununu uzatarak 4:3'e ortalar).
+  Araçlar BAŞKA ÜRETİCİLERE aittir (CSN, SFM, ARORA) — marka yazıları SİLİNMEZ
   (UNV kuralı) ve sayfada "yalnızca tip örneğidir, araç satılmaz" notu
   KALIR. Kaynak belge de repoda: `.../ev/kaynak/elektrikli-motor-paketleri.docx`.
 
@@ -558,6 +671,108 @@ işe yaramıyordu.
 - Tüm formüller ve katsayılar: @docs/hesaplayici-spec.md
 - Katsayılar tek config dosyasında (`config.calc`) ve koddan ayarlanabilir.
 - KURAL: Hesaplayıcı bileşenine hiçbir sayı (fiyat, katsayı, güç) hardcode ETME.
+
+## Railway: CRON YASAK (27 Eki 2026)
+Railway servisine panelden "Cron Schedule" (Daily 0 0 * * *) eklenmişti:
+servis cron moduna geçti, ağ açılmadı ("Network: Not started"), site
+"Application failed to respond" verdi. Panelde Settings → Cron Schedule →
+"No schedule" ile kapatıldı. railway.json'a `"cronSchedule": null`
+EKLEME: eklendiği tek dağıtım (27 Eki 2026, PR #60) asıl serviste "Deployment
+failed" verdi, satır 29 Eki'de kaldırıldı. Site sürekli çalışan bir web
+sunucusudur; zamanlanmış iş gerekirse ayrı servis açılır.
+
+## CRO düzeni (26 Eki 2026, işletme kararı — satışa göre yeniden düzen)
+- TEMA: parlament mavisi SİTE GENELİ (`:root --green:#1f2f78`, koyu #16215a,
+  açık #3a52a8); vurgu sarısı aynı. Yeşil sabit renk yazma.
+- MENÜ (`tools/menu-uret.py --uygula`, test denetler): Mağaza · Çatı & Arazi
+  GES · Tarımsal Sulama · Elektrikli Araç · Referanslar · Hakkımızda ·
+  [Ücretsiz Keşif] (`data-wa-kesif` → WhatsApp, mesaj config.topbar.kesifMsg;
+  build hydrateContact statik yazar, main.js dilde yeniler). Açılır grup ve
+  AI ürünleri menüde YOK; alt bilgi "Kurumsal" sütununda. Mağaza BAŞLANGIÇ
+  (işletme: "başlangıç online satış"), GES tanıtımı "Hizmetlerimiz"
+  bölümünde, elektrikli araç ~%25 ağırlık (ana sayfada kendi bandı).
+- ÜST BANT: `config.topbar.seasons` (ay listesi); build.js hydrateTopbar
+  bulunulan aya göre seçer (`data-topbar` taşıyan sayfalar), main.js dil ve
+  ay değişiminde yeniler. Kampanya/teşvik iddiası YAZILMAZ. Hesaplayıcı
+  sayfalarının kendi uyarı bandı vardır (data-topbar yok).
+- ÜST BANT TELEFONDA (10 Kas 2026): `seasons[].short` kısa metni ≤560 px'te uzun
+  metnin yerine görünür (`.tb-l` / `.tb-s`; uzun metin "…" ile kesiliyordu). Kısa
+  metnin EN/DE/RU karşılığı i18n.js'te; 320–360 px'te bağlantı etiketiyle birlikte
+  sığacak kadar kısa tut (≈20 karakter). Aynı gün: telefonda `.section` 80 → 48 px,
+  `.page-hero` 56 → 30 px, alt çubuk düğmeleri ≤380 px'te tek satır.
+- PANEL SAYFASI BAŞLIK/AÇIKLAMA (10 Kas 2026, `tools/urun-sayfalar.py`): başlık
+  "<ad> Fiyatı | GESPA Enerji" (≤60, uzarsa marka kısalır); açıklama `panel_desc()`:
+  künye varsa Voc + ölçü + ağırlık, kullanım alanı, kargo; ≤160'a sığan en dolu sürüm.
+  Fiyat RAKAMI başlık/açıklamaya yazılmaz (kura göre değişir). FIT kutusu başlıkları
+  h2'dir (h1 → h3 atlaması vardı). llms-full.txt "Rehberler" bölümü rehber sayfalarının
+  ilk `.art-note` ("Kısaca") kutusundan üretilir (`guideSummaries()`).
+- ANA SAYFA SIRASI: tek hero (karusel KALKTI) → güven şeridi → 4 kutu (Mağaza
+  önce) → öne çıkan ürünler → Hizmetlerimiz (3 kart + 4 adım + CTA) →
+  elektrikli araç bandı (4 paket, fiyat config'ten) → finansman → referanslar
+  → Neden GESPA (3 madde) → 6 itiraz SSS → CTA. Markalar, AI, su ısıtıcı,
+  GES Marketim slaytı/şeridi KALKTI (GES Marketim yalnız alt bilgide).
+  Telefonda kompakt kurallar style.css sonunda (svc kartları satır, adımlar
+  2 sütun, referansta ilk kart, görseller gizli).
+- ÜRÜN SAYFASI ŞABLONU (build.js `hydrateProductTemplate`, tüm
+  data-pkg-detail sayfaları): PRICEROWS (taksit satırı — kart açıksa main.js
+  gösterir; kargo satırı freeShipping'e göre), TRUST (garanti yalnız config
+  `warranty` olan üründe — UYDURMA; güvenli ödeme), FIT (grup bazlı
+  uygun/uygun değil, `FIT` tablosu, değer uydurulmaz), REVIEWS (gerçek yorum
+  yok: WhatsApp'la yorum + Google yorum bağlantısı; şemaya yorum/puan
+  GİRMEZ), WhatsApp'tan sor = wa.me + ürün adı/kod/adet/adres. Telefon alt
+  çubuğu ürün sayfasında fiyat + Sepete ekle + WhatsApp.
+- LEAD HUNİSİ (hesaplayici.html `#leadForm` → main.js → `POST /api/lead`):
+  ad/telefon/ilçe + KVKK onayı; sunucu `DATA_DIR/leads.json`'a yazar ve
+  SMTP açıksa işletmeye e-posta gönderir; ardından WhatsApp ön-dolu mesaj
+  açılır (sunucu yoksa da açılır). Telefon LOG'A YAZILMAZ. Bal küpü
+  `website`, 3 sn kuralı, IP sınırı soru-cevapla aynı. GA4: lead_form,
+  lead_whatsapp. Dönüş süresi SÖZÜ VERİLMEZ (işletme vermedi).
+- MAĞAZA SENARYOLARI (`config.shopScenarios`, main.js `buildScen`): teknik
+  kategorilerin üstünde kullanım senaryosu kartları, `?senaryo=<id>`; bir
+  ürün birden çok senaryoda olabilir. Yeni ürünü ilgili senaryoya ekle.
+- SATIŞ METNİ KURALI: rakam, yorum, garanti süresi, kampanya UYDURULMAZ;
+  bilinmeyen değer yazılmaz (gizlenir), "[DOLDUR]" siteye ÇIKMAZ.
+
+## Telefon ana sayfası (24 Eki 2026, işletme kararı)
+Telefonda (≤760 px) ana sayfa 21 ekrandı, markalar yarım ekran kaplıyordu.
+Artık: kısa banner (etiket, istatistikler ve 2. düğme gizli) → `.m-hub` hızlı
+menü (6 kutu: Online Satış, Elektrikli Araç, Çatı/Arazi GES, Tarımsal Sulama,
+Yapay Zekâ, Hesaplayıcı) → 4 öne çıkan ürün (`data-pkg-name`/`data-pkg-list`,
+fiyat config'ten) → "Bizi tanıyın" bağlantıları → CTA bandı (~5 ekran).
+Diğer üst düzey bölümler `.m-hide` sınıfıyla telefonda GİZLİDİR; HTML'de durur
+(bilgisayar ve arama motorları/AI için içerik kaybı yok). Bilgisayar düzeni
+DEĞİŞMEDİ, `.m-hub` orada görünmez. Ana sayfaya yeni bölüm eklerken telefonda
+da görünmesi istenmiyorsa `m-hide` ver. Öne çıkan ürünleri değiştirmek:
+index.html `.m-prods` içindeki 4 kart (id + url + görsel). Metinlerin
+çevirisi i18n.js `MHUB:DICT` bloğunda.
+
+## Mobil hız kuralları (24 Eki 2026 ölçümü)
+Ölçüm: Playwright, iPhone 13, 4× CPU, 4G 250 ms gecikme (ABD batı sunucusu
+taklidi). Sonuç ve tekrar betikleri commit'lenmedi; kurallar:
+- ANA SAYFA SLAYTLARI: 1. slayt görseli (`hero-gespa-villa`) `-640/-960/-1280`
+  kopyalarıyla srcset + AYNI srcset'le preload. 2.+ slaytların görselleri
+  `data-src`/`data-srcset`'tir; main.js sayfa yüklendikten 1,5 sn sonra ya da
+  slayt gösterilmeden hemen önce yükler. Gizli slaytlara `src` YAZMA: hepsi
+  ekran içinde sayıldığı için loading="lazy" durdurmuyordu (~700 KB). Eski
+  preload kullanılmayan `hero.webp`'yi (181 KB) indiriyordu.
+- İLK EKRAN `.reveal` BEKLEMEZ: `.page-hero`, `.prod-sec`, `.shop-head`,
+  `.shop-side`, `.sh-bar` ve `.hero2` içindeki `.reveal` görünür başlar
+  (style.css sonu). Yoksa başlık/ürün fotoğrafı main.js'i bekler (LCP +~1 sn).
+- VARLIK SÜRÜMLEME: build.js `versionAssets()` YALNIZ yayın ortamında
+  (Railway/Render env'i ya da `ASSET_VERSION=1`) HTML'deki assets/*.css|js
+  adreslerine `?v=<özet>` ekler; server.js `?v=`'li isteğe 1 yıl `immutable`
+  önbellek verir. Repodaki HTML'e YAZILMAZ (yazılsa her CSS/JS değişikliği tüm
+  sayfaların lastmod'unu bugüne çekerdi). config.js sürümlenmez (canlı kur).
+  chatbot.js, main.js'in kendi `?v=`'siyle istenir.
+- GALERİ ÖNİZLEMELERİ: `.prod-thumbs` küçük resimleri `<ad>-k.webp` (240 px,
+  `tools/kucuk-resim.py` üretir, build.js `thumbify()` bağlar). Tam boy dosya
+  bağlantıda kalır; Product şeması ve sitemap tam boyu okur. YENİ GALERİ
+  GÖRSELİNDEN SONRA `python3 tools/kucuk-resim.py` çalıştır.
+- Telefonda: üst şerit tek satır, adet (− n +) düğmeleri ≥ 40 px, slayt
+  noktalarının dokunma alanı büyük, ürün fotoğrafı ≤ 36vh.
+- EN BÜYÜK KALAN ETKEN SUNUCU BÖLGESİ: Railway servisi us-west2'de; her istek
+  Türkiye'den ABD batı kıyısına gidiyor. Avrupa bölgesine taşımak (Railway
+  Settings → Region) her sayfada ~0,3–0,5 sn kazandırır.
 
 ## SEO / AEO — statik üretim (AI botları JS çalıştırmaz!)
 Dosya/işlev haritası, şema alanları ve yeni sayfa kontrol listesi: @docs/seo-aeo.md
@@ -628,6 +843,17 @@ Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD v
   `baglanti-semasi-900.webp` (`.feature-diagram`, object-fit:contain, data-zoom
   ile büyür). Görselin etiketleri TR gömülüdür (i18n çevirmez). Eski inline SVG
   şema kaldırıldı; `.hs-*` stilleri ve DICT etiket çevirileri repoda duruyor.
+- MOBİL (3 Eki 2026, style.css sonundaki "Mobil iyileştirmeler" bloğu):
+  ≤900 px katalog çipleri (`.sh-bar`) TEK SATIR kayar ve `--hdr-h` (main.js,
+  başlık yüksekliği) altına YAPIŞIR; çip tıklanınca şerit seçili çipe kayar,
+  liste ortasındaysa ızgara başına dönülür. ≤520 px `.sh-grid` 2 sütun, kartta
+  "Detay" gizli (görsel/başlık zaten ürün sayfasına gider). Hamburger çekmece
+  `--menu-top` ile ekrana sığar ve kendi içinde kayar (eskiden 640 px
+  telefonda "Teklif Al" ekran dışındaydı), açıkken `html.menu-locked`,
+  Esc kapatır; "Araçlar" mobilde küçük grup etiketi olarak görünür.
+  Dokunma alanı hedefi ≥44 px, yazı ≥12 px; `:hover` efektleri
+  `(hover:none)`'da kapalı (dokunulan çip seçili gibi yapışıyordu).
+  Çerez bandı açıkken sohbet düğmesi gizlidir (`body:has(.cookie-bar)`).
 - Açık/koyu tema, mobil menü, scroll animasyonları `assets/main.js` ile yönetilir;
   yeni DOM'lar `.reveal` ve `data-count` desenlerini kullanabilir.
 - Ziyaretçi sayacı: footer'daki `.visit-counter` rozetini main.js enjekte eder
@@ -651,9 +877,31 @@ Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD v
   Açılış sırası: devir → build → listen. SIGTERM'de bekleyen yazımlar diske
   atılır. Siparişler ve AI bot sayıları devredilmez, onlar için Volume şart.
   SON 24 SAAT: sayılan ziyaretler saatlik kovalarda; `/api/visitors` → `day`.
-  24 saatlik kesintisiz veri (`hoursSince`) birikmeden `day: null` döner ve
-  rozet o parçayı göstermez (eksik veriyle küçük sayı yayınlanmaz).
+  24 saatlik kesintisiz veri (`hoursSince`) birikmeden `day: null` +
+  `recent`/`recentHours` döner; rozet o zaman "son N saatte X" yazar (süre
+  açık yazılır, eksik veri "24 saat" diye sunulmaz — 27 Eki 2026, kesinti
+  sonrası parça hiç görünmüyordu). Admin "👥 Ziyaretçiler — son 24 saat"
+  kartı: son 24 saat · şu an sitede · toplam + Türkiye saatine göre saatlik
+  çubuk grafik (`/api/visitors/export` kovaları, yönetici şifresiyle),
+  dakikada bir yenilenir.
   Taban (`visitors.base`) artık elle taşınmaz; geçmiş taşımalar config'te.
+  ÜRÜN İLGİSİ VE TRAFİK (3 Kas 2026): main.js her sayfada `/api/ev`'e anonim olay
+  yollar (`pv` sayfa, `view` ürün sayfası, `cart` sepete ekleme; `GESPA.track`),
+  çerez bildiriminde "Reddet" diyenler sayılmaz. server.js `handleEvent()` YALNIZ
+  günlük toplamları `DATA_DIR/stats.json`'a yazar: ziyaret, sayfa, ürün incelemesi,
+  sepete ekleme, kaynak (Google/Instagram/yapay zekâ/utm…), cihaz, şehir. KİŞİ,
+  IP, çerez kimliği SAKLANMAZ; ürün kimliği config'te olmalı, sayfa yolu var olan
+  herkese açık sayfa olmalı, bot UA'sı ve IP başına dakikada 90 üstü olay atılır,
+  her sayaçta en çok 60–400 farklı anahtar tutulur. ŞEHİR: oturumun ilk sayfasında
+  IP bir kez `GEO_URL`'ye (varsayılan `https://ipwho.is/{ip}`; boş = şehir kapalı)
+  sorulur, yalnız dönen şehir adı sayılır, günde en çok `GEO_MAX_PER_DAY` (500)
+  sorgu; özel IP'ler sorulmaz. Dış servise IP gittiği için gizlilik.html bunu
+  söyler — servis ya da yöntem değişirse o metni de değiştir (hukuki danışman
+  görsün). Admin → "📊 Ürün ilgisi ve trafik" (`POST /api/stats`, yönetici
+  şifresi): aralık seçici, ürün tablosu (stok config'ten), kaynak/şehir/cihaz/
+  sayfa. Dağıtımda sayaç devriyle birlikte `/api/visitors/export` → `stats` ile
+  önceki sunucudan devralınır (120 gün tutulur); Volume yoksa devir olmadan
+  her dağıtım sıfırlar.
 - Sohbet botu `assets/chatbot.js` (main.js dinamik yükler): metinleri kendi içinde
   `[tr,en,de,ru]` dizileriyle çok dillidir (i18n DICT'e bağlı değildir); yeni yanıt
   eklerken 4 dili birlikte ekle. Footer sosyal linkleri `config.company.sameAs`'ten
@@ -675,6 +923,24 @@ Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD v
   istemci sözlüğüne (ve dil demetlerine) geçmez. JS ile ÇİZİLEN metnin (katalog kartı, ürün adı,
   builder) çevirisi bu yüzden doğrudan `assets/i18n.js` DICT'ine yazılmalıdır. Marka/iletişim
   (`data-c-text`) ve dinamik sayılar çeviriden hariç tutulur.
+- MÜHENDİSLİK REHBERLERİ (30 Eki 2026, yalnız TR, `TR_ONLY`): `rehberler.html` (merkez) +
+  `off-grid-gunes-sistemi-boyutlandirma.html` · `pwm-mppt-sarj-kontrol-farki.html` ·
+  `solar-sulama-pompasi-secimi.html`. Kabuk (head/menü/alt bilgi) mevcut mevzuat rehberinden
+  kopyalanır, `<main data-article>` → Article + FAQPage (görünen `.faq-item`) + BreadcrumbList build'de
+  üretilir. İÇERİK KURALI: örnek hesaplar sitedeki araçlarla BİREBİR aynı formülü/katsayıyı kullanır
+  (Sistem Kurucu `config.builder.sizing`, pompa aracı `config.calc.pump`) ve künye değerleri ürün
+  sayfalarından gelir (360 W, Lexron 655 W, Havensis 150|60); katsayı değişirse rehberdeki örnek rakamları
+  da güncelle. Mevzuat/hibe iddiası YAZILMAZ; şebekeden de beslenen sulama kurgusu yalnız mevzuat
+  rehberine bağlantıyla anılır. Ana sayfadaki `#rehberler` bölümü ve footer "Rehberler" bağlantısı
+  `<!-- TR:ONLY -->` içindedir (dil kopyasından silinir). Yeni rehber = TR_ONLY + PRIORITY + LLMS_GROUPS
+  + `rehberler.html` kartı + ana sayfa bölümü (gerekirse).
+- KOYU TEMA: `[data-theme="dark"]` `--green`'i açık tona çeker (lacivert vurgu koyu zeminde 1,2:1'di).
+  Yeni bileşende SABİT BEYAZ zemin (`background:#fff`) kullanırsan yazı rengini de sabitle — `var(--ink)`
+  koyu temada açık renk olur ve beyaz üstünde kaybolur (`.m-prod` böyle düzeltildi). Kontrast taraması:
+  koyu temayı açıp öğe başına WCAG oranı hesapla; <3:1 çıkanları düzelt.
+- BREADCRUMB TUZAĞI: footer bağlantılarını toplu bul-değiştir ile güncellerken `<div class="crumbs">`
+  bloklarını HARİÇ tut. 9 ürün sayfasının breadcrumb'ına "Yapay Zekâ Ürünleri" sızmış, BreadcrumbList
+  şemasına da sahte bir adım olarak girmişti (düzeltildi).
 - YASAL SAYFALAR YALNIZ TÜRKÇE yayınlanır (`kvkk` `gizlilik` `cerez-politikasi`
   `mesafeli-satis-sozlesmesi` `iade-teslimat`): bağlayıcı metin Türkçedir, dil
   kopyası ÜRETİLMEZ. Liste build.js `TR_ONLY` — PAGES'te DEĞİLDİR. Sonuçları:
@@ -693,8 +959,30 @@ Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD v
   `META` tablosundadır — yeni sayfada oraya da satır ekle. Dil değiştirici ilgili
   dil URL'sine yönlendirir; `hreflang` `i18n.js` tarafından enjekte edilir.
 
-## Ödeme (iyzico), sipariş e-postaları ve dekont
+## Ödeme (iyzico / tami), sipariş e-postaları ve dekont
 Tüm kurallar: @docs/odeme.md
+- KARGO ALICI ÖDEMELİ (geçici, 23 Eki 2026): müşteri kapıda kargo ücretini
+  ödemeyip paketi geri çevirdi, iki yönü işletme ödedi. Şimdilik: sepette
+  "Kargo: Alıcı ödemeli — teslimatta ödenir" satırı + ZORUNLU onay kutusu
+  (`#ordShipOk`, `kargoOnay`); sepetteki ürünlerin hepsi `freeShipping` ise
+  satır "Ücretsiz" olur, kutu gizlenir. WhatsApp mesajına ve kart siparişinin
+  kaydına/işletme e-postasına `kargo` satırı yazılır (server.js checkout).
+  Ürün sayfası kargo satırı "kargo ücreti alıcıya aittir" der.
+  CAYMA METNİ: sepetteki eski "cayma hâlinde iade kargo ücreti alıcıya
+  aittir" cümlesi sözleşmeyle ve Mesafeli Sözleşmeler Yönetmeliği'yle
+  çelişiyordu; artık "anlaşmalı kargoyla iadede bize, başka firmada alıcıya".
+  "Gidiş-dönüş kargo kesilerek iade" maddesi YAZILMAZ (cayma hâlinde gönderim
+  bedeli de iade edilmek zorunda). KALICI ÇÖZÜM (yapılmadı): kargo ücretinin
+  siparişte peşin alınması (ürüne `freeShipping` ya da kargo sınıfı).
+- İKİ KART SAĞLAYICISI, ADMIN ANAHTARI: `config.commerce.cardProvider`
+  ("iyzico" | "tami"; Railway `CARD_PROVIDER` env'i ezer). Aynı anda YALNIZ
+  BİRİ açıktır (sepet + odeme.html); seçilenin anahtarı yoksa öteki
+  kullanılır. tami = Garanti BBVA, `tami.js` (gesmarketim1 ile AYNI dosya),
+  env: TAMI_MERCHANT_NUMBER · TAMI_TERMINAL_NUMBER · TAMI_SECRET_KEY ·
+  TAMI_KID · TAMI_K · TAMI_BASE_URL. tami'de kart BU sitede alınır (main.js
+  `GESPA.tamiCard`), 3D sayfası tek kullanımlık `/api/pay/tami/3d/<t>`
+  adresinden verilir (sayfa CSP'si `form-action 'self'` bankayı engeller).
+  Ayrıntı docs/odeme.md "tami".
 - Anahtarlar YALNIZCA Railway ortam değişkeni: IYZIPAY_API_KEY /
   IYZIPAY_SECRET_KEY / IYZIPAY_BASE_URL. SMTP de öyle: `SMTP_HOST` `SMTP_PORT`
   `SMTP_USER` `SMTP_PASS` `ORDER_EMAIL_TO`. Parola/anahtar repoya ASLA yazılmaz.
@@ -709,6 +997,13 @@ Tüm kurallar: @docs/odeme.md
   içinde ŞİFRELİ taşınır (AES-256-GCM, anahtar iyzico gizli anahtarından
   türetilir), sunucu kaydı silinse de açılır. E-posta ve dekont saati
   Türkiye saatidir (`trTime()`).
+- Taksit (7 Eki 2026): callback iyzico'nun `installment` alanını siparişe
+  yazar; dekont (`receiptData.taksit`, `installmentOf()`) ve e-postalar tek
+  satır gösterir: "Taksit: 6 taksit · 6 × ₺49.999,44" (aylık tutar kuruşa
+  AŞAĞI yuvarlanır); taksit yoksa "Tek çekim". Sahibin isteği: aylara göre
+  plan tablosu YOK. Eski kayıtta `installment` yoksa link ödemesinin zorunlu
+  `taksit` sayısı kullanılır; ikisi de yoksa "Tek çekim" — ancak vade farkı
+  varsa (tahsil > gönderilen) ödeme taksitlidir, "Taksitli" yazılır.
 - Sınırlar `config.commerce`: `payLinkMinTL`/`payLinkMaxTL` bizim link ödemesi
   sınırımız; `cardMaxTL` iyzico HESABININ tek işlem limitidir (şu an ₺350.000).
   Aşan kart tutarı iyzico'ya gönderilmeden reddedilir, havale/EFT önerilir.
