@@ -128,6 +128,7 @@ module.exports = {
     { file: "paket-285w.html", title: ["Tak-çalıştır 240 W paket", "Plug-and-play 240 W kit", "Plug-and-Play-Set 240 W", "Комплект 240 Вт «включи и работай»"] },
     { file: "paket-2x540w.html", title: ["2×540 W LiFePO₄ bataryalı sistem", "2×540 W system with LiFePO₄ battery", "2×540-W-System mit LiFePO₄-Akku", "Система 2×540 Вт с аккумулятором LiFePO₄"] },
     { file: "unv-trek-pro-2500.html", title: ["Taşınabilir güç istasyonu (UNV Trek Pro 2500)", "Portable power station (UNV Trek Pro 2500)", "Tragbare Powerstation (UNV Trek Pro 2500)", "Портативная электростанция (UNV Trek Pro 2500)"] },
+    { file: "lexron-guc-istasyonu-1200w.html", title: ["Taşınabilir güç istasyonu (Lexron 1200 W)", "Portable power station (Lexron 1200 W)", "Tragbare Powerstation (Lexron 1200 W)", "Портативная электростанция (Lexron 1200 Вт)"] },
     { file: "su-isitici.html", title: ["PV güneş enerjili su ısıtıcı", "PV solar water heater", "PV-Solar-Warmwasserbereiter", "Фотоэлектрический водонагреватель"] },
     { file: "elektrikli-arac-donusum.html", title: ["Elektrikli araç güneş dönüşümü (BOOST MPPT)", "EV solar conversion (BOOST MPPT)", "Solarumrüstung für E-Fahrzeuge (BOOST MPPT)", "Солнечное переоснащение электротранспорта (BOOST MPPT)"] },
     { file: "paket-motor-yolcu.html", title: ["Yolcu kabinli motor paketi (240 W)", "Passenger-cab e-trike set (240 W)", "Solar-Set für Fahrgast-Dreirad (240 W)", "Комплект для пассажирского трицикла (240 Вт)"] },

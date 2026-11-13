@@ -3,7 +3,7 @@ title: "Frequently Asked Questions — Solar Power, Orders and Installation"
 description: "Answers about solar power plants, batteries, EV solar conversion, ordering, shipping, payment and installation in one place. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/en/sss.html
 lang: en
-dateModified: 2026-11-10
+dateModified: 2026-11-13
 publisher: "GESPA Enerji"
 ---
 
@@ -360,6 +360,34 @@ A solar panel is not included with the product. Ask us before ordering about pan
 This product is manufactured with different socket standards. We confirm the socket type of the unit you will receive over WhatsApp before you order; we do not ship a version that does not fit.
 
 [Go to page →](https://www.gespaenerji.com/en/unv-trek-pro-2500.html)
+
+## Portable power station (Lexron 1200 W)
+
+### Which appliances can it power?
+
+It powers devices that draw up to 1200 W: TV, laptop, modem, lighting and most small power tools. Runtime is roughly 1152 Wh ÷ device power (for a 100 W device, about 11 hours in theory); conversion losses make the real figure somewhat shorter. The starting power of motor-driven devices must not exceed the 2400 W peak.
+
+### Can it be charged from a solar panel?
+
+Yes, a 160 W solar panel can be connected. The panel is not included; you can buy it separately if you like. Because the solar input's voltage/current range and the charging time are not in the datasheet, we confirm the connection on WhatsApp before you order.
+
+### How is it charged?
+
+The Type-C input supports PD 100 W. Other charging options such as a mains adapter or a car charger, and the charging times, are not in the datasheet; ask us on WhatsApp before ordering and we'll confirm.
+
+### Do the sockets fit Turkish plugs?
+
+The device's AC sockets are of the universal (multi-standard) type. We confirm on WhatsApp before you order that your plug will fit.
+
+### How long does the battery last?
+
+A cycle life of 2000 cycles is given for the LiFePO₄ battery; with one full charge-discharge a day that corresponds to about 5.5 years of use. Capacity at the end of that life depends on operating conditions.
+
+### Who installs it, and do you ship outside Antalya?
+
+We ship anywhere in Türkiye. In the Antalya region we offer optional on-site installation; elsewhere we plan the wiring with you by phone.
+
+[Go to page →](https://www.gespaenerji.com/en/lexron-guc-istasyonu-1200w.html)
 
 ## PV solar water heater
 

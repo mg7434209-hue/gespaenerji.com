@@ -41,8 +41,8 @@ const PAGES = [
   "lexron-pwm-20a.html", "lexron-pwm-30a.html", "lexron-pwm-40a.html", "lexron-pwm-60a.html",
   "lexron-mppt-20a.html", "lexron-mppt-30a.html", "lexron-mppt-40a.html", "lexron-mppt-80a-hv.html",
   // Paneller, akü, kablo, MC4 — tools/urun-sayfalar.py üretir
-  "panel-50w.html", "panel-240w.html", "panel-360w.html", "panel-460w.html", "panel-arcelik-540w.html", "panel-lexron-655w.html", "panel-700w.html",
-  "aku-titanx-51v-102ah.html", "kablo-solar-5m.html", "mc4-set.html",
+  "panel-50w.html", "panel-160w.html", "panel-240w.html", "panel-360w.html", "panel-460w.html", "panel-arcelik-540w.html", "panel-lexron-655w.html", "panel-700w.html",
+  "aku-titanx-51v-102ah.html", "lexron-guc-istasyonu-1200w.html", "kablo-solar-5m.html", "mc4-set.html",
   "hero-led-ampul-10w.html", "hero-led-solar-sokak-100w.html",
   "hero-led-aplik-50w.html", "hero-led-bahce-50w.html", "hero-led-solar-sokak-200w.html", "hero-led-solar-sokak-600w.html",
   "sepet.html"   // noindex; sitemap'e girmez (NOSITEMAP)
@@ -249,6 +249,19 @@ const META = {
     en: { t: "240W Solar Panel (48 Cells) | GESPA Energy", d: "240 W solar panel with 48 cells: Voc 36.12 V, 1320 × 776 × 30 mm, 8 kg. For mini electric cars and small off-grid systems." },
     de: { t: "240-W-Solarmodul (48 Zellen) | GESPA Energy", d: "240-W-Solarmodul mit 48 Zellen: Voc 36,12 V, 1320 × 776 × 30 mm, 8 kg. Für Mini-Elektroautos und kleine Inselanlagen." },
     ru: { t: "Солнечная панель 240 Вт (48 ячеек) | GESPA", d: "Солнечная панель 240 Вт, 48 ячеек: Voc 36,12 В, 1320 × 776 × 30 мм, 8 кг. Для мини-электромобилей и небольших автономных систем." }
+  },
+  "lexron-guc-istasyonu-1200w.html": {
+    en: { t: "Lexron 1200 W Portable Power Station | GESPA",
+          d: "Lexron 1200 W portable power station: 1152 Wh LiFePO₄, pure sine AC, USB, Type-C PD 100 W, 12 V DC. A 160 W solar panel can be connected. Shipped across Türkiye." },
+    de: { t: "Lexron 1200 W tragbare Powerstation | GESPA",
+          d: "Lexron 1200 W tragbare Powerstation: 1152 Wh LiFePO₄, AC mit reinem Sinus, USB, Type-C PD 100 W, 12 V DC. 160-W-Solarmodul anschließbar. Versand in die ganze Türkei." },
+    ru: { t: "Электростанция Lexron 1200 Вт | GESPA",
+          d: "Портативная электростанция Lexron 1200 Вт: LiFePO₄ 1152 Вт·ч, AC чистая синусоида, USB, Type-C PD 100 Вт, 12 В DC. Можно подключить панель 160 Вт. Доставка по Турции." }
+  },
+  "panel-160w.html": {
+    en: { t: "160W Solar Panel Price | GESPA Energy", d: "160 W solar panel: Voc 19.00 V, 1065 × 705 × 30 mm. Can be connected to the Lexron 1200 W power station; also for 12 V systems and caravans." },
+    de: { t: "160W Solarmodul Preis | GESPA Energy", d: "160-W-Solarmodul: Voc 19,00 V, 1065 × 705 × 30 mm. An die Lexron-1200-W-Powerstation anschließbar; auch für 12-V-Systeme und Wohnmobile." },
+    ru: { t: "Солнечная панель 160 Вт — цена | GESPA", d: "Панель 160 Вт: Voc 19,00 В, 1065 × 705 × 30 мм. Подключается к электростанции Lexron 1200 Вт; подходит для систем 12 В и автодомов." }
   },
   "panel-360w.html": {
     en: { t: "360W Mono-PERC Solar Panel | GESPA Energy", d: "360 W 60-cell Mono-PERC panel: Voc 42.56 V, 1660 × 1001 × 30 mm, 19.5 kg, IP68 junction box, 1500 V." },
@@ -586,7 +599,7 @@ const FIT = {
 };
 function fitGroupOf(p) {
   if (!p) return null;
-  if (/^(boost-mppt|havensis-|lexron-)/.test(p.id)) return "charge";
+  if (/^(boost-mppt|havensis-|lexron-(pwm|mppt))/.test(p.id)) return "charge";   // lexron-guc-* güç istasyonudur (offgrid)
   if (p.group === "accessory") return null;
   if (p.group === "offgrid") return "offgrid";
   return FIT[p.group] ? p.group : null;
@@ -1943,7 +1956,7 @@ const PRIORITY = {
   "ai-cankurtaran-destek-sistemi.html": "0.9", "yapay-zeka-urunleri.html": "0.8", "su-isitici.html": "0.8",
   "tarimsal-sulama.html": "0.9", "hesaplayici.html": "0.8", "projeler.html": "0.7",
   "hakkimizda.html": "0.6", "iletisim.html": "0.8",
-  "elektrikli-arac-donusum.html": "0.8", "unv-trek-pro-2500.html": "0.8",
+  "elektrikli-arac-donusum.html": "0.8", "unv-trek-pro-2500.html": "0.8", "lexron-guc-istasyonu-1200w.html": "0.8",
   "kvkk.html": "0.3", "gizlilik.html": "0.3", "cerez-politikasi.html": "0.3",
   "mesafeli-satis-sozlesmesi.html": "0.4", "iade-teslimat.html": "0.4",
   "sss.html": "0.7", "sozluk.html": "0.6", "gunes-paneli-kacak-elektrik-cezasi.html": "0.7",
@@ -1969,7 +1982,7 @@ const LLMS_GROUPS = [
     "havensis-mppt-30a.html", "havensis-mppt-60a.html", "havensis-mppt-60a-150v.html",
     "havensis-dcdc-30a.html", "havensis-dcdc-40a.html", "havensis-dcdc-40a-cift-yonlu.html", "havensis-boost-dcdc-2448.html",
     "lexron-pwm-20a.html", "lexron-pwm-30a.html", "lexron-pwm-40a.html", "lexron-pwm-60a.html", "lexron-mppt-20a.html", "lexron-mppt-30a.html", "lexron-mppt-40a.html", "lexron-mppt-80a-hv.html",
-    "panel-50w.html", "panel-240w.html", "panel-360w.html", "panel-460w.html", "panel-arcelik-540w.html", "panel-lexron-655w.html", "panel-700w.html", "aku-titanx-51v-102ah.html", "kablo-solar-5m.html", "mc4-set.html",
+    "panel-50w.html", "panel-160w.html", "panel-240w.html", "panel-360w.html", "panel-460w.html", "panel-arcelik-540w.html", "panel-lexron-655w.html", "panel-700w.html", "aku-titanx-51v-102ah.html", "lexron-guc-istasyonu-1200w.html", "kablo-solar-5m.html", "mc4-set.html",
     "hero-led-ampul-10w.html", "hero-led-solar-sokak-100w.html",
     "hero-led-aplik-50w.html", "hero-led-bahce-50w.html", "hero-led-solar-sokak-200w.html", "hero-led-solar-sokak-600w.html",
     "su-isitici.html", "toptan.html"]],

@@ -3,7 +3,7 @@ title: "Häufige Fragen — Solarenergie, Bestellung und Montage"
 description: "Antworten zu Solaranlagen, Akkus, Solarumrüstung von E-Fahrzeugen, Bestellung, Versand, Zahlung und Montage an einem Ort. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/de/sss.html
 lang: de
-dateModified: 2026-11-10
+dateModified: 2026-11-13
 publisher: "GESPA Enerji"
 ---
 
@@ -360,6 +360,34 @@ Ein Solarmodul ist nicht im Lieferumfang enthalten. Fragen Sie uns vor der Beste
 Dieses Produkt wird mit unterschiedlichen Steckdosenstandards gefertigt. Wir bestätigen den Steckdosentyp des an Sie gelieferten Geräts vor der Bestellung per WhatsApp; eine unpassende Version versenden wir nicht.
 
 [Zur Seite →](https://www.gespaenerji.com/de/unv-trek-pro-2500.html)
+
+## Tragbare Powerstation (Lexron 1200 W)
+
+### Welche Geräte kann es betreiben?
+
+Sie versorgt Geräte bis 1200 W: Fernseher, Laptop, Modem, Beleuchtung und die meisten kleinen Elektrogeräte. Die Laufzeit beträgt grob 1152 Wh ÷ Geräteleistung (bei einem 100-W-Gerät theoretisch etwa 11 Stunden); Wandlungsverluste verkürzen sie etwas. Die Anlaufleistung von Motorgeräten darf die Spitze von 2400 W nicht überschreiten.
+
+### Kann sie mit einem Solarmodul geladen werden?
+
+Ja, ein 160-W-Solarmodul kann angeschlossen werden. Das Modul ist nicht im Lieferumfang; Sie können es bei Bedarf separat kaufen. Da Spannungs-/Strombereich des Solareingangs und Ladezeit nicht im Datenblatt stehen, bestätigen wir den Anschluss vor der Bestellung per WhatsApp.
+
+### Wie wird sie geladen?
+
+Der Type-C-Eingang unterstützt PD 100 W. Weitere Lademöglichkeiten wie Netzteil oder Kfz-Ladung sowie die Ladezeiten stehen nicht im Datenblatt; fragen Sie uns vor der Bestellung per WhatsApp, wir bestätigen sie.
+
+### Passen die Steckdosen zu türkischen Steckern?
+
+Die AC-Steckdosen des Geräts sind vom Universaltyp (Mehrfachnorm). Wir bestätigen vor der Bestellung per WhatsApp, dass Ihr Stecker passt.
+
+### Wie lange hält der Akku?
+
+Für den LiFePO₄-Akku sind 2000 Zyklen angegeben; bei einem vollen Lade-Entlade-Zyklus pro Tag entspricht das etwa 5,5 Jahren Nutzung. Die Restkapazität am Ende hängt von den Einsatzbedingungen ab.
+
+### Wer installiert es, und liefern Sie auch außerhalb von Antalya?
+
+Wir versenden in die ganze Türkei. In der Region Antalya bieten wir optional die Montage vor Ort an; anderswo planen wir den Anschluss telefonisch mit Ihnen.
+
+[Zur Seite →](https://www.gespaenerji.com/de/lexron-guc-istasyonu-1200w.html)
 
 ## PV-Solar-Warmwasserbereiter
 

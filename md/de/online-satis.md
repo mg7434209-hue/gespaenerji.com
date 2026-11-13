@@ -3,7 +3,7 @@ title: "Solarmodule, Akkus & MPPT-Laderegler kaufen | GESPA"
 description: "Lexron- und Arçelik-Solarmodule, LiFePO₄-Akkus, MPPT/PWM-Laderegler, Solarkabel und Fertigsets. Preise inkl. MwSt., Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/online-satis.html
 lang: de
-dateModified: 2026-11-10
+dateModified: 2026-11-13
 publisher: "GESPA Enerji"
 ---
 
@@ -77,6 +77,16 @@ Camping, Wohnmobil, Außeneinsatz und Notstrom zu Hause
 
 Inkl. MwSt. · zzgl. Versand
 
+### [Lexron 1200 W Tragbare Powerstation](https://www.gespaenerji.com/de/lexron-guc-istasyonu-1200w.html)
+
+Camping, Wohnmobil, Außeneinsatz und Notstrom zu Hause
+
+**₺26.000**≈ $528
+
+💰 Per Überweisung: **₺25.200**
+
+Inkl. MwSt. · zzgl. Versand
+
 ### [360-W-Solarmodul](https://www.gespaenerji.com/de/panel-360w.html)
 
 Gartenhaus, Wohnmobil, Dach und kleine Off-Grid-Anlagen
@@ -84,6 +94,16 @@ Gartenhaus, Wohnmobil, Dach und kleine Off-Grid-Anlagen
 **₺7.200**≈ $146
 
 💰 Per Überweisung: **₺7.000**
+
+Inkl. MwSt. · zzgl. Versand
+
+### [160-W-Solarmodul](https://www.gespaenerji.com/de/panel-160w.html)
+
+Lexron-1200-W-Powerstation, Wohnmobile und 12-V-Systeme
+
+**₺4.000**≈ $81
+
+💰 Per Überweisung: **₺3.900**
 
 Inkl. MwSt. · zzgl. Versand
 

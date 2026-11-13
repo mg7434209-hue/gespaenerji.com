@@ -3,7 +3,7 @@ title: "240 W Güneş Paneli (48 Hücre) Fiyatı | GESPA Enerji"
 description: "240 W Güneş Paneli (48 Hücre): Voc 36,12 V, 1320 × 776 mm, 8 kg. Mini elektrikli otomobiller ve küçük off-grid sistemler için. KDV dahil, tüm Türkiye'ye kargo."
 canonical: https://www.gespaenerji.com/panel-240w.html
 lang: tr
-dateModified: 2026-11-10
+dateModified: 2026-11-13
 publisher: "GESPA Enerji"
 ---
 
@@ -139,6 +139,7 @@ Mağazamızdaki tüm paneller; tire (—) olan değerin künyesi elimizde yok.
 | Model | Güç | Voc | Ölçü | Ağırlık |
 | --- | --- | --- | --- | --- |
 | 50W Güneş Paneli | 50 W | — | — | — |
+| 160 W Güneş Paneli | 160 W | 19 V | 1065 × 705 × 30 mm | — |
 | 240 W Güneş Paneli (48 Hücre) Bu ürün | 240 W | 36,12 V | 1320 × 776 × 30 mm | 8 kg |
 | 360 W Güneş Paneli | 360 W | 42,56 V | 1660 × 1001 × 30 mm | 19,5 kg |
 | 460 W Half-Cut Monokristal Güneş Paneli | 460 W | 51,9 V | 2095 × 1039 × 30 mm | 25 kg |
