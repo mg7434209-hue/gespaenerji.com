@@ -1025,6 +1025,8 @@ Tüm kurallar: @docs/odeme.md
   (Postgres) gider (`OS_INGEST_URL` + `OS_INGEST_TOKEN`); arka planda, ödemeyi
   bekletmez, hata atmaz, dakikada bir yeniden dener. `writeOrder()` sonundaki
   `osScheduleSync()` çağrısını KALDIRMA.
+  JARVIS ÖNERİLERİ: `jarvis/…` dalındaki PR'lar Gespa OS'te onaylanmış fiyat/stok
+  değişikliğidir (yalnız config.js); çıktıyı `jarvis-derleme.yml` üretir. @docs/os-ozet.md
 
 ## Döviz kuru (otomatik, TCMB) — `kur.js` · server.js `FX`
 - Katalog fiyatları USD; ₺ = USD × kur, kademeli yuvarlama (≥10.000 ₺ → 100,
