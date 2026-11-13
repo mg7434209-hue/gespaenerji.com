@@ -499,6 +499,19 @@ ve sepet simgesi ekran dışında kalır.
   tutarsız), hücre "yarım/tam" (künye "60 Full Cells", fotoğraf yarım kesim
   gösteriyor), garanti süresi (künyede yok). Seri bağlama: Voc 42,56 × 1,1 →
   100 V girişte 2, 150 V girişte 3 panel. Sayfa `tools/urun-sayfalar.py` üretir.
+- LEXRON 1200 W GÜÇ İSTASYONU + 160 W PANEL (13 Kas 2026, işletmenin belgesi:
+  künye tablosu + tanıtım görselleri; ham kopyalar `kaynak/lexron-guc-1200w-*.webp`,
+  `kaynak/panel-160w-foto.webp`). `lexron-guc-1200w` ₺26.000, `group:"offgrid"`,
+  sayfa `lexron-guc-istasyonu-1200w.html`; `panel-160w` ₺4.000. İKİSİNİ de
+  `tools/urun-sayfalar.py` üretir (`lexron_station()`, PANELS). GÜNEŞ PANELİ ÜRÜNE DAHİL
+  DEĞİLDİR: sayfada "160 W panel bağlanabilir, isteğe bağlı ayrıca satılır" vurgusu
+  (üst bilgi, özet, SSS, çapraz satış) KALIR. YAZILMAYAN (belgede yok): ağırlık, şarj
+  yöntemi/süresi, güneş girişi gerilim/akım aralığı, UPS özelliği; ölçü (280 × 260 ×
+  250 mm) ve "16BB half-cut TOPCon" ibaresi künye tablosunda değil tanıtım
+  görsellerindedir. Marka LEXRON ürünün üstünde yazılı, silinmez. AC prizler evrensel
+  (çok standartlı) tiptir: Türkiye fişine uygunluk sipariş öncesi WhatsApp'tan teyit
+  edilir (UNV kuralı gibi). FIT kutusu: `fitGroupOf()` yalnız `lexron-pwm|mppt` için
+  "charge" der; `lexron-guc-*` offgrid'dir. 160 W panel Sistem Kurucu kataloğunda YOK.
 - TÜKENEN ÜRÜN (`stock: 0`, 26 Eki 2026): SATILAMAZ. main.js `sellable()`
   false döner (sepete girmez, eski sepetten temizlenir); ürün sayfasında
   düğmeler "⛔ Stokta yok" + "WhatsApp'tan sor", mağaza kartında pasif düğme;

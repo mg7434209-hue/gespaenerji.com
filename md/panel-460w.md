@@ -3,7 +3,7 @@ title: "460 W Half-Cut Monokristal Güneş Paneli Fiyatı | GESPA"
 description: "460 W Half-Cut Monokristal Güneş Paneli: Voc 51,9 V, 2095 × 1039 mm, 25 kg. KDV dahil fiyat, Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/panel-460w.html
 lang: tr
-dateModified: 2026-11-10
+dateModified: 2026-11-13
 publisher: "GESPA Enerji"
 ---
 
@@ -142,6 +142,7 @@ Mağazamızdaki tüm paneller; tire (—) olan değerin künyesi elimizde yok.
 | Model | Güç | Voc | Ölçü | Ağırlık |
 | --- | --- | --- | --- | --- |
 | 50W Güneş Paneli | 50 W | — | — | — |
+| 160 W Güneş Paneli | 160 W | 19 V | 1065 × 705 × 30 mm | — |
 | 240 W Güneş Paneli (48 Hücre) | 240 W | 36,12 V | 1320 × 776 × 30 mm | 8 kg |
 | 360 W Güneş Paneli | 360 W | 42,56 V | 1660 × 1001 × 30 mm | 19,5 kg |
 | 460 W Half-Cut Monokristal Güneş Paneli Bu ürün | 460 W | 51,9 V | 2095 × 1039 × 30 mm | 25 kg |

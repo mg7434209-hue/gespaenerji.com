@@ -3,7 +3,7 @@ title: "Güneş Paneli, Akü ve MPPT Şarj Kontrol Satın Al | GESPA"
 description: "Lexron ve Arçelik güneş panelleri, LiFePO₄ akü, MPPT/PWM şarj kontrol cihazı, solar kablo ve hazır paketler. KDV dahil açık fiyat, Türkiye'ye kargo."
 canonical: https://www.gespaenerji.com/online-satis.html
 lang: tr
-dateModified: 2026-11-10
+dateModified: 2026-11-13
 publisher: "GESPA Enerji"
 ---
 
@@ -77,6 +77,16 @@ Kamp, karavan, saha çalışması ve ev tipi yedek güç
 
 KDV dahil · kargo hariç
 
+### [Lexron 1200 W Taşınabilir Güç İstasyonu](https://www.gespaenerji.com/lexron-guc-istasyonu-1200w.html)
+
+Kamp, karavan, saha çalışması ve evde yedek güç
+
+**₺26.000**≈ $528
+
+💰 Havale/EFT ile: **₺25.200**
+
+KDV dahil · kargo hariç
+
 ### [360 W Güneş Paneli](https://www.gespaenerji.com/panel-360w.html)
 
 Bağ evi, karavan, çatı ve küçük off-grid sistemler
@@ -84,6 +94,16 @@ Bağ evi, karavan, çatı ve küçük off-grid sistemler
 **₺7.200**≈ $146
 
 💰 Havale/EFT ile: **₺7.000**
+
+KDV dahil · kargo hariç
+
+### [160 W Güneş Paneli](https://www.gespaenerji.com/panel-160w.html)
+
+Lexron 1200 W güç istasyonu, karavan ve 12 V sistemler
+
+**₺4.000**≈ $81
+
+💰 Havale/EFT ile: **₺3.900**
 
 KDV dahil · kargo hariç
 

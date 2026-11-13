@@ -3,7 +3,7 @@ title: "Sıkça Sorulan Sorular — Güneş Enerjisi, Sipariş ve Kurulum"
 description: "Güneş enerjisi santrali, akü, elektrikli araç güneş dönüşümü, sipariş, kargo, ödeme ve kurulum hakkında sık sorulan soruların cevapları tek sayfada."
 canonical: https://www.gespaenerji.com/sss.html
 lang: tr
-dateModified: 2026-11-10
+dateModified: 2026-11-13
 publisher: "GESPA Enerji"
 ---
 
@@ -402,6 +402,34 @@ Güneş paneli ürüne dahil değildir. Kullanımınıza uygun panel ve bağlant
 Bu ürün farklı priz standartlarıyla üretilmektedir. Size gönderilecek cihazın priz tipini sipariş öncesi WhatsApp'tan teyit ediyoruz; uygun olmayan bir sürüm göndermiyoruz.
 
 [Sayfaya git →](https://www.gespaenerji.com/unv-trek-pro-2500.html)
+
+## Taşınabilir güç istasyonu (Lexron 1200 W)
+
+### Hangi cihazları çalıştırır?
+
+1200 W'a kadar çeken cihazları besler: televizyon, dizüstü bilgisayar, modem, aydınlatma ve çoğu küçük elektrikli alet. Çalışma süresi yaklaşık olarak 1152 Wh ÷ cihaz gücü kadardır (örneğin 100 W çeken bir cihaz için teorik olarak yaklaşık 11 saat); dönüşüm kayıpları nedeniyle gerçek süre bir miktar kısalır. Motorlu cihazların kalkış gücü 2400 W tepe değerini aşmamalıdır.
+
+### Güneş paneliyle şarj edilebilir mi?
+
+Evet, 160 W güneş paneli bağlanabilir. Panel ürüne dahil değildir; isterseniz ayrıca satın alabilirsiniz. Güneş girişinin gerilim/akım aralığı ve şarj süresi künyede yer almadığı için bağlantıyı sipariş öncesi WhatsApp'tan teyit ediyoruz.
+
+### Nasıl şarj olur?
+
+Type-C girişi PD 100 W'ı destekler. Şebeke adaptörü ve araç şarjı gibi diğer yöntemlerle şarj seçenekleri ve süreleri künyede yer almıyor; sipariş öncesi WhatsApp'tan sorun, teyit edip bildirelim.
+
+### Prizler Türkiye fişine uygun mu?
+
+Cihazın AC prizleri evrensel (çok standartlı) tiptedir. Fişinizin takılacağını sipariş öncesi WhatsApp'tan teyit ediyoruz.
+
+### Batarya ne kadar dayanır?
+
+LiFePO₄ batarya için 2000 çevrim değeri verilmiştir; günde bir tam şarj-deşarj ile yaklaşık 5,5 yıllık kullanıma karşılık gelir. Çevrim sonundaki kapasite kullanım koşullarına göre değişir.
+
+### Kurulumu kim yapar, Antalya dışına gönderiyor musunuz?
+
+Türkiye'nin her yerine kargo ile gönderiyoruz. Antalya bölgesinde isteğe bağlı yerinde kurulum yapıyoruz; diğer illerde bağlantıyı telefonla birlikte planlıyoruz.
+
+[Sayfaya git →](https://www.gespaenerji.com/lexron-guc-istasyonu-1200w.html)
 
 ## PV güneş enerjili su ısıtıcı
 

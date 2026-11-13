@@ -228,6 +228,39 @@ CFG3 = [
 for row in CFG3:
     t(*row)
 
+
+# Lexron 1200 W güç istasyonu ve 160 W panel (13 Kas 2026)
+CFG4 = [
+ ("Lexron 1200 W Taşınabilir Güç İstasyonu", "Lexron 1200 W Portable Power Station", "Lexron 1200 W Tragbare Powerstation", "Портативная электростанция Lexron 1200 Вт"),
+ ("Kamp, karavan, saha çalışması ve evde yedek güç", "Camping, caravans, fieldwork and home backup power", "Camping, Wohnmobil, Außeneinsatz und Notstrom zu Hause", "Кемпинг, автодом, работа в поле и резервное питание дома"),
+ ("1152 Wh LiFePO₄ bataryalı, 1200 W saf sinüs AC çıkışlı taşınabilir güç istasyonu; tepe değeri 2400 W. AC prizlerin yanında USB, Type-C (PD 100 W) ve 12 V DC çıkışı vardır. 160 W güneş paneli bağlanabilir; panel ürüne dahil değildir, isteğe bağlı ayrıca satın alınır.",
+  "Portable power station with a 1152 Wh LiFePO₄ battery and a 1200 W pure sine wave AC output; peak 2400 W. Besides the AC sockets it has USB, Type-C (PD 100 W) and a 12 V DC output. A 160 W solar panel can be connected; the panel is not included and can be bought separately as an option.",
+  "Tragbare Powerstation mit 1152-Wh-LiFePO₄-Akku und 1200-W-AC-Ausgang mit reinem Sinus; Spitze 2400 W. Neben den AC-Steckdosen gibt es USB, Type-C (PD 100 W) und einen 12-V-DC-Ausgang. Ein 160-W-Solarmodul kann angeschlossen werden; das Modul ist nicht im Lieferumfang und optional separat erhältlich.",
+  "Портативная электростанция с аккумулятором LiFePO₄ 1152 Вт·ч и выходом AC 1200 Вт (чистая синусоида); пик 2400 Вт. Кроме розеток AC есть USB, Type-C (PD 100 Вт) и выход 12 В DC. Можно подключить солнечную панель 160 Вт; панель в комплект не входит и приобретается отдельно по желанию."),
+ ("⚡ 1200 W AC çıkış", "⚡ 1200 W AC output", "⚡ 1200 W AC-Ausgang", "⚡ Выход AC 1200 Вт"),
+ ("🔋 1152 Wh LiFePO₄", "🔋 1152 Wh LiFePO₄", "🔋 1152 Wh LiFePO₄", "🔋 1152 Вт·ч LiFePO₄"),
+ ("🔁 2000 çevrim", "🔁 2000 cycles", "🔁 2000 Zyklen", "🔁 2000 циклов"),
+ ("1200 W saf sinüs AC çıkış · tepe 2400 W", "1200 W pure sine wave AC output · peak 2400 W", "1200 W AC-Ausgang mit reinem Sinus · Spitze 2400 W", "Выход AC 1200 Вт, чистая синусоида · пик 2400 Вт"),
+ ("1152 Wh (19,2 V 60 Ah) LiFePO₄ batarya · 2000 çevrim", "1152 Wh (19.2 V 60 Ah) LiFePO₄ battery · 2000 cycles", "1152-Wh-LiFePO₄-Akku (19,2 V 60 Ah) · 2000 Zyklen", "Аккумулятор LiFePO₄ 1152 Вт·ч (19,2 В 60 А·ч) · 2000 циклов"),
+ ("AC priz, USB, Type-C PD 100 W ve 12 V DC çıkışı", "AC sockets, USB, Type-C PD 100 W and a 12 V DC output", "AC-Steckdosen, USB, Type-C PD 100 W und 12-V-DC-Ausgang", "Розетки AC, USB, Type-C PD 100 Вт и выход 12 В DC"),
+ ("160 W güneş paneli bağlanabilir (panel ayrıca satılır)", "A 160 W solar panel can be connected (panel sold separately)", "Ein 160-W-Solarmodul ist anschließbar (Modul separat erhältlich)", "Можно подключить солнечную панель 160 Вт (панель продаётся отдельно)"),
+ ("160 W Güneş Paneli", "160 W Solar Panel", "160-W-Solarmodul", "Солнечная панель 160 Вт"),
+ ("Lexron 1200 W güç istasyonu, karavan ve 12 V sistemler", "Lexron 1200 W power station, caravans and 12 V systems", "Lexron-1200-W-Powerstation, Wohnmobile und 12-V-Systeme", "Электростанция Lexron 1200 Вт, автодома и системы 12 В"),
+ ("160 W güneş paneli: Voc 19,00 V · Vmp 16,5 V · Isc 10,63 A · Imp 9,7 A, ölçü 1065 × 705 × 30 mm. Lexron 1200 W taşınabilir güç istasyonuna bağlanabilir; 12 V akülü sistemlerde ve karavanda da kullanılır.",
+  "160 W solar panel: Voc 19.00 V · Vmp 16.5 V · Isc 10.63 A · Imp 9.7 A, dimensions 1065 × 705 × 30 mm. It can be connected to the Lexron 1200 W portable power station and is also used in 12 V battery systems and caravans.",
+  "160-W-Solarmodul: Voc 19,00 V · Vmp 16,5 V · Isc 10,63 A · Imp 9,7 A, Maße 1065 × 705 × 30 mm. Es lässt sich an die tragbare Lexron-1200-W-Powerstation anschließen und wird auch in 12-V-Batteriesystemen und Wohnmobilen verwendet.",
+  "Солнечная панель 160 Вт: Voc 19,00 В · Vmp 16,5 В · Isc 10,63 А · Imp 9,7 А, размеры 1065 × 705 × 30 мм. Подключается к портативной электростанции Lexron 1200 Вт; используется также в системах 12 В и автодомах."),
+ ("🔆 160 W", "🔆 160 W", "🔆 160 W", "🔆 160 Вт"),
+ ("⚡ 19 V Voc", "⚡ 19 V Voc", "⚡ 19 V Voc", "⚡ Voc 19 В"),
+ ("📏 1065 × 705 mm", "📏 1065 × 705 mm", "📏 1065 × 705 mm", "📏 1065 × 705 мм"),
+ ("160 W · 16BB half-cut TOPCon hücre", "160 W · 16BB half-cut TOPCon cells", "160 W · 16BB-Half-Cut-TOPCon-Zellen", "160 Вт · ячейки TOPCon half-cut 16BB"),
+ ("Voc 19,00 V · Vmp 16,5 V · Isc 10,63 A · Imp 9,7 A", "Voc 19.00 V · Vmp 16.5 V · Isc 10.63 A · Imp 9.7 A", "Voc 19,00 V · Vmp 16,5 V · Isc 10,63 A · Imp 9,7 A", "Voc 19,00 В · Vmp 16,5 В · Isc 10,63 А · Imp 9,7 А"),
+ ("1065 × 705 × 30 mm", "1065 × 705 × 30 mm", "1065 × 705 × 30 mm", "1065 × 705 × 30 мм"),
+ ("Lexron 1200 W güç istasyonuna bağlanabilir", "Can be connected to the Lexron 1200 W power station", "An die Lexron-1200-W-Powerstation anschließbar", "Подключается к электростанции Lexron 1200 Вт"),
+]
+for row in CFG4:
+    t(*row)
+
 # ------------------------------------------------------------ ortak metinler
 KAYNAK = {
  "kunye": t("Değerler üreticinin teknik künyesinden alınmıştır. Künyede olmayan bir değeri merak ediyorsanız bize yazın; üreticiden teyit edelim.",
@@ -242,6 +275,10 @@ KAYNAK = {
           "Values are taken from the product's technical information sheet. For any value not listed, write to us.",
           "Die Werte stammen aus dem technischen Informationsblatt des Produkts. Für nicht aufgeführte Werte schreiben Sie uns.",
           "Значения взяты из технического описания изделия. Если нужного значения нет, напишите нам."),
+ "guc": t("Değerler işletmenin ürün künyesinden ve tanıtım görsellerinden alınmıştır. Künyede olmayan değerler (ağırlık, şarj süresi, güneş girişi gerilim/akım aralığı) için bize yazın; üreticiden teyit edelim.",
+          "Values are taken from the business's product datasheet and promotional images. For values that are not listed (weight, charging time, solar input voltage/current range), write to us and we'll confirm them with the manufacturer.",
+          "Die Werte stammen aus dem Produktdatenblatt und den Werbebildern des Unternehmens. Für nicht aufgeführte Werte (Gewicht, Ladezeit, Spannungs-/Strombereich des Solareingangs) schreiben Sie uns; wir klären sie mit dem Hersteller.",
+          "Значения взяты из паспорта изделия и рекламных изображений. Если нужного значения нет (вес, время зарядки, диапазон напряжения/тока солнечного входа), напишите нам — уточним у производителя."),
  "aks": t("Kablo kesiti stok durumuna göre 4 mm² veya 6 mm² gönderilir; bu sistemlerde ikisi de uygundur.",
           "The cable cross-section is 4 mm² or 6 mm² depending on stock; both suit these systems.",
           "Der Kabelquerschnitt ist je nach Lager 4 mm² oder 6 mm²; beide eignen sich für diese Anlagen.",
@@ -287,6 +324,9 @@ XS = {
     "boost": t("Elektrikli araçlar için 24–72 V BOOST MPPT.", "24–72 V BOOST MPPT for electric vehicles.", "24–72-V-BOOST-MPPT für Elektrofahrzeuge.", "BOOST MPPT 24–72 В для электротранспорта."),
     "pwm": t("Küçük 12/24 V sistemler için ekonomik PWM.", "Economical PWM for small 12/24 V systems.", "Günstiger PWM für kleine 12/24-V-Anlagen.", "Экономичный ШИМ для небольших систем 12/24 В."),
     "titanx": t("48 V sistem için 5,22 kWh LiFePO₄ akü.", "5.22 kWh LiFePO₄ battery for a 48 V system.", "5,22-kWh-LiFePO₄-Akku für ein 48-V-System.", "Аккумулятор LiFePO₄ 5,22 кВт·ч для системы 48 В."),
+    "station": t("1200 W güç istasyonu; bu panel ona bağlanabilir.", "A 1200 W power station; this panel can be connected to it.", "Eine 1200-W-Powerstation; dieses Modul lässt sich anschließen.", "Электростанция 1200 Вт; эту панель можно подключить."),
+    "p160": t("Bu güç istasyonuna bağlanabilen 160 W panel; ayrıca satın alınır.", "The 160 W panel that can be connected to this power station; bought separately.", "Das 160-W-Modul, das sich an diese Powerstation anschließen lässt; separat erhältlich.", "Панель 160 Вт, которую можно подключить к этой электростанции; покупается отдельно."),
+    "unv": t("Daha çok güç gerekiyorsa 2500 W / 2496 Wh güç istasyonu.", "A 2500 W / 2496 Wh power station if you need more power.", "Eine Powerstation mit 2500 W / 2496 Wh, wenn Sie mehr Leistung brauchen.", "Электростанция 2500 Вт / 2496 Вт·ч, если нужно больше мощности."),
     "p655": t("Büyük sistemler için yüksek güçlü panel.", "A high-power panel for large systems.", "Ein leistungsstarkes Modul für große Anlagen.", "Мощная панель для больших систем."),
     "p360": t("Orta boy panel; akülü sistemlerde ve çatıda kullanılır.", "A mid-size panel for battery systems and rooftops.", "Ein Modul mittlerer Größe für Batteriesysteme und Dächer.", "Панель среднего размера для систем с АКБ и крыш."),
     "mppt80": t("12–48 V akülerle 80 A MPPT.", "80 A MPPT for 12–48 V batteries.", "80-A-MPPT für 12–48-V-Batterien.", "MPPT 80 А для АКБ 12–48 В."),
@@ -296,6 +336,7 @@ XS = {
 PANELS = [
     # id, dosya, güç, Voc (None = künye yok), ölçü, ağırlık
     ("panel-50w", "panel-50w.html", 50, None, None, None),
+    ("panel-160w", "panel-160w.html", 160, 19.0, "1065 × 705 × 30 mm", None),
     ("panel-240w", "panel-240w.html", 240, 36.12, "1320 × 776 × 30 mm", "8 kg"),
     ("panel-360w", "panel-360w.html", 360, 42.56, "1660 × 1001 × 30 mm", "19,5 kg"),
     ("panel-460w", "panel-460w.html", 460, 51.90, "2095 × 1039 × 30 mm", "25 kg"),
@@ -305,6 +346,9 @@ PANELS = [
 ]
 PANEL_SPECS = {
     "panel-50w": [("guc", "50 W"), ("hucre", "monokristal"), ("sistemv", "12 V"), ("diger", None)],
+    # 160 W: işletmenin belgesi (13 Kas 2026). Ağırlık, verim, sigorta vb. belgede yok: yazılmaz.
+    "panel-160w": [("guc", "160 W"), ("hucre", "16BB half"), ("voc", "19,00 V"), ("vmp", "16,5 V"), ("isc", "10,63 A"), ("imp", "9,7 A"),
+                   ("olcu", "1065 × 705 × 30 mm"), ("agirlik", None)],
     "panel-240w": [("guc", "240 W"), ("hucre", "48"), ("voc", "36,12 V"), ("vmp", "30,23 V"), ("isc", "8,15 A"), ("imp", "7,94 A"),
                    ("sistem", "1500 V"), ("olcu", "1320 × 776 × 30 mm"), ("agirlik", "8 kg"), ("belge", "CE · IEC")],
     # 360 W: künye SLR-MP-360 (3 Kas 2026). Modül verimi künyede %22,80 yazıyor ama
@@ -336,6 +380,7 @@ VAL = {
     "144 yarım": t("144 yarım hücre (half-cut), çoklu busbar", "144 half-cut cells, multi-busbar", "144 Halbzellen (Half-Cut), Multi-Busbar", "144 половинчатые ячейки (half-cut), multi-busbar"),
     "132 yarım TOPCon": t("132 yarım hücre, N-type TOPCon, 16 busbar", "132 half-cut cells, N-type TOPCon, 16 busbars", "132 Halbzellen, N-Type-TOPCon, 16 Busbars", "132 половинчатые ячейки, N-type TOPCon, 16 шин"),
     "60 perc": t("60 hücre, Mono-PERC", "60 cells, Mono-PERC", "60 Zellen, Mono-PERC", "60 ячеек, Mono-PERC"),
+    "16BB half": t("16BB half-cut TOPCon hücre", "16BB half-cut TOPCon cells", "16BB-Half-Cut-TOPCon-Zellen", "Ячейки TOPCon half-cut 16BB"),
     "12 V": t("12 V akü şarjı", "12 V battery charging", "12-V-Batterieladung", "Зарядка АКБ 12 В"),
     "A": t("A sınıf", "Grade A", "Klasse A", "Класс A"),
     "12y/30y": t("12 yıl ürün · 30 yıl güç", "12-year product · 30-year power", "12 Jahre Produkt · 30 Jahre Leistung", "12 лет на изделие · 30 лет на мощность"),
@@ -436,7 +481,8 @@ def panel_product(pk, pid, file, w, voc, olcu, kg):
     for oid, ofile, ow, ovoc, oolcu, okg in others:
         rows.append((oid, ofile, [pk[oid]["name"], u("%d W" % ow),
                                   u(("%g V" % ovoc).replace(".", ",")) if ovoc else DASH, u(oolcu) if oolcu else DASH, u(okg) if okg else DASH]))
-    xs = ([("havensis-s60amps150", XS["mppt150"]), ("lexron-mppt-80a-hv", XS["mppt80"]), ("kablo-solar-5m", XS["kablo"]), ("mc4-set", XS["mc4"])] if big else
+    xs = ([("lexron-guc-1200w", XS["station"]), ("lexron-pwm-20a", XS["pwm"]), ("lexron-mppt-20a", XS["mppt100"]), ("kablo-solar-5m", XS["kablo"])] if pid == "panel-160w" else
+          [("havensis-s60amps150", XS["mppt150"]), ("lexron-mppt-80a-hv", XS["mppt80"]), ("kablo-solar-5m", XS["kablo"]), ("mc4-set", XS["mc4"])] if big else
           ([("lexron-pwm-20a", XS["pwm"]), ("lexron-mppt-20a", XS["mppt100"]), ("kablo-solar-5m", XS["kablo"]), ("mc4-set", XS["mc4"])] if w <= 50 else
            [("havensis-s30amps", XS["mppt100"]), ("boost-mppt", XS["boost"]), ("kablo-solar-5m", XS["kablo"]), ("mc4-set", XS["mc4"])]))
     return {
@@ -639,6 +685,135 @@ def titanx(pk):
     }
 
 
+def lexron_station(pk):
+    """Lexron 1200 W taşınabilir güç istasyonu (13 Kas 2026). Değerler işletmenin künye
+    tablosundan; ölçü tanıtım görselinden. Künyede olmayan değer YAZILMAZ: ağırlık, şarj
+    yöntemi/süresi, güneş girişi aralığı, UPS."""
+    pid = "lexron-guc-1200w"
+    p = pk[pid]
+    sp = [
+        (ROW["marka"], k("Lexron")),
+        (t("Ürün türü", "Product type", "Produkttyp", "Тип изделия"), t("Taşınabilir güç istasyonu", "Portable power station", "Tragbare Powerstation", "Портативная электростанция")),
+        (t("AC çıkış gücü (sürekli)", "AC output power (continuous)", "AC-Ausgangsleistung (Dauer)", "Мощность на выходе AC (длительная)"), u("1200 W")),
+        (t("AC çıkış tepe değeri", "AC output peak value", "AC-Spitzenleistung", "Пиковая мощность AC"),
+         t("2400 W (demeraj süresi 50 ms'den kısa)", "2400 W (surge duration under 50 ms)", "2400 W (Anlaufzeit unter 50 ms)", "2400 Вт (время пуска менее 50 мс)")),
+        (t("AC dalga formu", "AC waveform", "AC-Kurvenform", "Форма сигнала AC"), t("Saf sinüs", "Pure sine wave", "Reiner Sinus", "Чистая синусоида")),
+        (t("AC priz", "AC sockets", "AC-Steckdosen", "Розетки AC"), t("3 × evrensel tip", "3 × universal type", "3 × Universaltyp", "3 × универсальные")),
+        (t("Batarya tipi", "Battery type", "Akkutyp", "Тип аккумулятора"), t("LiFePO₄ · 6S4P", "LiFePO₄ · 6S4P", "LiFePO₄ · 6S4P", "LiFePO₄ · 6S4P")),
+        (t("Batarya", "Battery", "Akku", "Аккумулятор"), t("19,2 V · 60 Ah", "19.2 V · 60 Ah", "19,2 V · 60 Ah", "19,2 В · 60 А·ч")),
+        (t("Kapasite", "Capacity", "Kapazität", "Ёмкость"), t("1152 Wh", "1152 Wh", "1152 Wh", "1152 Вт·ч")),
+        (t("Çevrim ömrü", "Cycle life", "Zyklenlebensdauer", "Ресурс циклов"), t("2000 çevrim", "2000 cycles", "2000 Zyklen", "2000 циклов")),
+        (t("Type-C giriş/çıkış", "Type-C input/output", "Type-C Ein-/Ausgang", "Type-C вход/выход"), t("PD 100 W", "PD 100 W", "PD 100 W", "PD 100 Вт")),
+        (t("USB", "USB", "USB", "USB"), t("USB-A çıkışları", "USB-A outputs", "USB-A-Ausgänge", "Выходы USB-A")),
+        (t("DC 12 V çıkışı", "DC 12 V output", "DC-12-V-Ausgang", "Выход DC 12 В"),
+         t("Maks. 12 V / 10 A · araç çakmak soketi", "Max. 12 V / 10 A · car lighter socket", "Max. 12 V / 10 A · Zigarettenanzünder-Buchse", "Макс. 12 В / 10 А · гнездо прикуривателя")),
+        (t("Deşarj ortam sıcaklığı", "Discharge ambient temperature", "Umgebungstemperatur beim Entladen", "Температура окружающей среды при разряде"), k("−20 °C ~ 50 °C")),
+        (t("Koruma", "Protection", "Schutz", "Защита"),
+         t("Aşırı yük, kısa devre ve ısı koruması", "Overload, short-circuit and thermal protection", "Überlast-, Kurzschluss- und Übertemperaturschutz", "Защита от перегрузки, короткого замыкания и перегрева")),
+        (t("Güneş paneli bağlantısı", "Solar panel connection", "Solarmodul-Anschluss", "Подключение солнечной панели"),
+         t("160 W Lexron panel bağlanabilir (ayrıca satılır); giriş gerilimi/akımı için bize yazın", "A 160 W Lexron panel can be connected (sold separately); write to us for the input voltage/current",
+           "Ein 160-W-Lexron-Modul ist anschließbar (separat erhältlich); Eingangsspannung/-strom auf Anfrage", "Можно подключить панель Lexron 160 Вт (продаётся отдельно); напряжение/ток входа уточняйте у нас")),
+        (ROW["olcu"], u("280 × 260 × 250 mm")),
+        (ROW["agirlik"], SOR),
+        (ROW["garanti"], t("2 yıl", "2 years", "2 Jahre", "2 года")),
+    ]
+    faq = [
+        (t("Hangi cihazları çalıştırır?", "Which devices does it run?", "Welche Geräte versorgt sie?", "Какие устройства она питает?"),
+         t("1200 W'a kadar çeken cihazları besler: televizyon, dizüstü bilgisayar, modem, aydınlatma ve çoğu küçük elektrikli alet. Çalışma süresi yaklaşık olarak 1152 Wh ÷ cihaz gücü kadardır (örneğin 100 W çeken bir cihaz için teorik olarak yaklaşık 11 saat); dönüşüm kayıpları nedeniyle gerçek süre bir miktar kısalır. Motorlu cihazların kalkış gücü 2400 W tepe değerini aşmamalıdır.",
+           "It powers devices that draw up to 1200 W: TV, laptop, modem, lighting and most small power tools. Runtime is roughly 1152 Wh ÷ device power (for a 100 W device, about 11 hours in theory); conversion losses make the real figure somewhat shorter. The starting power of motor-driven devices must not exceed the 2400 W peak.",
+           "Sie versorgt Geräte bis 1200 W: Fernseher, Laptop, Modem, Beleuchtung und die meisten kleinen Elektrogeräte. Die Laufzeit beträgt grob 1152 Wh ÷ Geräteleistung (bei einem 100-W-Gerät theoretisch etwa 11 Stunden); Wandlungsverluste verkürzen sie etwas. Die Anlaufleistung von Motorgeräten darf die Spitze von 2400 W nicht überschreiten.",
+           "Питает устройства мощностью до 1200 Вт: телевизор, ноутбук, модем, освещение и большинство небольших электроприборов. Время работы примерно равно 1152 Вт·ч ÷ мощность устройства (для 100 Вт — теоретически около 11 часов); из-за потерь преобразования реальное время немного меньше. Пусковая мощность двигателей не должна превышать пик 2400 Вт.")),
+        (t("Güneş paneliyle şarj edilebilir mi?", "Can it be charged with a solar panel?", "Kann sie mit einem Solarmodul geladen werden?", "Можно ли заряжать от солнечной панели?"),
+         t("Evet, 160 W güneş paneli bağlanabilir. Panel ürüne dahil değildir; isterseniz ayrıca satın alabilirsiniz. Güneş girişinin gerilim/akım aralığı ve şarj süresi künyede yer almadığı için bağlantıyı sipariş öncesi WhatsApp'tan teyit ediyoruz.",
+           "Yes, a 160 W solar panel can be connected. The panel is not included; you can buy it separately if you like. Because the solar input's voltage/current range and the charging time are not in the datasheet, we confirm the connection on WhatsApp before you order.",
+           "Ja, ein 160-W-Solarmodul kann angeschlossen werden. Das Modul ist nicht im Lieferumfang; Sie können es bei Bedarf separat kaufen. Da Spannungs-/Strombereich des Solareingangs und Ladezeit nicht im Datenblatt stehen, bestätigen wir den Anschluss vor der Bestellung per WhatsApp.",
+           "Да, можно подключить солнечную панель 160 Вт. Панель в комплект не входит; при желании её можно купить отдельно. Диапазон напряжения/тока солнечного входа и время зарядки в паспорте не указаны, поэтому подключение подтверждаем в WhatsApp до заказа.")),
+        (t("Nasıl şarj olur?", "How is it charged?", "Wie wird sie geladen?", "Как она заряжается?"),
+         t("Type-C girişi PD 100 W'ı destekler. Şebeke adaptörü ve araç şarjı gibi diğer yöntemlerle şarj seçenekleri ve süreleri künyede yer almıyor; sipariş öncesi WhatsApp'tan sorun, teyit edip bildirelim.",
+           "The Type-C input supports PD 100 W. Other charging options such as a mains adapter or a car charger, and the charging times, are not in the datasheet; ask us on WhatsApp before ordering and we'll confirm.",
+           "Der Type-C-Eingang unterstützt PD 100 W. Weitere Lademöglichkeiten wie Netzteil oder Kfz-Ladung sowie die Ladezeiten stehen nicht im Datenblatt; fragen Sie uns vor der Bestellung per WhatsApp, wir bestätigen sie.",
+           "Вход Type-C поддерживает PD 100 Вт. Другие способы зарядки (сетевой адаптер, автомобиль) и время зарядки в паспорте не указаны; спросите нас в WhatsApp до заказа — подтвердим.")),
+        (t("Prizler Türkiye fişine uygun mu?", "Do the sockets fit Turkish plugs?", "Passen die Steckdosen für türkische Stecker?", "Подходят ли розетки под турецкие вилки?"),
+         t("Cihazın AC prizleri evrensel (çok standartlı) tiptedir. Fişinizin takılacağını sipariş öncesi WhatsApp'tan teyit ediyoruz.",
+           "The device's AC sockets are of the universal (multi-standard) type. We confirm on WhatsApp before you order that your plug will fit.",
+           "Die AC-Steckdosen des Geräts sind vom Universaltyp (Mehrfachnorm). Wir bestätigen vor der Bestellung per WhatsApp, dass Ihr Stecker passt.",
+           "Розетки AC устройства — универсального (многостандартного) типа. До заказа подтверждаем в WhatsApp, что ваша вилка подойдёт.")),
+        (t("Batarya ne kadar dayanır?", "How long does the battery last?", "Wie lange hält der Akku?", "Сколько служит аккумулятор?"),
+         t("LiFePO₄ batarya için 2000 çevrim değeri verilmiştir; günde bir tam şarj-deşarj ile yaklaşık 5,5 yıllık kullanıma karşılık gelir. Çevrim sonundaki kapasite kullanım koşullarına göre değişir.",
+           "A cycle life of 2000 cycles is given for the LiFePO₄ battery; with one full charge-discharge a day that corresponds to about 5.5 years of use. Capacity at the end of that life depends on operating conditions.",
+           "Für den LiFePO₄-Akku sind 2000 Zyklen angegeben; bei einem vollen Lade-Entlade-Zyklus pro Tag entspricht das etwa 5,5 Jahren Nutzung. Die Restkapazität am Ende hängt von den Einsatzbedingungen ab.",
+           "Для аккумулятора LiFePO₄ указан ресурс 2000 циклов; при одном полном цикле заряд-разряд в день это около 5,5 лет. Остаточная ёмкость зависит от условий эксплуатации.")),
+        Q_KUR,
+    ]
+    return {
+        "id": pid, "file": "lexron-guc-istasyonu-1200w.html", "kaynak": KAYNAK["guc"],
+        "title": "Lexron 1200 W Taşınabilir Güç İstasyonu Fiyatı | GESPA",
+        "desc": "Lexron 1200 W taşınabilir güç istasyonu: 1152 Wh LiFePO₄, saf sinüs AC, USB, Type-C PD 100 W, 12 V DC. 160 W panel bağlanabilir. Türkiye'ye kargo.",
+        "alt": t("%s — ürün fotoğrafı" % p["name"], "%s — product photo" % p["name"], "%s — Produktfoto" % p["name"], "%s — фото товара" % p["name"]),
+        "kicker": t("🔋 Taşınabilir Güç İstasyonu", "🔋 Portable Power Station", "🔋 Tragbare Powerstation", "🔋 Портативная электростанция"),
+        "lead": t("1152 Wh LiFePO₄ batarya ve 1200 W saf sinüs AC çıkış: televizyonu, dizüstü bilgisayarı, modemi ve aydınlatmayı prizin olmadığı yerde çalıştırır. 160 W güneş paneli bağlanabilir; panel ürüne dahil değildir, isterseniz ayrıca satın alırsınız.",
+                  "A 1152 Wh LiFePO₄ battery and a 1200 W pure sine wave AC output: it runs a TV, laptop, modem and lighting where there is no socket. A 160 W solar panel can be connected; the panel is not included, you can buy it separately if you wish.",
+                  "Ein 1152-Wh-LiFePO₄-Akku und ein 1200-W-AC-Ausgang mit reinem Sinus: Sie betreibt Fernseher, Laptop, Modem und Beleuchtung dort, wo es keine Steckdose gibt. Ein 160-W-Solarmodul ist anschließbar; das Modul ist nicht im Lieferumfang, Sie können es bei Bedarf separat kaufen.",
+                  "Аккумулятор LiFePO₄ 1152 Вт·ч и выход AC 1200 Вт с чистой синусоидой: питает телевизор, ноутбук, модем и освещение там, где нет розетки. Можно подключить солнечную панель 160 Вт; панель в комплект не входит, при желании её можно купить отдельно."),
+        "info": [("🏷️", t("Marka: Lexron", "Brand: Lexron", "Marke: Lexron", "Марка: Lexron")),
+                 ("🔆", t("Güneş paneli dahil değildir — 160 W panel isteğe bağlı ayrıca satılır", "Solar panel not included — the 160 W panel is sold separately as an option",
+                          "Solarmodul nicht enthalten — das 160-W-Modul ist optional separat erhältlich", "Солнечная панель не входит — панель 160 Вт продаётся отдельно по желанию"))],
+        "chips": p["chips"],
+        "about": [p["desc"],
+                  t("LiFePO₄ (lityum demir fosfat) kimyası uzun çevrim ömrü ve yüksek güvenlik sunar. Cihaz aşırı yük, kısa devre ve ısıya karşı korumalıdır; −20 ile 50 °C arasında deşarj edilebilir. Güneş paneliyle kullanmak isterseniz 160 W Lexron paneli ayrıca sipariş edebilirsiniz.",
+                    "LiFePO₄ (lithium iron phosphate) chemistry offers a long cycle life and high safety. The unit is protected against overload, short circuit and heat and can be discharged between −20 and 50 °C. If you want to use it with a solar panel, you can order the 160 W Lexron panel separately.",
+                    "Die LiFePO₄-Chemie (Lithium-Eisenphosphat) bietet lange Zyklenlebensdauer und hohe Sicherheit. Das Gerät ist gegen Überlast, Kurzschluss und Hitze geschützt und lässt sich zwischen −20 und 50 °C entladen. Für den Solarbetrieb können Sie das 160-W-Lexron-Modul separat bestellen.",
+                    "Химия LiFePO₄ (литий-железо-фосфат) даёт большой ресурс и высокую безопасность. Устройство защищено от перегрузки, короткого замыкания и перегрева, разряд возможен при −20…50 °C. Для работы с солнечной панелью можно отдельно заказать панель Lexron 160 Вт.")],
+        "specs": sp,
+        "gloss": (t("LiFePO₄ ve çevrim ömrü nedir?", "What are LiFePO₄ and cycle life?", "Was sind LiFePO₄ und Zyklenlebensdauer?", "Что такое LiFePO₄ и ресурс циклов?"), "sozluk.html#lifepo4"),
+        "use": [
+            ("🏕️", t("Kamp ve karavan", "Camping and caravans", "Camping und Wohnmobil", "Кемпинг и автодом"),
+             t("Aydınlatma, cihaz şarjı ve küçük cihazlar için jeneratörsüz elektrik.", "Electricity without a generator for lighting, charging and small devices.", "Strom ohne Generator für Beleuchtung, Laden und kleine Geräte.", "Электричество без генератора для освещения, зарядки и небольших устройств.")),
+            ("🔧", t("Saha ve şantiye", "Fieldwork and building sites", "Außeneinsatz und Baustelle", "Работа в поле и стройка"),
+             t("Elektrik çekilmemiş alanda el aletleri ve ölçüm cihazları için 230 V saf sinüs.", "230 V pure sine wave for hand tools and instruments where no power is installed.", "230 V reiner Sinus für Handwerkzeuge und Messgeräte, wo kein Strom liegt.", "230 В с чистой синусоидой для инструмента и приборов там, где нет электросети.")),
+            ("🏠", t("Evde yedek güç", "Home backup power", "Notstrom zu Hause", "Резервное питание дома"),
+             t("Elektrik kesildiğinde modem, aydınlatma, telefon ve dizüstü şarjı için.", "For the modem, lighting, phone and laptop charging when the power is out.", "Für Modem, Beleuchtung sowie Handy- und Laptop-Ladung bei Stromausfall.", "Для модема, освещения, зарядки телефона и ноутбука при отключении электричества.")),
+            ("☀️", t("Güneşle şarj (isteğe bağlı)", "Solar charging (optional)", "Solarladung (optional)", "Зарядка от солнца (по желанию)"),
+             t("160 W Lexron panel ayrıca alınarak bağlanabilir.", "The 160 W Lexron panel can be bought separately and connected.", "Das 160-W-Lexron-Modul kann separat gekauft und angeschlossen werden.", "Панель Lexron 160 Вт можно купить отдельно и подключить.")),
+        ],
+        "use_p": t("Prizin olmadığı yerde elektrik sağlar; isteğe bağlı güneş paneliyle şarj edilebilir.", "Provides electricity where there is no socket; can be charged with an optional solar panel.",
+                   "Liefert Strom, wo es keine Steckdose gibt; mit optionalem Solarmodul ladbar.", "Даёт электричество там, где нет розетки; заряжается от дополнительной солнечной панели."),
+        "how_p": t("Cihazlarınızı AC priz, USB, Type-C ve 12 V DC çıkışlarına takarsınız; güneşle şarj için 160 W panel ayrıca bağlanır.",
+                   "You plug your devices into the AC sockets, USB, Type-C and 12 V DC outputs; for solar charging, the 160 W panel is connected separately.",
+                   "Sie stecken Ihre Geräte in AC-Steckdosen, USB, Type-C und 12-V-DC-Ausgänge; für Solarladung wird das 160-W-Modul separat angeschlossen.",
+                   "Устройства подключаются к розеткам AC, USB, Type-C и выходам 12 В DC; для зарядки от солнца отдельно подключается панель 160 Вт."),
+        "flow": [("☀️", t("Güneş paneli (isteğe bağlı)", "Solar panel (optional)", "Solarmodul (optional)", "Солнечная панель (по желанию)"), u("160 W")),
+                 ("🔋", k("Lexron"), t("1152 Wh", "1152 Wh", "1152 Wh", "1152 Вт·ч")),
+                 ("🔌", t("Cihazlarınız", "Your devices", "Ihre Geräte", "Ваши устройства"), t("AC · USB · 12 V", "AC · USB · 12 V", "AC · USB · 12 V", "AC · USB · 12 В"))],
+        "flow_here": 1, "flow_notes": [],
+        "steps": [
+            (t("Şarj edin", "Charge it", "Laden", "Зарядите"),
+             t("Kullanmadan önce bataryayı şarj edin; şarj yöntemi ve süresi için sipariş sırasında bilgi veriyoruz.", "Charge the battery before use; we give information on the charging method and time when you order.",
+               "Laden Sie den Akku vor dem Gebrauch; zu Ladeweg und Ladezeit informieren wir bei der Bestellung.", "Перед использованием зарядите аккумулятор; способ и время зарядки сообщаем при заказе.")),
+            (t("Cihazlarınızı takın", "Plug in your devices", "Geräte anschließen", "Подключите устройства"),
+             t("AC prizlere, USB, Type-C veya 12 V DC çıkışlarına bağlayın.", "Connect them to the AC sockets, USB, Type-C or 12 V DC outputs.",
+               "Schließen Sie sie an AC-Steckdosen, USB, Type-C oder 12-V-DC-Ausgänge an.", "Подключите к розеткам AC, USB, Type-C или выходам 12 В DC.")),
+            (t("Toplam gücü kontrol edin", "Check the total power", "Gesamtleistung prüfen", "Проверьте суммарную мощность"),
+             t("Bağlı cihazların toplam gücü 1200 W'ı aşmamalıdır.", "The total power of connected devices must not exceed 1200 W.",
+               "Die Gesamtleistung der angeschlossenen Geräte darf 1200 W nicht überschreiten.", "Суммарная мощность подключённых устройств не должна превышать 1200 Вт.")),
+        ],
+        "tips": [
+            t("Motorlu cihazların kalkış gücü 2400 W tepe değerini aşmamalıdır.", "The starting power of motor-driven devices must not exceed the 2400 W peak.", "Die Anlaufleistung von Motorgeräten darf die Spitze von 2400 W nicht überschreiten.", "Пусковая мощность двигателей не должна превышать пик 2400 Вт."),
+            t("Deşarj ortam sıcaklığı −20 ile 50 °C arasındadır.", "The discharge ambient temperature is between −20 and 50 °C.", "Die Umgebungstemperatur beim Entladen liegt zwischen −20 und 50 °C.", "Температура окружающей среды при разряде — от −20 до 50 °C."),
+        ],
+        "xsell": [("panel-160w", XS["p160"]), ("unv-trek-pro-2500", XS["unv"])],
+        "faq": faq,
+        "note": (t("Hangi güç istasyonu size uygun?", "Which power station suits you?", "Welche Powerstation passt zu Ihnen?", "Какая электростанция вам подходит?"),
+                 t("Cihazlarınızın etiket gücünü yazın; 1200 W yeter mi, daha büyük model mi gerekir birlikte bakalım.",
+                   "Tell us the rated power of your devices; we'll check together whether 1200 W is enough or you need a larger model.",
+                   "Nennen Sie uns die Nennleistung Ihrer Geräte; wir prüfen gemeinsam, ob 1200 W reichen oder ein größeres Modell nötig ist.",
+                   "Сообщите номинальную мощность ваших устройств — вместе решим, хватит ли 1200 Вт или нужна модель мощнее."),
+                 "iletisim.html",
+                 t("Bize yazın →", "Write to us →", "Schreiben Sie uns →", "Напишите нам →")),
+        "cta": t("Güç istasyonunu bugün sipariş edin", "Order the power station today", "Bestellen Sie die Powerstation noch heute", "Закажите электростанцию сегодня"),
+    }
+
+
 # ------------------------------------------------------------ kablo ve MC4
 def accessory(pk, pid):
     p = pk[pid]
@@ -740,6 +915,8 @@ def accessory(pk, pid):
 
 # ------------------------------------------------------------ aydınlatma
 GALLERY = {
+    "lexron-guc-1200w": [("assets/img/products/lexron-guc-1200w-afis.webp", t("Lexron 1200 W güç istasyonu — özellikler ve ölçüler", "Lexron 1200 W power station — features and dimensions", "Lexron-1200-W-Powerstation — Merkmale und Maße", "Электростанция Lexron 1200 Вт — особенности и размеры")),
+                         ("assets/img/products/lexron-guc-1200w-panel.webp", t("Lexron 1200 W güç istasyonu ve 160 W güneş paneli", "Lexron 1200 W power station and 160 W solar panel", "Lexron-1200-W-Powerstation und 160-W-Solarmodul", "Электростанция Lexron 1200 Вт и солнечная панель 160 Вт"))],
     "hero-led-ampul-10w": [("assets/img/products/hero-led-ampul-10w-afis.webp", t("Hero LED 12 V DC LED ampul — tanıtım", "Hero LED 12 V DC LED bulb — overview", "Hero LED 12 V DC LED-Lampe — Übersicht", "Лампа Hero LED 12 В DC — обзор")),
                            ("assets/img/products/hero-led-ampul-10w-kullanim.webp", t("12–60 V AC/DC kullanım alanları", "12–60 V AC/DC applications", "12–60 V AC/DC Einsatzbereiche", "Применение 12–60 В AC/DC")),
                            ("assets/img/products/hero-led-ampul-10w-teknik.webp", t("Teknik özellikler ve enerji etiketi", "Technical data and energy label", "Technische Daten und Energielabel", "Технические характеристики и энергоэтикетка"))],
@@ -1140,7 +1317,7 @@ def main():
     pk = H.load_packages()
     base = BASE = load_base()
     tpl = open(os.path.join(ROOT, H.TEMPLATE), encoding="utf-8").read()
-    prods = [panel_product(pk, *row) for row in PANELS] + [titanx(pk), accessory(pk, "kablo-solar-5m"), accessory(pk, "mc4-set"),
+    prods = [panel_product(pk, *row) for row in PANELS] + [titanx(pk), lexron_station(pk), accessory(pk, "kablo-solar-5m"), accessory(pk, "mc4-set"),
                                                      lighting(pk, "hero-led-ampul-10w"), lighting(pk, "hero-led-solar-sokak-100w")] + \
             [lighting2(pk, x) for x in ("hero-led-aplik-50w", "hero-led-bahce-50w", "hero-led-solar-sokak-200w", "hero-led-solar-sokak-600w")]
     pages, problems = {}, 0

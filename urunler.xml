@@ -102,6 +102,22 @@
       </g:shipping>
     </item>
     <item>
+      <g:id>lexron-guc-1200w</g:id>
+      <g:title>Lexron 1200 W Taşınabilir Güç İstasyonu</g:title>
+      <g:description>1152 Wh LiFePO₄ bataryalı, 1200 W saf sinüs AC çıkışlı taşınabilir güç istasyonu; tepe değeri 2400 W. AC prizlerin yanında USB, Type-C (PD 100 W) ve 12 V DC çıkışı vardır. 160 W güneş paneli bağlanabilir; panel ürüne dahil değildir, isteğe bağlı ayrıca satın alınır.</g:description>
+      <g:link>https://www.gespaenerji.com/lexron-guc-istasyonu-1200w.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/lexron-guc-1200w.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>26000.00 TRY</g:price>
+      <g:brand>Lexron</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>GES-GUC-1200</g:mpn>
+      <g:product_type>Taşınabilir</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
+    </item>
+    <item>
       <g:id>panel-360w</g:id>
       <g:title>360 W Güneş Paneli</g:title>
       <g:description>60 hücreli Mono-PERC güneş paneli, 360 W. Voc 42,56 V · Isc 11,37 A · Vmp 34,98 V · Imp 10,30 A. Ölçü 1660 × 1001 × 30 mm, ağırlık 19,5 kg. IP68 bağlantı kutusu, 3 bypass diyot; 1500 V sistem gerilimi.</g:description>
@@ -112,6 +128,22 @@
       <g:brand>GESPA Enerji</g:brand>
       <g:condition>new</g:condition>
       <g:mpn>GES-PNL-360</g:mpn>
+      <g:product_type>Panel</g:product_type>
+      <g:shipping>
+        <g:country>TR</g:country>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>panel-160w</g:id>
+      <g:title>160 W Güneş Paneli</g:title>
+      <g:description>160 W güneş paneli: Voc 19,00 V · Vmp 16,5 V · Isc 10,63 A · Imp 9,7 A, ölçü 1065 × 705 × 30 mm. Lexron 1200 W taşınabilir güç istasyonuna bağlanabilir; 12 V akülü sistemlerde ve karavanda da kullanılır.</g:description>
+      <g:link>https://www.gespaenerji.com/panel-160w.html</g:link>
+      <g:image_link>https://www.gespaenerji.com/assets/img/products/panel-160w.webp</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>4000.00 TRY</g:price>
+      <g:brand>GESPA Enerji</g:brand>
+      <g:condition>new</g:condition>
+      <g:mpn>GES-PNL-160</g:mpn>
       <g:product_type>Panel</g:product_type>
       <g:shipping>
         <g:country>TR</g:country>

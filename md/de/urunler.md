@@ -3,7 +3,7 @@ title: "Solar-Pakete — Off-Grid & Bewässerung | GESPA Energy"
 description: "240-W- und 2×540-W-Solarsets für Camping, Wohnmobile und Ferienhäuser. Module, Power-Box und Kabel vergleichen; Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/urunler.html
 lang: de
-dateModified: 2026-11-10
+dateModified: 2026-11-13
 publisher: "GESPA Enerji"
 ---
 
@@ -29,6 +29,7 @@ Fertige Solarpakete — klarer Lieferumfang, transparente Preise, Versand in die
 - **240-W-Solarmodul-Paket** — 0.24 kWp · Camping, Wohnmobil und kleine Verbraucher · ₺24.000 (≈ $488) Listenpreis · per Überweisung ₺23.300 (%3 Rabatt, inkl. MwSt. ). Komplettsystem: Plug-and-Play-Mobilkit mit 240-W-Modul, Powerbox und Kabeln. Betreibt TV, Licht und Handy-Ladung; 23–25 kg.
 - **Komplettes Solarenergiesystem** — 1.08 kWp · Wohnmobil, Camping und Gartenhaus · ₺108.200 (≈ $2.200) Listenpreis · per Überweisung ₺104.950 (%3 Rabatt, inkl. MwSt. ). Komplettes Mobilsystem mit 2× 540-W-Modulen: mit LiFePO₄-Batterie und großer Powerbox betreibt es Kühlschrank, TV, Wasch- und Spülmaschine.
 - **UNV Trek Pro 2500 W tragbare Powerstation** — ES-E2500-A2 · Camping, Wohnmobil, Außeneinsatz und Notstrom zu Hause · ₺122.800 (≈ $2.495) Listenpreis · per Überweisung ₺119.100 (%3 Rabatt, inkl. MwSt. ). Tragbare Powerstation mit 2.496 Wh Kapazität und 2.500 W Dauerleistung. Vier 230-V-Steckdosen mit reiner Sinuswelle sowie USB- und Type-C-Ausgänge versorgen bis zu 14 Geräte gleichzeitig; mit 30 ms Reaktionszeit arbeitet sie auch als unterbrechungsfreie Stromversorgung (USV). Solarmodul nicht im Lieferumfang.
+- **Lexron 1200 W Tragbare Powerstation** — GES-GUC-1200 · Camping, Wohnmobil, Außeneinsatz und Notstrom zu Hause · ₺26.000 (≈ $528) Listenpreis · per Überweisung ₺25.200 (%3 Rabatt, inkl. MwSt. ). Tragbare Powerstation mit 1152-Wh-LiFePO₄-Akku und 1200-W-AC-Ausgang mit reinem Sinus; Spitze 2400 W. Neben den AC-Steckdosen gibt es USB, Type-C (PD 100 W) und einen 12-V-DC-Ausgang. Ein 160-W-Solarmodul kann angeschlossen werden; das Modul ist nicht im Lieferumfang und optional separat erhältlich.
 
 ## Produkte für die E-Fahrzeug-Umrüstung
 

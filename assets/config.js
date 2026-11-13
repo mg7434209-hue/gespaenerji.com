@@ -293,9 +293,9 @@ window.GESPA.config = {
   // "Tümü" ve teknik kategoride görünür).
   shopScenarios: [
     { id: "bagevi", icon: "🏡", label: "Bağ evi & kamp", hint: "Şebekesiz küçük ev",
-      ids: ["kit-285w", "kit-2x540w", "unv-trek-pro-2500", "panel-50w", "panel-240w", "panel-360w", "lexron-pwm-20a", "lexron-pwm-30a", "lexron-pwm-40a", "lexron-pwm-60a", "lexron-mppt-20a", "lexron-mppt-30a", "lexron-mppt-40a", "hero-led-ampul-10w", "kablo-solar-5m", "mc4-set"] },
+      ids: ["kit-285w", "kit-2x540w", "lexron-guc-1200w", "unv-trek-pro-2500", "panel-160w", "panel-50w", "panel-240w", "panel-360w", "lexron-pwm-20a", "lexron-pwm-30a", "lexron-pwm-40a", "lexron-pwm-60a", "lexron-mppt-20a", "lexron-mppt-30a", "lexron-mppt-40a", "hero-led-ampul-10w", "kablo-solar-5m", "mc4-set"] },
     { id: "karavan", icon: "🚐", label: "Karavan & tekne", hint: "12/24 V mobil sistem",
-      ids: ["unv-trek-pro-2500", "havensis-dcdc-1224-30", "havensis-dcdc-1224-40", "havensis-dcdc-1224b-40", "havensis-dcdc-2448", "panel-50w", "panel-240w", "hero-led-ampul-10w", "lexron-mppt-20a", "lexron-pwm-20a", "kablo-solar-5m", "mc4-set"] },
+      ids: ["lexron-guc-1200w", "unv-trek-pro-2500", "panel-160w", "havensis-dcdc-1224-30", "havensis-dcdc-1224-40", "havensis-dcdc-1224b-40", "havensis-dcdc-2448", "panel-50w", "panel-240w", "hero-led-ampul-10w", "lexron-mppt-20a", "lexron-pwm-20a", "kablo-solar-5m", "mc4-set"] },
     { id: "arac", icon: "🛺", label: "Elektrikli araç şarjı", hint: "Triportör, golf, mini araç",
       ids: ["set-yolcu", "set-kargo", "set-golf", "set-mini", "boost-mppt", "aku-lifepo4-72v", "panel-240w", "panel-460w", "panel-700w", "kablo-solar-5m", "mc4-set"] },
     { id: "ev", icon: "🏠", label: "Ev & çatı sistemi", hint: "Büyük panel, akü, MPPT",
@@ -426,6 +426,26 @@ window.GESPA.config = {
       features: ["2500 W sürekli çıkış · 2496 Wh batarya kapasitesi", "4 × 230 V saf sinüs dalga AC çıkışı", "2 × USB Type-C (200 W ve 100 W) · 4 × USB-A 18 W", "12 V DC çıkışlar (maks. 15 A) · araç çakmak soketi", "30 ms tepki süreli UPS fonksiyonu", "Aynı anda 14 cihaza kadar güç verir"]
     },
 
+    // —— Lexron 1200 W taşınabilir güç istasyonu (13 Kas 2026, işletmenin gönderdiği
+    // belge: künye tablosu + tanıtım görselleri; ham kopyalar kaynak/lexron-guc-1200w-*.webp).
+    // Fiyat ₺26.000. GÜNEŞ PANELİ ÜRÜNE DAHİL DEĞİLDİR: 160 W panel (`panel-160w`,
+    // ₺4.000) bağlanabilir ve İSTEĞE BAĞLI ayrıca satılır — sayfada bu vurgulanır.
+    // Künyede olmayan değer YAZILMAZ: ağırlık, güneş girişi gerilim/akım aralığı,
+    // şarj süresi, UPS özelliği. Ölçü (280 × 260 × 250 mm) tanıtım görselindendir.
+    // Marka LEXRON ürünün üstünde yazılıdır ve kalır (gerçek marka).
+    {
+      id: "lexron-guc-1200w", icon: "🔋", tag: "Taşınabilir", group: "offgrid",
+      url: "lexron-guc-istasyonu-1200w.html", sku: "GES-GUC-1200",
+      brand: "Lexron",
+      img: "assets/img/products/lexron-guc-1200w.webp",
+      price: 528.46, currency: "USD",                     // ₺26.000 @ 49,2
+      chips: ["⚡ 1200 W AC çıkış", "🔋 1152 Wh LiFePO₄", "🔁 2000 çevrim"],
+      for: "Kamp, karavan, saha çalışması ve evde yedek güç",
+      name: "Lexron 1200 W Taşınabilir Güç İstasyonu",
+      desc: "1152 Wh LiFePO₄ bataryalı, 1200 W saf sinüs AC çıkışlı taşınabilir güç istasyonu; tepe değeri 2400 W. AC prizlerin yanında USB, Type-C (PD 100 W) ve 12 V DC çıkışı vardır. 160 W güneş paneli bağlanabilir; panel ürüne dahil değildir, isteğe bağlı ayrıca satın alınır.",
+      features: ["1200 W saf sinüs AC çıkış · tepe 2400 W", "1152 Wh (19,2 V 60 Ah) LiFePO₄ batarya · 2000 çevrim", "AC priz, USB, Type-C PD 100 W ve 12 V DC çıkışı", "160 W güneş paneli bağlanabilir (panel ayrıca satılır)"]
+    },
+
     // —— Tekil paneller —— TEKNİK DEĞERLER üreticinin künyesinden gelir:
     // assets/img/products/kaynak/lexron-*.pdf. Künyede OLMAYAN değer yazılmaz.
     // DİKKAT: "240W Güneş Paneli Paketi" (kit-285w, ₺24.000; Eki 2026 öncesi 285 W panelliydi) AYRI bir üründür —
@@ -446,6 +466,22 @@ window.GESPA.config = {
       name: "360 W Güneş Paneli",
       desc: "60 hücreli Mono-PERC güneş paneli, 360 W. Voc 42,56 V · Isc 11,37 A · Vmp 34,98 V · Imp 10,30 A. Ölçü 1660 × 1001 × 30 mm, ağırlık 19,5 kg. IP68 bağlantı kutusu, 3 bypass diyot; 1500 V sistem gerilimi.",
       features: ["360 W · 60 hücre · Mono-PERC", "Voc 42,56 V · Isc 11,37 A · Vmp 34,98 V · Imp 10,30 A", "1660 × 1001 × 30 mm · 19,5 kg", "IP68 bağlantı kutusu · 3 bypass diyot · 1500 V"]
+    },
+    // 160 W panel (13 Kas 2026): Lexron 1200 W güç istasyonuna bağlanabilen panel; tek
+    // başına da satılır (₺4.000). Değerler işletmenin belgesinden: Voc 19,00 V · Vmp
+    // 16,5 V · Isc 10,63 A · Imp 9,7 A · 1065 × 705 × 30 mm. "16BB half-cut TOPCon"
+    // ibaresi belgedeki tanıtım görselindedir (künye tablosunda değil). Ağırlık yok.
+    {
+      id: "panel-160w", icon: "🔆", tag: "Panel", group: "panel",
+      url: "panel-160w.html",
+      sku: "GES-PNL-160",
+      img: "assets/img/products/panel-160w.webp",
+      price: 81.3, currency: "USD",                       // ₺4.000 @ 49,2
+      chips: ["🔆 160 W", "⚡ 19 V Voc", "📏 1065 × 705 mm"],
+      for: "Lexron 1200 W güç istasyonu, karavan ve 12 V sistemler",
+      name: "160 W Güneş Paneli",
+      desc: "160 W güneş paneli: Voc 19,00 V · Vmp 16,5 V · Isc 10,63 A · Imp 9,7 A, ölçü 1065 × 705 × 30 mm. Lexron 1200 W taşınabilir güç istasyonuna bağlanabilir; 12 V akülü sistemlerde ve karavanda da kullanılır.",
+      features: ["160 W · 16BB half-cut TOPCon hücre", "Voc 19,00 V · Vmp 16,5 V · Isc 10,63 A · Imp 9,7 A", "1065 × 705 × 30 mm", "Lexron 1200 W güç istasyonuna bağlanabilir"]
     },
     {
       id: "panel-lexron-655w", icon: "🔆", tag: "Panel", group: "panel",

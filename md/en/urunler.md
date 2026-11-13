@@ -3,7 +3,7 @@ title: "Solar Packages — Off-Grid & Irrigation | GESPA Energy"
 description: "240 W and 2×540 W solar kits for camping, caravans and cottages. Compare panels, power boxes and cables; shipping across Türkiye — GESPA Enerji."
 canonical: https://www.gespaenerji.com/en/urunler.html
 lang: en
-dateModified: 2026-11-10
+dateModified: 2026-11-13
 publisher: "GESPA Enerji"
 ---
 
@@ -29,6 +29,7 @@ Ready-made solar packages — clear contents, transparent pricing, shipping acro
 - **240W Solar Panel Package** — 0.24 kWp · Camping, caravans and small needs · ₺24.000 (≈ $488) list price · by bank transfer ₺23.300 (%3 discount, VAT included ). Complete system: plug-and-play mobile kit including a 240 W panel, power box and cables. Runs a TV, lights and phone charging; 23–25 kg.
 - **Complete Solar Energy System** — 1.08 kWp · Caravans, camping and cabins · ₺108.200 (≈ $2.200) list price · by bank transfer ₺104.950 (%3 discount, VAT included ). Complete mobile system with 2× 540 W solar panels: with a LiFePO₄ lithium battery and large power box it runs a fridge, TV, washing machine and dishwasher.
 - **UNV Trek Pro 2500 W Portable Power Station** — ES-E2500-A2 · Camping, caravans, field work and home backup power · ₺122.800 (≈ $2.495) list price · by bank transfer ₺119.100 (%3 discount, VAT included ). A portable power station with 2,496 Wh of capacity and 2,500 W of continuous output. Four 230 V pure sine wave AC sockets plus USB and Type-C ports run up to 14 devices at once; with a 30 ms response time it also works as an uninterruptible power supply (UPS). Solar panel not included.
+- **Lexron 1200 W Portable Power Station** — GES-GUC-1200 · Camping, caravans, fieldwork and home backup power · ₺26.000 (≈ $528) list price · by bank transfer ₺25.200 (%3 discount, VAT included ). Portable power station with a 1152 Wh LiFePO₄ battery and a 1200 W pure sine wave AC output; peak 2400 W. Besides the AC sockets it has USB, Type-C (PD 100 W) and a 12 V DC output. A 160 W solar panel can be connected; the panel is not included and can be bought separately as an option.
 
 ## EV Solar Conversion Products
 

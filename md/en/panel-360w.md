@@ -3,7 +3,7 @@ title: "360W Mono-PERC Solar Panel | GESPA Energy"
 description: "360 W 60-cell Mono-PERC panel: Voc 42.56 V, 1660 × 1001 × 30 mm, 19.5 kg, IP68 junction box, 1500 V."
 canonical: https://www.gespaenerji.com/en/panel-360w.html
 lang: en
-dateModified: 2026-11-10
+dateModified: 2026-11-13
 publisher: "GESPA Enerji"
 ---
 
@@ -143,6 +143,7 @@ All panels in our shop; a dash (—) means we do not have that value's datasheet
 | Model | Power | Voc | Dimensions | Weight |
 | --- | --- | --- | --- | --- |
 | 50 W Solar Panel | 50 W | — | — | — |
+| 160 W Solar Panel | 160 W | 19 V | 1065 × 705 × 30 mm | — |
 | 240 W Solar Panel (48 Cells) | 240 W | 36.12 V | 1320 × 776 × 30 mm | 8 kg |
 | 360 W Solar Panel This product | 360 W | 42.56 V | 1660 × 1001 × 30 mm | 19.5 kg |
 | 460 W Half-Cut Monocrystalline Solar Panel | 460 W | 51.9 V | 2095 × 1039 × 30 mm | 25 kg |

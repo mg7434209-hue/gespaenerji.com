@@ -3,7 +3,7 @@ title: "360W Mono-PERC-Solarmodul | GESPA Energy"
 description: "360-W-Mono-PERC-Modul mit 60 Zellen: Voc 42,56 V, 1660 × 1001 × 30 mm, 19,5 kg, IP68-Anschlussdose, 1500 V."
 canonical: https://www.gespaenerji.com/de/panel-360w.html
 lang: de
-dateModified: 2026-11-10
+dateModified: 2026-11-13
 publisher: "GESPA Enerji"
 ---
 
@@ -143,6 +143,7 @@ Alle Module in unserem Shop; ein Strich (—) bedeutet, dass uns der Wert nicht 
 | Modell | Leistung | Voc | Maße | Gewicht |
 | --- | --- | --- | --- | --- |
 | 50-W-Solarmodul | 50 W | — | — | — |
+| 160-W-Solarmodul | 160 W | 19 V | 1065 × 705 × 30 mm | — |
 | 240-W-Solarmodul (48 Zellen) | 240 W | 36,12 V | 1320 × 776 × 30 mm | 8 kg |
 | 360-W-Solarmodul Dieses Produkt | 360 W | 42,56 V | 1660 × 1001 × 30 mm | 19,5 kg |
 | 460-W-Half-Cut-Monokristallin-Solarmodul | 460 W | 51,9 V | 2095 × 1039 × 30 mm | 25 kg |

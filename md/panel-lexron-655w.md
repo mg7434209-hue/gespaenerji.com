@@ -3,7 +3,7 @@ title: "Lexron 655 W TOPCon Güneş Paneli Fiyatı | GESPA Enerji"
 description: "Lexron 655 W TOPCon Güneş Paneli: Voc 50,34 V, 2382 × 1134 mm, 31 kg. Çatı ve arazi sistemleri, yüksek güç gerektiren kurulumlar için. Tüm Türkiye'ye kargo."
 canonical: https://www.gespaenerji.com/panel-lexron-655w.html
 lang: tr
-dateModified: 2026-11-10
+dateModified: 2026-11-13
 publisher: "GESPA Enerji"
 ---
 
@@ -144,6 +144,7 @@ Mağazamızdaki tüm paneller; tire (—) olan değerin künyesi elimizde yok.
 | Model | Güç | Voc | Ölçü | Ağırlık |
 | --- | --- | --- | --- | --- |
 | 50W Güneş Paneli | 50 W | — | — | — |
+| 160 W Güneş Paneli | 160 W | 19 V | 1065 × 705 × 30 mm | — |
 | 240 W Güneş Paneli (48 Hücre) | 240 W | 36,12 V | 1320 × 776 × 30 mm | 8 kg |
 | 360 W Güneş Paneli | 360 W | 42,56 V | 1660 × 1001 × 30 mm | 19,5 kg |
 | 460 W Half-Cut Monokristal Güneş Paneli | 460 W | 51,9 V | 2095 × 1039 × 30 mm | 25 kg |
