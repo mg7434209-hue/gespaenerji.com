@@ -1,0 +1,53 @@
+# Gespa OS'te onaylanan JARVIS önerileri `jarvis/…` dalında yalnız
+# assets/config.js'i değiştirir. Bu iş akışı o dalda sitenin derlemesini
+# çalıştırır, testleri geçirir ve üretilen çıktıyı (dil sayfaları, ürün akışı,
+# llms dosyaları…) aynı dala commit'ler — PR birleştirilmeye hazır hâle gelir.
+# Test düşerse çıktı commit'lenmez; PR'da kırmızı işaret görünür, BİRLEŞTİRME.
+name: JARVIS önerisi — derle ve test et
+
+on:
+  push:
+    branches: ["jarvis/**"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: jarvis-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  derle:
+    runs-on: ubuntu-latest
+    # Kendi commit'i yeniden tetiklemesin (GITHUB_TOKEN itmesi zaten tetiklemez; çifte güvence)
+    if: github.actor != 'github-actions[bot]'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Yalnız config.js değişmiş olmalı
+        run: |
+          git fetch --no-tags --depth=1 origin "${{ github.event.repository.default_branch }}"
+          degisen=$(git diff --name-only FETCH_HEAD HEAD)
+          echo "$degisen"
+          if [ "$degisen" != "assets/config.js" ]; then
+            echo "::error::jarvis/ dalında assets/config.js dışında dosya değişmiş"; exit 1
+          fi
+
+      - name: Derle
+        run: node build.js
+
+      - name: Test
+        run: npm test
+
+      - name: Üretilen çıktıyı commit'le
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then echo "Çıktıda değişiklik yok"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Derleme çıktısı (JARVIS önerisi)"
+          git push

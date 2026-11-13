@@ -42,3 +42,12 @@ başlık `X-Ingest-Token`. JARVIS siparişleri oradan okur.
 - Ayarlar: `OS_INGEST_URL` (Gespa OS adresi) + `OS_INGEST_TOKEN` (≥32 karakter,
   Gespa OS'teki `ORDER_INGEST_TOKEN` ile AYNI). İkisi yoksa defter kapalıdır;
   açılış logu "Gespa OS sipariş defteri: açık/kapalı" yazar.
+
+## JARVIS önerileri — `jarvis/…` dalları
+Gespa OS'te onaylanan fiyat/stok önerisi, `jarvis/<no>-<tür>-<ürün>` dalında YALNIZ
+`assets/config.js` içinde o ürünün satırını değiştiren bir PR olarak gelir.
+`.github/workflows/jarvis-derleme.yml` o dalda `node build.js` + `npm test` çalıştırır ve
+üretilen çıktıyı aynı dala commit'ler. Test kırmızıysa PR BİRLEŞTİRİLMEZ. Dalda config.js
+dışında dosya değişmişse iş akışı durur (JARVIS belirteci sızsa bile başka dosya bu yoldan
+derlenip birleşmeye hazırlanmaz). Fiyat USD yazılır; satır sonundaki "₺… @ kur" notu
+öneri anındaki karşılıktır.
