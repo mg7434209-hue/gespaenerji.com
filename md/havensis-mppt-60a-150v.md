@@ -3,7 +3,7 @@ title: "Havensis 60A MPPT Şarj Kontrol 12–48V, 150V — 5000W Panel"
 description: "Havensis Solar-60AMPS 150|60 MPPT şarj kontrol cihazı: 12/24/36/48 V akü, 60 A şarj, 150 V panel girişi, 5000 W'a kadar panel."
 canonical: https://www.gespaenerji.com/havensis-mppt-60a-150v.html
 lang: tr
-dateModified: 2026-11-10
+dateModified: 2026-11-20
 publisher: "GESPA Enerji"
 ---
 
@@ -155,6 +155,7 @@ Seçimi akü geriliminiz ve bağlayacağınız panel gücü belirler.
 | Model | Akü | Şarj akımı | Panel girişi | Panel gücü | Verim | Boyut |
 | --- | --- | --- | --- | --- | --- | --- |
 | Solar-30AMPS (100\|30) | 12/24 V | 30 A | 100 V | 1200 W | %98 | 159 × 210 × 70 mm |
+| Solar-40AMPS (100\|40) | 12/24 V | 40 A | 100 V | 1500 W | %98 | 162 × 210 × 77 mm |
 | Solar-60AMPS-100 (100\|60) | 12/24 V | 60 A | 100 V | 2500 W | %98 | 197,2 × 224 × 80 mm |
 | Solar-60AMPS 150\|60 Bu ürün | 12/24/36/48 V | 60 A | 150 V | 5000 W | %97,5 | 280 × 235 × 100 mm |
 

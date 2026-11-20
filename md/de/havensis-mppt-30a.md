@@ -3,7 +3,7 @@ title: "Havensis 30A MPPT-Laderegler 12/24V — 1200W Module | GESPA Energy"
 description: "Havensis Solar-30AMPS MPPT-Laderegler für Solaranlagen mit 12/24-V-Batterie: 30 A Ladestrom, 20-A-Lastausgang, 100 V Moduleingang, bis 1200 W Module…"
 canonical: https://www.gespaenerji.com/de/havensis-mppt-30a.html
 lang: de
-dateModified: 2026-11-10
+dateModified: 2026-11-20
 publisher: "GESPA Enerji"
 ---
 
@@ -19,11 +19,11 @@ Artikelnummer: **S30AMPS** Auf Lager / bestellbar
 
 MPPT-Laderegler für Solaranlagen mit 12/24-V-Batterie: bis 1200 W Modulleistung anschließbar, lädt die Batterie mit bis zu 30 A. Der 20-A-Lastausgang steuert die Beleuchtung dank Dämmerungs- und Zeitfunktion selbstständig.
 
-**₺6.400** ≈ $130
+**₺6.350** ≈ $129
 
 Preis inkl. MwSt.
 
-💰 Per Überweisung: **₺6.200**
+💰 Per Überweisung: **₺6.150**
 
 💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
 
@@ -160,6 +160,7 @@ Die Wahl hängt von Ihrer Batteriespannung und der geplanten Modulleistung ab.
 | Modell | Batterie | Ladestrom | Moduleingang | Modulleistung | Wirkungsgrad | Größe |
 | --- | --- | --- | --- | --- | --- | --- |
 | Solar-30AMPS (100\|30) Dieses Produkt | 12/24 V | 30 A | 100 V | 1200 W | 98 % | 159 × 210 × 70 mm |
+| Solar-40AMPS (100\|40) | 12/24 V | 40 A | 100 V | 1500 W | 98 % | 162 × 210 × 77 mm |
 | Solar-60AMPS-100 (100\|60) | 12/24 V | 60 A | 100 V | 2500 W | 98 % | 197,2 × 224 × 80 mm |
 | Solar-60AMPS 150\|60 | 12/24/36/48 V | 60 A | 150 V | 5000 W | 97,5 % | 280 × 235 × 100 mm |
 

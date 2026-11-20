@@ -24,6 +24,7 @@ KURALLAR
   Sözlükte zaten olan anahtar yeniden yazılmaz, mevcut çeviri korunur.
 - Sayfaları ELLE DÜZENLEME: değişikliği burada yap, betiği çalıştır.
 """
+import functools
 import json
 import os
 import re
@@ -731,6 +732,8 @@ def spec(*rows):
 MPPT_ROWS = [
     ("havensis-s30amps", "havensis-mppt-30a.html",
      [k("Solar-30AMPS (100|30)"), u("12/24 V"), u("30 A"), u("100 V"), u("1200 W"), u("%98"), u("159 × 210 × 70 mm")]),
+    ("havensis-s40amps", "havensis-mppt-40a.html",
+     [k("Solar-40AMPS (100|40)"), u("12/24 V"), u("40 A"), u("100 V"), u("1500 W"), u("%98"), u("162 × 210 × 77 mm")]),
     ("havensis-s60amps100", "havensis-mppt-60a.html",
      [k("Solar-60AMPS-100 (100|60)"), u("12/24 V"), u("60 A"), u("100 V"), u("2500 W"), u("%98"), u("197,2 × 224 × 80 mm")]),
     ("havensis-s60amps150", "havensis-mppt-60a-150v.html",
@@ -979,6 +982,101 @@ def boost_product():
     }
 
 
+def _rr(tr, *pairs):
+    """Kayıtlı bir metnin dört dildeki karşılığında aynı sayısal değişikliği yapar."""
+    en, de, ru = REG[tr]
+    f = lambda x: functools.reduce(lambda a, p: a.replace(*p), pairs, x)
+    return t(f(tr), f(en), f(de), f(ru))
+
+
+def boost40_product():
+    """BOOST DCDC-2448 40 A modeli (20 Kas 2026, fatura): 36/48 V akü, 40 A giriş, 20 A şarj.
+    20 A modelin sayfasından türetilir; yalnız değişen sayı/metinler yeniden yazılır."""
+    P = boost_product()
+    specs = [(S["marka"], V["havensis"]), (S["model"], k("BOOST DCDC-2448 (40 A)")),
+             (S["giris"], V["giris1232"]), (S["sakü"], u("36/48 V")),
+             (S["maxin"], u("40 A")), (S["maxch"], u("20 A")), (S["verim"], u("%95")),
+             (S["ekran"], V["dij"]), (S["koruma"], V["gelismis"]), (S["bt"], V["btops"]),
+             (S["tasarim"], V["karatek"]), (S["boyut"], u("162 × 210 × 70 mm")), (S["uretim"], V["yerli"])]
+    chips = list(P["chips"])
+    chips[0] = t("🔋 36/48 V akü", "🔋 36/48 V battery", "🔋 36/48-V-Batterie", "🔋 АКБ 36/48 В")
+    chips[2] = t("⬆️ 40 A giriş · 20 A şarj", "⬆️ 40 A input · 20 A charge", "⬆️ 40 A Eingang · 20 A Laden", "⬆️ Вход 40 А · заряд 20 А")
+    about = list(P["about"])
+    about[0] = t("Havensis BOOST DCDC-2448 (40 A), 12–32 V girişi yükselterek 36 ya da 48 V akü grubuna şarj akımı olarak aktaran yükseltici DC-DC şarj cihazıdır. Karavan ve tekneler için özel tasarlanmıştır.",
+                 "The Havensis BOOST DCDC-2448 (40 A) is a step-up DC-DC charger that raises a 12–32 V input and delivers it as charging current to a 36 or 48 V battery bank. It is designed especially for caravans and boats.",
+                 "Der Havensis BOOST DCDC-2448 (40 A) ist ein aufwärtswandelndes DC-DC-Ladegerät, das 12–32 V am Eingang anhebt und als Ladestrom an eine 36- oder 48-V-Batteriebank abgibt. Es ist speziell für Wohnmobile und Boote entwickelt.",
+                 "Havensis BOOST DCDC-2448 (40 А) — повышающее зарядное устройство DC-DC: поднимает входное напряжение 12–32 В и отдаёт его как ток заряда в батарейный блок 36 или 48 В. Разработано специально для автодомов и лодок.")
+    about[1] = _rr(about[1], ("36–72", "36–48"))
+    about[2] = t("Girişten en fazla 40 A çeker ve aküye en fazla 20 A şarj akımı verir; dönüştürücü verimi %95'tir. Dijital ekran bağlantısı, 5 m uzatma kablosu ve gelişmiş koruma devreleri vardır.",
+                 "It draws at most 40 A from the input and delivers at most 20 A of charging current to the battery; conversion efficiency is 95%. It has a digital display connection, a 5 m extension cable and advanced protection circuits.",
+                 "Er zieht am Eingang höchstens 40 A und liefert höchstens 20 A Ladestrom an die Batterie; der Wandlungswirkungsgrad beträgt 95 %. Er verfügt über einen Anschluss für ein Digitaldisplay, ein 5-m-Verlängerungskabel und fortschrittliche Schutzschaltungen.",
+                 "Потребляет со входа не более 40 А и отдаёт в аккумулятор не более 20 А тока заряда; КПД преобразования — 95 %. Есть подключение цифрового дисплея, удлинительный кабель 5 м и усовершенствованные схемы защиты.")
+    use = list(C_USE)
+    use[1] = (use[1][0], use[1][1], _rr(use[1][2], ("36–72", "36–48")))
+    use[2] = (use[2][0], use[2][1],
+              t("Seri bağlı 36 ve 48 V akü gruplarını 12/24 V kaynaktan tek cihazla şarj eder.",
+                "Charges series-connected 36 and 48 V battery banks from a 12/24 V source with a single unit.",
+                "Lädt in Reihe geschaltete 36- und 48-V-Batteriebänke mit einem Gerät aus einer 12/24-V-Quelle.",
+                "Заряжает последовательно соединённые блоки 36 и 48 В от источника 12/24 В одним устройством."))
+    flow = list(P["flow"])
+    flow[2] = (flow[2][0], flow[2][1], k("DCDC-2448 (40 A)"))
+    flow[3] = (flow[3][0], flow[3][1], u("36–48 V"))
+    st_in = (C["st_in"][0],
+             t("Cihazın girişini 12/24 V marş aküsüne bağlayın. Giriş akımı 40 A'e çıkabildiği için kabloyu ve sigortayı buna göre seçin.",
+               "Connect the unit's input to the 12/24 V starter battery. The input current can reach 40 A, so choose the cable and fuse accordingly.",
+               "Schließen Sie den Eingang an die 12/24-V-Starterbatterie an. Der Eingangsstrom kann 40 A erreichen; Kabel und Sicherung entsprechend wählen.",
+               "Подключите вход устройства к стартерному аккумулятору 12/24 В. Входной ток может достигать 40 А — подберите кабель и предохранитель соответственно."))
+    st_out = (C["st_out"][0], _rr(C["st_out"][1], ("36–72", "36–48")))
+    tip_giris = t("Giriş tarafında akım çıkıştan çok daha yüksektir: 12 V girişte 40 A çekildiğinde 48 V aküye yaklaşık 9–10 A gider. Giriş kablosunu kalın seçin.",
+                  "The current on the input side is much higher than on the output: drawing 40 A at a 12 V input sends about 9–10 A to a 48 V battery. Choose a thick input cable.",
+                  "Auf der Eingangsseite fließt deutlich mehr Strom als am Ausgang: Werden bei 12 V Eingang 40 A gezogen, gehen etwa 9–10 A in eine 48-V-Batterie. Wählen Sie ein dickes Eingangskabel.",
+                  "На входе ток гораздо больше, чем на выходе: при 40 А на входе 12 В в аккумулятор 48 В идёт около 9–10 А. Входной кабель выбирайте толстым.")
+    faq = list(C_Q)
+    faq[0] = (t("20 A şarj akımı her durumda alınır mı?", "Do I always get 20 A of charging current?", "Bekomme ich immer 20 A Ladestrom?", "Всегда ли ток заряда равен 20 А?"),
+              t("Hayır. Cihaz girişten en fazla 40 A çeker ve aküye en fazla 20 A verir; aküye giden akım giriş gerilimine ve akü gerilimine bağlıdır. Örnek: 24 V girişte 24 V × 40 A = 960 W çekilir; %95 verimle 48 V aküye yaklaşık 19 A gider. 12 V girişte aynı akü için yaklaşık 9–10 A'dir.",
+                "No. The unit draws at most 40 A from the input and delivers at most 20 A to the battery; the current going into the battery depends on the input voltage and the battery voltage. Example: at a 24 V input it draws 24 V × 40 A = 960 W; at 95% efficiency about 19 A goes into a 48 V battery. At a 12 V input it is about 9–10 A for the same battery.",
+                "Nein. Das Gerät zieht am Eingang höchstens 40 A und gibt höchstens 20 A an die Batterie ab; der Strom in die Batterie hängt von Eingangs- und Batteriespannung ab. Beispiel: Bei 24 V Eingang werden 24 V × 40 A = 960 W aufgenommen; bei 95 % Wirkungsgrad fließen etwa 19 A in eine 48-V-Batterie. Bei 12 V Eingang sind es für dieselbe Batterie etwa 9–10 A.",
+                "Нет. Устройство потребляет со входа не более 40 А и отдаёт в аккумулятор не более 20 А; ток зависит от входного напряжения и напряжения АКБ. Пример: при входе 24 В потребляется 24 В × 40 А = 960 Вт; при КПД 95 % в аккумулятор 48 В идёт около 19 А. При входе 12 В для того же аккумулятора — около 9–10 А."))
+    faq[1] = (C_Q[1][0],
+              t("36 ve 48 V akü gruplarıyla. Akü grubunuzun gerilimini, tipini ve şarj değerlerini siparişte bize yazın; uygunluğunu birlikte kontrol edelim.",
+                "With 36 and 48 V battery banks. Send us your battery bank's voltage, type and charging values with your order and we'll check compatibility together.",
+                "Mit 36- und 48-V-Batteriebänken. Schicken Sie uns Spannung, Typ und Ladewerte Ihrer Batteriebank mit der Bestellung; wir prüfen die Eignung gemeinsam.",
+                "С батарейными блоками 36 и 48 В. Укажите при заказе напряжение, тип и параметры заряда вашего блока — проверим совместимость вместе."))
+    P.update({
+        "id": "havensis-dcdc-2448-40", "file": "havensis-boost-dcdc-2448-40a.html",
+        "title": "Havensis BOOST DC-DC 40A Şarj Cihazı, 36/48V Akü | GESPA",
+        "desc": "Havensis BOOST DCDC-2448 40 A: 12/24 V araç aküsünden 36 ve 48 V akü grubunu şarj eden DC-DC cihaz. 40 A giriş, 20 A şarj, %95 verim. Karavan ve tekneler için.",
+        "alt": t("Havensis BOOST DCDC-2448 40 A DC-DC akü şarj cihazı", "Havensis BOOST DCDC-2448 40 A DC-DC battery charger",
+                 "Havensis BOOST DCDC-2448 40-A-DC-DC-Ladegerät", "Зарядное устройство DC-DC Havensis BOOST DCDC-2448 40 А"),
+        "lead": t("12/24 V araç aküsünden 36 ya da 48 V akü grubunu en fazla 20 A akımla şarj eden yükseltici (BOOST) DC-DC şarj cihazı. Karavan ve tekneler için tasarlandı: yolda alternatörden yüksek gerilimli akü sistemini de doldurur.",
+                  "Step-up (BOOST) DC-DC charger that charges a 36 or 48 V battery bank from a 12/24 V vehicle battery at up to 20 A. Designed for caravans and boats: it also fills your high-voltage battery system from the alternator on the road.",
+                  "Aufwärtswandelndes (BOOST) DC-DC-Ladegerät, das eine 36- oder 48-V-Batteriebank aus einer 12/24-V-Fahrzeugbatterie mit bis zu 20 A lädt. Für Wohnmobile und Boote entwickelt: Es lädt Ihr Hochvolt-Batteriesystem unterwegs auch über die Lichtmaschine.",
+                  "Повышающее (BOOST) зарядное устройство DC-DC, которое заряжает батарейный блок 36 или 48 В от автомобильного аккумулятора 12/24 В током до 20 А. Создано для автодомов и лодок: в пути заряжает и высоковольтную систему АКБ от генератора."),
+        "chips": chips, "about": about, "specs": specs, "use": use,
+        "use_p": _rr(C["use_p"], ("36–72", "36–48")), "how_p": _rr(C["how_p"], ("36–72", "36–48")),
+        "flow": flow, "steps": [st_in, st_out, C["st_ekran"]],
+        "tips": [B["tip_yer"], tip_giris, B["tip_alt"], B["tip_oto"]], "faq": faq,
+    })
+    return P
+
+
+# Kart metinleri (config.packages: ad, kullanım, çipler) — mağaza kartı JS ile çizildiği için sözlükte olmalı.
+CARDS40 = [
+    ("Havensis Solar-40AMPS MPPT Şarj Kontrol Cihazı 12/24 V 40 A", "Havensis Solar-40AMPS MPPT Charge Controller 12/24 V 40 A",
+     "Havensis Solar-40AMPS MPPT-Laderegler 12/24 V 40 A", "Контроллер заряда MPPT Havensis Solar-40AMPS 12/24 В 40 А"),
+    ("12/24 V akülü güneş sistemleri · 1500 W panele kadar", "12/24 V battery solar systems · up to 1500 W of panels",
+     "Solaranlagen mit 12/24-V-Batterie · bis 1500 W Modulleistung", "Солнечные системы с АКБ 12/24 В · до 1500 Вт панелей"),
+    ("⚡ 12/24 V · 40 A", "⚡ 12/24 V · 40 A", "⚡ 12/24 V · 40 A", "⚡ 12/24 В · 40 А"),
+    ("Havensis BOOST DCDC-2448 DC-DC Akü Şarj Cihazı 36/48 V 40 A", "Havensis BOOST DCDC-2448 DC-DC Battery Charger 36/48 V 40 A",
+     "Havensis BOOST DCDC-2448 DC-DC-Batterieladegerät 36/48 V 40 A", "Зарядное устройство DC-DC Havensis BOOST DCDC-2448 36/48 В 40 А"),
+    ("12/24 V girişten 36/48 V aküye şarj · karavan ve tekne", "Charges 36/48 V batteries from a 12/24 V input · caravans and boats",
+     "Lädt 36/48-V-Batterien über einen 12/24-V-Eingang · Wohnmobil und Boot", "Зарядка АКБ 36/48 В от входа 12/24 В · автодома и лодки"),
+    ("⚡ 12/24 V giriş · 20 A şarj", "⚡ 12/24 V input · 20 A charge", "⚡ 12/24 V Eingang · 20 A Laden", "⚡ Вход 12/24 В · заряд 20 А"),
+]
+for _row in CARDS40:
+    t(*_row)
+
+
 CHIP_YUK = t("💡 20 A yük çıkışı", "💡 20 A load output", "💡 20-A-Lastausgang", "💡 Выход нагрузки 20 А")
 PRODUCTS = [
     mppt_product(
@@ -995,6 +1093,21 @@ PRODUCTS = [
           "The Havensis Solar-30AMPS is the 30 A charge controller of the MPPT series (MPS). The 100|30 in the model code means it takes up to 100 V of panel input and charges at up to 30 A. It works with 12 V and 24 V batteries, and up to 1200 W of solar panels can be connected.",
           "Der Havensis Solar-30AMPS ist der 30-A-Laderegler der MPPT-Serie (MPS). Die Angabe 100|30 im Modellcode steht für bis zu 100 V Moduleingang und bis zu 30 A Ladestrom. Er arbeitet mit 12-V- und 24-V-Batterien; bis zu 1200 W Solarmodule lassen sich anschließen.",
           "Havensis Solar-30AMPS — контроллер заряда на 30 А серии MPPT (MPS). Обозначение 100|30 в коде модели означает вход панелей до 100 В и ток заряда до 30 А. Работает с аккумуляторами 12 В и 24 В; можно подключить до 1200 Вт солнечных панелей."),
+        CHIP_YUK),
+    mppt_product(
+        "havensis-s40amps", "havensis-mppt-40a.html", "Solar-40AMPS (100|40)", 40, "1500", "162 × 210 × 77 mm", "%98", False,
+        "Havensis 40A MPPT Şarj Kontrol Cihazı 12/24V — 1500W Panel | GESPA Enerji",
+        "12/24 V akülü güneş sistemleri için Havensis Solar-40AMPS MPPT şarj kontrol cihazı: 40 A şarj, 20 A yük çıkışı, 100 V panel girişi, 1500 W'a kadar panel, LCD ekran. Yerli üretim.",
+        t("Havensis Solar-40AMPS MPPT şarj kontrol cihazı", "Havensis Solar-40AMPS MPPT charge controller",
+          "Havensis Solar-40AMPS MPPT-Laderegler", "MPPT-контроллер заряда Havensis Solar-40AMPS"),
+        t("12/24 V akülü güneş sistemleri için MPPT şarj kontrol cihazı: 1500 W'a kadar panel bağlanır, aküyü 40 A ile şarj eder. 20 A yük çıkışı, gece-gündüz ve zaman ayarıyla aydınlatmayı kendi yönetir.",
+          "MPPT charge controller for 12/24 V battery solar systems: connect up to 1500 W of panels and charge the battery at up to 40 A. The 20 A load output runs your lighting by itself with its dusk-to-dawn and timer functions.",
+          "MPPT-Laderegler für Solaranlagen mit 12/24-V-Batterie: bis 1500 W Modulleistung anschließbar, lädt die Batterie mit bis zu 40 A. Der 20-A-Lastausgang steuert die Beleuchtung dank Dämmerungs- und Zeitfunktion selbstständig.",
+          "MPPT-контроллер заряда для солнечных систем с АКБ 12/24 В: подключается до 1500 Вт панелей, заряжает аккумулятор током до 40 А. Выход нагрузки 20 А сам управляет освещением благодаря функциям «день-ночь» и таймера."),
+        t("Havensis Solar-40AMPS, MPPT serisinin (MPS) 40 A'lik şarj kontrol cihazıdır. Model kodundaki 100|40, cihazın en fazla 100 V panel girişi ve 40 A şarj akımıyla çalıştığını anlatır. 12 V ve 24 V akülerle kullanılır; 1500 W'a kadar güneş paneli bağlanabilir.",
+          "The Havensis Solar-40AMPS is the 40 A charge controller of the MPPT series (MPS). The 100|40 in the model code means it takes up to 100 V of panel input and charges at up to 40 A. It works with 12 V and 24 V batteries, and up to 1500 W of solar panels can be connected.",
+          "Der Havensis Solar-40AMPS ist der 40-A-Laderegler der MPPT-Serie (MPS). Die Angabe 100|40 im Modellcode steht für bis zu 100 V Moduleingang und bis zu 40 A Ladestrom. Er arbeitet mit 12-V- und 24-V-Batterien; bis zu 1500 W Solarmodule lassen sich anschließen.",
+          "Havensis Solar-40AMPS — контроллер заряда на 40 А серии MPPT (MPS). Обозначение 100|40 в коде модели означает вход панелей до 100 В и ток заряда до 40 А. Работает с аккумуляторами 12 В и 24 В; можно подключить до 1500 Вт солнечных панелей."),
         CHIP_YUK),
     mppt_product(
         "havensis-s60amps100", "havensis-mppt-60a.html", "Solar-60AMPS-100 (100|60)", 60, "2500", "197,2 × 224 × 80 mm", "%98", False,
@@ -1069,6 +1182,7 @@ PRODUCTS = [
           "Der Havensis DCDC-1224B ist ein speziell für Wohnmobile entwickeltes bidirektionales DC-DC-Ladegerät. Er lädt die Aufbaubatterie mit 40 A und liefert im Boost-Modus 10 A in Gegenrichtung; er akzeptiert 10–35 V am Eingang, liefert 12–32 V am Ausgang und hat einen Wandlungswirkungsgrad von 96,4 %.",
           "Havensis DCDC-1224B — двунаправленное зарядное устройство DC-DC, разработанное специально для автодомов. Заряжает бытовой аккумулятор током 40 А, а в режиме подпитки отдаёт 10 А в обратном направлении; принимает на вход 10–35 В, выдаёт 12–32 В и имеет КПД преобразования 96,4 %.")),
     boost_product(),
+    boost40_product(),
 ]
 
 # config.packages[].desc çevirileri — Product şemasının açıklaması dil
@@ -1079,6 +1193,10 @@ DESC = [
       "Havensis Solar-MPS series MPPT charge controller (Solar-30AMPS – 100|30). 12/24 V battery charging, 30 A charging current and 20 A load output. Advanced MPPT algorithm with 98% conversion and 99.6% MPP tracking efficiency; panel input up to 100 V, up to 1200 W of panels. LCD display and LED status indicator, all parameters adjustable, dusk-to-dawn and timer function; powered from the panel, it can also run without a battery. Dimensions 159 × 210 × 70 mm. Made in Türkiye.",
       "MPPT-Laderegler der Havensis Solar-MPS-Serie (Solar-30AMPS – 100|30). Laden von 12/24-V-Batterien, 30 A Ladestrom und 20-A-Lastausgang. Fortschrittlicher MPPT-Algorithmus mit 98 % Wandlungs- und 99,6 % MPP-Tracking-Wirkungsgrad; Moduleingang bis 100 V, bis 1200 W Module. LCD-Display und LED-Statusanzeige, alle Parameter einstellbar, Dämmerungs- und Zeitfunktion; aus dem Modul versorgt, läuft er auch ohne Batterie. Abmessungen 159 × 210 × 70 mm. Hergestellt in der Türkei.",
       "MPPT-контроллер заряда серии Havensis Solar-MPS (Solar-30AMPS – 100|30). Заряд АКБ 12/24 В, ток заряда 30 А и выход нагрузки 20 А. Усовершенствованный алгоритм MPPT: КПД преобразования 98 % и эффективность отслеживания MPP 99,6 %; вход панелей до 100 В, до 1200 Вт панелей. ЖК-дисплей и светодиодный индикатор состояния, все параметры настраиваются, функции «день-ночь» и таймера; питаясь от панели, может работать и без АКБ. Габариты 159 × 210 × 70 мм. Сделано в Турции."),
+    t("Havensis Solar-MPS serisi MPPT şarj kontrol cihazı (Solar-40AMPS – 100|40). 12/24 V akü şarjı, 40 A şarj akımı ve 20 A yük çıkışı. Gelişmiş MPPT algoritmasıyla %98 dönüştürücü ve %99,6 MPP izleme verimi; 100 V'a kadar panel girişi, 1500 W'a kadar panel bağlantısı. LCD ekran ve LED durum göstergesi, tüm parametreler ayarlanabilir, gece-gündüz ve zaman ayarı fonksiyonu; panelden beslenerek aküsüz de çalışabilir. Cihaz boyutu 162 × 210 × 77 mm. Yerli üretim.",
+      "Havensis Solar-MPS series MPPT charge controller (Solar-40AMPS – 100|40). 12/24 V battery charging, 40 A charging current and 20 A load output. Advanced MPPT algorithm with 98% conversion and 99.6% MPP tracking efficiency; panel input up to 100 V, up to 1500 W of panels. LCD display and LED status indicator, all parameters adjustable, dusk-to-dawn and timer function; powered from the panel, it can also run without a battery. Dimensions 162 × 210 × 77 mm. Made in Türkiye.",
+      "MPPT-Laderegler der Havensis Solar-MPS-Serie (Solar-40AMPS – 100|40). Laden von 12/24-V-Batterien, 40 A Ladestrom und 20-A-Lastausgang. Fortschrittlicher MPPT-Algorithmus mit 98 % Wandlungs- und 99,6 % MPP-Tracking-Wirkungsgrad; Moduleingang bis 100 V, bis 1500 W Module. LCD-Display und LED-Statusanzeige, alle Parameter einstellbar, Dämmerungs- und Zeitfunktion; aus dem Modul versorgt, läuft er auch ohne Batterie. Abmessungen 162 × 210 × 77 mm. Hergestellt in der Türkei.",
+      "MPPT-контроллер заряда серии Havensis Solar-MPS (Solar-40AMPS – 100|40). Заряд АКБ 12/24 В, ток заряда 40 А и выход нагрузки 20 А. Усовершенствованный алгоритм MPPT: КПД преобразования 98 % и эффективность отслеживания MPP 99,6 %; вход панелей до 100 В, до 1500 Вт панелей. ЖК-дисплей и светодиодный индикатор состояния, все параметры настраиваются, функции «день-ночь» и таймера; питаясь от панели, может работать и без АКБ. Габариты 162 × 210 × 77 мм. Сделано в Турции."),
     t("Havensis Solar-MPS serisi MPPT şarj kontrol cihazı (Solar-60AMPS-100 – 100|60). 12/24 V akü şarjı, 60 A şarj akımı ve 20 A yük çıkışı. Gelişmiş MPPT algoritmasıyla %98 dönüştürücü ve %99,6 MPP izleme verimi; 100 V'a kadar panel girişi, 2500 W'a kadar panel bağlantısı. LCD ekran ve LED durum göstergesi, tüm parametreler ayarlanabilir, gece-gündüz ve zaman ayarı fonksiyonu; panelden beslenerek aküsüz de çalışabilir. Cihaz boyutu 197,2 × 224 × 80 mm. Yerli üretim.",
       "Havensis Solar-MPS series MPPT charge controller (Solar-60AMPS-100 – 100|60). 12/24 V battery charging, 60 A charging current and 20 A load output. Advanced MPPT algorithm with 98% conversion and 99.6% MPP tracking efficiency; panel input up to 100 V, up to 2500 W of panels. LCD display and LED status indicator, all parameters adjustable, dusk-to-dawn and timer function; powered from the panel, it can also run without a battery. Dimensions 197.2 × 224 × 80 mm. Made in Türkiye.",
       "MPPT-Laderegler der Havensis Solar-MPS-Serie (Solar-60AMPS-100 – 100|60). Laden von 12/24-V-Batterien, 60 A Ladestrom und 20-A-Lastausgang. Fortschrittlicher MPPT-Algorithmus mit 98 % Wandlungs- und 99,6 % MPP-Tracking-Wirkungsgrad; Moduleingang bis 100 V, bis 2500 W Module. LCD-Display und LED-Statusanzeige, alle Parameter einstellbar, Dämmerungs- und Zeitfunktion; aus dem Modul versorgt, läuft er auch ohne Batterie. Abmessungen 197,2 × 224 × 80 mm. Hergestellt in der Türkei.",
@@ -1103,6 +1221,10 @@ DESC = [
       "Havensis BOOST DCDC-2448 step-up DC-DC battery charger. It charges 36/48/60/72 V batteries from a 12/24 V input: 12–32 V input voltage, up to 20 A input and 15 A charging current, 95% conversion efficiency. Designed especially for caravans and boats. Digital display connection and 5 m extension cable, advanced protection circuits; built-in Bluetooth is optional (specify when ordering). Dimensions 162 × 210 × 70 mm. Made in Türkiye.",
       "Havensis BOOST DCDC-2448, aufwärtswandelndes DC-DC-Ladegerät. Es lädt 36/48/60/72-V-Batterien aus einem 12/24-V-Eingang: 12–32 V Eingangsspannung, bis 20 A Eingangs- und 15 A Ladestrom, 95 % Wandlungswirkungsgrad. Speziell für Wohnmobile und Boote entwickelt. Anschluss für Digitaldisplay und 5-m-Verlängerungskabel, fortschrittliche Schutzschaltungen; integriertes Bluetooth optional (bei Bestellung angeben). Abmessungen 162 × 210 × 70 mm. Hergestellt in der Türkei.",
       "Повышающее зарядное устройство DC-DC Havensis BOOST DCDC-2448. Заряжает АКБ 36/48/60/72 В от входа 12/24 В: входное напряжение 12–32 В, входной ток до 20 А и ток заряда до 15 А, КПД преобразования 95 %. Разработано специально для автодомов и лодок. Подключение цифрового дисплея и удлинительный кабель 5 м, усовершенствованные схемы защиты; встроенный Bluetooth — опционально (указывается при заказе). Габариты 162 × 210 × 70 мм. Сделано в Турции."),
+    t("Havensis BOOST DCDC-2448 (40 A) yükseltici DC-DC akü şarj cihazı. 12/24 V girişle 36/48 V akü şarjı yapar: 12–32 V giriş gerilimi, en fazla 40 A giriş ve 20 A şarj akımı, %95 dönüştürücü verimi. Karavan ve tekneler için özel tasarlanmıştır. Dijital ekran bağlantısı ve 5 m uzatma kablosu, gelişmiş koruma devreleri; dahili Bluetooth desteği isteğe bağlıdır (siparişte belirtin). Cihaz boyutu 162 × 210 × 70 mm. Yerli üretim.",
+      "Havensis BOOST DCDC-2448 (40 A) step-up DC-DC battery charger. It charges 36/48 V batteries from a 12/24 V input: 12–32 V input voltage, up to 40 A input and 20 A charging current, 95% conversion efficiency. Designed especially for caravans and boats. Digital display connection and 5 m extension cable, advanced protection circuits; built-in Bluetooth is optional (specify when ordering). Dimensions 162 × 210 × 70 mm. Made in Türkiye.",
+      "Havensis BOOST DCDC-2448 (40 A), aufwärtswandelndes DC-DC-Ladegerät. Es lädt 36/48-V-Batterien aus einem 12/24-V-Eingang: 12–32 V Eingangsspannung, bis 40 A Eingangs- und 20 A Ladestrom, 95 % Wandlungswirkungsgrad. Speziell für Wohnmobile und Boote entwickelt. Anschluss für Digitaldisplay und 5-m-Verlängerungskabel, fortschrittliche Schutzschaltungen; integriertes Bluetooth optional (bei Bestellung angeben). Abmessungen 162 × 210 × 70 mm. Hergestellt in der Türkei.",
+      "Повышающее зарядное устройство DC-DC Havensis BOOST DCDC-2448 (40 А). Заряжает АКБ 36/48 В от входа 12/24 В: входное напряжение 12–32 В, входной ток до 40 А и ток заряда до 20 А, КПД преобразования 95 %. Разработано специально для автодомов и лодок. Подключение цифрового дисплея и удлинительный кабель 5 м, усовершенствованные схемы защиты; встроенный Bluetooth — опционально (указывается при заказе). Габариты 162 × 210 × 70 мм. Сделано в Турции."),
 ]
 
 

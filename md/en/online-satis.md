@@ -3,7 +3,7 @@ title: "Buy Solar Panels, Batteries & MPPT Controllers | GESPA"
 description: "Lexron and Arçelik solar panels, LiFePO₄ batteries, MPPT/PWM charge controllers, solar cable and ready kits. VAT-inclusive prices, shipping across Türkiye."
 canonical: https://www.gespaenerji.com/en/online-satis.html
 lang: en
-dateModified: 2026-11-13
+dateModified: 2026-11-20
 publisher: "GESPA Enerji"
 ---
 
@@ -171,9 +171,19 @@ VAT included · shipping excluded
 
 12/24 V battery solar systems · up to 1200 W of panels
 
-**₺6.400**≈ $130
+**₺6.350**≈ $129
 
-💰 By bank transfer: **₺6.200**
+💰 By bank transfer: **₺6.150**
+
+VAT included · shipping excluded
+
+### [Havensis Solar-40AMPS MPPT Charge Controller 12/24 V 40 A](https://www.gespaenerji.com/en/havensis-mppt-40a.html)
+
+12/24 V battery solar systems · up to 1500 W of panels
+
+**₺7.250**≈ $147
+
+💰 By bank transfer: **₺7.050**
 
 VAT included · shipping excluded
 
@@ -181,9 +191,9 @@ VAT included · shipping excluded
 
 12/24 V battery solar systems · up to 2500 W of panels
 
-**₺11.800**≈ $240
+**₺11.900**≈ $242
 
-💰 By bank transfer: **₺11.450**
+💰 By bank transfer: **₺11.550**
 
 VAT included · shipping excluded
 
@@ -201,9 +211,9 @@ VAT included · shipping excluded
 
 Caravans: charging the house battery from the alternator · 12/24 V
 
-**₺9.750**≈ $198
+**₺9.800**≈ $199
 
-💰 By bank transfer: **₺9.450**
+💰 By bank transfer: **₺9.500**
 
 VAT included · shipping excluded
 
@@ -211,9 +221,9 @@ VAT included · shipping excluded
 
 Caravans: charging the house battery from the alternator · 12/24 V
 
-**₺11.800**≈ $240
+**₺11.900**≈ $242
 
-💰 By bank transfer: **₺11.450**
+💰 By bank transfer: **₺11.550**
 
 VAT included · shipping excluded
 
@@ -221,7 +231,7 @@ VAT included · shipping excluded
 
 Caravans: bidirectional battery charging (boost mode) · 12/24 V
 
-**₺13.600**≈ $276
+**₺13.600**≈ $277
 
 💰 By bank transfer: **₺13.200**
 
@@ -234,6 +244,16 @@ Charges 36–72 V batteries from a 12/24 V input · caravans and boats
 **₺8.250**≈ $168
 
 💰 By bank transfer: **₺8.000**
+
+VAT included · shipping excluded
+
+### [Havensis BOOST DCDC-2448 DC-DC Battery Charger 36/48 V 40 A](https://www.gespaenerji.com/en/havensis-boost-dcdc-2448-40a.html)
+
+Charges 36/48 V batteries from a 12/24 V input · caravans and boats
+
+**₺10.200**≈ $207
+
+💰 By bank transfer: **₺9.900**
 
 VAT included · shipping excluded
 

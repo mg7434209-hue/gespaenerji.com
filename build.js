@@ -34,9 +34,9 @@ const PAGES = [
   "paket-motor-yolcu.html", "paket-motor-kargo.html", "paket-motor-golf.html", "paket-motor-mini.html",
   "aku-lifepo4-72v-30ah.html",
   // Havensis ürün sayfaları — tools/havensis-sayfalar.py üretir
-  "havensis-mppt-30a.html", "havensis-mppt-60a.html", "havensis-mppt-60a-150v.html",
+  "havensis-mppt-30a.html", "havensis-mppt-40a.html", "havensis-mppt-60a.html", "havensis-mppt-60a-150v.html",
   "havensis-dcdc-30a.html", "havensis-dcdc-40a.html", "havensis-dcdc-40a-cift-yonlu.html",
-  "havensis-boost-dcdc-2448.html",
+  "havensis-boost-dcdc-2448.html", "havensis-boost-dcdc-2448-40a.html",
   // Lexron şarj kontrol sayfaları — tools/lexron-sayfalar.py üretir
   "lexron-pwm-20a.html", "lexron-pwm-30a.html", "lexron-pwm-40a.html", "lexron-pwm-60a.html",
   "lexron-mppt-20a.html", "lexron-mppt-30a.html", "lexron-mppt-40a.html", "lexron-mppt-80a-hv.html",
@@ -358,6 +358,22 @@ const META = {
           d: "Тяговый аккумулятор LiFePO₄ для электротрициклов и машин на 72 В: 24S, ~2300 Вт·ч, макс. заряд 87,6 В, встроенная BMS с балансировкой, 2000 циклов. Ставится вместо гелевого блока." }
   },
   // Havensis ürün sayfaları (tools/havensis-sayfalar.py) — TR başlık sayfadadır
+  "havensis-mppt-40a.html": {
+    en: { t: "Havensis 40A MPPT Charge Controller 12/24V — 1500W Panels | GESPA Energy",
+          d: "Havensis Solar-40AMPS MPPT charge controller for 12/24 V battery solar systems: 40 A charging, 20 A load output, 100 V panel input, up to 1500 W of panels, LCD display. Made in Türkiye." },
+    de: { t: "Havensis 40A MPPT-Laderegler 12/24V — 1500W Module | GESPA Energy",
+          d: "Havensis Solar-40AMPS MPPT-Laderegler für Solaranlagen mit 12/24-V-Batterie: 40 A Ladestrom, 20-A-Lastausgang, 100 V Moduleingang, bis 1500 W Module, LCD-Display. Hergestellt in der Türkei." },
+    ru: { t: "MPPT-контроллер Havensis 40А 12/24В — до 1500Вт | GESPA",
+          d: "MPPT-контроллер заряда Havensis Solar-40AMPS для солнечных систем с АКБ 12/24 В: заряд 40 А, выход нагрузки 20 А, вход панелей 100 В, до 1500 Вт панелей, ЖК-дисплей. Сделано в Турции." }
+  },
+  "havensis-boost-dcdc-2448-40a.html": {
+    en: { t: "Havensis BOOST DC-DC 40A Charger, 36/48V Battery | GESPA Energy",
+          d: "Havensis BOOST DCDC-2448 40 A: DC-DC charger that charges a 36 and 48 V battery bank from a 12/24 V vehicle battery. 40 A input, 20 A charging, 95% efficiency. For caravans and boats." },
+    de: { t: "Havensis BOOST DC-DC 40A Ladegerät, 36/48V Akku | GESPA Energy",
+          d: "Havensis BOOST DCDC-2448 40 A: DC-DC-Ladegerät, das eine 36- und 48-V-Batteriebank aus einer 12/24-V-Fahrzeugbatterie lädt. 40 A Eingang, 20 A Laden, 95 % Wirkungsgrad. Für Wohnmobile und Boote." },
+    ru: { t: "Havensis BOOST DC-DC 40А, АКБ 36/48В | GESPA",
+          d: "Havensis BOOST DCDC-2448 40 А: зарядное устройство DC-DC для блока АКБ 36 и 48 В от автомобильного аккумулятора 12/24 В. Вход 40 А, заряд 20 А, КПД 95 %. Для автодомов и лодок." }
+  },
   "havensis-mppt-30a.html": {
     en: { t: "Havensis 30A MPPT Charge Controller 12/24V — 1200W Panels | GESPA Energy",
           d: "Havensis Solar-30AMPS MPPT charge controller for 12/24 V battery solar systems: 30 A charging, 20 A load output, 100 V panel input, up to 1200 W of panels, LCD display. Made in Türkiye." },
@@ -1961,9 +1977,9 @@ const PRIORITY = {
   "mesafeli-satis-sozlesmesi.html": "0.4", "iade-teslimat.html": "0.4",
   "sss.html": "0.7", "sozluk.html": "0.6", "gunes-paneli-kacak-elektrik-cezasi.html": "0.7",
   "rehberler.html": "0.7", "off-grid-gunes-sistemi-boyutlandirma.html": "0.7", "pwm-mppt-sarj-kontrol-farki.html": "0.7", "solar-sulama-pompasi-secimi.html": "0.7",
-  "havensis-mppt-30a.html": "0.7", "havensis-mppt-60a.html": "0.7", "havensis-mppt-60a-150v.html": "0.7",
+  "havensis-mppt-30a.html": "0.7", "havensis-mppt-40a.html": "0.7", "havensis-mppt-60a.html": "0.7", "havensis-mppt-60a-150v.html": "0.7",
   "havensis-dcdc-30a.html": "0.7", "havensis-dcdc-40a.html": "0.7", "havensis-dcdc-40a-cift-yonlu.html": "0.7",
-  "havensis-boost-dcdc-2448.html": "0.7"
+  "havensis-boost-dcdc-2448.html": "0.7", "havensis-boost-dcdc-2448-40a.html": "0.7"
 };
 /* ============================================================
    AI DOSYALARI — llms.txt (özet, build üretir) ve /md/ Markdown kopyalar.
@@ -1979,8 +1995,8 @@ const LLMS_GROUPS = [
   ["Mağaza ve ürünler", ["online-satis.html", "urunler.html", "paket-285w.html", "paket-2x540w.html", "unv-trek-pro-2500.html",
     "elektrikli-arac-donusum.html", "paket-motor-yolcu.html", "paket-motor-kargo.html", "paket-motor-golf.html", "paket-motor-mini.html",
     "aku-lifepo4-72v-30ah.html",
-    "havensis-mppt-30a.html", "havensis-mppt-60a.html", "havensis-mppt-60a-150v.html",
-    "havensis-dcdc-30a.html", "havensis-dcdc-40a.html", "havensis-dcdc-40a-cift-yonlu.html", "havensis-boost-dcdc-2448.html",
+    "havensis-mppt-30a.html", "havensis-mppt-40a.html", "havensis-mppt-60a.html", "havensis-mppt-60a-150v.html",
+    "havensis-dcdc-30a.html", "havensis-dcdc-40a.html", "havensis-dcdc-40a-cift-yonlu.html", "havensis-boost-dcdc-2448.html", "havensis-boost-dcdc-2448-40a.html",
     "lexron-pwm-20a.html", "lexron-pwm-30a.html", "lexron-pwm-40a.html", "lexron-pwm-60a.html", "lexron-mppt-20a.html", "lexron-mppt-30a.html", "lexron-mppt-40a.html", "lexron-mppt-80a-hv.html",
     "panel-50w.html", "panel-160w.html", "panel-240w.html", "panel-360w.html", "panel-460w.html", "panel-arcelik-540w.html", "panel-lexron-655w.html", "panel-700w.html", "aku-titanx-51v-102ah.html", "lexron-guc-istasyonu-1200w.html", "kablo-solar-5m.html", "mc4-set.html",
     "hero-led-ampul-10w.html", "hero-led-solar-sokak-100w.html",

@@ -78,7 +78,7 @@ sepete ekle + onay penceresi (Sepete git / Alışverişe devam), `data-add-cart-
 `paket-motor-yolcu.html` `paket-motor-kargo.html` `paket-motor-golf.html`
 `paket-motor-mini.html` (elektrikli motor güneş paketlerinin ürün sayfaları — paket-*.html düzeni + `data-add-cart-go`
 "⚡ Hemen satın al"; ayrıntı "Motor güneş paketleri" bölümünde) ·
-`havensis-*.html` (7 Havensis ürün sayfası: `havensis-mppt-30a` ·
+`havensis-*.html` (9 Havensis ürün sayfası: `havensis-mppt-30a` · `-mppt-40a` ·
 `-mppt-60a` · `-mppt-60a-150v` · `-dcdc-30a` · `-dcdc-40a` ·
 `-dcdc-40a-cift-yonlu` · `-boost-dcdc-2448`. ELLE DÜZENLENMEZ:
 `tools/havensis-sayfalar.py` üretir; ayrıntı "Havensis ürün sayfaları") ·
@@ -330,12 +330,21 @@ ve sepet simgesi ekran dışında kalır.
   europlus 72 V 30 Ah LiFePO₄ çekiş aküsü ₺28.000 (`aku-lifepo4-72v`,
   `group:"accessory"` — BOOST MPPT ile AYNI grupta, "Elektrikli Araç" çipi
   böylece tek ürünlü doğrudan bağlantı olmaktan çıkıp gerçek süzgece döndü). +
-  7 Havensis cihazı (`group:"charge"` = "Şarj Kontrol & DC-DC", YALNIZ
+  9 Havensis cihazı (`group:"charge"` = "Şarj Kontrol & DC-DC", YALNIZ
   online-satis kataloğunda; her birinin detay sayfası var, aşağıda
-  "Havensis ürün sayfaları"): 3 MPPT + 3 DC-DC + 1 BOOST DC-DC. Kaynak
+  "Havensis ürün sayfaları"): 4 MPPT + 3 DC-DC + 2 BOOST DC-DC. Kaynak
   Havensis 02/2026 fiyat listesi (USD, KDV HARİÇ); FİYAT KURALI işletme
   kararı: liste AYNEN + %20 KDV, `price` = liste × 1,20 (100 USD → 120 USD),
-  kâr payı EKLENMEZ; satır yanında liste fiyatı yazılı. Havensis gerçek
+  kâr payı EKLENMEZ; satır yanında liste fiyatı yazılı. İSTİSNA (20 Kas 2026,
+  işletme: "%35 kâr marjı"): 3 Kas 2026 faturasındaki 7 kalem (30 A MPPT, 40 A MPPT,
+  60 A-100 MPPT, DCDC-1224 30 A / 40 A, DCDC-1224B 40 A, BOOST DCDC-2448 40 A) için
+  `price` = fatura birim maliyeti (KDV hariç, komisyon payı dahil) × 1,35 × 1,20 KDV,
+  USD'ye 49,2 ile çevrilir (satır yanındaki yoruma maliyet ve ₺ sonucu yazılı). "Kâr" =
+  maliyetin %35'i (marj değil); eski liste×1,2 fiyatlar bu maliyete göre zaten ~1,35–1,37
+  kattı, fark ±%1 oldu. 60 A 150|60 ve BOOST 20 A faturada yok: liste × 1,2 kaldı. Kur
+  yükselirse ₺ fiyat ve kâr yükselir (maliyet TL, fiyat USD tabanlı). 40 A MPPT ve 40 A
+  BOOST faturayla EKLENDİ (listedeki sıra 13 ve 32; 40 A BOOST 20 A ile aynı fotoğrafı
+  kullanır, 40 A MPPT görseli listenin 8. sayfasından, `kaynak/havensis-s40amps.png`). Havensis gerçek
   üreticidir, foto logosu SİLİNMEZ. +
   8 Lexron şarj kontrol cihazı (`lexron-pwm-20a/30a/40a/60a`,
   `lexron-mppt-20a/30a/40a/80a-hv`; `group:"charge"`, detay sayfaları
@@ -557,7 +566,7 @@ ve sepet simgesi ekran dışında kalır.
   `expectTL: 0` gönderir; kur denetimine takılmaz, sunucu kendi fiyatını alır.
 
 ## Havensis ürün sayfaları (`havensis-*.html` · `tools/havensis-sayfalar.py`)
-- 7 sayfa TEK betikten üretilir: `python3 tools/havensis-sayfalar.py` (DRY-RUN,
+- 9 sayfa TEK betikten üretilir: `python3 tools/havensis-sayfalar.py` (DRY-RUN,
   eksik çeviri ve config uyumsuzluğunu raporlar) → `--uygula` (sayfalar +
   `assets/i18n.js` `HAVENSIS:DICT` bloğu) → `node build.js` → `npm test`.
   Head/nav/footer şablonu `aku-lifepo4-72v-30ah.html`; `<main>` betikte.

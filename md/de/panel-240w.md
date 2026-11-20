@@ -3,7 +3,7 @@ title: "240-W-Solarmodul (48 Zellen) | GESPA Energy"
 description: "240-W-Solarmodul mit 48 Zellen: Voc 36,12 V, 1320 × 776 × 30 mm, 8 kg. Für Mini-Elektroautos und kleine Inselanlagen."
 canonical: https://www.gespaenerji.com/de/panel-240w.html
 lang: de
-dateModified: 2026-11-13
+dateModified: 2026-11-20
 publisher: "GESPA Enerji"
 ---
 
@@ -156,7 +156,7 @@ Passendes Zubehör
 
 Zusammen bestellen, alles kommt in einer Sendung.
 
-[![Havensis Solar-30AMPS MPPT-Laderegler 12/24 V 30 A](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Havensis Solar-30AMPS MPPT-Laderegler 12/24 V 30 AMPPT mit 100-V-Moduleingang; kleine und mittlere Anlagen.₺6.400 Produkt ansehen →](https://www.gespaenerji.com/de/havensis-mppt-30a.html)[![MS Teknik BOOST MPPT 24-72 V Laderegler](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Laderegler24–72-V-BOOST-MPPT für Elektrofahrzeuge.₺7.200 Produkt ansehen →](https://www.gespaenerji.com/de/elektrikli-arac-donusum.html)[![Solarkabel-Set (5 m Schwarz + 5 m Rot)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solarkabel-Set (5 m Schwarz + 5 m Rot)Für die Verbindung zwischen Modul und Regler.₺1.000 Produkt ansehen →](https://www.gespaenerji.com/de/kablo-solar-5m.html)[![MC4-Steckerset](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4-SteckersetUm das Modulkabel mit dem Solarkabel zu verbinden.₺100 Produkt ansehen →](https://www.gespaenerji.com/de/mc4-set.html)
+[![Havensis Solar-30AMPS MPPT-Laderegler 12/24 V 30 A](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Havensis Solar-30AMPS MPPT-Laderegler 12/24 V 30 AMPPT mit 100-V-Moduleingang; kleine und mittlere Anlagen.₺6.350 Produkt ansehen →](https://www.gespaenerji.com/de/havensis-mppt-30a.html)[![MS Teknik BOOST MPPT 24-72 V Laderegler](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Laderegler24–72-V-BOOST-MPPT für Elektrofahrzeuge.₺7.200 Produkt ansehen →](https://www.gespaenerji.com/de/elektrikli-arac-donusum.html)[![Solarkabel-Set (5 m Schwarz + 5 m Rot)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solarkabel-Set (5 m Schwarz + 5 m Rot)Für die Verbindung zwischen Modul und Regler.₺1.000 Produkt ansehen →](https://www.gespaenerji.com/de/kablo-solar-5m.html)[![MC4-Steckerset](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4-SteckersetUm das Modulkabel mit dem Solarkabel zu verbinden.₺100 Produkt ansehen →](https://www.gespaenerji.com/de/mc4-set.html)
 
 Häufige Fragen
 

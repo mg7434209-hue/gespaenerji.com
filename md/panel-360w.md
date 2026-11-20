@@ -3,7 +3,7 @@ title: "360 W Güneş Paneli Fiyatı | GESPA Enerji"
 description: "360 W Güneş Paneli: Voc 42,56 V, 1660 × 1001 mm, 19,5 kg. Bağ evi, karavan, çatı ve küçük off-grid sistemler için. KDV dahil, tüm Türkiye'ye kargo."
 canonical: https://www.gespaenerji.com/panel-360w.html
 lang: tr
-dateModified: 2026-11-13
+dateModified: 2026-11-20
 publisher: "GESPA Enerji"
 ---
 
@@ -160,7 +160,7 @@ Tamamlayıcı ürünler
 
 Aynı siparişte alın; hepsi aynı kargoyla gelsin.
 
-[![Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 A](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 A100 V panel girişli MPPT; küçük ve orta sistemler.₺6.400 Ürünü İncele →](https://www.gespaenerji.com/havensis-mppt-30a.html)[![MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Şarj Kontrol CihazıElektrikli araçlar için 24–72 V BOOST MPPT.₺7.200 Ürünü İncele →](https://www.gespaenerji.com/elektrikli-arac-donusum.html)[![Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)Panel ile cihaz arasındaki bağlantı için.₺1.000 Ürünü İncele →](https://www.gespaenerji.com/kablo-solar-5m.html)[![MC4 Konnektör Takımı](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Konnektör TakımıPanel kablosunu solar kabloya bağlamak için.₺100 Ürünü İncele →](https://www.gespaenerji.com/mc4-set.html)
+[![Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 A](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 A100 V panel girişli MPPT; küçük ve orta sistemler.₺6.350 Ürünü İncele →](https://www.gespaenerji.com/havensis-mppt-30a.html)[![MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Şarj Kontrol CihazıElektrikli araçlar için 24–72 V BOOST MPPT.₺7.200 Ürünü İncele →](https://www.gespaenerji.com/elektrikli-arac-donusum.html)[![Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)Panel ile cihaz arasındaki bağlantı için.₺1.000 Ürünü İncele →](https://www.gespaenerji.com/kablo-solar-5m.html)[![MC4 Konnektör Takımı](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Konnektör TakımıPanel kablosunu solar kabloya bağlamak için.₺100 Ürünü İncele →](https://www.gespaenerji.com/mc4-set.html)
 
 Sıkça Sorulan Sorular
 

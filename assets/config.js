@@ -599,7 +599,7 @@ window.GESPA.config = {
       id: "havensis-s30amps", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       url: "havensis-mppt-30a.html", sku: "S30AMPS", brand: "Havensis",
       img: "assets/img/products/havensis-s30amps.webp",
-      price: 129.6, currency: "USD",        // liste 108 USD + %20 KDV (sıra 12)
+      price: 129.22, currency: "USD",       // fatura maliyeti ₺3.924 × 1,35 (kâr %35) × 1,20 KDV = ₺6.350 (liste 108 USD, sıra 12)
       chips: ["⚡ 12/24 V · 30 A", "☀️ 100 V · 1200 W panel", "📟 LCD ekran"],
       for: "12/24 V akülü güneş sistemleri · 1200 W panele kadar",
       name: "Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 A",
@@ -607,10 +607,21 @@ window.GESPA.config = {
       features: ["12/24 V akü şarjı · 30 A şarj · 20 A yük çıkışı", "Gelişmiş MPPT · %98 dönüştürücü, %99,6 MPP izleme verimi", "Maks. 100 V panel girişi · 1200 W'a kadar panel", "LCD ekran ve LED durum göstergesi · tüm parametreler ayarlanabilir", "Gece-gündüz ve zaman ayarı · aküsüz çalışabilir", "159 × 210 × 70 mm · yerli üretim"]
     },
     {
+      id: "havensis-s40amps", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      url: "havensis-mppt-40a.html", sku: "S40AMPS", brand: "Havensis",
+      img: "assets/img/products/havensis-s40amps.webp",
+      price: 147.44, currency: "USD",       // maliyet ₺4.478 × 1,35 × 1,20 = ₺7.250 (liste 120 USD, sıra 13; fatura 3 Kas 2026)
+      chips: ["⚡ 12/24 V · 40 A", "☀️ 100 V · 1500 W panel", "📟 LCD ekran"],
+      for: "12/24 V akülü güneş sistemleri · 1500 W panele kadar",
+      name: "Havensis Solar-40AMPS MPPT Şarj Kontrol Cihazı 12/24 V 40 A",
+      desc: "Havensis Solar-MPS serisi MPPT şarj kontrol cihazı (Solar-40AMPS – 100|40). 12/24 V akü şarjı, 40 A şarj akımı ve 20 A yük çıkışı. Gelişmiş MPPT algoritmasıyla %98 dönüştürücü ve %99,6 MPP izleme verimi; 100 V'a kadar panel girişi, 1500 W'a kadar panel bağlantısı. LCD ekran ve LED durum göstergesi, tüm parametreler ayarlanabilir, gece-gündüz ve zaman ayarı fonksiyonu; panelden beslenerek aküsüz de çalışabilir. Cihaz boyutu 162 × 210 × 77 mm. Yerli üretim.",
+      features: ["12/24 V akü şarjı · 40 A şarj · 20 A yük çıkışı", "Gelişmiş MPPT · %98 dönüştürücü, %99,6 MPP izleme verimi", "Maks. 100 V panel girişi · 1500 W'a kadar panel", "LCD ekran ve LED durum göstergesi · tüm parametreler ayarlanabilir", "Gece-gündüz ve zaman ayarı · aküsüz çalışabilir", "162 × 210 × 77 mm · yerli üretim"]
+    },
+    {
       id: "havensis-s60amps100", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       url: "havensis-mppt-60a.html", sku: "S60AMPS100", brand: "Havensis",
       img: "assets/img/products/havensis-s60amps100.webp",
-      price: 240, currency: "USD",          // liste 200 USD + %20 KDV (sıra 15)
+      price: 241.87, currency: "USD",       // maliyet ₺7.346 × 1,35 × 1,20 = ₺11.900 (liste 200 USD, sıra 15)
       chips: ["⚡ 12/24 V · 60 A", "☀️ 100 V · 2500 W panel", "📟 LCD ekran"],
       for: "12/24 V akülü güneş sistemleri · 2500 W panele kadar",
       name: "Havensis Solar-60AMPS-100 MPPT Şarj Kontrol Cihazı 12/24 V 60 A",
@@ -632,7 +643,7 @@ window.GESPA.config = {
       id: "havensis-dcdc-1224-30", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
       url: "havensis-dcdc-30a.html", sku: "DCDC-1224-30", brand: "Havensis",
       img: "assets/img/products/havensis-dcdc-1224.webp",
-      price: 198, currency: "USD",          // liste 165 USD + %20 KDV (sıra 24)
+      price: 198.8, currency: "USD",        // maliyet ₺6.038 × 1,35 × 1,20 = ₺9.800 (liste 165 USD, sıra 24)
       chips: ["🔋 12/24 V · 30 A", "🚐 Alternatörden şarj", "⚙️ %96,4 verim"],
       for: "Karavan: alternatörden yaşam aküsüne şarj · 12/24 V",
       name: "Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 30 A",
@@ -643,7 +654,7 @@ window.GESPA.config = {
       id: "havensis-dcdc-1224-40", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
       url: "havensis-dcdc-40a.html", sku: "DCDC-1224-40", brand: "Havensis",
       img: "assets/img/products/havensis-dcdc-1224.webp",
-      price: 240, currency: "USD",          // liste 200 USD + %20 KDV (sıra 26)
+      price: 241.87, currency: "USD",       // maliyet ₺7.346 × 1,35 × 1,20 = ₺11.900 (liste 200 USD, sıra 26)
       chips: ["🔋 12/24 V · 40 A", "🚐 Alternatörden şarj", "⚙️ %96,4 verim"],
       for: "Karavan: alternatörden yaşam aküsüne şarj · 12/24 V",
       name: "Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A",
@@ -654,7 +665,7 @@ window.GESPA.config = {
       id: "havensis-dcdc-1224b-40", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
       url: "havensis-dcdc-40a-cift-yonlu.html", sku: "DCDC-1224B-40", brand: "Havensis",
       img: "assets/img/products/havensis-dcdc-1224b.webp",
-      price: 276, currency: "USD",          // liste 230 USD + %20 KDV (sıra 27)
+      price: 276.66, currency: "USD",       // maliyet ₺8.402 × 1,35 × 1,20 = ₺13.600 (liste 230 USD, sıra 27)
       chips: ["🔋 12/24 V · 40 A", "🔁 Çift yönlü · 10 A takviye", "⚙️ %96,4 verim"],
       for: "Karavan: çift yönlü akü şarjı (takviye modu) · 12/24 V",
       name: "Havensis DCDC-1224B Çift Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A",
@@ -671,6 +682,17 @@ window.GESPA.config = {
       name: "Havensis BOOST DCDC-2448 DC-DC Akü Şarj Cihazı 36/48/60/72 V",
       desc: "Havensis BOOST DCDC-2448 yükseltici DC-DC akü şarj cihazı. 12/24 V girişle 36/48/60/72 V akü şarjı yapar: 12–32 V giriş gerilimi, en fazla 20 A giriş ve 15 A şarj akımı, %95 dönüştürücü verimi. Karavan ve tekneler için özel tasarlanmıştır. Dijital ekran bağlantısı ve 5 m uzatma kablosu, gelişmiş koruma devreleri; dahili Bluetooth desteği isteğe bağlıdır (siparişte belirtin). Cihaz boyutu 162 × 210 × 70 mm. Yerli üretim.",
       features: ["12/24 V girişle 36/48/60/72 V akü şarjı", "12–32 V giriş · maks. 20 A giriş, 15 A şarj akımı", "%95 dönüştürücü verimi · gelişmiş koruma devreleri", "Dijital ekran bağlantısı ve 5 m uzatma kablosu", "İsteğe bağlı dahili Bluetooth (siparişte belirtin)", "162 × 210 × 70 mm · yerli üretim"]
+    },
+    {
+      id: "havensis-dcdc-2448-40", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
+      url: "havensis-boost-dcdc-2448-40a.html", sku: "DCDC-2448-40", brand: "Havensis",
+      img: "assets/img/products/havensis-dcdc-2448.webp",   // listede 20 A ve 40 A model aynı gövde/fotoğraf
+      price: 207.08, currency: "USD",       // maliyet ₺6.289 × 1,35 × 1,20 = ₺10.200 (liste 170 USD, sıra 32; fatura 3 Kas 2026)
+      chips: ["🔋 36/48 V akü", "⚡ 12/24 V giriş · 20 A şarj", "⚙️ %95 verim"],
+      for: "12/24 V girişten 36/48 V aküye şarj · karavan ve tekne",
+      name: "Havensis BOOST DCDC-2448 DC-DC Akü Şarj Cihazı 36/48 V 40 A",
+      desc: "Havensis BOOST DCDC-2448 (40 A) yükseltici DC-DC akü şarj cihazı. 12/24 V girişle 36/48 V akü şarjı yapar: 12–32 V giriş gerilimi, en fazla 40 A giriş ve 20 A şarj akımı, %95 dönüştürücü verimi. Karavan ve tekneler için özel tasarlanmıştır. Dijital ekran bağlantısı ve 5 m uzatma kablosu, gelişmiş koruma devreleri; dahili Bluetooth desteği isteğe bağlıdır (siparişte belirtin). Cihaz boyutu 162 × 210 × 70 mm. Yerli üretim.",
+      features: ["12/24 V girişle 36/48 V akü şarjı", "12–32 V giriş · maks. 40 A giriş, 20 A şarj akımı", "%95 dönüştürücü verimi · gelişmiş koruma devreleri", "Dijital ekran bağlantısı ve 5 m uzatma kablosu", "İsteğe bağlı dahili Bluetooth (siparişte belirtin)", "162 × 210 × 70 mm · yerli üretim"]
     },
 
     // —— Lexron şarj kontrol cihazları —— GES Marketim kataloğundan (gesmarketim1

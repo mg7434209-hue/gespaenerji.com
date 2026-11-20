@@ -3,7 +3,7 @@ title: "Havensis DC-DC Akü Şarj Cihazı 30A — Karavan Alternatör Şarjı"
 description: "Karavanda yaşam aküsünü yolda alternatörden şarj eden Havensis DCDC-1224 DC-DC akü şarj cihazı: 30 A, 12/24 V, %96,4 verim, motor kapalı tanıma, 5 m kablolu…"
 canonical: https://www.gespaenerji.com/havensis-dcdc-30a.html
 lang: tr
-dateModified: 2026-11-10
+dateModified: 2026-11-20
 publisher: "GESPA Enerji"
 ---
 
@@ -19,11 +19,11 @@ publisher: "GESPA Enerji"
 
 Karavanın yaşam aküsünü yolda, alternatörden şarj eden tek yönlü DC-DC akü şarj cihazı: 30 A şarj akımı, 12 ve 24 V araç ile akülerin her kombinasyonu. Motor durunca bunu algılar ve marş aküsünü korur.
 
-**₺9.750** ≈ $198
+**₺9.800** ≈ $199
 
 KDV dahil fiyattır.
 
-💰 Havale/EFT ile: **₺9.450**
+💰 Havale/EFT ile: **₺9.500**
 
 💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
 
@@ -173,7 +173,7 @@ Tamamlayıcı ürünler
 
 Aynı siparişte alın; hepsi aynı kargoyla gelsin.
 
-[![Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 A](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 AKaravan tavanına panel eklerseniz yaşam aküsü park hâlinde de güneşle dolar.₺6.400 Ürünü İncele →](https://www.gespaenerji.com/havensis-mppt-30a.html)[![360 W Güneş Paneli](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)360 W Güneş Paneli1660 × 1001 mm, 19,5 kg: tek kişinin tavana taşıyabileceği orta boy panel.₺7.200 Ürünü İncele →](https://www.gespaenerji.com/panel-360w.html)[![Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)Panel ile cihaz arası: 5 m siyah + 5 m kırmızı.₺1.000 Ürünü İncele →](https://www.gespaenerji.com/kablo-solar-5m.html)[![MC4 Konnektör Takımı](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Konnektör TakımıPanel kablosunu solar kabloya bağlar.₺100 Ürünü İncele →](https://www.gespaenerji.com/mc4-set.html)
+[![Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 A](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 AKaravan tavanına panel eklerseniz yaşam aküsü park hâlinde de güneşle dolar.₺6.350 Ürünü İncele →](https://www.gespaenerji.com/havensis-mppt-30a.html)[![360 W Güneş Paneli](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)360 W Güneş Paneli1660 × 1001 mm, 19,5 kg: tek kişinin tavana taşıyabileceği orta boy panel.₺7.200 Ürünü İncele →](https://www.gespaenerji.com/panel-360w.html)[![Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)Panel ile cihaz arası: 5 m siyah + 5 m kırmızı.₺1.000 Ürünü İncele →](https://www.gespaenerji.com/kablo-solar-5m.html)[![MC4 Konnektör Takımı](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Konnektör TakımıPanel kablosunu solar kabloya bağlar.₺100 Ürünü İncele →](https://www.gespaenerji.com/mc4-set.html)
 
 Sıkça Sorulan Sorular
 

@@ -3,7 +3,7 @@ title: "360W Mono-PERC Solar Panel | GESPA Energy"
 description: "360 W 60-cell Mono-PERC panel: Voc 42.56 V, 1660 × 1001 × 30 mm, 19.5 kg, IP68 junction box, 1500 V."
 canonical: https://www.gespaenerji.com/en/panel-360w.html
 lang: en
-dateModified: 2026-11-13
+dateModified: 2026-11-20
 publisher: "GESPA Enerji"
 ---
 
@@ -160,7 +160,7 @@ Complementary products
 
 Order them together and everything arrives in one shipment.
 
-[![Havensis Solar-30AMPS MPPT Charge Controller 12/24 V 30 A](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Havensis Solar-30AMPS MPPT Charge Controller 12/24 V 30 AMPPT with 100 V panel input; small and medium systems.₺6.400 View the Product →](https://www.gespaenerji.com/en/havensis-mppt-30a.html)[![MS Teknik BOOST MPPT 24-72 V Charge Controller](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Charge Controller24–72 V BOOST MPPT for electric vehicles.₺7.200 View the Product →](https://www.gespaenerji.com/en/elektrikli-arac-donusum.html)[![Solar Cable Set (5 m Black + 5 m Red)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Cable Set (5 m Black + 5 m Red)For the connection between panel and controller.₺1.000 View the Product →](https://www.gespaenerji.com/en/kablo-solar-5m.html)[![MC4 Connector Set](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Connector SetTo join the panel cable to the solar cable.₺100 View the Product →](https://www.gespaenerji.com/en/mc4-set.html)
+[![Havensis Solar-30AMPS MPPT Charge Controller 12/24 V 30 A](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Havensis Solar-30AMPS MPPT Charge Controller 12/24 V 30 AMPPT with 100 V panel input; small and medium systems.₺6.350 View the Product →](https://www.gespaenerji.com/en/havensis-mppt-30a.html)[![MS Teknik BOOST MPPT 24-72 V Charge Controller](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Charge Controller24–72 V BOOST MPPT for electric vehicles.₺7.200 View the Product →](https://www.gespaenerji.com/en/elektrikli-arac-donusum.html)[![Solar Cable Set (5 m Black + 5 m Red)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solar Cable Set (5 m Black + 5 m Red)For the connection between panel and controller.₺1.000 View the Product →](https://www.gespaenerji.com/en/kablo-solar-5m.html)[![MC4 Connector Set](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4 Connector SetTo join the panel cable to the solar cable.₺100 View the Product →](https://www.gespaenerji.com/en/mc4-set.html)
 
 Frequently Asked Questions
 

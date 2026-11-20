@@ -94,6 +94,9 @@ JOBS = [
      "crop": (147, 2, 513, 466), "canvas": (880, 660), "pad": 30, "quality": 86},
     {"src": "havensis-s60amps100.png", "out": "havensis-s60amps100.webp",
      "crop": (36, 23, 469, 511), "canvas": (880, 660), "pad": 30, "quality": 86},
+    # Solar-40AMPS (20 Kas 2026): fiyat listesi sayfa 8'in ilk görseli (saydamlık maskesiyle beyaza oturtuldu).
+    {"src": "havensis-s40amps.png", "out": "havensis-s40amps.webp",
+     "crop": (60, 8, 400, 460), "canvas": (880, 660), "pad": 30, "quality": 86},
     {"src": "havensis-s60amps150.png", "out": "havensis-s60amps150.webp",
      "crop": (142, 112, 582, 511), "canvas": (880, 660), "pad": 30, "quality": 86},
     # DCDC-1224 30 A ve 40 A aynı gövdedir; listede de aynı fotoğraf kullanılır.
