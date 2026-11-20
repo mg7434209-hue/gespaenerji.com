@@ -3,7 +3,7 @@ title: "Солнечная панель 240 Вт (48 ячеек) | GESPA"
 description: "Солнечная панель 240 Вт, 48 ячеек: Voc 36,12 В, 1320 × 776 × 30 мм, 8 кг. Для мини-электромобилей и небольших автономных систем."
 canonical: https://www.gespaenerji.com/ru/panel-240w.html
 lang: ru
-dateModified: 2026-11-13
+dateModified: 2026-11-20
 publisher: "GESPA Enerji"
 ---
 
@@ -156,7 +156,7 @@ publisher: "GESPA Enerji"
 
 Закажите вместе, и всё придёт одной посылкой.
 
-[![Контроллер заряда MPPT Havensis Solar-30AMPS 12/24 В 30 А](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Контроллер заряда MPPT Havensis Solar-30AMPS 12/24 В 30 АMPPT со входом панелей 100 В; малые и средние системы.₺6.400 Смотреть продукт →](https://www.gespaenerji.com/ru/havensis-mppt-30a.html)[![Контроллер заряда MS Teknik BOOST MPPT 24-72 В](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)Контроллер заряда MS Teknik BOOST MPPT 24-72 ВBOOST MPPT 24–72 В для электротранспорта.₺7.200 Смотреть продукт →](https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html)[![Комплект солнечного кабеля (5 м чёрный + 5 м красный)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Комплект солнечного кабеля (5 м чёрный + 5 м красный)Для соединения панели с контроллером.₺1.000 Смотреть продукт →](https://www.gespaenerji.com/ru/kablo-solar-5m.html)[![Комплект коннекторов MC4](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)Комплект коннекторов MC4Чтобы соединить кабель панели с солнечным кабелем.₺100 Смотреть продукт →](https://www.gespaenerji.com/ru/mc4-set.html)
+[![Контроллер заряда MPPT Havensis Solar-30AMPS 12/24 В 30 А](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Контроллер заряда MPPT Havensis Solar-30AMPS 12/24 В 30 АMPPT со входом панелей 100 В; малые и средние системы.₺6.350 Смотреть продукт →](https://www.gespaenerji.com/ru/havensis-mppt-30a.html)[![Контроллер заряда MS Teknik BOOST MPPT 24-72 В](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)Контроллер заряда MS Teknik BOOST MPPT 24-72 ВBOOST MPPT 24–72 В для электротранспорта.₺7.200 Смотреть продукт →](https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html)[![Комплект солнечного кабеля (5 м чёрный + 5 м красный)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Комплект солнечного кабеля (5 м чёрный + 5 м красный)Для соединения панели с контроллером.₺1.000 Смотреть продукт →](https://www.gespaenerji.com/ru/kablo-solar-5m.html)[![Комплект коннекторов MC4](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)Комплект коннекторов MC4Чтобы соединить кабель панели с солнечным кабелем.₺100 Смотреть продукт →](https://www.gespaenerji.com/ru/mc4-set.html)
 
 Частые вопросы
 

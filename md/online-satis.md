@@ -3,7 +3,7 @@ title: "Güneş Paneli, Akü ve MPPT Şarj Kontrol Satın Al | GESPA"
 description: "Lexron ve Arçelik güneş panelleri, LiFePO₄ akü, MPPT/PWM şarj kontrol cihazı, solar kablo ve hazır paketler. KDV dahil açık fiyat, Türkiye'ye kargo."
 canonical: https://www.gespaenerji.com/online-satis.html
 lang: tr
-dateModified: 2026-11-13
+dateModified: 2026-11-20
 publisher: "GESPA Enerji"
 ---
 
@@ -171,9 +171,19 @@ KDV dahil · kargo hariç
 
 12/24 V akülü güneş sistemleri · 1200 W panele kadar
 
-**₺6.400**≈ $130
+**₺6.350**≈ $129
 
-💰 Havale/EFT ile: **₺6.200**
+💰 Havale/EFT ile: **₺6.150**
+
+KDV dahil · kargo hariç
+
+### [Havensis Solar-40AMPS MPPT Şarj Kontrol Cihazı 12/24 V 40 A](https://www.gespaenerji.com/havensis-mppt-40a.html)
+
+12/24 V akülü güneş sistemleri · 1500 W panele kadar
+
+**₺7.250**≈ $147
+
+💰 Havale/EFT ile: **₺7.050**
 
 KDV dahil · kargo hariç
 
@@ -181,9 +191,9 @@ KDV dahil · kargo hariç
 
 12/24 V akülü güneş sistemleri · 2500 W panele kadar
 
-**₺11.800**≈ $240
+**₺11.900**≈ $242
 
-💰 Havale/EFT ile: **₺11.450**
+💰 Havale/EFT ile: **₺11.550**
 
 KDV dahil · kargo hariç
 
@@ -201,9 +211,9 @@ KDV dahil · kargo hariç
 
 Karavan: alternatörden yaşam aküsüne şarj · 12/24 V
 
-**₺9.750**≈ $198
+**₺9.800**≈ $199
 
-💰 Havale/EFT ile: **₺9.450**
+💰 Havale/EFT ile: **₺9.500**
 
 KDV dahil · kargo hariç
 
@@ -211,9 +221,9 @@ KDV dahil · kargo hariç
 
 Karavan: alternatörden yaşam aküsüne şarj · 12/24 V
 
-**₺11.800**≈ $240
+**₺11.900**≈ $242
 
-💰 Havale/EFT ile: **₺11.450**
+💰 Havale/EFT ile: **₺11.550**
 
 KDV dahil · kargo hariç
 
@@ -221,7 +231,7 @@ KDV dahil · kargo hariç
 
 Karavan: çift yönlü akü şarjı (takviye modu) · 12/24 V
 
-**₺13.600**≈ $276
+**₺13.600**≈ $277
 
 💰 Havale/EFT ile: **₺13.200**
 
@@ -234,6 +244,16 @@ KDV dahil · kargo hariç
 **₺8.250**≈ $168
 
 💰 Havale/EFT ile: **₺8.000**
+
+KDV dahil · kargo hariç
+
+### [Havensis BOOST DCDC-2448 DC-DC Akü Şarj Cihazı 36/48 V 40 A](https://www.gespaenerji.com/havensis-boost-dcdc-2448-40a.html)
+
+12/24 V girişten 36/48 V aküye şarj · karavan ve tekne
+
+**₺10.200**≈ $207
+
+💰 Havale/EFT ile: **₺9.900**
 
 KDV dahil · kargo hariç
 

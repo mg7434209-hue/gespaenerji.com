@@ -3,7 +3,7 @@ title: "Solarmodule, Akkus & MPPT-Laderegler kaufen | GESPA"
 description: "Lexron- und Arçelik-Solarmodule, LiFePO₄-Akkus, MPPT/PWM-Laderegler, Solarkabel und Fertigsets. Preise inkl. MwSt., Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/online-satis.html
 lang: de
-dateModified: 2026-11-13
+dateModified: 2026-11-20
 publisher: "GESPA Enerji"
 ---
 
@@ -171,9 +171,19 @@ Inkl. MwSt. · zzgl. Versand
 
 Solaranlagen mit 12/24-V-Batterie · bis 1200 W Modulleistung
 
-**₺6.400**≈ $130
+**₺6.350**≈ $129
 
-💰 Per Überweisung: **₺6.200**
+💰 Per Überweisung: **₺6.150**
+
+Inkl. MwSt. · zzgl. Versand
+
+### [Havensis Solar-40AMPS MPPT-Laderegler 12/24 V 40 A](https://www.gespaenerji.com/de/havensis-mppt-40a.html)
+
+Solaranlagen mit 12/24-V-Batterie · bis 1500 W Modulleistung
+
+**₺7.250**≈ $147
+
+💰 Per Überweisung: **₺7.050**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -181,9 +191,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Solaranlagen mit 12/24-V-Batterie · bis 2500 W Modulleistung
 
-**₺11.800**≈ $240
+**₺11.900**≈ $242
 
-💰 Per Überweisung: **₺11.450**
+💰 Per Überweisung: **₺11.550**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -201,9 +211,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Wohnmobil: Aufbaubatterie über die Lichtmaschine laden · 12/24 V
 
-**₺9.750**≈ $198
+**₺9.800**≈ $199
 
-💰 Per Überweisung: **₺9.450**
+💰 Per Überweisung: **₺9.500**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -211,9 +221,9 @@ Inkl. MwSt. · zzgl. Versand
 
 Wohnmobil: Aufbaubatterie über die Lichtmaschine laden · 12/24 V
 
-**₺11.800**≈ $240
+**₺11.900**≈ $242
 
-💰 Per Überweisung: **₺11.450**
+💰 Per Überweisung: **₺11.550**
 
 Inkl. MwSt. · zzgl. Versand
 
@@ -221,7 +231,7 @@ Inkl. MwSt. · zzgl. Versand
 
 Wohnmobil: bidirektionales Batterieladen (Boost-Modus) · 12/24 V
 
-**₺13.600**≈ $276
+**₺13.600**≈ $277
 
 💰 Per Überweisung: **₺13.200**
 
@@ -234,6 +244,16 @@ Lädt 36–72-V-Batterien über einen 12/24-V-Eingang · Wohnmobil und Boot
 **₺8.250**≈ $168
 
 💰 Per Überweisung: **₺8.000**
+
+Inkl. MwSt. · zzgl. Versand
+
+### [Havensis BOOST DCDC-2448 DC-DC-Batterieladegerät 36/48 V 40 A](https://www.gespaenerji.com/de/havensis-boost-dcdc-2448-40a.html)
+
+Lädt 36/48-V-Batterien über einen 12/24-V-Eingang · Wohnmobil und Boot
+
+**₺10.200**≈ $207
+
+💰 Per Überweisung: **₺9.900**
 
 Inkl. MwSt. · zzgl. Versand
 

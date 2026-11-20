@@ -3,7 +3,7 @@ title: "Havensis 30A DC-DC-Ladegerät — Laden über die Lichtmaschine"
 description: "Havensis DCDC-1224 DC-DC-Ladegerät, das die Aufbaubatterie unterwegs über die Lichtmaschine lädt: 30 A, 12/24 V, 96,4 % Wirkungsgrad, Motor-aus-Erkennung…"
 canonical: https://www.gespaenerji.com/de/havensis-dcdc-30a.html
 lang: de
-dateModified: 2026-11-10
+dateModified: 2026-11-20
 publisher: "GESPA Enerji"
 ---
 
@@ -19,11 +19,11 @@ Artikelnummer: **DCDC-1224-30** Auf Lager / bestellbar
 
 Unidirektionales DC-DC-Ladegerät, das die Aufbaubatterie des Wohnmobils während der Fahrt über die Lichtmaschine lädt: 30 A Ladestrom und jede Kombination aus 12- und 24-V-Fahrzeug und -Batterie. Es erkennt, wenn der Motor steht, und schützt die Starterbatterie.
 
-**₺9.750** ≈ $198
+**₺9.800** ≈ $199
 
 Preis inkl. MwSt.
 
-💰 Per Überweisung: **₺9.450**
+💰 Per Überweisung: **₺9.500**
 
 💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
 
@@ -173,7 +173,7 @@ Passendes Zubehör
 
 Zusammen bestellen, alles kommt in einer Sendung.
 
-[![Havensis Solar-30AMPS MPPT-Laderegler 12/24 V 30 A](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Havensis Solar-30AMPS MPPT-Laderegler 12/24 V 30 AMit einem Modul auf dem Dach lädt die Aufbaubatterie auch im Stand mit Sonnenenergie.₺6.400 Produkt ansehen →](https://www.gespaenerji.com/de/havensis-mppt-30a.html)[![360-W-Solarmodul](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)360-W-Solarmodul1660 × 1001 mm, 19,5 kg: mittelgroßes Modul, das eine Person aufs Dach tragen kann.₺7.200 Produkt ansehen →](https://www.gespaenerji.com/de/panel-360w.html)[![Solarkabel-Set (5 m Schwarz + 5 m Rot)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solarkabel-Set (5 m Schwarz + 5 m Rot)Modul zum Regler: 5 m schwarz + 5 m rot.₺1.000 Produkt ansehen →](https://www.gespaenerji.com/de/kablo-solar-5m.html)[![MC4-Steckerset](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4-SteckersetVerbindet das Modulkabel mit dem Solarkabel.₺100 Produkt ansehen →](https://www.gespaenerji.com/de/mc4-set.html)
+[![Havensis Solar-30AMPS MPPT-Laderegler 12/24 V 30 A](https://www.gespaenerji.com/assets/img/products/havensis-s30amps.webp)Havensis Solar-30AMPS MPPT-Laderegler 12/24 V 30 AMit einem Modul auf dem Dach lädt die Aufbaubatterie auch im Stand mit Sonnenenergie.₺6.350 Produkt ansehen →](https://www.gespaenerji.com/de/havensis-mppt-30a.html)[![360-W-Solarmodul](https://www.gespaenerji.com/assets/img/products/panel-360w.webp)360-W-Solarmodul1660 × 1001 mm, 19,5 kg: mittelgroßes Modul, das eine Person aufs Dach tragen kann.₺7.200 Produkt ansehen →](https://www.gespaenerji.com/de/panel-360w.html)[![Solarkabel-Set (5 m Schwarz + 5 m Rot)](https://www.gespaenerji.com/assets/img/products/kablo-solar-5m.webp)Solarkabel-Set (5 m Schwarz + 5 m Rot)Modul zum Regler: 5 m schwarz + 5 m rot.₺1.000 Produkt ansehen →](https://www.gespaenerji.com/de/kablo-solar-5m.html)[![MC4-Steckerset](https://www.gespaenerji.com/assets/img/products/mc4-set.webp)MC4-SteckersetVerbindet das Modulkabel mit dem Solarkabel.₺100 Produkt ansehen →](https://www.gespaenerji.com/de/mc4-set.html)
 
 Häufige Fragen
 

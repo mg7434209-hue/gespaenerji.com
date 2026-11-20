@@ -3,7 +3,7 @@ title: "Havensis 60A MPPT Şarj Kontrol Cihazı 12/24V — 2500W Panel"
 description: "Havensis Solar-60AMPS-100 MPPT şarj kontrol cihazı: 12/24 V akü, 60 A şarj, 20 A yük çıkışı, 100 V panel girişi, 2500 W'a kadar panel, LCD ekran."
 canonical: https://www.gespaenerji.com/havensis-mppt-60a.html
 lang: tr
-dateModified: 2026-11-10
+dateModified: 2026-11-20
 publisher: "GESPA Enerji"
 ---
 
@@ -19,11 +19,11 @@ publisher: "GESPA Enerji"
 
 12/24 V akülü güneş sistemleri için 60 A MPPT şarj kontrol cihazı: 2500 W'a kadar panel bağlanır, aküyü 60 A ile şarj eder. 20 A yük çıkışı, gece-gündüz ve zaman ayarıyla aydınlatmayı kendi yönetir.
 
-**₺11.800** ≈ $240
+**₺11.900** ≈ $242
 
 KDV dahil fiyattır.
 
-💰 Havale/EFT ile: **₺11.450**
+💰 Havale/EFT ile: **₺11.550**
 
 💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
 
@@ -160,6 +160,7 @@ Seçimi akü geriliminiz ve bağlayacağınız panel gücü belirler.
 | Model | Akü | Şarj akımı | Panel girişi | Panel gücü | Verim | Boyut |
 | --- | --- | --- | --- | --- | --- | --- |
 | Solar-30AMPS (100\|30) | 12/24 V | 30 A | 100 V | 1200 W | %98 | 159 × 210 × 70 mm |
+| Solar-40AMPS (100\|40) | 12/24 V | 40 A | 100 V | 1500 W | %98 | 162 × 210 × 77 mm |
 | Solar-60AMPS-100 (100\|60) Bu ürün | 12/24 V | 60 A | 100 V | 2500 W | %98 | 197,2 × 224 × 80 mm |
 | Solar-60AMPS 150\|60 | 12/24/36/48 V | 60 A | 150 V | 5000 W | %97,5 | 280 × 235 × 100 mm |
 

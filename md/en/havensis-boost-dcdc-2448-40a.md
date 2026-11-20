@@ -1,0 +1,202 @@
+---
+title: "Havensis BOOST DC-DC 40A Charger, 36/48V Battery | GESPA Energy"
+description: "Havensis BOOST DCDC-2448 40 A: DC-DC charger that charges a 36 and 48 V battery bank from a 12/24 V vehicle battery."
+canonical: https://www.gespaenerji.com/en/havensis-boost-dcdc-2448-40a.html
+lang: en
+dateModified: 2026-11-20
+publisher: "GESPA Enerji"
+---
+
+[Home](https://www.gespaenerji.com/en/) / [Online Store](https://www.gespaenerji.com/en/online-satis.html) / Havensis BOOST DCDC-2448 DC-DC Battery Charger 36/48 V 40 A
+
+![Havensis BOOST DCDC-2448 40 A DC-DC battery charger](https://www.gespaenerji.com/assets/img/products/havensis-dcdc-2448.webp)
+
+⬆️ BOOST DC-DC Charger
+
+# Havensis BOOST DCDC-2448 DC-DC Battery Charger 36/48 V 40 A
+
+Product code: **DCDC-2448-40** In stock / available to order
+
+Step-up (BOOST) DC-DC charger that charges a 36 or 48 V battery bank from a 12/24 V vehicle battery at up to 20 A. Designed for caravans and boats: it also fills your high-voltage battery system from the alternator on the road.
+
+**₺10.200** ≈ $207
+
+Price includes VAT.
+
+💰 By bank transfer: **₺9.900**
+
+💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
+
+🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+
+[🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
+
+[⚡ Buy it now](https://www.gespaenerji.com/en/sepet.html)
+[💬 Ask on WhatsApp](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20BOOST%20DCDC-2448%20DC-DC%20Ak%C3%BC%20%C5%9Earj%20Cihaz%C4%B1%2036%2F48%20V%2040%20A%22%20(DCDC-2448-40)%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.%20Adet%3A%201.%20https%3A%2F%2Fwww.gespaenerji.com%2Fhavensis-boost-dcdc-2448-40a.html)
+
+- ⏱️ Estimated delivery after order confirmation: **2–5** business days.
+- 🔄 Right of withdrawal (distance sales): **14** days — returns via our contracted courier are free.
+- 🛡️ Warranty: **2 years**
+- 🔒 Secure payment: iyzico / tami · invoice with every order
+- 🔋 Batteries are not included.
+- 🏭 Made in Türkiye · Havensis
+
+🔋 36/48 V battery ⚡ 12/24 V input ⬆️ 40 A input · 20 A charge ⚙️ 95% efficiency 🏭 Made in Türkiye
+
+## ✅ Suitable for
+
+- Battery systems with the voltages listed in the spec table
+- Panel strings whose total Voc stays below the input limit
+- Country houses, caravans, boats and EV charging
+
+## ⛔ Not suitable for
+
+- Grid-tied systems with an inverter
+- Series strings exceeding the input voltage limit
+- Battery types or voltages not listed in the spec table
+
+The Havensis BOOST DCDC-2448 (40 A) is a step-up DC-DC charger that raises a 12–32 V input and delivers it as charging current to a 36 or 48 V battery bank. It is designed especially for caravans and boats.
+
+Caravan and boat systems with high-power inverters are often built on a 48 V battery bank, and electric boat motors and some vehicles' battery packs are also in the 36–48 V range. The vehicle's alternator, however, is 12 or 24 V. The BOOST DCDC-2448 bridges this gap: it also charges the high-voltage battery bank while the engine runs.
+
+It draws at most 40 A from the input and delivers at most 20 A of charging current to the battery; conversion efficiency is 95%. It has a digital display connection, a 5 m extension cable and advanced protection circuits.
+
+Built-in Bluetooth is optional and must be specified when ordering; write to us before you order if you want this option.
+
+The unit is made in Türkiye by Havensis. We ship it anywhere in Türkiye and offer optional on-site installation in the Antalya region.
+
+| Brand | Havensis |
+| --- | --- |
+| Model | BOOST DCDC-2448 (40 A) |
+| Input voltage | 12–32 V (12/24 V systems) |
+| Battery charged | 36/48 V |
+| Max. input current | 40 A |
+| Max. charging current | 20 A |
+| Conversion efficiency | 95% |
+| Display | Digital display connection, 5 m extension cable |
+| Protection | Advanced protection circuits |
+| Bluetooth | Built-in, optional (specify when ordering) |
+| Design | Designed especially for caravans and boats |
+| Dimensions | 162 × 210 × 70 mm |
+| Origin | Made in Türkiye |
+
+Values are taken from the manufacturer's (Havensis) product list. If you need a value that isn't listed, write to us and we'll confirm it with the manufacturer.
+
+What is a DC-DC battery charger? [Solar Glossary →](https://www.gespaenerji.com/en/sozluk.html#dc-dc-sarj)
+
+- Products are shipped by contracted courier to every province of Türkiye; delivery is not limited to Antalya.
+- Estimated delivery is 2–5 business days after order confirmation; the tracking number is sent via WhatsApp.
+- Shipping is paid by the buyer and is stated exactly at order confirmation. Prices include VAT.
+- Under distance-selling rules you may withdraw within 14 days of delivery; for a problem-free delivery the return shipping is paid by the buyer.
+- For damaged or defective goods all costs are ours — please inspect the parcel in front of the courier on delivery.
+- Optional on-site installation and training is offered in the Antalya region.
+
+Applications
+
+## Where is it used?
+
+Anywhere you need to charge a 36–48 V battery bank from a vehicle's 12/24 V system.
+
+🚐
+
+### 48 V caravan systems
+
+Fills the 48 V house battery bank from the vehicle's 12/24 V alternator on the road, so energy is ready for high-power inverter loads.
+
+⛵
+
+### Boats
+
+Charges a 36–48 V battery bank, such as an electric boat motor's or the house system's battery, while the engine runs.
+
+🔋
+
+### High-voltage battery banks
+
+Charges series-connected 36 and 48 V battery banks from a 12/24 V source with a single unit.
+
+Installation
+
+## How is it connected?
+
+The unit is connected between the 12/24 V starter battery and the 36–48 V battery bank.
+
+- ⚙️ **Alternator**While the engine runs
+- 🔋 **Starter battery**12/24 V
+- ⬆️ **BOOST DC-DC**DCDC-2448 (40 A)
+- 🔋 **Battery bank**36–48 V
+
+📟 The digital display connects with a 5 m extension cable, so you can follow the charging from where you can see it.
+
+- 1 ### Connect the input Connect the unit's input to the 12/24 V starter battery. The input current can reach 40 A, so choose the cable and fuse accordingly.
+- 2 ### Connect the output Connect the output to the 36–48 V battery bank with a suitable fuse close to the battery.
+- 3 ### Place the display Put the digital display where you can see it using the 5 m cable and follow the charging from there.
+
+**Installation tips**
+
+- Mount the unit close to the batteries in a ventilated, dry place and keep cable runs short.
+- The current on the input side is much higher than on the output: drawing 40 A at a 12 V input sends about 9–10 A to a 48 V battery. Choose a thick input cable.
+- Check that your alternator can handle the extra load; for newer vehicles with smart alternators, ask us.
+- We recommend having an auto electrician install it; send us your system diagram on WhatsApp and we'll check it together.
+
+Complementary products
+
+## Complete your system
+
+Order them together and everything arrives in one shipment.
+
+[![Havensis Solar-60AMPS 150|60 MPPT Charge Controller 12/24/36/48 V 60 A](https://www.gespaenerji.com/assets/img/products/havensis-s60amps150.webp)Havensis Solar-60AMPS 150|60 MPPT Charge Controller 12/24/36/48 V 60 AA 150 V input MPPT to charge the 48 V battery bank from the sun as well.₺16.200 View the Product →](https://www.gespaenerji.com/en/havensis-mppt-60a-150v.html)[![MS Teknik BOOST MPPT 24-72 V Charge Controller](https://www.gespaenerji.com/assets/img/products/ev/boost-mppt-on.webp)MS Teknik BOOST MPPT 24-72 V Charge ControllerDirect charging of a 24–72 V battery bank from low-voltage panels.₺7.200 View the Product →](https://www.gespaenerji.com/en/elektrikli-arac-donusum.html)[![TitanX 51.2 V 102 Ah LiFePO₄ Battery](https://www.gespaenerji.com/assets/img/products/aku-titanx-51v-102ah.webp)TitanX 51.2 V 102 Ah LiFePO₄ Battery5.22 kWh LiFePO₄ battery for a 48 V system.₺73.400 View the Product →](https://www.gespaenerji.com/en/aku-titanx-51v-102ah.html)
+
+Frequently Asked Questions
+
+## Frequently asked
+
+### Do I always get 20 A of charging current?
+
+No. The unit draws at most 40 A from the input and delivers at most 20 A to the battery; the current going into the battery depends on the input voltage and the battery voltage. Example: at a 24 V input it draws 24 V × 40 A = 960 W; at 95% efficiency about 19 A goes into a 48 V battery. At a 12 V input it is about 9–10 A for the same battery.
+
+### Which batteries is it used with?
+
+With 36 and 48 V battery banks. Send us your battery bank's voltage, type and charging values with your order and we'll check compatibility together.
+
+### Which vehicles is it for?
+
+Caravans, motorhomes and boats with a 12 or 24 V electrical system; the unit's input accepts 12–32 V.
+
+### Can I connect a solar panel directly?
+
+This unit is designed for a battery and alternator input. To charge a 24–72 V battery bank from panels you need an MPPT device: see our BOOST MPPT charge controller.
+
+[BOOST MPPT charge controller →](https://www.gespaenerji.com/en/elektrikli-arac-donusum.html)
+
+### Does it have Bluetooth?
+
+Built-in Bluetooth is optional and specified when ordering. Write to us before ordering if you want this option.
+
+### Who installs it, and do you ship outside Antalya?
+
+We ship anywhere in Türkiye; an auto electrician can do the installation. In the Antalya region we offer optional on-site installation.
+
+**Is your house battery 12 or 24 V?**
+
+To charge a 12/24 V house battery from the alternator, see our DCDC-1224 battery chargers.
+
+[DC-DC battery chargers →](https://www.gespaenerji.com/en/havensis-dcdc-30a.html)
+
+Customer reviews
+
+## What do buyers of this product say?
+
+No published reviews for this product yet. If you bought it, write about your experience; it is published here after approval.
+
+[Write a review (WhatsApp)](https://wa.me/905437434209?text=Merhaba%20GESPA%2C%20%22Havensis%20BOOST%20DCDC-2448%20DC-DC%20Ak%C3%BC%20%C5%9Earj%20Cihaz%C4%B1%2036%2F48%20V%2040%20A%22%20(DCDC-2448-40)%20%C3%BCr%C3%BCn%C3%BC%20i%C3%A7in%20yorumum%3A%20)[Our Google reviews ↗](https://g.page/r/CbkHeUEAA3x9EBM/review)
+
+## Charge your high-voltage battery on the road
+
+Message us on WhatsApp for stock and delivery; we reply the same day.
+
+[🛒 Add to cart & complete order](https://www.gespaenerji.com/en/sepet.html)
+
+---
+Kaynak sayfa: https://www.gespaenerji.com/en/havensis-boost-dcdc-2448-40a.html · GESPA Enerji · 0543 743 42 09 · info@gespaenerji.com · Örnek Mah. 1551 Sok. Yaşar Apt. No:10 İç Kapı No: Z01, Manavgat / Antalya
+Tüm sayfalar ve ürünler: https://www.gespaenerji.com/llms.txt · Ayrıntı: https://www.gespaenerji.com/llms-full.txt
