@@ -694,6 +694,19 @@ işe yaramıyordu.
 - Katsayılar tek config dosyasında (`config.calc`) ve koddan ayarlanabilir.
 - KURAL: Hesaplayıcı bileşenine hiçbir sayı (fiyat, katsayı, güç) hardcode ETME.
 
+## Satış motoru — yapay zekâ asistanı, talepler, huni (21 Kas 2026)
+Ayrıntı ve kurallar: @docs/satis-asistani.md
+- Sohbet penceresi `/api/chat` üzerinden yapay zekâ asistanıyla yanıt verir;
+  `ANTHROPIC_API_KEY` (YALNIZ Railway değişkeni) yoksa eski anahtar-kelime
+  botu çalışır. `CHAT_MODEL`, `CHAT_DAILY_MAX` isteğe bağlıdır.
+- Asistanın TEK bilgi kaynağı `llms-full.txt`'tir; ürün/fiyat değişince
+  `node build.js` yeter. Asistan kurallarına (`CHAT_RULES`) fiyat YAZMA.
+- Her talep (hesaplayıcı, "Beni arayın", sohbette bırakılan numara)
+  `saveLead()` ile `leads.json`'a yazılır; yönetim panelinde "Gelen talepler"
+  ve "Asistan sohbetleri" kartları, "İletişim hunisi" sayaçları vardır.
+- Projenin TEK npm bağımlılığı `@anthropic-ai/sdk`'dir (tembel yüklenir);
+  başka bağımlılık ekleme.
+
 ## Railway: CRON YASAK (27 Eki 2026)
 Railway servisine panelden "Cron Schedule" (Daily 0 0 * * *) eklenmişti:
 servis cron moduna geçti, ağ açılmadı ("Network: Not started"), site

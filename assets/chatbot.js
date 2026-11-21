@@ -1,7 +1,11 @@
 /* ============================================================
    GESPA Enerji — Akıllı Asistan (sohbet botu)
-   API'siz, tamamen istemci tarafı. Sık soruları yanıtlar, lead toplar;
-   sohbet geçmişini WhatsApp veya e-posta ile işletmeye iletir.
+   İki kip: sunucuda yapay zekâ asistanı açıksa (/api/chat, ANTHROPIC_API_KEY)
+   serbest sorular oraya gider; kapalıysa ya da hata olursa aşağıdaki anahtar-kelime
+   bilgi tabanı yanıtlar. Her iki kipte de talep (ad/telefon) /api/lead'e KAYDEDİLİR
+   (eskiden yalnız WhatsApp bağlantısına yazılıyordu; ziyaretçi düğmeye basmazsa
+   numara kayboluyordu). "Beni arayın" akışı yalnız telefon ister. Sayfada bir süre
+   kalan ziyaretçiye bir kez davet balonu gösterilir (oturum başına).
    Katsayı/iletişim: window.GESPA.config. main.js tarafından yüklenir.
    Çok dilli: aktif dil GESPA.lang'dan okunur (TR/EN/DE/RU);
    yanıt metinleri [tr,en,de,ru] dizisi olarak tutulur.
@@ -175,17 +179,89 @@
 
   var transcript = [];       // {who, text}
   var lead = { name: "", phone: "", note: "" };
-  var mode = "chat";         // chat | askName | askPhone | askNote | done
+  var mode = "chat";         // chat | askName | askPhone | askNote | cbPhone | done
   var panel, body, input, launcher;
+  var AI = false;            // sunucuda yapay zekâ asistanı açık mı (/api/chat)
+  var aiHist = [];           // yapay zekâya giden geçmiş: {role, content}
+  var busy = false;
+  var openedAt = 0;
+  var SID = (function () {
+    try { var v = sessionStorage.getItem("gespa-chat-sid"); if (!v) { v = Math.random().toString(36).slice(2, 12) + Date.now().toString(36); sessionStorage.setItem("gespa-chat-sid", v); } return v; }
+    catch (e) { return Math.random().toString(36).slice(2, 12); }
+  })();
+  function track(k) { try { if (window.GESPA && GESPA.track) GESPA.track("act", k); } catch (e) {} }
+  function pageProduct() { var h = doc.querySelector("[data-pkg-detail]"); return h ? h.getAttribute("data-pkg-detail") : ""; }
+  function phoneOk(t) { return (t || "").replace(/\D/g, "").length >= 10; }
+  // Talebi sunucuya kaydet (admin "Gelen talepler" + işletme e-postası). Sunucu yoksa sessizce geçer.
+  function postLead(kaynak, cb) {
+    var notes = transcript.slice(-12).map(function (m) { return (m.who === "user" ? "Ziyaretçi: " : "Asistan: ") + m.text; }).join("\n");
+    try {
+      fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({
+        kaynak: kaynak, ad: lead.name, tel: lead.phone, not: (lead.note ? lead.note + "\n\n" : "") + notes,
+        urun: pageProduct(), lang: lang(), path: location.pathname, ms: Math.max(3000, Date.now() - openedAt), website: "" }) })
+        .then(function (r) { if (cb) cb(r.ok); }, function () { if (cb) cb(false); });
+    } catch (e) { if (cb) cb(false); }
+  }
 
   function add(who, text, isHtml) {
     transcript.push({ who: who, text: text });
     var m = doc.createElement("div");
     m.className = "gchat-msg " + (who === "user" ? "user" : "bot");
-    if (isHtml) m.innerHTML = text; else m.textContent = text;
+    if (isHtml) m.innerHTML = text; else if (who === "bot") linkify(m, text); else m.textContent = text;
     body.appendChild(m);
     body.scrollTop = body.scrollHeight;
     return m;
+  }
+  // Yanıttaki adresleri bağlantıya çevirir: YALNIZ kendi sitemiz ve wa.me; düğümler
+  // createElement ile kurulur (innerHTML yok), başka adres düz metin kalır.
+  function linkify(el, text) {
+    var re = /https?:\/\/[^\s<>"')\]]+/g, last = 0, m;
+    while ((m = re.exec(text))) {
+      var url = m[0].replace(/[.,;:!?]+$/, "");
+      el.appendChild(doc.createTextNode(text.slice(last, m.index)));
+      var ok = false; try { var h = new URL(url).hostname; ok = h === location.hostname || /(^|\.)gespaenerji\.com$/.test(h) || h === "wa.me"; } catch (e) {}
+      if (ok) {
+        var a = doc.createElement("a"); a.className = "gchat-link";
+        try { var u = new URL(url); a.href = /gespaenerji\.com$/.test(u.hostname) ? u.pathname + u.search + u.hash : url; } catch (e) { a.href = url; }
+        if (/wa\.me/.test(url)) { a.target = "_blank"; a.rel = "noopener"; }
+        a.textContent = url.replace(/^https?:\/\/(www\.)?/, "");
+        el.appendChild(a);
+      } else el.appendChild(doc.createTextNode(url));
+      last = m.index + url.length;
+    }
+    el.appendChild(doc.createTextNode(text.slice(last)));
+  }
+  function typing(on) {
+    var t = body.querySelector(".gchat-typing");
+    if (on && !t) { t = doc.createElement("div"); t.className = "gchat-msg bot gchat-typing"; t.innerHTML = "<span></span><span></span><span></span>"; body.appendChild(t); body.scrollTop = body.scrollHeight; }
+    if (!on && t) t.remove();
+  }
+  // Yapay zekâ asistanına sor; olmazsa (kapalı, sınır, hata) anahtar-kelime botuna düş.
+  function askAI(text, onFail) {
+    busy = true; typing(true);
+    aiHist.push({ role: "user", content: text });
+    fetch("/api/chat", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages: aiHist.slice(-16), lang: lang(), page: location.pathname, sid: SID }) })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, st: r.status, j: j }; }); })
+      .then(function (x) {
+        busy = false; typing(false);
+        if (!x.ok || !x.j || !x.j.reply) {
+          aiHist.pop();
+          if (x.st === 503) AI = false;        // sunucuda kapalı: bu oturumda bir daha deneme
+          return onFail();
+        }
+        aiHist.push({ role: "assistant", content: x.j.reply });
+        add("bot", x.j.reply);
+        quickRow([{ t: L("📞 Beni arayın", "📞 Call me back", "📞 Rückruf", "📞 Перезвоните мне"), q: "__cb__" },
+                  { t: L("📲 WhatsApp", "📲 WhatsApp", "📲 WhatsApp", "📲 WhatsApp"), q: "__wa__" }]);
+      })
+      .catch(function () { busy = false; typing(false); aiHist.pop(); onFail(); });
+  }
+  function startCallback() {
+    mode = "cbPhone"; track("cb_open");
+    add("bot", L("Telefon numaranızı yazın, ekibimiz sizi arasın. 📞", "Type your phone number and our team will call you. 📞",
+                 "Schreiben Sie Ihre Telefonnummer, unser Team ruft Sie an. 📞", "Напишите номер телефона — наша команда вам перезвонит. 📞"));
+    consentLine();
   }
 
   function quickRow(items) {
@@ -286,6 +362,20 @@
   function handleUser(text, label) {
     add("user", label || text);
     if (text === "__wa__") { waHandoff(); return; }   // WhatsApp'a hibrit devir
+    if (text === "__cb__") { startCallback(); return; }   // "Beni arayın": yalnız telefon
+    if (mode === "cbPhone") {
+      if (!phoneOk(text)) { add("bot", L("Numarayı alan koduyla yazar mısınız? (örn. 05xx xxx xx xx)", "Please write the number with its area code.", "Bitte die Nummer mit Vorwahl schreiben.", "Напишите номер с кодом, пожалуйста.")); return; }
+      lead.phone = text.trim(); mode = "chat";
+      postLead("geri-arama", function (ok) {
+        add("bot", ok
+          ? L("Teşekkürler, numaranızı aldık ✓ Ekibimiz sizi arayacak. Bu arada sorunuz varsa yazabilirsiniz.", "Thank you, we have your number ✓ Our team will call you. Meanwhile, feel free to ask anything.",
+              "Danke, wir haben Ihre Nummer ✓ Unser Team ruft Sie an. Fragen können Sie inzwischen gern hier stellen.", "Спасибо, номер получили ✓ Наша команда вам перезвонит. А пока можете задать вопрос здесь.")
+          : L("Numaranızı şu an kaydedemedik. Lütfen WhatsApp'tan yazın ya da bizi arayın.", "We couldn't save your number right now. Please write on WhatsApp or call us.",
+              "Wir konnten Ihre Nummer gerade nicht speichern. Bitte schreiben Sie per WhatsApp oder rufen Sie an.", "Сейчас не удалось сохранить номер. Напишите в WhatsApp или позвоните нам."));
+        if (!ok) sendButtons();
+      });
+      return;
+    }
     if (mode === "askName") {
       lead.name = text.trim();
       mode = "askPhone";
@@ -293,6 +383,7 @@
       return;
     }
     if (mode === "askPhone") {
+      if (!phoneOk(text)) { add("bot", L("Numarayı alan koduyla yazar mısınız? (örn. 05xx xxx xx xx)", "Please write the number with its area code.", "Bitte die Nummer mit Vorwahl schreiben.", "Напишите номер с кодом, пожалуйста.")); return; }
       lead.phone = text.trim();
       mode = "askNote";
       add("bot", L("Son olarak, kısaca ihtiyacınız nedir? (Örn. çatı GES, tarımsal sulama, tüketim) — yazabilir veya 'geç' diyebilirsiniz.",
@@ -305,10 +396,16 @@
       var n = norm(text);
       var isSkip = n.indexOf("gec") >= 0 || n.indexOf("skip") >= 0 || n.indexOf("uberspringen") >= 0 || n.indexOf("пропустить") >= 0;
       if (!isSkip) lead.note = text.trim();
+      postLead("asistan");
       finishLead();
       return;
     }
-    // Normal sohbet
+    // Normal sohbet: önce yapay zekâ (açıksa), olmazsa anahtar-kelime botu
+    if (AI && !busy) { askAI(text, function () { ruleAnswer(text); }); return; }
+    ruleAnswer(text);
+  }
+
+  function ruleAnswer(text) {
     var hit = match(text);
     if (hit) {
       botAnswer(hit.a ? pick(hit.a) : contactAnswer(), hit.link);
@@ -334,7 +431,15 @@
                  "Hi! 👋 I'm the GESPA Energy assistant. Ask me about solar energy, irrigation, prices/quotes or the calculator.",
                  "Hallo! 👋 Ich bin der GESPA-Energy-Assistent. Fragen Sie zu Solarenergie, Bewässerung, Preisen/Angeboten oder dem Rechner.",
                  "Здравствуйте! 👋 Я ассистент GESPA Energy. Спрашивайте о солнечной энергии, поливе, ценах/КП или калькуляторе."));
-    quickRow(quickItems());
+    if (AI) {
+      var w = doc.createElement("div"); w.className = "gchat-consent";
+      w.innerHTML = L('Yapay zekâ asistanıdır; yanıtlar hatalı olabilir, kesin bilgi için ekibimiz teyit eder. Yazışmalar kaydedilir ve yanıt üretmek için hizmet sağlayıcıya iletilir: <a href="/kvkk.html" target="_blank" rel="noopener">KVKK</a>.',
+                      'This is an AI assistant; answers may contain mistakes and our team confirms the details. Chats are stored and sent to our AI provider to generate replies: <a href="/kvkk.html" target="_blank" rel="noopener">privacy notice</a>.',
+                      'Dies ist ein KI-Assistent; Antworten können Fehler enthalten, Details bestätigt unser Team. Chats werden gespeichert und zur Antworterzeugung an unseren KI-Anbieter übermittelt: <a href="/kvkk.html" target="_blank" rel="noopener">Datenschutz</a>.',
+                      'Это ИИ-ассистент; ответы могут содержать ошибки, детали подтверждает наша команда. Переписка сохраняется и передаётся провайдеру ИИ: <a href="/kvkk.html" target="_blank" rel="noopener">о данных</a>.');
+      body.appendChild(w);
+    }
+    quickRow([{ t: L("📞 Beni arayın", "📞 Call me back", "📞 Rückruf", "📞 Перезвоните мне"), q: "__cb__" }].concat(quickItems()));
   }
 
   // Statik arayüz metinlerini aktif dile göre güncelle (dil değişiminde de çağrılır)
@@ -346,7 +451,7 @@
     }
     if (panel) {
       var small = panel.querySelector(".gchat-head small");
-      if (small) small.textContent = L("Genelde birkaç dakikada yanıt", "Usually replies in minutes", "Antwortet meist in Minuten", "Обычно отвечает за несколько минут");
+      if (small) small.textContent = AI ? L("Yapay zekâ asistanı · anında yanıt", "AI assistant · instant replies", "KI-Assistent · sofortige Antwort", "ИИ-ассистент · мгновенный ответ") : L("Genelde birkaç dakikada yanıt", "Usually replies in minutes", "Antwortet meist in Minuten", "Обычно отвечает за несколько минут");
       if (input) {
         input.setAttribute("placeholder", L("Mesajınızı yazın...", "Type your message...", "Nachricht schreiben...", "Введите сообщение..."));
         input.setAttribute("aria-label", L("Mesaj", "Message", "Nachricht", "Сообщение"));
@@ -373,7 +478,53 @@
     applyUiLang();
     doc.addEventListener("gespa:lang", applyUiLang);
 
-    function openChat() { panel.classList.add("open"); launcher.classList.add("hide"); greet(); setTimeout(function () { input.focus(); }, 100); }
+    function openChat() {
+      if (!openedAt) { openedAt = Date.now(); track("chat_open"); }
+      hideNudge(true);
+      panel.classList.add("open"); launcher.classList.add("hide"); greet(); setTimeout(function () { input.focus(); }, 100);
+    }
+
+    // Yapay zekâ asistanı açık mı? (yanıt gelene dek anahtar-kelime botu varsayılır)
+    try {
+      fetch("/api/chat").then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { AI = !!(j && j.enabled); applyUiLang(); }).catch(function () {});
+    } catch (e) {}
+
+    // Davet balonu: sayfada 25 sn kalan ya da yarısına inen ziyaretçiye, oturumda BİR kez.
+    // Sepet ve ödeme sayfalarında, sohbet açıldıysa ya da çerez bandı dururken gösterilmez.
+    var nudge = null, nudgeDone = false;
+    function hideNudge(forever) {
+      if (nudge) { nudge.remove(); nudge = null; }
+      if (forever) { nudgeDone = true; try { sessionStorage.setItem("gespa-nudge", "1"); } catch (e) {} }
+    }
+    function showNudge() {
+      if (nudgeDone || nudge || panel.classList.contains("open") || doc.querySelector(".cookie-bar")) return;
+      try { if (sessionStorage.getItem("gespa-nudge")) { nudgeDone = true; return; } } catch (e) {}
+      nudgeDone = true; try { sessionStorage.setItem("gespa-nudge", "1"); } catch (e) {}
+      track("nudge");
+      nudge = doc.createElement("div"); nudge.className = "gchat-nudge"; nudge.setAttribute("role", "status");
+      var prod = !!pageProduct();
+      var p = doc.createElement("p");
+      p.textContent = prod
+        ? L("Bu ürünle ilgili sorunuz mu var? Hemen yanıtlayalım ya da sizi arayalım.", "Questions about this product? Ask now or let us call you.", "Fragen zu diesem Produkt? Jetzt fragen oder Rückruf anfordern.", "Вопросы по этому товару? Спросите сейчас или закажите звонок.")
+        : L("Aradığınızı bulamadınız mı? Sorun, hemen yanıtlayalım ya da sizi arayalım.", "Can't find what you need? Ask now or let us call you.", "Nicht fündig geworden? Jetzt fragen oder Rückruf anfordern.", "Не нашли нужное? Спросите сейчас или закажите звонок.");
+      var x = doc.createElement("button"); x.type = "button"; x.className = "gchat-nudge-x"; x.setAttribute("aria-label", L("Kapat", "Close", "Schließen", "Закрыть")); x.textContent = "×";
+      var b1 = doc.createElement("button"); b1.type = "button"; b1.className = "gchat-nudge-b"; b1.textContent = L("💬 Soru sor", "💬 Ask a question", "💬 Frage stellen", "💬 Задать вопрос");
+      var b2 = doc.createElement("button"); b2.type = "button"; b2.className = "gchat-nudge-b alt"; b2.textContent = L("📞 Beni arayın", "📞 Call me back", "📞 Rückruf", "📞 Перезвоните мне");
+      var row = doc.createElement("div"); row.className = "gchat-nudge-row"; row.appendChild(b1); row.appendChild(b2);
+      nudge.appendChild(x); nudge.appendChild(p); nudge.appendChild(row);
+      doc.body.appendChild(nudge);
+      x.addEventListener("click", function () { hideNudge(true); });
+      b1.addEventListener("click", function () { openChat(); });
+      b2.addEventListener("click", function () { openChat(); handleUser("__cb__", b2.textContent); });
+    }
+    if (!/(^|\/)(sepet|odeme|odeme-sonuc|admin)\.html$/.test(location.pathname)) {
+      setTimeout(showNudge, 25000);
+      var onScroll = function () {
+        var h = doc.documentElement.scrollHeight - window.innerHeight;
+        if (h > 600 && window.scrollY / h > 0.5) { window.removeEventListener("scroll", onScroll); showNudge(); }
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+    }
     function closeChat() { panel.classList.remove("open"); launcher.classList.remove("hide"); launcher.focus(); }
 
     launcher.addEventListener("click", openChat);

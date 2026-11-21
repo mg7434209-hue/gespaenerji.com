@@ -3,7 +3,7 @@ title: "KVKK Aydınlatma Metni | GESPA Enerji"
 description: "6698 sayılı KVKK kapsamında GESPA Enerji aydınlatma metni: kişisel verilerin işlenme amaçları, hukuki sebepleri ve ilgili kişinin hakları."
 canonical: https://www.gespaenerji.com/kvkk.html
 lang: tr
-dateModified: 2026-11-10
+dateModified: 2026-11-21
 publisher: "GESPA Enerji"
 ---
 
@@ -13,7 +13,7 @@ publisher: "GESPA Enerji"
 
 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) kapsamında, veri sorumlusu sıfatıyla kişisel verilerinizin işlenmesine ilişkin aydınlatma metni.
 
-Son güncelleme: 03.11.2026
+Son güncelleme: 21.11.2026
 
 ## 1. Veri Sorumlusu
 
@@ -28,6 +28,7 @@ Son güncelleme: 03.11.2026
 - **Müşteri işlem bilgileri:** talep ve teklif içeriği; formlarda ilettiğiniz proje tipi, tüketim, çatı/arazi ve sulama bilgileri; keşif ve görüşme kayıtları.
 - **İşlem güvenliği bilgileri:** sitenin çalışması için zorunlu sınırlı teknik kayıtlar (ör. sunucu erişim kayıtlarındaki IP adresi ve tarih/saat bilgisi).
 - **Pazarlama bilgileri (isteğe bağlı):** bültene abone olmanız hâlinde e-posta adresiniz.
+- **Site asistanı yazışmaları:** sitedeki sohbet penceresine yazdığınız mesajlar ve asistanın yanıtları; yazışmada kendi isteğinizle paylaştığınız ad ve telefon numarası. Asistan bir yapay zekâ sistemidir.
 - **Site kullanım istatistikleri (kimliksiz):** açılan sayfa ve ürün, ürünün sepete eklenmesi, siteye geliş kaynağı, cihaz türü (telefon/bilgisayar) ve — yalnızca çerez bildiriminde "Kabul et" derseniz — bulunduğunuz şehir. Bunlar kişiyi tanımlamayan günlük toplamlar olarak tutulur; ad, IP adresi veya çerez kimliği bu kayıtlara yazılmaz.
 
 Şirket, özel nitelikli kişisel veri (sağlık, din, biyometrik veri vb.) talep etmez; lütfen formlar ve mesajlar aracılığıyla bu nitelikte veri iletmeyiniz.
@@ -40,6 +41,7 @@ Son güncelleme: 03.11.2026
 - Satış sonrası destek, bakım (O&M) ve müşteri ilişkilerinin yürütülmesi,
 - Yasal yükümlülüklerin yerine getirilmesi ve yetkili kurum taleplerinin karşılanması,
 - Açık rızanız bulunması hâlinde bülten/tanıtım iletilerinin gönderilmesi,
+- Site asistanı üzerinden sorularınızın yanıtlanması, bıraktığınız telefon numarasından aranmanız ve asistan yanıtlarının doğruluğunun iyileştirilmesi,
 - Hangi ürün ve sayfaların ilgi gördüğünün, ziyaretçilerin hangi kaynaktan ve bölgeden geldiğinin kimliksiz toplamlarla ölçülmesi ve site ile ürün seçkisinin iyileştirilmesi.
 
 ## 4. İşlemenin Hukuki Sebepleri
@@ -61,7 +63,7 @@ Verileriniz; web sitesindeki iletişim/teklif formları, site asistanı (sohbet 
 Kişisel verileriniz, yukarıdaki amaçlarla sınırlı ve ölçülü olmak üzere:
 
 - **Yurt içinde**: kurulum, finansman ve lojistik süreçlerinde birlikte çalıştığımız iş ortakları ve tedarikçilere (yalnızca gerekli olduğu ölçüde) ve hukuken yetkili kamu kurum ve kuruluşlarına (talep hâlinde) aktarılabilir.
-- **Yurt dışına**: iletişiminizi WhatsApp üzerinden başlatmanız veya sürdürmeniz hâlinde yazışma içeriği, sunucuları yurt dışında bulunan WhatsApp'a (Meta Platforms) iletilir. Sitede kullanılan Google yazı tipleri ve — onay vermeniz hâlinde — Google Analytics nedeniyle IP adresiniz gibi sınırlı teknik veriler Google sunucularına aktarılabilir. Çerez bildiriminde "Kabul et" demeniz hâlinde, bulunduğunuz şehrin kimliksiz olarak sayılabilmesi için IP adresiniz oturum başına bir kez, IP adresinden konum bulan bir hizmete (ipwho.is) gönderilir; bu hizmetin sunucuları yurt dışında olabilir. Dönen şehir adı dışında hiçbir bilgi tarafımızda saklanmaz. Bu aktarımlar KVKK m.9 kapsamında, ilgili hizmeti kullanma yönündeki tercihiniz/açık rızanız çerçevesinde gerçekleşir.
+- **Yurt dışına**: iletişiminizi WhatsApp üzerinden başlatmanız veya sürdürmeniz hâlinde yazışma içeriği, sunucuları yurt dışında bulunan WhatsApp'a (Meta Platforms) iletilir. Sitede kullanılan Google yazı tipleri ve — onay vermeniz hâlinde — Google Analytics nedeniyle IP adresiniz gibi sınırlı teknik veriler Google sunucularına aktarılabilir. Site asistanına yazdığınız mesajlar, yanıt üretilebilmesi için yapay zekâ hizmet sağlayıcısı Anthropic'e (sunucuları yurt dışındadır) iletilir; asistanı kullanmak sizin tercihinizdedir, aynı soruları telefon veya e-posta ile de sorabilirsiniz. Asistana kimlik numarası, kart bilgisi gibi hassas bilgileri yazmayınız. Çerez bildiriminde "Kabul et" demeniz hâlinde, bulunduğunuz şehrin kimliksiz olarak sayılabilmesi için IP adresiniz oturum başına bir kez, IP adresinden konum bulan bir hizmete (ipwho.is) gönderilir; bu hizmetin sunucuları yurt dışında olabilir. Dönen şehir adı dışında hiçbir bilgi tarafımızda saklanmaz. Bu aktarımlar KVKK m.9 kapsamında, ilgili hizmeti kullanma yönündeki tercihiniz/açık rızanız çerçevesinde gerçekleşir.
 
 ## 7. Saklama Süreleri
 
