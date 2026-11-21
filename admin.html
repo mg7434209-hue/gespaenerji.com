@@ -173,6 +173,32 @@
       </p>
     </div>
 
+    <!-- Gelen talepler (lead): hesaplayıcı formu, "Beni arayın", site asistanı — server.js /api/leads -->
+    <div id="leadcard" class="adm-card" hidden>
+      <div class="adm-head">
+        <h2 style="font-size:1.35rem;margin:0">📥 Gelen talepler</h2>
+        <button class="btn btn-sm" type="button" id="leadRefresh">↻ Yenile</button>
+      </div>
+      <p style="color:var(--muted);margin:0 0 10px;font-size:.92rem">
+        Sitede telefon numarası bırakan herkes burada listelenir: hesaplayıcı formu, "Beni arayın" ve asistan sohbeti.
+        Aradığınız talebi "Arandı" olarak işaretleyin. Sayfa açıkken iki dakikada bir yenilenir.
+      </p>
+      <div id="leadOut" class="adm-note info">Okunuyor…</div>
+    </div>
+
+    <!-- Asistan sohbetleri: ziyaretçiler ne soruyor — server.js /api/chats -->
+    <div id="chatcard" class="adm-card" hidden>
+      <div class="adm-head">
+        <h2 style="font-size:1.35rem;margin:0">💬 Asistan sohbetleri</h2>
+        <button class="btn btn-sm" type="button" id="chatRefresh">↻ Yenile</button>
+      </div>
+      <p style="color:var(--muted);margin:0 0 10px;font-size:.92rem">
+        Ziyaretçilerin yapay zekâ asistanına yazdıkları ve aldıkları yanıtlar (son 60 sohbet). Asistanın yanlış ya da eksik
+        yanıt verdiği bir konu görürseniz bize iletin; bilgi kaynağını düzeltelim.
+      </p>
+      <div id="chatOut" class="adm-note info">Okunuyor…</div>
+    </div>
+
     <!-- Ziyaretçiler: son 24 saat, saatlik dağılım — server.js /api/visitors(+export) -->
     <div id="viscard" class="adm-card" hidden>
       <div class="adm-head">
@@ -324,8 +350,8 @@
     function show() {
       $("#login").hidden = true; $("#editor").hidden = false; $("#paylink").hidden = false;
       $("#taksit").hidden = false; $("#mailtest").hidden = false; $("#aibots").hidden = false;
-      $("#storecard").hidden = false; $("#fxcard").hidden = false; $("#qacard").hidden = false; $("#viscard").hidden = false; $("#statscard").hidden = false;
-      render(); payLink(); taksitAraci(); mailTest(); aiBots(); storeState(); fxState(); qaMod(); visitCard(); statsCard();
+      $("#storecard").hidden = false; $("#fxcard").hidden = false; $("#qacard").hidden = false; $("#viscard").hidden = false; $("#statscard").hidden = false; $("#leadcard").hidden = false; $("#chatcard").hidden = false;
+      render(); payLink(); taksitAraci(); mailTest(); aiBots(); storeState(); fxState(); qaMod(); visitCard(); statsCard(); leadCard(); chatCard();
     }
 
     // ---- Soru & Cevap moderasyonu -----------------------------------------
@@ -537,6 +563,67 @@
     }
     var visBtn = $("#visRefresh"); if (visBtn) visBtn.addEventListener("click", visitCard);
 
+    // Gelen talepler — /api/leads (yönetici şifresi). done: "Arandı" işaretini aç/kapa.
+    var leadTimer = null;
+    function leadCard(doneAt) {
+      var out = $("#leadOut"); if (!out) return;
+      var esc = function (x) { return String(x == null ? "" : x).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+      fetch("/api/leads", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pass: sessPass(), done: doneAt || "" }) })
+        .then(function (r) { if (r.status === 404 || r.status === 405) throw new Error("pages"); if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+        .then(function (j) {
+          var L = j.leads || [], open = L.filter(function (x) { return !x.done; }).length;
+          var html = '<p style="margin:0 0 10px"><strong>' + L.length + '</strong> talep · <strong style="color:' + (open ? "#b3261e" : "inherit") + '">' + open + '</strong> aranmayı bekliyor</p>';
+          if (!j.mail) html += '<p style="margin:0 0 10px;font-size:.86rem;color:#b3261e">⚠️ Sipariş e-postası (SMTP) ayarlı değil: yeni talep geldiğinde e-posta GELMEZ, yalnız burada görünür. Bu sayfayı düzenli kontrol edin ya da "Sipariş e-postası" kartındaki ayarı yapın.</p>';
+          if (!j.persistent) html += '<p style="margin:0 0 10px;font-size:.86rem;color:var(--muted)">Kalıcı disk yok: talepler site güncellenirken önceki sunucudan devralınır; kesin kalıcılık için Railway Volume ekleyin.</p>';
+          if (!L.length) html += '<p style="margin:0;color:var(--muted)">Henüz talep yok.</p>';
+          else html += '<div style="overflow:auto"><table class="spec-table" style="min-width:0;font-size:.9rem"><thead><tr><th>Tarih</th><th>Kaynak</th><th>Ad</th><th>Telefon</th><th>Ayrıntı</th><th></th></tr></thead><tbody>' +
+            L.map(function (x) {
+              var det = [x.urun ? "Ürün: " + x.urun : "", x.ilce ? "İlçe: " + x.ilce : "", x.kwp ? x.kwp + " kWp" : "", x.path || ""].filter(Boolean).join(" · ");
+              return '<tr style="' + (x.done ? "opacity:.55" : "") + '"><td style="white-space:nowrap">' + esc(new Date(x.at).toLocaleString("tr-TR", { timeZone: "Europe/Istanbul", day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })) + '</td>' +
+                '<td>' + esc(x.src) + '</td><td>' + esc(x.ad || "—") + '</td>' +
+                '<td style="white-space:nowrap"><a href="tel:' + esc(x.tel) + '">' + esc(x.tel) + '</a> · <a href="https://wa.me/' + esc(x.wa) + '" target="_blank" rel="noopener">WhatsApp</a></td>' +
+                '<td style="font-size:.84rem;color:var(--muted)">' + esc(det) + (x.not ? '<details><summary style="cursor:pointer">Not / sohbet</summary><div style="white-space:pre-wrap">' + esc(x.not) + '</div></details>' : "") + '</td>' +
+                '<td><button type="button" class="btn btn-sm' + (x.done ? " btn-ghost" : "") + '" data-lead-done="' + esc(x.at) + '">' + (x.done ? "↺ Geri al" : "✓ Arandı") + '</button></td></tr>';
+            }).join("") + '</tbody></table></div>';
+          out.className = "adm-note " + (open ? "warn" : "ok"); out.innerHTML = html;
+          out.querySelectorAll("[data-lead-done]").forEach(function (b) { b.addEventListener("click", function () { leadCard(b.getAttribute("data-lead-done")); }); });
+        })
+        .catch(function (e) {
+          out.className = "adm-note info";
+          out.textContent = e && e.message === "pages" ? "ℹ️ Talepler yalnız canlı sitede (Railway) tutulur." : "⚠️ Talepler okunamadı (" + ((e && e.message) || "hata") + ").";
+        });
+      if (!leadTimer) leadTimer = setInterval(function () { if (!document.hidden) leadCard(); }, 120000);
+    }
+    var leadBtn = $("#leadRefresh"); if (leadBtn) leadBtn.addEventListener("click", function () { leadCard(); });
+
+    // Asistan sohbetleri — /api/chats (yönetici şifresi)
+    function chatCard() {
+      var out = $("#chatOut"); if (!out) return;
+      var esc = function (x) { return String(x == null ? "" : x).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+      fetch("/api/chats", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pass: sessPass() }) })
+        .then(function (r) { if (r.status === 404 || r.status === 405) throw new Error("pages"); if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+        .then(function (j) {
+          var C = j.chats || [];
+          var html = j.enabled
+            ? '<p style="margin:0 0 10px">Yapay zekâ asistanı <strong>açık</strong> (' + esc(j.model) + ') · bugün <strong>' + j.today + '</strong> / ' + j.max + ' mesaj</p>'
+            : '<p style="margin:0 0 10px;color:#b3261e">⚠️ Yapay zekâ asistanı <strong>kapalı</strong>: Railway → Variables bölümüne <code>ANTHROPIC_API_KEY</code> eklenince açılır. Şu an sitede eski anahtar-kelime botu çalışıyor.</p>';
+          if (!C.length) html += '<p style="margin:0;color:var(--muted)">Henüz sohbet yok.</p>';
+          else html += C.map(function (c) {
+            var first = (c.msgs && c.msgs[0] && c.msgs[0].t) || "";
+            return '<details style="border-top:1px solid var(--line,#ccd);padding:8px 0"><summary style="cursor:pointer"><strong>' +
+              esc(new Date(c.last || c.at).toLocaleString("tr-TR", { timeZone: "Europe/Istanbul", day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })) + '</strong> · ' +
+              esc(c.page || "") + (c.lead ? ' · <span style="color:#1a7f37;font-weight:700">📞 numara bıraktı</span>' : "") + ' · <span style="color:var(--muted)">' + esc(first.slice(0, 70)) + '</span></summary>' +
+              (c.msgs || []).map(function (m) { return '<p style="margin:6px 0;white-space:pre-wrap;' + (m.r === "u" ? "font-weight:600" : "color:var(--muted)") + '">' + (m.r === "u" ? "👤 " : "🤖 ") + esc(m.t) + '</p>'; }).join("") + '</details>';
+          }).join("");
+          out.className = "adm-note " + (j.enabled ? "ok" : "warn"); out.innerHTML = html;
+        })
+        .catch(function (e) {
+          out.className = "adm-note info";
+          out.textContent = e && e.message === "pages" ? "ℹ️ Sohbetler yalnız canlı sitede (Railway) tutulur." : "⚠️ Sohbetler okunamadı (" + ((e && e.message) || "hata") + ").";
+        });
+    }
+    var chatBtn = $("#chatRefresh"); if (chatBtn) chatBtn.addEventListener("click", chatCard);
+
     // Ürün ilgisi ve trafik — /api/stats (günlük anonim sayaçlar; yönetici şifresiyle)
     var stRange = 7, stTimer = null;
     function statsCard() {
@@ -562,10 +649,10 @@
           var keys = Object.keys(j.days).sort();
           var from = stRange === 0 ? "" : (function () { var d = new Date(Date.parse(j.today + "T00:00:00Z") - (stRange - 1) * 864e5); return d.toISOString().slice(0, 10); })();
           var use = keys.filter(function (k) { return !from || k >= from; });
-          var sum = { v: 0, pv: {}, view: {}, cart: {}, src: {}, dev: {}, city: {} };
+          var sum = { v: 0, pv: {}, view: {}, cart: {}, src: {}, dev: {}, city: {}, act: {} };
           use.forEach(function (k) {
             var d = j.days[k]; sum.v += +d.v || 0;
-            ["pv", "view", "cart", "src", "dev", "city"].forEach(function (f) { var m = d[f] || {}; Object.keys(m).forEach(function (n) { sum[f][n] = (sum[f][n] || 0) + m[n]; }); });
+            ["pv", "view", "cart", "src", "dev", "city", "act"].forEach(function (f) { var m = d[f] || {}; Object.keys(m).forEach(function (n) { sum[f][n] = (sum[f][n] || 0) + m[n]; }); });
           });
           var tot = function (m) { return Object.keys(m).reduce(function (a, n) { return a + m[n]; }, 0); };
           var views = tot(sum.view), carts = tot(sum.cart), pvs = tot(sum.pv);
@@ -574,6 +661,12 @@
             tile(sum.v, "ziyaret") + tile(pvs, "sayfa görüntüleme") + tile(views, "ürün incelemesi") + tile(carts, "sepete ekleme") +
             tile(views ? Math.round(carts / views * 100) : 0, "sepet / inceleme %") + '</div>' +
             '<p style="margin:0 0 4px;font-size:.82rem;color:var(--muted)">Sayım başlangıcı: ' + esc(new Date(j.since).toLocaleDateString("tr-TR")) + (use.length ? " · " + use.length + " günlük veri" : " · bu aralıkta veri yok") + '</p>';
+          // dönüşüm hunisi: ziyaretçi bize ulaşmak için ne yaptı
+          var A = sum.act, g = function (k) { return A[k] || 0; };
+          html += sec("İletişim hunisi") + '<div style="display:flex;flex-wrap:wrap;gap:20px;margin:0 0 4px">' +
+            tile(g("wa"), "WhatsApp tıklaması") + tile(g("tel"), "telefon tıklaması") + tile(g("chat_open"), "asistan açılışı") +
+            tile(g("chat_msg"), "asistana mesaj") + tile(g("cb_open"), "“Beni arayın”") + tile(g("lead"), "bırakılan numara") + '</div>' +
+            '<p style="margin:0;font-size:.82rem;color:var(--muted)">Davet balonu ' + nf.format(g("nudge")) + ' kez gösterildi. Ziyaret çok, tıklama azsa sorun ilgide ya da güvendedir; tıklama var, numara yoksa sorun dönüşte.</p>';
           // günlük ziyaret çubukları (son 30 gün)
           var last = []; for (var i = 29; i >= 0; i--) { last.push(new Date(Date.parse(j.today + "T00:00:00Z") - i * 864e5).toISOString().slice(0, 10)); }
           var mx = Math.max.apply(null, last.map(function (k) { return (j.days[k] && j.days[k].v) || 0; }).concat([1]));

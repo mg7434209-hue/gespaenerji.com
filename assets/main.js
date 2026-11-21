@@ -2059,6 +2059,14 @@
     }
     window.GESPA = window.GESPA || {};
     GESPA.track = function (t, id) { send({ t: t, id: id }); };
+    // Dönüşüm hunisi: WhatsApp ve telefon bağlantılarına tıklama (admin "Ürün ilgisi ve trafik")
+    doc.addEventListener("click", function (e) {
+      var l = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+      if (!l) return;
+      var h = l.getAttribute("href") || "";
+      if (/wa\.me\/|api\.whatsapp\.com/.test(h)) send({ t: "act", id: "wa" });
+      else if (/^tel:/.test(h)) send({ t: "act", id: "tel" });
+    }, true);
     // Şehir: IP'nin şehir servisine gitmesi YALNIZ çerez bildiriminde "Kabul et" diyenler
     // için ve oturum başına bir kez ("Kabul et"e basıldığı anda da çağrılır).
     GESPA.geo = function () {

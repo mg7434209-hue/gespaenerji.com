@@ -319,7 +319,15 @@ fs.writeFileSync(path.join(TEST_DATA,'orders.json'),JSON.stringify({tok1:{conver
 const INGEST_TOKEN='ingest-test-belirteci-0123456789abcdefgh',ingestHits=[];
 const ingest=require('node:http').createServer((q,r)=>{let b='';q.on('data',c=>b+=c);q.on('end',()=>{ingestHits.push({token:q.headers['x-ingest-token'],path:q.url,body:b});r.writeHead(ingestHits.length===1?500:200,{'Content-Type':'application/json'});r.end('{"ok":true}');});});
 ingest.listen(4318,'127.0.0.1');
-const port=4317,server=spawn(process.execPath,['server.js'],{cwd:root,env:{...process.env,PORT:String(port),IYZIPAY_API_KEY:'',IYZICO_API_KEY:'',IYZIPAY_SECRET_KEY:RECEIPT_TEST_SECRET,FX_AUTO:'0',ADMIN_PASS:ADMIN_TEST_PASS,DATA_DIR:TEST_DATA,OS_TOKEN:OS_TEST_TOKEN,OS_INGEST_URL:'http://127.0.0.1:4318',OS_INGEST_TOKEN:INGEST_TOKEN,OS_SYNC_EVERY_MS:'400'}});
+// Fake Claude API for the site assistant (/api/chat): the SDK is pointed at it with ANTHROPIC_BASE_URL.
+// It records the request so the test can check model, caching, grounding and that no secret leaks to the browser.
+const aiCalls=[];const aiFake=require('node:http').createServer((q,r)=>{let d='';q.on('data',c=>d+=c);q.on('end',()=>{let j={};try{j=JSON.parse(d)}catch(e){}
+ aiCalls.push({url:q.url,key:String(q.headers['x-api-key']||q.headers.authorization||''),beta:q.headers['anthropic-beta'],body:j});
+ r.writeHead(200,{'content-type':'application/json'});
+ r.end(JSON.stringify({id:'msg_test',type:'message',role:'assistant',model:j.model,stop_reason:'end_turn',stop_sequence:null,
+  content:[{type:'thinking',thinking:'',signature:'x'},{type:'text',text:'360 W panel 7.200 TL. Sayfa: https://www.gespaenerji.com/panel-360w.html'}],
+  usage:{input_tokens:10,output_tokens:10,cache_creation_input_tokens:0,cache_read_input_tokens:0}}));});}).listen(4319,'127.0.0.1');
+const port=4317,server=spawn(process.execPath,['server.js'],{cwd:root,env:{...process.env,PORT:String(port),ANTHROPIC_API_KEY:'sk-ant-test-gizli',ANTHROPIC_BASE_URL:'http://127.0.0.1:4319',CHAT_DAILY_MAX:'3',IYZIPAY_API_KEY:'',IYZICO_API_KEY:'',IYZIPAY_SECRET_KEY:RECEIPT_TEST_SECRET,FX_AUTO:'0',ADMIN_PASS:ADMIN_TEST_PASS,DATA_DIR:TEST_DATA,OS_TOKEN:OS_TEST_TOKEN,OS_INGEST_URL:'http://127.0.0.1:4318',OS_INGEST_TOKEN:INGEST_TOKEN,OS_SYNC_EVERY_MS:'400'}});
 let logs='',started=false;
 // Sunucu dinlemeden önce build çalıştırır; 238 sayfada bu ~25 s sürüyor (railway.json healthcheckTimeout 300 s).
 const timeout=setTimeout(()=>{server.kill();console.error(logs);process.exitCode=1;},90000);
@@ -399,6 +407,38 @@ server.stdout.on('data',async d=>{
   assert.equal(stDay.view['kit-285w'],1,'stats: product view (bot ignored)');assert.equal(stDay.cart['kit-285w'],1,'stats: add to cart');
   assert.ok(!stDay.view['bu-urun-yok']&&!Object.keys(stDay.pv).some(k=>/server/.test(k)),'stats: unknown ids and non-public paths rejected');
   const ex2=await (await fetch('http://127.0.0.1:'+port+'/api/visitors/export',{method:'POST',body:JSON.stringify({pass:ADMIN_TEST_PASS})})).json();
+  // Sales assistant: grounded in llms-full.txt, key never reaches the browser, phone numbers become leads,
+  // daily cap falls back to the keyword bot, leads/chats are admin-only.
+  const B='http://127.0.0.1:'+port,UA={'User-Agent':EV_UA,'Content-Type':'application/json'};
+  assert.equal((await (await fetch(B+'/api/chat')).json()).enabled,true,'assistant enabled when the key is set');
+  const c1=await fetch(B+'/api/chat',{method:'POST',headers:UA,body:JSON.stringify({messages:[{role:'user',content:'360 watt panel kaç lira?'}],lang:'tr',page:'/panel-360w.html',sid:'testsid1'})});
+  const c1j=await c1.json();assert.equal(c1.status,200);assert.ok(/7\.200/.test(c1j.reply)&&!c1j.lead,'assistant reply');
+  const call=aiCalls[0];assert.ok(call.key.includes('sk-ant-test-gizli'),'server sends the key');assert.ok(!JSON.stringify(c1j).includes('sk-ant'),'key not in browser reply');
+  assert.equal(call.body.model,'claude-opus-5-5');assert.equal(call.body.fallbacks,'default');assert.ok(/server-side-fallback-2026-07-01/.test(call.beta||''),'refusal fallback beta');
+  assert.equal(call.body.output_config.effort,'low');assert.ok(!('thinking' in call.body)&&!('temperature' in call.body),'no removed params');
+  const sys=call.body.system;assert.ok(Array.isArray(sys)&&sys.length===1&&sys[0].cache_control&&sys[0].cache_control.type==='ephemeral','one cached system block');
+  assert.ok(sys[0].text.includes('360 W Güneş Paneli')&&sys[0].text.includes(fs.readFileSync(path.join(root,'llms-full.txt'),'utf8').slice(0,200)),'grounded in llms-full.txt');
+  assert.ok(!/\d{4}-\d{2}-\d{2}T|Date\.now/.test(sys[0].text.slice(0,3000)),'no volatile text at the head of the cached prefix');
+  assert.ok(call.body.messages[call.body.messages.length-1].content.includes('/panel-360w.html'),'page context rides in the user turn');
+  const c2=await (await fetch(B+'/api/chat',{method:'POST',headers:UA,body:JSON.stringify({messages:[{role:'user',content:'360 watt panel kaç lira?'},{role:'assistant',content:c1j.reply},{role:'user',content:'Beni arayın 0532 111 22 33'}],lang:'tr',page:'/panel-360w.html',sid:'testsid1'})})).json();
+  assert.equal(c2.lead,true,'phone number in chat becomes a lead');
+  const botChat=await fetch(B+'/api/chat',{method:'POST',headers:{'User-Agent':'curl/8','Content-Type':'application/json'},body:JSON.stringify({messages:[{role:'user',content:'x'}]})});assert.equal(botChat.status,403);await botChat.text();
+  await (await fetch(B+'/api/chat',{method:'POST',headers:UA,body:JSON.stringify({messages:[{role:'user',content:'merhaba'}],sid:'testsid2'})})).text();
+  const capped=await fetch(B+'/api/chat',{method:'POST',headers:UA,body:JSON.stringify({messages:[{role:'user',content:'bir daha'}],sid:'testsid2'})});
+  assert.equal(capped.status,429,'daily cap');assert.equal((await capped.json()).fallback,true,'cap tells the widget to fall back');
+  const cb=await fetch(B+'/api/lead',{method:'POST',headers:UA,body:JSON.stringify({kaynak:'geri-arama',tel:'0533 444 55 66',urun:'panel-360w',path:'/panel-360w.html',ms:5000})});assert.equal(cb.status,200,'callback lead needs only a phone');await cb.text();
+  const cbBad=await fetch(B+'/api/lead',{method:'POST',headers:UA,body:JSON.stringify({kaynak:'geri-arama',tel:'123',ms:5000})});assert.equal(cbBad.status,400);await cbBad.text();
+  const calcBad=await fetch(B+'/api/lead',{method:'POST',headers:UA,body:JSON.stringify({tel:'0533 444 55 66',ms:5000})});assert.equal(calcBad.status,400,'calculator lead still needs a name');await calcBad.text();
+  for(const u of ['/api/leads','/api/chats','/api/handoff/export']){const r=await fetch(B+u,{method:'POST',body:JSON.stringify({pass:'yanlis'})});assert.equal(r.status,403,u+' is admin-only');await r.text();}
+  const lj=await (await fetch(B+'/api/leads',{method:'POST',body:JSON.stringify({pass:ADMIN_TEST_PASS})})).json();
+  assert.equal(lj.leads.length,2);assert.equal(lj.leads[0].src,'Beni arayın');assert.equal(lj.leads[0].urun,'360 W Güneş Paneli');assert.equal(lj.leads[0].wa,'905334445566');
+  assert.equal(lj.leads[1].src,'Site asistanı');assert.ok(/05321112233/.test(lj.leads[1].tel)&&/360 watt panel/.test(lj.leads[1].not),'chat lead carries the conversation');
+  const dn=await (await fetch(B+'/api/leads',{method:'POST',body:JSON.stringify({pass:ADMIN_TEST_PASS,done:lj.leads[0].at})})).json();assert.equal(dn.leads[0].done,true,'mark lead as called');
+  const cj=await (await fetch(B+'/api/chats',{method:'POST',body:JSON.stringify({pass:ADMIN_TEST_PASS})})).json();
+  assert.ok(cj.enabled&&cj.chats.some(c=>c.sid==='testsid1'&&c.lead&&c.msgs.length===4),'conversation log');
+  const stj2=await (await fetch(B+'/api/stats',{method:'POST',body:JSON.stringify({pass:ADMIN_TEST_PASS})})).json();
+  assert.ok(stj2.days[stj2.today].act.lead===2&&stj2.days[stj2.today].act.chat_msg===3,'funnel counters');
+  for(const u of ['/data/leads.json','/data/chats.json'])assert.equal((await fetch(B+u)).status,404,u+' not public');
   assert.ok(ex2.stats&&ex2.stats.days[stj.today]&&ex2.stats.days[stj.today].v===1,'stats travel with the visitor counter on redeploy handoff');
   // Payment receipt token: the receipt opens WITHOUT a server-side order record (Railway without a
   // Volume wipes orders.json on every deploy). Format must match server.js receiptSeal():
@@ -462,6 +502,6 @@ server.stdout.on('data',async d=>{
    r=await api('/api/admin/login',{pass:'yanlis'});assert.equal(r.status,403);await r.text();
    r=await api('/api/admin/login',{pass:ADMIN_TEST_PASS});assert.deepEqual(await r.json(),{ok:true,secure:true},'admin login is verified by the server');}
   console.log('HTTP: key pages and bot files return 200; missing page returns 404; markdown mirrors, Accept negotiation, AI crawler counter, visitor handoff, receipt tokens, the public-file allowlist and the moderated Q&A work.');
- }catch(e){console.error(e);process.exitCode=1;}finally{clearTimeout(timeout);await new Promise(r=>{const t=setTimeout(r,4000);server.once('exit',()=>{clearTimeout(t);r();});server.kill();});fs.rmSync(TEST_DATA,{recursive:true,force:true});}
+ }catch(e){console.error(e);process.exitCode=1;}finally{clearTimeout(timeout);await new Promise(r=>{const t=setTimeout(r,4000);server.once('exit',()=>{clearTimeout(t);r();});server.kill();});aiFake.close();fs.rmSync(TEST_DATA,{recursive:true,force:true});}
 });
 server.on('error',e=>{clearTimeout(timeout);console.error(e);process.exitCode=1;});
