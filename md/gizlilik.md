@@ -33,7 +33,7 @@ Talebinize yanıt vermek, ücretsiz keşif/teklif sürecini yürütmek, hizmet k
 
 ## 4. Verilerin Aktarımı
 
-Verileriniz yasal zorunluluklar dışında üçüncü kişilerle paylaşılmaz; talebinizin yürütülmesi için yalnızca gerekli ölçüde kullanılır. İletişiminizi WhatsApp üzerinden başlatmanız hâlinde yazışma içeriği, sunucuları yurt dışında bulunan WhatsApp'a (Meta Platforms) iletilir. Sitede kullanılan Google yazı tipleri ve — onay vermeniz hâlinde — Google Analytics nedeniyle IP adresiniz gibi sınırlı teknik veriler Google sunucularına aktarılabilir. Şehir sayımı için — yalnızca "Kabul et" demeniz hâlinde — IP adresiniz, oturum başına bir kez, IP adresinden konum bulan bir hizmete (ipwho.is) gönderilir; yalnız dönen şehir adı sayılır, IP adresi tarafımızda saklanmaz. Sitemiz, sunucuları yurt dışında bulunan bir bulut barındırma hizmetinde çalışır; ilettiğiniz bilgiler bu sunucularda, erişimi Şirketimizle sınırlı olarak saklanır.
+Verileriniz yasal zorunluluklar dışında üçüncü kişilerle paylaşılmaz; talebinizin yürütülmesi için yalnızca gerekli ölçüde kullanılır. İletişiminizi WhatsApp üzerinden başlatmanız hâlinde yazışma içeriği, sunucuları yurt dışında bulunan WhatsApp'a (Meta Platforms) iletilir. Sitede kullanılan Google yazı tipleri ve — onay vermeniz hâlinde — Google Analytics nedeniyle IP adresiniz gibi sınırlı teknik veriler Google sunucularına aktarılabilir. Şehir sayımı için — yalnızca "Kabul et" demeniz hâlinde — IP adresiniz, oturum başına bir kez, IP adresinden konum bulan bir hizmete (ipwho.is) gönderilir; yalnız dönen şehir adı sayılır, IP adresi tarafımızda saklanmaz.
 
 ## 5. Saklama Süresi
 

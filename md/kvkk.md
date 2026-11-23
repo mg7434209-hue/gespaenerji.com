@@ -67,7 +67,6 @@ Kişisel verileriniz, yukarıdaki amaçlarla sınırlı ve ölçülü olmak üze
 - **WhatsApp:** iletişiminizi WhatsApp üzerinden başlatmanız veya sürdürmeniz hâlinde yazışma içeriği, sunucuları yurt dışında bulunan WhatsApp'a (Meta Platforms) sizin tarafınızdan iletilmiş olur.
 - **Google:** sitede kullanılan Google yazı tipleri ve — onay vermeniz hâlinde — Google Analytics nedeniyle IP adresiniz gibi sınırlı teknik veriler Google sunucularına aktarılabilir.
 - **Şehir sayımı:** çerez bildiriminde "Kabul et" demeniz hâlinde, bulunduğunuz şehrin kimliksiz olarak sayılabilmesi için IP adresiniz oturum başına bir kez, IP adresinden konum bulan bir hizmete (ipwho.is) gönderilir; bu hizmetin sunucuları yurt dışında olabilir. Dönen şehir adı dışında hiçbir bilgi tarafımızda saklanmaz.
-- **Barındırma:** sitemiz, sunucuları yurt dışında bulunan bir bulut barındırma hizmetinde çalışır; formlar, siparişler ve site asistanı aracılığıyla ilettiğiniz bilgiler bu sunucularda, erişimi Şirket ile sınırlı olarak saklanır.
 
 WhatsApp, Google Analytics ve şehir sayımına ilişkin aktarımlar yalnızca sizin o hizmeti kullanmayı ya da onay vermeyi seçmeniz hâlinde gerçekleşir; onayınızı çerez bildiriminden, yapay zekâ onayınızı ise sohbet penceresindeki "Yapay zekâ onayını geri al" bağlantısından dilediğiniz an geri alabilirsiniz.
 

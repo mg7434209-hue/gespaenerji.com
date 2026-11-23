@@ -74,8 +74,10 @@ tanıtan veri hiç gönderilmez. Dört kural birlikte durur, biri kalkarsa
 - Talep, sağlayıcı çağrısından ÖNCE kaydedilir: çağrı düşse de numara kaybolmaz.
 - `cerez-politikasi.html` tarayıcıda tutulan anahtarları sayar
   (`gespa-ai-ok`, `gespa-chat-sid`, `gespa-nudge`); yenisini eklersen oraya yaz.
-- AÇIK KALAN (işletme bilir): site Railway'de, yani yurt dışında barındırılıyor;
-  kvkk.html bunu açıkça söyler. Google yazı tipleri hâlâ Google'dan yüklenir
+- AÇIK KALAN (işletme bilir): site Railway'de (europe-west4, Hollanda)
+  barındırılıyor; işletme kararıyla kvkk.html bunu ANMAZ (23 Kas 2026). Metne
+  "veriler yurt dışına çıkmaz" gibi DOĞRU OLMAYAN bir cümle YAZMA; kalıcı çözüm
+  kişisel veriyi Türkiye'deki bir sunucuda tutmaktır. Google yazı tipleri hâlâ Google'dan yüklenir
   (IP gider); yerelden sunmak bu aktarımı da kaldırır.
 
 ## Pencere — `assets/chatbot.js`
