@@ -694,6 +694,44 @@ işe yaramıyordu.
 - Katsayılar tek config dosyasında (`config.calc`) ve koddan ayarlanabilir.
 - KURAL: Hesaplayıcı bileşenine hiçbir sayı (fiyat, katsayı, güç) hardcode ETME.
 
+## Elektrikçi Çantası (`elektrikci-cantasi.html` · `assets/usta.js`, 23 Kas 2026)
+Elektrikçi/montajcı için 20 ücretsiz saha aracı, 7 kategoride; yalnız TR (`TR_ONLY`, `<main data-article data-usta>`).
+Araç çapaları yayınlandı, DEĞİŞTİRME: `#egim #golge #cati-egimi #gunluk-uretim #sicaklik-gucu` · `#kablo #ac-kablo
+#akim #ohm` · `#dizi #seri-paralel #sigorta` · `#aku #aku-sure #aku-sarj #c-orani` · `#sarj-kontrol #yuk-listesi` ·
+`#cevirici` · `#kontrol`. Kategori çapaları `#grup-gunes|kablo|dizi|aku|cihaz|cevirici|kontrol`.
+- YAPI: `section.usta-cat#grup-*` (h2) → `section.usta-tool#id[data-usta-tool][data-kw]` (h3; kart başlıkları h4).
+  Yapışkan şerit `.usta-nav` YALNIZ 7 kategori çipidir (araç başına çip 360 px'e sığmaz, test denetler). Arama kutusu
+  `.usta-find` `hidden=""` başlar, usta.js açar; araç adı + `data-kw` sözcükleriyle süzer (Türkçe harf duyarsız).
+  Sayfadaki araç sayısı `<data data-ex="meta.count">`'tadır ve test bölüm sayısıyla karşılaştırır; başka yere sayı yazma.
+- MANTIK `assets/usta.js` (yalnız bu sayfa yükler, `defer`, ~18 KB br): üstte SAF HESAPLAR `GESPA.usta` (`sun tilts cable
+  cableRec coldVoc string array bank fuse awg* invCurrent acDrop acRec current kwToKva ohm controllerA runtime refill
+  cRate dailyKwh tempPower cellTemp shadow slopePct slopeDeg loadWh examples`), altta sayfa bağlama + SVG
+  (createElementNS/textContent; `innerHTML` YOK). Test saf işlevleri `vm` ile çağırır.
+- KATSAYI: hepsi `config.calc.usta` (pratik kural 15°, STC 25 °C, AWG tanımı, NOCT tanım koşulları, AC anma gerilimleri
+  230/400 V, AC kesit seçim listesi, şema sınırı, şehir enlemleri, açılış girdileri). Ortaklar YENİDEN YAZILMAZ:
+  `calc.cable`, `calc.shading`, `calc.pump.hpPerKw`, `builder.sizing` (`invEff`, `dod`, `sunHours`, `systemEff` —
+  günlük üretim ve akü süresi Sistem Kurucu ile AYNI katsayıyla açılır). usta.js'e sayı gömme (test arar).
+- STANDART TABLOSU YOK: akım taşıma kapasitesi, sigorta katsayısı, izin verilen gerilim düşümü yüzdesi, akü tipine göre
+  DoD, yönetmelik maddesi YAZILMAZ; yalnız tanım/fizik formülü + kullanıcının etiketten girdiği değer. AC aracı direnç
+  yaklaşımıdır (reaktans ihmal) ve sınırı kullanıcı yazar; `acSections` yalnız seçim listesidir. Tablo gereken yerde
+  "üreticinin tablosu + yetkili elektrikçi/mühendis" denir. Her araçta formül satırı ve "değerler yaklaşıktır" satırı durur.
+- ÖRNEK SAYILAR: sayfadaki `<data data-ex="anahtar" value="…">` değerleri `GESPA.usta.examples(config)` çıktısıyla
+  BİREBİR aynı olmalı (test; SSS yanıtlarındaki sayılar dahil). Açılış değeri/katsayı değişirse sayfayı da güncelle.
+  Dizi hesabı alanları BOŞ açılır; sıcaklık aracındaki γ/NOCT yuvarlak örnektir. 360 W künye değerleri (Vmp/Imp/Isc/
+  maks. seri sigorta 30 A) panel-360w.html'de aynen yazdığı için kullanılır.
+- YENİ ARAÇ: uygun `usta-cat` içine `section.usta-tool` (statik açıklama + örnek, iki `.usta-card`, `.usta-formula`,
+  `.usta-disc`, `.usta-rel`, `.usta-pro`, `data-kw`) + kategori satırındaki `.usta-idx` bağlantısı + usta.js'te saf işlev,
+  `examples()` anahtarları, bağlama + config açılış değerleri + testte elle hesaplanmış 2-3 sonuç ve kimlik listesi.
+  SVG yalnız gerçekten bir şey anlatıyorsa (gölge, eğim üçgeni, şemalar). hesaplayici.html'deki 5 araç ve Sistem Kurucu
+  TEKRARLANMAZ, bağlantı verilir.
+- BAĞLANTILAR: ana sayfa `#rehberler` (TR:ONLY), rehberler.html kartı, hesaplayici.html `#alet-cantasi` altı (TR:ONLY) ve
+  TÜM footer'lar (build.js `TOOLBAG`, `HELP:STATIC` içindeki TR:ONLY bloğu; test deseni denetler). Üst menüde YOK.
+- TUZAKLAR: `hidden` özniteliği etiketin SON özniteliğiyse `hidden=""` yaz (build `htmlToMd` gizli öğe süzgeci
+  `hidden>`'da kapanış etiketini yutup Markdown kopyasını kesiyor). Örnek sayılar `<span>` değil `<data>`: md'de span
+  sonrası boşluk "37 °" üretir. Kontrol listesi `localStorage gespa-usta-check` (cerez-politikasi.html'de yazılı).
+  "Beni arayın" düğmesi sohbet penceresinin `.gchat-fab` + `.gchat-quick` 📞 düğmesine tıklar (chatbot.js'e
+  dokunulmadı); o işaretleme değişirse düğme gizli kalır.
+
 ## Satış motoru — yapay zekâ asistanı, talepler, huni (21 Kas 2026)
 Ayrıntı ve kurallar: @docs/satis-asistani.md
 - Sohbet penceresi `/api/chat` üzerinden yapay zekâ asistanıyla yanıt verir;
@@ -986,7 +1024,7 @@ Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD v
   (`data-c-text`) ve dinamik sayılar çeviriden hariç tutulur.
 - MÜHENDİSLİK REHBERLERİ (30 Eki 2026, yalnız TR, `TR_ONLY`): `rehberler.html` (merkez) +
   `off-grid-gunes-sistemi-boyutlandirma.html` · `pwm-mppt-sarj-kontrol-farki.html` ·
-  `solar-sulama-pompasi-secimi.html`. Kabuk (head/menü/alt bilgi) mevcut mevzuat rehberinden
+  `solar-sulama-pompasi-secimi.html` (+ araç sayfası `elektrikci-cantasi.html`, kendi bölümü var). Kabuk (head/menü/alt bilgi) mevcut mevzuat rehberinden
   kopyalanır, `<main data-article>` → Article + FAQPage (görünen `.faq-item`) + BreadcrumbList build'de
   üretilir. İÇERİK KURALI: örnek hesaplar sitedeki araçlarla BİREBİR aynı formülü/katsayıyı kullanır
   (Sistem Kurucu `config.builder.sizing`, pompa aracı `config.calc.pump`) ve künye değerleri ürün

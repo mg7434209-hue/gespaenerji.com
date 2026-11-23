@@ -2723,3 +2723,156 @@ html.menu-locked,html.menu-locked body{overflow:hidden}
 .gchat-ask .gchat-quick{margin-top:8px}
 .gchat-quick button.gchat-chip-main{background:var(--green);color:#fff}
 .gchat-revoke{background:none;border:0;padding:0;font:inherit;color:var(--muted);text-decoration:underline;cursor:pointer}
+
+/* ============================================================
+   ELEKTRİKÇİ ÇANTASI (elektrikci-cantasi.html · assets/usta.js)
+   Araç kartları, yapışkan araç şeridi ve SVG şemalar. Renkler tema
+   değişkeninden; anlam renkleri (--u-ok/--u-bad/--u-warn) koyu temada açılır.
+   SVG yazıları viewBox 340 px'e göre 13 px: 360 px ekranda ~11 px kalır.
+   ============================================================ */
+.usta{--u-ok:#0f7a4a;--u-bad:#c0392b;--u-warn:#8a5a00;--u-cu:#c8792f;--u-cu-dim:#e6c3a0;--u-sun:#f7b500;--u-pv:#27408f;--u-bat:#3b7d5c}
+[data-theme="dark"] .usta{--u-ok:#5fd6a0;--u-bad:#ff8f84;--u-warn:#f2c35a;--u-cu:#e39a55;--u-cu-dim:#6b4a2e;--u-pv:#7f93ee;--u-bat:#5fbf93}
+.usta [hidden]{display:none !important}
+.usta-nav{position:sticky;top:var(--hdr-h,64px);z-index:40;background:var(--bg);border-bottom:1px solid var(--line)}
+.usta-nav-in{display:flex;gap:8px;overflow-x:auto;padding-top:8px;padding-bottom:8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.usta-nav-in::-webkit-scrollbar{display:none}
+.usta-nav a{flex:0 0 auto;display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:var(--bg-alt);color:var(--ink);font-weight:700;font-size:.88rem;text-decoration:none;white-space:nowrap}
+.usta-nav a.active{background:var(--green);border-color:var(--green);color:#fff}
+[data-theme="dark"] .usta-nav a.active{color:#0b1020}
+.usta-sec{padding-top:28px}
+.usta-tool{scroll-margin-top:calc(var(--hdr-h,64px) + 68px)}
+.usta #sss{scroll-margin-top:calc(var(--hdr-h,64px) + 68px)}
+.usta>.art-note,.usta-tool>p,.usta>.faq,.usta>.art-disc{max-width:860px}
+.usta-cat{scroll-margin-top:calc(var(--hdr-h,64px) + 60px)}
+.usta .usta-cat>h2{font-size:1.5rem;margin-top:40px}
+.usta-cat-lead{color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:6px !important}
+.usta-idx{display:block}
+.usta .usta-tool>h3{font-size:1.2rem;margin:30px 0 8px;padding-top:18px;border-top:1px dashed var(--line)}
+.usta .usta-cat>h2+.usta-cat-lead+.usta-tool>h3{border-top:0;padding-top:0;margin-top:14px}
+.usta-find{max-width:560px;margin:0 0 18px}
+.usta-find label{display:block;font-weight:700;font-size:.9rem;margin-bottom:6px}
+.usta-find input{width:100%;min-height:48px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);font:inherit}
+.usta-find input:focus{outline:none;border-color:var(--green)}
+.usta-find-state{margin:6px 0 0 !important;font-size:.85rem;color:var(--muted)}
+.usta-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start;margin:16px 0 12px}
+.usta-grid-chk{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}
+.usta .usta-card{padding:22px;box-shadow:var(--shadow);min-width:0}
+.usta .usta-card .tool-title{margin:0 0 10px;font-size:1.02rem;line-height:1.3}
+.usta .usta-card *+.tool-title{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
+.usta .row{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end;gap:12px}
+.usta-row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:end}
+.usta .field{margin-bottom:12px}
+.usta .field label,.usta-lbl{font-weight:600;font-size:.86rem;line-height:1.3}
+.usta .field input,.usta .field select{padding:10px 10px;min-height:44px}
+.usta .calc-results{margin:0 0 12px;gap:10px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.usta .usta-res3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.usta .result{padding:10px 12px;min-width:0}
+.usta .r-value{font-size:1.15rem;overflow-wrap:anywhere}
+.usta .result.highlight .r-value{font-size:1.45rem}
+.usta .result.usta-good{background:color-mix(in srgb,var(--u-ok) 12%,transparent);border-color:color-mix(in srgb,var(--u-ok) 40%,var(--line))}
+.usta .result.usta-good .r-value{color:var(--u-ok)}
+.usta .result.usta-bad{background:color-mix(in srgb,var(--u-bad) 12%,transparent);border-color:color-mix(in srgb,var(--u-bad) 45%,var(--line))}
+.usta .result.usta-bad .r-value{color:var(--u-bad)}
+.usta-sub{margin:4px 0 8px !important;font-weight:700;font-size:.86rem;color:var(--muted)}
+.usta-out{margin:0 0 8px !important;font-weight:700;font-size:.95rem;line-height:1.45}
+.usta .tool-hint{margin:8px 0 0;font-size:.85rem}
+.usta-seg{display:flex;flex-wrap:wrap;gap:6px}
+.usta-seg button{flex:1 1 auto;min-height:44px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--bg-alt);color:var(--ink);font:inherit;font-weight:700;font-size:.86rem;cursor:pointer}
+.usta-seg button.active{background:var(--green);border-color:var(--green);color:#fff}
+[data-theme="dark"] .usta-seg button.active{color:#0b1020}
+.usta-msg{margin:10px 0 0 !important;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg-alt);font-size:.9rem;line-height:1.45;font-weight:600}
+.usta-msg.ok{color:var(--u-ok);border-color:color-mix(in srgb,var(--u-ok) 40%,var(--line))}
+.usta-msg.warn{color:var(--u-warn);border-color:color-mix(in srgb,var(--u-warn) 45%,var(--line))}
+.usta-msg.bad{color:var(--u-bad);border-color:var(--u-bad);background:color-mix(in srgb,var(--u-bad) 10%,transparent)}
+.usta-svg{margin:12px auto 0;max-width:440px}
+.usta-svg svg{display:block;width:100%;height:auto;overflow:visible}
+.usta-svg:empty{display:none}
+.usta-formula{margin:0 0 6px !important;padding:10px 14px;border-left:4px solid var(--green);background:var(--bg-alt);border-radius:0 10px 10px 0;font-size:.92rem;line-height:1.6;overflow-wrap:anywhere}
+.usta sup,.usta sub{white-space:nowrap}
+.usta-disc{margin:0 0 8px !important;font-size:.84rem;color:var(--muted)}
+.usta-rel{margin:0 0 6px !important;font-size:.92rem;line-height:1.9}
+.usta-pro{margin:0 0 4px !important;font-size:.92rem;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center}
+.usta-pro>span{font-weight:700}
+.usta .usta-link{display:inline-flex;align-items:center;min-height:40px;padding:4px 12px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--green);font:inherit;font-weight:700;font-size:.88rem;text-decoration:none;cursor:pointer}
+.usta-check{list-style:none;padding:0 !important;margin:0 !important}
+.usta-check li{margin:0;border-bottom:1px solid var(--line)}
+.usta-check li:last-child{border-bottom:0}
+.usta-check label{display:flex;gap:12px;align-items:flex-start;padding:11px 2px;cursor:pointer;font-size:.95rem;line-height:1.45}
+.usta-check input{flex:0 0 auto;width:22px;height:22px;margin:1px 0 0;accent-color:var(--green)}
+.usta-check input:checked+span{color:var(--muted);text-decoration:line-through}
+.usta-chk-side{text-align:center}
+.usta-chk-side .usta-svg{max-width:130px}
+.usta-actions{display:flex;flex-direction:column;gap:8px;align-items:stretch;margin-top:10px}
+.usta-actions .btn{justify-content:center}
+.usta-actions .usta-link{justify-content:center;border-color:transparent;background:transparent;color:var(--muted)}
+/* SVG şemalar */
+.usta-svg .u-t{font:500 13px var(--font-body);fill:var(--ink)}
+.usta-svg .u-b{font-weight:700}
+.usta-svg .u-mut{fill:var(--muted)}
+.usta-svg .u-ok{fill:var(--u-ok)}
+.usta-svg .u-bad{fill:var(--u-bad)}
+.usta-svg .u-ink{fill:var(--ink)}
+.usta-svg .u-pos{fill:var(--u-bad)}
+.usta-svg .u-neg{fill:var(--ink)}
+.u-arc{fill:none;stroke:var(--line);stroke-width:2;stroke-dasharray:4 5}
+.u-ground{stroke:var(--muted);stroke-width:2}
+.u-post{stroke:var(--muted);stroke-width:3}
+.u-ghost{fill:var(--bg);stroke:var(--muted);stroke-width:1.5}
+.u-ghost.on{stroke:var(--u-sun)}
+.u-ray{stroke:var(--u-sun);stroke-width:2;stroke-dasharray:5 4}
+.u-sunc{fill:var(--u-sun);stroke:color-mix(in srgb,var(--u-sun) 60%,#a35a00);stroke-width:2}
+.u-panel{fill:var(--u-pv);stroke:var(--ink);stroke-width:1}
+.u-cu{fill:var(--u-cu-dim);stroke:var(--u-cu);stroke-width:1.5}
+.u-cu.sel{fill:var(--u-cu)}
+.u-recring{fill:none;stroke:var(--u-ok);stroke-width:2.5;stroke-dasharray:4 3}
+.u-bar{fill:var(--bg-alt);stroke:var(--line)}
+.u-win{fill:color-mix(in srgb,var(--u-ok) 35%,transparent)}
+.u-over{fill:color-mix(in srgb,var(--u-bad) 35%,transparent)}
+line.u-mark{stroke-width:2.5;stroke:var(--ink)}
+line.u-mark.u-ok{stroke:var(--u-ok)}
+line.u-mark.u-bad{stroke:var(--u-bad)}
+.u-bus{stroke-width:4;stroke-linecap:round}
+.u-bus.pos{stroke:var(--u-bad)}
+.u-bus.neg{stroke:var(--ink)}
+.u-wire{stroke:var(--muted);stroke-width:2}
+.u-cell{stroke:var(--ink);stroke-width:1.2}
+.u-cell.pv{fill:var(--u-pv)}
+.u-cell.bat{fill:var(--u-bat)}
+.u-cell.fault{fill:var(--u-bad)}
+.u-nub{fill:var(--ink)}
+.u-grid{stroke:rgba(255,255,255,.45);stroke-width:1}
+.usta-svg .u-cellt{fill:#fff;font-weight:700}
+[data-theme="dark"] .usta-svg .u-cellt{fill:#0b1020}
+[data-theme="dark"] .u-grid{stroke:rgba(0,0,0,.35)}
+.u-arrow{fill:none;stroke:var(--u-warn);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.u-arrow.bad{stroke:var(--u-bad)}
+.u-shadow{stroke:var(--ink);stroke-width:7;opacity:.45}
+.u-obst{fill:var(--muted);stroke:var(--ink);stroke-width:1}
+.u-tri{fill:color-mix(in srgb,var(--u-pv) 14%,transparent);stroke:var(--muted);stroke-width:1.5}
+.u-roof{stroke:var(--u-pv);stroke-width:4;stroke-linecap:round}
+.u-ring{fill:none;stroke:var(--line);stroke-width:10}
+.u-ringon{fill:none;stroke:var(--u-ok);stroke-width:10;stroke-linecap:round}
+.u-ringt{font:800 26px var(--font);fill:var(--ink)}
+@media (prefers-reduced-motion:no-preference){
+  .u-sun,.u-pan{transition:transform .7s ease}
+  .u-ringon{transition:stroke-dashoffset .3s ease}
+}
+@media(max-width:860px){
+  .usta-grid,.usta-grid-chk{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:520px){
+  .usta .usta-card{padding:16px}
+  .usta .r-value{font-size:1.02rem}
+  .usta .r-label{font-size:.76rem}
+  .usta .result{padding:9px 8px}
+  .usta .result.highlight .r-value{font-size:1.3rem}
+}
+@media print{
+  .usta-nav,.usta-pro,.usta-rel,.usta-actions,.usta-seg,.usta .tool-hint,#udFill{display:none !important}
+  .usta-grid{break-inside:avoid;margin:8px 0}
+  .usta .usta-card{box-shadow:none;border:1px solid #bbb;padding:12px}
+  .usta .reveal{opacity:1 !important;transform:none !important}
+  .usta-tool h2{break-after:avoid}
+  .usta .faq-a{display:block !important;max-height:none !important}
+  .usta-svg .u-t,.u-ringt{fill:#000}
+}

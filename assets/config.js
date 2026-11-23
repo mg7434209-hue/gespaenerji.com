@@ -1301,7 +1301,60 @@ window.GESPA.config = {
     // Batarya / depolama boyutlandırma (batteryCostPerKwh yukarıda)
     storage: { dod: 0.9, sysEff: 0.9, defDailyKwh: 15, defAutonomy: 1 },
     // Sıra aralığı / gölgelenme (kış gündönümü öğle güneşine göre)
-    shading: { declination: 23.45, defTilt: 30, defLat: 37 }
+    shading: { declination: 23.45, defTilt: 30, defLat: 37 },
+
+    // ---- Elektrikçi Çantası (elektrikci-cantasi.html · assets/usta.js) ----
+    // KURAL: burada standart tablosu (akım taşıma, sigorta katsayısı vb.) TUTULMAZ.
+    // Yalnız tanım sabitleri, "pratik kural" diye etiketlenen katsayı ve örnek girdiler.
+    // Ortak katsayılar yeniden yazılmaz: cable.rhoCu/sections/targetDropPct,
+    // shading.declination/defLat, pump.hpPerKw, builder.sizing.invEff oradan okunur.
+    usta: {
+      seasonTiltDelta: 15,  // ° — PRATİK KURAL: yaz eğimi = enlem − 15, kış eğimi = enlem + 15
+      stcTempC: 25,         // °C — STC hücre sıcaklığı (künyedeki Voc bu sıcaklıkta verilir; tanım)
+      // AWG tanımı: d(mm) = d36 × ratio^((36 − n) / steps); 36 AWG = 0,005 inç = 0,127 mm
+      awg: { d36: 0.127, ratio: 92, steps: 39, ref: 36, min: -3, max: 30 },
+      // Şemada çizilen en çok eleman (fazlası "…" notuyla anlatılır; hesap sınırsızdır)
+      diagram: { maxSeries: 6, maxParallel: 4 },
+      // AC anma gerilimleri (V): tek faz faz-nötr, üç faz faz-faz. Araçta değiştirilebilir açılış değeri.
+      acV: { one: 230, three: 400 },
+      // AC kablo aracı kesit listesi (mm², anma kesit basamakları). Yalnız seçim listesidir;
+      // akım taşıma kapasitesi DEĞİLDİR ve öyle sunulmaz.
+      acSections: [1.5, 2.5, 4, 6, 10, 16, 25, 35, 50],
+      // NOCT tanım koşulları: ortam 20 °C, ışınım 800 W/m² (Thücre = Tortam + (NOCT − 20) / 800 × G)
+      noct: { ambC: 20, irr: 800 },
+      // Enlem hazır listesi (° kuzey, 0,1°'ye yuvarlı şehir merkezi)
+      cities: [
+        { name: "Manavgat", lat: 36.8 }, { name: "Antalya", lat: 36.9 }, { name: "Adana", lat: 37.0 },
+        { name: "Konya", lat: 37.9 }, { name: "İzmir", lat: 38.4 }, { name: "Ankara", lat: 39.9 },
+        { name: "Bursa", lat: 40.2 }, { name: "İstanbul", lat: 41.0 }
+      ],
+      // Araçların açılış girdileri. Ürün değeri iddiası DEĞİLDİR; "künye" yazanlar
+      // sitedeki ürün sayfasında aynen yer alan değerlerdir, diğerleri yuvarlak örnektir.
+      defaults: {
+        cable: { v: 48, i: 15, len: 5, section: 4 },                    // örnek hat
+        // Dizi hesabı: alanlar BOŞ açılır; bu değerler "Örnek değerleri doldur" düğmesi
+        // ve sayfadaki örnek hesap içindir (yuvarlak, gerçek bir ürünün değerleri değil)
+        string: { voc: 40, vmp: 33, isc: 10, beta: -0.30, tmin: -10, vmax: 150, mpptMin: 60 },
+        array: { v: 34.98, a: 10.30, series: 2, parallel: 2 },          // 360 W panel künyesi: Vmp, Imp (panel-360w.html)
+        bank: { v: 12, ah: 100, series: 2, parallel: 2 },               // örnek akü
+        fuse: { strings: 4, isc: 11.37, maxFuse: 30 },                  // 360 W panel künyesi: Isc, maks. seri sigorta
+        conv: { w: 1000, v: 12, ah: 100, hp: 1, awg: 10, mm2: 6 },      // örnek çevirici girdileri
+        // 2. tur araçları — hepsi yuvarlak ÖRNEK girdidir (ürün ya da standart değeri değil).
+        // DoD, inverter verimi, güneş saati ve sistem verimi buraya YAZILMAZ: builder.sizing'ten okunur.
+        ac: { i: 16, len: 25, section: 2.5, cos: 0.9 },                 // örnek AC hat (cosφ örnek varsayım)
+        current: { p: 3000, cos: 0.9, dcV: 48 },                        // örnek yük
+        ohm: { v: 12, i: 5 },
+        controller: { w: 1440, v: 24 },                                 // örnek: 4 × 360 W dizi, 24 V akü
+        runtime: { v: 12, ah: 100, load: 200 },
+        refill: { ah: 100, w: 360, v: 12 },
+        crate: { ah: 100, c: 0.5 },
+        daily: { w: 1440 },
+        temp: { pmax: 400, gamma: -0.35, tcell: 60, tamb: 30, noct: 45, g: 1000 },  // γ, NOCT: örnek; etiketten girilir
+        shadow: { h: 1, season: "winter" },
+        slope: { deg: 30, pct: 50 },
+        load: { w: 100, h: 5, n: 1 }
+      }
+    }
   }
 };
 
