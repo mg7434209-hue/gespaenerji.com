@@ -3,7 +3,7 @@ title: "Gizlilik Politikası | GESPA Enerji"
 description: "GESPA Enerji gizlilik politikası: web sitemizde kişisel verilerinizin nasıl toplandığı, işlendiği ve korunduğu hakkında bilgi."
 canonical: https://www.gespaenerji.com/gizlilik.html
 lang: tr
-dateModified: 2026-11-21
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -13,7 +13,7 @@ publisher: "GESPA Enerji"
 
 Kişisel verilerinizin gizliliği bizim için önemlidir. Bu politika, web sitemizi kullanırken verilerinizin nasıl işlendiğini açıklar.
 
-Son güncelleme: 21.11.2026
+Son güncelleme: 23.11.2026
 
 ## 1. Veri Sorumlusu
 
@@ -25,7 +25,7 @@ Bu web sitesi **Gespa Enerji Sanayi Ticaret Limited Şirketi** (“GESPA Enerji�
 
 Site kullanımını anlamak için hangi sayfanın ve ürünün açıldığı, ürünün sepete eklenip eklenmediği, siteye geliş kaynağı, cihaz türü (telefon/bilgisayar) ve — yalnızca çerez bildiriminde "Kabul et" derseniz — ziyaretçinin bulunduğu şehir, kişiyi tanımlamayan günlük toplamlar olarak sayılır; kişi, IP adresi veya çerez kimliği bu sayaçlarda saklanmaz. Çerez bildiriminde "Reddet" dediğinizde bu sayım yapılmaz.
 
-Sitedeki sohbet penceresi (site asistanı) bir yapay zekâ sistemidir. Yazdığınız mesajlar ve asistanın yanıtları, sorunuzu yanıtlamak ve hizmeti iyileştirmek için kaydedilir; telefon numaranızı yazarsanız sizi aramamız için talep olarak saklanır. Mesajlar, yanıt üretilebilmesi için yapay zekâ hizmet sağlayıcısı Anthropic'e (yurt dışı) iletilir. Asistana kimlik numarası, kart bilgisi gibi hassas bilgileri yazmayınız.
+Sitedeki sohbet penceresi (site asistanı) bir yapay zekâ sistemidir. Yapay zekâ, siz pencerede "Kabul ediyorum" demedikçe kullanılmaz; onay vermezseniz asistan hazır yanıtlarla çalışır. Onay verirseniz yalnızca mesajınızın metni, yanıt üretilebilmesi için yurt dışındaki yapay zekâ hizmet sağlayıcısına (Anthropic) iletilir: telefon numaraları, e-posta adresleri ve kimlik/kart numaraları iletilmeden önce otomatik gizlenir; adınız ve IP adresiniz iletilmez. Telefon numaranızı yazarsanız yalnızca sizi aramamız için tarafımızda talep olarak saklanır. Yazışma kayıtları 30 gün, talep kayıtları en geç 12 ay sonra silinir. Asistana ad, adres, kimlik numarası ve kart bilgisi yazmayınız.
 
 ## 3. Verilerin İşlenme Amacı
 

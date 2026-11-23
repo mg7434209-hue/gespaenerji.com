@@ -704,6 +704,10 @@ Ayrıntı ve kurallar: @docs/satis-asistani.md
 - Her talep (hesaplayıcı, "Beni arayın", sohbette bırakılan numara)
   `saveLead()` ile `leads.json`'a yazılır; yönetim panelinde "Gelen talepler"
   ve "Asistan sohbetleri" kartları, "İletişim hunisi" sayaçları vardır.
+- KVKK: sağlayıcıya KİŞİSEL VERİ GİTMEZ. Telefon/e-posta/9+ haneli numara
+  sunucuda maskelenir (`chatScrub`), isteğe IP ya da oturum kimliği eklenmez,
+  ziyaretçi pencerede onaylamadan (`ok:true`) çağrı yapılmaz, sohbetler 30 gün
+  sonra silinir. Maskeyi ya da onayı KALDIRMA; kvkk.html bunlara dayanır.
 - Projenin TEK npm bağımlılığı `@anthropic-ai/sdk`'dir (tembel yüklenir);
   başka bağımlılık ekleme.
 
