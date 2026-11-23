@@ -3,7 +3,7 @@ title: "Güneş Paneli, Akü ve Anahtar Teslim GES — Manavgat | GESPA"
 description: "Güneş paneli, akü, MPPT şarj kontrol ve hazır paketler Türkiye'ye kargo. Manavgat ve Antalya'da çatı, arazi ve tarımsal sulama GES anahtar teslim."
 canonical: https://www.gespaenerji.com/
 lang: tr
-dateModified: 2026-11-10
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -152,7 +152,7 @@ Boyutlandırma, şarj kontrol cihazı ve sulama pompası için kısa, örnekli r
 [PWM mi MPPT mi?Şarj kontrol cihazı farkı, hangisinin ne zaman seçileceği ve panel gerilimi/akım hesabı.Rehberi oku →](https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html)
 [Solar sulama pompası nasıl seçilir?Günlük su ve basma yüksekliğinden pompa gücü ve panel kWp hesabı.Rehberi oku →](https://www.gespaenerji.com/solar-sulama-pompasi-secimi.html)
 
-[Tüm rehberler →](https://www.gespaenerji.com/rehberler.html)
+[Elektrikçi Çantası: ücretsiz saha hesap araçları →](https://www.gespaenerji.com/elektrikci-cantasi.html) · [Tüm rehberler →](https://www.gespaenerji.com/rehberler.html)
 
 Sıkça Sorulan Sorular
 

@@ -120,7 +120,7 @@ for(const pre of ['','en/','de/','ru/']){
 }
 for(const f of fs.readdirSync(root).filter(f=>f.endsWith('.html'))){
  const h=fs.readFileSync(path.join(root,f),'utf8');
- if(h.includes('<!-- /SISTER:STATIC -->'))assert.ok(/<!-- HELP:STATIC --><a href="sss.html">[^<]+<\/a><a href="sozluk.html">[^<]+<\/a><!-- TR:ONLY --><a href="rehberler.html">[^<]+<\/a><a href="gunes-paneli-kacak-elektrik-cezasi.html">[^<]+<\/a><!-- \/TR:ONLY --><!-- \/HELP:STATIC -->/.test(h),f+': footer help links');
+ if(h.includes('<!-- /SISTER:STATIC -->'))assert.ok(/<!-- HELP:STATIC --><a href="sss.html">[^<]+<\/a><a href="sozluk.html">[^<]+<\/a><!-- TR:ONLY --><a href="rehberler.html">[^<]+<\/a><a href="elektrikci-cantasi.html">[^<]+<\/a><a href="gunes-paneli-kacak-elektrik-cezasi.html">[^<]+<\/a><!-- \/TR:ONLY --><!-- \/HELP:STATIC -->/.test(h),f+': footer help links');
 }
 // TR-only blocks (links to the Turkish-only regulation guide) never reach a language copy or its Markdown mirror.
 for(const d of ['en','de','ru','md/en','md/de','md/ru'])for(const f of fs.readdirSync(path.join(root,d)).filter(f=>/\.(html|md)$/.test(f))){
@@ -329,24 +329,53 @@ console.log('Analytics: consent gate, exact AI source attribution and contact pa
   const A=C.calc.usta.awg;near(U.awgDia(36,A),0.127,'AWG 36');near(U.awgDia(-3,A),11.684,'AWG 4/0 = 0.46 in');assert.ok(Math.abs(U.awgDia(10,A)-2.588)<5e-4&&Math.abs(U.awgArea(10,A)-5.261)<1e-3,'AWG 10');
   near(U.mm2ToAwg(U.awgArea(10,A),A),10,'mm2 -> AWG round trip');assert.equal(U.awgLabel(-3),'4/0');assert.equal(U.awgLabel(0),'1/0');
   near(U.invCurrent(1000,12,0.92),90.5797101,'inverter battery current');}
+ // Round 2 tools: AC drop, load current, Ohm, controller current, runtime, refill, C rate, daily yield, temperature, shadow, slope, load.
+ assert.ok(k.dod===C.builder.sizing.dod&&k.sunHours===C.builder.sizing.sunHours&&k.sysEff===C.builder.sizing.systemEff,'usta reuses the Sistem Kurucu coefficients');
+ {const a1=U.acDrop(1,16,25,2.5,0.0175,0.9,230),a3=U.acDrop(3,16,25,2.5,0.0175,0.9,400);near(a1.drop,5.04,'AC 1ph drop');near(a1.pct,5.04/230*100,'AC 1ph pct');
+  near(a3.drop,2.52*Math.sqrt(3),'AC 3ph drop');assert.ok(Math.abs(a3.pct-1.0912)<1e-4,'AC 3ph pct');near(U.acDrop(1,10,10,1.5,0.0175,1,230).drop,2.3333333,'AC 1ph cos 1');
+  assert.equal(U.acRec(1,16,25,[1.5,2.5,4,6],0.0175,0.9,230,2),4,'AC smallest section for a user limit');assert.equal(U.acRec(1,16,25,[1.5,2.5],0.0175,0.9,230,1),null,'AC no section fits');}
+ {near(U.current('1',3000,230,0.9),14.4927536,'1ph current');assert.ok(Math.abs(U.current('3',3000,400,0.9)-4.811252)<1e-5,'3ph current');near(U.current('dc',3000,48,1),62.5,'DC current');
+  near(U.current('3',11000,400,1),11000/(Math.sqrt(3)*400),'3ph 11 kW');near(U.kwToKva(3,0.9),3.3333333,'kW->kVA');near(U.kvaToKw(5,0.8),4,'kVA->kW');}
+ {const eq=(o,e,m)=>{const r=U.ohm(o);near(r.v,e[0],m+' V');near(r.i,e[1],m+' I');near(r.r,e[2],m+' R');near(r.p,e[3],m+' P');};
+  eq({v:12,i:5},[12,5,2.4,60],'ohm VI');eq({v:12,r:4},[12,3,4,36],'ohm VR');eq({v:230,p:2300},[230,10,23,2300],'ohm VP');eq({i:2,r:6},[12,2,6,24],'ohm IR');
+  eq({i:5,p:60},[12,5,2.4,60],'ohm IP');eq({r:10,p:1000},[100,10,10,1000],'ohm RP');assert.equal(U.ohm({v:12}),null,'ohm needs two values');assert.equal(U.ohm({v:0,i:5}),null,'ohm rejects zero');}
+ {near(U.controllerA(1440,24),60,'controller A');near(U.controllerA(655,12),54.5833333,'controller A 12 V');
+  const r=U.runtime(12,100,0.9,0.92,200);near(r.wh,993.6,'usable Wh');near(r.hours,4.968,'runtime h');near(U.runtime(51.2,102,0.9,1,1000).hours,4.70016,'runtime 51.2 V');
+  const q=U.refill(100,360,12,4.5);near(q.i,30,'refill A');near(q.hours,3.3333333,'refill h');near(q.days,0.7407407,'refill days');
+  const c=U.cRate(0.5,100);assert.deepEqual([c.i,c.hours],[50,2],'C rate');near(U.cRate(0.2,280).i,56,'0.2C of 280 Ah');near(U.cOf(50,100),0.5,'C of');}
+ {near(U.dailyKwh(1.44,4.5,0.75),4.86,'daily kWh');near(U.dailyKwh(1.44,C.builder.sizing.sunHours,C.builder.sizing.systemEff),4.86,'daily kWh uses builder coefficients');
+  near(U.tempPower(400,-0.35,60,25),351,'power at 60 C');near(U.tempPower(400,-0.35,25,25),400,'power at STC');near(U.tempPower(400,-0.35,5,25),428,'power when cold');
+  near(U.cellTemp(30,45,1000,C.calc.usta.noct),61.25,'NOCT cell temperature');near(U.cellTemp(20,45,800,C.calc.usta.noct),45,'NOCT definition point');}
+ {near(U.shadow(1,45),1,'shadow at 45');near(U.shadow(2,45),2,'shadow scales with height');assert.ok(Math.abs(U.shadow(1,29.55)-1.7639)<1e-3&&Math.abs(U.shadow(1,30)-Math.sqrt(3))<1e-9,'winter shadow');
+  near(U.slopePct(45),100,'45 deg = 100%');assert.ok(Math.abs(U.slopePct(30)-57.7350269)<1e-6&&Math.abs(U.slopeDeg(50)-26.5650512)<1e-6,'slope conversions');near(U.slopeDeg(U.slopePct(17)),17,'slope round trip');
+  near(U.loadWh(100,5,1),500,'load Wh');near(U.loadWh(60,4,3),720,'load Wh x3');}
  const pg=fs.readFileSync(path.join(root,'elektrikci-cantasi.html'),'utf8'),EX=U.examples(C);
+ const toolIds=[...pg.matchAll(/<section class="usta-tool" id="([^"]+)" data-usta-tool="\1" data-kw="[^"]+">/g)].map(m=>m[1]);EX['meta.count']=String(toolIds.length);
+ assert.equal(toolIds.length,20,'tool count');assert.equal(new Set(toolIds).size,toolIds.length,'tool ids unique');
+ for(const m of pg.matchAll(/(\d+) ücretsiz (?:saha )?ara[cç]/g))assert.equal(+m[1],toolIds.length,'stale tool count in page text');
  const tags=[...pg.matchAll(/<data data-ex="([^"]+)" value="([^"]*)">([^<]*)<\/data>/g)];
  assert.equal(tags.length,(pg.match(/data-ex=/g)||[]).length,'every worked-example value uses the <data data-ex value> form');
- assert.ok(tags.length>=60,'page carries the static worked examples');
+ assert.ok(tags.length>=200,'page carries the static worked examples');
  for(const m of tags){assert.ok(m[1] in EX,'unknown example key '+m[1]);assert.equal(m[3],EX[m[1]],'static example '+m[1]+' matches the calculator');assert.equal(m[2],m[3],'data value '+m[1]);}
- for(const p of ['egim','kablo','dizi','seri','aku','sigorta','cev'])assert.ok(tags.some(m=>m[1].startsWith(p+'.')),'worked example for '+p);
+ for(const p of ['egim','kablo','dizi','seri','aku','sigorta','cev','ac','akim','ohm','sk','sure','sarj','c','uretim','sic','golge','cati','yuk'])assert.ok(tags.some(m=>m[1].startsWith(p+'.')),'worked example for '+p);
  assert.equal(EX['sigorta.verdict'],'gerekir');assert.equal(EX['kablo.rec'],'6');assert.equal(EX['dizi.max'],'3');
- for(const id of ['egim','kablo','dizi','seri-paralel','aku','sigorta','cevirici','kontrol'])assert.ok(pg.includes('<section class="usta-tool" id="'+id+'"')&&pg.includes('href="#'+id+'"'),'tool anchor #'+id);
+ for(const id of ['egim','kablo','dizi','seri-paralel','aku','sigorta','cevirici','kontrol','ac-kablo','akim','ohm','sarj-kontrol','aku-sure','aku-sarj','c-orani','gunluk-uretim','sicaklik-gucu','golge','cati-egimi','yuk-listesi'])
+  assert.ok(toolIds.includes(id)&&pg.includes('href="#'+id+'"'),'tool anchor #'+id);
+ {const cats=[...pg.matchAll(/<section class="usta-cat" id="([^"]+)">/g)].map(m=>m[1]),chips=[...(pg.match(/<nav class="usta-nav"[\s\S]*?<\/nav>/)||[''])[0].matchAll(/href="#([^"]+)"/g)].map(m=>m[1]);
+  assert.equal(cats.length,7,'seven tool categories');assert.deepEqual(chips,cats,'sticky nav = category chips (not one chip per tool)');
+  assert.ok(pg.includes('<div class="usta-find" hidden="">')&&pg.includes('id="ustaFind"'),'filter box is hidden until JS enables it');}
+ assert.ok(/reaktans/.test(pg)&&!/izin verilen (en yüksek )?gerilim düşümü\s*(sınırı\s*)?%\s*\d/.test(pg),'AC tool states its limit and claims no permitted drop');
  assert.ok(pg.includes('<main id="main" data-article data-usta>')&&pg.includes('<script defer src="assets/usta.js"></script>'),'page shell + deferred usta.js');
- assert.equal((pg.match(/Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili/g)||[]).length,8,'every tool carries the approximate-values line');
- assert.equal((pg.match(/class="usta-formula"/g)||[]).length,7,'every calculator shows its formula');
+ assert.equal((pg.match(/Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili/g)||[]).length,toolIds.length,'every tool carries the approximate-values line');
+ assert.equal((pg.match(/class="usta-formula"/g)||[]).length,toolIds.length-1,'every calculator shows its formula');
  {const n=(pg.match(/data-chk="/g)||[]).length;assert.ok(n>=10&&n<=14,'checklist size');}
  assert.ok(!/innerHTML|insertAdjacentHTML|document\.write|https?:\/\/(?!wa\.me\/|www\.w3\.org\/2000\/svg)/.test(ustaSrc),'usta.js: no HTML injection, no external resources');
- assert.ok(!/\b(23\.45|0\.0175|1\.341|0\.92|0\.127)\b/.test(ustaSrc),'usta.js holds no coefficients (config.calc only)');
+ assert.ok(!/\b(23\.45|0\.0175|1\.341|0\.92|0\.127|0\.75|4\.5|230|400|800)\b/.test(ustaSrc),'usta.js holds no coefficients (config.calc only)');
  assert.ok(!/ampasite|akım taşıma kapasitesi\s*[:=]\s*\d|TS HD|IEC 6\d{4}|NEC \d/i.test(pg+ustaSrc),'no standards tables or clause citations');
  for(const f of fs.readdirSync(root).filter(f=>f.endsWith('.html')&&f!=='elektrikci-cantasi.html'))assert.ok(!fs.readFileSync(path.join(root,f),'utf8').includes('assets/usta.js'),f+': usta.js is loaded only by its own page');
  for(const d of ['en','de','ru'])assert.ok(!fs.readFileSync(path.join(root,d,'hesaplayici.html'),'utf8').includes('elektrikci-cantasi')&&!fs.existsSync(path.join(root,d,'elektrikci-cantasi.html')),d+': TR-only tool page not linked or generated');
- assert.ok(fs.readFileSync(path.join(root,'hesaplayici.html'),'utf8').includes('<a href="elektrikci-cantasi.html">')&&fs.readFileSync(path.join(root,'rehberler.html'),'utf8').includes('href="elektrikci-cantasi.html"'),'tool page linked from calculator and guide hub');
+ assert.ok(fs.readFileSync(path.join(root,'hesaplayici.html'),'utf8').includes('<a href="elektrikci-cantasi.html">')&&fs.readFileSync(path.join(root,'rehberler.html'),'utf8').includes('href="elektrikci-cantasi.html"')&&/<section class="section" id="rehberler">[\s\S]*?href="elektrikci-cantasi\.html"[\s\S]*?<\/section>\s*<!-- \/TR:ONLY -->/.test(fs.readFileSync(path.join(root,'index.html'),'utf8')),'tool page linked from calculator, guide hub and home (TR only)');
+ {const fq=[...pg.matchAll(/<button class="faq-q"/g)].length;assert.ok(fq>=12&&fq<=14,'FAQ size');}
  const lds=[...pg.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1]));
  for(const t of ['Article','FAQPage','BreadcrumbList'])assert.ok(lds.some(x=>x['@type']===t),'elektrikci-cantasi: '+t+' schema');
  {const t=(pg.match(/<title>([^<]*)<\/title>/)||[])[1],d=(pg.match(/<meta name="description" content="([^"]*)"/)||[])[1];assert.ok(t.length<=60&&d.length<=160,'title/description length');}}

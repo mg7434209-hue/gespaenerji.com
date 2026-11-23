@@ -175,7 +175,7 @@ PWM, panelin gerilimini akü gerilimine "çeker"; panel gerilimi akü gerilimind
 Debi = günlük su ÷ pompalama saati. Hidrolik güç (kW) = debi (m³/saat) × toplam yükseklik (m) × 0,002725. Pompanın elektrik gücü hidrolik gücün toplam verime bölünmesiyle, panel gücü ise pompa gücünün yaklaşık 1,3 katı alınarak bulunur. Aynı hesabı Solar Sulama Pompası Seçimi aracı da yapar.
 
 ### Güneş Enerjisi Elektrikçi Çantası (https://www.gespaenerji.com/elektrikci-cantasi.html)
-Bu araçlar yalnızca tanım ve fizik formüllerini kullanır; standart tablosu (akım taşıma kapasitesi, sigorta katsayısı) içermez. Tablo gereken yerde kablo ve cihaz üreticisinin verisine bakılır, tasarımı yetkili elektrikçi ya da mühendis yapar. Çatı yerleşimi, inverter gücü, akü boyutu ve sıra aralığı için GES Alet Çantası'na bakın.
+Bu araçlar yalnızca tanım ve fizik formüllerini kullanır; standart tablosu (akım taşıma kapasitesi, sigorta katsayısı, izin verilen gerilim düşümü) içermez. Tablo gereken yerde kablo ve cihaz üreticisinin verisine bakılır, tasarımı yetkili elektrikçi ya da mühendis yapar. Çatı yerleşimi, inverter gücü, akü boyutu ve sıra aralığı için GES Alet Çantası'na bakın.
 
 ### Güneş Paneline Kaçak Elektrik Cezası: Neden Yazılıyor, Kime Yazılıyor, Ne Yapmalı? (https://www.gespaenerji.com/gunes-paneli-kacak-elektrik-cezasi.html)
 En yaygın yanlışı düzeltelim: "Artık güneş enerjisi ile şebeke elektriği aynı anda kullanılamıyor" diye bir kural yoktur. Şebekeye bağlı (on-grid) bir sistemde panelleriniz üretim yaparken şebekeden de elektrik çekersiniz; sistemin çalışma prensibi zaten budur. Ceza bu yüzden yazılmıyor.

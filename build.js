@@ -73,6 +73,8 @@ const TR_ONLY = [
 const GUIDE = { file: "gunes-paneli-kacak-elektrik-cezasi.html", label: "Güneş Paneli Cezası Rehberi" };
 // Rehberler merkezi (yalnız TR, TR_ONLY) — footer "Kurumsal" sütununda mevzuat rehberinin yanında
 const GUIDE_HUB = { file: "rehberler.html", label: "Rehberler" };
+// Elektrikçi Çantası (yalnız TR araç sayfası) — footer'da Rehberler'in yanında
+const TOOLBAG = { file: "elektrikci-cantasi.html", label: "Elektrikçi Çantası" };
 const TR_ONLY_RE = /<!-- TR:ONLY -->[\s\S]*?<!-- \/TR:ONLY -->/g;
 
 PAGES.push(...seo.pages.map(p => p.file));
@@ -746,7 +748,7 @@ function faqItemHtml(q, a, link) {
 }
 function hydrateHelp(html, file) {
   const help = '<!-- HELP:STATIC --><a href="sss.html">' + esc(HELP.labels.title[0]) + '</a><a href="sozluk.html">'
-    + esc(GLOSSARY.labels.title[0]) + '</a><!-- TR:ONLY --><a href="' + GUIDE_HUB.file + '">' + esc(GUIDE_HUB.label) + '</a><a href="' + GUIDE.file + '">' + esc(GUIDE.label)
+    + esc(GLOSSARY.labels.title[0]) + '</a><!-- TR:ONLY --><a href="' + GUIDE_HUB.file + '">' + esc(GUIDE_HUB.label) + '</a><a href="' + TOOLBAG.file + '">' + esc(TOOLBAG.label) + '</a><a href="' + GUIDE.file + '">' + esc(GUIDE.label)
     + '</a><!-- /TR:ONLY --><!-- /HELP:STATIC -->';
   if (/<!-- HELP:STATIC -->/.test(html)) html = html.replace(/<!-- HELP:STATIC -->[\s\S]*?<!-- \/HELP:STATIC -->/g, () => help);
   else html = html.replace(/(<!-- \/SISTER:STATIC -->)/, m => m + help);

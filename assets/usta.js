@@ -25,6 +25,8 @@
       dec: sh.declination, defLat: sh.defLat, delta: u.seasonTiltDelta, stc: u.stcTempC,
       rho: cb.rhoCu, sections: cb.sections || [], target: cb.targetDropPct,
       hpPerKw: (c.pump || {}).hpPerKw, invEff: sz.invEff, awg: u.awg || {},
+      dod: sz.dod, sunHours: sz.sunHours, sysEff: sz.systemEff,
+      acV: u.acV || {}, acSections: u.acSections || [], noct: u.noct || {},
       diagram: u.diagram || {}, cities: u.cities || [], def: u.defaults || {}
     };
   };
@@ -91,6 +93,58 @@
   // İnverter yükünün akü tarafı akımı: I = P / (V·η)
   U.invCurrent = function (p, v, eta) { return p / (v * eta); };
 
+  // A) AC gerilim düşümü (yalnız direnç; reaktans ihmal): tek faz 2·I·L·ρ·cosφ/S · üç faz √3·I·L·ρ·cosφ/S
+  U.acDrop = function (phase, i, len, s, rho, cos, v) {
+    var drop = (phase === 3 ? Math.sqrt(3) : 2) * i * len * rho * cos / s;
+    return { drop: drop, pct: drop / v * 100 };
+  };
+  U.acRec = function (phase, i, len, sections, rho, cos, v, target) {
+    for (var n = 0; n < sections.length; n++) {
+      if (U.acDrop(phase, i, len, sections[n], rho, cos, v).pct <= target + EPS) return sections[n];
+    }
+    return null;
+  };
+  // B) Yükten akıma: DC P/V · tek faz P/(V·cosφ) · üç faz P/(√3·V·cosφ) · kVA = kW/cosφ
+  U.current = function (kind, p, v, cos) {
+    if (kind === "dc") return p / v;
+    return p / ((kind === "3" ? Math.sqrt(3) : 1) * v * cos);
+  };
+  U.kwToKva = function (kw, cos) { return kw / cos; };
+  U.kvaToKw = function (kva, cos) { return kva * cos; };
+  // C) Ohm kanunu ve güç: V, I, R, P'den herhangi ikisi → dördü (V = I·R, P = V·I)
+  U.ohm = function (o) {
+    var v = o.v, i = o.i, r = o.r, p = o.p, has = function (x) { return isFinite(x) && x > 0; };
+    if (has(v) && has(i)) { r = v / i; p = v * i; }
+    else if (has(v) && has(r)) { i = v / r; p = v * v / r; }
+    else if (has(v) && has(p)) { i = p / v; r = v * v / p; }
+    else if (has(i) && has(r)) { v = i * r; p = i * i * r; }
+    else if (has(i) && has(p)) { v = p / i; r = p / (i * i); }
+    else if (has(r) && has(p)) { v = Math.sqrt(p * r); i = Math.sqrt(p / r); }
+    else return null;
+    return { v: v, i: i, r: r, p: p };
+  };
+  // D) Şarj kontrol cihazı akımı (pay eklenmeden en az çıkış akımı): I = dizi W / akü V
+  U.controllerA = function (w, v) { return w / v; };
+  // E) Akü süresi: saat = V·Ah·DoD·η / yük W
+  U.runtime = function (v, ah, dod, eta, load) { var wh = v * ah * dod * eta; return { wh: wh, hours: wh / load }; };
+  // F) Dolum: şarj akımı = dizi W / akü V (ideal) · güneşli saat = Ah / akım · gün = saat / günlük güneşli saat
+  U.refill = function (ah, w, v, sun) { var i = w / v, h = ah / i; return { i: i, hours: h, days: h / sun }; };
+  // G) C oranı: I = C·Ah · süre = 1/C saat
+  U.cRate = function (c, ah) { return { i: c * ah, hours: 1 / c }; };
+  U.cOf = function (i, ah) { return i / ah; };
+  // H) Tasarım günü üretimi: kWh/gün = kWp · güneş saati · sistem verimi (Sistem Kurucu katsayıları)
+  U.dailyKwh = function (kwp, sun, eff) { return kwp * sun * eff; };
+  // I) Sıcaklıkta güç: P = Pmax·(1 + γ/100·(Thücre − Tstc)) · Thücre = Tortam + (NOCT − Tnoct)/Gnoct·G (tanım koşulları config.calc.usta.noct)
+  U.tempPower = function (pmax, gamma, tcell, stc) { return pmax * (1 + gamma / 100 * (tcell - stc)); };
+  U.cellTemp = function (tamb, noct, g, n) { return tamb + (noct - n.ambC) / n.irr * g; };
+  // J) Gölge uzunluğu = h / tan(öğle güneş yüksekliği)
+  U.shadow = function (h, elevDeg) { return h / Math.tan(elevDeg * Math.PI / 180); };
+  // K) Eğim: % = tan(derece)·100 (100 cm yatayda cm yükselme aynı sayıdır)
+  U.slopePct = function (deg) { return Math.tan(deg * Math.PI / 180) * 100; };
+  U.slopeDeg = function (pct) { return Math.atan(pct / 100) * 180 / Math.PI; };
+  // L) Günlük tüketim: Wh = W · saat · adet
+  U.loadWh = function (w, h, n) { return w * h * n; };
+
   // Sayfadaki statik "örnek hesap" metinleri: araçla AYNI formül + config açılış değerleri.
   // Test, HTML'deki [data-ex] değerlerini bununla karşılaştırır.
   U.examples = function (cfg) {
@@ -136,6 +190,56 @@
     ex["cev.hpPerKw"] = f(k.hpPerKw, 3); ex["cev.kw"] = f(U.hpToKw(v.hp, k.hpPerKw), 3);
     ex["cev.awg"] = U.awgLabel(v.awg); ex["cev.awgD"] = f(U.awgDia(v.awg, k.awg), 3); ex["cev.awgA"] = f(U.awgArea(v.awg, k.awg), 2);
     ex["cev.eta"] = f(k.invEff * 100, 1); ex["cev.etaDec"] = f(k.invEff, 3); ex["cev.inv"] = f(U.invCurrent(v.w, v.v, k.invEff), 2);
+
+    var q = d.ac, q1 = U.acDrop(1, q.i, q.len, q.section, k.rho, q.cos, k.acV.one), q3 = U.acDrop(3, q.i, q.len, q.section, k.rho, q.cos, k.acV.three);
+    ex["ac.i"] = f(q.i); ex["ac.len"] = f(q.len); ex["ac.s"] = f(q.section); ex["ac.cos"] = f(q.cos); ex["ac.rho"] = f(k.rho, 4);
+    ex["ac.v1"] = f(k.acV.one); ex["ac.v3"] = f(k.acV.three);
+    ex["ac.drop1"] = f(q1.drop, 2); ex["ac.pct1"] = f(q1.pct, 2); ex["ac.drop3"] = f(q3.drop, 2); ex["ac.pct3"] = f(q3.pct, 2);
+
+    var cu = d.current;
+    ex["akim.p"] = f(cu.p); ex["akim.cos"] = f(cu.cos); ex["akim.dcV"] = f(cu.dcV);
+    ex["akim.i1"] = f(U.current("1", cu.p, k.acV.one, cu.cos), 2); ex["akim.i3"] = f(U.current("3", cu.p, k.acV.three, cu.cos), 2);
+    ex["akim.idc"] = f(U.current("dc", cu.p, cu.dcV, 1), 2);
+    ex["akim.kw"] = f(cu.p / 1000, 3); ex["akim.kva"] = f(U.kwToKva(cu.p / 1000, cu.cos), 2);
+
+    var o = U.ohm({ v: d.ohm.v, i: d.ohm.i });
+    ex["ohm.v"] = f(o.v); ex["ohm.i"] = f(o.i); ex["ohm.r"] = f(o.r, 3); ex["ohm.p"] = f(o.p, 2);
+
+    var sk = d.controller;
+    ex["sk.w"] = f(sk.w); ex["sk.v"] = f(sk.v); ex["sk.i"] = f(U.controllerA(sk.w, sk.v), 1);
+
+    var rt = d.runtime, rr = U.runtime(rt.v, rt.ah, k.dod, k.invEff, rt.load);
+    ex["sure.v"] = f(rt.v); ex["sure.ah"] = f(rt.ah); ex["sure.load"] = f(rt.load);
+    ex["sure.dod"] = f(k.dod, 3); ex["sure.eta"] = f(k.invEff, 3); ex["sure.wh"] = f(rr.wh, 1); ex["sure.h"] = f(rr.hours, 2);
+
+    var rf = d.refill, rfr = U.refill(rf.ah, rf.w, rf.v, k.sunHours);
+    ex["sarj.ah"] = f(rf.ah); ex["sarj.w"] = f(rf.w); ex["sarj.v"] = f(rf.v); ex["sarj.sun"] = f(k.sunHours, 2);
+    ex["sarj.i"] = f(rfr.i, 1); ex["sarj.h"] = f(rfr.hours, 2); ex["sarj.days"] = f(rfr.days, 2);
+
+    var cr2 = d.crate, crr = U.cRate(cr2.c, cr2.ah);
+    ex["c.ah"] = f(cr2.ah); ex["c.c"] = f(cr2.c, 2); ex["c.i"] = f(crr.i, 1); ex["c.h"] = f(crr.hours, 2);
+
+    var dy = d.daily;
+    ex["uretim.w"] = f(dy.w); ex["uretim.kwp"] = f(dy.w / 1000, 3); ex["uretim.sun"] = f(k.sunHours, 2); ex["uretim.eff"] = f(k.sysEff, 3);
+    ex["uretim.kwh"] = f(U.dailyKwh(dy.w / 1000, k.sunHours, k.sysEff), 2);
+
+    var tp = d.temp;
+    ex["sic.pmax"] = f(tp.pmax); ex["sic.gamma"] = f(tp.gamma, 2); ex["sic.tcell"] = f(tp.tcell, 1); ex["sic.stc"] = f(k.stc);
+    ex["sic.dt"] = f(tp.tcell - k.stc, 1); ex["sic.p"] = f(U.tempPower(tp.pmax, tp.gamma, tp.tcell, k.stc), 1);
+    ex["sic.tamb"] = f(tp.tamb, 1); ex["sic.noct"] = f(tp.noct, 1); ex["sic.g"] = f(tp.g, 0);
+    ex["sic.nAmb"] = f(k.noct.ambC); ex["sic.nIrr"] = f(k.noct.irr, 0); ex["sic.tc"] = f(U.cellTemp(tp.tamb, tp.noct, tp.g, k.noct), 2);
+
+    var sdw = d.shadow;
+    ex["golge.h"] = f(sdw.h); ex["golge.lat"] = f(k.defLat, 1);
+    ex["golge.winter"] = f(U.shadow(sdw.h, s.winter), 2); ex["golge.equinox"] = f(U.shadow(sdw.h, s.equinox), 2); ex["golge.summer"] = f(U.shadow(sdw.h, s.summer), 2);
+    ex["golge.elevWinter"] = f(s.winter, 2);
+
+    var sl = d.slope;
+    ex["cati.deg"] = f(sl.deg, 1); ex["cati.pct"] = f(U.slopePct(sl.deg), 2);
+    ex["cati.pct2"] = f(sl.pct, 1); ex["cati.deg2"] = f(U.slopeDeg(sl.pct), 2);
+
+    var ld = d.load;
+    ex["yuk.w"] = f(ld.w); ex["yuk.h"] = f(ld.h); ex["yuk.n"] = f(ld.n, 0); ex["yuk.wh"] = f(U.loadWh(ld.w, ld.h, ld.n), 0);
     return ex;
   };
 
@@ -376,7 +480,7 @@
     function mark(v, y, text, cls) {
       var x = Math.min(X(v), x1);
       svg.appendChild(el("line", { x1: x, y1: 30, x2: x, y2: y - 12, "class": "u-mark " + cls }));
-      svg.appendChild(el("text", { x: x, y: y, "text-anchor": x < 110 ? "start" : (x > 230 ? "end" : "middle"), "class": "u-t u-b " + cls }, text));
+      svg.appendChild(el("text", { x: x, y: y, "text-anchor": x < 110 ? "start" : (x > W - 110 ? "end" : "middle"), "class": "u-t u-b " + cls }, text));
     }
     if (ok(p.vmp)) mark(vmpStr, 80, n + " panel Vmp " + f(vmpStr, 1) + " V", "u-ok");
     mark(vocStr, 104, n + " panel soğuk Voc " + f(vocStr, 1) + " V", vocStr > p.vmax + EPS ? "u-bad" : "u-ink");
@@ -597,6 +701,255 @@
     runWA("ucW"); runAh("ucAh"); runHp("ucHp"); texts(); calcAwg(); calcInv();
   })();
 
+  // ===== 2. tur araçları =====
+  function outs(ids, t) { ids.forEach(function (id) { out(id, t == null ? "—" : t); }); }
+  function fillSelect(id, list, label) {
+    var sel = $("#" + id); if (!sel) return null;
+    clear(sel);
+    list.forEach(function (x) { var o = doc.createElement("option"); o.value = x; o.textContent = label(x); sel.appendChild(o); });
+    return sel;
+  }
+
+  // ----- A) AC kablo gerilim düşümü -----
+  (function () {
+    if (!$("#xaI")) return; var d = D.ac || {};
+    fillSelect("xaS", K.acSections, function (x) { return f(x) + " mm²"; });
+    setVal("xaV", K.acV.one); setVal("xaI", d.i); setVal("xaLen", d.len); setVal("xaS", d.section); setVal("xaCos", d.cos);
+    function calc() {
+      var ph = $("#xaPhase").value === "3" ? 3 : 1, v = num("xaV"), i = num("xaI"), len = num("xaLen"), sx = num("xaS"), cos = num("xaCos"), tg = num("xaTarget");
+      if (!ok(v, i, len, sx, cos) || cos > 1) { outs(["xaDrop", "xaPct", "xaEnd", "xaRec"]); note("xaMsg", cos > 1 ? "cosφ en çok 1 olabilir." : "", "warn"); summary("ac-kablo", ""); return; }
+      var r = U.acDrop(ph, i, len, sx, K.rho, cos, v);
+      out("xaDrop", f(r.drop, 2) + " V"); out("xaPct", "%" + f(r.pct, 2)); out("xaEnd", f(v - r.drop, 1) + " V");
+      var txt = (ph === 3 ? "Üç faz " : "Tek faz ") + f(v) + " V, " + f(i) + " A, " + f(len) + " m, " + f(sx) + " mm², cosφ " + f(cos) + ": gerilim düşümü " + f(r.drop, 2) + " V (%" + f(r.pct, 2) + ")";
+      if (ok(tg)) {
+        var rec = U.acRec(ph, i, len, K.acSections, K.rho, cos, v, tg);
+        out("xaRec", rec == null ? "listede yok" : f(rec) + " mm²");
+        note("xaMsg", r.pct <= tg + EPS ? "Seçili kesit, yazdığınız %" + f(tg) + " sınırının içinde." : "Seçili kesit, yazdığınız %" + f(tg) + " sınırını aşıyor.", r.pct <= tg + EPS ? "ok" : "warn");
+        if (rec != null) txt += ", %" + f(tg) + " için en küçük kesit " + f(rec) + " mm²";
+      } else { out("xaRec", "sınır yazın"); note("xaMsg", ""); }
+      summary("ac-kablo", txt);
+    }
+    var phSel = $("#xaPhase");
+    phSel.addEventListener("change", function () { setVal("xaV", phSel.value === "3" ? K.acV.three : K.acV.one); touch(phSel); calc(); });
+    onInput(["xaV", "xaI", "xaLen", "xaS", "xaCos", "xaTarget"], calc); calc();
+  })();
+
+  // ----- B) Yükten akıma + kW ↔ kVA -----
+  (function () {
+    if (!$("#xbP")) return; var d = D.current || {}, kind = $("#xbKind");
+    setVal("xbP", d.p); setVal("xbV", K.acV.one); setVal("xbCos", d.cos); setVal("xbKw", d.p / 1000); setVal("xbCos2", d.cos);
+    function calc() {
+      var kd = kind.value, p = num("xbP"), v = num("xbV"), cos = kd === "dc" ? 1 : num("xbCos");
+      $("#xbCos").disabled = kd === "dc";
+      if (!ok(p, v, cos) || cos > 1) { out("xbI", "—"); summary("akim", ""); return; }
+      var i = U.current(kd, p, v, cos);
+      out("xbI", f(i, 2) + " A");
+      summary("akim", (kd === "dc" ? "DC" : kd === "3" ? "Üç faz" : "Tek faz") + " " + f(p) + " W, " + f(v) + " V" + (kd === "dc" ? "" : ", cosφ " + f(cos)) + ": akım " + f(i, 2) + " A");
+    }
+    kind.addEventListener("change", function () { setVal("xbV", kind.value === "dc" ? d.dcV : kind.value === "3" ? K.acV.three : K.acV.one); touch(kind); calc(); });
+    onInput(["xbP", "xbV", "xbCos"], calc); calc();
+    var last = "xbKw";
+    function kva(src) {
+      last = src || last; var cos = num("xbCos2"), x;
+      if (!ok(cos) || cos > 1) return;
+      if (last === "xbKw") { x = num("xbKw"); setVal("xbKva", isFinite(x) ? r4(U.kwToKva(x, cos)) : ""); }
+      else { x = num("xbKva"); setVal("xbKw", isFinite(x) ? r4(U.kvaToKw(x, cos)) : ""); }
+    }
+    ["xbKw", "xbKva"].forEach(function (id) { $("#" + id).addEventListener("input", function () { kva(id); }); });
+    $("#xbCos2").addEventListener("input", function () { kva(); });
+    kva("xbKw");
+  })();
+
+  // ----- C) Ohm kanunu / güç -----
+  (function () {
+    if (!$("#xoV")) return; var d = D.ohm || {}, ids = ["xoV", "xoI", "xoR", "xoP"], keys = ["v", "i", "r", "p"];
+    setVal("xoV", d.v); setVal("xoI", d.i);
+    function calc() {
+      var o = {}, n = 0;
+      ids.forEach(function (id, x) { var val = num(id); if (isFinite(val)) { o[keys[x]] = val; n++; } });
+      var r = n === 2 ? U.ohm(o) : null;
+      if (!r) {
+        outs(["xoOutV", "xoOutI", "xoOutR", "xoOutP"]);
+        note("xoMsg", n === 2 ? "Değerler sıfırdan büyük olmalı." : "Dört alandan tam olarak ikisini doldurun (şu an " + n + ").", n > 2 ? "warn" : "");
+        summary("ohm", ""); return;
+      }
+      note("xoMsg", "");
+      out("xoOutV", f(r.v, 2) + " V"); out("xoOutI", f(r.i, 3) + " A"); out("xoOutR", f(r.r, 3) + " Ω"); out("xoOutP", f(r.p, 2) + " W");
+      summary("ohm", "Ohm kanunu: " + f(r.v, 2) + " V, " + f(r.i, 3) + " A, " + f(r.r, 3) + " Ω, " + f(r.p, 2) + " W");
+    }
+    var clr = $("#xoClear");
+    if (clr) clr.addEventListener("click", function () { ids.forEach(function (id) { setVal(id, ""); }); calc(); });
+    onInput(ids, calc); calc();
+  })();
+
+  // ----- D) Şarj kontrol cihazı akımı -----
+  (function () {
+    if (!$("#xdW")) return; var d = D.controller || {};
+    setVal("xdW", d.w); setVal("xdV", d.v);
+    function calc() {
+      var w = num("xdW"), v = num("xdV");
+      if (!ok(w, v)) { out("xdI", "—"); summary("sarj-kontrol", ""); return; }
+      var i = U.controllerA(w, v);
+      out("xdI", f(i, 1) + " A");
+      summary("sarj-kontrol", f(w) + " W panel dizisi, " + f(v) + " V akü: şarj kontrol cihazı çıkış akımı en az " + f(i, 1) + " A (üretici payı hariç)");
+    }
+    onInput(["xdW", "xdV"], calc); calc();
+  })();
+
+  // ----- E) Akü ne kadar dayanır -----
+  (function () {
+    if (!$("#xeV")) return; var d = D.runtime || {};
+    setVal("xeV", d.v); setVal("xeAh", d.ah); setVal("xeLoad", d.load);
+    setVal("xeDod", isFinite(K.dod) ? r4(K.dod * 100) : ""); setVal("xeEta", isFinite(K.invEff) ? r4(K.invEff * 100) : "");
+    function calc() {
+      var v = num("xeV"), ah = num("xeAh"), dod = num("xeDod"), eta = num("xeEta"), load = num("xeLoad");
+      if (!ok(v, ah, dod, eta, load) || dod > 100 || eta > 100) { outs(["xeH", "xeWh"]); summary("aku-sure", ""); return; }
+      var r = U.runtime(v, ah, dod / 100, eta / 100, load), hh = Math.floor(r.hours), mm = Math.round((r.hours - hh) * 60);
+      if (mm === 60) { hh++; mm = 0; }
+      out("xeH", f(r.hours, 2) + " saat"); out("xeWh", f(r.wh, 0) + " Wh"); out("xeHm", "≈ " + hh + " saat " + mm + " dakika");
+      summary("aku-sure", f(v) + " V " + f(ah) + " Ah akü, DoD %" + f(dod) + ", verim %" + f(eta) + ", yük " + f(load) + " W: yaklaşık " + f(r.hours, 2) + " saat (" + f(r.wh, 0) + " Wh kullanılabilir)");
+    }
+    onInput(["xeV", "xeAh", "xeDod", "xeEta", "xeLoad"], calc); calc();
+  })();
+
+  // ----- F) Aküyü panel kaç saatte doldurur -----
+  (function () {
+    if (!$("#xfAh")) return; var d = D.refill || {};
+    setVal("xfAh", d.ah); setVal("xfW", d.w); setVal("xfV", d.v); setVal("xfSun", K.sunHours);
+    function calc() {
+      var ah = num("xfAh"), w = num("xfW"), v = num("xfV"), sun = num("xfSun");
+      if (!ok(ah, w, v)) { outs(["xfI", "xfH", "xfDays"]); summary("aku-sarj", ""); return; }
+      var r = U.refill(ah, w, v, ok(sun) ? sun : NaN);
+      out("xfI", f(r.i, 1) + " A"); out("xfH", f(r.hours, 2) + " güneşli saat"); out("xfDays", ok(sun) ? f(r.days, 2) + " gün" : "—");
+      summary("aku-sarj", f(ah) + " Ah doldurmak için " + f(w) + " W dizi, " + f(v) + " V akü: şarj akımı " + f(r.i, 1) + " A, " + f(r.hours, 2) + " güneşli saat"
+        + (ok(sun) ? " (günde " + f(sun, 2) + " güneşli saatle " + f(r.days, 2) + " gün)" : "") + ", ideal hesap");
+    }
+    onInput(["xfAh", "xfW", "xfV", "xfSun"], calc); calc();
+  })();
+
+  // ----- G) C oranı -----
+  (function () {
+    if (!$("#xgAh")) return; var d = D.crate || {};
+    setVal("xgAh", d.ah); setVal("xgC", d.c);
+    var run = pair("xgC", "xgI", "xgAh", function (c, ah) { return U.cRate(c, ah).i; }, U.cOf);
+    function calc() {
+      var c = num("xgC"), ah = num("xgAh"), i = num("xgI");
+      if (!ok(c, ah)) { out("xgT", "—"); summary("c-orani", ""); return; }
+      var h = U.cRate(c, ah).hours;
+      out("xgT", h >= 1 ? f(h, 2) + " saat" : f(h * 60, 0) + " dakika");
+      summary("c-orani", f(ah) + " Ah aküde " + f(c, 3) + "C = " + f(i, 1) + " A; bu akımda süre " + f(h, 2) + " saat");
+    }
+    ["xgC", "xgI", "xgAh"].forEach(function (id) { $("#" + id).addEventListener("input", calc); });
+    run("xgC"); calc();
+  })();
+
+  // ----- H) Tasarım günü üretimi -----
+  (function () {
+    if (!$("#xhW")) return; var d = D.daily || {};
+    setVal("xhW", d.w); setVal("xhSun", K.sunHours); setVal("xhEff", isFinite(K.sysEff) ? r4(K.sysEff * 100) : "");
+    function calc() {
+      var w = num("xhW"), sun = num("xhSun"), eff = num("xhEff");
+      if (!ok(w, sun, eff) || eff > 100) { outs(["xhKwh", "xhKwp"]); summary("gunluk-uretim", ""); return; }
+      var kwh = U.dailyKwh(w / 1000, sun, eff / 100);
+      out("xhKwp", f(w / 1000, 3) + " kWp"); out("xhKwh", f(kwh, 2) + " kWh/gün");
+      summary("gunluk-uretim", f(w) + " W panel, " + f(sun, 2) + " güneş saati, sistem verimi %" + f(eff) + ": tasarım günü üretimi yaklaşık " + f(kwh, 2) + " kWh/gün");
+    }
+    onInput(["xhW", "xhSun", "xhEff"], calc); calc();
+  })();
+
+  // ----- I) Sıcaklıkta panel gücü (+ isteğe bağlı NOCT ile hücre sıcaklığı) -----
+  (function () {
+    if (!$("#xiP")) return; var d = D.temp || {};
+    setVal("xiP", d.pmax); setVal("xiG", d.gamma); setVal("xiT", d.tcell);
+    [["xiTa", d.tamb], ["xiNoct", d.noct], ["xiIrr", d.g]].forEach(function (x) { var e = $("#" + x[0]); if (e && x[1] != null) e.placeholder = "ör. " + f(x[1]); });
+    function calc() {
+      var p = num("xiP"), g = num("xiG"), t = num("xiT");
+      if (!ok(p) || !isFinite(g) || !isFinite(t)) { outs(["xiOut", "xiLoss"]); summary("sicaklik-gucu", ""); return; }
+      var r = U.tempPower(p, g, t, K.stc), ch = (r / p - 1) * 100;
+      out("xiOut", f(Math.max(r, 0), 1) + " W"); out("xiLoss", (ch > 0 ? "+" : "") + "%" + f(ch, 2).replace("-", "−"));
+      summary("sicaklik-gucu", f(p) + " W panel, γ " + f(g, 2) + " %/°C, hücre " + f(t, 1) + " °C: yaklaşık " + f(r, 1) + " W");
+    }
+    function calcT() {
+      var ta = num("xiTa"), n = num("xiNoct"), irr = num("xiIrr"), use = $("#xiUse");
+      if (!isFinite(ta) || !ok(n, irr)) { out("xiTc", "—"); if (use) use.hidden = true; return; }
+      var tc = U.cellTemp(ta, n, irr, K.noct);
+      out("xiTc", f(tc, 1) + " °C"); if (use) { use.hidden = false; use.setAttribute("data-v", r4(tc)); }
+    }
+    var use = $("#xiUse");
+    if (use) use.addEventListener("click", function () { setVal("xiT", use.getAttribute("data-v")); calc(); });
+    onInput(["xiP", "xiG", "xiT"], calc); onInput(["xiTa", "xiNoct", "xiIrr"], calcT); calc(); calcT();
+  })();
+
+  // ----- J) Engel gölge uzunluğu -----
+  function drawShadow(h, len, elev) {
+    var W = 340, H = 184, gy = 136, xo = 262, svg = svgOf("xjSvg", W, H, "Engelin öğle vakti gölge uzunluğu"); if (!svg) return;
+    var sc = Math.min(78 / h, 226 / len), hp = Math.max(h * sc, 10), lp = Math.max(len * sc, 4), a = elev * Math.PI / 180;
+    svg.appendChild(el("line", { x1: 8, y1: gy, x2: W - 8, y2: gy, "class": "u-ground" }));
+    svg.appendChild(el("line", { x1: xo - lp, y1: gy, x2: xo, y2: gy, "class": "u-shadow" }));
+    svg.appendChild(el("rect", { x: xo, y: gy - hp, width: 14, height: hp, "class": "u-obst" }));
+    svg.appendChild(el("line", { x1: xo - lp, y1: gy, x2: xo + 46 * Math.cos(a), y2: gy - hp - 46 * Math.sin(a), "class": "u-ray" }));
+    svg.appendChild(el("circle", { cx: xo + 46 * Math.cos(a), cy: gy - hp - 46 * Math.sin(a), r: 9, "class": "u-sunc" }));
+    svg.appendChild(el("text", { x: xo + 20, y: gy - hp / 2 + 4, "class": "u-t u-b" }, f(h, 2) + " m"));
+    svg.appendChild(el("text", { x: Math.max(xo - lp / 2, 60), y: gy + 18, "text-anchor": "middle", "class": "u-t u-b" }, "gölge " + f(len, 2) + " m"));
+    svg.appendChild(el("text", { x: 10, y: gy + 40, "class": "u-t u-mut" }, "← Kuzey"));
+    svg.appendChild(el("text", { x: W - 10, y: gy + 40, "text-anchor": "end", "class": "u-t u-mut" }, "Güney →"));
+    svg.appendChild(el("text", { x: 10, y: 16, "class": "u-t u-mut" }, "Öğle güneşi " + f(elev, 1) + "°"));
+  }
+  (function () {
+    if (!$("#xjH")) return; var d = D.shadow || {};
+    setVal("xjH", d.h); setVal("xjLat", K.defLat); setVal("xjSeason", d.season);
+    function calc() {
+      var h = num("xjH"), lat = num("xjLat"), se = $("#xjSeason").value;
+      if (!ok(h) || !isFinite(lat) || !(lat > K.dec && lat < 90 - K.dec)) {
+        outs(["xjLen", "xjElev"]); clear($("#xjSvg")); summary("golge", "");
+        note("xjMsg", isFinite(lat) && ok(h) ? "Bu basit formül " + f(K.dec, 2) + "° ile " + f(90 - K.dec, 2) + "° arasındaki kuzey enlemleri için geçerlidir." : "", "warn"); return;
+      }
+      note("xjMsg", "");
+      var elev = U.sun(lat, K.dec)[se], len = U.shadow(h, elev);
+      out("xjElev", f(elev, 2) + "°"); out("xjLen", f(len, 2) + " m"); drawShadow(h, len, elev);
+      summary("golge", f(h, 2) + " m engel, enlem " + f(lat, 1) + "°, " + SEASON_TX[se].toLocaleLowerCase("tr") + " öğlesi (güneş " + f(elev, 1) + "°): gölge " + f(len, 2) + " m");
+    }
+    onInput(["xjH", "xjLat", "xjSeason"], calc); calc();
+  })();
+
+  // ----- K) Çatı eğimi çevirici -----
+  function drawSlope(deg) {
+    var W = 340, H = 168, svg = svgOf("xkSvg", W, H, "Çatı eğimi: 100 cm yatayda yükselme"); if (!svg) return;
+    var t = Math.tan(deg * Math.PI / 180), run = Math.min(210, 104 / t), rise = run * t, x0 = 50, y0 = 132;
+    svg.appendChild(el("path", { d: "M" + x0 + " " + y0 + " L" + (x0 + run) + " " + y0 + " L" + (x0 + run) + " " + (y0 - rise) + " Z", "class": "u-tri" }));
+    svg.appendChild(el("line", { x1: x0, y1: y0, x2: x0 + run, y2: y0 - rise, "class": "u-roof" }));
+    svg.appendChild(el("text", { x: x0 + run / 2, y: y0 + 18, "text-anchor": "middle", "class": "u-t" }, "100 cm yatay"));
+    svg.appendChild(el("text", { x: x0 + run + 8, y: y0 - rise / 2 + 4, "class": "u-t u-b" }, f(t * 100, 1) + " cm"));
+    svg.appendChild(el("text", { x: x0 - 6, y: y0 - 6, "text-anchor": "end", "class": "u-t u-b" }, f(deg, 1) + "°"));
+  }
+  (function () {
+    if (!$("#xkDeg")) return; var d = D.slope || {};
+    setVal("xkDeg", d.deg);
+    var run = pair("xkDeg", "xkPct", null, U.slopePct, U.slopeDeg);
+    function calc() {
+      var deg = num("xkDeg"), pct = num("xkPct");
+      if (!(deg > 0 && deg < 90) || !ok(pct)) { outs(["xkRise", "xkRatio"]); clear($("#xkSvg")); summary("cati-egimi", ""); return; }
+      out("xkRise", f(pct, 1) + " cm"); out("xkRatio", "1 : " + f(100 / pct, 2)); drawSlope(deg);
+      summary("cati-egimi", "Eğim " + f(deg, 2) + "° = %" + f(pct, 2) + " (100 cm yatayda " + f(pct, 1) + " cm yükselme, 1 : " + f(100 / pct, 2) + ")");
+    }
+    ["xkDeg", "xkPct"].forEach(function (id) { $("#" + id).addEventListener("input", calc); });
+    run("xkDeg"); calc();
+  })();
+
+  // ----- L) Tek cihazın günlük tüketimi -----
+  (function () {
+    if (!$("#xlW")) return; var d = D.load || {};
+    setVal("xlW", d.w); setVal("xlH", d.h); setVal("xlN", d.n);
+    function calc() {
+      var w = num("xlW"), h = num("xlH"), n = num("xlN");
+      if (!ok(w, h, n)) { out("xlWh", "—"); summary("yuk-listesi", ""); return; }
+      var wh = U.loadWh(w, h, n);
+      out("xlWh", f(wh, 0) + " Wh/gün"); out("xlKwh", "= " + f(wh / 1000, 3) + " kWh/gün");
+      summary("yuk-listesi", f(n, 0) + " adet " + f(w) + " W cihaz, günde " + f(h, 2) + " saat: " + f(wh, 0) + " Wh/gün");
+    }
+    onInput(["xlW", "xlH", "xlN"], calc); calc();
+  })();
+
   // ----- 8) Montaj öncesi kontrol listesi -----
   (function () {
     var LS = "gespa-usta-check", boxes = $$("[data-chk]", page); if (!boxes.length) return;
@@ -627,9 +980,9 @@
   var printBtn = $("#ustaPrint");
   if (printBtn) printBtn.addEventListener("click", function () { root.print(); });
 
-  // ----- Araç gezinme şeridi: görünen bölümü vurgula -----
+  // ----- Kategori şeridi: görünen kategoriyi vurgula -----
   (function () {
-    var links = $$(".usta-nav a", page), secs = $$("[data-usta-tool]", page);
+    var links = $$(".usta-nav a", page), secs = $$(".usta-cat", page);
     if (!links.length || !("IntersectionObserver" in root)) return;
     var io = new root.IntersectionObserver(function (es) {
       es.forEach(function (e) {
@@ -641,8 +994,31 @@
           if (on && a.parentNode && a.parentNode.scrollTo) a.parentNode.scrollTo({ left: a.offsetLeft - 16, behavior: "auto" });
         });
       });
-    }, { rootMargin: "-35% 0px -55% 0px" });
+    }, { rootMargin: "-30% 0px -60% 0px" });
     secs.forEach(function (s) { io.observe(s); });
+  })();
+
+  // ----- Araç arama: ad + anahtar sözcükle süz (JS yoksa kutu gizli kalır, sayfa aynen çalışır) -----
+  (function () {
+    var box = $("#ustaFind"), wrap = $(".usta-find", page); if (!box || !wrap) return;
+    var tools = $$("[data-usta-tool]", page), cats = $$(".usta-cat", page), state = $("#ustaFindState");
+    var MAP = { "ı": "i", "İ": "i", "ş": "s", "ç": "c", "ğ": "g", "ö": "o", "ü": "u", "â": "a", "î": "i", "û": "u" };
+    function norm(t) { return String(t || "").toLocaleLowerCase("tr").replace(/[ıİşçğöüâîû]/g, function (ch) { return MAP[ch] || ch; }).replace(/[^a-z0-9²% ]+/g, " ").replace(/\s+/g, " ").trim(); }
+    var index = tools.map(function (t) { var h = $("h3", t); return norm((h ? h.textContent : "") + " " + (t.getAttribute("data-kw") || "")); });
+    function apply() {
+      var words = norm(box.value).split(" ").filter(Boolean), shown = 0;
+      tools.forEach(function (t, i) {
+        var hit = words.every(function (w) { return index[i].indexOf(w) >= 0; });
+        t.hidden = !hit; if (hit) shown++;
+      });
+      cats.forEach(function (c) { c.hidden = !$$("[data-usta-tool]", c).some(function (t) { return !t.hidden; }); });
+      if (state) state.textContent = !words.length ? tools.length + " araç" : (shown ? shown + " araç bulundu" : "Bu aramayla eşleşen araç yok. Başka bir sözcük deneyin (ör. kablo, akü, eğim).");
+    }
+    wrap.hidden = false;
+    box.addEventListener("input", apply);
+    // Bağlantıyla gelinen araç süzgeçte gizli kalmasın
+    root.addEventListener("hashchange", function () { var t = root.location.hash && $(root.location.hash); if (t && (t.hidden || (t.closest && t.closest("[hidden]")))) { box.value = ""; apply(); t.scrollIntoView(); } });
+    apply();
   })();
   updateWa();
 })(typeof window !== "undefined" ? window : this);

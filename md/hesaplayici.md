@@ -185,7 +185,7 @@ Alan kullanım oranı (GCR) —
 
 [📲 Aktif aracın sonucunu WhatsApp'tan gönder](#)
 
-Elektrikçi ve montajcılar için: eğim açısı, dizi (string) hesabı, seri–paralel şema, akü bankası, sigorta kontrolü ve AWG–mm² çevirici [Elektrikçi Çantası](https://www.gespaenerji.com/elektrikci-cantasi.html) sayfasında.
+Elektrikçi ve montajcılar için: AC gerilim düşümü, trifaze akım, eğim ve gölge, dizi (string) hesabı, akü süresi, şarj kontrol cihazı akımı ve AWG–mm² çevirici [Elektrikçi Çantası](https://www.gespaenerji.com/elektrikci-cantasi.html) sayfasında.
 
 Sıkça Sorulan Sorular
 

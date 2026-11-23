@@ -2743,11 +2743,22 @@ html.menu-locked,html.menu-locked body{overflow:hidden}
 .usta-tool{scroll-margin-top:calc(var(--hdr-h,64px) + 68px)}
 .usta #sss{scroll-margin-top:calc(var(--hdr-h,64px) + 68px)}
 .usta>.art-note,.usta-tool>p,.usta>.faq,.usta>.art-disc{max-width:860px}
+.usta-cat{scroll-margin-top:calc(var(--hdr-h,64px) + 60px)}
+.usta .usta-cat>h2{font-size:1.5rem;margin-top:40px}
+.usta-cat-lead{color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:6px !important}
+.usta-idx{display:block}
+.usta .usta-tool>h3{font-size:1.2rem;margin:30px 0 8px;padding-top:18px;border-top:1px dashed var(--line)}
+.usta .usta-cat>h2+.usta-cat-lead+.usta-tool>h3{border-top:0;padding-top:0;margin-top:14px}
+.usta-find{max-width:560px;margin:0 0 18px}
+.usta-find label{display:block;font-weight:700;font-size:.9rem;margin-bottom:6px}
+.usta-find input{width:100%;min-height:48px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);font:inherit}
+.usta-find input:focus{outline:none;border-color:var(--green)}
+.usta-find-state{margin:6px 0 0 !important;font-size:.85rem;color:var(--muted)}
 .usta-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start;margin:16px 0 12px}
 .usta-grid-chk{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}
 .usta .usta-card{padding:22px;box-shadow:var(--shadow);min-width:0}
-.usta .usta-card h3.tool-title{margin:0 0 10px;font-size:1.02rem}
-.usta .usta-card .field+h3.tool-title,.usta .usta-card .row+h3.tool-title,.usta .usta-card .usta-row3+h3.tool-title,.usta .usta-card .usta-out+h3.tool-title,.usta .usta-card .usta-svg+h3.tool-title{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
+.usta .usta-card .tool-title{margin:0 0 10px;font-size:1.02rem;line-height:1.3}
+.usta .usta-card *+.tool-title{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
 .usta .row{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end;gap:12px}
 .usta-row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:end}
 .usta .field{margin-bottom:12px}
@@ -2835,6 +2846,10 @@ line.u-mark.u-bad{stroke:var(--u-bad)}
 [data-theme="dark"] .u-grid{stroke:rgba(0,0,0,.35)}
 .u-arrow{fill:none;stroke:var(--u-warn);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
 .u-arrow.bad{stroke:var(--u-bad)}
+.u-shadow{stroke:var(--ink);stroke-width:7;opacity:.45}
+.u-obst{fill:var(--muted);stroke:var(--ink);stroke-width:1}
+.u-tri{fill:color-mix(in srgb,var(--u-pv) 14%,transparent);stroke:var(--muted);stroke-width:1.5}
+.u-roof{stroke:var(--u-pv);stroke-width:4;stroke-linecap:round}
 .u-ring{fill:none;stroke:var(--line);stroke-width:10}
 .u-ringon{fill:none;stroke:var(--u-ok);stroke-width:10;stroke-linecap:round}
 .u-ringt{font:800 26px var(--font);fill:var(--ink)}
