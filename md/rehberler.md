@@ -16,7 +16,7 @@ Sistemi kurmadan ya da ürün almadan önce bilinmesi gerekenler: boyutlandırma
 [Off-grid güneş sistemi nasıl boyutlandırılır?Günlük tüketimden panel, akü ve inverter gücüne dört adımda: formüller ve örnek hesap.Rehberi oku →](https://www.gespaenerji.com/off-grid-gunes-sistemi-boyutlandirma.html)
 [PWM mi MPPT mi? Şarj kontrol cihazı seçimiİki teknolojinin farkı, hangisinin ne zaman seçileceği ve panel gerilimi/akım hesabı.Rehberi oku →](https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html)
 [Solar sulama pompası nasıl seçilir?Günlük su ve basma yüksekliğinden pompa gücü ve panel kWp hesabı.Rehberi oku →](https://www.gespaenerji.com/solar-sulama-pompasi-secimi.html)
-[Elektrikçi Çantası: ücretsiz saha hesap araçlarıDC ve AC gerilim düşümü, akım hesabı, eğim ve gölge, dizi hesabı, akü süresi, şarj kontrol akımı ve çeviriciler.Araçları aç →](https://www.gespaenerji.com/elektrikci-cantasi.html)
+[Elektrikçi Çantası: ücretsiz hesaplama araçlarıKablo kesiti, gerilim düşümü, kW amper, panel açısı, dizi hesabı, akü süresi, MPPT akımı ve çeviriciler.Araçları aç →](https://www.gespaenerji.com/elektrikci-cantasi.html)
 [Güneş paneline kaçak elektrik cezasıCezanın nedeni, kimin risk altında olduğu ve yasal kurulum için ne yapılacağı.Rehberi oku →](https://www.gespaenerji.com/gunes-paneli-kacak-elektrik-cezasi.html)
 
 Ücretsiz araçlar
@@ -24,7 +24,7 @@ Sistemi kurmadan ya da ürün almadan önce bilinmesi gerekenler: boyutlandırma
 ## Okuduğunuzu hemen hesaplayın
 
 - [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html): cihazlarınızdan panel, akü ve inverter önerisi.
-- [Elektrikçi Çantası](https://www.gespaenerji.com/elektrikci-cantasi.html): gerilim düşümü, akım, eğim ve gölge, dizi hesabı, akü süresi ve çeviriciler.
+- [Elektrikçi Çantası](https://www.gespaenerji.com/elektrikci-cantasi.html): [kablo kesiti](https://www.gespaenerji.com/kablo-kesiti-hesaplama.html), [kW amper](https://www.gespaenerji.com/kw-amper-hesaplama.html), [panel açısı](https://www.gespaenerji.com/gunes-paneli-acisi-hesaplama.html), [akü süresi](https://www.gespaenerji.com/aku-kac-saat-dayanir.html), [MPPT akımı](https://www.gespaenerji.com/mppt-kac-amper-olmali.html) ve diğer hesaplama araçları.
 - [Tasarruf hesaplayıcı](https://www.gespaenerji.com/hesaplayici.html): çatı GES için tasarruf, geri ödeme ve mühendislik araçları.
 - [Solar Sulama Pompası Seçimi](https://www.gespaenerji.com/tarimsal-sulama.html#pompa-secimi): günlük su ve yükseklikten pompa ve panel gücü.
 - [GES Sözlüğü](https://www.gespaenerji.com/sozluk.html) ve [Sıkça Sorulan Sorular](https://www.gespaenerji.com/sss.html): terimler ve kısa cevaplar.

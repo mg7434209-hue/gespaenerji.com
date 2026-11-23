@@ -57,7 +57,7 @@ Sistem büyüdükçe ve panel gerilimi akü geriliminden yükseldikçe MPPT'nin 
 
 - **Akü gerilimi ve tipi.** Cihaz 12, 24 veya 48 V akü grubunu desteklemeli; AGM, jel ve LiFePO₄ gibi akü tipi için uygun şarj profili ayarlanabilmelidir. Yanlış profil akü ömrünü kısaltır; akü üreticisinin şarj gerilimlerini esas alın.
 - **Maksimum panel giriş gerilimi.** Seri bağlı panellerin Voc toplamı × 1,1, cihazın giriş sınırının altında kalmalıdır. 1,1 payı, soğukta Voc'un yükselmesi içindir; sitemizdeki ürün sayfalarında da bu pratik kural kullanılır.
-- **Akım.** MPPT için toplam panel gücü ÷ akü gerilimi, cihazın şarj akımının altında kalmalıdır. PWM için bağlanan panellerin toplam Isc değeri cihazın akımını aşmamalıdır.
+- **Akım.** MPPT için toplam panel gücü ÷ akü gerilimi, cihazın şarj akımının altında kalmalıdır. PWM için bağlanan panellerin toplam Isc değeri cihazın akımını aşmamalıdır. Kendi değerlerinizle: [MPPT kaç amper olmalı hesabı](https://www.gespaenerji.com/mppt-kac-amper-olmali.html).
 
 ### Örnek: 2 × Lexron 655 W seri, 48 V akü
 
@@ -73,7 +73,7 @@ Voc toplamı = 2 × 50,34 = 100,68 V · × 1,1 ≈ 110,7 V Panel gücü = 2 × 6
 - Cihazı yalnızca akıma göre seçip panel giriş gerilimi sınırını kontrol etmemek.
 - Akü tipine uygun olmayan şarj profili kullanmak.
 - Şarj kontrol cihazını şebekeye bağlı (on-grid) inverterle birlikte düşünmek: şarj kontrol cihazı aküyü şarj eder; şebeke bağlantılı inverterlerde MPPT inverterin içindedir ([on-grid nedir?](https://www.gespaenerji.com/sozluk.html#on-grid)).
-- Panel ile cihaz arasındaki kablo kesitini küçük seçmek: gerilim düşümü kaybı artırır. [Hesaplayıcıdaki DC kablo aracı](https://www.gespaenerji.com/hesaplayici.html) kesiti hesaplar.
+- Panel ile cihaz arasındaki kablo kesitini küçük seçmek: gerilim düşümü kaybı artırır. [Hesaplayıcıdaki DC kablo aracı](https://www.gespaenerji.com/hesaplayici.html) kesiti hesaplar; [solar kablo kesiti hesaplama](https://www.gespaenerji.com/solar-kablo-kesiti-hesaplama.html) sayfası ısıya giden gücü de gösterir.
 
 ## Mağazamızdaki şarj kontrol cihazları
 

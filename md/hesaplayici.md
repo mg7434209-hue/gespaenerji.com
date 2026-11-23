@@ -185,7 +185,7 @@ Alan kullanım oranı (GCR) —
 
 [📲 Aktif aracın sonucunu WhatsApp'tan gönder](#)
 
-Elektrikçi ve montajcılar için: AC gerilim düşümü, trifaze akım, eğim ve gölge, dizi (string) hesabı, akü süresi, şarj kontrol cihazı akımı ve AWG–mm² çevirici [Elektrikçi Çantası](https://www.gespaenerji.com/elektrikci-cantasi.html) sayfasında.
+Elektrikçi ve montajcılar için: [kablo kesiti](https://www.gespaenerji.com/kablo-kesiti-hesaplama.html), [gerilim düşümü](https://www.gespaenerji.com/gerilim-dusumu-hesaplama.html), [kW amper](https://www.gespaenerji.com/kw-amper-hesaplama.html), [panel açısı](https://www.gespaenerji.com/gunes-paneli-acisi-hesaplama.html), [akü süresi](https://www.gespaenerji.com/aku-kac-saat-dayanir.html) ve diğer hesaplama araçları [Elektrikçi Çantası](https://www.gespaenerji.com/elektrikci-cantasi.html) sayfasında.
 
 Sıkça Sorulan Sorular
 

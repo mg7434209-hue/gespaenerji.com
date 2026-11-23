@@ -152,7 +152,7 @@ Boyutlandırma, şarj kontrol cihazı ve sulama pompası için kısa, örnekli r
 [PWM mi MPPT mi?Şarj kontrol cihazı farkı, hangisinin ne zaman seçileceği ve panel gerilimi/akım hesabı.Rehberi oku →](https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html)
 [Solar sulama pompası nasıl seçilir?Günlük su ve basma yüksekliğinden pompa gücü ve panel kWp hesabı.Rehberi oku →](https://www.gespaenerji.com/solar-sulama-pompasi-secimi.html)
 
-[Elektrikçi Çantası: ücretsiz saha hesap araçları →](https://www.gespaenerji.com/elektrikci-cantasi.html) · [Tüm rehberler →](https://www.gespaenerji.com/rehberler.html)
+[Elektrikçi Çantası: kablo kesiti, kW amper, panel açısı ve diğer ücretsiz hesaplama araçları →](https://www.gespaenerji.com/elektrikci-cantasi.html) · [Tüm rehberler →](https://www.gespaenerji.com/rehberler.html)
 
 Sıkça Sorulan Sorular
 
