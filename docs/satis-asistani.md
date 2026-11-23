@@ -48,10 +48,35 @@ basıldığı ölçülmüyordu.
 - Dağıtım devri: `seedLeadsFromLive()` açılışta eski sürümden
   `/api/handoff/export` ile talepleri ve sohbetleri alır (Volume yokken de
   dağıtımda kaybolmasın). Kalıcılık için yine de Railway Volume gerekir.
-- KVKK: telefon ve sohbet metni loglara YAZILMAZ. Sohbet içeriği yurt
-  dışındaki yapay zekâ sağlayıcısına gider; `kvkk.html` ve `gizlilik.html`
-  bunu söyler, pencere açılışında not gösterilir. Akış değişirse bu metinleri
-  BİRLİKTE güncelle.
+- KVKK: telefon ve sohbet metni loglara YAZILMAZ.
+
+## KVKK — yurt dışına kişisel veri GİTMEZ (23 Kas 2026, işletme kararı)
+7499 sayılı Kanun'dan beri (1 Eyl 2024) açık rıza yurt dışı aktarım için tek
+başına dayanak değildir; sağlayıcıyla Kurul'un standart sözleşmesi de
+imzalanamaz. Bu yüzden çözüm hukuki metin değil TASARIMDIR: sağlayıcıya kişiyi
+tanıtan veri hiç gönderilmez. Dört kural birlikte durur, biri kalkarsa
+`kvkk.html` / `gizlilik.html` yanlış olur:
+1. **Maske** (`chatScrub()`): telefon, e-posta, IBAN ve 9+ haneli her numara
+   (TCKN, kart, yabancı telefon) sağlayıcıya giden HER mesajda `[… gizlendi]`
+   olur. Fiyat ve teknik değerler (7.200 TL, 1200 W) harfle bölündüğü için
+   kalır. Numara yalnız `leads.json`'daki `tel` alanında durur; talep notu ve
+   sohbet dökümü de maskelidir.
+2. **Kimlik yok**: isteğe IP, oturum kimliği (`sid`), ad, çerez ya da `metadata`
+   EKLENMEZ. Yeni alan eklerken bunu koru (test denetler).
+3. **Onay**: pencere ilk serbest mesajda sorar (`askConsent`); istek `ok:true`
+   taşımıyorsa sunucu 403 `{consent:true}` döner ve sağlayıcıyı ÇAĞIRMAZ. Onay
+   anı sohbet kaydına `riza` olarak yazılır (ispat). Onay cihazda
+   `localStorage gespa-ai-ok`'ta durur; "Yapay zekâ onayını geri al" bağlantısı
+   siler. Reddeden anahtar-kelime botuyla devam eder (oturum boyunca).
+4. **Saklama**: sohbetler `CHAT_KEEP_DAYS` (30), talepler `LEAD_KEEP_DAYS`
+   (365) gün sonra kendiliğinden silinir. Süreyi değiştirirsen kvkk.html
+   "Saklama Süreleri"ni de değiştir.
+- Talep, sağlayıcı çağrısından ÖNCE kaydedilir: çağrı düşse de numara kaybolmaz.
+- `cerez-politikasi.html` tarayıcıda tutulan anahtarları sayar
+  (`gespa-ai-ok`, `gespa-chat-sid`, `gespa-nudge`); yenisini eklersen oraya yaz.
+- AÇIK KALAN (işletme bilir): site Railway'de, yani yurt dışında barındırılıyor;
+  kvkk.html bunu açıkça söyler. Google yazı tipleri hâlâ Google'dan yüklenir
+  (IP gider); yerelden sunmak bu aktarımı da kaldırır.
 
 ## Pencere — `assets/chatbot.js`
 - Yanıt önce asistandan istenir, olmazsa `ruleAnswer()`.
@@ -64,6 +89,6 @@ basıldığı ölçülmüyordu.
 
 ## İletişim hunisi — `stats.act`
 `/api/ev` `{t:"act", id}` beyaz listesi: `wa`, `tel`, `chat_open`, `nudge`,
-`cb_open`. Sunucu ayrıca `chat_msg` ve `lead` sayar. Yönetim panelinde
+`cb_open`, `ai_ok`, `ai_no` (yapay zekâ onayı verildi / verilmedi). Sunucu ayrıca `chat_msg` ve `lead` sayar. Yönetim panelinde
 "İletişim hunisi" kutuları bunları gösterir. Yeni düğme ölçülecekse beyaz
 listeye ve admin kutularına birlikte ekle.

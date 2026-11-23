@@ -185,6 +185,9 @@
   var aiHist = [];           // yapay zekâya giden geçmiş: {role, content}
   var busy = false;
   var openedAt = 0;
+  // KVKK: ziyaretçi onaylamadan hiçbir mesaj yapay zekâya gitmez. null = henüz sorulmadı.
+  // Onay cihazda hatırlanır (gespa-ai-ok); ret yalnız bu oturum için geçerlidir.
+  var aiOk = (function () { try { return localStorage.getItem("gespa-ai-ok") === "1" ? true : (sessionStorage.getItem("gespa-ai-ok") === "0" ? false : null); } catch (e) { return null; } })();
   var SID = (function () {
     try { var v = sessionStorage.getItem("gespa-chat-sid"); if (!v) { v = Math.random().toString(36).slice(2, 12) + Date.now().toString(36); sessionStorage.setItem("gespa-chat-sid", v); } return v; }
     catch (e) { return Math.random().toString(36).slice(2, 12); }
@@ -241,13 +244,15 @@
     busy = true; typing(true);
     aiHist.push({ role: "user", content: text });
     fetch("/api/chat", { method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages: aiHist.slice(-16), lang: lang(), page: location.pathname, sid: SID }) })
+      body: JSON.stringify({ messages: aiHist.slice(-16), lang: lang(), page: location.pathname, sid: SID, ok: true }) })
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, st: r.status, j: j }; }); })
       .then(function (x) {
         busy = false; typing(false);
         if (!x.ok || !x.j || !x.j.reply) {
           aiHist.pop();
           if (x.st === 503) AI = false;        // sunucuda kapalı: bu oturumda bir daha deneme
+          // Yanıt üretilemedi ama numara sunucuya kaydedildiyse ziyaretçi bunu bilsin
+          if (x.j && x.j.lead) { add("bot", L("Teşekkürler, numaranızı aldık ✓ Ekibimiz sizi arayacak.", "Thank you, we have your number ✓ Our team will call you.", "Danke, wir haben Ihre Nummer ✓ Unser Team ruft Sie an.", "Спасибо, номер получили ✓ Наша команда вам перезвонит.")); return; }
           return onFail();
         }
         aiHist.push({ role: "assistant", content: x.j.reply });
@@ -256,6 +261,32 @@
                   { t: L("📲 WhatsApp", "📲 WhatsApp", "📲 WhatsApp", "📲 WhatsApp"), q: "__wa__" }]);
       })
       .catch(function () { busy = false; typing(false); aiHist.pop(); onFail(); });
+  }
+  // Yapay zekâya ilk mesajdan önce tek dokunuşluk onay. Soru bekletilir; onaylanırsa
+  // asistana, onaylanmazsa anahtar-kelime botuna gider. Metin kvkk.html ile aynı şeyi söyler.
+  function askConsent(text) {
+    var w = doc.createElement("div"); w.className = "gchat-msg bot gchat-ask";
+    var p = doc.createElement("div");
+    p.innerHTML = L('Sorunuzu yapay zekâ asistanımız yanıtlayabilir. Bunun için mesajınızın metni yurt dışındaki yapay zekâ hizmet sağlayıcısına iletilir. Telefon, e-posta ve kimlik/kart numaraları gönderilmeden önce otomatik gizlenir; adınız ve IP adresiniz iletilmez. Lütfen ad ve adres gibi kişisel bilgi yazmayın. <a href="/kvkk.html" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a>',
+                    'Our AI assistant can answer your question. To do so, the text of your message is sent to an AI service provider abroad. Phone numbers, e-mail addresses and ID/card numbers are hidden automatically before sending; your name and IP address are not sent. Please do not write personal details such as your name or address. <a href="/kvkk.html" target="_blank" rel="noopener">Privacy notice (KVKK)</a>',
+                    'Unser KI-Assistent kann Ihre Frage beantworten. Dazu wird der Text Ihrer Nachricht an einen KI-Dienstleister im Ausland übermittelt. Telefonnummern, E-Mail-Adressen und Ausweis-/Kartennummern werden vor dem Senden automatisch unkenntlich gemacht; Ihr Name und Ihre IP-Adresse werden nicht übermittelt. Bitte schreiben Sie keine persönlichen Angaben wie Name oder Adresse. <a href="/kvkk.html" target="_blank" rel="noopener">Datenschutzhinweise (KVKK)</a>',
+                    'На ваш вопрос может ответить наш ИИ-ассистент. Для этого текст сообщения передаётся зарубежному провайдеру ИИ. Номера телефонов, e-mail и номера документов/карт автоматически скрываются перед отправкой; ваше имя и IP-адрес не передаются. Пожалуйста, не пишите личные данные, такие как имя или адрес. <a href="/kvkk.html" target="_blank" rel="noopener">Уведомление о данных (KVKK)</a>');
+    w.appendChild(p);
+    var row = doc.createElement("div"); row.className = "gchat-quick";
+    function choose(ok) {
+      row.remove(); aiOk = ok;
+      try { if (ok) localStorage.setItem("gespa-ai-ok", "1"); else sessionStorage.setItem("gespa-ai-ok", "0"); } catch (e) {}
+      track(ok ? "ai_ok" : "ai_no");
+      if (ok) askAI(text, function () { ruleAnswer(text); }); else ruleAnswer(text);
+    }
+    var y = doc.createElement("button"); y.type = "button"; y.className = "gchat-chip gchat-chip-main";
+    y.textContent = L("✓ Kabul ediyorum, yanıtla", "✓ I agree, answer me", "✓ Einverstanden, antworten", "✓ Согласен, ответьте");
+    var n = doc.createElement("button"); n.type = "button"; n.className = "gchat-chip";
+    n.textContent = L("Yapay zekâsız devam et", "Continue without AI", "Ohne KI fortfahren", "Продолжить без ИИ");
+    y.addEventListener("click", function () { choose(true); });
+    n.addEventListener("click", function () { choose(false); });
+    row.appendChild(y); row.appendChild(n); w.appendChild(row);
+    body.appendChild(w); body.scrollTop = body.scrollHeight;
   }
   function startCallback() {
     mode = "cbPhone"; track("cb_open");
@@ -401,7 +432,8 @@
       return;
     }
     // Normal sohbet: önce yapay zekâ (açıksa), olmazsa anahtar-kelime botu
-    if (AI && !busy) { askAI(text, function () { ruleAnswer(text); }); return; }
+    if (AI && !busy && aiOk === null) { askConsent(text); return; }
+    if (AI && !busy && aiOk) { askAI(text, function () { ruleAnswer(text); }); return; }
     ruleAnswer(text);
   }
 
@@ -433,11 +465,23 @@
                  "Здравствуйте! 👋 Я ассистент GESPA Energy. Спрашивайте о солнечной энергии, поливе, ценах/КП или калькуляторе."));
     if (AI) {
       var w = doc.createElement("div"); w.className = "gchat-consent";
-      w.innerHTML = L('Yapay zekâ asistanıdır; yanıtlar hatalı olabilir, kesin bilgi için ekibimiz teyit eder. Yazışmalar kaydedilir ve yanıt üretmek için hizmet sağlayıcıya iletilir: <a href="/kvkk.html" target="_blank" rel="noopener">KVKK</a>.',
-                      'This is an AI assistant; answers may contain mistakes and our team confirms the details. Chats are stored and sent to our AI provider to generate replies: <a href="/kvkk.html" target="_blank" rel="noopener">privacy notice</a>.',
-                      'Dies ist ein KI-Assistent; Antworten können Fehler enthalten, Details bestätigt unser Team. Chats werden gespeichert und zur Antworterzeugung an unseren KI-Anbieter übermittelt: <a href="/kvkk.html" target="_blank" rel="noopener">Datenschutz</a>.',
-                      'Это ИИ-ассистент; ответы могут содержать ошибки, детали подтверждает наша команда. Переписка сохраняется и передаётся провайдеру ИИ: <a href="/kvkk.html" target="_blank" rel="noopener">о данных</a>.');
+      w.innerHTML = L('Yapay zekâ asistanıdır; yanıtlar hatalı olabilir, kesin bilgi için ekibimiz teyit eder. Ad, adres, kimlik ve kart bilgisi yazmayın: <a href="/kvkk.html" target="_blank" rel="noopener">KVKK</a>.',
+                      'This is an AI assistant; answers may contain mistakes and our team confirms the details. Do not write your name, address, ID or card details: <a href="/kvkk.html" target="_blank" rel="noopener">privacy notice</a>.',
+                      'Dies ist ein KI-Assistent; Antworten können Fehler enthalten, Details bestätigt unser Team. Bitte keine Namen, Adressen, Ausweis- oder Kartendaten schreiben: <a href="/kvkk.html" target="_blank" rel="noopener">Datenschutz</a>.',
+                      'Это ИИ-ассистент; ответы могут содержать ошибки, детали подтверждает наша команда. Не пишите имя, адрес, данные документов и карт: <a href="/kvkk.html" target="_blank" rel="noopener">о данных</a>.');
       body.appendChild(w);
+      if (aiOk === true) {
+        // Verilen onay buradan geri alınır (kvkk.html "Yurt dışına" maddesi bu bağlantıyı anar)
+        var rv = doc.createElement("button"); rv.type = "button"; rv.className = "gchat-revoke";
+        rv.textContent = L("Yapay zekâ onayını geri al", "Withdraw AI consent", "KI-Einwilligung widerrufen", "Отозвать согласие на ИИ");
+        rv.addEventListener("click", function () {
+          aiOk = null; aiHist = [];
+          try { localStorage.removeItem("gespa-ai-ok"); sessionStorage.removeItem("gespa-ai-ok"); } catch (e) {}
+          rv.remove();
+          add("bot", L("Onayınız geri alındı. Bundan sonraki mesajlarınız, yeniden onay vermediğiniz sürece yapay zekâya gönderilmez.", "Your consent has been withdrawn. Your next messages will not be sent to the AI unless you agree again.", "Ihre Einwilligung wurde widerrufen. Weitere Nachrichten werden ohne erneute Zustimmung nicht an die KI gesendet.", "Согласие отозвано. Следующие сообщения не будут отправляться ИИ без нового согласия."));
+        });
+        w.appendChild(doc.createTextNode(" ")); w.appendChild(rv);
+      }
     }
     quickRow([{ t: L("📞 Beni arayın", "📞 Call me back", "📞 Rückruf", "📞 Перезвоните мне"), q: "__cb__" }].concat(quickItems()));
   }

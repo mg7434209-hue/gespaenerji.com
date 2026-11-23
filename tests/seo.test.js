@@ -411,7 +411,10 @@ server.stdout.on('data',async d=>{
   // daily cap falls back to the keyword bot, leads/chats are admin-only.
   const B='http://127.0.0.1:'+port,UA={'User-Agent':EV_UA,'Content-Type':'application/json'};
   assert.equal((await (await fetch(B+'/api/chat')).json()).enabled,true,'assistant enabled when the key is set');
-  const c1=await fetch(B+'/api/chat',{method:'POST',headers:UA,body:JSON.stringify({messages:[{role:'user',content:'360 watt panel kaç lira?'}],lang:'tr',page:'/panel-360w.html',sid:'testsid1'})});
+  // KVKK: nothing reaches the provider until the visitor agrees in the widget (ok:true)
+  const noOk=await fetch(B+'/api/chat',{method:'POST',headers:UA,body:JSON.stringify({messages:[{role:'user',content:'360 watt panel kaç lira?'}],sid:'testsid0'})});
+  assert.equal(noOk.status,403);assert.equal((await noOk.json()).consent,true,'chat needs consent');assert.equal(aiCalls.length,0,'no provider call without consent');
+  const c1=await fetch(B+'/api/chat',{method:'POST',headers:UA,body:JSON.stringify({ok:true,messages:[{role:'user',content:'360 watt panel kaç lira?'}],lang:'tr',page:'/panel-360w.html',sid:'testsid1'})});
   const c1j=await c1.json();assert.equal(c1.status,200);assert.ok(/7\.200/.test(c1j.reply)&&!c1j.lead,'assistant reply');
   const call=aiCalls[0];assert.ok(call.key.includes('sk-ant-test-gizli'),'server sends the key');assert.ok(!JSON.stringify(c1j).includes('sk-ant'),'key not in browser reply');
   assert.equal(call.body.model,'claude-opus-5-5');assert.equal(call.body.fallbacks,'default');assert.ok(/server-side-fallback-2026-07-01/.test(call.beta||''),'refusal fallback beta');
@@ -420,11 +423,17 @@ server.stdout.on('data',async d=>{
   assert.ok(sys[0].text.includes('360 W Güneş Paneli')&&sys[0].text.includes(fs.readFileSync(path.join(root,'llms-full.txt'),'utf8').slice(0,200)),'grounded in llms-full.txt');
   assert.ok(!/\d{4}-\d{2}-\d{2}T|Date\.now/.test(sys[0].text.slice(0,3000)),'no volatile text at the head of the cached prefix');
   assert.ok(call.body.messages[call.body.messages.length-1].content.includes('/panel-360w.html'),'page context rides in the user turn');
-  const c2=await (await fetch(B+'/api/chat',{method:'POST',headers:UA,body:JSON.stringify({messages:[{role:'user',content:'360 watt panel kaç lira?'},{role:'assistant',content:c1j.reply},{role:'user',content:'Beni arayın 0532 111 22 33'}],lang:'tr',page:'/panel-360w.html',sid:'testsid1'})})).json();
+  const c2=await (await fetch(B+'/api/chat',{method:'POST',headers:UA,body:JSON.stringify({messages:[{role:'user',content:'360 watt panel kaç lira?'},{role:'assistant',content:c1j.reply},{role:'user',content:'Beni arayın 0532 111 22 33, e-posta ali@ornek.com, TC 12345678901'}],lang:'tr',page:'/panel-360w.html',sid:'testsid1',ok:true})})).json();
   assert.equal(c2.lead,true,'phone number in chat becomes a lead');
+  // KVKK: phone, e-mail and long numbers are masked before the text leaves for the provider; no IP or session id is sent
+  const sent=JSON.stringify(aiCalls[1].body.messages);
+  assert.ok(!/0532|111 22 33|ali@ornek|12345678901|testsid1/.test(sent),'personal data masked before leaving');
+  assert.ok(sent.includes('[telefon numarası gizlendi]')&&sent.includes('[e-posta gizlendi]')&&sent.includes('[numara gizlendi]'),'placeholders tell the model what was hidden');
+  assert.ok(sent.includes('360 watt panel')&&sent.includes('7.200'),'prices and product text are not masked');
+  assert.ok(!('metadata' in aiCalls[1].body),'no visitor identifier is attached to the provider request');
   const botChat=await fetch(B+'/api/chat',{method:'POST',headers:{'User-Agent':'curl/8','Content-Type':'application/json'},body:JSON.stringify({messages:[{role:'user',content:'x'}]})});assert.equal(botChat.status,403);await botChat.text();
-  await (await fetch(B+'/api/chat',{method:'POST',headers:UA,body:JSON.stringify({messages:[{role:'user',content:'merhaba'}],sid:'testsid2'})})).text();
-  const capped=await fetch(B+'/api/chat',{method:'POST',headers:UA,body:JSON.stringify({messages:[{role:'user',content:'bir daha'}],sid:'testsid2'})});
+  await (await fetch(B+'/api/chat',{method:'POST',headers:UA,body:JSON.stringify({ok:true,messages:[{role:'user',content:'merhaba'}],sid:'testsid2'})})).text();
+  const capped=await fetch(B+'/api/chat',{method:'POST',headers:UA,body:JSON.stringify({ok:true,messages:[{role:'user',content:'bir daha'}],sid:'testsid2'})});
   assert.equal(capped.status,429,'daily cap');assert.equal((await capped.json()).fallback,true,'cap tells the widget to fall back');
   const cb=await fetch(B+'/api/lead',{method:'POST',headers:UA,body:JSON.stringify({kaynak:'geri-arama',tel:'0533 444 55 66',urun:'panel-360w',path:'/panel-360w.html',ms:5000})});assert.equal(cb.status,200,'callback lead needs only a phone');await cb.text();
   const cbBad=await fetch(B+'/api/lead',{method:'POST',headers:UA,body:JSON.stringify({kaynak:'geri-arama',tel:'123',ms:5000})});assert.equal(cbBad.status,400);await cbBad.text();
@@ -433,9 +442,11 @@ server.stdout.on('data',async d=>{
   const lj=await (await fetch(B+'/api/leads',{method:'POST',body:JSON.stringify({pass:ADMIN_TEST_PASS})})).json();
   assert.equal(lj.leads.length,2);assert.equal(lj.leads[0].src,'Beni arayın');assert.equal(lj.leads[0].urun,'360 W Güneş Paneli');assert.equal(lj.leads[0].wa,'905334445566');
   assert.equal(lj.leads[1].src,'Site asistanı');assert.ok(/05321112233/.test(lj.leads[1].tel)&&/360 watt panel/.test(lj.leads[1].not),'chat lead carries the conversation');
+  assert.ok(!/0532|ali@ornek|12345678901/.test(lj.leads[1].not),'the lead note keeps the number only in its own field');
   const dn=await (await fetch(B+'/api/leads',{method:'POST',body:JSON.stringify({pass:ADMIN_TEST_PASS,done:lj.leads[0].at})})).json();assert.equal(dn.leads[0].done,true,'mark lead as called');
   const cj=await (await fetch(B+'/api/chats',{method:'POST',body:JSON.stringify({pass:ADMIN_TEST_PASS})})).json();
   assert.ok(cj.enabled&&cj.chats.some(c=>c.sid==='testsid1'&&c.lead&&c.msgs.length===4),'conversation log');
+  const t1=cj.chats.filter(c=>c.sid==='testsid1')[0];assert.ok(t1.riza&&!/0532|ali@ornek|12345678901/.test(JSON.stringify(t1.msgs)),'stored transcript is masked and records the consent time');
   const stj2=await (await fetch(B+'/api/stats',{method:'POST',body:JSON.stringify({pass:ADMIN_TEST_PASS})})).json();
   assert.ok(stj2.days[stj2.today].act.lead===2&&stj2.days[stj2.today].act.chat_msg===3,'funnel counters');
   for(const u of ['/data/leads.json','/data/chats.json'])assert.equal((await fetch(B+u)).status,404,u+' not public');

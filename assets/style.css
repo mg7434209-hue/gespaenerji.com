@@ -2717,3 +2717,9 @@ html.menu-locked,html.menu-locked body{overflow:hidden}
 @media print{.gchat-nudge{display:none !important}}
 [data-theme="dark"] .gchat-nudge-b{color:#0d1330}
 [data-theme="dark"] .gchat-nudge-b.alt{color:var(--green)}
+/* Asistan: yapay zekâ onay adımı (KVKK) */
+.gchat-ask{font-size:.84rem;line-height:1.5}
+.gchat-ask a{color:var(--green);font-weight:600}
+.gchat-ask .gchat-quick{margin-top:8px}
+.gchat-quick button.gchat-chip-main{background:var(--green);color:#fff}
+.gchat-revoke{background:none;border:0;padding:0;font:inherit;color:var(--muted);text-decoration:underline;cursor:pointer}

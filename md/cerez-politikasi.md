@@ -3,7 +3,7 @@ title: "Çerez Politikası | GESPA Enerji"
 description: "GESPA Enerji çerez politikası: web sitemizde kullanılan çerez türleri, amaçları ve çerez tercihlerinizi nasıl yönetebileceğiniz."
 canonical: https://www.gespaenerji.com/cerez-politikasi.html
 lang: tr
-dateModified: 2026-11-10
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -13,7 +13,7 @@ publisher: "GESPA Enerji"
 
 Bu politika, gespaenerji.com sitesinde kullanılan çerezleri ve bu çerezler aracılığıyla işlenen verileri açıklar.
 
-Son güncelleme: 03.11.2026
+Son güncelleme: 23.11.2026
 
 ## 1. Çerez Nedir?
 
@@ -25,9 +25,10 @@ Son güncelleme: 03.11.2026
 
 - `gespa-theme` — açık/koyu tema tercihiniz,
 - `gespa-lang` — dil tercihiniz,
-- `gespa-consent` — çerez onay tercihiniz.
+- `gespa-consent` — çerez onay tercihiniz,
+- `gespa-ai-ok` — site asistanında yapay zekâ kullanımına verdiğiniz onay.
 
-Ayrıca ziyaretçi sayacı için tarayıcınıza `gespa_v` adlı, 24 saat geçerli küçük bir çerez bırakılır; ziyaretçinin günde bir kez sayılmasını sağlar ve kimlik bilgisi içermez. Oturum süresince `sessionStorage` alanında tutulan `gespa-s`, `gespa-g` ve `gespa-ev-v-*` anahtarları, ilk sayfa açılışının ve ürün incelemesinin bir kez sayılması içindir ve tarayıcı sekmesi kapanınca silinir.
+Ayrıca ziyaretçi sayacı için tarayıcınıza `gespa_v` adlı, 24 saat geçerli küçük bir çerez bırakılır; ziyaretçinin günde bir kez sayılmasını sağlar ve kimlik bilgisi içermez. Oturum süresince `sessionStorage` alanında tutulan `gespa-s`, `gespa-g` ve `gespa-ev-v-*` anahtarları, ilk sayfa açılışının ve ürün incelemesinin bir kez sayılması içindir ve tarayıcı sekmesi kapanınca silinir. Aynı alandaki `gespa-chat-sid` sohbet penceresindeki yazışmanızı tek bir görüşme olarak tutmaya yarayan rastgele bir anahtardır (yapay zekâ sağlayıcısına gönderilmez); `gespa-nudge` ise davet balonunun oturumda bir kez gösterilmesini sağlar.
 
 **Performans/analitik (onaya bağlı):** Ziyaretçi davranışını ölçmek için Google Analytics kullanılabilir. Analitik çerezler yalnızca sayfa altındaki çerez bildiriminde *onay vermeniz hâlinde* yüklenir; onay vermezseniz hiçbir analitik çerez çalışmaz. Bu durumda IP adresiniz gibi sınırlı teknik veriler Google sunucularına (yurt dışı) aktarılabilir.
 
