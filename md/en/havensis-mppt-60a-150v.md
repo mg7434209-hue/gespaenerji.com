@@ -3,7 +3,7 @@ title: "Havensis 60A MPPT Controller 12–48V, 150V — 5000W Panels"
 description: "Havensis Solar-60AMPS 150|60 MPPT charge controller: 12/24/36/48 V battery, 60 A charging, 150 V panel input, up to 5000 W of panels."
 canonical: https://www.gespaenerji.com/en/havensis-mppt-60a-150v.html
 lang: en
-dateModified: 2026-11-20
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Price includes VAT.
 
 💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
 
-🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+🚚 Shipping: **₺250** · Product + shipping: **₺16.450** · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
@@ -89,7 +89,7 @@ What are MPPT and a panel string (series connection)? [Solar Glossary →](https
 
 - Products are shipped by contracted courier to every province of Türkiye; delivery is not limited to Antalya.
 - Estimated delivery is 2–5 business days after order confirmation; the tracking number is sent via WhatsApp.
-- Shipping is paid by the buyer and is stated exactly at order confirmation. Prices include VAT.
+- The shipping fee is added to the product price and shown separately in the cart; a shipping discount applies when you order more than one product. Prices include VAT.
 - Under distance-selling rules you may withdraw within 14 days of delivery; for a problem-free delivery the return shipping is paid by the buyer.
 - For damaged or defective goods all costs are ours — please inspect the parcel in front of the courier on delivery.
 - Optional on-site installation and training is offered in the Antalya region.

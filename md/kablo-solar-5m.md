@@ -3,7 +3,7 @@ title: "Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı) | GESPA Enerji"
 description: "Güneş paneli ile şarj kontrol cihazı arasındaki bağlantı için 5 metre siyah + 5 metre kırmızı solar kablo takımı."
 canonical: https://www.gespaenerji.com/kablo-solar-5m.html
 lang: tr
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ KDV dahil fiyattır.
 
 💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
 
-🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+🚚 Kargo: **₺250** · Ürün + kargo: **₺1.250** · 2–5 iş günü
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
@@ -54,7 +54,7 @@ MC4 ve dizi nedir? [GES Sözlüğü →](https://www.gespaenerji.com/sozluk.html
 
 - Ürünler Türkiye'nin her iline anlaşmalı kargo ile gönderilir; teslimat için Antalya şartı yoktur.
 - Sipariş onayından sonra tahmini teslim süresi 2–5 iş günüdür; kargo takip numarası WhatsApp'tan iletilir.
-- Kargo ücreti alıcıya aittir ve sipariş onayında net olarak bildirilir. Fiyatlara KDV dahildir.
+- Kargo ücreti ürün fiyatına eklenir ve sepette ayrıca gösterilir; birden fazla üründe kargoda indirim uygulanır. Fiyatlara KDV dahildir.
 - Mesafeli satış mevzuatı gereği teslim tarihinden itibaren 14 gün içinde cayma hakkınız vardır; sorunsuz teslim edilen üründe iade kargo ücreti alıcıya aittir.
 - Hasarlı veya ayıplı üründe tüm masraflar bize aittir — kargoyu teslim alırken paketi görevli önünde kontrol edin.
 - Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi sunulur.

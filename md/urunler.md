@@ -3,7 +3,7 @@ title: "Hazır Solar Paketler — Off-Grid & Sulama | GESPA Enerji"
 description: "240 W ve 2×540 W hazır güneş enerjisi paketleri: kamp, karavan ve bağ evi için panel, güç kutusu ve kablo içeriği. Türkiye geneli gönderim — GESPA Enerji."
 canonical: https://www.gespaenerji.com/urunler.html
 lang: tr
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -36,7 +36,7 @@ Hazır güneş enerjisi paketleri — net içerik, şeffaf fiyat, Türkiye'nin h
 - **MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı** — GES-EV-BOOST · Golf aracı, hizmet aracı ve elektrikli platformlar · ₺7.200 (≈ $146) (KDV dahil ). Güneş panelinden 24-72 V akü grubuna doğrudan şarj sağlayan MPPT yükseltici (boost) şarj kontrol cihazı. AGM, jel, sulu kurşun-asit ve lityum akülerle uyumlu; Bluetooth ile programlanır. Panel ve akü ürüne dahil değildir.
 - **europlus 72 V 30 Ah LiFePO₄ Akü** — GES-EV-AKU-72V · Elektrikli triportör, motosiklet ve 72 V hizmet araçları · ₺28.000 (≈ $569) liste · havale/EFT ile ₺27.150 (%3 indirimli, KDV dahil ). Elektrikli triportör ve 72 V motorlu araçlar için LiFePO₄ (lityum demir fosfat) çekiş aküsü. 24S hücre dizilimi, 76,8 V nominal gerilim, ~2.300 Wh enerji, dahili balanslı BMS. Maksimum şarj voltajı 87,6 V, maksimum şarj akımı 30 A; doğru kullanımda 2.000 çevrim ömür. Dış ölçü yaklaşık 41 × 16 × 17 cm. Jel ve kurşun-asit akülere göre 3 kata kadar daha hafiftir ve deşarj boyunca kararlı voltaj verir — motor gücü düşmeden yol biter. Şarj cihazı ürüne dahil değildir.
 
-🚚 Paketler Türkiye'nin her iline anlaşmalı kargo ile gönderilir; fiyatlara KDV dahildir, kargo hariçtir. Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi sunulur.
+🚚 Paketler Türkiye'nin her iline anlaşmalı kargo ile gönderilir; fiyatlara KDV dahildir. Kargo ücreti ürün fiyatına eklenir ve sepette ayrıca gösterilir; birden fazla üründe kargoda indirim uygulanır. Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi sunulur.
 
 🛒
 **Daha fazla ürün mü lazım?** Solar e-mağazamız GES Marketim'de panel, akü, inverter ve aksesuarlar stoktan satışta.

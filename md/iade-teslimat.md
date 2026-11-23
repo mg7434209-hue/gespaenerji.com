@@ -3,7 +3,7 @@ title: "İade, Teslimat ve Kargo Koşulları | GESPA Enerji"
 description: "GESPA Enerji teslimat ve iade koşulları: Türkiye geneli kargo, teslim süresi, hasarlı teslimat, 14 gün cayma hakkı, iade adımları, bedel iadesi ve garanti…"
 canonical: https://www.gespaenerji.com/iade-teslimat.html
 lang: tr
-dateModified: 2026-11-10
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -53,7 +53,13 @@ Manavgat Ticaret ve Sanayi Odası · Oda Sicil No 14361
 
 Gönderim **Türkiye genelindeki tüm illere** anlaşmalı kargo firmalarıyla yapılır. Antalya ve çevresi, yalnızca isteğe bağlı yerinde kurulum hizmetinin sunulduğu bölgedir; kargo gönderimi için bölge sınırlaması yoktur.
 
-Kargo bedeli sipariş özetinde ayrıca gösterilir ve ürün fiyatına dâhil değildir. Ürün sayfalarındaki fiyatlara **KDV dâhil, kargo hariçtir**.
+Kargo ücreti **Türkiye genelinde sabittir**; ürün fiyatına eklenir, sepette ve sipariş özetinde ayrıca gösterilir ve siparişle birlikte ödenir. **Teslimatta kargo firmasına ayrıca ödeme yapılmaz.** Ürün sayfalarındaki fiyatlara **KDV dâhildir**; her ürünün kargo ücreti kendi sayfasında yazılıdır. Sayfasında "kargo fiyata dahil" yazan ürünlerde kargo ücreti alınmaz.
+
+- **Paneller çift gönderilir:** 460 W ve üzeri panellerde 1 adet ₺700, 2 adet ₺1.000; 460 W altı panellerde 1 adet ₺500, 2 adet ₺750.
+- **Birden fazla ürün:** sepette 2 veya daha fazla farklı ürün varsa toplam kargo ücretine %20 indirim uygulanır.
+- **Ücretsiz kargo:** ürün toplamı ₺50.000 ve üzeri olan siparişlerde kargo ücreti alınmaz.
+- **İşyerinden teslim:** siparişini Manavgat'taki işyerimizden teslim alan Alıcıdan kargo ücreti alınmaz.
+- Havale/EFT indirimi kargo ücretine uygulanmaz.
 
 Hacimli gönderilerde (panel, tank, konstrüksiyon vb.) kargo yerine ambar/nakliye kullanılabilir; bu durumda teslim şekli ve bedeli sipariş teyidinde Alıcıya bildirilir.
 

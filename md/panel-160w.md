@@ -3,7 +3,7 @@ title: "160 W Güneş Paneli Fiyatı | GESPA Enerji"
 description: "160 W Güneş Paneli: Voc 19 V, 1065 × 705 mm. Lexron 1200 W güç istasyonu, karavan ve 12 V sistemler için. KDV dahil fiyat, Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/panel-160w.html
 lang: tr
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ KDV dahil fiyattır.
 
 💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
 
-🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+🚚 Kargo: **₺500** · 2 adet: **₺750** · Ürün + kargo: **₺4.500** · 2–5 iş günü
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
@@ -74,7 +74,7 @@ Voc, Isc ve monokristal nedir? [GES Sözlüğü →](https://www.gespaenerji.com
 
 - Ürünler Türkiye'nin her iline anlaşmalı kargo ile gönderilir; teslimat için Antalya şartı yoktur.
 - Sipariş onayından sonra tahmini teslim süresi 2–5 iş günüdür; kargo takip numarası WhatsApp'tan iletilir.
-- Kargo ücreti alıcıya aittir ve sipariş onayında net olarak bildirilir. Fiyatlara KDV dahildir.
+- Kargo ücreti ürün fiyatına eklenir ve sepette ayrıca gösterilir; birden fazla üründe kargoda indirim uygulanır. Fiyatlara KDV dahildir.
 - Mesafeli satış mevzuatı gereği teslim tarihinden itibaren 14 gün içinde cayma hakkınız vardır; sorunsuz teslim edilen üründe iade kargo ücreti alıcıya aittir.
 - Hasarlı veya ayıplı üründe tüm masraflar bize aittir — kargoyu teslim alırken paketi görevli önünde kontrol edin.
 - Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi sunulur.

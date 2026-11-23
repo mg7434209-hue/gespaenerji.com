@@ -307,6 +307,25 @@ console.log('Analytics: consent gate, exact AI source attribution and contact pa
 const RECEIPT_TEST_SECRET='test-dekont-anahtari';
 // ADMIN_PASS is set as on Railway: the public config password must then be rejected. Runtime data goes to
 // a temporary folder so test questions never appear on a locally served page.
+// Shipping: one rule (config.js shipCalc) for cart, server and build. Every sold product has a class; the business rules hold.
+{const sbk={window:{}};require('node:vm').runInNewContext(fs.readFileSync(path.join(root,'assets/config.js'),'utf8'),sbk);const C=sbk.window.GESPA.config,S=C.commerce.shipping,calc=C.shipCalc;
+ assert.equal(typeof calc,'function','shipCalc rides on the config object');assert.ok(!Object.keys(C).includes('shipCalc'),'shipCalc is not enumerable');
+ for(const p of C.packages)assert.ok(p.freeShipping||S.classes[p.ship],p.id+': shipping class missing');
+ const one=(id,q,o)=>calc([{id,qty:q}],o||{});
+ assert.deepEqual([1,2,3,4].map(q=>one('panel-700w',q).total),[700,1000,1700,2000],'large panels ship in pairs');
+ assert.deepEqual([1,2,3,4].map(q=>one('panel-240w',q).total),[500,750,1250,1500],'small panels ship in pairs');
+ assert.equal(one('lexron-mppt-40a',1).total,250);assert.equal(one('aku-lifepo4-72v',1).total,500);assert.equal(one('kit-285w',1).total,1200);
+ assert.equal(one('hero-led-ampul-10w',5).total,250,'1-5 small items share one fee');assert.equal(one('hero-led-ampul-10w',6).total,500);
+ const two=calc([{id:'panel-700w',qty:1},{id:'lexron-mppt-40a',qty:1}],{listTL:12000});assert.equal(two.base,950);assert.equal(two.total,760,'20% off shipping with two different products');
+ assert.equal(one('panel-700w',1,{pickup:true}).total,0,'pick-up has no shipping');assert.equal(one('panel-700w',1,{pickup:true}).free,'pickup');
+ assert.equal(one('panel-700w',6,{listTL:S.freeOverTL}).free,'esik','free shipping from the threshold');assert.equal(one('panel-700w',6,{listTL:S.freeOverTL-1}).total,3000);
+ assert.equal(one('boost-mppt',1).free,'dahil','freeShipping products stay free');
+ // static output carries the same numbers
+ const p700=fs.readFileSync(path.join(root,'panel-700w.html'),'utf8');assert.ok(/data-pkg-shiprow[^>]*>🚚 <span>Kargo<\/span>: <b>₺700<\/b> · <span>2 adet<\/span>: <b>₺1\.000<\/b> · <span>Ürün \+ kargo<\/span>/.test(p700),'product page shows product + shipping');
+ assert.ok(/"shippingRate":\{"@type":"MonetaryAmount","value":700,"currency":"TRY"\}/.test(p700.replace(/\s+/g,'')),'Product schema carries the shipping fee');
+ assert.ok(/<g:id>panel-700w<\/g:id>[\s\S]*?<g:price>700\.00 TRY<\/g:price>/.test(fs.readFileSync(path.join(root,'urunler.xml'),'utf8')),'feed carries the shipping fee');
+ const cartPage=fs.readFileSync(path.join(root,'sepet.html'),'utf8');assert.ok(/name="teslim" value="isyeri"/.test(cartPage)&&!/kargoOnay/.test(cartPage),'cart offers pick-up; pay-on-delivery checkbox is gone');
+ for(const f of ['sepet.html','iade-teslimat.html','sss.html','llms-full.txt'])assert.ok(!/alıcı ödemeli|teslim alırken kargo firmasına öde/.test(fs.readFileSync(path.join(root,f),'utf8')),f+': old pay-on-delivery wording remains');}
 // The old password was public (config.js + public repo). It must be gone from the config and rejected.
 const LEAKED_PASS='gespa2026';
 {const vm=require('node:vm');const c={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/config.js'),'utf8'),c);const C=c.window.GESPA.config;assert.ok(!(C.admin&&C.admin.pass),'config.js carries no admin password');}

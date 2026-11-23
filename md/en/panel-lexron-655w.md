@@ -3,7 +3,7 @@ title: "Lexron 655W N-type TOPCon Solar Panel | GESPA Energy"
 description: "Lexron 655 W N-type TOPCon panel: 24.25% efficiency, Voc 50.34 V, 2382 × 1134 × 35 mm, 31 kg, IP68, 30-year power warranty."
 canonical: https://www.gespaenerji.com/en/panel-lexron-655w.html
 lang: en
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Price includes VAT.
 
 💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
 
-🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+🚚 Shipping: **₺700** · 2 pcs: **₺1.000** · Product + shipping: **₺10.700** · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
@@ -81,7 +81,7 @@ What do Voc, Isc and monocrystalline mean? [Solar Glossary →](https://www.gesp
 
 - Products are shipped by contracted courier to every province of Türkiye; delivery is not limited to Antalya.
 - Estimated delivery is 2–5 business days after order confirmation; the tracking number is sent via WhatsApp.
-- Shipping is paid by the buyer and is stated exactly at order confirmation. Prices include VAT.
+- The shipping fee is added to the product price and shown separately in the cart; a shipping discount applies when you order more than one product. Prices include VAT.
 - Under distance-selling rules you may withdraw within 14 days of delivery; for a problem-free delivery the return shipping is paid by the buyer.
 - For damaged or defective goods all costs are ours — please inspect the parcel in front of the courier on delivery.
 - Optional on-site installation and training is offered in the Antalya region.

@@ -3,7 +3,7 @@ title: "Solar Packages — Off-Grid & Irrigation | GESPA Energy"
 description: "240 W and 2×540 W solar kits for camping, caravans and cottages. Compare panels, power boxes and cables; shipping across Türkiye — GESPA Enerji."
 canonical: https://www.gespaenerji.com/en/urunler.html
 lang: en
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -33,10 +33,10 @@ Ready-made solar packages — clear contents, transparent pricing, shipping acro
 
 ## EV Solar Conversion Products
 
-- **MS Teknik BOOST MPPT 24-72 V Charge Controller** — GES-EV-BOOST · Golf carts, service vehicles and electric platforms · ₺7.200 (≈ $146) (KDV dahil ). An MPPT boost charge controller that charges a 24–72 V battery bank straight from a solar panel. Compatible with AGM, gel, flooded lead-acid and lithium batteries; programmed over Bluetooth. The panel and battery are not included.
+- **MS Teknik BOOST MPPT 24-72 V Charge Controller** — GES-EV-BOOST · Golf carts, service vehicles and electric platforms · ₺7.200 (≈ $146) (VAT included ). An MPPT boost charge controller that charges a 24–72 V battery bank straight from a solar panel. Compatible with AGM, gel, flooded lead-acid and lithium batteries; programmed over Bluetooth. The panel and battery are not included.
 - **europlus 72 V 30 Ah LiFePO₄ Battery** — GES-EV-AKU-72V · E-trikes, motorcycles and 72 V utility vehicles · ₺28.000 (≈ $569) list price · by bank transfer ₺27.150 (%3 discount, VAT included ). LiFePO₄ (lithium iron phosphate) traction battery for electric three-wheelers and vehicles with 72 V motors. 24S cell configuration, 76.8 V nominal voltage, ~2,300 Wh of energy, built-in balancing BMS. Maximum charge voltage 87.6 V, maximum charge current 30 A; 2,000-cycle life with proper use. Outer dimensions about 41 × 16 × 17 cm. Up to 3 times lighter than gel and lead-acid batteries, and it holds a stable voltage throughout discharge, so the motor keeps its power until the end of the ride. The charger is not included.
 
-🚚 Packages are shipped by contracted courier to every province of Türkiye; prices include VAT, shipping excluded. Optional on-site installation and training is offered in the Antalya region.
+🚚 Packages are shipped by contracted courier to every province of Türkiye; prices include VAT. The shipping fee is added to the product price and shown separately in the cart; a shipping discount applies when you order more than one product. Optional on-site installation and training is offered in the Antalya region.
 
 🛒
 **Need more products?** Our solar online store GES Marketim sells panels, batteries, inverters and accessories from stock.

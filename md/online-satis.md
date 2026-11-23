@@ -3,7 +3,7 @@ title: "Güneş Paneli, Akü ve MPPT Şarj Kontrol Satın Al | GESPA"
 description: "Lexron ve Arçelik güneş panelleri, LiFePO₄ akü, MPPT/PWM şarj kontrol cihazı, solar kablo ve hazır paketler. KDV dahil açık fiyat, Türkiye'ye kargo."
 canonical: https://www.gespaenerji.com/online-satis.html
 lang: tr
-dateModified: 2026-11-20
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -29,7 +29,7 @@ Kamp, karavan ve küçük ihtiyaçlar
 
 💰 Havale/EFT ile: **₺23.300**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺1.200
 
 ### [Tam Kapsamlı Güneş Enerjisi Sistemi](https://www.gespaenerji.com/paket-2x540w.html)
 
@@ -39,7 +39,7 @@ Karavan, kamp ve bağ evi
 
 💰 Havale/EFT ile: **₺104.950**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ücretsiz
 
 ### [MS Teknik BOOST MPPT 24-72 V Şarj Kontrol Cihazı](https://www.gespaenerji.com/elektrikli-arac-donusum.html)
 
@@ -57,7 +57,7 @@ Elektrikli triportör, motosiklet ve 72 V hizmet araçları
 
 💰 Havale/EFT ile: **₺27.150**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺500
 
 ### [50W Güneş Paneli](https://www.gespaenerji.com/panel-50w.html)
 
@@ -65,7 +65,7 @@ Küçük aydınlatma, kamera ve akü şarjı
 
 **₺1.750**≈ $36
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺500
 
 ### [UNV Trek Pro 2500 W Taşınabilir Güç İstasyonu](https://www.gespaenerji.com/unv-trek-pro-2500.html)
 
@@ -75,7 +75,7 @@ Kamp, karavan, saha çalışması ve ev tipi yedek güç
 
 💰 Havale/EFT ile: **₺119.100**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ücretsiz
 
 ### [Lexron 1200 W Taşınabilir Güç İstasyonu](https://www.gespaenerji.com/lexron-guc-istasyonu-1200w.html)
 
@@ -85,7 +85,7 @@ Kamp, karavan, saha çalışması ve evde yedek güç
 
 💰 Havale/EFT ile: **₺25.200**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺400
 
 ### [360 W Güneş Paneli](https://www.gespaenerji.com/panel-360w.html)
 
@@ -95,7 +95,7 @@ Bağ evi, karavan, çatı ve küçük off-grid sistemler
 
 💰 Havale/EFT ile: **₺7.000**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺500
 
 ### [160 W Güneş Paneli](https://www.gespaenerji.com/panel-160w.html)
 
@@ -105,7 +105,7 @@ Lexron 1200 W güç istasyonu, karavan ve 12 V sistemler
 
 💰 Havale/EFT ile: **₺3.900**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺500
 
 ### [Lexron 655 W TOPCon Güneş Paneli](https://www.gespaenerji.com/panel-lexron-655w.html)
 
@@ -115,7 +115,7 @@ KDV dahil · kargo hariç
 
 💰 Havale/EFT ile: **₺9.700**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺700
 
 ### [700 W Bifacial TOPCon Güneş Paneli](https://www.gespaenerji.com/panel-700w.html)
 
@@ -125,7 +125,7 @@ Kargo kasalı elektrikli araçlar, çatı ve arazi sistemleri
 
 💰 Havale/EFT ile: **₺8.450**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺700
 
 ### [460 W Half-Cut Monokristal Güneş Paneli](https://www.gespaenerji.com/panel-460w.html)
 
@@ -135,7 +135,7 @@ Golf aracı tipi elektrikli araçlar ve küçük off-grid sistemler
 
 💰 Havale/EFT ile: **₺7.750**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺700
 
 ### [240 W Güneş Paneli (48 Hücre)](https://www.gespaenerji.com/panel-240w.html)
 
@@ -145,7 +145,7 @@ Mini elektrikli otomobiller ve küçük off-grid sistemler
 
 💰 Havale/EFT ile: **₺6.300**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺500
 
 ### [Arçelik 540 W Güneş Paneli](https://www.gespaenerji.com/panel-arcelik-540w.html)
 
@@ -155,7 +155,7 @@ KDV dahil · kargo hariç
 
 💰 Havale/EFT ile: **₺9.700**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺700
 
 ### [TitanX 51,2 V 102 Ah LiFePO₄ Akü](https://www.gespaenerji.com/aku-titanx-51v-102ah.html)
 
@@ -165,7 +165,7 @@ Ev ve işyeri enerji depolama, off-grid ve yedek güç
 
 💰 Havale/EFT ile: **₺71.200**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ücretsiz
 
 ### [Havensis Solar-30AMPS MPPT Şarj Kontrol Cihazı 12/24 V 30 A](https://www.gespaenerji.com/havensis-mppt-30a.html)
 
@@ -175,7 +175,7 @@ KDV dahil · kargo hariç
 
 💰 Havale/EFT ile: **₺6.150**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Havensis Solar-40AMPS MPPT Şarj Kontrol Cihazı 12/24 V 40 A](https://www.gespaenerji.com/havensis-mppt-40a.html)
 
@@ -185,7 +185,7 @@ KDV dahil · kargo hariç
 
 💰 Havale/EFT ile: **₺7.050**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Havensis Solar-60AMPS-100 MPPT Şarj Kontrol Cihazı 12/24 V 60 A](https://www.gespaenerji.com/havensis-mppt-60a.html)
 
@@ -195,7 +195,7 @@ KDV dahil · kargo hariç
 
 💰 Havale/EFT ile: **₺11.550**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Havensis Solar-60AMPS 150|60 MPPT Şarj Kontrol Cihazı 12/24/36/48 V 60 A](https://www.gespaenerji.com/havensis-mppt-60a-150v.html)
 
@@ -205,7 +205,7 @@ KDV dahil · kargo hariç
 
 💰 Havale/EFT ile: **₺15.700**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 30 A](https://www.gespaenerji.com/havensis-dcdc-30a.html)
 
@@ -215,7 +215,7 @@ Karavan: alternatörden yaşam aküsüne şarj · 12/24 V
 
 💰 Havale/EFT ile: **₺9.500**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Havensis DCDC-1224 Tek Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A](https://www.gespaenerji.com/havensis-dcdc-40a.html)
 
@@ -225,7 +225,7 @@ Karavan: alternatörden yaşam aküsüne şarj · 12/24 V
 
 💰 Havale/EFT ile: **₺11.550**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Havensis DCDC-1224B Çift Yönlü DC-DC Akü Şarj Cihazı 12/24 V 40 A](https://www.gespaenerji.com/havensis-dcdc-40a-cift-yonlu.html)
 
@@ -235,7 +235,7 @@ Karavan: çift yönlü akü şarjı (takviye modu) · 12/24 V
 
 💰 Havale/EFT ile: **₺13.200**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Havensis BOOST DCDC-2448 DC-DC Akü Şarj Cihazı 36/48/60/72 V](https://www.gespaenerji.com/havensis-boost-dcdc-2448.html)
 
@@ -245,7 +245,7 @@ KDV dahil · kargo hariç
 
 💰 Havale/EFT ile: **₺8.000**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Havensis BOOST DCDC-2448 DC-DC Akü Şarj Cihazı 36/48 V 40 A](https://www.gespaenerji.com/havensis-boost-dcdc-2448-40a.html)
 
@@ -255,7 +255,7 @@ KDV dahil · kargo hariç
 
 💰 Havale/EFT ile: **₺9.900**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Lexron 20 A PWM Şarj Kontrol Cihazı 12/24 V](https://www.gespaenerji.com/lexron-pwm-20a.html)
 
@@ -265,7 +265,7 @@ KDV dahil · kargo hariç
 
 💰 Havale/EFT ile: **₺700**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Lexron 30 A PWM Şarj Kontrol Cihazı 12/24 V](https://www.gespaenerji.com/lexron-pwm-30a.html)
 
@@ -275,7 +275,7 @@ KDV dahil · kargo hariç
 
 💰 Havale/EFT ile: **₺800**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Lexron 40 A PWM Şarj Kontrol Cihazı 12/24 V](https://www.gespaenerji.com/lexron-pwm-40a.html)
 
@@ -285,7 +285,7 @@ KDV dahil · kargo hariç
 
 💰 Havale/EFT ile: **₺1.000**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Lexron 60 A PWM Şarj Kontrol Cihazı 12/24/48 V](https://www.gespaenerji.com/lexron-pwm-60a.html)
 
@@ -295,7 +295,7 @@ KDV dahil · kargo hariç
 
 💰 Havale/EFT ile: **₺2.150**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Lexron 20 A MPPT Şarj Kontrol Cihazı 12/24 V](https://www.gespaenerji.com/lexron-mppt-20a.html)
 
@@ -305,7 +305,7 @@ KDV dahil · kargo hariç
 
 💰 Havale/EFT ile: **₺3.050**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Lexron 30 A MPPT Şarj Kontrol Cihazı 12/24 V](https://www.gespaenerji.com/lexron-mppt-30a.html)
 
@@ -315,7 +315,7 @@ KDV dahil · kargo hariç
 
 💰 Havale/EFT ile: **₺3.350**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Lexron 40 A MPPT Şarj Kontrol Cihazı 12/24 V](https://www.gespaenerji.com/lexron-mppt-40a.html)
 
@@ -325,7 +325,7 @@ KDV dahil · kargo hariç
 
 💰 Havale/EFT ile: **₺3.700**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Lexron 80 A HV (15~230 V) MPPT Şarj Kontrol Cihazı 12/24/36/48 V](https://www.gespaenerji.com/lexron-mppt-80a-hv.html)
 
@@ -335,7 +335,7 @@ KDV dahil · kargo hariç
 
 💰 Havale/EFT ile: **₺9.800**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Solar Kablo Takımı (5 m Siyah + 5 m Kırmızı)](https://www.gespaenerji.com/kablo-solar-5m.html)
 
@@ -345,7 +345,7 @@ Panel ile şarj kontrol cihazı arası bağlantı
 
 💰 Havale/EFT ile: **₺950**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Yolcu Kabinli Motor Güneş Paketi — 240 W](https://www.gespaenerji.com/paket-motor-yolcu.html)
 
@@ -355,7 +355,7 @@ Kabinli, 2–4 kişilik yolcu triportörleri — çatı alanı dar
 
 💰 Havale/EFT ile: **₺14.350**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺500
 
 ### [Kargo Kasalı Motor Güneş Paketi — 700 W](https://www.gespaenerji.com/paket-motor-kargo.html)
 
@@ -365,7 +365,7 @@ Açık kasa veya tenteli yük triportörleri — çatı alanı geniş
 
 💰 Havale/EFT ile: **₺16.500**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺700
 
 ### [Golf Aracı Tipi Motor Güneş Paketi — 460 W](https://www.gespaenerji.com/paket-motor-golf.html)
 
@@ -375,7 +375,7 @@ Tavanlı, golf aracı tipi elektrikli yolcu araçları
 
 💰 Havale/EFT ile: **₺15.800**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺700
 
 ### [Mini Elektrikli Otomobil Güneş Paketi — 240 W](https://www.gespaenerji.com/paket-motor-mini.html)
 
@@ -385,7 +385,7 @@ Kapalı kabinli mini elektrikli otomobiller — tavan alanı küçük
 
 💰 Havale/EFT ile: **₺14.350**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺500
 
 ### [MC4 Konnektör Takımı](https://www.gespaenerji.com/mc4-set.html)
 
@@ -393,7 +393,7 @@ Panel kablosu ile solar kablonun birleştirilmesi
 
 **₺100**≈ $2
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Hero LED 10 W 12 V DC LED Ampul (12–60 V AC/DC)](https://www.gespaenerji.com/hero-led-ampul-10w.html)
 
@@ -401,7 +401,7 @@ Karavan, tekne, bağ evi ve akülü güneş sistemleri
 
 **₺130**≈ $3
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Hero LED 100 W Solar Sokak Armatürü (Sensörlü, Kumandalı)](https://www.gespaenerji.com/hero-led-solar-sokak-100w.html)
 
@@ -411,7 +411,7 @@ Bahçe, sokak, site, otopark ve fabrika aydınlatması
 
 💰 Havale/EFT ile: **₺1.150**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Hero LED 50 W Solar LED Aplik (Kumandalı, 3 Renk + RGB)](https://www.gespaenerji.com/hero-led-aplik-50w.html)
 
@@ -421,7 +421,7 @@ Duvar, giriş kapısı, bahçe duvarı ve teras aydınlatması
 
 💰 Havale/EFT ile: **₺800**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Hero LED 50 W Solar Set Üstü Bahçe Armatürü (Kumandalı, 3 Renk + RGB)](https://www.gespaenerji.com/hero-led-bahce-50w.html)
 
@@ -431,7 +431,7 @@ Bahçe duvarı, set, kolon başı ve giriş aydınlatması
 
 💰 Havale/EFT ile: **₺750**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Hero LED 200 W Solar Sokak Armatürü (Sensörlü, Kumandalı)](https://www.gespaenerji.com/hero-led-solar-sokak-200w.html)
 
@@ -441,7 +441,7 @@ Bahçe, sokak, site, otopark ve fabrika aydınlatması
 
 💰 Havale/EFT ile: **₺2.200**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 ### [Hero LED 600 W Solar Sokak Armatürü (Radar Sensörlü, Kumandalı)](https://www.gespaenerji.com/hero-led-solar-sokak-600w.html)
 
@@ -451,7 +451,7 @@ Geniş bahçe, sokak, site, otopark ve fabrika sahası
 
 💰 Havale/EFT ile: **₺2.550**
 
-KDV dahil · kargo hariç
+KDV dahil · kargo ₺250
 
 Sıkça Sorulan Sorular
 
@@ -459,7 +459,9 @@ Sıkça Sorulan Sorular
 
 ### Kargo ücreti ve teslim süresi nedir?
 
-Ürünler Türkiye'nin her iline anlaşmalı kargo ile gönderilir. Kartında “KDV ve kargo dahil” yazan ürünlerde kargo fiyata dahildir; diğerlerinde kargo ücreti alıcıya aittir ve sipariş onayında net olarak bildirilir.
+Ürünler Türkiye'nin her iline anlaşmalı kargo ile gönderilir. Kargo ücreti Türkiye genelinde sabittir; ürün fiyatına eklenir, sepette ayrıca gösterilir ve siparişle birlikte ödenir, teslimatta kargo firmasına ayrıca ödeme yapılmaz. Her ürünün kargo ücreti kendi sayfasında yazılıdır; kartında “KDV ve kargo dahil” yazan ürünlerde kargo fiyata dahildir.
+
+Paneller çift gönderilir: 460 W ve üzeri panellerde 1 adet ₺700, 2 adet ₺1.000; 460 W altı panellerde 1 adet ₺500, 2 adet ₺750. Sepette 2 veya daha fazla farklı ürün varsa toplam kargo ücretine %20 indirim uygulanır; ürün toplamı ₺50.000 ve üzeri siparişlerde kargo ücretsizdir. Siparişinizi Manavgat'taki işyerimizden teslim alırsanız kargo ücreti alınmaz. Havale/EFT indirimi kargo ücretine uygulanmaz.
 
 Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 

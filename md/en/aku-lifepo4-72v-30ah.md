@@ -3,7 +3,7 @@ title: "europlus 72 V 30 Ah LiFePO₄ Battery — 72V Lithium | GESPA Energy"
 description: "LiFePO₄ traction battery for e-trikes and 72 V vehicles: 24S, ~2,300 Wh, 87.6 V max charge, built-in balanced BMS, 2,000 cycles."
 canonical: https://www.gespaenerji.com/en/aku-lifepo4-72v-30ah.html
 lang: en
-dateModified: 2026-11-10
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Price includes VAT.
 
 💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
 
-🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+🚚 Shipping: **₺500** · Product + shipping: **₺28.500** · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
@@ -75,7 +75,7 @@ What do LiFePO₄, BMS and cycle life mean? [Solar Glossary →](https://www.ges
 
 - Products are shipped by contracted courier to every province of Türkiye; delivery is not limited to Antalya.
 - Estimated delivery is 2–5 business days after order confirmation; the tracking number is sent via WhatsApp.
-- Shipping is paid by the buyer and is stated exactly at order confirmation. Prices include VAT.
+- The shipping fee is added to the product price and shown separately in the cart; a shipping discount applies when you order more than one product. Prices include VAT.
 - Under distance-selling rules you may withdraw within 14 days of delivery; for a problem-free delivery the return shipping is paid by the buyer.
 - For damaged or defective goods all costs are ours — please inspect the parcel in front of the courier on delivery.
 - Optional on-site installation and training is offered in the Antalya region.

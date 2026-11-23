@@ -3,7 +3,7 @@ title: "Lexron 1200 W Taşınabilir Güç İstasyonu Fiyatı | GESPA"
 description: "Lexron 1200 W taşınabilir güç istasyonu: 1152 Wh LiFePO₄, saf sinüs AC, USB, Type-C PD 100 W, 12 V DC. 160 W panel bağlanabilir. Türkiye'ye kargo."
 canonical: https://www.gespaenerji.com/lexron-guc-istasyonu-1200w.html
 lang: tr
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ KDV dahil fiyattır.
 
 💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
 
-🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+🚚 Kargo: **₺400** · Ürün + kargo: **₺26.400** · 2–5 iş günü
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 
@@ -86,7 +86,7 @@ LiFePO₄ ve çevrim ömrü nedir? [GES Sözlüğü →](https://www.gespaenerji
 
 - Ürünler Türkiye'nin her iline anlaşmalı kargo ile gönderilir; teslimat için Antalya şartı yoktur.
 - Sipariş onayından sonra tahmini teslim süresi 2–5 iş günüdür; kargo takip numarası WhatsApp'tan iletilir.
-- Kargo ücreti alıcıya aittir ve sipariş onayında net olarak bildirilir. Fiyatlara KDV dahildir.
+- Kargo ücreti ürün fiyatına eklenir ve sepette ayrıca gösterilir; birden fazla üründe kargoda indirim uygulanır. Fiyatlara KDV dahildir.
 - Mesafeli satış mevzuatı gereği teslim tarihinden itibaren 14 gün içinde cayma hakkınız vardır; sorunsuz teslim edilen üründe iade kargo ücreti alıcıya aittir.
 - Hasarlı veya ayıplı üründe tüm masraflar bize aittir — kargoyu teslim alırken paketi görevli önünde kontrol edin.
 - Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi sunulur.

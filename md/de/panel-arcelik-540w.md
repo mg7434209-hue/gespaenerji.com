@@ -3,7 +3,7 @@ title: "Arçelik 540-W-Solarmodul | GESPA Energy"
 description: "Arçelik 540-W-Monokristallin-Solarmodul Klasse A für Dach- und Freiflächenanlagen; palettenweise Lieferung möglich."
 canonical: https://www.gespaenerji.com/de/panel-arcelik-540w.html
 lang: de
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Preis inkl. MwSt.
 
 💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
 
-🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+🚚 Versand: **₺700** · 2 Stück: **₺1.000** · Produkt + Versand: **₺10.700** · 2–5 Werktage
 
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 
@@ -71,7 +71,7 @@ Was bedeuten Voc, Isc und monokristallin? [Solar-Glossar →](https://www.gespae
 
 - Die Produkte werden per Vertragsspedition in alle Provinzen der Türkei geliefert; die Lieferung ist nicht auf Antalya beschränkt.
 - Die Lieferzeit beträgt ca. 2–5 Werktage nach Bestellbestätigung; die Sendungsnummer kommt per WhatsApp.
-- Die Versandkosten trägt der Käufer und werden bei der Bestellbestätigung genau genannt. Preise inkl. MwSt.
+- Die Versandkosten werden zum Produktpreis addiert und im Warenkorb separat ausgewiesen; bei mehreren Produkten gibt es einen Versandrabatt. Preise inkl. MwSt.
 - Nach Fernabsatzrecht können Sie binnen 14 Tagen ab Lieferung widerrufen; bei einwandfreier Lieferung trägt der Käufer die Rücksendekosten.
 - Bei beschädigter oder mangelhafter Ware tragen wir alle Kosten — bitte prüfen Sie das Paket bei der Übergabe vor dem Zusteller.
 - In der Region Antalya bieten wir optional Vor-Ort-Montage und Einweisung an.

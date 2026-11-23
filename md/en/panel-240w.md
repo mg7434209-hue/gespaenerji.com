@@ -3,7 +3,7 @@ title: "240W Solar Panel (48 Cells) | GESPA Energy"
 description: "240 W solar panel with 48 cells: Voc 36.12 V, 1320 × 776 × 30 mm, 8 kg. For mini electric cars and small off-grid systems."
 canonical: https://www.gespaenerji.com/en/panel-240w.html
 lang: en
-dateModified: 2026-11-20
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Price includes VAT.
 
 💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
 
-🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+🚚 Shipping: **₺500** · 2 pcs: **₺750** · Product + shipping: **₺7.000** · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
@@ -76,7 +76,7 @@ What do Voc, Isc and monocrystalline mean? [Solar Glossary →](https://www.gesp
 
 - Products are shipped by contracted courier to every province of Türkiye; delivery is not limited to Antalya.
 - Estimated delivery is 2–5 business days after order confirmation; the tracking number is sent via WhatsApp.
-- Shipping is paid by the buyer and is stated exactly at order confirmation. Prices include VAT.
+- The shipping fee is added to the product price and shown separately in the cart; a shipping discount applies when you order more than one product. Prices include VAT.
 - Under distance-selling rules you may withdraw within 14 days of delivery; for a problem-free delivery the return shipping is paid by the buyer.
 - For damaged or defective goods all costs are ours — please inspect the parcel in front of the courier on delivery.
 - Optional on-site installation and training is offered in the Antalya region.

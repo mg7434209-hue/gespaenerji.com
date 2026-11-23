@@ -1424,7 +1424,7 @@ const CHAT_RULES = [
   "",
   "KESİN KURALLAR:",
   "- YALNIZ aşağıdaki BİLGİ bölümünde yazanlara dayan. Fiyat, stok, teknik değer, garanti süresi, teslim süresi, kampanya ya da indirim UYDURMA. Bilgide olmayan bir şey sorulursa bunu açıkça söyle ve ekibin teyit edeceğini belirt; WhatsApp ya da geri arama öner.",
-  "- Fiyat söylerken BİLGİ'deki liste fiyatını (KDV dahil) ve varsa havale/EFT tutarını ver. Kargo ücretini, indirimi ya da pazarlığı kendin belirleme.",
+  "- Fiyat söylerken BİLGİ'deki liste fiyatını (KDV dahil) ve varsa havale/EFT tutarını ver. Kargo ücretini BİLGİ'deki kurala göre söyle (ürün satırındaki kargo tutarı, çoklu ürün indirimi, ücretsiz kargo eşiği, işyerinden teslim); kendin ücret, indirim ya da pazarlık belirleme.",
   "- Elektrik tesisatı, şebeke bağlantısı ve mevzuat konularında kesin hüküm verme; kurulumu yetkili kişinin yapması gerektiğini söyle. Şebekeye bağlı sistem sorularında başvuru/kabul gerektiğini belirt ve mevzuat rehberine yönlendir.",
   "- Çatı/arazi GES ve tarımsal sulama gibi keşif gerektiren işlerde fiyat verme: ücretsiz keşif öner, il/ilçe ve aylık fatura ya da tüketimi sor. Yaklaşık hesap isteyene hesaplayıcıyı (hesaplayici.html) ve Sistem Kurucu'yu (sistem-kur.html) öner.",
   "- Kimlik numarası, kart bilgisi, şifre gibi hassas bilgi İSTEME; ziyaretçi yazarsa kullanma ve paylaşmamasını söyle.",
@@ -2153,10 +2153,16 @@ function handlePayRoutes(req, res, urlPath) {
         if (p && p.price != null && p.stock !== 0 && qty) lines.push({ p, qty, unit: pkgListTL(p, cfg, qty) });
       });
       if (!lines.length) return sendJson(res, 400, { error: "Sepet boş veya ürünler tanınamadı." });
-      // Kargo (23 Eki 2026): ücretsiz kargolu olmayan kalem varsa ALICI ÖDEMELİ;
-      // müşterinin sepetteki onay kutusu kayda ve işletme e-postasına yazılır.
-      const kargo = lines.every((l) => l.p.freeShipping) ? "Ücretsiz (fiyata dahil)"
-        : "Alıcı ödemeli — teslimatta" + (buyer.kargoOnay ? " (müşteri sepette onayladı)" : "");
+      // Kargo (24 Kas 2026): sabit ücret, config.js shipCalc (sepetle AYNI işlev) hesaplar
+      // ve ürün tutarına eklenerek TAHSİL EDİLİR. "İşyerinden teslim"de kargo yoktur.
+      const pickup = b.teslim === "isyeri";
+      const goods = lines.reduce((a, l) => a + l.unit * l.qty, 0);
+      const sh = cfg.shipCalc ? cfg.shipCalc(lines.map((l) => ({ id: l.p.id, qty: l.qty })), { pickup: pickup, listTL: goods }) : { total: 0, free: "dahil" };
+      const shipTL = sh.total;
+      const kargo = sh.free === "pickup" ? "İşyerinden teslim (kargo yok)"
+        : sh.free === "esik" ? "Ücretsiz (sipariş tutarı eşiğin üzerinde)"
+        : sh.free === "dahil" ? "Ücretsiz (fiyata dahil)"
+        : "₺" + shipTL + " — siparişle tahsil edildi" + (sh.disc ? " (çoklu ürün indirimi −₺" + sh.disc + ")" : "");
       const nm = String(buyer.ad || "").trim().split(/\s+/);
       const surname = nm.length > 1 ? nm.pop() : "-";
       const name = nm.join(" ") || "-";
@@ -2167,7 +2173,7 @@ function handlePayRoutes(req, res, urlPath) {
       if (!name || !tel || !adres || !il) return sendJson(res, 400, { error: "Ad, telefon, il ve adres zorunludur." });
       const inv = invoiceId(buyer);
       if (inv.error) return sendJson(res, 400, { error: inv.error });
-      const total = lines.reduce((a, l) => a + l.unit * l.qty, 0);
+      const total = goods + shipTL;
       // Müşterinin sepette GÖRDÜĞÜ tutar ile sunucunun hesapladığı tutar
       // farklıysa ödeme BAŞLATILMAZ: kur güncellenmiş, sayfa eski fiyatla açık
       // kalmış olabilir. Sayfa yenilenir, müşteri güncel tutarı görüp öder.
@@ -2180,12 +2186,12 @@ function handlePayRoutes(req, res, urlPath) {
       if (prov === "tami") {
         return tamiStart(req, res, {
           key: convId, total: total, card: b.card, taksit: b.tkTaksit,
-          lines: lines.map((l) => ({ id: l.p.id, name: l.p.name, qty: l.qty, tl: l.unit })),
+          lines: lines.map((l) => ({ id: l.p.id, name: l.p.name, qty: l.qty, tl: l.unit })).concat(shipTL ? [{ id: "kargo", name: "Kargo ücreti", qty: 1, tl: shipTL }] : []),
           buyer: { name: (name + " " + surname).trim(), phone: tel, email: email, city: il.split("/")[0].trim(), addr: adres + " " + il, company: inv.firma },
           record: {
             conversationId: convId, items: lines.map((l) => ({ id: l.p.id, qty: l.qty, unitTL: l.unit })),
             buyer: { ad: buyer.ad, tel: tel, eposta: email, tckn: inv.tckn, vkn: inv.vkn, vd: inv.vd, firma: inv.firma, il: il, adres: adres },
-            kargo: kargo
+            kargo: kargo, shipTL: shipTL
           }
         });
       }
@@ -2212,7 +2218,7 @@ function handlePayRoutes(req, res, urlPath) {
         basketItems: lines.map((l, i) => ({
           id: l.p.id, name: l.p.name + (l.qty > 1 ? " x" + l.qty : ""),
           category1: "Solar Enerji", itemType: "PHYSICAL", price: iyzPrice(l.unit * l.qty)
-        }))
+        })).concat(shipTL ? [{ id: "kargo", name: "Kargo ücreti", category1: "Kargo", itemType: "PHYSICAL", price: iyzPrice(shipTL) }] : [])
       };
       iyzRequest("/payment/iyzipos/checkoutform/initialize/auth/ecom", payload, (err, out) => {
         if (err || !out || out.status !== "success" || !(out.paymentPageUrl || out.payWithIyzicoPageUrl)) {
@@ -2224,7 +2230,7 @@ function handlePayRoutes(req, res, urlPath) {
           // tckn / vkn + vd + firma FATURA için saklanır (e-arşiv/e-fatura alanları).
           // KVKK: yalnız sunucuda tutulur, log'a ASLA yazılmaz.
           buyer: { ad: buyer.ad, tel: tel, eposta: email, tckn: inv.tckn, vkn: inv.vkn, vd: inv.vd, firma: inv.firma, il: il, adres: adres },
-            kargo: kargo
+            kargo: kargo, shipTL: shipTL
         });
         sendJson(res, 200, { url: out.paymentPageUrl || out.payWithIyzicoPageUrl });
       });

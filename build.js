@@ -638,9 +638,16 @@ function hydrateProductTemplate(html, cfg, p) {
   // 2) Fiyat kutusu satırları
   const com = cfg.commerce || {};
   const days = com.shipDays || "2–5";
-  const kargo = p.freeShipping
-    ? '<p class="pd-row">🚚 <span>Kargo ücretsiz — fiyata dahil</span> · <span>' + esc(days) + ' iş günü</span></p>'
-    : '<p class="pd-row">🚚 <span>Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir</span> · <span>' + esc(days) + ' iş günü</span></p>';
+  // Kargo satırı: tutarlar ayrı <b> düğümünde durur ki etiketler DICT'ten çevrilebilsin.
+  const sf = shipFee(p, cfg);
+  const tlNow = priceTL(p, cfg);
+  const kargo = '<!-- SHIPROW --><p class="pd-row pd-ship" data-pkg-shiprow>🚚 ' + (sf.free === "dahil"
+    ? '<span>Kargo ücretsiz — fiyata dahil</span>'
+    : sf.free
+      ? '<span>Kargo ücretsiz</span>'
+      : '<span>Kargo</span>: <b>₺' + nfTr(sf.one) + '</b>' + (sf.two != null ? ' · <span>2 adet</span>: <b>₺' + nfTr(sf.two) + '</b>' : '') +
+        (tlNow != null ? ' · <span>Ürün + kargo</span>: <b>₺' + nfTr(tlNow + sf.one) + '</b>' : '')) +
+    ' · <span>' + esc(days) + ' iş günü</span></p><!-- /SHIPROW -->';
   const rows = '<!-- PRICEROWS:STATIC --><div class="pd-rows">' +
     (com.taksitMax ? '<p class="pd-row pd-taksit" data-pay-taksit>💳 <span>' + esc("Kredi kartına " + com.taksitMax + " aya kadar taksit" + (com.taksitVadeFarki ? " (vade farkı uygulanır)" : "") + " — ödeme sayfasında seçilir") + "</span></p>"
                    : '<p class="pd-row pd-taksit" data-pay-taksit hidden>💳 <span>Kredi kartına taksit — ödeme sayfasında seçilir</span></p>') + kargo +
@@ -1223,13 +1230,32 @@ function pctOf(cfg, p) {
 // noCartDiscount'lu üründe fiyat zaten nettir, indirim BİNMEZ.
 // Fiyat notu: `freeShipping: true` üründe kargo fiyata dahildir.
 // TEK KURAL — main.js `vatNote()` ile birebir aynı metinleri üretir.
-function vatNote(p) {
-  return p && p.freeShipping ? "KDV ve kargo dahil" : "KDV dahil · kargo hariç";
+function priceTL(p, cfg) { return p && p.price != null ? priceTRY(cfg, p.price, p.currency) : null; }
+// Kargo: tek adet ücreti config.shipCalc'tan (sepet ve sunucuyla AYNI işlev).
+// {free: null|"dahil"|"esik", one: 1 adet ₺, two: panelde 2 adet ₺ (yoksa null)}
+function shipFee(p, cfg) {
+  if (!p || !cfg.shipCalc) return { free: "dahil", one: 0, two: null };
+  const tl = priceTL(p, cfg);
+  const a = cfg.shipCalc([{ id: p.id, qty: 1 }], { listTL: tl || 0 });
+  if (a.free) return { free: a.free, one: 0, two: null };
+  const cls = ((cfg.commerce || {}).shipping || {}).classes || {};
+  const two = cls[p.ship] && cls[p.ship].pair != null ? cfg.shipCalc([{ id: p.id, qty: 2 }], { listTL: (tl || 0) * 2 }) : null;
+  return { free: null, one: a.total, two: two && !two.free ? two.total : null };
 }
-function shipNote(p) {
-  return p && p.freeShipping
+// Kart notu (HTML): tutar ayrı düğümde, etiketler DICT'ten çevrilir.
+function vatNote(p, cfg) {
+  const sf = shipFee(p, cfg);
+  if (sf.free === "dahil") return "<span>KDV ve kargo dahil</span>";
+  if (sf.free) return "<span>KDV dahil · kargo ücretsiz</span>";
+  return "<span>KDV dahil</span> · <span>kargo</span> ₺" + nfTr(sf.one);
+}
+const SHIP_RULE = "Kargo ücreti ürün fiyatına eklenir ve sepette ayrıca gösterilir; birden fazla üründe kargoda indirim uygulanır.";
+function shipNote(p, cfg) {
+  const sf = shipFee(p, cfg);
+  return sf.free === "dahil"
     ? "Türkiye'nin her yerine ücretsiz kargo ile gönderilir; kargo ücreti fiyata dahildir."
-    : "Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.";
+    : sf.free ? "Türkiye'nin her yerine ücretsiz kargo ile gönderilir."
+    : "Türkiye'nin her yerine kargo ile gönderilir. " + SHIP_RULE;
 }
 function havaleTL(p, tl, pct) {
   // main.js pkgUnit ile AYNI: havale hiçbir zaman liste fiyatını geçmez.
@@ -1338,9 +1364,8 @@ function packageProductLd(cfg, p, html) {
       shippingDetails: {
         "@type": "OfferShippingDetails",
         shippingDestination: { "@type": "DefinedRegion", addressCountry: "TR" },
-        // Kargo ücreti yalnızca `freeShipping` ürünlerde BİLİNİYOR (sıfır).
-        // Diğerlerinde tutar mesafeye göre değiştiği için rakam UYDURULMAZ.
-        ...(p.freeShipping ? { shippingRate: { "@type": "MonetaryAmount", value: 0, currency: "TRY" } } : {}),
+        // Kargo ücreti: Türkiye geneli sabit, 1 adet için (config.commerce.shipping).
+        shippingRate: { "@type": "MonetaryAmount", value: shipFee(p, cfg).one, currency: "TRY" },
         // Teslim süresi: commerce.shipDays "2–5" iş günü → yalnız taşıma süresi
         ...(transitTime(com) ? { deliveryTime: { "@type": "ShippingDeliveryTime", transitTime: transitTime(com) } } : {})
       }
@@ -1733,7 +1758,7 @@ function hydrateExtras(html, file, cfg) {
             (onSale ? '<s class="sh-old">₺' + nfTr(oldTL) + "</s>" : "") +
             (usd ? '<span class="sh-usd">≈ $' + nfTr(usd) + "</span>" : "") + "</div>" +
           (PCT && hav < tl ? '<p class="sh-hav">💰 <span>Havale/EFT ile:</span> <b>₺' + nfTr(hav) + "</b></p>" : "") +
-          '<p class="sh-vat"><span>' + vatNote(p) + '</span></p>') +
+          '<p class="sh-vat">' + vatNote(p, cfg) + '</p>') +
         "</div></article>";
     }).join("");
     html = html.replace(/<!-- SHOP:STATIC -->[\s\S]*?<!-- \/SHOP:STATIC -->/,
@@ -1770,7 +1795,7 @@ function hydrateExtras(html, file, cfg) {
         (st.hint ? "<p><span>" + esc(st.hint) + "</span></p>" : "") +
         "<ul>" + ps.map(m => "<li><span>" + esc(m.name) + "</span></li>").join("") + "</ul>" +
         "<p><span>Set toplamı</span>: <strong>₺" + nfTr(total) + "</strong> · <span>" +
-        (pk.freeShipping ? "KDV ve kargo dahil" : "KDV dahil · kargo hariç") + "</span></p>" +
+        "KDV dahil</span>" + (shipFee(pk, cfg).free ? "" : " · <span>kargo</span> ₺" + nfTr(shipFee(pk, cfg).one)) + "</p>" +
         (pk.url ? '<p><a href="' + esc(pk.url) + '"><span>Ürün sayfası</span></a></p>' : "") + "</article>";
     }).join("");
     html = html.replace(/<!-- MOTORSET:STATIC -->[\s\S]*?<!-- \/MOTORSET:STATIC -->/,
@@ -1804,7 +1829,7 @@ function hydrateExtras(html, file, cfg) {
     if (com.returnDays) setSpan("returnDays", String(com.returnDays));
     // Kargo alıcıya mı ait? config'teki freeShipping tek kaynaktır.
     setMark("data-pkg-vat", p && p.freeShipping ? "KDV ve kargo dahil fiyattır." : "KDV dahil fiyattır.");
-    setMark("data-pkg-ship", shipNote(p));
+    setMark("data-pkg-ship", shipNote(p, cfg));
     html = hydrateProductTemplate(html, cfg, p);
   }
   // Çapraz satış kartları: data-pkg-list="<id>" → o ürünün LİSTE fiyatı
@@ -2351,7 +2376,7 @@ function writeProductFeed(cfg) {
     // kargo ayarı geçerli olur.
     L.push("      <g:shipping>");
     L.push("        <g:country>TR</g:country>");
-    if (p.freeShipping) L.push("        <g:price>0.00 TRY</g:price>");
+    L.push("        <g:price>" + shipFee(p, cfg).one.toFixed(2) + " TRY</g:price>");
     L.push("      </g:shipping>");
     L.push("    </item>");
     return L.join("\n");
@@ -2405,7 +2430,9 @@ function writeLlmsFull(cfg) {
     const tag = p.price != null
       ? (PCT && hav < tl ? ` liste (KDV dahil) · havale/EFT ile ₺${nf(hav)} (%${PCT} indirimli)` : " (KDV dahil, net fiyat)")
       : " (yaklaşık, keşifle netleşir)";
-    const ship = p.freeShipping ? " · kargo fiyata DAHİL" : "";
+    const sfee = shipFee(p, cfg);
+    const ship = sfee.free === "dahil" ? " · kargo fiyata DAHİL" : sfee.free ? " · kargo ÜCRETSİZ"
+      : ` · kargo ₺${nf(sfee.one)}` + (sfee.two != null ? ` (2 adet ₺${nf(sfee.two)})` : "") + ` → ürün + kargo ₺${nf(tl + sfee.one)}`;
     // 5'li (bulk) adet fiyatı — sepet ve ödeme aynı kuralı uygular (main.js
     // pkgUnit(p, qty) · server.js pkgListTL(p, cfg, qty)).
     const bulk = p.bulk && p.bulk.price != null
@@ -2470,8 +2497,13 @@ Markalar — panel: ${cfg.brands.panel.join(", ")} · inverter: ${cfg.brands.inv
 ${pkgLines}
 ${cfg.fx && cfg.fx.auto ? "Fiyat ve kur: katalog fiyatları USD bazlıdır; ₺ karşılığı TCMB döviz satış kuruyla günlük güncellenir (kur, işletmenin belirlediği asgari kurun altına inmez). Bu dosyadaki ₺ tutarlar 1 USD = " + String(cfg.usdTry).replace(".", ",") + " ₺ ile hesaplandı; güncel fiyat sitededir.\n" : ""}Kargo & iade: Paketler TÜRKİYE'NİN HER İLİNE anlaşmalı kargo ile gönderilir (teslimat
 Antalya ile sınırlı değildir). Sipariş onayından sonra tahmini teslim ${(cfg.commerce || {}).shipDays || "2–5"} iş günü;
-kargo ücreti alıcıya aittir ve paket teslim alınırken kargo firmasına ödenir (yukarıda "kargo
-fiyata DAHİL" yazan ürünler hariç); fiyatlara KDV dahildir. Mesafeli satışta ${(cfg.commerce || {}).returnDays || 14} gün cayma
+kargo ücreti Türkiye geneli SABİTTİR, ürün fiyatına eklenir ve siparişle birlikte ödenir (teslimatta
+ayrıca ücret alınmaz); her ürünün kargo ücreti yukarıdaki satırında yazılıdır. Paneller çift gider:
+${(() => { const k = ((cfg.commerce || {}).shipping || {}).classes || {}; const b = k["panel-buyuk"] || {}, c = k["panel-kucuk"] || {};
+  return "460 W ve üzeri panelde 1 adet ₺" + nf(b.single) + ", 2 adet ₺" + nf(b.pair) + "; 460 W altı panelde 1 adet ₺" + nf(c.single) + ", 2 adet ₺" + nf(c.pair) + " (3 adet = çift + tek, 4 adet = iki çift)"; })()}.
+Sepette 2 ve daha fazla farklı ürün varsa kargo toplamına %${((cfg.commerce || {}).shipping || {}).multiDiscountPct} indirim uygulanır; ürün toplamı ₺${nf(((cfg.commerce || {}).shipping || {}).freeOverTL)} ve üzeri
+siparişte kargo ÜCRETSİZDİR. Manavgat'taki işyerinden teslim alınırsa kargo ücreti yoktur. Havale/EFT
+indirimi kargoya uygulanmaz; fiyatlara KDV dahildir. Mesafeli satışta ${(cfg.commerce || {}).returnDays || 14} gün cayma
 hakkı vardır; anlaşmalı kargomuzla yapılan iadede iade kargosu ÜCRETSİZDİR (başka kargo firması
 seçilirse alıcıya aittir); hasarlı/ayıplı üründe tüm masraflar satıcıya aittir.
 Taksit: kredi kartına ${(cfg.commerce || {}).taksitMax || 12} aya kadar taksit, vade farkı müşteriye aittir (ödeme sayfasında seçilir).

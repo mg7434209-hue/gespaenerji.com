@@ -719,8 +719,8 @@
       "</tbody><tfoot><tr><td colspan=\"3\">" + (r.est ? L("Tahmini toplam", "Estimated total", "Geschätzte Summe", "Итого (оценка)") : L("Toplam", "Total", "Summe", "Итого")) +
         "</td><td><b>" + money(r.total) + "</b></td></tr></tfoot></table></div>" +
       priceBox(r) +
-      '<p class="bld-note">' + L("Mağaza ürünlerinin fiyatı mağazayla aynıdır (KDV dahil, kargo hariç). İnverter liste fiyatıyla teklifle satılır. Pano, konstrüksiyon ve işçilik tahminidir; kesin teklif ücretsiz keşif sonrası verilir.",
-        "Shop products carry the same price as the shop (VAT included, shipping excluded). The inverter is sold on quote at its list price. Panel box, mounting and labour are estimates; a binding quote follows the free site survey.",
+      '<p class="bld-note">' + L("Mağaza ürünlerinin fiyatı mağazayla aynıdır (KDV dahil; kargo sepette eklenir). İnverter liste fiyatıyla teklifle satılır. Pano, konstrüksiyon ve işçilik tahminidir; kesin teklif ücretsiz keşif sonrası verilir.",
+        "Shop products carry the same price as the shop (VAT included; shipping is added in the cart). The inverter is sold on quote at its list price. Panel box, mounting and labour are estimates; a binding quote follows the free site survey.",
         "Shop-Produkte kosten dasselbe wie im Shop (inkl. MwSt., zzgl. Versand). Der Wechselrichter wird zum Listenpreis auf Angebot verkauft. Verteiler, Gestell und Montage sind Schätzungen; ein verbindliches Angebot folgt nach der kostenlosen Vor-Ort-Analyse.",
         "Товары магазина по той же цене, что и в магазине (с НДС, без доставки). Инвертор продаётся по запросу по прайсовой цене. Щит, конструкция и монтаж — оценка; точное предложение после бесплатного выезда.") + "</p>" +
       '<div class="bld-actions">' +

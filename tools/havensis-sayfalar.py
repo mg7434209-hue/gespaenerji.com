@@ -98,7 +98,11 @@ TXT_BUY = {
 KARGO = [
     "Ürünler Türkiye'nin her iline anlaşmalı kargo ile gönderilir; teslimat için Antalya şartı yoktur.",
     "Sipariş onayından sonra tahmini teslim süresi 2–5 iş günüdür; kargo takip numarası WhatsApp'tan iletilir.",
-    "Kargo ücreti alıcıya aittir ve sipariş onayında net olarak bildirilir. Fiyatlara KDV dahildir.",
+    # Gidiş kargosu (24 Kas 2026): Türkiye geneli sabit ücret, ürün fiyatına eklenir (config.commerce.shipping).
+    t("Kargo ücreti ürün fiyatına eklenir ve sepette ayrıca gösterilir; birden fazla üründe kargoda indirim uygulanır. Fiyatlara KDV dahildir.",
+      "The shipping fee is added to the product price and shown separately in the cart; a shipping discount applies when you order more than one product. Prices include VAT.",
+      "Die Versandkosten werden zum Produktpreis addiert und im Warenkorb separat ausgewiesen; bei mehreren Produkten gibt es einen Versandrabatt. Preise inkl. MwSt.",
+      "Стоимость доставки прибавляется к цене товара и отдельно показывается в корзине; при заказе нескольких товаров на доставку действует скидка. Цены включают НДС."),
     "Mesafeli satış mevzuatı gereği teslim tarihinden itibaren 14 gün içinde cayma hakkınız vardır; sorunsuz teslim edilen üründe iade kargo ücreti alıcıya aittir.",
     "Hasarlı veya ayıplı üründe tüm masraflar bize aittir — kargoyu teslim alırken paketi görevli önünde kontrol edin.",
     "Antalya bölgesinde isteğe bağlı yerinde kurulum ve kullanım eğitimi sunulur.",
