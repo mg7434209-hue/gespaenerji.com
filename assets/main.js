@@ -292,10 +292,24 @@
     // yazılıysa kargo fiyata DAHİLDİR (kart ödemesinde de ek ücret yok).
     // TEK KURAL — vitrin kartı, katalog kartı ve ürün sayfası bunu kullanır;
     // build.js `vatNote()` aynısını statik çıktıya basar.
+    // Tek adet kargo ücreti — config.js GESPA.shipCalc (sepet ve sunucuyla aynı işlev).
+    // {free: null|"dahil"|"esik", one, two (panelde 2 adet; yoksa null)}
+    function shipFee(p) {
+      if (!p || !window.GESPA || !GESPA.shipCalc) return { free: "dahil", one: 0, two: null };
+      var tl = pkgUnit(p, 1).list || 0;
+      var a = GESPA.shipCalc([{ id: p.id, qty: 1 }], { listTL: tl });
+      if (a.free) return { free: a.free, one: 0, two: null };
+      var c = (((CFG.commerce || {}).shipping || {}).classes || {})[p.ship];
+      var b = c && c.pair != null ? GESPA.shipCalc([{ id: p.id, qty: 2 }], { listTL: tl * 2 }) : null;
+      return { free: null, one: a.total, two: b && !b.free ? b.total : null };
+    }
     function vatNote(p) {
-      return p && p.freeShipping
+      var sf = shipFee(p), nfS = new Intl.NumberFormat("tr-TR");
+      return sf.free === "dahil"
         ? L("KDV ve kargo dahil", "VAT & shipping included", "Inkl. MwSt. & Versand", "НДС и доставка включены")
-        : L("KDV dahil · kargo hariç", "VAT included · shipping excluded", "Inkl. MwSt. · zzgl. Versand", "НДС включён · доставка отдельно");
+        : sf.free
+          ? L("KDV dahil · kargo ücretsiz", "VAT included · free shipping", "Inkl. MwSt. · Versand kostenlos", "НДС включён · доставка бесплатно")
+          : L("KDV dahil · kargo ₺", "VAT included · shipping ₺", "Inkl. MwSt. · Versand ₺", "НДС включён · доставка ₺") + nfS.format(sf.one);
     }
     // JS ile çizilen ürün/paket adını DICT'ten çevirir (yoksa zarifçe TR kalır).
     function TD(t) {
@@ -474,13 +488,25 @@
           ? L("KDV ve kargo dahil fiyattır.", "Price includes VAT and shipping.",
               "Preis inkl. MwSt. und Versand.", "Цена включает НДС и доставку.")
           : L("KDV dahil fiyattır.", "Price includes VAT.", "Preis inkl. MwSt.", "Цена включает НДС."));
-        set("[data-pkg-ship]", p.freeShipping
+        var sf = shipFee(p);
+        var rule = L("Kargo ücreti ürün fiyatına eklenir ve sepette ayrıca gösterilir; birden fazla üründe kargoda indirim uygulanır.",
+          "The shipping fee is added to the product price and shown separately in the cart; a shipping discount applies when you order several products.",
+          "Die Versandkosten kommen zum Produktpreis hinzu und werden im Warenkorb separat ausgewiesen; bei mehreren Produkten gibt es Versandrabatt.",
+          "Стоимость доставки добавляется к цене товара и показывается в корзине отдельно; при заказе нескольких товаров действует скидка на доставку.");
+        set("[data-pkg-ship]", sf.free === "dahil"
           ? L("Türkiye'nin her yerine ücretsiz kargo ile gönderilir; kargo ücreti fiyata dahildir.",
               "Free shipping to anywhere in Türkiye; shipping is included in the price.",
               "Kostenloser Versand in die ganze Türkei; der Versand ist im Preis enthalten.",
               "Бесплатная доставка по всей Турции; доставка включена в цену.")
-          : L("Türkiye'nin her yerine kargo ile gönderilir; kargo ücreti alıcıya aittir.", "Ships to anywhere in Türkiye; shipping is paid by the buyer.",
-              "Versand in die ganze Türkei; die Versandkosten trägt der Käufer.", "Доставка по всей Турции; доставку оплачивает покупатель."));
+          : sf.free
+            ? L("Türkiye'nin her yerine ücretsiz kargo ile gönderilir.", "Free shipping to anywhere in Türkiye.", "Kostenloser Versand in die ganze Türkei.", "Бесплатная доставка по всей Турции.")
+            : L("Türkiye'nin her yerine kargo ile gönderilir. ", "Ships to anywhere in Türkiye. ", "Versand in die ganze Türkei. ", "Доставка по всей Турции. ") + rule);
+        // Fiyat kutusundaki kargo satırı: canlı kurla "ürün + kargo" yeniden yazılır
+        var rowEl = document.querySelector("[data-pkg-shiprow]");
+        if (rowEl && !sf.free) {
+          var bs = rowEl.querySelectorAll("b"), one = pkgUnit(p, 1).list;
+          if (bs.length && one) bs[bs.length - 1].textContent = "₺" + nf.format(one + sf.one);
+        }
       };
       applyShip();
       document.addEventListener("gespa:lang", applyShip);
@@ -680,9 +706,7 @@
           h += '<p class="mset-havale">💰 ' + L("Havale/EFT ile: ", "By bank transfer: ", "Per Überweisung: ", "Банковским переводом: ")
             + "<b>" + tl(d.cartT) + "</b></p>";
         }
-        h += '<p class="mset-note">' + (d.allFree
-          ? L("KDV ve kargo dahil", "VAT and shipping included", "Inkl. MwSt. und Versand", "НДС и доставка включены")
-          : L("KDV dahil · kargo hariç", "VAT included · shipping excluded", "Inkl. MwSt. · zzgl. Versand", "НДС включён · доставка отдельно")) + "</p>";
+        h += '<p class="mset-note">' + vatNote(d.pk) + "</p>";
         h += '<div class="mset-cta"><button type="button" class="btn" data-mset-add>🛒 '
           + L("Paketi sepete ekle", "Add set to cart", "Set in den Warenkorb", "Добавить комплект в корзину") + "</button>"
           + (d.pk.url ? '<a class="btn btn-ghost" href="' + esc(d.pk.url) + '">📄 '
@@ -1101,6 +1125,14 @@
         var ls = lines(), listT = 0, cartT = 0;
         ls.forEach(function (l) { listT += l.sumList; cartT += l.sumCart; });
         var method = (form && form.odeme && form.odeme.value) || "havale";
+        // KARGO (24 Kas 2026): sabit ücret, config.commerce.shipping + GESPA.shipCalc
+        // (sunucu aynı işlevle tahsil eder). Ürün tutarına EKLENİR; havale indirimi
+        // kargoya uygulanmaz. "İşyerinden teslim" seçilirse kargo yoktur.
+        var pickup = !!(form && form.teslim && form.teslim.value === "isyeri");
+        var sh = (window.GESPA && GESPA.shipCalc)
+          ? GESPA.shipCalc(ls.map(function (l) { return { id: l.p.id, qty: l.qty }; }), { pickup: pickup, listTL: listT })
+          : { total: 0, base: 0, disc: 0, pct: 0, free: "dahil" };
+        var shipT = sh.total, allFree = sh.free === "dahil";
         set("[data-ord-list]", "₺" + nf.format(listT));
         if (method === "havale") {
           // Sepette indirime giren kalem yoksa (hepsi net fiyatlı) "−₺0 (%N)" yazma
@@ -1109,37 +1141,35 @@
             ? "−₺" + nf.format(listT - cartT) + (uniq != null ? " (%" + uniq + ")" : "")
             : L("Net fiyatlı üründe uygulanmaz", "Not applied to net-priced products",
                 "Bei Nettopreis-Produkten nicht anwendbar", "К товарам по нетто-цене не применяется"));
-          set("[data-ord-total]", "₺" + nf.format(cartT));
+          set("[data-ord-total]", "₺" + nf.format(cartT + shipT));
         } else {
           // Kart: havale indirimi uygulanmaz, liste fiyatı tahsil edilir.
-          // Sepetteki kalemlerin hiçbiri indirime girmiyorsa (hepsi net
-          // fiyatlı) "kartta uygulanmaz" demek yanıltıcı olur — ortada
-          // kaybedilen bir indirim yok.
           set("[data-ord-disc]", listT > cartT
             ? L("Kart ödemesinde uygulanmaz", "Not applied for card payments", "Bei Kartenzahlung nicht anwendbar", "При оплате картой не применяется")
             : L("Net fiyatlı üründe uygulanmaz", "Not applied to net-priced products", "Bei Nettopreis-Produkten nicht anwendbar", "К товарам по нетто-цене не применяется"));
-          set("[data-ord-total]", "₺" + nf.format(listT));
+          set("[data-ord-total]", "₺" + nf.format(listT + shipT));
         }
+        // Kargo satırı ve altındaki açıklama (indirim / ücretsiz eşiğine kalan tutar)
+        set("[data-ord-ship]", sh.free === "pickup" ? L("İşyerinden teslim — ücretsiz", "Pick-up at our premises — free", "Abholung bei uns — kostenlos", "Самовывоз — бесплатно")
+          : sh.free === "esik" ? L("Ücretsiz", "Free", "Kostenlos", "Бесплатно")
+          : sh.free === "dahil" ? L("Ücretsiz — fiyata dahil", "Free — included in the price", "Kostenlos — im Preis enthalten", "Бесплатно — включено в цену")
+          : "₺" + nf.format(shipT));
+        var freeOver = +(((CFG.commerce || {}).shipping || {}).freeOverTL) || 0;
+        var hint = "";
+        if (sh.free === "esik") hint = "🎉 " + L("₺" + nf.format(freeOver) + " ve üzeri siparişte kargo bizden.", "Free shipping on orders of ₺" + nf.format(freeOver) + " and over.", "Kostenloser Versand ab ₺" + nf.format(freeOver) + ".", "Бесплатная доставка при заказе от ₺" + nf.format(freeOver) + ".");
+        else if (!sh.free) {
+          if (sh.disc) hint = "✓ " + L("Birden fazla ürün: kargoda %" + sh.pct + " indirim (−₺" + nf.format(sh.disc) + "). ", "Several products: " + sh.pct + "% off shipping (−₺" + nf.format(sh.disc) + "). ", "Mehrere Produkte: " + sh.pct + " % Versandrabatt (−₺" + nf.format(sh.disc) + "). ", "Несколько товаров: скидка " + sh.pct + " % на доставку (−₺" + nf.format(sh.disc) + "). ");
+          if (freeOver > listT) hint += L("₺" + nf.format(freeOver - listT) + " daha ekleyin, kargo ücretsiz olsun.", "Add ₺" + nf.format(freeOver - listT) + " more for free shipping.", "Noch ₺" + nf.format(freeOver - listT) + " bis zum kostenlosen Versand.", "Добавьте ещё на ₺" + nf.format(freeOver - listT) + " для бесплатной доставки.");
+        }
+        var hintEl = $("[data-ord-ship-hint]");
+        if (hintEl) { hintEl.hidden = !hint; hintEl.textContent = hint; }
         // iyzico hesabının tek işlem limiti (commerce.cardMaxTL): kartla
-        // liste fiyatı çekilir, toplam limiti aşarsa iyzico reddeder. Müşteri
-        // formu doldurmadan önce burada uyarılır; sunucu da aynı sınırı uygular.
+        // liste fiyatı + kargo çekilir, toplam limiti aşarsa iyzico reddeder.
         // tami'ye uygulanmaz: o iyzico hesabının limitidir.
         var cardMax = +((CFG.commerce || {}).cardMaxTL) || 0;
-        var overCard = method === "kart" && cardMax > 0 && listT > cardMax && payProv !== "tami";
-        lastListT = listT;
+        var overCard = method === "kart" && cardMax > 0 && listT + shipT > cardMax && payProv !== "tami";
+        lastListT = listT + shipT;
         if (tamiForm) tamiForm.refresh();
-        // KARGO (23 Eki 2026): ücretsiz kargolu olmayan ürün varsa kargo ALICI
-        // ÖDEMELİDİR; müşteri bunu kutucukla onaylar (kapıda "ödemem" diyip
-        // paketi geri çevirmesin diye). Hepsi `freeShipping` ise kutu gizlenir.
-        var allFree = ls.length > 0 && ls.every(function (l) { return !!l.p.freeShipping; });
-        set("[data-ord-ship]", allFree
-          ? L("Ücretsiz — fiyata dahil", "Free — included in the price", "Kostenlos — im Preis enthalten", "Бесплатно — включено в цену")
-          : L("Alıcı ödemeli — teslimatta ödenir", "Paid by the buyer on delivery", "Vom Käufer bei Zustellung zu zahlen", "Оплачивает покупатель при получении"));
-        var shipOk = $("#ordShipOk");
-        if (shipOk) {
-          shipOk.hidden = allFree;
-          var sbox = shipOk.querySelector("input"); if (sbox) sbox.required = !allFree;
-        }
         var cmEl = $("#payCardMax");
         if (cmEl) {
           cmEl.hidden = !overCard;
@@ -1155,7 +1185,7 @@
         // güvenli ödemeye gidilir (eskiden kartta da "WhatsApp ile" yazıyordu).
         var sb = form && form.querySelector('button[type="submit"]');
         if (sb && !ordSending) sb.textContent = submitLabel(method);
-        return { ls: ls, listT: listT, cartT: cartT, method: method, overCard: overCard, allFree: allFree };
+        return { ls: ls, listT: listT, cartT: cartT, method: method, overCard: overCard, allFree: allFree, ship: sh, shipT: shipT, pickup: pickup };
       }
       function render() {
         var ls = lines();
@@ -1211,6 +1241,7 @@
       });
       if (form) {
         Array.prototype.forEach.call(form.querySelectorAll('input[name="odeme"]'), function (r) { r.addEventListener("change", function () { totals(); syncTckn(); }); });
+        Array.prototype.forEach.call(form.querySelectorAll('input[name="teslim"]'), function (r) { r.addEventListener("change", function () { totals(); }); });
         // Kart ödemesi (iyzico): sunucuda anahtar tanımlıysa seçenek açılır.
         // API yoksa (GitHub Pages) veya kapalıysa "çok yakında" olarak kalır.
         var cardOpt = document.getElementById("payCardOpt");
@@ -1347,9 +1378,9 @@
                 items: t.ls.map(function (l) { return { id: l.p.id, qty: l.qty }; }),
                 // Görülen tutar: sunucu kendi hesabıyla kıyaslar; kur bu arada
                 // değiştiyse ödemeyi başlatmaz, sayfa güncel fiyatla yenilenir.
-                expectTL: PRICE_OV ? 0 : t.listT,
-                buyer: { ad: v("ad"), tel: v("tel"), eposta: v("eposta"), il: v("il"), adres: v("adres"), tckn: v("tckn"), firma: v("firma"), vd: v("vd"),
-                  kargoOnay: !!(form.kargoOnay && form.kargoOnay.checked) },
+                expectTL: PRICE_OV ? 0 : t.listT + t.shipT,
+                teslim: t.pickup ? "isyeri" : "kargo",
+                buyer: { ad: v("ad"), tel: v("tel"), eposta: v("eposta"), il: v("il"), adres: v("adres"), tckn: v("tckn"), firma: v("firma"), vd: v("vd") },
                 // tami: kart + taksit (iyzico'da yok; kart iyzico sayfasında girilir)
                 card: kart ? kart.card : undefined, tkTaksit: kart ? kart.taksit : undefined
               })
@@ -1387,9 +1418,13 @@
           // yönlendirip erken döner.
           var uniqPct = pctOfLines(t.ls);
           msg.push("Ödeme: Havale/EFT" + (uniqPct != null ? " (sepette %" + uniqPct + " indirim)" : " (indirimli)"));
-          msg.push("Ödenecek: ₺" + nf.format(t.cartT));
+          msg.push("Ürün tutarı: ₺" + nf.format(t.cartT));
+          msg.push(t.pickup ? "Teslimat: İşyerinden teslim (kargo yok)"
+            : t.ship.free === "esik" ? "Kargo: Ücretsiz (₺" + nf.format(((CFG.commerce || {}).shipping || {}).freeOverTL) + " üzeri)"
+            : t.ship.free === "dahil" ? "Kargo: Ücretsiz (fiyata dahil)"
+            : "Kargo: ₺" + nf.format(t.shipT) + (t.ship.disc ? " (çoklu ürün indirimi −₺" + nf.format(t.ship.disc) + ")" : ""));
+          msg.push("Ödenecek: ₺" + nf.format(t.cartT + t.shipT));
           if (CFG.company && CFG.company.bank) msg.push("Hesap: " + CFG.company.bank.accountHolder + " · " + CFG.company.bank.iban);
-          msg.push(t.allFree ? "Kargo: Ücretsiz (fiyata dahil)" : "Kargo: Alıcı ödemeli — teslimatta ödenir (müşteri onayladı)");
           msg.push("— Teslimat —", "Ad: " + v("ad"), "Tel: " + v("tel"));
           if (v("eposta")) msg.push("E-posta: " + v("eposta"));
           msg.push("İl/İlçe: " + v("il"), "Adres: " + v("adres"));

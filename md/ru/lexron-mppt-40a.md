@@ -3,7 +3,7 @@ title: "Контроллер заряда Lexron 40А MPPT 12/24В | GESPA"
 description: "Солнечный контроллер заряда Lexron 40 А MPPT для систем с АКБ 12/24 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции."
 canonical: https://www.gespaenerji.com/ru/lexron-mppt-40a.html
 lang: ru
-dateModified: 2026-11-10
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ publisher: "GESPA Enerji"
 
 💳 До 12 ежемесячных платежей картой (с процентами) — выбирается на странице оплаты
 
-🚚 Доставку оплачивает покупатель — курьеру при получении · 2–5 рабочих дней
+🚚 Доставка: **₺250** · Ürün + kargo: **₺4.050** · 2–5 рабочих дней
 
 [🛒 В корзину](https://www.gespaenerji.com/ru/sepet.html)
 

@@ -3,7 +3,7 @@ title: "Lexron 1200 W Taşınabilir Güç İstasyonu Fiyatı | GESPA"
 description: "Lexron 1200 W taşınabilir güç istasyonu: 1152 Wh LiFePO₄, saf sinüs AC, USB, Type-C PD 100 W, 12 V DC. 160 W panel bağlanabilir. Türkiye'ye kargo."
 canonical: https://www.gespaenerji.com/lexron-guc-istasyonu-1200w.html
 lang: tr
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ KDV dahil fiyattır.
 
 💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
 
-🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+🚚 Kargo: **₺400** · Ürün + kargo: **₺26.400** · 2–5 iş günü
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 

@@ -3,7 +3,7 @@ title: "Lexron 655W N-type TOPCon Solar Panel | GESPA Energy"
 description: "Lexron 655 W N-type TOPCon panel: 24.25% efficiency, Voc 50.34 V, 2382 × 1134 × 35 mm, 31 kg, IP68, 30-year power warranty."
 canonical: https://www.gespaenerji.com/en/panel-lexron-655w.html
 lang: en
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Price includes VAT.
 
 💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
 
-🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+🚚 Shipping: **₺700** · 2 adet: **₺1.000** · Ürün + kargo: **₺10.700** · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 

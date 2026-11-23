@@ -3,7 +3,7 @@ title: "50-W-Solarmodul für 12-V-Anlagen | GESPA Energy"
 description: "50-W-Monokristallin-Solarmodul für 12-V-Anlagen: Gartenbeleuchtung, Kameras und Batterieladung."
 canonical: https://www.gespaenerji.com/de/panel-50w.html
 lang: de
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Preis inkl. MwSt.
 
 💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
 
-🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+🚚 Versand: **₺500** · 2 adet: **₺750** · Ürün + kargo: **₺2.250** · 2–5 Werktage
 
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 

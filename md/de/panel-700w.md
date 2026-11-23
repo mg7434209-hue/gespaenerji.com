@@ -3,7 +3,7 @@ title: "700W Bifaziales TOPCon-Solarmodul | GESPA Energy"
 description: "Bifaziales 700-W-N-Type-TOPCon-Modul: 610 Wp Vorderseite + 15 % Rückseitengewinn, 144 Halbzellen, Voc 53,27 V, 23,62 % Wirkungsgrad, 2278 × 1133 × 30 mm."
 canonical: https://www.gespaenerji.com/de/panel-700w.html
 lang: de
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Preis inkl. MwSt.
 
 💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
 
-🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+🚚 Versand: **₺700** · 2 adet: **₺1.000** · Ürün + kargo: **₺9.400** · 2–5 Werktage
 
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 

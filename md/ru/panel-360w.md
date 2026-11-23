@@ -3,7 +3,7 @@ title: "Солнечная панель Mono-PERC 360 Вт | GESPA"
 description: "Панель Mono-PERC 360 Вт, 60 ячеек: Voc 42,56 В, 1660 × 1001 × 30 мм, 19,5 кг, коробка IP68, 1500 В."
 canonical: https://www.gespaenerji.com/ru/panel-360w.html
 lang: ru
-dateModified: 2026-11-20
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ publisher: "GESPA Enerji"
 
 💳 До 12 ежемесячных платежей картой (с процентами) — выбирается на странице оплаты
 
-🚚 Доставку оплачивает покупатель — курьеру при получении · 2–5 рабочих дней
+🚚 Доставка: **₺500** · 2 adet: **₺750** · Ürün + kargo: **₺7.700** · 2–5 рабочих дней
 
 [🛒 В корзину](https://www.gespaenerji.com/ru/sepet.html)
 

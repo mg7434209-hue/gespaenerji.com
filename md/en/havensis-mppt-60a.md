@@ -3,7 +3,7 @@ title: "Havensis 60A MPPT Charge Controller 12/24V — 2500W Panels"
 description: "Havensis Solar-60AMPS-100 MPPT charge controller: 12/24 V battery, 60 A charging, 20 A load output, 100 V panel input, up to 2500 W of panels, LCD display."
 canonical: https://www.gespaenerji.com/en/havensis-mppt-60a.html
 lang: en
-dateModified: 2026-11-20
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Price includes VAT.
 
 💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
 
-🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+🚚 Shipping: **₺250** · Ürün + kargo: **₺12.150** · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 

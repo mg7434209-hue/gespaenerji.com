@@ -3,7 +3,7 @@ title: "Hero LED 10 W 12 V DC LED Ampul (12–60 V AC/DC) | GESPA Enerji"
 description: "12–60 V AC/DC geniş gerilim aralığında çalışan 10 W LED ampul: 850 lümen, 6500 K beyaz ışık."
 canonical: https://www.gespaenerji.com/hero-led-ampul-10w.html
 lang: tr
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ KDV dahil fiyattır.
 
 💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
 
-🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+🚚 Kargo: **₺250** · Ürün + kargo: **₺380** · 2–5 iş günü
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 

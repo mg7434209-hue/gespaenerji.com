@@ -3,7 +3,7 @@ title: "700 W Bifacial TOPCon Güneş Paneli Fiyatı | GESPA Enerji"
 description: "700 W Bifacial TOPCon Güneş Paneli: Voc 53,27 V, 2278 × 1133 mm. Kargo kasalı elektrikli araçlar, çatı ve arazi sistemleri için. Tüm Türkiye'ye kargo."
 canonical: https://www.gespaenerji.com/panel-700w.html
 lang: tr
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ KDV dahil fiyattır.
 
 💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
 
-🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+🚚 Kargo: **₺700** · 2 adet: **₺1.000** · Ürün + kargo: **₺9.400** · 2–5 iş günü
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 

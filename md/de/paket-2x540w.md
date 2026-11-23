@@ -3,7 +3,7 @@ title: "Solarsystem 2×540 W — LiFePO₄-Batterie | GESPA Energy"
 description: "2×540-W-Module + große Power-Box mit LiFePO₄-Batterie + Kabel: komplettes mobiles Solarsystem für Kühlschrank, TV, Wasch- und Spülmaschine."
 canonical: https://www.gespaenerji.com/de/paket-2x540w.html
 lang: de
-dateModified: 2026-11-10
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Preis inkl. MwSt.
 
 💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
 
-🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+🚚 Kargo ücretsiz · 2–5 Werktage
 
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 

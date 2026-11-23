@@ -219,6 +219,32 @@ window.GESPA.config = {
     stockLabel: "Stokta / tedarikte",   // ürün sayfasındaki durum rozeti
     shipCountry: "Türkiye",             // gönderim yapılan ülke (tüm iller)
     shipDays: "2–5",
+    // KARGO ÜCRETİ (24 Kas 2026, işletme kararı): Türkiye geneli SABİT ücret, ürünün
+    // `ship` sınıfına göre. Ürün fiyatına EKLENİR ve ayrı gösterilir (ürün + kargo).
+    // Hesap TEK yerde yapılır: aşağıdaki GESPA.shipCalc (sepet, sunucu ve build aynı
+    // işlevi çağırır). Sınıf türleri:
+    //   pair/single → paneller: iki panel aynı kolide gider; tek kalan `single` öder
+    //   each        → adet başına
+    //   per/fee     → `per` adede kadar tek ücret (küçük ürünler: 1–5 adet aynı koli)
+    // Sepet kuralları: 2+ farklı üründe kargo toplamına `multiDiscountPct` indirim;
+    // ürün toplamı (liste) `freeOverTL` ve üzeriyse kargo ücretsiz; "İşyerinden teslim"
+    // seçilirse kargo yok. `freeShipping: true` ürün hesaba girmez. Havale indirimi
+    // kargoya UYGULANMAZ.
+    shipping: {
+      freeOverTL: 50000,
+      multiDiscountPct: 20,
+      pickup: true,
+      classes: {
+        "panel-buyuk": { pair: 1000, single: 700 },   // 460 W ve üzeri paneller (motor paketleri dahil)
+        "panel-kucuk": { pair: 750, single: 500 },    // 460 W altı paneller
+        "cihaz": { each: 250 },                       // şarj kontrol, DC-DC
+        "aku-51v": { each: 700 },                     // 51,2 V lityum
+        "aku": { each: 500 },                         // diğer LiFePO₄
+        "kucuk": { per: 5, fee: 250 },                // ampul, armatür, kablo, konnektör
+        "kit": { each: 1200 },                        // panelli güç istasyonu paketleri
+        "istasyon": { each: 400 }                     // panelsiz güç istasyonu (VARSAYIM: işletme teyit edecek)
+      }
+    },
     // İşletme bilgisi (26 Eki 2026): kart ödemesinde 12 aya kadar taksit, vade
     // farkı MÜŞTERİYE; tüm ürünlerde 2 yıl garanti (üründe `warranty` yazılıysa
     // o geçerli: paneller 12/30 yıl); keşif taleplerine 1–3 gün içinde dönüş.
@@ -317,7 +343,7 @@ window.GESPA.config = {
     // oldPrice: üstü çizili liste fiyatı (indirim rozeti otomatik hesaplanır)
     // currency: "USD" -> $ ile gösterilir (varsayılan ₺)
     {
-      id: "kit-285w", icon: "🧰", tag: "Taşınabilir", group: "offgrid", kit: true,
+      id: "kit-285w", ship: "kit", icon: "🧰", tag: "Taşınabilir", group: "offgrid", kit: true,
       url: "paket-285w.html", sku: "GES-KIT-285",
       kwp: 0.24, panelW: 240, panelCount: 1, portable: true, dailyKwh: 1.4,
       img: "assets/img/products/kit-285w.webp",
@@ -328,7 +354,7 @@ window.GESPA.config = {
       features: ["TV, lambalar ve telefon şarjı çalıştırır", "Günlük ~1,4 kWh güneş üretimi", "23–25 kg — mobil taşınabilir", "Güç kutusu ve kablolar dahil"]
     },
     {
-      id: "kit-2x540w", icon: "🎒", tag: "Taşınabilir", group: "offgrid", kit: true,
+      id: "kit-2x540w", ship: "kit", icon: "🎒", tag: "Taşınabilir", group: "offgrid", kit: true,
       url: "paket-2x540w.html", sku: "GES-KIT-2X540",
       kwp: 1.08, panelW: 540, panelCount: 2, portable: true, dailyKwh: 6.5,
       img: "assets/img/products/kit-2x540w.webp",
@@ -342,7 +368,7 @@ window.GESPA.config = {
     // —— Elektrikli araç dönüşümü —— tekil cihaz (panel ve akü ürüne dahil değildir)
     // chips: kWp/panel üretmeyen ürünlerde kart çiplerini elle belirler
     {
-      id: "boost-mppt", icon: "🔌", tag: "Elektrikli Araç", group: "accessory",
+      id: "boost-mppt", ship: "cihaz", icon: "🔌", tag: "Elektrikli Araç", group: "accessory",
       url: "elektrikli-arac-donusum.html", sku: "GES-EV-BOOST",
       warranty: "2 yıl",                     // sayfadaki güven satırı; künyeden
       img: "assets/img/products/ev/boost-mppt-on.webp",
@@ -370,7 +396,7 @@ window.GESPA.config = {
     // sınıfı) YAZILMAZ; dış ölçü paket üzerinden ölçüldü. Şarj cihazı ürüne
     // DAHİL DEĞİLDİR — künye onu "önerilen şarj aleti" olarak verir.
     {
-      id: "aku-lifepo4-72v", icon: "🔋", tag: "Elektrikli Araç", group: "accessory",
+      id: "aku-lifepo4-72v", ship: "aku", icon: "🔋", tag: "Elektrikli Araç", group: "accessory",
       url: "aku-lifepo4-72v-30ah.html", sku: "GES-EV-AKU-72V",
       brand: "europlus",
       img: "assets/img/products/ev/aku-72v-30ah.webp",
@@ -387,7 +413,7 @@ window.GESPA.config = {
     // yalnızca online-satis.html kataloğunda listelenir.
     // img: gerçek 50 W panel fotoğrafı gelince doldurulacak (şu an yer tutucu).
     {
-      id: "panel-50w", icon: "🔆", tag: "Panel", group: "panel",
+      id: "panel-50w", ship: "panel-kucuk", icon: "🔆", tag: "Panel", group: "panel",
       url: "panel-50w.html",
       sku: "GES-PNL-50",
       img: "assets/img/products/panel-50w.webp",
@@ -414,7 +440,7 @@ window.GESPA.config = {
     // Schuko (Type F) sürüm tedarik edilmeden priz tipi hakkında iddia YAZILMAZ
     // (ürün sayfasındaki SSS bunu "sipariş öncesi teyit edilir" diye karşılar).
     {
-      id: "unv-trek-pro-2500", icon: "🔋", tag: "Taşınabilir", group: "offgrid",
+      id: "unv-trek-pro-2500", ship: "kit", icon: "🔋", tag: "Taşınabilir", group: "offgrid",
       url: "unv-trek-pro-2500.html", sku: "ES-E2500-A2",
       brand: "UNV (Uniview)",          // ÜRÜNÜN markası — GESPA değil (JSON-LD brand)
       img: "assets/img/products/unv-trek-pro-2500.webp",
@@ -434,7 +460,7 @@ window.GESPA.config = {
     // şarj süresi, UPS özelliği. Ölçü (280 × 260 × 250 mm) tanıtım görselindendir.
     // Marka LEXRON ürünün üstünde yazılıdır ve kalır (gerçek marka).
     {
-      id: "lexron-guc-1200w", icon: "🔋", tag: "Taşınabilir", group: "offgrid",
+      id: "lexron-guc-1200w", ship: "istasyon", icon: "🔋", tag: "Taşınabilir", group: "offgrid",
       url: "lexron-guc-istasyonu-1200w.html", sku: "GES-GUC-1200",
       brand: "Lexron",
       img: "assets/img/products/lexron-guc-1200w.webp",
@@ -456,7 +482,7 @@ window.GESPA.config = {
     // Hücre: künye "60 Full Cells", fotoğraf yarım kesim görünür: "yarım/tam"
     // denmez. Garanti süresi künyede yok: yazılmaz (commerce.warrantyDefault).
     {
-      id: "panel-360w", icon: "🔆", tag: "Panel", group: "panel",
+      id: "panel-360w", ship: "panel-kucuk", icon: "🔆", tag: "Panel", group: "panel",
       url: "panel-360w.html",
       sku: "GES-PNL-360",
       img: "assets/img/products/panel-360w.webp",
@@ -472,7 +498,7 @@ window.GESPA.config = {
     // 16,5 V · Isc 10,63 A · Imp 9,7 A · 1065 × 705 × 30 mm. "16BB half-cut TOPCon"
     // ibaresi belgedeki tanıtım görselindedir (künye tablosunda değil). Ağırlık yok.
     {
-      id: "panel-160w", icon: "🔆", tag: "Panel", group: "panel",
+      id: "panel-160w", ship: "panel-kucuk", icon: "🔆", tag: "Panel", group: "panel",
       url: "panel-160w.html",
       sku: "GES-PNL-160",
       img: "assets/img/products/panel-160w.webp",
@@ -484,7 +510,7 @@ window.GESPA.config = {
       features: ["160 W · 16BB half-cut TOPCon hücre", "Voc 19,00 V · Vmp 16,5 V · Isc 10,63 A · Imp 9,7 A", "1065 × 705 × 30 mm", "Lexron 1200 W güç istasyonuna bağlanabilir"]
     },
     {
-      id: "panel-lexron-655w", icon: "🔆", tag: "Panel", group: "panel",
+      id: "panel-lexron-655w", ship: "panel-buyuk", icon: "🔆", tag: "Panel", group: "panel",
       url: "panel-lexron-655w.html",
       warranty: "12 yıl ürün · 30 yıl güç",                     // sayfadaki güven satırı; künyeden
       sku: "GES-PNL-655", brand: "Lexron",
@@ -504,7 +530,7 @@ window.GESPA.config = {
     // Ağırlık, cam ve hücre üreticisi künyede yok — YAZILMAZ.
     // Kargo motor paketinin panelidir (655 W'ın yerine, 21 Eki 2026).
     {
-      id: "panel-700w", icon: "🔆", tag: "Panel", group: "panel",
+      id: "panel-700w", ship: "panel-buyuk", icon: "🔆", tag: "Panel", group: "panel",
       url: "panel-700w.html",
       warranty: "30 yıl güç (30. yılda %87,4)",                     // sayfadaki güven satırı; künyeden
       sku: "GES-PNL-700",
@@ -523,7 +549,7 @@ window.GESPA.config = {
     // künyesinde ürün garantisi yılı yok, yazılmaz. 240 W: aşağıdaki nota bak.
     // Fotoğraflar kaynak/panel-*.png → tools/foto-hazirla.py.
     {
-      id: "panel-460w", icon: "🔆", tag: "Panel", group: "panel",
+      id: "panel-460w", ship: "panel-buyuk", icon: "🔆", tag: "Panel", group: "panel",
       url: "panel-460w.html",
       sku: "GES-PNL-460",
       img: "assets/img/products/panel-460w.webp",
@@ -539,7 +565,7 @@ window.GESPA.config = {
       // 48 hücreli panelin künye ekranı esastır (776 × 1320 mm). Daha önce
       // yazılan 1575 × 705 mm'lik panelin değerleri BAŞKA bir panele aitti,
       // kaldırıldı. Hücre tipi künyede yok — "TOPCon"/"mono" YAZILMAZ.
-      id: "panel-240w", icon: "🔆", tag: "Panel", group: "panel",
+      id: "panel-240w", ship: "panel-kucuk", icon: "🔆", tag: "Panel", group: "panel",
       url: "panel-240w.html",
       sku: "GES-PNL-240",
       img: "assets/img/products/panel-240w.webp",
@@ -553,7 +579,7 @@ window.GESPA.config = {
     // Arçelik 540 W: elimizde ÜRETİCİ KÜNYESİ YOK — güç, sınıf ve marka dışında
     // teknik değer YAZILMAZ. Künye gelirse buradan genişlet.
     {
-      id: "panel-arcelik-540w", icon: "🔆", tag: "Panel", group: "panel",
+      id: "panel-arcelik-540w", ship: "panel-buyuk", icon: "🔆", tag: "Panel", group: "panel",
       url: "panel-arcelik-540w.html",
       sku: "GES-PNL-540", brand: "Arçelik",
       img: "assets/img/products/panel-arcelik-540w.webp",
@@ -568,7 +594,7 @@ window.GESPA.config = {
     // —— Enerji depolama —— group:"storage" yalnız online-satis.html kataloğunda
     // listelenir (urunler.html GROUPS listesinde yoktur).
     {
-      id: "aku-titanx-51v-102ah", icon: "🔋", tag: "Enerji Depolama", group: "storage",
+      id: "aku-titanx-51v-102ah", ship: "aku-51v", icon: "🔋", tag: "Enerji Depolama", group: "storage",
       url: "aku-titanx-51v-102ah.html",
       sku: "GES-AKU-102", brand: "TitanX",
       img: "assets/img/products/aku-titanx-51v-102ah.webp",
@@ -596,7 +622,7 @@ window.GESPA.config = {
     // ÜRÜN SAYFALARI (url): tools/havensis-sayfalar.py üretir — sayfaları
     // elle düzenleme; metni betikte değiştir, --uygula ile çalıştır.
     {
-      id: "havensis-s30amps", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      id: "havensis-s30amps", ship: "cihaz", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       url: "havensis-mppt-30a.html", sku: "S30AMPS", brand: "Havensis",
       img: "assets/img/products/havensis-s30amps.webp",
       price: 129.22, currency: "USD",       // fatura maliyeti ₺3.924 × 1,35 (kâr %35) × 1,20 KDV = ₺6.350 (liste 108 USD, sıra 12)
@@ -607,7 +633,7 @@ window.GESPA.config = {
       features: ["12/24 V akü şarjı · 30 A şarj · 20 A yük çıkışı", "Gelişmiş MPPT · %98 dönüştürücü, %99,6 MPP izleme verimi", "Maks. 100 V panel girişi · 1200 W'a kadar panel", "LCD ekran ve LED durum göstergesi · tüm parametreler ayarlanabilir", "Gece-gündüz ve zaman ayarı · aküsüz çalışabilir", "159 × 210 × 70 mm · yerli üretim"]
     },
     {
-      id: "havensis-s40amps", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      id: "havensis-s40amps", ship: "cihaz", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       url: "havensis-mppt-40a.html", sku: "S40AMPS", brand: "Havensis",
       img: "assets/img/products/havensis-s40amps.webp",
       price: 147.44, currency: "USD",       // maliyet ₺4.478 × 1,35 × 1,20 = ₺7.250 (liste 120 USD, sıra 13; fatura 3 Kas 2026)
@@ -618,7 +644,7 @@ window.GESPA.config = {
       features: ["12/24 V akü şarjı · 40 A şarj · 20 A yük çıkışı", "Gelişmiş MPPT · %98 dönüştürücü, %99,6 MPP izleme verimi", "Maks. 100 V panel girişi · 1500 W'a kadar panel", "LCD ekran ve LED durum göstergesi · tüm parametreler ayarlanabilir", "Gece-gündüz ve zaman ayarı · aküsüz çalışabilir", "162 × 210 × 77 mm · yerli üretim"]
     },
     {
-      id: "havensis-s60amps100", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      id: "havensis-s60amps100", ship: "cihaz", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       url: "havensis-mppt-60a.html", sku: "S60AMPS100", brand: "Havensis",
       img: "assets/img/products/havensis-s60amps100.webp",
       price: 241.87, currency: "USD",       // maliyet ₺7.346 × 1,35 × 1,20 = ₺11.900 (liste 200 USD, sıra 15)
@@ -629,7 +655,7 @@ window.GESPA.config = {
       features: ["12/24 V akü şarjı · 60 A şarj · 20 A yük çıkışı", "Gelişmiş MPPT · %98 dönüştürücü, %99,6 MPP izleme verimi", "Maks. 100 V panel girişi · 2500 W'a kadar panel", "LCD ekran ve LED durum göstergesi · tüm parametreler ayarlanabilir", "Gece-gündüz ve zaman ayarı · aküsüz çalışabilir", "197,2 × 224 × 80 mm · yerli üretim"]
     },
     {
-      id: "havensis-s60amps150", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      id: "havensis-s60amps150", ship: "cihaz", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       url: "havensis-mppt-60a-150v.html", sku: "S60AMPS", brand: "Havensis",
       img: "assets/img/products/havensis-s60amps150.webp",
       price: 330, currency: "USD",          // liste 275 USD + %20 KDV (sıra 17)
@@ -640,7 +666,7 @@ window.GESPA.config = {
       features: ["12/24/36/48 V akü şarjı · 60 A şarj akımı", "Gelişmiş MPPT · %97,5 dönüştürücü, %99,6 MPP izleme verimi", "Maks. 150 V panel girişi · 5000 W'a kadar panel", "LCD ekran ve LED durum göstergesi · tüm parametreler ayarlanabilir", "Panelden beslenir, aküsüz çalışabilir", "280 × 235 × 100 mm · yerli üretim"]
     },
     {
-      id: "havensis-dcdc-1224-30", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
+      id: "havensis-dcdc-1224-30", ship: "cihaz", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
       url: "havensis-dcdc-30a.html", sku: "DCDC-1224-30", brand: "Havensis",
       img: "assets/img/products/havensis-dcdc-1224.webp",
       price: 198.8, currency: "USD",        // maliyet ₺6.038 × 1,35 × 1,20 = ₺9.800 (liste 165 USD, sıra 24)
@@ -651,7 +677,7 @@ window.GESPA.config = {
       features: ["12/24 V akü şarjı · 30 A şarj akımı", "Alternatörden akü şarjı · 12-12, 12-24, 24-12, 24-24 V", "%96,4 dönüştürücü verimi · 10–35 V giriş, 12–32 V çıkış", "Tüm parametreler ekranla programlanabilir · LED durum göstergesi", "Dijital ekran bağlantısı ve 5 m uzatma kablosu", "Ters akım koruması (motor kapalı tanıma) · 158 × 210 × 60 mm"]
     },
     {
-      id: "havensis-dcdc-1224-40", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
+      id: "havensis-dcdc-1224-40", ship: "cihaz", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
       url: "havensis-dcdc-40a.html", sku: "DCDC-1224-40", brand: "Havensis",
       img: "assets/img/products/havensis-dcdc-1224.webp",
       price: 241.87, currency: "USD",       // maliyet ₺7.346 × 1,35 × 1,20 = ₺11.900 (liste 200 USD, sıra 26)
@@ -662,7 +688,7 @@ window.GESPA.config = {
       features: ["12/24 V akü şarjı · 40 A şarj akımı", "Alternatörden akü şarjı · 12-12, 12-24, 24-12, 24-24 V", "%96,4 dönüştürücü verimi · 10–35 V giriş, 12–32 V çıkış", "Tüm parametreler ekranla programlanabilir · LED durum göstergesi", "Dijital ekran bağlantısı ve 5 m uzatma kablosu", "Ters akım koruması (motor kapalı tanıma) · 162 × 210 × 70 mm"]
     },
     {
-      id: "havensis-dcdc-1224b-40", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
+      id: "havensis-dcdc-1224b-40", ship: "cihaz", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
       url: "havensis-dcdc-40a-cift-yonlu.html", sku: "DCDC-1224B-40", brand: "Havensis",
       img: "assets/img/products/havensis-dcdc-1224b.webp",
       price: 276.66, currency: "USD",       // maliyet ₺8.402 × 1,35 × 1,20 = ₺13.600 (liste 230 USD, sıra 27)
@@ -673,7 +699,7 @@ window.GESPA.config = {
       features: ["12/24 V akü şarjı · 40 A şarj · 10 A takviye şarj akımı", "Çift yönlü akü şarjı (takviye modu) · 12-12, 12-24, 24-12, 24-24 V", "%96,4 dönüştürücü verimi · 10–35 V giriş, 12–32 V çıkış", "Tüm parametreler ekranla programlanabilir", "Dijital ekran bağlantısı ve 5 m uzatma kablosu", "Ters akım koruması (motor kapalı tanıma) · 162 × 210 × 70 mm"]
     },
     {
-      id: "havensis-dcdc-2448", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
+      id: "havensis-dcdc-2448", ship: "cihaz", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
       url: "havensis-boost-dcdc-2448.html", sku: "DCDC-2472-20", brand: "Havensis",
       img: "assets/img/products/havensis-dcdc-2448.webp",
       price: 168, currency: "USD",          // liste 140 USD + %20 KDV (sıra 31)
@@ -684,7 +710,7 @@ window.GESPA.config = {
       features: ["12/24 V girişle 36/48/60/72 V akü şarjı", "12–32 V giriş · maks. 20 A giriş, 15 A şarj akımı", "%95 dönüştürücü verimi · gelişmiş koruma devreleri", "Dijital ekran bağlantısı ve 5 m uzatma kablosu", "İsteğe bağlı dahili Bluetooth (siparişte belirtin)", "162 × 210 × 70 mm · yerli üretim"]
     },
     {
-      id: "havensis-dcdc-2448-40", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
+      id: "havensis-dcdc-2448-40", ship: "cihaz", icon: "🔋", tag: "DC-DC Şarj", group: "charge",
       url: "havensis-boost-dcdc-2448-40a.html", sku: "DCDC-2448-40", brand: "Havensis",
       img: "assets/img/products/havensis-dcdc-2448.webp",   // listede 20 A ve 40 A model aynı gövde/fotoğraf
       price: 207.08, currency: "USD",       // maliyet ₺6.289 × 1,35 × 1,20 = ₺10.200 (liste 170 USD, sıra 32; fatura 3 Kas 2026)
@@ -704,7 +730,7 @@ window.GESPA.config = {
     // YOK — yazılmaz, "bize yazın" denir (Havensis kuralı). Detay sayfaları
     // lexron-*.html: tools/lexron-sayfalar.py ÜRETİR (12 Eki 2026). 10 A PWM stokta olmadığı için alınmadı.
     {
-      id: "lexron-pwm-20a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      id: "lexron-pwm-20a", ship: "cihaz", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       url: "lexron-pwm-20a.html",
       sku: "GM-20APWMSARJKONT", brand: "Lexron",
       img: "assets/img/products/lexron-pwm-20a.webp",
@@ -716,7 +742,7 @@ window.GESPA.config = {
       features: ["12/24 V akü sistemleri", "PWM şarj teknolojisi", "Ekonomik küçük sistem çözümü", "Teknik künye için bize yazın"]
     },
     {
-      id: "lexron-pwm-30a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      id: "lexron-pwm-30a", ship: "cihaz", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       url: "lexron-pwm-30a.html",
       sku: "GM-30APWMSARJKONT", brand: "Lexron",
       img: "assets/img/products/lexron-pwm-30a.webp",
@@ -728,7 +754,7 @@ window.GESPA.config = {
       features: ["12/24 V akü sistemleri", "PWM şarj teknolojisi", "Ekonomik küçük sistem çözümü", "Teknik künye için bize yazın"]
     },
     {
-      id: "lexron-pwm-40a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      id: "lexron-pwm-40a", ship: "cihaz", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       url: "lexron-pwm-40a.html",
       sku: "GM-40APWMSARJKONT", brand: "Lexron",
       img: "assets/img/products/lexron-pwm-40a.webp",
@@ -740,7 +766,7 @@ window.GESPA.config = {
       features: ["12/24 V akü sistemleri", "PWM şarj teknolojisi", "Ekonomik küçük sistem çözümü", "Teknik künye için bize yazın"]
     },
     {
-      id: "lexron-pwm-60a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      id: "lexron-pwm-60a", ship: "cihaz", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       url: "lexron-pwm-60a.html",
       sku: "GM-60APWMSARJKONT", brand: "Lexron",
       img: "assets/img/products/lexron-pwm-60a.webp",
@@ -752,7 +778,7 @@ window.GESPA.config = {
       features: ["12/24/48 V akü sistemleri", "PWM şarj teknolojisi", "60 A şarj akımı", "Teknik künye için bize yazın"]
     },
     {
-      id: "lexron-mppt-20a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      id: "lexron-mppt-20a", ship: "cihaz", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       url: "lexron-mppt-20a.html",
       sku: "GM-20AMPPTSARJKON", brand: "Lexron",
       img: "assets/img/products/lexron-mppt-20a.webp",
@@ -764,7 +790,7 @@ window.GESPA.config = {
       features: ["12/24 V akü sistemleri", "MPPT şarj teknolojisi", "PWM'e göre daha yüksek verim", "Teknik künye için bize yazın"]
     },
     {
-      id: "lexron-mppt-30a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      id: "lexron-mppt-30a", ship: "cihaz", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       url: "lexron-mppt-30a.html",
       sku: "GM-30AMPPTSARJKON", brand: "Lexron",
       img: "assets/img/products/lexron-mppt-30a.webp",
@@ -776,7 +802,7 @@ window.GESPA.config = {
       features: ["12/24 V akü sistemleri", "MPPT şarj teknolojisi", "PWM'e göre daha yüksek verim", "Teknik künye için bize yazın"]
     },
     {
-      id: "lexron-mppt-40a", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      id: "lexron-mppt-40a", ship: "cihaz", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       url: "lexron-mppt-40a.html",
       sku: "GM-40AMPPTSARJKON", brand: "Lexron",
       img: "assets/img/products/lexron-mppt-40a.webp",
@@ -788,7 +814,7 @@ window.GESPA.config = {
       features: ["12/24 V akü sistemleri", "MPPT şarj teknolojisi", "PWM'e göre daha yüksek verim", "Teknik künye için bize yazın"]
     },
     {
-      id: "lexron-mppt-80a-hv", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
+      id: "lexron-mppt-80a-hv", ship: "cihaz", icon: "☀️", tag: "Şarj Kontrol", group: "charge",
       url: "lexron-mppt-80a-hv.html",
       sku: "GM-80AHV15230VMPP", brand: "Lexron",
       img: "assets/img/products/lexron-mppt-80a-hv.webp",
@@ -812,7 +838,7 @@ window.GESPA.config = {
       // 4 mm2 ya da 6 mm2 geliyor, ikisi de bu sistemler için uygun.
       // Belirli bir kesit yazmak teslimatla çelişirdi; durum açıklamada
       // olduğu gibi söylenir.
-      id: "kablo-solar-5m", icon: "🔌", tag: "Kablo", group: "cable",
+      id: "kablo-solar-5m", ship: "kucuk", icon: "🔌", tag: "Kablo", group: "cable",
       url: "kablo-solar-5m.html",
       sku: "GES-KBL-5M",
       img: "assets/img/products/kablo-solar-5m.webp",
@@ -831,7 +857,7 @@ window.GESPA.config = {
     // ve tutmazsa UYARIR — bir kalemin fiyatı değişip paket fiyatı
     // güncellenmeden kalmasın.
     {
-      id: "set-yolcu", icon: "🛺", tag: "Hazır Paket", group: "evset",
+      id: "set-yolcu", ship: "panel-kucuk", icon: "🛺", tag: "Hazır Paket", group: "evset",
       url: "paket-motor-yolcu.html",
       sku: "GES-SET-YOLCU",
       img: "assets/img/products/ev/motor-yolcu.webp",
@@ -844,7 +870,7 @@ window.GESPA.config = {
       features: ["240 W güneş paneli (1320 × 776 mm, dar çatıya uygun)", "BOOST MPPT 24–72 V şarj kontrol cihazı — tüm akü tipleriyle", "5 m siyah + 5 m kırmızı solar kablo", "MC4 konnektör takımı (erkek + dişi)", "Panel, cihaz ve kablolama birbiriyle uyumlu seçilmiştir"]
     },
     {
-      id: "set-kargo", icon: "🚚", tag: "Hazır Paket", group: "evset",
+      id: "set-kargo", ship: "panel-buyuk", icon: "🚚", tag: "Hazır Paket", group: "evset",
       url: "paket-motor-kargo.html",
       sku: "GES-SET-KARGO",
       img: "assets/img/products/ev/motor-kargo.webp",
@@ -861,7 +887,7 @@ window.GESPA.config = {
     // toplamlar MC4'süzdür (₺16.200 / ₺14.700); 1. ve 2. paketlerdeki gibi
     // MC4 takımı (₺100) eklendi → ₺16.300 / ₺14.800.
     {
-      id: "set-golf", icon: "🚙", tag: "Hazır Paket", group: "evset",
+      id: "set-golf", ship: "panel-buyuk", icon: "🚙", tag: "Hazır Paket", group: "evset",
       url: "paket-motor-golf.html",
       sku: "GES-SET-GOLF",
       img: "assets/img/products/ev/motor-golf.webp",
@@ -874,7 +900,7 @@ window.GESPA.config = {
       features: ["460 W yarım hücre (half-cut) monokristal güneş paneli", "BOOST MPPT 24–72 V şarj kontrol cihazı — tüm akü tipleriyle", "5 m siyah + 5 m kırmızı solar kablo", "MC4 konnektör takımı (erkek + dişi)", "Panel, cihaz ve kablolama birbiriyle uyumlu seçilmiştir"]
     },
     {
-      id: "set-mini", icon: "🚗", tag: "Hazır Paket", group: "evset",
+      id: "set-mini", ship: "panel-kucuk", icon: "🚗", tag: "Hazır Paket", group: "evset",
       url: "paket-motor-mini.html",
       sku: "GES-SET-MINI",
       img: "assets/img/products/ev/motor-mini.webp",
@@ -888,7 +914,7 @@ window.GESPA.config = {
     },
 
     {
-      id: "mc4-set", icon: "🔗", tag: "Konnektör", group: "cable",
+      id: "mc4-set", ship: "kucuk", icon: "🔗", tag: "Konnektör", group: "cable",
       url: "mc4-set.html",
       sku: "GES-MC4-1",
       img: "assets/img/products/mc4-set.webp",
@@ -907,7 +933,7 @@ window.GESPA.config = {
     // FİYAT: belgede ₺130 ve ₺1.215. ₺1.215, ≥₺1.000 tutarlar 50'ye
     // yuvarlandığı için yazılamaz; en yakın ₺1.200 seçildi.
     {
-      id: "hero-led-ampul-10w", icon: "💡", tag: "Aydınlatma", group: "lighting",
+      id: "hero-led-ampul-10w", ship: "kucuk", icon: "💡", tag: "Aydınlatma", group: "lighting",
       url: "hero-led-ampul-10w.html",
       sku: "HL-7020", brand: "Hero LED",
       img: "assets/img/products/hero-led-ampul-10w.webp",
@@ -922,7 +948,7 @@ window.GESPA.config = {
       features: ["10 W · 850 lümen · 6500 K beyaz ışık", "12–60 V AC/DC geniş gerilim aralığı", "12 V / 24 V akü sistemlerinde doğrudan kullanım", "60 × 118 mm · −20 ~ +55 °C", "Enerji sınıfı F · 10 kWh/1000 saat · UV içermez"]
     },
     {
-      id: "hero-led-solar-sokak-100w", icon: "🌙", tag: "Aydınlatma", group: "lighting",
+      id: "hero-led-solar-sokak-100w", ship: "kucuk", icon: "🌙", tag: "Aydınlatma", group: "lighting",
       url: "hero-led-solar-sokak-100w.html",
       sku: "HL-5151", brand: "Hero LED",
       img: "assets/img/products/hero-led-solar-sokak-100w.webp",
@@ -942,7 +968,7 @@ window.GESPA.config = {
     // bahçe ₺705 → ₺710 / ₺780; 200 W ₺2.025 → ₺2.050 / ₺2.250;
     // 600 W ₺2.430 → ₺2.450 / ₺2.650.
     {
-      id: "hero-led-aplik-50w", icon: "🏮", tag: "Aydınlatma", group: "lighting",
+      id: "hero-led-aplik-50w", ship: "kucuk", icon: "🏮", tag: "Aydınlatma", group: "lighting",
       url: "hero-led-aplik-50w.html",
       sku: "HL-5181", brand: "Hero LED",
       img: "assets/img/products/hero-led-aplik-50w.webp",
@@ -955,7 +981,7 @@ window.GESPA.config = {
       features: ["Güneş enerjili — elektrik hattı gerektirmez", "50 W · 4000 lümen · 60° ışık açısı", "3200 K / 4000 K / 6500 K + RGB ışık seçeneği", "Uzaktan kumanda · duvar tipi montaj", "IP65 suya dayanıklı · 15.000 saat ömür", "Şarj 6 saat · çalışma 8 saat"]
     },
     {
-      id: "hero-led-bahce-50w", icon: "🏡", tag: "Aydınlatma", group: "lighting",
+      id: "hero-led-bahce-50w", ship: "kucuk", icon: "🏡", tag: "Aydınlatma", group: "lighting",
       url: "hero-led-bahce-50w.html",
       sku: "HL-5180", brand: "Hero LED",
       img: "assets/img/products/hero-led-bahce-50w.webp",
@@ -968,7 +994,7 @@ window.GESPA.config = {
       features: ["Güneş enerjili — elektrik hattı gerektirmez", "50 W · 4000 lümen · 60° ışık açısı", "3200 K / 4000 K / 6500 K + RGB ışık seçeneği", "Uzaktan kumanda · set üstü / duvar tipi montaj", "IP65 suya dayanıklı · 15.000 saat ömür", "Şarj 6 saat · çalışma 8 saat"]
     },
     {
-      id: "hero-led-solar-sokak-200w", icon: "🌙", tag: "Aydınlatma", group: "lighting",
+      id: "hero-led-solar-sokak-200w", ship: "kucuk", icon: "🌙", tag: "Aydınlatma", group: "lighting",
       url: "hero-led-solar-sokak-200w.html",
       sku: "HL-5153", brand: "Hero LED",
       img: "assets/img/products/hero-led-solar-sokak-200w.webp",
@@ -981,7 +1007,7 @@ window.GESPA.config = {
       features: ["Güneş panelli — elektrik hattı gerektirmez", "SMD LED · 6500 K beyaz ışık", "Hareket sensörü · sabit yanma zaman ayarı", "Uzaktan kumanda", "IP65 suya dayanıklı · 30.000 saat ömür", "Armatür 188 × 586 mm"]
     },
     {
-      id: "hero-led-solar-sokak-600w", icon: "🌙", tag: "Aydınlatma", group: "lighting",
+      id: "hero-led-solar-sokak-600w", ship: "kucuk", icon: "🌙", tag: "Aydınlatma", group: "lighting",
       url: "hero-led-solar-sokak-600w.html",
       sku: "HL-5157", brand: "Hero LED",
       img: "assets/img/products/hero-led-solar-sokak-600w.webp",
@@ -1291,3 +1317,43 @@ window.GESPA.config = {
     delete c.stats.experienceYears;
   }
 })(window.GESPA.config.company);
+
+/* KARGO HESABI — tek kaynak. Sepet (main.js), sunucu (server.js: tahsil edilen tutar)
+   ve build.js (ürün sayfası, şema, ürün akışı) AYNI işlevi çağırır; kuralı burada değiştir.
+   items: [{id, qty}] · opts: {pickup, listTL (sepetin liste toplamı ₺)}
+   Döner: {total, base, disc, pct, free: null|"pickup"|"esik"|"dahil", parts:[{cls, qty, fee}]} */
+(function (G) {
+  var cfg = G.config;
+  function classFee(c, n) {
+    if (!c || n <= 0) return 0;
+    if (c.pair != null) return Math.floor(n / 2) * c.pair + (n % 2) * c.single;
+    if (c.per) return Math.ceil(n / c.per) * c.fee;
+    return n * (c.each || 0);
+  }
+  function shipCalc(items, opts) {
+    opts = opts || {};
+    var sh = (cfg.commerce || {}).shipping || {}, classes = sh.classes || {};
+    var byCls = {}, kinds = 0, any = false;
+    (items || []).forEach(function (it) {
+      var p = null, i;
+      for (i = 0; i < cfg.packages.length; i++) if (cfg.packages[i].id === it.id) { p = cfg.packages[i]; break; }
+      var q = +it.qty || 0;
+      if (!p || q <= 0) return;
+      any = true;
+      if (p.freeShipping || !classes[p.ship]) return;
+      byCls[p.ship] = (byCls[p.ship] || 0) + q; kinds++;
+    });
+    var parts = [], base = 0;
+    Object.keys(byCls).forEach(function (k) { var f = classFee(classes[k], byCls[k]); parts.push({ cls: k, qty: byCls[k], fee: f }); base += f; });
+    var out = { total: 0, base: base, disc: 0, pct: 0, free: null, parts: parts };
+    if (opts.pickup && sh.pickup) { out.free = "pickup"; return out; }
+    if (any && base === 0) { out.free = "dahil"; return out; }
+    if (sh.freeOverTL && +opts.listTL >= sh.freeOverTL) { out.free = "esik"; return out; }
+    if (kinds >= 2 && sh.multiDiscountPct) { out.pct = sh.multiDiscountPct; out.disc = Math.round(base * out.pct / 100); }
+    out.total = base - out.disc;
+    return out;
+  }
+  G.shipCalc = shipCalc;
+  // Sunucu ve build yalnız config nesnesini alır: işlev ona da (sayılmayan alan olarak) iliştirilir.
+  Object.defineProperty(cfg, "shipCalc", { enumerable: false, value: shipCalc });
+})(window.GESPA);

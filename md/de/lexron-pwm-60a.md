@@ -3,7 +3,7 @@ title: "Lexron 60A PWM-Laderegler 12/24/48V | GESPA Energy"
 description: "Lexron 60 A PWM-Solarladeregler für 12/24/48-V-Batteriesysteme. Werte vom Produktetikett; das vollständige Datenblatt auf Anfrage. Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/lexron-pwm-60a.html
 lang: de
-dateModified: 2026-11-10
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Preis inkl. MwSt.
 
 💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
 
-🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+🚚 Versand: **₺250** · Ürün + kargo: **₺2.450** · 2–5 Werktage
 
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 

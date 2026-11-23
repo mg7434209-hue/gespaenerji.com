@@ -3,7 +3,7 @@ title: "Havensis 40A DC-DC Battery Charger — Caravan Alternator Charging"
 description: "Havensis DCDC-1224 40 A DC-DC battery charger: fast charging of the caravan house battery from the alternator."
 canonical: https://www.gespaenerji.com/en/havensis-dcdc-40a.html
 lang: en
-dateModified: 2026-11-20
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Price includes VAT.
 
 💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
 
-🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+🚚 Shipping: **₺250** · Ürün + kargo: **₺12.150** · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 

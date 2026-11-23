@@ -3,7 +3,7 @@ title: "Lexron 1200 W Portable Power Station | GESPA"
 description: "Lexron 1200 W portable power station: 1152 Wh LiFePO₄, pure sine AC, USB, Type-C PD 100 W, 12 V DC. A 160 W solar panel can be connected."
 canonical: https://www.gespaenerji.com/en/lexron-guc-istasyonu-1200w.html
 lang: en
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Price includes VAT.
 
 💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
 
-🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+🚚 Shipping: **₺400** · Ürün + kargo: **₺26.400** · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 

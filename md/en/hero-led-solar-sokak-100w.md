@@ -3,7 +3,7 @@ title: "Hero LED 100W Solar Street Light with Sensor | GESPA Energy"
 description: "Hero LED 100 W solar street light (HL-5151): solar panel, motion sensor, remote control, IP65, 30,000 h. No power line needed."
 canonical: https://www.gespaenerji.com/en/hero-led-solar-sokak-100w.html
 lang: en
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Price includes VAT.
 
 💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
 
-🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+🚚 Shipping: **₺250** · Ürün + kargo: **₺1.450** · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 

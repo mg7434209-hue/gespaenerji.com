@@ -3,7 +3,7 @@ title: "Havensis Bidirectional 40A DC-DC Battery Charger — Boost Mode"
 description: "Havensis DCDC-1224B bidirectional DC-DC battery charger: 40 A to the house battery, 10 A to the starter battery in boost mode."
 canonical: https://www.gespaenerji.com/en/havensis-dcdc-40a-cift-yonlu.html
 lang: en
-dateModified: 2026-11-20
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Price includes VAT.
 
 💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
 
-🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+🚚 Shipping: **₺250** · Ürün + kargo: **₺13.850** · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 

@@ -3,7 +3,7 @@ title: "Лампа Hero LED 10 Вт 12 В DC (12–60 В AC/DC) | GESPA"
 description: "Светодиодная лампа Hero LED 10 Вт для 12–60 В AC/DC: 850 лм, белый свет 6500 K. Работает прямо от аккумулятора в автодомах, лодках и солнечных системах."
 canonical: https://www.gespaenerji.com/ru/hero-led-ampul-10w.html
 lang: ru
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ publisher: "GESPA Enerji"
 
 💳 До 12 ежемесячных платежей картой (с процентами) — выбирается на странице оплаты
 
-🚚 Доставку оплачивает покупатель — курьеру при получении · 2–5 рабочих дней
+🚚 Доставка: **₺250** · Ürün + kargo: **₺380** · 2–5 рабочих дней
 
 [🛒 В корзину](https://www.gespaenerji.com/ru/sepet.html)
 

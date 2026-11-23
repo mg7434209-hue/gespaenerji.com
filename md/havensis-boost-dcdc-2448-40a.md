@@ -3,7 +3,7 @@ title: "Havensis BOOST DC-DC 40A Şarj Cihazı, 36/48V Akü | GESPA"
 description: "Havensis BOOST DCDC-2448 40 A: 12/24 V araç aküsünden 36 ve 48 V akü grubunu şarj eden DC-DC cihaz. 40 A giriş, 20 A şarj, %95 verim. Karavan ve tekneler için."
 canonical: https://www.gespaenerji.com/havensis-boost-dcdc-2448-40a.html
 lang: tr
-dateModified: 2026-11-20
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ KDV dahil fiyattır.
 
 💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
 
-🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+🚚 Kargo: **₺250** · Ürün + kargo: **₺10.450** · 2–5 iş günü
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 

@@ -3,7 +3,7 @@ title: "Солнечная панель Arçelik 540 Вт | GESPA"
 description: "Монокристаллическая панель Arçelik 540 Вт класса A для крышных и наземных систем; поставки паллетами."
 canonical: https://www.gespaenerji.com/ru/panel-arcelik-540w.html
 lang: ru
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ publisher: "GESPA Enerji"
 
 💳 До 12 ежемесячных платежей картой (с процентами) — выбирается на странице оплаты
 
-🚚 Доставку оплачивает покупатель — курьеру при получении · 2–5 рабочих дней
+🚚 Доставка: **₺700** · 2 adet: **₺1.000** · Ürün + kargo: **₺10.700** · 2–5 рабочих дней
 
 [🛒 В корзину](https://www.gespaenerji.com/ru/sepet.html)
 

@@ -3,7 +3,7 @@ title: "MC4 Konnektör Takımı | GESPA Enerji"
 description: "Güneş paneli çıkış kablosu ile solar kabloyu birleştiren erkek-dişi MC4 konnektör takımı. Elektrikli motor güneş paketlerine 1 takım dahildir."
 canonical: https://www.gespaenerji.com/mc4-set.html
 lang: tr
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ KDV dahil fiyattır.
 
 💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
 
-🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+🚚 Kargo: **₺250** · Ürün + kargo: **₺350** · 2–5 iş günü
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 

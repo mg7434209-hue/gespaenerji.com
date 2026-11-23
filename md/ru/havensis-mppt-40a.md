@@ -3,7 +3,7 @@ title: "MPPT-контроллер Havensis 40А 12/24В — до 1500Вт | GESP
 description: "MPPT-контроллер заряда Havensis Solar-40AMPS для солнечных систем с АКБ 12/24 В: заряд 40 А, выход нагрузки 20 А, вход панелей 100 В, до 1500 Вт панелей…"
 canonical: https://www.gespaenerji.com/ru/havensis-mppt-40a.html
 lang: ru
-dateModified: 2026-11-20
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ MPPT-контроллер заряда для солнечных систем с
 
 💳 До 12 ежемесячных платежей картой (с процентами) — выбирается на странице оплаты
 
-🚚 Доставку оплачивает покупатель — курьеру при получении · 2–5 рабочих дней
+🚚 Доставка: **₺250** · Ürün + kargo: **₺7.500** · 2–5 рабочих дней
 
 [🛒 В корзину](https://www.gespaenerji.com/ru/sepet.html)
 

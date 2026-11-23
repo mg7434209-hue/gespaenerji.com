@@ -3,7 +3,7 @@ title: "Arçelik 540 W Güneş Paneli Fiyatı | GESPA Enerji"
 description: "Arçelik 540 W Güneş Paneli: çatı ve arazi kurulumları, yerli marka tercih edenler için. KDV dahil fiyat, Türkiye'nin her yerine kargo."
 canonical: https://www.gespaenerji.com/panel-arcelik-540w.html
 lang: tr
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ KDV dahil fiyattır.
 
 💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
 
-🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+🚚 Kargo: **₺700** · 2 adet: **₺1.000** · Ürün + kargo: **₺10.700** · 2–5 iş günü
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 

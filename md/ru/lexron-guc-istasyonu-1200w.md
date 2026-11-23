@@ -3,7 +3,7 @@ title: "Электростанция Lexron 1200 Вт | GESPA"
 description: "Портативная электростанция Lexron 1200 Вт: LiFePO₄ 1152 Вт·ч, AC чистая синусоида, USB, Type-C PD 100 Вт, 12 В DC. Можно подключить панель 160 Вт."
 canonical: https://www.gespaenerji.com/ru/lexron-guc-istasyonu-1200w.html
 lang: ru
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ publisher: "GESPA Enerji"
 
 💳 До 12 ежемесячных платежей картой (с процентами) — выбирается на странице оплаты
 
-🚚 Доставку оплачивает покупатель — курьеру при получении · 2–5 рабочих дней
+🚚 Доставка: **₺400** · Ürün + kargo: **₺26.400** · 2–5 рабочих дней
 
 [🛒 В корзину](https://www.gespaenerji.com/ru/sepet.html)
 

@@ -3,7 +3,7 @@ title: "Lexron 80 A HV MPPT Şarj Kontrol Cihazı 12/24/36/48 V"
 description: "Lexron 80 A HV (15~230 V) MPPT Şarj Kontrol Cihazı 12/24/36/48 V: 12/24/36/48 V akülü güneş sistemleri için MPPT şarj kontrol cihazı, 80 A şarj akımı."
 canonical: https://www.gespaenerji.com/lexron-mppt-80a-hv.html
 lang: tr
-dateModified: 2026-11-10
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ KDV dahil fiyattır.
 
 💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
 
-🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+🚚 Kargo: **₺250** · Ürün + kargo: **₺10.350** · 2–5 iş günü
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 

@@ -3,7 +3,7 @@ title: "Купить солнечные панели, АКБ и MPPT-контр�
 description: "Солнечные панели Lexron и Arçelik, LiFePO₄ АКБ, MPPT/PWM-контроллеры, кабель и готовые комплекты. Цены с НДС, доставка по Турции."
 canonical: https://www.gespaenerji.com/ru/online-satis.html
 lang: ru
-dateModified: 2026-11-20
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -29,7 +29,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺23.300**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺1.200
 
 ### [Полная солнечная энергосистема](https://www.gespaenerji.com/ru/paket-2x540w.html)
 
@@ -39,7 +39,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺104.950**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ücretsiz
 
 ### [Контроллер заряда MS Teknik BOOST MPPT 24-72 В](https://www.gespaenerji.com/ru/elektrikli-arac-donusum.html)
 
@@ -57,7 +57,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺27.150**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺500
 
 ### [Солнечная панель 50 Вт](https://www.gespaenerji.com/ru/panel-50w.html)
 
@@ -65,7 +65,7 @@ publisher: "GESPA Enerji"
 
 **₺1.750**≈ $36
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺500
 
 ### [Портативная электростанция UNV Trek Pro 2500 Вт](https://www.gespaenerji.com/ru/unv-trek-pro-2500.html)
 
@@ -75,7 +75,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺119.100**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ücretsiz
 
 ### [Портативная электростанция Lexron 1200 Вт](https://www.gespaenerji.com/ru/lexron-guc-istasyonu-1200w.html)
 
@@ -85,7 +85,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺25.200**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺400
 
 ### [Солнечная панель 360 Вт](https://www.gespaenerji.com/ru/panel-360w.html)
 
@@ -95,7 +95,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺7.000**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺500
 
 ### [Солнечная панель 160 Вт](https://www.gespaenerji.com/ru/panel-160w.html)
 
@@ -105,7 +105,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺3.900**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺500
 
 ### [Солнечная панель Lexron 655 Вт TOPCon](https://www.gespaenerji.com/ru/panel-lexron-655w.html)
 
@@ -115,7 +115,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺9.700**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺700
 
 ### [Двусторонняя солнечная панель TOPCon 700 Вт](https://www.gespaenerji.com/ru/panel-700w.html)
 
@@ -125,7 +125,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺8.450**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺700
 
 ### [Монокристаллическая солнечная панель half-cut 460 Вт](https://www.gespaenerji.com/ru/panel-460w.html)
 
@@ -135,7 +135,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺7.750**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺700
 
 ### [Солнечная панель 240 Вт (48 ячеек)](https://www.gespaenerji.com/ru/panel-240w.html)
 
@@ -145,7 +145,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺6.300**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺500
 
 ### [Солнечная панель Arçelik 540 Вт](https://www.gespaenerji.com/ru/panel-arcelik-540w.html)
 
@@ -155,7 +155,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺9.700**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺700
 
 ### [Аккумулятор TitanX 51,2 В 102 А·ч LiFePO₄](https://www.gespaenerji.com/ru/aku-titanx-51v-102ah.html)
 
@@ -165,7 +165,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺71.200**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ücretsiz
 
 ### [Контроллер заряда MPPT Havensis Solar-30AMPS 12/24 В 30 А](https://www.gespaenerji.com/ru/havensis-mppt-30a.html)
 
@@ -175,7 +175,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺6.150**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Контроллер заряда MPPT Havensis Solar-40AMPS 12/24 В 40 А](https://www.gespaenerji.com/ru/havensis-mppt-40a.html)
 
@@ -185,7 +185,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺7.050**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Контроллер заряда MPPT Havensis Solar-60AMPS-100 12/24 В 60 А](https://www.gespaenerji.com/ru/havensis-mppt-60a.html)
 
@@ -195,7 +195,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺11.550**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Контроллер заряда MPPT Havensis Solar-60AMPS 150|60 12/24/36/48 В 60 А](https://www.gespaenerji.com/ru/havensis-mppt-60a-150v.html)
 
@@ -205,7 +205,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺15.700**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Однонаправленное зарядное DC-DC Havensis DCDC-1224 12/24 В 30 А](https://www.gespaenerji.com/ru/havensis-dcdc-30a.html)
 
@@ -215,7 +215,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺9.500**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Однонаправленное зарядное DC-DC Havensis DCDC-1224 12/24 В 40 А](https://www.gespaenerji.com/ru/havensis-dcdc-40a.html)
 
@@ -225,7 +225,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺11.550**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Двунаправленное зарядное DC-DC Havensis DCDC-1224B 12/24 В 40 А](https://www.gespaenerji.com/ru/havensis-dcdc-40a-cift-yonlu.html)
 
@@ -235,7 +235,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺13.200**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Зарядное устройство DC-DC Havensis BOOST DCDC-2448 36/48/60/72 В](https://www.gespaenerji.com/ru/havensis-boost-dcdc-2448.html)
 
@@ -245,7 +245,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺8.000**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Зарядное устройство DC-DC Havensis BOOST DCDC-2448 36/48 В 40 А](https://www.gespaenerji.com/ru/havensis-boost-dcdc-2448-40a.html)
 
@@ -255,7 +255,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺9.900**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Солнечный контроллер заряда Lexron PWM 20 А 12/24 В](https://www.gespaenerji.com/ru/lexron-pwm-20a.html)
 
@@ -265,7 +265,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺700**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Солнечный контроллер заряда Lexron PWM 30 А 12/24 В](https://www.gespaenerji.com/ru/lexron-pwm-30a.html)
 
@@ -275,7 +275,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺800**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Солнечный контроллер заряда Lexron PWM 40 А 12/24 В](https://www.gespaenerji.com/ru/lexron-pwm-40a.html)
 
@@ -285,7 +285,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺1.000**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Солнечный контроллер заряда Lexron PWM 60 А 12/24/48 В](https://www.gespaenerji.com/ru/lexron-pwm-60a.html)
 
@@ -295,7 +295,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺2.150**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Солнечный контроллер заряда Lexron MPPT 20 А 12/24 В](https://www.gespaenerji.com/ru/lexron-mppt-20a.html)
 
@@ -305,7 +305,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺3.050**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Солнечный контроллер заряда Lexron MPPT 30 А 12/24 В](https://www.gespaenerji.com/ru/lexron-mppt-30a.html)
 
@@ -315,7 +315,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺3.350**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Солнечный контроллер заряда Lexron MPPT 40 А 12/24 В](https://www.gespaenerji.com/ru/lexron-mppt-40a.html)
 
@@ -325,7 +325,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺3.700**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Солнечный контроллер заряда Lexron MPPT HV (15~230 В) 80 А 12/24/36/48 В](https://www.gespaenerji.com/ru/lexron-mppt-80a-hv.html)
 
@@ -335,7 +335,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺9.800**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Комплект солнечного кабеля (5 м чёрный + 5 м красный)](https://www.gespaenerji.com/ru/kablo-solar-5m.html)
 
@@ -345,7 +345,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺950**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Солнечный комплект для трицикла с кабиной — 240 Вт](https://www.gespaenerji.com/ru/paket-motor-yolcu.html)
 
@@ -355,7 +355,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺14.350**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺500
 
 ### [Солнечный комплект для грузового трицикла — 700 Вт](https://www.gespaenerji.com/ru/paket-motor-kargo.html)
 
@@ -365,7 +365,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺16.500**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺700
 
 ### [Солнечный комплект для электрокара типа гольф-кар — 460 Вт](https://www.gespaenerji.com/ru/paket-motor-golf.html)
 
@@ -375,7 +375,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺15.800**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺700
 
 ### [Солнечный комплект для мини-электромобиля — 240 Вт](https://www.gespaenerji.com/ru/paket-motor-mini.html)
 
@@ -385,7 +385,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺14.350**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺500
 
 ### [Комплект коннекторов MC4](https://www.gespaenerji.com/ru/mc4-set.html)
 
@@ -393,7 +393,7 @@ publisher: "GESPA Enerji"
 
 **₺100**≈ $2
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Светодиодная лампа Hero LED 10 Вт 12 В DC (12–60 В AC/DC)](https://www.gespaenerji.com/ru/hero-led-ampul-10w.html)
 
@@ -401,7 +401,7 @@ publisher: "GESPA Enerji"
 
 **₺130**≈ $3
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Солнечный уличный светильник Hero LED 100 Вт (датчик, пульт)](https://www.gespaenerji.com/ru/hero-led-solar-sokak-100w.html)
 
@@ -411,7 +411,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺1.150**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Солнечный настенный светильник Hero LED 50 Вт (пульт, 3 цвета + RGB)](https://www.gespaenerji.com/ru/hero-led-aplik-50w.html)
 
@@ -421,7 +421,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺800**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Солнечный садовый светильник на столб Hero LED 50 Вт (пульт, 3 цвета + RGB)](https://www.gespaenerji.com/ru/hero-led-bahce-50w.html)
 
@@ -431,7 +431,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺750**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Солнечный уличный светильник Hero LED 200 Вт (датчик, пульт)](https://www.gespaenerji.com/ru/hero-led-solar-sokak-200w.html)
 
@@ -441,7 +441,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺2.200**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 ### [Солнечный уличный светильник Hero LED 600 Вт (радарный датчик, пульт)](https://www.gespaenerji.com/ru/hero-led-solar-sokak-600w.html)
 
@@ -451,7 +451,7 @@ publisher: "GESPA Enerji"
 
 💰 Банковским переводом: **₺2.550**
 
-НДС включён · доставка отдельно
+KDV dahil · kargo ₺250
 
 Частые вопросы
 

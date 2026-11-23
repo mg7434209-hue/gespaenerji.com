@@ -3,7 +3,7 @@ title: "Зарядное DC-DC Havensis 40А — зарядка автодома
 description: "Зарядное устройство DC-DC Havensis DCDC-1224 на 40 А: быстрая зарядка бытового аккумулятора автодома от генератора."
 canonical: https://www.gespaenerji.com/ru/havensis-dcdc-40a.html
 lang: ru
-dateModified: 2026-11-20
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ publisher: "GESPA Enerji"
 
 💳 До 12 ежемесячных платежей картой (с процентами) — выбирается на странице оплаты
 
-🚚 Доставку оплачивает покупатель — курьеру при получении · 2–5 рабочих дней
+🚚 Доставка: **₺250** · Ürün + kargo: **₺12.150** · 2–5 рабочих дней
 
 [🛒 В корзину](https://www.gespaenerji.com/ru/sepet.html)
 

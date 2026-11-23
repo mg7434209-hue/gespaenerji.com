@@ -3,7 +3,7 @@ title: "MPPT-контроллер Havensis 60А 12/24В — до 2500Вт | GESP
 description: "MPPT-контроллер заряда Havensis Solar-60AMPS-100: АКБ 12/24 В, заряд 60 А, выход нагрузки 20 А, вход панелей 100 В, до 2500 Вт панелей, ЖК-дисплей."
 canonical: https://www.gespaenerji.com/ru/havensis-mppt-60a.html
 lang: ru
-dateModified: 2026-11-20
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ MPPT-контроллер заряда 60 А для солнечных сист�
 
 💳 До 12 ежемесячных платежей картой (с процентами) — выбирается на странице оплаты
 
-🚚 Доставку оплачивает покупатель — курьеру при получении · 2–5 рабочих дней
+🚚 Доставка: **₺250** · Ürün + kargo: **₺12.150** · 2–5 рабочих дней
 
 [🛒 В корзину](https://www.gespaenerji.com/ru/sepet.html)
 

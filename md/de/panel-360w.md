@@ -3,7 +3,7 @@ title: "360W Mono-PERC-Solarmodul | GESPA Energy"
 description: "360-W-Mono-PERC-Modul mit 60 Zellen: Voc 42,56 V, 1660 × 1001 × 30 mm, 19,5 kg, IP68-Anschlussdose, 1500 V."
 canonical: https://www.gespaenerji.com/de/panel-360w.html
 lang: de
-dateModified: 2026-11-20
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Preis inkl. MwSt.
 
 💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
 
-🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+🚚 Versand: **₺500** · 2 adet: **₺750** · Ürün + kargo: **₺7.700** · 2–5 Werktage
 
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 

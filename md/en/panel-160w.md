@@ -3,7 +3,7 @@ title: "160W Solar Panel Price | GESPA Energy"
 description: "160 W solar panel: Voc 19.00 V, 1065 × 705 × 30 mm. Can be connected to the Lexron 1200 W power station; also for 12 V systems and caravans."
 canonical: https://www.gespaenerji.com/en/panel-160w.html
 lang: en
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Price includes VAT.
 
 💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
 
-🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+🚚 Shipping: **₺500** · 2 adet: **₺750** · Ürün + kargo: **₺4.500** · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 

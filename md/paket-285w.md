@@ -3,7 +3,7 @@ title: "240W Güneş Paneli Paketi — Tak-Çalıştır | GESPA Enerji"
 description: "Kamp ve karavan için 240W komple güneş paketi: panel, güç kutusu ve kablolar. TV, lamba ve telefon şarjı çalıştırır; 23–25 kg, tak-çalıştır."
 canonical: https://www.gespaenerji.com/paket-285w.html
 lang: tr
-dateModified: 2026-11-10
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ KDV dahil fiyattır.
 
 💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
 
-🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+🚚 Kargo: **₺1.200** · Ürün + kargo: **₺25.200** · 2–5 iş günü
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 

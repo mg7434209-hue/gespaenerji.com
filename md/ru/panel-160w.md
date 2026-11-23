@@ -3,7 +3,7 @@ title: "Солнечная панель 160 Вт — цена | GESPA"
 description: "Панель 160 Вт: Voc 19,00 В, 1065 × 705 × 30 мм. Подключается к электростанции Lexron 1200 Вт; подходит для систем 12 В и автодомов."
 canonical: https://www.gespaenerji.com/ru/panel-160w.html
 lang: ru
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ publisher: "GESPA Enerji"
 
 💳 До 12 ежемесячных платежей картой (с процентами) — выбирается на странице оплаты
 
-🚚 Доставку оплачивает покупатель — курьеру при получении · 2–5 рабочих дней
+🚚 Доставка: **₺500** · 2 adet: **₺750** · Ürün + kargo: **₺4.500** · 2–5 рабочих дней
 
 [🛒 В корзину](https://www.gespaenerji.com/ru/sepet.html)
 

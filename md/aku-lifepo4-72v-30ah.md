@@ -3,7 +3,7 @@ title: "europlus 72 V 30 Ah LiFePO₄ Akü — 72V Lityum Akü | GESPA Enerji"
 description: "Elektrikli triportör ve 72 V motorlu araçlar için LiFePO₄ çekiş aküsü: 24S dizilim, ~2.300 Wh, 87,6 V maks. şarj, dahili balanslı BMS, 2.000 çevrim ömür."
 canonical: https://www.gespaenerji.com/aku-lifepo4-72v-30ah.html
 lang: tr
-dateModified: 2026-11-10
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ KDV dahil fiyattır.
 
 💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
 
-🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+🚚 Kargo: **₺500** · Ürün + kargo: **₺28.500** · 2–5 iş günü
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 

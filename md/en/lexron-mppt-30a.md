@@ -3,7 +3,7 @@ title: "Lexron 30A MPPT Charge Controller 12/24V | GESPA Energy"
 description: "Lexron 30 A MPPT solar charge controller for 12/24 V battery systems. Values from the product label; write to us for the full datasheet."
 canonical: https://www.gespaenerji.com/en/lexron-mppt-30a.html
 lang: en
-dateModified: 2026-11-10
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Price includes VAT.
 
 💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
 
-🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+🚚 Shipping: **₺250** · Ürün + kargo: **₺3.700** · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 

@@ -3,7 +3,7 @@ title: "460W Half-Cut Monocrystalline Solar Panel | GESPA Energy"
 description: "460 W panel with 144 half-cut cells: 23.42% efficiency, Voc 51.90 V, 2095 × 1039 × 30 mm, 25 kg, IP68."
 canonical: https://www.gespaenerji.com/en/panel-460w.html
 lang: en
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Price includes VAT.
 
 💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
 
-🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+🚚 Shipping: **₺700** · 2 adet: **₺1.000** · Ürün + kargo: **₺8.700** · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 

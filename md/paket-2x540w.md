@@ -3,7 +3,7 @@ title: "2×540W Güneş Sistemi — LiFePO₄ Bataryalı | GESPA Enerji"
 description: "2×540W panel + LiFePO₄ bataryalı güç kutusu: buzdolabı, TV ve çamaşır makinesi çalıştıran komple mobil güneş sistemi. Günlük ~6,5 kWh üretim."
 canonical: https://www.gespaenerji.com/paket-2x540w.html
 lang: tr
-dateModified: 2026-11-10
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ KDV dahil fiyattır.
 
 💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
 
-🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+🚚 Kargo ücretsiz · 2–5 iş günü
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 

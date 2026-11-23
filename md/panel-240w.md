@@ -3,7 +3,7 @@ title: "240 W Güneş Paneli (48 Hücre) Fiyatı | GESPA Enerji"
 description: "240 W Güneş Paneli (48 Hücre): Voc 36,12 V, 1320 × 776 mm, 8 kg. Mini elektrikli otomobiller ve küçük off-grid sistemler için. KDV dahil, tüm Türkiye'ye kargo."
 canonical: https://www.gespaenerji.com/panel-240w.html
 lang: tr
-dateModified: 2026-11-20
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ KDV dahil fiyattır.
 
 💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
 
-🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+🚚 Kargo: **₺500** · 2 adet: **₺750** · Ürün + kargo: **₺7.000** · 2–5 iş günü
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 

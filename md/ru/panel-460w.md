@@ -3,7 +3,7 @@ title: "Монокристаллическая панель half-cut 460 Вт | 
 description: "Панель 460 Вт, 144 ячейки half-cut: КПД 23,42 %, Voc 51,90 В, 2095 × 1039 × 30 мм, 25 кг, IP68."
 canonical: https://www.gespaenerji.com/ru/panel-460w.html
 lang: ru
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ publisher: "GESPA Enerji"
 
 💳 До 12 ежемесячных платежей картой (с процентами) — выбирается на странице оплаты
 
-🚚 Доставку оплачивает покупатель — курьеру при получении · 2–5 рабочих дней
+🚚 Доставка: **₺700** · 2 adet: **₺1.000** · Ürün + kargo: **₺8.700** · 2–5 рабочих дней
 
 [🛒 В корзину](https://www.gespaenerji.com/ru/sepet.html)
 

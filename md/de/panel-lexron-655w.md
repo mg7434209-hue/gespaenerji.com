@@ -3,7 +3,7 @@ title: "Lexron 655-W-N-Type-TOPCon-Solarmodul | GESPA Energy"
 description: "Lexron 655-W-N-Type-TOPCon-Modul: 24,25 % Wirkungsgrad, Voc 50,34 V, 2382 × 1134 × 35 mm, 31 kg, IP68, 30 Jahre Leistungsgarantie."
 canonical: https://www.gespaenerji.com/de/panel-lexron-655w.html
 lang: de
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Preis inkl. MwSt.
 
 💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
 
-🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+🚚 Versand: **₺700** · 2 adet: **₺1.000** · Ürün + kargo: **₺10.700** · 2–5 Werktage
 
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 

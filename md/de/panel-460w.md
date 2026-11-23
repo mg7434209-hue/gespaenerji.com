@@ -3,7 +3,7 @@ title: "460-W-Half-Cut-Monokristallin-Solarmodul | GESPA Energy"
 description: "460-W-Modul mit 144 Halbzellen: 23,42 % Wirkungsgrad, Voc 51,90 V, 2095 × 1039 × 30 mm, 25 kg, IP68."
 canonical: https://www.gespaenerji.com/de/panel-460w.html
 lang: de
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Preis inkl. MwSt.
 
 💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
 
-🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+🚚 Versand: **₺700** · 2 adet: **₺1.000** · Ürün + kargo: **₺8.700** · 2–5 Werktage
 
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 

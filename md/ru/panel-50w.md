@@ -3,7 +3,7 @@ title: "Солнечная панель 50 Вт для систем 12 В | GESP
 description: "Монокристаллическая панель 50 Вт для систем 12 В: садовое освещение, камеры и зарядка АКБ."
 canonical: https://www.gespaenerji.com/ru/panel-50w.html
 lang: ru
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ publisher: "GESPA Enerji"
 
 💳 До 12 ежемесячных платежей картой (с процентами) — выбирается на странице оплаты
 
-🚚 Доставку оплачивает покупатель — курьеру при получении · 2–5 рабочих дней
+🚚 Доставка: **₺500** · 2 adet: **₺750** · Ürün + kargo: **₺2.250** · 2–5 рабочих дней
 
 [🛒 В корзину](https://www.gespaenerji.com/ru/sepet.html)
 

@@ -3,7 +3,7 @@ title: "240W Solar Panel (48 Cells) | GESPA Energy"
 description: "240 W solar panel with 48 cells: Voc 36.12 V, 1320 × 776 × 30 mm, 8 kg. For mini electric cars and small off-grid systems."
 canonical: https://www.gespaenerji.com/en/panel-240w.html
 lang: en
-dateModified: 2026-11-20
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Price includes VAT.
 
 💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
 
-🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+🚚 Shipping: **₺500** · 2 adet: **₺750** · Ürün + kargo: **₺7.000** · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 

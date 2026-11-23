@@ -3,7 +3,7 @@ title: "Solar Cable Set 5m Black + 5m Red | GESPA Energy"
 description: "Solar cable set, 5 m black + 5 m red, for connecting the panel to the charge controller."
 canonical: https://www.gespaenerji.com/en/kablo-solar-5m.html
 lang: en
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Price includes VAT.
 
 💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
 
-🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+🚚 Shipping: **₺250** · Ürün + kargo: **₺1.250** · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 

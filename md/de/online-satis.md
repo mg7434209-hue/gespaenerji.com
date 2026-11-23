@@ -3,7 +3,7 @@ title: "Solarmodule, Akkus & MPPT-Laderegler kaufen | GESPA"
 description: "Lexron- und Arçelik-Solarmodule, LiFePO₄-Akkus, MPPT/PWM-Laderegler, Solarkabel und Fertigsets. Preise inkl. MwSt., Versand in die ganze Türkei."
 canonical: https://www.gespaenerji.com/de/online-satis.html
 lang: de
-dateModified: 2026-11-20
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -29,7 +29,7 @@ Camping, Wohnmobil und kleine Verbraucher
 
 💰 Per Überweisung: **₺23.300**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺1.200
 
 ### [Komplettes Solarenergiesystem](https://www.gespaenerji.com/de/paket-2x540w.html)
 
@@ -39,7 +39,7 @@ Wohnmobil, Camping und Gartenhaus
 
 💰 Per Überweisung: **₺104.950**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ücretsiz
 
 ### [MS Teknik BOOST MPPT 24-72 V Laderegler](https://www.gespaenerji.com/de/elektrikli-arac-donusum.html)
 
@@ -57,7 +57,7 @@ Elektro-Dreiräder, Motorräder und 72-V-Nutzfahrzeuge
 
 💰 Per Überweisung: **₺27.150**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺500
 
 ### [50-W-Solarmodul](https://www.gespaenerji.com/de/panel-50w.html)
 
@@ -65,7 +65,7 @@ Kleine Beleuchtung, Kameras und Akkuladung
 
 **₺1.750**≈ $36
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺500
 
 ### [UNV Trek Pro 2500 W tragbare Powerstation](https://www.gespaenerji.com/de/unv-trek-pro-2500.html)
 
@@ -75,7 +75,7 @@ Camping, Wohnmobil, Außeneinsatz und Notstrom zu Hause
 
 💰 Per Überweisung: **₺119.100**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ücretsiz
 
 ### [Lexron 1200 W Tragbare Powerstation](https://www.gespaenerji.com/de/lexron-guc-istasyonu-1200w.html)
 
@@ -85,7 +85,7 @@ Camping, Wohnmobil, Außeneinsatz und Notstrom zu Hause
 
 💰 Per Überweisung: **₺25.200**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺400
 
 ### [360-W-Solarmodul](https://www.gespaenerji.com/de/panel-360w.html)
 
@@ -95,7 +95,7 @@ Gartenhaus, Wohnmobil, Dach und kleine Off-Grid-Anlagen
 
 💰 Per Überweisung: **₺7.000**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺500
 
 ### [160-W-Solarmodul](https://www.gespaenerji.com/de/panel-160w.html)
 
@@ -105,7 +105,7 @@ Lexron-1200-W-Powerstation, Wohnmobile und 12-V-Systeme
 
 💰 Per Überweisung: **₺3.900**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺500
 
 ### [Lexron 655-W-TOPCon-Solarmodul](https://www.gespaenerji.com/de/panel-lexron-655w.html)
 
@@ -115,7 +115,7 @@ Aufdach- und Freiflächenanlagen, Installationen mit hoher Leistung
 
 💰 Per Überweisung: **₺9.700**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺700
 
 ### [700 W Bifaziales TOPCon-Solarmodul](https://www.gespaenerji.com/de/panel-700w.html)
 
@@ -125,7 +125,7 @@ Elektrofahrzeuge mit Ladefläche, Dach- und Freiflächenanlagen
 
 💰 Per Überweisung: **₺8.450**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺700
 
 ### [460-W-Half-Cut-Monokristallin-Solarmodul](https://www.gespaenerji.com/de/panel-460w.html)
 
@@ -135,7 +135,7 @@ Elektrofahrzeuge im Golfcart-Stil und kleine Inselanlagen
 
 💰 Per Überweisung: **₺7.750**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺700
 
 ### [240-W-Solarmodul (48 Zellen)](https://www.gespaenerji.com/de/panel-240w.html)
 
@@ -145,7 +145,7 @@ Mini-Elektroautos und kleine Inselanlagen
 
 💰 Per Überweisung: **₺6.300**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺500
 
 ### [Arçelik 540-W-Solarmodul](https://www.gespaenerji.com/de/panel-arcelik-540w.html)
 
@@ -155,7 +155,7 @@ Aufdach- und Freiflächenmontage, für Freunde einer türkischen Marke
 
 💰 Per Überweisung: **₺9.700**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺700
 
 ### [TitanX 51,2 V 102 Ah LiFePO₄ Batterie](https://www.gespaenerji.com/de/aku-titanx-51v-102ah.html)
 
@@ -165,7 +165,7 @@ Energiespeicher für Haus und Betrieb, Off-Grid und Notstrom
 
 💰 Per Überweisung: **₺71.200**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ücretsiz
 
 ### [Havensis Solar-30AMPS MPPT-Laderegler 12/24 V 30 A](https://www.gespaenerji.com/de/havensis-mppt-30a.html)
 
@@ -175,7 +175,7 @@ Solaranlagen mit 12/24-V-Batterie · bis 1200 W Modulleistung
 
 💰 Per Überweisung: **₺6.150**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Havensis Solar-40AMPS MPPT-Laderegler 12/24 V 40 A](https://www.gespaenerji.com/de/havensis-mppt-40a.html)
 
@@ -185,7 +185,7 @@ Solaranlagen mit 12/24-V-Batterie · bis 1500 W Modulleistung
 
 💰 Per Überweisung: **₺7.050**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Havensis Solar-60AMPS-100 MPPT-Laderegler 12/24 V 60 A](https://www.gespaenerji.com/de/havensis-mppt-60a.html)
 
@@ -195,7 +195,7 @@ Solaranlagen mit 12/24-V-Batterie · bis 2500 W Modulleistung
 
 💰 Per Überweisung: **₺11.550**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Havensis Solar-60AMPS 150|60 MPPT-Laderegler 12/24/36/48 V 60 A](https://www.gespaenerji.com/de/havensis-mppt-60a-150v.html)
 
@@ -205,7 +205,7 @@ Solaranlagen mit 12/24/36/48-V-Batterie · bis 5000 W Modulleistung
 
 💰 Per Überweisung: **₺15.700**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Havensis DCDC-1224 unidirektionales DC-DC-Batterieladegerät 12/24 V 30 A](https://www.gespaenerji.com/de/havensis-dcdc-30a.html)
 
@@ -215,7 +215,7 @@ Wohnmobil: Aufbaubatterie über die Lichtmaschine laden · 12/24 V
 
 💰 Per Überweisung: **₺9.500**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Havensis DCDC-1224 unidirektionales DC-DC-Batterieladegerät 12/24 V 40 A](https://www.gespaenerji.com/de/havensis-dcdc-40a.html)
 
@@ -225,7 +225,7 @@ Wohnmobil: Aufbaubatterie über die Lichtmaschine laden · 12/24 V
 
 💰 Per Überweisung: **₺11.550**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Havensis DCDC-1224B bidirektionales DC-DC-Batterieladegerät 12/24 V 40 A](https://www.gespaenerji.com/de/havensis-dcdc-40a-cift-yonlu.html)
 
@@ -235,7 +235,7 @@ Wohnmobil: bidirektionales Batterieladen (Boost-Modus) · 12/24 V
 
 💰 Per Überweisung: **₺13.200**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Havensis BOOST DCDC-2448 DC-DC-Batterieladegerät 36/48/60/72 V](https://www.gespaenerji.com/de/havensis-boost-dcdc-2448.html)
 
@@ -245,7 +245,7 @@ Lädt 36–72-V-Batterien über einen 12/24-V-Eingang · Wohnmobil und Boot
 
 💰 Per Überweisung: **₺8.000**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Havensis BOOST DCDC-2448 DC-DC-Batterieladegerät 36/48 V 40 A](https://www.gespaenerji.com/de/havensis-boost-dcdc-2448-40a.html)
 
@@ -255,7 +255,7 @@ Lädt 36/48-V-Batterien über einen 12/24-V-Eingang · Wohnmobil und Boot
 
 💰 Per Überweisung: **₺9.900**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Lexron 20 A PWM Solar-Laderegler 12/24 V](https://www.gespaenerji.com/de/lexron-pwm-20a.html)
 
@@ -265,7 +265,7 @@ Kleine 12/24-V-Solaranlagen mit Batterie
 
 💰 Per Überweisung: **₺700**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Lexron 30 A PWM Solar-Laderegler 12/24 V](https://www.gespaenerji.com/de/lexron-pwm-30a.html)
 
@@ -275,7 +275,7 @@ Kleine 12/24-V-Solaranlagen mit Batterie
 
 💰 Per Überweisung: **₺800**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Lexron 40 A PWM Solar-Laderegler 12/24 V](https://www.gespaenerji.com/de/lexron-pwm-40a.html)
 
@@ -285,7 +285,7 @@ Kleine 12/24-V-Solaranlagen mit Batterie
 
 💰 Per Überweisung: **₺1.000**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Lexron 60 A PWM Solar-Laderegler 12/24/48 V](https://www.gespaenerji.com/de/lexron-pwm-60a.html)
 
@@ -295,7 +295,7 @@ Inkl. MwSt. · zzgl. Versand
 
 💰 Per Überweisung: **₺2.150**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Lexron 20 A MPPT Solar-Laderegler 12/24 V](https://www.gespaenerji.com/de/lexron-mppt-20a.html)
 
@@ -305,7 +305,7 @@ Inkl. MwSt. · zzgl. Versand
 
 💰 Per Überweisung: **₺3.050**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Lexron 30 A MPPT Solar-Laderegler 12/24 V](https://www.gespaenerji.com/de/lexron-mppt-30a.html)
 
@@ -315,7 +315,7 @@ Inkl. MwSt. · zzgl. Versand
 
 💰 Per Überweisung: **₺3.350**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Lexron 40 A MPPT Solar-Laderegler 12/24 V](https://www.gespaenerji.com/de/lexron-mppt-40a.html)
 
@@ -325,7 +325,7 @@ Inkl. MwSt. · zzgl. Versand
 
 💰 Per Überweisung: **₺3.700**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Lexron 80 A HV (15~230 V) MPPT Solar-Laderegler 12/24/36/48 V](https://www.gespaenerji.com/de/lexron-mppt-80a-hv.html)
 
@@ -335,7 +335,7 @@ Große 12/24/36/48-V-Solaranlagen mit Batterie
 
 💰 Per Überweisung: **₺9.800**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Solarkabel-Set (5 m Schwarz + 5 m Rot)](https://www.gespaenerji.com/de/kablo-solar-5m.html)
 
@@ -345,7 +345,7 @@ Verbindung zwischen Modul und Laderegler
 
 💰 Per Überweisung: **₺950**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Solar-Set für Dreirad mit Fahrgastkabine — 240 W](https://www.gespaenerji.com/de/paket-motor-yolcu.html)
 
@@ -355,7 +355,7 @@ Geschlossene Fahrgast-Dreiräder für 2–4 Personen — schmale Dachfläche
 
 💰 Per Überweisung: **₺14.350**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺500
 
 ### [Solar-Set für Dreirad mit Ladefläche — 700 W](https://www.gespaenerji.com/de/paket-motor-kargo.html)
 
@@ -365,7 +365,7 @@ Dreiräder mit offener Ladefläche oder Plane — breite Dachfläche
 
 💰 Per Überweisung: **₺16.500**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺700
 
 ### [Solar-Set für Golfcart-Fahrzeug — 460 W](https://www.gespaenerji.com/de/paket-motor-golf.html)
 
@@ -375,7 +375,7 @@ Inkl. MwSt. · zzgl. Versand
 
 💰 Per Überweisung: **₺15.800**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺700
 
 ### [Solar-Set für Mini-Elektroauto — 240 W](https://www.gespaenerji.com/de/paket-motor-mini.html)
 
@@ -385,7 +385,7 @@ Geschlossene Mini-Elektroautos — kleine Dachfläche
 
 💰 Per Überweisung: **₺14.350**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺500
 
 ### [MC4-Steckerset](https://www.gespaenerji.com/de/mc4-set.html)
 
@@ -393,7 +393,7 @@ Verbindung von Modulleitung und Solarkabel
 
 **₺100**≈ $2
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Hero LED 10 W 12 V DC LED-Lampe (12–60 V AC/DC)](https://www.gespaenerji.com/de/hero-led-ampul-10w.html)
 
@@ -401,7 +401,7 @@ Wohnmobile, Boote, Ferienhäuser und solare Batterieanlagen
 
 **₺130**≈ $3
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Hero LED 100 W Solar-Straßenleuchte (Sensor, Fernbedienung)](https://www.gespaenerji.com/de/hero-led-solar-sokak-100w.html)
 
@@ -411,7 +411,7 @@ Garten-, Straßen-, Wohnanlagen-, Parkplatz- und Fabrikbeleuchtung
 
 💰 Per Überweisung: **₺1.150**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Hero LED 50 W Solar-LED-Wandleuchte (Fernbedienung, 3 Farben + RGB)](https://www.gespaenerji.com/de/hero-led-aplik-50w.html)
 
@@ -421,7 +421,7 @@ Wand-, Eingangs-, Gartenmauer- und Terrassenbeleuchtung
 
 💰 Per Überweisung: **₺800**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Hero LED 50 W Solar-Pfeilerleuchte für den Garten (Fernbedienung, 3 Farben + RGB)](https://www.gespaenerji.com/de/hero-led-bahce-50w.html)
 
@@ -431,7 +431,7 @@ Beleuchtung für Gartenmauer, Sockel, Pfeilerkopf und Eingang
 
 💰 Per Überweisung: **₺750**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Hero LED 200 W Solar-Straßenleuchte (Sensor, Fernbedienung)](https://www.gespaenerji.com/de/hero-led-solar-sokak-200w.html)
 
@@ -441,7 +441,7 @@ Garten-, Straßen-, Wohnanlagen-, Parkplatz- und Fabrikbeleuchtung
 
 💰 Per Überweisung: **₺2.200**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 ### [Hero LED 600 W Solar-Straßenleuchte (Radarsensor, Fernbedienung)](https://www.gespaenerji.com/de/hero-led-solar-sokak-600w.html)
 
@@ -451,7 +451,7 @@ Große Gärten, Straßen, Wohnanlagen, Parkplätze und Fabrikgelände
 
 💰 Per Überweisung: **₺2.550**
 
-Inkl. MwSt. · zzgl. Versand
+KDV dahil · kargo ₺250
 
 Häufige Fragen
 

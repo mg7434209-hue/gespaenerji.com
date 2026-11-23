@@ -3,7 +3,7 @@ title: "Солнечный уличный светильник Hero LED 100 Вт
 description: "Солнечный уличный светильник Hero LED 100 Вт (HL-5151): солнечная панель, датчик движения, пульт, IP65, 30 000 ч. Электролиния не нужна."
 canonical: https://www.gespaenerji.com/ru/hero-led-solar-sokak-100w.html
 lang: ru
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ publisher: "GESPA Enerji"
 
 💳 До 12 ежемесячных платежей картой (с процентами) — выбирается на странице оплаты
 
-🚚 Доставку оплачивает покупатель — курьеру при получении · 2–5 рабочих дней
+🚚 Доставка: **₺250** · Ürün + kargo: **₺1.450** · 2–5 рабочих дней
 
 [🛒 В корзину](https://www.gespaenerji.com/ru/sepet.html)
 

@@ -3,7 +3,7 @@ title: "Havensis BOOST DC-DC 40A Charger, 36/48V Battery | GESPA Energy"
 description: "Havensis BOOST DCDC-2448 40 A: DC-DC charger that charges a 36 and 48 V battery bank from a 12/24 V vehicle battery."
 canonical: https://www.gespaenerji.com/en/havensis-boost-dcdc-2448-40a.html
 lang: en
-dateModified: 2026-11-20
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Price includes VAT.
 
 💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
 
-🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+🚚 Shipping: **₺250** · Ürün + kargo: **₺10.450** · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 

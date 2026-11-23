@@ -3,7 +3,7 @@ title: "Lexron 80A MPPT HV Charge Controller 12/24/36/48V | GESPA Energy"
 description: "Lexron 80 A MPPT HV solar charge controller for 12/24/36/48 V battery systems. Values from the product label; write to us for the full datasheet."
 canonical: https://www.gespaenerji.com/en/lexron-mppt-80a-hv.html
 lang: en
-dateModified: 2026-11-10
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Price includes VAT.
 
 💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
 
-🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+🚚 Shipping: **₺250** · Ürün + kargo: **₺10.350** · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 

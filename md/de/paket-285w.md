@@ -3,7 +3,7 @@ title: "240-W-Solarmodul-Paket — Plug-and-Play | GESPA Energy"
 description: "Komplettes 240-W-Solarset für Camping, Wohnmobil und kleine Verbraucher: Modul + Power-Box + Kabel. Betreibt TV, Licht und Handy-Ladung;"
 canonical: https://www.gespaenerji.com/de/paket-285w.html
 lang: de
-dateModified: 2026-11-10
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Preis inkl. MwSt.
 
 💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
 
-🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+🚚 Versand: **₺1.200** · Ürün + kargo: **₺25.200** · 2–5 Werktage
 
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 

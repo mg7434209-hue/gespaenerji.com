@@ -3,7 +3,7 @@ title: "Зарядное DC-DC Havensis 30А — зарядка автодома
 description: "Зарядное устройство DC-DC Havensis DCDC-1224 заряжает бытовой аккумулятор автодома от генератора в пути: 30 А, 12/24 В, КПД 96,4 %, распознавание выключенного…"
 canonical: https://www.gespaenerji.com/ru/havensis-dcdc-30a.html
 lang: ru
-dateModified: 2026-11-20
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ publisher: "GESPA Enerji"
 
 💳 До 12 ежемесячных платежей картой (с процентами) — выбирается на странице оплаты
 
-🚚 Доставку оплачивает покупатель — курьеру при получении · 2–5 рабочих дней
+🚚 Доставка: **₺250** · Ürün + kargo: **₺10.050** · 2–5 рабочих дней
 
 [🛒 В корзину](https://www.gespaenerji.com/ru/sepet.html)
 

@@ -3,7 +3,7 @@ title: "Solar-Set für Golfcart-Fahrzeuge — 460 W | GESPA Energy"
 description: "Komplettset für überdachte Elektrofahrzeuge im Golfcart-Stil: 460-W-Half-Cut-Monomodul, BOOST MPPT 24–72 V Laderegler, Solarkabel und MC4."
 canonical: https://www.gespaenerji.com/de/paket-motor-golf.html
 lang: de
-dateModified: 2026-11-10
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Preis inkl. MwSt.
 
 💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
 
-🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+🚚 Versand: **₺700** · 2 adet: **₺1.000** · Ürün + kargo: **₺17.000** · 2–5 Werktage
 
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 

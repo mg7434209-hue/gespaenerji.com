@@ -3,7 +3,7 @@ title: "Lexron 655 W TOPCon Güneş Paneli Fiyatı | GESPA Enerji"
 description: "Lexron 655 W TOPCon Güneş Paneli: Voc 50,34 V, 2382 × 1134 mm, 31 kg. Çatı ve arazi sistemleri, yüksek güç gerektiren kurulumlar için. Tüm Türkiye'ye kargo."
 canonical: https://www.gespaenerji.com/panel-lexron-655w.html
 lang: tr
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ KDV dahil fiyattır.
 
 💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
 
-🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+🚚 Kargo: **₺700** · 2 adet: **₺1.000** · Ürün + kargo: **₺10.700** · 2–5 iş günü
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 

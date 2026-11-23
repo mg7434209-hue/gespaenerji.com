@@ -3,7 +3,7 @@ title: "Контроллер заряда Lexron 60А ШИМ 12/24/48В | GESPA"
 description: "Солнечный контроллер заряда Lexron 60 А ШИМ для систем с АКБ 12/24/48 В. Значения с этикетки изделия; полный паспорт — по запросу. Доставка по всей Турции."
 canonical: https://www.gespaenerji.com/ru/lexron-pwm-60a.html
 lang: ru
-dateModified: 2026-11-10
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ publisher: "GESPA Enerji"
 
 💳 До 12 ежемесячных платежей картой (с процентами) — выбирается на странице оплаты
 
-🚚 Доставку оплачивает покупатель — курьеру при получении · 2–5 рабочих дней
+🚚 Доставка: **₺250** · Ürün + kargo: **₺2.450** · 2–5 рабочих дней
 
 [🛒 В корзину](https://www.gespaenerji.com/ru/sepet.html)
 

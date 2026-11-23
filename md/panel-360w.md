@@ -3,7 +3,7 @@ title: "360 W Güneş Paneli Fiyatı | GESPA Enerji"
 description: "360 W Güneş Paneli: Voc 42,56 V, 1660 × 1001 mm, 19,5 kg. Bağ evi, karavan, çatı ve küçük off-grid sistemler için. KDV dahil, tüm Türkiye'ye kargo."
 canonical: https://www.gespaenerji.com/panel-360w.html
 lang: tr
-dateModified: 2026-11-20
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ KDV dahil fiyattır.
 
 💳 Kredi kartına 12 aya kadar taksit (vade farkı uygulanır) — ödeme sayfasında seçilir
 
-🚚 Kargo alıcı ödemeli — teslimatta kargo firmasına ödenir · 2–5 iş günü
+🚚 Kargo: **₺500** · 2 adet: **₺750** · Ürün + kargo: **₺7.700** · 2–5 iş günü
 
 [🛒 Sepete ekle](https://www.gespaenerji.com/sepet.html)
 

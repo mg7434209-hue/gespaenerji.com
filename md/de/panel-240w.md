@@ -3,7 +3,7 @@ title: "240-W-Solarmodul (48 Zellen) | GESPA Energy"
 description: "240-W-Solarmodul mit 48 Zellen: Voc 36,12 V, 1320 × 776 × 30 mm, 8 kg. Für Mini-Elektroautos und kleine Inselanlagen."
 canonical: https://www.gespaenerji.com/de/panel-240w.html
 lang: de
-dateModified: 2026-11-20
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Preis inkl. MwSt.
 
 💳 Bis zu 12 Monatsraten per Karte (mit Zinsaufschlag) — auf der Zahlungsseite wählbar
 
-🚚 Versand zahlt der Käufer — bei Zustellung an den Kurier · 2–5 Werktage
+🚚 Versand: **₺500** · 2 adet: **₺750** · Ürün + kargo: **₺7.000** · 2–5 Werktage
 
 [🛒 In den Warenkorb](https://www.gespaenerji.com/de/sepet.html)
 

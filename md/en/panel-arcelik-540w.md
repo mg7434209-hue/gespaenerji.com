@@ -3,7 +3,7 @@ title: "Arçelik 540W Solar Panel | GESPA Energy"
 description: "Arçelik 540 W grade-A monocrystalline solar panel for rooftop and ground systems; pallet shipments available."
 canonical: https://www.gespaenerji.com/en/panel-arcelik-540w.html
 lang: en
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -27,7 +27,7 @@ Price includes VAT.
 
 💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
 
-🚚 Shipping paid by the buyer — to the courier on delivery · 2–5 working days
+🚚 Shipping: **₺700** · 2 adet: **₺1.000** · Ürün + kargo: **₺10.700** · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
