@@ -25,7 +25,9 @@
       dec: sh.declination, defLat: sh.defLat, delta: u.seasonTiltDelta, stc: u.stcTempC,
       rho: cb.rhoCu, sections: cb.sections || [], target: cb.targetDropPct,
       hpPerKw: (c.pump || {}).hpPerKw, invEff: sz.invEff, awg: u.awg || {},
-      dod: sz.dod, sunHours: sz.sunHours, sysEff: sz.systemEff,
+      dod: sz.dod, sunHours: sz.sunHours, sysEff: sz.systemEff, autonomy: sz.autonomyDays,
+      unitPrice: c.defaultUnitPrice, panelW: c.panelW, ref: u.ref || {},
+      appliances: (cfg && cfg.builder && cfg.builder.appliances) || [], presets: (cfg && cfg.builder && cfg.builder.presets) || [],
       acV: u.acV || {}, acSections: u.acSections || [], noct: u.noct || {},
       diagram: u.diagram || {}, cities: u.cities || [], def: u.defaults || {}
     };
@@ -145,6 +147,35 @@
   // L) Günlük tüketim: Wh = W · saat · adet
   U.loadWh = function (w, h, n) { return w * h * n; };
 
+  // Cihaz listesi: Wh = Σ W·adet·saat · panel W = Wh/(güneş saati·sistem verimi) ·
+  // akü Ah = Wh·gün/(V·DoD·η) · inverter W ≥ Σ W·adet (kalkış akımı HARİÇ)
+  U.loadPlan = function (rows, o) {
+    var wh = 0, sumW = 0;
+    rows.forEach(function (r) { wh += r.w * r.n * r.h; sumW += r.w * r.n; });
+    return { wh: wh, sumW: sumW, panelW: wh / (o.sun * o.eff), ah: wh * o.days / (o.v * o.dod * o.eta) };
+  };
+  // Sistem Kurucu senaryosu → satırlar (W ve saat config.builder.appliances'tan; burada cihaz gücü UYDURULMAZ)
+  U.presetRows = function (k, presetId) {
+    var p = k.presets.filter(function (x) { return x.id === presetId; })[0], rows = [];
+    if (!p) return rows;
+    Object.keys(p.items).forEach(function (id) {
+      var a = k.appliances.filter(function (x) { return x.id === id; })[0];
+      if (a) rows.push({ name: a.name, w: a.w, n: p.items[id], h: a.h });
+    });
+    return rows;
+  };
+  // Sigorta–kablo uyumu: Ib ≤ In ≤ Iz (Iz üretici tablosundan girilir)
+  U.coord = function (ib, inn, iz) { var a = ib <= inn + EPS, b = inn <= iz + EPS; return { load: a, cable: b, ok: a && b }; };
+  // Motor: mil gücü kW = HP/hpPerKw · elektrik gücü = mil/verim · akım = yukarıdaki akım formülü
+  U.motor = function (hp, hpPerKw, eff, cos, v, kind) {
+    var shaft = hp / hpPerKw, input = shaft / eff;
+    return { shaftKw: shaft, inKw: input, i: U.current(kind, input * 1000, v, cos) };
+  };
+  // Tüketim ve maliyet: kWh = W·saat·gün/1000 · tutar = kWh·birim fiyat
+  U.usage = function (w, h, days, price) { var kwh = w * h * days / 1000; return { kwh: kwh, cost: kwh * price }; };
+  // Üretilen enerji bir yükü kaç saat çalıştırır: saat = kWh·1000/W
+  U.runHours = function (kwh, loadW) { return kwh * 1000 / loadW; };
+
   // Sayfadaki statik "örnek hesap" metinleri: araçla AYNI formül + config açılış değerleri.
   // Test, HTML'deki [data-ex] değerlerini bununla karşılaştırır.
   U.examples = function (cfg) {
@@ -236,10 +267,53 @@
 
     var sl = d.slope;
     ex["cati.deg"] = f(sl.deg, 1); ex["cati.pct"] = f(U.slopePct(sl.deg), 2);
-    ex["cati.pct2"] = f(sl.pct, 1); ex["cati.deg2"] = f(U.slopeDeg(sl.pct), 2);
+    ex["cati.pct2"] = f(sl.pct, 1); ex["cati.deg2"] = f(U.slopeDeg(sl.pct), 2); ex["cati.ratio2"] = f(100 / sl.pct, 2);
 
     var ld = d.load;
     ex["yuk.w"] = f(ld.w); ex["yuk.h"] = f(ld.h); ex["yuk.n"] = f(ld.n, 0); ex["yuk.wh"] = f(U.loadWh(ld.w, ld.h, ld.n), 0);
+
+    // --- 3. tur
+    var ll = d.loadlist, rows = U.presetRows(k, ll.preset), pre = k.presets.filter(function (x) { return x.id === ll.preset; })[0];
+    var lp = U.loadPlan(rows, { sun: k.sunHours, eff: k.sysEff, days: k.autonomy, v: ll.v, dod: k.dod, eta: k.invEff });
+    ex["liste.preset"] = pre ? pre.label : ""; ex["liste.n"] = String(rows.length);
+    rows.forEach(function (r, i) {
+      ex["liste.r" + i + ".name"] = r.name; ex["liste.r" + i + ".w"] = f(r.w); ex["liste.r" + i + ".n"] = f(r.n, 0);
+      ex["liste.r" + i + ".h"] = f(r.h); ex["liste.r" + i + ".wh"] = f(r.w * r.n * r.h, 0);
+    });
+    ex["liste.v"] = f(ll.v); ex["liste.days"] = f(k.autonomy); ex["liste.sun"] = f(k.sunHours, 2); ex["liste.eff"] = f(k.sysEff, 3);
+    ex["liste.dod"] = f(k.dod, 3); ex["liste.eta"] = f(k.invEff, 3);
+    ex["liste.wh"] = f(lp.wh, 0); ex["liste.panelW"] = f(lp.panelW, 0); ex["liste.ah"] = f(lp.ah, 1); ex["liste.inv"] = f(lp.sumW, 0);
+
+    var mo = d.motor, m1 = U.motor(mo.hp, k.hpPerKw, mo.eff, mo.cos, k.acV.one, "1"), m3 = U.motor(mo.hp, k.hpPerKw, mo.eff, mo.cos, k.acV.three, "3");
+    ex["motor.hp"] = f(mo.hp); ex["motor.eff"] = f(mo.eff, 3); ex["motor.cos"] = f(mo.cos, 3);
+    ex["motor.shaft"] = f(m1.shaftKw, 3); ex["motor.in"] = f(m1.inKw, 3); ex["motor.i1"] = f(m1.i, 2); ex["motor.i3"] = f(m3.i, 2);
+
+    var co = d.coord, cv = U.coord(co.ib, co["in"], co.iz), cbad = U.coord(co.ib, co["in"], co.ib);
+    ex["uyum.ib"] = f(co.ib); ex["uyum.in"] = f(co["in"]); ex["uyum.iz"] = f(co.iz);
+    ex["uyum.verdict"] = cv.ok ? "koşul sağlanır" : "koşul sağlanmaz";
+    ex["uyum.izBad"] = f(co.ib); ex["uyum.verdictBad"] = cbad.ok ? "koşul sağlanır" : "koşul sağlanmaz";
+
+    var us = d.usage, ur = U.usage(us.w, us.h, us.days, k.unitPrice);
+    ex["tuk.w"] = f(us.w); ex["tuk.h"] = f(us.h); ex["tuk.days"] = f(us.days, 0); ex["tuk.price"] = f(k.unitPrice, 2);
+    ex["tuk.kwh"] = f(ur.kwh, 2); ex["tuk.cost"] = f(ur.cost, 2);
+
+    var dk = U.dailyKwh(dy.w / 1000, k.sunHours, k.sysEff), p1 = U.dailyKwh(k.panelW / 1000, k.sunHours, k.sysEff);
+    ex["uretim.load"] = f(d.dailyLoad); ex["uretim.hours"] = f(U.runHours(dk, d.dailyLoad), 1);
+    ex["uretim.p1"] = f(k.panelW); ex["uretim.p1kwp"] = f(k.panelW / 1000, 3); ex["uretim.p1kwh"] = f(p1, 2);
+    ex["uretim.p1hours"] = f(U.runHours(p1, d.dailyLoad), 1);
+
+    var rf2 = k.ref;
+    ex["ref.kw"] = f(rf2.kw); ex["ref.kwW"] = f(rf2.kw * 1000);
+    ex["ref.kwI1"] = f(U.current("1", rf2.kw * 1000, k.acV.one, cu.cos), 2); ex["ref.kwI1c1"] = f(U.current("1", rf2.kw * 1000, k.acV.one, 1), 2);
+    ex["ref.kwI3"] = f(U.current("3", rf2.kw * 1000, k.acV.three, cu.cos), 2); ex["ref.kwI3c1"] = f(U.current("3", rf2.kw * 1000, k.acV.three, 1), 2);
+    ex["ref.kva"] = f(rf2.kva); ex["ref.kvaKw"] = f(U.kvaToKw(rf2.kva, cu.cos), 2);
+    ex["ref.ah"] = f(rf2.ah);
+    rf2.ahV.forEach(function (vv) { ex["ref.ahV" + vv] = f(vv); ex["ref.ahKwh" + vv] = f(U.ahToWh(rf2.ah, vv) / 1000, 2); });
+    rf2.bankV.forEach(function (vv) { ex["ref.bankV" + vv] = f(vv); ex["ref.bankN" + vv] = f(vv / b.v, 2); });
+    ex["awg.n"] = String(rf2.awgTable.length);
+    rf2.awgTable.forEach(function (n, i) {
+      ex["awg.t" + i + ".l"] = U.awgLabel(n); ex["awg.t" + i + ".d"] = f(U.awgDia(n, k.awg), 2); ex["awg.t" + i + ".a"] = f(U.awgArea(n, k.awg), 2);
+    });
     return ex;
   };
 
@@ -462,6 +536,10 @@
     K.sections.forEach(function (sx) { var o = doc.createElement("option"); o.value = sx; o.textContent = f(sx) + " mm²"; sel.appendChild(o); });
     var c = D.cable || {};
     setVal("ukV", c.v); setVal("ukI", c.i); setVal("ukLen", c.len); setVal("ukS", c.section);
+    try {                               // inverter aracından gelen bağlantı: ?kv=<V>&ki=<A>
+      var q = new root.URLSearchParams(root.location.search), kv = parseFloat(q.get("kv")), ki = parseFloat(q.get("ki"));
+      if (kv > 0 && ki > 0) { setVal("ukV", r4(kv)); setVal("ukI", r4(ki)); }
+    } catch (e) {}
     onInput(["ukV", "ukI", "ukLen", "ukS"], calcKablo); calcKablo();
   })();
 
@@ -653,11 +731,11 @@
   var convTx = {};
   function convSummary() {
     var parts = [];
-    ["wa", "ah", "hp", "awg", "inv"].forEach(function (key) { if (convTx[key]) parts.push(convTx[key]); });
+    ["wa", "ah", "hp", "awg"].forEach(function (key) { if (convTx[key]) parts.push(convTx[key]); });
     summary("cevirici", parts.join(" · "));
   }
   (function () {
-    if (!$("#ucW")) return; var d = D.conv || {}, A = K.awg;
+    if (!$("#ucW") && !$("#ucAh") && !$("#ucAwg") && !$("#ucP")) return; var d = D.conv || {}, A = K.awg;
     setVal("ucV1", d.v); setVal("ucW", d.w); setVal("ucV2", d.v); setVal("ucAh", d.ah); setVal("ucHp", d.hp);
     setVal("ucP", d.w); setVal("ucVb", d.v); setVal("ucEta", isFinite(K.invEff) ? r4(K.invEff * 100) : ""); setVal("ucMm2", d.mm2);
     var runWA = pair("ucW", "ucA", "ucV1", U.wToA, U.aToW);
@@ -690,15 +768,22 @@
     }
     function calcInv() {
       var p = num("ucP"), v = num("ucVb"), eta = num("ucEta");
-      if (!ok(p, v, eta) || eta > 100) { out("ucIb", "—"); convTx.inv = ""; convSummary(); return; }
+      var go = $("#ucToCable");
+      if (!ok(p, v, eta) || eta > 100) { out("ucIb", "—"); if (go) go.hidden = true; summary("inverter-aku-akimi", ""); return; }
       var i = U.invCurrent(p, v, eta / 100);
       out("ucIb", f(i, 2) + " A");
-      convTx.inv = f(p) + " W inverter yükü, " + f(v) + " V akü, verim %" + f(eta, 1) + " (varsayım): akü akımı " + f(i, 2) + " A";
-      convSummary();
+      if (go) { go.hidden = false; go.setAttribute("data-v", r4(v)); go.setAttribute("data-i", r4(i)); }
+      summary("inverter-aku-akimi", f(p) + " W inverter yükü, " + f(v) + " V akü, verim %" + f(eta, 1) + " (varsayım): akü akımı " + f(i, 2) + " A");
     }
     ["ucW", "ucA", "ucV1", "ucAh", "ucWh", "ucV2", "ucHp", "ucKw"].forEach(function (id) { var e = $("#" + id); if (e) e.addEventListener("input", texts); });
     onInput(["ucAwg", "ucMm2"], calcAwg); onInput(["ucP", "ucVb", "ucEta"], calcInv);
-    runWA("ucW"); runAh("ucAh"); runHp("ucHp"); texts(); calcAwg(); calcInv();
+    var go = $("#ucToCable");
+    if (go) go.addEventListener("click", function () {      // akımı DC kablo aracına taşı (sayfada yoksa merkez sayfaya)
+      var v = go.getAttribute("data-v"), i = go.getAttribute("data-i"), sec = $("#kablo");
+      if (sec && $("#ukV")) { setVal("ukV", v); setVal("ukI", i); calcKablo(); sec.scrollIntoView(); }
+      else root.location.href = "elektrikci-cantasi.html?kv=" + encodeURIComponent(v) + "&ki=" + encodeURIComponent(i) + "#kablo";
+    });
+    runWA("ucW"); runAh("ucAh"); runHp("ucHp"); texts(); calcAwg(); if ($("#ucP")) calcInv();
   })();
 
   // ===== 2. tur araçları =====
@@ -846,15 +931,16 @@
   // ----- H) Tasarım günü üretimi -----
   (function () {
     if (!$("#xhW")) return; var d = D.daily || {};
-    setVal("xhW", d.w); setVal("xhSun", K.sunHours); setVal("xhEff", isFinite(K.sysEff) ? r4(K.sysEff * 100) : "");
+    setVal("xhW", d.w); setVal("xhSun", K.sunHours); setVal("xhEff", isFinite(K.sysEff) ? r4(K.sysEff * 100) : ""); setVal("xhLoad", D.dailyLoad);
     function calc() {
       var w = num("xhW"), sun = num("xhSun"), eff = num("xhEff");
-      if (!ok(w, sun, eff) || eff > 100) { outs(["xhKwh", "xhKwp"]); summary("gunluk-uretim", ""); return; }
-      var kwh = U.dailyKwh(w / 1000, sun, eff / 100);
+      if (!ok(w, sun, eff) || eff > 100) { outs(["xhKwh", "xhKwp", "xhRun"]); summary("gunluk-uretim", ""); return; }
+      var kwh = U.dailyKwh(w / 1000, sun, eff / 100), load = num("xhLoad");
       out("xhKwp", f(w / 1000, 3) + " kWp"); out("xhKwh", f(kwh, 2) + " kWh/gün");
+      out("xhRun", ok(load) ? f(U.runHours(kwh, load), 1) + " saat" : "—");
       summary("gunluk-uretim", f(w) + " W panel, " + f(sun, 2) + " güneş saati, sistem verimi %" + f(eff) + ": tasarım günü üretimi yaklaşık " + f(kwh, 2) + " kWh/gün");
     }
-    onInput(["xhW", "xhSun", "xhEff"], calc); calc();
+    onInput(["xhW", "xhSun", "xhEff", "xhLoad"], calc); calc();
   })();
 
   // ----- I) Sıcaklıkta panel gücü (+ isteğe bağlı NOCT ile hücre sıcaklığı) -----
@@ -936,18 +1022,111 @@
     run("xkDeg"); calc();
   })();
 
-  // ----- L) Tek cihazın günlük tüketimi -----
+  // ----- L) Cihaz listesi → günlük Wh → panel, akü, inverter -----
   (function () {
-    if (!$("#xlW")) return; var d = D.load || {};
-    setVal("xlW", d.w); setVal("xlH", d.h); setVal("xlN", d.n);
-    function calc() {
-      var w = num("xlW"), h = num("xlH"), n = num("xlN");
-      if (!ok(w, h, n)) { out("xlWh", "—"); summary("yuk-listesi", ""); return; }
-      var wh = U.loadWh(w, h, n);
-      out("xlWh", f(wh, 0) + " Wh/gün"); out("xlKwh", "= " + f(wh / 1000, 3) + " kWh/gün");
-      summary("yuk-listesi", f(n, 0) + " adet " + f(w) + " W cihaz, günde " + f(h, 2) + " saat: " + f(wh, 0) + " Wh/gün");
+    var host = $("#xlRows"); if (!host) return; var d = D.loadlist || {};
+    function inp(cls, type, val, label, extra) {
+      var e = doc.createElement("input"); e.className = cls; e.type = type; e.value = val == null ? "" : val; e.setAttribute("aria-label", label);
+      if (type === "number") { e.setAttribute("inputmode", "decimal"); e.step = "any"; e.min = "0"; }
+      if (extra) e.placeholder = extra;
+      e.addEventListener("input", function () { touch(e); calc(); });
+      return e;
     }
-    onInput(["xlW", "xlH", "xlN"], calc); calc();
+    function addRow(r) {
+      var row = doc.createElement("div"); row.className = "usta-lrow";
+      row.appendChild(inp("l-name", "text", r.name, "Cihaz adı", "Cihaz adı"));
+      row.appendChild(inp("l-w", "number", r.w, "Güç (W)", "W"));
+      row.appendChild(inp("l-n", "number", r.n, "Adet", "adet"));
+      row.appendChild(inp("l-h", "number", r.h, "Saat/gün", "saat"));
+      var del = doc.createElement("button"); del.type = "button"; del.className = "l-del"; del.textContent = "×"; del.setAttribute("aria-label", "Satırı sil");
+      del.addEventListener("click", function () { host.removeChild(row); calc(); });
+      row.appendChild(del); host.appendChild(row);
+    }
+    function setRows(rows) { clear(host); rows.forEach(addRow); calc(); }
+    function val(row, cls) { var v = String($("." + cls, row).value || "").replace(",", "."); return v === "" ? NaN : parseFloat(v); }
+    function calc() {
+      var rows = [];
+      $$(".usta-lrow", host).forEach(function (row) {
+        var w = val(row, "l-w"), n = val(row, "l-n"), h = val(row, "l-h");
+        if (ok(w, n) && isFinite(h) && h >= 0) rows.push({ w: w, n: n, h: h });
+      });
+      var o = { sun: num("xlSun"), eff: num("xlEff") / 100, days: num("xlDays"), v: num("xlV"), dod: num("xlDod") / 100, eta: num("xlEta") / 100 };
+      if (!rows.length) { outs(["xlWh", "xlPanel", "xlAh", "xlInv"]); summary("yuk-listesi", ""); return; }
+      var r = U.loadPlan(rows, o);
+      out("xlWh", f(r.wh, 0) + " Wh/gün"); out("xlInv", "≥ " + f(r.sumW, 0) + " W");
+      out("xlPanel", ok(o.sun, o.eff) && o.eff <= 1 ? "≈ " + f(r.panelW, 0) + " W" : "—");
+      out("xlAh", ok(o.days, o.v, o.dod, o.eta) && o.dod <= 1 && o.eta <= 1 ? "≈ " + f(r.ah, 1) + " Ah (" + f(o.v) + " V)" : "—");
+      summary("yuk-listesi", rows.length + " cihaz satırı: günlük " + f(r.wh, 0) + " Wh; panel ≈ " + f(r.panelW, 0) + " W, akü ≈ " + f(r.ah, 1) + " Ah (" + f(o.v) + " V, " + f(o.days) + " gün), inverter ≥ " + f(r.sumW, 0) + " W (kalkış akımı hariç)");
+    }
+    setVal("xlV", d.v); setVal("xlDays", K.autonomy); setVal("xlSun", K.sunHours);
+    setVal("xlEff", isFinite(K.sysEff) ? r4(K.sysEff * 100) : ""); setVal("xlDod", isFinite(K.dod) ? r4(K.dod * 100) : ""); setVal("xlEta", isFinite(K.invEff) ? r4(K.invEff * 100) : "");
+    ["xlV", "xlDays", "xlSun", "xlEff", "xlDod", "xlEta"].forEach(function (id) { var e = $("#" + id); if (e) e.addEventListener("input", function () { touch(e); calc(); }); });
+    var add = $("#xlAdd"); if (add) add.addEventListener("click", function () { addRow({ name: "", w: "", n: 1, h: "" }); });
+    var sel = $("#xlPreset");
+    if (sel) {
+      K.appliances.forEach(function (a) { var o = doc.createElement("option"); o.value = a.id; o.textContent = a.name + " (" + f(a.w) + " W)"; sel.appendChild(o); });
+      sel.addEventListener("change", function () {
+        var a = K.appliances.filter(function (x) { return x.id === sel.value; })[0];
+        if (a) { addRow({ name: a.name, w: a.w, n: 1, h: a.h }); calc(); }
+        sel.value = "";
+      });
+    }
+    var scen = $("#xlScen");
+    if (scen) K.presets.forEach(function (p) {
+      var b = doc.createElement("button"); b.type = "button"; b.className = "usta-link"; b.textContent = p.label;
+      b.addEventListener("click", function () { setRows(U.presetRows(K, p.id)); touch(b); });
+      scen.appendChild(b);
+    });
+    setRows(U.presetRows(K, d.preset));
+  })();
+
+  // ----- Sigorta–kablo uyum kontrolü -----
+  (function () {
+    if (!$("#xsIb")) return; var d = D.coord || {}, map = { xsIb: "ib", xsIn: "in", xsIz: "iz" };
+    Object.keys(map).forEach(function (id) { var e = $("#" + id); if (e && d[map[id]] != null) e.placeholder = "ör. " + f(d[map[id]]); });
+    function calc() {
+      var ib = num("xsIb"), inn = num("xsIn"), iz = num("xsIz"), box = $("#xsBox");
+      if (!ok(ib, inn, iz)) { out("xsVerdict", "—"); if (box) box.className = "result highlight"; note("xsMsg", "Üç değeri de girin. Iz, kablo üreticisinin tablosundan döşeme şekli ve sıcaklığa göre okunur.", ""); summary("sigorta-kablo-uyumu", ""); return; }
+      var r = U.coord(ib, inn, iz), why = [];
+      if (!r.load) why.push("Tasarım akımı (" + f(ib) + " A) sigorta anma akımından (" + f(inn) + " A) büyük: sigorta normal yükte açar.");
+      if (!r.cable) why.push("Sigorta anma akımı (" + f(inn) + " A) kablonun taşıma kapasitesinden (" + f(iz) + " A) büyük: sigorta kabloyu korumaz.");
+      out("xsVerdict", r.ok ? "Ib ≤ In ≤ Iz sağlanıyor" : "Koşul sağlanmıyor");
+      if (box) box.className = "result highlight " + (r.ok ? "usta-good" : "usta-bad");
+      note("xsMsg", r.ok ? f(ib) + " ≤ " + f(inn) + " ≤ " + f(iz) + " A. Yalnız bu temel koşul kontrol edildi." : why.join(" "), r.ok ? "ok" : "bad");
+      summary("sigorta-kablo-uyumu", "Ib " + f(ib) + " A, In " + f(inn) + " A, Iz " + f(iz) + " A: " + (r.ok ? "Ib ≤ In ≤ Iz sağlanıyor" : "koşul sağlanmıyor"));
+    }
+    var fill = $("#xsFill");
+    if (fill) fill.addEventListener("click", function () { Object.keys(map).forEach(function (id) { setVal(id, d[map[id]]); }); touch(fill); calc(); });
+    onInput(Object.keys(map), calc); calc();
+  })();
+
+  // ----- HP → kW → amper (motor) -----
+  (function () {
+    if (!$("#xmHp")) return; var d = D.motor || {}, kind = $("#xmKind");
+    setVal("xmHp", d.hp); setVal("xmEff", r4(d.eff * 100)); setVal("xmCos", d.cos); setVal("xmV", K.acV.one);
+    function calc() {
+      var hp = num("xmHp"), eff = num("xmEff"), cos = num("xmCos"), v = num("xmV");
+      if (!ok(hp, eff, cos, v) || eff > 100 || cos > 1) { outs(["xmShaft", "xmIn", "xmI"]); summary("hp-kw-amper", ""); return; }
+      var r = U.motor(hp, K.hpPerKw, eff / 100, cos, v, kind.value);
+      out("xmShaft", f(r.shaftKw, 3) + " kW"); out("xmIn", f(r.inKw, 3) + " kW"); out("xmI", f(r.i, 2) + " A");
+      summary("hp-kw-amper", f(hp) + " HP motor (" + (kind.value === "3" ? "üç faz " : "tek faz ") + f(v) + " V, verim %" + f(eff) + ", cosφ " + f(cos) + "): mil gücü " + f(r.shaftKw, 3) + " kW, çalışma akımı " + f(r.i, 2) + " A (kalkış akımı hariç)");
+    }
+    kind.addEventListener("change", function () { setVal("xmV", kind.value === "3" ? K.acV.three : K.acV.one); touch(kind); calc(); });
+    onInput(["xmHp", "xmEff", "xmCos", "xmV"], calc); calc();
+  })();
+
+  // ----- Cihaz tüketimi ve maliyeti -----
+  (function () {
+    if (!$("#xuW")) return; var d = D.usage || {};
+    setVal("xuW", d.w); setVal("xuH", d.h); setVal("xuDays", d.days); setVal("xuPrice", K.unitPrice);
+    function calc() {
+      var w = num("xuW"), h = num("xuH"), days = num("xuDays"), price = num("xuPrice");
+      if (!ok(w, h, days)) { outs(["xuKwh", "xuCost"]); summary("cihaz-tuketimi", ""); return; }
+      var r = U.usage(w, h, days, ok(price) ? price : NaN);
+      out("xuKwh", f(r.kwh, 2) + " kWh"); out("xuCost", ok(price) ? f(r.cost, 2) + " TL" : "birim fiyat yazın");
+      summary("cihaz-tuketimi", f(w) + " W cihaz, günde " + f(h, 2) + " saat, " + f(days, 0) + " gün: " + f(r.kwh, 2) + " kWh" + (ok(price) ? ", " + f(price, 2) + " TL/kWh ile " + f(r.cost, 2) + " TL" : ""));
+    }
+    onInput(["xuW", "xuH", "xuDays", "xuPrice"], calc); calc();
   })();
 
   // ----- 8) Montaj öncesi kontrol listesi -----
@@ -1020,5 +1199,11 @@
     root.addEventListener("hashchange", function () { var t = root.location.hash && $(root.location.hash); if (t && (t.hidden || (t.closest && t.closest("[hidden]")))) { box.value = ""; apply(); t.scrollIntoView(); } });
     apply();
   })();
+  // Sayfaya özel açılış: <main data-usta-init="xbKind=3;xaPhase=3"> (iniş sayfası aynı kartı farklı seçimle açar)
+  String(page.getAttribute("data-usta-init") || "").split(";").forEach(function (kv) {
+    var x = kv.split("="), e = x[0] && $("#" + x[0]); if (!e || x.length < 2) return;
+    e.value = x[1];
+    ["change", "input"].forEach(function (t) { var ev = doc.createEvent("Event"); ev.initEvent(t, true, false); e.dispatchEvent(ev); });
+  });
   updateWa();
 })(typeof window !== "undefined" ? window : this);

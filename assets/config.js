@@ -1322,6 +1322,9 @@ window.GESPA.config = {
       acSections: [1.5, 2.5, 4, 6, 10, 16, 25, 35, 50],
       // NOCT tanım koşulları: ortam 20 °C, ışınım 800 W/m² (Thücre = Tortam + (NOCT − 20) / 800 × G)
       noct: { ambC: 20, irr: 800 },
+      // Araç sayfalarındaki "hızlı başvuru" örneklerinin GİRDİLERİ (sonuçlar formülden hesaplanır, tabloya elle yazılmaz):
+      // 1 kW / 1 kVA / 100 Ah soruları, akü bankası hedef gerilimleri, AWG tablosunda gösterilecek numaralar.
+      ref: { kw: 1, kva: 1, ah: 100, ahV: [12, 24, 48], bankV: [24, 48], awgTable: [18, 16, 14, 12, 10, 8, 6, 4, 2, 1, 0, -1, -2, -3] },
       // Enlem hazır listesi (° kuzey, 0,1°'ye yuvarlı şehir merkezi)
       cities: [
         { name: "Manavgat", lat: 36.8 }, { name: "Antalya", lat: 36.9 }, { name: "Adana", lat: 37.0 },
@@ -1352,7 +1355,13 @@ window.GESPA.config = {
         temp: { pmax: 400, gamma: -0.35, tcell: 60, tamb: 30, noct: 45, g: 1000 },  // γ, NOCT: örnek; etiketten girilir
         shadow: { h: 1, season: "winter" },
         slope: { deg: 30, pct: 50 },
-        load: { w: 100, h: 5, n: 1 }
+        load: { w: 100, h: 5, n: 1 },
+        // 3. tur araçları
+        loadlist: { preset: "karavan", v: 12 },      // açılış satırları builder.presets + builder.appliances'tan gelir (W/saat orada)
+        motor: { hp: 2, eff: 0.85, cos: 0.85 },      // ÖRNEK; verim ve cosφ motor etiketinden girilir
+        coord: { ib: 18, in: 20, iz: 24 },           // ÖRNEK sayılar (alanlar boş açılır); Iz üretici tablosundan okunur
+        usage: { w: 1000, h: 2, days: 30 },          // birim fiyat calc.defaultUnitPrice'tan (düzenlenebilir örnek)
+        dailyLoad: 100                               // W — "bu üretim şu yükü kaç saat çalıştırır" örnek yükü
       }
     }
   }

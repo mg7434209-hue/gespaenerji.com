@@ -100,7 +100,7 @@
           <ol>
             <li><strong>Akü gerilimi ve tipi.</strong> Cihaz 12, 24 veya 48 V akü grubunu desteklemeli; AGM, jel ve LiFePO₄ gibi akü tipi için uygun şarj profili ayarlanabilmelidir. Yanlış profil akü ömrünü kısaltır; akü üreticisinin şarj gerilimlerini esas alın.</li>
             <li><strong>Maksimum panel giriş gerilimi.</strong> Seri bağlı panellerin Voc toplamı × 1,1, cihazın giriş sınırının altında kalmalıdır. 1,1 payı, soğukta Voc'un yükselmesi içindir; sitemizdeki ürün sayfalarında da bu pratik kural kullanılır.</li>
-            <li><strong>Akım.</strong> MPPT için toplam panel gücü ÷ akü gerilimi, cihazın şarj akımının altında kalmalıdır. PWM için bağlanan panellerin toplam Isc değeri cihazın akımını aşmamalıdır.</li>
+            <li><strong>Akım.</strong> MPPT için toplam panel gücü ÷ akü gerilimi, cihazın şarj akımının altında kalmalıdır. PWM için bağlanan panellerin toplam Isc değeri cihazın akımını aşmamalıdır. Kendi değerlerinizle: <a href="mppt-kac-amper-olmali.html">MPPT kaç amper olmalı hesabı</a>.</li>
           </ol>
           <h3>Örnek: 2 × Lexron 655 W seri, 48 V akü</h3>
           <p>Künye: Voc 50,34 V, Imp 15,48 A (<a href="panel-lexron-655w.html">Lexron 655 W</a>).</p>
@@ -113,7 +113,7 @@
             <li>Cihazı yalnızca akıma göre seçip panel giriş gerilimi sınırını kontrol etmemek.</li>
             <li>Akü tipine uygun olmayan şarj profili kullanmak.</li>
             <li>Şarj kontrol cihazını şebekeye bağlı (on-grid) inverterle birlikte düşünmek: şarj kontrol cihazı aküyü şarj eder; şebeke bağlantılı inverterlerde MPPT inverterin içindedir (<a href="sozluk.html#on-grid">on-grid nedir?</a>).</li>
-            <li>Panel ile cihaz arasındaki kablo kesitini küçük seçmek: gerilim düşümü kaybı artırır. <a href="hesaplayici.html">Hesaplayıcıdaki DC kablo aracı</a> kesiti hesaplar.</li>
+            <li>Panel ile cihaz arasındaki kablo kesitini küçük seçmek: gerilim düşümü kaybı artırır. <a href="hesaplayici.html">Hesaplayıcıdaki DC kablo aracı</a> kesiti hesaplar; <a href="solar-kablo-kesiti-hesaplama.html">solar kablo kesiti hesaplama</a> sayfası ısıya giden gücü de gösterir.</li>
           </ul>
 
           <h2 id="urunler">Mağazamızdaki şarj kontrol cihazları</h2>

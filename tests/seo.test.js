@@ -349,21 +349,31 @@ console.log('Analytics: consent gate, exact AI source attribution and contact pa
  {near(U.shadow(1,45),1,'shadow at 45');near(U.shadow(2,45),2,'shadow scales with height');assert.ok(Math.abs(U.shadow(1,29.55)-1.7639)<1e-3&&Math.abs(U.shadow(1,30)-Math.sqrt(3))<1e-9,'winter shadow');
   near(U.slopePct(45),100,'45 deg = 100%');assert.ok(Math.abs(U.slopePct(30)-57.7350269)<1e-6&&Math.abs(U.slopeDeg(50)-26.5650512)<1e-6,'slope conversions');near(U.slopeDeg(U.slopePct(17)),17,'slope round trip');
   near(U.loadWh(100,5,1),500,'load Wh');near(U.loadWh(60,4,3),720,'load Wh x3');}
+ // Round 3: appliance list, fuse/cable coordination, motor current, usage cost, run hours.
+ {const rows=U.presetRows(k,'karavan');assert.equal(rows.length,Object.keys(C.builder.presets.find(x=>x.id==='karavan').items).length,'preset rows come from config.builder');
+  for(const r of rows)assert.ok(C.builder.appliances.some(a=>a.name===r.name&&a.w===r.w&&a.h===r.h),'appliance wattage is the Sistem Kurucu value: '+r.name);
+  const lp=U.loadPlan([{w:60,n:1,h:8},{w:10,n:4,h:5},{w:15,n:2,h:3},{w:65,n:1,h:4}],{sun:4.5,eff:0.75,days:1,v:12,dod:0.9,eta:0.92});
+  near(lp.wh,1030,'list Wh');near(lp.sumW,195,'list inverter W');near(lp.panelW,1030/3.375,'list panel W');assert.ok(Math.abs(lp.panelW-305.185)<1e-3&&Math.abs(lp.ah-103.6634)<1e-3,'list panel/battery');
+  near(U.loadPlan([{w:100,n:2,h:5}],{sun:5,eff:0.8,days:2,v:24,dod:0.5,eta:1}).ah,2000/12,'list Ah, 2 days 24 V');
+  assert.deepEqual([U.coord(18,20,24).ok,U.coord(18,20,18).cable,U.coord(25,20,24).load,U.coord(20,20,20).ok],[true,false,false,true],'Ib <= In <= Iz');
+  const m=U.motor(2,1.341,0.85,0.85,230,'1');near(m.shaftKw,2/1.341,'motor shaft kW');near(m.inKw,2/1.341/0.85,'motor input kW');assert.ok(Math.abs(m.i-8.9751)<1e-3&&Math.abs(U.motor(2,1.341,0.85,0.85,400,'3').i-2.9795)<1e-3,'motor current');
+  const u=U.usage(1000,2,30,2.5);assert.deepEqual([u.kwh,u.cost],[60,150],'usage kWh and cost');near(U.usage(60,8,365,3).kwh,175.2,'usage per year');
+  near(U.runHours(4.86,100),48.6,'run hours');near(U.runHours(1.2,600),2,'run hours 600 W');}
  const pg=fs.readFileSync(path.join(root,'elektrikci-cantasi.html'),'utf8'),EX=U.examples(C);
  const toolIds=[...pg.matchAll(/<section class="usta-tool" id="([^"]+)" data-usta-tool="\1" data-kw="[^"]+">/g)].map(m=>m[1]);EX['meta.count']=String(toolIds.length);
- assert.equal(toolIds.length,20,'tool count');assert.equal(new Set(toolIds).size,toolIds.length,'tool ids unique');
+ assert.equal(toolIds.length,24,'tool count');assert.equal(new Set(toolIds).size,toolIds.length,'tool ids unique');
  for(const m of pg.matchAll(/(\d+) ücretsiz (?:saha )?ara[cç]/g))assert.equal(+m[1],toolIds.length,'stale tool count in page text');
  const tags=[...pg.matchAll(/<data data-ex="([^"]+)" value="([^"]*)">([^<]*)<\/data>/g)];
  assert.equal(tags.length,(pg.match(/data-ex=/g)||[]).length,'every worked-example value uses the <data data-ex value> form');
  assert.ok(tags.length>=200,'page carries the static worked examples');
  for(const m of tags){assert.ok(m[1] in EX,'unknown example key '+m[1]);assert.equal(m[3],EX[m[1]],'static example '+m[1]+' matches the calculator');assert.equal(m[2],m[3],'data value '+m[1]);}
- for(const p of ['egim','kablo','dizi','seri','aku','sigorta','cev','ac','akim','ohm','sk','sure','sarj','c','uretim','sic','golge','cati','yuk'])assert.ok(tags.some(m=>m[1].startsWith(p+'.')),'worked example for '+p);
+ for(const p of ['egim','kablo','dizi','seri','aku','sigorta','cev','ac','akim','ohm','sk','sure','sarj','c','uretim','sic','golge','cati','liste','motor','uyum','tuk'])assert.ok(tags.some(m=>m[1].startsWith(p+'.')),'worked example for '+p);
  assert.equal(EX['sigorta.verdict'],'gerekir');assert.equal(EX['kablo.rec'],'6');assert.equal(EX['dizi.max'],'3');
- for(const id of ['egim','kablo','dizi','seri-paralel','aku','sigorta','cevirici','kontrol','ac-kablo','akim','ohm','sarj-kontrol','aku-sure','aku-sarj','c-orani','gunluk-uretim','sicaklik-gucu','golge','cati-egimi','yuk-listesi'])
+ for(const id of ['egim','kablo','dizi','seri-paralel','aku','sigorta','cevirici','kontrol','ac-kablo','akim','ohm','sarj-kontrol','aku-sure','aku-sarj','c-orani','gunluk-uretim','sicaklik-gucu','golge','cati-egimi','yuk-listesi','inverter-aku-akimi','sigorta-kablo-uyumu','hp-kw-amper','cihaz-tuketimi'])
   assert.ok(toolIds.includes(id)&&pg.includes('href="#'+id+'"'),'tool anchor #'+id);
  {const cats=[...pg.matchAll(/<section class="usta-cat" id="([^"]+)">/g)].map(m=>m[1]),chips=[...(pg.match(/<nav class="usta-nav"[\s\S]*?<\/nav>/)||[''])[0].matchAll(/href="#([^"]+)"/g)].map(m=>m[1]);
   assert.equal(cats.length,7,'seven tool categories');assert.deepEqual(chips,cats,'sticky nav = category chips (not one chip per tool)');
-  assert.ok(pg.includes('<div class="usta-find" hidden="">')&&pg.includes('id="ustaFind"'),'filter box is hidden until JS enables it');}
+  assert.ok(pg.includes('<div class="usta-find" hidden="">')&&pg.includes('id="ustaFind"')&&pg.indexOf('id="ustaFind"')<pg.indexOf('<nav class="usta-nav"'),'filter box sits above the chips and is hidden until JS enables it');}
  assert.ok(/reaktans/.test(pg)&&!/izin verilen (en yüksek )?gerilim düşümü\s*(sınırı\s*)?%\s*\d/.test(pg),'AC tool states its limit and claims no permitted drop');
  assert.ok(pg.includes('<main id="main" data-article data-usta>')&&pg.includes('<script defer src="assets/usta.js"></script>'),'page shell + deferred usta.js');
  assert.equal((pg.match(/Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili/g)||[]).length,toolIds.length,'every tool carries the approximate-values line');
@@ -372,7 +382,36 @@ console.log('Analytics: consent gate, exact AI source attribution and contact pa
  assert.ok(!/innerHTML|insertAdjacentHTML|document\.write|https?:\/\/(?!wa\.me\/|www\.w3\.org\/2000\/svg)/.test(ustaSrc),'usta.js: no HTML injection, no external resources');
  assert.ok(!/\b(23\.45|0\.0175|1\.341|0\.92|0\.127|0\.75|4\.5|230|400|800)\b/.test(ustaSrc),'usta.js holds no coefficients (config.calc only)');
  assert.ok(!/ampasite|akım taşıma kapasitesi\s*[:=]\s*\d|TS HD|IEC 6\d{4}|NEC \d/i.test(pg+ustaSrc),'no standards tables or clause citations');
- for(const f of fs.readdirSync(root).filter(f=>f.endsWith('.html')&&f!=='elektrikci-cantasi.html'))assert.ok(!fs.readFileSync(path.join(root,f),'utf8').includes('assets/usta.js'),f+': usta.js is loaded only by its own page');
+ // Per-tool landing pages (tools/usta-sayfalar.py): same cards and usta.js as the hub, own title/description/H1/text/FAQ, examples tied to GESPA.usta.
+ const ustaPages=[...fs.readFileSync(path.join(root,'build.js'),'utf8').match(/const USTA_PAGES = \[([\s\S]*?)\];/)[1].matchAll(/"([^"]+\.html)"/g)].map(m=>m[1]);
+ assert.equal(ustaPages.length,20,'landing page count');
+ {const seen={title:new Set(),desc:new Set(),h1:new Set()},txt=x=>x.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
+  for(const f of ustaPages){const h=fs.readFileSync(path.join(root,f),'utf8'),url=origin+'/'+f;
+   assert.ok(h.includes('USTA:GEN')&&h.includes('<script defer src="assets/usta.js"></script>')&&/<main id="main" data-article data-usta[ >]/.test(h),f+': generated shell');
+   assert.ok(urls.includes(url)&&h.includes('rel="canonical" href="'+url+'"'),f+': in sitemap, canonical to itself');
+   const t=(h.match(/<title>([^<]*)<\/title>/)||[])[1],d=(h.match(/<meta name="description" content="([^"]*)"/)||[])[1],h1=txt((h.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)||[])[1]);
+   assert.ok(t&&t.length<=60&&d&&d.length<=160,f+': title/description length');
+   for(const [key,v] of [['title',t],['desc',d],['h1',h1]]){assert.ok(!seen[key].has(v),f+': duplicate '+key);seen[key].add(v);}
+   assert.ok(t!==(pg.match(/<title>([^<]*)<\/title>/)||[])[1],f+': title differs from hub');
+   assert.ok(/<div class="crumbs"><a href="index\.html">Ana Sayfa<\/a> <span>\/<\/span> <a href="elektrikci-cantasi\.html">Elektrikçi Çantası<\/a> <span>\/<\/span> [^<]+<\/div>/.test(h),f+': breadcrumb');
+   const secs=[...h.matchAll(/<section class="usta-tool" id="([^"]+)" data-usta-tool="([^"]+)"/g)];assert.ok(secs.length>=1,f+': carries at least one tool card');
+   for(const m of secs)assert.ok(toolIds.includes(m[2]),f+': card '+m[1]+' belongs to a hub tool');
+   const ids=[...h.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(ids).size,ids.length,f+': duplicate element id '+ids.filter((x,i)=>ids.indexOf(x)!==i)[0]);
+   for(const m of h.matchAll(/href="#([^"]+)"/g))assert.ok(ids.includes(m[1]),f+': dead in-page anchor #'+m[1]);
+   const tg=[...h.matchAll(/<data data-ex="([^"]+)" value="([^"]*)">([^<]*)<\/data>/g)];assert.equal(tg.length,(h.match(/data-ex=/g)||[]).length,f+': example tag form');assert.ok(tg.length>=8,f+': worked example present');
+   for(const m of tg){assert.ok(m[1] in EX,f+': unknown example key '+m[1]);assert.equal(m[3],EX[m[1]],f+': static example '+m[1]+' matches the calculator');}
+   const own=[...h.matchAll(/<!-- OWN:START -->([\s\S]*?)<!-- OWN:END -->/g)].map(m=>txt(m[1])).join(' '),nw=(own.match(/[\p{L}\p{N}]+/gu)||[]).length;
+   assert.ok(nw>=250,f+': own text too thin ('+nw+' words)');
+   const fq=(h.match(/<button class="faq-q"/g)||[]).length;assert.ok(fq>=3&&fq<=5,f+': 3-5 FAQ items');
+   const ld=[...h.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1]));
+   assert.equal((ld.find(x=>x['@type']==='FAQPage')||{mainEntity:[]}).mainEntity.length,fq,f+': FAQPage = visible questions');
+   const bc=ld.find(x=>x['@type']==='BreadcrumbList');assert.ok(bc&&bc.itemListElement.length===3&&bc.itemListElement[1].item===origin+'/elektrikci-cantasi.html',f+': BreadcrumbList via the hub');
+   assert.ok(ld.some(x=>x['@type']==='Article'),f+': Article schema');
+   assert.ok((h.match(/Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili/g)||[]).length===secs.length&&h.includes('class="usta-formula"'),f+': formula + approximate-values line per card');
+   assert.ok(!/ampasite|TS HD|IEC 6\d{4}|NEC \d|izin verilen (en yüksek )?gerilim düşümü\s*(sınırı\s*)?%\s*\d/i.test(h),f+': no standards citations');
+   assert.ok(pg.includes('href="'+f+'"'),f+': linked from the hub');
+   for(const d of ['en','de','ru'])assert.ok(!fs.existsSync(path.join(root,d,f)),d+'/'+f+': TR-only');}
+  for(const f of fs.readdirSync(root).filter(f=>f.endsWith('.html')&&f!=='elektrikci-cantasi.html'&&!ustaPages.includes(f)))assert.ok(!fs.readFileSync(path.join(root,f),'utf8').includes('assets/usta.js'),f+': usta.js is loaded only by the tool pages');}
  for(const d of ['en','de','ru'])assert.ok(!fs.readFileSync(path.join(root,d,'hesaplayici.html'),'utf8').includes('elektrikci-cantasi')&&!fs.existsSync(path.join(root,d,'elektrikci-cantasi.html')),d+': TR-only tool page not linked or generated');
  assert.ok(fs.readFileSync(path.join(root,'hesaplayici.html'),'utf8').includes('<a href="elektrikci-cantasi.html">')&&fs.readFileSync(path.join(root,'rehberler.html'),'utf8').includes('href="elektrikci-cantasi.html"')&&/<section class="section" id="rehberler">[\s\S]*?href="elektrikci-cantasi\.html"[\s\S]*?<\/section>\s*<!-- \/TR:ONLY -->/.test(fs.readFileSync(path.join(root,'index.html'),'utf8')),'tool page linked from calculator, guide hub and home (TR only)');
  {const fq=[...pg.matchAll(/<button class="faq-q"/g)].length;assert.ok(fq>=12&&fq<=14,'FAQ size');}

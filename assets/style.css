@@ -2749,7 +2749,19 @@ html.menu-locked,html.menu-locked body{overflow:hidden}
 .usta-idx{display:block}
 .usta .usta-tool>h3{font-size:1.2rem;margin:30px 0 8px;padding-top:18px;border-top:1px dashed var(--line)}
 .usta .usta-cat>h2+.usta-cat-lead+.usta-tool>h3{border-top:0;padding-top:0;margin-top:14px}
-.usta-find{max-width:560px;margin:0 0 18px}
+.usta-find{max-width:560px;margin:14px 0 14px}
+.usta-grid.one{grid-template-columns:minmax(0,560px)}
+.usta-own{font-size:.9rem;color:var(--muted);margin:0 0 4px !important}
+.usta-sib{list-style:none;padding:0 !important;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 14px}
+.usta-sib li{margin:0}
+.usta .usta-sib a{display:block;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);font-weight:600;text-decoration:none;line-height:1.35}
+.usta-page>h2{margin-top:36px}
+.usta-lhead,.usta-lrow{display:grid;grid-template-columns:minmax(0,2.2fr) minmax(0,1fr) minmax(0,.8fr) minmax(0,1fr) 40px;gap:6px;align-items:center;margin-bottom:6px}
+.usta-lhead{font-size:.78rem;font-weight:700;color:var(--muted)}
+.usta-lrow input{width:100%;min-width:0;min-height:44px;padding:8px 8px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:.92rem}
+.usta-lrow .l-del{min-height:44px;border:1px solid var(--line);border-radius:10px;background:var(--bg-alt);color:var(--u-bad);font:inherit;font-weight:800;font-size:1.1rem;cursor:pointer}
+.usta-ladd{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 10px}
+.usta-ladd select{flex:1 1 180px;min-width:0;min-height:44px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:.92rem}
 .usta-find label{display:block;font-weight:700;font-size:.9rem;margin-bottom:6px}
 .usta-find input{width:100%;min-height:48px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);font:inherit}
 .usta-find input:focus{outline:none;border-color:var(--green)}
@@ -2858,7 +2870,14 @@ line.u-mark.u-bad{stroke:var(--u-bad)}
   .u-ringon{transition:stroke-dashoffset .3s ease}
 }
 @media(max-width:860px){
-  .usta-grid,.usta-grid-chk{grid-template-columns:minmax(0,1fr)}
+  .usta-grid,.usta-grid-chk,.usta-grid.one{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:560px){
+  .usta-sib{grid-template-columns:minmax(0,1fr)}
+  .usta-lhead{grid-template-columns:repeat(3,minmax(0,1fr)) 40px}
+  .usta-lhead span:first-child{display:none}
+  .usta-lrow{grid-template-columns:repeat(3,minmax(0,1fr)) 40px;padding-bottom:8px;border-bottom:1px dashed var(--line)}
+  .usta-lrow .l-name{grid-column:1/-1}
 }
 @media(max-width:520px){
   .usta .usta-card{padding:16px}

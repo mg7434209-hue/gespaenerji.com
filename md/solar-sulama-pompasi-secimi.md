@@ -91,6 +91,8 @@ Güneş pompası sürücüleri ışığa göre çalışır: ışık azaldığın
 
 1 kW yaklaşık 1,341 HP'dir. Örneğin 1,95 kW yaklaşık 2,6 HP eder.
 
+[HP ve kW değerinden motor akımı hesabı →](https://www.gespaenerji.com/kw-amper-hesaplama.html)
+
 Sulama sistemlerimiz hakkında [Tarımsal Sulama sayfasına](https://www.gespaenerji.com/tarimsal-sulama.html), genel sistem boyutlandırma için [off-grid rehberine](https://www.gespaenerji.com/off-grid-gunes-sistemi-boyutlandirma.html) bakabilirsiniz.
 
 *Bu yazı genel bilgilendirme amaçlıdır. Örnek hesaplar ideal koşulları ve belirtilen varsayımları kullanır; gerçek değerler ışınım, sıcaklık, kablo, gölgelenme ve ekipmana göre değişir. Kesin seçim ve kurulum için ürün künyesine, üretici talimatına ve yerel mevzuata uyunuz.*

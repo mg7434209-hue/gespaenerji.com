@@ -76,6 +76,8 @@ Aynı güçte gerilimi iki katına çıkarmak akımı yarıya indirir: 3 kW'lık
 
 ## Hesabı sizin için yapalım
 
+Tek tek denemek için: [cihaz listesinden günlük tüketim](https://www.gespaenerji.com/cihaz-elektrik-tuketimi-hesaplama.html), [akü kaç saat dayanır](https://www.gespaenerji.com/aku-kac-saat-dayanir.html), [inverter aküden kaç amper çeker](https://www.gespaenerji.com/invertor-akuden-kac-amper-ceker.html) ve [akü seri–paralel bağlantı şeması](https://www.gespaenerji.com/aku-seri-paralel-baglanti.html).
+
 [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html), kullanım yerinizi ve cihazlarınızı seçmenizle yukarıdaki dört adımı otomatik yapar; mağazada satılan ürünleri sepete ekler. Çatı üzerindeki panel yerleşimi ve tasarruf hesabı için [tasarruf hesaplayıcıya](https://www.gespaenerji.com/hesaplayici.html) bakabilirsiniz.
 
 ## Sık sorulan sorular

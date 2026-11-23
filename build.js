@@ -69,6 +69,17 @@ const TR_ONLY = [
   // Elektrikçi Çantası: saha hesap araçları (assets/usta.js), yalnız Türkçe
   "elektrikci-cantasi.html"
 ];
+// Elektrikçi Çantası araç iniş sayfaları — tools/usta-sayfalar.py ÜRETİR (PAGES). Yeni sayfa: oraya + buraya.
+const USTA_PAGES = [
+  "kablo-kesiti-hesaplama.html", "gerilim-dusumu-hesaplama.html", "solar-kablo-kesiti-hesaplama.html",
+  "kw-amper-hesaplama.html", "trifaze-akim-hesaplama.html", "kva-kw-cevirme.html",
+  "gunes-paneli-acisi-hesaplama.html", "gunes-paneli-gunluk-uretim-hesaplama.html", "gunes-paneli-seri-paralel-baglanti.html",
+  "aku-kac-saat-dayanir.html", "aku-seri-paralel-baglanti.html", "mppt-kac-amper-olmali.html",
+  "invertor-akuden-kac-amper-ceker.html", "awg-mm2-cevirme.html", "ah-kwh-cevirme.html",
+  "cihaz-elektrik-tuketimi-hesaplama.html", "golge-uzunlugu-hesaplama.html", "cati-egimi-hesaplama.html",
+  "ohm-kanunu-hesaplama.html", "panel-sicaklik-guc-kaybi.html"
+];
+TR_ONLY.push(...USTA_PAGES);
 // Mevzuat rehberi — footer "Kurumsal" sütununda yalnız TR sayfalarda görünür
 const GUIDE = { file: "gunes-paneli-kacak-elektrik-cezasi.html", label: "Güneş Paneli Cezası Rehberi" };
 // Rehberler merkezi (yalnız TR, TR_ONLY) — footer "Kurumsal" sütununda mevzuat rehberinin yanında
@@ -2017,6 +2028,7 @@ const PRIORITY = {
    yayımlanır (head'de <link rel="alternate" type="text/markdown">, robots.txt'te
    yalnız AI botlarına açık, server.js canonical Link başlığı gönderir).
    ============================================================ */
+USTA_PAGES.forEach(f => { PRIORITY[f] = "0.7"; });
 const LLMS_GROUPS = [
   // Ana sayfa en üstte: okuyan model siteye önce giriş kapısından baksın
   ["Ana sayfa", ["index.html"]],
@@ -2034,7 +2046,8 @@ const LLMS_GROUPS = [
   ["Yapay zekâ ürünleri", ["yapay-zeka-urunleri.html", "ai-cankurtaran-destek-sistemi.html"]],
   ["Ücretsiz araçlar", ["hesaplayici.html", "sistem-kur.html"]],
   ["Referans projeler", ["projeler.html", "proje-kemer-villa.html", "proje-manavgat-fabrika.html", "proje-manavgat-tarimsal.html"]],
-  ["Rehberler ve güncel mevzuat (yalnız Türkçe)", ["rehberler.html", "off-grid-gunes-sistemi-boyutlandirma.html", "pwm-mppt-sarj-kontrol-farki.html", "solar-sulama-pompasi-secimi.html", "elektrikci-cantasi.html", "gunes-paneli-kacak-elektrik-cezasi.html"]],
+  ["Rehberler ve güncel mevzuat (yalnız Türkçe)", ["rehberler.html", "off-grid-gunes-sistemi-boyutlandirma.html", "pwm-mppt-sarj-kontrol-farki.html", "solar-sulama-pompasi-secimi.html", "gunes-paneli-kacak-elektrik-cezasi.html"]],
+  ["Ücretsiz elektrik ve solar hesaplama araçları (Elektrikçi Çantası, yalnız Türkçe)", ["elektrikci-cantasi.html", ...USTA_PAGES]],
   ["Kurumsal ve yardım", ["hakkimizda.html", "iletisim.html", "sss.html", "sozluk.html"]]
 ];
 function pageMeta(file) {

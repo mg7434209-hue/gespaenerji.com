@@ -1,6 +1,6 @@
 ---
-title: "Elektrikçi Çantası: Ücretsiz Solar Hesap Araçları | GESPA"
-description: "Elektrikçiler için ücretsiz hesap araçları: DC ve AC gerilim düşümü, trifaze akım, panel eğimi, dizi hesabı, akü süresi, şarj kontrol akımı, AWG-mm² çevirici."
+title: "Elektrik ve Solar Hesaplama Araçları | Elektrikçi Çantası"
+description: "Ücretsiz hesaplama araçları: kablo kesiti, gerilim düşümü, kW amper, trifaze akım, panel açısı, akü kaç saat dayanır, MPPT kaç amper, AWG mm² çevirme."
 canonical: https://www.gespaenerji.com/elektrikci-cantasi.html
 lang: tr
 dateModified: 2026-11-23
@@ -9,9 +9,9 @@ publisher: "GESPA Enerji"
 
 [Ana Sayfa](https://www.gespaenerji.com/) / [Rehberler](https://www.gespaenerji.com/rehberler.html) / Elektrikçi Çantası
 
-# Güneş Enerjisi Elektrikçi Çantası
+# Elektrikçi Çantası: Ücretsiz Elektrik ve Solar Hesaplama Araçları
 
-Güneş paneli kuran elektrikçiler, montaj ekipleri ve kendi sistemini kuranlar için 20 ücretsiz saha aracı: eğim ve gölge, DC ve AC kablo gerilim düşümü, akım hesabı, dizi ve seri–paralel şema, akü süresi ve dolumu, şarj kontrol cihazı akımı, çeviriciler ve kontrol listesi. Her araç formülünü açıkça gösterir; değerleri panelin ve cihazın etiketinden siz girersiniz. Üyelik yok, telefonda çalışır.
+Elektrikçiler, güneş paneli montaj ekipleri ve kendi sistemini kuranlar için 24 ücretsiz hesaplama aracı: kablo kesiti ve gerilim düşümü, kW–amper, panel açısı, dizi hesabı, akü süresi, şarj kontrol cihazı akımı ve çeviriciler. Her araç formülünü gösterir; değerleri etiketten siz girersiniz.
 
 Yayın: 23 Kasım 2026 · GESPA Enerji
 
@@ -26,6 +26,8 @@ Güneşin yüksekliği, eğim, gölge ve üretim tahmini. [Eğim açısı](#egim
 Güneşin öğle vakti ufuktan yüksekliği enleme ve mevsime bağlıdır: yüksekliği 90 − enlem alın, yaz gündönümünde deklinasyonu (23,45°) ekleyin, kış gündönümünde çıkarın. Panel eğimi için sahada kullanılan **pratik kural** ise şudur: yıl boyu kullanım için eğim ≈ enlem, yaz ağırlıklı kullanım için enlem − 15°, kış ağırlıklı kullanım için enlem + 15°.
 
 Örnek, enlem 37°: yaz 90 − 37 + 23,45 = 76,45° · ekinoks 90 − 37 = 53° · kış 90 − 37 − 23,45 = 29,55° Pratik eğim: yıl boyu ≈ 37° · yaz ≈ 22° · kış ≈ 52°
+
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Güneş Paneli Açısı](https://www.gespaenerji.com/gunes-paneli-acisi-hesaplama.html)
 
 #### Enlem
 
@@ -67,6 +69,8 @@ Baca, parapet, direk ya da öndeki panel sırası gibi bir engelin öğle vaktin
 
 Hesap yalnız öğle vakti ve tam güney yönü içindir; sabah ve akşam gölge daha uzundur ve yana düşer. Yükseklik, engelin tepesi ile panelin alt kenarı arasındaki farktır.
 
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Gölge Uzunluğu Hesaplama](https://www.gespaenerji.com/golge-uzunlugu-hesaplama.html)
+
 #### Engel ve konum
 
 Engel yüksekliği (m)
@@ -93,6 +97,8 @@ Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/9054374342
 
 Örnek: 30° → tan(30°) × 100 = %57,74 (100 cm yatayda 57,74 cm) · %50 eğim → arctan(50 ÷ 100) = 26,57°
 
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Çatı Eğimi Hesaplama](https://www.gespaenerji.com/cati-egimi-hesaplama.html)
+
 #### Eğim
 
 Derece (°)
@@ -117,9 +123,11 @@ Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/9054374342
 
 Günlük üretim tahmini: kWh/gün = kurulu güç (kWp) × güneş saati × sistem verimi. Bu araç [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) ile aynı katsayılarla açılır: tasarım günü için 4,5 güneş saati ve 0,75 sistem verimi (off-grid, panelden yüke toplam). Bu bir **tasarım günü** tahminidir: yazın üretim daha yüksek, kapalı kış gününde daha düşüktür.
 
-Örnek: 1.440 W panel = 1,44 kWp → 1,44 × 4,5 × 0,75 = 4,86 kWh/gün
+Örnek: 1.440 W panel = 1,44 kWp → 1,44 × 4,5 × 0,75 = 4,86 kWh/gün Bu enerji 100 W'lık bir yükü 4,86 × 1000 ÷ 100 = 48,6 saat çalıştırır
 
 Yıllık üretim, tasarruf ve geri ödeme için bölge verimini kullanan [tasarruf hesaplayıcıya](https://www.gespaenerji.com/hesaplayici.html) bakın.
+
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Panel Günlük Üretim](https://www.gespaenerji.com/gunes-paneli-gunluk-uretim-hesaplama.html)
 
 #### Sistem
 
@@ -129,17 +137,21 @@ Güneş saati (saat/gün) varsayım
 
 Sistem verimi (%) varsayım
 
+Bu enerjiyle çalıştırılacak yük (W) isteğe bağlı
+
 Tasarım günü üretimi —
 
 Kurulu güç —
 
-Güneş saati ve verim varsayımdır; bölgenize ve sisteminize göre değiştirin.
+Yazdığınız yükü çalıştırma süresi —
 
-**Formül:** kWh/gün = kWp × güneş saati × sistem verimi · kWp = toplam panel gücü (W) ÷ 1000
+Güneş saati ve verim varsayımdır; bölgenize ve sisteminize göre değiştirin. Süre, günlük üretimin tamamının o yüke gittiği varsayımıyla hesaplanır; gece kullanım için akü gerekir.
+
+**Formül:** kWh/gün = kWp × güneş saati × sistem verimi · kWp = toplam panel gücü (W) ÷ 1000 · çalıştırma süresi (saat) = kWh × 1000 ÷ yük (W)
 
 Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
 
-**İlgili:** [Yıllık üretim ve tasarruf hesaplayıcı](https://www.gespaenerji.com/hesaplayici.html) · [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) · [Off-grid boyutlandırma rehberi](https://www.gespaenerji.com/off-grid-gunes-sistemi-boyutlandirma.html) · [kWp nedir?](https://www.gespaenerji.com/sozluk.html#kwp)
+**İlgili:** [Yıllık üretim ve tasarruf hesaplayıcı](https://www.gespaenerji.com/hesaplayici.html) · [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) · [Cihaz listesinden sistem](#yuk-listesi) · [kWp nedir?](https://www.gespaenerji.com/sozluk.html#kwp)
 
 Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
 
@@ -150,6 +162,8 @@ Panelin etiketindeki güç 25 °C hücre sıcaklığı içindir. Hücre ısınd�
 Örnek (yuvarlak örnek değerler, bir ürünün künyesi değildir): Pmax 400 W, γ -0,35 %/°C, hücre 60 °C P = 400 × (1 + (-0,35) ÷ 100 × (60 − 25)) = 351 W
 
 Hücre sıcaklığını bilmiyorsanız künyedeki NOCT değeriyle ders kitabı yaklaşımı kullanılabilir: hücre = ortam + (NOCT − 20) ÷ 800 × ışınım (W/m²). Örnek: ortam 30 °C, NOCT 45 °C, ışınım 1.000 W/m² → 30 + (45 − 20) ÷ 800 × 1.000 = 61,25 °C. NOCT ve γ değerlerini panelinizin künyesinden alın.
+
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Panel Sıcaklık Güç Kaybı](https://www.gespaenerji.com/panel-sicaklik-guc-kaybi.html)
 
 #### Panel etiketi ve sıcaklık
 
@@ -187,7 +201,7 @@ Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/9054374342
 
 ## 🔻 Kablo ve akım
 
-DC ve AC hatlarda gerilim düşümü, yükten akım ve Ohm kanunu. [DC kablo kesiti](#kablo) · [AC gerilim düşümü](#ac-kablo) · [Akım hesabı](#akim) · [Ohm kanunu](#ohm)
+DC ve AC hatlarda gerilim düşümü, güçten akım, motor akımı, Ohm kanunu ve sigorta–kablo uyumu. [DC kablo kesiti](#kablo) · [AC gerilim düşümü](#ac-kablo) · [Akım hesabı](#akim) · [HP → amper](#hp-kw-amper) · [Ohm kanunu](#ohm) · [Sigorta–kablo uyumu](#sigorta-kablo-uyumu)
 
 ### DC kablo kesiti, gerilim düşümü ve güç kaybı
 
@@ -196,6 +210,8 @@ Kablo bir dirençtir: üzerinden akım geçtikçe gerilim düşer ve aradaki far
 Örnek: 48 V, 15 A, tek yön 5 m, 4 mm² · R = 2 × 5 × 0,0175 ÷ 4 = 0,04375 Ω Gerilim düşümü = 15 × 0,04375 = 0,66 V (%1,37) · ısı kaybı = 15² × 0,04375 = 9,8 W · %1 hedefi için en küçük kesit: 6 mm²
 
 **Önemli:** bu hesap yalnızca gerilim düşümüne bakar. Kablonun taşıyabileceği akım (döşeme şekli, ortam sıcaklığı, demet sayısı) ayrı bir kontroldür; onun için kablo üreticisinin akım taşıma tablosuna bakılır ve tasarımı yetkili elektrikçi ya da mühendis yapar.
+
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Solar Kablo Kesiti](https://www.gespaenerji.com/solar-kablo-kesiti-hesaplama.html)
 
 #### Hat bilgileri
 
@@ -230,6 +246,8 @@ Alternatif akım hattında gerilim düşümü tek fazda ΔV = 2 × I × L × ρ 
 Örnek: 16 A, tek yön 25 m, 2,5 mm² bakır, cosφ 0,9 Tek faz: 2 × 16 × 25 × 0,0175 × 0,9 ÷ 2,5 = 5,04 V → 5,04 ÷ 230 = %2,19 Üç faz: √3 × 16 × 25 × 0,0175 × 0,9 ÷ 2,5 = 4,36 V → 4,36 ÷ 400 = %1,09
 
 **Sınırlar:** bu bir direnç yaklaşımıdır; kablonun reaktansı ihmal edilir. Uzun hatlarda ve büyük kesitli besleme kablolarında reaktans önem kazanır, hesabı tasarımcı yapar. Araç izin verilen gerilim düşümü sınırını ve kablonun akım taşıma kapasitesini **bilmez**: sınırı projenizden siz yazarsınız, akım kapasitesi için kablo üreticisinin tablosuna bakılır.
+
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Gerilim Düşümü Hesabı](https://www.gespaenerji.com/gerilim-dusumu-hesaplama.html)
 
 #### Hat bilgileri
 
@@ -271,6 +289,8 @@ Yükün çektiği akım, gücün gerilime bölünmesiyle bulunur. Doğru akımda
 
 cosφ (güç katsayısı) cihazın etiketinde yazar; bilinmiyorsa varsayım olduğunu unutmayın. Motorlarda kalkış akımı bu değerin üstündedir ve bu hesaba dahil değildir.
 
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [kW Amper Hesaplama](https://www.gespaenerji.com/kw-amper-hesaplama.html)
+
 #### Güçten akıma
 
 Sistem
@@ -301,11 +321,51 @@ Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da m�
 
 Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
 
+### HP → kW → amper: motor akımı
+
+Motor etiketindeki beygir gücü mil (çıkış) gücüdür: kW = HP ÷ 1,341. Şebekeden çekilen elektrik gücü mil gücünün verime bölünmesiyle bulunur; akım ise tek fazda I = P ÷ (V × cosφ), üç fazda I = P ÷ (√3 × V × cosφ) formülüyle hesaplanır. Verim ve cosφ motorun etiketinden girilir.
+
+Örnek (örnek etiket değerleri): 2 HP, verim 0,85, cosφ 0,85 Mil gücü = 2 ÷ 1,341 = 1,491 kW · elektrik gücü = 1,491 ÷ 0,85 = 1,755 kW Tek faz 230 V: 8,98 A · üç faz 400 V: 2,98 A
+
+Sonuç tam yükteki çalışma akımıdır. **Kalkış akımı dahil değildir**; kalkışta motor bunun birkaç katını çeker ve değeri motor üreticisi verir. Etikette anma akımı yazıyorsa o esas alınır.
+
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [kW Amper Hesaplama](https://www.gespaenerji.com/kw-amper-hesaplama.html)
+
+#### Motor etiketi
+
+Güç (HP)
+
+Besleme
+
+Gerilim (V)
+
+Verim (%) etiket
+
+cosφ etiket
+
+Çalışma akımı (kalkış hariç) —
+
+Mil gücü —
+
+Çekilen elektrik gücü —
+
+Açılıştaki verim ve cosφ yalnızca örnektir; motorunuzun etiketindeki değerleri yazın.
+
+**Formül:** kW (mil) = HP ÷ 1,341 · elektrik gücü = mil gücü ÷ verim · tek faz I = P ÷ (V × cosφ) · üç faz I = P ÷ (√3 × V × cosφ)
+
+Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+**İlgili:** [Güçten akım hesabı](#akim) · [AC gerilim düşümü](#ac-kablo) · [Solar sulama pompası seçimi](https://www.gespaenerji.com/solar-sulama-pompasi-secimi.html) · [Pompa ve panel gücü aracı](https://www.gespaenerji.com/tarimsal-sulama.html#pompa-secimi)
+
+Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+
 ### Ohm kanunu ve güç hesaplayıcı
 
 Gerilim (V), akım (I), direnç (R) ve güç (P) arasındaki iki temel bağıntı V = I × R ve P = V × I'dir. Dört büyüklükten herhangi ikisi bilinince diğer ikisi bulunur.
 
 Örnek: 12 V ve 5 A → R = 12 ÷ 5 = 2,4 Ω · P = 12 × 5 = 60 W
+
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Ohm Kanunu Hesaplama](https://www.gespaenerji.com/ohm-kanunu-hesaplama.html)
 
 #### Bildiğiniz iki değeri yazın
 
@@ -333,6 +393,36 @@ Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da m�
 
 Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
 
+### Sigorta–kablo uyum kontrolü (Ib ≤ In ≤ Iz)
+
+Bir hattın koruması için temel koşul: tasarım akımı (Ib) ≤ sigorta ya da şalterin anma akımı (In) ≤ kablonun akım taşıma kapasitesi (Iz). İlk eşitsizlik sağlanmazsa sigorta normal yükte açar; ikincisi sağlanmazsa sigorta kabloyu korumaz.
+
+Örnek (örnek sayılar): Ib 18 A, In 20 A, Iz 24 A → 18 ≤ 20 ≤ 24: koşul sağlanır · aynı sigortayla Iz 18 A olsaydı 20 ≤ 18 olmadığı için koşul sağlanmaz
+
+**Iz bu sayfada yoktur ve olmayacaktır:** kablonun akım taşıma kapasitesi döşeme şekline, ortam sıcaklığına, yan yana kablo sayısına ve yalıtım tipine göre değişir; kablo üreticisinin tablosundan okunur ve tasarımı yapan yetkili kişi belirler. Bu araç yalnızca yazdığınız üç sayıyı karşılaştırır; sigortanın açma karakteristiği, kısa devre dayanımı ve diğer koşullar tasarımcının işidir.
+
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Kablo Kesiti Hesaplama](https://www.gespaenerji.com/kablo-kesiti-hesaplama.html)
+
+#### Üç akım değeri
+
+Tasarım (yük) akımı Ib (A)
+
+Sigorta / şalter anma akımı In (A)
+
+Kablonun akım taşıma kapasitesi Iz (A) üretici tablosundan
+
+Örnek değerler rastgele sayılardır; bir kabloya ait değildir.
+
+Sonuç —
+
+**Formül:** Ib ≤ In ≤ Iz · Ib: tasarım akımı · In: sigorta/şalter anma akımı · Iz: kablonun akım taşıma kapasitesi (üretici tablosu)
+
+Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+**İlgili:** [Güçten akım hesabı (Ib)](#akim) · [AC gerilim düşümü](#ac-kablo) · [DC kablo kesiti](#kablo) · [Dizi sigortası kontrolü](#sigorta)
+
+Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+
 ## 🔗 Dizi ve bağlantı
 
 Kaç panel seri bağlanır, seri–paralel şema ve dizi sigortası kontrolü. [Dizi hesabı](#dizi) · [Seri–paralel şema](#seri-paralel) · [Dizi sigortası](#sigorta)
@@ -344,6 +434,8 @@ Panel soğudukça açık devre gerilimi (Voc) yükselir. Seri dizinin en soğuk 
 Örnek (yuvarlak örnek değerler, bir ürünün künyesi değildir): Voc 40 V, Vmp 33 V, β -0,3 %/°C, en düşük sıcaklık -10 °C, giriş sınırı 150 V, MPPT alt sınırı 60 V Soğuk Voc = 40 × (1 + (-0,3) ÷ 100 × (-10 − 25)) = 44,2 V · en çok ⌊150 ÷ 44,2⌋ = 3 panel · en az ⌈60 ÷ 33⌉ = 2 panel 3 panel seri: soğuk Voc 132,6 V, Vmp 99 V · 4 panel olsaydı 176,8 V ile sınır aşılırdı
 
 Sıcak havada Vmp etiket değerinin altına düşer; en az panel sayısını belirlerken panelin künyesindeki Vmp sıcaklık katsayısına ve cihazın çalışma aralığına ayrıca bakın. Değerleri her zaman kendi panelinizin ve cihazınızın etiketinden girin.
+
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Panel Seri–Paralel Bağlantı](https://www.gespaenerji.com/gunes-paneli-seri-paralel-baglanti.html)
 
 #### Panel etiketi
 
@@ -391,6 +483,8 @@ Seri bağlamada gerilimler toplanır, akım aynı kalır; paralel bağlamada ak�
 
 Örnek: Vmp 34,98 V, Imp 10,3 A panel ([360 W panel künyesi](https://www.gespaenerji.com/panel-360w.html)), 2 seri × 2 paralel Gerilim = 34,98 × 2 = 69,96 V · akım = 10,3 × 2 = 20,6 A · güç = 69,96 × 20,6 = 1.441 W
 
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Panel Seri–Paralel Bağlantı](https://www.gespaenerji.com/gunes-paneli-seri-paralel-baglanti.html)
+
 #### Panel ve dizilim
 
 Panel gerilimi (V) Vmp
@@ -424,6 +518,8 @@ Paralel bağlı dizilerden biri arızalanırsa (örneğin kısa devre), diğer s
 Örnek: Isc 11,37 A, etikette en yüksek seri sigorta 30 A ([360 W panel künyesi](https://www.gespaenerji.com/panel-360w.html)) 4 paralel dizi: (4 − 1) × 11,37 = 34,11 A → dizi sigortası gerekir 3 paralel dizi: (3 − 1) × 11,37 = 22,74 A → bu kontrole göre gerekmez
 
 Bu araç **yalnızca bu tek kontrolü** yapar. Sigortanın akım değeri, tipi ve diğer koruma elemanları panel ve cihaz üreticisinin talimatına göre, tasarımı yapan yetkili kişi tarafından seçilir.
+
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Panel Seri–Paralel Bağlantı](https://www.gespaenerji.com/gunes-paneli-seri-paralel-baglanti.html)
 
 #### Dizi bilgileri
 
@@ -459,6 +555,8 @@ Aküler seri bağlanınca gerilim toplanır, kapasite (Ah) aynı kalır; paralel
 
 **Güvenlik:** aynı bankada yalnızca aynı tip, aynı yaşta ve aynı kapasitede aküler kullanılır; farklı aküler karıştırılmaz. Lityum akülerin seri ya da paralel bağlanıp bağlanamayacağını akü üreticisinin talimatından teyit edin.
 
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Akü Seri–Paralel Bağlantı](https://www.gespaenerji.com/aku-seri-paralel-baglanti.html)
+
 #### Akü ve dizilim
 
 Tek akü gerilimi (V)
@@ -492,6 +590,8 @@ Akünün bir yükü besleyebileceği süre: saat = (akü gerilimi × Ah × kulla
 Örnek: 12 V 100 Ah akü, DoD 0,9, inverter verimi 0,92, yük 200 W Kullanılabilir enerji = 12 × 100 × 0,9 × 0,92 = 993,6 Wh · süre = 993,6 ÷ 200 = 4,97 saat
 
 Açılıştaki DoD ve verim, [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html)'nun lityum akü ve inverter için kullandığı varsayımlardır; kurşun-asit, jel ve AGM akülerde üreticinin önerdiği DoD daha düşüktür. Yük doğrudan DC ise verimi %100 yazın.
+
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Akü Kaç Saat Dayanır](https://www.gespaenerji.com/aku-kac-saat-dayanir.html)
 
 #### Akü ve yük
 
@@ -557,6 +657,8 @@ C oranı, akımı akü kapasitesine oranlar: I = C × Ah. 1C, aküyü bir saatte
 
 Örnek: 100 Ah akü, 0,5C → 0,5 × 100 = 50 A · süre = 1 ÷ 0,5 = 2 saat
 
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Akü Kaç Saat Dayanır](https://www.gespaenerji.com/aku-kac-saat-dayanir.html)
+
 #### Akü
 
 Kapasite (Ah)
@@ -579,7 +681,60 @@ Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/9054374342
 
 ## 🎛️ Cihaz seçimi
 
-Şarj kontrol cihazı akımı ve günlük tüketim. [Şarj kontrol akımı](#sarj-kontrol) · [Günlük tüketim](#yuk-listesi)
+Cihaz listesinden sistem, şarj kontrol cihazı ve inverter akımı, tüketim ve maliyet. [Cihaz listesi](#yuk-listesi) · [Şarj kontrol akımı](#sarj-kontrol) · [İnverter akü akımı](#inverter-aku-akimi) · [Tüketim ve maliyet](#cihaz-tuketimi)
+
+### Cihaz listesinden günlük tüketim, panel, akü ve inverter
+
+Sistemin boyutu günlük enerji ihtiyacından çıkar. Her cihaz için Wh = güç (W) × adet × günlük çalışma saati; toplam günlük tüketimdir. Buradan panel gücü = Wh ÷ (güneş saati × sistem verimi), akü kapasitesi Ah = Wh × özerklik günü ÷ (akü gerilimi × DoD × inverter verimi), inverter gücü ise aynı anda çalışan cihazların toplam gücünden büyük olmalıdır.
+
+| Örnek: Karavan / Kamp | Güç | Adet | Saat/gün | Wh/gün |
+| --- | --- | --- | --- | --- |
+| Mini Buzdolabı | 60 W | 1 | 8 saat | 480 Wh |
+| LED Lamba | 10 W | 4 | 5 saat | 200 Wh |
+| Telefon Şarjı | 15 W | 2 | 3 saat | 90 Wh |
+| Dizüstü Bilgisayar | 65 W | 1 | 4 saat | 260 Wh |
+
+Toplam 1.030 Wh/gün · panel = 1.030 ÷ (4,5 × 0,75) ≈ 305 W · akü (12 V, 1 gün) = 1.030 × 1 ÷ (12 × 0,9 × 0,92) ≈ 103,7 Ah · inverter ≥ 195 W
+
+Cihaz güçleri ve saatleri [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html)'daki varsayılan değerlerdir; kendi cihazınızın etiketindeki watt değerini yazın. Katsayılar da Sistem Kurucu ile aynıdır (tasarım günü güneş saati, sistem verimi, lityum akü DoD'u, inverter verimi). İnverter satırı yalnızca çalışma güçlerinin toplamıdır: buzdolabı, pompa ve klima gibi motorlu cihazların **kalkış akımı dahil değildir**. Eşzamanlılık, kalkış payı ve ürün seçimiyle tam hesap için Sistem Kurucu'yu kullanın.
+
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Cihaz Elektrik Tüketimi](https://www.gespaenerji.com/cihaz-elektrik-tuketimi-hesaplama.html)
+
+#### Cihazlar
+
+Cihaz W Adet Saat/gün
+
+Senaryo yükle (Sistem Kurucu senaryoları)
+
+Günlük tüketim —
+
+Gerekli panel gücü —
+
+Akü kapasitesi —
+
+İnverter gücü (kalkış hariç) —
+
+#### Varsayımlar
+
+Akü gerilimi (V)
+
+Özerklik (gün)
+
+Güneş saati
+
+Sistem verimi (%)
+
+DoD (%)
+
+İnverter verimi (%)
+
+**Formül:** Wh/gün = Σ (W × adet × saat) · panel W = Wh ÷ (güneş saati × sistem verimi) · akü Ah = Wh × gün ÷ (V × DoD × inverter verimi) · inverter W ≥ Σ (W × adet)
+
+Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+**İlgili:** [Sistem Kurucu (tam sihirbaz)](https://www.gespaenerji.com/sistem-kur.html) · [Off-grid boyutlandırma rehberi](https://www.gespaenerji.com/off-grid-gunes-sistemi-boyutlandirma.html) · [Akü kaç saat dayanır?](#aku-sure) · [Solar sulama pompası seçimi](https://www.gespaenerji.com/tarimsal-sulama.html#pompa-secimi)
+
+Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Şarj kontrol cihazı kaç amper olmalı?
 
@@ -588,6 +743,8 @@ MPPT şarj kontrol cihazının aküye vereceği akım, panel dizisinin gücünü
 Örnek: 1.440 W panel dizisi, 24 V akü → 1.440 ÷ 24 = 60 A
 
 Akımın yanında cihazın en yüksek PV giriş gerilimi de kontrol edilir: bunun için [dizi hesabını](#dizi) kullanın. PWM cihazlarda akım, bağlanan panellerin toplam Isc değerine göre seçilir.
+
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [MPPT Kaç Amper Olmalı](https://www.gespaenerji.com/mppt-kac-amper-olmali.html)
 
 #### Sistem
 
@@ -607,43 +764,83 @@ Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da m�
 
 Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
 
-### Yük listesi: günlük tüketim (Wh) nasıl bulunur?
+### İnverter aküden kaç amper çeker?
 
-Bir cihazın günlük tüketimi Wh = güç (W) × günlük çalışma saati × adet ile bulunur; bütün cihazların toplamı sistemin günlük enerji ihtiyacıdır. Tek cihaz için aşağıdaki küçük hesap yeterlidir; cihaz listesinden panel, akü ve inverter önerisine giden tam araç [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html)'dur.
+İnverter, AC yükün gücünü aküden DC olarak çeker; akü gerilimi düşük olduğu için akım yüksektir: I = yük gücü ÷ (akü gerilimi × inverter verimi). Verim bir varsayımdır ve inverterin künyesinden alınır.
 
-Örnek: 1 adet 100 W cihaz, günde 5 saat → 100 × 5 × 1 = 500 Wh/gün
+Örnek: 1.000 W yük, 12 V akü, verim %92 (varsayım) → 1.000 ÷ (12 × 0,92) = 90,58 A
 
-#### Tek cihaz
+Bu akım akü ile inverter arasındaki kablodan geçer; kabloyu kısa tutun ve hesaplanan akımı [DC kablo aracına](#kablo) aktarıp gerilim düşümüne bakın. Kablonun akım taşıma kapasitesi ve sigorta değeri için inverter ve kablo üreticisinin verisi esastır; bu araç sigorta değeri önermez. Motorlu yüklerin kalkış akımı hesaba dahil değildir.
 
-Güç (W)
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [İnvertör Akü Akımı](https://www.gespaenerji.com/invertor-akuden-kac-amper-ceker.html)
 
-Saat/gün
+#### Yük ve akü
 
-Adet
+Yük (W)
 
-Günlük tüketim —
+Akü gerilimi (V)
 
-Tam liste için: [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) (ev, bağ evi, karavan) · [Solar sulama pompası seçimi](https://www.gespaenerji.com/tarimsal-sulama.html#pompa-secimi) (pompa ve panel gücü).
+İnverter verimi (%) varsayım
 
-**Formül:** günlük tüketim (Wh) = güç (W) × günlük çalışma saati × adet
+Akü tarafı akımı —
+
+Verim bir varsayımdır; inverterinizin künyesindeki değeri yazın.
+
+**Formül:** akü akımı = yük gücü (W) ÷ (akü gerilimi (V) × inverter verimi)
 
 Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
 
-**İlgili:** [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) · [Solar sulama pompası seçimi](https://www.gespaenerji.com/tarimsal-sulama.html#pompa-secimi) · [Off-grid boyutlandırma rehberi](https://www.gespaenerji.com/off-grid-gunes-sistemi-boyutlandirma.html) · [Akü kaç saat dayanır?](#aku-sure)
+**İlgili:** [DC kablo kesiti ve gerilim düşümü](#kablo) · [Akü kaç saat dayanır?](#aku-sure) · [İnverter boyutlandırma aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [1200 W güç istasyonu](https://www.gespaenerji.com/lexron-guc-istasyonu-1200w.html)
+
+Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+
+### Cihaz kaç kWh harcar, kaç TL yakar?
+
+Bir cihazın tüketimi kWh = güç (W) × günlük çalışma saati × gün sayısı ÷ 1000 ile bulunur; tutar = kWh × birim fiyat. Birim fiyatı faturanızdan siz yazarsınız; açılıştaki değer yalnızca düzenlenebilir bir örnektir.
+
+Örnek: 1.000 W cihaz, günde 2 saat, 30 gün → 1.000 × 2 × 30 ÷ 1000 = 60 kWh · birim fiyat 2,5 TL/kWh (örnek) ile 60 × 2,5 = 150 TL
+
+Etiketteki güç en yüksek değerdir; buzdolabı, klima ve termostatlı ısıtıcılar sürekli tam güçte çalışmaz, gerçek tüketim daha düşük olabilir. Kesin değer için priz tipi bir enerji ölçer kullanılır.
+
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Cihaz Elektrik Tüketimi](https://www.gespaenerji.com/cihaz-elektrik-tuketimi-hesaplama.html)
+
+#### Cihaz
+
+Güç (W)
+
+Günlük çalışma (saat)
+
+Gün sayısı
+
+Birim fiyat (TL/kWh) örnek, faturanızdan yazın
+
+Tüketim —
+
+Tutar —
+
+Birim fiyat tarifeye ve vergilere göre değişir; faturanızdaki toplam tutarı toplam kWh'e bölerek kendi değerinizi bulabilirsiniz.
+
+**Formül:** kWh = güç (W) × saat/gün × gün ÷ 1000 · tutar = kWh × birim fiyat
+
+Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+**İlgili:** [Cihaz listesinden sistem](#yuk-listesi) · [Faturadan GES tasarruf hesabı](https://www.gespaenerji.com/hesaplayici.html) · [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) · [Panel günde kaç kWh üretir?](#gunluk-uretim)
 
 Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ## 🔁 Çeviriciler
 
-Watt–amper, Ah–Wh, HP–kW, AWG–mm² ve inverterin akü akımı. [Çeviriciler](#cevirici)
+Watt–amper, Ah–Wh, HP–kW ve AWG–mm². [Çeviriciler](#cevirici)
 
 ### Hızlı çeviriciler: W–A, Ah–Wh, HP–kW, AWG–mm²
 
-Sahada en çok sorulan beş çevirme. Hepsi tanım formülüdür; iki yönlü alanlarda hangisini yazarsanız diğeri hesaplanır.
+Sahada en çok sorulan dört çevirme. Hepsi tanım formülüdür; iki yönlü alanlarda hangisini yazarsanız diğeri hesaplanır.
 
-1.000 W ÷ 12 V = 83,33 A · 100 Ah × 12 V = 1.200 Wh = 1,2 kWh · 1 HP ÷ 1,341 = 0,746 kW AWG 10: çap = 0,127 × 92(36 − 10) ÷ 39 = 2,588 mm, kesit = π × çap² ÷ 4 = 5,26 mm² 1.000 W inverter yükü, 12 V akü, verim %92 (varsayım): 1.000 ÷ (12 × 0,92) = 90,58 A
+1.000 W ÷ 12 V = 83,33 A · 100 Ah × 12 V = 1.200 Wh = 1,2 kWh · 1 HP ÷ 1,341 = 0,746 kW AWG 10: çap = 0,127 × 92(36 − 10) ÷ 39 = 2,588 mm, kesit = π × çap² ÷ 4 = 5,26 mm²
 
-AWG ile metrik kesitler birebir örtüşmez; metrik kablo seçerken hesaplanan mm² değerinin altına inilmez. İnverterin akü tarafı akımı yüksek olduğu için akü kablosu kısa tutulur; kesiti ve sigortası için üreticinin kılavuzuna bakılır.
+AWG ile metrik kesitler birebir örtüşmez; metrik kablo seçerken hesaplanan mm² değerinin altına inilmez.
+
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [AWG mm² Çevirme](https://www.gespaenerji.com/awg-mm2-cevirme.html) · [Ah kWh Çevirme](https://www.gespaenerji.com/ah-kwh-cevirme.html)
 
 #### Watt ↔ Amper
 
@@ -677,23 +874,11 @@ Kesit (mm²)
 
 —
 
-#### İnverter yükünün akü akımı
-
-Yük (W)
-
-Akü gerilimi (V)
-
-İnverter verimi (%) varsayım
-
-Akü tarafı akımı —
-
-Verim bir varsayımdır; inverterinizin künyesindeki değeri yazın.
-
-**Formül:** A = W ÷ V · Wh = Ah × V · kW = HP ÷ 1,341 · AWG çapı (mm) = 0,127 × 92(36 − n) ÷ 39, kesit = π × d² ÷ 4 · akü akımı = P ÷ (V × verim)
+**Formül:** A = W ÷ V · Wh = Ah × V · kW = HP ÷ 1,341 · AWG çapı (mm) = 0,127 × 92(36 − n) ÷ 39 · kesit = π × d² ÷ 4
 
 Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
 
-**İlgili:** [Kablo kesiti ve güç kaybı](#kablo) · [İnverter boyutlandırma aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Solar sulama pompası seçimi (HP–kW)](https://www.gespaenerji.com/solar-sulama-pompasi-secimi.html) · [kWh nedir?](https://www.gespaenerji.com/sozluk.html#kwh)
+**İlgili:** [Kablo kesiti ve güç kaybı](#kablo) · [İnverterin akü akımı](#inverter-aku-akimi) · [HP → kW → amper](#hp-kw-amper) · [kWh nedir?](https://www.gespaenerji.com/sozluk.html#kwh)
 
 Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
 
@@ -727,6 +912,31 @@ Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da m�
 **İlgili:** [MC4 konnektör takımı](https://www.gespaenerji.com/mc4-set.html) · [Solar kablo takımı](https://www.gespaenerji.com/kablo-solar-5m.html) · [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) · [Tüm rehberler](https://www.gespaenerji.com/rehberler.html)
 
 Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+
+## Araç sayfaları
+
+Her hesabın kendi sayfasında girdilerin anlamı, sık yapılan hatalar ve o konuya özel sorular yer alır:
+
+- [Kablo Kesiti Hesaplama (Güç ve Mesafeye Göre)](https://www.gespaenerji.com/kablo-kesiti-hesaplama.html)
+- [Gerilim Düşümü Hesabı: Monofaze ve Trifaze](https://www.gespaenerji.com/gerilim-dusumu-hesaplama.html)
+- [Solar (DC) Kablo Kesiti Hesaplama](https://www.gespaenerji.com/solar-kablo-kesiti-hesaplama.html)
+- [kW Amper Hesaplama: 1 kW Kaç Amper?](https://www.gespaenerji.com/kw-amper-hesaplama.html)
+- [Trifaze Akım ve Güç Hesabı](https://www.gespaenerji.com/trifaze-akim-hesaplama.html)
+- [kVA kW Çevirme: 1 kVA Kaç kW Eder?](https://www.gespaenerji.com/kva-kw-cevirme.html)
+- [Güneş Paneli Açısı Kaç Derece Olmalı?](https://www.gespaenerji.com/gunes-paneli-acisi-hesaplama.html)
+- [1 Güneş Paneli Günde Kaç kWh Üretir?](https://www.gespaenerji.com/gunes-paneli-gunluk-uretim-hesaplama.html)
+- [Güneş Paneli Seri mi Paralel mi Bağlanır?](https://www.gespaenerji.com/gunes-paneli-seri-paralel-baglanti.html)
+- [Akü Kaç Saat Dayanır?](https://www.gespaenerji.com/aku-kac-saat-dayanir.html)
+- [Akü Seri-Paralel Bağlantı Şeması (24 V / 48 V)](https://www.gespaenerji.com/aku-seri-paralel-baglanti.html)
+- [MPPT Şarj Kontrol Cihazı Kaç Amper Olmalı?](https://www.gespaenerji.com/mppt-kac-amper-olmali.html)
+- [İnvertör Aküden Kaç Amper Çeker?](https://www.gespaenerji.com/invertor-akuden-kac-amper-ceker.html)
+- [AWG mm² Çevirme](https://www.gespaenerji.com/awg-mm2-cevirme.html)
+- [100 Ah Akü Kaç kWh Eder?](https://www.gespaenerji.com/ah-kwh-cevirme.html)
+- [Cihaz Elektrik Tüketimi Hesaplama: Kaç kWh, Kaç TL?](https://www.gespaenerji.com/cihaz-elektrik-tuketimi-hesaplama.html)
+- [Gölge Uzunluğu Hesaplama](https://www.gespaenerji.com/golge-uzunlugu-hesaplama.html)
+- [Çatı Eğimi Hesaplama: Derece, Yüzde ve Oran](https://www.gespaenerji.com/cati-egimi-hesaplama.html)
+- [Ohm Kanunu Hesaplama: Volt, Amper, Ohm, Watt](https://www.gespaenerji.com/ohm-kanunu-hesaplama.html)
+- [Güneş Paneli Sıcakta Ne Kadar Güç Kaybeder?](https://www.gespaenerji.com/panel-sicaklik-guc-kaybi.html)
 
 ## Sık sorulan sorular
 
