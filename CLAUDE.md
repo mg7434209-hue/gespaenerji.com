@@ -694,6 +694,33 @@ işe yaramıyordu.
 - Katsayılar tek config dosyasında (`config.calc`) ve koddan ayarlanabilir.
 - KURAL: Hesaplayıcı bileşenine hiçbir sayı (fiyat, katsayı, güç) hardcode ETME.
 
+## Elektrikçi Çantası (`elektrikci-cantasi.html` · `assets/usta.js`, 23 Kas 2026)
+Elektrikçi/montajcı için 8 ücretsiz saha aracı; yalnız TR (`TR_ONLY`, `<main data-article data-usta>`).
+Çapalar yayınlandı, DEĞİŞTİRME: `#egim #kablo #dizi #seri-paralel #aku #sigorta #cevirici #kontrol`.
+- MANTIK `assets/usta.js` (yalnız bu sayfa yükler, `defer`): üstte SAF HESAPLAR `GESPA.usta`
+  (`sun/tilts/cable/cableRec/coldVoc/string/array/bank/fuse/awg*/invCurrent/examples`), altta sayfa
+  bağlama + SVG (createElementNS/textContent; `innerHTML` YOK). Test saf işlevleri `vm` ile çağırır.
+- KATSAYI: hepsi `config.calc.usta` (pratik kural 15°, STC 25 °C, AWG tanımı, şema sınırı, şehir
+  enlemleri, açılış girdileri); ortaklar yeniden yazılmaz (`calc.cable`, `calc.shading`,
+  `calc.pump.hpPerKw`, `builder.sizing.invEff`). usta.js'e sayı gömme (test arar).
+- STANDART TABLOSU YOK: akım taşıma kapasitesi, sigorta katsayısı, yönetmelik maddesi YAZILMAZ; yalnız
+  tanım/fizik formülü + kullanıcının etiketten girdiği değer. Tablo gereken yerde "kablo üreticisinin
+  tablosu + yetkili elektrikçi/mühendis" denir. Her araçta formül satırı ve "değerler yaklaşıktır" satırı durur.
+- ÖRNEK SAYILAR: sayfadaki `<data data-ex="anahtar" value="…">` değerleri `GESPA.usta.examples(config)`
+  çıktısıyla BİREBİR aynı olmalı (test). Açılış değeri/katsayı değişirse sayfadaki bu değerleri de güncelle.
+  Dizi hesabı alanları BOŞ açılır (örnek yuvarlak sayılar "Örnek değerleri doldur" ile); 360 W künye
+  değerleri (Vmp/Imp/Isc/maks. seri sigorta 30 A) panel-360w.html'de aynen yazdığı için kullanılır.
+- YENİ ARAÇ: `section.usta-tool#id[data-usta-tool]` (statik açıklama + örnek, iki `.usta-card`,
+  `.usta-formula`, `.usta-disc`, `.usta-rel`, `.usta-pro`) + `.usta-nav` bağlantısı + usta.js'te saf işlev,
+  `examples()` anahtarları ve bağlama + config açılış değerleri + testte elle hesaplanmış 2-3 sonuç.
+  hesaplayici.html'deki 5 araç (yerleşim, inverter, DC kablo tablosu, batarya, sıra aralığı) TEKRARLANMAZ,
+  `hesaplayici.html#alet-cantasi`'na bağlanır.
+- TUZAKLAR: `hidden` özniteliği etiketin SON özniteliğiyse `hidden=""` yaz (build `htmlToMd` gizli öğe
+  süzgeci `hidden>`'da kapanış etiketini yutup Markdown kopyasını kesiyor). Örnek sayılar `<span>` değil
+  `<data>`: md'de span sonrası boşluk "37 °" üretir. Kontrol listesi `localStorage gespa-usta-check`
+  (cerez-politikasi.html'de yazılı). "Beni arayın" düğmesi sohbet penceresinin `.gchat-fab` +
+  `.gchat-quick` 📞 düğmesine tıklar (chatbot.js'e dokunulmadı); o işaretleme değişirse düğme gizli kalır.
+
 ## Satış motoru — yapay zekâ asistanı, talepler, huni (21 Kas 2026)
 Ayrıntı ve kurallar: @docs/satis-asistani.md
 - Sohbet penceresi `/api/chat` üzerinden yapay zekâ asistanıyla yanıt verir;
@@ -986,7 +1013,7 @@ Markdown kopyaları) · `assets/i18n.{tr,en,de,ru}.js` · sayfalardaki JSON-LD v
   (`data-c-text`) ve dinamik sayılar çeviriden hariç tutulur.
 - MÜHENDİSLİK REHBERLERİ (30 Eki 2026, yalnız TR, `TR_ONLY`): `rehberler.html` (merkez) +
   `off-grid-gunes-sistemi-boyutlandirma.html` · `pwm-mppt-sarj-kontrol-farki.html` ·
-  `solar-sulama-pompasi-secimi.html`. Kabuk (head/menü/alt bilgi) mevcut mevzuat rehberinden
+  `solar-sulama-pompasi-secimi.html` (+ araç sayfası `elektrikci-cantasi.html`, kendi bölümü var). Kabuk (head/menü/alt bilgi) mevcut mevzuat rehberinden
   kopyalanır, `<main data-article>` → Article + FAQPage (görünen `.faq-item`) + BreadcrumbList build'de
   üretilir. İÇERİK KURALI: örnek hesaplar sitedeki araçlarla BİREBİR aynı formülü/katsayıyı kullanır
   (Sistem Kurucu `config.builder.sizing`, pompa aracı `config.calc.pump`) ve künye değerleri ürün

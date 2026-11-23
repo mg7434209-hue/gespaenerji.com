@@ -65,7 +65,9 @@ const TR_ONLY = [
   "mesafeli-satis-sozlesmesi.html", "iade-teslimat.html",
   "gunes-paneli-kacak-elektrik-cezasi.html",
   // Mühendislik rehberleri (yalnız Türkçe; <main data-article>) + merkez sayfası
-  "rehberler.html", "off-grid-gunes-sistemi-boyutlandirma.html", "pwm-mppt-sarj-kontrol-farki.html", "solar-sulama-pompasi-secimi.html"
+  "rehberler.html", "off-grid-gunes-sistemi-boyutlandirma.html", "pwm-mppt-sarj-kontrol-farki.html", "solar-sulama-pompasi-secimi.html",
+  // Elektrikçi Çantası: saha hesap araçları (assets/usta.js), yalnız Türkçe
+  "elektrikci-cantasi.html"
 ];
 // Mevzuat rehberi — footer "Kurumsal" sütununda yalnız TR sayfalarda görünür
 const GUIDE = { file: "gunes-paneli-kacak-elektrik-cezasi.html", label: "Güneş Paneli Cezası Rehberi" };
@@ -2001,7 +2003,7 @@ const PRIORITY = {
   "kvkk.html": "0.3", "gizlilik.html": "0.3", "cerez-politikasi.html": "0.3",
   "mesafeli-satis-sozlesmesi.html": "0.4", "iade-teslimat.html": "0.4",
   "sss.html": "0.7", "sozluk.html": "0.6", "gunes-paneli-kacak-elektrik-cezasi.html": "0.7",
-  "rehberler.html": "0.7", "off-grid-gunes-sistemi-boyutlandirma.html": "0.7", "pwm-mppt-sarj-kontrol-farki.html": "0.7", "solar-sulama-pompasi-secimi.html": "0.7",
+  "rehberler.html": "0.7", "off-grid-gunes-sistemi-boyutlandirma.html": "0.7", "pwm-mppt-sarj-kontrol-farki.html": "0.7", "solar-sulama-pompasi-secimi.html": "0.7", "elektrikci-cantasi.html": "0.8",
   "havensis-mppt-30a.html": "0.7", "havensis-mppt-40a.html": "0.7", "havensis-mppt-60a.html": "0.7", "havensis-mppt-60a-150v.html": "0.7",
   "havensis-dcdc-30a.html": "0.7", "havensis-dcdc-40a.html": "0.7", "havensis-dcdc-40a-cift-yonlu.html": "0.7",
   "havensis-boost-dcdc-2448.html": "0.7", "havensis-boost-dcdc-2448-40a.html": "0.7"
@@ -2030,7 +2032,7 @@ const LLMS_GROUPS = [
   ["Yapay zekâ ürünleri", ["yapay-zeka-urunleri.html", "ai-cankurtaran-destek-sistemi.html"]],
   ["Ücretsiz araçlar", ["hesaplayici.html", "sistem-kur.html"]],
   ["Referans projeler", ["projeler.html", "proje-kemer-villa.html", "proje-manavgat-fabrika.html", "proje-manavgat-tarimsal.html"]],
-  ["Rehberler ve güncel mevzuat (yalnız Türkçe)", ["rehberler.html", "off-grid-gunes-sistemi-boyutlandirma.html", "pwm-mppt-sarj-kontrol-farki.html", "solar-sulama-pompasi-secimi.html", "gunes-paneli-kacak-elektrik-cezasi.html"]],
+  ["Rehberler ve güncel mevzuat (yalnız Türkçe)", ["rehberler.html", "off-grid-gunes-sistemi-boyutlandirma.html", "pwm-mppt-sarj-kontrol-farki.html", "solar-sulama-pompasi-secimi.html", "elektrikci-cantasi.html", "gunes-paneli-kacak-elektrik-cezasi.html"]],
   ["Kurumsal ve yardım", ["hakkimizda.html", "iletisim.html", "sss.html", "sozluk.html"]]
 ];
 function pageMeta(file) {

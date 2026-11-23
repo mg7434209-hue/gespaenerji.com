@@ -303,6 +303,53 @@ const contact=granted.events.find(e=>e[1]==='contact_click');assert.equal(contac
 assert.ok(!JSON.stringify(granted.events).includes('private'));
 const unrelated=consentRun('granted','https://notchatgpt.com/');assert.ok(!unrelated.events.some(e=>e[1]==='ai_referral'));
 console.log('Analytics: consent gate, exact AI source attribution and contact payload checks passed.');
+// Elektrikçi Çantası (elektrikci-cantasi.html, assets/usta.js): the pure calculators are checked against values worked out by
+// hand, the static worked examples on the page (what crawlers read without JS) must equal what the same functions return for the
+// config defaults, and no coefficient may live outside config.calc.
+{const vm=require('node:vm');const sbu={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'assets/config.js'),'utf8'),sbu);
+ const ustaSrc=fs.readFileSync(path.join(root,'assets/usta.js'),'utf8');vm.runInNewContext(ustaSrc,sbu);
+ const C=sbu.window.GESPA.config,U=sbu.window.GESPA.usta,k=U.k(C),near=(a,b,m)=>assert.ok(Math.abs(a-b)<1e-6,m+': '+a+' != '+b);
+ assert.ok(C.calc.usta&&k.rho===C.calc.cable.rhoCu&&k.dec===C.calc.shading.declination&&k.hpPerKw===C.calc.pump.hpPerKw&&k.invEff===C.builder.sizing.invEff,'usta reuses shared config');
+ {const s=U.sun(37,23.45);near(s.summer,76.45,'sun summer');near(s.equinox,53,'sun equinox');near(s.winter,29.55,'sun winter');near(U.sun(41,23.45).winter,25.55,'sun winter 41');
+  assert.ok(s.valid&&!U.sun(10,23.45).valid&&!U.sun(70,23.45).valid,'sun formula validity range');
+  const t=U.tilts(37,15);assert.deepEqual([t.year,t.summer,t.winter],[37,22,52],'rule-of-thumb tilts');assert.equal(U.tilts(10,15).summer,0,'tilt clamps at 0');}
+ {const c=U.cable(48,15,5,4,0.0175);near(c.r,0.04375,'cable R');near(c.drop,0.65625,'cable drop');near(c.pct,1.3671875,'cable pct');near(c.loss,9.84375,'cable loss');
+  near(U.cable(600,11,30,4,0.0175).drop,2.8875,'cable drop 600 V');
+  assert.equal(U.cableRec(48,15,5,[4,6,10,16,25],0.0175,1),6,'smallest section');assert.equal(U.cableRec(12,30,10,[4,6,10,16,25],0.0175,1),null,'no listed section fits');
+  near(U.diaOf(4),2.2567583,'4 mm2 diameter');}
+ {near(U.coldVoc(40,-0.3,-10,25),44.2,'cold Voc');const r=U.string({voc:40,vmp:33,beta:-0.3,tmin:-10,vmax:150,mpptMin:60},25);assert.deepEqual([r.max,r.min],[3,2],'string max/min');
+  const e=U.string({voc:50,vmp:50,beta:0,tmin:25,vmax:150,mpptMin:100},25);assert.deepEqual([e.max,e.min],[3,2],'exact divisions do not round the wrong way');
+  assert.equal(U.string({voc:42.56,vmp:34.98,beta:-0.25,tmin:-15,vmax:100,mpptMin:0},25).max,2,'42.56 V x1.10 cold -> 2 in series on 100 V');}
+ {const a=U.array(34.98,10.3,2,2);near(a.v,69.96,'array V');near(a.a,20.6,'array A');near(a.w,1441.176,'array W');near(U.array(40,10,3,1).w,1200,'3s1p W');}
+ {const b=U.bank(12,100,2,2);assert.deepEqual([b.v,b.ah],[24,200],'bank V/Ah');near(b.kwh,4.8,'bank kWh');near(U.bank(12.8,100,4,1).kwh,5.12,'4s LiFePO4 kWh');}
+ {const f4=U.fuse(4,11.37,30),f3=U.fuse(3,11.37,30);near(f4.rev,34.11,'fuse rev 4');near(f3.rev,22.74,'fuse rev 3');assert.ok(f4.needed&&!f3.needed,'fuse verdict');
+  assert.ok(!U.fuse(3,15,30).needed&&!U.fuse(1,11.37,30).needed&&U.fuse(2,31,30).needed,'fuse boundary: equal is not exceeding');}
+ {near(U.wToA(1000,12),83.3333333,'W->A');near(U.aToW(20,48),960,'A->W');near(U.ahToWh(100,12),1200,'Ah->Wh');near(U.whToAh(5120,51.2),100,'Wh->Ah');
+  near(U.hpToKw(1,1.341),0.7457122,'HP->kW');near(U.kwToHp(7.5,1.341),10.0575,'kW->HP');
+  const A=C.calc.usta.awg;near(U.awgDia(36,A),0.127,'AWG 36');near(U.awgDia(-3,A),11.684,'AWG 4/0 = 0.46 in');assert.ok(Math.abs(U.awgDia(10,A)-2.588)<5e-4&&Math.abs(U.awgArea(10,A)-5.261)<1e-3,'AWG 10');
+  near(U.mm2ToAwg(U.awgArea(10,A),A),10,'mm2 -> AWG round trip');assert.equal(U.awgLabel(-3),'4/0');assert.equal(U.awgLabel(0),'1/0');
+  near(U.invCurrent(1000,12,0.92),90.5797101,'inverter battery current');}
+ const pg=fs.readFileSync(path.join(root,'elektrikci-cantasi.html'),'utf8'),EX=U.examples(C);
+ const tags=[...pg.matchAll(/<data data-ex="([^"]+)" value="([^"]*)">([^<]*)<\/data>/g)];
+ assert.equal(tags.length,(pg.match(/data-ex=/g)||[]).length,'every worked-example value uses the <data data-ex value> form');
+ assert.ok(tags.length>=60,'page carries the static worked examples');
+ for(const m of tags){assert.ok(m[1] in EX,'unknown example key '+m[1]);assert.equal(m[3],EX[m[1]],'static example '+m[1]+' matches the calculator');assert.equal(m[2],m[3],'data value '+m[1]);}
+ for(const p of ['egim','kablo','dizi','seri','aku','sigorta','cev'])assert.ok(tags.some(m=>m[1].startsWith(p+'.')),'worked example for '+p);
+ assert.equal(EX['sigorta.verdict'],'gerekir');assert.equal(EX['kablo.rec'],'6');assert.equal(EX['dizi.max'],'3');
+ for(const id of ['egim','kablo','dizi','seri-paralel','aku','sigorta','cevirici','kontrol'])assert.ok(pg.includes('<section class="usta-tool" id="'+id+'"')&&pg.includes('href="#'+id+'"'),'tool anchor #'+id);
+ assert.ok(pg.includes('<main id="main" data-article data-usta>')&&pg.includes('<script defer src="assets/usta.js"></script>'),'page shell + deferred usta.js');
+ assert.equal((pg.match(/Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili/g)||[]).length,8,'every tool carries the approximate-values line');
+ assert.equal((pg.match(/class="usta-formula"/g)||[]).length,7,'every calculator shows its formula');
+ {const n=(pg.match(/data-chk="/g)||[]).length;assert.ok(n>=10&&n<=14,'checklist size');}
+ assert.ok(!/innerHTML|insertAdjacentHTML|document\.write|https?:\/\/(?!wa\.me\/|www\.w3\.org\/2000\/svg)/.test(ustaSrc),'usta.js: no HTML injection, no external resources');
+ assert.ok(!/\b(23\.45|0\.0175|1\.341|0\.92|0\.127)\b/.test(ustaSrc),'usta.js holds no coefficients (config.calc only)');
+ assert.ok(!/ampasite|akım taşıma kapasitesi\s*[:=]\s*\d|TS HD|IEC 6\d{4}|NEC \d/i.test(pg+ustaSrc),'no standards tables or clause citations');
+ for(const f of fs.readdirSync(root).filter(f=>f.endsWith('.html')&&f!=='elektrikci-cantasi.html'))assert.ok(!fs.readFileSync(path.join(root,f),'utf8').includes('assets/usta.js'),f+': usta.js is loaded only by its own page');
+ for(const d of ['en','de','ru'])assert.ok(!fs.readFileSync(path.join(root,d,'hesaplayici.html'),'utf8').includes('elektrikci-cantasi')&&!fs.existsSync(path.join(root,d,'elektrikci-cantasi.html')),d+': TR-only tool page not linked or generated');
+ assert.ok(fs.readFileSync(path.join(root,'hesaplayici.html'),'utf8').includes('<a href="elektrikci-cantasi.html">')&&fs.readFileSync(path.join(root,'rehberler.html'),'utf8').includes('href="elektrikci-cantasi.html"'),'tool page linked from calculator and guide hub');
+ const lds=[...pg.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1]));
+ for(const t of ['Article','FAQPage','BreadcrumbList'])assert.ok(lds.some(x=>x['@type']===t),'elektrikci-cantasi: '+t+' schema');
+ {const t=(pg.match(/<title>([^<]*)<\/title>/)||[])[1],d=(pg.match(/<meta name="description" content="([^"]*)"/)||[])[1];assert.ok(t.length<=60&&d.length<=160,'title/description length');}}
 // The production server runs in this process tree so HTTP tests share its network context.
 const RECEIPT_TEST_SECRET='test-dekont-anahtari';
 // ADMIN_PASS is set as on Railway: the public config password must then be rejected. Runtime data goes to

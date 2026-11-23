@@ -3,7 +3,7 @@ title: "Güneş Enerjisi Rehberleri — Hesap, Seçim ve Kurulum | GESPA"
 description: "Güneş enerjisi rehberleri: off-grid sistem boyutlandırma, PWM–MPPT şarj kontrol seçimi, solar sulama pompası ve güneş paneli mevzuatı. Örnekli, adım adım."
 canonical: https://www.gespaenerji.com/rehberler.html
 lang: tr
-dateModified: 2026-11-10
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -16,6 +16,7 @@ Sistemi kurmadan ya da ürün almadan önce bilinmesi gerekenler: boyutlandırma
 [Off-grid güneş sistemi nasıl boyutlandırılır?Günlük tüketimden panel, akü ve inverter gücüne dört adımda: formüller ve örnek hesap.Rehberi oku →](https://www.gespaenerji.com/off-grid-gunes-sistemi-boyutlandirma.html)
 [PWM mi MPPT mi? Şarj kontrol cihazı seçimiİki teknolojinin farkı, hangisinin ne zaman seçileceği ve panel gerilimi/akım hesabı.Rehberi oku →](https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html)
 [Solar sulama pompası nasıl seçilir?Günlük su ve basma yüksekliğinden pompa gücü ve panel kWp hesabı.Rehberi oku →](https://www.gespaenerji.com/solar-sulama-pompasi-secimi.html)
+[Elektrikçi Çantası: 8 ücretsiz saha aracıEğim açısı, kablo kesiti, dizi hesabı, seri–paralel şema, akü bankası, sigorta kontrolü ve çeviriciler.Araçları aç →](https://www.gespaenerji.com/elektrikci-cantasi.html)
 [Güneş paneline kaçak elektrik cezasıCezanın nedeni, kimin risk altında olduğu ve yasal kurulum için ne yapılacağı.Rehberi oku →](https://www.gespaenerji.com/gunes-paneli-kacak-elektrik-cezasi.html)
 
 Ücretsiz araçlar
@@ -23,6 +24,7 @@ Sistemi kurmadan ya da ürün almadan önce bilinmesi gerekenler: boyutlandırma
 ## Okuduğunuzu hemen hesaplayın
 
 - [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html): cihazlarınızdan panel, akü ve inverter önerisi.
+- [Elektrikçi Çantası](https://www.gespaenerji.com/elektrikci-cantasi.html): eğim açısı, kablo kesiti, dizi hesabı, seri–paralel şema ve çeviriciler.
 - [Tasarruf hesaplayıcı](https://www.gespaenerji.com/hesaplayici.html): çatı GES için tasarruf, geri ödeme ve mühendislik araçları.
 - [Solar Sulama Pompası Seçimi](https://www.gespaenerji.com/tarimsal-sulama.html#pompa-secimi): günlük su ve yükseklikten pompa ve panel gücü.
 - [GES Sözlüğü](https://www.gespaenerji.com/sozluk.html) ve [Sıkça Sorulan Sorular](https://www.gespaenerji.com/sss.html): terimler ve kısa cevaplar.

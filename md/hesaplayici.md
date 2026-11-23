@@ -3,7 +3,7 @@ title: "Güneş Enerjisi Tasarruf Hesaplayıcı (GES) | GESPA Enerji"
 description: "Ücretsiz güneş enerjisi hesaplayıcı: faturaya, tüketime veya çatı alanına göre sistem gücü, yıllık üretim, tasarruf, geri ödeme ve CO₂ azaltımı."
 canonical: https://www.gespaenerji.com/hesaplayici.html
 lang: tr
-dateModified: 2026-10-30
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -184,6 +184,8 @@ Sıra periyodu (pitch) —
 Alan kullanım oranı (GCR) —
 
 [📲 Aktif aracın sonucunu WhatsApp'tan gönder](#)
+
+Elektrikçi ve montajcılar için: eğim açısı, dizi (string) hesabı, seri–paralel şema, akü bankası, sigorta kontrolü ve AWG–mm² çevirici [Elektrikçi Çantası](https://www.gespaenerji.com/elektrikci-cantasi.html) sayfasında.
 
 Sıkça Sorulan Sorular
 
