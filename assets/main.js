@@ -288,8 +288,8 @@
     function pkgPct(p) {
       return (p && p.discountPct != null ? p.discountPct : CFG.cartDiscountPct) || 0;
     }
-    // Fiyat notu: kargo ücreti alıcıya mı ait? Üründe `freeShipping: true`
-    // yazılıysa kargo fiyata DAHİLDİR (kart ödemesinde de ek ücret yok).
+    // Fiyat notu: kargo sabit ücretlidir ve ürüne eklenir; `freeShipping: true`
+    // üründe kargo fiyata DAHİLDİR.
     // TEK KURAL — vitrin kartı, katalog kartı ve ürün sayfası bunu kullanır;
     // build.js `vatNote()` aynısını statik çıktıya basar.
     // Tek adet kargo ücreti — config.js GESPA.shipCalc (sepet ve sunucuyla aynı işlev).

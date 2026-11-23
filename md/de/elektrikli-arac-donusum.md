@@ -89,7 +89,7 @@ Geschlossene 2–4-Sitzer — schmale Dachfläche
 - Solarkabel-Set (5 m Schwarz + 5 m Rot)
 - MC4-Steckerset
 
-Set-Summe: **₺14.800** · KDV dahil · kargo ₺500
+Set-Summe: **₺14.800** · Inkl. MwSt. · Versand ₺500
 
 [Ürün sayfası](https://www.gespaenerji.com/de/paket-motor-yolcu.html)
 
@@ -102,7 +102,7 @@ Offene oder überdachte Lastenfahrzeuge — große Dachfläche
 - Solarkabel-Set (5 m Schwarz + 5 m Rot)
 - MC4-Steckerset
 
-Set-Summe: **₺17.000** · KDV dahil · kargo ₺700
+Set-Summe: **₺17.000** · Inkl. MwSt. · Versand ₺700
 
 [Ürün sayfası](https://www.gespaenerji.com/de/paket-motor-kargo.html)
 
@@ -115,7 +115,7 @@ Set-Summe: **₺17.000** · KDV dahil · kargo ₺700
 - Solarkabel-Set (5 m Schwarz + 5 m Rot)
 - MC4-Steckerset
 
-Set-Summe: **₺16.300** · KDV dahil · kargo ₺700
+Set-Summe: **₺16.300** · Inkl. MwSt. · Versand ₺700
 
 [Ürün sayfası](https://www.gespaenerji.com/de/paket-motor-golf.html)
 
@@ -128,7 +128,7 @@ Geschlossene Mini-Autos — kleine Dachfläche
 - Solarkabel-Set (5 m Schwarz + 5 m Rot)
 - MC4-Steckerset
 
-Set-Summe: **₺14.800** · KDV dahil · kargo ₺500
+Set-Summe: **₺14.800** · Inkl. MwSt. · Versand ₺500
 
 [Ürün sayfası](https://www.gespaenerji.com/de/paket-motor-mini.html)
 

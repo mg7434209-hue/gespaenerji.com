@@ -459,7 +459,9 @@ Sıkça Sorulan Sorular
 
 ### Kargo ücreti ve teslim süresi nedir?
 
-Ürünler Türkiye'nin her iline anlaşmalı kargo ile gönderilir. Kartında “KDV ve kargo dahil” yazan ürünlerde kargo fiyata dahildir; diğerlerinde kargo ücreti alıcıya aittir ve sipariş onayında net olarak bildirilir.
+Ürünler Türkiye'nin her iline anlaşmalı kargo ile gönderilir. Kargo ücreti Türkiye genelinde sabittir; ürün fiyatına eklenir, sepette ayrıca gösterilir ve siparişle birlikte ödenir, teslimatta kargo firmasına ayrıca ödeme yapılmaz. Her ürünün kargo ücreti kendi sayfasında yazılıdır; kartında “KDV ve kargo dahil” yazan ürünlerde kargo fiyata dahildir.
+
+Paneller çift gönderilir: 460 W ve üzeri panellerde 1 adet ₺700, 2 adet ₺1.000; 460 W altı panellerde 1 adet ₺500, 2 adet ₺750. Sepette 2 veya daha fazla farklı ürün varsa toplam kargo ücretine %20 indirim uygulanır; ürün toplamı ₺50.000 ve üzeri siparişlerde kargo ücretsizdir. Siparişinizi Manavgat'taki işyerimizden teslim alırsanız kargo ücreti alınmaz. Havale/EFT indirimi kargo ücretine uygulanmaz.
 
 Sipariş onayından sonra tahmini teslim: **2–5** iş günü.
 

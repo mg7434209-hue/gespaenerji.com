@@ -27,7 +27,7 @@ Price includes VAT.
 
 💳 Up to 12 monthly instalments by card (interest applies) — chosen on the payment page
 
-🚚 Kargo ücretsiz · 2–5 working days
+🚚 Free shipping · 2–5 working days
 
 [🛒 Add to cart](https://www.gespaenerji.com/en/sepet.html)
 
@@ -83,7 +83,7 @@ What do PERC, half-cut cells, MPPT and LiFePO₄ mean? [Solar Glossary →](http
 
 - Products are shipped by contracted courier to every province of Türkiye; delivery is not limited to Antalya.
 - Estimated delivery is 2–5 business days after order confirmation; the tracking number is sent via WhatsApp.
-- Shipping is paid by the buyer and is stated exactly at order confirmation. Prices include VAT.
+- The shipping fee is added to the product price and shown separately in the cart; a shipping discount applies when you order more than one product. Prices include VAT.
 - Under distance-selling rules you may withdraw within 14 days of delivery; for a problem-free delivery the return shipping is paid by the buyer.
 - For damaged or defective goods all costs are ours — please inspect the parcel in front of the courier on delivery.
 - Optional on-site installation and training is offered in the Antalya region.

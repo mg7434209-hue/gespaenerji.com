@@ -3,7 +3,7 @@ title: "Frequently Asked Questions — Solar Power, Orders and Installation"
 description: "Answers about solar power plants, batteries, EV solar conversion, ordering, shipping, payment and installation in one place. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/en/sss.html
 lang: en
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -251,7 +251,9 @@ Products sold in our shop, such as panels, batteries, cables and MC4 connectors,
 
 ### What are the shipping cost and delivery time?
 
-Products are shipped by contracted courier to every province of Türkiye. For items whose card says “VAT & shipping included”, shipping is included in the price; for the others it is paid by the buyer and stated exactly at order confirmation.
+Products are shipped by contracted courier to every province of Türkiye. The shipping fee is fixed across Türkiye; it is added to the product price, shown separately in the cart and paid with the order — nothing extra is paid to the courier on delivery. Each product's shipping fee is stated on its own page; for items whose card says “VAT & shipping included”, shipping is included in the price.
+
+Panels ship in pairs: for panels of 460 W and above, 1 pc ₺700, 2 pcs ₺1,000; for panels below 460 W, 1 pc ₺500, 2 pcs ₺750. With 2 or more different products in the cart, 20% is taken off the total shipping fee; shipping is free on orders with a product total of ₺50,000 or more. If you collect your order from our premises in Manavgat, no shipping fee is charged. The bank-transfer discount does not apply to the shipping fee.
 
 Estimated delivery after order confirmation: **2–5** business days.
 

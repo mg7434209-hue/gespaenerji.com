@@ -89,7 +89,7 @@ publisher: "GESPA Enerji"
 - Комплект солнечного кабеля (5 м чёрный + 5 м красный)
 - Комплект коннекторов MC4
 
-Итого за комплект: **₺14.800** · KDV dahil · kargo ₺500
+Итого за комплект: **₺14.800** · НДС включён · доставка ₺500
 
 [Ürün sayfası](https://www.gespaenerji.com/ru/paket-motor-yolcu.html)
 
@@ -102,7 +102,7 @@ publisher: "GESPA Enerji"
 - Комплект солнечного кабеля (5 м чёрный + 5 м красный)
 - Комплект коннекторов MC4
 
-Итого за комплект: **₺17.000** · KDV dahil · kargo ₺700
+Итого за комплект: **₺17.000** · НДС включён · доставка ₺700
 
 [Ürün sayfası](https://www.gespaenerji.com/ru/paket-motor-kargo.html)
 
@@ -115,7 +115,7 @@ publisher: "GESPA Enerji"
 - Комплект солнечного кабеля (5 м чёрный + 5 м красный)
 - Комплект коннекторов MC4
 
-Итого за комплект: **₺16.300** · KDV dahil · kargo ₺700
+Итого за комплект: **₺16.300** · НДС включён · доставка ₺700
 
 [Ürün sayfası](https://www.gespaenerji.com/ru/paket-motor-golf.html)
 
@@ -128,7 +128,7 @@ publisher: "GESPA Enerji"
 - Комплект солнечного кабеля (5 м чёрный + 5 м красный)
 - Комплект коннекторов MC4
 
-Итого за комплект: **₺14.800** · KDV dahil · kargo ₺500
+Итого за комплект: **₺14.800** · НДС включён · доставка ₺500
 
 [Ürün sayfası](https://www.gespaenerji.com/ru/paket-motor-mini.html)
 

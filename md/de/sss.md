@@ -3,7 +3,7 @@ title: "Häufige Fragen — Solarenergie, Bestellung und Montage"
 description: "Antworten zu Solaranlagen, Akkus, Solarumrüstung von E-Fahrzeugen, Bestellung, Versand, Zahlung und Montage an einem Ort. GESPA Energy, Manavgat / Antalya."
 canonical: https://www.gespaenerji.com/de/sss.html
 lang: de
-dateModified: 2026-11-13
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -251,7 +251,9 @@ Shop-Produkte wie Module, Batterien, Kabel und MC4-Stecker kosten dasselbe wie i
 
 ### Wie hoch sind Versandkosten und Lieferzeit?
 
-Die Produkte werden per Vertragsspedition in alle Provinzen der Türkei geliefert. Bei Artikeln mit dem Hinweis „Inkl. MwSt. & Versand“ ist der Versand im Preis enthalten; bei den übrigen trägt der Käufer die Versandkosten, die bei der Bestellbestätigung genau genannt werden.
+Die Produkte werden per Vertragsspedition in alle Provinzen der Türkei geliefert. Die Versandkosten sind türkeiweit fest; sie werden zum Produktpreis addiert, im Warenkorb separat ausgewiesen und mit der Bestellung bezahlt – bei Zustellung ist nichts zusätzlich an den Kurier zu zahlen. Die Versandkosten jedes Produkts stehen auf seiner Seite; bei Artikeln mit dem Hinweis „Inkl. MwSt. & Versand“ ist der Versand im Preis enthalten.
+
+Module werden paarweise versandt: ab 460 W 1 Stück ₺700, 2 Stück ₺1.000; unter 460 W 1 Stück ₺500, 2 Stück ₺750. Bei 2 oder mehr verschiedenen Produkten im Warenkorb gibt es 20 % Rabatt auf die gesamten Versandkosten; ab einem Warenwert von ₺50.000 ist der Versand kostenlos. Bei Abholung in unserem Geschäft in Manavgat fallen keine Versandkosten an. Der Überweisungsrabatt gilt nicht für die Versandkosten.
 
 Voraussichtliche Lieferung nach Bestellbestätigung: **2–5** Werktage.
 

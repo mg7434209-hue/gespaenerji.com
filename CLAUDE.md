@@ -711,6 +711,28 @@ Ayrıntı ve kurallar: @docs/satis-asistani.md
 - Projenin TEK npm bağımlılığı `@anthropic-ai/sdk`'dir (tembel yüklenir);
   başka bağımlılık ekleme.
 
+## Kargo ücreti — sabit, ürüne EKLENİR (24 Kas 2026, işletme kararı)
+"Alıcı ödemeli" KALKTI. Kargo Türkiye geneli sabittir, ürün tutarına eklenir,
+siparişle tahsil edilir.
+- TEK KAYNAK `config.commerce.shipping` (sınıf ücretleri, `freeOverTL` 50.000,
+  `multiDiscountPct` 20, `pickup`) + config.js sonundaki `GESPA.shipCalc`.
+  Sepet (main.js), sunucu (`/api/pay/checkout`: tahsil edilen tutar + iyzico
+  "Kargo ücreti" kalemi) ve build.js (`shipFee`: ürün satırı, Product şeması
+  `shippingRate`, urunler.xml `g:shipping`, llms) AYNI işlevi çağırır. Kuralı
+  başka yerde yeniden yazma.
+- Her ürün `ship` sınıfı taşır (test denetler). Paneller çift gider
+  (`pair`/`single`), küçük ürünlerde 1–5 adet tek ücret (`per`/`fee`).
+  `freeShipping: true` ürün hesaba girmez.
+- Sepet: 2+ farklı üründe kargoya %20 indirim, liste toplamı eşiği geçince
+  ücretsiz, "İşyerinden teslim"de kargo yok. Havale indirimi kargoya uygulanmaz.
+- Ürün sayfasında `<!-- SHIPROW -->` satırı "Kargo ₺X · Ürün + kargo ₺Y" yazar;
+  tutarlar ayrı `<b>` düğümündedir ki etiketler DICT'ten çevrilsin.
+- ELLE YAZILI RAKAMLAR: online-satis.html SSS'i, iade-teslimat.html ve
+  mesafeli-satis-sozlesmesi.html kargo tutarlarını metin olarak taşır; config
+  değişirse bu üç sayfayı ve SSS'in DICT satırlarını da güncelle.
+- VARSAYIM (işletme teyit edecek): `istasyon` sınıfı (Lexron 1200 W) ₺400;
+  motor paketleri içindeki panelin sınıfıyla ücretlenir.
+
 ## Railway: CRON YASAK (27 Eki 2026)
 Railway servisine panelden "Cron Schedule" (Daily 0 0 * * *) eklenmişti:
 servis cron moduna geçti, ağ açılmadı ("Network: Not started"), site

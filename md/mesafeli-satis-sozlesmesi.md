@@ -3,7 +3,7 @@ title: "Mesafeli Satış Sözleşmesi | GESPA Enerji"
 description: "GESPA Enerji mesafeli satış sözleşmesi: taraflar, ürün ve bedel, ödeme, teslimat, 14 gün cayma hakkı, garanti ve uyuşmazlık çözümü."
 canonical: https://www.gespaenerji.com/mesafeli-satis-sozlesmesi.html
 lang: tr
-dateModified: 2026-11-10
+dateModified: 2026-11-23
 publisher: "GESPA Enerji"
 ---
 
@@ -65,7 +65,7 @@ Alıcı, işbu sözleşmenin kurulmasından önce; Satıcının unvanı ve ileti
 
 Ürünün türü, modeli, adedi, satış bedeli ve varsa kurulum kapsamı, sipariş sırasında Alıcıya gösterilen sipariş özetinde ve sipariş onayında yer alır. İnternet sitesinde ilan edilen fiyatlar satış fiyatıdır; ilan edilen fiyatlar ve vaatler güncelleme yapılana ve değiştirilene kadar geçerlidir. Süreli olarak ilan edilen fiyatlar belirtilen süre sonuna kadar geçerlidir.
 
-Aksi belirtilmedikçe fiyatlara **KDV dâhildir**, **kargo bedeli hariçtir**. Kargo bedeli sipariş özetinde ayrıca gösterilir.
+Aksi belirtilmedikçe fiyatlara **KDV dâhildir**. **Kargo ücreti** Türkiye genelinde sabittir; ürün fiyatına eklenir, sipariş özetinde ayrıca gösterilir ve sipariş bedeliyle birlikte ödenir. Teslimatta kargo firmasına ayrıca ödeme yapılmaz. Her ürünün kargo ücreti ürün sayfasında yazılıdır; sayfasında kargonun fiyata dâhil olduğu belirtilen ürünlerde kargo ücreti alınmaz. Sepette 2 veya daha fazla farklı ürün varsa toplam kargo ücretine %20 indirim uygulanır; ürün toplamı ₺50.000 ve üzeri olan siparişlerde ve Satıcının Manavgat'taki işyerinden teslim alınan siparişlerde kargo ücreti alınmaz. Havale/EFT indirimi kargo ücretine uygulanmaz. Ayrıntılar [Teslimat ve İade Koşulları](https://www.gespaenerji.com/iade-teslimat.html#kargo) sayfasındadır.
 
 Ürün sayfalarında ikinci para birimi (ör. "≈ $") yalnızca bilgi amaçlı yaklaşık karşılıktır; satış bedeli Türk Lirası üzerinden geçerlidir.
 
