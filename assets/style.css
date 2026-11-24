@@ -3006,3 +3006,61 @@ line.u-mark.u-bad{stroke:var(--u-bad)}
 @media(max-width:999.98px){.usta-app-on .usta-top .crumbs,.usta-app-on .usta-top .lead{display:none}.usta-app-on .usta-top{padding:10px 0 6px}.usta-app-on .usta-top h1{font-size:1.08rem;margin:0}.usta-app-on .usta-bar{margin-bottom:8px}}
 body:has(main[data-usta]) .mobile-cta{display:none !important}
 body:has(main[data-usta]){padding-bottom:0 !important}
+
+/* ---- Solar Usta Cep Kartı (usta-cep-karti.html): kâğıt önizlemesi + yazdırmada tam 2 A4 ----
+   Kart her temada AÇIK renklidir (kâğıt); tema değişkenleri .kc içinde sabitlenir ki SVG yazıları koyu temada kaybolmasın. */
+.usta-side-act{display:flex;flex-wrap:wrap;gap:8px;margin:12px 6px 4px;padding-top:10px;border-top:1px solid var(--line)}
+.usta-side-act a{flex:1 1 auto;display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:6px 10px;border:1px solid var(--line);border-radius:10px;background:var(--bg-alt);color:var(--ink);font-weight:700;font-size:.86rem;text-decoration:none}
+.kc-act{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 0}
+.usta.kc,[data-theme="dark"] .usta.kc{--ink:#13211c;--muted:#4f5d57;--bg:#fff;--bg-alt:#f2f5fa;--card:#fff;--line:#c5cedb;--green:#1f2f78;--u-ok:#0f7a4a;--u-bad:#c0392b;--u-warn:#8a5a00;--u-cu:#c8792f;--u-cu-dim:#e6c3a0;--u-pv:#27408f;--u-bat:#3b7d5c}
+.kc-sec{padding-top:10px}
+.kc-page{background:#fff;color:#13211c;border:1px solid #c5cedb;border-radius:6px;box-shadow:var(--shadow);max-width:840px;margin:0 auto 22px;padding:22px 24px;font-size:.74rem;line-height:1.34}
+.kc-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 12px;border-bottom:2px solid #1f2f78;padding-bottom:4px;margin-bottom:8px}
+.usta .kc-head h2{font-size:1.1rem;margin:0;padding:0;border:0;color:#1f2f78}
+.kc-head h2 small{font-weight:500;color:#4f5d57;font-size:.72rem}
+.usta .kc-head p{margin:0;font-size:.68rem;color:#4f5d57}
+.kc-cols{column-count:2;column-gap:18px}
+.usta .kc-page h3{font-size:.8rem;line-height:1.3;margin:0 0 4px;padding:2px 6px;background:#1f2f78;color:#fff;border-radius:3px;break-after:avoid}
+.kc-page h3 small{font-weight:500;font-size:.66rem;opacity:.9}
+.kc-g{margin-bottom:6px}
+.kc-f{break-inside:avoid;margin:0 0 4px;padding-bottom:3px;border-bottom:1px dotted #c5cedb}
+.usta .kc-f p{margin:0;overflow-wrap:anywhere}
+.kc-fn{font-weight:800;color:#1f2f78}
+.kc-ff{font-weight:600}
+.kc-fe{color:#4f5d57}
+.kc-dia{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px 14px;align-items:end}
+.kc .usta-svg{margin:0;max-width:none}
+.kc-tabs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr) minmax(0,1.7fr);gap:14px;margin-top:8px}
+.kc-t{width:100%;border-collapse:collapse;font-size:.7rem;margin:0 0 8px}
+.kc-t th,.kc-t td{border:1px solid #c5cedb;padding:1px 5px;text-align:left}
+.kc-t th{background:#f2f5fa}
+.usta .kc-note{margin:0;font-size:.66rem;color:#4f5d57}
+.usta .kc-chk ul{list-style:none;padding:0;margin:0}
+.usta .kc-chk li{display:flex;gap:6px;margin:0 0 3px;line-height:1.3}
+.kc-box{flex:0 0 11px;height:11px;margin-top:2px;border:1.4px solid #13211c;border-radius:2px}
+.usta .kc-foot{margin:8px 0 0;padding-top:5px;border-top:1px solid #c5cedb;font-size:.64rem;line-height:1.35;color:#4f5d57}
+@media(max-width:700px){.kc-page{padding:14px}.kc-cols{column-count:1}.kc-dia{grid-template-columns:repeat(2,minmax(0,1fr))}.kc-tabs{grid-template-columns:minmax(0,1fr)}}
+@page kc{size:A4 portrait;margin:9mm}
+@media print{
+  main[data-usta-card] .usta-top,main[data-usta-card] .kc-below{display:none !important}
+  main[data-usta-card] .section,main[data-usta-card] .container{padding:0;margin:0;max-width:none}
+  .kc-page{page:kc;border:0;border-radius:0;box-shadow:none;max-width:none;margin:0;padding:0;font-size:7.05pt;break-after:page;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .kc-page:last-child{break-after:auto}
+  .kc-cols{column-count:2}.kc-dia{grid-template-columns:repeat(3,minmax(0,1fr))}.kc-tabs{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr) minmax(0,1.7fr)}
+  .kc .usta-svg .u-t{fill:#13211c}
+}
+/* ---- Usta ve toplu alım kaydı (usta-kaydi.html) ---- */
+.uk-form{max-width:720px}
+.usta .field input.is-bad{border-color:var(--u-bad);box-shadow:0 0 0 3px color-mix(in srgb,var(--u-bad) 18%,transparent)}
+.uk-set{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 12px;padding:10px 12px;border:1px solid var(--line);border-radius:12px}
+.uk-set legend{padding:0 6px;font-weight:600;font-size:.86rem}
+.uk-set label{display:inline-flex;align-items:center;gap:8px;min-height:40px;font-size:.95rem;cursor:pointer}
+.uk-set input{width:20px;height:20px;accent-color:var(--green)}
+.usta .uk-go{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0 0}
+.usta .uk-wa-fb{display:none}
+.usta .uk-wa-fb.on{display:inline-flex}
+.uk-form .usta-msg:empty{display:none}
+.uk-done{display:none;max-width:720px}
+.uk-sent .uk-done{display:block}
+.uk-sent .uk-form{display:none}
+.usta .uk-done h2{border:0;padding:0;margin:0 0 8px}

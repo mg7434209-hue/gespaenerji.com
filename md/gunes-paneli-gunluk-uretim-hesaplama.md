@@ -59,7 +59,7 @@ Yıllık üretim, tasarruf ve geri ödeme için bölge verimini kullanan [tasarr
 
 **İlgili:** [Yıllık üretim ve tasarruf hesaplayıcı](https://www.gespaenerji.com/hesaplayici.html) · [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) · [Cihaz listesinden sistem](https://www.gespaenerji.com/elektrikci-cantasi.html#yuk-listesi) · [kWp nedir?](https://www.gespaenerji.com/sozluk.html#kwp)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 **Kısa cevap:** Tasarım günü tahmini: kWh/gün = kWp × güneş saati × sistem verimi. 550 W'lık tek panel (0,55 kWp), 4,5 güneş saati ve 0,75 sistem verimiyle yaklaşık 1,86 kWh/gün üretir; bu, 100 W'lık bir yükü 18,6 saat çalıştıracak enerjidir.
 

@@ -41,7 +41,7 @@ AWG 10: çap = 0,127 × 92(36 − 10) ÷ 39 = 2,588 mm · kesit = π × çap² �
 
 **İlgili:** [Kablo kesiti ve güç kaybı](https://www.gespaenerji.com/elektrikci-cantasi.html#kablo) · [Diğer çeviriciler](https://www.gespaenerji.com/elektrikci-cantasi.html#cevirici) · [Solar kablo takımı](https://www.gespaenerji.com/kablo-solar-5m.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 **Kısa cevap:** AWG numarası n olan dolu telin çapı d = 0,127 × 92^((36 − n) ÷ 39) mm, kesiti π × d² ÷ 4 mm²'dir. Örnek: AWG 10 = 2,588 mm çap = 5,26 mm². Numara küçüldükçe tel kalınlaşır.
 

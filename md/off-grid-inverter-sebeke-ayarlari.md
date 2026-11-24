@@ -39,7 +39,7 @@ Kılavuzda okunamayan ya da kendi içinde çelişen satırlar yayınlanmamışt�
 
 **İlgili:** [Lityum akü ayarı (üç kılavuz)](https://www.gespaenerji.com/off-grid-inverter-lityum-aku-ayarlari.html) · [Şebeke bağlıyken ayarlar](https://www.gespaenerji.com/off-grid-inverter-sebeke-ayarlari.html) · [İnverter hata kodları](https://www.gespaenerji.com/elektrikci-cantasi.html#inverter-kodlari) · [Akü bankası bağlama](https://www.gespaenerji.com/elektrikci-cantasi.html#aku)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 **Önce şunu bilin:** Bu sayfa üç kullanım kılavuzunda yazanları yan yana verir; genel bir ayar önerisi değildir. Aynı adlı ayar iki cihazda farklı davranabilir. Akü şarj gerilimi gibi değerlerde akü üreticisinin değeri esastır. Kılavuzda okunamayan ya da kendi içinde çelişen satırlar yayınlanmamıştır.
 

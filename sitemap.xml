@@ -3804,4 +3804,16 @@
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/off-grid-inverter-sebeke-ayarlari.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/off-grid-inverter-sebeke-ayarlari.html" />
   </url>
+  <url>
+    <loc>https://www.gespaenerji.com/usta-cep-karti.html</loc>
+    <lastmod>2026-11-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/usta-cep-karti.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/usta-cep-karti.html" />
+  </url>
+  <url>
+    <loc>https://www.gespaenerji.com/usta-kaydi.html</loc>
+    <lastmod>2026-11-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.gespaenerji.com/usta-kaydi.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.gespaenerji.com/usta-kaydi.html" />
+  </url>
 </urlset>

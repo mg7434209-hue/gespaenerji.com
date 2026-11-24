@@ -36,7 +36,9 @@ basıldığı ölçülmüyordu.
 
 ## Talepler (lead) — `/api/lead` · `leads.json`
 - Kaynaklar `LEAD_SOURCES`: `hesaplayici` (ad zorunlu), `geri-arama`,
-  `asistan`, `urun` (yalnız telefon ≥10 rakam yeter). `urun` = config ürün
+  `asistan`, `urun` (yalnız telefon ≥10 rakam yeter), `usta` (ad zorunlu; usta-kaydi.html formu: ek alanlar
+  `meslek` ve `ilgi[]` YALNIZ sunucudaki `USTA_MESLEK` / `USTA_ILGI` listelerinden, `firma` serbest metin ≤80;
+  listede olmayan değer saklanmaz). `urun` = config ürün
   kimliği → ürün adı; `not` = sohbet dökümü (en çok son 12 mesaj).
 - Tek kayıt yolu `saveLead()`: dosyaya yazar, `act.lead` sayacını artırır,
   SMTP hazırsa işletmeye e-posta atar. SMTP yoksa talep YALNIZ yönetim
@@ -91,6 +93,6 @@ tanıtan veri hiç gönderilmez. Dört kural birlikte durur, biri kalkarsa
 
 ## İletişim hunisi — `stats.act`
 `/api/ev` `{t:"act", id}` beyaz listesi: `wa`, `tel`, `chat_open`, `nudge`,
-`cb_open`, `ai_ok`, `ai_no` (yapay zekâ onayı verildi / verilmedi). Sunucu ayrıca `chat_msg` ve `lead` sayar. Yönetim panelinde
+`cb_open`, `usta_open` (usta kaydı formuna ilk dokunuş), `ai_ok`, `ai_no` (yapay zekâ onayı verildi / verilmedi). Sunucu ayrıca `chat_msg` ve `lead` sayar. Yönetim panelinde
 "İletişim hunisi" kutuları bunları gösterir. Yeni düğme ölçülecekse beyaz
 listeye ve admin kutularına birlikte ekle.

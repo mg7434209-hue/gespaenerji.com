@@ -793,6 +793,22 @@ YANLIŞ BİR ARIZA ANLAMI YA DA AYAR TEHLİKELİDİR — kurallar:
 - YENİ AİLE / DÜZELTME: aktarım dosyalarıyla `python3 tools/inverter-veri.py <kilavuz.json> <web.json> --uygula` ya da
   doğrudan JSON; sonra tests/seo.test.js'teki aile satır sayıları, betikte `PAGE_OF`/IPAGES ve build.js `INV_PAGES`.
 
+## Cep kartı ve usta kaydı (24 Kas 2026 · `usta-cep-karti.html` · `usta-kaydi.html` · build.js `USTA_EXTRA`)
+İkisini de `tools/usta-sayfalar.py` üretir (elle düzenlenmez), yalnız TR.
+- CEP KARTI: yazdırmada TAM 2 A4 (ön = formüller, arka = şemalar + tablolar + kontrol listesi). Hiçbir şey ikinci kez
+  yazılmaz: formül ve örnek `tool()` çağrılarından (`FORM`), sayılar `examples()`'tan, kontrol listesi `CHK`'den, şemalar
+  usta.js'in araç çizicilerinden (`drawBank`, `drawSun`; sayfa `data-usta-card`) gelir; test formüllerin merkezdekiyle
+  harfi harfine aynı olduğunu denetler. Kart her temada AÇIK renklidir (`.usta.kc` tema değişkenlerini sabitler).
+  SAYFA SAYISI yazı boyuna bağlıdır: `.kc-page` baskı yazı boyu 7,05 pt iken ön yüz 992 px / 1054 px kullanılabilir
+  yükseklik. Araç ya da formül ekleyince Playwright `page.pdf({preferCSSPageSize:true})` ile sayfa sayısını YENİDEN say;
+  3'e çıkarsa yazı boyunu düşür ya da örneği kısalt. `@page kc` adlandırılmış sayfadır (dekontun `@page` kuralını ezmez).
+  Akım taşıma kapasitesi, sigorta değeri, yönetmelik sınırı karta YAZILMAZ. Kayıt/e-posta duvarı YOK.
+- USTA KAYDI: `#ustaForm` → `POST /api/lead` `kaynak:"usta"` (ayrıntı docs/satis-asistani.md). Sayfanın verebileceği TEK
+  söz: "toplu alım fiyat listesi ve stok bilgisi için sizi arayalım". İndirim oranı, bayilik güvencesi, üye sayısı,
+  dönüş süresi YAZILMAZ (test arar). Onay satırı diğer formlarla aynıdır; kvkk.html "iletişim/teklif formları"nı zaten
+  kapsar. Hata olursa aynı bilgilerle WhatsApp'a düşer. Her aracın "Usta / toplu alım" satırı ve merkez kenar çubuğunun
+  altındaki iki düğme buraya ve karta bağlanır; footer'a EKLENMEDİ (her sayfayı yeniden yazardı).
+
 ## Satış motoru — yapay zekâ asistanı, talepler, huni (21 Kas 2026)
 Ayrıntı ve kurallar: @docs/satis-asistani.md
 - Sohbet penceresi `/api/chat` üzerinden yapay zekâ asistanıyla yanıt verir;

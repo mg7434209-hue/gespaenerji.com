@@ -55,7 +55,7 @@ Aküler seri bağlanınca gerilim toplanır, kapasite (Ah) aynı kalır; paralel
 
 **İlgili:** [Batarya boyutlandırma aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [51,2 V 102 Ah LiFePO₄ akü](https://www.gespaenerji.com/aku-titanx-51v-102ah.html) · [Off-grid boyutlandırma rehberi](https://www.gespaenerji.com/off-grid-gunes-sistemi-boyutlandirma.html) · [DoD nedir?](https://www.gespaenerji.com/sozluk.html#dod)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 **Kısa cevap:** Seri bağlamada gerilim toplanır, Ah aynı kalır; paralel bağlamada Ah toplanır, gerilim aynı kalır. 12 V akülerle 24 V için 2, 48 V için 4 akü seri bağlanır. Örnek: 2 seri × 2 paralel 12 V 100 Ah akü = 24 V, 200 Ah, 4,8 kWh.
 

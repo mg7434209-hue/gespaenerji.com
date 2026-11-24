@@ -51,7 +51,7 @@ Bu akım akü ile inverter arasındaki kablodan geçer; kabloyu kısa tutun ve h
 
 **İlgili:** [DC kablo kesiti ve gerilim düşümü](#kablo) · [Akü kaç saat dayanır?](https://www.gespaenerji.com/elektrikci-cantasi.html#aku-sure) · [İnverter boyutlandırma aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [1200 W güç istasyonu](https://www.gespaenerji.com/lexron-guc-istasyonu-1200w.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### DC kablo kesiti, gerilim düşümü ve güç kaybı
 
@@ -95,7 +95,7 @@ Kablo bir dirençtir: üzerinden akım geçtikçe gerilim düşer ve aradaki far
 
 **İlgili:** [DC kablo kesiti aracı (tüm kesitlerin tablosu)](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Solar kablo takımı 5 m + 5 m](https://www.gespaenerji.com/kablo-solar-5m.html) · [MC4 konnektör takımı](https://www.gespaenerji.com/mc4-set.html) · [Kablo ve konnektörler](https://www.gespaenerji.com/online-satis.html?kategori=kablo)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 **Kısa cevap:** Akü akımı = yük gücü ÷ (akü gerilimi × inverter verimi). Örnek: 1.000 W yük, 12 V akü ve %92 verim varsayımıyla 90,58 A. Aynı yük daha yüksek akü geriliminde orantılı olarak daha az akım çeker.
 

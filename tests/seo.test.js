@@ -455,6 +455,32 @@ console.log('Analytics: consent gate, exact AI source attribution and contact pa
   {const h=fs.readFileSync(path.join(root,'off-grid-inverter-sebeke-ayarlari.html'),'utf8');for(const m of INVD.settings)assert.equal(((h.split('<h2 id="prog-'+m.id.toLowerCase()+'">')[1]||'').split('</table>')[0].match(/<tr data-no=/g)||[]).length,m.programs.length,'program table '+m.id+' rendered in full');}
   assert.ok(/gespa-inv-family/.test(fs.readFileSync(path.join(root,'cerez-politikasi.html'),'utf8'))&&/gespa-usta-last/.test(fs.readFileSync(path.join(root,'cerez-politikasi.html'),'utf8')),'browser storage keys are listed in the cookie policy');
   globalThis.__invPages=invPages;}
+ // Pocket card and installer sign-up (generated; numbers come from GESPA.usta.examples, the form posts to /api/lead with source "usta").
+ {const extra=[...fs.readFileSync(path.join(root,'build.js'),'utf8').match(/const USTA_EXTRA = \[([^\]]*)\]/)[1].matchAll(/"([^"]+\.html)"/g)].map(m=>m[1]);assert.deepEqual(extra,['usta-cep-karti.html','usta-kaydi.html']);globalThis.__ustaExtra=extra;
+  const kc=fs.readFileSync(path.join(root,'usta-cep-karti.html'),'utf8'),uk=fs.readFileSync(path.join(root,'usta-kaydi.html'),'utf8'),seen=new Set();
+  for(const [f,h] of [['usta-cep-karti.html',kc],['usta-kaydi.html',uk]]){const url=origin+'/'+f;
+   assert.ok(h.includes('USTA:GEN')&&urls.includes(url)&&h.includes('rel="canonical" href="'+url+'"')&&h.includes('<script defer src="assets/usta.js"></script>'),f+': generated, in sitemap, canonical');
+   const t=(h.match(/<title>([^<]*)<\/title>/)||[])[1],d=(h.match(/<meta name="description" content="([^"]*)"/)||[])[1];assert.ok(t.length<=60&&d.length<=160&&!seen.has(t),f+': title/description');seen.add(t);
+   assert.ok(/<a href="elektrikci-cantasi\.html">Elektrikçi Çantası<\/a> <span>\/<\/span>/.test(h)&&pg.includes('href="'+f+'"'),f+': breadcrumb through the hub and linked from it');
+   const tx=h.replace(/<[^>]+>/g,' ');assert.ok(!/%\s?\d+\s*(?:'?e varan\s*)?indirim|indirim oran|bayilik garanti|garantili (?:fiyat|kazanç)|\d[\d.]*\s*(?:usta|elektrikçi|montajcı|üye)\s*(?:kayıtlı|kullanıyor|aramızda)|\d+\s*saat içinde ar|aynı gün ar|en ucuz|en düşük fiyat garanti/i.test(tx),f+': no invented discounts, guarantees, member counts or response-time promises');
+   const fq=(h.match(/<button class="faq-q"/g)||[]).length,ld=[...h.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1]));
+   assert.ok(fq===3&&(ld.find(x=>x['@type']==='FAQPage')||{mainEntity:[]}).mainEntity.length===3&&ld.some(x=>x['@type']==='BreadcrumbList'),f+': FAQ + schemas');
+   for(const d2 of ['en','de','ru'])assert.ok(!fs.existsSync(path.join(root,d2,f)),d2+'/'+f+': TR-only');}
+  const tg=[...kc.matchAll(/<data data-ex="([^"]+)" value="([^"]*)">([^<]*)<\/data>/g)];assert.equal(tg.length,(kc.match(/data-ex=/g)||[]).length,'card: example tag form');assert.ok(tg.length>=250,'card carries the worked examples');
+  for(const m of tg){assert.ok(m[1] in EX,'card: unknown example key '+m[1]);assert.equal(m[3],EX[m[1]],'card number '+m[1]+' matches GESPA.usta.examples');}
+  const formulas=[...pg.matchAll(/<p class="usta-formula"><strong>Formül:<\/strong> ([\s\S]*?)<\/p>/g)].map(m=>m[1]),cardF=[...kc.matchAll(/<p class="kc-ff">([\s\S]*?)<\/p>/g)].map(m=>m[1]);
+  assert.equal(cardF.length,formulas.length,'card lists every tool formula');for(const x of formulas)assert.ok(cardF.includes(x),'card formula is the tool formula verbatim: '+x.slice(0,50));
+  assert.equal((kc.match(/<div class="kc-page"/g)||[]).length,2,'two sheets (front, back)');assert.equal((kc.match(/class="kc-box"/g)||[]).length,(pg.match(/data-chk="/g)||[]).length,'card checklist = tool checklist');
+  for(const id of ['kcSeri','kcPar','kcB0','kcB1','kcBP','ugSvg'])assert.ok(kc.includes('id="'+id+'"'),'card diagram slot '+id);
+  assert.ok((kc.match(/tanımdan hesaplanmıştır/g)||[]).length>=3&&/Değerler yaklaşıktır; tasarım ve kurulum yetkili kişi tarafından yapılır/.test(kc)&&/Üretim: <time datetime="\d{4}-\d\d-\d\d">/.test(kc)&&/data-usta-print/.test(kc),'card: computed-table labels, safety footer, generation date, print button');
+  assert.ok(!/<form|type="email"|e-posta adresiniz/i.test((kc.split('<main')[1]||'').split('</main>')[0])&&!/https?:\/\/(?!www\.gespaenerji\.com|wa\.me)/.test((kc.split('<main')[1]||'').split('</main>')[0]),'card: no gate, no external assets');
+  const css=fs.readFileSync(path.join(root,'assets/style.css'),'utf8');assert.ok(/@page kc\{size:A4 portrait/.test(css)&&/\.kc-page\{page:kc;[^}]*break-after:page/.test(css),'card print rules: A4, one sheet per page');
+  for(const n of ['ad','tel','ilce','meslek','firma','ilgi','not','website','kvkkOnay'])assert.ok(new RegExp('name="'+n+'"').test(uk),'sign-up field '+n);
+  assert.equal((uk.match(/name="ilgi"/g)||[]).length,6,'six product interests');assert.equal((uk.match(/<option value="/g)||[]).length,5,'five professions');
+  assert.ok(uk.includes('<a href="/kvkk.html" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a>')&&/toplu alım fiyat listesi ve stok bilgisi için sizi arayalım/.test(uk)&&uk.includes('href="usta-cep-karti.html"'),'sign-up: consent line, the only promise, link to the card');
+  const srv=fs.readFileSync(path.join(root,'server.js'),'utf8');for(const k of [...uk.matchAll(/<option value="([^"]+)"/g)].map(m=>m[1]).concat([...uk.matchAll(/name="ilgi" value="([^"]+)"/g)].map(m=>m[1])))assert.ok(new RegExp('"'+k+'": "').test(srv),'server accepts form value '+k);
+  assert.ok(/kaynak: "usta"/.test(ustaSrc)&&/usta_open/.test(ustaSrc)&&/usta_open\)\$/.test(srv)&&/usta_open/.test(fs.readFileSync(path.join(root,'admin.html'),'utf8')),'form posts as source usta; usta_open is tracked, whitelisted and shown in admin');
+  assert.equal((pg.match(/<a class="usta-link" href="usta-kaydi\.html">/g)||[]).length,toolIds.length,'every tool line links to the sign-up page');}
  // Per-tool landing pages (tools/usta-sayfalar.py): same cards and usta.js as the hub, own title/description/H1/text/FAQ, examples tied to GESPA.usta.
  const ustaPages=[...fs.readFileSync(path.join(root,'build.js'),'utf8').match(/const USTA_PAGES = \[([\s\S]*?)\];/)[1].matchAll(/"([^"]+\.html)"/g)].map(m=>m[1]);
  assert.equal(ustaPages.length,20,'landing page count');
@@ -486,7 +512,7 @@ console.log('Analytics: consent gate, exact AI source attribution and contact pa
    assert.ok(!/ampasite|TS HD|IEC 6\d{4}|NEC \d|izin verilen (en yüksek )?gerilim düşümü\s*(sınırı\s*)?%\s*\d/i.test(h),f+': no standards citations');
    assert.ok(pg.includes('href="'+f+'"'),f+': linked from the hub');
    for(const d of ['en','de','ru'])assert.ok(!fs.existsSync(path.join(root,d,f)),d+'/'+f+': TR-only');}
-  for(const f of fs.readdirSync(root).filter(f=>f.endsWith('.html')&&f!=='elektrikci-cantasi.html'&&!ustaPages.includes(f)&&!globalThis.__invPages.includes(f)))assert.ok(!fs.readFileSync(path.join(root,f),'utf8').includes('assets/usta.js'),f+': usta.js is loaded only by the tool pages');}
+  for(const f of fs.readdirSync(root).filter(f=>f.endsWith('.html')&&f!=='elektrikci-cantasi.html'&&!ustaPages.includes(f)&&!globalThis.__invPages.includes(f)&&!globalThis.__ustaExtra.includes(f)))assert.ok(!fs.readFileSync(path.join(root,f),'utf8').includes('assets/usta.js'),f+': usta.js is loaded only by the tool pages');}
  for(const d of ['en','de','ru'])assert.ok(!fs.readFileSync(path.join(root,d,'hesaplayici.html'),'utf8').includes('elektrikci-cantasi')&&!fs.existsSync(path.join(root,d,'elektrikci-cantasi.html')),d+': TR-only tool page not linked or generated');
  assert.ok(fs.readFileSync(path.join(root,'hesaplayici.html'),'utf8').includes('<a href="elektrikci-cantasi.html">')&&fs.readFileSync(path.join(root,'rehberler.html'),'utf8').includes('href="elektrikci-cantasi.html"')&&/<section class="section" id="rehberler">[\s\S]*?href="elektrikci-cantasi\.html"[\s\S]*?<\/section>\s*<!-- \/TR:ONLY -->/.test(fs.readFileSync(path.join(root,'index.html'),'utf8')),'tool page linked from calculator, guide hub and home (TR only)');
  {const fq=[...pg.matchAll(/<button class="faq-q"/g)].length;assert.ok(fq>=12&&fq<=14,'FAQ size');}
@@ -658,6 +684,18 @@ server.stdout.on('data',async d=>{
   const t1=cj.chats.filter(c=>c.sid==='testsid1')[0];assert.ok(t1.riza&&!/0532|ali@ornek|12345678901/.test(JSON.stringify(t1.msgs)),'stored transcript is masked and records the consent time');
   const stj2=await (await fetch(B+'/api/stats',{method:'POST',body:JSON.stringify({pass:ADMIN_TEST_PASS})})).json();
   assert.ok(stj2.days[stj2.today].act.lead===2&&stj2.days[stj2.today].act.chat_msg===3,'funnel counters');
+  // Installer sign-up (usta-kaydi.html): name + phone required, extra fields come only from the server's lists.
+  {const H={...UA,'X-Forwarded-For':'203.0.113.77'},post=b=>fetch(B+'/api/lead',{method:'POST',headers:H,body:JSON.stringify(b)});
+   const noName=await post({kaynak:'usta',tel:'0532 111 22 33',ms:5000});assert.equal(noName.status,400,'usta lead needs a name');await noName.text();
+   const badTel=await post({kaynak:'usta',ad:'Ali Usta',tel:'12345',ms:5000});assert.equal(badTel.status,400,'usta lead rejects a bad phone');await badTel.text();
+   const fast=await post({kaynak:'usta',ad:'Ali Usta',tel:'0532 111 22 33',ms:500});assert.equal(fast.status,400,'three-second rule still applies');await fast.text();
+   const bot=await post({kaynak:'usta',ad:'Bot',tel:'0532 111 22 33',website:'http://spam',ms:5000});assert.equal(bot.status,200);await bot.text();
+   const ok=await post({kaynak:'usta',ad:'Ali  Usta',tel:'0532 111 22 33',ilce:'Antalya / Manavgat',meslek:'montajci',firma:'Örnek Elektrik\nLtd',ilgi:['panel','aku','<script>','panel','sarj-kontrol'],not:'Aylık 20 panel',path:'/usta-kaydi.html',ms:5000,ekstra:'x'});assert.equal(ok.status,200,'usta lead accepted');await ok.text();
+   const lu=(await (await fetch(B+'/api/leads',{method:'POST',body:JSON.stringify({pass:ADMIN_TEST_PASS})})).json()).leads;assert.equal(lu.length,3,'honeypot submission is not stored; the real one is');
+   const u=lu[0];assert.equal(u.src,'Usta / toplu alım');assert.equal(u.ad,'Ali Usta');assert.equal(u.meslek,'Güneş enerjisi montajcısı');assert.equal(u.firma,'Örnek Elektrik Ltd');
+   assert.deepEqual(u.ilgi,['Panel','Akü','Şarj kontrol'],'interests: listed values only, no duplicates');assert.equal(u.ilce,'Antalya / Manavgat');assert.equal(u.wa,'905321112233');assert.ok(!('ekstra' in u)&&u.not==='Aylık 20 panel','no unlisted field is stored');
+   const ev=await fetch(B+'/api/ev',{method:'POST',headers:UA,body:JSON.stringify({t:'act',id:'usta_open'})});await ev.text();
+   const st=await (await fetch(B+'/api/stats',{method:'POST',body:JSON.stringify({pass:ADMIN_TEST_PASS})})).json();assert.ok(Object.values(st.days).some(d=>d.act&&d.act.usta_open>=1),'usta_open act event is counted');}
   for(const u of ['/data/leads.json','/data/chats.json'])assert.equal((await fetch(B+u)).status,404,u+' not public');
   assert.ok(ex2.stats&&ex2.stats.days[stj.today]&&ex2.stats.days[stj.today].v===1,'stats travel with the visitor counter on redeploy handoff');
   // Payment receipt token: the receipt opens WITHOUT a server-side order record (Railway without a

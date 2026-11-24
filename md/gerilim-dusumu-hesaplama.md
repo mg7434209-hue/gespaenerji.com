@@ -65,7 +65,7 @@ Alternatif akım hattında gerilim düşümü tek fazda ΔV = 2 × I × L × ρ 
 
 **İlgili:** [DC kablo kesiti ve güç kaybı](#kablo) · [Yükten akım hesabı](https://www.gespaenerji.com/elektrikci-cantasi.html#akim) · [İnverter boyutlandırma aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Çatı GES hizmeti](https://www.gespaenerji.com/cati-ges.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### DC kablo kesiti, gerilim düşümü ve güç kaybı
 
@@ -109,7 +109,7 @@ Kablo bir dirençtir: üzerinden akım geçtikçe gerilim düşer ve aradaki far
 
 **İlgili:** [DC kablo kesiti aracı (tüm kesitlerin tablosu)](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Solar kablo takımı 5 m + 5 m](https://www.gespaenerji.com/kablo-solar-5m.html) · [MC4 konnektör takımı](https://www.gespaenerji.com/mc4-set.html) · [Kablo ve konnektörler](https://www.gespaenerji.com/online-satis.html?kategori=kablo)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 **Kısa cevap:** Tek fazda ΔV = 2 × I × L × ρ × cosφ ÷ S, üç fazda ΔV = √3 × I × L × ρ × cosφ ÷ S. Örnek: 16 A, 25 m, 2,5 mm² bakır ve cosφ 0,9 için tek fazda 5,04 V (%2,19), üç fazda 4,36 V (%1,09) düşüm oluşur.
 

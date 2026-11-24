@@ -49,7 +49,7 @@ Hesap yalnız öğle vakti ve tam güney yönü içindir; sabah ve akşam gölge
 
 **İlgili:** [Sıra aralığı ve gölgelenme aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Eğim açısı ve güneş yüksekliği](#egim) · [Gölgelenme nedir?](https://www.gespaenerji.com/sozluk.html#golgelenme) · [Çatı GES keşfi](https://www.gespaenerji.com/cati-ges.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Panel eğim açısı ve öğle güneşi yüksekliği
 
@@ -93,7 +93,7 @@ Güneşin öğle vakti ufuktan yüksekliği enleme ve mevsime bağlıdır: yüks
 
 **İlgili:** [Sıra aralığı ve gölgelenme aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Panel yerleşim planlayıcı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Gölgelenme nedir?](https://www.gespaenerji.com/sozluk.html#golgelenme) · [Güneş panelleri](https://www.gespaenerji.com/online-satis.html?kategori=panel)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 **Kısa cevap:** Gölge uzunluğu = engel yüksekliği ÷ tan(öğle güneş yüksekliği). 37° enleminde 1 m yüksekliğindeki engelin öğle gölgesi kış gündönümünde 1,76 m, ekinoksta 0,75 m, yaz gündönümünde 0,24 m'dir.
 

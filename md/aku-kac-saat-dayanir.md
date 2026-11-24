@@ -61,7 +61,7 @@ Açılıştaki DoD ve verim, [Sistem Kurucu](https://www.gespaenerji.com/sistem-
 
 **İlgili:** [Akü bankası bağlama](https://www.gespaenerji.com/elektrikci-cantasi.html#aku) · [Batarya boyutlandırma aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [51,2 V 102 Ah LiFePO₄ akü](https://www.gespaenerji.com/aku-titanx-51v-102ah.html) · [DoD nedir?](https://www.gespaenerji.com/sozluk.html#dod)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### C oranı: akü şarj ve deşarj akımı
 
@@ -95,7 +95,7 @@ C oranı, akımı akü kapasitesine oranlar: I = C × Ah. 1C, aküyü bir saatte
 
 **İlgili:** [Akü kaç saat dayanır?](#aku-sure) · [Akü bankası bağlama](https://www.gespaenerji.com/elektrikci-cantasi.html#aku) · [51,2 V 102 Ah LiFePO₄ akü](https://www.gespaenerji.com/aku-titanx-51v-102ah.html) · [BMS nedir?](https://www.gespaenerji.com/sozluk.html#bms)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 **Kısa cevap:** Süre (saat) = akü gerilimi × Ah × DoD × inverter verimi ÷ yük gücü. Örnek: 12 V 100 Ah akü, DoD 0,9, verim 0,92 ve 200 W yük için kullanılabilir enerji 993,6 Wh, süre 4,97 saattir.
 

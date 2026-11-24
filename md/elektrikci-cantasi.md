@@ -61,7 +61,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Solar Kablo Kesiti](ht
 
 **İlgili:** [DC kablo kesiti aracı (tüm kesitlerin tablosu)](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Solar kablo takımı 5 m + 5 m](https://www.gespaenerji.com/kablo-solar-5m.html) · [MC4 konnektör takımı](https://www.gespaenerji.com/mc4-set.html) · [Kablo ve konnektörler](https://www.gespaenerji.com/online-satis.html?kategori=kablo)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### AC kablo gerilim düşümü: tek faz ve üç faz
 
@@ -115,7 +115,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Gerilim Düşümü Hes
 
 **İlgili:** [DC kablo kesiti ve güç kaybı](#kablo) · [Yükten akım hesabı](#akim) · [İnverter boyutlandırma aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Çatı GES hizmeti](https://www.gespaenerji.com/cati-ges.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Akım hesabı: güçten akıma (DC, tek faz, üç faz) ve kW–kVA
 
@@ -167,7 +167,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [kW Amper Hesaplama](ht
 
 **İlgili:** [AC kablo gerilim düşümü](#ac-kablo) · [Ohm kanunu](#ohm) · [Watt ↔ Amper çevirici](#cevirici) · [Solar sulama pompası seçimi](https://www.gespaenerji.com/solar-sulama-pompasi-secimi.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### HP → kW → amper: motor akımı
 
@@ -215,7 +215,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [kW Amper Hesaplama](ht
 
 **İlgili:** [Güçten akım hesabı](#akim) · [AC gerilim düşümü](#ac-kablo) · [Solar sulama pompası seçimi](https://www.gespaenerji.com/solar-sulama-pompasi-secimi.html) · [Pompa ve panel gücü aracı](https://www.gespaenerji.com/tarimsal-sulama.html#pompa-secimi)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Ohm kanunu ve güç hesaplayıcı
 
@@ -261,7 +261,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Ohm Kanunu Hesaplama](
 
 **İlgili:** [Akım hesabı](#akim) · [Kablo kesiti ve güç kaybı](#kablo) · [Hızlı çeviriciler](#cevirici) · [GES Sözlüğü](https://www.gespaenerji.com/sozluk.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Sigorta–kablo uyum kontrolü (Ib ≤ In ≤ Iz)
 
@@ -301,7 +301,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Kablo Kesiti Hesaplama
 
 **İlgili:** [Güçten akım hesabı (Ib)](#akim) · [AC gerilim düşümü](#ac-kablo) · [DC kablo kesiti](#kablo) · [Dizi sigortası kontrolü](#sigorta)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ## ☀️ Güneş ve konum
 
@@ -351,7 +351,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Güneş Paneli Açıs�
 
 **İlgili:** [Sıra aralığı ve gölgelenme aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Panel yerleşim planlayıcı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Gölgelenme nedir?](https://www.gespaenerji.com/sozluk.html#golgelenme) · [Güneş panelleri](https://www.gespaenerji.com/online-satis.html?kategori=panel)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Engel gölge uzunluğu
 
@@ -389,7 +389,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Gölge Uzunluğu Hesap
 
 **İlgili:** [Sıra aralığı ve gölgelenme aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Eğim açısı ve güneş yüksekliği](#egim) · [Gölgelenme nedir?](https://www.gespaenerji.com/sozluk.html#golgelenme) · [Çatı GES keşfi](https://www.gespaenerji.com/cati-ges.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Çatı eğimi çevirici: derece, yüzde ve oran
 
@@ -425,7 +425,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Çatı Eğimi Hesaplam
 
 **İlgili:** [Panel eğim açısı](#egim) · [Panel yerleşim planlayıcı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Çatı GES hizmeti](https://www.gespaenerji.com/cati-ges.html) · [Tasarruf hesaplayıcı](https://www.gespaenerji.com/hesaplayici.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Panel günde kaç kWh üretir? (tasarım günü tahmini)
 
@@ -473,7 +473,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Panel Günlük Üretim
 
 **İlgili:** [Yıllık üretim ve tasarruf hesaplayıcı](https://www.gespaenerji.com/hesaplayici.html) · [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) · [Cihaz listesinden sistem](#yuk-listesi) · [kWp nedir?](https://www.gespaenerji.com/sozluk.html#kwp)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Sıcaklıkta panel gücü
 
@@ -533,7 +533,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Panel Sıcaklık Güç
 
 **İlgili:** [Dizi hesabı (soğukta Voc)](#dizi) · [Günlük üretim tahmini](#gunluk-uretim) · [Güneş panelleri](https://www.gespaenerji.com/online-satis.html?kategori=panel) · [STC nedir?](https://www.gespaenerji.com/sozluk.html#stc)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ## 🔗 Dizi ve bağlantı
 
@@ -605,7 +605,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Panel Seri–Paralel B
 
 **İlgili:** [PWM mi MPPT mi? Cihaz seçim rehberi](https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html) · [Şarj kontrol cihazları](https://www.gespaenerji.com/online-satis.html?kategori=sarj-kontrol) · [150 V girişli 60 A MPPT](https://www.gespaenerji.com/havensis-mppt-60a-150v.html) · [Voc ve Isc nedir?](https://www.gespaenerji.com/sozluk.html#voc-isc)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Seri–paralel panel bağlantı şeması
 
@@ -647,7 +647,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Panel Seri–Paralel B
 
 **İlgili:** [MC4 konnektör takımı](https://www.gespaenerji.com/mc4-set.html) · [Solar kablo takımı](https://www.gespaenerji.com/kablo-solar-5m.html) · [Dizi (string) nedir?](https://www.gespaenerji.com/sozluk.html#dizi) · [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Dizi sigortası gerekir mi?
 
@@ -689,7 +689,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Panel Seri–Paralel B
 
 **İlgili:** [Seri–paralel şema](#seri-paralel) · [MC4 konnektör takımı](https://www.gespaenerji.com/mc4-set.html) · [Isc nedir?](https://www.gespaenerji.com/sozluk.html#voc-isc) · [Toptan satış](https://www.gespaenerji.com/toptan.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ## 🔋 Akü
 
@@ -737,7 +737,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Akü Seri–Paralel Ba
 
 **İlgili:** [Batarya boyutlandırma aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [51,2 V 102 Ah LiFePO₄ akü](https://www.gespaenerji.com/aku-titanx-51v-102ah.html) · [Off-grid boyutlandırma rehberi](https://www.gespaenerji.com/off-grid-gunes-sistemi-boyutlandirma.html) · [DoD nedir?](https://www.gespaenerji.com/sozluk.html#dod)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Akü kaç saat dayanır?
 
@@ -787,7 +787,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Akü Kaç Saat Dayanı
 
 **İlgili:** [Akü bankası bağlama](#aku) · [Batarya boyutlandırma aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [51,2 V 102 Ah LiFePO₄ akü](https://www.gespaenerji.com/aku-titanx-51v-102ah.html) · [DoD nedir?](https://www.gespaenerji.com/sozluk.html#dod)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Panel aküyü kaç saatte doldurur?
 
@@ -829,7 +829,7 @@ Formül, örnek ve sınırlar
 
 **İlgili:** [Şarj kontrol cihazı akımı](#sarj-kontrol) · [Günlük üretim tahmini](#gunluk-uretim) · [Güneş panelleri](https://www.gespaenerji.com/online-satis.html?kategori=panel) · [Off-grid boyutlandırma rehberi](https://www.gespaenerji.com/off-grid-gunes-sistemi-boyutlandirma.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### C oranı: akü şarj ve deşarj akımı
 
@@ -865,7 +865,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Akü Kaç Saat Dayanı
 
 **İlgili:** [Akü kaç saat dayanır?](#aku-sure) · [Akü bankası bağlama](#aku) · [51,2 V 102 Ah LiFePO₄ akü](https://www.gespaenerji.com/aku-titanx-51v-102ah.html) · [BMS nedir?](https://www.gespaenerji.com/sozluk.html#bms)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ## 🎛️ Cihaz seçimi
 
@@ -936,7 +936,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Cihaz Elektrik Tüketi
 
 **İlgili:** [Sistem Kurucu (tam sihirbaz)](https://www.gespaenerji.com/sistem-kur.html) · [Off-grid boyutlandırma rehberi](https://www.gespaenerji.com/off-grid-gunes-sistemi-boyutlandirma.html) · [Akü kaç saat dayanır?](#aku-sure) · [Solar sulama pompası seçimi](https://www.gespaenerji.com/tarimsal-sulama.html#pompa-secimi)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Şarj kontrol cihazı kaç amper olmalı?
 
@@ -972,7 +972,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [MPPT Kaç Amper Olmal�
 
 **İlgili:** [PWM mi MPPT mi? Seçim rehberi](https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html) · [Şarj kontrol cihazları](https://www.gespaenerji.com/online-satis.html?kategori=sarj-kontrol) · [Lexron 40 A MPPT](https://www.gespaenerji.com/lexron-mppt-40a.html) · [Havensis 60 A MPPT](https://www.gespaenerji.com/havensis-mppt-60a.html) · [150 V girişli 60 A MPPT](https://www.gespaenerji.com/havensis-mppt-60a-150v.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### İnverter aküden kaç amper çeker?
 
@@ -1012,7 +1012,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [İnvertör Akü Akım�
 
 **İlgili:** [DC kablo kesiti ve gerilim düşümü](#kablo) · [Akü kaç saat dayanır?](#aku-sure) · [İnverter boyutlandırma aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [1200 W güç istasyonu](https://www.gespaenerji.com/lexron-guc-istasyonu-1200w.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Cihaz kaç kWh harcar, kaç TL yakar?
 
@@ -1056,7 +1056,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Cihaz Elektrik Tüketi
 
 **İlgili:** [Cihaz listesinden sistem](#yuk-listesi) · [Faturadan GES tasarruf hesabı](https://www.gespaenerji.com/hesaplayici.html) · [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) · [Panel günde kaç kWh üretir?](#gunluk-uretim)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ## 🧰 İnverter
 
@@ -1094,7 +1094,7 @@ Kod tablolarının ve ayarların tamamı: [İnverter Hata Kodları](https://www.
 
 **İlgili:** [İnverter hata kodları (tüm tablolar)](https://www.gespaenerji.com/inverter-hata-kodlari.html) · [Off-grid inverter ayar rehberi](#inverter-ayarlari) · [İnverterin akü akımı](#inverter-aku-akimi) · [İletişim](https://www.gespaenerji.com/iletisim.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Off-grid inverter ayar rehberi
 
@@ -1122,7 +1122,7 @@ Kod tablolarının ve ayarların tamamı: [Off-Grid İnverter Lityum Akü Ayarı
 
 **İlgili:** [Lityum akü ayarı (üç kılavuz)](https://www.gespaenerji.com/off-grid-inverter-lityum-aku-ayarlari.html) · [Şebeke bağlıyken ayarlar](https://www.gespaenerji.com/off-grid-inverter-sebeke-ayarlari.html) · [İnverter hata kodları](#inverter-kodlari) · [Akü bankası bağlama](#aku)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ## 🔁 Çeviriciler
 
@@ -1198,7 +1198,7 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [AWG mm² Çevirme](htt
 
 **İlgili:** [Kablo kesiti ve güç kaybı](#kablo) · [İnverterin akü akımı](#inverter-aku-akimi) · [HP → kW → amper](#hp-kw-amper) · [kWh nedir?](https://www.gespaenerji.com/sozluk.html#kwh)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ## ✅ Kontrol listesi
 
@@ -1229,9 +1229,9 @@ Formül, örnek ve sınırlar
 
 Devreye almadan önce sahada tek tek işaretlenecek 14 pratik kontrol. İşaretler bu cihazda saklanır; liste yazdırılabilir ya da PDF olarak kaydedilebilir. Liste pratik saha alışkanlıklarını toplar; yürürlükteki yönetmeliklerin ve üretici talimatlarının yerine geçmez.
 
-**İlgili:** [MC4 konnektör takımı](https://www.gespaenerji.com/mc4-set.html) · [Solar kablo takımı](https://www.gespaenerji.com/kablo-solar-5m.html) · [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) · [Tüm rehberler](https://www.gespaenerji.com/rehberler.html)
+**İlgili:** [🖨️ Solar Usta Cep Kartı (bu liste + formüller, iki sayfa)](https://www.gespaenerji.com/usta-cep-karti.html) · [MC4 konnektör takımı](https://www.gespaenerji.com/mc4-set.html) · [Solar kablo takımı](https://www.gespaenerji.com/kablo-solar-5m.html) · [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 Bu araçlar hakkında
 

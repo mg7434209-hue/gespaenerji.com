@@ -330,6 +330,10 @@
     ex["ref.ah"] = f(rf2.ah);
     rf2.ahV.forEach(function (vv) { ex["ref.ahV" + vv] = f(vv); ex["ref.ahKwh" + vv] = f(U.ahToWh(rf2.ah, vv) / 1000, 2); });
     rf2.bankV.forEach(function (vv) { ex["ref.bankV" + vv] = f(vv); ex["ref.bankN" + vv] = f(vv / b.v, 2); });
+    ex["ref.kwN"] = String((rf2.kwList || []).length); ex["ref.cos"] = f(cu.cos);
+    (rf2.kwList || []).forEach(function (kw, i) {
+      ex["ref.kwL" + i] = f(kw); ex["ref.kwL" + i + "a1"] = f(U.current("1", kw * 1000, k.acV.one, cu.cos), 1); ex["ref.kwL" + i + "a3"] = f(U.current("3", kw * 1000, k.acV.three, cu.cos), 1);
+    });
     ex["awg.n"] = String(rf2.awgTable.length);
     rf2.awgTable.forEach(function (n, i) {
       ex["awg.t" + i + ".l"] = U.awgLabel(n); ex["awg.t" + i + ".d"] = f(U.awgDia(n, k.awg), 2); ex["awg.t" + i + ".a"] = f(U.awgArea(n, k.awg), 2);
@@ -1336,6 +1340,66 @@
       var io = new root.IntersectionObserver(function (es) { if (es.some(function (e) { return e.isIntersecting; })) { io.disconnect(); sec.__load(); } });
       io.observe(sec);
     });
+  })();
+
+  // ===== Cep kartı (usta-cep-karti.html): şemalar araçlarla AYNI çizicilerden; yazdır düğmesi =====
+  (function () {
+    if (!page.hasAttribute("data-usta-card")) return;
+    var bv = (D.bank || {}).v, tg = (K.ref.bankV || []);
+    drawBank("kcSeri", 3, 1, "pv", "SERİ: gerilim toplanır, akım aynı");
+    drawBank("kcPar", 1, 3, "pv", "PARALEL: akım toplanır, gerilim aynı");
+    tg.forEach(function (v, i) { drawBank("kcB" + i, Math.round(v / bv), 1, "bat", Math.round(v / bv) + " × " + f(bv) + " V seri = " + f(v) + " V"); });
+    drawBank("kcBP", 1, 2, "bat", "2 × " + f(bv) + " V paralel = " + f(bv) + " V, Ah × 2");
+    drawSun(U.sun(K.defLat, K.dec), U.tilts(K.defLat, K.delta));
+    $$("[data-usta-print]", page).forEach(function (b) { b.addEventListener("click", function () { root.print(); }); });
+  })();
+
+  // ===== Usta ve toplu alım kaydı (usta-kaydi.html) → POST /api/lead (kaynak "usta") =====
+  (function () {
+    var form = $("#ustaForm"); if (!form) return;
+    var t0 = Date.now(), opened = false, busy = false, msg = $("#ukMsg"), btn = $("#ukSend");
+    function v(id) { var e = $("#" + id); return e ? String(e.value || "").trim() : ""; }
+    function waText() {
+      var ilgi = $$('input[name="ilgi"]:checked', form).map(function (c) { return c.parentNode.textContent.trim(); });
+      return "Merhaba GESPA, usta / toplu alım kaydı bırakmak istiyorum.\nAd: " + v("ukAd") + "\nİl / ilçe: " + v("ukIl") + "\nMeslek: " + ($("#ukMeslek").selectedOptions[0] || {}).textContent
+        + (v("ukFirma") ? "\nFirma: " + v("ukFirma") : "") + (ilgi.length ? "\nİlgilendiğim ürünler: " + ilgi.join(", ") : "") + (v("ukNot") ? "\nNot: " + v("ukNot") : "");
+    }
+    function bad(id, on) { var e = $("#" + id); if (e) { e.classList.toggle("is-bad", on); e.setAttribute("aria-invalid", on ? "true" : "false"); } return on; }
+    function check() {
+      var errs = [];
+      if (bad("ukAd", v("ukAd").length < 2)) errs.push("Adınızı ve soyadınızı yazın.");
+      if (bad("ukTel", v("ukTel").replace(/\D/g, "").length < 10)) errs.push("Telefon numarasını alan koduyla yazın (en az 10 rakam).");
+      if (bad("ukIl", v("ukIl").length < 2)) errs.push("İl ve ilçenizi yazın.");
+      if (!$("#ukOnay").checked) errs.push("Devam etmek için KVKK onay kutusunu işaretleyin.");
+      return errs;
+    }
+    function show(text, cls) { msg.textContent = text; msg.className = "usta-msg " + cls; }
+    form.addEventListener("focusin", function () { if (opened) return; opened = true; try { if (G.track) G.track("act", "usta_open"); } catch (e) {} });
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault(); if (busy) return;
+      var errs = check(); if (errs.length) { show(errs.join(" "), "bad"); return; }
+      busy = true; btn.disabled = true; show("Gönderiliyor…", "");
+      var body = { kaynak: "usta", ad: v("ukAd"), tel: v("ukTel"), ilce: v("ukIl"), meslek: v("ukMeslek"), firma: v("ukFirma"), not: v("ukNot"), website: v("ukWeb"), lang: "tr", path: root.location.pathname,
+        ilgi: $$('input[name="ilgi"]:checked', form).map(function (c) { return c.value; }) };
+      function fail(text) {              // kayıt alınamadı: aynı bilgilerle WhatsApp'a düş
+        busy = false; btn.disabled = false; show(text || "Kayıt şu anda alınamadı. Aynı bilgileri WhatsApp'tan gönderebilirsiniz.", "bad");
+        var a = $("#ukWaFallback"); if (a && WA) { a.href = waHref(waText()); a.classList.add("on"); }
+      }
+      function send() {
+        body.ms = Date.now() - t0;
+        try {
+          root.fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }).then(function (r) {
+            return r.json().catch(function () { return {}; }).then(function (j) {
+              if (r.ok && j.ok) { page.classList.add("uk-sent"); var d = $("#ukDone"); if (d) { d.setAttribute("tabindex", "-1"); d.focus(); } }
+              else fail(j && j.error ? j.error + " Aynı bilgileri WhatsApp'tan da gönderebilirsiniz." : "");
+            });
+          }, function () { fail(""); });
+        } catch (e) { fail(""); }
+      }
+      var wait = 3200 - (Date.now() - t0);                // sunucu 3 saniyeden hızlı gönderimi robot sayar
+      if (wait > 0) root.setTimeout(send, wait); else send();
+    });
+    var wa = $("#ukWa"); if (wa && WA) { wa.removeAttribute("data-c-wa"); wa.href = waHref("Merhaba GESPA, usta / toplu alım kaydı bıraktım; fiyat listesi ve stok bilgisi için yazıyorum."); }
   })();
 
   // ===== Uygulama kabuğu =====
