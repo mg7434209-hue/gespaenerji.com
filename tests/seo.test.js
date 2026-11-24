@@ -362,7 +362,7 @@ console.log('Analytics: consent gate, exact AI source attribution and contact pa
  const pg=fs.readFileSync(path.join(root,'elektrikci-cantasi.html'),'utf8'),EX=U.examples(C);
  const toolIds=[...pg.matchAll(/<section class="usta-tool" id="([^"]+)" data-usta-tool="\1" data-kw="[^"]+">/g)].map(m=>m[1]);EX['meta.count']=String(toolIds.length);
  assert.equal(toolIds.length,24,'tool count');assert.equal(new Set(toolIds).size,toolIds.length,'tool ids unique');
- for(const m of pg.matchAll(/(\d+) ücretsiz (?:saha )?ara[cç]/g))assert.equal(+m[1],toolIds.length,'stale tool count in page text');
+ for(const m of pg.replace(/<[^>]+>/g,'').matchAll(/(\d+) ücretsiz (?:saha |hesaplama )?ara[cç]/g))assert.equal(+m[1],toolIds.length,'stale tool count in page text');
  const tags=[...pg.matchAll(/<data data-ex="([^"]+)" value="([^"]*)">([^<]*)<\/data>/g)];
  assert.equal(tags.length,(pg.match(/data-ex=/g)||[]).length,'every worked-example value uses the <data data-ex value> form');
  assert.ok(tags.length>=200,'page carries the static worked examples');
@@ -371,11 +371,26 @@ console.log('Analytics: consent gate, exact AI source attribution and contact pa
  assert.equal(EX['sigorta.verdict'],'gerekir');assert.equal(EX['kablo.rec'],'6');assert.equal(EX['dizi.max'],'3');
  for(const id of ['egim','kablo','dizi','seri-paralel','aku','sigorta','cevirici','kontrol','ac-kablo','akim','ohm','sarj-kontrol','aku-sure','aku-sarj','c-orani','gunluk-uretim','sicaklik-gucu','golge','cati-egimi','yuk-listesi','inverter-aku-akimi','sigorta-kablo-uyumu','hp-kw-amper','cihaz-tuketimi'])
   assert.ok(toolIds.includes(id)&&pg.includes('href="#'+id+'"'),'tool anchor #'+id);
- {const cats=[...pg.matchAll(/<section class="usta-cat" id="([^"]+)">/g)].map(m=>m[1]),chips=[...(pg.match(/<nav class="usta-nav"[\s\S]*?<\/nav>/)||[''])[0].matchAll(/href="#([^"]+)"/g)].map(m=>m[1]);
-  assert.equal(cats.length,7,'seven tool categories');assert.deepEqual(chips,cats,'sticky nav = category chips (not one chip per tool)');
-  assert.ok(pg.includes('<div class="usta-find" hidden="">')&&pg.includes('id="ustaFind"')&&pg.indexOf('id="ustaFind"')<pg.indexOf('<nav class="usta-nav"'),'filter box sits above the chips and is hidden until JS enables it');}
+ // App layout (progressive enhancement): sidebar lists every tool once in category order, the workspace holds all tools in the HTML (JS shows one),
+ // explanations sit in closed <details>, and no content-bearing element is hidden from non-JS readers.
+ {const cats=[...pg.matchAll(/<section class="usta-cat" id="([^"]+)">/g)].map(m=>m[1]),side=(pg.match(/<nav class="usta-side"[\s\S]*?<\/nav>/)||[''])[0];
+  assert.equal(cats.length,7,'seven tool categories');assert.equal((side.match(/class="usta-sg"/g)||[]).length,7,'sidebar groups');
+  assert.deepEqual([...side.matchAll(/<a href="#([^"]+)" data-t="\1">/g)].map(m=>m[1]),toolIds,'sidebar lists every tool once, in page order');
+  assert.ok(/<div class="usta-find usta-js">[\s\S]*id="ustaFind"/.test(side),'search box lives in the sidebar and is a JS-only control');
+  const def=(pg.match(/<main id="main" data-article data-usta data-usta-app="([^"]+)">/)||[])[1];assert.equal(def,'kablo','default tool is the cable tool');
+  assert.ok(pg.indexOf('<nav class="usta-side"')<pg.indexOf('<section class="usta-tool"')&&pg.indexOf('id="ustaMenu"')>0&&pg.indexOf('id="ustaPrev"')>0,'sidebar before workspace; mobile bar present');
+  for(const m of pg.matchAll(/<([a-z0-9]+)\b([^>]*)\shidden=""[^>]*>/g))assert.ok((m[1]==='p'&&/class="usta-msg"/.test(m[2]))||((m[1]==='a'||m[1]==='button')&&/data-usta-(wa|cb)|id="(ucToCable|xiUse)"/.test(m[0])),'static hidden only on empty message lines and JS-only controls: '+m[0].slice(0,80));
+  assert.ok(!/<(section|details|div|article|h[1-6]|table|ul)\b[^>]*\shidden/.test(pg),'no hidden content blocks');
+  const tools=[...pg.matchAll(/<section class="usta-tool" id="([^"]+)"[\s\S]*?<\/section>/g)];assert.equal(tools.length,toolIds.length,'tool sections parse');
+  for(const t of tools){const one=(t[0].match(/<p class="usta-one">([^<]*)<\/p>/)||[])[1];assert.ok(one&&one.length<=120,t[1]+': one short sentence');
+   assert.ok(/<details class="usta-more"><summary>Formül, örnek ve sınırlar<\/summary>/.test(t[0])&&!/<details[^>]*\sopen/.test(t[0]),t[1]+': explanation collapsed by default');
+   assert.ok(t[0].indexOf('class="usta-grid')<t[0].indexOf('<details')&&t[0].indexOf('usta-disc')<t[0].indexOf('<details'),t[1]+': inputs/result and safety note come before the explanation');
+   for(const k of ['data-usta-reset','data-usta-print','data-usta-copy','data-usta-wa='])assert.ok(t[0].includes(k),t[1]+': action '+k);}
+  assert.ok(pg.indexOf('<details class="usta-about">')>pg.indexOf('</nav>')&&pg.indexOf('id="sss"')>pg.lastIndexOf('<section class="usta-tool"'),'about box and FAQ sit below the app');
+  const md=fs.readFileSync(path.join(root,'md/elektrikci-cantasi.md'),'utf8');
+  assert.ok((md.match(/\*\*Formül:\*\*/g)||[]).length===toolIds.length-1&&md.includes('### AC kablo gerilim düşümü')&&md.includes('## Sık sorulan sorular'),'markdown mirror keeps every tool, formula and the FAQ');}
  assert.ok(/reaktans/.test(pg)&&!/izin verilen (en yüksek )?gerilim düşümü\s*(sınırı\s*)?%\s*\d/.test(pg),'AC tool states its limit and claims no permitted drop');
- assert.ok(pg.includes('<main id="main" data-article data-usta>')&&pg.includes('<script defer src="assets/usta.js"></script>'),'page shell + deferred usta.js');
+ assert.ok(/<main id="main" data-article data-usta[ >]/.test(pg)&&pg.includes('<script defer src="assets/usta.js"></script>'),'page shell + deferred usta.js');
  assert.equal((pg.match(/Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili/g)||[]).length,toolIds.length,'every tool carries the approximate-values line');
  assert.equal((pg.match(/class="usta-formula"/g)||[]).length,toolIds.length-1,'every calculator shows its formula');
  {const n=(pg.match(/data-chk="/g)||[]).length;assert.ok(n>=10&&n<=14,'checklist size');}
@@ -395,6 +410,8 @@ console.log('Analytics: consent gate, exact AI source attribution and contact pa
    assert.ok(t!==(pg.match(/<title>([^<]*)<\/title>/)||[])[1],f+': title differs from hub');
    assert.ok(/<div class="crumbs"><a href="index\.html">Ana Sayfa<\/a> <span>\/<\/span> <a href="elektrikci-cantasi\.html">Elektrikçi Çantası<\/a> <span>\/<\/span> [^<]+<\/div>/.test(h),f+': breadcrumb');
    const secs=[...h.matchAll(/<section class="usta-tool" id="([^"]+)" data-usta-tool="([^"]+)"/g)];assert.ok(secs.length>=1,f+': carries at least one tool card');
+   assert.ok(h.indexOf('</h1>')<h.indexOf('<section class="usta-tool"')&&h.indexOf('<section class="usta-tool"')<h.indexOf('<!-- OWN:START -->')&&!h.includes('data-usta-app'),f+': tool first, own text below, no app shell');
+   assert.ok(/<nav class="usta-strip"[^>]*>[\s\S]*?href="elektrikci-cantasi\.html#[a-z0-9-]+"[\s\S]*?<\/nav>/.test(h)&&!/<(section|details|div|article|h[1-6]|table|ul)\b[^>]*\shidden/.test(h),f+': other-tools strip into the hub app; no hidden content');
    for(const m of secs)assert.ok(toolIds.includes(m[2]),f+': card '+m[1]+' belongs to a hub tool');
    const ids=[...h.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(ids).size,ids.length,f+': duplicate element id '+ids.filter((x,i)=>ids.indexOf(x)!==i)[0]);
    for(const m of h.matchAll(/href="#([^"]+)"/g))assert.ok(ids.includes(m[1]),f+': dead in-page anchor #'+m[1]);

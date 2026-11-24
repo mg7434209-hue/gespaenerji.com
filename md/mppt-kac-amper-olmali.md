@@ -3,7 +3,7 @@ title: "MPPT Şarj Kontrol Cihazı Kaç Amper Olmalı? | GESPA"
 description: "MPPT şarj kontrol cihazı kaç amper olmalı: akım = panel gücü ÷ akü gerilimi. Panel giriş gerilimi sınırı için kaç panel seri bağlanır hesabıyla birlikte."
 canonical: https://www.gespaenerji.com/mppt-kac-amper-olmali.html
 lang: tr
-dateModified: 2026-11-23
+dateModified: 2026-11-24
 publisher: "GESPA Enerji"
 ---
 
@@ -11,15 +11,31 @@ publisher: "GESPA Enerji"
 
 # MPPT Şarj Kontrol Cihazı Kaç Amper Olmalı?
 
-Panel dizinizin toplam gücünü ve akü gerilimini yazın; şarj kontrol cihazının en az kaç amper olması gerektiğini görün. İkinci araç, cihazın PV giriş gerilimi sınırına göre en çok kaç paneli seri bağlayabileceğinizi hesaplar.
-
-Yayın: 23 Kasım 2026 · GESPA Enerji · [Tüm hesaplama araçları](https://www.gespaenerji.com/elektrikci-cantasi.html)
-
-**Kısa cevap:** En az çıkış akımı = toplam panel gücü ÷ akü sistem gerilimi. Örnek: 1.440 W panel ve 24 V akü için 1.440 ÷ 24 = 60 A. Üretici pay ya da panel gücü sınırı veriyorsa o esas alınır; ayrıca dizinin soğuktaki Voc değeri cihazın giriş gerilimi sınırını aşmamalıdır.
+Panel dizinizin toplam gücünü ve akü gerilimini yazın; şarj kontrol cihazının en az kaç amper olması gerektiğini görün.
 
 ## Hesaplama aracı
 
 ### Şarj kontrol cihazı kaç amper olmalı?
+
+Panel gücü ve akü geriliminden şarj kontrol cihazının en az çıkış akımı.
+
+#### Sistem
+
+Panel dizisi gücü
+
+W
+
+Akü sistem gerilimi
+
+V
+
+En az çıkış akımı (pay hariç) —
+
+Aynı dizi daha yüksek akü geriliminde daha düşük akım ister: 12 V yerine 24 V akımı yarıya indirir.
+
+Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
 
 MPPT şarj kontrol cihazının aküye vereceği akım, panel dizisinin gücünün akü sistem gerilimine bölünmesiyle bulunur: I = panel gücü ÷ akü gerilimi. Bu, cihazın çıkış akımı için **en az** değerdir; üretici pay bırakılmasını ya da panel gücü sınırını belirtiyorsa o esas alınır.
 
@@ -27,19 +43,7 @@ MPPT şarj kontrol cihazının aküye vereceği akım, panel dizisinin gücünü
 
 Akımın yanında cihazın en yüksek PV giriş gerilimi de kontrol edilir: bunun için [dizi hesabını](#dizi) kullanın. PWM cihazlarda akım, bağlanan panellerin toplam Isc değerine göre seçilir.
 
-#### Sistem
-
-Panel dizisi gücü (W)
-
-Akü sistem gerilimi (V)
-
-En az çıkış akımı (pay hariç) —
-
-Aynı dizi daha yüksek akü geriliminde daha düşük akım ister: 12 V yerine 24 V akımı yarıya indirir.
-
 **Formül:** şarj akımı = panel dizisi gücü (W) ÷ akü sistem gerilimi (V)
-
-Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
 
 **İlgili:** [PWM mi MPPT mi? Seçim rehberi](https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html) · [Şarj kontrol cihazları](https://www.gespaenerji.com/online-satis.html?kategori=sarj-kontrol) · [Lexron 40 A MPPT](https://www.gespaenerji.com/lexron-mppt-40a.html) · [Havensis 60 A MPPT](https://www.gespaenerji.com/havensis-mppt-60a.html) · [150 V girişli 60 A MPPT](https://www.gespaenerji.com/havensis-mppt-60a-150v.html)
 
@@ -47,33 +51,43 @@ Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/9054374342
 
 ### Dizi (string) hesabı: kaç panel seri bağlanır?
 
-Panel soğudukça açık devre gerilimi (Voc) yükselir. Seri dizinin en soğuk havadaki Voc toplamı, şarj kontrol cihazının ya da inverterin en yüksek PV giriş gerilimini **hiçbir zaman** aşmamalıdır. Soğuk Voc, etiketteki Voc ile Voc sıcaklık katsayısından (β, %/°C, eksi işaretli) hesaplanır; etiket değerleri 25 °C içindir. En az panel sayısı ise dizinin Vmp toplamının MPPT alt geriliminin üstünde kalmasına göre bulunur.
-
-Örnek (yuvarlak örnek değerler, bir ürünün künyesi değildir): Voc 40 V, Vmp 33 V, β -0,3 %/°C, en düşük sıcaklık -10 °C, giriş sınırı 150 V, MPPT alt sınırı 60 V Soğuk Voc = 40 × (1 + (-0,3) ÷ 100 × (-10 − 25)) = 44,2 V · en çok ⌊150 ÷ 44,2⌋ = 3 panel · en az ⌈60 ÷ 33⌉ = 2 panel 3 panel seri: soğuk Voc 132,6 V, Vmp 99 V · 4 panel olsaydı 176,8 V ile sınır aşılırdı
-
-Sıcak havada Vmp etiket değerinin altına düşer; en az panel sayısını belirlerken panelin künyesindeki Vmp sıcaklık katsayısına ve cihazın çalışma aralığına ayrıca bakın. Değerleri her zaman kendi panelinizin ve cihazınızın etiketinden girin.
+Bir diziye en çok ve en az kaç panelin seri bağlanabileceğini etiket değerlerinden hesaplar.
 
 #### Panel etiketi
 
-Voc (V)
+Voc
 
-Vmp (V)
+V
 
-Isc (A)
+Vmp
 
-Voc sıcaklık katsayısı (%/°C) eksi
+V
 
-Beklenen en düşük hava sıcaklığı (°C)
+Isc
+
+A
+
+Voc sıcaklık katsayısı eksi
+
+%/°C
+
+Beklenen en düşük hava sıcaklığı
+
+°C
 
 #### Şarj kontrol cihazı / inverter etiketi
 
-En yüksek PV giriş gerilimi (V)
+En yüksek PV giriş gerilimi
 
-MPPT alt gerilimi (V)
+V
+
+MPPT alt gerilimi
+
+V
 
 Seri bağlanacak panel sayısı boşsa en çok sayı
 
-Örnek değerler yuvarlak sayılardır, bir ürüne ait değildir.
+Alanlar boş açılır; "Örnek değerler" düğmesi yuvarlak örnek sayıları doldurur (bir ürüne ait değildir).
 
 En çok seri panel —
 
@@ -85,13 +99,25 @@ Dizi soğuk Voc —
 
 Dizi Vmp (etiket) —
 
-**Formül:** soğuk Voc = Voc × (1 + β ÷ 100 × (Tmin − 25)) · en çok seri = ⌊Vmaks giriş ÷ soğuk Voc⌋ · en az seri = ⌈VMPPT alt ÷ Vmp⌉ · dizi gerilimi = panel sayısı × panel gerilimi
-
 Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+Panel soğudukça açık devre gerilimi (Voc) yükselir. Seri dizinin en soğuk havadaki Voc toplamı, şarj kontrol cihazının ya da inverterin en yüksek PV giriş gerilimini **hiçbir zaman** aşmamalıdır. Soğuk Voc, etiketteki Voc ile Voc sıcaklık katsayısından (β, %/°C, eksi işaretli) hesaplanır; etiket değerleri 25 °C içindir. En az panel sayısı ise dizinin Vmp toplamının MPPT alt geriliminin üstünde kalmasına göre bulunur.
+
+Örnek (yuvarlak örnek değerler, bir ürünün künyesi değildir): Voc 40 V, Vmp 33 V, β -0,3 %/°C, en düşük sıcaklık -10 °C, giriş sınırı 150 V, MPPT alt sınırı 60 V Soğuk Voc = 40 × (1 + (-0,3) ÷ 100 × (-10 − 25)) = 44,2 V · en çok ⌊150 ÷ 44,2⌋ = 3 panel · en az ⌈60 ÷ 33⌉ = 2 panel 3 panel seri: soğuk Voc 132,6 V, Vmp 99 V · 4 panel olsaydı 176,8 V ile sınır aşılırdı
+
+Sıcak havada Vmp etiket değerinin altına düşer; en az panel sayısını belirlerken panelin künyesindeki Vmp sıcaklık katsayısına ve cihazın çalışma aralığına ayrıca bakın. Değerleri her zaman kendi panelinizin ve cihazınızın etiketinden girin.
+
+**Formül:** soğuk Voc = Voc × (1 + β ÷ 100 × (Tmin − 25)) · en çok seri = ⌊Vmaks giriş ÷ soğuk Voc⌋ · en az seri = ⌈VMPPT alt ÷ Vmp⌉ · dizi gerilimi = panel sayısı × panel gerilimi
 
 **İlgili:** [PWM mi MPPT mi? Cihaz seçim rehberi](https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html) · [Şarj kontrol cihazları](https://www.gespaenerji.com/online-satis.html?kategori=sarj-kontrol) · [150 V girişli 60 A MPPT](https://www.gespaenerji.com/havensis-mppt-60a-150v.html) · [Voc ve Isc nedir?](https://www.gespaenerji.com/sozluk.html#voc-isc)
 
 Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+
+**Kısa cevap:** En az çıkış akımı = toplam panel gücü ÷ akü sistem gerilimi. Örnek: 1.440 W panel ve 24 V akü için 1.440 ÷ 24 = 60 A. Üretici pay ya da panel gücü sınırı veriyorsa o esas alınır; ayrıca dizinin soğuktaki Voc değeri cihazın giriş gerilimi sınırını aşmamalıdır.
+
+İkinci araç, cihazın PV giriş gerilimi sınırına göre en çok kaç paneli seri bağlayabileceğinizi hesaplar.
 
 ## Girdiler ne anlama gelir?
 
@@ -140,6 +166,8 @@ Cihazın en yüksek PV giriş gerilimi ÷ panelin soğuktaki Voc değeri, aşağ
 - [Havensis 60 A MPPT (150 V giriş)](https://www.gespaenerji.com/havensis-mppt-60a-150v.html)
 
 *Bu sayfa genel bilgilendirme ve ön hesap amaçlıdır. Sonuçlar girdiğiniz değerlere ve belirtilen formüllere dayanır; gerçek değerler sıcaklık, ışınım, kablo, bağlantı kalitesi ve ekipmana göre değişir. Kesin tasarım, malzeme seçimi ve kurulum için ürün künyesine, üretici talimatına ve yürürlükteki mevzuata uyunuz; işi yetkili elektrikçi ya da mühendis yapar.*
+
+Yayın: 23 Kasım 2026 · GESPA Enerji · [Tüm hesaplama araçları](https://www.gespaenerji.com/elektrikci-cantasi.html)
 
 ## Malzeme listenizi yazın, fiyatını çıkaralım
 

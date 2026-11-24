@@ -3,7 +3,7 @@ title: "Güneş Paneli Sıcakta Ne Kadar Güç Kaybeder? | GESPA"
 description: "Güneş paneli sıcaklık güç kaybı hesaplama: P = Pmax × (1 + γ/100 × (hücre sıcaklığı − 25)). Sıcaklık katsayısı ve NOCT ile panel gücünü hesaplayın."
 canonical: https://www.gespaenerji.com/panel-sicaklik-guc-kaybi.html
 lang: tr
-dateModified: 2026-11-23
+dateModified: 2026-11-24
 publisher: "GESPA Enerji"
 ---
 
@@ -11,39 +11,43 @@ publisher: "GESPA Enerji"
 
 # Güneş Paneli Sıcakta Ne Kadar Güç Kaybeder?
 
-Panelin etiket gücünü, güç sıcaklık katsayısını ve hücre sıcaklığını yazın; o sıcaklıktaki gücü ve etikete göre farkı görün. Hücre sıcaklığını bilmiyorsanız NOCT değeriyle tahmin edebilirsiniz.
-
-Yayın: 23 Kasım 2026 · GESPA Enerji · [Tüm hesaplama araçları](https://www.gespaenerji.com/elektrikci-cantasi.html)
-
-**Kısa cevap:** P = Pmax × (1 + γ ÷ 100 × (hücre sıcaklığı − 25)). Yuvarlak örnek değerlerle: 400 W panel, γ -0,35 %/°C ve 60 °C hücre sıcaklığında 351 W verir. Hücre sıcaklığı hava sıcaklığından yüksektir.
+Panelin etiket gücünü, güç sıcaklık katsayısını ve hücre sıcaklığını yazın; o sıcaklıktaki gücü ve etikete göre farkı görün.
 
 ## Hesaplama aracı
 
 ### Sıcaklıkta panel gücü
 
-Panelin etiketindeki güç 25 °C hücre sıcaklığı içindir. Hücre ısındıkça güç, künyedeki güç sıcaklık katsayısı (γ, %/°C, eksi işaretli) kadar azalır: P = Pmax × (1 + γ ÷ 100 × (hücre sıcaklığı − 25)). Hücre sıcaklığı hava sıcaklığı değildir; güneş altındaki panel havadan belirgin biçimde sıcaktır.
-
-Örnek (yuvarlak örnek değerler, bir ürünün künyesi değildir): Pmax 400 W, γ -0,35 %/°C, hücre 60 °C P = 400 × (1 + (-0,35) ÷ 100 × (60 − 25)) = 351 W
-
-Hücre sıcaklığını bilmiyorsanız künyedeki NOCT değeriyle ders kitabı yaklaşımı kullanılabilir: hücre = ortam + (NOCT − 20) ÷ 800 × ışınım (W/m²). Örnek: ortam 30 °C, NOCT 45 °C, ışınım 1.000 W/m² → 30 + (45 − 20) ÷ 800 × 1.000 = 61,25 °C. NOCT ve γ değerlerini panelinizin künyesinden alın.
+Hücre sıcaklığına göre panelin vereceği güç.
 
 #### Panel etiketi ve sıcaklık
 
-Pmax (W)
+Pmax
 
-Güç sıcaklık katsayısı γ (%/°C) eksi
+W
 
-Hücre sıcaklığı (°C) varsayım
+Güç sıcaklık katsayısı γ eksi
+
+%/°C
+
+Hücre sıcaklığı varsayım
+
+°C
 
 Açılış değerleri yuvarlak örnektir; kendi panelinizin etiketindeki değerleri yazın.
 
 #### Hücre sıcaklığını NOCT ile tahmin et (isteğe bağlı)
 
-Ortam (°C)
+Ortam
 
-NOCT (°C) künye
+°C
 
-Işınım (W/m²)
+NOCT künye
+
+°C
+
+Işınım
+
+W/m²
 
 Tahmini hücre sıcaklığı: —
 
@@ -53,13 +57,25 @@ Etiket gücüne göre fark —
 
 Yalnız sıcaklık etkisi hesaplanır; ışınım, açı, kirlenme ve kablo kayıpları ayrıdır.
 
-**Formül:** P = Pmax × (1 + γ ÷ 100 × (Thücre − 25)) · Thücre = Tortam + (NOCT − 20) ÷ 800 × ışınım
-
 Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+Panelin etiketindeki güç 25 °C hücre sıcaklığı içindir. Hücre ısındıkça güç, künyedeki güç sıcaklık katsayısı (γ, %/°C, eksi işaretli) kadar azalır: P = Pmax × (1 + γ ÷ 100 × (hücre sıcaklığı − 25)). Hücre sıcaklığı hava sıcaklığı değildir; güneş altındaki panel havadan belirgin biçimde sıcaktır.
+
+Örnek (yuvarlak örnek değerler, bir ürünün künyesi değildir): Pmax 400 W, γ -0,35 %/°C, hücre 60 °C P = 400 × (1 + (-0,35) ÷ 100 × (60 − 25)) = 351 W
+
+Hücre sıcaklığını bilmiyorsanız künyedeki NOCT değeriyle ders kitabı yaklaşımı kullanılabilir: hücre = ortam + (NOCT − 20) ÷ 800 × ışınım (W/m²). Örnek: ortam 30 °C, NOCT 45 °C, ışınım 1.000 W/m² → 30 + (45 − 20) ÷ 800 × 1.000 = 61,25 °C. NOCT ve γ değerlerini panelinizin künyesinden alın.
+
+**Formül:** P = Pmax × (1 + γ ÷ 100 × (Thücre − 25)) · Thücre = Tortam + (NOCT − 20) ÷ 800 × ışınım
 
 **İlgili:** [Dizi hesabı (soğukta Voc)](https://www.gespaenerji.com/elektrikci-cantasi.html#dizi) · [Günlük üretim tahmini](https://www.gespaenerji.com/elektrikci-cantasi.html#gunluk-uretim) · [Güneş panelleri](https://www.gespaenerji.com/online-satis.html?kategori=panel) · [STC nedir?](https://www.gespaenerji.com/sozluk.html#stc)
 
 Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+
+**Kısa cevap:** P = Pmax × (1 + γ ÷ 100 × (hücre sıcaklığı − 25)). Yuvarlak örnek değerlerle: 400 W panel, γ -0,35 %/°C ve 60 °C hücre sıcaklığında 351 W verir. Hücre sıcaklığı hava sıcaklığından yüksektir.
+
+Hücre sıcaklığını bilmiyorsanız NOCT değeriyle tahmin edebilirsiniz.
 
 ## Girdiler ne anlama gelir?
 
@@ -104,6 +120,8 @@ Evet, aynı formül ters yönde çalışır: hücre 25 °C'nin altındaysa güç
 - [Lexron 655 W panel](https://www.gespaenerji.com/panel-lexron-655w.html)
 
 *Bu sayfa genel bilgilendirme ve ön hesap amaçlıdır. Sonuçlar girdiğiniz değerlere ve belirtilen formüllere dayanır; gerçek değerler sıcaklık, ışınım, kablo, bağlantı kalitesi ve ekipmana göre değişir. Kesin tasarım, malzeme seçimi ve kurulum için ürün künyesine, üretici talimatına ve yürürlükteki mevzuata uyunuz; işi yetkili elektrikçi ya da mühendis yapar.*
+
+Yayın: 23 Kasım 2026 · GESPA Enerji · [Tüm hesaplama araçları](https://www.gespaenerji.com/elektrikci-cantasi.html)
 
 ## Malzeme listenizi yazın, fiyatını çıkaralım
 

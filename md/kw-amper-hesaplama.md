@@ -3,7 +3,7 @@ title: "kW Amper Hesaplama: 1 kW Kaç Amper? | GESPA"
 description: "kW amper hesaplama: monofaze I = P/(V·cosφ), trifaze I = P/(√3·V·cosφ), DC I = P/V. 1 kW kaç amper eder, HP kaç amper çeker: formül ve ücretsiz araç."
 canonical: https://www.gespaenerji.com/kw-amper-hesaplama.html
 lang: tr
-dateModified: 2026-11-23
+dateModified: 2026-11-24
 publisher: "GESPA Enerji"
 ---
 
@@ -11,29 +11,25 @@ publisher: "GESPA Enerji"
 
 # kW Amper Hesaplama: 1 kW Kaç Amper?
 
-Gücü, gerilimi ve güç katsayısını yazın; tek faz, üç faz ya da DC için akımı hemen görün. Motor etiketinde yalnız HP yazıyorsa ikinci araç beygir gücünden akıma gider.
-
-Yayın: 23 Kasım 2026 · GESPA Enerji · [Tüm hesaplama araçları](https://www.gespaenerji.com/elektrikci-cantasi.html)
-
-**Kısa cevap:** 1 kW (1.000 W) yük, tek fazda 230 V ve cosφ 0,9 ile 4,83 A, cosφ 1 ile 4,35 A çeker. Üç fazda 400 V'ta aynı yük cosφ 0,9 ile 1,6 A, cosφ 1 ile 1,44 A eder. Formül: tek faz I = P ÷ (V × cosφ), üç faz I = P ÷ (√3 × V × cosφ), DC I = P ÷ V.
+Gücü, gerilimi ve güç katsayısını yazın; tek faz, üç faz ya da DC için akımı hemen görün.
 
 ## Hesaplama aracı
 
 ### Akım hesabı: güçten akıma (DC, tek faz, üç faz) ve kW–kVA
 
-Yükün çektiği akım, gücün gerilime bölünmesiyle bulunur. Doğru akımda I = P ÷ V; tek fazda I = P ÷ (V × cosφ); üç fazda I = P ÷ (√3 × V × cosφ), burada V faz-faz gerilimidir. Görünür güç ile aktif güç arasındaki ilişki kVA = kW ÷ cosφ şeklindedir.
-
-Örnek: 3.000 W yük, cosφ 0,9 Tek faz 230 V: 3.000 ÷ (230 × 0,9) = 14,49 A · üç faz 400 V: 3.000 ÷ (√3 × 400 × 0,9) = 4,81 A · DC 48 V: 3.000 ÷ 48 = 62,5 A 3 kW ÷ 0,9 = 3,33 kVA
-
-cosφ (güç katsayısı) cihazın etiketinde yazar; bilinmiyorsa varsayım olduğunu unutmayın. Motorlarda kalkış akımı bu değerin üstündedir ve bu hesaba dahil değildir.
+Güçten akım: DC, tek faz ve üç faz; ayrıca kW ↔ kVA.
 
 #### Güçten akıma
 
 Sistem
 
-Güç (W)
+Güç
 
-Gerilim (V)
+W
+
+Gerilim
+
+V
 
 cosφ
 
@@ -43,15 +39,27 @@ Akım —
 
 cosφ
 
-Aktif güç (kW)
+Aktif güç
 
-Görünür güç (kVA)
+kW
+
+Görünür güç
+
+kVA
 
 kW ya da kVA alanından hangisini yazarsanız diğeri hesaplanır.
 
-**Formül:** DC: I = P ÷ V · tek faz: I = P ÷ (V × cosφ) · üç faz: I = P ÷ (√3 × V × cosφ) · kVA = kW ÷ cosφ
-
 Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+Yükün çektiği akım, gücün gerilime bölünmesiyle bulunur. Doğru akımda I = P ÷ V; tek fazda I = P ÷ (V × cosφ); üç fazda I = P ÷ (√3 × V × cosφ), burada V faz-faz gerilimidir. Görünür güç ile aktif güç arasındaki ilişki kVA = kW ÷ cosφ şeklindedir.
+
+Örnek: 3.000 W yük, cosφ 0,9 Tek faz 230 V: 3.000 ÷ (230 × 0,9) = 14,49 A · üç faz 400 V: 3.000 ÷ (√3 × 400 × 0,9) = 4,81 A · DC 48 V: 3.000 ÷ 48 = 62,5 A 3 kW ÷ 0,9 = 3,33 kVA
+
+cosφ (güç katsayısı) cihazın etiketinde yazar; bilinmiyorsa varsayım olduğunu unutmayın. Motorlarda kalkış akımı bu değerin üstündedir ve bu hesaba dahil değildir.
+
+**Formül:** DC: I = P ÷ V · tek faz: I = P ÷ (V × cosφ) · üç faz: I = P ÷ (√3 × V × cosφ) · kVA = kW ÷ cosφ
 
 **İlgili:** [AC kablo gerilim düşümü](https://www.gespaenerji.com/elektrikci-cantasi.html#ac-kablo) · [Ohm kanunu](https://www.gespaenerji.com/elektrikci-cantasi.html#ohm) · [Watt ↔ Amper çevirici](https://www.gespaenerji.com/elektrikci-cantasi.html#cevirici) · [Solar sulama pompası seçimi](https://www.gespaenerji.com/solar-sulama-pompasi-secimi.html)
 
@@ -59,21 +67,23 @@ Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/9054374342
 
 ### HP → kW → amper: motor akımı
 
-Motor etiketindeki beygir gücü mil (çıkış) gücüdür: kW = HP ÷ 1,341. Şebekeden çekilen elektrik gücü mil gücünün verime bölünmesiyle bulunur; akım ise tek fazda I = P ÷ (V × cosφ), üç fazda I = P ÷ (√3 × V × cosφ) formülüyle hesaplanır. Verim ve cosφ motorun etiketinden girilir.
-
-Örnek (örnek etiket değerleri): 2 HP, verim 0,85, cosφ 0,85 Mil gücü = 2 ÷ 1,341 = 1,491 kW · elektrik gücü = 1,491 ÷ 0,85 = 1,755 kW Tek faz 230 V: 8,98 A · üç faz 400 V: 2,98 A
-
-Sonuç tam yükteki çalışma akımıdır. **Kalkış akımı dahil değildir**; kalkışta motor bunun birkaç katını çeker ve değeri motor üreticisi verir. Etikette anma akımı yazıyorsa o esas alınır.
+Motor etiketindeki HP değerinden kW ve çalışma akımı.
 
 #### Motor etiketi
 
-Güç (HP)
+Güç
+
+HP
 
 Besleme
 
-Gerilim (V)
+Gerilim
 
-Verim (%) etiket
+V
+
+Verim etiket
+
+%
 
 cosφ etiket
 
@@ -85,13 +95,25 @@ Mil gücü —
 
 Açılıştaki verim ve cosφ yalnızca örnektir; motorunuzun etiketindeki değerleri yazın.
 
-**Formül:** kW (mil) = HP ÷ 1,341 · elektrik gücü = mil gücü ÷ verim · tek faz I = P ÷ (V × cosφ) · üç faz I = P ÷ (√3 × V × cosφ)
-
 Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+Motor etiketindeki beygir gücü mil (çıkış) gücüdür: kW = HP ÷ 1,341. Şebekeden çekilen elektrik gücü mil gücünün verime bölünmesiyle bulunur; akım ise tek fazda I = P ÷ (V × cosφ), üç fazda I = P ÷ (√3 × V × cosφ) formülüyle hesaplanır. Verim ve cosφ motorun etiketinden girilir.
+
+Örnek (örnek etiket değerleri): 2 HP, verim 0,85, cosφ 0,85 Mil gücü = 2 ÷ 1,341 = 1,491 kW · elektrik gücü = 1,491 ÷ 0,85 = 1,755 kW Tek faz 230 V: 8,98 A · üç faz 400 V: 2,98 A
+
+Sonuç tam yükteki çalışma akımıdır. **Kalkış akımı dahil değildir**; kalkışta motor bunun birkaç katını çeker ve değeri motor üreticisi verir. Etikette anma akımı yazıyorsa o esas alınır.
+
+**Formül:** kW (mil) = HP ÷ 1,341 · elektrik gücü = mil gücü ÷ verim · tek faz I = P ÷ (V × cosφ) · üç faz I = P ÷ (√3 × V × cosφ)
 
 **İlgili:** [Güçten akım hesabı](#akim) · [AC gerilim düşümü](https://www.gespaenerji.com/elektrikci-cantasi.html#ac-kablo) · [Solar sulama pompası seçimi](https://www.gespaenerji.com/solar-sulama-pompasi-secimi.html) · [Pompa ve panel gücü aracı](https://www.gespaenerji.com/tarimsal-sulama.html#pompa-secimi)
 
 Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+
+**Kısa cevap:** 1 kW (1.000 W) yük, tek fazda 230 V ve cosφ 0,9 ile 4,83 A, cosφ 1 ile 4,35 A çeker. Üç fazda 400 V'ta aynı yük cosφ 0,9 ile 1,6 A, cosφ 1 ile 1,44 A eder. Formül: tek faz I = P ÷ (V × cosφ), üç faz I = P ÷ (√3 × V × cosφ), DC I = P ÷ V.
+
+Motor etiketinde yalnız HP yazıyorsa ikinci araç beygir gücünden akıma gider.
 
 ## Girdiler ne anlama gelir?
 
@@ -140,6 +162,8 @@ Formül tersine çevrilir: tek fazda P = V × I × cosφ, üç fazda P = √3 ×
 - [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html)
 
 *Bu sayfa genel bilgilendirme ve ön hesap amaçlıdır. Sonuçlar girdiğiniz değerlere ve belirtilen formüllere dayanır; gerçek değerler sıcaklık, ışınım, kablo, bağlantı kalitesi ve ekipmana göre değişir. Kesin tasarım, malzeme seçimi ve kurulum için ürün künyesine, üretici talimatına ve yürürlükteki mevzuata uyunuz; işi yetkili elektrikçi ya da mühendis yapar.*
+
+Yayın: 23 Kasım 2026 · GESPA Enerji · [Tüm hesaplama araçları](https://www.gespaenerji.com/elektrikci-cantasi.html)
 
 ## Malzeme listenizi yazın, fiyatını çıkaralım
 

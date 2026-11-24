@@ -3,7 +3,7 @@ title: "AWG mm² Çevirme: AWG Kablo Kesiti Tablosu | GESPA"
 description: "AWG mm² çevirme aracı ve hesaplanmış tablo: AWG numarasından çap ve kesit (mm²), mm² değerinden en yakın AWG. Formül: d = 0,127 × 92^((36−n)/39)."
 canonical: https://www.gespaenerji.com/awg-mm2-cevirme.html
 lang: tr
-dateModified: 2026-11-23
+dateModified: 2026-11-24
 publisher: "GESPA Enerji"
 ---
 
@@ -11,35 +11,41 @@ publisher: "GESPA Enerji"
 
 # AWG mm² Çevirme
 
-AWG numarasını seçin, çapını ve mm² kesitini görün; ya da mm² değerini yazın, hangi iki AWG numarasının arasına düştüğünü öğrenin. Şema iki kesiti aynı ölçekte gösterir.
-
-Yayın: 23 Kasım 2026 · GESPA Enerji · [Tüm hesaplama araçları](https://www.gespaenerji.com/elektrikci-cantasi.html)
-
-**Kısa cevap:** AWG numarası n olan dolu telin çapı d = 0,127 × 92^((36 − n) ÷ 39) mm, kesiti π × d² ÷ 4 mm²'dir. Örnek: AWG 10 = 2,588 mm çap = 5,26 mm². Numara küçüldükçe tel kalınlaşır.
+AWG numarasını seçin, çapını ve mm² kesitini görün; ya da mm² değerini yazın, hangi iki AWG numarasının arasına düştüğünü öğrenin.
 
 ## Hesaplama aracı
 
 ### AWG ↔ mm² çevirici
 
-AWG 10: çap = 0,127 × 92(36 − 10) ÷ 39 = 2,588 mm · kesit = π × çap² ÷ 4 = 5,26 mm²
+AWG numarasından çap ve mm² kesit; mm² değerinden en yakın AWG.
 
 #### AWG ↔ mm²
 
 AWG numarası
 
-Kesit (mm²)
+Kesit
+
+mm²
 
 —
 
 —
-
-**Formül:** AWG çapı (mm) = 0,127 × 92(36 − n) ÷ 39 · kesit = π × d² ÷ 4
 
 Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+AWG 10: çap = 0,127 × 92(36 − 10) ÷ 39 = 2,588 mm · kesit = π × çap² ÷ 4 = 5,26 mm²
+
+**Formül:** AWG çapı (mm) = 0,127 × 92(36 − n) ÷ 39 · kesit = π × d² ÷ 4
 
 **İlgili:** [Kablo kesiti ve güç kaybı](https://www.gespaenerji.com/elektrikci-cantasi.html#kablo) · [Diğer çeviriciler](https://www.gespaenerji.com/elektrikci-cantasi.html#cevirici) · [Solar kablo takımı](https://www.gespaenerji.com/kablo-solar-5m.html)
 
 Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+
+**Kısa cevap:** AWG numarası n olan dolu telin çapı d = 0,127 × 92^((36 − n) ÷ 39) mm, kesiti π × d² ÷ 4 mm²'dir. Örnek: AWG 10 = 2,588 mm çap = 5,26 mm². Numara küçüldükçe tel kalınlaşır.
+
+Şema iki kesiti aynı ölçekte gösterir.
 
 ## Girdiler ne anlama gelir?
 
@@ -107,6 +113,8 @@ Bu sayfadaki tablodan hayır: yalnızca çap ve kesit hesaplanmıştır. Bir kab
 - [Kablo ve konnektörler](https://www.gespaenerji.com/online-satis.html?kategori=kablo)
 
 *Bu sayfa genel bilgilendirme ve ön hesap amaçlıdır. Sonuçlar girdiğiniz değerlere ve belirtilen formüllere dayanır; gerçek değerler sıcaklık, ışınım, kablo, bağlantı kalitesi ve ekipmana göre değişir. Kesin tasarım, malzeme seçimi ve kurulum için ürün künyesine, üretici talimatına ve yürürlükteki mevzuata uyunuz; işi yetkili elektrikçi ya da mühendis yapar.*
+
+Yayın: 23 Kasım 2026 · GESPA Enerji · [Tüm hesaplama araçları](https://www.gespaenerji.com/elektrikci-cantasi.html)
 
 ## Malzeme listenizi yazın, fiyatını çıkaralım
 

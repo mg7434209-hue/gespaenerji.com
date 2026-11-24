@@ -3,7 +3,7 @@ title: "Akü Seri Paralel Bağlantı Şeması (24 V / 48 V) | GESPA"
 description: "Akü seri paralel bağlantı şeması: seri bağlamada volt, paralelde Ah toplanır. 12 V akülerle 24 V ve 48 V banka nasıl kurulur, kWh nasıl hesaplanır."
 canonical: https://www.gespaenerji.com/aku-seri-paralel-baglanti.html
 lang: tr
-dateModified: 2026-11-23
+dateModified: 2026-11-24
 publisher: "GESPA Enerji"
 ---
 
@@ -13,25 +13,21 @@ publisher: "GESPA Enerji"
 
 Tek akünün gerilimini ve kapasitesini, seri ve paralel sayısını yazın; bağlantı şeması çizilir, bankanın gerilimi, Ah değeri ve kWh enerjisi hesaplanır.
 
-Yayın: 23 Kasım 2026 · GESPA Enerji · [Tüm hesaplama araçları](https://www.gespaenerji.com/elektrikci-cantasi.html)
-
-**Kısa cevap:** Seri bağlamada gerilim toplanır, Ah aynı kalır; paralel bağlamada Ah toplanır, gerilim aynı kalır. 12 V akülerle 24 V için 2, 48 V için 4 akü seri bağlanır. Örnek: 2 seri × 2 paralel 12 V 100 Ah akü = 24 V, 200 Ah, 4,8 kWh.
-
 ## Hesaplama aracı
 
 ### Akü bankası: seri ve paralel akü bağlama
 
-Aküler seri bağlanınca gerilim toplanır, kapasite (Ah) aynı kalır; paralel bağlanınca kapasite toplanır, gerilim aynı kalır. Depolanan enerji kWh = banka gerilimi × banka Ah ÷ 1000 ile bulunur ve bağlantı şekline göre değişmez.
-
-Örnek: 12 V 100 Ah akü, 2 seri × 2 paralel Banka gerilimi = 12 × 2 = 24 V · kapasite = 100 × 2 = 200 Ah · enerji = 24 × 200 ÷ 1000 = 4,8 kWh
-
-**Güvenlik:** aynı bankada yalnızca aynı tip, aynı yaşta ve aynı kapasitede aküler kullanılır; farklı aküler karıştırılmaz. Lityum akülerin seri ya da paralel bağlanıp bağlanamayacağını akü üreticisinin talimatından teyit edin.
+Akü bankasının gerilimi, kapasitesi ve enerjisi; bağlantı şemasıyla.
 
 #### Akü ve dizilim
 
-Tek akü gerilimi (V)
+Tek akü gerilimi
 
-Tek akü kapasitesi (Ah)
+V
+
+Tek akü kapasitesi
+
+Ah
 
 Seri akü sayısı
 
@@ -45,13 +41,23 @@ Kapasite —
 
 Enerji —
 
-**Formül:** banka gerilimi = akü gerilimi × seri sayısı · kapasite (Ah) = akü Ah × paralel kol sayısı · enerji (kWh) = banka gerilimi × kapasite ÷ 1000
-
 Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+Aküler seri bağlanınca gerilim toplanır, kapasite (Ah) aynı kalır; paralel bağlanınca kapasite toplanır, gerilim aynı kalır. Depolanan enerji kWh = banka gerilimi × banka Ah ÷ 1000 ile bulunur ve bağlantı şekline göre değişmez.
+
+Örnek: 12 V 100 Ah akü, 2 seri × 2 paralel Banka gerilimi = 12 × 2 = 24 V · kapasite = 100 × 2 = 200 Ah · enerji = 24 × 200 ÷ 1000 = 4,8 kWh
+
+**Güvenlik:** aynı bankada yalnızca aynı tip, aynı yaşta ve aynı kapasitede aküler kullanılır; farklı aküler karıştırılmaz. Lityum akülerin seri ya da paralel bağlanıp bağlanamayacağını akü üreticisinin talimatından teyit edin.
+
+**Formül:** banka gerilimi = akü gerilimi × seri sayısı · kapasite (Ah) = akü Ah × paralel kol sayısı · enerji (kWh) = banka gerilimi × kapasite ÷ 1000
 
 **İlgili:** [Batarya boyutlandırma aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [51,2 V 102 Ah LiFePO₄ akü](https://www.gespaenerji.com/aku-titanx-51v-102ah.html) · [Off-grid boyutlandırma rehberi](https://www.gespaenerji.com/off-grid-gunes-sistemi-boyutlandirma.html) · [DoD nedir?](https://www.gespaenerji.com/sozluk.html#dod)
 
 Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+
+**Kısa cevap:** Seri bağlamada gerilim toplanır, Ah aynı kalır; paralel bağlamada Ah toplanır, gerilim aynı kalır. 12 V akülerle 24 V için 2, 48 V için 4 akü seri bağlanır. Örnek: 2 seri × 2 paralel 12 V 100 Ah akü = 24 V, 200 Ah, 4,8 kWh.
 
 ## Girdiler ne anlama gelir?
 
@@ -100,6 +106,8 @@ kWh = banka gerilimi × banka Ah ÷ 1000. Örnek: 24 V × 200 Ah ÷ 1000 = 4,8 k
 - [1200 W güç istasyonu](https://www.gespaenerji.com/lexron-guc-istasyonu-1200w.html)
 
 *Bu sayfa genel bilgilendirme ve ön hesap amaçlıdır. Sonuçlar girdiğiniz değerlere ve belirtilen formüllere dayanır; gerçek değerler sıcaklık, ışınım, kablo, bağlantı kalitesi ve ekipmana göre değişir. Kesin tasarım, malzeme seçimi ve kurulum için ürün künyesine, üretici talimatına ve yürürlükteki mevzuata uyunuz; işi yetkili elektrikçi ya da mühendis yapar.*
+
+Yayın: 23 Kasım 2026 · GESPA Enerji · [Tüm hesaplama araçları](https://www.gespaenerji.com/elektrikci-cantasi.html)
 
 ## Malzeme listenizi yazın, fiyatını çıkaralım
 

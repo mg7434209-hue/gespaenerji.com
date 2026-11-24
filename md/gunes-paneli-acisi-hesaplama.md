@@ -3,7 +3,7 @@ title: "Güneş Paneli Açısı Kaç Derece Olmalı? Hesaplama | GESPA"
 description: "Güneş paneli açısı hesaplama: enleme göre yıl boyu, yaz ve kış eğimi (pratik kural), öğle güneş yüksekliği ve çatı eğimi derece–yüzde çevirici."
 canonical: https://www.gespaenerji.com/gunes-paneli-acisi-hesaplama.html
 lang: tr
-dateModified: 2026-11-23
+dateModified: 2026-11-24
 publisher: "GESPA Enerji"
 ---
 
@@ -11,23 +11,19 @@ publisher: "GESPA Enerji"
 
 # Güneş Paneli Açısı Kaç Derece Olmalı?
 
-Enleminizi yazın ya da şehir seçin; yıl boyu, yaz ve kış için pratik kural eğimlerini ve öğle güneşinin yüksekliğini görün. Çatınızın eğimini yüzde olarak biliyorsanız ikinci araç dereceye çevirir.
-
-Yayın: 23 Kasım 2026 · GESPA Enerji · [Tüm hesaplama araçları](https://www.gespaenerji.com/elektrikci-cantasi.html)
-
-**Kısa cevap:** Pratik kurala göre yıl boyu kullanım için eğim yaklaşık enleme eşittir; yaz ağırlıklı kullanımda enlem − 15°, kış ağırlıklı kullanımda enlem + 15°. 37° enlemi için: yıl boyu ≈ 37°, yaz ≈ 22°, kış ≈ 52°. Bu bir başlangıç değeridir.
+Enleminizi yazın ya da şehir seçin; yıl boyu, yaz ve kış için pratik kural eğimlerini ve öğle güneşinin yüksekliğini görün.
 
 ## Hesaplama aracı
 
 ### Panel eğim açısı ve öğle güneşi yüksekliği
 
-Güneşin öğle vakti ufuktan yüksekliği enleme ve mevsime bağlıdır: yüksekliği 90 − enlem alın, yaz gündönümünde deklinasyonu (23,45°) ekleyin, kış gündönümünde çıkarın. Panel eğimi için sahada kullanılan **pratik kural** ise şudur: yıl boyu kullanım için eğim ≈ enlem, yaz ağırlıklı kullanım için enlem − 15°, kış ağırlıklı kullanım için enlem + 15°.
-
-Örnek, enlem 37°: yaz 90 − 37 + 23,45 = 76,45° · ekinoks 90 − 37 = 53° · kış 90 − 37 − 23,45 = 29,55° Pratik eğim: yıl boyu ≈ 37° · yaz ≈ 22° · kış ≈ 52°
+Enleme göre öğle güneşinin yüksekliği ve yıl boyu, yaz, kış için pratik panel eğimi.
 
 #### Enlem
 
-Enlem (° kuzey)
+Enlem
+
+° kuzey
 
 Şehirden seç
 
@@ -49,9 +45,15 @@ Yaz —
 
 Kış —
 
-**Formül:** öğle güneş yüksekliği = 90 − enlem ± deklinasyon (yaz +, kış −, ekinoks 0) · pratik kural eğimi: yıl boyu ≈ enlem, yaz ≈ enlem − 15°, kış ≈ enlem + 15°
-
 Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+Güneşin öğle vakti ufuktan yüksekliği enleme ve mevsime bağlıdır: yüksekliği 90 − enlem alın, yaz gündönümünde deklinasyonu (23,45°) ekleyin, kış gündönümünde çıkarın. Panel eğimi için sahada kullanılan **pratik kural** ise şudur: yıl boyu kullanım için eğim ≈ enlem, yaz ağırlıklı kullanım için enlem − 15°, kış ağırlıklı kullanım için enlem + 15°.
+
+Örnek, enlem 37°: yaz 90 − 37 + 23,45 = 76,45° · ekinoks 90 − 37 = 53° · kış 90 − 37 − 23,45 = 29,55° Pratik eğim: yıl boyu ≈ 37° · yaz ≈ 22° · kış ≈ 52°
+
+**Formül:** öğle güneş yüksekliği = 90 − enlem ± deklinasyon (yaz +, kış −, ekinoks 0) · pratik kural eğimi: yıl boyu ≈ enlem, yaz ≈ enlem − 15°, kış ≈ enlem + 15°
 
 **İlgili:** [Sıra aralığı ve gölgelenme aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Panel yerleşim planlayıcı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Gölgelenme nedir?](https://www.gespaenerji.com/sozluk.html#golgelenme) · [Güneş panelleri](https://www.gespaenerji.com/online-satis.html?kategori=panel)
 
@@ -59,15 +61,17 @@ Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/9054374342
 
 ### Çatı eğimi çevirici: derece, yüzde ve oran
 
-Çatı eğimi üç biçimde söylenir: derece, yüzde ve 100 cm yatayda kaç cm yükseldiği. Aralarındaki bağ tanjanttır: % eğim = tan(derece) × 100; 100 cm yatayda yükselme (cm) yüzdeyle aynı sayıdır.
-
-Örnek: 30° → tan(30°) × 100 = %57,74 (100 cm yatayda 57,74 cm) · %50 eğim → arctan(50 ÷ 100) = 26,57°
+Çatı eğimini derece, yüzde ve oran arasında çevirir.
 
 #### Eğim
 
-Derece (°)
+Derece
 
-Yüzde eğim (%)
+°
+
+Yüzde eğim
+
+%
 
 Derece ya da yüzde alanından hangisini yazarsanız diğeri hesaplanır. Çatıda ölçmek için: 100 cm yatay mesafede kaç cm yükseldiğini ölçün, yüzde alanına yazın.
 
@@ -75,13 +79,23 @@ Derece ya da yüzde alanından hangisini yazarsanız diğeri hesaplanır. Çatı
 
 Oran (yükselme : yatay) —
 
-**Formül:** % eğim = tan(derece) × 100 · derece = arctan(% ÷ 100) · 100 cm yatayda yükselme (cm) = % eğim
-
 Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+Çatı eğimi üç biçimde söylenir: derece, yüzde ve 100 cm yatayda kaç cm yükseldiği. Aralarındaki bağ tanjanttır: % eğim = tan(derece) × 100; 100 cm yatayda yükselme (cm) yüzdeyle aynı sayıdır.
+
+Örnek: 30° → tan(30°) × 100 = %57,74 (100 cm yatayda 57,74 cm) · %50 eğim → arctan(50 ÷ 100) = 26,57°
+
+**Formül:** % eğim = tan(derece) × 100 · derece = arctan(% ÷ 100) · 100 cm yatayda yükselme (cm) = % eğim
 
 **İlgili:** [Panel eğim açısı](#egim) · [Panel yerleşim planlayıcı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Çatı GES hizmeti](https://www.gespaenerji.com/cati-ges.html) · [Tasarruf hesaplayıcı](https://www.gespaenerji.com/hesaplayici.html)
 
 Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+
+**Kısa cevap:** Pratik kurala göre yıl boyu kullanım için eğim yaklaşık enleme eşittir; yaz ağırlıklı kullanımda enlem − 15°, kış ağırlıklı kullanımda enlem + 15°. 37° enlemi için: yıl boyu ≈ 37°, yaz ≈ 22°, kış ≈ 52°. Bu bir başlangıç değeridir.
+
+Çatınızın eğimini yüzde olarak biliyorsanız ikinci araç dereceye çevirir.
 
 ## Girdiler ne anlama gelir?
 
@@ -128,6 +142,8 @@ derece = arctan(yüzde ÷ 100). Örnek: %50 eğim 26,57° eder; 30° eğim ise %
 - [Lexron 655 W panel](https://www.gespaenerji.com/panel-lexron-655w.html)
 
 *Bu sayfa genel bilgilendirme ve ön hesap amaçlıdır. Sonuçlar girdiğiniz değerlere ve belirtilen formüllere dayanır; gerçek değerler sıcaklık, ışınım, kablo, bağlantı kalitesi ve ekipmana göre değişir. Kesin tasarım, malzeme seçimi ve kurulum için ürün künyesine, üretici talimatına ve yürürlükteki mevzuata uyunuz; işi yetkili elektrikçi ya da mühendis yapar.*
+
+Yayın: 23 Kasım 2026 · GESPA Enerji · [Tüm hesaplama araçları](https://www.gespaenerji.com/elektrikci-cantasi.html)
 
 ## Malzeme listenizi yazın, fiyatını çıkaralım
 

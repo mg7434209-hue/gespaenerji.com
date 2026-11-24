@@ -3,7 +3,7 @@ title: "100 Ah Akü Kaç kWh Eder? Ah kWh Çevirme | GESPA"
 description: "Ah kWh çevirme: kWh = Ah × V ÷ 1000. 100 Ah akü 12 V, 24 V ve 48 V sistemde kaç kWh eder, Wh amper saate nasıl çevrilir: formül ve ücretsiz çevirici."
 canonical: https://www.gespaenerji.com/ah-kwh-cevirme.html
 lang: tr
-dateModified: 2026-11-23
+dateModified: 2026-11-24
 publisher: "GESPA Enerji"
 ---
 
@@ -11,33 +11,43 @@ publisher: "GESPA Enerji"
 
 # 100 Ah Akü Kaç kWh Eder?
 
-Amper saat (Ah) tek başına enerji değildir; gerilimle çarpılınca watt saat (Wh) olur. Gerilimi ve Ah ya da Wh değerinden birini yazın, diğeri hesaplansın.
-
-Yayın: 23 Kasım 2026 · GESPA Enerji · [Tüm hesaplama araçları](https://www.gespaenerji.com/elektrikci-cantasi.html)
-
-**Kısa cevap:** kWh = Ah × V ÷ 1000. 100 Ah akü 12 V'ta 1,2 kWh, 24 V'ta 2,4 kWh, 48 V'ta 4,8 kWh eder. Aynı Ah değeri, gerilim arttıkça daha çok enerji demektir.
+Amper saat (Ah) tek başına enerji değildir; gerilimle çarpılınca watt saat (Wh) olur.
 
 ## Hesaplama aracı
 
 ### Ah ↔ Wh / kWh çevirici
 
-100 Ah × 12 V = 1.200 Wh = 1,2 kWh
+Amper saat ile watt saat arasında gerilime göre çevirir.
 
 #### Ah ↔ Wh
 
-Gerilim (V)
+Gerilim
 
-Kapasite (Ah)
+V
 
-Enerji (Wh)
+Kapasite
 
-**Formül:** Wh = Ah × V · kWh = Wh ÷ 1000 · Ah = Wh ÷ V
+Ah
+
+Enerji
+
+Wh
 
 Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+100 Ah × 12 V = 1.200 Wh = 1,2 kWh
+
+**Formül:** Wh = Ah × V · kWh = Wh ÷ 1000 · Ah = Wh ÷ V
 
 **İlgili:** [Akü kaç saat dayanır?](https://www.gespaenerji.com/elektrikci-cantasi.html#aku-sure) · [Akü bankası bağlama](https://www.gespaenerji.com/elektrikci-cantasi.html#aku) · [Diğer çeviriciler](https://www.gespaenerji.com/elektrikci-cantasi.html#cevirici)
 
 Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+
+**Kısa cevap:** kWh = Ah × V ÷ 1000. 100 Ah akü 12 V'ta 1,2 kWh, 24 V'ta 2,4 kWh, 48 V'ta 4,8 kWh eder. Aynı Ah değeri, gerilim arttıkça daha çok enerji demektir.
+
+Gerilimi ve Ah ya da Wh değerinden birini yazın, diğeri hesaplansın.
 
 ## Girdiler ne anlama gelir?
 
@@ -94,6 +104,8 @@ kWh her iki bağlantıda da toplanır. Paralel bağlamada Ah toplanır, gerilim 
 - [1200 W güç istasyonu](https://www.gespaenerji.com/lexron-guc-istasyonu-1200w.html)
 
 *Bu sayfa genel bilgilendirme ve ön hesap amaçlıdır. Sonuçlar girdiğiniz değerlere ve belirtilen formüllere dayanır; gerçek değerler sıcaklık, ışınım, kablo, bağlantı kalitesi ve ekipmana göre değişir. Kesin tasarım, malzeme seçimi ve kurulum için ürün künyesine, üretici talimatına ve yürürlükteki mevzuata uyunuz; işi yetkili elektrikçi ya da mühendis yapar.*
+
+Yayın: 23 Kasım 2026 · GESPA Enerji · [Tüm hesaplama araçları](https://www.gespaenerji.com/elektrikci-cantasi.html)
 
 ## Malzeme listenizi yazın, fiyatını çıkaralım
 
