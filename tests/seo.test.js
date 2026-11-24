@@ -361,7 +361,7 @@ console.log('Analytics: consent gate, exact AI source attribution and contact pa
   near(U.runHours(4.86,100),48.6,'run hours');near(U.runHours(1.2,600),2,'run hours 600 W');}
  const pg=fs.readFileSync(path.join(root,'elektrikci-cantasi.html'),'utf8'),EX=U.examples(C);
  const toolIds=[...pg.matchAll(/<section class="usta-tool" id="([^"]+)" data-usta-tool="\1" data-kw="[^"]+">/g)].map(m=>m[1]);EX['meta.count']=String(toolIds.length);
- assert.equal(toolIds.length,26,'tool count');assert.equal(new Set(toolIds).size,toolIds.length,'tool ids unique');
+ assert.equal(toolIds.length,27,'tool count');assert.equal(new Set(toolIds).size,toolIds.length,'tool ids unique');
  for(const m of pg.replace(/<[^>]+>/g,'').matchAll(/(\d+) ücretsiz (?:saha |hesaplama )?ara[cç]/g))assert.equal(+m[1],toolIds.length,'stale tool count in page text');
  const tags=[...pg.matchAll(/<data data-ex="([^"]+)" value="([^"]*)">([^<]*)<\/data>/g)];
  assert.equal(tags.length,(pg.match(/data-ex=/g)||[]).length,'every worked-example value uses the <data data-ex value> form');
@@ -369,7 +369,7 @@ console.log('Analytics: consent gate, exact AI source attribution and contact pa
  for(const m of tags){assert.ok(m[1] in EX,'unknown example key '+m[1]);assert.equal(m[3],EX[m[1]],'static example '+m[1]+' matches the calculator');assert.equal(m[2],m[3],'data value '+m[1]);}
  for(const p of ['egim','kablo','dizi','seri','aku','sigorta','cev','ac','akim','ohm','sk','sure','sarj','c','uretim','sic','golge','cati','liste','motor','uyum','tuk'])assert.ok(tags.some(m=>m[1].startsWith(p+'.')),'worked example for '+p);
  assert.equal(EX['sigorta.verdict'],'gerekir');assert.equal(EX['kablo.rec'],'6');assert.equal(EX['dizi.max'],'3');
- for(const id of ['egim','kablo','dizi','seri-paralel','aku','sigorta','cevirici','kontrol','ac-kablo','akim','ohm','sarj-kontrol','aku-sure','aku-sarj','c-orani','gunluk-uretim','sicaklik-gucu','golge','cati-egimi','yuk-listesi','inverter-aku-akimi','sigorta-kablo-uyumu','hp-kw-amper','cihaz-tuketimi','inverter-kodlari','inverter-ayarlari'])
+ for(const id of ['egim','kablo','dizi','seri-paralel','aku','sigorta','cevirici','kontrol','ac-kablo','akim','ohm','sarj-kontrol','aku-sure','aku-sarj','c-orani','gunluk-uretim','sicaklik-gucu','golge','cati-egimi','yuk-listesi','inverter-aku-akimi','sigorta-kablo-uyumu','hp-kw-amper','cihaz-tuketimi','inverter-kodlari','inverter-ayarlari','cihaz-gunes'])
   assert.ok(toolIds.includes(id)&&pg.includes('href="#'+id+'"'),'tool anchor #'+id);
  // App layout (progressive enhancement): sidebar lists every tool once in category order, the workspace holds all tools in the HTML (JS shows one),
  // explanations sit in closed <details>, and no content-bearing element is hidden from non-JS readers.
@@ -469,7 +469,7 @@ console.log('Analytics: consent gate, exact AI source attribution and contact pa
   const tg=[...kc.matchAll(/<data data-ex="([^"]+)" value="([^"]*)">([^<]*)<\/data>/g)];assert.equal(tg.length,(kc.match(/data-ex=/g)||[]).length,'card: example tag form');assert.ok(tg.length>=250,'card carries the worked examples');
   for(const m of tg){assert.ok(m[1] in EX,'card: unknown example key '+m[1]);assert.equal(m[3],EX[m[1]],'card number '+m[1]+' matches GESPA.usta.examples');}
   const formulas=[...pg.matchAll(/<p class="usta-formula"><strong>Formül:<\/strong> ([\s\S]*?)<\/p>/g)].map(m=>m[1]),cardF=[...kc.matchAll(/<p class="kc-ff">([\s\S]*?)<\/p>/g)].map(m=>m[1]);
-  assert.equal(cardF.length,formulas.length,'card lists every tool formula');for(const x of formulas)assert.ok(cardF.includes(x),'card formula is the tool formula verbatim: '+x.slice(0,50));
+  const devF=(pg.split('id="cihaz-gunes"')[1].match(/<p class="usta-formula"><strong>Formül:<\/strong> ([\s\S]*?)<\/p>/)||[])[1];assert.equal(cardF.length,formulas.length-1,'card lists every tool formula (the single-device tool repeats the device-list formulas)');for(const x of formulas.filter(x=>x!==devF))assert.ok(cardF.includes(x),'card formula is the tool formula verbatim: '+x.slice(0,50));
   assert.equal((kc.match(/<div class="kc-page"/g)||[]).length,2,'two sheets (front, back)');assert.equal((kc.match(/class="kc-box"/g)||[]).length,(pg.match(/data-chk="/g)||[]).length,'card checklist = tool checklist');
   for(const id of ['kcSeri','kcPar','kcB0','kcB1','kcBP','ugSvg'])assert.ok(kc.includes('id="'+id+'"'),'card diagram slot '+id);
   assert.ok((kc.match(/tanımdan hesaplanmıştır/g)||[]).length>=3&&/Değerler yaklaşıktır; tasarım ve kurulum yetkili kişi tarafından yapılır/.test(kc)&&/Üretim: <time datetime="\d{4}-\d\d-\d\d">/.test(kc)&&/data-usta-print/.test(kc),'card: computed-table labels, safety footer, generation date, print button');
@@ -481,6 +481,40 @@ console.log('Analytics: consent gate, exact AI source attribution and contact pa
   const srv=fs.readFileSync(path.join(root,'server.js'),'utf8');for(const k of [...uk.matchAll(/<option value="([^"]+)"/g)].map(m=>m[1]).concat([...uk.matchAll(/name="ilgi" value="([^"]+)"/g)].map(m=>m[1])))assert.ok(new RegExp('"'+k+'": "').test(srv),'server accepts form value '+k);
   assert.ok(/kaynak: "usta"/.test(ustaSrc)&&/usta_open/.test(ustaSrc)&&/usta_open\)\$/.test(srv)&&/usta_open/.test(fs.readFileSync(path.join(root,'admin.html'),'utf8')),'form posts as source usta; usta_open is tracked, whitelisted and shown in admin');
   assert.equal((pg.match(/<a class="usta-link" href="usta-kaydi\.html">/g)||[]).length,toolIds.length,'every tool line links to the sign-up page');}
+ // "Can I run this device on solar" pages: one per appliance that exists in config.builder.appliances; every number on the page is the
+ // calculator's output for the prefilled values; a device missing from config (kombi) gets NO wattage; no promises, prices or savings.
+ {const devPages=[...fs.readFileSync(path.join(root,'build.js'),'utf8').match(/const DEV_PAGES = \[([\s\S]*?)\];/)[1].matchAll(/"([^"]+\.html)"/g)].map(m=>m[1]);assert.equal(devPages.length,12,'device page count');globalThis.__devPages=devPages;
+  const S=C.builder.sizing,dd=C.calc.usta.defaults.device,opt={sun:S.sunHours,eff:S.systemEff,days:S.autonomyDays,v:dd.v,dod:S.dod,eta:S.invEff,panelW:C.calc.panelW};
+  {const r=U.devicePlan(1100,1,6,{sun:4.5,eff:0.75,days:1,v:24,dod:0.9,eta:0.92,panelW:550});near(r.wh,6600,'klima Wh');assert.ok(Math.abs(r.panelW-1955.5556)<1e-3&&r.panels===4&&r.arrayW===2200&&Math.abs(r.ah-332.1256)<1e-3&&Math.abs(r.ctrlA-91.6667)<1e-3&&r.sumW===1100,'device plan: 1100 W x 6 h');
+   const b=U.devicePlan(120,1,8,{sun:4.5,eff:0.75,days:1,v:24,dod:0.9,eta:0.92,panelW:550});assert.ok(b.wh===960&&b.panels===1&&Math.abs(b.panelW-284.4444)<1e-3&&Math.abs(b.ah-48.3092)<1e-3&&Math.abs(b.ctrlA-22.9167)<1e-3,'device plan: 120 W x 8 h');
+   assert.equal(U.devicePlan(550,1,3.375,{sun:4.5,eff:0.75,days:1,v:24,dod:0.9,eta:0.92,panelW:550}).panels,1,'exact panel fit does not round up');near(U.devicePlan(100,2,5,{sun:5,eff:0.8,days:2,v:12,dod:0.5,eta:1,panelW:250}).ah,333.3333333,'2 units, 2 days');near(U.surgeW(120,3),360,'surge watts');}
+  const seen=new Set(),txt=x=>x.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim(),hubT=(pg.match(/<title>([^<]*)<\/title>/)||[])[1];let withCfg=0;
+  for(const f of devPages){const h=fs.readFileSync(path.join(root,f),'utf8'),url=origin+'/'+f,id=(h.match(/<main id="main" data-article data-usta data-usta-dev="([^"]*)">/)||[,null])[1];
+   assert.ok(id!==null&&h.includes('USTA:GEN')&&urls.includes(url)&&h.includes('rel="canonical" href="'+url+'"')&&h.includes('<script defer src="assets/usta.js"></script>'),f+': generated, in sitemap, canonical');
+   const t=(h.match(/<title>([^<]*)<\/title>/)||[])[1],d=(h.match(/<meta name="description" content="([^"]*)"/)||[])[1],h1=txt((h.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)||[])[1]);
+   assert.ok(t.length<=60&&d.length<=160&&t!==hubT,f+': title/description length');for(const v of [t,d,h1]){assert.ok(!seen.has(v),f+': duplicate title/description/H1');seen.add(v);}
+   assert.ok(/<a href="elektrikci-cantasi\.html">Elektrikçi Çantası<\/a> <span>\/<\/span>/.test(h)&&pg.includes('href="'+f+'"'),f+': breadcrumb through the hub; linked from the hub');
+   assert.ok(h.indexOf('</h1>')<h.indexOf('<section class="usta-tool" id="cihaz-gunes"')&&h.indexOf('<section class="usta-tool"')<h.indexOf('<!-- OWN:START -->'),f+': calculator first, text second');
+   const own=[...h.matchAll(/<!-- OWN:START -->([\s\S]*?)<!-- OWN:END -->/g)].map(m=>m[1]).join(' '),ownT=txt(own),nw=(ownT.match(/[\p{L}\p{N}]+/gu)||[]).length;assert.ok(nw>=120&&nw<=520,f+': short own text ('+nw+' words)');
+   assert.ok(!/kesin(likle)?\s+çalış|garanti|sorunsuz çalış|rahatlıkla çalış|%\s?\d+\s*(tasarruf|indirim|kazanç)|geri öde|amorti|fatura(nız)? (sıfır|biter)|₺|\bTL\b|\d\s*yıl (ömür|garanti)/i.test(ownT),f+': no promises, savings, prices, payback or warranty statements');
+   assert.ok(/yetmesine bağlıdır|yetiyorsa çalışır/.test(ownT)&&/etiket/.test(ownT)&&/kalkış/.test(ownT),f+': conditional answer, nameplate and start-up wording');
+   const tg=[...h.matchAll(/<data data-ex="([^"]+)" value="([^"]*)">([^<]*)<\/data>/g)];assert.equal(tg.length,(h.match(/data-ex=/g)||[]).length,f+': example tag form');
+   for(const m of tg){assert.ok(m[1] in EX,f+': unknown example key '+m[1]);assert.equal(m[3],EX[m[1]],f+': '+m[1]+' matches the calculator');}
+   const fq=(h.match(/<button class="faq-q"/g)||[]).length,ld=[...h.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1]));
+   assert.ok(fq===3&&(ld.find(x=>x['@type']==='FAQPage')||{mainEntity:[]}).mainEntity.length===3&&ld.some(x=>x['@type']==='Article')&&ld.some(x=>x['@type']==='BreadcrumbList'),f+': FAQ + schemas');
+   const ids=[...h.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(ids).size,ids.length,f+': duplicate element id');for(const m of h.matchAll(/href="#([^"]+)"/g))assert.ok(ids.includes(m[1]),f+': dead anchor #'+m[1]);
+   for(const m of h.matchAll(/<li data-usta-pkg="([^"]+)"[^>]*><a href="([^"]+)">([^<]*)<\/a>[\s\S]*?<span class="usta-pp">([^<]*)<\/span>/g)){const p=C.packages.find(x=>x.id===m[1]);assert.ok(p&&p.url===m[2]&&p.name===m[3]&&m[4]==='',f+': product '+m[1]+' exists in config; price is not typed into the page');}
+   assert.ok((h.match(/data-usta-pkg=/g)||[]).length>=4&&h.includes('href="usta-kaydi.html"')&&h.includes('href="sistem-kur.html"'),f+': products, sign-up and builder links');
+   for(const d2 of ['en','de','ru'])assert.ok(!fs.existsSync(path.join(root,d2,f)),d2+'/'+f+': TR-only');
+   const a=C.builder.appliances.find(x=>x.id===id),ownKeys=tg.filter(m=>own.includes(m[0])).map(m=>m[1]);
+   if(a){withCfg++;const r=U.devicePlan(a.w,1,a.h,opt),F=U.fmt,want={w:F(a.w),h:F(a.h),wh:F(r.wh,0),panelW:F(r.panelW,0),panels:F(r.panels,0),arrayW:F(r.arrayW,0),ah:F(r.ah,1),inv:F(r.sumW,0),ctrl:F(r.ctrlA,1),surge:F(a.surge,2),surgeW:F(a.w*a.surge,0),name:a.name};
+    for(const k of Object.keys(want))assert.equal(EX['dev.'+id+'.'+k],want[k],f+': '+k+' recomputed from config');
+    for(const k of ['w','h','wh','panelW','panels','ah','inv','ctrl'])assert.ok(ownKeys.includes('dev.'+id+'.'+k),f+': page shows '+k+' for its own device');
+    assert.ok(!ownKeys.some(k=>/^dev\.[a-z_]+\./.test(k)&&!k.startsWith('dev.'+id+'.')),f+': no other device numbers on the page');assert.ok(d.includes(F(a.w)+' W')&&d.includes(F(a.h)+' saat'),f+': description numbers come from config');
+    assert.ok(a.surge>1?ownKeys.includes('dev.'+id+'.surgeW'):!ownKeys.includes('dev.'+id+'.surgeW'),f+': start-up figure shown only when config has a multiplier above 1');}
+   else{assert.equal(id,'',f+': device not in config opens with no preset');assert.ok(!tg.some(m=>own.includes(m[0])&&/^dev\.[a-z_]+\./.test(m[1]))&&!/\d\s*W\b/.test(ownT.replace(/W\s*[×÷=]/g,''))&&/boş açılır/.test(ownT),f+': no wattage is given for a device that config does not have');assert.ok(!/\d/.test(d),f+': no number in the description');}}
+  assert.equal(withCfg,11,'eleven pages are backed by a config appliance; one (kombi) is not');
+  assert.ok(/data-usta-dev/.test(ustaSrc)&&/GESPA\.shop|G\.shop/.test(ustaSrc)&&!/surge\s*[:=]\s*\d|\*\s*[23](\.\d)?\b(?!\))/.test(ustaSrc.split('U.devicePlan')[1].split('U.usage')[0]),'device tool reads config; no start-up multiplier in code');}
  // Per-tool landing pages (tools/usta-sayfalar.py): same cards and usta.js as the hub, own title/description/H1/text/FAQ, examples tied to GESPA.usta.
  const ustaPages=[...fs.readFileSync(path.join(root,'build.js'),'utf8').match(/const USTA_PAGES = \[([\s\S]*?)\];/)[1].matchAll(/"([^"]+\.html)"/g)].map(m=>m[1]);
  assert.equal(ustaPages.length,20,'landing page count');
@@ -512,7 +546,7 @@ console.log('Analytics: consent gate, exact AI source attribution and contact pa
    assert.ok(!/ampasite|TS HD|IEC 6\d{4}|NEC \d|izin verilen (en yüksek )?gerilim düşümü\s*(sınırı\s*)?%\s*\d/i.test(h),f+': no standards citations');
    assert.ok(pg.includes('href="'+f+'"'),f+': linked from the hub');
    for(const d of ['en','de','ru'])assert.ok(!fs.existsSync(path.join(root,d,f)),d+'/'+f+': TR-only');}
-  for(const f of fs.readdirSync(root).filter(f=>f.endsWith('.html')&&f!=='elektrikci-cantasi.html'&&!ustaPages.includes(f)&&!globalThis.__invPages.includes(f)&&!globalThis.__ustaExtra.includes(f)))assert.ok(!fs.readFileSync(path.join(root,f),'utf8').includes('assets/usta.js'),f+': usta.js is loaded only by the tool pages');}
+  for(const f of fs.readdirSync(root).filter(f=>f.endsWith('.html')&&f!=='elektrikci-cantasi.html'&&!ustaPages.includes(f)&&!globalThis.__invPages.includes(f)&&!globalThis.__ustaExtra.includes(f)&&!globalThis.__devPages.includes(f)))assert.ok(!fs.readFileSync(path.join(root,f),'utf8').includes('assets/usta.js'),f+': usta.js is loaded only by the tool pages');}
  for(const d of ['en','de','ru'])assert.ok(!fs.readFileSync(path.join(root,d,'hesaplayici.html'),'utf8').includes('elektrikci-cantasi')&&!fs.existsSync(path.join(root,d,'elektrikci-cantasi.html')),d+': TR-only tool page not linked or generated');
  assert.ok(fs.readFileSync(path.join(root,'hesaplayici.html'),'utf8').includes('<a href="elektrikci-cantasi.html">')&&fs.readFileSync(path.join(root,'rehberler.html'),'utf8').includes('href="elektrikci-cantasi.html"')&&/<section class="section" id="rehberler">[\s\S]*?href="elektrikci-cantasi\.html"[\s\S]*?<\/section>\s*<!-- \/TR:ONLY -->/.test(fs.readFileSync(path.join(root,'index.html'),'utf8')),'tool page linked from calculator, guide hub and home (TR only)');
  {const fq=[...pg.matchAll(/<button class="faq-q"/g)].length;assert.ok(fq>=12&&fq<=14,'FAQ size');}

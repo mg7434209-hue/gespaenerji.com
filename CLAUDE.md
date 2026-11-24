@@ -694,7 +694,7 @@ işe yaramıyordu.
 - KURAL: Hesaplayıcı bileşenine hiçbir sayı (fiyat, katsayı, güç) hardcode ETME.
 
 ## Elektrikçi Çantası (`elektrikci-cantasi.html` + 20 araç sayfası · `tools/usta-sayfalar.py` · `assets/usta.js`)
-Elektrikçi/montajcı için 26 araç (8 kategori; ilk sırada Kablo ve akım, ayrıca İnverter kategorisi — aşağıdaki bölüm) + arama sorgusuna göre adlandırılmış 20 İNİŞ SAYFASI
+Elektrikçi/montajcı için 27 araç (8 kategori; ilk sırada Kablo ve akım, ayrıca İnverter kategorisi — aşağıdaki bölüm) + arama sorgusuna göre adlandırılmış 20 İNİŞ SAYFASI
 (`kablo-kesiti-hesaplama`, `gerilim-dusumu-hesaplama`, `kw-amper-hesaplama`, `aku-kac-saat-dayanir`, `awg-mm2-cevirme` …).
 Hepsi yalnız TR (`TR_ONLY`), `<main data-article data-usta>`. "Elektrikçi Çantası" aranan bir terim DEĞİL: başlık ve H1
 aranan ifadeyle başlar, çanta adı sonek/marka olarak kalır.
@@ -808,6 +808,24 @@ YANLIŞ BİR ARIZA ANLAMI YA DA AYAR TEHLİKELİDİR — kurallar:
   dönüş süresi YAZILMAZ (test arar). Onay satırı diğer formlarla aynıdır; kvkk.html "iletişim/teklif formları"nı zaten
   kapsar. Hata olursa aynı bilgilerle WhatsApp'a düşer. Her aracın "Usta / toplu alım" satırı ve merkez kenar çubuğunun
   altındaki iki düğme buraya ve karta bağlanır; footer'a EKLENMEDİ (her sayfayı yeniden yazardı).
+
+## Cihaz sayfaları — "<cihaz> güneş paneli ile çalışır mı" (24 Kas 2026 · build.js `DEV_PAGES` · merkezde `#cihaz-gunes`)
+12 sayfa (klima, buzdolabı, derin dondurucu, çamaşır/bulaşık makinesi, televizyon, dalgıç pompa, hidrofor, elektrikli
+ısıtıcı, termosifon, güvenlik kamerası, kombi); `tools/usta-sayfalar.py` `DPAGES` üretir. ÖNCE HESAP, sonra kısa metin
+(işletme: "direkt icraat"; test özgün metni 120–520 sözcükle sınırlar).
+- TEK KAYNAK: cihaz gücü, günlük saat ve kalkış katsayısı YALNIZ `config.builder.appliances` (Sistem Kurucu listesi);
+  güneş saati/verim/DoD/inverter verimi `builder.sizing`; tek panel gücü `calc.panelW`; açılış akü gerilimi
+  `calc.usta.defaults.device.v` (örnek seçim). Hesap `GESPA.usta.devicePlan` = cihaz listesi hesabı (`loadPlan`) + panel
+  adedi + `controllerA`; ikinci formül kopyası YOK. Sayfadaki her sayı `examples()`'ın `dev.<kimlik>.*` anahtarıdır; test
+  ayrıca config'ten yeniden hesaplar.
+- CONFIG'TE OLMAYAN CİHAZA GÜÇ YAZILMAZ: kombi sayfası `data-usta-dev=""` ile güç ve saat alanları BOŞ açılır
+  ("etiketteki gücü girin"), açıklamasında sayı yoktur. Yeni cihaz sayfası = önce `builder.appliances`'a gerçek değer,
+  sonra `DPAGES` + build.js `DEV_PAGES`.
+- KALKIŞ: katsayı yalnız config'te 1'den büyükse ve yalnız "Sistem Kurucu ×N varsayar" diye gösterilir; inverter her
+  zaman "cihazın etiketindeki / üreticisinin verdiği kalkış değerine göre" seçtirilir. İnverter sonucu çalışma gücüdür
+  (kalkış hariç). "Kesin çalışır", tasarruf, geri ödeme, garanti, fiyat metni YAZILMAZ (test arar); yanıt koşulludur.
+- ÜRÜNLER: `builder.catalog.panel/battery` içindeki mağaza ürünleri statik bağlantı olarak basılır; FİYAT sayfaya
+  yazılmaz, usta.js `GESPA.shop.unit()` (main.js tek fiyat kuralı) ile doldurur; panel adedi aynı hesaptan gelir.
 
 ## Satış motoru — yapay zekâ asistanı, talepler, huni (21 Kas 2026)
 Ayrıntı ve kurallar: @docs/satis-asistani.md

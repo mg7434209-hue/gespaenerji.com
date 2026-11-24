@@ -90,6 +90,14 @@ TR_ONLY.push(...INV_PAGES);
 // Yazdırılabilir cep kartı ve usta / toplu alım kaydı formu — aynı betik üretir.
 const USTA_EXTRA = ["usta-cep-karti.html", "usta-kaydi.html"];
 TR_ONLY.push(...USTA_EXTRA);
+// "<cihaz> güneş paneli ile çalışır mı" sayfaları — aynı betik üretir (DPAGES); cihaz değerleri config.builder.appliances'tan.
+const DEV_PAGES = [
+  "klima-gunes-paneli-ile-calisir-mi.html", "buzdolabi-kac-panel-ile-calisir.html", "derin-dondurucu-gunes-paneli.html",
+  "camasir-makinesi-gunes-paneli-ile-calisir-mi.html", "bulasik-makinesi-gunes-paneli.html", "televizyon-gunes-paneli-ile-calisir-mi.html",
+  "dalgic-pompa-icin-kac-panel.html", "hidrofor-gunes-paneli-ile-calisir-mi.html", "elektrikli-isitici-gunes-paneli.html",
+  "termosifon-gunes-paneli-ile-calisir-mi.html", "guvenlik-kamerasi-gunes-paneli.html", "kombi-icin-gunes-paneli-inverter.html"
+];
+TR_ONLY.push(...DEV_PAGES);
 // Mevzuat rehberi — footer "Kurumsal" sütununda yalnız TR sayfalarda görünür
 const GUIDE = { file: "gunes-paneli-kacak-elektrik-cezasi.html", label: "Güneş Paneli Cezası Rehberi" };
 // Rehberler merkezi (yalnız TR, TR_ONLY) — footer "Kurumsal" sütununda mevzuat rehberinin yanında
@@ -2039,6 +2047,7 @@ const PRIORITY = {
    yalnız AI botlarına açık, server.js canonical Link başlığı gönderir).
    ============================================================ */
 USTA_PAGES.concat(INV_PAGES).forEach(f => { PRIORITY[f] = "0.7"; });
+DEV_PAGES.forEach(f => { PRIORITY[f] = "0.7"; });
 PRIORITY["usta-cep-karti.html"] = "0.7"; PRIORITY["usta-kaydi.html"] = "0.6";
 const LLMS_GROUPS = [
   // Ana sayfa en üstte: okuyan model siteye önce giriş kapısından baksın
@@ -2059,6 +2068,7 @@ const LLMS_GROUPS = [
   ["Referans projeler", ["projeler.html", "proje-kemer-villa.html", "proje-manavgat-fabrika.html", "proje-manavgat-tarimsal.html"]],
   ["Rehberler ve güncel mevzuat (yalnız Türkçe)", ["rehberler.html", "off-grid-gunes-sistemi-boyutlandirma.html", "pwm-mppt-sarj-kontrol-farki.html", "solar-sulama-pompasi-secimi.html", "gunes-paneli-kacak-elektrik-cezasi.html"]],
   ["Ücretsiz elektrik ve solar hesaplama araçları (Elektrikçi Çantası, yalnız Türkçe)", ["elektrikci-cantasi.html", ...USTA_EXTRA, ...USTA_PAGES]],
+  ["Cihaz güneş paneli ile çalışır mı: cihaza göre panel, akü ve inverter hesabı (yalnız Türkçe)", DEV_PAGES],
   ["İnverter hata kodları ve off-grid inverter ayarları (üretici kılavuzlarından, yalnız Türkçe)", INV_PAGES],
   ["Kurumsal ve yardım", ["hakkimizda.html", "iletisim.html", "sss.html", "sozluk.html"]]
 ];

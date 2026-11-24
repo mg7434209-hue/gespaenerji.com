@@ -3064,3 +3064,14 @@ body:has(main[data-usta]){padding-bottom:0 !important}
 .uk-sent .uk-done{display:block}
 .uk-sent .uk-form{display:none}
 .usta .uk-done h2{border:0;padding:0;margin:0 0 8px}
+
+/* ---- "Cihaz güneşle çalışır mı?" aracı: hesap dökümü ve mağaza ürünleri ---- */
+.usta .usta-work{font-size:.86rem;font-weight:500;line-height:1.5;color:var(--muted)}
+.usta-prod{margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}
+.usta-prod .usta-sub small{display:block;font-weight:400}
+.usta .usta-prod ul{list-style:none;padding:0;margin:0 0 6px}
+.usta .usta-prod li{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;margin:0;padding:7px 0;border-bottom:1px dotted var(--line);font-size:.92rem}
+.usta-pn:not(:empty){padding:1px 8px;border-radius:999px;background:color-mix(in srgb,var(--green) 12%,transparent);font-weight:700;font-size:.8rem}
+.usta-pp{margin-left:auto;font-weight:800;font-family:var(--font);color:var(--green)}
+/* Cihaz sayfalarında araç başlığı sayfa H1'ini yineler: görsel olarak gizli (ekran okuyucu ve botlar için duruyor), hesap daha yukarıdan başlar */
+main[data-usta-dev] #cihaz-gunes>h3,main[data-usta-dev] #cihaz-gunes>.usta-one{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
