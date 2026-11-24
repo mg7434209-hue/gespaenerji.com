@@ -32,7 +32,9 @@ APPLY='--uygula' in sys.argv
 MARK='<!-- USTA:GEN — tools/usta-sayfalar.py üretir; elle düzenlemeyin -->'
 PUB=('2026-11-23','23 Kasım 2026')
 SHELL=open(ROOT+'pwm-mppt-sarj-kontrol-farki.html',encoding='utf8').read()
-def shell(slug,title,desc,ogt,ogd):
+PUB5=('2026-11-24','24 Kasım 2026')
+def shell(slug,title,desc,ogt,ogd,pub=None):
+    pub=pub or (PUB5 if 'inverter' in slug else PUB)
     assert len(title)<=60,(slug,len(title),title)
     assert len(desc)<=160,(slug,len(desc),desc)
     head=SHELL[:SHELL.index('<main id="main" data-article>')]; foot=SHELL[SHELL.index('  </main>'):]
@@ -41,7 +43,7 @@ def shell(slug,title,desc,ogt,ogd):
     head=re.sub(r'<meta property="og:title" content="[^"]*"',lambda m:'<meta property="og:title" content="'+ogt+'"',head)
     head=re.sub(r'<meta property="og:description" content="[^"]*"',lambda m:'<meta property="og:description" content="'+ogd+'"',head)
     head=head.replace('pwm-mppt-sarj-kontrol-farki',slug)
-    head=re.sub(r'<meta property="article:published_time" content="[^"]*"','<meta property="article:published_time" content="'+PUB[0]+'"',head)
+    head=re.sub(r'<meta property="article:published_time" content="[^"]*"','<meta property="article:published_time" content="'+pub[0]+'"',head)
     ld='  <!-- LD:STATIC — build.js config\'ten üretir; elle düzenlemeyin -->\n  <!-- /LD:STATIC -->\n'
     if os.path.exists(ROOT+slug+'.html'):   # var olan şema bloğu korunur: build tarihleri oradan okur, değişmeyen sayfa aynı kalır
         m=re.search(r'[ \t]*<!-- LD:STATIC[\s\S]*?/LD:STATIC -->\n?',open(ROOT+slug+'.html',encoding='utf8').read())
@@ -92,7 +94,8 @@ KW={'egim':'panel açısı eğim derece güneş yüksekliği enlem yaz kış til
  'sarj-kontrol':'şarj kontrol cihazı regülatör mppt pwm kaç amper','aku-sure':'akü kaç saat dayanır süre yük dod inverter batarya','aku-sarj':'akü kaç saatte dolar şarj süresi panel güneşli saat',
  'c-orani':'c oranı c rate şarj deşarj akımı 0.5c 1c lityum','gunluk-uretim':'panel günde kaç kwh üretir günlük üretim güneş saati kwp','sicaklik-gucu':'sıcaklık panel gücü güç kaybı sıcaklık katsayısı noct hücre',
  'golge':'gölge uzunluğu engel baca direk parapet gölgelenme','cati-egimi':'çatı eğimi derece yüzde oran meyil','yuk-listesi':'cihaz listesi yük listesi günlük tüketim wh panel akü inverter kaç watt karavan bağ evi',
- 'inverter-aku-akimi':'inverter invertör aküden kaç amper çeker akü akımı','sigorta-kablo-uyumu':'sigorta kablo uyumu ib in iz şalter otomat koruma','hp-kw-amper':'hp beygir kw amper motor akımı pompa','cihaz-tuketimi':'cihaz kaç kwh harcar elektrik tüketimi fatura tl maliyet'}
+ 'inverter-aku-akimi':'inverter invertör aküden kaç amper çeker akü akımı','inverter-kodlari':'inverter invertör hata kodu arıza uyarı alarm fault deye mexxsun mexx sunon voltronic axpert victron solis akıllı',
+ 'inverter-ayarlari':'inverter invertör ayar program tablosu lityum akü bms şebeke öncelik sbu off-grid','sigorta-kablo-uyumu':'sigorta kablo uyumu ib in iz şalter otomat koruma','hp-kw-amper':'hp beygir kw amper motor akımı pompa','cihaz-tuketimi':'cihaz kaç kwh harcar elektrik tüketimi fatura tl maliyet'}
 ONE={'egim':'Enleme göre öğle güneşinin yüksekliği ve yıl boyu, yaz, kış için pratik panel eğimi.',
  'golge':'Baca, parapet ya da panel sırasının öğle vaktindeki gölge uzunluğu.',
  'cati-egimi':'Çatı eğimini derece, yüzde ve oran arasında çevirir.',
@@ -117,9 +120,12 @@ ONE={'egim':'Enleme göre öğle güneşinin yüksekliği ve yıl boyu, yaz, kı
  'cihaz-tuketimi':'Bir cihazın kWh tüketimi ve yazdığınız birim fiyatla tutarı.',
  'cevirici':'Watt–amper, Ah–Wh, HP–kW ve AWG–mm² çeviricileri.',
  'kontrol':'Devreye almadan önce sahada işaretlenecek pratik kontroller.',
+ 'inverter-kodlari':'Cihaz ailesini seçin, ekrandaki kodu yazın: kılavuzdaki anlamı ve kaynağı görün.',
+ 'inverter-ayarlari':'Üç kullanım kılavuzunun program tablosu, lityum akü ve şebeke ayarları; kılavuz sayfasıyla.',
  'awg-mm2':'AWG numarasından çap ve mm² kesit; mm² değerinden en yakın AWG.',
  'ah-wh':'Amper saat ile watt saat arasında gerilime göre çevirir.'}
 for _k,_v in ONE.items(): assert len(_v)<=120,(_k,len(_v))
+NOEX={'inverter-kodlari','inverter-ayarlari'}   # açılış değeri olmayan araçlar: "Örnek değerler" düğmesi yok
 def tool(id,h2,intro,left,right,formula,rel,store=None,kw=None):
     """Araç bölümü. right=None → tek kart. store=PARTS → merkezde olmayan parça (iniş sayfası için).
     Sıra: başlık → tek cümle → girdi/sonuç kartları → güvenlik notu → eylemler → kapalı ayrıntı."""
@@ -127,7 +133,7 @@ def tool(id,h2,intro,left,right,formula,rel,store=None,kw=None):
     cards='<div class="calc-card usta-card">%s</div>\n'%left+('<div class="calc-card usta-card usta-out-card">%s</div>\n'%right if right else '')
     owner=id if store is None else 'cevirici'
     html=('<section class="usta-tool" id="%s" data-usta-tool="%s" data-kw="%s">\n<h3>%s</h3>\n<p class="usta-one">%s</p>\n<div class="usta-grid%s">\n%s</div>\n<p class="usta-err" data-usta-err role="alert"></p>\n%s\n%s\n%s\n</section>\n'
-            %(id,owner,kw or KW[id],name,ONE[id],'' if right else ' one',cards,DISC,actions(owner),more(id,X(intro),formula,rel)))
+            %(id,owner,kw or KW[id],name,ONE[id],'' if right else ' one',cards,DISC,actions(owner,example=id not in NOEX),more(id,X(intro),formula,rel)))
     (TOOLS if store is None else store)[id]=html
     return html
 PARTS={}
@@ -416,19 +422,47 @@ tool('sigorta-kablo-uyumu','Sigorta–kablo uyum kontrolü (Ib ≤ In ≤ Iz)',
  'Ib ≤ In ≤ Iz · Ib: tasarım akımı · In: sigorta/şalter anma akımı · Iz: kablonun akım taşıma kapasitesi (üretici tablosu)',
  '<a href="#akim">Güçten akım hesabı (Ib)</a> · <a href="#ac-kablo">AC gerilim düşümü</a> · <a href="#kablo">DC kablo kesiti</a> · <a href="#sigorta">Dizi sigortası kontrolü</a>')
 
-CATS=[('grup-gunes','☀️ Güneş ve konum','Güneşin yüksekliği, eğim, gölge ve üretim tahmini.',['egim','golge','cati-egimi','gunluk-uretim','sicaklik-gucu']),
- ('grup-kablo','🔻 Kablo ve akım','DC ve AC hatlarda gerilim düşümü, güçten akım, motor akımı, Ohm kanunu ve sigorta–kablo uyumu.',['kablo','ac-kablo','akim','hp-kw-amper','ohm','sigorta-kablo-uyumu']),
+
+# ---- İnverter araçları (veri assets/inverter-veri.json'dan ilk açılışta indirilir; tablolar araç sayfalarında statik)
+INV=json.load(open(ROOT+'assets/inverter-veri.json',encoding='utf8'))
+INV_WARN='<p class="usta-inv-warn"><strong>Kod anlamı markaya ve modele göre değişir; cihazınızın kendi kılavuzu esastır.</strong></p>'
+INV_FOOT='<p class="usta-inv-foot">Arıza devam ederse cihazı kapatın ve yetkili servise ya da satıcıya başvurun; cihazın içine yalnız yetkili kişi müdahale eder.</p>'
+INV_LINKS=('<a href="inverter-hata-kodlari.html">Tüm aileler</a> · <a href="mexxsun-inverter-hata-kodlari.html">Mexxsun</a> · <a href="deye-inverter-hata-kodlari.html">Deye</a> · <a href="voltronic-axpert-hata-kodlari.html">Voltronic Axpert</a> · '
+  '<a href="victron-mppt-hata-kodlari.html">Victron MPPT</a> · <a href="solis-inverter-hata-kodlari.html">Solis</a> · <a href="akilli-inverter-hata-kodlari.html">Akıllı inverter (3,6–7,2 kW ve 1–5 kVA)</a>')
+tool('inverter-kodlari','İnverter hata kodları',
+ '<p>İnverter ekranındaki arıza, uyarı ve alarm kodlarının anlamı üreticiye ve modele göre değişir. Bu araç yalnızca adı yazan kılavuzlardaki tabloları içerir: '+str(len(INV['families']))+' cihaz ailesi, '+str(sum(len(f['codes']) for f in INV['families']))+' kod. Her satırda kılavuzdaki ifade, varsa kılavuzun önerdiği çözüm ve sayfa numarası yer alır; çeviri olan satırlarda üreticinin özgün ifadesi de gösterilir. Aileler birleştirilmez ve listede olmayan kod için tahmin yürütülmez.</p>\n'
+ '<p>Kod tablolarının tamamı: '+INV_LINKS+'.</p>',
+ INV_WARN+'<div class="field"><label for="xvFilter">Marka / model süz</label><input id="xvFilter" type="search" autocomplete="off" placeholder="ör. deye, mexx, axpert" /></div>'
+ '<div class="field"><label for="xvFam">Cihaz ailesi <small>kılavuzun kapağındaki modele göre</small></label><select id="xvFam"><option value="">Cihaz ailesi seçin</option></select></div>'
+ '<div class="field"><span class="usta-lbl">Tür</span><div class="usta-seg" id="xvType" role="group" aria-label="Kod türü"></div></div>'
+ '<div class="field"><label for="xvCode">Ekrandaki kod</label><input id="xvCode" class="usta-inv-codein" type="text" inputmode="numeric" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="ör. 13, F13, 103" /></div>'
+ '<p class="tool-hint" data-inv-state>Arama için JavaScript gerekir; kod tablolarının tamamı araç sayfalarında yer alır.</p>',
+ '<div id="xvOut" class="usta-inv-out" aria-live="polite"></div>'+INV_FOOT+'<details id="xvAll" class="usta-inv-all usta-js"><summary>Bu ailedeki tüm kodlar</summary><div id="xvTable" class="art-table-wrap"></div></details>',
+ '','<a href="inverter-hata-kodlari.html">İnverter hata kodları (tüm tablolar)</a> · <a href="#inverter-ayarlari">Off-grid inverter ayar rehberi</a> · <a href="#inverter-aku-akimi">İnverterin akü akımı</a> · <a href="iletisim.html">İletişim</a>')
+tool('inverter-ayarlari','Off-grid inverter ayar rehberi',
+ '<p>Üç kullanım kılavuzunda yazan ayarlar: 3,6 / 6,5 / 7,2 kW akıllı inverter (Sürüm 1.5), MEXX-P12KW (V1.1) ve 1–5 kVA akıllı inverter. “Program tablosu” ayarın numarasını, seçeneklerini ve ekran kodlarını; “Lityum akü ayarı” kılavuzun lityum akü için söylediklerini; “Şebeke bağlıyken” çıkış ve şarj önceliklerinin o cihazda ne yaptığını verir. Aynı adlı ayar iki cihazda farklı davranabilir; satırlar başka marka ya da modele uygulanmaz.</p>\n'
+ '<p>Kılavuzda okunamayan ya da kendi içinde çelişen satırlar yayınlanmamıştır. Akü şarj gerilimi gibi değerlerde akü üreticisinin değeri esastır. Statik tablolar: <a href="off-grid-inverter-lityum-aku-ayarlari.html">lityum akü ayarı</a> · <a href="off-grid-inverter-sebeke-ayarlari.html">şebeke bağlıyken ayarlar ve program tabloları</a>.</p>',
+ '<div class="field"><label for="xwMan">Kullanım kılavuzu</label><select id="xwMan"><option value="">Kılavuz seçin</option></select></div>'
+ '<div class="field"><span class="usta-lbl">Bölüm</span><div class="usta-seg" role="group" aria-label="Bölüm"><button type="button" data-xw-tab="prog" aria-pressed="true" class="active">Program tablosu</button><button type="button" data-xw-tab="lit" aria-pressed="false">Lityum akü ayarı</button><button type="button" data-xw-tab="grid" aria-pressed="false">Şebeke bağlıyken</button></div></div>'
+ '<div><div class="field"><label for="xwFind">Program tablosunda ara</label><input id="xwFind" type="search" autocomplete="off" placeholder="ör. 01, şarj, SBU, öncelik" /></div></div>'
+ '<p class="tool-hint" data-inv-state>Bu araç için JavaScript gerekir; içeriğin tamamı araç sayfalarında yer alır.</p>',
+ '<div id="xwOut" class="usta-inv-out" aria-live="polite"></div>'+INV_FOOT,
+ '','<a href="off-grid-inverter-lityum-aku-ayarlari.html">Lityum akü ayarı (üç kılavuz)</a> · <a href="off-grid-inverter-sebeke-ayarlari.html">Şebeke bağlıyken ayarlar</a> · <a href="#inverter-kodlari">İnverter hata kodları</a> · <a href="#aku">Akü bankası bağlama</a>')
+
+CATS=[('grup-kablo','🔻 Kablo ve akım','DC ve AC hatlarda gerilim düşümü, güçten akım, motor akımı, Ohm kanunu ve sigorta–kablo uyumu.',['kablo','ac-kablo','akim','hp-kw-amper','ohm','sigorta-kablo-uyumu']),
+ ('grup-gunes','☀️ Güneş ve konum','Güneşin yüksekliği, eğim, gölge ve üretim tahmini.',['egim','golge','cati-egimi','gunluk-uretim','sicaklik-gucu']),
  ('grup-dizi','🔗 Dizi ve bağlantı','Kaç panel seri bağlanır, seri–paralel şema ve dizi sigortası kontrolü.',['dizi','seri-paralel','sigorta']),
  ('grup-aku','🔋 Akü','Akü bankası, süre, dolum ve C oranı.',['aku','aku-sure','aku-sarj','c-orani']),
  ('grup-cihaz','🎛️ Cihaz seçimi','Cihaz listesinden sistem, şarj kontrol cihazı ve inverter akımı, tüketim ve maliyet.',['yuk-listesi','sarj-kontrol','inverter-aku-akimi','cihaz-tuketimi']),
+ ('grup-inverter','🧰 İnverter','İnverter hata kodları (aile → tür → kod) ve üç kılavuzun ayar rehberi.',['inverter-kodlari','inverter-ayarlari']),
  ('grup-cevirici','🔁 Çeviriciler','Watt–amper, Ah–Wh, HP–kW ve AWG–mm².',['cevirici']),
  ('grup-kontrol','✅ Kontrol listesi','Devreye almadan önce sahada işaretlenecek kontroller.',['kontrol'])]
 NTOOLS=sum(len(c[3]) for c in CATS); assert NTOOLS==len(TOOLS)==len(KW), (NTOOLS,len(TOOLS),len(KW))
 SHORT={'egim':'Eğim açısı','golge':'Gölge uzunluğu','cati-egimi':'Çatı eğimi','gunluk-uretim':'Günlük üretim','sicaklik-gucu':'Sıcaklıkta güç','kablo':'DC kablo kesiti','ac-kablo':'AC gerilim düşümü','akim':'Akım hesabı','ohm':'Ohm kanunu',
  'dizi':'Dizi hesabı','seri-paralel':'Seri–paralel şema','sigorta':'Dizi sigortası','aku':'Akü bankası','aku-sure':'Akü süresi','aku-sarj':'Akü dolum süresi','c-orani':'C oranı','sarj-kontrol':'Şarj kontrol akımı','yuk-listesi':'Cihaz listesi','cevirici':'Çeviriciler','kontrol':'Kontrol listesi',
- 'inverter-aku-akimi':'İnverter akü akımı','sigorta-kablo-uyumu':'Sigorta–kablo uyumu','hp-kw-amper':'HP → amper','cihaz-tuketimi':'Tüketim ve maliyet'}
+ 'inverter-aku-akimi':'İnverter akü akımı','inverter-kodlari':'İnverter hata kodları','inverter-ayarlari':'İnverter ayar rehberi','sigorta-kablo-uyumu':'Sigorta–kablo uyumu','hp-kw-amper':'HP → amper','cihaz-tuketimi':'Tüketim ve maliyet'}
 ICON={'egim':'📐','golge':'🌤️','cati-egimi':'🏠','gunluk-uretim':'☀️','sicaklik-gucu':'🌡️','kablo':'🔻','ac-kablo':'🔌','akim':'⚡','hp-kw-amper':'⚙️','ohm':'Ω','sigorta-kablo-uyumu':'🛡️',
- 'dizi':'🔗','seri-paralel':'🔲','sigorta':'🧯','aku':'🔋','aku-sure':'⏱️','aku-sarj':'🔄','c-orani':'📈','yuk-listesi':'📋','sarj-kontrol':'🎛️','inverter-aku-akimi':'🔁','cihaz-tuketimi':'💡','cevirici':'🔀','kontrol':'✅'}
+ 'dizi':'🔗','seri-paralel':'🔲','sigorta':'🧯','aku':'🔋','aku-sure':'⏱️','aku-sarj':'🔄','c-orani':'📈','yuk-listesi':'📋','sarj-kontrol':'🎛️','inverter-aku-akimi':'🔁','inverter-kodlari':'🚨','inverter-ayarlari':'🧰','cihaz-tuketimi':'💡','cevirici':'🔀','kontrol':'✅'}
 DEFAULT_TOOL='kablo'
 def cat(c):
     return '<section class="usta-cat" id="%s">\n<h2>%s</h2>\n<p class="usta-cat-lead">%s</p>\n%s</section>\n'%(c[0],c[1],c[2],''.join(TOOLS[t] for t in c[3]))
@@ -853,12 +887,13 @@ OWN={'kablo':'solar-kablo-kesiti-hesaplama','ac-kablo':'gerilim-dusumu-hesaplama
  'sigorta-kablo-uyumu':'kablo-kesiti-hesaplama','egim':'gunes-paneli-acisi-hesaplama','golge':'golge-uzunlugu-hesaplama','cati-egimi':'cati-egimi-hesaplama','gunluk-uretim':'gunes-paneli-gunluk-uretim-hesaplama',
  'sicaklik-gucu':'panel-sicaklik-guc-kaybi','dizi':'gunes-paneli-seri-paralel-baglanti','seri-paralel':'gunes-paneli-seri-paralel-baglanti','sigorta':'gunes-paneli-seri-paralel-baglanti','aku':'aku-seri-paralel-baglanti',
  'aku-sure':'aku-kac-saat-dayanir','c-orani':'aku-kac-saat-dayanir','aku-sarj':None,'sarj-kontrol':'mppt-kac-amper-olmali','inverter-aku-akimi':'invertor-akuden-kac-amper-ceker',
- 'yuk-listesi':'cihaz-elektrik-tuketimi-hesaplama','cihaz-tuketimi':'cihaz-elektrik-tuketimi-hesaplama','cevirici':'awg-mm2-cevirme','kontrol':None}
+ 'inverter-kodlari':'inverter-hata-kodlari','inverter-ayarlari':'off-grid-inverter-lityum-aku-ayarlari','yuk-listesi':'cihaz-elektrik-tuketimi-hesaplama','cihaz-tuketimi':'cihaz-elektrik-tuketimi-hesaplama','cevirici':'awg-mm2-cevirme','kontrol':None}
 assert set(OWN)==set(TOOLS),set(OWN)^set(TOOLS)
 def own_line(t):
     sl=OWN.get(t)
     if not sl: return ''
     more=' · <a href="ah-kwh-cevirme.html">Ah kWh Çevirme</a>' if t=='cevirici' else ''
+    if sl not in BY: return '<p class="usta-own">Kod tablolarının ve ayarların tamamı: <a href="%s.html">%s</a></p>'%(sl,{'inverter-hata-kodlari':'İnverter Hata Kodları','off-grid-inverter-lityum-aku-ayarlari':'Off-Grid İnverter Lityum Akü Ayarı'}[sl])
     return '<p class="usta-own">Ayrıntılı anlatım, sık yapılan hatalar ve sorular: <a href="%s.html">%s</a>%s</p>'%(sl,BY[sl]['crumb'],more)
 def finish(html,page_ids):
     html=re.sub(r'<!--OWN:([a-z0-9-]+)-->\n?',lambda m:(own_line(m.group(1))+'\n') if page_ids is None and own_line(m.group(1)) else '',html)
@@ -872,7 +907,7 @@ def finish(html,page_ids):
 H_TITLE='Elektrik ve Solar Hesaplama Araçları | Elektrikçi Çantası'
 H_DESC='Ücretsiz hesaplama araçları: kablo kesiti, gerilim düşümü, kW amper, trifaze akım, panel açısı, akü kaç saat dayanır, MPPT kaç amper, AWG mm² çevirme.'
 head,foot=shell('elektrikci-cantasi',H_TITLE,H_DESC,'Elektrikçi Çantası: Ücretsiz Elektrik ve Solar Hesaplama Araçları','Kablo kesiti, gerilim düşümü, kW amper, panel açısı, dizi hesabı, akü süresi ve çeviriciler: formülü görünen ücretsiz araçlar.')
-PAGE_LIST='<ul class="usta-sib">'+''.join('<li><a href="%s.html">%s</a></li>'%(p['slug'],p['h1']) for p in PAGES)+'</ul>'
+PAGE_LIST='<ul class="usta-sib">'+''.join('<li><a href="%s.html">%s</a></li>'%(p['slug'],p['h1']) for p in PAGES)+'<!--INVLIST--></ul>'
 META_LINE='<p class="art-meta">Yayın: <time datetime="'+PUB[0]+'">'+PUB[1]+'</time> · GESPA Enerji</p>'
 hub=head+('''<main id="main" data-article data-usta data-usta-app="'''+DEFAULT_TOOL+'''">
     '''+MARK+'''
@@ -913,7 +948,8 @@ hub=head+('''<main id="main" data-article data-usta data-usta-app="'''+DEFAULT_T
     </section>
 
     ''')+CTA+foot
-OUT={'elektrikci-cantasi.html':finish(hub,None)}
+HUB_RAW=hub
+OUT={}
 
 # ---- iniş sayfaları
 def render(p):
@@ -972,6 +1008,184 @@ for p in PAGES:
     for s in p['sib']: assert s in BY and s!=p['slug'],(p['slug'],s)
     OUT[p['slug']+'.html']=render(p)
 
+
+# ============================================================
+# İNVERTER HATA KODLARI / AYAR REHBERİ SAYFALARI — veri: assets/inverter-veri.json (tools/inverter-veri.py)
+# Tablolar STATİK basılır (aranan şey "<marka> inverter hata kodu 04"); aileler ayrı bölümlerde durur, birleştirilmez.
+# ============================================================
+import html as _h
+E=_h.escape
+FAM={f['id']:f for f in INV['families']}; SET={x['id']:x for x in INV['settings']}
+TY={'fault':'Arıza','alarm':'Alarm','warning':'Uyarı','info':'Bilgi / durum'}
+def src_html(src,page=''):
+    if src.get('url'): s='<a href="%s" target="_blank" rel="nofollow noopener">%s</a>'%(E(src['url']),E(src['t']))
+    else: s=E(src['t'])+(' (%s)'%E(src['rev']) if src.get('rev') else '')+' — '+E(INV['owner'])
+    return s+((' · '+E(page)) if page else '')
+def fam_title(f): return ('%s %s'%(f['brand'],f['name'])) if f['g']!='akilli' else f['name'][0].upper()+f['name'][1:]
+def fam_section(f):
+    rows=''
+    for r in f['codes']:
+        mean=('“%s” <span class="usta-inv-badge unc">kılavuzda belirsiz</span>'%E(r['m'])) if r.get('u') else E(r['m'])
+        if r.get('o'): mean+='<br /><span class="usta-inv-orig">Üreticinin ifadesi: “%s”</span>'%E(r['o'])
+        if r.get('d'): mean+='<br /><span class="usta-inv-line">Ekranda: %s</span>'%E(r['d'])
+        if r.get('b'): mean+='<br /><span class="usta-inv-line">Sesli uyarı: %s</span>'%E(r['b'])
+        if r.get('k'): mean+='<br /><span class="usta-inv-line">(%s)</span>'%E(r['k'])
+        if r.get('n'): mean+='<br /><span class="usta-inv-note">[Aktaranın notu: %s]</span>'%E(r['n'])
+        rem=E(r.get('r') or '—')
+        if r.get('ro'): rem+='<br /><span class="usta-inv-orig">Üreticinin ifadesi: “%s”</span>'%E(r['ro'])
+        rows+='<tr data-c="%s" data-t="%s"><td><strong>%s</strong></td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>'%(E(r['c']),r['t'],E(r['c']),TY[r['t']],mean,rem,E(r['p']))
+    extra=''.join('<p class="usta-inv-line">%s</p>'%E(f['src'][k]) for k in ('x','v') if f['src'].get(k))
+    return ('<h2 id="fam-%s">%s: kod tablosu</h2>\n<p class="usta-inv-src">Kaynak: %s. <strong>GESPA bu cihazın üreticisi değildir</strong>; tablo üreticinin kılavuzundan alıntıdır ve yalnız bu kılavuzun kapsadığı modeller içindir.</p>\n%s'
+      '<div class="art-table-wrap"><table class="art-table usta-inv-table"><thead><tr><th>Kod</th><th>Tür</th><th>Anlam (kılavuzdaki)</th><th>Kılavuzdaki çözüm</th><th>Sayfa</th></tr></thead><tbody>%s</tbody></table></div>\n'
+      %(f['id'],E(fam_title(f)),src_html(f['src']),extra,rows))
+def q_code(f,r):
+    a='%s kılavuzuna göre %s %s: %s.'%(fam_title(f),TY[r['t']].lower(),r['c'],r['m'].rstrip('.'))
+    if r.get('o'): a+=' Üreticinin ifadesi: “%s”.'%r['o'].rstrip('.')
+    if r.get('r') and len(r['r'])<=320: a+=' Kılavuzdaki çözüm: %s'%r['r']
+    elif r.get('r'): a+=' Kılavuzdaki çözüm adımları tabloda yer alır.'
+    a+=' Bu anlam yalnız bu kılavuzun kapsadığı modeller içindir; başka marka ya da modelde aynı kod başka bir şey ifade edebilir.'
+    return ('%s %s kodu ne demek?'%(fam_title(f),r['c']),a)
+def row(fid,t,c): return [r for r in FAM[fid]['codes'] if r['t']==t and r['c']==c][0]
+Q_NONE=('Ekrandaki kod bu tabloda yoksa ne yapmalıyım?','Tahmin yürütmeyin. Tablolar yalnızca adı yazan kılavuzlardaki kodları içerir; cihazınızın modeli ya da yazılım sürümü farklıysa kod listesi de farklı olabilir. Cihazınızla gelen kılavuza bakın; arıza devam ederse cihazı kapatın ve yetkili servise ya da satıcıya başvurun.')
+INV_WARN='<p class="usta-inv-warn"><strong>Kod anlamı markaya ve modele göre değişir; cihazınızın kendi kılavuzu esastır.</strong></p>'
+def q_src(fids):
+    return ('Bu tablo hangi kaynaktan alındı?','Tablolar şu belgelerden aktarılmıştır: '+'; '.join('%s — %s'%(fam_title(FAM[i]),FAM[i]['src']['t']+(' ('+FAM[i]['src']['rev']+')' if FAM[i]['src'].get('rev') else '')) for i in fids)+'. GESPA bu cihazların üreticisi değildir; her satırın yanında kılavuzdaki sayfa numarası yazar.')
+a11,c11=row('akilli-36-72kw','fault','11'),row('akilli-1-5kva','fault','11')
+m103f,m103a=row('mexx-p12kw','fault','103'),row('mexx-p12kw','alarm','103')
+Q_DIFF=('İnverter hata kodları her markada aynı anlama mı gelir?','Hayır. Aynı numara farklı kılavuzda farklı arızayı gösterir: %s kılavuzunda arıza 11 “%s” iken %s kılavuzunda arıza 11 “%s” demektir. Aynı cihazda bile tür önemlidir: MEXX-P12KW’de 103, arıza listesinde “%s”, alarm listesinde “%s” anlamına gelir. Bu yüzden önce cihaz ailesi, sonra tür ve kod seçilir.'%(fam_title(FAM['akilli-36-72kw']),a11['m'],fam_title(FAM['akilli-1-5kva']),c11['m'],m103f['m'],m103a['m']))
+IPAGES=[
+dict(slug='inverter-hata-kodlari',crumb='İnverter Hata Kodları',fam='',fams=[],index=True,
+ title='İnverter Hata Kodları: Marka ve Modele Göre Arama | GESPA',
+ desc='İnverter hata kodu arama: Deye, Mexxsun, Voltronic Axpert, Victron, Solis ve akıllı inverter kılavuzlarındaki arıza ve uyarı kodları, kaynak sayfasıyla.',
+ h1='İnverter Hata Kodları (Marka ve Modele Göre)',lead='Cihaz ailesini seçin, ekrandaki kodu yazın; kılavuzdaki anlamı, varsa çözümü ve kaynak sayfasını görün.',
+ faq=[Q_DIFF,('Hangi inverterlerin hata kodları var?','Şu kılavuzların kod tabloları yer alır: '+'; '.join('%s (%d kod)'%(fam_title(f),len(f['codes'])) for f in INV['families'])+'. Her biri kendi sayfasında tablo olarak da yayınlanır.'),Q_NONE]),
+dict(slug='mexxsun-inverter-hata-kodlari',crumb='Mexxsun Hata Kodları',fam='mexx-p12kw',fams=['mexx-p4kw','mexx-p6kw','mexx-p12kw','sunon-iv-8kw'],
+ title='Mexxsun İnverter Hata Kodları: MEXX-P ve SUNON IV | GESPA',
+ desc='Mexxsun inverter hata kodları: MEXX-P4KW, P6KW, P12KW ve SUNON IV 8KW kılavuzlarındaki arıza, alarm ve uyarı kodları; anlamı, çözümü ve sayfa numarası.',
+ h1='Mexxsun İnverter Hata Kodları (MEXX-P4KW, P6KW, P12KW, SUNON IV)',lead='Modeli seçip kodu yazın; MEXX-P serisinde aynı numara arıza ve alarm listesinde farklı anlam taşıyabilir.',
+ faq=[('MEXX-P12KW ekranında 103 kodu ne demek?','MEXX-P12KW kılavuzunda 103 iki ayrı listede geçer: arıza 103 “%s”, alarm 103 ise “%s” demektir. Ekranda arıza göstergesinin mi alarm göstergesinin mi yandığına bakılır. Aynı durum 105, 305 ve 502 için de geçerlidir.'%(m103f['m'],m103a['m'])),
+  q_code(FAM['mexx-p6kw'],row('mexx-p6kw','fault','202')),q_code(FAM['sunon-iv-8kw'],row('sunon-iv-8kw','fault','07')),q_src(['mexx-p4kw','mexx-p6kw','mexx-p12kw','sunon-iv-8kw']),Q_NONE]),
+dict(slug='deye-inverter-hata-kodlari',crumb='Deye Hata Kodları',fam='deye-sg05lp1',fams=['deye-sg05lp1','deye-sg05lp3'],
+ title='Deye İnverter Hata Kodları ve Çözümleri (SG05) | GESPA',
+ desc='Deye hibrit inverter hata kodları: SUN-SG05LP1 (tek faz) ve SG05LP3 (üç faz) kılavuzlarındaki F kodları, üreticinin açıklaması ve çözüm adımları.',
+ h1='Deye Hibrit İnverter Hata Kodları (SG05LP1 ve SG05LP3)',lead='Tek faz ve üç faz kılavuzlarının tabloları ayrıdır; modeli seçip F kodunu yazın.',
+ faq=[q_code(FAM['deye-sg05lp1'],row('deye-sg05lp1','fault','F13')),q_code(FAM['deye-sg05lp3'],row('deye-sg05lp3','fault','F01')),q_code(FAM['deye-sg05lp1'],row('deye-sg05lp1','fault','F58')),q_src(['deye-sg05lp1','deye-sg05lp3']),Q_NONE]),
+dict(slug='voltronic-axpert-hata-kodlari',crumb='Voltronic Axpert Hata Kodları',fam='axpert-vm2-pf1',fams=['axpert-vm2-pf1','axpert-mks'],
+ title='Voltronic Axpert Hata Kodları: VM II ve MKS | GESPA',
+ desc='Voltronic Axpert hata ve uyarı kodları: Axpert VM II (PF1) 3–5 kVA ve Axpert MKS 1–5 kVA kılavuzlarındaki kodlar, anlamı, çözümü ve sayfa numarası.',
+ h1='Voltronic Axpert Hata ve Uyarı Kodları (VM II, MKS)',lead='İki kılavuzun tabloları ayrı verilir; aynı numara arıza ve uyarı listesinde farklı anlam taşır.',
+ faq=[q_code(FAM['axpert-vm2-pf1'],row('axpert-vm2-pf1','fault','07')),q_code(FAM['axpert-mks'],row('axpert-mks','fault','11')),q_code(FAM['axpert-vm2-pf1'],row('axpert-vm2-pf1','warning','04')),q_src(['axpert-vm2-pf1','axpert-mks']),Q_NONE]),
+dict(slug='victron-mppt-hata-kodlari',crumb='Victron MPPT Hata Kodları',fam='victron-mppt',fams=['victron-mppt'],
+ title='Victron MPPT Hata Kodları ve Anlamları | GESPA',
+ desc='Victron MPPT şarj cihazı hata kodları: Victron Energy belgelerindeki Err kodları, Türkçe anlamı, üreticinin özgün ifadesi ve önerdiği adımlar.',
+ h1='Victron MPPT Şarj Cihazı Hata Kodları',lead='Err numarasını yazın; Victron Energy belgesindeki anlamı ve önerilen adımı görün.',
+ faq=[q_code(FAM['victron-mppt'],row('victron-mppt','fault','Err 2')),q_code(FAM['victron-mppt'],row('victron-mppt','fault','Err 1')),q_src(['victron-mppt']),Q_NONE]),
+dict(slug='solis-inverter-hata-kodlari',crumb='Solis Alarm Kodları',fam='solis-grid-tied',fams=['solis-grid-tied'],
+ title='Solis İnverter Hata ve Alarm Kodları | GESPA',
+ desc='Solis inverter alarm kodları: şebeke bağlantılı modellerin ekran mesajları ve alarm numaraları, Türkçe anlamı, üreticinin ifadesi ve çözüm adımları.',
+ h1='Solis İnverter Alarm Kodları (Şebeke Bağlantılı Modeller)',lead='Ekrandaki mesajı (ör. OV-G-V 01) ya da alarm numarasını yazın; Solis destek belgesindeki açıklamayı görün.',
+ faq=[q_code(FAM['solis-grid-tied'],FAM['solis-grid-tied']['codes'][0]),q_src(['solis-grid-tied']),Q_NONE]),
+dict(slug='akilli-inverter-hata-kodlari',crumb='Akıllı İnverter Hata Kodları',fam='akilli-36-72kw',fams=['akilli-36-72kw','akilli-1-5kva'],
+ title='Akıllı İnverter Hata Kodları: 3,6–7,2 kW ve 1–5 kVA | GESPA',
+ desc='Akıllı inverter hata kodları: 3,6 / 6,5 / 7,2 kW (Sürüm 1.5) ve 1–5 kVA kullanım kılavuzlarındaki arıza ve uyarı kodları, iki ayrı tablo halinde.',
+ h1='Akıllı İnverter Hata Kodları (3,6 / 6,5 / 7,2 kW ve 1–5 kVA kılavuzları)',lead='Bu iki kılavuzda marka basılı değildir ve tabloları farklıdır; kılavuzunuzun kapağındaki güçlere göre doğru tabloyu seçin.',
+ faq=[('Akıllı inverterde 11 hatası ne demek?','Kılavuza göre değişir: %s kılavuzunda arıza 11 “%s”, %s kılavuzunda arıza 11 “%s” demektir. Önce elinizdeki kılavuzun hangisi olduğuna bakın.'%(fam_title(FAM['akilli-36-72kw']),a11['m'],fam_title(FAM['akilli-1-5kva']),c11['m'])),
+  q_code(FAM['akilli-36-72kw'],row('akilli-36-72kw','fault','07')),q_code(FAM['akilli-1-5kva'],row('akilli-1-5kva','fault','56')),q_src(['akilli-36-72kw','akilli-1-5kva']),Q_NONE]),
+]
+def set_section(m,key,title):
+    out='<h2 id="%s-%s">%s: %s</h2>\n<p class="usta-inv-src">Kaynak: %s. <strong>GESPA bu cihazın üreticisi değildir</strong>; aşağıdakiler yalnız bu kılavuzda yazanlardır.</p>\n'%(key,m['id'].lower(),E(m['name']),title,src_html(m['src']))
+    for it in m[key]:
+        body=('<p class="usta-inv-line">%s</p>'%E(it['v'][0])) if len(it['v'])==1 else '<ul class="usta-inv-opt">'+''.join('<li>%s</li>'%E(x) for x in it['v'])+'</ul>'
+        out+='<div class="usta-inv-hit"><p class="usta-inv-lab">%s</p>%s%s</div>\n'%(E(it['k']),body,('<p class="usta-inv-src">%s</p>'%E(it['p'])) if it.get('p') else '')
+    return out
+def prog_section(m):
+    rows=''
+    for r in m['programs']:
+        opt='<br />'.join('<strong>%s</strong> — %s'%(E(o[0]),E(o[1])) for o in r.get('opt',[])) or '—'
+        extra=' · '.join(x for x in [('Varsayılan: '+E(r['def'])) if r.get('def') else '',('Aralık: '+E(r['rng'])) if r.get('rng') else '',E(r['note']) if r.get('note') else ''] if x) or '—'
+        rows+='<tr data-no="%s"><td><strong>%s</strong></td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>'%(E(r['no']),E(r['no']),E(r['name']),opt,extra,E(r['p']))
+    return ('<h2 id="prog-%s">%s: program tablosu</h2>\n<p class="usta-inv-src">Kaynak: %s. Kılavuzda okunamayan ya da kendi içinde çelişen satırlar bu tabloya alınmamıştır.</p>\n'
+      '<div class="art-table-wrap"><table class="art-table usta-inv-table"><thead><tr><th>No</th><th>Ayar</th><th>Seçenekler (ekran kodu)</th><th>Varsayılan / aralık / not</th><th>Sayfa</th></tr></thead><tbody>%s</tbody></table></div>\n'%(m['id'].lower(),E(m['name']),src_html(m['src']),rows))
+gA,gC=SET['A']['grid'][0]['v'],SET['C']['grid'][0]['v']
+SPAGES=[
+dict(slug='off-grid-inverter-lityum-aku-ayarlari',crumb='Lityum Akü Ayarı',tab='lit',key='lithium',sec='Lityum akü ayarı',progs=False,
+ title='Off-Grid İnverter Lityum Akü Ayarı: Kılavuza Göre | GESPA',
+ desc='Off-grid inverterde lityum akü ayarı: üç kullanım kılavuzunun akü tipi seçenekleri, BMS haberleşmesi varken ve yokken yapılacaklar, sayfa numarasıyla.',
+ h1='Off-Grid İnverterde Lityum Akü Ayarı: Kılavuzlar Ne Diyor?',lead='Kılavuzu seçin; lityum akü için hangi ayarın yapılacağını, BMS haberleşmesi varken ve yokken ne dendiğini görün.',
+ faq=[('Off-grid inverterde lityum akü ayarı her modelde aynı mıdır?','Hayır. Üç kılavuz üç ayrı şey söyler: %s kılavuzunda %s %s kılavuzunda %s %s kılavuzunda ise: %s Bu yüzden ayar yalnız cihazın kendi kılavuzuna göre yapılır.'%(SET['A']['name'],SET['A']['lithium'][1]['v'][0],SET['B']['name'],' '.join(SET['B']['lithium'][1]['v'][:3])+'.',SET['C']['name'],SET['C']['lithium'][0]['v'][0])),
+  ('BMS haberleşmesi olmayan lityum akü nasıl ayarlanır?','%s kılavuzu: %s %s kılavuzu: %s Akü şarj gerilimi gibi değerlerde akü üreticisinin verdiği değer esastır.'%(SET['A']['name'],SET['A']['lithium'][2]['v'][0],SET['B']['name'],' '.join(SET['B']['lithium'][2]['v']))),
+  ('Bu ayarlar başka marka invertere uygulanabilir mi?','Hayır. Buradaki her satır yalnız adı yazan kılavuzdan alınmıştır; program numaraları, seçenek kodları ve aralıklar markadan markaya, hatta aynı ailenin modelleri arasında değişir. Cihazınızın kendi kılavuzu ve akü üreticisinin değerleri esastır.')]),
+dict(slug='off-grid-inverter-sebeke-ayarlari',crumb='Şebeke Ayarları',tab='grid',key='grid',sec='Şebeke bağlıyken',progs=True,
+ title='Off-Grid İnverter Şebeke Ayarları: Öncelik ve Dönüş | GESPA',
+ desc='Off-grid inverter şebeke bağlıyken: çıkış ve şarj önceliği, şebekeye ve aküye dönüş noktaları, AC giriş aralığı ve program tabloları; üç kılavuza göre.',
+ h1='Off-Grid İnverter Şebeke Bağlıyken Nasıl Ayarlanır?',lead='Kılavuzu seçin; çıkış önceliği, şarj önceliği ve dönüş noktalarının o kılavuzda ne yaptığını görün.',
+ faq=[('“Önce güneş” seçilince güneş yetmezse şebeke mi akü mü devreye girer?','Kılavuza göre değişir. %s kılavuzunda: “%s” %s kılavuzunda: “%s” Aynı ad, iki cihazda farklı davranış anlamına gelir; ayarı kendi kılavuzunuza göre seçin.'%(SET['A']['name'],gA[1],SET['C']['name'],gC[0])),
+  ('Şebekeye dönüş ve aküye dönüş noktası ne demek?','SBU önceliğinde akü belirli bir seviyeye düşünce cihaz şebekeye, akü yeniden dolunca aküye döner. %s kılavuzu: %s %s'%(SET['A']['name'],SET['A']['grid'][1]['v'][0],SET['A']['grid'][2]['v'][0])),
+  ('Bu ayarlar başka marka invertere uygulanabilir mi?','Hayır. Program numaraları, seçenek kodları ve davranışlar markadan markaya değişir; buradaki satırlar yalnız adı yazan kılavuzlar içindir. Akü şarj gerilimi gibi değerlerde akü üreticisinin değeri esastır.')]),
+]
+INV_SLUGS=[p['slug'] for p in IPAGES+SPAGES]; IBY={p['slug']:p for p in IPAGES+SPAGES}
+for attr in ('title','desc','h1'): assert len(set([p[attr] for p in IPAGES+SPAGES]+[p[attr] for p in PAGES]))==len(IPAGES+SPAGES)+len(PAGES),attr
+PAGE_OF={'deye':'deye-inverter-hata-kodlari','mexxsun':'mexxsun-inverter-hata-kodlari','voltronic':'voltronic-axpert-hata-kodlari','victron':'victron-mppt-hata-kodlari','solis':'solis-inverter-hata-kodlari','akilli':'akilli-inverter-hata-kodlari'}
+def inv_strip(p):
+    return ('<nav class="usta-strip" aria-label="Diğer inverter sayfaları"><strong>Diğer sayfalar</strong>'+''.join('<a href="%s.html">%s</a>'%(x['slug'],x['crumb']) for x in IPAGES+SPAGES if x['slug']!=p['slug'])
+      +'<a class="all" href="elektrikci-cantasi.html#%s">Araç kutusunda aç →</a><a class="all" href="elektrikci-cantasi.html">Tüm araçlar →</a></nav>'%('inverter-ayarlari' if p in SPAGES else 'inverter-kodlari'))
+def render_inv(p):
+    head,foot=shell(p['slug'],p['title'],p['desc'],p['h1'],p['desc'])
+    is_set=p in SPAGES; tool_id='inverter-ayarlari' if is_set else 'inverter-kodlari'
+    if is_set:
+        body=''.join(set_section(SET[i],p['key'],p['sec']) for i in 'ABC')+(''.join(prog_section(SET[i]) for i in 'ABC') if p['progs'] else '')
+        note='<div class="art-note"><p><strong>Önce şunu bilin:</strong> Bu sayfa üç kullanım kılavuzunda yazanları yan yana verir; genel bir ayar önerisi değildir. Aynı adlı ayar iki cihazda farklı davranabilir. Akü şarj gerilimi gibi değerlerde akü üreticisinin değeri esastır. Kılavuzda okunamayan ya da kendi içinde çelişen satırlar yayınlanmamıştır.</p></div>'
+        attrs=' data-inv-man="A" data-inv-tab="%s"'%p['tab']
+    elif p.get('index'):
+        rows=''.join('<tr><td>%s</td><td><a href="%s.html#fam-%s">%s</a></td><td>%d</td><td>%s</td></tr>'%(E(f['brand']),PAGE_OF[f['g']],f['id'],E(f['name']),len(f['codes']),src_html(f['src'])) for f in INV['families'])
+        body=('<h2 id="aileler">Kod tablosu bulunan cihaz aileleri</h2>\n<p>Her aile kendi kılavuzundan aktarılmıştır ve kendi sayfasında tablo olarak yer alır. Tablolar birleştirilmez: aynı numara başka bir kılavuzda başka bir arızayı gösterebilir.</p>\n'
+          '<div class="art-table-wrap"><table class="art-table usta-inv-table"><thead><tr><th>Marka</th><th>Aile / model</th><th>Kod sayısı</th><th>Kaynak</th></tr></thead><tbody>%s</tbody></table></div>\n'
+          '<h2 id="nasil">Arama nasıl çalışır?</h2>\n<p>Önce cihaz ailesini, kılavuzunuzun kapağındaki model adına göre seçin. Kodu ekranda gördüğünüz gibi yazın: “F13”, “13” ya da “Fault 13” aynı satırı bulur. Ailede aynı numara hem arıza hem uyarı ya da alarm listesinde geçiyorsa iki satır da tür etiketiyle gösterilir; ekrandaki göstergeye göre doğru olanı seçersiniz. Listede olmayan kod için tahmin yürütülmez.</p>\n'
+          '<p>Ayarlar için: <a href="off-grid-inverter-lityum-aku-ayarlari.html">lityum akü ayarı</a> ve <a href="off-grid-inverter-sebeke-ayarlari.html">şebeke bağlıyken ayarlar</a> sayfaları üç kullanım kılavuzunda yazanları verir.</p>\n'%rows)
+        note='<div class="art-note"><p><strong>Önce şunu bilin:</strong> İnverter hata kodları evrensel değildir. Bu sayfadaki her anlam, adı yazan üreticinin kılavuzundan alınmıştır ve yanında sayfa numarası durur. GESPA bu cihazların üreticisi değildir.</p></div>'
+        attrs=''
+    else:
+        body=''.join(fam_section(FAM[i]) for i in p['fams'])
+        note='<div class="art-note"><p><strong>Önce şunu bilin:</strong> Aşağıdaki tablolar üreticinin kılavuzundan alıntıdır; GESPA bu cihazların üreticisi değildir. Her tablo yalnız kendi kılavuzunun kapsadığı modeller içindir ve tablolar birbirinin yerine kullanılmaz.</p></div>'
+        attrs=' data-inv-fam="%s"'%p['fam']
+    ids={tool_id,'sss','aileler','nasil'}|set(re.findall(r' id="([^"]+)"',body))
+    main=('''<main id="main" data-article data-usta'''+attrs+'''>
+    '''+MARK+'''
+    <section class="usta-top">
+      <div class="container">
+        <div class="crumbs"><a href="index.html">Ana Sayfa</a> <span>/</span> <a href="elektrikci-cantasi.html">Elektrikçi Çantası</a> <span>/</span> '''+p['crumb']+'''</div>
+        <h1>'''+p['h1']+'''</h1>
+        <p class="lead">'''+p['lead']+'''</p>
+      </div>
+    </section>
+
+    <section class="section usta-sec">
+      <div class="container">
+        <article class="art usta usta-page">
+          <h2 id="arac" class="usta-sr">Arama aracı</h2>
+'''+TOOLS[tool_id]+'''
+          '''+inv_strip(p)+'''
+
+          <!-- OWN:START -->'''+note+'''
+          '''+INV_WARN+'''
+'''+body+'''
+          <h2 id="sss">Sık sorulan sorular</h2>
+          <div class="faq">'''+''.join('<div class="faq-item reveal"><button class="faq-q"><span>%s</span><span class="faq-ico">+</span></button><div class="faq-a"><p>%s</p></div></div>'%(E(q),E(a)) for q,a in p['faq'])+'''</div><!-- OWN:END -->
+
+          '''+INV_FOOT+'''
+          '''+DISC_PAGE+'''
+          <p class="art-meta">Yayın: <time datetime="'''+PUB5[0]+'''">'''+PUB5[1]+'''</time> · GESPA Enerji · <a href="elektrikci-cantasi.html">Tüm hesaplama araçları</a></p>
+        </article>
+      </div>
+    </section>
+
+    ''')
+    return finish(head+main+CTA+foot,ids|{'arac'})
+for p in IPAGES+SPAGES:
+    assert 3<=len(p['faq'])<=5,p['slug']
+    OUT[p['slug']+'.html']=render_inv(p)
+
+OUT['elektrikci-cantasi.html']=finish(HUB_RAW.replace('<!--INVLIST-->',''.join('<li><a href="%s.html">%s</a></li>'%(p['slug'],p['h1']) for p in IPAGES+SPAGES)),None)
 # ---- denetim + yazma
 def words(html): return len(re.findall(r'\w+',re.sub(r'<[^>]+>',' ',html)))
 bad=0
@@ -986,8 +1200,9 @@ for name,html in OUT.items():
     if name!='elektrikci-cantasi.html':
         ownw=sum(words(x) for x in re.findall(r'<!-- OWN:START -->([\s\S]*?)<!-- OWN:END -->',html))
         if ownw<250: print('KISA METİN %s: %d sözcük'%(name,ownw)); bad+=1
-        print('%-44s başlık %2d · açıklama %3d · özgün metin %d sözcük'%(name,len(BY[name[:-5]]['title']),len(BY[name[:-5]]['desc']),ownw))
-print('merkez: %d araç, %d iniş sayfası'%(NTOOLS,len(PAGES)))
+        pg=BY.get(name[:-5]) or IBY[name[:-5]]
+        print('%-44s başlık %2d · açıklama %3d · özgün metin %d sözcük'%(name,len(pg['title']),len(pg['desc']),ownw))
+print('merkez: %d araç, %d iniş sayfası, %d inverter sayfası'%(NTOOLS,len(PAGES),len(INV_SLUGS)))
 if bad: sys.exit('HATA: %d sorun'%bad)
 if APPLY:
     for name,html in OUT.items(): open(ROOT+name,'w',encoding='utf8').write(html)

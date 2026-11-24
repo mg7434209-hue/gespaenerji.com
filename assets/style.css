@@ -2972,3 +2972,37 @@ line.u-mark.u-bad{stroke:var(--u-bad)}
 @media(max-width:999.98px) and (prefers-reduced-motion:no-preference){
   .usta-app-on .usta-side{transition:transform .22s ease,visibility .22s}
 }
+
+/* ---- İnverter hata kodları ve ayar rehberi (usta.js; veri assets/inverter-veri.json) ---- */
+.usta-inv-warn{margin:0 0 12px !important;padding:10px 12px;border-radius:10px;border:1px solid color-mix(in srgb,var(--u-warn) 45%,var(--line));background:color-mix(in srgb,var(--u-warn) 8%,transparent);color:var(--u-warn);font-size:.9rem;line-height:1.45}
+.usta-inv-foot{margin:10px 0 0 !important;font-size:.84rem;color:var(--muted);line-height:1.45}
+.usta .field input.usta-inv-codein{min-height:62px;font:800 1.7rem var(--font);letter-spacing:.04em;text-align:center}
+.usta-inv-out{display:grid;gap:10px}
+.usta-inv-hit{border:1px solid var(--line);border-radius:12px;background:var(--bg-alt);padding:12px 14px;margin:0 0 10px;min-width:0}
+.usta-inv-out .usta-inv-hit{margin:0}
+.usta-inv-hit.f{border-left:4px solid var(--u-bad)}
+.usta-inv-top{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 6px !important}
+.usta-inv-code{font:800 1.5rem var(--font);color:var(--green)}
+.usta-inv-badge{display:inline-block;padding:2px 9px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-size:.74rem;font-weight:700;line-height:1.5;font-style:normal}
+.usta-inv-badge.t-fault{color:var(--u-bad);border-color:var(--u-bad)}
+.usta-inv-badge.t-alarm,.usta-inv-badge.t-warning{color:var(--u-warn);border-color:var(--u-warn)}
+.usta-inv-badge.unc{background:var(--u-warn);border-color:transparent;color:#fff}
+[data-theme="dark"] .usta-inv-badge.unc{color:#0b1020}
+.usta-inv-mean{font:700 1.25rem/1.35 var(--font);margin:0 0 6px !important;overflow-wrap:anywhere}
+.usta-inv-mean.sm{font-size:1rem}
+.usta-inv-orig{font-size:.86rem;color:var(--muted);font-style:italic;margin:0 0 6px !important;overflow-wrap:anywhere}
+.usta-inv-line{font-size:.92rem;line-height:1.5;margin:0 0 6px !important;overflow-wrap:anywhere}
+.usta-inv-lab{font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin:6px 0 2px !important}
+.usta-inv-note{font-size:.84rem;color:var(--muted);margin:0 0 6px !important;overflow-wrap:anywhere}
+.usta-inv-src{font-size:.8rem;color:var(--muted);margin:4px 0 0 !important;overflow-wrap:anywhere}
+.usta .usta-inv-opt{margin:0 0 6px;padding-left:1.2em;font-size:.92rem;line-height:1.5}
+.usta-inv-all{margin-top:10px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.usta-inv-all>summary{cursor:pointer;padding:12px 14px;font-weight:700;font-size:.92rem}
+.usta-inv-table{font-size:.88rem}
+.usta-inv-table td{vertical-align:top}
+.usta-inv-table td:nth-child(3),.usta-inv-table td:nth-child(4){min-width:220px}
+.usta-inv-table span.usta-inv-orig,.usta-inv-table span.usta-inv-line,.usta-inv-table span.usta-inv-note{display:inline-block;margin-top:4px !important}
+/* Telefonda araç daha yukarıdan başlasın; araç sayfalarında sabit alt iletişim çubuğu yok (her aracın kendi WhatsApp / "Beni arayın" eylemi var) */
+@media(max-width:999.98px){.usta-app-on .usta-top .crumbs,.usta-app-on .usta-top .lead{display:none}.usta-app-on .usta-top{padding:10px 0 6px}.usta-app-on .usta-top h1{font-size:1.08rem;margin:0}.usta-app-on .usta-bar{margin-bottom:8px}}
+body:has(main[data-usta]) .mobile-cta{display:none !important}
+body:has(main[data-usta]){padding-bottom:0 !important}
