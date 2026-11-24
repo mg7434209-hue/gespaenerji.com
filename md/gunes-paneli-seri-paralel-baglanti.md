@@ -53,7 +53,7 @@ Seri bağlamada gerilimler toplanır, akım aynı kalır; paralel bağlamada ak�
 
 **İlgili:** [MC4 konnektör takımı](https://www.gespaenerji.com/mc4-set.html) · [Solar kablo takımı](https://www.gespaenerji.com/kablo-solar-5m.html) · [Dizi (string) nedir?](https://www.gespaenerji.com/sozluk.html#dizi) · [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Dizi (string) hesabı: kaç panel seri bağlanır?
 
@@ -119,7 +119,7 @@ Sıcak havada Vmp etiket değerinin altına düşer; en az panel sayısını bel
 
 **İlgili:** [PWM mi MPPT mi? Cihaz seçim rehberi](https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html) · [Şarj kontrol cihazları](https://www.gespaenerji.com/online-satis.html?kategori=sarj-kontrol) · [150 V girişli 60 A MPPT](https://www.gespaenerji.com/havensis-mppt-60a-150v.html) · [Voc ve Isc nedir?](https://www.gespaenerji.com/sozluk.html#voc-isc)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Dizi sigortası gerekir mi?
 
@@ -159,7 +159,7 @@ Bu araç **yalnızca bu tek kontrolü** yapar. Sigortanın akım değeri, tipi v
 
 **İlgili:** [Seri–paralel şema](#seri-paralel) · [MC4 konnektör takımı](https://www.gespaenerji.com/mc4-set.html) · [Isc nedir?](https://www.gespaenerji.com/sozluk.html#voc-isc) · [Toptan satış](https://www.gespaenerji.com/toptan.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 **Kısa cevap:** Seri bağlamada gerilimler toplanır, akım aynı kalır; paralel bağlamada akımlar toplanır, gerilim aynı kalır. Örnek: Vmp 34,98 V, Imp 10,3 A panelle 2 seri × 2 paralel → 69,96 V, 20,6 A, 1.441 W. Hangisinin seçileceğini şarj kontrol cihazının ya da inverterin giriş gerilimi aralığı belirler.
 

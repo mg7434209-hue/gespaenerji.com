@@ -45,7 +45,7 @@ Kod tablolarının tamamı: [Tüm aileler](https://www.gespaenerji.com/inverter-
 
 **İlgili:** [İnverter hata kodları (tüm tablolar)](https://www.gespaenerji.com/inverter-hata-kodlari.html) · [Off-grid inverter ayar rehberi](https://www.gespaenerji.com/elektrikci-cantasi.html#inverter-ayarlari) · [İnverterin akü akımı](https://www.gespaenerji.com/elektrikci-cantasi.html#inverter-aku-akimi) · [İletişim](https://www.gespaenerji.com/iletisim.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 **Önce şunu bilin:** İnverter hata kodları evrensel değildir. Bu sayfadaki her anlam, adı yazan üreticinin kılavuzundan alınmıştır ve yanında sayfa numarası durur. GESPA bu cihazların üreticisi değildir.
 

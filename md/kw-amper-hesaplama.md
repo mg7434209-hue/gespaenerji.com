@@ -63,7 +63,7 @@ cosφ (güç katsayısı) cihazın etiketinde yazar; bilinmiyorsa varsayım oldu
 
 **İlgili:** [AC kablo gerilim düşümü](https://www.gespaenerji.com/elektrikci-cantasi.html#ac-kablo) · [Ohm kanunu](https://www.gespaenerji.com/elektrikci-cantasi.html#ohm) · [Watt ↔ Amper çevirici](https://www.gespaenerji.com/elektrikci-cantasi.html#cevirici) · [Solar sulama pompası seçimi](https://www.gespaenerji.com/solar-sulama-pompasi-secimi.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### HP → kW → amper: motor akımı
 
@@ -109,7 +109,7 @@ Sonuç tam yükteki çalışma akımıdır. **Kalkış akımı dahil değildir**
 
 **İlgili:** [Güçten akım hesabı](#akim) · [AC gerilim düşümü](https://www.gespaenerji.com/elektrikci-cantasi.html#ac-kablo) · [Solar sulama pompası seçimi](https://www.gespaenerji.com/solar-sulama-pompasi-secimi.html) · [Pompa ve panel gücü aracı](https://www.gespaenerji.com/tarimsal-sulama.html#pompa-secimi)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 **Kısa cevap:** 1 kW (1.000 W) yük, tek fazda 230 V ve cosφ 0,9 ile 4,83 A, cosφ 1 ile 4,35 A çeker. Üç fazda 400 V'ta aynı yük cosφ 0,9 ile 1,6 A, cosφ 1 ile 1,44 A eder. Formül: tek faz I = P ÷ (V × cosφ), üç faz I = P ÷ (√3 × V × cosφ), DC I = P ÷ V.
 

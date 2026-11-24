@@ -87,6 +87,9 @@ const INV_PAGES = [
   "akilli-inverter-hata-kodlari.html", "off-grid-inverter-lityum-aku-ayarlari.html", "off-grid-inverter-sebeke-ayarlari.html"
 ];
 TR_ONLY.push(...INV_PAGES);
+// Yazdırılabilir cep kartı ve usta / toplu alım kaydı formu — aynı betik üretir.
+const USTA_EXTRA = ["usta-cep-karti.html", "usta-kaydi.html"];
+TR_ONLY.push(...USTA_EXTRA);
 // Mevzuat rehberi — footer "Kurumsal" sütununda yalnız TR sayfalarda görünür
 const GUIDE = { file: "gunes-paneli-kacak-elektrik-cezasi.html", label: "Güneş Paneli Cezası Rehberi" };
 // Rehberler merkezi (yalnız TR, TR_ONLY) — footer "Kurumsal" sütununda mevzuat rehberinin yanında
@@ -2036,6 +2039,7 @@ const PRIORITY = {
    yalnız AI botlarına açık, server.js canonical Link başlığı gönderir).
    ============================================================ */
 USTA_PAGES.concat(INV_PAGES).forEach(f => { PRIORITY[f] = "0.7"; });
+PRIORITY["usta-cep-karti.html"] = "0.7"; PRIORITY["usta-kaydi.html"] = "0.6";
 const LLMS_GROUPS = [
   // Ana sayfa en üstte: okuyan model siteye önce giriş kapısından baksın
   ["Ana sayfa", ["index.html"]],
@@ -2054,7 +2058,7 @@ const LLMS_GROUPS = [
   ["Ücretsiz araçlar", ["hesaplayici.html", "sistem-kur.html"]],
   ["Referans projeler", ["projeler.html", "proje-kemer-villa.html", "proje-manavgat-fabrika.html", "proje-manavgat-tarimsal.html"]],
   ["Rehberler ve güncel mevzuat (yalnız Türkçe)", ["rehberler.html", "off-grid-gunes-sistemi-boyutlandirma.html", "pwm-mppt-sarj-kontrol-farki.html", "solar-sulama-pompasi-secimi.html", "gunes-paneli-kacak-elektrik-cezasi.html"]],
-  ["Ücretsiz elektrik ve solar hesaplama araçları (Elektrikçi Çantası, yalnız Türkçe)", ["elektrikci-cantasi.html", ...USTA_PAGES]],
+  ["Ücretsiz elektrik ve solar hesaplama araçları (Elektrikçi Çantası, yalnız Türkçe)", ["elektrikci-cantasi.html", ...USTA_EXTRA, ...USTA_PAGES]],
   ["İnverter hata kodları ve off-grid inverter ayarları (üretici kılavuzlarından, yalnız Türkçe)", INV_PAGES],
   ["Kurumsal ve yardım", ["hakkimizda.html", "iletisim.html", "sss.html", "sozluk.html"]]
 ];

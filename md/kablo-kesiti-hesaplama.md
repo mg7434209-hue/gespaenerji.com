@@ -57,7 +57,7 @@ Kablo bir dirençtir: üzerinden akım geçtikçe gerilim düşer ve aradaki far
 
 **İlgili:** [DC kablo kesiti aracı (tüm kesitlerin tablosu)](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Solar kablo takımı 5 m + 5 m](https://www.gespaenerji.com/kablo-solar-5m.html) · [MC4 konnektör takımı](https://www.gespaenerji.com/mc4-set.html) · [Kablo ve konnektörler](https://www.gespaenerji.com/online-satis.html?kategori=kablo)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### AC kablo gerilim düşümü: tek faz ve üç faz
 
@@ -109,7 +109,7 @@ Alternatif akım hattında gerilim düşümü tek fazda ΔV = 2 × I × L × ρ 
 
 **İlgili:** [DC kablo kesiti ve güç kaybı](#kablo) · [Yükten akım hesabı](https://www.gespaenerji.com/elektrikci-cantasi.html#akim) · [İnverter boyutlandırma aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Çatı GES hizmeti](https://www.gespaenerji.com/cati-ges.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Sigorta–kablo uyum kontrolü (Ib ≤ In ≤ Iz)
 
@@ -147,7 +147,7 @@ Bir hattın koruması için temel koşul: tasarım akımı (Ib) ≤ sigorta ya d
 
 **İlgili:** [Güçten akım hesabı (Ib)](https://www.gespaenerji.com/elektrikci-cantasi.html#akim) · [AC gerilim düşümü](#ac-kablo) · [DC kablo kesiti](#kablo) · [Dizi sigortası kontrolü](https://www.gespaenerji.com/elektrikci-cantasi.html#sigorta)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 **Kısa cevap:** Kablo kesiti iki ayrı kontrolle seçilir: gerilim düşümü ve akım taşıma kapasitesi. Gerilim düşümü formülle hesaplanır (DC ve tek fazda 2 × I × L × ρ ÷ S). Örnek: 48 V, 15 A, tek yön 5 m hatta 4 mm² kablo %1,37 düşüm verir; %1 hedefini 6 mm² karşılar. Akım taşıma kapasitesi ise kablo üreticisinin tablosundan okunur.
 

@@ -303,7 +303,7 @@ function handleEvent(req, res) {
       } else if (b.t === "act") {
         // Dönüşüm hunisi: WhatsApp / telefon tıklaması, asistanın açılması, davet balonu
         const k = String(b.id || "");
-        if (!/^(wa|tel|chat_open|nudge|cb_open|ai_ok|ai_no)$/.test(k)) return;
+        if (!/^(wa|tel|chat_open|nudge|cb_open|ai_ok|ai_no|usta_open)$/.test(k)) return;
         day.act[k] = (+day.act[k] || 0) + 1;
         saveStats();
       } else if (b.t === "view" || b.t === "cart") {
@@ -1314,7 +1314,10 @@ const leadHits = new Map();
 const LEADS_FILE = path.join(DATA_DIR, "leads.json");
 // kaynak: talebin geldiği yer. "hesaplayici" (varsayılan) ad + telefon ister; "geri-arama"
 // (Beni arayın) ve "asistan" (sohbet) yalnız telefonla da kabul edilir — sürtünme az olsun.
-const LEAD_SOURCES = { "hesaplayici": "Hesaplayıcı", "geri-arama": "Beni arayın", "asistan": "Site asistanı", "urun": "Ürün sayfası" };
+const LEAD_SOURCES = { "hesaplayici": "Hesaplayıcı", "geri-arama": "Beni arayın", "asistan": "Site asistanı", "urun": "Ürün sayfası", "usta": "Usta / toplu alım" };
+// Usta kaydı formu (usta-kaydi.html): meslek ve ilgi alanları YALNIZ bu listelerden kabul edilir (serbest metin saklanmaz).
+const USTA_MESLEK = { "elektrikci": "Elektrikçi", "montajci": "Güneş enerjisi montajcısı", "muhendis": "Mühendis / Proje", "bayi": "Bayi / Satıcı", "diger": "Diğer" };
+const USTA_ILGI = { "panel": "Panel", "sarj-kontrol": "Şarj kontrol", "aku": "Akü", "inverter": "İnverter", "kablo": "Kablo-konnektör", "paket": "Hazır paket" };
 function readLeads() {
   try { const a = JSON.parse(fs.readFileSync(LEADS_FILE, "utf8")); return Array.isArray(a) ? a : []; } catch (e) { return []; }
 }
@@ -1338,6 +1341,9 @@ function saveLead(lead) {
     const L = ["YENİ TALEP — " + src, "",
       "Ad        : " + (lead.ad || "-"), "Telefon   : " + lead.tel, "İl/İlçe   : " + (lead.ilce || "-")];
     if (lead.urun) L.push("Ürün      : " + lead.urun);
+    if (lead.meslek) L.push("Meslek    : " + lead.meslek);
+    if (lead.firma) L.push("Firma     : " + lead.firma);
+    if (lead.ilgi && lead.ilgi.length) L.push("İlgi      : " + lead.ilgi.join(", "));
     if (lead.not) L.push("", "Not / sohbet:", lead.not);
     if (lead.kwp) L.push("", "Sistem    : " + lead.kwp + " kWp (" + (lead.panels || "-") + " panel)",
       "Yıllık tas: ₺" + (lead.save || "-"), "Yatırım   : ₺" + (lead.cost || "-"), "Geri ödeme: " + (lead.payback || "-"));
@@ -1363,8 +1369,9 @@ function leadSubmit(req, res) {
     const ad = qaClean(b.ad, 60).replace(/\n/g, " ");
     const tel = String(b.tel || "").replace(/[^\d+ ]/g, "").trim().slice(0, 20);
     const telOk = tel.replace(/\D/g, "").length >= 10;
-    if (kaynak === "hesaplayici" ? (ad.length < 2 || !telOk) : !telOk) {
-      return sendJson(res, 400, { error: kaynak === "hesaplayici" ? "Ad ve telefon gerekli." : "Geçerli bir telefon numarası yazın.", retry: true });
+    const needName = kaynak === "hesaplayici" || kaynak === "usta";
+    if (needName ? (ad.length < 2 || !telOk) : !telOk) {
+      return sendJson(res, 400, { error: needName ? "Ad ve telefon gerekli." : "Geçerli bir telefon numarası yazın.", retry: true });
     }
     const ip = clientIp(req);
     const day = recentHits(leadHits, ip, 24 * 60 * 60 * 1000);
@@ -1374,11 +1381,17 @@ function leadSubmit(req, res) {
     leadHits.set(ip, day.concat(Date.now()));
     const urunId = String(b.urun || "");
     const urun = (SITE_CFG && (SITE_CFG.packages || []).filter((p) => p.id === urunId)[0] || {}).name || "";
-    saveLead({
+    const lead = {
       at: new Date().toISOString(), kaynak, ad, tel, ilce: qaClean(b.ilce, 60), kwp: qaClean(b.kwp, 12), panels: qaClean(b.panels, 8),
       save: qaClean(b.save, 16), cost: qaClean(b.cost, 16), payback: qaClean(b.payback, 16), lang: qaClean(b.lang, 2), path: qaClean(b.path, 80),
       urun, not: qaClean(b.not, 1500)
-    });
+    };
+    if (kaynak === "usta") {                              // ek alanlar: listeden meslek, serbest firma adı, listeden ilgi alanları
+      lead.meslek = USTA_MESLEK[String(b.meslek || "")] || "";
+      lead.firma = qaClean(b.firma, 80).replace(/\n/g, " ");
+      lead.ilgi = (Array.isArray(b.ilgi) ? b.ilgi : []).slice(0, 12).map((x) => USTA_ILGI[String(x)]).filter((x, i, a) => x && a.indexOf(x) === i);
+    }
+    saveLead(lead);
     sendJson(res, 200, { ok: true });
   });
 }

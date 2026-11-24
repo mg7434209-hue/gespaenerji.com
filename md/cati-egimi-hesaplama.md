@@ -47,7 +47,7 @@ Formül, örnek ve sınırlar
 
 **İlgili:** [Panel eğim açısı](#egim) · [Panel yerleşim planlayıcı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Çatı GES hizmeti](https://www.gespaenerji.com/cati-ges.html) · [Tasarruf hesaplayıcı](https://www.gespaenerji.com/hesaplayici.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Panel eğim açısı ve öğle güneşi yüksekliği
 
@@ -91,7 +91,7 @@ Güneşin öğle vakti ufuktan yüksekliği enleme ve mevsime bağlıdır: yüks
 
 **İlgili:** [Sıra aralığı ve gölgelenme aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Panel yerleşim planlayıcı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Gölgelenme nedir?](https://www.gespaenerji.com/sozluk.html#golgelenme) · [Güneş panelleri](https://www.gespaenerji.com/online-satis.html?kategori=panel)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 **Kısa cevap:** Yüzde eğim = tan(derece) × 100; derece = arctan(yüzde ÷ 100). 30° eğim %57,74 eder, yani 100 cm yatayda 57,74 cm yükselir. %50 eğim ise 26,57° demektir.
 

@@ -1324,7 +1324,8 @@ window.GESPA.config = {
       noct: { ambC: 20, irr: 800 },
       // Araç sayfalarındaki "hızlı başvuru" örneklerinin GİRDİLERİ (sonuçlar formülden hesaplanır, tabloya elle yazılmaz):
       // 1 kW / 1 kVA / 100 Ah soruları, akü bankası hedef gerilimleri, AWG tablosunda gösterilecek numaralar.
-      ref: { kw: 1, kva: 1, ah: 100, ahV: [12, 24, 48], bankV: [24, 48], awgTable: [18, 16, 14, 12, 10, 8, 6, 4, 2, 1, 0, -1, -2, -3] },
+      ref: { kw: 1, kva: 1, ah: 100, ahV: [12, 24, 48], bankV: [24, 48], awgTable: [18, 16, 14, 12, 10, 8, 6, 4, 2, 1, 0, -1, -2, -3],
+             kwList: [1, 2, 3, 5, 10] },   // cep kartındaki kW → A tablosunun satırları (yuvarlak güçler; akımlar formülden)
       // Enlem hazır listesi (° kuzey, 0,1°'ye yuvarlı şehir merkezi)
       cities: [
         { name: "Manavgat", lat: 36.8 }, { name: "Antalya", lat: 36.9 }, { name: "Adana", lat: 37.0 },

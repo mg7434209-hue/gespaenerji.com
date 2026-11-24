@@ -180,7 +180,7 @@
         <button class="btn btn-sm" type="button" id="leadRefresh">↻ Yenile</button>
       </div>
       <p style="color:var(--muted);margin:0 0 10px;font-size:.92rem">
-        Sitede telefon numarası bırakan herkes burada listelenir: hesaplayıcı formu, "Beni arayın" ve asistan sohbeti.
+        Sitede telefon numarası bırakan herkes burada listelenir: hesaplayıcı formu, "Beni arayın", asistan sohbeti ve usta / toplu alım kaydı (meslek, firma ve ilgilendiği ürünlerle).
         Aradığınız talebi "Arandı" olarak işaretleyin. Sayfa açıkken iki dakikada bir yenilenir.
       </p>
       <div id="leadOut" class="adm-note info">Okunuyor…</div>
@@ -578,7 +578,7 @@
           if (!L.length) html += '<p style="margin:0;color:var(--muted)">Henüz talep yok.</p>';
           else html += '<div style="overflow:auto"><table class="spec-table" style="min-width:0;font-size:.9rem"><thead><tr><th>Tarih</th><th>Kaynak</th><th>Ad</th><th>Telefon</th><th>Ayrıntı</th><th></th></tr></thead><tbody>' +
             L.map(function (x) {
-              var det = [x.urun ? "Ürün: " + x.urun : "", x.ilce ? "İlçe: " + x.ilce : "", x.kwp ? x.kwp + " kWp" : "", x.path || ""].filter(Boolean).join(" · ");
+              var det = [x.urun ? "Ürün: " + x.urun : "", x.meslek ? "Meslek: " + x.meslek : "", x.firma ? "Firma: " + x.firma : "", (x.ilgi && x.ilgi.length) ? "İlgi: " + x.ilgi.join(", ") : "", x.ilce ? "İlçe: " + x.ilce : "", x.kwp ? x.kwp + " kWp" : "", x.path || ""].filter(Boolean).join(" · ");
               return '<tr style="' + (x.done ? "opacity:.55" : "") + '"><td style="white-space:nowrap">' + esc(new Date(x.at).toLocaleString("tr-TR", { timeZone: "Europe/Istanbul", day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })) + '</td>' +
                 '<td>' + esc(x.src) + '</td><td>' + esc(x.ad || "—") + '</td>' +
                 '<td style="white-space:nowrap"><a href="tel:' + esc(x.tel) + '">' + esc(x.tel) + '</a> · <a href="https://wa.me/' + esc(x.wa) + '" target="_blank" rel="noopener">WhatsApp</a></td>' +
@@ -665,7 +665,7 @@
           var A = sum.act, g = function (k) { return A[k] || 0; };
           html += sec("İletişim hunisi") + '<div style="display:flex;flex-wrap:wrap;gap:20px;margin:0 0 4px">' +
             tile(g("wa"), "WhatsApp tıklaması") + tile(g("tel"), "telefon tıklaması") + tile(g("chat_open"), "asistan açılışı") +
-            tile(g("chat_msg"), "asistana mesaj") + tile(g("cb_open"), "“Beni arayın”") + tile(g("lead"), "bırakılan numara") + '</div>' +
+            tile(g("chat_msg"), "asistana mesaj") + tile(g("cb_open"), "“Beni arayın”") + tile(g("usta_open"), "usta kaydı formuna başlayan") + tile(g("lead"), "bırakılan numara") + '</div>' +
             '<p style="margin:0 0 4px;font-size:.82rem;color:var(--muted)">Yapay zekâ onayı: ' + nf.format(g("ai_ok")) + ' kişi kabul etti, ' + nf.format(g("ai_no")) + ' kişi yapay zekâsız devam etti.</p>' +
             '<p style="margin:0;font-size:.82rem;color:var(--muted)">Davet balonu ' + nf.format(g("nudge")) + ' kez gösterildi. Ziyaret çok, tıklama azsa sorun ilgide ya da güvendedir; tıklama var, numara yoksa sorun dönüşte.</p>';
           // günlük ziyaret çubukları (son 30 gün)

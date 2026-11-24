@@ -55,7 +55,7 @@ Etiketteki güç en yüksek değerdir; buzdolabı, klima ve termostatlı ısıt�
 
 **İlgili:** [Cihaz listesinden sistem](#yuk-listesi) · [Faturadan GES tasarruf hesabı](https://www.gespaenerji.com/hesaplayici.html) · [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) · [Panel günde kaç kWh üretir?](https://www.gespaenerji.com/elektrikci-cantasi.html#gunluk-uretim)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Cihaz listesinden günlük tüketim, panel, akü ve inverter
 
@@ -120,7 +120,7 @@ Cihaz güçleri ve saatleri [Sistem Kurucu](https://www.gespaenerji.com/sistem-k
 
 **İlgili:** [Sistem Kurucu (tam sihirbaz)](https://www.gespaenerji.com/sistem-kur.html) · [Off-grid boyutlandırma rehberi](https://www.gespaenerji.com/off-grid-gunes-sistemi-boyutlandirma.html) · [Akü kaç saat dayanır?](https://www.gespaenerji.com/elektrikci-cantasi.html#aku-sure) · [Solar sulama pompası seçimi](https://www.gespaenerji.com/tarimsal-sulama.html#pompa-secimi)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 **Kısa cevap:** kWh = güç (W) × günlük saat × gün ÷ 1000; tutar = kWh × birim fiyat. Örnek: 1.000 W cihaz günde 2 saat, 30 gün çalışırsa 60 kWh harcar; 2,5 TL/kWh örnek birim fiyatla 150 TL eder. Birim fiyatı kendi faturanızdan yazın.
 

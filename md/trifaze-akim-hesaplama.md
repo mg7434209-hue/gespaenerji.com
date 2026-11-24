@@ -63,7 +63,7 @@ cosφ (güç katsayısı) cihazın etiketinde yazar; bilinmiyorsa varsayım oldu
 
 **İlgili:** [AC kablo gerilim düşümü](#ac-kablo) · [Ohm kanunu](https://www.gespaenerji.com/elektrikci-cantasi.html#ohm) · [Watt ↔ Amper çevirici](https://www.gespaenerji.com/elektrikci-cantasi.html#cevirici) · [Solar sulama pompası seçimi](https://www.gespaenerji.com/solar-sulama-pompasi-secimi.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### AC kablo gerilim düşümü: tek faz ve üç faz
 
@@ -115,7 +115,7 @@ Alternatif akım hattında gerilim düşümü tek fazda ΔV = 2 × I × L × ρ 
 
 **İlgili:** [DC kablo kesiti ve güç kaybı](https://www.gespaenerji.com/elektrikci-cantasi.html#kablo) · [Yükten akım hesabı](#akim) · [İnverter boyutlandırma aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Çatı GES hizmeti](https://www.gespaenerji.com/cati-ges.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 **Kısa cevap:** Üç fazlı dengeli yükte I = P ÷ (√3 × V × cosφ); V faz-faz gerilimidir. Örnek: 3.000 W yük, 400 V ve cosφ 0,9 için 4,81 A. Güç ise P = √3 × V × I × cosφ ile bulunur.
 

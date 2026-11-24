@@ -71,7 +71,7 @@ Hücre sıcaklığını bilmiyorsanız künyedeki NOCT değeriyle ders kitabı y
 
 **İlgili:** [Dizi hesabı (soğukta Voc)](https://www.gespaenerji.com/elektrikci-cantasi.html#dizi) · [Günlük üretim tahmini](https://www.gespaenerji.com/elektrikci-cantasi.html#gunluk-uretim) · [Güneş panelleri](https://www.gespaenerji.com/online-satis.html?kategori=panel) · [STC nedir?](https://www.gespaenerji.com/sozluk.html#stc)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 **Kısa cevap:** P = Pmax × (1 + γ ÷ 100 × (hücre sıcaklığı − 25)). Yuvarlak örnek değerlerle: 400 W panel, γ -0,35 %/°C ve 60 °C hücre sıcaklığında 351 W verir. Hücre sıcaklığı hava sıcaklığından yüksektir.
 

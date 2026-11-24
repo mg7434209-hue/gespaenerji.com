@@ -47,7 +47,7 @@ Akımın yanında cihazın en yüksek PV giriş gerilimi de kontrol edilir: bunu
 
 **İlgili:** [PWM mi MPPT mi? Seçim rehberi](https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html) · [Şarj kontrol cihazları](https://www.gespaenerji.com/online-satis.html?kategori=sarj-kontrol) · [Lexron 40 A MPPT](https://www.gespaenerji.com/lexron-mppt-40a.html) · [Havensis 60 A MPPT](https://www.gespaenerji.com/havensis-mppt-60a.html) · [150 V girişli 60 A MPPT](https://www.gespaenerji.com/havensis-mppt-60a-150v.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Dizi (string) hesabı: kaç panel seri bağlanır?
 
@@ -113,7 +113,7 @@ Sıcak havada Vmp etiket değerinin altına düşer; en az panel sayısını bel
 
 **İlgili:** [PWM mi MPPT mi? Cihaz seçim rehberi](https://www.gespaenerji.com/pwm-mppt-sarj-kontrol-farki.html) · [Şarj kontrol cihazları](https://www.gespaenerji.com/online-satis.html?kategori=sarj-kontrol) · [150 V girişli 60 A MPPT](https://www.gespaenerji.com/havensis-mppt-60a-150v.html) · [Voc ve Isc nedir?](https://www.gespaenerji.com/sozluk.html#voc-isc)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 **Kısa cevap:** En az çıkış akımı = toplam panel gücü ÷ akü sistem gerilimi. Örnek: 1.440 W panel ve 24 V akü için 1.440 ÷ 24 = 60 A. Üretici pay ya da panel gücü sınırı veriyorsa o esas alınır; ayrıca dizinin soğuktaki Voc değeri cihazın giriş gerilimi sınırını aşmamalıdır.
 

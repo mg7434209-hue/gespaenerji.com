@@ -33,6 +33,7 @@ MARK='<!-- USTA:GEN — tools/usta-sayfalar.py üretir; elle düzenlemeyin -->'
 PUB=('2026-11-23','23 Kasım 2026')
 SHELL=open(ROOT+'pwm-mppt-sarj-kontrol-farki.html',encoding='utf8').read()
 PUB5=('2026-11-24','24 Kasım 2026')
+PUB6=PUB5
 def shell(slug,title,desc,ogt,ogd,pub=None):
     pub=pub or (PUB5 if 'inverter' in slug else PUB)
     assert len(title)<=60,(slug,len(title),title)
@@ -58,7 +59,7 @@ EX=json.loads(subprocess.check_output(['node','-e',"const vm=require('vm'),fs=re
 def X(t): return re.sub(r'\{([a-zA-Z0-9./]+)\}',lambda m:ex(m.group(1)),t)
 
 DISC='<p class="usta-disc">Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.</p>'
-PRO=('<p class="usta-pro"><span>Usta / toplu alım fiyatı için:</span> <a class="usta-link" data-usta-pro data-c-wa href="https://wa.me/905437434209" target="_blank" rel="noopener">WhatsApp\'tan yazın</a> '
+PRO=('<p class="usta-pro"><span>Usta / toplu alım fiyatı için:</span> <a class="usta-link" href="usta-kaydi.html">Usta kaydı bırakın</a> <a class="usta-link" data-usta-pro data-c-wa href="https://wa.me/905437434209" target="_blank" rel="noopener">WhatsApp\'tan yazın</a> '
      '<button type="button" class="usta-link" data-usta-cb hidden>📞 Beni arayın</button></p>')
 def actions(tool,example=True):
     """Eylem satırı: yalnız JS ile çalışır (.usta-js → JS yokken CSS gizler)."""
@@ -86,7 +87,7 @@ def fld(id,label,attrs='',small=''):
 def res(id,label,hi=False,boxid=''):
     return '<div class="result%s"%s><span class="r-label">%s</span><span class="r-value" id="%s">—</span></div>'%(' highlight' if hi else '',(' id="'+boxid+'"') if boxid else '',label,id)
 def row(*a): return '<div class="row">'+''.join(a)+'</div>'
-TOOLS={}; NAMES={}
+TOOLS={}; NAMES={}; FORM={}
 KW={'egim':'panel açısı eğim derece güneş yüksekliği enlem yaz kış tilt','kablo':'dc kablo kesiti gerilim düşümü güç kaybı mm2 solar kablo','dizi':'string seri panel sayısı voc soğuk mppt giriş gerilimi',
  'seri-paralel':'seri paralel bağlantı şema panel volt amper watt','aku':'akü bankası seri paralel bağlama ah kwh batarya','sigorta':'dizi sigortası string fuse ters akım isc',
  'cevirici':'çevirici watt amper ah wh kwh hp beygir kw awg mm2','kontrol':'kontrol listesi montaj checklist mc4 polarite yazdır pdf',
@@ -130,10 +131,11 @@ def tool(id,h2,intro,left,right,formula,rel,store=None,kw=None):
     """Araç bölümü. right=None → tek kart. store=PARTS → merkezde olmayan parça (iniş sayfası için).
     Sıra: başlık → tek cümle → girdi/sonuç kartları → güvenlik notu → eylemler → kapalı ayrıntı."""
     name=re.sub(r'^\d+\.\s*','',h2); NAMES[id]=name
+    intro_x=X(intro); _m=re.search(r'<p class="art-formula">(.*?)</p>',intro_x,re.S); FORM[id]=(name,formula,_m.group(1) if _m else '')
     cards='<div class="calc-card usta-card">%s</div>\n'%left+('<div class="calc-card usta-card usta-out-card">%s</div>\n'%right if right else '')
     owner=id if store is None else 'cevirici'
     html=('<section class="usta-tool" id="%s" data-usta-tool="%s" data-kw="%s">\n<h3>%s</h3>\n<p class="usta-one">%s</p>\n<div class="usta-grid%s">\n%s</div>\n<p class="usta-err" data-usta-err role="alert"></p>\n%s\n%s\n%s\n</section>\n'
-            %(id,owner,kw or KW[id],name,ONE[id],'' if right else ' one',cards,DISC,actions(owner,example=id not in NOEX),more(id,X(intro),formula,rel)))
+            %(id,owner,kw or KW[id],name,ONE[id],'' if right else ' one',cards,DISC,actions(owner,example=id not in NOEX),more(id,intro_x,formula,rel)))
     (TOOLS if store is None else store)[id]=html
     return html
 PARTS={}
@@ -260,7 +262,7 @@ TOOLS['kontrol']=('<section class="usta-tool" id="kontrol" data-usta-tool="kontr
  '<div class="calc-card usta-card usta-out-card usta-chk-side">'+svg('ukcSvg')+'<p class="usta-out" id="ukcState"></p></div>\n</div>\n'
  +DISC+'\n'+actions('kontrol',example=False)+'\n'
  +more('kontrol','<p>Devreye almadan önce sahada tek tek işaretlenecek '+str(len(CHK))+' pratik kontrol. İşaretler bu cihazda saklanır; liste yazdırılabilir ya da PDF olarak kaydedilebilir. Liste pratik saha alışkanlıklarını toplar; yürürlükteki yönetmeliklerin ve üretici talimatlarının yerine geçmez.</p>','',
-   '<a href="mc4-set.html">MC4 konnektör takımı</a> · <a href="kablo-solar-5m.html">Solar kablo takımı</a> · <a href="sistem-kur.html">Sistem Kurucu</a> · <a href="rehberler.html">Tüm rehberler</a>')
+   '<a href="usta-cep-karti.html">🖨️ Solar Usta Cep Kartı (bu liste + formüller, iki sayfa)</a> · <a href="mc4-set.html">MC4 konnektör takımı</a> · <a href="kablo-solar-5m.html">Solar kablo takımı</a> · <a href="sistem-kur.html">Sistem Kurucu</a>')
  +'\n</section>\n')
 
 def sel(id,label,opts): return '<div class="field"><label for="%s">%s</label><select id="%s">%s</select></div>'%(id,label,id,''.join('<option value="%s">%s</option>'%o for o in opts))
@@ -471,7 +473,8 @@ def side():
     return ('<nav class="usta-side" id="ustaSide" aria-label="Araç listesi">'
       '<div class="usta-side-head"><strong>Araçlar</strong><button type="button" class="usta-side-x usta-js" id="ustaSideX" aria-label="Araç listesini kapat">×</button></div>'
       '<div class="usta-find usta-js"><label for="ustaFind">Araç ara</label><input id="ustaFind" type="search" inputmode="search" autocomplete="off" placeholder="ör. gerilim düşümü, akü, AWG" /><p class="usta-find-state" id="ustaFindState" aria-live="polite"></p></div>'
-      '<div class="usta-side-list">'+g+'</div></nav>')
+      '<div class="usta-side-list">'+g+'</div>'
+      '<div class="usta-side-act"><a href="usta-cep-karti.html">🖨️ Cep kartı</a><a href="usta-kaydi.html">🤝 Usta kaydı</a></div></nav>')
 BODY='\n'.join(cat(c) for c in CATS)
 
 def faq(q,a): return '<div class="faq-item reveal"><button class="faq-q"><span>%s</span><span class="faq-ico">+</span></button><div class="faq-a"><p>%s</p></div></div>'%(q,X(a))
@@ -1185,6 +1188,151 @@ for p in IPAGES+SPAGES:
     assert 3<=len(p['faq'])<=5,p['slug']
     OUT[p['slug']+'.html']=render_inv(p)
 
+
+# ============================================================
+# CEP KARTI (usta-cep-karti.html) ve USTA KAYDI (usta-kaydi.html)
+# Kart: formüller FORM'dan (tool() çağrılarındaki AYNI formül ve örnek), sayılar examples()'tan, şemalar usta.js
+# çizicilerinden, kontrol listesi CHK'den gelir — hiçbir şey ikinci kez yazılmaz. Yazdırmada tam 2 A4 sayfa.
+# ============================================================
+import datetime
+AYLAR=['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık']
+KC_GROUPS=[('Kablo',['kablo','ac-kablo','sigorta-kablo-uyumu']),('Akım ve güç',['akim','hp-kw-amper','ohm']),
+ ('Panel ve dizi',['egim','golge','cati-egimi','gunluk-uretim','sicaklik-gucu','dizi','seri-paralel','sigorta','sarj-kontrol']),
+ ('Akü ve tüketim',['aku','aku-sure','aku-sarj','c-orani','inverter-aku-akimi','yuk-listesi','cihaz-tuketimi']),('Çeviriciler',['cevirici'])]
+assert sorted(t for g in KC_GROUPS for t in g[1])==sorted(t for t in FORM if FORM[t][1] and t in TOOLS),'cep kartı: formülü olan her araç bir grupta olmalı'
+def kc_example(t):
+    ex_html=re.sub(r'<a [^>]*>(.*?)</a>',r'\1',FORM[t][2])
+    parts=[p.strip() for p in ex_html.split('<br />') if p.strip()]
+    return ' · '.join(parts[:2])
+def kc_item(t): return '<div class="kc-f"><p class="kc-fn">%s</p><p class="kc-ff">%s</p><p class="kc-fe">%s</p></div>'%(SHORT[t],FORM[t][1],kc_example(t))
+def kc_foot(gen): return ('<p class="kc-foot"><strong>GESPA Enerji · Elektrikçi Çantası</strong> · www.gespaenerji.com/elektrikci-cantasi.html · Değerler yaklaşıktır; tasarım ve kurulum yetkili kişi tarafından yapılır. '
+  'Akım taşıma kapasitesi, sigorta değeri ve yönetmelik sınırları bu kartta yoktur: kablo ve cihaz üreticisinin verisine bakılır. · Üretim: <time datetime="%s">%s</time></p>'%gen)
+def card_page(gen):
+    T='Güneş Paneli Formülleri: Solar Usta Cep Kartı (PDF) | GESPA'; Dsc='Güneş paneli ve solar hesaplama formülleri iki sayfada: kablo, akım, dizi, akü formülleri, bağlantı şemaları, kontrol listesi. Yazdırın ya da PDF kaydedin.'
+    head,foot=shell('usta-cep-karti',T,Dsc,'Solar Usta Cep Kartı: Güneş Paneli Hesaplama Formülleri',Dsc,PUB6)
+    front=''.join('<section class="kc-g"><h3>%s</h3>%s</section>'%(g,''.join(kc_item(t) for t in ts)) for g,ts in KC_GROUPS)
+    awg=''.join('<tr><td>%s</td><td>%s</td><td>%s</td></tr>'%tuple(ex('awg.t%d.%s'%(i,k)) for k in ('l','d','a')) for i in range(int(EX['awg.n'])))
+    ah=''.join('<tr><td>%s V</td><td>%s kWh</td></tr>'%(ex('ref.ahV%s'%v),ex('ref.ahKwh%s'%v)) for v in ('12','24','48'))
+    kw=''.join('<tr><td>%s kW</td><td>%s A</td><td>%s A</td></tr>'%(ex('ref.kwL%d'%i),ex('ref.kwL%da1'%i),ex('ref.kwL%da3'%i)) for i in range(int(EX['ref.kwN'])))
+    chk=''.join('<li><span class="kc-box" aria-hidden="true"></span>%s</li>'%c[1] for c in CHK)
+    back=('<div class="kc-dia"><div><div class="usta-svg" id="kcSeri"></div></div><div><div class="usta-svg" id="kcPar"></div></div>'
+      '<div><div class="usta-svg" id="kcB0"></div></div><div><div class="usta-svg" id="kcB1"></div></div><div><div class="usta-svg" id="kcBP"></div></div><div><div class="usta-svg" id="ugSvg"></div></div></div>'
+      '<div class="kc-tabs">'
+      '<div><h3>AWG → mm² <small>tanımdan hesaplanmıştır</small></h3><table class="kc-t"><thead><tr><th>AWG</th><th>Çap (mm)</th><th>mm²</th></tr></thead><tbody>'+awg+'</tbody></table></div>'
+      '<div><h3>'+ex('ref.ah')+' Ah → kWh <small>tanımdan hesaplanmıştır</small></h3><table class="kc-t"><thead><tr><th>Akü gerilimi</th><th>Enerji</th></tr></thead><tbody>'+ah+'</tbody></table>'
+      '<h3>kW → A <small>tanımdan hesaplanmıştır · cosφ '+ex('ref.cos')+'</small></h3><table class="kc-t"><thead><tr><th>Güç</th><th>Tek faz '+ex('ac.v1')+' V</th><th>Üç faz '+ex('ac.v3')+' V</th></tr></thead><tbody>'+kw+'</tbody></table>'
+      '<p class="kc-note">Tablolar yalnız tanım formüllerinden hesaplanmıştır; akım taşıma kapasitesi ya da sigorta değeri değildir.</p></div>'
+      '<div class="kc-chk"><h3>Montaj öncesi kontrol listesi</h3><ul>'+chk+'</ul></div></div>')
+    main=('''<main id="main" data-article data-usta data-usta-card>
+    '''+MARK+'''
+    <section class="usta-top">
+      <div class="container">
+        <div class="crumbs"><a href="index.html">Ana Sayfa</a> <span>/</span> <a href="elektrikci-cantasi.html">Elektrikçi Çantası</a> <span>/</span> Cep Kartı</div>
+        <h1>Solar Usta Cep Kartı: Güneş Paneli Hesaplama Formülleri</h1>
+        <p class="lead">Elektrikçi Çantası'ndaki bütün formüller, bağlantı şemaları ve montaj kontrol listesi iki A4 sayfada. Ücretsizdir; kayıt ya da e-posta istemez.</p>
+        <p class="kc-act usta-js"><button type="button" class="btn btn-lg" data-usta-print>🖨️ Yazdır / PDF olarak kaydet</button> <a class="btn btn-lg btn-ghost" href="elektrikci-cantasi.html">Hesaplama araçlarını aç</a></p>
+      </div>
+    </section>
+
+    <section class="section usta-sec kc-sec">
+      <div class="container">
+        <article class="art usta kc">
+          <div class="kc-page" id="kc-on"><header class="kc-head"><h2>Solar Usta Cep Kartı <small>ön yüz · formüller ve örnekler</small></h2><p>Örnek sayılar formülün kendisinden hesaplanmıştır; kendi değerlerinizi etiketten alın.</p></header>
+          <div class="kc-cols">'''+front+'''</div>'''+kc_foot(gen)+'''</div>
+          <div class="kc-page" id="kc-arka"><header class="kc-head"><h2>Solar Usta Cep Kartı <small>arka yüz · şemalar, tablolar, kontrol listesi</small></h2></header>
+          '''+back+kc_foot(gen)+'''</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section kc-below">
+      <div class="container narrow">
+        <article class="art usta usta-page">
+          <h2 id="nedir">Kartta ne var?</h2>
+          <p>Ön yüzde güneş paneli ve elektrik hesaplarında kullanılan formüller beş grupta yer alır: kablo ve gerilim düşümü, akım ve güç, panel ve dizi, akü ve tüketim, birim çeviriciler. Her formülün yanında, sitedeki araçla aynı sonucu veren bir örnek vardır. Arka yüzde panellerin seri ve paralel bağlantısı, akü bankasının 12 V akülerle 24 V ve 48 V kurulması, öğle güneşinin yüksekliği ve panel eğimi şemaları; AWG, Ah ve kW için hesaplanmış küçük tablolar ve 14 maddelik montaj öncesi kontrol listesi bulunur.</p>
+          <p>Kart bilerek sade tutulmuştur: akım taşıma kapasitesi, sigorta değeri, izin verilen gerilim düşümü gibi tablo ve yönetmelik değerleri içermez. Bunlar döşeme şekline, ürüne ve projeye göre değişir; kablo ve cihaz üreticisinin verisinden alınır ve tasarımı yetkili kişi yapar. Kendi değerlerinizle hesap için <a href="elektrikci-cantasi.html">Elektrikçi Çantası</a>'ndaki araçları, inverter ekranındaki kodlar için <a href="inverter-hata-kodlari.html">inverter hata kodları</a> sayfasını kullanın.</p>
+          <h2 id="yazdirma">Nasıl yazdırılır?</h2>
+          <p>“Yazdır / PDF olarak kaydet” düğmesine basın. Kâğıt boyutu A4, yön dikey, ölçek %100 olmalıdır; kart iki sayfaya sığacak biçimde hazırlanmıştır. PDF almak için yazıcı olarak “PDF olarak kaydet” seçeneğini seçin. Ön ve arka yüzü tek kâğıdın iki yüzüne basıp sahada yanınızda taşıyabilirsiniz. Toplu alım yapan elektrikçi ve montajcılar <a href="usta-kaydi.html">usta kaydı</a> bırakabilir.</p>
+          <h2 id="sss">Sık sorulan sorular</h2>
+          <div class="faq">'''+''.join(faq(q,a) for q,a in [
+            ('Güneş paneli hesaplama formülleri nelerdir?','En çok kullanılanlar: gerilim düşümü = 2 × I × L × ρ ÷ S; tek fazda akım I = P ÷ (V × cosφ), üç fazda I = P ÷ (√3 × V × cosφ); soğukta Voc = Voc × (1 + β ÷ 100 × (en düşük sıcaklık − {dizi.stc})); en çok seri panel = giriş sınırı ÷ soğuk Voc; akü süresi = V × Ah × DoD × verim ÷ yük; şarj kontrol akımı = panel gücü ÷ akü gerilimi. Kartta hepsi örneğiyle yer alır.'),
+            ('Cep kartı ücretli mi, kayıt gerekiyor mu?','Hayır. Kart ücretsizdir; indirmek ya da yazdırmak için kayıt, e-posta ya da telefon istenmez.'),
+            ('Kartta neden kablo akım taşıma tablosu yok?','Bir kablonun taşıyabileceği akım yalıtım tipine, döşeme şekline, ortam sıcaklığına ve yan yana kablo sayısına bağlıdır; tek bir tabloyla verilemez. Bu değer kablo üreticisinin tablosundan okunur ve tasarımı yetkili elektrikçi ya da mühendis yapar. Kart yalnız tanım ve fizik formüllerini içerir.')])+'''</div>
+          '''+DISC_PAGE+'''
+        </article>
+      </div>
+    </section>
+
+    ''')
+    return finish(head+main+CTA+foot,{'kc-on','kc-arka','nedir','yazdirma','sss'})
+MESLEK=[('elektrikci','Elektrikçi'),('montajci','Güneş enerjisi montajcısı'),('muhendis','Mühendis / Proje'),('bayi','Bayi / Satıcı'),('diger','Diğer')]
+ILGI=[('panel','Panel'),('sarj-kontrol','Şarj kontrol'),('aku','Akü'),('inverter','İnverter'),('kablo','Kablo-konnektör'),('paket','Hazır paket')]
+def signup_page():
+    T='Usta ve Toplu Alım Kaydı: Elektrikçi ve Montajcılar | GESPA'; Dsc='Elektrikçi, güneş enerjisi montajcısı ve satıcılar için usta kaydı: toplu alım fiyat listesi ve stok bilgisi için telefon bırakın, sizi arayalım.'
+    head,foot=shell('usta-kaydi',T,Dsc,'Usta ve Toplu Alım Kaydı',Dsc,PUB6)
+    def tf(id,label,attrs,req=True): return '<div class="field"><label for="%s">%s%s</label><input id="%s" %s/></div>'%(id,label,' *' if req else ' <small>isteğe bağlı</small>',id,attrs)
+    main=('''<main id="main" data-article data-usta>
+    '''+MARK+'''
+    <section class="usta-top">
+      <div class="container">
+        <div class="crumbs"><a href="index.html">Ana Sayfa</a> <span>/</span> <a href="elektrikci-cantasi.html">Elektrikçi Çantası</a> <span>/</span> Usta Kaydı</div>
+        <h1>Usta ve Toplu Alım Kaydı</h1>
+        <p class="lead">Elektrikçi, güneş enerjisi montajcısı ya da satıcıysanız bilgilerinizi bırakın; toplu alım fiyat listesi ve stok bilgisi için sizi arayalım.</p>
+      </div>
+    </section>
+
+    <section class="section usta-sec">
+      <div class="container narrow">
+        <article class="art usta usta-page">
+          <form id="ustaForm" class="calc-card usta-card uk-form" novalidate>
+            '''+tf('ukAd','Ad Soyad','type="text" name="ad" autocomplete="name" maxlength="60" required ')+'''
+            <div class="row">'''+tf('ukTel','Telefon','type="tel" name="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="05xx xxx xx xx" required ')+tf('ukIl','İl / İlçe','type="text" name="ilce" autocomplete="address-level2" maxlength="60" placeholder="ör. Antalya / Manavgat" required ')+'''</div>
+            <div class="row"><div class="field"><label for="ukMeslek">Meslek</label><select id="ukMeslek" name="meslek">'''+''.join('<option value="%s">%s</option>'%m for m in MESLEK)+'''</select></div>'''+tf('ukFirma','Firma','type="text" name="firma" autocomplete="organization" maxlength="80" ',False)+'''</div>
+            <fieldset class="uk-set"><legend>İlgilendiğiniz ürünler</legend>'''+''.join('<label><input type="checkbox" name="ilgi" value="%s" /> %s</label>'%i for i in ILGI)+'''</fieldset>
+            <div class="field"><label for="ukNot">Not <small>isteğe bağlı</small></label><textarea id="ukNot" name="not" rows="3" maxlength="1000" placeholder="ör. aylık panel ihtiyacı, aradığınız ürün"></textarea></div>
+            <div class="usta-sr" aria-hidden="true"><label for="ukWeb">Web sitesi</label><input id="ukWeb" type="text" name="website" tabindex="-1" autocomplete="off" /></div>
+            <div class="field field-consent"><label for="ukOnay"><input type="checkbox" id="ukOnay" name="kvkkOnay" required /> <span><a href="/kvkk.html" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a>'ni okudum; kişisel verilerimin teklif/iletişim amacıyla işlenmesine açık rıza veriyorum. *</span></label></div>
+            <p class="usta-msg" id="ukMsg" role="alert" aria-live="assertive"></p>
+            <p class="uk-go"><button class="btn btn-lg" id="ukSend" type="submit">Kaydı gönder</button> <a class="usta-btn uk-wa-fb" id="ukWaFallback" href="#" target="_blank" rel="noopener">📲 Bilgileri WhatsApp'tan gönder</a></p>
+            <noscript><p class="usta-msg warn">Bu form için JavaScript gerekir. Bilgilerinizi <a data-c-wa href="https://wa.me/905437434209">WhatsApp'tan</a> da yazabilirsiniz.</p></noscript>
+          </form>
+          <div class="calc-card usta-card uk-done" id="ukDone">
+            <h2>Kaydınız alındı, teşekkürler</h2>
+            <p>Toplu alım fiyat listesi ve stok bilgisi için sizi arayacağız. Bu arada:</p>
+            <p class="uk-go"><a class="btn" href="elektrikci-cantasi.html">Hesaplama araçlarını aç</a> <a class="btn btn-ghost" href="usta-cep-karti.html">🖨️ Cep kartını yazdır</a> <a class="btn btn-ghost" id="ukWa" data-c-wa href="https://wa.me/905437434209" target="_blank" rel="noopener">WhatsApp'tan yazın</a></p>
+          </div>
+
+          <!-- OWN:START --><h2 id="ne-olur">Kayıt bırakınca ne olur?</h2>
+          <p>Bilgileriniz yalnızca sizi aramak için kullanılır: toplu alım fiyat listesini ve güncel stok bilgisini telefonda paylaşırız. Kayıt bırakmak sizi herhangi bir alıma bağlamaz ve bir üyelik oluşturmaz. Meslek ve ilgilendiğiniz ürünleri sormamızın nedeni, sizi doğru ürünlerle ilgili aramaktır.</p>
+          <h2 id="kimler">Kimler için?</h2>
+          <p>Güneş paneli kuran elektrikçiler, montaj ekipleri, proje yapan mühendisler ve ürünlerimizi satmak isteyen işletmeler için. Tek ürün almak istiyorsanız kayıt gerekmez; <a href="online-satis.html">mağazadan</a> doğrudan sipariş verebilirsiniz. Adet bazında teklif için <a href="toptan.html">toptan satış</a> sayfasındaki stok listesine de bakabilirsiniz.</p>
+          <h2 id="ucretsiz">Kayıt olmadan kullanabilecekleriniz</h2>
+          <p><a href="elektrikci-cantasi.html">Elektrikçi Çantası</a>'ndaki hesaplama araçları, <a href="inverter-hata-kodlari.html">inverter hata kodları</a> ve yazdırılabilir <a href="usta-cep-karti.html">Solar Usta Cep Kartı</a> herkese açıktır; kayıt ya da e-posta istemez.</p>
+          <h2 id="sss">Sık sorulan sorular</h2>
+          <div class="faq">'''+''.join(faq(q,a) for q,a in [
+            ('Usta kaydı ücretli mi?','Hayır. Kayıt ücretsizdir, bir üyelik ya da alım zorunluluğu oluşturmaz. Bıraktığınız telefondan toplu alım fiyat listesi ve stok bilgisi için aranırsınız.'),
+            ('Bilgilerim ne için kullanılır?','Yalnızca sizinle iletişime geçmek ve teklif hazırlamak için. Ayrıntılar KVKK Aydınlatma Metni’nde yer alır; kaydınızın silinmesini dilediğiniz zaman isteyebilirsiniz.'),
+            ('Tek ürün alacağım, kayıt bırakmam gerekir mi?','Gerekmez. Mağazadaki ürünleri doğrudan sepete ekleyip satın alabilirsiniz. Kayıt, düzenli ya da adetli alım yapan elektrikçi, montajcı ve satıcılar içindir.')])+'''</div><!-- OWN:END -->
+        </article>
+      </div>
+    </section>
+
+    ''')
+    return finish(head+main+CTA+foot,{'ne-olur','kimler','ucretsiz','sss'})
+def gen_date(name):
+    """Üretim tarihi: sayfanın geri kalanı değişmediyse eski tarih korunur (yeniden üretim dosyayı değiştirmesin)."""
+    today=datetime.date.today(); new=(today.isoformat(),'%d %s %d'%(today.day,AYLAR[today.month-1],today.year))
+    path=ROOT+name
+    if os.path.exists(path):
+        old=open(path,encoding='utf8').read(); m=re.search(r'Üretim: <time datetime="([^"]+)">([^<]+)</time>',old)
+        if m:
+            strip=lambda h: re.sub(r'Üretim: <time datetime="[^"]+">[^<]+</time>','',re.sub(r'[ \t]*<!-- LD:STATIC[\s\S]*?/LD:STATIC -->\n?','',h))
+            if strip(card_page((m.group(1),m.group(2))))==strip(old): return (m.group(1),m.group(2))
+    return new
+EXTRA_SLUGS=['usta-cep-karti','usta-kaydi']
+OUT['usta-cep-karti.html']=card_page(gen_date('usta-cep-karti.html'))
+OUT['usta-kaydi.html']=signup_page()
+
 OUT['elektrikci-cantasi.html']=finish(HUB_RAW.replace('<!--INVLIST-->',''.join('<li><a href="%s.html">%s</a></li>'%(p['slug'],p['h1']) for p in IPAGES+SPAGES)),None)
 # ---- denetim + yazma
 def words(html): return len(re.findall(r'\w+',re.sub(r'<[^>]+>',' ',html)))
@@ -1197,7 +1345,7 @@ for name,html in OUT.items():
         if not os.path.exists(ROOT+h.lstrip('/')) and h not in OUT: print('KIRIK BAĞLANTI %s → %s'%(name,h)); bad+=1
     for a in set(re.findall(r'href="#([^"]+)"',html)):
         if 'id="%s"'%a not in html: print('KIRIK ÇAPA %s → #%s'%(name,a)); bad+=1
-    if name!='elektrikci-cantasi.html':
+    if name!='elektrikci-cantasi.html' and name[:-5] not in EXTRA_SLUGS:
         ownw=sum(words(x) for x in re.findall(r'<!-- OWN:START -->([\s\S]*?)<!-- OWN:END -->',html))
         if ownw<250: print('KISA METİN %s: %d sözcük'%(name,ownw)); bad+=1
         pg=BY.get(name[:-5]) or IBY[name[:-5]]

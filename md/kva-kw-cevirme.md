@@ -63,7 +63,7 @@ cosφ (güç katsayısı) cihazın etiketinde yazar; bilinmiyorsa varsayım oldu
 
 **İlgili:** [AC kablo gerilim düşümü](https://www.gespaenerji.com/elektrikci-cantasi.html#ac-kablo) · [Ohm kanunu](https://www.gespaenerji.com/elektrikci-cantasi.html#ohm) · [Watt ↔ Amper çevirici](https://www.gespaenerji.com/elektrikci-cantasi.html#cevirici) · [Solar sulama pompası seçimi](https://www.gespaenerji.com/solar-sulama-pompasi-secimi.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 **Kısa cevap:** kW = kVA × cosφ ve kVA = kW ÷ cosφ. cosφ 0,9 için 1 kVA = 0,9 kW; 3 kW ise 3,33 kVA eder. cosφ 1 olduğunda kVA ile kW eşittir.
 

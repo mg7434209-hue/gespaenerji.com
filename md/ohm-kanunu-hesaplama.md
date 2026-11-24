@@ -57,7 +57,7 @@ Gerilim (V), akım (I), direnç (R) ve güç (P) arasındaki iki temel bağınt�
 
 **İlgili:** [Akım hesabı](#akim) · [Kablo kesiti ve güç kaybı](https://www.gespaenerji.com/elektrikci-cantasi.html#kablo) · [Hızlı çeviriciler](https://www.gespaenerji.com/elektrikci-cantasi.html#cevirici) · [GES Sözlüğü](https://www.gespaenerji.com/sozluk.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Akım hesabı: güçten akıma (DC, tek faz, üç faz) ve kW–kVA
 
@@ -107,7 +107,7 @@ cosφ (güç katsayısı) cihazın etiketinde yazar; bilinmiyorsa varsayım oldu
 
 **İlgili:** [AC kablo gerilim düşümü](https://www.gespaenerji.com/elektrikci-cantasi.html#ac-kablo) · [Ohm kanunu](#ohm) · [Watt ↔ Amper çevirici](https://www.gespaenerji.com/elektrikci-cantasi.html#cevirici) · [Solar sulama pompası seçimi](https://www.gespaenerji.com/solar-sulama-pompasi-secimi.html)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 **Kısa cevap:** V = I × R ve P = V × I. Örnek: 12 V ve 5 A için direnç 12 ÷ 5 = 2,4 Ω, güç 12 × 5 = 60 W. Bu iki bağıntıdan P = I² × R ve P = V² ÷ R de çıkar.
 

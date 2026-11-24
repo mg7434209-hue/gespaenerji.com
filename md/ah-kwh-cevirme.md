@@ -43,7 +43,7 @@ Formül, örnek ve sınırlar
 
 **İlgili:** [Akü kaç saat dayanır?](https://www.gespaenerji.com/elektrikci-cantasi.html#aku-sure) · [Akü bankası bağlama](https://www.gespaenerji.com/elektrikci-cantasi.html#aku) · [Diğer çeviriciler](https://www.gespaenerji.com/elektrikci-cantasi.html#cevirici)
 
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 **Kısa cevap:** kWh = Ah × V ÷ 1000. 100 Ah akü 12 V'ta 1,2 kWh, 24 V'ta 2,4 kWh, 48 V'ta 4,8 kWh eder. Aynı Ah değeri, gerilim arttıkça daha çok enerji demektir.
 
