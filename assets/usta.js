@@ -324,6 +324,9 @@
   if (!doc || !doc.querySelector) return;
   var page = doc.querySelector("[data-usta]");
   if (!page) return;
+  page.classList.add("usta-on");            // JS çalışıyor: eylem düğmeleri ve tek-araç görünümü CSS'te bu sınıfa bağlı
+  var EXAMPLE = {}, RESET = {};             // araca özel "Örnek değerler" / "Sıfırla" (yoksa genel kural)
+  var showTool = function (id) { var t = doc.getElementById(id); if (t) t.scrollIntoView(); };   // merkezde uygulama denetçisi değiştirir
 
   var CFG = G.config || {}, K = U.k(CFG), D = K.def, f = U.fmt;
   var $ = function (s, c) { return (c || doc).querySelector(s); };
@@ -595,11 +598,8 @@
     onInput(Object.keys(map), calcDizi);
     var nEl = $("#udN");
     if (nEl) { nEl.addEventListener("input", function () { udTouchedN = nEl.value !== ""; touch(nEl); calcDizi(); }); }
-    var fill = $("#udFill");
-    if (fill) fill.addEventListener("click", function () {
-      Object.keys(map).forEach(function (id) { setVal(id, g[map[id]]); });
-      udTouchedN = false; touch(fill); calcDizi();
-    });
+    EXAMPLE.dizi = function () { Object.keys(map).forEach(function (id) { setVal(id, g[map[id]]); }); setVal("udN", ""); udTouchedN = false; calcDizi(); };
+    RESET.dizi = function () { Object.keys(map).forEach(function (id) { setVal(id, ""); }); setVal("udN", ""); udTouchedN = false; calcDizi(); };
     calcDizi();
   })();
 
@@ -780,7 +780,7 @@
     var go = $("#ucToCable");
     if (go) go.addEventListener("click", function () {      // akımı DC kablo aracına taşı (sayfada yoksa merkez sayfaya)
       var v = go.getAttribute("data-v"), i = go.getAttribute("data-i"), sec = $("#kablo");
-      if (sec && $("#ukV")) { setVal("ukV", v); setVal("ukI", i); calcKablo(); sec.scrollIntoView(); }
+      if (sec && $("#ukV")) { setVal("ukV", v); setVal("ukI", i); calcKablo(); showTool("kablo"); }
       else root.location.href = "elektrikci-cantasi.html?kv=" + encodeURIComponent(v) + "&ki=" + encodeURIComponent(i) + "#kablo";
     });
     runWA("ucW"); runAh("ucAh"); runHp("ucHp"); texts(); calcAwg(); if ($("#ucP")) calcInv();
@@ -1077,6 +1077,8 @@
       b.addEventListener("click", function () { setRows(U.presetRows(K, p.id)); touch(b); });
       scen.appendChild(b);
     });
+    EXAMPLE["yuk-listesi"] = function () { setRows(U.presetRows(K, d.preset)); };
+    RESET["yuk-listesi"] = function () { setRows([{ name: "", w: "", n: 1, h: "" }]); };
     setRows(U.presetRows(K, d.preset));
   })();
 
@@ -1095,8 +1097,7 @@
       note("xsMsg", r.ok ? f(ib) + " ≤ " + f(inn) + " ≤ " + f(iz) + " A. Yalnız bu temel koşul kontrol edildi." : why.join(" "), r.ok ? "ok" : "bad");
       summary("sigorta-kablo-uyumu", "Ib " + f(ib) + " A, In " + f(inn) + " A, Iz " + f(iz) + " A: " + (r.ok ? "Ib ≤ In ≤ Iz sağlanıyor" : "koşul sağlanmıyor"));
     }
-    var fill = $("#xsFill");
-    if (fill) fill.addEventListener("click", function () { Object.keys(map).forEach(function (id) { setVal(id, d[map[id]]); }); touch(fill); calc(); });
+    EXAMPLE["sigorta-kablo-uyumu"] = function () { Object.keys(map).forEach(function (id) { setVal(id, d[map[id]]); }); calc(); };
     onInput(Object.keys(map), calc); calc();
   })();
 
@@ -1152,58 +1153,177 @@
       b.checked = !!state[b.getAttribute("data-chk")];
       b.addEventListener("change", function () { state[b.getAttribute("data-chk")] = b.checked ? 1 : 0; save(); touch(b); draw(); });
     });
-    var reset = $("#ukcReset");
-    if (reset) reset.addEventListener("click", function () { boxes.forEach(function (b) { b.checked = false; }); state = {}; save(); draw(); });
+    RESET.kontrol = function () { boxes.forEach(function (b) { b.checked = false; }); state = {}; save(); draw(); };
     draw();
   })();
-  var printBtn = $("#ustaPrint");
-  if (printBtn) printBtn.addEventListener("click", function () { root.print(); });
 
-  // ----- Kategori şeridi: görünen kategoriyi vurgula -----
-  (function () {
-    var links = $$(".usta-nav a", page), secs = $$(".usta-cat", page);
-    if (!links.length || !("IntersectionObserver" in root)) return;
-    var io = new root.IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        var id = e.target.id;
-        links.forEach(function (a) {
-          var on = a.getAttribute("href") === "#" + id;
-          a.classList.toggle("active", on);
-          if (on && a.parentNode && a.parentNode.scrollTo) a.parentNode.scrollTo({ left: a.offsetLeft - 16, behavior: "auto" });
-        });
-      });
-    }, { rootMargin: "-30% 0px -60% 0px" });
-    secs.forEach(function (s) { io.observe(s); });
-  })();
-
-  // ----- Araç arama: ad + anahtar sözcükle süz (JS yoksa kutu gizli kalır, sayfa aynen çalışır) -----
-  (function () {
-    var box = $("#ustaFind"), wrap = $(".usta-find", page); if (!box || !wrap) return;
-    var tools = $$("[data-usta-tool]", page), cats = $$(".usta-cat", page), state = $("#ustaFindState");
-    var MAP = { "ı": "i", "İ": "i", "ş": "s", "ç": "c", "ğ": "g", "ö": "o", "ü": "u", "â": "a", "î": "i", "û": "u" };
-    function norm(t) { return String(t || "").toLocaleLowerCase("tr").replace(/[ıİşçğöüâîû]/g, function (ch) { return MAP[ch] || ch; }).replace(/[^a-z0-9²% ]+/g, " ").replace(/\s+/g, " ").trim(); }
-    var index = tools.map(function (t) { var h = $("h3", t); return norm((h ? h.textContent : "") + " " + (t.getAttribute("data-kw") || "")); });
-    function apply() {
-      var words = norm(box.value).split(" ").filter(Boolean), shown = 0;
-      tools.forEach(function (t, i) {
-        var hit = words.every(function (w) { return index[i].indexOf(w) >= 0; });
-        t.hidden = !hit; if (hit) shown++;
-      });
-      cats.forEach(function (c) { c.hidden = !$$("[data-usta-tool]", c).some(function (t) { return !t.hidden; }); });
-      if (state) state.textContent = !words.length ? tools.length + " araç" : (shown ? shown + " araç bulundu" : "Bu aramayla eşleşen araç yok. Başka bir sözcük deneyin (ör. kablo, akü, eğim).");
-    }
-    wrap.hidden = false;
-    box.addEventListener("input", apply);
-    // Bağlantıyla gelinen araç süzgeçte gizli kalmasın
-    root.addEventListener("hashchange", function () { var t = root.location.hash && $(root.location.hash); if (t && (t.hidden || (t.closest && t.closest("[hidden]")))) { box.value = ""; apply(); t.scrollIntoView(); } });
-    apply();
-  })();
   // Sayfaya özel açılış: <main data-usta-init="xbKind=3;xaPhase=3"> (iniş sayfası aynı kartı farklı seçimle açar)
   String(page.getAttribute("data-usta-init") || "").split(";").forEach(function (kv) {
     var x = kv.split("="), e = x[0] && $("#" + x[0]); if (!e || x.length < 2) return;
     e.value = x[1];
     ["change", "input"].forEach(function (t) { var ev = doc.createEvent("Event"); ev.initEvent(t, true, false); e.dispatchEvent(ev); });
   });
+  // ===== Uygulama kabuğu =====
+  var secs = $$(".usta-tool", page), byId = {};
+  secs.forEach(function (x) { byId[x.id] = x; });
+  function fire(e, type) { var ev = doc.createEvent("Event"); ev.initEvent(type, true, false); e.dispatchEvent(ev); }
+  function fields(sec) { return $$("input, select", sec).filter(function (e) { return e.id && !(e.closest && e.closest("#xlRows")); }); }
+
+  // ----- Alan doğrulama: aralık dışı değer → kırmızı alan + tek satır neden -----
+  function validate(sec) {
+    var first = "";
+    $$('input[type="number"]', sec).forEach(function (e) {
+      var raw = String(e.value || "").replace(",", ".").trim(), v = parseFloat(raw), wrap = e.closest(".usta-inp") || e, bad = false, why = "";
+      var mn = e.getAttribute("min"), mx = e.getAttribute("max");
+      if (raw !== "" || (e.validity && e.validity.badInput)) {
+        if (!isFinite(v)) { bad = true; why = "sayı yazın"; }
+        else if (mn !== null && v < parseFloat(mn)) { bad = true; why = "en az " + f(parseFloat(mn)) + " olmalı"; }
+        else if (mx !== null && v > parseFloat(mx)) { bad = true; why = "en çok " + f(parseFloat(mx)) + " olabilir"; }
+      }
+      wrap.classList.toggle("is-bad", bad); e.setAttribute("aria-invalid", bad ? "true" : "false");
+      if (bad && !first) { var l = e.id && $('label[for="' + e.id + '"]', sec); first = (l ? l.firstChild.textContent.trim() : "Değer") + ": " + why + "."; }
+    });
+    var box = $("[data-usta-err]", sec); if (box) box.textContent = first;
+  }
+  page.addEventListener("input", function (ev) { var sec = ev.target.closest && ev.target.closest(".usta-tool"); if (sec) validate(sec); });
+
+  // ----- Eylem satırı: örnek değerler · sıfırla · yazdır · bağlantıyı kopyala · −/+ -----
+  var SNAP = {};
+  function snapshot() { secs.forEach(function (sec) { SNAP[sec.id] = fields(sec).map(function (e) { return [e, e.type === "checkbox" ? e.checked : e.value]; }); }); }
+  function restore(sec, empty) {
+    var key = sec.getAttribute("data-usta-tool"), own = (empty ? RESET : EXAMPLE)[sec.id] || (empty ? RESET : EXAMPLE)[key];
+    if (own) { own(); validate(sec); return; }
+    var list = SNAP[sec.id] || [];
+    list.forEach(function (x) { if (x[0].tagName === "SELECT" && !empty) { x[0].value = x[1]; fire(x[0], "change"); } });
+    for (var pass = 0; pass < 2; pass++) {   // iki tur: çift yönlü alanlarda ilk tur "son yazılan"ı asıl alana çevirir, ikincisi değerleri kesinleştirir
+      list.forEach(function (x) { if (x[0].tagName !== "SELECT") x[0].value = empty ? "" : x[1]; });
+      list.forEach(function (x) { if (x[0].tagName !== "SELECT" && !x[0].hasAttribute("data-derived")) fire(x[0], "input"); });
+    }
+    validate(sec);
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var t = doc.createElement("textarea"); t.value = text; t.setAttribute("readonly", ""); t.style.position = "fixed"; t.style.opacity = "0"; doc.body.appendChild(t); t.select();
+      var okc = false; try { okc = doc.execCommand("copy"); } catch (e) {} doc.body.removeChild(t); done(okc);
+    }
+    try { if (root.navigator.clipboard && root.navigator.clipboard.writeText) { root.navigator.clipboard.writeText(text).then(function () { done(true); }, fallback); return; } } catch (e) {}
+    fallback();
+  }
+  page.addEventListener("click", function (ev) {
+    var b = ev.target.closest && ev.target.closest("[data-usta-ex],[data-usta-reset],[data-usta-print],[data-usta-copy],[data-step]"); if (!b) return;
+    var sec = b.closest(".usta-tool"); if (!sec) return;
+    if (b.hasAttribute("data-step")) {
+      var inp = $("input", b.parentNode), cur = parseFloat(String(inp.value).replace(",", ".")), mn = parseFloat(inp.getAttribute("min"));
+      var nx = (isFinite(cur) ? Math.round(cur) : (isFinite(mn) ? mn - 1 : 0)) + parseInt(b.getAttribute("data-step"), 10);
+      if (isFinite(mn) && nx < mn) nx = mn;
+      inp.value = nx; fire(inp, "input"); return;
+    }
+    if (b.hasAttribute("data-usta-ex")) restore(sec, false);
+    else if (b.hasAttribute("data-usta-reset")) restore(sec, true);
+    else if (b.hasAttribute("data-usta-print")) root.print();
+    else {
+      var url = root.location.href.split("#")[0] + "#" + sec.id, old = b.textContent;
+      copyText(url, function (okc) { b.textContent = okc ? "✓ Kopyalandı" : url; root.setTimeout(function () { b.textContent = old; }, okc ? 1600 : 6000); });
+    }
+    touch(b);
+  });
+
+  snapshot();
+  secs.forEach(validate);
+
+  // ----- Merkez sayfa: solda liste, sağda TEK araç (adres çapası + geri/ileri + son araç hatırlanır) -----
+  if (page.hasAttribute("data-usta-app") && secs.length) (function () {
+    var LS = "gespa-usta-last", side = $("#ustaSide"), links = $$("a[data-t]", side), menu = $("#ustaMenu"), order = secs.map(function (x) { return x.id; });
+    var groups = $$(".usta-sg", side), box = $("#ustaFind"), state = $("#ustaFindState"), work = $(".usta-work", page), cur = null, back = null, mo = null, io = null;
+    var live = $("#ustaLive");
+    function idOf(hash) {
+      var h = String(hash || "").replace(/^#/, ""); try { h = decodeURIComponent(h); } catch (e) {}
+      if (byId[h]) return h;
+      var c = h && doc.getElementById(h); if (c && c.classList.contains("usta-cat")) { var t = $(".usta-tool", c); return t ? t.id : null; }
+      return null;
+    }
+    function hdr() { return parseFloat(root.getComputedStyle(doc.documentElement).getPropertyValue("--hdr-h")) || 0; }
+    function mainRes(sec) { return $(".result.highlight .r-value", sec) || $(".r-value", sec); }
+    function syncLive() {
+      var r = mainRes(byId[cur]); if (!live) return;
+      if (!r) { live.classList.remove("on"); return; }
+      var l = $(".r-label", r.parentNode); out("ustaLiveL", l ? l.textContent : "Sonuç"); out("ustaLiveV", r.textContent);
+    }
+    function watch() {                       // ana sonuç ekranda değilken ince şeritte göster
+      if (mo) mo.disconnect(); if (io) io.disconnect();
+      var r = mainRes(byId[cur]); syncLive(); if (!r || !live) return;
+      if ("MutationObserver" in root) { mo = new root.MutationObserver(syncLive); mo.observe(byId[cur], { subtree: true, childList: true, characterData: true }); }
+      if ("IntersectionObserver" in root) { io = new root.IntersectionObserver(function (es) { live.classList.toggle("on", !es[es.length - 1].isIntersecting); }); io.observe(r.parentNode); }
+    }
+    function drawer(open, focusBack) {
+      page.classList.toggle("side-open", open); doc.documentElement.classList.toggle("usta-lock", open);
+      if (menu) menu.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open) {
+        if (!back) { back = doc.createElement("div"); back.className = "usta-back"; back.addEventListener("click", function () { drawer(false, true); }); page.appendChild(back); }
+        root.setTimeout(function () { if (box) box.focus(); }, 60);
+      } else if (focusBack && menu) menu.focus();
+    }
+    function show(id, how) {
+      if (!byId[id]) return;
+      cur = id;
+      secs.forEach(function (x) { x.classList.toggle("is-active", x.id === id); });
+      links.forEach(function (a) { var on = a.getAttribute("data-t") === id; a.classList.toggle("active", on); if (on) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
+      var h = $("h3", byId[id]); out("ustaBarT", h ? h.textContent : "");
+      try { root.localStorage.setItem(LS, id); } catch (e) {}
+      try {
+        if (how === "push" && root.location.hash !== "#" + id) root.history.pushState(null, "", "#" + id);
+        else if (how === "replace") root.history.replaceState(null, "", root.location.pathname + root.location.search + "#" + id);
+      } catch (e) {}
+      activeTool = byId[id].getAttribute("data-usta-tool"); updateWa(); watch();
+      if (page.classList.contains("side-open")) drawer(false, false);
+      if (how !== "init" && work) { var top = work.getBoundingClientRect().top, lim = hdr() + 4; if (top < lim) root.scrollTo(0, root.pageYOffset + top - lim); }
+    }
+    showTool = function (id) { show(id, "push"); };
+    doc.addEventListener("click", function (ev) {       // sayfa içi araç bağlantıları: kaydırma yok, araç değişir
+      var a = ev.target.closest && ev.target.closest('a[href^="#"]'); if (!a) return;
+      var id = idOf(a.getAttribute("href")); if (!id) return;
+      ev.preventDefault(); show(id, "push");
+    });
+    function fromUrl() { var id = idOf(root.location.hash); if (id) show(id, "none"); else if (!root.location.hash) show(start, "none"); }
+    root.addEventListener("popstate", fromUrl); root.addEventListener("hashchange", fromUrl);
+    if (menu) menu.addEventListener("click", function () { drawer(!page.classList.contains("side-open"), false); });
+    var x = $("#ustaSideX"); if (x) x.addEventListener("click", function () { drawer(false, true); });
+    doc.addEventListener("keydown", function (ev) {
+      if (!page.classList.contains("side-open")) return;
+      if (ev.key === "Escape" || ev.key === "Esc") { drawer(false, true); return; }
+      if (ev.key !== "Tab") return;                      // odak çekmecenin içinde döner
+      var fo = $$("a[href], button, input", side).filter(function (e) { return e.offsetParent !== null; }); if (!fo.length) return;
+      var first = fo[0], last = fo[fo.length - 1];
+      if (ev.shiftKey && doc.activeElement === first) { ev.preventDefault(); last.focus(); }
+      else if (!ev.shiftKey && doc.activeElement === last) { ev.preventDefault(); first.focus(); }
+      else if (!side.contains(doc.activeElement)) { ev.preventDefault(); first.focus(); }
+    });
+    function step(d) { var i = order.indexOf(cur); show(order[(i + d + order.length) % order.length], "push"); }
+    var pv = $("#ustaPrev"), nx = $("#ustaNext");
+    if (pv) pv.addEventListener("click", function () { step(-1); }); if (nx) nx.addEventListener("click", function () { step(1); });
+    // Arama: ad + anahtar sözcük (Türkçe harf duyarsız); Enter ilk eşleşeni açar
+    var MAP = { "ı": "i", "İ": "i", "ş": "s", "ç": "c", "ğ": "g", "ö": "o", "ü": "u", "â": "a", "î": "i", "û": "u" };
+    function norm(t) { return String(t || "").toLocaleLowerCase("tr").replace(/[ıİşçğöüâîû]/g, function (ch) { return MAP[ch] || ch; }).replace(/[^a-z0-9²% ]+/g, " ").replace(/\s+/g, " ").trim(); }
+    var index = links.map(function (a) { var sec = byId[a.getAttribute("data-t")], h = $("h3", sec); return norm(a.textContent + " " + (h ? h.textContent : "") + " " + sec.getAttribute("data-kw")); });
+    function filter() {
+      var words = norm(box.value).split(" ").filter(Boolean), shown = 0;
+      links.forEach(function (a, i) { var hit = words.every(function (w) { return index[i].indexOf(w) >= 0; }); a.parentNode.style.display = hit ? "" : "none"; if (hit) shown++; });
+      groups.forEach(function (g) { g.style.display = $$("li", g).some(function (li) { return li.style.display !== "none"; }) ? "" : "none"; });
+      if (state) state.textContent = !words.length ? links.length + " araç" : (shown ? shown + " araç bulundu" : "Eşleşen araç yok. Başka bir sözcük deneyin.");
+    }
+    if (box) {
+      box.addEventListener("input", filter);
+      box.addEventListener("keydown", function (ev) {
+        if (ev.key !== "Enter") return; ev.preventDefault();
+        var hit = links.filter(function (a) { return a.parentNode.style.display !== "none"; })[0]; if (hit) show(hit.getAttribute("data-t"), "push");
+      });
+      filter();
+    }
+    var saved = null; try { saved = root.localStorage.getItem(LS); } catch (e) {}
+    var start = byId[page.getAttribute("data-usta-app")] ? page.getAttribute("data-usta-app") : order[0];
+    page.classList.add("usta-app-on");
+    show(idOf(root.location.hash) || (byId[saved] ? saved : start), "init");
+  })();
+
   updateWa();
 })(typeof window !== "undefined" ? window : this);

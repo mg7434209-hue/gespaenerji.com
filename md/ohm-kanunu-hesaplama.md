@@ -3,7 +3,7 @@ title: "Ohm Kanunu Hesaplama: Volt, Amper, Ohm, Watt | GESPA"
 description: "Ohm kanunu hesaplama aracı: V = I × R ve P = V × I. Volt, amper, ohm ve watt değerlerinden herhangi ikisini yazın, diğer ikisi formülle hesaplansın."
 canonical: https://www.gespaenerji.com/ohm-kanunu-hesaplama.html
 lang: tr
-dateModified: 2026-11-23
+dateModified: 2026-11-24
 publisher: "GESPA Enerji"
 ---
 
@@ -11,29 +11,31 @@ publisher: "GESPA Enerji"
 
 # Ohm Kanunu Hesaplama: Volt, Amper, Ohm, Watt
 
-Gerilim, akım, direnç ve güçten bildiğiniz iki değeri yazın; diğer ikisi hesaplanır. Altı olası kombinasyonun hepsi desteklenir.
-
-Yayın: 23 Kasım 2026 · GESPA Enerji · [Tüm hesaplama araçları](https://www.gespaenerji.com/elektrikci-cantasi.html)
-
-**Kısa cevap:** V = I × R ve P = V × I. Örnek: 12 V ve 5 A için direnç 12 ÷ 5 = 2,4 Ω, güç 12 × 5 = 60 W. Bu iki bağıntıdan P = I² × R ve P = V² ÷ R de çıkar.
+Gerilim, akım, direnç ve güçten bildiğiniz iki değeri yazın; diğer ikisi hesaplanır.
 
 ## Hesaplama aracı
 
 ### Ohm kanunu ve güç hesaplayıcı
 
-Gerilim (V), akım (I), direnç (R) ve güç (P) arasındaki iki temel bağıntı V = I × R ve P = V × I'dir. Dört büyüklükten herhangi ikisi bilinince diğer ikisi bulunur.
-
-Örnek: 12 V ve 5 A → R = 12 ÷ 5 = 2,4 Ω · P = 12 × 5 = 60 W
+Volt, amper, ohm ve watt: ikisini yazın, diğer ikisi hesaplansın.
 
 #### Bildiğiniz iki değeri yazın
 
-Gerilim V (V)
+Gerilim V
 
-Akım I (A)
+V
 
-Direnç R (Ω)
+Akım I
 
-Güç P (W)
+A
+
+Direnç R
+
+Ω
+
+Güç P
+
+W
 
 Gerilim —
 
@@ -43,9 +45,15 @@ Direnç —
 
 Güç —
 
-**Formül:** V = I × R · P = V × I · buradan P = I² × R = V² ÷ R, I = P ÷ V, R = V ÷ I
-
 Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+Gerilim (V), akım (I), direnç (R) ve güç (P) arasındaki iki temel bağıntı V = I × R ve P = V × I'dir. Dört büyüklükten herhangi ikisi bilinince diğer ikisi bulunur.
+
+Örnek: 12 V ve 5 A → R = 12 ÷ 5 = 2,4 Ω · P = 12 × 5 = 60 W
+
+**Formül:** V = I × R · P = V × I · buradan P = I² × R = V² ÷ R, I = P ÷ V, R = V ÷ I
 
 **İlgili:** [Akım hesabı](#akim) · [Kablo kesiti ve güç kaybı](https://www.gespaenerji.com/elektrikci-cantasi.html#kablo) · [Hızlı çeviriciler](https://www.gespaenerji.com/elektrikci-cantasi.html#cevirici) · [GES Sözlüğü](https://www.gespaenerji.com/sozluk.html)
 
@@ -53,19 +61,19 @@ Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/9054374342
 
 ### Akım hesabı: güçten akıma (DC, tek faz, üç faz) ve kW–kVA
 
-Yükün çektiği akım, gücün gerilime bölünmesiyle bulunur. Doğru akımda I = P ÷ V; tek fazda I = P ÷ (V × cosφ); üç fazda I = P ÷ (√3 × V × cosφ), burada V faz-faz gerilimidir. Görünür güç ile aktif güç arasındaki ilişki kVA = kW ÷ cosφ şeklindedir.
-
-Örnek: 3.000 W yük, cosφ 0,9 Tek faz 230 V: 3.000 ÷ (230 × 0,9) = 14,49 A · üç faz 400 V: 3.000 ÷ (√3 × 400 × 0,9) = 4,81 A · DC 48 V: 3.000 ÷ 48 = 62,5 A 3 kW ÷ 0,9 = 3,33 kVA
-
-cosφ (güç katsayısı) cihazın etiketinde yazar; bilinmiyorsa varsayım olduğunu unutmayın. Motorlarda kalkış akımı bu değerin üstündedir ve bu hesaba dahil değildir.
+Güçten akım: DC, tek faz ve üç faz; ayrıca kW ↔ kVA.
 
 #### Güçten akıma
 
 Sistem
 
-Güç (W)
+Güç
 
-Gerilim (V)
+W
+
+Gerilim
+
+V
 
 cosφ
 
@@ -75,19 +83,35 @@ Akım —
 
 cosφ
 
-Aktif güç (kW)
+Aktif güç
 
-Görünür güç (kVA)
+kW
+
+Görünür güç
+
+kVA
 
 kW ya da kVA alanından hangisini yazarsanız diğeri hesaplanır.
 
-**Formül:** DC: I = P ÷ V · tek faz: I = P ÷ (V × cosφ) · üç faz: I = P ÷ (√3 × V × cosφ) · kVA = kW ÷ cosφ
-
 Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+Yükün çektiği akım, gücün gerilime bölünmesiyle bulunur. Doğru akımda I = P ÷ V; tek fazda I = P ÷ (V × cosφ); üç fazda I = P ÷ (√3 × V × cosφ), burada V faz-faz gerilimidir. Görünür güç ile aktif güç arasındaki ilişki kVA = kW ÷ cosφ şeklindedir.
+
+Örnek: 3.000 W yük, cosφ 0,9 Tek faz 230 V: 3.000 ÷ (230 × 0,9) = 14,49 A · üç faz 400 V: 3.000 ÷ (√3 × 400 × 0,9) = 4,81 A · DC 48 V: 3.000 ÷ 48 = 62,5 A 3 kW ÷ 0,9 = 3,33 kVA
+
+cosφ (güç katsayısı) cihazın etiketinde yazar; bilinmiyorsa varsayım olduğunu unutmayın. Motorlarda kalkış akımı bu değerin üstündedir ve bu hesaba dahil değildir.
+
+**Formül:** DC: I = P ÷ V · tek faz: I = P ÷ (V × cosφ) · üç faz: I = P ÷ (√3 × V × cosφ) · kVA = kW ÷ cosφ
 
 **İlgili:** [AC kablo gerilim düşümü](https://www.gespaenerji.com/elektrikci-cantasi.html#ac-kablo) · [Ohm kanunu](#ohm) · [Watt ↔ Amper çevirici](https://www.gespaenerji.com/elektrikci-cantasi.html#cevirici) · [Solar sulama pompası seçimi](https://www.gespaenerji.com/solar-sulama-pompasi-secimi.html)
 
 Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+
+**Kısa cevap:** V = I × R ve P = V × I. Örnek: 12 V ve 5 A için direnç 12 ÷ 5 = 2,4 Ω, güç 12 × 5 = 60 W. Bu iki bağıntıdan P = I² × R ve P = V² ÷ R de çıkar.
+
+Altı olası kombinasyonun hepsi desteklenir.
 
 ## Girdiler ne anlama gelir?
 
@@ -139,6 +163,8 @@ Direnç, devre enerjisizken ölçü aletinin ohm kademesiyle ölçülür. Hesapl
 - [Mağaza](https://www.gespaenerji.com/online-satis.html)
 
 *Bu sayfa genel bilgilendirme ve ön hesap amaçlıdır. Sonuçlar girdiğiniz değerlere ve belirtilen formüllere dayanır; gerçek değerler sıcaklık, ışınım, kablo, bağlantı kalitesi ve ekipmana göre değişir. Kesin tasarım, malzeme seçimi ve kurulum için ürün künyesine, üretici talimatına ve yürürlükteki mevzuata uyunuz; işi yetkili elektrikçi ya da mühendis yapar.*
+
+Yayın: 23 Kasım 2026 · GESPA Enerji · [Tüm hesaplama araçları](https://www.gespaenerji.com/elektrikci-cantasi.html)
 
 ## Malzeme listenizi yazın, fiyatını çıkaralım
 

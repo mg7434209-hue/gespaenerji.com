@@ -3,7 +3,7 @@ title: "1 Güneş Paneli Günde Kaç kWh Üretir? Hesaplama | GESPA"
 description: "Güneş paneli günlük üretim hesaplama: kWh = kWp × güneş saati × sistem verimi. Panelin günde kaç kWh ürettiğini ve bir yükü kaç saat çalıştırdığını hesaplayın."
 canonical: https://www.gespaenerji.com/gunes-paneli-gunluk-uretim-hesaplama.html
 lang: tr
-dateModified: 2026-11-23
+dateModified: 2026-11-24
 publisher: "GESPA Enerji"
 ---
 
@@ -11,31 +11,31 @@ publisher: "GESPA Enerji"
 
 # 1 Güneş Paneli Günde Kaç kWh Üretir?
 
-Panel gücünü yazın; tasarım günü için günlük üretimi ve bu enerjinin yazdığınız yükü kaç saat çalıştıracağını görün. Araç, sitemizdeki Sistem Kurucu ile aynı varsayımlarla açılır.
-
-Yayın: 23 Kasım 2026 · GESPA Enerji · [Tüm hesaplama araçları](https://www.gespaenerji.com/elektrikci-cantasi.html)
-
-**Kısa cevap:** Tasarım günü tahmini: kWh/gün = kWp × güneş saati × sistem verimi. 550 W'lık tek panel (0,55 kWp), 4,5 güneş saati ve 0,75 sistem verimiyle yaklaşık 1,86 kWh/gün üretir; bu, 100 W'lık bir yükü 18,6 saat çalıştıracak enerjidir.
+Panel gücünü yazın; tasarım günü için günlük üretimi ve bu enerjinin yazdığınız yükü kaç saat çalıştıracağını görün.
 
 ## Hesaplama aracı
 
 ### Panel günde kaç kWh üretir? (tasarım günü tahmini)
 
-Günlük üretim tahmini: kWh/gün = kurulu güç (kWp) × güneş saati × sistem verimi. Bu araç [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) ile aynı katsayılarla açılır: tasarım günü için 4,5 güneş saati ve 0,75 sistem verimi (off-grid, panelden yüke toplam). Bu bir **tasarım günü** tahminidir: yazın üretim daha yüksek, kapalı kış gününde daha düşüktür.
-
-Örnek: 1.440 W panel = 1,44 kWp → 1,44 × 4,5 × 0,75 = 4,86 kWh/gün Bu enerji 100 W'lık bir yükü 4,86 × 1000 ÷ 100 = 48,6 saat çalıştırır
-
-Yıllık üretim, tasarruf ve geri ödeme için bölge verimini kullanan [tasarruf hesaplayıcıya](https://www.gespaenerji.com/hesaplayici.html) bakın.
+Panel gücünden tasarım günü üretimi (kWh) ve bir yükü kaç saat çalıştıracağı.
 
 #### Sistem
 
-Toplam panel gücü (W)
+Toplam panel gücü
 
-Güneş saati (saat/gün) varsayım
+W
 
-Sistem verimi (%) varsayım
+Güneş saati varsayım
 
-Bu enerjiyle çalıştırılacak yük (W) isteğe bağlı
+saat/gün
+
+Sistem verimi varsayım
+
+%
+
+Bu enerjiyle çalıştırılacak yük isteğe bağlı
+
+W
 
 Tasarım günü üretimi —
 
@@ -45,13 +45,25 @@ Yazdığınız yükü çalıştırma süresi —
 
 Güneş saati ve verim varsayımdır; bölgenize ve sisteminize göre değiştirin. Süre, günlük üretimin tamamının o yüke gittiği varsayımıyla hesaplanır; gece kullanım için akü gerekir.
 
-**Formül:** kWh/gün = kWp × güneş saati × sistem verimi · kWp = toplam panel gücü (W) ÷ 1000 · çalıştırma süresi (saat) = kWh × 1000 ÷ yük (W)
-
 Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+Günlük üretim tahmini: kWh/gün = kurulu güç (kWp) × güneş saati × sistem verimi. Bu araç [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) ile aynı katsayılarla açılır: tasarım günü için 4,5 güneş saati ve 0,75 sistem verimi (off-grid, panelden yüke toplam). Bu bir **tasarım günü** tahminidir: yazın üretim daha yüksek, kapalı kış gününde daha düşüktür.
+
+Örnek: 1.440 W panel = 1,44 kWp → 1,44 × 4,5 × 0,75 = 4,86 kWh/gün Bu enerji 100 W'lık bir yükü 4,86 × 1000 ÷ 100 = 48,6 saat çalıştırır
+
+Yıllık üretim, tasarruf ve geri ödeme için bölge verimini kullanan [tasarruf hesaplayıcıya](https://www.gespaenerji.com/hesaplayici.html) bakın.
+
+**Formül:** kWh/gün = kWp × güneş saati × sistem verimi · kWp = toplam panel gücü (W) ÷ 1000 · çalıştırma süresi (saat) = kWh × 1000 ÷ yük (W)
 
 **İlgili:** [Yıllık üretim ve tasarruf hesaplayıcı](https://www.gespaenerji.com/hesaplayici.html) · [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) · [Cihaz listesinden sistem](https://www.gespaenerji.com/elektrikci-cantasi.html#yuk-listesi) · [kWp nedir?](https://www.gespaenerji.com/sozluk.html#kwp)
 
 Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+
+**Kısa cevap:** Tasarım günü tahmini: kWh/gün = kWp × güneş saati × sistem verimi. 550 W'lık tek panel (0,55 kWp), 4,5 güneş saati ve 0,75 sistem verimiyle yaklaşık 1,86 kWh/gün üretir; bu, 100 W'lık bir yükü 18,6 saat çalıştıracak enerjidir.
+
+Araç, sitemizdeki Sistem Kurucu ile aynı varsayımlarla açılır.
 
 ## Girdiler ne anlama gelir?
 
@@ -99,6 +111,8 @@ Güneş alçaldığı ve günler kısaldığı için düşer; oran konuma ve eğ
 - [Lexron 655 W panel](https://www.gespaenerji.com/panel-lexron-655w.html)
 
 *Bu sayfa genel bilgilendirme ve ön hesap amaçlıdır. Sonuçlar girdiğiniz değerlere ve belirtilen formüllere dayanır; gerçek değerler sıcaklık, ışınım, kablo, bağlantı kalitesi ve ekipmana göre değişir. Kesin tasarım, malzeme seçimi ve kurulum için ürün künyesine, üretici talimatına ve yürürlükteki mevzuata uyunuz; işi yetkili elektrikçi ya da mühendis yapar.*
+
+Yayın: 23 Kasım 2026 · GESPA Enerji · [Tüm hesaplama araçları](https://www.gespaenerji.com/elektrikci-cantasi.html)
 
 ## Malzeme listenizi yazın, fiyatını çıkaralım
 

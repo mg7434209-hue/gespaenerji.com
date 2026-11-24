@@ -8,8 +8,12 @@ Kullanım:
 Ardından: node build.js && npm test
 
 NASIL ÇALIŞIR
-- Araç kartları (girdi/sonuç işaretlemesi) burada BİR KEZ tanımlanır (tool()/part()); merkez sayfa
-  hepsini kategorilerle basar, iniş sayfaları PAGES'te adı geçen kartların AYNI işaretlemesini alır.
+- Araç kartları (girdi/sonuç işaretlemesi) burada BİR KEZ tanımlanır (tool(); çevirici parçaları PARTS).
+  Merkez sayfa bir UYGULAMADIR: solda araç listesi (side()), sağda TEK araç; iniş sayfaları PAGES'te
+  adı geçen kartların AYNI işaretlemesini H1'in hemen altına alır, özgün metin altta açık durur.
+- Kart sırası: başlık → tek cümle (ONE, ≤120 karakter) → girdi/sonuç → güvenlik notu → eylem satırı →
+  kapalı <details> "Formül, örnek ve sınırlar". JS yokken bütün araçlar alt alta görünür; içerik taşıyan
+  öğeye `hidden` YAZILMAZ (yalnız JS denetimleri .usta-js ya da hidden="" olabilir).
   Hesap mantığı yalnız assets/usta.js'tedir (kopyalanmaz); sayfalar eleman kimliğiyle bağlanır.
 - Örnek sayılar ELLE YAZILMAZ: metinde {anahtar} yazılır, değer `GESPA.usta.examples(config)`'ten
   (node ile) okunur ve <data data-ex> olarak basılır; test aynı işlevle karşılaştırır.
@@ -52,12 +56,31 @@ EX=json.loads(subprocess.check_output(['node','-e',"const vm=require('vm'),fs=re
 def X(t): return re.sub(r'\{([a-zA-Z0-9./]+)\}',lambda m:ex(m.group(1)),t)
 
 DISC='<p class="usta-disc">Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.</p>'
-def tail(tool,formula,rel):
-    return ('<p class="usta-formula"><strong>Formül:</strong> '+formula+'</p>\n'+DISC+'\n'
-      '<p class="usta-rel"><strong>İlgili:</strong> '+rel+'</p>\n'
-      '<p class="usta-pro"><span>Usta / toplu alım fiyatı için:</span> <a class="usta-link" data-usta-pro data-c-wa href="https://wa.me/905437434209" target="_blank" rel="noopener">WhatsApp\'tan yazın</a> <button type="button" class="usta-link" data-usta-cb hidden>📞 Beni arayın</button> <a class="usta-link" data-usta-wa="'+tool+'" href="#" target="_blank" rel="noopener" hidden>📲 Bu sonucu WhatsApp\'tan gönder</a></p>')
+PRO=('<p class="usta-pro"><span>Usta / toplu alım fiyatı için:</span> <a class="usta-link" data-usta-pro data-c-wa href="https://wa.me/905437434209" target="_blank" rel="noopener">WhatsApp\'tan yazın</a> '
+     '<button type="button" class="usta-link" data-usta-cb hidden>📞 Beni arayın</button></p>')
+def actions(tool,example=True):
+    """Eylem satırı: yalnız JS ile çalışır (.usta-js → JS yokken CSS gizler)."""
+    return ('<div class="usta-act usta-js">'
+      +('<button type="button" class="usta-btn" data-usta-ex>↺ Örnek değerler</button>' if example else '')
+      +'<button type="button" class="usta-btn" data-usta-reset>✕ Sıfırla</button>'
+      +'<a class="usta-btn" data-usta-wa="'+tool+'" href="#" target="_blank" rel="noopener" hidden>📲 WhatsApp\'tan gönder</a>'
+      +'<button type="button" class="usta-btn" data-usta-print>🖨️ Yazdır</button>'
+      +'<button type="button" class="usta-btn" data-usta-copy>🔗 Bağlantıyı kopyala</button></div>')
+def more(id,intro,formula,rel):
+    """Açıklama, formül, örnek, sınırlar, ilgili bağlantılar: kapalı <details> (HTML'de durur, botlar okur)."""
+    return ('<details class="usta-more"><summary>Formül, örnek ve sınırlar</summary><div class="usta-more-in">\n'+intro+'\n'
+      +('<p class="usta-formula"><strong>Formül:</strong> '+formula+'</p>\n' if formula else '')
+      +'<!--OWN:'+id+'-->\n<p class="usta-rel"><strong>İlgili:</strong> '+rel+'</p>\n'+PRO+'\n</div></details>')
 def fld(id,label,attrs='',small=''):
-    return '<div class="field"><label for="%s">%s%s</label><input id="%s" type="number" inputmode="decimal" step="any" %s/></div>'%(id,label,(' <small>'+small+'</small>') if small else '',id,attrs)
+    """Sayı alanı. Etiket sonundaki "(birim)" alanın içine alınır; step="1" olan alanlara −/+ düğmesi gelir."""
+    m=re.match(r'^(.*) \(([^()]+)\)$',label); unit=''
+    if m: label,unit=m.group(1),m.group(2)
+    stp='step="1"' in attrs
+    inner=(('<button type="button" class="usta-stepb usta-js" data-step="-1" aria-label="Azalt" tabindex="-1">−</button>' if stp else '')
+      +'<input id="%s" type="number" inputmode="%s" %s%s/>'%(id,'numeric' if stp else 'decimal','' if 'step=' in attrs else 'step="any" ',attrs)
+      +('<button type="button" class="usta-stepb usta-js" data-step="1" aria-label="Artır" tabindex="-1">+</button>' if stp else '')
+      +('<span class="usta-unit">%s</span>'%unit if unit else ''))
+    return '<div class="field"><label for="%s">%s%s</label><div class="usta-inp">%s</div></div>'%(id,label,(' <small>'+small+'</small>') if small else '',inner)
 def res(id,label,hi=False,boxid=''):
     return '<div class="result%s"%s><span class="r-label">%s</span><span class="r-value" id="%s">—</span></div>'%(' highlight' if hi else '',(' id="'+boxid+'"') if boxid else '',label,id)
 def row(*a): return '<div class="row">'+''.join(a)+'</div>'
@@ -70,13 +93,41 @@ KW={'egim':'panel açısı eğim derece güneş yüksekliği enlem yaz kış til
  'c-orani':'c oranı c rate şarj deşarj akımı 0.5c 1c lityum','gunluk-uretim':'panel günde kaç kwh üretir günlük üretim güneş saati kwp','sicaklik-gucu':'sıcaklık panel gücü güç kaybı sıcaklık katsayısı noct hücre',
  'golge':'gölge uzunluğu engel baca direk parapet gölgelenme','cati-egimi':'çatı eğimi derece yüzde oran meyil','yuk-listesi':'cihaz listesi yük listesi günlük tüketim wh panel akü inverter kaç watt karavan bağ evi',
  'inverter-aku-akimi':'inverter invertör aküden kaç amper çeker akü akımı','sigorta-kablo-uyumu':'sigorta kablo uyumu ib in iz şalter otomat koruma','hp-kw-amper':'hp beygir kw amper motor akımı pompa','cihaz-tuketimi':'cihaz kaç kwh harcar elektrik tüketimi fatura tl maliyet'}
+ONE={'egim':'Enleme göre öğle güneşinin yüksekliği ve yıl boyu, yaz, kış için pratik panel eğimi.',
+ 'golge':'Baca, parapet ya da panel sırasının öğle vaktindeki gölge uzunluğu.',
+ 'cati-egimi':'Çatı eğimini derece, yüzde ve oran arasında çevirir.',
+ 'gunluk-uretim':'Panel gücünden tasarım günü üretimi (kWh) ve bir yükü kaç saat çalıştıracağı.',
+ 'sicaklik-gucu':'Hücre sıcaklığına göre panelin vereceği güç.',
+ 'kablo':'DC hatta gerilim düşümü, ısıya giden güç ve hedefi karşılayan en küçük kesit.',
+ 'ac-kablo':'Tek faz ve üç faz AC hatta gerilim düşümü: volt ve yüzde.',
+ 'akim':'Güçten akım: DC, tek faz ve üç faz; ayrıca kW ↔ kVA.',
+ 'hp-kw-amper':'Motor etiketindeki HP değerinden kW ve çalışma akımı.',
+ 'ohm':'Volt, amper, ohm ve watt: ikisini yazın, diğer ikisi hesaplansın.',
+ 'sigorta-kablo-uyumu':'Ib ≤ In ≤ Iz koşulunu yazdığınız üç değerle kontrol eder.',
+ 'dizi':'Bir diziye en çok ve en az kaç panelin seri bağlanabileceğini etiket değerlerinden hesaplar.',
+ 'seri-paralel':'Seri–paralel dizilimde toplam gerilim, akım ve güç; bağlantı şemasıyla.',
+ 'sigorta':'Paralel dizilerde ters akımı etiketteki en yüksek seri sigorta değeriyle karşılaştırır.',
+ 'aku':'Akü bankasının gerilimi, kapasitesi ve enerjisi; bağlantı şemasıyla.',
+ 'aku-sure':'Akünün bir yükü yaklaşık kaç saat besleyeceği.',
+ 'aku-sarj':'Panelin aküyü kaç güneşli saatte ve kaç günde dolduracağı (ideal hesap).',
+ 'c-orani':'C oranı ile akım arasında çevirir, tam kapasitenin süresini verir.',
+ 'yuk-listesi':'Cihaz listesinden günlük tüketim, gereken panel, akü ve inverter gücü.',
+ 'sarj-kontrol':'Panel gücü ve akü geriliminden şarj kontrol cihazının en az çıkış akımı.',
+ 'inverter-aku-akimi':'İnverterin yük altında aküden çektiği akım.',
+ 'cihaz-tuketimi':'Bir cihazın kWh tüketimi ve yazdığınız birim fiyatla tutarı.',
+ 'cevirici':'Watt–amper, Ah–Wh, HP–kW ve AWG–mm² çeviricileri.',
+ 'kontrol':'Devreye almadan önce sahada işaretlenecek pratik kontroller.',
+ 'awg-mm2':'AWG numarasından çap ve mm² kesit; mm² değerinden en yakın AWG.',
+ 'ah-wh':'Amper saat ile watt saat arasında gerilime göre çevirir.'}
+for _k,_v in ONE.items(): assert len(_v)<=120,(_k,len(_v))
 def tool(id,h2,intro,left,right,formula,rel,store=None,kw=None):
-    """Araç bölümü. right=None → tek kart. store=PARTS → merkezde olmayan parça (iniş sayfası için)."""
+    """Araç bölümü. right=None → tek kart. store=PARTS → merkezde olmayan parça (iniş sayfası için).
+    Sıra: başlık → tek cümle → girdi/sonuç kartları → güvenlik notu → eylemler → kapalı ayrıntı."""
     name=re.sub(r'^\d+\.\s*','',h2); NAMES[id]=name
-    cards='<div class="calc-card usta-card">%s</div>\n'%left+('<div class="calc-card usta-card">%s</div>\n'%right if right else '')
+    cards='<div class="calc-card usta-card">%s</div>\n'%left+('<div class="calc-card usta-card usta-out-card">%s</div>\n'%right if right else '')
     owner=id if store is None else 'cevirici'
-    html=('<section class="usta-tool" id="%s" data-usta-tool="%s" data-kw="%s">\n<h3>%s</h3>\n%s\n<!--OWN:%s-->\n<div class="usta-grid%s">\n%s</div>\n%s\n</section>\n'
-            %(id,owner,kw or KW[id],name,X(intro),id,'' if right else ' one',cards,tail(owner,formula,rel)))
+    html=('<section class="usta-tool" id="%s" data-usta-tool="%s" data-kw="%s">\n<h3>%s</h3>\n<p class="usta-one">%s</p>\n<div class="usta-grid%s">\n%s</div>\n<p class="usta-err" data-usta-err role="alert"></p>\n%s\n%s\n%s\n</section>\n'
+            %(id,owner,kw or KW[id],name,ONE[id],'' if right else ' one',cards,DISC,actions(owner),more(id,X(intro),formula,rel)))
     (TOOLS if store is None else store)[id]=html
     return html
 PARTS={}
@@ -115,7 +166,7 @@ T.append(tool('dizi','3. Dizi (string) hesabı: kaç panel seri bağlanır?',
  +fld('udTmin','Beklenen en düşük hava sıcaklığı (°C)')
  +'<h3 class="tool-title">Şarj kontrol cihazı / inverter etiketi</h3>'+row(fld('udVmax','En yüksek PV giriş gerilimi (V)','min="0"'),fld('udMppt','MPPT alt gerilimi (V)','min="0"'))
  +fld('udN','Seri bağlanacak panel sayısı','min="1" step="1"','boşsa en çok sayı')
- +'<p class="tool-hint"><button type="button" class="usta-link" id="udFill">Örnek değerleri doldur</button> Örnek değerler yuvarlak sayılardır, bir ürüne ait değildir.</p>',
+ +'<p class=\"tool-hint\">Alanlar boş açılır; \"Örnek değerler\" düğmesi yuvarlak örnek sayıları doldurur (bir ürüne ait değildir).</p>',
  '<div class="calc-results">'+res('udMax','En çok seri panel',True)+res('udCold','Soğuk Voc (panel başı)')+res('udMin','En az seri panel')+res('udStrVoc','Dizi soğuk Voc')+res('udStrVmp','Dizi Vmp (etiket)')+'</div>'+msg('udWarn')+svg('udSvg'),
  'soğuk Voc = Voc × (1 + β ÷ 100 × (T<sub>min</sub> − '+ex('dizi.stc')+')) · en çok seri = ⌊V<sub>maks giriş</sub> ÷ soğuk Voc⌋ · en az seri = ⌈V<sub>MPPT alt</sub> ÷ Vmp⌉ · dizi gerilimi = panel sayısı × panel gerilimi',
  '<a href="pwm-mppt-sarj-kontrol-farki.html">PWM mi MPPT mi? Cihaz seçim rehberi</a> · <a href="online-satis.html?kategori=sarj-kontrol">Şarj kontrol cihazları</a> · <a href="havensis-mppt-60a-150v.html">150 V girişli 60 A MPPT</a> · <a href="sozluk.html#voc-isc">Voc ve Isc nedir?</a>'))
@@ -151,9 +202,9 @@ T.append(tool('sigorta','6. Dizi sigortası gerekir mi?',
  'ters akım = (N − 1) × Isc · ters akım &gt; etiketteki en yüksek seri sigorta değeri ise dizi sigortası gerekir',
  '<a href="#seri-paralel">Seri–paralel şema</a> · <a href="mc4-set.html">MC4 konnektör takımı</a> · <a href="sozluk.html#voc-isc">Isc nedir?</a> · <a href="toptan.html">Toptan satış</a>'))
 
-CEV_WA='<h3 class="tool-title">Watt ↔ Amper</h3><div class="usta-row3">'+fld('ucV1','Gerilim (V)','min="0"')+fld('ucW','Güç (W)','min="0"')+fld('ucA','Akım (A)','min="0"')+'</div>'
-CEV_AH='<h3 class="tool-title">Ah ↔ Wh</h3><div class="usta-row3">'+fld('ucV2','Gerilim (V)','min="0"')+fld('ucAh','Kapasite (Ah)','min="0"')+fld('ucWh','Enerji (Wh)','min="0"')+'</div><p class="usta-out" id="ucKwh"></p>'
-CEV_HP='<h3 class="tool-title">HP ↔ kW</h3>'+row(fld('ucHp','Beygir gücü (HP)','min="0"'),fld('ucKw','Kilovat (kW)','min="0"'))
+CEV_WA='<h3 class="tool-title">Watt ↔ Amper</h3><div class="usta-row3">'+fld('ucV1','Gerilim (V)','min="0"')+fld('ucW','Güç (W)','min="0"')+fld('ucA','Akım (A)','min="0" data-derived')+'</div>'
+CEV_AH='<h3 class="tool-title">Ah ↔ Wh</h3><div class="usta-row3">'+fld('ucV2','Gerilim (V)','min="0"')+fld('ucAh','Kapasite (Ah)','min="0"')+fld('ucWh','Enerji (Wh)','min="0" data-derived')+'</div><p class="usta-out" id="ucKwh"></p>'
+CEV_HP='<h3 class="tool-title">HP ↔ kW</h3>'+row(fld('ucHp','Beygir gücü (HP)','min="0"'),fld('ucKw','Kilovat (kW)','min="0" data-derived'))
 CEV_AWG=('<h3 class="tool-title">AWG ↔ mm²</h3>'+row('<div class="field"><label for="ucAwg">AWG numarası</label><select id="ucAwg"></select></div>',fld('ucMm2','Kesit (mm²)','min="0"'))
  +'<p class="usta-out" id="ucAwgOut">—</p><p class="usta-out" id="ucMmOut">—</p>'+svg('ucSvg'))
 F_AWG='AWG çapı (mm) = 0,127 × 92<sup>(36 − n) ÷ 39</sup> · kesit = π × d² ÷ 4'
@@ -198,16 +249,13 @@ CHK=[('ayirici','DC ayırıcı ve akü sigortası açık (devre kesik); çalış
 ('sema','Bağlantılar devreye almadan önce şemayla bir kez daha karşılaştırıldı.')]
 chk_html='<ul class="usta-check">'+''.join('<li><label><input type="checkbox" data-chk="%s" /> <span>%s</span></label></li>'%c for c in CHK)+'</ul>'
 NAMES['kontrol']='Montaj öncesi kontrol listesi'
-T.append('<section class="usta-tool" id="kontrol" data-usta-tool="kontrol" data-kw="'+KW['kontrol']+'">\n<h3>Montaj öncesi kontrol listesi</h3>\n'
- '<p>Devreye almadan önce sahada tek tek işaretlenecek '+str(len(CHK))+' pratik kontrol. İşaretler bu cihazda saklanır; liste yazdırılabilir ya da PDF olarak kaydedilebilir. Liste pratik saha alışkanlıklarını toplar; yürürlükteki yönetmeliklerin ve üretici talimatlarının yerine geçmez.</p>\n'
+TOOLS['kontrol']=('<section class="usta-tool" id="kontrol" data-usta-tool="kontrol" data-kw="'+KW['kontrol']+'">\n<h3>Montaj öncesi kontrol listesi</h3>\n<p class="usta-one">'+ONE['kontrol']+'</p>\n'
  '<div class="usta-grid usta-grid-chk">\n<div class="calc-card usta-card">'+chk_html+'</div>\n'
- '<div class="calc-card usta-card usta-chk-side">'+svg('ukcSvg')+'<p class="usta-out" id="ukcState"></p>'
- '<div class="usta-actions"><button class="btn btn-ghost btn-sm" id="ustaPrint" type="button">🖨️ Yazdır / PDF</button><a class="btn btn-ghost btn-sm" id="ustaWa" data-usta-wa="" href="#" target="_blank" rel="noopener" hidden>📲 Son kullandığınız aracın sonucunu gönder</a><button class="usta-link" id="ukcReset" type="button">İşaretleri temizle</button></div>'
- '<p class="tool-hint">Yazdırınca bütün araçların o anki girdi ve sonuçları da kâğıda çıkar.</p></div>\n</div>\n'
- +DISC+'\n<p class="usta-rel"><strong>İlgili:</strong> <a href="mc4-set.html">MC4 konnektör takımı</a> · <a href="kablo-solar-5m.html">Solar kablo takımı</a> · <a href="sistem-kur.html">Sistem Kurucu</a> · <a href="rehberler.html">Tüm rehberler</a></p>\n'
- '<p class="usta-pro"><span>Usta / toplu alım fiyatı için:</span> <a class="usta-link" data-usta-pro data-c-wa href="https://wa.me/905437434209" target="_blank" rel="noopener">WhatsApp\'tan yazın</a> <button type="button" class="usta-link" data-usta-cb hidden>📞 Beni arayın</button></p>\n</section>\n')
-
-TOOLS['kontrol']=T[-1].replace('<h3>Montaj öncesi kontrol listesi</h3>\n','<h3>Montaj öncesi kontrol listesi</h3>\n<!--OWN:kontrol-->\n')
+ '<div class="calc-card usta-card usta-out-card usta-chk-side">'+svg('ukcSvg')+'<p class="usta-out" id="ukcState"></p></div>\n</div>\n'
+ +DISC+'\n'+actions('kontrol',example=False)+'\n'
+ +more('kontrol','<p>Devreye almadan önce sahada tek tek işaretlenecek '+str(len(CHK))+' pratik kontrol. İşaretler bu cihazda saklanır; liste yazdırılabilir ya da PDF olarak kaydedilebilir. Liste pratik saha alışkanlıklarını toplar; yürürlükteki yönetmeliklerin ve üretici talimatlarının yerine geçmez.</p>','',
+   '<a href="mc4-set.html">MC4 konnektör takımı</a> · <a href="kablo-solar-5m.html">Solar kablo takımı</a> · <a href="sistem-kur.html">Sistem Kurucu</a> · <a href="rehberler.html">Tüm rehberler</a>')
+ +'\n</section>\n')
 
 def sel(id,label,opts): return '<div class="field"><label for="%s">%s</label><select id="%s">%s</select></div>'%(id,label,id,''.join('<option value="%s">%s</option>'%o for o in opts))
 SHOP_CC='<a href="online-satis.html?kategori=sarj-kontrol">Şarj kontrol cihazları</a>'
@@ -231,7 +279,7 @@ tool('akim','Akım hesabı: güçten akıma (DC, tek faz, üç faz) ve kW–kVA'
  '<h3 class="tool-title">Güçten akıma</h3>'+row(sel('xbKind','Sistem',[('1','Tek faz AC'),('3','Üç faz AC'),('dc','DC')]),fld('xbP','Güç (W)','min="0"'))
  +row(fld('xbV','Gerilim (V)','min="0"'),fld('xbCos','cosφ','min="0" max="1"'))
  +'<div class="calc-results">'+res('xbI','Akım',True)+'</div>',
- '<h3 class="tool-title">kW ↔ kVA</h3><div class="usta-row3">'+fld('xbCos2','cosφ','min="0" max="1"')+fld('xbKw','Aktif güç (kW)','min="0"')+fld('xbKva','Görünür güç (kVA)','min="0"')+'</div>'
+ '<h3 class="tool-title">kW ↔ kVA</h3><div class="usta-row3">'+fld('xbCos2','cosφ','min="0" max="1"')+fld('xbKw','Aktif güç (kW)','min="0"')+fld('xbKva','Görünür güç (kVA)','min="0" data-derived')+'</div>'
  +'<p class="tool-hint">kW ya da kVA alanından hangisini yazarsanız diğeri hesaplanır.</p>',
  'DC: I = P ÷ V · tek faz: I = P ÷ (V × cosφ) · üç faz: I = P ÷ (√3 × V × cosφ) · kVA = kW ÷ cosφ',
  '<a href="#ac-kablo">AC kablo gerilim düşümü</a> · <a href="#ohm">Ohm kanunu</a> · <a href="#cevirici">Watt ↔ Amper çevirici</a> · <a href="solar-sulama-pompasi-secimi.html">Solar sulama pompası seçimi</a>')
@@ -278,7 +326,7 @@ tool('aku-sarj','Panel aküyü kaç saatte doldurur?',
 tool('c-orani','C oranı: akü şarj ve deşarj akımı',
  '<p>C oranı, akımı akü kapasitesine oranlar: I = C × Ah. 1C, aküyü bir saatte boşaltan (ya da dolduran) akımdır; süre = 1 ÷ C saattir. Akünün izin verdiği en yüksek şarj ve deşarj C oranı künyesinde yazar.</p>\n'
  '<p class="art-formula">Örnek: {c.ah} Ah akü, {c.c}C → {c.c} × {c.ah} = {c.i} A · süre = 1 ÷ {c.c} = {c.h} saat</p>',
- '<h3 class="tool-title">Akü</h3><div class="usta-row3">'+fld('xgAh','Kapasite (Ah)','min="0"')+fld('xgC','C oranı','min="0"')+fld('xgI','Akım (A)','min="0"')+'</div><p class="tool-hint">C oranı ya da akım alanından hangisini yazarsanız diğeri hesaplanır.</p>',
+ '<h3 class="tool-title">Akü</h3><div class="usta-row3">'+fld('xgAh','Kapasite (Ah)','min="0"')+fld('xgC','C oranı','min="0"')+fld('xgI','Akım (A)','min="0" data-derived')+'</div><p class="tool-hint">C oranı ya da akım alanından hangisini yazarsanız diğeri hesaplanır.</p>',
  '<div class="calc-results">'+res('xgT','Bu akımda tam kapasitenin süresi',True)+'</div>',
  'akım (A) = C × kapasite (Ah) · C = akım ÷ kapasite · süre (saat) = 1 ÷ C',
  '<a href="#aku-sure">Akü kaç saat dayanır?</a> · <a href="#aku">Akü bankası bağlama</a> · <a href="aku-titanx-51v-102ah.html">51,2 V 102 Ah LiFePO₄ akü</a> · <a href="sozluk.html#bms">BMS nedir?</a>')
@@ -319,7 +367,7 @@ tool('golge','Engel gölge uzunluğu',
 tool('cati-egimi','Çatı eğimi çevirici: derece, yüzde ve oran',
  '<p>Çatı eğimi üç biçimde söylenir: derece, yüzde ve 100 cm yatayda kaç cm yükseldiği. Aralarındaki bağ tanjanttır: % eğim = tan(derece) × 100; 100 cm yatayda yükselme (cm) yüzdeyle aynı sayıdır.</p>\n'
  '<p class="art-formula">Örnek: {cati.deg}° → tan({cati.deg}°) × 100 = %{cati.pct} (100 cm yatayda {cati.pct} cm) · %{cati.pct2} eğim → arctan({cati.pct2} ÷ 100) = {cati.deg2}°</p>',
- '<h3 class="tool-title">Eğim</h3>'+row(fld('xkDeg','Derece (°)','min="0" max="89"'),fld('xkPct','Yüzde eğim (%)','min="0"'))+'<p class="tool-hint">Derece ya da yüzde alanından hangisini yazarsanız diğeri hesaplanır. Çatıda ölçmek için: 100 cm yatay mesafede kaç cm yükseldiğini ölçün, yüzde alanına yazın.</p>',
+ '<h3 class="tool-title">Eğim</h3>'+row(fld('xkDeg','Derece (°)','min="0" max="89"'),fld('xkPct','Yüzde eğim (%)','min="0" data-derived'))+'<p class="tool-hint">Derece ya da yüzde alanından hangisini yazarsanız diğeri hesaplanır. Çatıda ölçmek için: 100 cm yatay mesafede kaç cm yükseldiğini ölçün, yüzde alanına yazın.</p>',
  '<div class="calc-results">'+res('xkRise','100 cm yatayda yükselme')+res('xkRatio','Oran (yükselme : yatay)')+'</div>'+svg('xkSvg'),
  '% eğim = tan(derece) × 100 · derece = arctan(% ÷ 100) · 100 cm yatayda yükselme (cm) = % eğim',
  '<a href="#egim">Panel eğim açısı</a> · <a href="hesaplayici.html#alet-cantasi">Panel yerleşim planlayıcı</a> · <a href="cati-ges.html">Çatı GES hizmeti</a> · <a href="hesaplayici.html">Tasarruf hesaplayıcı</a>')
@@ -363,7 +411,7 @@ tool('sigorta-kablo-uyumu','Sigorta–kablo uyum kontrolü (Ib ≤ In ≤ Iz)',
  '<p class="art-formula">Örnek (örnek sayılar): Ib {uyum.ib} A, In {uyum.in} A, Iz {uyum.iz} A → {uyum.ib} ≤ {uyum.in} ≤ {uyum.iz}: {uyum.verdict} · aynı sigortayla Iz {uyum.izBad} A olsaydı {uyum.in} ≤ {uyum.izBad} olmadığı için {uyum.verdictBad}</p>\n'
  '<p><strong>Iz bu sayfada yoktur ve olmayacaktır:</strong> kablonun akım taşıma kapasitesi döşeme şekline, ortam sıcaklığına, yan yana kablo sayısına ve yalıtım tipine göre değişir; kablo üreticisinin tablosundan okunur ve tasarımı yapan yetkili kişi belirler. Bu araç yalnızca yazdığınız üç sayıyı karşılaştırır; sigortanın açma karakteristiği, kısa devre dayanımı ve diğer koşullar tasarımcının işidir.</p>',
  '<h3 class="tool-title">Üç akım değeri</h3>'+fld('xsIb','Tasarım (yük) akımı Ib (A)','min="0"')+fld('xsIn','Sigorta / şalter anma akımı In (A)','min="0"')+fld('xsIz','Kablonun akım taşıma kapasitesi Iz (A)','min="0"','üretici tablosundan')
- +'<p class="tool-hint"><button type="button" class="usta-link" id="xsFill">Örnek değerleri doldur</button> Örnek değerler rastgele sayılardır; bir kabloya ait değildir.</p>',
+ +'<p class=\"tool-hint\">Alanlar boş açılır; \"Örnek değerler\" düğmesi rastgele örnek sayıları doldurur (bir kabloya ait değildir).</p>',
  '<div class="calc-results">'+res('xsVerdict','Sonuç',True,'xsBox')+'</div>'+msg('xsMsg'),
  'Ib ≤ In ≤ Iz · Ib: tasarım akımı · In: sigorta/şalter anma akımı · Iz: kablonun akım taşıma kapasitesi (üretici tablosu)',
  '<a href="#akim">Güçten akım hesabı (Ib)</a> · <a href="#ac-kablo">AC gerilim düşümü</a> · <a href="#kablo">DC kablo kesiti</a> · <a href="#sigorta">Dizi sigortası kontrolü</a>')
@@ -379,9 +427,17 @@ NTOOLS=sum(len(c[3]) for c in CATS); assert NTOOLS==len(TOOLS)==len(KW), (NTOOLS
 SHORT={'egim':'Eğim açısı','golge':'Gölge uzunluğu','cati-egimi':'Çatı eğimi','gunluk-uretim':'Günlük üretim','sicaklik-gucu':'Sıcaklıkta güç','kablo':'DC kablo kesiti','ac-kablo':'AC gerilim düşümü','akim':'Akım hesabı','ohm':'Ohm kanunu',
  'dizi':'Dizi hesabı','seri-paralel':'Seri–paralel şema','sigorta':'Dizi sigortası','aku':'Akü bankası','aku-sure':'Akü süresi','aku-sarj':'Akü dolum süresi','c-orani':'C oranı','sarj-kontrol':'Şarj kontrol akımı','yuk-listesi':'Cihaz listesi','cevirici':'Çeviriciler','kontrol':'Kontrol listesi',
  'inverter-aku-akimi':'İnverter akü akımı','sigorta-kablo-uyumu':'Sigorta–kablo uyumu','hp-kw-amper':'HP → amper','cihaz-tuketimi':'Tüketim ve maliyet'}
+ICON={'egim':'📐','golge':'🌤️','cati-egimi':'🏠','gunluk-uretim':'☀️','sicaklik-gucu':'🌡️','kablo':'🔻','ac-kablo':'🔌','akim':'⚡','hp-kw-amper':'⚙️','ohm':'Ω','sigorta-kablo-uyumu':'🛡️',
+ 'dizi':'🔗','seri-paralel':'🔲','sigorta':'🧯','aku':'🔋','aku-sure':'⏱️','aku-sarj':'🔄','c-orani':'📈','yuk-listesi':'📋','sarj-kontrol':'🎛️','inverter-aku-akimi':'🔁','cihaz-tuketimi':'💡','cevirici':'🔀','kontrol':'✅'}
+DEFAULT_TOOL='kablo'
 def cat(c):
-    idx=' · '.join('<a href="#%s">%s</a>'%(t,SHORT[t]) for t in c[3])
-    return '<section class="usta-cat" id="%s">\n<h2>%s</h2>\n<p class="usta-cat-lead">%s <span class="usta-idx">%s</span></p>\n%s</section>\n'%(c[0],c[1],c[2],idx,''.join(TOOLS[t] for t in c[3]))
+    return '<section class="usta-cat" id="%s">\n<h2>%s</h2>\n<p class="usta-cat-lead">%s</p>\n%s</section>\n'%(c[0],c[1],c[2],''.join(TOOLS[t] for t in c[3]))
+def side():
+    g=''.join('<div class="usta-sg"><p class="usta-sg-t">%s</p><ul>%s</ul></div>'%(c[1],''.join('<li><a href="#%s" data-t="%s"><span class="usta-ic" aria-hidden="true">%s</span>%s</a></li>'%(t,t,ICON[t],SHORT[t]) for t in c[3])) for c in CATS)
+    return ('<nav class="usta-side" id="ustaSide" aria-label="Araç listesi">'
+      '<div class="usta-side-head"><strong>Araçlar</strong><button type="button" class="usta-side-x usta-js" id="ustaSideX" aria-label="Araç listesini kapat">×</button></div>'
+      '<div class="usta-find usta-js"><label for="ustaFind">Araç ara</label><input id="ustaFind" type="search" inputmode="search" autocomplete="off" placeholder="ör. gerilim düşümü, akü, AWG" /><p class="usta-find-state" id="ustaFindState" aria-live="polite"></p></div>'
+      '<div class="usta-side-list">'+g+'</div></nav>')
 BODY='\n'.join(cat(c) for c in CATS)
 
 def faq(q,a): return '<div class="faq-item reveal"><button class="faq-q"><span>%s</span><span class="faq-ico">+</span></button><div class="faq-a"><p>%s</p></div></div>'%(q,X(a))
@@ -403,8 +459,6 @@ FAQ+=[
 ('Güneş paneli günde kaç kWh üretir?','Tasarım günü tahmini kWh/gün = kurulu güç (kWp) × güneş saati × sistem verimi ile yapılır. Sitemizdeki Sistem Kurucu ile aynı varsayımlarla ({uretim.sun} güneş saati, {uretim.eff} sistem verimi) {uretim.kwp} kWp panel yaklaşık {uretim.kwh} kWh/gün üretir. Gerçek üretim mevsime, konuma, eğime ve gölgeye göre değişir.')]
 faq_html='<div class="faq">'+''.join(faq(q,a) for q,a in FAQ)+'</div>'
 
-nav='<nav class="usta-nav" aria-label="Araç grupları"><div class="container usta-nav-in">'+''.join('<a href="#%s">%s</a>'%(c[0],c[1]) for c in CATS)+'</div></nav>'
-FIND='<div class="usta-find" hidden><label for="ustaFind">Araç ara</label><input id="ustaFind" type="search" inputmode="search" autocomplete="off" placeholder="ör. gerilim düşümü, akü, AWG, eğim" /><p class="usta-find-state" id="ustaFindState" aria-live="polite"></p></div>'
 CNT='<data data-ex="meta.count" value="%d">%d</data>'%(NTOOLS,NTOOLS)
 DISC_PAGE='<p class="art-disc"><em>Bu sayfa genel bilgilendirme ve ön hesap amaçlıdır. Sonuçlar girdiğiniz değerlere ve belirtilen formüllere dayanır; gerçek değerler sıcaklık, ışınım, kablo, bağlantı kalitesi ve ekipmana göre değişir. Kesin tasarım, malzeme seçimi ve kurulum için ürün künyesine, üretici talimatına ve yürürlükteki mevzuata uyunuz; işi yetkili elektrikçi ya da mühendis yapar.</em></p>'
 
@@ -819,26 +873,32 @@ H_TITLE='Elektrik ve Solar Hesaplama Araçları | Elektrikçi Çantası'
 H_DESC='Ücretsiz hesaplama araçları: kablo kesiti, gerilim düşümü, kW amper, trifaze akım, panel açısı, akü kaç saat dayanır, MPPT kaç amper, AWG mm² çevirme.'
 head,foot=shell('elektrikci-cantasi',H_TITLE,H_DESC,'Elektrikçi Çantası: Ücretsiz Elektrik ve Solar Hesaplama Araçları','Kablo kesiti, gerilim düşümü, kW amper, panel açısı, dizi hesabı, akü süresi ve çeviriciler: formülü görünen ücretsiz araçlar.')
 PAGE_LIST='<ul class="usta-sib">'+''.join('<li><a href="%s.html">%s</a></li>'%(p['slug'],p['h1']) for p in PAGES)+'</ul>'
-hub=head+('''<main id="main" data-article data-usta>
+META_LINE='<p class="art-meta">Yayın: <time datetime="'+PUB[0]+'">'+PUB[1]+'</time> · GESPA Enerji</p>'
+hub=head+('''<main id="main" data-article data-usta data-usta-app="'''+DEFAULT_TOOL+'''">
     '''+MARK+'''
-    <section class="page-hero">
-      <div class="container reveal">
+    <section class="usta-top">
+      <div class="usta-wrap">
         <div class="crumbs"><a href="index.html">Ana Sayfa</a> <span>/</span> <a href="rehberler.html">Rehberler</a> <span>/</span> Elektrikçi Çantası</div>
         <h1>Elektrikçi Çantası: Ücretsiz Elektrik ve Solar Hesaplama Araçları</h1>
-        '''+FIND+'''
-        <p class="lead">Elektrikçiler, güneş paneli montaj ekipleri ve kendi sistemini kuranlar için '''+CNT+''' ücretsiz hesaplama aracı: kablo kesiti ve gerilim düşümü, kW–amper, panel açısı, dizi hesabı, akü süresi, şarj kontrol cihazı akımı ve çeviriciler. Her araç formülünü gösterir; değerleri etiketten siz girersiniz.</p>
-        <p class="art-meta">Yayın: <time datetime="'''+PUB[0]+'''">'''+PUB[1]+'''</time> · GESPA Enerji</p>
+        <p class="lead">'''+CNT+''' ücretsiz hesaplama aracı: listeden aracı seçin, etiketteki değerleri yazın, sonucu anında görün.</p>
       </div>
     </section>
 
-    '''+nav+'''
-
-    <section class="section usta-sec">
-      <div class="container">
+    <div class="usta-wrap usta-app">
+      '''+side()+'''
+      <div class="usta-work">
+        <div class="usta-bar usta-js"><button type="button" class="usta-bar-b" id="ustaMenu" aria-controls="ustaSide" aria-expanded="false">☰ Araçlar</button><span class="usta-bar-t" id="ustaBarT"></span><button type="button" class="usta-bar-b" id="ustaPrev" aria-label="Önceki araç">‹</button><button type="button" class="usta-bar-b" id="ustaNext" aria-label="Sonraki araç">›</button><div class="usta-live" id="ustaLive" aria-hidden="true"><span id="ustaLiveL"></span> <strong id="ustaLiveV"></strong></div></div>
         <article class="art usta">
-          <div class="art-note"><p><strong>Kısaca:</strong> Bu araçlar yalnızca tanım ve fizik formüllerini kullanır; standart tablosu (akım taşıma kapasitesi, sigorta katsayısı, izin verilen gerilim düşümü) içermez. Tablo gereken yerde kablo ve cihaz üreticisinin verisine bakılır, tasarımı yetkili elektrikçi ya da mühendis yapar. Çatı yerleşimi, inverter gücü, akü boyutu ve sıra aralığı için <a href="hesaplayici.html#alet-cantasi">GES Alet Çantası</a>'na bakın.</p></div>
-
 '''+BODY+'''
+        </article>
+      </div>
+    </div>
+
+    <section class="section usta-below">
+      <div class="container">
+        <article class="art usta usta-page">
+          <details class="usta-about"><summary>Bu araçlar hakkında</summary><p>Bu araçlar yalnızca tanım ve fizik formüllerini kullanır; standart tablosu (akım taşıma kapasitesi, sigorta katsayısı, izin verilen gerilim düşümü) içermez. Tablo gereken yerde kablo ve cihaz üreticisinin verisine bakılır, tasarımı yetkili elektrikçi ya da mühendis yapar. Elektrikçiler, güneş paneli montaj ekipleri ve kendi sistemini kuranlar içindir; üyelik gerekmez. Çatı yerleşimi, inverter gücü, akü boyutu ve sıra aralığı için <a href="hesaplayici.html#alet-cantasi">GES Alet Çantası</a>'na bakın.</p></details>
+
           <h2 id="sayfalar">Araç sayfaları</h2>
           <p>Her hesabın kendi sayfasında girdilerin anlamı, sık yapılan hatalar ve o konuya özel sorular yer alır:</p>
           '''+PAGE_LIST+'''
@@ -847,6 +907,7 @@ hub=head+('''<main id="main" data-article data-usta>
           '''+faq_html+'''
 
           '''+DISC_PAGE+'''
+          '''+META_LINE+'''
         </article>
       </div>
     </section>
@@ -865,25 +926,32 @@ def render(p):
       +'<h2 id="sinirlar">Bu hesabın sınırları</h2>\n<p>'+X(p['limits'])+'</p>\n')
     sib=''.join('<li><a href="%s.html">%s</a></li>'%(s,BY[s]['h1']) for s in p['sib'])+''.join('<li><a href="%s">%s</a></li>'%x for x in p['prod'])
     init=(' data-usta-init="%s"'%p['init']) if p.get('init') else ''
+    lead=p['lead']; cut=re.search(r'\. ',lead)
+    lead1,rest=(lead[:cut.start()]+'.',lead[cut.end():]) if cut else (lead,'')
+    rest=(rest[:1].upper()+rest[1:]) if rest else ''
+    strip=('<nav class="usta-strip" aria-label="Diğer araçlar"><strong>Diğer araçlar</strong>'
+      +''.join('<a href="%s.html">%s</a>'%(x,BY[x]['crumb']) for x in p['sib'])
+      +'<a class="all" href="elektrikci-cantasi.html#%s">Araç kutusunda aç →</a><a class="all" href="elektrikci-cantasi.html">Tüm araçlar →</a></nav>'%([t for t in p['tools'] if t in TOOLS] or [DEFAULT_TOOL])[0])
     main=('''<main id="main" data-article data-usta'''+init+'''>
     '''+MARK+'''
-    <section class="page-hero">
-      <div class="container reveal">
+    <section class="usta-top">
+      <div class="container">
         <div class="crumbs"><a href="index.html">Ana Sayfa</a> <span>/</span> <a href="elektrikci-cantasi.html">Elektrikçi Çantası</a> <span>/</span> '''+p['crumb']+'''</div>
         <h1>'''+p['h1']+'''</h1>
-        <p class="lead">'''+p['lead']+'''</p>
-        <p class="art-meta">Yayın: <time datetime="'''+PUB[0]+'''">'''+PUB[1]+'''</time> · GESPA Enerji · <a href="elektrikci-cantasi.html">Tüm hesaplama araçları</a></p>
+        <p class="lead">'''+lead1+'''</p>
       </div>
     </section>
 
     <section class="section usta-sec">
       <div class="container">
         <article class="art usta usta-page">
-          <!-- OWN:START --><div class="art-note"><p><strong>Kısa cevap:</strong> '''+X(p['short'])+'''</p></div><!-- OWN:END -->
-
-          <h2 id="arac">Hesaplama aracı</h2>
+          <h2 id="arac" class="usta-sr">Hesaplama aracı</h2>
 '''+''.join(secs)+'''
-          <!-- OWN:START -->'''+own+'''
+          '''+strip+'''
+
+          <!-- OWN:START --><div class="art-note"><p><strong>Kısa cevap:</strong> '''+X(p['short'])+'''</p></div>
+          '''+('<p>'+rest+'</p>' if rest else '')+'''
+'''+own+'''
           <h2 id="sss">Sık sorulan sorular</h2>
           <div class="faq">'''+''.join(faq(q,a) for q,a in p['faq'])+'''</div><!-- OWN:END -->
 
@@ -891,6 +959,7 @@ def render(p):
           <ul class="usta-sib">'''+sib+'''</ul>
 
           '''+DISC_PAGE+'''
+          <p class="art-meta">Yayın: <time datetime="'''+PUB[0]+'''">'''+PUB[1]+'''</time> · GESPA Enerji · <a href="elektrikci-cantasi.html">Tüm hesaplama araçları</a></p>
         </article>
       </div>
     </section>

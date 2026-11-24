@@ -714,9 +714,23 @@ aranan ifadeyle başlar, çanta adı sonek/marka olarak kalır.
   #hp-kw-amper #ohm #sigorta-kablo-uyumu` · `#dizi #seri-paralel #sigorta` · `#aku #aku-sure #aku-sarj #c-orani` ·
   `#yuk-listesi #sarj-kontrol #inverter-aku-akimi #cihaz-tuketimi` · `#cevirici` · `#kontrol`; kategoriler `#grup-*`.
   Sayfa slug'ları da yayınlandı; değişecekse server.js'e 301 ekle.
-- MERKEZ YAPISI: `section.usta-cat#grup-*` (h2) → `section.usta-tool#id[data-usta-tool][data-kw]` (h3; kart başlıkları h4).
-  Arama kutusu `.usta-find` H1'in hemen ALTINDA, çiplerin üstünde (ilk mobil ekranda; `hidden=""` başlar, usta.js açar).
-  Yapışkan şerit `.usta-nav` YALNIZ 7 kategori çipidir. Araç sayısı `<data data-ex="meta.count">`'tadır (test sayar).
+- MERKEZ = UYGULAMA (24 Kas 2026, işletme: "düz yazı gibi durmasın, program olsun"): `<main data-usta-app="kablo">`.
+  SOLDA `nav.usta-side#ustaSide` (arama + 7 grup, her araç bir kez, simgeli), SAĞDA `.usta-work` içinde TÜM araçlar
+  durur ama usta.js yalnız birini gösterir (`.usta-app-on .usta-tool.is-active`). Araç değişimi: adres çapası
+  (`#kablo`; `#grup-*` o grubun ilk aracını açar), geri/ileri, son araç `localStorage gespa-usta-last`, çapasızsa
+  `data-usta-app`'teki araç. <1000 px: liste tam yükseklik ÇEKMECE (`#ustaMenu` ☰ Araçlar, Esc/arka plan kapatır, odak
+  içeride döner), `.usta-bar` = ☰ + araç adı + ‹ › + ana sonucu gösteren ince şerit (`#ustaLive`, sonuç ekranda
+  değilken). Sayfa içi araç bağlantıları kaydırmaz, aracı değiştirir. Yazdırma YALNIZ etkin aracı basar.
+- KART SIRASI (merkez ve iniş sayfası aynı): h3 → `p.usta-one` tek cümle (≤120 karakter, betikte `ONE`) → girdiler solda,
+  sonuç + şema sağda → `p.usta-err` (kırmızı alan + tek satır neden) → `p.usta-disc` güvenlik notu (görünür, küçük) →
+  `.usta-act` (Örnek değerler · Sıfırla · WhatsApp · Yazdır · Bağlantıyı kopyala) → KAPALI `details.usta-more`
+  "Formül, örnek ve sınırlar" (açıklama, formül, örnek, ilgili bağlantılar, usta/toplu alım satırı). Uzun açıklamayı
+  kartın üstüne GERİ TAŞIMA. Birim alanın içindedir: `fld()` etiket sonundaki "(birim)"i `.usta-unit`'e alır;
+  `step="1"` alanlara −/+ gelir; çift yönlü çiftin türetilen alanı `data-derived` taşır (geri yüklemede olay almaz).
+- AŞAMALI GELİŞTİRME: JS yokken (botlar, md kopyası) bütün araçlar alt alta ve liste çapa menüsü olarak görünür.
+  İçerik taşıyan öğeye `hidden` YAZILMAZ; yalnız JS denetimleri `.usta-js` (CSS gizler) ya da boş ileti satırı/JS düğmesi
+  `hidden=""` olabilir (test denetler). İniş sayfası: H1 + tek cümle → kart(lar) → "Diğer araçlar" şeridi → özgün metin
+  ve SSS AÇIK (sıralanan metin odur). Araç sayısı `<data data-ex="meta.count">`'tadır (test sayar).
 - MANTIK `assets/usta.js` (yalnız bu sayfalar yükler, `defer`): üstte SAF HESAPLAR `GESPA.usta` (`sun tilts cable cableRec
   coldVoc string array bank fuse awg* invCurrent acDrop acRec current kwToKva ohm controllerA runtime refill cRate dailyKwh
   tempPower cellTemp shadow slopePct slopeDeg loadWh loadPlan presetRows coord motor usage runHours examples`), altta
@@ -740,7 +754,9 @@ aranan ifadeyle başlar, çanta adı sonek/marka olarak kalır.
   yutup Markdown kopyasını kesiyor). Örnek sayılar `<span>` değil `<data>` (md'de "37 °" olmasın). İniş sayfasında
   sayfada olmayan araç çapaları `elektrikci-cantasi.html#…`'ya çevrilir. Kontrol listesi `localStorage
   gespa-usta-check`. "Beni arayın" düğmesi sohbetin `.gchat-fab` + `.gchat-quick` 📞 düğmesine tıklar (chatbot.js'e
-  dokunulmadı). İnverter aracı akımı `?kv=&ki=` ile DC kablo aracına taşır.
+  dokunulmadı). İnverter aracı akımı `?kv=&ki=` ile DC kablo aracına taşır. main.js'in yumuşak kaydırması sayfa içi
+  çapalara kendi dinleyicisini bağlar; uygulama denetçisi belge düzeyinde SONRA çalışır (yakalama aşamasına alma,
+  araç görünür olunca sayfa kayar). Yeni tarayıcı anahtarı eklersen cerez-politikasi.html'e yaz.
 
 ## Satış motoru — yapay zekâ asistanı, talepler, huni (21 Kas 2026)
 Ayrıntı ve kurallar: @docs/satis-asistani.md

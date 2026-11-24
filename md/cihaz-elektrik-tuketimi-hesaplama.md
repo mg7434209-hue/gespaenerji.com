@@ -3,7 +3,7 @@ title: "Cihaz Elektrik Tüketimi Hesaplama: Kaç kWh, Kaç TL? | GESPA"
 description: "Cihaz elektrik tüketimi hesaplama: kWh = W × saat × gün ÷ 1000. Cihaz kaç kWh harcar, kaç TL yakar; cihaz listesinden panel, akü ve inverter gücü."
 canonical: https://www.gespaenerji.com/cihaz-elektrik-tuketimi-hesaplama.html
 lang: tr
-dateModified: 2026-11-23
+dateModified: 2026-11-24
 publisher: "GESPA Enerji"
 ---
 
@@ -13,29 +13,27 @@ publisher: "GESPA Enerji"
 
 Tek bir cihazın aylık tüketimini ve tutarını hesaplayın; ya da cihazlarınızı listeye ekleyip günlük toplam tüketimi, buna göre gereken panel gücünü, akü kapasitesini ve inverter gücünü görün.
 
-Yayın: 23 Kasım 2026 · GESPA Enerji · [Tüm hesaplama araçları](https://www.gespaenerji.com/elektrikci-cantasi.html)
-
-**Kısa cevap:** kWh = güç (W) × günlük saat × gün ÷ 1000; tutar = kWh × birim fiyat. Örnek: 1.000 W cihaz günde 2 saat, 30 gün çalışırsa 60 kWh harcar; 2,5 TL/kWh örnek birim fiyatla 150 TL eder. Birim fiyatı kendi faturanızdan yazın.
-
 ## Hesaplama aracı
 
 ### Cihaz kaç kWh harcar, kaç TL yakar?
 
-Bir cihazın tüketimi kWh = güç (W) × günlük çalışma saati × gün sayısı ÷ 1000 ile bulunur; tutar = kWh × birim fiyat. Birim fiyatı faturanızdan siz yazarsınız; açılıştaki değer yalnızca düzenlenebilir bir örnektir.
-
-Örnek: 1.000 W cihaz, günde 2 saat, 30 gün → 1.000 × 2 × 30 ÷ 1000 = 60 kWh · birim fiyat 2,5 TL/kWh (örnek) ile 60 × 2,5 = 150 TL
-
-Etiketteki güç en yüksek değerdir; buzdolabı, klima ve termostatlı ısıtıcılar sürekli tam güçte çalışmaz, gerçek tüketim daha düşük olabilir. Kesin değer için priz tipi bir enerji ölçer kullanılır.
+Bir cihazın kWh tüketimi ve yazdığınız birim fiyatla tutarı.
 
 #### Cihaz
 
-Güç (W)
+Güç
 
-Günlük çalışma (saat)
+W
+
+Günlük çalışma
+
+saat
 
 Gün sayısı
 
-Birim fiyat (TL/kWh) örnek, faturanızdan yazın
+Birim fiyat örnek, faturanızdan yazın
+
+TL/kWh
 
 Tüketim —
 
@@ -43,9 +41,17 @@ Tutar —
 
 Birim fiyat tarifeye ve vergilere göre değişir; faturanızdaki toplam tutarı toplam kWh'e bölerek kendi değerinizi bulabilirsiniz.
 
-**Formül:** kWh = güç (W) × saat/gün × gün ÷ 1000 · tutar = kWh × birim fiyat
-
 Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+Bir cihazın tüketimi kWh = güç (W) × günlük çalışma saati × gün sayısı ÷ 1000 ile bulunur; tutar = kWh × birim fiyat. Birim fiyatı faturanızdan siz yazarsınız; açılıştaki değer yalnızca düzenlenebilir bir örnektir.
+
+Örnek: 1.000 W cihaz, günde 2 saat, 30 gün → 1.000 × 2 × 30 ÷ 1000 = 60 kWh · birim fiyat 2,5 TL/kWh (örnek) ile 60 × 2,5 = 150 TL
+
+Etiketteki güç en yüksek değerdir; buzdolabı, klima ve termostatlı ısıtıcılar sürekli tam güçte çalışmaz, gerçek tüketim daha düşük olabilir. Kesin değer için priz tipi bir enerji ölçer kullanılır.
+
+**Formül:** kWh = güç (W) × saat/gün × gün ÷ 1000 · tutar = kWh × birim fiyat
 
 **İlgili:** [Cihaz listesinden sistem](#yuk-listesi) · [Faturadan GES tasarruf hesabı](https://www.gespaenerji.com/hesaplayici.html) · [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) · [Panel günde kaç kWh üretir?](https://www.gespaenerji.com/elektrikci-cantasi.html#gunluk-uretim)
 
@@ -53,18 +59,7 @@ Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/9054374342
 
 ### Cihaz listesinden günlük tüketim, panel, akü ve inverter
 
-Sistemin boyutu günlük enerji ihtiyacından çıkar. Her cihaz için Wh = güç (W) × adet × günlük çalışma saati; toplam günlük tüketimdir. Buradan panel gücü = Wh ÷ (güneş saati × sistem verimi), akü kapasitesi Ah = Wh × özerklik günü ÷ (akü gerilimi × DoD × inverter verimi), inverter gücü ise aynı anda çalışan cihazların toplam gücünden büyük olmalıdır.
-
-| Örnek: Karavan / Kamp | Güç | Adet | Saat/gün | Wh/gün |
-| --- | --- | --- | --- | --- |
-| Mini Buzdolabı | 60 W | 1 | 8 saat | 480 Wh |
-| LED Lamba | 10 W | 4 | 5 saat | 200 Wh |
-| Telefon Şarjı | 15 W | 2 | 3 saat | 90 Wh |
-| Dizüstü Bilgisayar | 65 W | 1 | 4 saat | 260 Wh |
-
-Toplam 1.030 Wh/gün · panel = 1.030 ÷ (4,5 × 0,75) ≈ 305 W · akü (12 V, 1 gün) = 1.030 × 1 ÷ (12 × 0,9 × 0,92) ≈ 103,7 Ah · inverter ≥ 195 W
-
-Cihaz güçleri ve saatleri [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html)'daki varsayılan değerlerdir; kendi cihazınızın etiketindeki watt değerini yazın. Katsayılar da Sistem Kurucu ile aynıdır (tasarım günü güneş saati, sistem verimi, lityum akü DoD'u, inverter verimi). İnverter satırı yalnızca çalışma güçlerinin toplamıdır: buzdolabı, pompa ve klima gibi motorlu cihazların **kalkış akımı dahil değildir**. Eşzamanlılık, kalkış payı ve ürün seçimiyle tam hesap için Sistem Kurucu'yu kullanın.
+Cihaz listesinden günlük tüketim, gereken panel, akü ve inverter gücü.
 
 #### Cihazlar
 
@@ -82,25 +77,52 @@ Akü kapasitesi —
 
 #### Varsayımlar
 
-Akü gerilimi (V)
+Akü gerilimi
 
-Özerklik (gün)
+V
+
+Özerklik
+
+gün
 
 Güneş saati
 
-Sistem verimi (%)
+Sistem verimi
 
-DoD (%)
+%
 
-İnverter verimi (%)
+DoD
 
-**Formül:** Wh/gün = Σ (W × adet × saat) · panel W = Wh ÷ (güneş saati × sistem verimi) · akü Ah = Wh × gün ÷ (V × DoD × inverter verimi) · inverter W ≥ Σ (W × adet)
+%
+
+İnverter verimi
+
+%
 
 Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+Sistemin boyutu günlük enerji ihtiyacından çıkar. Her cihaz için Wh = güç (W) × adet × günlük çalışma saati; toplam günlük tüketimdir. Buradan panel gücü = Wh ÷ (güneş saati × sistem verimi), akü kapasitesi Ah = Wh × özerklik günü ÷ (akü gerilimi × DoD × inverter verimi), inverter gücü ise aynı anda çalışan cihazların toplam gücünden büyük olmalıdır.
+
+| Örnek: Karavan / Kamp | Güç | Adet | Saat/gün | Wh/gün |
+| --- | --- | --- | --- | --- |
+| Mini Buzdolabı | 60 W | 1 | 8 saat | 480 Wh |
+| LED Lamba | 10 W | 4 | 5 saat | 200 Wh |
+| Telefon Şarjı | 15 W | 2 | 3 saat | 90 Wh |
+| Dizüstü Bilgisayar | 65 W | 1 | 4 saat | 260 Wh |
+
+Toplam 1.030 Wh/gün · panel = 1.030 ÷ (4,5 × 0,75) ≈ 305 W · akü (12 V, 1 gün) = 1.030 × 1 ÷ (12 × 0,9 × 0,92) ≈ 103,7 Ah · inverter ≥ 195 W
+
+Cihaz güçleri ve saatleri [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html)'daki varsayılan değerlerdir; kendi cihazınızın etiketindeki watt değerini yazın. Katsayılar da Sistem Kurucu ile aynıdır (tasarım günü güneş saati, sistem verimi, lityum akü DoD'u, inverter verimi). İnverter satırı yalnızca çalışma güçlerinin toplamıdır: buzdolabı, pompa ve klima gibi motorlu cihazların **kalkış akımı dahil değildir**. Eşzamanlılık, kalkış payı ve ürün seçimiyle tam hesap için Sistem Kurucu'yu kullanın.
+
+**Formül:** Wh/gün = Σ (W × adet × saat) · panel W = Wh ÷ (güneş saati × sistem verimi) · akü Ah = Wh × gün ÷ (V × DoD × inverter verimi) · inverter W ≥ Σ (W × adet)
 
 **İlgili:** [Sistem Kurucu (tam sihirbaz)](https://www.gespaenerji.com/sistem-kur.html) · [Off-grid boyutlandırma rehberi](https://www.gespaenerji.com/off-grid-gunes-sistemi-boyutlandirma.html) · [Akü kaç saat dayanır?](https://www.gespaenerji.com/elektrikci-cantasi.html#aku-sure) · [Solar sulama pompası seçimi](https://www.gespaenerji.com/tarimsal-sulama.html#pompa-secimi)
 
 Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+
+**Kısa cevap:** kWh = güç (W) × günlük saat × gün ÷ 1000; tutar = kWh × birim fiyat. Örnek: 1.000 W cihaz günde 2 saat, 30 gün çalışırsa 60 kWh harcar; 2,5 TL/kWh örnek birim fiyatla 150 TL eder. Birim fiyatı kendi faturanızdan yazın.
 
 ## Girdiler ne anlama gelir?
 
@@ -148,6 +170,8 @@ Ah = günlük Wh × özerklik günü ÷ (akü gerilimi × DoD × inverter verimi
 - [Mağaza](https://www.gespaenerji.com/online-satis.html)
 
 *Bu sayfa genel bilgilendirme ve ön hesap amaçlıdır. Sonuçlar girdiğiniz değerlere ve belirtilen formüllere dayanır; gerçek değerler sıcaklık, ışınım, kablo, bağlantı kalitesi ve ekipmana göre değişir. Kesin tasarım, malzeme seçimi ve kurulum için ürün künyesine, üretici talimatına ve yürürlükteki mevzuata uyunuz; işi yetkili elektrikçi ya da mühendis yapar.*
+
+Yayın: 23 Kasım 2026 · GESPA Enerji · [Tüm hesaplama araçları](https://www.gespaenerji.com/elektrikci-cantasi.html)
 
 ## Malzeme listenizi yazın, fiyatını çıkaralım
 
