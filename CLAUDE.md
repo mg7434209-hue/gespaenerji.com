@@ -833,6 +833,13 @@ siparişle tahsil edilir.
 - VARSAYIM (işletme teyit edecek): `istasyon` sınıfı (Lexron 1200 W) ₺400;
   motor paketleri içindeki panelin sınıfıyla ücretlenir.
 
+## Railway yayını GitHub Actions'a bağlıdır (24 Kas 2026)
+Railway servisi "Wait for CI" ile çalışır: `deploy-pages.yml` işi "failure"
+verirse Railway yayını ATLAR (commit durumu "Skipped - CI check suite failed")
+ve site eski sürümde kalır. Bu yüzden Pages adımı `continue-on-error`'dır.
+Birleştirmeden sonra yayını Railway bildirimine değil CANLI SİTEYE bakarak
+doğrula; 15 dakikada gelmediyse commit'in `statuses` ve `check-runs` çıktısına bak.
+
 ## Railway: CRON YASAK (27 Eki 2026)
 Railway servisine panelden "Cron Schedule" (Daily 0 0 * * *) eklenmişti:
 servis cron moduna geçti, ağ açılmadı ("Network: Not started"), site

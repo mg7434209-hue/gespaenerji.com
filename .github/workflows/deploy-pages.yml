@@ -41,8 +41,13 @@ jobs:
         with:
           path: "."
 
+      # Canlı site Railway'dedir ve Railway bu iş akışı "failure" verirse yayını
+      # ATLAR ("Skipped - CI check suite failed"; 24 Kas 2026'da Pages'in geçici
+      # bir hatası canlı yayını durdurdu). Pages yayını ikincil olduğundan bu
+      # adımın hatası işi düşürmez.
       - name: Deploy to GitHub Pages
         id: deployment
+        continue-on-error: true
         uses: actions/deploy-pages@v4
 
       # IndexNow bildirimi ayrı iş akışındadır (indexnow.yml): canlı site
