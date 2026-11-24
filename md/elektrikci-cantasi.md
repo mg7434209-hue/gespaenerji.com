@@ -11,7 +11,7 @@ publisher: "GESPA Enerji"
 
 # Elektrikçi Çantası: Ücretsiz Elektrik ve Solar Hesaplama Araçları
 
-26 ücretsiz hesaplama aracı: listeden aracı seçin, etiketteki değerleri yazın, sonucu anında görün.
+27 ücretsiz hesaplama aracı: listeden aracı seçin, etiketteki değerleri yazın, sonucu anında görün.
 
 ## 🔻 Kablo ve akım
 
@@ -870,6 +870,90 @@ Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerj
 ## 🎛️ Cihaz seçimi
 
 Cihaz listesinden sistem, şarj kontrol cihazı ve inverter akımı, tüketim ve maliyet.
+
+### Cihaz güneş paneli ile çalışır mı? Kaç panel, kaç amper akü?
+
+Cihazı seçin ya da gücünü yazın: gereken panel, akü, inverter ve şarj kontrol akımı.
+
+#### Cihaz
+
+Cihaz Sistem Kurucu listesi
+
+Cihaz gücü etiketten
+
+W
+
+Adet
+
+Günlük çalışma
+
+saat
+
+Akü sistem gerilimi
+
+Özerklik güneşsiz gün
+
+gün
+
+Tek panel gücü
+
+W
+
+Varsayımlar (Sistem Kurucu değerleri)
+
+Güneş saati
+
+saat/gün
+
+Sistem verimi
+
+%
+
+Akü DoD
+
+%
+
+İnverter verimi
+
+%
+
+Gereken panel —
+
+Günlük tüketim —
+
+Akü kapasitesi —
+
+İnverter (kalkış hariç) —
+
+Şarj kontrol akımı —
+
+Mağazadaki ürünler fiyat ürün sayfasındaki güncel liste fiyatıdır; panel adedi yukarıdaki hesaba göredir
+
+- [Lexron 655 W TOPCon Güneş Paneli](https://www.gespaenerji.com/panel-lexron-655w.html)
+- [Arçelik 540 W Güneş Paneli](https://www.gespaenerji.com/panel-arcelik-540w.html)
+- [360 W Güneş Paneli](https://www.gespaenerji.com/panel-360w.html)
+- [240 W Güneş Paneli (48 Hücre)](https://www.gespaenerji.com/panel-240w.html)
+- [TitanX 51,2 V 102 Ah LiFePO₄ Akü](https://www.gespaenerji.com/aku-titanx-51v-102ah.html)
+
+[Şarj kontrol cihazları](https://www.gespaenerji.com/online-satis.html?kategori=sarj-kontrol) · [Hazır paketler](https://www.gespaenerji.com/urunler.html) · [Sistem Kurucu: ürün seçimiyle tam hesap](https://www.gespaenerji.com/sistem-kur.html) · [Usta / toplu alım kaydı](https://www.gespaenerji.com/usta-kaydi.html)
+
+Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+Bir cihazı güneşle çalıştırmak için gereken sistem, cihazın günlük tüketiminden çıkar. Cihazı seçin ya da etiketindeki gücü yazın; araç [cihaz listesi](#yuk-listesi) aracıyla aynı hesabı tek cihaz için yapar: günlük tüketim, gereken panel gücü ve adedi, seçtiğiniz özerklik için akü kapasitesi, en az inverter gücü ve şarj kontrol cihazı akımı.
+
+Örnek: Buzdolabı (A+), 120 W × 1 adet, günde 8 saat → 960 Wh/gün Panel: 960 ÷ (4,5 × 0,75) ≈ 284 W → 1 × 550 W = 550 W · akü (24 V, 1 gün): 960 × 1 ÷ (24 × 0,9 × 0,92) ≈ 48,3 Ah · inverter ≥ 120 W · şarj kontrol: 550 ÷ 24 = 22,9 A
+
+Listedeki cihaz güçleri, günlük çalışma saatleri ve kalkış katsayıları [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html)'nun varsayılan değerleridir; güneş saati, sistem verimi, DoD ve inverter verimi de oradan gelir. Hepsi düzenlenebilir: kendi cihazınızın etiketindeki gücü ve gerçek kullanım sürenizi yazın. Motorlu ve kompresörlü cihazlar kalkışta çalışma gücünden fazlasını çeker; inverter cihazın etiketindeki ya da üreticisinin verdiği kalkış değerine göre seçilir. Sonuç bir ön hesaptır; cihazın çalışacağına dair bir güvence değildir.
+
+**Formül:** Wh/gün = W × adet × saat · panel W = Wh ÷ (güneş saati × sistem verimi) · panel adedi = ⌈panel W ÷ tek panel gücü⌉ · akü Ah = Wh × gün ÷ (V × DoD × inverter verimi) · inverter W ≥ W × adet (kalkış hariç) · şarj kontrol akımı = (panel adedi × panel gücü) ÷ akü V
+
+Cihaza göre sayfalar: [Klima](https://www.gespaenerji.com/klima-gunes-paneli-ile-calisir-mi.html) · [Buzdolabı](https://www.gespaenerji.com/buzdolabi-kac-panel-ile-calisir.html) · [Derin Dondurucu](https://www.gespaenerji.com/derin-dondurucu-gunes-paneli.html) · [Çamaşır Makinesi](https://www.gespaenerji.com/camasir-makinesi-gunes-paneli-ile-calisir-mi.html) · [Bulaşık Makinesi](https://www.gespaenerji.com/bulasik-makinesi-gunes-paneli.html) · [Televizyon](https://www.gespaenerji.com/televizyon-gunes-paneli-ile-calisir-mi.html) · [Dalgıç Pompa](https://www.gespaenerji.com/dalgic-pompa-icin-kac-panel.html) · [Hidrofor](https://www.gespaenerji.com/hidrofor-gunes-paneli-ile-calisir-mi.html) · [Elektrikli Isıtıcı](https://www.gespaenerji.com/elektrikli-isitici-gunes-paneli.html) · [Termosifon](https://www.gespaenerji.com/termosifon-gunes-paneli-ile-calisir-mi.html) · [Güvenlik Kamerası](https://www.gespaenerji.com/guvenlik-kamerasi-gunes-paneli.html) · [Kombi](https://www.gespaenerji.com/kombi-icin-gunes-paneli-inverter.html)
+
+**İlgili:** [Birden çok cihaz: cihaz listesi](#yuk-listesi) · [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) · [Akü kaç saat dayanır?](#aku-sure) · [Şarj kontrol cihazı akımı](#sarj-kontrol)
+
+Usta / toplu alım fiyatı için: [Usta kaydı bırakın](https://www.gespaenerji.com/usta-kaydi.html) [WhatsApp'tan yazın](https://wa.me/905437434209)
 
 ### Cihaz listesinden günlük tüketim, panel, akü ve inverter
 

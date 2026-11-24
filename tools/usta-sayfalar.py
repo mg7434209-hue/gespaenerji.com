@@ -34,6 +34,7 @@ PUB=('2026-11-23','23 Kasım 2026')
 SHELL=open(ROOT+'pwm-mppt-sarj-kontrol-farki.html',encoding='utf8').read()
 PUB5=('2026-11-24','24 Kasım 2026')
 PUB6=PUB5
+PUB7=('2026-11-24','24 Kasım 2026')
 def shell(slug,title,desc,ogt,ogd,pub=None):
     pub=pub or (PUB5 if 'inverter' in slug else PUB)
     assert len(title)<=60,(slug,len(title),title)
@@ -95,7 +96,7 @@ KW={'egim':'panel açısı eğim derece güneş yüksekliği enlem yaz kış til
  'sarj-kontrol':'şarj kontrol cihazı regülatör mppt pwm kaç amper','aku-sure':'akü kaç saat dayanır süre yük dod inverter batarya','aku-sarj':'akü kaç saatte dolar şarj süresi panel güneşli saat',
  'c-orani':'c oranı c rate şarj deşarj akımı 0.5c 1c lityum','gunluk-uretim':'panel günde kaç kwh üretir günlük üretim güneş saati kwp','sicaklik-gucu':'sıcaklık panel gücü güç kaybı sıcaklık katsayısı noct hücre',
  'golge':'gölge uzunluğu engel baca direk parapet gölgelenme','cati-egimi':'çatı eğimi derece yüzde oran meyil','yuk-listesi':'cihaz listesi yük listesi günlük tüketim wh panel akü inverter kaç watt karavan bağ evi',
- 'inverter-aku-akimi':'inverter invertör aküden kaç amper çeker akü akımı','inverter-kodlari':'inverter invertör hata kodu arıza uyarı alarm fault deye mexxsun mexx sunon voltronic axpert victron solis akıllı',
+ 'inverter-aku-akimi':'inverter invertör aküden kaç amper çeker akü akımı','cihaz-gunes':'cihaz güneş paneli ile çalışır mı kaç panel klima buzdolabı pompa dalgıç televizyon çamaşır kombi ısıtıcı kamera','inverter-kodlari':'inverter invertör hata kodu arıza uyarı alarm fault deye mexxsun mexx sunon voltronic axpert victron solis akıllı',
  'inverter-ayarlari':'inverter invertör ayar program tablosu lityum akü bms şebeke öncelik sbu off-grid','sigorta-kablo-uyumu':'sigorta kablo uyumu ib in iz şalter otomat koruma','hp-kw-amper':'hp beygir kw amper motor akımı pompa','cihaz-tuketimi':'cihaz kaç kwh harcar elektrik tüketimi fatura tl maliyet'}
 ONE={'egim':'Enleme göre öğle güneşinin yüksekliği ve yıl boyu, yaz, kış için pratik panel eğimi.',
  'golge':'Baca, parapet ya da panel sırasının öğle vaktindeki gölge uzunluğu.',
@@ -123,6 +124,7 @@ ONE={'egim':'Enleme göre öğle güneşinin yüksekliği ve yıl boyu, yaz, kı
  'kontrol':'Devreye almadan önce sahada işaretlenecek pratik kontroller.',
  'inverter-kodlari':'Cihaz ailesini seçin, ekrandaki kodu yazın: kılavuzdaki anlamı ve kaynağı görün.',
  'inverter-ayarlari':'Üç kullanım kılavuzunun program tablosu, lityum akü ve şebeke ayarları; kılavuz sayfasıyla.',
+ 'cihaz-gunes':'Cihazı seçin ya da gücünü yazın: gereken panel, akü, inverter ve şarj kontrol akımı.',
  'awg-mm2':'AWG numarasından çap ve mm² kesit; mm² değerinden en yakın AWG.',
  'ah-wh':'Amper saat ile watt saat arasında gerilime göre çevirir.'}
 for _k,_v in ONE.items(): assert len(_v)<=120,(_k,len(_v))
@@ -451,20 +453,54 @@ tool('inverter-ayarlari','Off-grid inverter ayar rehberi',
  '<div id="xwOut" class="usta-inv-out" aria-live="polite"></div>'+INV_FOOT,
  '','<a href="off-grid-inverter-lityum-aku-ayarlari.html">Lityum akü ayarı (üç kılavuz)</a> · <a href="off-grid-inverter-sebeke-ayarlari.html">Şebeke bağlıyken ayarlar</a> · <a href="#inverter-kodlari">İnverter hata kodları</a> · <a href="#aku">Akü bankası bağlama</a>')
 
+
+# ---- "Cihaz güneşle çalışır mı?" aracı ve cihaz sayfaları: cihaz gücü/saat/kalkış katsayısı YALNIZ config.builder.appliances'tan
+CFGX=json.loads(subprocess.check_output(['node','-e',"const vm=require('vm'),fs=require('fs');const sb={window:{}};vm.runInNewContext(fs.readFileSync('assets/config.js','utf8'),sb);const c=sb.window.GESPA.config;console.log(JSON.stringify({app:c.builder.appliances,panels:c.builder.catalog.panel,bats:c.builder.catalog.battery,pk:c.packages.map(p=>({id:p.id,name:p.name,url:p.url||''})),volts:c.calc.usta.ref.ahV,def:c.calc.usta.defaults.device}))"],cwd=ROOT).decode('utf8'))
+APP={a['id']:a for a in CFGX['app']}; PKG={x['id']:x for x in CFGX['pk']}
+def prod_list():
+    rows=''
+    for x in CFGX['panels']:
+        k=PKG.get(x['pkg'])
+        if k and k['url']: rows+='<li data-usta-pkg="%s" data-w="%s"><a href="%s">%s</a> <span class="usta-pn"></span> <span class="usta-pp"></span></li>'%(k['id'],x['w'],k['url'],k['name'])
+    for x in CFGX['bats']:
+        k=PKG.get(x['pkg'])
+        if k and k['url']: rows+='<li data-usta-pkg="%s"><a href="%s">%s</a> <span class="usta-pp"></span></li>'%(k['id'],k['url'],k['name'])
+    return ('<div class="usta-prod"><p class="usta-sub">Mağazadaki ürünler <small>fiyat ürün sayfasındaki güncel liste fiyatıdır; panel adedi yukarıdaki hesaba göredir</small></p><ul>'+rows+'</ul>'
+      '<p class="tool-hint"><a href="online-satis.html?kategori=sarj-kontrol">Şarj kontrol cihazları</a> · <a href="urunler.html">Hazır paketler</a> · <a href="sistem-kur.html">Sistem Kurucu: ürün seçimiyle tam hesap</a> · <a href="usta-kaydi.html">Usta / toplu alım kaydı</a></p></div>')
+DV=EX['dev.def']
+def dvx(k,dev=None): return ex('dev.%s.%s'%(dev or DV,k))
+DEV_FORMULA=('Wh/gün = W × adet × saat · panel W = Wh ÷ (güneş saati × sistem verimi) · panel adedi = ⌈panel W ÷ tek panel gücü⌉ · akü Ah = Wh × gün ÷ (V × DoD × inverter verimi) · '
+  'inverter W ≥ W × adet (kalkış hariç) · şarj kontrol akımı = (panel adedi × panel gücü) ÷ akü V')
+def dev_example(dev):
+    return ('Örnek: '+dvx('name',dev)+', '+dvx('w',dev)+' W × 1 adet, günde '+dvx('h',dev)+' saat → '+dvx('wh',dev)+' Wh/gün<br />Panel: '+dvx('wh',dev)+' ÷ ('+ex('liste.sun')+' × '+ex('liste.eff')+') ≈ '+dvx('panelW',dev)+' W → '+dvx('panels',dev)+' × '+ex('dev.panelW')+' W = '+dvx('arrayW',dev)+' W · '
+      'akü ('+ex('dev.v')+' V, '+ex('dev.days')+' gün): '+dvx('wh',dev)+' × '+ex('dev.days')+' ÷ ('+ex('dev.v')+' × '+ex('liste.dod')+' × '+ex('liste.eta')+') ≈ '+dvx('ah',dev)+' Ah · inverter ≥ '+dvx('inv',dev)+' W · şarj kontrol: '+dvx('arrayW',dev)+' ÷ '+ex('dev.v')+' = '+dvx('ctrl',dev)+' A')
+tool('cihaz-gunes','Cihaz güneş paneli ile çalışır mı? Kaç panel, kaç amper akü?',
+ '<p>Bir cihazı güneşle çalıştırmak için gereken sistem, cihazın günlük tüketiminden çıkar. Cihazı seçin ya da etiketindeki gücü yazın; araç <a href="#yuk-listesi">cihaz listesi</a> aracıyla aynı hesabı tek cihaz için yapar: günlük tüketim, gereken panel gücü ve adedi, seçtiğiniz özerklik için akü kapasitesi, en az inverter gücü ve şarj kontrol cihazı akımı.</p>\n'
+ '<p class="art-formula">'+dev_example(DV)+'</p>\n'
+ '<p>Listedeki cihaz güçleri, günlük çalışma saatleri ve kalkış katsayıları <a href="sistem-kur.html">Sistem Kurucu</a>\'nun varsayılan değerleridir; güneş saati, sistem verimi, DoD ve inverter verimi de oradan gelir. Hepsi düzenlenebilir: kendi cihazınızın etiketindeki gücü ve gerçek kullanım sürenizi yazın. Motorlu ve kompresörlü cihazlar kalkışta çalışma gücünden fazlasını çeker; inverter cihazın etiketindeki ya da üreticisinin verdiği kalkış değerine göre seçilir. Sonuç bir ön hesaptır; cihazın çalışacağına dair bir güvence değildir.</p>',
+ '<h3 class="tool-title">Cihaz</h3><div class="field"><label for="xzDev">Cihaz <small>Sistem Kurucu listesi</small></label><select id="xzDev">'+''.join('<option value="%s">%s</option>'%(a['id'],a['name']) for a in CFGX['app'])+'<option value="">Diğer: etiketteki gücü girin</option></select></div>'
+ +row(fld('xzW','Cihaz gücü (W)','min="0"','etiketten'),fld('xzN','Adet','min="1" step="1"'))+row(fld('xzH','Günlük çalışma (saat)','min="0" max="24"'),sel('xzV','Akü sistem gerilimi',[(str(v),'%s V'%v) for v in CFGX['volts']]))
+ +row(fld('xzDays','Özerklik (gün)','min="0"','güneşsiz gün'),fld('xzPanelW','Tek panel gücü (W)','min="0"'))
+ +'<details class="usta-inv-all"><summary>Varsayımlar (Sistem Kurucu değerleri)</summary><div class="usta-more-in">'+row(fld('xzSun','Güneş saati (saat/gün)','min="0"'),fld('xzEff','Sistem verimi (%)','min="1" max="100"'))+row(fld('xzDod','Akü DoD (%)','min="1" max="100"'),fld('xzEta','İnverter verimi (%)','min="1" max="100"'))+'</div></details>'+msg('xzMsg'),
+ '<div class="calc-results">'+res('xzPanel','Gereken panel',True)+res('xzWh','Günlük tüketim')+res('xzAh','Akü kapasitesi')+res('xzInv','İnverter (kalkış hariç)')+res('xzCtrl','Şarj kontrol akımı')+'</div>'
+ '<p class="usta-out usta-work" id="xzWork"></p><p class="tool-hint" id="xzSurge"></p>'+prod_list(),
+ DEV_FORMULA,
+ '<a href="#yuk-listesi">Birden çok cihaz: cihaz listesi</a> · <a href="sistem-kur.html">Sistem Kurucu</a> · <a href="#aku-sure">Akü kaç saat dayanır?</a> · <a href="#sarj-kontrol">Şarj kontrol cihazı akımı</a>')
+
 CATS=[('grup-kablo','🔻 Kablo ve akım','DC ve AC hatlarda gerilim düşümü, güçten akım, motor akımı, Ohm kanunu ve sigorta–kablo uyumu.',['kablo','ac-kablo','akim','hp-kw-amper','ohm','sigorta-kablo-uyumu']),
  ('grup-gunes','☀️ Güneş ve konum','Güneşin yüksekliği, eğim, gölge ve üretim tahmini.',['egim','golge','cati-egimi','gunluk-uretim','sicaklik-gucu']),
  ('grup-dizi','🔗 Dizi ve bağlantı','Kaç panel seri bağlanır, seri–paralel şema ve dizi sigortası kontrolü.',['dizi','seri-paralel','sigorta']),
  ('grup-aku','🔋 Akü','Akü bankası, süre, dolum ve C oranı.',['aku','aku-sure','aku-sarj','c-orani']),
- ('grup-cihaz','🎛️ Cihaz seçimi','Cihaz listesinden sistem, şarj kontrol cihazı ve inverter akımı, tüketim ve maliyet.',['yuk-listesi','sarj-kontrol','inverter-aku-akimi','cihaz-tuketimi']),
+ ('grup-cihaz','🎛️ Cihaz seçimi','Cihaz listesinden sistem, şarj kontrol cihazı ve inverter akımı, tüketim ve maliyet.',['cihaz-gunes','yuk-listesi','sarj-kontrol','inverter-aku-akimi','cihaz-tuketimi']),
  ('grup-inverter','🧰 İnverter','İnverter hata kodları (aile → tür → kod) ve üç kılavuzun ayar rehberi.',['inverter-kodlari','inverter-ayarlari']),
  ('grup-cevirici','🔁 Çeviriciler','Watt–amper, Ah–Wh, HP–kW ve AWG–mm².',['cevirici']),
  ('grup-kontrol','✅ Kontrol listesi','Devreye almadan önce sahada işaretlenecek kontroller.',['kontrol'])]
 NTOOLS=sum(len(c[3]) for c in CATS); assert NTOOLS==len(TOOLS)==len(KW), (NTOOLS,len(TOOLS),len(KW))
 SHORT={'egim':'Eğim açısı','golge':'Gölge uzunluğu','cati-egimi':'Çatı eğimi','gunluk-uretim':'Günlük üretim','sicaklik-gucu':'Sıcaklıkta güç','kablo':'DC kablo kesiti','ac-kablo':'AC gerilim düşümü','akim':'Akım hesabı','ohm':'Ohm kanunu',
  'dizi':'Dizi hesabı','seri-paralel':'Seri–paralel şema','sigorta':'Dizi sigortası','aku':'Akü bankası','aku-sure':'Akü süresi','aku-sarj':'Akü dolum süresi','c-orani':'C oranı','sarj-kontrol':'Şarj kontrol akımı','yuk-listesi':'Cihaz listesi','cevirici':'Çeviriciler','kontrol':'Kontrol listesi',
- 'inverter-aku-akimi':'İnverter akü akımı','inverter-kodlari':'İnverter hata kodları','inverter-ayarlari':'İnverter ayar rehberi','sigorta-kablo-uyumu':'Sigorta–kablo uyumu','hp-kw-amper':'HP → amper','cihaz-tuketimi':'Tüketim ve maliyet'}
+ 'inverter-aku-akimi':'İnverter akü akımı','cihaz-gunes':'Cihaz güneşle çalışır mı?','inverter-kodlari':'İnverter hata kodları','inverter-ayarlari':'İnverter ayar rehberi','sigorta-kablo-uyumu':'Sigorta–kablo uyumu','hp-kw-amper':'HP → amper','cihaz-tuketimi':'Tüketim ve maliyet'}
 ICON={'egim':'📐','golge':'🌤️','cati-egimi':'🏠','gunluk-uretim':'☀️','sicaklik-gucu':'🌡️','kablo':'🔻','ac-kablo':'🔌','akim':'⚡','hp-kw-amper':'⚙️','ohm':'Ω','sigorta-kablo-uyumu':'🛡️',
- 'dizi':'🔗','seri-paralel':'🔲','sigorta':'🧯','aku':'🔋','aku-sure':'⏱️','aku-sarj':'🔄','c-orani':'📈','yuk-listesi':'📋','sarj-kontrol':'🎛️','inverter-aku-akimi':'🔁','inverter-kodlari':'🚨','inverter-ayarlari':'🧰','cihaz-tuketimi':'💡','cevirici':'🔀','kontrol':'✅'}
+ 'dizi':'🔗','seri-paralel':'🔲','sigorta':'🧯','aku':'🔋','aku-sure':'⏱️','aku-sarj':'🔄','c-orani':'📈','yuk-listesi':'📋','sarj-kontrol':'🎛️','inverter-aku-akimi':'🔁','cihaz-gunes':'🔆','inverter-kodlari':'🚨','inverter-ayarlari':'🧰','cihaz-tuketimi':'💡','cevirici':'🔀','kontrol':'✅'}
 DEFAULT_TOOL='kablo'
 def cat(c):
     return '<section class="usta-cat" id="%s">\n<h2>%s</h2>\n<p class="usta-cat-lead">%s</p>\n%s</section>\n'%(c[0],c[1],c[2],''.join(TOOLS[t] for t in c[3]))
@@ -890,12 +926,13 @@ OWN={'kablo':'solar-kablo-kesiti-hesaplama','ac-kablo':'gerilim-dusumu-hesaplama
  'sigorta-kablo-uyumu':'kablo-kesiti-hesaplama','egim':'gunes-paneli-acisi-hesaplama','golge':'golge-uzunlugu-hesaplama','cati-egimi':'cati-egimi-hesaplama','gunluk-uretim':'gunes-paneli-gunluk-uretim-hesaplama',
  'sicaklik-gucu':'panel-sicaklik-guc-kaybi','dizi':'gunes-paneli-seri-paralel-baglanti','seri-paralel':'gunes-paneli-seri-paralel-baglanti','sigorta':'gunes-paneli-seri-paralel-baglanti','aku':'aku-seri-paralel-baglanti',
  'aku-sure':'aku-kac-saat-dayanir','c-orani':'aku-kac-saat-dayanir','aku-sarj':None,'sarj-kontrol':'mppt-kac-amper-olmali','inverter-aku-akimi':'invertor-akuden-kac-amper-ceker',
- 'inverter-kodlari':'inverter-hata-kodlari','inverter-ayarlari':'off-grid-inverter-lityum-aku-ayarlari','yuk-listesi':'cihaz-elektrik-tuketimi-hesaplama','cihaz-tuketimi':'cihaz-elektrik-tuketimi-hesaplama','cevirici':'awg-mm2-cevirme','kontrol':None}
+ 'inverter-kodlari':'inverter-hata-kodlari','inverter-ayarlari':'off-grid-inverter-lityum-aku-ayarlari','cihaz-gunes':'klima-gunes-paneli-ile-calisir-mi','yuk-listesi':'cihaz-elektrik-tuketimi-hesaplama','cihaz-tuketimi':'cihaz-elektrik-tuketimi-hesaplama','cevirici':'awg-mm2-cevirme','kontrol':None}
 assert set(OWN)==set(TOOLS),set(OWN)^set(TOOLS)
 def own_line(t):
     sl=OWN.get(t)
     if not sl: return ''
     more=' · <a href="ah-kwh-cevirme.html">Ah kWh Çevirme</a>' if t=='cevirici' else ''
+    if t=='cihaz-gunes': return '<p class="usta-own">Cihaza göre sayfalar: '+' · '.join('<a href="%s.html">%s</a>'%(d[1],d[2]) for d in DPAGES)+'</p>'
     if sl not in BY: return '<p class="usta-own">Kod tablolarının ve ayarların tamamı: <a href="%s.html">%s</a></p>'%(sl,{'inverter-hata-kodlari':'İnverter Hata Kodları','off-grid-inverter-lityum-aku-ayarlari':'Off-Grid İnverter Lityum Akü Ayarı'}[sl])
     return '<p class="usta-own">Ayrıntılı anlatım, sık yapılan hatalar ve sorular: <a href="%s.html">%s</a>%s</p>'%(sl,BY[sl]['crumb'],more)
 def finish(html,page_ids):
@@ -1194,12 +1231,101 @@ for p in IPAGES+SPAGES:
 # Kart: formüller FORM'dan (tool() çağrılarındaki AYNI formül ve örnek), sayılar examples()'tan, şemalar usta.js
 # çizicilerinden, kontrol listesi CHK'den gelir — hiçbir şey ikinci kez yazılmaz. Yazdırmada tam 2 A4 sayfa.
 # ============================================================
+
+# ============================================================
+# CİHAZ SAYFALARI — "<cihaz> güneş paneli ile çalışır mı / kaç panel": önce hesap, sonra kısa metin.
+# Her sayı examples()'tan (dev.<kimlik>.*); cihaz gücü, saat ve kalkış katsayısı config.builder.appliances'tan.
+# config'te olmayan cihaz (kombi) için güç YAZILMAZ: alan boş açılır.
+# ============================================================
+DPAGES=[  # (config cihaz kimliği | None, slug, kısa ad, başlık, H1)
+ ('klima','klima-gunes-paneli-ile-calisir-mi','Klima','Klima Güneş Paneli ile Çalışır mı? Kaç Panel Gerekir | GESPA','Klima Güneş Paneli ile Çalışır mı? Kaç Panel Gerekir?'),
+ ('buzdolabi','buzdolabi-kac-panel-ile-calisir','Buzdolabı','Buzdolabı Kaç Panel ile Çalışır? Güneş Paneli Hesabı | GESPA','Buzdolabı Kaç Panel ile Çalışır?'),
+ ('derin_dondurucu','derin-dondurucu-gunes-paneli','Derin Dondurucu','Derin Dondurucu Güneş Paneli ile Çalışır mı? Hesabı | GESPA','Derin Dondurucu Güneş Paneli ile Çalışır mı?'),
+ ('camasir','camasir-makinesi-gunes-paneli-ile-calisir-mi','Çamaşır Makinesi','Çamaşır Makinesi Güneş Paneli ile Çalışır mı? | GESPA','Çamaşır Makinesi Güneş Paneli ile Çalışır mı?'),
+ ('bulasik','bulasik-makinesi-gunes-paneli','Bulaşık Makinesi','Bulaşık Makinesi Güneş Paneli ile Çalışır mı? | GESPA','Bulaşık Makinesi Güneş Paneli ile Çalışır mı?'),
+ ('tv','televizyon-gunes-paneli-ile-calisir-mi','Televizyon','Televizyon Güneş Paneli ile Çalışır mı? Kaç Panel | GESPA','Televizyon Güneş Paneli ile Çalışır mı?'),
+ ('dalgic_pompa','dalgic-pompa-icin-kac-panel','Dalgıç Pompa','Dalgıç Pompa için Kaç Panel Gerekir? Hesaplama | GESPA','Dalgıç Pompa için Kaç Panel Gerekir?'),
+ ('su_pompasi','hidrofor-gunes-paneli-ile-calisir-mi','Hidrofor','Hidrofor Güneş Paneli ile Çalışır mı? Kaç Panel | GESPA','Hidrofor ve Su Pompası Güneş Paneli ile Çalışır mı?'),
+ ('isitici','elektrikli-isitici-gunes-paneli','Elektrikli Isıtıcı','Elektrikli Isıtıcı Güneş Paneli ile Çalışır mı? | GESPA','Elektrikli Isıtıcı Güneş Paneli ile Çalışır mı?'),
+ ('su_isitici','termosifon-gunes-paneli-ile-calisir-mi','Termosifon','Termosifon Güneş Paneli ile Çalışır mı? Kaç Panel | GESPA','Termosifon ve Şofben Güneş Paneli ile Çalışır mı?'),
+ ('kamera','guvenlik-kamerasi-gunes-paneli','Güvenlik Kamerası','Güvenlik Kamerası için Güneş Paneli: Kaç Watt? | GESPA','Güvenlik Kamerası için Güneş Paneli: Kaç Watt Gerekir?'),
+ (None,'kombi-icin-gunes-paneli-inverter','Kombi','Kombi için Güneş Paneli ve İnverter Hesabı | GESPA','Kombi için Güneş Paneli ve İnverter Hesabı'),
+]
+for d in DPAGES: assert d[0] is None or d[0] in APP,d
+DEV_SLUGS=[d[1] for d in DPAGES]; DBY={d[1]:d for d in DPAGES}
+def dev_page(d):
+    aid,slug,short,title,h1=d; a=APP.get(aid)
+    low=short[0].lower()+short[1:] if short[0] not in 'İI' else short
+    if a:
+        x=lambda k: dvx(k,aid)
+        desc='%s güneş paneli ile çalışır mı: %s W, günde %s saat için gereken panel, akü, inverter ve şarj kontrol akımı. Kendi değerlerinizle hesaplayın.'%(short,EX['dev.%s.w'%aid],EX['dev.%s.h'%aid])
+        lead='Cihaz gücü, adet ve günlük çalışma süresi dolu gelir; kendi cihazınızın etiketindeki değerle değiştirin, gereken panel, akü, inverter ve şarj kontrol akımını görün.'
+        surge=float(a['surge'])
+        s_line=('Sistem Kurucu bu cihaz için ×'+x('surge')+' kalkış katsayısı varsayar: '+x('w')+' W çalışma gücü kalkışta yaklaşık '+x('surgeW')+' W demektir. İnverter yalnız çalışma gücüne göre seçilmez; cihazın etiketindeki ya da üreticisinin verdiği kalkış değerine bakılır.'
+                if surge>1 else 'Sistem Kurucu bu cihaz için ayrı bir kalkış katsayısı tanımlamaz (×'+x('surge')+'). Yine de inverter gücünü cihazın etiketindeki değere göre seçin.')
+        short_ans=('Sistem Kurucu\'nun varsayılan değerleriyle ('+x('name')+': '+x('w')+' W, günde '+x('h')+' saat) günlük tüketim '+x('wh')+' Wh\'tir. Bunun için yaklaşık '+x('panelW')+' W panel ('+x('panels')+' × '+ex('dev.panelW')+' W), '
+          +ex('dev.v')+' V sistemde '+ex('dev.days')+' günlük özerklik için yaklaşık '+x('ah')+' Ah akü, çalışma gücü için en az '+x('inv')+' W inverter ve en az '+x('ctrl')+' A şarj kontrol cihazı gerekir. Cihazın çalışıp çalışmayacağı bu parçaların tüketime ve kalkış gücüne yetmesine bağlıdır.')
+        body=('<h2 id="hesap">Hesap nasıl yapıldı?</h2>\n<p class="art-formula">'+dev_example(aid)+'</p>\n'
+          '<p>Cihaz gücü ('+x('w')+' W) ve günlük çalışma süresi ('+x('h')+' saat) <a href="sistem-kur.html">Sistem Kurucu</a>\'nun cihaz listesindeki varsayılan değerlerdir; ölçüm değildir. Güneş saati ('+ex('liste.sun')+'), sistem verimi ('+ex('liste.eff')+'), akü DoD\'u ('+ex('liste.dod')+') ve inverter verimi ('+ex('liste.eta')+') de aynı yerden gelir ve tasarım günü içindir. Kendi cihazınızın etiketindeki gücü ve gerçek kullanım sürenizi yazınca sonuç değişir.</p>\n'
+          '<h2 id="kalkis">Kalkış gücü ve inverter</h2>\n<p>'+s_line+'</p>\n'
+          '<h2 id="sinir">Bu hesabın sınırı</h2>\n<p>Sonuç bir ön hesaptır: mevsim, panel eğimi, gölge, kablo ve akü durumu gerçek değeri değiştirir. Akü gerilimi burada bir örnek seçimdir; panel, şarj kontrol cihazı ve inverter aynı akü gerilimine uygun olmalıdır. Birden çok cihaz için <a href="cihaz-elektrik-tuketimi-hesaplama.html">cihaz listesi</a> aracını, ürün seçimiyle tam hesap için Sistem Kurucu\'yu kullanın.</p>\n')
+        faqs=[('%s güneş paneli ile çalışır mı?'%short,'Panel, akü ve inverter cihazın tüketimine ve kalkış gücüne yetiyorsa çalışır; yetmiyorsa çalışmaz. Sistem Kurucu\'nun varsayılan değerleriyle ({dev.%s.w} W, günde {dev.%s.h} saat) günlük tüketim {dev.%s.wh} Wh\'tir; bunun için yaklaşık {dev.%s.panelW} W panel, {dev.v} V sistemde yaklaşık {dev.%s.ah} Ah akü ve en az {dev.%s.inv} W inverter gerekir. Kendi cihazınızın etiket gücüyle yeniden hesaplayın.'%((aid,)*6)),
+          ('%s için kaç panel gerekir?'%short,'Panel gücü = günlük Wh ÷ (güneş saati × sistem verimi). {dev.%s.wh} Wh ÷ ({liste.sun} × {liste.eff}) ≈ {dev.%s.panelW} W eder; {dev.panelW} W\'lık panelle bu {dev.%s.panels} panel demektir. Güneş saati tasarım günü varsayımıdır; yazın daha az, kışın daha çok panel gerekebilir.'%((aid,)*3)),
+          ('%s için kaç amper akü ve hangi inverter gerekir?'%short,'Akü: Ah = günlük Wh × özerklik günü ÷ (akü gerilimi × DoD × inverter verimi). {dev.v} V sistemde {dev.days} gün için yaklaşık {dev.%s.ah} Ah. İnverter çalışma gücü için en az {dev.%s.inv} W olmalıdır; kalkış gücü bunun üstündedir ve inverter cihazın etiketindeki ya da üreticisinin verdiği kalkış değerine göre seçilir.'%((aid,)*2))]
+    else:
+        desc='Kombi için güneş paneli ve inverter hesabı: kombinizin etiketindeki elektrik gücünü ve günlük çalışma süresini yazın; panel, akü ve inverter gücünü görün.'
+        lead='Kombinizin etiketindeki elektrik gücünü (W) ve günlük çalışma süresini yazın; gereken panel, akü, inverter ve şarj kontrol akımını görün.'
+        short_ans='Kombi için hazır bir güç değeri vermiyoruz: kombinin elektrik tüketimi modele göre değişir ve sitemizdeki cihaz listesinde yer almaz. Etiketindeki ya da kullanım kılavuzundaki elektrik gücünü (W) ve günde kaç saat çalıştığını yazın; hesap diğer cihazlarla aynı formülle yapılır.'
+        body=('<h2 id="hesap">Hesap nasıl yapılır?</h2>\n<p class="art-formula">'+DEV_FORMULA+'</p>\n'
+          '<p>Bu sayfada güç ve çalışma süresi alanları boş açılır, çünkü kombi <a href="sistem-kur.html">Sistem Kurucu</a>\'nun cihaz listesinde yoktur ve tahmini bir değer yazmıyoruz. Elektrik gücü kombinin etiketinde ya da kılavuzunda “elektrik tüketimi / güç” satırında yazar; ısıtma gücü (kW) ile karıştırılmamalıdır. Güneş saati ('+ex('liste.sun')+'), sistem verimi ('+ex('liste.eff')+'), akü DoD\'u ('+ex('liste.dod')+') ve inverter verimi ('+ex('liste.eta')+') Sistem Kurucu\'nun tasarım günü varsayımlarıdır.</p>\n'
+          '<h2 id="kalkis">Kalkış gücü ve inverter</h2>\n<p>Kombide pompa ve fan motoru bulunur; motorlu cihazlar kalkışta çalışma gücünden fazlasını çeker. İnverteri kombinin etiketindeki ya da üreticisinin verdiği değere göre seçin ve inverterin çıkış dalga biçiminin cihaza uygunluğunu kombi üreticisinin talimatından teyit edin.</p>\n'
+          '<h2 id="sinir">Bu hesabın sınırı</h2>\n<p>Sonuç bir ön hesaptır; mevsim, panel eğimi, gölge, kablo ve akü durumu gerçek değeri değiştirir. Kombi kışın ve çoğunlukla gece çalıştığı için akü kapasitesi belirleyicidir; özerklik gününü buna göre seçin. Birden çok cihaz için <a href="cihaz-elektrik-tuketimi-hesaplama.html">cihaz listesi</a> aracını kullanın.</p>\n')
+        faqs=[('Kombi güneş paneli ile çalışır mı?','Kombinin elektrik tarafı (pompa, fan, kart) panel, akü ve inverter tüketime ve kalkış gücüne yetiyorsa çalışır. Bu sayfa hazır bir güç değeri vermez; kombinizin etiketindeki elektrik gücünü yazarak hesaplayın. Güneş paneli kombinin yaktığı gazı karşılamaz, yalnız elektrik ihtiyacını besler.'),
+          ('Kombi için kaç watt inverter gerekir?','İnverter çalışma gücü için en az kombinin etiketindeki elektrik gücü kadar olmalıdır; kalkışta daha fazlası çekilir ve inverter cihazın etiketindeki ya da üreticisinin verdiği kalkış değerine göre seçilir. Hazır bir watt değeri vermiyoruz.'),
+          ('Kombi için kaç panel ve kaç amper akü gerekir?','Panel gücü = günlük Wh ÷ (güneş saati × sistem verimi); akü Ah = günlük Wh × özerklik günü ÷ (akü gerilimi × DoD × inverter verimi). Günlük Wh, etiketteki güç ile günlük çalışma saatinin çarpımıdır; değerleri yazınca araç sonucu gösterir.')]
+    head,foot=shell(slug,title,desc,h1,desc,PUB7)
+    strip=('<nav class="usta-strip" aria-label="Diğer cihazlar"><strong>Diğer cihazlar</strong>'+''.join('<a href="%s.html">%s</a>'%(o[1],o[2]) for o in DPAGES if o[1]!=slug)
+      +'<a class="all" href="elektrikci-cantasi.html#cihaz-gunes">Araç kutusunda aç →</a><a class="all" href="usta-kaydi.html">Usta / toplu alım kaydı →</a></nav>')
+    extra_prod=('<p>Tarla ve bahçe sulamasında pompayı gündüz doğrudan güneşten çalıştıran aküsüz sistemler için <a href="tarimsal-sulama.html#pompa-secimi">solar sulama pompası seçimi</a> aracına ve <a href="solar-sulama-pompasi-secimi.html">rehberine</a> bakın.</p>\n' if aid in ('dalgic_pompa','su_pompasi') else '')
+    main=('''<main id="main" data-article data-usta data-usta-dev="'''+(aid or '')+'''">
+    '''+MARK+'''
+    <section class="usta-top">
+      <div class="container">
+        <div class="crumbs"><a href="index.html">Ana Sayfa</a> <span>/</span> <a href="elektrikci-cantasi.html">Elektrikçi Çantası</a> <span>/</span> '''+short+'''</div>
+        <h1>'''+h1+'''</h1>
+        <p class="lead">'''+lead+'''</p>
+      </div>
+    </section>
+
+    <section class="section usta-sec">
+      <div class="container">
+        <article class="art usta usta-page">
+          <h2 id="arac" class="usta-sr">Hesaplama aracı</h2>
+'''+TOOLS['cihaz-gunes']+'''
+          '''+strip+'''
+
+          <!-- OWN:START --><div class="art-note"><p><strong>Kısa cevap:</strong> '''+short_ans+'''</p></div>
+'''+body+extra_prod+'''
+          <h2 id="sss">Sık sorulan sorular</h2>
+          <div class="faq">'''+''.join(faq(q,a) for q,a in faqs)+'''</div><!-- OWN:END -->
+
+          '''+DISC_PAGE+'''
+          <p class="art-meta">Yayın: <time datetime="'''+PUB7[0]+'''">'''+PUB7[1]+'''</time> · GESPA Enerji · <a href="elektrikci-cantasi.html">Tüm hesaplama araçları</a></p>
+        </article>
+      </div>
+    </section>
+
+    ''')
+    return finish(head+main+CTA+foot,{'cihaz-gunes','arac','hesap','kalkis','sinir','sss'})
+for d in DPAGES: OUT[d[1]+'.html']=dev_page(d)
+assert len(set(d[3] for d in DPAGES))==len(DPAGES) and len(set(d[4] for d in DPAGES))==len(DPAGES)
+
 import datetime
 AYLAR=['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık']
 KC_GROUPS=[('Kablo',['kablo','ac-kablo','sigorta-kablo-uyumu']),('Akım ve güç',['akim','hp-kw-amper','ohm']),
  ('Panel ve dizi',['egim','golge','cati-egimi','gunluk-uretim','sicaklik-gucu','dizi','seri-paralel','sigorta','sarj-kontrol']),
  ('Akü ve tüketim',['aku','aku-sure','aku-sarj','c-orani','inverter-aku-akimi','yuk-listesi','cihaz-tuketimi']),('Çeviriciler',['cevirici'])]
-assert sorted(t for g in KC_GROUPS for t in g[1])==sorted(t for t in FORM if FORM[t][1] and t in TOOLS),'cep kartı: formülü olan her araç bir grupta olmalı'
+assert sorted(t for g in KC_GROUPS for t in g[1])==sorted(t for t in FORM if FORM[t][1] and t in TOOLS and t!='cihaz-gunes'),'cep kartı: formülü olan her araç bir grupta olmalı'
 def kc_example(t):
     ex_html=re.sub(r'<a [^>]*>(.*?)</a>',r'\1',FORM[t][2])
     parts=[p.strip() for p in ex_html.split('<br />') if p.strip()]
@@ -1345,12 +1471,12 @@ for name,html in OUT.items():
         if not os.path.exists(ROOT+h.lstrip('/')) and h not in OUT: print('KIRIK BAĞLANTI %s → %s'%(name,h)); bad+=1
     for a in set(re.findall(r'href="#([^"]+)"',html)):
         if 'id="%s"'%a not in html: print('KIRIK ÇAPA %s → #%s'%(name,a)); bad+=1
-    if name!='elektrikci-cantasi.html' and name[:-5] not in EXTRA_SLUGS:
+    if name!='elektrikci-cantasi.html' and name[:-5] not in EXTRA_SLUGS and name[:-5] not in DEV_SLUGS:
         ownw=sum(words(x) for x in re.findall(r'<!-- OWN:START -->([\s\S]*?)<!-- OWN:END -->',html))
         if ownw<250: print('KISA METİN %s: %d sözcük'%(name,ownw)); bad+=1
         pg=BY.get(name[:-5]) or IBY[name[:-5]]
         print('%-44s başlık %2d · açıklama %3d · özgün metin %d sözcük'%(name,len(pg['title']),len(pg['desc']),ownw))
-print('merkez: %d araç, %d iniş sayfası, %d inverter sayfası'%(NTOOLS,len(PAGES),len(INV_SLUGS)))
+print('merkez: %d araç, %d iniş sayfası, %d inverter sayfası, %d cihaz sayfası'%(NTOOLS,len(PAGES),len(INV_SLUGS),len(DPAGES)))
 if bad: sys.exit('HATA: %d sorun'%bad)
 if APPLY:
     for name,html in OUT.items(): open(ROOT+name,'w',encoding='utf8').write(html)

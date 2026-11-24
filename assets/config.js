@@ -1362,7 +1362,10 @@ window.GESPA.config = {
         motor: { hp: 2, eff: 0.85, cos: 0.85 },      // ÖRNEK; verim ve cosφ motor etiketinden girilir
         coord: { ib: 18, in: 20, iz: 24 },           // ÖRNEK sayılar (alanlar boş açılır); Iz üretici tablosundan okunur
         usage: { w: 1000, h: 2, days: 30 },          // birim fiyat calc.defaultUnitPrice'tan (düzenlenebilir örnek)
-        dailyLoad: 100                               // W — "bu üretim şu yükü kaç saat çalıştırır" örnek yükü
+        dailyLoad: 100,                              // W — "bu üretim şu yükü kaç saat çalıştırır" örnek yükü
+        // "Cihaz güneşle çalışır mı?" aracı: açılış cihazı builder.appliances'tan bir kimliktir (W / saat / kalkış katsayısı
+        // ORADAN okunur, buraya yazılmaz); v = açılışta seçili akü gerilimi (ref.ahV listesinden bir ÖRNEK seçim).
+        device: { id: "buzdolabi", v: 24 }
       }
     }
   }

@@ -171,6 +171,17 @@
     var shaft = hp / hpPerKw, input = shaft / eff;
     return { shaftKw: shaft, inKw: input, i: U.current(kind, input * 1000, v, cos) };
   };
+  // Tek cihaz için güneş sistemi: cihaz listesi hesabının (loadPlan) aynısı + panel adedi = ⌈panel W / tek panel gücü⌉
+  // + şarj kontrol akımı (controllerA). Yeni katsayı yok; hepsi çağıranın verdiği config değerleri.
+  U.devicePlan = function (w, n, h, o) {
+    var r = U.loadPlan([{ w: w, n: n, h: h }], o);
+    r.panels = Math.ceil(r.panelW / o.panelW - EPS); r.arrayW = r.panels * o.panelW; r.ctrlA = U.controllerA(r.arrayW, o.v);
+    return r;
+  };
+  // Kalkış gücü: Sistem Kurucu'nun cihaz başına kalkış katsayısı (builder.appliances[].surge) × çalışma gücü
+  U.surgeW = function (w, surge) { return w * surge; };
+  U.appliance = function (k, id) { return k.appliances.filter(function (a) { return a.id === id; })[0] || null; };
+
   // Tüketim ve maliyet: kWh = W·saat·gün/1000 · tutar = kWh·birim fiyat
   U.usage = function (w, h, days, price) { var kwh = w * h * days / 1000; return { kwh: kwh, cost: kwh * price }; };
   // Üretilen enerji bir yükü kaç saat çalıştırır: saat = kWh·1000/W
@@ -321,6 +332,16 @@
     ex["uretim.load"] = f(d.dailyLoad); ex["uretim.hours"] = f(U.runHours(dk, d.dailyLoad), 1);
     ex["uretim.p1"] = f(k.panelW); ex["uretim.p1kwp"] = f(k.panelW / 1000, 3); ex["uretim.p1kwh"] = f(p1, 2);
     ex["uretim.p1hours"] = f(U.runHours(p1, d.dailyLoad), 1);
+
+    // "Cihaz güneşle çalışır mı?": Sistem Kurucu cihaz listesindeki HER cihaz için (W, saat, kalkış katsayısı oradan)
+    var dv = d.device, dopt = { sun: k.sunHours, eff: k.sysEff, days: k.autonomy, v: dv.v, dod: k.dod, eta: k.invEff, panelW: k.panelW };
+    ex["dev.v"] = f(dv.v); ex["dev.days"] = f(k.autonomy); ex["dev.panelW"] = f(k.panelW); ex["dev.def"] = dv.id;
+    k.appliances.forEach(function (a) {
+      var r = U.devicePlan(a.w, 1, a.h, dopt), p = "dev." + a.id + ".";
+      ex[p + "name"] = a.name; ex[p + "w"] = f(a.w); ex[p + "h"] = f(a.h); ex[p + "wh"] = f(r.wh, 0); ex[p + "panelW"] = f(r.panelW, 0);
+      ex[p + "panels"] = f(r.panels, 0); ex[p + "arrayW"] = f(r.arrayW, 0); ex[p + "ah"] = f(r.ah, 1); ex[p + "inv"] = f(r.sumW, 0); ex[p + "ctrl"] = f(r.ctrlA, 1);
+      ex[p + "surge"] = f(a.surge, 2); ex[p + "surgeW"] = f(U.surgeW(a.w, a.surge), 0);
+    });
 
     var rf2 = k.ref;
     ex["ref.kw"] = f(rf2.kw); ex["ref.kwW"] = f(rf2.kw * 1000);
@@ -1340,6 +1361,54 @@
       var io = new root.IntersectionObserver(function (es) { if (es.some(function (e) { return e.isIntersecting; })) { io.disconnect(); sec.__load(); } });
       io.observe(sec);
     });
+  })();
+
+  // ===== Cihaz güneşle çalışır mı? (merkezde #cihaz-gunes; cihaz sayfaları aynı kartı data-usta-dev ile açar) =====
+  (function () {
+    if (!$("#xzW")) return; var d = D.device || {}, dev = $("#xzDev"), want = page.getAttribute("data-usta-dev");
+    var nfT = new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 0 });
+    function pick(id) {                       // cihaz seçilince W ve saat Sistem Kurucu listesinden gelir; listede yoksa alanlar boş
+      var a = U.appliance(K, id);
+      setVal("xzW", a ? a.w : ""); setVal("xzH", a ? a.h : ""); setVal("xzN", 1);
+      $("#xzW").placeholder = a ? "" : "etiketteki gücü girin";
+    }
+    function calc() {
+      var a = U.appliance(K, dev.value), w = num("xzW"), n = int("xzN"), h = num("xzH");
+      var o = { sun: num("xzSun"), eff: num("xzEff") / 100, days: num("xzDays"), v: num("xzV"), dod: num("xzDod") / 100, eta: num("xzEta") / 100, panelW: num("xzPanelW") };
+      var ids = ["xzPanel", "xzWh", "xzAh", "xzInv", "xzCtrl"];
+      if (!ok(w, n, h, o.sun, o.eff, o.days, o.v, o.dod, o.eta, o.panelW) || o.eff > 1 || o.dod > 1 || o.eta > 1) {
+        outs(ids); out("xzWork", ""); out("xzSurge", ""); summary("cihaz-gunes", "");
+        note("xzMsg", ok(w) ? "" : "Cihazın etiketindeki gücü (W) yazın.", ""); prods(null); return;
+      }
+      note("xzMsg", "");
+      var r = U.devicePlan(w, n, h, o);
+      out("xzPanel", "≈ " + f(r.panelW, 0) + " W · " + r.panels + " panel"); out("xzWh", f(r.wh, 0) + " Wh/gün");
+      out("xzAh", "≈ " + f(r.ah, 1) + " Ah (" + f(o.v) + " V)"); out("xzInv", "≥ " + f(r.sumW, 0) + " W"); out("xzCtrl", "≥ " + f(r.ctrlA, 1) + " A");
+      out("xzWork", f(w) + " W × " + n + " × " + f(h, 2) + " saat = " + f(r.wh, 0) + " Wh/gün · panel: " + f(r.wh, 0) + " ÷ (" + f(o.sun, 2) + " × " + f(o.eff, 3) + ") ≈ " + f(r.panelW, 0) + " W → " + r.panels + " × " + f(o.panelW) + " W = " + f(r.arrayW, 0)
+        + " W · akü: " + f(r.wh, 0) + " × " + f(o.days) + " ÷ (" + f(o.v) + " × " + f(o.dod, 3) + " × " + f(o.eta, 3) + ") ≈ " + f(r.ah, 1) + " Ah · şarj kontrol: " + f(r.arrayW, 0) + " ÷ " + f(o.v) + " = " + f(r.ctrlA, 1) + " A");
+      out("xzSurge", a && a.surge > 1 && w === a.w
+        ? "Kalkış: Sistem Kurucu bu cihaz için ×" + f(a.surge, 2) + " kalkış katsayısı varsayar (≈ " + f(U.surgeW(w, a.surge), 0) + " W, cihaz başına). İnverteri cihazın etiketindeki ya da üreticisinin verdiği kalkış değerine göre seçin."
+        : "Motorlu ve kompresörlü cihazlar kalkışta çalışma gücünden fazlasını çeker; inverteri cihazın etiketindeki ya da üreticisinin verdiği kalkış değerine göre seçin.");
+      prods(o);
+      summary("cihaz-gunes", (a && w === a.w ? a.name : "Cihaz") + " " + f(w) + " W × " + n + ", günde " + f(h, 2) + " saat: " + f(r.wh, 0) + " Wh/gün; panel ≈ " + f(r.panelW, 0) + " W (" + r.panels + " × " + f(o.panelW) + " W), akü ≈ " + f(r.ah, 1) + " Ah (" + f(o.v) + " V, " + f(o.days) + " gün), inverter ≥ " + f(r.sumW, 0) + " W (kalkış hariç), şarj kontrol ≥ " + f(r.ctrlA, 1) + " A");
+    }
+    function prods(o) {                        // mağaza ürünleri: fiyat main.js'in tek fiyat kuralından (GESPA.shop), adet aynı hesaptan
+      var shop = G.shop, w = num("xzW"), n = int("xzN"), h = num("xzH");
+      $$("[data-usta-pkg]", page).forEach(function (li) {
+        var cnt = $(".usta-pn", li), pr = $(".usta-pp", li), pw = parseFloat(li.getAttribute("data-w"));
+        if (cnt) cnt.textContent = o && pw > 0 ? U.devicePlan(w, n, h, { sun: o.sun, eff: o.eff, days: o.days, v: o.v, dod: o.dod, eta: o.eta, panelW: pw }).panels + " adet" : "";
+        if (pr && !pr.textContent && shop) { try { var p = shop.pkg(li.getAttribute("data-usta-pkg")), u = p && shop.unit(p); if (u && u.list != null) pr.textContent = "₺" + nfT.format(u.list); } catch (e) {} }
+      });
+    }
+    setVal("xzV", d.v); setVal("xzDays", K.autonomy); setVal("xzPanelW", K.panelW); setVal("xzSun", K.sunHours);
+    setVal("xzEff", isFinite(K.sysEff) ? r4(K.sysEff * 100) : ""); setVal("xzDod", isFinite(K.dod) ? r4(K.dod * 100) : ""); setVal("xzEta", isFinite(K.invEff) ? r4(K.invEff * 100) : "");
+    var start = want != null ? want : d.id;
+    dev.value = U.appliance(K, start) ? start : ""; pick(dev.value);
+    dev.addEventListener("change", function () { pick(dev.value); touch(dev); calc(); });
+    onInput(["xzW", "xzN", "xzH", "xzV", "xzDays", "xzPanelW", "xzSun", "xzEff", "xzDod", "xzEta"], calc);
+    EXAMPLE["cihaz-gunes"] = function () { dev.value = U.appliance(K, start) ? start : ""; pick(dev.value); setVal("xzV", d.v); setVal("xzDays", K.autonomy); setVal("xzPanelW", K.panelW); calc(); };
+    RESET["cihaz-gunes"] = function () { dev.value = ""; pick(""); setVal("xzH", ""); calc(); };
+    calc();
   })();
 
   // ===== Cep kartı (usta-cep-karti.html): şemalar araçlarla AYNI çizicilerden; yazdır düğmesi =====
