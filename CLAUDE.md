@@ -695,7 +695,7 @@ işe yaramıyordu.
 - KURAL: Hesaplayıcı bileşenine hiçbir sayı (fiyat, katsayı, güç) hardcode ETME.
 
 ## Elektrikçi Çantası (`elektrikci-cantasi.html` + 20 araç sayfası · `tools/usta-sayfalar.py` · `assets/usta.js`)
-Elektrikçi/montajcı için 24 ücretsiz hesaplama aracı (7 kategori) + arama sorgusuna göre adlandırılmış 20 İNİŞ SAYFASI
+Elektrikçi/montajcı için 26 araç (8 kategori; ilk sırada Kablo ve akım, ayrıca İnverter kategorisi — aşağıdaki bölüm) + arama sorgusuna göre adlandırılmış 20 İNİŞ SAYFASI
 (`kablo-kesiti-hesaplama`, `gerilim-dusumu-hesaplama`, `kw-amper-hesaplama`, `aku-kac-saat-dayanir`, `awg-mm2-cevirme` …).
 Hepsi yalnız TR (`TR_ONLY`), `<main data-article data-usta>`. "Elektrikçi Çantası" aranan bir terim DEĞİL: başlık ve H1
 aranan ifadeyle başlar, çanta adı sonek/marka olarak kalır.
@@ -720,7 +720,9 @@ aranan ifadeyle başlar, çanta adı sonek/marka olarak kalır.
   (`#kablo`; `#grup-*` o grubun ilk aracını açar), geri/ileri, son araç `localStorage gespa-usta-last`, çapasızsa
   `data-usta-app`'teki araç. <1000 px: liste tam yükseklik ÇEKMECE (`#ustaMenu` ☰ Araçlar, Esc/arka plan kapatır, odak
   içeride döner), `.usta-bar` = ☰ + araç adı + ‹ › + ana sonucu gösteren ince şerit (`#ustaLive`, sonuç ekranda
-  değilken). Sayfa içi araç bağlantıları kaydırmaz, aracı değiştirir. Yazdırma YALNIZ etkin aracı basar.
+  değilken). Sayfa içi araç bağlantıları kaydırmaz, aracı değiştirir. Yazdırma YALNIZ etkin aracı basar. Telefonda
+  uygulama görünümünde breadcrumb ve giriş satırı gizlidir; araç sayfalarında (`main[data-usta]`) sitenin sabit alt
+  iletişim çubuğu (`.mobile-cta`) CSS ile gizlenir — her aracın kendi WhatsApp / "Beni arayın" eylemi vardır.
 - KART SIRASI (merkez ve iniş sayfası aynı): h3 → `p.usta-one` tek cümle (≤120 karakter, betikte `ONE`) → girdiler solda,
   sonuç + şema sağda → `p.usta-err` (kırmızı alan + tek satır neden) → `p.usta-disc` güvenlik notu (görünür, küçük) →
   `.usta-act` (Örnek değerler · Sıfırla · WhatsApp · Yazdır · Bağlantıyı kopyala) → KAPALI `details.usta-more`
@@ -757,6 +759,40 @@ aranan ifadeyle başlar, çanta adı sonek/marka olarak kalır.
   dokunulmadı). İnverter aracı akımı `?kv=&ki=` ile DC kablo aracına taşır. main.js'in yumuşak kaydırması sayfa içi
   çapalara kendi dinleyicisini bağlar; uygulama denetçisi belge düzeyinde SONRA çalışır (yakalama aşamasına alma,
   araç görünür olunca sayfa kayar). Yeni tarayıcı anahtarı eklersen cerez-politikasi.html'e yaz.
+
+## İnverter hata kodları ve ayar rehberi (24 Kas 2026 · `assets/inverter-veri.json` · `tools/inverter-veri.py`)
+Elektrikçi Çantası'nın "İnverter" kategorisi: `#inverter-kodlari` (aile → tür → kod araması) ve `#inverter-ayarlari`
+(yalnız üç kullanım kılavuzu: program tablosu · lityum akü ayarı · şebeke bağlıyken) + 9 sayfa (build.js `INV_PAGES`;
+`inverter-hata-kodlari` dizin, marka sayfaları `mexxsun-` `deye-` `voltronic-axpert-` `victron-mppt-` `solis-`
+`akilli-inverter-hata-kodlari`, `off-grid-inverter-lityum-aku-ayarlari`, `off-grid-inverter-sebeke-ayarlari`). Sayfaları
+`tools/usta-sayfalar.py` üretir (IPAGES/SPAGES); kod tabloları STATİK basılır, test her satırı veriyle karşılaştırır.
+YANLIŞ BİR ARIZA ANLAMI YA DA AYAR TEHLİKELİDİR — kurallar:
+- AİLELER BİRLEŞTİRİLMEZ. Aynı numara başka kılavuzda başka anlam taşır (arıza 11: 3,6–7,2 kW kılavuzunda "PV aşırı
+  gerilim", 1–5 kVA kılavuzunda "Şebeke röle hatası"; MEXX-P'de 103/105/305/502 arıza ve alarm listesinde farklı).
+  Arama tek aile içinde yapılır; tür seçilmezse eşleşen BÜTÜN satırlar tür etiketiyle gösterilir; kod yoksa "bu ailede
+  böyle bir kod yok" denir, TAHMİN YOK (`GESPA.usta.invFind`, test denetler).
+- VERİYE yalnız iki aktarım dosyasında olan satır girer (işletmenin 3 kılavuzu + üreticilerin resmî belgeleri). Kod,
+  anlam, çözüm, ayar UYDURULMAZ; çözüm yalnız kılavuz veriyorsa yazılır. Çeviri olan satırda üreticinin özgün ifadesi
+  (`o`, `ro`) birlikte durur; her satırda sayfa (`p`) ve aile düzeyinde kaynak (`src`: kılavuz adı, sürüm, web ise
+  `url` → bağlantı `rel="nofollow noopener" target="_blank"`) vardır. Her yerde iki sabit satır durur: "Kod anlamı
+  markaya ve modele göre değişir; cihazınızın kendi kılavuzu esastır." ve "Arıza devam ederse cihazı kapatın ve yetkili
+  servise ya da satıcıya başvurun; cihazın içine yalnız yetkili kişi müdahale eder."
+- BELİRSİZ SATIR: KOD ise kılavuzun kendi ifadesi tırnak içinde + "kılavuzda belirsiz" rozeti + aktaranın notu (`u`, `n`);
+  AYAR ise (program, gerilim, pin şeması) HİÇ yayınlanmaz — liste betikte `dropped` (37 kalem; ör. A/C program 06/07/19,
+  A BMS pin şeması, B şebekeye besleme ve şarj parametre tablosu). Yayınlanan ayar sekmelerinde "akü şarj gerilimi gibi
+  değerlerde akü üreticisinin değeri esastır" notu durur.
+- MARKA ADI kılavuzda basılı olandır. İki kılavuzda marka basılı değil: "3,6 / 6,5 / 7,2 kW akıllı inverter (Sürüm 1.5)"
+  ve "1–5 kVA akıllı inverter" diye adlandırılır; PDF dosya adından ya da kapak fotoğrafındaki logolardan marka
+  ATFEDİLMEZ. Kılavuzdaki yayıncı/tedarikçi adı ve iletişimi veriye ALINMAZ (test arar). İşletmenin PDF'leri repoya
+  KONMAZ. Her marka sayfası "GESPA bu cihazın üreticisi değildir" der.
+- GÖZLE AKTARILAN AİLELER yeniden doğrulandı (24 Kas 2026: Deye SG05LP1 19/19, SG05LP3 25/25, SUNON IV 40/40 sayfa
+  görüntüsüyle; MEXX-P4KW 34/34 sayfa metniyle; MEXX-P12KW web tablosu = işletmenin V1.1 kılavuzu). Yeni aile eklerken
+  kaynağı yeniden aç, satır satır karşılaştır, `src.v`'ye yaz; açılamayan kaynak yayınlanmaz.
+- VERİ YÜKLEME: usta.js veriyi araç ekrana gelince bir kez indirir (`fetch("assets/inverter-veri.json")`, ~258 KB ham /
+  ~39 KB br; build.js ön-sıkıştırması `assets/*.json`'ı kapsar). Merkez sayfaya gömülmez. Son seçilen aile
+  `localStorage gespa-inv-family` (cerez-politikasi.html'de yazılı).
+- YENİ AİLE / DÜZELTME: aktarım dosyalarıyla `python3 tools/inverter-veri.py <kilavuz.json> <web.json> --uygula` ya da
+  doğrudan JSON; sonra tests/seo.test.js'teki aile satır sayıları, betikte `PAGE_OF`/IPAGES ve build.js `INV_PAGES`.
 
 ## Satış motoru — yapay zekâ asistanı, talepler, huni (21 Kas 2026)
 Ayrıntı ve kurallar: @docs/satis-asistani.md

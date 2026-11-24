@@ -176,6 +176,26 @@
   // Üretilen enerji bir yükü kaç saat çalıştırır: saat = kWh·1000/W
   U.runHours = function (kwh, loadW) { return kwh * 1000 / loadW; };
 
+  // İnverter kodu arama (veri: assets/inverter-veri.json). Aileler BİRLEŞTİRİLMEZ: arama hep tek aile içinde
+  // yapılır; eşleşme yoksa boş döner (tahmin yok). "F13", "13", "Fault 13", "hata kodu 013" aynı anahtara iner.
+  U.invKey = function (x) {
+    var t = String(x == null ? "" : x).replace(/İ/g, "I").replace(/ı/g, "i").toUpperCase().replace(/\([^)]*\)/g, " "), prev;
+    do { prev = t; t = t.replace(/^\s*(?:HATA|ARIZA|UYARI|ALARM|FAULT|WARNING|ERROR|ERR|KODU|KOD|CODE|NO)\b[\s.:#-]*/, ""); } while (t !== prev);
+    t = t.replace(/^\s*[FEWA][\s.:#-]*(?=\d)/, "").replace(/[^A-Z0-9]+/g, "");
+    return /^\d+$/.test(t) ? String(parseInt(t, 10)) : t;
+  };
+  U.invKeys = function (code) {
+    var keys = [U.invKey(code)], m = /\(([^)]+)\)/.exec(String(code));
+    if (m) keys.push(U.invKey(m[1]));
+    return keys;
+  };
+  U.invFind = function (fam, input, type) {
+    var k = U.invKey(input); if (!k || !fam) return [];
+    return fam.codes.filter(function (r) { return (!type || r.t === type) && U.invKeys(r.c).indexOf(k) >= 0; });
+  };
+  U.invFamily = function (data, id) { return ((data && data.families) || []).filter(function (f) { return f.id === id; })[0] || null; };
+  U.INV_TYPE = { fault: "Arıza", alarm: "Alarm", warning: "Uyarı", info: "Bilgi / durum" };
+
   // Sayfadaki statik "örnek hesap" metinleri: araçla AYNI formül + config açılış değerleri.
   // Test, HTML'deki [data-ex] değerlerini bununla karşılaştırır.
   U.examples = function (cfg) {
@@ -1163,6 +1183,161 @@
     e.value = x[1];
     ["change", "input"].forEach(function (t) { var ev = doc.createEvent("Event"); ev.initEvent(t, true, false); e.dispatchEvent(ev); });
   });
+  // ===== İnverter hata kodları ve ayar rehberi (veri ilk açılışta indirilir) =====
+  (function () {
+    var secA = $("#inverter-kodlari"), secB = $("#inverter-ayarlari"); if (!secA && !secB) return;
+    var DATA = null, waiting = [], state = 0, LSF = "gespa-inv-family", TY = U.INV_TYPE;
+    function h(tag, cls, text) { var e = doc.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+    function load(cb) {
+      if (DATA) { cb(); return; }
+      waiting.push(cb); if (state) return; state = 1;
+      $$("[data-inv-state]", page).forEach(function (e) { e.textContent = "Veri yükleniyor…"; });
+      var done = function (d) { DATA = d; waiting.forEach(function (fn) { fn(); }); waiting = []; };
+      var fail = function () { state = 0; waiting = []; $$("[data-inv-state]", page).forEach(function (e) { e.textContent = "Veri yüklenemedi. Bağlantınızı kontrol edip sayfayı yenileyin; tablolar araç sayfalarında da yer alır."; }); };
+      try { root.fetch("assets/inverter-veri.json").then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(done, fail); } catch (e) { fail(); }
+    }
+    function srcLine(src, pageRef) {             // kaynak: kılavuz adı + sayfa (+ üretici belgesine bağlantı)
+      var p = h("p", "usta-inv-src"); p.appendChild(doc.createTextNode("Kaynak: "));
+      if (src.url) { var a = h("a", null, src.t); a.href = src.url; a.target = "_blank"; a.rel = "nofollow noopener"; p.appendChild(a); }
+      else p.appendChild(doc.createTextNode(src.t + (src.rev ? " (" + src.rev + ")" : "") + " — " + DATA.owner));
+      if (pageRef) p.appendChild(doc.createTextNode(" · " + pageRef));
+      return p;
+    }
+    // ----- A) kod arama -----
+    if (secA) (function () {
+      var famSel = $("#xvFam"), filt = $("#xvFilter"), code = $("#xvCode"), out = $("#xvOut"), typeBox = $("#xvType"), all = $("#xvAll"), type = "";
+      function fam() { return U.invFamily(DATA, famSel.value); }
+      function fillFams() {
+        var q = String(filt.value || "").toLocaleLowerCase("tr").trim(), keepId = famSel.value, groups = {}, order = [];
+        clear(famSel);
+        DATA.families.forEach(function (f) {
+          if (q && (f.brand + " " + f.name).toLocaleLowerCase("tr").indexOf(q) < 0) return;
+          if (!groups[f.brand]) { groups[f.brand] = doc.createElement("optgroup"); groups[f.brand].label = f.brand; order.push(f.brand); }
+          var o = doc.createElement("option"); o.value = f.id; o.textContent = f.name; groups[f.brand].appendChild(o);
+        });
+        order.forEach(function (b) { famSel.appendChild(groups[b]); });
+        if (keepId && U.invFamily(DATA, keepId) && $$("option", famSel).some(function (o) { return o.value === keepId; })) famSel.value = keepId;
+      }
+      function hit(f, r) {
+        var box = h("div", "usta-inv-hit" + (r.t === "fault" ? " f" : ""));
+        var top = h("p", "usta-inv-top"); top.appendChild(h("strong", "usta-inv-code", r.c)); top.appendChild(h("span", "usta-inv-badge t-" + r.t, TY[r.t] || r.t));
+        if (r.u) top.appendChild(h("span", "usta-inv-badge unc", "kılavuzda belirsiz"));
+        if (r.k) top.appendChild(h("span", "usta-inv-badge", r.k));
+        box.appendChild(top);
+        box.appendChild(h("p", "usta-inv-mean", r.u ? "“" + r.m + "”" : r.m));
+        if (r.o) box.appendChild(h("p", "usta-inv-orig", "Üreticinin ifadesi: “" + r.o + "”"));
+        if (r.d) box.appendChild(h("p", "usta-inv-line", "Ekranda: " + r.d));
+        if (r.b) box.appendChild(h("p", "usta-inv-line", "Sesli uyarı: " + r.b));
+        if (r.r) { box.appendChild(h("p", "usta-inv-lab", "Kılavuzdaki çözüm")); box.appendChild(h("p", "usta-inv-line", r.r)); }
+        if (r.ro) box.appendChild(h("p", "usta-inv-orig", "Üreticinin ifadesi: “" + r.ro + "”"));
+        if (r.n) box.appendChild(h("p", "usta-inv-note", "[Aktaranın notu: " + r.n + "]"));
+        box.appendChild(srcLine(f.src, r.p));
+        return box;
+      }
+      function types() {
+        var f = fam(), ts = []; clear(typeBox);
+        if (f) f.codes.forEach(function (r) { if (ts.indexOf(r.t) < 0) ts.push(r.t); });
+        if (ts.indexOf(type) < 0) type = "";
+        typeBox.parentNode.style.display = ts.length > 1 ? "" : "none";
+        [""].concat(ts).forEach(function (t) {
+          var b = h("button", t === type ? "active" : "", t ? TY[t] : "Tümü"); b.type = "button"; b.setAttribute("aria-pressed", t === type ? "true" : "false");
+          b.addEventListener("click", function () { type = t; types(); find(); });
+          typeBox.appendChild(b);
+        });
+        if (f) code.setAttribute("inputmode", f.codes.every(function (r) { return /^\d+$/.test(U.invKey(r.c)); }) ? "numeric" : "text");
+      }
+      function find() {
+        var f = fam(), q = String(code.value || "").trim(); clear(out);
+        if (!f) { out.appendChild(h("p", "usta-msg", "Önce cihaz ailesini seçin.")); summary("inverter-kodlari", ""); return; }
+        if (!q) { out.appendChild(h("p", "usta-msg", f.brand + " · " + f.name + ": " + f.codes.length + " kod. Ekrandaki kodu yazın.")); out.appendChild(srcLine(f.src, "")); summary("inverter-kodlari", ""); return; }
+        var rows = U.invFind(f, q, type);
+        if (!rows.length) {
+          var other = type ? U.invFind(f, q, "") : [];
+          out.appendChild(h("p", "usta-msg bad", "Bu ailede böyle bir kod yok: “" + q + "”" + (type ? " (" + TY[type] + " listesinde)" : "") + ". Tahmin yürütülmez; cihazınızın kendi kılavuzuna bakın."));
+          if (other.length) out.appendChild(h("p", "usta-msg warn", "Aynı kod bu ailede şu listede var: " + other.map(function (r) { return TY[r.t]; }).join(", ") + ". Türü “Tümü” yapın."));
+          summary("inverter-kodlari", ""); return;
+        }
+        if (rows.length > 1) out.appendChild(h("p", "usta-msg warn", "Bu kod bu ailede " + rows.length + " ayrı satırda geçiyor. Ekrandaki türe (arıza / uyarı / alarm) göre doğru satırı seçin."));
+        rows.forEach(function (r) { out.appendChild(hit(f, r)); });
+        summary("inverter-kodlari", f.brand + " " + f.name + ", " + rows.map(function (r) { return TY[r.t] + " " + r.c + ": " + r.m; }).join(" | ") + " (kaynak: " + f.src.t + ")");
+      }
+      function table() {
+        var f = fam(), host = $("#xvTable"); if (!host) return; clear(host); if (!f || !all.open) return;
+        var t = h("table", "art-table"), hd = h("tr"); ["Kod", "Tür", "Anlam (kılavuzdaki)", "Sayfa"].forEach(function (x) { hd.appendChild(h("th", null, x)); });
+        var th = h("thead"); th.appendChild(hd); t.appendChild(th); var tb = h("tbody");
+        f.codes.forEach(function (r) { var tr = h("tr"); [r.c, TY[r.t] || r.t, (r.u ? "“" + r.m + "” (kılavuzda belirsiz)" : r.m) + (r.o ? " — “" + r.o + "”" : ""), r.p].forEach(function (x) { tr.appendChild(h("td", null, x)); }); tb.appendChild(tr); });
+        t.appendChild(tb); host.appendChild(t);
+      }
+      function famChanged() { try { root.localStorage.setItem(LSF, famSel.value); } catch (e) {} types(); find(); table(); }
+      function init() {
+        $$("[data-inv-state]", secA).forEach(function (e) { e.textContent = ""; });
+        fillFams();
+        var want = page.getAttribute("data-inv-fam"), saved = null; try { saved = root.localStorage.getItem(LSF); } catch (e) {}
+        var pick = U.invFamily(DATA, want) ? want : (U.invFamily(DATA, saved) ? saved : "");
+        if (pick) famSel.value = pick;
+        filt.addEventListener("input", function () { fillFams(); famChanged(); });
+        famSel.addEventListener("change", function () { touch(famSel); famChanged(); });
+        code.addEventListener("input", function () { touch(code); find(); });
+        all.addEventListener("toggle", table);
+        types(); find();
+      }
+      RESET["inverter-kodlari"] = function () { code.value = ""; if (DATA) find(); };
+      secA.__load = function () { load(init); };
+    })();
+    // ----- B) ayar rehberi (yalnız üç kılavuz) -----
+    if (secB) (function () {
+      var man = $("#xwMan"), out = $("#xwOut"), find = $("#xwFind"), tab = page.getAttribute("data-inv-tab") || "prog";
+      function cur() { return DATA.settings.filter(function (x) { return x.id === man.value; })[0] || DATA.settings[0]; }
+      function draw() {
+        var m = cur(); clear(out);
+        $$("[data-xw-tab]", secB).forEach(function (b) { var on = b.getAttribute("data-xw-tab") === tab; b.classList.toggle("active", on); b.setAttribute("aria-pressed", on ? "true" : "false"); });
+        find.parentNode.parentNode.style.display = tab === "prog" ? "" : "none";
+        out.appendChild(h("p", "usta-msg warn", "Akü şarj gerilimi gibi değerlerde akü üreticisinin değeri esastır. Aşağıdakiler yalnız bu kılavuzda yazanlardır; başka marka ya da modele uygulanmaz."));
+        if (tab === "prog") {
+          var q = String(find.value || "").toLocaleLowerCase("tr").trim(), n = 0;
+          m.programs.forEach(function (r) {
+            var txt = (r.no + " " + r.name + " " + (r.opt || []).map(function (o) { return o.join(" "); }).join(" ") + " " + (r.note || "")).toLocaleLowerCase("tr");
+            if (q && txt.indexOf(q) < 0) return; n++;
+            var box = h("div", "usta-inv-hit"), top = h("p", "usta-inv-top"); top.appendChild(h("strong", "usta-inv-code", r.no)); if (r.menu) top.appendChild(h("span", "usta-inv-badge", r.menu)); box.appendChild(top);
+            box.appendChild(h("p", "usta-inv-mean sm", r.name));
+            if (r.opt) { var ul = h("ul", "usta-inv-opt"); r.opt.forEach(function (o) { var li = h("li"); li.appendChild(h("strong", null, o[0])); li.appendChild(doc.createTextNode(" — " + o[1])); ul.appendChild(li); }); box.appendChild(ul); }
+            if (r.def) box.appendChild(h("p", "usta-inv-line", "Varsayılan: " + r.def));
+            if (r.rng) box.appendChild(h("p", "usta-inv-line", "Aralık: " + r.rng));
+            if (r.note) box.appendChild(h("p", "usta-inv-line", r.note));
+            box.appendChild(srcLine(m.src, r.p)); out.appendChild(box);
+          });
+          if (!n) out.appendChild(h("p", "usta-msg bad", "Bu kılavuzun program tablosunda eşleşen satır yok."));
+        } else {
+          m[tab === "lit" ? "lithium" : "grid"].forEach(function (it) {
+            var box = h("div", "usta-inv-hit"); box.appendChild(h("p", "usta-inv-lab", it.k));
+            if (it.v.length === 1) box.appendChild(h("p", "usta-inv-line", it.v[0]));
+            else { var ul = h("ul", "usta-inv-opt"); it.v.forEach(function (x) { ul.appendChild(h("li", null, x)); }); box.appendChild(ul); }
+            box.appendChild(srcLine(m.src, it.p || "")); out.appendChild(box);
+          });
+        }
+        summary("inverter-ayarlari", m.name + " · " + (tab === "prog" ? "program tablosu" : tab === "lit" ? "lityum akü ayarı" : "şebeke bağlıyken") + " (kaynak: " + m.src.t + ")");
+      }
+      function init() {
+        $$("[data-inv-state]", secB).forEach(function (e) { e.textContent = ""; });
+        clear(man); DATA.settings.forEach(function (x) { var o = doc.createElement("option"); o.value = x.id; o.textContent = x.name; man.appendChild(o); });
+        var want = page.getAttribute("data-inv-man"); if (want) man.value = want;
+        man.addEventListener("change", function () { touch(man); draw(); });
+        find.addEventListener("input", draw);
+        $$("[data-xw-tab]", secB).forEach(function (b) { b.addEventListener("click", function () { tab = b.getAttribute("data-xw-tab"); touch(b); draw(); }); });
+        draw();
+      }
+      RESET["inverter-ayarlari"] = function () { find.value = ""; if (DATA) draw(); };
+      secB.__load = function () { load(init); };
+    })();
+    // Veri yalnız araç ekrana geldiğinde indirilir
+    [secA, secB].forEach(function (sec) {
+      if (!sec) return;
+      if (!("IntersectionObserver" in root)) { sec.__load(); return; }
+      var io = new root.IntersectionObserver(function (es) { if (es.some(function (e) { return e.isIntersecting; })) { io.disconnect(); sec.__load(); } });
+      io.observe(sec);
+    });
+  })();
+
   // ===== Uygulama kabuğu =====
   var secs = $$(".usta-tool", page), byId = {};
   secs.forEach(function (x) { byId[x.id] = x; });

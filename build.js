@@ -80,6 +80,13 @@ const USTA_PAGES = [
   "ohm-kanunu-hesaplama.html", "panel-sicaklik-guc-kaybi.html"
 ];
 TR_ONLY.push(...USTA_PAGES);
+// İnverter hata kodu / ayar rehberi sayfaları — aynı betik üretir (IPAGES + SPAGES), veri assets/inverter-veri.json.
+const INV_PAGES = [
+  "inverter-hata-kodlari.html", "mexxsun-inverter-hata-kodlari.html", "deye-inverter-hata-kodlari.html",
+  "voltronic-axpert-hata-kodlari.html", "victron-mppt-hata-kodlari.html", "solis-inverter-hata-kodlari.html",
+  "akilli-inverter-hata-kodlari.html", "off-grid-inverter-lityum-aku-ayarlari.html", "off-grid-inverter-sebeke-ayarlari.html"
+];
+TR_ONLY.push(...INV_PAGES);
 // Mevzuat rehberi — footer "Kurumsal" sütununda yalnız TR sayfalarda görünür
 const GUIDE = { file: "gunes-paneli-kacak-elektrik-cezasi.html", label: "Güneş Paneli Cezası Rehberi" };
 // Rehberler merkezi (yalnız TR, TR_ONLY) — footer "Kurumsal" sütununda mevzuat rehberinin yanında
@@ -2028,7 +2035,7 @@ const PRIORITY = {
    yayımlanır (head'de <link rel="alternate" type="text/markdown">, robots.txt'te
    yalnız AI botlarına açık, server.js canonical Link başlığı gönderir).
    ============================================================ */
-USTA_PAGES.forEach(f => { PRIORITY[f] = "0.7"; });
+USTA_PAGES.concat(INV_PAGES).forEach(f => { PRIORITY[f] = "0.7"; });
 const LLMS_GROUPS = [
   // Ana sayfa en üstte: okuyan model siteye önce giriş kapısından baksın
   ["Ana sayfa", ["index.html"]],
@@ -2048,6 +2055,7 @@ const LLMS_GROUPS = [
   ["Referans projeler", ["projeler.html", "proje-kemer-villa.html", "proje-manavgat-fabrika.html", "proje-manavgat-tarimsal.html"]],
   ["Rehberler ve güncel mevzuat (yalnız Türkçe)", ["rehberler.html", "off-grid-gunes-sistemi-boyutlandirma.html", "pwm-mppt-sarj-kontrol-farki.html", "solar-sulama-pompasi-secimi.html", "gunes-paneli-kacak-elektrik-cezasi.html"]],
   ["Ücretsiz elektrik ve solar hesaplama araçları (Elektrikçi Çantası, yalnız Türkçe)", ["elektrikci-cantasi.html", ...USTA_PAGES]],
+  ["İnverter hata kodları ve off-grid inverter ayarları (üretici kılavuzlarından, yalnız Türkçe)", INV_PAGES],
   ["Kurumsal ve yardım", ["hakkimizda.html", "iletisim.html", "sss.html", "sozluk.html"]]
 ];
 function pageMeta(file) {
@@ -2319,7 +2327,7 @@ function precompress() {
     }
   };
   addDir(ROOT, /\.(html|xml|txt)$/);
-  addDir(path.join(ROOT, "assets"), /\.(js|css)$/);
+  addDir(path.join(ROOT, "assets"), /\.(js|css|json)$/);
   for (const l of LANGS) { const d = path.join(ROOT, l); if (fs.existsSync(d)) addDir(d, /\.html$/); }
   const md = path.join(ROOT, "md");
   if (fs.existsSync(md)) { addDir(md, /\.md$/); for (const l of LANGS) { const d = path.join(md, l); if (fs.existsSync(d)) addDir(d, /\.md$/); } }

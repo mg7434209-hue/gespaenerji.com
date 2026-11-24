@@ -11,239 +11,7 @@ publisher: "GESPA Enerji"
 
 # Elektrikçi Çantası: Ücretsiz Elektrik ve Solar Hesaplama Araçları
 
-24 ücretsiz hesaplama aracı: listeden aracı seçin, etiketteki değerleri yazın, sonucu anında görün.
-
-## ☀️ Güneş ve konum
-
-Güneşin yüksekliği, eğim, gölge ve üretim tahmini.
-
-### Panel eğim açısı ve öğle güneşi yüksekliği
-
-Enleme göre öğle güneşinin yüksekliği ve yıl boyu, yaz, kış için pratik panel eğimi.
-
-#### Enlem
-
-Enlem
-
-° kuzey
-
-Şehirden seç
-
-Şemadaki mevsim
-
-Eğim, panelin yatayla yaptığı açıdır; panel güneye bakar. Pratik kural bir başlangıç değeridir: çatı eğimi, gölge ve kullanım mevsimi sonucu değiştirir.
-
-Yaz gündönümü —
-
-Ekinoks —
-
-Kış gündönümü —
-
-Pratik kural eğimleri
-
-Yıl boyu —
-
-Yaz —
-
-Kış —
-
-Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
-
-Formül, örnek ve sınırlar
-
-Güneşin öğle vakti ufuktan yüksekliği enleme ve mevsime bağlıdır: yüksekliği 90 − enlem alın, yaz gündönümünde deklinasyonu (23,45°) ekleyin, kış gündönümünde çıkarın. Panel eğimi için sahada kullanılan **pratik kural** ise şudur: yıl boyu kullanım için eğim ≈ enlem, yaz ağırlıklı kullanım için enlem − 15°, kış ağırlıklı kullanım için enlem + 15°.
-
-Örnek, enlem 37°: yaz 90 − 37 + 23,45 = 76,45° · ekinoks 90 − 37 = 53° · kış 90 − 37 − 23,45 = 29,55° Pratik eğim: yıl boyu ≈ 37° · yaz ≈ 22° · kış ≈ 52°
-
-**Formül:** öğle güneş yüksekliği = 90 − enlem ± deklinasyon (yaz +, kış −, ekinoks 0) · pratik kural eğimi: yıl boyu ≈ enlem, yaz ≈ enlem − 15°, kış ≈ enlem + 15°
-
-Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Güneş Paneli Açısı](https://www.gespaenerji.com/gunes-paneli-acisi-hesaplama.html)
-
-**İlgili:** [Sıra aralığı ve gölgelenme aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Panel yerleşim planlayıcı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Gölgelenme nedir?](https://www.gespaenerji.com/sozluk.html#golgelenme) · [Güneş panelleri](https://www.gespaenerji.com/online-satis.html?kategori=panel)
-
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
-
-### Engel gölge uzunluğu
-
-Baca, parapet ya da panel sırasının öğle vaktindeki gölge uzunluğu.
-
-#### Engel ve konum
-
-Engel yüksekliği
-
-m
-
-Enlem
-
-° kuzey
-
-Mevsim (öğle vakti)
-
-Gölge uzunluğu —
-
-Öğle güneş yüksekliği —
-
-Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
-
-Formül, örnek ve sınırlar
-
-Baca, parapet, direk ya da öndeki panel sırası gibi bir engelin öğle vaktindeki gölge uzunluğu: gölge = engel yüksekliği ÷ tan(öğle güneş yüksekliği). Güneş yüksekliği [eğim aracındaki](#egim) formülle bulunur; gölge en uzun kış gündönümünde olur.
-
-Örnek: 1 m engel, enlem 37° · kış gündönümü (güneş 29,55°): 1 ÷ tan(29,55°) = 1,76 m · ekinoks: 0,75 m · yaz gündönümü: 0,24 m
-
-Hesap yalnız öğle vakti ve tam güney yönü içindir; sabah ve akşam gölge daha uzundur ve yana düşer. Yükseklik, engelin tepesi ile panelin alt kenarı arasındaki farktır.
-
-**Formül:** gölge uzunluğu = engel yüksekliği ÷ tan(öğle güneş yüksekliği) · öğle güneş yüksekliği = 90 − enlem ± deklinasyon
-
-Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Gölge Uzunluğu Hesaplama](https://www.gespaenerji.com/golge-uzunlugu-hesaplama.html)
-
-**İlgili:** [Sıra aralığı ve gölgelenme aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Eğim açısı ve güneş yüksekliği](#egim) · [Gölgelenme nedir?](https://www.gespaenerji.com/sozluk.html#golgelenme) · [Çatı GES keşfi](https://www.gespaenerji.com/cati-ges.html)
-
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
-
-### Çatı eğimi çevirici: derece, yüzde ve oran
-
-Çatı eğimini derece, yüzde ve oran arasında çevirir.
-
-#### Eğim
-
-Derece
-
-°
-
-Yüzde eğim
-
-%
-
-Derece ya da yüzde alanından hangisini yazarsanız diğeri hesaplanır. Çatıda ölçmek için: 100 cm yatay mesafede kaç cm yükseldiğini ölçün, yüzde alanına yazın.
-
-100 cm yatayda yükselme —
-
-Oran (yükselme : yatay) —
-
-Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
-
-Formül, örnek ve sınırlar
-
-Çatı eğimi üç biçimde söylenir: derece, yüzde ve 100 cm yatayda kaç cm yükseldiği. Aralarındaki bağ tanjanttır: % eğim = tan(derece) × 100; 100 cm yatayda yükselme (cm) yüzdeyle aynı sayıdır.
-
-Örnek: 30° → tan(30°) × 100 = %57,74 (100 cm yatayda 57,74 cm) · %50 eğim → arctan(50 ÷ 100) = 26,57°
-
-**Formül:** % eğim = tan(derece) × 100 · derece = arctan(% ÷ 100) · 100 cm yatayda yükselme (cm) = % eğim
-
-Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Çatı Eğimi Hesaplama](https://www.gespaenerji.com/cati-egimi-hesaplama.html)
-
-**İlgili:** [Panel eğim açısı](#egim) · [Panel yerleşim planlayıcı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Çatı GES hizmeti](https://www.gespaenerji.com/cati-ges.html) · [Tasarruf hesaplayıcı](https://www.gespaenerji.com/hesaplayici.html)
-
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
-
-### Panel günde kaç kWh üretir? (tasarım günü tahmini)
-
-Panel gücünden tasarım günü üretimi (kWh) ve bir yükü kaç saat çalıştıracağı.
-
-#### Sistem
-
-Toplam panel gücü
-
-W
-
-Güneş saati varsayım
-
-saat/gün
-
-Sistem verimi varsayım
-
-%
-
-Bu enerjiyle çalıştırılacak yük isteğe bağlı
-
-W
-
-Tasarım günü üretimi —
-
-Kurulu güç —
-
-Yazdığınız yükü çalıştırma süresi —
-
-Güneş saati ve verim varsayımdır; bölgenize ve sisteminize göre değiştirin. Süre, günlük üretimin tamamının o yüke gittiği varsayımıyla hesaplanır; gece kullanım için akü gerekir.
-
-Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
-
-Formül, örnek ve sınırlar
-
-Günlük üretim tahmini: kWh/gün = kurulu güç (kWp) × güneş saati × sistem verimi. Bu araç [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) ile aynı katsayılarla açılır: tasarım günü için 4,5 güneş saati ve 0,75 sistem verimi (off-grid, panelden yüke toplam). Bu bir **tasarım günü** tahminidir: yazın üretim daha yüksek, kapalı kış gününde daha düşüktür.
-
-Örnek: 1.440 W panel = 1,44 kWp → 1,44 × 4,5 × 0,75 = 4,86 kWh/gün Bu enerji 100 W'lık bir yükü 4,86 × 1000 ÷ 100 = 48,6 saat çalıştırır
-
-Yıllık üretim, tasarruf ve geri ödeme için bölge verimini kullanan [tasarruf hesaplayıcıya](https://www.gespaenerji.com/hesaplayici.html) bakın.
-
-**Formül:** kWh/gün = kWp × güneş saati × sistem verimi · kWp = toplam panel gücü (W) ÷ 1000 · çalıştırma süresi (saat) = kWh × 1000 ÷ yük (W)
-
-Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Panel Günlük Üretim](https://www.gespaenerji.com/gunes-paneli-gunluk-uretim-hesaplama.html)
-
-**İlgili:** [Yıllık üretim ve tasarruf hesaplayıcı](https://www.gespaenerji.com/hesaplayici.html) · [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) · [Cihaz listesinden sistem](#yuk-listesi) · [kWp nedir?](https://www.gespaenerji.com/sozluk.html#kwp)
-
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
-
-### Sıcaklıkta panel gücü
-
-Hücre sıcaklığına göre panelin vereceği güç.
-
-#### Panel etiketi ve sıcaklık
-
-Pmax
-
-W
-
-Güç sıcaklık katsayısı γ eksi
-
-%/°C
-
-Hücre sıcaklığı varsayım
-
-°C
-
-Açılış değerleri yuvarlak örnektir; kendi panelinizin etiketindeki değerleri yazın.
-
-#### Hücre sıcaklığını NOCT ile tahmin et (isteğe bağlı)
-
-Ortam
-
-°C
-
-NOCT künye
-
-°C
-
-Işınım
-
-W/m²
-
-Tahmini hücre sıcaklığı: —
-
-Bu sıcaklıkta güç —
-
-Etiket gücüne göre fark —
-
-Yalnız sıcaklık etkisi hesaplanır; ışınım, açı, kirlenme ve kablo kayıpları ayrıdır.
-
-Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
-
-Formül, örnek ve sınırlar
-
-Panelin etiketindeki güç 25 °C hücre sıcaklığı içindir. Hücre ısındıkça güç, künyedeki güç sıcaklık katsayısı (γ, %/°C, eksi işaretli) kadar azalır: P = Pmax × (1 + γ ÷ 100 × (hücre sıcaklığı − 25)). Hücre sıcaklığı hava sıcaklığı değildir; güneş altındaki panel havadan belirgin biçimde sıcaktır.
-
-Örnek (yuvarlak örnek değerler, bir ürünün künyesi değildir): Pmax 400 W, γ -0,35 %/°C, hücre 60 °C P = 400 × (1 + (-0,35) ÷ 100 × (60 − 25)) = 351 W
-
-Hücre sıcaklığını bilmiyorsanız künyedeki NOCT değeriyle ders kitabı yaklaşımı kullanılabilir: hücre = ortam + (NOCT − 20) ÷ 800 × ışınım (W/m²). Örnek: ortam 30 °C, NOCT 45 °C, ışınım 1.000 W/m² → 30 + (45 − 20) ÷ 800 × 1.000 = 61,25 °C. NOCT ve γ değerlerini panelinizin künyesinden alın.
-
-**Formül:** P = Pmax × (1 + γ ÷ 100 × (Thücre − 25)) · Thücre = Tortam + (NOCT − 20) ÷ 800 × ışınım
-
-Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Panel Sıcaklık Güç Kaybı](https://www.gespaenerji.com/panel-sicaklik-guc-kaybi.html)
-
-**İlgili:** [Dizi hesabı (soğukta Voc)](#dizi) · [Günlük üretim tahmini](#gunluk-uretim) · [Güneş panelleri](https://www.gespaenerji.com/online-satis.html?kategori=panel) · [STC nedir?](https://www.gespaenerji.com/sozluk.html#stc)
-
-Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+26 ücretsiz hesaplama aracı: listeden aracı seçin, etiketteki değerleri yazın, sonucu anında görün.
 
 ## 🔻 Kablo ve akım
 
@@ -532,6 +300,238 @@ Bir hattın koruması için temel koşul: tasarım akımı (Ib) ≤ sigorta ya d
 Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Kablo Kesiti Hesaplama](https://www.gespaenerji.com/kablo-kesiti-hesaplama.html)
 
 **İlgili:** [Güçten akım hesabı (Ib)](#akim) · [AC gerilim düşümü](#ac-kablo) · [DC kablo kesiti](#kablo) · [Dizi sigortası kontrolü](#sigorta)
+
+Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+
+## ☀️ Güneş ve konum
+
+Güneşin yüksekliği, eğim, gölge ve üretim tahmini.
+
+### Panel eğim açısı ve öğle güneşi yüksekliği
+
+Enleme göre öğle güneşinin yüksekliği ve yıl boyu, yaz, kış için pratik panel eğimi.
+
+#### Enlem
+
+Enlem
+
+° kuzey
+
+Şehirden seç
+
+Şemadaki mevsim
+
+Eğim, panelin yatayla yaptığı açıdır; panel güneye bakar. Pratik kural bir başlangıç değeridir: çatı eğimi, gölge ve kullanım mevsimi sonucu değiştirir.
+
+Yaz gündönümü —
+
+Ekinoks —
+
+Kış gündönümü —
+
+Pratik kural eğimleri
+
+Yıl boyu —
+
+Yaz —
+
+Kış —
+
+Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+Güneşin öğle vakti ufuktan yüksekliği enleme ve mevsime bağlıdır: yüksekliği 90 − enlem alın, yaz gündönümünde deklinasyonu (23,45°) ekleyin, kış gündönümünde çıkarın. Panel eğimi için sahada kullanılan **pratik kural** ise şudur: yıl boyu kullanım için eğim ≈ enlem, yaz ağırlıklı kullanım için enlem − 15°, kış ağırlıklı kullanım için enlem + 15°.
+
+Örnek, enlem 37°: yaz 90 − 37 + 23,45 = 76,45° · ekinoks 90 − 37 = 53° · kış 90 − 37 − 23,45 = 29,55° Pratik eğim: yıl boyu ≈ 37° · yaz ≈ 22° · kış ≈ 52°
+
+**Formül:** öğle güneş yüksekliği = 90 − enlem ± deklinasyon (yaz +, kış −, ekinoks 0) · pratik kural eğimi: yıl boyu ≈ enlem, yaz ≈ enlem − 15°, kış ≈ enlem + 15°
+
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Güneş Paneli Açısı](https://www.gespaenerji.com/gunes-paneli-acisi-hesaplama.html)
+
+**İlgili:** [Sıra aralığı ve gölgelenme aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Panel yerleşim planlayıcı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Gölgelenme nedir?](https://www.gespaenerji.com/sozluk.html#golgelenme) · [Güneş panelleri](https://www.gespaenerji.com/online-satis.html?kategori=panel)
+
+Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+
+### Engel gölge uzunluğu
+
+Baca, parapet ya da panel sırasının öğle vaktindeki gölge uzunluğu.
+
+#### Engel ve konum
+
+Engel yüksekliği
+
+m
+
+Enlem
+
+° kuzey
+
+Mevsim (öğle vakti)
+
+Gölge uzunluğu —
+
+Öğle güneş yüksekliği —
+
+Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+Baca, parapet, direk ya da öndeki panel sırası gibi bir engelin öğle vaktindeki gölge uzunluğu: gölge = engel yüksekliği ÷ tan(öğle güneş yüksekliği). Güneş yüksekliği [eğim aracındaki](#egim) formülle bulunur; gölge en uzun kış gündönümünde olur.
+
+Örnek: 1 m engel, enlem 37° · kış gündönümü (güneş 29,55°): 1 ÷ tan(29,55°) = 1,76 m · ekinoks: 0,75 m · yaz gündönümü: 0,24 m
+
+Hesap yalnız öğle vakti ve tam güney yönü içindir; sabah ve akşam gölge daha uzundur ve yana düşer. Yükseklik, engelin tepesi ile panelin alt kenarı arasındaki farktır.
+
+**Formül:** gölge uzunluğu = engel yüksekliği ÷ tan(öğle güneş yüksekliği) · öğle güneş yüksekliği = 90 − enlem ± deklinasyon
+
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Gölge Uzunluğu Hesaplama](https://www.gespaenerji.com/golge-uzunlugu-hesaplama.html)
+
+**İlgili:** [Sıra aralığı ve gölgelenme aracı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Eğim açısı ve güneş yüksekliği](#egim) · [Gölgelenme nedir?](https://www.gespaenerji.com/sozluk.html#golgelenme) · [Çatı GES keşfi](https://www.gespaenerji.com/cati-ges.html)
+
+Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+
+### Çatı eğimi çevirici: derece, yüzde ve oran
+
+Çatı eğimini derece, yüzde ve oran arasında çevirir.
+
+#### Eğim
+
+Derece
+
+°
+
+Yüzde eğim
+
+%
+
+Derece ya da yüzde alanından hangisini yazarsanız diğeri hesaplanır. Çatıda ölçmek için: 100 cm yatay mesafede kaç cm yükseldiğini ölçün, yüzde alanına yazın.
+
+100 cm yatayda yükselme —
+
+Oran (yükselme : yatay) —
+
+Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+Çatı eğimi üç biçimde söylenir: derece, yüzde ve 100 cm yatayda kaç cm yükseldiği. Aralarındaki bağ tanjanttır: % eğim = tan(derece) × 100; 100 cm yatayda yükselme (cm) yüzdeyle aynı sayıdır.
+
+Örnek: 30° → tan(30°) × 100 = %57,74 (100 cm yatayda 57,74 cm) · %50 eğim → arctan(50 ÷ 100) = 26,57°
+
+**Formül:** % eğim = tan(derece) × 100 · derece = arctan(% ÷ 100) · 100 cm yatayda yükselme (cm) = % eğim
+
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Çatı Eğimi Hesaplama](https://www.gespaenerji.com/cati-egimi-hesaplama.html)
+
+**İlgili:** [Panel eğim açısı](#egim) · [Panel yerleşim planlayıcı](https://www.gespaenerji.com/hesaplayici.html#alet-cantasi) · [Çatı GES hizmeti](https://www.gespaenerji.com/cati-ges.html) · [Tasarruf hesaplayıcı](https://www.gespaenerji.com/hesaplayici.html)
+
+Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+
+### Panel günde kaç kWh üretir? (tasarım günü tahmini)
+
+Panel gücünden tasarım günü üretimi (kWh) ve bir yükü kaç saat çalıştıracağı.
+
+#### Sistem
+
+Toplam panel gücü
+
+W
+
+Güneş saati varsayım
+
+saat/gün
+
+Sistem verimi varsayım
+
+%
+
+Bu enerjiyle çalıştırılacak yük isteğe bağlı
+
+W
+
+Tasarım günü üretimi —
+
+Kurulu güç —
+
+Yazdığınız yükü çalıştırma süresi —
+
+Güneş saati ve verim varsayımdır; bölgenize ve sisteminize göre değiştirin. Süre, günlük üretimin tamamının o yüke gittiği varsayımıyla hesaplanır; gece kullanım için akü gerekir.
+
+Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+Günlük üretim tahmini: kWh/gün = kurulu güç (kWp) × güneş saati × sistem verimi. Bu araç [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) ile aynı katsayılarla açılır: tasarım günü için 4,5 güneş saati ve 0,75 sistem verimi (off-grid, panelden yüke toplam). Bu bir **tasarım günü** tahminidir: yazın üretim daha yüksek, kapalı kış gününde daha düşüktür.
+
+Örnek: 1.440 W panel = 1,44 kWp → 1,44 × 4,5 × 0,75 = 4,86 kWh/gün Bu enerji 100 W'lık bir yükü 4,86 × 1000 ÷ 100 = 48,6 saat çalıştırır
+
+Yıllık üretim, tasarruf ve geri ödeme için bölge verimini kullanan [tasarruf hesaplayıcıya](https://www.gespaenerji.com/hesaplayici.html) bakın.
+
+**Formül:** kWh/gün = kWp × güneş saati × sistem verimi · kWp = toplam panel gücü (W) ÷ 1000 · çalıştırma süresi (saat) = kWh × 1000 ÷ yük (W)
+
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Panel Günlük Üretim](https://www.gespaenerji.com/gunes-paneli-gunluk-uretim-hesaplama.html)
+
+**İlgili:** [Yıllık üretim ve tasarruf hesaplayıcı](https://www.gespaenerji.com/hesaplayici.html) · [Sistem Kurucu](https://www.gespaenerji.com/sistem-kur.html) · [Cihaz listesinden sistem](#yuk-listesi) · [kWp nedir?](https://www.gespaenerji.com/sozluk.html#kwp)
+
+Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+
+### Sıcaklıkta panel gücü
+
+Hücre sıcaklığına göre panelin vereceği güç.
+
+#### Panel etiketi ve sıcaklık
+
+Pmax
+
+W
+
+Güç sıcaklık katsayısı γ eksi
+
+%/°C
+
+Hücre sıcaklığı varsayım
+
+°C
+
+Açılış değerleri yuvarlak örnektir; kendi panelinizin etiketindeki değerleri yazın.
+
+#### Hücre sıcaklığını NOCT ile tahmin et (isteğe bağlı)
+
+Ortam
+
+°C
+
+NOCT künye
+
+°C
+
+Işınım
+
+W/m²
+
+Tahmini hücre sıcaklığı: —
+
+Bu sıcaklıkta güç —
+
+Etiket gücüne göre fark —
+
+Yalnız sıcaklık etkisi hesaplanır; ışınım, açı, kirlenme ve kablo kayıpları ayrıdır.
+
+Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+Panelin etiketindeki güç 25 °C hücre sıcaklığı içindir. Hücre ısındıkça güç, künyedeki güç sıcaklık katsayısı (γ, %/°C, eksi işaretli) kadar azalır: P = Pmax × (1 + γ ÷ 100 × (hücre sıcaklığı − 25)). Hücre sıcaklığı hava sıcaklığı değildir; güneş altındaki panel havadan belirgin biçimde sıcaktır.
+
+Örnek (yuvarlak örnek değerler, bir ürünün künyesi değildir): Pmax 400 W, γ -0,35 %/°C, hücre 60 °C P = 400 × (1 + (-0,35) ÷ 100 × (60 − 25)) = 351 W
+
+Hücre sıcaklığını bilmiyorsanız künyedeki NOCT değeriyle ders kitabı yaklaşımı kullanılabilir: hücre = ortam + (NOCT − 20) ÷ 800 × ışınım (W/m²). Örnek: ortam 30 °C, NOCT 45 °C, ışınım 1.000 W/m² → 30 + (45 − 20) ÷ 800 × 1.000 = 61,25 °C. NOCT ve γ değerlerini panelinizin künyesinden alın.
+
+**Formül:** P = Pmax × (1 + γ ÷ 100 × (Thücre − 25)) · Thücre = Tortam + (NOCT − 20) ÷ 800 × ışınım
+
+Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Panel Sıcaklık Güç Kaybı](https://www.gespaenerji.com/panel-sicaklik-guc-kaybi.html)
+
+**İlgili:** [Dizi hesabı (soğukta Voc)](#dizi) · [Günlük üretim tahmini](#gunluk-uretim) · [Güneş panelleri](https://www.gespaenerji.com/online-satis.html?kategori=panel) · [STC nedir?](https://www.gespaenerji.com/sozluk.html#stc)
 
 Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
 
@@ -1058,6 +1058,72 @@ Ayrıntılı anlatım, sık yapılan hatalar ve sorular: [Cihaz Elektrik Tüketi
 
 Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
 
+## 🧰 İnverter
+
+İnverter hata kodları (aile → tür → kod) ve üç kılavuzun ayar rehberi.
+
+### İnverter hata kodları
+
+Cihaz ailesini seçin, ekrandaki kodu yazın: kılavuzdaki anlamı ve kaynağı görün.
+
+**Kod anlamı markaya ve modele göre değişir; cihazınızın kendi kılavuzu esastır.**
+
+Marka / model süz
+
+Cihaz ailesi kılavuzun kapağındaki modele göre
+
+Tür
+
+Ekrandaki kod
+
+Arama için JavaScript gerekir; kod tablolarının tamamı araç sayfalarında yer alır.
+
+Arıza devam ederse cihazı kapatın ve yetkili servise ya da satıcıya başvurun; cihazın içine yalnız yetkili kişi müdahale eder.
+
+Bu ailedeki tüm kodlar
+
+Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+İnverter ekranındaki arıza, uyarı ve alarm kodlarının anlamı üreticiye ve modele göre değişir. Bu araç yalnızca adı yazan kılavuzlardaki tabloları içerir: 12 cihaz ailesi, 443 kod. Her satırda kılavuzdaki ifade, varsa kılavuzun önerdiği çözüm ve sayfa numarası yer alır; çeviri olan satırlarda üreticinin özgün ifadesi de gösterilir. Aileler birleştirilmez ve listede olmayan kod için tahmin yürütülmez.
+
+Kod tablolarının tamamı: [Tüm aileler](https://www.gespaenerji.com/inverter-hata-kodlari.html) · [Mexxsun](https://www.gespaenerji.com/mexxsun-inverter-hata-kodlari.html) · [Deye](https://www.gespaenerji.com/deye-inverter-hata-kodlari.html) · [Voltronic Axpert](https://www.gespaenerji.com/voltronic-axpert-hata-kodlari.html) · [Victron MPPT](https://www.gespaenerji.com/victron-mppt-hata-kodlari.html) · [Solis](https://www.gespaenerji.com/solis-inverter-hata-kodlari.html) · [Akıllı inverter (3,6–7,2 kW ve 1–5 kVA)](https://www.gespaenerji.com/akilli-inverter-hata-kodlari.html).
+
+Kod tablolarının ve ayarların tamamı: [İnverter Hata Kodları](https://www.gespaenerji.com/inverter-hata-kodlari.html)
+
+**İlgili:** [İnverter hata kodları (tüm tablolar)](https://www.gespaenerji.com/inverter-hata-kodlari.html) · [Off-grid inverter ayar rehberi](#inverter-ayarlari) · [İnverterin akü akımı](#inverter-aku-akimi) · [İletişim](https://www.gespaenerji.com/iletisim.html)
+
+Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+
+### Off-grid inverter ayar rehberi
+
+Üç kullanım kılavuzunun program tablosu, lityum akü ve şebeke ayarları; kılavuz sayfasıyla.
+
+Kullanım kılavuzu
+
+Bölüm
+
+Program tablosunda ara
+
+Bu araç için JavaScript gerekir; içeriğin tamamı araç sayfalarında yer alır.
+
+Arıza devam ederse cihazı kapatın ve yetkili servise ya da satıcıya başvurun; cihazın içine yalnız yetkili kişi müdahale eder.
+
+Değerler yaklaşıktır; kurulum ve nihai tasarım yetkili elektrikçi ya da mühendis tarafından yapılır.
+
+Formül, örnek ve sınırlar
+
+Üç kullanım kılavuzunda yazan ayarlar: 3,6 / 6,5 / 7,2 kW akıllı inverter (Sürüm 1.5), MEXX-P12KW (V1.1) ve 1–5 kVA akıllı inverter. “Program tablosu” ayarın numarasını, seçeneklerini ve ekran kodlarını; “Lityum akü ayarı” kılavuzun lityum akü için söylediklerini; “Şebeke bağlıyken” çıkış ve şarj önceliklerinin o cihazda ne yaptığını verir. Aynı adlı ayar iki cihazda farklı davranabilir; satırlar başka marka ya da modele uygulanmaz.
+
+Kılavuzda okunamayan ya da kendi içinde çelişen satırlar yayınlanmamıştır. Akü şarj gerilimi gibi değerlerde akü üreticisinin değeri esastır. Statik tablolar: [lityum akü ayarı](https://www.gespaenerji.com/off-grid-inverter-lityum-aku-ayarlari.html) · [şebeke bağlıyken ayarlar ve program tabloları](https://www.gespaenerji.com/off-grid-inverter-sebeke-ayarlari.html).
+
+Kod tablolarının ve ayarların tamamı: [Off-Grid İnverter Lityum Akü Ayarı](https://www.gespaenerji.com/off-grid-inverter-lityum-aku-ayarlari.html)
+
+**İlgili:** [Lityum akü ayarı (üç kılavuz)](https://www.gespaenerji.com/off-grid-inverter-lityum-aku-ayarlari.html) · [Şebeke bağlıyken ayarlar](https://www.gespaenerji.com/off-grid-inverter-sebeke-ayarlari.html) · [İnverter hata kodları](#inverter-kodlari) · [Akü bankası bağlama](#aku)
+
+Usta / toplu alım fiyatı için: [WhatsApp'tan yazın](https://wa.me/905437434209)
+
 ## 🔁 Çeviriciler
 
 Watt–amper, Ah–Wh, HP–kW ve AWG–mm².
@@ -1195,6 +1261,15 @@ Her hesabın kendi sayfasında girdilerin anlamı, sık yapılan hatalar ve o ko
 - [Çatı Eğimi Hesaplama: Derece, Yüzde ve Oran](https://www.gespaenerji.com/cati-egimi-hesaplama.html)
 - [Ohm Kanunu Hesaplama: Volt, Amper, Ohm, Watt](https://www.gespaenerji.com/ohm-kanunu-hesaplama.html)
 - [Güneş Paneli Sıcakta Ne Kadar Güç Kaybeder?](https://www.gespaenerji.com/panel-sicaklik-guc-kaybi.html)
+- [İnverter Hata Kodları (Marka ve Modele Göre)](https://www.gespaenerji.com/inverter-hata-kodlari.html)
+- [Mexxsun İnverter Hata Kodları (MEXX-P4KW, P6KW, P12KW, SUNON IV)](https://www.gespaenerji.com/mexxsun-inverter-hata-kodlari.html)
+- [Deye Hibrit İnverter Hata Kodları (SG05LP1 ve SG05LP3)](https://www.gespaenerji.com/deye-inverter-hata-kodlari.html)
+- [Voltronic Axpert Hata ve Uyarı Kodları (VM II, MKS)](https://www.gespaenerji.com/voltronic-axpert-hata-kodlari.html)
+- [Victron MPPT Şarj Cihazı Hata Kodları](https://www.gespaenerji.com/victron-mppt-hata-kodlari.html)
+- [Solis İnverter Alarm Kodları (Şebeke Bağlantılı Modeller)](https://www.gespaenerji.com/solis-inverter-hata-kodlari.html)
+- [Akıllı İnverter Hata Kodları (3,6 / 6,5 / 7,2 kW ve 1–5 kVA kılavuzları)](https://www.gespaenerji.com/akilli-inverter-hata-kodlari.html)
+- [Off-Grid İnverterde Lityum Akü Ayarı: Kılavuzlar Ne Diyor?](https://www.gespaenerji.com/off-grid-inverter-lityum-aku-ayarlari.html)
+- [Off-Grid İnverter Şebeke Bağlıyken Nasıl Ayarlanır?](https://www.gespaenerji.com/off-grid-inverter-sebeke-ayarlari.html)
 
 ## Sık sorulan sorular
 
