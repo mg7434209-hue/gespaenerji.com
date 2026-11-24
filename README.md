@@ -3,8 +3,8 @@
 Güneş enerjisi santralleri (GES) için anahtar teslim kurulum, mühendislik, finansman
 ve bakım hizmetleri sunan **GESPA Enerji** firmasının çok sayfalı, çok dilli kurumsal sitesi.
 
-Saf **HTML + CSS + Vanilla JS**. Yayın: **Railway** (Node statik sunucu, canlı site)
-ve **GitHub Pages** (ayna). Dil sayfaları (`/en` `/de` `/ru`) `build.js` ile üretilir.
+Saf **HTML + CSS + Vanilla JS**. Yayın: **Railway** (Node statik sunucu, canlı site).
+Dil sayfaları (`/en` `/de` `/ru`) `build.js` ile üretilir.
 
 ## Sayfalar
 
@@ -57,7 +57,6 @@ npm run build    # sadece /en /de /ru dil sayfalarını üret
 ## Yayın
 
 - **Railway (canlı)**: `claude/determined-albattani-ol20qb` dalına push → otomatik deploy.
-- **GitHub Pages (ayna)**: `claude/determined-albattani-ol20qb` dalına push → `.github/workflows/deploy-pages.yml`.
 
 ## Özelleştirme
 

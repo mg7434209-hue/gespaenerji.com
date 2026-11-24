@@ -6,8 +6,7 @@
 ## Proje
 Gespa Enerji kurumsal sitesi (gespaenerji.com). Antalya/Manavgat'ta anahtar
 teslim güneş enerjisi (GES) hizmetleri. **Çok sayfalı statik site.**
-Saf HTML + CSS + Vanilla JS. Railway'de küçük Node statik sunucu (`server.js`),
-GitHub Pages ayna sürüm.
+Saf HTML + CSS + Vanilla JS. Railway'de küçük Node statik sunucu (`server.js`).
 TR sayfaları kök dizinde **kaynaktır**; `/en` `/de` `/ru` dil sayfaları
 `build.js` ile bu kaynaklardan **üretilir** (elle düzenlenmez). Dil sayfaları
 klasik Pages yayını için **repoda tutulur** — kaynak değişince `node build.js`
@@ -834,9 +833,14 @@ siparişle tahsil edilir.
   motor paketleri içindeki panelin sınıfıyla ücretlenir.
 
 ## Railway yayını GitHub Actions'a bağlıdır (24 Kas 2026)
-Railway servisi "Wait for CI" ile çalışır: `deploy-pages.yml` işi "failure"
+Railway servisi "Wait for CI" ile çalışır: depodaki bir iş akışı "failure"
 verirse Railway yayını ATLAR (commit durumu "Skipped - CI check suite failed")
-ve site eski sürümde kalır. Bu yüzden Pages adımı `continue-on-error`'dır.
+ve site eski sürümde kalır. 24 Kas 2026'da GitHub Pages ayna işinin geçici
+hatası canlı yayını durdurdu; işletme kararıyla `deploy-pages.yml` KALDIRILDI
+(Pages aynası kullanılmıyor; yeniden ekleme). Kalan tek iş `indexnow.yml`'dir:
+canlı sitenin güncellenmesini en çok 10 dk bekler, Railway de o bitmeden
+yayına başlamaz; birleştirmeden sonraki ~10 dk gecikmenin nedeni budur
+(Railway panelinde "Wait for CI" kapatılırsa gecikme kalkar).
 Birleştirmeden sonra yayını Railway bildirimine değil CANLI SİTEYE bakarak
 doğrula; 15 dakikada gelmediyse commit'in `statuses` ve `check-runs` çıktısına bak.
 
@@ -1267,7 +1271,6 @@ sayfasının HTML adresi DEĞİL.
 - Dil sayfalarını üret: `npm run build` → `node build.js` (`/en` `/de` `/ru`).
 - Geliştirme: `npm start` → `node server.js` (http://localhost:3000); başlangıçta build çalışır.
 - Railway: `package.json` + `railway.json`; `npm start` ile yayınlanır (canlı site).
-- GitHub Pages: `.github/workflows/deploy-pages.yml` upload'tan önce `node build.js` çalıştırır.
 - IndexNow: ayrı iş akışı `.github/workflows/indexnow.yml`; canlı sitenin (Railway)
   push'u yayına almasını bekleyip değişen sayfaları bildirir (`docs/seo-aeo.md`).
 
